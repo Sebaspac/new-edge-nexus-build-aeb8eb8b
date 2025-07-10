@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Sparkles, Target, Megaphone, Brain, Zap, Cog, Database, Globe, BarChart, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,19 +8,35 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const Services = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you would typically send the form data to sebastian.p@newedgebrand.com
+    console.log('Form submitted to sebastian.p@newedgebrand.com');
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+      <nav className="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-lg border-b border-gray-800">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-black">
+            <div className="text-2xl font-bold text-white">
               New Edge<span className="text-primary">°</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-600 hover:text-black transition-colors">Home</Link>
-              <Link to="/services" className="text-black font-medium">Services</Link>
-              <Button className="gradient-primary text-white hover:opacity-90 transition-opacity">
+              <Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
+              <Link to="/services" className="text-white font-medium">Services</Link>
+              <Button 
+                onClick={scrollToContact}
+                className="gradient-primary text-white hover:opacity-90 transition-opacity"
+              >
                 Kontakt
               </Button>
             </div>
@@ -30,18 +45,21 @@ const Services = () => {
       </nav>
 
       {/* Header */}
-      <section className="pt-24 pb-12 px-6">
+      <section className="pt-24 pb-12 px-6 bg-gradient-to-br from-black via-gray-900 to-black">
         <div className="container mx-auto">
-          <Link to="/" className="inline-flex items-center text-gray-600 hover:text-black transition-colors mb-8">
+          <Link to="/" className="inline-flex items-center text-gray-400 hover:text-white transition-colors mb-8">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Zurück zur Homepage
           </Link>
           
           <div className="text-center">
-            <h1 className="text-5xl md:text-7xl font-black text-black mb-6 leading-tight">
+            <div className="text-accent text-xl md:text-2xl font-bold mb-4 tracking-wider">
+              DESIGN THE EDGE
+            </div>
+            <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
               Unsere <span className="gradient-primary bg-clip-text text-transparent">Services</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-12">
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12">
               Von der strategischen Planung bis zur technischen Umsetzung – 
               wir verbinden Kreativität mit Technologie für maximalen Impact.
             </p>
@@ -222,41 +240,44 @@ const Services = () => {
         </div>
       </section>
 
-      {/* LAB Section - Featured */}
-      <section className="py-20 bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-orange-400/10"></div>
+      {/* LAB Section - Enhanced and Featured */}
+      <section className="py-20 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/50 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/50 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        </div>
         
         <div className="container mx-auto px-6 relative">
           <div className="text-center mb-12">
-            <Badge className="mb-4 bg-accent text-black text-lg px-4 py-2">
-              🔥 MOST POPULAR
+            <Badge className="mb-4 bg-accent text-black text-lg px-6 py-3 animate-pulse">
+              🚀 INNOVATION LEADER
             </Badge>
             <div className="flex items-center justify-center mb-6">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center mr-6">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center mr-6 shadow-2xl">
                 <span className="text-4xl">🧠</span>
               </div>
               <div className="text-left">
-                <h2 className="text-5xl font-black text-black mb-2">New Edge° LAB</h2>
-                <p className="text-2xl text-orange-600 font-semibold">KI-Integration & Automation</p>
+                <h2 className="text-5xl font-black text-white mb-2">New Edge° LAB</h2>
+                <p className="text-2xl text-accent font-semibold">KI-Integration & Automation</p>
               </div>
             </div>
             
-            <p className="text-xl text-gray-700 max-w-4xl mx-auto mb-12 leading-relaxed">
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
               LAB macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient. 
-              Hier entstehen die innovativsten Lösungen der digitalen Zukunft.
+              <span className="text-accent font-bold"> Hier entstehen die innovativsten Lösungen der digitalen Zukunft.</span>
             </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white/90 backdrop-blur-sm">
+            <Card className="border-0 shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-gray-900/90 backdrop-blur-sm border border-gray-700">
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4">
                   <Brain className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl">KI-Integration & Automation</CardTitle>
+                <CardTitle className="text-xl text-white">KI-Integration & Automation</CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 text-gray-600">
+                <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
                     <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
                     n8n-gestützte Prozessautomatisierung
@@ -273,15 +294,15 @@ const Services = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white/90 backdrop-blur-sm">
+            <Card className="border-0 shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-gray-900/90 backdrop-blur-sm border border-gray-700">
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-4">
                   <Cog className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl">Backend & Tech-Implementierung</CardTitle>
+                <CardTitle className="text-xl text-white">Backend & Tech-Implementierung</CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 text-gray-600">
+                <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
                     <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
                     Webentwicklung (CMS, Landingpages, Funnels)
@@ -298,15 +319,15 @@ const Services = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white/90 backdrop-blur-sm">
+            <Card className="border-0 shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-gray-900/90 backdrop-blur-sm border border-gray-700">
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center mb-4">
                   <Database className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl">Daten & Analytics</CardTitle>
+                <CardTitle className="text-xl text-white">Daten & Analytics</CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 text-gray-600">
+                <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
                     <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
                     Formular- & Datenbank-Anbindungen
@@ -325,7 +346,7 @@ const Services = () => {
           </div>
 
           {/* LAB Showcase */}
-          <div className="bg-gradient-to-r from-gray-900 to-black rounded-3xl p-12 text-white text-center">
+          <div className="bg-gradient-to-r from-gray-800 to-black rounded-3xl p-12 text-white text-center border border-accent/20">
             <h3 className="text-3xl font-bold mb-6">
               Die Zukunft ist <span className="gradient-accent bg-clip-text text-transparent">automatisiert</span>
             </h3>
@@ -356,7 +377,7 @@ const Services = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 bg-black text-white">
+      <section id="contact-section" className="py-20 bg-black text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -368,14 +389,15 @@ const Services = () => {
               </p>
             </div>
 
-            <Card className="bg-gray-900 border-gray-800">
+            <Card className="bg-gray-900 border-gray-800 shadow-2xl">
               <CardContent className="p-8">
-                <form className="grid md:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="fullname" className="text-white">Vollständiger Name</Label>
                     <Input
                       id="fullname"
-                      className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400"
+                      required
+                      className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400 focus:border-primary"
                       placeholder="Max Mustermann"
                     />
                   </div>
@@ -385,7 +407,8 @@ const Services = () => {
                     <Input
                       id="email"
                       type="email"
-                      className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400"
+                      required
+                      className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400 focus:border-primary"
                       placeholder="max@example.com"
                     />
                   </div>
@@ -394,7 +417,7 @@ const Services = () => {
                     <Label htmlFor="company" className="text-white">Firma</Label>
                     <Input
                       id="company"
-                      className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400"
+                      className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400 focus:border-primary"
                       placeholder="Ihr Unternehmen"
                     />
                   </div>
@@ -403,7 +426,7 @@ const Services = () => {
                     <Label htmlFor="position" className="text-white">Position</Label>
                     <Input
                       id="position"
-                      className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400"
+                      className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400 focus:border-primary"
                       placeholder="Ihre Position"
                     />
                   </div>
@@ -418,7 +441,7 @@ const Services = () => {
                         MEDIA
                       </Badge>
                       <Badge variant="outline" className="border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-black cursor-pointer">
-                        LAB 🔥
+                        LAB 🚀
                       </Badge>
                     </div>
                   </div>
@@ -427,14 +450,14 @@ const Services = () => {
                     <Label htmlFor="message" className="text-white">Projektdetails</Label>
                     <Textarea
                       id="message"
-                      className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400 min-h-[120px]"
+                      className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-400 min-h-[120px] focus:border-primary"
                       placeholder="Beschreiben Sie Ihr Projekt und Ihre Ziele..."
                     />
                   </div>
                   
                   <div className="md:col-span-2">
-                    <Button className="w-full gradient-primary text-white hover:opacity-90 transition-opacity py-3 text-lg">
-                      Kostenlose Beratung anfordern <ArrowRight className="ml-2 h-5 w-5" />
+                    <Button type="submit" className="w-full gradient-primary text-white hover:opacity-90 transition-opacity py-3 text-lg shadow-2xl">
+                      Loslegen <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </div>
                 </form>
@@ -481,7 +504,7 @@ const Services = () => {
             <div>
               <h4 className="font-semibold mb-4 text-white">Kontakt</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>info@newedge.studio</li>
+                <li>sebastian.p@newedgebrand.com</li>
                 <li>+49 (0) 123 456 789</li>
                 <li>Deutschland</li>
               </ul>
