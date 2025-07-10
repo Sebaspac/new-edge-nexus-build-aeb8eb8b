@@ -6,11 +6,15 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
+import { toast } from "@/hooks/use-toast";
+
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
@@ -19,18 +23,55 @@ const Index = () => {
       });
     }
   };
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to sebastian.p@newedgebrand.com
-    console.log('Form submitted to sebastian.p@newedgebrand.com');
+    const formData = new FormData(e.target as HTMLFormElement);
+    
+    const data = {
+      fullname: formData.get('fullname'),
+      email: formData.get('email'),
+      company: formData.get('company'),
+      position: formData.get('position'),
+      message: formData.get('message')
+    };
+
+    try {
+      // Here you would typically send the form data to your backend
+      // For now, we'll simulate the email sending process
+      console.log('Form data to be sent to:', {
+        recipients: ['wenjamin.z@newedgebrand.com', 'sebastian.p@newedgebrand.com'],
+        data: data
+      });
+
+      // Show success toast
+      toast({
+        title: "Wir designen für dich",
+        description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
+        duration: 5000,
+      });
+
+      // Reset form
+      (e.target as HTMLFormElement).reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Fehler",
+        description: "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    }
   };
-  return <div className="min-h-screen bg-white">
+
+  return (
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/964ca925-091c-4fbd-aeed-d7239a0251ff.png" />
+              <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/108d87d1-d825-4696-ba9e-40debe39cadc.png" />
               <div className="text-2xl font-bold text-black">
                 New Edge<span className="text-primary"></span>
               </div>
@@ -79,7 +120,6 @@ const Index = () => {
       <section className="py-20 bg-black text-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            
             <p className="max-w-3xl mx-auto text-gray-50 text-4xl text-center">Innovation voranbringen durch intelligente Automatisierung</p>
           </div>
           
@@ -127,7 +167,6 @@ const Index = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Creative-Tech-Studio für die neue Ära der Kommunikation. KI-basierte Marketinglösungen, die Marken messbar stärken.
             </p>
-            
           </div>
 
           <div className="grid lg:grid-cols-3 gap-12">
@@ -231,27 +270,27 @@ const Index = () => {
                 <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="fullname" className="text-black">Vollständiger Name</Label>
-                    <Input id="fullname" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Max Mustermann" />
+                    <Input name="fullname" id="fullname" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Max Mustermann" />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-black">E-Mail Adresse</Label>
-                    <Input id="email" type="email" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="max@example.com" />
+                    <Input name="email" id="email" type="email" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="max@example.com" />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="company" className="text-black">Firma</Label>
-                    <Input id="company" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihr Unternehmen" />
+                    <Input name="company" id="company" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihr Unternehmen" />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="position" className="text-black">Position</Label>
-                    <Input id="position" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihre Position" />
+                    <Input name="position" id="position" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihre Position" />
                   </div>
                   
                   <div className="md:col-span-2 space-y-2">
                     <Label htmlFor="message" className="text-black">Nachricht (optional)</Label>
-                    <Textarea id="message" className="bg-white border-gray-300 text-black placeholder:text-gray-400 min-h-[120px] focus:border-primary" placeholder="Erzählen Sie uns von Ihrem Projekt..." />
+                    <Textarea name="message" id="message" className="bg-white border-gray-300 text-black placeholder:text-gray-400 min-h-[120px] focus:border-primary" placeholder="Erzählen Sie uns von Ihrem Projekt..." />
                   </div>
                   
                   <div className="md:col-span-2">
@@ -272,16 +311,15 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center mb-4">
-                
+                <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/108d87d1-d825-4696-ba9e-40debe39cadc.png" />
                 <div className="text-3xl font-bold">
                   New Edge<span className="text-primary"></span>
                 </div>
               </div>
               <p className="text-gray-400 mb-6 max-w-md">
-                Creative-Tech-Studio für die neue Ära der Kommunikation. 
-                KI-basierte Marketinglösungen, die Marken messbar stärken.
+                New Edge ist ein Creative-Tech-Studio für zukunftsorientierte Markenkommunikation.
+                Wir entwickeln strukturierte, skalierbare und KI-gestützte Lösungen, die Marken nachhaltig positionieren und messbar stärken.
               </p>
-              
             </div>
             
             <div>
@@ -313,6 +351,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
