@@ -81,10 +81,8 @@ const Index = () => {
       <section className="py-20 bg-black text-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Unsere <span className="gradient-primary bg-clip-text text-[p6611ff] text-[#9b68ff]">Vision</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Innovation voranbringen durch intelligente Automatisierung</p>
+            
+            <p className="max-w-3xl mx-auto text-gray-50 text-4xl text-center">Innovation voranbringen durch intelligente Automatisierung</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-12">
