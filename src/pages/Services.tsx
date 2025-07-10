@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Sparkles, Target, Megaphone, Brain, Zap, Cog, Database, Globe, BarChart, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,10 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
-
 const Services = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
@@ -20,11 +17,9 @@ const Services = () => {
       });
     }
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
-    
     try {
       const response = await fetch('https://formspree.io/f/xjkrnyon', {
         method: 'POST',
@@ -33,12 +28,11 @@ const Services = () => {
           'Accept': 'application/json'
         }
       });
-
       if (response.ok) {
         console.log('Form submitted successfully to sebastian.p@newedgebrand.com and wenjamin.z@newedgebrand.com');
         form.reset();
         setIsSubmitted(true);
-        
+
         // Hide success message after 5 seconds
         setTimeout(() => {
           setIsSubmitted(false);
@@ -51,14 +45,13 @@ const Services = () => {
       alert('Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es erneut.');
     }
   };
-
   return <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <img src="/lovable-uploads/108d87d1-d825-4696-ba9e-40debe39cadc.png" alt="New Edge Logo" className="h-8 w-8 mr-3" />
+              <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/4ebea1f9-fa87-4006-8832-445bb6fe1788.png" />
               <div className="text-2xl font-bold text-black">
                 New Edge<span className="text-primary"></span>
               </div>
@@ -399,8 +392,7 @@ const Services = () => {
               </p>
             </div>
 
-            {isSubmitted ? (
-              <Card className="bg-green-50 border border-green-200 shadow-lg">
+            {isSubmitted ? <Card className="bg-green-50 border border-green-200 shadow-lg">
                 <CardContent className="p-8 text-center">
                   <div className="text-green-600 text-xl font-semibold mb-4">
                     ✓ Nachricht erfolgreich gesendet!
@@ -409,16 +401,9 @@ const Services = () => {
                     Vielen Dank für Ihre Nachricht – der erste Schritt ist getan. Wir prüfen Ihr Anliegen und kommen zeitnah auf Sie zurück.
                   </p>
                 </CardContent>
-              </Card>
-            ) : (
-              <Card className="bg-white border border-gray-200 shadow-lg">
+              </Card> : <Card className="bg-white border border-gray-200 shadow-lg">
                 <CardContent className="p-8">
-                  <form 
-                    action="https://formspree.io/f/xjkrnyon"
-                    method="POST"
-                    onSubmit={handleSubmit} 
-                    className="grid md:grid-cols-2 gap-6"
-                  >
+                  <form action="https://formspree.io/f/xjkrnyon" method="POST" onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="fullname" className="text-black">Vollständiger Name</Label>
                       <Input name="fullname" id="fullname" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Max Mustermann" />
@@ -467,8 +452,7 @@ const Services = () => {
                     </div>
                   </form>
                 </CardContent>
-              </Card>
-            )}
+              </Card>}
           </div>
         </div>
       </section>
@@ -489,12 +473,7 @@ const Services = () => {
                 KI-basierte Marketinglösungen, die Marken messbar stärken.
               </p>
               <div className="flex space-x-4">
-                <a 
-                  href="https://www.linkedin.com/company/new-edge-brand/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer"
-                >
+                <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
                   <span className="text-sm">in</span>
                 </a>
                 <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
@@ -537,5 +516,4 @@ const Services = () => {
       </footer>
     </div>;
 };
-
 export default Services;
