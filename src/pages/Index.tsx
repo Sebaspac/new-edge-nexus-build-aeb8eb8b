@@ -62,11 +62,13 @@ const Index = () => {
       <section className="pt-32 pb-20 px-6 bg-white">
         <div className="container mx-auto text-center">
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
-            <div className="text-accent text-xl md:text-2xl font-semibold mb-4 tracking-wider">
-              DESIGN THE EDGE
+            <div className="bg-black px-8 py-4 rounded-2xl inline-block mb-8">
+              <div className="text-white text-3xl md:text-4xl font-black tracking-wider">
+                DESIGN THE EDGE
+              </div>
             </div>
             <h1 className="text-6xl md:text-8xl font-black text-black mb-6 leading-tight">
-              New <span className="gradient-primary bg-clip-text text-transparent">Edge</span>
+              <span className="gradient-primary bg-clip-text text-transparent">Edge</span>
             </h1>
             <p className="text-2xl md:text-3xl text-gray-600 mb-4 max-w-4xl mx-auto font-light">
               Where brand meets <span className="text-accent font-semibold">intelligence</span>
@@ -98,7 +100,7 @@ const Index = () => {
       <section className="py-20 bg-black text-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Unsere <span className="gradient-primary bg-clip-text text-transparent">Vision</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">

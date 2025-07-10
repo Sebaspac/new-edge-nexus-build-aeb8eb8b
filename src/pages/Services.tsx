@@ -65,13 +65,25 @@ const Services = () => {
               DESIGN THE EDGE
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-black mb-6 leading-tight">
-              Unsere <span className="gradient-primary bg-clip-text text-transparent">Services</span>
+              <span className="gradient-primary bg-clip-text text-transparent">Services</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-12">
               Von der strategischen Planung bis zur technischen Umsetzung – 
               wir verbinden Kreativität mit Technologie für maximalen Impact.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Leistungen Header auf schwarzem Hintergrund */}
+      <section className="py-12 bg-black">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-5xl md:text-6xl font-black text-white mb-4">
+            Unsere <span className="gradient-primary bg-clip-text text-transparent">Leistungen</span>
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Innovative Lösungen für die digitale Transformation
+          </p>
         </div>
       </section>
 
