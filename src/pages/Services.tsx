@@ -61,8 +61,10 @@ const Services = () => {
           </Link>
           
           <div className="text-center">
-            <div className="text-accent text-xl md:text-2xl font-semibold mb-4 tracking-wider">
-              DESIGN THE EDGE
+            <div className="bg-black px-8 py-4 rounded-2xl inline-block mb-8">
+              <div className="text-white text-3xl md:text-4xl font-black tracking-wider">
+                DESIGN THE EDGE
+              </div>
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-black mb-6 leading-tight">
               <span className="gradient-primary bg-clip-text text-transparent">Services</span>
@@ -88,7 +90,7 @@ const Services = () => {
       </section>
 
       {/* STUDIO Section */}
-      <section className="py-16 bg-gray-50">
+      <section id="studio" className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -116,7 +118,8 @@ const Services = () => {
                     </h4>
                     <ul className="space-y-2 text-gray-600">
                       <li>• Markenpositionierung & Zielgruppenanalyse</li>
-                      <li>• Brand Story, Werte & Tonalität</li>
+                      <li>• Brand Story</li>
+                      <li>• Werte & Tonalität</li>
                       <li>• Wettbewerbsanalyse & Differenzierungsstrategie</li>
                     </ul>
                   </CardContent>
@@ -175,7 +178,7 @@ const Services = () => {
       </section>
 
       {/* MEDIA Section */}
-      <section className="py-16 bg-white">
+      <section id="media" className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="lg:order-2">
@@ -226,11 +229,10 @@ const Services = () => {
                   <CardContent className="p-6">
                     <h4 className="font-semibold text-lg mb-3 flex items-center">
                       <Lightbulb className="mr-2 h-5 w-5 text-blue-500" />
-                      Creative Production
+                      Creative Content Production
                     </h4>
                     <ul className="space-y-2 text-gray-600">
                       <li>• Creative Content Production (Video, Visuals, Reels)</li>
-                      <li>• Social Media Management</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -261,7 +263,7 @@ const Services = () => {
       </section>
 
       {/* LAB Section - Enhanced and Featured */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section id="lab" className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-accent text-black text-lg px-6 py-3">
@@ -278,21 +280,32 @@ const Services = () => {
             </div>
             
             <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-              LAB macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient. 
-              <span className="text-accent font-bold"> Hier entstehen die innovativsten Lösungen der digitalen Zukunft.</span>
+              LAB macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid lg:grid-cols-2 gap-12 mb-16">
             <Card className="border-0 shadow-lg bg-gray-800 border border-gray-700">
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4">
                   <Brain className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl text-white">KI-Integration & Automation</CardTitle>
+                <CardTitle className="text-xl text-white">Technische Umsetzung</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-gray-300">
+                  <li className="flex items-start">
+                    <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
+                    KI-Integration & Automation
+                  </li>
+                  <li className="flex items-start">
+                    <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
+                    Backend & Tech-Implementierung
+                  </li>
+                  <li className="flex items-start">
+                    <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
+                    Webentwicklung (CMS, Landingpages, Funnels)
+                  </li>
                   <li className="flex items-start">
                     <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
                     n8n-gestützte Prozessautomatisierung
@@ -300,35 +313,6 @@ const Services = () => {
                   <li className="flex items-start">
                     <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
                     KI-Agenten-Integration (Text, Mail, CRM)
-                  </li>
-                  <li className="flex items-start">
-                    <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
-                    Intelligente Workflow-Optimierung
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg bg-gray-800 border border-gray-700">
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-4">
-                  <Cog className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-xl text-white">Backend & Tech-Implementierung</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start">
-                    <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
-                    Webentwicklung (CMS, Landingpages, Funnels)
-                  </li>
-                  <li className="flex items-start">
-                    <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
-                    Backend-Systeme & APIs
-                  </li>
-                  <li className="flex items-start">
-                    <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
-                    Cloud-Infrastructure
                   </li>
                 </ul>
               </CardContent>
@@ -345,15 +329,11 @@ const Services = () => {
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
                     <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
-                    Formular- & Datenbank-Anbindungen
+                    Formular- & Datenbank-Anbindungen (z. B. Notion, Airtable, Supabase)
                   </li>
                   <li className="flex items-start">
                     <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
-                    Tracking & Analyse-Setups
-                  </li>
-                  <li className="flex items-start">
-                    <Zap className="h-4 w-4 mt-1 mr-2 text-accent flex-shrink-0" />
-                    Custom Dashboards & Reporting
+                    Tracking- & Analyse-Setups (GA4, Tag Manager, Pixel, Dashboards)
                   </li>
                 </ul>
               </CardContent>
