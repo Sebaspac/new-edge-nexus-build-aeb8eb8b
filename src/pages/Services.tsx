@@ -28,7 +28,7 @@ const Services = () => {
             <div className="flex items-center">
               <img src="/lovable-uploads/108d87d1-d825-4696-ba9e-40debe39cadc.png" alt="New Edge Logo" className="h-8 w-8 mr-3" />
               <div className="text-2xl font-bold text-black">
-                New Edge<span className="text-primary">°</span>
+                New Edge<span className="text-primary"></span>
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-8">
