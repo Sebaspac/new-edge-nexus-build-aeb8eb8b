@@ -221,7 +221,7 @@ const Index = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4 text-black">
-                Bereit für den nächsten <span className="gradient-primary bg-clip-text text-transparent">Schritt?</span>
+                Bereit für den nächsten <span className="gradient-primary bg-clip-text text-gray-900">Schritt?</span>
               </h2>
               <p className="text-xl text-gray-600">
                 Lassen Sie uns über Ihr Projekt sprechen.
