@@ -319,6 +319,19 @@ const Index = () => {
                 New Edge ist ein Creative-Tech-Studio für zukunftsorientierte Markenkommunikation.
                 Wir entwickeln strukturierte, skalierbare und KI-gestützte Lösungen, die Marken nachhaltig positionieren und messbar stärken.
               </p>
+              <div className="flex space-x-4">
+                <a 
+                  href="https://www.linkedin.com/company/new-edge-brand/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer"
+                >
+                  <span className="text-sm">in</span>
+                </a>
+                <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                  <span className="text-sm">ig</span>
+                </div>
+              </div>
             </div>
             
             <div>
