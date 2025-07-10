@@ -59,9 +59,7 @@ const Index = () => {
             <p className="text-2xl md:text-3xl text-gray-600 mb-4 max-w-4xl mx-auto font-light">
               Where brand meets <span className="text-accent font-semibold">intelligence</span>
             </p>
-            <p className="text-lg text-gray-500 mb-12 max-w-3xl mx-auto">
-              Branding. Craft. Automation – All connected.
-            </p>
+            <p className="text-lg text-gray-500 mb-12 max-w-3xl mx-auto">Branding. Craft. Automation – All connected.</p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Link to="/services">
