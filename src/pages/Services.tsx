@@ -432,9 +432,9 @@ const Services = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center mb-4">
-                <img src="/lovable-uploads/108d87d1-d825-4696-ba9e-40debe39cadc.png" alt="New Edge Logo" className="h-8 w-8 mr-3 bg-white rounded p-1" />
+                
                 <div className="text-3xl font-bold">
-                  New Edge<span className="text-primary">°</span>
+                  New Edge<span className="text-primary"></span>
                 </div>
               </div>
               <p className="text-gray-400 mb-6 max-w-md">
@@ -466,8 +466,8 @@ const Services = () => {
             <div>
               <h4 className="font-semibold mb-4 text-white">Kontakt</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>sebastian.p@newedgebrand.com</li>
-                <li>+49 (0) 123 456 789</li>
+                <li>info@newedgebrand.com</li>
+                <li>+49 (0) 15750998236</li>
                 <li>Deutschland</li>
               </ul>
             </div>
