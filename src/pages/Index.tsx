@@ -26,33 +26,27 @@ const Index = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
+    const form = e.target as HTMLFormElement;
     
-    const data = {
-      fullname: formData.get('fullname'),
-      email: formData.get('email'),
-      company: formData.get('company'),
-      position: formData.get('position'),
-      message: formData.get('message')
-    };
-
     try {
-      // Here you would typically send the form data to your backend
-      // For now, we'll simulate the email sending process
-      console.log('Form data to be sent to:', {
-        recipients: ['wenjamin.z@newedgebrand.com', 'sebastian.p@newedgebrand.com'],
-        data: data
+      const response = await fetch('https://formspree.io/f/xjkrnyon', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
       });
 
-      // Show success toast
-      toast({
-        title: "Wir designen für dich",
-        description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
-        duration: 5000,
-      });
-
-      // Reset form
-      (e.target as HTMLFormElement).reset();
+      if (response.ok) {
+        toast({
+          title: "Wir designen für dich",
+          description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
+          duration: 5000,
+        });
+        form.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
@@ -267,7 +261,12 @@ const Index = () => {
 
             <Card className="bg-white border border-gray-200 shadow-lg">
               <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
+                <form 
+                  action="https://formspree.io/f/xjkrnyon"
+                  method="POST"
+                  onSubmit={handleSubmit} 
+                  className="grid md:grid-cols-2 gap-6"
+                >
                   <div className="space-y-2">
                     <Label htmlFor="fullname" className="text-black">Vollständiger Name</Label>
                     <Input name="fullname" id="fullname" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Max Mustermann" />

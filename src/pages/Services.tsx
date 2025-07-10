@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+
 const Services = () => {
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
@@ -15,11 +16,34 @@ const Services = () => {
       });
     }
   };
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to sebastian.p@newedgebrand.com
-    console.log('Form submitted to sebastian.p@newedgebrand.com');
+    const form = e.target as HTMLFormElement;
+    
+    try {
+      const response = await fetch('https://formspree.io/f/xjkrnyon', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        // Show success message (you might want to add toast import if not already present)
+        console.log('Form submitted successfully to sebastian.p@newedgebrand.com and wenjamin.z@newedgebrand.com');
+        form.reset();
+        alert('Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.');
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es erneut.');
+    }
   };
+
   return <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
@@ -373,25 +397,30 @@ const Services = () => {
 
             <Card className="bg-white border border-gray-200 shadow-lg">
               <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
+                <form 
+                  action="https://formspree.io/f/xjkrnyon"
+                  method="POST"
+                  onSubmit={handleSubmit} 
+                  className="grid md:grid-cols-2 gap-6"
+                >
                   <div className="space-y-2">
                     <Label htmlFor="fullname" className="text-black">Vollständiger Name</Label>
-                    <Input id="fullname" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Max Mustermann" />
+                    <Input name="fullname" id="fullname" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Max Mustermann" />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-black">E-Mail Adresse</Label>
-                    <Input id="email" type="email" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="max@example.com" />
+                    <Input name="email" id="email" type="email" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="max@example.com" />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="company" className="text-black">Firma</Label>
-                    <Input id="company" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihr Unternehmen" />
+                    <Input name="company" id="company" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihr Unternehmen" />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="position" className="text-black">Position</Label>
-                    <Input id="position" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihre Position" />
+                    <Input name="position" id="position" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihre Position" />
                   </div>
                   
                   <div className="md:col-span-2 space-y-2">
@@ -407,11 +436,12 @@ const Services = () => {
                         LAB 🚀
                       </Badge>
                     </div>
+                    <input type="hidden" name="services" id="services-hidden" />
                   </div>
                   
                   <div className="md:col-span-2 space-y-2">
                     <Label htmlFor="message" className="text-black">Projektdetails</Label>
-                    <Textarea id="message" className="bg-white border-gray-300 text-black placeholder:text-gray-400 min-h-[120px] focus:border-primary" placeholder="Beschreiben Sie Ihr Projekt und Ihre Ziele..." />
+                    <Textarea name="message" id="message" className="bg-white border-gray-300 text-black placeholder:text-gray-400 min-h-[120px] focus:border-primary" placeholder="Beschreiben Sie Ihr Projekt und Ihre Ziele..." />
                   </div>
                   
                   <div className="md:col-span-2">
@@ -485,4 +515,5 @@ const Services = () => {
       </footer>
     </div>;
 };
+
 export default Services;
