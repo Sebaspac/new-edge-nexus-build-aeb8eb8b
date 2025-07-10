@@ -32,7 +32,7 @@ const Index = () => {
             <div className="flex items-center">
               <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/964ca925-091c-4fbd-aeed-d7239a0251ff.png" />
               <div className="text-2xl font-bold text-black">
-                New Edge<span className="text-primary">°</span>
+                New Edge<span className="text-primary"></span>
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-8">
@@ -276,26 +276,16 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center mb-4">
-                <img alt="New Edge Logo" className="h-8 w-8 mr-3 bg-white rounded p-1" src="/lovable-uploads/94ad948e-230b-433e-9c9c-4be3b58f62eb.png" />
+                
                 <div className="text-3xl font-bold">
-                  New Edge<span className="text-primary">°</span>
+                  New Edge<span className="text-primary"></span>
                 </div>
               </div>
               <p className="text-gray-400 mb-6 max-w-md">
                 Creative-Tech-Studio für die neue Ära der Kommunikation. 
                 KI-basierte Marketinglösungen, die Marken messbar stärken.
               </p>
-              <div className="flex space-x-4">
-                <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
-                  <span className="text-sm">in</span>
-                </div>
-                <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
-                  <span className="text-sm">ig</span>
-                </div>
-                <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
-                  <span className="text-sm">tw</span>
-                </div>
-              </div>
+              
             </div>
             
             <div>
