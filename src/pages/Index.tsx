@@ -7,14 +7,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
-
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
@@ -23,11 +20,9 @@ const Index = () => {
       });
     }
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
-    
     try {
       const response = await fetch('https://formspree.io/f/xjkrnyon', {
         method: 'POST',
@@ -36,12 +31,11 @@ const Index = () => {
           'Accept': 'application/json'
         }
       });
-
       if (response.ok) {
         toast({
           title: "Wir designen für dich",
           description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
-          duration: 5000,
+          duration: 5000
         });
         form.reset();
       } else {
@@ -53,19 +47,17 @@ const Index = () => {
         title: "Fehler",
         description: "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
         variant: "destructive",
-        duration: 5000,
+        duration: 5000
       });
     }
   };
-
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/108d87d1-d825-4696-ba9e-40debe39cadc.png" />
+              <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
               <div className="text-2xl font-bold text-black">
                 New Edge<span className="text-primary"></span>
               </div>
@@ -261,12 +253,7 @@ const Index = () => {
 
             <Card className="bg-white border border-gray-200 shadow-lg">
               <CardContent className="p-8">
-                <form 
-                  action="https://formspree.io/f/xjkrnyon"
-                  method="POST"
-                  onSubmit={handleSubmit} 
-                  className="grid md:grid-cols-2 gap-6"
-                >
+                <form action="https://formspree.io/f/xjkrnyon" method="POST" onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="fullname" className="text-black">Vollständiger Name</Label>
                     <Input name="fullname" id="fullname" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Max Mustermann" />
@@ -320,12 +307,7 @@ const Index = () => {
                 Wir entwickeln strukturierte, skalierbare und KI-gestützte Lösungen, die Marken nachhaltig positionieren und messbar stärken.
               </p>
               <div className="flex space-x-4">
-                <a 
-                  href="https://www.linkedin.com/company/new-edge-brand/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer"
-                >
+                <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
                   <span className="text-sm">in</span>
                 </a>
                 <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
@@ -363,8 +345,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
