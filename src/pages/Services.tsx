@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Sparkles, Target, Megaphone, Brain, Zap, Cog, Database, Globe, BarChart, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -110,7 +111,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* STUDIO Section */}
       <section id="studio" className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -198,7 +198,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* MEDIA Section */}
       <section id="media" className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -283,7 +282,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* LAB Section - Enhanced and Featured */}
       <section id="lab" className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
@@ -361,7 +359,6 @@ const Services = () => {
             </Card>
           </div>
 
-          {/* LAB Showcase */}
           <div className="bg-gradient-to-r from-gray-800 to-black rounded-2xl p-12 text-white text-center border border-accent/20">
             <h3 className="text-3xl font-bold mb-6">
               Die Zukunft ist <span className="gradient-accent bg-clip-text text-gray-50">automatisiert</span>
@@ -492,9 +489,14 @@ const Services = () => {
                 KI-basierte Marketinglösungen, die Marken messbar stärken.
               </p>
               <div className="flex space-x-4">
-                <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                <a 
+                  href="https://www.linkedin.com/company/new-edge-brand/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer"
+                >
                   <span className="text-sm">in</span>
-                </div>
+                </a>
                 <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
                   <span className="text-sm">ig</span>
                 </div>
