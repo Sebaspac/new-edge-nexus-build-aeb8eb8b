@@ -30,7 +30,7 @@ const Index = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <img src="/lovable-uploads/108d87d1-d825-4696-ba9e-40debe39cadc.png" alt="New Edge Logo" className="h-8 w-8 mr-3" />
+              <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/964ca925-091c-4fbd-aeed-d7239a0251ff.png" />
               <div className="text-2xl font-bold text-black">
                 New Edge<span className="text-primary">°</span>
               </div>
@@ -276,7 +276,7 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center mb-4">
-                <img src="/lovable-uploads/108d87d1-d825-4696-ba9e-40debe39cadc.png" alt="New Edge Logo" className="h-8 w-8 mr-3 bg-white rounded p-1" />
+                <img alt="New Edge Logo" className="h-8 w-8 mr-3 bg-white rounded p-1" src="/lovable-uploads/44ee97c9-0298-41b6-8fbc-b44a16978bf5.png" />
                 <div className="text-3xl font-bold">
                   New Edge<span className="text-primary">°</span>
                 </div>
