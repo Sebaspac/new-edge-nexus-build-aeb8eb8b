@@ -276,7 +276,7 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center mb-4">
-                <img alt="New Edge Logo" className="h-8 w-8 mr-3 bg-white rounded p-1" src="/lovable-uploads/44ee97c9-0298-41b6-8fbc-b44a16978bf5.png" />
+                <img alt="New Edge Logo" className="h-8 w-8 mr-3 bg-white rounded p-1" src="/lovable-uploads/94ad948e-230b-433e-9c9c-4be3b58f62eb.png" />
                 <div className="text-3xl font-bold">
                   New Edge<span className="text-primary">°</span>
                 </div>
