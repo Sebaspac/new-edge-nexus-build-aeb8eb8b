@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Zap, Brain, Target, Eye, Rocket } from "lucide-react";
@@ -7,39 +6,31 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
-
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically send the form data to sebastian.p@newedgebrand.com
     console.log('Form submitted to sebastian.p@newedgebrand.com');
   };
-
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <img 
-                src="/lovable-uploads/108d87d1-d825-4696-ba9e-40debe39cadc.png" 
-                alt="New Edge Logo" 
-                className="h-8 w-8 mr-3"
-              />
+              <img src="/lovable-uploads/108d87d1-d825-4696-ba9e-40debe39cadc.png" alt="New Edge Logo" className="h-8 w-8 mr-3" />
               <div className="text-2xl font-bold text-black">
                 New Edge<span className="text-primary">°</span>
               </div>
@@ -47,10 +38,7 @@ const Index = () => {
             <div className="hidden md:flex items-center space-x-8">
               <Link to="/" className="text-gray-600 hover:text-black transition-colors">Home</Link>
               <Link to="/services" className="text-gray-600 hover:text-black transition-colors">Services</Link>
-              <Button 
-                onClick={scrollToContact}
-                className="bg-black text-white hover:bg-gray-800 transition-colors"
-              >
+              <Button onClick={scrollToContact} className="bg-black text-white hover:bg-gray-800 transition-colors">
                 Kontakt
               </Button>
             </div>
@@ -67,9 +55,7 @@ const Index = () => {
                 DESIGN THE EDGE
               </div>
             </div>
-            <h1 className="text-6xl md:text-8xl font-black text-black mb-6 leading-tight">
-              <span className="gradient-primary bg-clip-text text-transparent">Edge</span>
-            </h1>
+            
             <p className="text-2xl md:text-3xl text-gray-600 mb-4 max-w-4xl mx-auto font-light">
               Where brand meets <span className="text-accent font-semibold">intelligence</span>
             </p>
@@ -83,12 +69,7 @@ const Index = () => {
                   Discover Services <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                onClick={scrollToContact}
-                className="border-2 border-black text-black hover:bg-black hover:text-white transition-colors px-8 py-4 text-lg"
-              >
+              <Button size="lg" variant="outline" onClick={scrollToContact} className="border-2 border-black text-black hover:bg-black hover:text-white transition-colors px-8 py-4 text-lg">
                 Get Started
               </Button>
             </div>
@@ -101,11 +82,9 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Unsere <span className="gradient-primary bg-clip-text text-transparent">Vision</span>
+              Unsere <span className="gradient-primary bg-clip-text text-[p6611ff] text-[#9b68ff]">Vision</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Innovation voranbringen durch intelligente Automatisierung
-            </p>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Innovation voranbringen durch intelligente Automatisierung</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-12">
@@ -147,15 +126,12 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-black mb-6">
-              Unsere <span className="gradient-primary bg-clip-text text-transparent">Bereiche</span>
+              Unsere <span className="gradient-primary bg-clip-text text-slate-950 text-5xl">Bereiche</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Creative-Tech-Studio für die neue Ära der Kommunikation. KI-basierte Marketinglösungen, die Marken messbar stärken.
             </p>
-            <div className="inline-flex items-center bg-accent/10 px-6 py-3 rounded-full">
-              <Brain className="h-5 w-5 text-accent mr-2" />
-              <span className="text-accent font-semibold">LAB führt Innovation an</span>
-            </div>
+            
           </div>
 
           <div className="grid lg:grid-cols-3 gap-12">
@@ -259,50 +235,27 @@ const Index = () => {
                 <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="fullname" className="text-black">Vollständiger Name</Label>
-                    <Input
-                      id="fullname"
-                      required
-                      className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary"
-                      placeholder="Max Mustermann"
-                    />
+                    <Input id="fullname" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Max Mustermann" />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-black">E-Mail Adresse</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      required
-                      className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary"
-                      placeholder="max@example.com"
-                    />
+                    <Input id="email" type="email" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="max@example.com" />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="company" className="text-black">Firma</Label>
-                    <Input
-                      id="company"
-                      className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary"
-                      placeholder="Ihr Unternehmen"
-                    />
+                    <Input id="company" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihr Unternehmen" />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="position" className="text-black">Position</Label>
-                    <Input
-                      id="position"
-                      className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary"
-                      placeholder="Ihre Position"
-                    />
+                    <Input id="position" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihre Position" />
                   </div>
                   
                   <div className="md:col-span-2 space-y-2">
                     <Label htmlFor="message" className="text-black">Nachricht (optional)</Label>
-                    <Textarea
-                      id="message"
-                      className="bg-white border-gray-300 text-black placeholder:text-gray-400 min-h-[120px] focus:border-primary"
-                      placeholder="Erzählen Sie uns von Ihrem Projekt..."
-                    />
+                    <Textarea id="message" className="bg-white border-gray-300 text-black placeholder:text-gray-400 min-h-[120px] focus:border-primary" placeholder="Erzählen Sie uns von Ihrem Projekt..." />
                   </div>
                   
                   <div className="md:col-span-2">
@@ -323,11 +276,7 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center mb-4">
-                <img 
-                  src="/lovable-uploads/108d87d1-d825-4696-ba9e-40debe39cadc.png" 
-                  alt="New Edge Logo" 
-                  className="h-8 w-8 mr-3 bg-white rounded p-1"
-                />
+                <img src="/lovable-uploads/108d87d1-d825-4696-ba9e-40debe39cadc.png" alt="New Edge Logo" className="h-8 w-8 mr-3 bg-white rounded p-1" />
                 <div className="text-3xl font-bold">
                   New Edge<span className="text-primary">°</span>
                 </div>
@@ -361,8 +310,8 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-4 text-white">Kontakt</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>sebastian.p@newedgebrand.com</li>
-                <li>+49 (0) 123 456 789</li>
+                <li>info@newedgebrand.com</li>
+                <li>+49 (0) 15750998236</li>
                 <li>Deutschland</li>
               </ul>
             </div>
@@ -380,8 +329,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
