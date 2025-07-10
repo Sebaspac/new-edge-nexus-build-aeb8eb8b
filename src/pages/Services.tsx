@@ -6,8 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
 
 const Services = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
@@ -31,10 +34,14 @@ const Services = () => {
       });
 
       if (response.ok) {
-        // Show success message (you might want to add toast import if not already present)
         console.log('Form submitted successfully to sebastian.p@newedgebrand.com and wenjamin.z@newedgebrand.com');
         form.reset();
-        alert('Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.');
+        setIsSubmitted(true);
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
       } else {
         throw new Error('Failed to send message');
       }
@@ -388,70 +395,83 @@ const Services = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4 text-black">
-                Lassen Sie uns Ihr Projekt <span className="gradient-primary bg-clip-text text-transparent">realisieren</span>
+                Lassen Sie uns Ihr Projekt <span className="text-black">realisieren</span>
               </h2>
               <p className="text-xl text-gray-600">
                 Von der Strategie bis zur technischen Umsetzung – wir sind Ihr Partner für digitale Excellence.
               </p>
             </div>
 
-            <Card className="bg-white border border-gray-200 shadow-lg">
-              <CardContent className="p-8">
-                <form 
-                  action="https://formspree.io/f/xjkrnyon"
-                  method="POST"
-                  onSubmit={handleSubmit} 
-                  className="grid md:grid-cols-2 gap-6"
-                >
-                  <div className="space-y-2">
-                    <Label htmlFor="fullname" className="text-black">Vollständiger Name</Label>
-                    <Input name="fullname" id="fullname" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Max Mustermann" />
+            {isSubmitted ? (
+              <Card className="bg-green-50 border border-green-200 shadow-lg">
+                <CardContent className="p-8 text-center">
+                  <div className="text-green-600 text-xl font-semibold mb-4">
+                    ✓ Nachricht erfolgreich gesendet!
                   </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-black">E-Mail Adresse</Label>
-                    <Input name="email" id="email" type="email" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="max@example.com" />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="company" className="text-black">Firma</Label>
-                    <Input name="company" id="company" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihr Unternehmen" />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="position" className="text-black">Position</Label>
-                    <Input name="position" id="position" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihre Position" />
-                  </div>
-                  
-                  <div className="md:col-span-2 space-y-2">
-                    <Label htmlFor="services" className="text-black">Interessante Services</Label>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <Badge variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-500 hover:text-white cursor-pointer">
-                        STUDIO
-                      </Badge>
-                      <Badge variant="outline" className="border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white cursor-pointer">
-                        MEDIA
-                      </Badge>
-                      <Badge variant="outline" className="border-yellow-500 text-yellow-600 hover:bg-yellow-500 hover:text-black cursor-pointer">
-                        LAB 🚀
-                      </Badge>
+                  <p className="text-green-700">
+                    Vielen Dank für Ihre Nachricht – der erste Schritt ist getan. Wir prüfen Ihr Anliegen und kommen zeitnah auf Sie zurück.
+                  </p>
+                </CardContent>
+              </Card>
+            ) : (
+              <Card className="bg-white border border-gray-200 shadow-lg">
+                <CardContent className="p-8">
+                  <form 
+                    action="https://formspree.io/f/xjkrnyon"
+                    method="POST"
+                    onSubmit={handleSubmit} 
+                    className="grid md:grid-cols-2 gap-6"
+                  >
+                    <div className="space-y-2">
+                      <Label htmlFor="fullname" className="text-black">Vollständiger Name</Label>
+                      <Input name="fullname" id="fullname" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Max Mustermann" />
                     </div>
-                    <input type="hidden" name="services" id="services-hidden" />
-                  </div>
-                  
-                  <div className="md:col-span-2 space-y-2">
-                    <Label htmlFor="message" className="text-black">Projektdetails</Label>
-                    <Textarea name="message" id="message" className="bg-white border-gray-300 text-black placeholder:text-gray-400 min-h-[120px] focus:border-primary" placeholder="Beschreiben Sie Ihr Projekt und Ihre Ziele..." />
-                  </div>
-                  
-                  <div className="md:col-span-2">
-                    <Button type="submit" className="w-full bg-black text-white hover:bg-gray-800 transition-colors py-3 text-lg">
-                      Loslegen <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </div>
-                </form>
-              </CardContent>
-            </Card>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-black">E-Mail Adresse</Label>
+                      <Input name="email" id="email" type="email" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="max@example.com" />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="company" className="text-black">Firma</Label>
+                      <Input name="company" id="company" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihr Unternehmen" />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="position" className="text-black">Position</Label>
+                      <Input name="position" id="position" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary" placeholder="Ihre Position" />
+                    </div>
+                    
+                    <div className="md:col-span-2 space-y-2">
+                      <Label htmlFor="services" className="text-black">Interessante Services</Label>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <Badge variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-500 hover:text-white cursor-pointer">
+                          STUDIO
+                        </Badge>
+                        <Badge variant="outline" className="border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white cursor-pointer">
+                          MEDIA
+                        </Badge>
+                        <Badge variant="outline" className="border-yellow-500 text-yellow-600 hover:bg-yellow-500 hover:text-black cursor-pointer">
+                          LAB 🚀
+                        </Badge>
+                      </div>
+                      <input type="hidden" name="services" id="services-hidden" />
+                    </div>
+                    
+                    <div className="md:col-span-2 space-y-2">
+                      <Label htmlFor="message" className="text-black">Projektdetails</Label>
+                      <Textarea name="message" id="message" className="bg-white border-gray-300 text-black placeholder:text-gray-400 min-h-[120px] focus:border-primary" placeholder="Beschreiben Sie Ihr Projekt und Ihre Ziele..." />
+                    </div>
+                    
+                    <div className="md:col-span-2">
+                      <Button type="submit" className="w-full bg-black text-white hover:bg-gray-800 transition-colors py-3 text-lg">
+                        Loslegen <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
+                    </div>
+                  </form>
+                </CardContent>
+              </Card>
+            )}
           </div>
         </div>
       </section>
