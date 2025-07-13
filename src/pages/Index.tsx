@@ -149,9 +149,7 @@ const Index = () => {
             animationDelay: '0.8s'
           }}>
               <p className="text-xl text-gray-600 mb-6">
-                New Edge ist die führende Creative-Tech-Agentur 
-                <br />
-                für intelligente Markenkommunikation in Europa
+                new edge ist eine der innovativsten creative-tech-agentur
               </p>
               
               {/* CTA Button */}
