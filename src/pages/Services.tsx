@@ -216,7 +216,7 @@ const Services = () => {
           ease: [0.25, 0.46, 0.45, 0.94]
         }} className="mb-12">
             <motion.div animate={{
-            background: ["linear-gradient(45deg, #8b5cf6, #3b82f6, #10b981)", "linear-gradient(45deg, #3b82f6, #10b981, #8b5cf6)", "linear-gradient(45deg, #10b981, #8b5cf6, #3b82f6)"]
+            background: ["linear-gradient(45deg, #8b5cf6, #3b82f6, #f59e0b)", "linear-gradient(45deg, #3b82f6, #f59e0b, #8b5cf6)", "linear-gradient(45deg, #f59e0b, #8b5cf6, #3b82f6)"]
           }} transition={{
             duration: 3,
             repeat: Infinity,
@@ -259,17 +259,30 @@ const Services = () => {
         }} className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
             Wir begleiten Sie auf einer strukturierten Reise von der ersten Idee bis zur finalen Implementierung.
             <br />
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent font-medium">Ein nahtloser Prozess. Drei spezialisierte Teams. Ein Ziel.</span>
+            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">Ein nahtloser Prozess. Drei spezialisierte Teams. Ein Ziel.</span>
           </motion.p>
 
           {/* Scroll Indicator */}
-          <motion.div animate={{
-          y: [0, 10, 0]
-        }} transition={{
-          duration: 2,
-          repeat: Infinity
-        }} className="absolute bottom-20 left-1/2 transform -translate-x-1/2">
-            <ArrowDown className="w-8 h-8 text-purple-400" />
+          <motion.div 
+            animate={{
+              y: [0, 10, 0]
+            }} 
+            transition={{
+              duration: 2,
+              repeat: Infinity
+            }} 
+            className="absolute bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer"
+            onClick={() => {
+              const nextSection = document.querySelector('.key-activities-section');
+              nextSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ArrowDown className="w-8 h-8 text-purple-400" />
+            </motion.div>
           </motion.div>
         </motion.div>
 
@@ -285,7 +298,7 @@ const Services = () => {
       </section>
 
       {/* Key Activities Section */}
-      <section className="relative py-32 bg-gradient-to-b from-black via-gray-900 to-black">
+      <section className="key-activities-section relative py-32 bg-gradient-to-b from-black via-gray-900 to-black">
         <motion.div style={{
         y: y2
       }} className="container mx-auto px-6">
@@ -301,11 +314,11 @@ const Services = () => {
           duration: 0.8
         }} className="text-center mb-20">
             <motion.div animate={{
-            boxShadow: ["0 0 20px #8b5cf6", "0 0 40px #3b82f6", "0 0 20px #10b981", "0 0 40px #8b5cf6"]
+            boxShadow: ["0 0 20px #8b5cf6", "0 0 40px #3b82f6", "0 0 20px #f59e0b", "0 0 40px #8b5cf6"]
           }} transition={{
             duration: 4,
             repeat: Infinity
-          }} className="inline-block bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12">
+          }} className="inline-block bg-gradient-to-r from-purple-600 via-blue-600 to-yellow-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12">
               Key Activities
             </motion.div>
             <h2 className="text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
@@ -507,43 +520,99 @@ const Services = () => {
             delay: 0.6,
             duration: 0.8
           }} className="mt-20 text-center">
-              <motion.div whileHover={{
-              scale: 1.05
-            }} className="inline-block bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 backdrop-blur-lg">
-                <p className="text-lg text-white font-medium mb-4">
+              <motion.div 
+                whileHover={{ scale: 1.05, rotateX: 5 }}
+                className="inline-block bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 backdrop-blur-lg relative overflow-hidden"
+              >
+                {/* Animated background */}
+                <motion.div 
+                  animate={{
+                    background: [
+                      "radial-gradient(circle at 50% 50%, rgba(139,92,246,0.1) 0%, transparent 70%)",
+                      "radial-gradient(circle at 50% 50%, rgba(59,130,246,0.1) 0%, transparent 70%)",
+                      "radial-gradient(circle at 50% 50%, rgba(245,158,11,0.1) 0%, transparent 70%)",
+                      "radial-gradient(circle at 50% 50%, rgba(139,92,246,0.1) 0%, transparent 70%)"
+                    ]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="absolute inset-0"
+                />
+                
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  className="text-lg text-white font-medium mb-6 relative z-10"
+                >
                   All das geschieht hier - im kreativen Headquarter für Reichweite, Wirkung & Wachstum.
-                </p>
-                <div className="flex items-center justify-center space-x-4 text-sm">
-                  <motion.span whileHover={{
-                  scale: 1.1
-                }} className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full border border-purple-500/30">
+                </motion.p>
+                
+                <div className="flex items-center justify-center space-x-4 text-sm relative z-10">
+                  <motion.span 
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    whileTap={{ scale: 0.95 }}
+                    animate={{ 
+                      boxShadow: [
+                        "0 0 10px rgba(139,92,246,0.3)",
+                        "0 0 20px rgba(139,92,246,0.5)",
+                        "0 0 10px rgba(139,92,246,0.3)"
+                      ]
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full border border-purple-500/30 cursor-pointer"
+                  >
                     Strategie
                   </motion.span>
+                  
                   <motion.div animate={{
-                  x: [0, 5, 0]
-                }} transition={{
-                  duration: 1,
-                  repeat: Infinity
-                }}>
-                    <ArrowRight className="w-4 h-4 text-gray-400" />
+                    x: [0, 10, 0],
+                    scale: [1, 1.2, 1]
+                  }} transition={{
+                    duration: 1.5,
+                    repeat: Infinity
+                  }}>
+                    <ArrowRight className="w-4 h-4 text-yellow-400" />
                   </motion.div>
-                  <motion.span whileHover={{
-                  scale: 1.1
-                }} className="bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full border border-blue-500/30">
+                  
+                  <motion.span 
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    whileTap={{ scale: 0.95 }}
+                    animate={{ 
+                      boxShadow: [
+                        "0 0 10px rgba(59,130,246,0.3)",
+                        "0 0 20px rgba(59,130,246,0.5)", 
+                        "0 0 10px rgba(59,130,246,0.3)"
+                      ]
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                    className="bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full border border-blue-500/30 cursor-pointer"
+                  >
                     Umsetzung
                   </motion.span>
+                  
                   <motion.div animate={{
-                  x: [0, 5, 0]
-                }} transition={{
-                  duration: 1,
-                  repeat: Infinity,
-                  delay: 0.5
-                }}>
-                    <ArrowRight className="w-4 h-4 text-gray-400" />
+                    x: [0, 10, 0],
+                    scale: [1, 1.2, 1]
+                  }} transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    delay: 0.7
+                  }}>
+                    <ArrowRight className="w-4 h-4 text-yellow-400" />
                   </motion.div>
-                  <motion.span whileHover={{
-                  scale: 1.1
-                }} className="bg-green-500/20 text-green-300 px-4 py-2 rounded-full border border-green-500/30">
+                  
+                  <motion.span 
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    whileTap={{ scale: 0.95 }}
+                    animate={{ 
+                      boxShadow: [
+                        "0 0 10px rgba(245,158,11,0.3)",
+                        "0 0 20px rgba(245,158,11,0.5)",
+                        "0 0 10px rgba(245,158,11,0.3)"
+                      ]
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                    className="bg-yellow-500/20 text-yellow-300 px-4 py-2 rounded-full border border-yellow-500/30 cursor-pointer"
+                  >
                     Technologie
                   </motion.span>
                 </div>
@@ -557,7 +626,7 @@ const Services = () => {
       
 
       {/* CTA Section */}
-      <section className="py-32 bg-gradient-to-r from-purple-900 via-blue-900 to-green-900 relative overflow-hidden">
+      <section className="py-16 bg-gradient-to-r from-purple-900 via-blue-900 to-yellow-900 relative overflow-hidden">
         <motion.div className="container mx-auto px-6 text-center relative z-10" initial={{
         opacity: 0
       }} whileInView={{
@@ -626,7 +695,7 @@ const Services = () => {
         duration: 25,
         repeat: Infinity,
         ease: "linear"
-      }} className="absolute bottom-20 right-20 w-40 h-40 bg-green-500/10 rounded-full blur-xl" />
+      }} className="absolute bottom-20 right-20 w-40 h-40 bg-yellow-500/10 rounded-full blur-xl" />
       </section>
     </div>;
 };
