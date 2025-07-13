@@ -25,17 +25,17 @@ const Index = () => {
   const { scrollY } = useScroll();
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Parallax effects
-  const y1 = useTransform(scrollY, [0, 1000], [0, -200]);
-  const y2 = useTransform(scrollY, [0, 1000], [0, -400]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0.3]);
+  // Optimierte Parallax-Effekte (reduzierte Intensität)
+  const y1 = useTransform(scrollY, [0, 1000], [0, -50]);
+  const y2 = useTransform(scrollY, [0, 1000], [0, -100]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0.8]);
 
   useEffect(() => {
     setIsVisible(true);
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
-        x: e.clientX / window.innerWidth * 2 - 1,
-        y: -(e.clientY / window.innerHeight) * 2 + 1
+        x: (e.clientX / window.innerWidth - 0.5) * 0.5,
+        y: (e.clientY / window.innerHeight - 0.5) * 0.5
       });
     };
 
@@ -89,8 +89,8 @@ const Index = () => {
   const cardVariants = {
     hidden: {
       opacity: 0,
-      y: 50,
-      scale: 0.8
+      y: 30,
+      scale: 0.95
     },
     visible: {
       opacity: 1,
@@ -98,8 +98,8 @@ const Index = () => {
       scale: 1
     },
     hover: {
-      scale: 1.05,
-      y: -10
+      scale: 1.02,
+      y: -5
     }
   };
 
@@ -108,12 +108,13 @@ const Index = () => {
       <motion.nav 
         initial={{ y: -100 }} 
         animate={{ y: 0 }} 
-        className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-purple-500/30"
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-lg border-b border-purple-500/20"
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <motion.div 
-              whileHover={{ scale: 1.1 }} 
+              whileHover={{ scale: 1.05 }} 
               className="flex items-center"
             >
               <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
@@ -132,7 +133,7 @@ const Index = () => {
                   <DropdownMenuTrigger className="text-gray-300 hover:text-white transition-all duration-300 ml-1">
                     <ChevronDown className="w-4 h-4" />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-black/90 border border-purple-500/30 shadow-lg backdrop-blur-lg">
+                  <DropdownMenuContent className="bg-black/95 border border-purple-500/30 shadow-xl backdrop-blur-lg z-50">
                     <DropdownMenuItem asChild>
                       <Link to="/studio" className="w-full text-gray-300 hover:text-white hover:bg-purple-500/20">
                         New Edge Studio
@@ -156,7 +157,7 @@ const Index = () => {
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
               >
-                <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700">
+                <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300">
                   Kontakt
                 </Button>
               </motion.div>
@@ -169,28 +170,29 @@ const Index = () => {
       <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
         <motion.div 
           style={{ y: y1, opacity }} 
-          className="text-center relative z-10"
+          className="text-center relative z-10 max-w-6xl mx-auto"
         >
           <motion.div 
-            initial={{ opacity: 0, scale: 0.5 }} 
+            initial={{ opacity: 0, scale: 0.8 }} 
             animate={{ opacity: 1, scale: 1 }} 
-            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }} 
+            transition={{ duration: 1, ease: "easeOut" }} 
             className="mb-12"
           >
             <motion.div 
-              animate={{
-                background: ["linear-gradient(45deg, #9f91f8, #4f97f0, #FFED00)", "linear-gradient(45deg, #4f97f0, #FFED00, #9f91f8)", "linear-gradient(45deg, #FFED00, #9f91f8, #4f97f0)"]
-              }} 
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }} 
-              className="inline-block text-transparent bg-clip-text text-8xl md:text-9xl font-black tracking-tight"
+              className="text-8xl md:text-9xl font-black tracking-tight mb-4"
+              style={{
+                background: "linear-gradient(45deg, #9f91f8, #4f97f0, #FFED00)",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                color: "transparent"
+              }}
             >
               BRAND
             </motion.div>
-            <br />
             <motion.div 
               initial={{ rotateX: -90 }} 
               animate={{ rotateX: 0 }} 
-              transition={{ delay: 0.5, duration: 0.8 }} 
+              transition={{ delay: 0.3, duration: 0.8 }} 
               className="text-8xl md:text-9xl font-black text-white italic mb-4"
             >
               INTELLIGENCE
@@ -198,7 +200,7 @@ const Index = () => {
             <motion.div 
               initial={{ opacity: 0, y: 50 }} 
               animate={{ opacity: 1, y: 0 }} 
-              transition={{ delay: 1, duration: 0.8 }} 
+              transition={{ delay: 0.6, duration: 0.8 }} 
               className="text-4xl md:text-6xl text-gray-400 font-light"
             >
               FOR CONSUMER BRANDS
@@ -208,7 +210,7 @@ const Index = () => {
           <motion.p 
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
-            transition={{ delay: 1.5, duration: 0.8 }} 
+            transition={{ delay: 0.9, duration: 0.8 }} 
             className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed"
           >
             New Edge ist eine der innovativsten Creative-Tech-Agentur für intelligente Markenkommunikation in Europa
@@ -219,10 +221,10 @@ const Index = () => {
           {/* Scroll Indicator */}
           <motion.div 
             animate={{ y: [0, 10, 0] }} 
-            transition={{ duration: 2, repeat: Infinity }} 
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} 
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
             onClick={() => {
-              const nextSection = document.querySelector('.services-section');
+              const nextSection = document.querySelector('.visual-section');
               nextSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
@@ -235,34 +237,43 @@ const Index = () => {
           </motion.div>
         </motion.div>
 
-        {/* Interactive Floating Elements */}
+        {/* Subtle Floating Elements */}
         <motion.div 
-          style={{ x: mousePosition.x * 100, y: mousePosition.y * 100 }} 
-          className="absolute top-20 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl" 
+          style={{ 
+            x: mousePosition.x * 30, 
+            y: mousePosition.y * 30 
+          }} 
+          className="absolute top-20 left-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl" 
         />
         <motion.div 
-          style={{ x: -mousePosition.x * 150, y: -mousePosition.y * 150 }} 
-          className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/20 rounded-full blur-xl" 
+          style={{ 
+            x: -mousePosition.x * 40, 
+            y: -mousePosition.y * 40 
+          }} 
+          className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-xl" 
         />
       </section>
 
-      {/* Video/Visual Section */}
-      <section className="py-20 bg-gradient-to-b from-black to-gray-900 relative">
-        <motion.div style={{ y: y2 }} className="container mx-auto px-6">
+      {/* Visual Section */}
+      <section className="visual-section py-20 bg-gradient-to-b from-black to-gray-900 relative">
+        <motion.div 
+          style={{ y: y2 }} 
+          className="container mx-auto px-6"
+        >
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }} 
+            initial={{ opacity: 0, scale: 0.9 }} 
             whileInView={{ opacity: 1, scale: 1 }} 
             viewport={{ once: true }} 
-            whileHover={{ scale: 1.02 }} 
+            whileHover={{ scale: 1.01 }} 
             transition={{ duration: 0.8 }} 
             className="relative h-96 md:h-[500px] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-800 rounded-3xl overflow-hidden flex items-center justify-center group"
           >
             <div className="text-center text-white z-10">
               <motion.h2 
-                initial={{ y: 50, opacity: 0 }} 
+                initial={{ y: 30, opacity: 0 }} 
                 whileInView={{ y: 0, opacity: 1 }} 
                 viewport={{ once: true }} 
-                transition={{ delay: 0.2, duration: 0.8 }} 
+                transition={{ delay: 0.2, duration: 0.6 }} 
                 className="text-4xl md:text-6xl font-black mb-4"
               >
                 <span className="inline-block">STRATEGIE </span>
@@ -273,36 +284,29 @@ const Index = () => {
               </motion.h2>
             </div>
             
-            {/* Animated background pattern */}
+            {/* Subtle Animation Overlay */}
             <motion.div 
               initial={{ opacity: 0 }} 
-              animate={{ opacity: 0.1 }} 
+              animate={{ opacity: 0.05 }} 
               transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }} 
-              className="absolute inset-0 bg-black/10" 
-            />
-            <motion.div 
-              initial={{ x: "-100%" }} 
-              whileInView={{ x: "100%" }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 2, ease: "easeInOut" }} 
-              className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent" 
+              className="absolute inset-0 bg-white/5" 
             />
           </motion.div>
         </motion.div>
       </section>
 
       {/* Mission Statement */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-16 bg-gradient-to-b from-gray-900 to-black">
         <motion.div 
-          initial={{ opacity: 0, y: 50 }} 
+          initial={{ opacity: 0, y: 30 }} 
           whileInView={{ opacity: 1, y: 0 }} 
           viewport={{ once: true }} 
           transition={{ duration: 0.8 }} 
           className="container mx-auto px-6 text-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 max-w-4xl mx-auto leading-tight">
-            <span className="inline-block hover:scale-105 transition-transform duration-300">Innovation voranbringen durch</span>
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent hover:from-yellow-400 hover:to-purple-400 transition-all duration-500"> intelligente Automatisierung</span>
+            <span className="inline-block">Innovation voranbringen durch </span>
+            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> intelligente Automatisierung</span>
           </h2>
           <motion.p 
             initial={{ opacity: 0 }} 
@@ -317,29 +321,26 @@ const Index = () => {
       </section>
 
       {/* Services Overview */}
-      <section className="services-section relative py-16 bg-gradient-to-b from-black via-gray-900 to-black">
-        <motion.div style={{ y: y2 }} className="container mx-auto px-6">
+      <section className="services-section relative py-20 bg-gradient-to-b from-black via-gray-900 to-black">
+        <motion.div className="container mx-auto px-6">
           <motion.div 
-            initial={{ opacity: 0, y: 50 }} 
+            initial={{ opacity: 0, y: 30 }} 
             whileInView={{ opacity: 1, y: 0 }} 
             viewport={{ once: true }} 
             transition={{ duration: 0.8 }} 
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
             <motion.div 
-              animate={{
-                boxShadow: ["0 0 20px #9f91f8", "0 0 40px #4f97f0", "0 0 20px #FFED00", "0 0 40px #9f91f8"]
-              }} 
-              transition={{ duration: 4, repeat: Infinity }} 
-              className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-6"
+              className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full text-xl font-bold mb-8"
+              whileHover={{ scale: 1.05 }}
             >
               Drei Bereiche
             </motion.div>
-            <h2 className="text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
+            <div className="grid lg:grid-cols-3 gap-8">
               
               {/* Studio Card */}
               <motion.div 
@@ -351,24 +352,21 @@ const Index = () => {
                 onHoverStart={() => setHoveredCard('studio')} 
                 onHoverEnd={() => setHoveredCard(null)} 
                 className="relative group"
+                transition={{ duration: 0.6 }}
               >
-                <Card className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-purple-500/30 shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 backdrop-blur-lg">
+                <Card className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 border border-purple-500/20 shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 backdrop-blur-lg h-full">
                   <CardContent className="p-8 text-center relative overflow-hidden">
                     <motion.div 
                       animate={hoveredCard === 'studio' ? {
-                        background: ["radial-gradient(circle, rgba(159,145,248,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(236,72,153,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(159,145,248,0.1) 0%, transparent 70%)"]
+                        background: ["radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(236,72,153,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)"]
                       } : {}} 
-                      transition={{ duration: 2, repeat: Infinity }} 
+                      transition={{ duration: 3, repeat: Infinity }} 
                       className="absolute inset-0" 
                     />
                     
                     <motion.div 
-                      animate={hoveredCard === 'studio' ? {
-                        scale: [1, 1.1, 1],
-                        rotate: [0, 5, -5, 0]
-                      } : {}} 
-                      transition={{ duration: 2, repeat: Infinity }} 
                       className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                      whileHover={{ scale: 1.05 }}
                     >
                       New Edge Studio
                     </motion.div>
@@ -377,7 +375,7 @@ const Index = () => {
                     <p className="text-lg text-purple-200 mb-6 leading-relaxed relative z-10">
                       Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
                     </p>
-                    <ul className="space-y-3 text-gray-300 mb-8 relative z-10">
+                    <ul className="space-y-3 text-gray-300 mb-8 relative z-10 text-left">
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
                         Strategie & Markenidentität
@@ -392,8 +390,8 @@ const Index = () => {
                       </li>
                     </ul>
                     
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 w-full relative z-10" asChild>
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 w-full relative z-10 transition-all duration-300" asChild>
                         <Link to="/studio">
                           Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
@@ -403,9 +401,9 @@ const Index = () => {
                 </Card>
 
                 {/* Animated Arrow */}
-                <div className="hidden lg:block absolute -right-6 top-1/2 transform -translate-y-1/2 z-20">
-                  <motion.div animate={{ x: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }}>
-                    <ArrowRight className="w-8 h-8 text-purple-400" />
+                <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-20">
+                  <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
+                    <ArrowRight className="w-6 h-6 text-purple-400/60" />
                   </motion.div>
                 </div>
               </motion.div>
@@ -417,28 +415,24 @@ const Index = () => {
                 whileInView="visible" 
                 whileHover="hover" 
                 viewport={{ once: true }} 
-                transition={{ delay: 0.2 }} 
+                transition={{ delay: 0.2, duration: 0.6 }} 
                 onHoverStart={() => setHoveredCard('media')} 
                 onHoverEnd={() => setHoveredCard(null)} 
                 className="relative group"
               >
-                <Card className="bg-gradient-to-br from-blue-900/50 to-cyan-900/50 border border-blue-500/30 shadow-2xl hover:shadow-blue-500/20 transition-all duration-700 backdrop-blur-lg">
+                <Card className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/20 shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 backdrop-blur-lg h-full">
                   <CardContent className="p-8 text-center relative overflow-hidden">
                     <motion.div 
                       animate={hoveredCard === 'media' ? {
-                        background: ["radial-gradient(circle, rgba(79,151,240,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(6,182,212,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(79,151,240,0.1) 0%, transparent 70%)"]
+                        background: ["radial-gradient(circle, rgba(79,151,240,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(79,151,240,0.05) 0%, transparent 70%)"]
                       } : {}} 
-                      transition={{ duration: 2, repeat: Infinity }} 
+                      transition={{ duration: 3, repeat: Infinity }} 
                       className="absolute inset-0" 
                     />
                     
                     <motion.div 
-                      animate={hoveredCard === 'media' ? {
-                        scale: [1, 1.1, 1],
-                        rotate: [0, -5, 5, 0]
-                      } : {}} 
-                      transition={{ duration: 2, repeat: Infinity }} 
                       className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                      whileHover={{ scale: 1.05 }}
                     >
                       New Edge Media
                     </motion.div>
@@ -447,7 +441,7 @@ const Index = () => {
                     <p className="text-lg text-blue-200 mb-6 leading-relaxed relative z-10">
                       Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
                     </p>
-                    <ul className="space-y-3 text-gray-300 mb-8 relative z-10">
+                    <ul className="space-y-3 text-gray-300 mb-8 relative z-10 text-left">
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
                         Content-Produktion & Reichweite
@@ -462,8 +456,8 @@ const Index = () => {
                       </li>
                     </ul>
                     
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700 w-full relative z-10" asChild>
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700 w-full relative z-10 transition-all duration-300" asChild>
                         <Link to="/media">
                           Content produzieren <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
@@ -473,9 +467,9 @@ const Index = () => {
                 </Card>
 
                 {/* Animated Arrow */}
-                <div className="hidden lg:block absolute -right-6 top-1/2 transform -translate-y-1/2 z-20">
-                  <motion.div animate={{ x: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}>
-                    <ArrowRight className="w-8 h-8 text-blue-400" />
+                <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-20">
+                  <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5, ease: "easeInOut" }}>
+                    <ArrowRight className="w-6 h-6 text-blue-400/60" />
                   </motion.div>
                 </div>
               </motion.div>
@@ -487,28 +481,24 @@ const Index = () => {
                 whileInView="visible" 
                 whileHover="hover" 
                 viewport={{ once: true }} 
-                transition={{ delay: 0.4 }} 
+                transition={{ delay: 0.4, duration: 0.6 }} 
                 onHoverStart={() => setHoveredCard('lab')} 
                 onHoverEnd={() => setHoveredCard(null)} 
                 className="relative group"
               >
-                <Card className="bg-gradient-to-br from-yellow-900/50 to-amber-900/50 border border-yellow-500/30 shadow-2xl hover:shadow-yellow-500/20 transition-all duration-700 backdrop-blur-lg">
+                <Card className="bg-gradient-to-br from-yellow-900/30 to-amber-900/30 border border-yellow-500/20 shadow-2xl hover:shadow-yellow-500/10 transition-all duration-500 backdrop-blur-lg h-full">
                   <CardContent className="p-8 text-center relative overflow-hidden">
                     <motion.div 
                       animate={hoveredCard === 'lab' ? {
-                        background: ["radial-gradient(circle, rgba(255,237,0,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(217,119,6,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(255,237,0,0.1) 0%, transparent 70%)"]
+                        background: ["radial-gradient(circle, rgba(255,237,0,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(217,119,6,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(255,237,0,0.05) 0%, transparent 70%)"]
                       } : {}} 
-                      transition={{ duration: 2, repeat: Infinity }} 
+                      transition={{ duration: 3, repeat: Infinity }} 
                       className="absolute inset-0" 
                     />
                     
                     <motion.div 
-                      animate={hoveredCard === 'lab' ? {
-                        scale: [1, 1.1, 1],
-                        rotate: [0, 5, -5, 0]
-                      } : {}} 
-                      transition={{ duration: 2, repeat: Infinity }} 
                       className="inline-block bg-gradient-to-r from-yellow-600 to-amber-600 text-black px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                      whileHover={{ scale: 1.05 }}
                     >
                       New Edge Lab
                     </motion.div>
@@ -517,7 +507,7 @@ const Index = () => {
                     <p className="text-lg text-yellow-200 mb-6 leading-relaxed relative z-10">
                       Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
                     </p>
-                    <ul className="space-y-3 text-gray-300 mb-8 relative z-10">
+                    <ul className="space-y-3 text-gray-300 mb-8 relative z-10 text-left">
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
                         KI-Integration & Automation
@@ -532,8 +522,8 @@ const Index = () => {
                       </li>
                     </ul>
                     
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button className="bg-gradient-to-r from-yellow-600 to-amber-600 text-black hover:from-yellow-700 hover:to-amber-700 w-full relative z-10" asChild>
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button className="bg-gradient-to-r from-yellow-600 to-amber-600 text-black hover:from-yellow-700 hover:to-amber-700 w-full relative z-10 transition-all duration-300" asChild>
                         <Link to="/lab">
                           Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
@@ -545,16 +535,16 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="text-center mt-20">
+          <div className="text-center mt-16">
             <motion.div 
-              initial={{ opacity: 0, y: 50 }} 
+              initial={{ opacity: 0, y: 30 }} 
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
-              transition={{ delay: 0.6 }} 
-              whileHover={{ scale: 1.05 }} 
-              whileTap={{ scale: 0.95 }}
+              transition={{ delay: 0.6, duration: 0.6 }} 
+              whileHover={{ scale: 1.02 }} 
+              whileTap={{ scale: 0.98 }}
             >
-              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-8 py-4" asChild>
+              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-8 py-4 transition-all duration-300" asChild>
                 <Link to="/services">
                   Alle Services entdecken <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
@@ -569,7 +559,7 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div 
-              initial={{ opacity: 0, y: 50 }} 
+              initial={{ opacity: 0, y: 30 }} 
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ duration: 0.8 }} 
@@ -584,17 +574,17 @@ const Index = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.01 }}
             >
-              <Card className="bg-gray-900/50 border border-purple-500/30 shadow-2xl backdrop-blur-lg">
+              <Card className="bg-gray-900/50 border border-purple-500/20 shadow-2xl backdrop-blur-lg">
                 <CardContent className="p-8">
                   <form action="https://formspree.io/f/xjkrnyon" method="POST" onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
                     <motion.div 
-                      initial={{ opacity: 0, x: -50 }} 
+                      initial={{ opacity: 0, x: -20 }} 
                       whileInView={{ opacity: 1, x: 0 }} 
                       viewport={{ once: true }} 
                       transition={{ delay: 0.1, duration: 0.5 }} 
@@ -605,7 +595,7 @@ const Index = () => {
                     </motion.div>
                     
                     <motion.div 
-                      initial={{ opacity: 0, x: 50 }} 
+                      initial={{ opacity: 0, x: 20 }} 
                       whileInView={{ opacity: 1, x: 0 }} 
                       viewport={{ once: true }} 
                       transition={{ delay: 0.2, duration: 0.5 }} 
@@ -616,7 +606,7 @@ const Index = () => {
                     </motion.div>
                     
                     <motion.div 
-                      initial={{ opacity: 0, x: -50 }} 
+                      initial={{ opacity: 0, x: -20 }} 
                       whileInView={{ opacity: 1, x: 0 }} 
                       viewport={{ once: true }} 
                       transition={{ delay: 0.3, duration: 0.5 }} 
@@ -627,7 +617,7 @@ const Index = () => {
                     </motion.div>
                     
                     <motion.div 
-                      initial={{ opacity: 0, x: 50 }} 
+                      initial={{ opacity: 0, x: 20 }} 
                       whileInView={{ opacity: 1, x: 0 }} 
                       viewport={{ once: true }} 
                       transition={{ delay: 0.4, duration: 0.5 }} 
@@ -638,7 +628,7 @@ const Index = () => {
                     </motion.div>
                     
                     <motion.div 
-                      initial={{ opacity: 0, y: 50 }} 
+                      initial={{ opacity: 0, y: 20 }} 
                       whileInView={{ opacity: 1, y: 0 }} 
                       viewport={{ once: true }} 
                       transition={{ delay: 0.5, duration: 0.5 }} 
@@ -649,7 +639,7 @@ const Index = () => {
                     </motion.div>
                     
                     <motion.div 
-                      initial={{ opacity: 0, y: 50 }} 
+                      initial={{ opacity: 0, y: 20 }} 
                       whileInView={{ opacity: 1, y: 0 }} 
                       viewport={{ once: true }} 
                       transition={{ delay: 0.6, duration: 0.5 }} 
@@ -668,7 +658,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
+      <footer className="bg-gray-900/80 text-white py-16 border-t border-gray-800">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="md:col-span-2">
