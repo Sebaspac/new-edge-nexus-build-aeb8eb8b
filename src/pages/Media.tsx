@@ -1,150 +1,226 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Megaphone, Target, BarChart, Users, TrendingUp, Eye } from "lucide-react";
+import { Megaphone, Target, BarChart, Users, TrendingUp, Eye, ChevronDown, Video, Camera, Edit } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Media = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsVisible(true);
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  const scrollToContact = () => {
+    window.location.href = '/#contact-section';
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
+      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 animate-slide-in-right">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex flex-col items-start">
-              <div className="flex items-center hover:scale-105 transition-transform duration-300 mb-2">
-                <img 
-                  alt="New Edge Logo" 
-                  className="h-8 w-8 mr-3" 
-                  src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" 
-                />
-                <div className="text-2xl font-bold text-black">
-                  New Edge
-                </div>
+            <div className="flex items-center hover:scale-105 transition-transform duration-300">
+              <img alt="New Edge Logo" className="h-8 w-8 mr-3 animate-float" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
+              <div className="text-2xl font-bold text-black">
+                New Edge<span className="text-primary"></span>
               </div>
-              <Link 
-                to="/services" 
-                className="inline-flex items-center text-gray-500 hover:text-black transition-all duration-300 hover:scale-110 text-sm"
-              >
-                <ArrowLeft className="mr-2 h-3 w-3" />
-                Zurück zu Services
-              </Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-600 hover:text-black transition-all duration-300">Home</Link>
-              <Link to="/services" className="text-gray-600 hover:text-black transition-all duration-300">Services</Link>
+              <Link to="/" className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110">Home</Link>
+              
+              <div className="relative flex items-center">
+                <Link to="/services" className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110">
+                  Services
+                </Link>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110 ml-1">
+                    <ChevronDown className="w-4 h-4" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg">
+                    <DropdownMenuItem asChild>
+                      <Link to="/studio" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                        New Edge Studio
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/media" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                        New Edge Media
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/lab" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                        New Edge Lab
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+              
+              <Button onClick={scrollToContact} className="bg-black text-white hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                Kontakt
+              </Button>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-blue-50 to-cyan-50">
-        <div className="container mx-auto text-center">
-          <div className="flex items-center justify-center mb-8">
-            <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-              <Megaphone className="w-8 h-8 text-blue-600" />
+      <section className="pt-32 pb-32 px-6 bg-white relative overflow-hidden">
+        <div className="container mx-auto text-center relative z-10">
+          <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
+            <h1 className="text-6xl md:text-8xl font-black text-black mb-8 leading-tight tracking-tight">
+              <span className="inline-block animate-fade-in" style={{ animationDelay: '0.2s' }}>NEW EDGE</span>
+              <br />
+              <span className="text-blue-600 italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{ animationDelay: '0.4s' }}>MEDIA</span>
+              <br />
+              <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{ animationDelay: '0.6s' }}>CONTENT REVOLUTION</span>
+            </h1>
+            
+            {/* Floating icons */}
+            <div className="absolute top-20 left-10 animate-float" style={{ animationDelay: '0.5s' }}>
+              <Video className="w-8 h-8 text-blue-400" />
             </div>
-            <div className="text-left">
-              <h1 className="text-5xl font-bold text-black mb-2">New Edge Media</h1>
-              <p className="text-2xl text-blue-600 font-medium">Content & Strategie</p>
+            <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: '1s' }}>
+              <Camera className="w-6 h-6 text-cyan-400" />
+            </div>
+            <div className="absolute bottom-20 left-20 animate-float" style={{ animationDelay: '1.5s' }}>
+              <Megaphone className="w-10 h-10 text-blue-300" />
+            </div>
+
+            {/* Interactive background elements */}
+            <div 
+              className="absolute w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30 animate-pulse"
+              style={{
+                left: mousePosition.x / 10,
+                top: mousePosition.y / 10,
+                transform: 'translate(-50%, -50%)'
+              }}
+            />
+            
+            <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: '0.8s' }}>
+              Wir produzieren Content, der bewegt, inspiriert und Reichweite generiert.
+              <br />
+              <span className="text-blue-600 font-medium">Von der Strategie bis zur viralen Umsetzung.</span>
+            </p>
+            
+            <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
+              <Button 
+                size="lg" 
+                className="bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4"
+                asChild
+              >
+                <Link to="/#contact-section">
+                  Projekt starten
+                </Link>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-300 hover:scale-105 text-lg px-8 py-4"
+              >
+                Portfolio ansehen
+              </Button>
             </div>
           </div>
-          
-          <p className="text-xl text-gray-700 max-w-4xl mx-auto mb-12 leading-relaxed">
-            Wir entwickeln datengetriebene Content-Strategien, die Ihre Zielgruppe erreichen und engagieren. 
-            Unsere KI-gestützten Ansätze optimieren kontinuierlich Performance und ROI.
-          </p>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 bg-white">
+      {/* Services Overview */}
+      <section className="py-32 bg-gray-50">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Target className="w-6 h-6 text-blue-600" />
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-bold text-black mb-6 animate-fade-in">Media-Services</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in">
+              Umfassende Content-Lösungen für digitale Präsenz
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
+                  <Video className="w-8 h-8 text-blue-600" />
                 </div>
-                <CardTitle className="text-xl">Content-Strategien</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-center">
-                  Maßgeschneiderte Content-Pläne, die Ihre Markenbotschaft effektiv vermitteln
+                <h3 className="text-2xl font-bold text-black mb-4">Video Production</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Professionelle Videoproduktion von Concept bis Post-Production.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-6 h-6 text-blue-600" />
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.1s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
+                  <Camera className="w-8 h-8 text-blue-600" />
                 </div>
-                <CardTitle className="text-xl">Social Media Management</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-center">
-                  Professionelle Betreuung Ihrer Social Media Kanäle mit authentischem Engagement
+                <h3 className="text-2xl font-bold text-black mb-4">Photography</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Hochwertige Fotografie für Produkte, Events und Corporate Needs.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-6 h-6 text-blue-600" />
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.2s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
+                  <Megaphone className="w-8 h-8 text-blue-600" />
                 </div>
-                <CardTitle className="text-xl">SEO & Performance Marketing</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-center">
-                  Suchmaschinenoptimierung und datengetriebenes Marketing für maximale Reichweite
+                <h3 className="text-2xl font-bold text-black mb-4">Social Media</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Strategische Social Media Kampagnen mit messbaren Ergebnissen.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Megaphone className="w-6 h-6 text-blue-600" />
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.3s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
+                  <Edit className="w-8 h-8 text-blue-600" />
                 </div>
-                <CardTitle className="text-xl">Brand Storytelling</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-center">
-                  Emotionale Geschichten, die Ihre Marke unvergesslich machen
+                <h3 className="text-2xl font-bold text-black mb-4">Content Creation</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Kreative Content-Entwicklung für alle digitalen Kanäle.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-6 h-6 text-blue-600" />
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.4s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
+                  <BarChart className="w-8 h-8 text-blue-600" />
                 </div>
-                <CardTitle className="text-xl">Community Building</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-center">
-                  Aufbau und Pflege loyaler Communities rund um Ihre Marke
+                <h3 className="text-2xl font-bold text-black mb-4">Analytics & Insights</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Datengetriebene Analysen zur Optimierung Ihrer Content-Performance.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <BarChart className="w-6 h-6 text-blue-600" />
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.5s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
+                  <Target className="w-8 h-8 text-blue-600" />
                 </div>
-                <CardTitle className="text-xl">Analytics & Reporting</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-center">
-                  Detaillierte Auswertungen und Insights für kontinuierliche Optimierung
+                <h3 className="text-2xl font-bold text-black mb-4">Influencer Marketing</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Strategische Kooperationen mit den richtigen Influencern für Ihre Marke.
                 </p>
               </CardContent>
             </Card>
@@ -153,21 +229,31 @@ const Media = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-4">Bereit für den nächsten Schritt?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Lassen Sie uns gemeinsam Ihre Content-Strategie revolutionieren.
+      <section className="py-32 bg-gradient-to-r from-blue-600 to-cyan-600 text-white relative overflow-hidden">
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <h2 className="text-5xl font-bold mb-6 animate-fade-in">Bereit für den nächsten Schritt?</h2>
+          <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in">
+            Lassen Sie uns gemeinsam Ihre Content-Strategie revolutionieren und nachhaltige Reichweite aufbauen.
           </p>
           <Button 
             size="lg" 
-            className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3"
+            className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
             asChild
           >
             <Link to="/#contact-section">
               Projekt starten
             </Link>
           </Button>
+        </div>
+        
+        {/* Background decoration */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-20 left-20 animate-float">
+            <Video className="w-32 h-32" />
+          </div>
+          <div className="absolute bottom-20 right-20 animate-float" style={{ animationDelay: '1s' }}>
+            <Megaphone className="w-24 h-24" />
+          </div>
         </div>
       </section>
     </div>

@@ -1,271 +1,259 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Brain, Cpu, Eye, Cog, BarChart, Code } from "lucide-react";
+import { Brain, Cpu, Eye, Cog, BarChart, Code, ChevronDown, Zap, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Lab = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsVisible(true);
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  const scrollToContact = () => {
+    window.location.href = '/#contact-section';
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
+      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 animate-slide-in-right">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex flex-col items-start">
-              <div className="flex items-center hover:scale-105 transition-transform duration-300 mb-2">
-                <img 
-                  alt="New Edge Logo" 
-                  className="h-8 w-8 mr-3" 
-                  src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" 
-                />
-                <div className="text-2xl font-bold text-black">
-                  New Edge
-                </div>
+            <div className="flex items-center hover:scale-105 transition-transform duration-300">
+              <img alt="New Edge Logo" className="h-8 w-8 mr-3 animate-float" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
+              <div className="text-2xl font-bold text-black">
+                New Edge<span className="text-primary"></span>
               </div>
-              <Link 
-                to="/services" 
-                className="inline-flex items-center text-gray-500 hover:text-black transition-all duration-300 hover:scale-110 text-sm"
-              >
-                <ArrowLeft className="mr-2 h-3 w-3" />
-                Zurück zu Services
-              </Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-600 hover:text-black transition-all duration-300">Home</Link>
-              <Link to="/services" className="text-gray-600 hover:text-black transition-all duration-300">Services</Link>
+              <Link to="/" className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110">Home</Link>
+              
+              <div className="relative flex items-center">
+                <Link to="/services" className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110">
+                  Services
+                </Link>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110 ml-1">
+                    <ChevronDown className="w-4 h-4" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg">
+                    <DropdownMenuItem asChild>
+                      <Link to="/studio" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                        New Edge Studio
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/media" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                        New Edge Media
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/lab" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                        New Edge Lab
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+              
+              <Button onClick={scrollToContact} className="bg-black text-white hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                Kontakt
+              </Button>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-green-50 to-emerald-50">
-        <div className="container mx-auto text-center">
-          <div className="flex items-center justify-center mb-8">
-            <div className="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mr-4">
-              <Brain className="w-8 h-8 text-green-600" />
+      <section className="pt-32 pb-32 px-6 bg-white relative overflow-hidden">
+        <div className="container mx-auto text-center relative z-10">
+          <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
+            <h1 className="text-6xl md:text-8xl font-black text-black mb-8 leading-tight tracking-tight">
+              <span className="inline-block animate-fade-in" style={{ animationDelay: '0.2s' }}>NEW EDGE</span>
+              <br />
+              <span className="text-green-600 italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{ animationDelay: '0.4s' }}>LAB</span>
+              <br />
+              <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{ animationDelay: '0.6s' }}>AI INNOVATION</span>
+            </h1>
+            
+            {/* Floating icons */}
+            <div className="absolute top-20 left-10 animate-float" style={{ animationDelay: '0.5s' }}>
+              <Brain className="w-8 h-8 text-green-400" />
             </div>
-            <div className="text-left">
-              <h1 className="text-5xl font-bold text-black mb-2">New Edge Lab</h1>
-              <p className="text-2xl text-green-600 font-medium">KI & Innovation</p>
+            <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: '1s' }}>
+              <Zap className="w-6 h-6 text-emerald-400" />
+            </div>
+            <div className="absolute bottom-20 left-20 animate-float" style={{ animationDelay: '1.5s' }}>
+              <Cpu className="w-10 h-10 text-green-300" />
+            </div>
+
+            {/* Interactive background elements */}
+            <div 
+              className="absolute w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-30 animate-pulse"
+              style={{
+                left: mousePosition.x / 10,
+                top: mousePosition.y / 10,
+                transform: 'translate(-50%, -50%)'
+              }}
+            />
+            
+            <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: '0.8s' }}>
+              Wir erforschen die Grenzen des Möglichen und entwickeln KI-Lösungen für morgen.
+              <br />
+              <span className="text-green-600 font-medium">Innovation durch intelligente Automatisierung.</span>
+            </p>
+            
+            <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
+              <Button 
+                size="lg" 
+                className="bg-green-600 text-white hover:bg-green-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4"
+                asChild
+              >
+                <Link to="/#contact-section">
+                  Innovation starten
+                </Link>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-green-600 text-green-600 hover:bg-green-50 transition-all duration-300 hover:scale-105 text-lg px-8 py-4"
+              >
+                Technologien entdecken
+              </Button>
             </div>
           </div>
-          
-          <p className="text-xl text-gray-700 max-w-4xl mx-auto mb-12 leading-relaxed">
-            In unserem Innovation Lab entwickeln wir die Marketing-Tools von morgen. 
-            KI-getriebene Lösungen, die Ihre Prozesse automatisieren und optimieren.
-          </p>
         </div>
       </section>
 
-      {/* Technologies Section */}
-      <section className="py-20 bg-white">
+      {/* Services Overview */}
+      <section className="py-32 bg-gray-50">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-black mb-16">Unsere Technologien</h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Brain className="w-6 h-6 text-green-600" />
-                </div>
-                <CardTitle className="text-xl">Machine Learning</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-center">
-                  Intelligente Algorithmen zur Mustererkennung und Vorhersage
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Cpu className="w-6 h-6 text-green-600" />
-                </div>
-                <CardTitle className="text-xl">Natural Language Processing</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-center">
-                  Verstehen und Generieren menschlicher Sprache für bessere Kommunikation
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Eye className="w-6 h-6 text-green-600" />
-                </div>
-                <CardTitle className="text-xl">Computer Vision</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-center">
-                  Bildanalyse und -verarbeitung für visuelle KI-Anwendungen
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Cog className="w-6 h-6 text-green-600" />
-                </div>
-                <CardTitle className="text-xl">Automation Tools</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-center">
-                  Workflow-Automatisierung für effizientere Geschäftsprozesse
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <BarChart className="w-6 h-6 text-green-600" />
-                </div>
-                <CardTitle className="text-xl">Data Analytics</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-center">
-                  Tiefgreifende Datenanalyse für datengetriebene Entscheidungen
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Code className="w-6 h-6 text-green-600" />
-                </div>
-                <CardTitle className="text-xl">API Development</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-center">
-                  Maßgeschneiderte Schnittstellen für nahtlose Integration
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-black mb-16">Aktuelle Projekte</h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-xl text-green-600">KI-Content Generator</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Automatisierte Content-Erstellung basierend auf Brand Guidelines
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-xl text-green-600">Smart Analytics Dashboard</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Predictive Analytics für Marketing-Performance
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-xl text-green-600">Brand Voice AI</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  KI-System zur Konsistenz der Markenkommunikation
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Philosophy Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold text-black mb-6">Innovation als Philosophie</h2>
-            <p className="text-xl text-gray-700 leading-relaxed mb-12">
-              Wir glauben, dass KI nicht nur ein Tool ist, sondern ein kreativer Partner. 
-              In unserem Lab experimentieren wir mit den neuesten Technologien und entwickeln 
-              maßgeschneiderte Lösungen für Ihre spezifischen Herausforderungen.
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-bold text-black mb-6 animate-fade-in">Lab-Services</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in">
+              Zukunftsweisende KI-Lösungen für innovative Unternehmen
             </p>
           </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                  <Brain className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Machine Learning</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Entwicklung intelligenter Algorithmen für Datenanalyse und Vorhersagemodelle.
+                </p>
+              </CardContent>
+            </Card>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <div className="text-center">
-              <Badge className="mb-4 bg-green-100 text-green-800 text-lg px-4 py-2">
-                Experimentell
-              </Badge>
-              <p className="text-gray-600">Ständiges Testen neuer Technologien</p>
-            </div>
-            
-            <div className="text-center">
-              <Badge className="mb-4 bg-green-100 text-green-800 text-lg px-4 py-2">
-                Datengetrieben
-              </Badge>
-              <p className="text-gray-600">Entscheidungen basieren auf Fakten</p>
-            </div>
-            
-            <div className="text-center">
-              <Badge className="mb-4 bg-green-100 text-green-800 text-lg px-4 py-2">
-                Zukunftsorientiert
-              </Badge>
-              <p className="text-gray-600">Blick für kommende Trends und Möglichkeiten</p>
-            </div>
-            
-            <div className="text-center">
-              <Badge className="mb-4 bg-green-100 text-green-800 text-lg px-4 py-2">
-                Ethisch verantwortlich
-              </Badge>
-              <p className="text-gray-600">KI im Dienst der Menschen</p>
-            </div>
-          </div>
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.1s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                  <Eye className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Computer Vision</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Bildverarbeitung und visuelle Erkennung für automatisierte Systeme.
+                </p>
+              </CardContent>
+            </Card>
 
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-3xl font-bold text-black mb-6">Von der Idee zur Lösung</h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Jedes Projekt beginnt mit einer Vision. Unser interdisziplinäres Team aus Entwicklern, 
-              Data Scientists und Kreativen verwandelt komplexe Anforderungen in elegante, 
-              benutzerfreundliche Lösungen.
-            </p>
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.2s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                  <Code className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Custom AI Solutions</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Maßgeschneiderte KI-Anwendungen für spezifische Unternehmensanforderungen.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.3s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                  <Cog className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Process Automation</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Intelligente Automatisierung von Geschäftsprozessen durch KI-Integration.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.4s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                  <BarChart className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Predictive Analytics</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Vorhersagemodelle für fundierte Geschäftsentscheidungen und Trends.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.5s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                  <Lightbulb className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">AI Consulting</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Strategische Beratung für die optimale Integration von KI in Ihr Unternehmen.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-emerald-600 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-4">Bereit für die Zukunft?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Lassen Sie uns gemeinsam innovative KI-Lösungen für Ihr Unternehmen entwickeln.
+      <section className="py-32 bg-gradient-to-r from-green-600 to-emerald-600 text-white relative overflow-hidden">
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <h2 className="text-5xl font-bold mb-6 animate-fade-in">Bereit für die Zukunft?</h2>
+          <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in">
+            Lassen Sie uns gemeinsam innovative KI-Lösungen entwickeln, die Ihr Unternehmen transformieren.
           </p>
           <Button 
             size="lg" 
-            className="bg-white text-green-600 hover:bg-gray-100 text-lg px-8 py-3"
+            className="bg-white text-green-600 hover:bg-gray-100 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
             asChild
           >
             <Link to="/#contact-section">
               Innovation starten
             </Link>
           </Button>
+        </div>
+        
+        {/* Background decoration */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-20 left-20 animate-float">
+            <Brain className="w-32 h-32" />
+          </div>
+          <div className="absolute bottom-20 right-20 animate-float" style={{ animationDelay: '1s' }}>
+            <Cpu className="w-24 h-24" />
+          </div>
         </div>
       </section>
     </div>
