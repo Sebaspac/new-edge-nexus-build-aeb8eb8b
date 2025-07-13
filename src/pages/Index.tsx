@@ -148,9 +148,9 @@ const Index = () => {
             <div className="max-w-2xl mx-auto mb-12 animate-slide-in-right" style={{
             animationDelay: '0.8s'
           }}>
-              <p className="text-xl text-gray-600 mb-6">
-                new edge ist eine der innovativsten creative-tech-agentur
-              </p>
+              <p className="text-xl text-gray-600 mb-6">New Edge ist eine der innovativsten Creative-Tech-Agentur
+für intelligente Markenkommunikation in Europa
+            </p>
               
               {/* CTA Button */}
               <Button onClick={scrollToContact} className="bg-accent text-black hover:bg-accent/90 transition-all duration-300 px-8 py-4 text-lg font-semibold rounded-full hover:scale-110 hover:shadow-2xl">
