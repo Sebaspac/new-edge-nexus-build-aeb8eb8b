@@ -463,7 +463,7 @@ const Services = () => {
                 <Card className="bg-gradient-to-br from-yellow-900/50 to-yellow-900/50 border border-yellow-500/30 shadow-2xl hover:shadow-yellow-500/20 transition-all duration-700 backdrop-blur-lg">
                   <CardContent className="p-8 text-center relative overflow-hidden">
                     <motion.div animate={hoveredCard === 'lab' ? {
-                    background: ["radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(217,119,6,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%)"]
+                    background: ["radial-gradient(circle, rgba(255,237,0,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(255,237,0,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(255,237,0,0.1) 0%, transparent 70%)"]
                   } : {}} transition={{
                     duration: 2,
                     repeat: Infinity
