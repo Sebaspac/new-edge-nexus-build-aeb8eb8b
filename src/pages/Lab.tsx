@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Brain, Cpu, Eye, Cog, BarChart, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -5,6 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const Lab = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -256,8 +260,11 @@ const Lab = () => {
           <Button 
             size="lg" 
             className="bg-white text-green-600 hover:bg-gray-100 text-lg px-8 py-3"
+            asChild
           >
-            Innovation starten
+            <Link to="/#contact-section">
+              Innovation starten
+            </Link>
           </Button>
         </div>
       </section>

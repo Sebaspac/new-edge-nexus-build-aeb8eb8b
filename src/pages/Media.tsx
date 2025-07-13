@@ -1,9 +1,13 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Megaphone, Target, BarChart, Users, TrendingUp, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Media = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -158,8 +162,11 @@ const Media = () => {
           <Button 
             size="lg" 
             className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3"
+            asChild
           >
-            Projekt starten
+            <Link to="/#contact-section">
+              Projekt starten
+            </Link>
           </Button>
         </div>
       </section>

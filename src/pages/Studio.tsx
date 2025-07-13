@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Sparkles, Palette, Monitor, Package, FileImage, Grid3x3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -5,6 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const Studio = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -224,8 +228,11 @@ const Studio = () => {
           <Button 
             size="lg" 
             className="bg-white text-purple-600 hover:bg-gray-100 text-lg px-8 py-3"
+            asChild
           >
-            Design-Projekt starten
+            <Link to="/#contact-section">
+              Design-Projekt starten
+            </Link>
           </Button>
         </div>
       </section>
