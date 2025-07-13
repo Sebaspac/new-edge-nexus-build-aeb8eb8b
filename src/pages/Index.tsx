@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
+import { MobileNavigation } from "@/components/MobileNavigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -111,71 +112,11 @@ const Index = () => {
   };
 
   return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
-      {/* Navigation */}
-      <motion.nav 
-        initial={{ y: -100 }} 
-        animate={{ y: 0 }} 
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-lg border-b border-purple-500/20"
-      >
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <motion.div 
-              whileHover={{ scale: 1.05 }} 
-              className="flex items-center"
-            >
-              <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
-              <div className="text-2xl font-bold text-white">
-                New Edge<span className="text-purple-400"></span>
-              </div>
-            </motion.div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-white font-medium">Home</Link>
-              
-              <div className="relative flex items-center">
-                <Link to="/services" className="text-gray-300 hover:text-white transition-all duration-300">
-                  Services
-                </Link>
-                <DropdownMenu>
-                  <DropdownMenuTrigger className="text-gray-300 hover:text-white transition-all duration-300 ml-1">
-                    <ChevronDown className="w-4 h-4" />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-black/95 border border-purple-500/30 shadow-xl backdrop-blur-lg z-50">
-                    <DropdownMenuItem asChild>
-                      <Link to="/studio" className="w-full text-gray-300 hover:text-white hover:bg-purple-500/20">
-                        New Edge Studio
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to="/media" className="w-full text-gray-300 hover:text-white hover:bg-blue-500/20">
-                        New Edge Media
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to="/lab" className="w-full text-gray-300 hover:text-white hover:bg-yellow-500/20">
-                        New Edge Lab
-                      </Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
-              
-               <motion.div 
-                 whileHover={{ scale: 1.05 }} 
-                 whileTap={{ scale: 0.95 }}
-                 className="relative"
-               >
-                 <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300 animate-glow-pulse">
-                   Kontakt
-                 </Button>
-               </motion.div>
-            </div>
-          </div>
-        </div>
-      </motion.nav>
+      {/* Mobile Navigation */}
+      <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden">
         <motion.div 
           style={{ y: y1, opacity }} 
           className="text-center relative z-10 max-w-6xl mx-auto"
@@ -184,10 +125,10 @@ const Index = () => {
             initial={{ opacity: 0, scale: 0.8 }} 
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 1, ease: "easeOut" }} 
-            className="mb-12"
+            className="mb-8 sm:mb-12"
           >
             <motion.div 
-              className="text-8xl md:text-9xl font-black tracking-tight mb-4 relative"
+              className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tight mb-2 sm:mb-4 relative"
               style={{
                 background: "linear-gradient(45deg, #9f91f8, #4f97f0, #FFED00)",
                 backgroundClip: "text",
@@ -205,30 +146,65 @@ const Index = () => {
               initial={{ rotateX: -90 }} 
               animate={{ rotateX: 0 }} 
               transition={{ delay: 0.3, duration: 0.8 }} 
-              className="text-8xl md:text-9xl font-black text-white italic mb-4"
+              className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-white italic mb-2 sm:mb-4"
             >
               INTELLIGENCE
             </motion.div>
             <motion.div 
-              initial={{ opacity: 0, y: 50 }} 
+              initial={{ opacity: 0, y: 30 }} 
               animate={{ opacity: 1, y: 0 }} 
-              transition={{ delay: 0.6, duration: 0.8 }} 
-              className="text-4xl md:text-6xl text-gray-400 font-light"
+              transition={{ delay: 0.4, duration: 0.8 }} 
+              className="text-xl sm:text-2xl md:text-4xl lg:text-6xl text-gray-400 font-light"
             >
-              FOR CONSUMER BRANDS
+              FOR THE DIGITAL AGE
             </motion.div>
           </motion.div>
           
           <motion.p 
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
-            transition={{ delay: 0.9, duration: 0.8 }} 
-            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed"
+            transition={{ delay: 0.6, duration: 0.8 }} 
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto font-light leading-relaxed px-4"
           >
-            New Edge ist eine der innovativsten Creative-Tech-Agentur für intelligente Markenkommunikation in Europa
-            <br />
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">Drei spezialisierte Teams. Ein Ziel.</span>
+            Wir verwandeln Visionen in digitale Realitäten durch intelligente Strategien, 
+            überzeugende Inhalte und innovative Technologien.
+            <br className="hidden sm:block" />
+            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">
+              Ein Team. Drei Welten. Unendliche Möglichkeiten.
+            </span>
           </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ delay: 0.5, duration: 0.8 }} 
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button 
+                size="lg" 
+                className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300 px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg animate-glow-pulse hover-lift" 
+                onClick={scrollToContact}
+              >
+                Projekt starten <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-black transition-all duration-300 px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg hover-lift"
+              >
+                Services entdecken
+              </Button>
+            </motion.div>
+          </motion.div>
 
           {/* Scroll Indicator */}
           <motion.div 
@@ -244,7 +220,7 @@ const Index = () => {
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
             >
-              <ArrowDown className="w-8 h-8 text-purple-400" />
+              <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
             </motion.div>
           </motion.div>
         </motion.div>
