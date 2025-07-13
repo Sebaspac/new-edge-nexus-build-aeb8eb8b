@@ -183,7 +183,7 @@ const Lab = () => {
             }}>
               LAB macht aus Ideen reale, funktionierende Systeme — sicher, automatisiert, effizient.
               <br />
-              <span className="font-medium" style={{ color: '#FFED00' }}>Innovation durch intelligente Technologie.</span>
+              <span className="font-medium text-gray-900">Innovation durch intelligente Technologie.</span>
             </p>
             
             <div className="animate-fade-in" style={{
@@ -194,7 +194,7 @@ const Lab = () => {
                   Projekt starten
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="transition-all duration-300 hover:scale-105 text-lg px-8 py-4" style={{ borderColor: '#FFED00', color: '#FFED00' }}>
+              <Button variant="outline" size="lg" className="transition-all duration-300 hover:scale-105 text-lg px-8 py-4 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white">
                 Services entdecken
               </Button>
             </div>
@@ -231,13 +231,13 @@ const Lab = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 text-white relative overflow-hidden" style={{ background: `linear-gradient(to right, #FFED00, #FFED00)` }}>
+      <section className="py-32 text-black relative overflow-hidden" style={{ background: `linear-gradient(to right, #FFED00, #FFED00)` }}>
         <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 className="text-5xl font-bold mb-6 animate-fade-in">Bereit für die digitale Transformation?</h2>
-          <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in">
+          <h2 className="text-5xl font-bold mb-6 animate-fade-in text-black">Bereit für die digitale Transformation?</h2>
+          <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in text-gray-800">
             Lassen Sie uns gemeinsam innovative Lösungen entwickeln, die Ihr Unternehmen voranbringen.
           </p>
-          <Button size="lg" className="bg-white hover:bg-gray-100 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" style={{ color: '#FFED00' }} asChild>
+          <Button size="lg" className="bg-black hover:bg-gray-800 text-white text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" asChild>
             <Link to="/#contact-section">
               Projekt besprechen
             </Link>
