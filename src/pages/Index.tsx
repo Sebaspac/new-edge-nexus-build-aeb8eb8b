@@ -91,28 +91,33 @@ const Index = () => {
             <div className="hidden md:flex items-center space-x-8">
               <Link to="/" className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110">Home</Link>
               
-              <DropdownMenu>
-                <DropdownMenuTrigger className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110 flex items-center gap-1">
-                  Services <ChevronDown className="w-4 h-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg">
-                  <DropdownMenuItem asChild>
-                    <Link to="/studio" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
-                      New Edge Studio
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/media" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
-                      New Edge Media
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/lab" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
-                      New Edge Lab
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <div className="relative flex items-center">
+                <Link to="/services" className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110">
+                  Services
+                </Link>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110 ml-1">
+                    <ChevronDown className="w-4 h-4" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg">
+                    <DropdownMenuItem asChild>
+                      <Link to="/studio" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                        New Edge Studio
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/media" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                        New Edge Media
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/lab" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                        New Edge Lab
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
               
               <Button onClick={scrollToContact} className="bg-black text-white hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 Kontakt
