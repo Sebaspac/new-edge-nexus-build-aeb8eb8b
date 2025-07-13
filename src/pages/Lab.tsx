@@ -88,25 +88,25 @@ const Lab = () => {
             <h1 className="text-6xl md:text-8xl font-black text-black mb-8 leading-tight tracking-tight">
               <span className="inline-block animate-fade-in" style={{ animationDelay: '0.2s' }}>NEW EDGE</span>
               <br />
-              <span className="text-green-600 italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{ animationDelay: '0.4s' }}>LAB</span>
+              <span className="text-yellow-600 italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{ animationDelay: '0.4s' }}>LAB</span>
               <br />
               <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{ animationDelay: '0.6s' }}>AI INNOVATION</span>
             </h1>
             
             {/* Floating icons */}
             <div className="absolute top-20 left-10 animate-float" style={{ animationDelay: '0.5s' }}>
-              <Brain className="w-8 h-8 text-green-400" />
+              <Brain className="w-8 h-8 text-yellow-400" />
             </div>
             <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: '1s' }}>
-              <Zap className="w-6 h-6 text-emerald-400" />
+              <Zap className="w-6 h-6 text-yellow-400" />
             </div>
             <div className="absolute bottom-20 left-20 animate-float" style={{ animationDelay: '1.5s' }}>
-              <Cpu className="w-10 h-10 text-green-300" />
+              <Cpu className="w-10 h-10 text-yellow-300" />
             </div>
 
             {/* Interactive background elements */}
             <div 
-              className="absolute w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-30 animate-pulse"
+              className="absolute w-96 h-96 bg-yellow-100 rounded-full blur-3xl opacity-30 animate-pulse"
               style={{
                 left: mousePosition.x / 10,
                 top: mousePosition.y / 10,
@@ -117,13 +117,13 @@ const Lab = () => {
             <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: '0.8s' }}>
               Wir erforschen die Grenzen des Möglichen und entwickeln KI-Lösungen für morgen.
               <br />
-              <span className="text-green-600 font-medium">Innovation durch intelligente Automatisierung.</span>
+              <span className="text-yellow-600 font-medium">Innovation durch intelligente Automatisierung.</span>
             </p>
             
             <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
               <Button 
                 size="lg" 
-                className="bg-green-600 text-white hover:bg-green-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4"
+                className="bg-yellow-600 text-white hover:bg-yellow-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4"
                 asChild
               >
                 <Link to="/#contact-section">
@@ -133,7 +133,7 @@ const Lab = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-green-600 text-green-600 hover:bg-green-50 transition-all duration-300 hover:scale-105 text-lg px-8 py-4"
+                className="border-yellow-600 text-yellow-600 hover:bg-yellow-50 transition-all duration-300 hover:scale-105 text-lg px-8 py-4"
               >
                 Technologien entdecken
               </Button>
@@ -155,8 +155,8 @@ const Lab = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
-                  <Brain className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
+                  <Brain className="w-8 h-8 text-yellow-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-4">Machine Learning</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -167,8 +167,8 @@ const Lab = () => {
 
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.1s' }}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
-                  <Eye className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
+                  <Eye className="w-8 h-8 text-yellow-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-4">Computer Vision</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -179,8 +179,8 @@ const Lab = () => {
 
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.2s' }}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
-                  <Code className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
+                  <Code className="w-8 h-8 text-yellow-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-4">Custom AI Solutions</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -191,8 +191,8 @@ const Lab = () => {
 
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.3s' }}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
-                  <Cog className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
+                  <Cog className="w-8 h-8 text-yellow-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-4">Process Automation</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -203,8 +203,8 @@ const Lab = () => {
 
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.4s' }}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
-                  <BarChart className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
+                  <BarChart className="w-8 h-8 text-yellow-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-4">Predictive Analytics</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -215,8 +215,8 @@ const Lab = () => {
 
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.5s' }}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
-                  <Lightbulb className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
+                  <Lightbulb className="w-8 h-8 text-yellow-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-4">AI Consulting</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -229,7 +229,7 @@ const Lab = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-gradient-to-r from-green-600 to-emerald-600 text-white relative overflow-hidden">
+      <section className="py-32 bg-gradient-to-r from-yellow-600 to-amber-600 text-white relative overflow-hidden">
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="text-5xl font-bold mb-6 animate-fade-in">Bereit für die Zukunft?</h2>
           <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in">
@@ -237,7 +237,7 @@ const Lab = () => {
           </p>
           <Button 
             size="lg" 
-            className="bg-white text-green-600 hover:bg-gray-100 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
+            className="bg-white text-yellow-600 hover:bg-gray-100 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
             asChild
           >
             <Link to="/#contact-section">

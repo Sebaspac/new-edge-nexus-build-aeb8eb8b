@@ -177,7 +177,7 @@ const Services = () => {
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/lab" className="w-full text-gray-300 hover:text-white hover:bg-green-500/20">
+                      <Link to="/lab" className="w-full text-gray-300 hover:text-white hover:bg-yellow-500/20">
                         New Edge Lab
                       </Link>
                     </DropdownMenuItem>
@@ -460,10 +460,10 @@ const Services = () => {
             }} transition={{
               delay: 0.4
             }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-gradient-to-br from-green-900/50 to-emerald-900/50 border border-green-500/30 shadow-2xl hover:shadow-green-500/20 transition-all duration-700 backdrop-blur-lg">
+                <Card className="bg-gradient-to-br from-yellow-900/50 to-amber-900/50 border border-yellow-500/30 shadow-2xl hover:shadow-yellow-500/20 transition-all duration-700 backdrop-blur-lg">
                   <CardContent className="p-8 text-center relative overflow-hidden">
                     <motion.div animate={hoveredCard === 'lab' ? {
-                    background: ["radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(5,150,105,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)"]
+                    background: ["radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(217,119,6,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%)"]
                   } : {}} transition={{
                     duration: 2,
                     repeat: Infinity
@@ -475,16 +475,16 @@ const Services = () => {
                   } : {}} transition={{
                     duration: 2,
                     repeat: Infinity
-                  }} className="inline-block bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10">
+                  }} className="inline-block bg-gradient-to-r from-yellow-600 to-amber-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10">
                       New Edge Lab
                     </motion.div>
                     
-                    <motion.div variants={iconVariants} whileHover="hover" className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-green-500/30 relative z-10">
-                      <Cpu className="w-10 h-10 text-green-400" />
+                    <motion.div variants={iconVariants} whileHover="hover" className="w-20 h-20 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-yellow-500/30 relative z-10">
+                      <Cpu className="w-10 h-10 text-yellow-400" />
                     </motion.div>
                     
                     <h3 className="text-3xl font-bold text-white mb-4 relative z-10">LAB</h3>
-                    <p className="text-lg text-green-200 mb-6 leading-relaxed relative z-10">
+                    <p className="text-lg text-yellow-200 mb-6 leading-relaxed relative z-10">
                       Die perfekte Schnittstelle für Strategie & Technologie
                     </p>
                     <p className="text-gray-300 text-sm leading-relaxed mb-8 relative z-10">
@@ -496,7 +496,7 @@ const Services = () => {
                   }} whileTap={{
                     scale: 0.95
                   }}>
-                      <Button className="bg-gradient-to-r from-green-600 to-emerald-600 text-white hover:from-green-700 hover:to-emerald-700 w-full relative z-10" asChild>
+                      <Button className="bg-gradient-to-r from-yellow-600 to-amber-600 text-white hover:from-yellow-700 hover:to-amber-700 w-full relative z-10" asChild>
                         <Link to="/lab">
                           Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
