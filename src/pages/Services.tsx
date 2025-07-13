@@ -681,7 +681,7 @@ const Services = () => {
         }} viewport={{
           once: true
         }} className="text-center mb-20">
-            <h2 className="text-6xl font-bold text-white mb-6">Warum New Edge?</h2>
+            <h2 className="font-bold text-white mb-6 text-3xl">Warum New Edge?</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Drei spezialisierte Teams, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.
             </p>
