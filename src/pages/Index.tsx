@@ -317,7 +317,7 @@ const Index = () => {
       </section>
 
       {/* Services Overview */}
-      <section className="services-section relative py-32 bg-gradient-to-b from-black via-gray-900 to-black">
+      <section className="services-section relative py-16 bg-gradient-to-b from-black via-gray-900 to-black">
         <motion.div style={{ y: y2 }} className="container mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 50 }} 
