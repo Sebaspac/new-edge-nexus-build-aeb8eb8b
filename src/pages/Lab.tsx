@@ -215,13 +215,15 @@ const Lab = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{ backgroundColor: '#FFED0020' }}>
-                  <service.icon className="w-8 h-8" style={{ color: '#FFED00' }} />
-                </div>
-                <h3 className="text-lg font-bold text-black mb-4">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed text-sm">
-                  {service.description}
-                </p>
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{ backgroundColor: '#FFED0020' }}>
+                    <service.icon className="w-8 h-8" style={{ color: '#FFED00' }} />
+                  </div>
+                  <h3 className="text-lg font-bold text-black mb-4">{service.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    {service.description}
+                  </p>
+                </CardContent>
               </Card>
             ))}
           </div>
