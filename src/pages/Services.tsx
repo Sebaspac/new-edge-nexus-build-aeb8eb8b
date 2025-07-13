@@ -279,7 +279,7 @@ const Services = () => {
               once: true
             }} onHoverStart={() => setHoveredCard('studio')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-white/[0.02] backdrop-blur-xl border border-white/10 shadow-2xl hover:shadow-white/5 transition-all duration-700 rounded-3xl overflow-hidden">
-                  <CardContent className="p-10 text-center relative">
+                  <CardContent className="p-10 text-center relative bg-purple-700">
                     {/* Subtle Gradient Background */}
                     <motion.div animate={hoveredCard === 'studio' ? {
                     opacity: [0.02, 0.05, 0.02]
@@ -343,7 +343,7 @@ const Services = () => {
               delay: 0.2
             }} onHoverStart={() => setHoveredCard('media')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-white/[0.02] backdrop-blur-xl border border-white/10 shadow-2xl hover:shadow-white/5 transition-all duration-700 rounded-3xl overflow-hidden">
-                  <CardContent className="p-10 text-center relative">
+                  <CardContent className="p-10 text-center relative bg-blue-800">
                     <motion.div animate={hoveredCard === 'media' ? {
                     opacity: [0.02, 0.05, 0.02]
                   } : {}} transition={{
@@ -411,7 +411,7 @@ const Services = () => {
                   } : {}} transition={{
                     duration: 3,
                     repeat: Infinity
-                  }} className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent bg-blue-900" />
+                  }} className="" />
                     
                     <motion.div whileHover={{
                     scale: 1.02
