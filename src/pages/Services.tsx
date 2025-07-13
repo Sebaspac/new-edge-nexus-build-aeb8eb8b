@@ -286,7 +286,7 @@ const Services = () => {
                   } : {}} transition={{
                     duration: 3,
                     repeat: Infinity
-                  }} className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent bg-violet-700" />
+                  }} className="" />
                     
                     {/* Service Tag */}
                     <motion.div whileHover={{
