@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Megaphone, Target, BarChart, Users, TrendingUp, Eye, ChevronDown, Video, Camera, Edit } from "lucide-react";
+import { Megaphone, Target, BarChart, Users, TrendingUp, Eye, ChevronDown, Video, Camera, Edit, Search, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -152,15 +152,15 @@ const Media = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Video className="w-8 h-8 text-blue-600" />
+                  <Target className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Video Production</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Operative Umsetzung</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Professionelle Videoproduktion von Concept bis Post-Production.
+                  Content-Produktion & Reichweite für maximale Sichtbarkeit.
                 </p>
               </CardContent>
             </Card>
@@ -168,11 +168,11 @@ const Media = () => {
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.1s' }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Camera className="w-8 h-8 text-blue-600" />
+                  <Megaphone className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Photography</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Marketing & Sichtbarkeit</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Hochwertige Fotografie für Produkte, Events und Corporate Needs.
+                  Launchkampagnen & Performance-Marketing für nachhaltigen Erfolg.
                 </p>
               </CardContent>
             </Card>
@@ -180,11 +180,11 @@ const Media = () => {
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.2s' }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Megaphone className="w-8 h-8 text-blue-600" />
+                  <Search className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Social Media</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">SEO/SEA-Umsetzung & Conversion-Tracking</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Strategische Social Media Kampagnen mit messbaren Ergebnissen.
+                  Content-Marketing & Copywriting für optimale Suchmaschinenpräsenz.
                 </p>
               </CardContent>
             </Card>
@@ -192,35 +192,23 @@ const Media = () => {
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.3s' }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Edit className="w-8 h-8 text-blue-600" />
+                  <Video className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Content Creation</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Creative Content Production</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Kreative Content-Entwicklung für alle digitalen Kanäle.
+                  Video, Visuals, Reels - hochwertiger Content für alle Kanäle.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.4s' }}>
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group md:col-span-2" style={{ animationDelay: '0.4s' }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <BarChart className="w-8 h-8 text-blue-600" />
+                  <Mail className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Analytics & Insights</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Newsletter, Ads & Kampagnenausspieling</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Datengetriebene Analysen zur Optimierung Ihrer Content-Performance.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.5s' }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Target className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Influencer Marketing</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Strategische Kooperationen mit den richtigen Influencern für Ihre Marke.
+                  Ganzheitliche Kampagnenbetreuung von der Planung bis zur Umsetzung.
                 </p>
               </CardContent>
             </Card>

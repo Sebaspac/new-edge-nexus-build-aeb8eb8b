@@ -152,15 +152,15 @@ const Studio = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
                   <Palette className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Brand Identity</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Strategie & Markenidentität</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Entwicklung einzigartiger visueller Identitäten, die Ihre Marke unverwechselbar machen.
+                  Markenpositionierung & Zielgruppenanalyse für eine klare strategische Ausrichtung.
                 </p>
               </CardContent>
             </Card>
@@ -168,11 +168,11 @@ const Studio = () => {
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.1s' }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <Monitor className="w-8 h-8 text-purple-600" />
+                  <Sparkles className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Digital Design</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Brand Story</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Moderne Webdesigns und digitale Erlebnisse, die Nutzer begeistern.
+                  Werte & Tonalität - authentische Markenstories, die emotional berühren.
                 </p>
               </CardContent>
             </Card>
@@ -180,11 +180,11 @@ const Studio = () => {
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.2s' }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <Package className="w-8 h-8 text-purple-600" />
+                  <Monitor className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Packaging Design</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Wettbewerbsanalyse & Differenzierung</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Verpackungsdesigns, die im Regal hervorstechen und Geschichten erzählen.
+                  Visuelles Konzept mit strategischer Differenzierungsstrategie.
                 </p>
               </CardContent>
             </Card>
@@ -194,9 +194,9 @@ const Studio = () => {
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
                   <FileImage className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Print Design</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Moodboards & Keyvisual-Richtung</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Hochwertige Printmaterialien von Visitenkarten bis zu Magazinen.
+                  Design- und Farbwelten für eine einheitliche visuelle Identität.
                 </p>
               </CardContent>
             </Card>
@@ -204,11 +204,11 @@ const Studio = () => {
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.4s' }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <Sparkles className="w-8 h-8 text-purple-600" />
+                  <Package className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Motion Graphics</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Template-Rahmen für Social Media & Print</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Animierte Designs, die Aufmerksamkeit erzeugen und Botschaften verstärken.
+                  Digitale Struktur & Funnel-Logik für optimale Nutzerführung.
                 </p>
               </CardContent>
             </Card>
@@ -218,9 +218,9 @@ const Studio = () => {
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
                   <Grid3x3 className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Design Systems</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Nutzerführung & Funnel-Wireframes</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Konsistente Design-Systeme für skalierbare und einheitliche Markenerlebnisse.
+                  Conversion-Ziele & Seitenaufbau-Strategien für maximale Effektivität.
                 </p>
               </CardContent>
             </Card>

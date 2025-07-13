@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Brain, Cpu, Eye, Cog, BarChart, Code, ChevronDown, Zap, Lightbulb } from "lucide-react";
+import { Brain, Cpu, Eye, Cog, BarChart, Code, ChevronDown, Zap, Lightbulb, Server, Database, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -152,15 +152,15 @@ const Lab = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
-                  <Brain className="w-8 h-8" style={{color: '#FFED00'}} />
+                  <Server className="w-8 h-8" style={{color: '#FFED00'}} />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Machine Learning</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Technische Umsetzung</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Entwicklung intelligenter Algorithmen für Datenanalyse und Vorhersagemodelle.
+                  KI-Integration & Automation für intelligente Systeme.
                 </p>
               </CardContent>
             </Card>
@@ -168,11 +168,11 @@ const Lab = () => {
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.1s' }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
-                  <Eye className="w-8 h-8" style={{color: '#FFED00'}} />
+                  <Cpu className="w-8 h-8" style={{color: '#FFED00'}} />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Computer Vision</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Backend & Tech-Implementierung</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Bildverarbeitung und visuelle Erkennung für automatisierte Systeme.
+                  Webentwicklung (CMS, Landingpages, Funnels) - maßgeschneiderte Lösungen.
                 </p>
               </CardContent>
             </Card>
@@ -180,11 +180,11 @@ const Lab = () => {
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.2s' }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
-                  <Code className="w-8 h-8" style={{color: '#FFED00'}} />
+                  <Cog className="w-8 h-8" style={{color: '#FFED00'}} />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Custom AI Solutions</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">nön-gestützte Prozessautomatisierung</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Maßgeschneiderte KI-Anwendungen für spezifische Unternehmensanforderungen.
+                  KI-Agenten-Integration (Text, Mail, CRM) für effiziente Workflows.
                 </p>
               </CardContent>
             </Card>
@@ -192,35 +192,23 @@ const Lab = () => {
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.3s' }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
-                  <Cog className="w-8 h-8" style={{color: '#FFED00'}} />
+                  <Database className="w-8 h-8" style={{color: '#FFED00'}} />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Process Automation</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Formular- & Datenbank-Anbindungen</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Intelligente Automatisierung von Geschäftsprozessen durch KI-Integration.
+                  Notion, Airtable, Supabase - nahtlose Datenintegration.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.4s' }}>
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group md:col-span-2" style={{ animationDelay: '0.4s' }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
                   <BarChart className="w-8 h-8" style={{color: '#FFED00'}} />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Predictive Analytics</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Tracking- & Analyse-Setups</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Vorhersagemodelle für fundierte Geschäftsentscheidungen und Trends.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.5s' }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
-                  <Lightbulb className="w-8 h-8" style={{color: '#FFED00'}} />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">AI Consulting</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Strategische Beratung für die optimale Integration von KI in Ihr Unternehmen.
+                  GA4, Tag Manager, Pixel, Dashboards - datengetriebene Entscheidungen ermöglichen.
                 </p>
               </CardContent>
             </Card>
