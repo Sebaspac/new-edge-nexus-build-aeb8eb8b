@@ -460,7 +460,7 @@ const Services = () => {
             }} transition={{
               delay: 0.4
             }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-gradient-to-br from-yellow-900/50 to-amber-900/50 border border-yellow-500/30 shadow-2xl hover:shadow-yellow-500/20 transition-all duration-700 backdrop-blur-lg">
+                <Card className="bg-gradient-to-br from-yellow-900/50 to-yellow-900/50 border border-yellow-500/30 shadow-2xl hover:shadow-yellow-500/20 transition-all duration-700 backdrop-blur-lg">
                   <CardContent className="p-8 text-center relative overflow-hidden">
                     <motion.div animate={hoveredCard === 'lab' ? {
                     background: ["radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(217,119,6,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%)"]
@@ -475,7 +475,7 @@ const Services = () => {
                   } : {}} transition={{
                     duration: 2,
                     repeat: Infinity
-                  }} className="inline-block bg-gradient-to-r from-yellow-600 to-amber-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10">
+                  }} className="inline-block bg-gradient-to-r from-yellow-600 to-yellow-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10">
                       New Edge Lab
                     </motion.div>
                     
@@ -496,7 +496,7 @@ const Services = () => {
                   }} whileTap={{
                     scale: 0.95
                   }}>
-                      <Button className="bg-gradient-to-r from-yellow-600 to-amber-600 text-white hover:from-yellow-700 hover:to-amber-700 w-full relative z-10" asChild>
+                      <Button className="bg-gradient-to-r from-yellow-600 to-yellow-600 text-white hover:from-yellow-700 hover:to-yellow-700 w-full relative z-10" asChild>
                         <Link to="/lab">
                           Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
