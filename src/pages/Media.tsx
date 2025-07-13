@@ -1,34 +1,37 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Megaphone, Target, BarChart, Users, TrendingUp, Eye, ChevronDown, Video, Camera, Edit } from "lucide-react";
+import { Megaphone, Target, BarChart, Users, TrendingUp, Eye, ChevronDown, Video, Camera, Edit, Search, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
 const Media = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0
-  });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setIsVisible(true);
+    
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
-      });
+      setMousePosition({ x: e.clientX, y: e.clientY });
     };
+
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
   const scrollToContact = () => {
     window.location.href = '/#contact-section';
   };
-  return <div className="min-h-screen bg-white">
+
+  return (
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 animate-slide-in-right">
         <div className="container mx-auto px-6 py-4">
@@ -83,60 +86,55 @@ const Media = () => {
         <div className="container mx-auto text-center relative z-10">
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
             <h1 className="text-6xl md:text-8xl font-black text-black mb-8 leading-tight tracking-tight">
-              <span className="inline-block animate-fade-in" style={{
-              animationDelay: '0.2s'
-            }}>NEW EDGE</span>
+              <span className="inline-block animate-fade-in" style={{ animationDelay: '0.2s' }}>NEW EDGE</span>
               <br />
-              <span className="text-blue-600 italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{
-              animationDelay: '0.4s'
-            }}>MEDIA</span>
+              <span className="text-blue-600 italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{ animationDelay: '0.4s' }}>MEDIA</span>
               <br />
-              <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{
-              animationDelay: '0.6s'
-            }}>CONTENT REVOLUTION</span>
+              <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{ animationDelay: '0.6s' }}>CONTENT REVOLUTION</span>
             </h1>
             
             {/* Floating icons */}
-            <div className="absolute top-20 left-10 animate-float" style={{
-            animationDelay: '0.5s'
-          }}>
+            <div className="absolute top-20 left-10 animate-float" style={{ animationDelay: '0.5s' }}>
               <Video className="w-8 h-8 text-blue-400" />
             </div>
-            <div className="absolute top-40 right-20 animate-float" style={{
-            animationDelay: '1s'
-          }}>
+            <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: '1s' }}>
               <Camera className="w-6 h-6 text-cyan-400" />
             </div>
-            <div className="absolute bottom-20 left-20 animate-float" style={{
-            animationDelay: '1.5s'
-          }}>
+            <div className="absolute bottom-20 left-20 animate-float" style={{ animationDelay: '1.5s' }}>
               <Megaphone className="w-10 h-10 text-blue-300" />
             </div>
 
             {/* Interactive background elements */}
-            <div className="absolute w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30 animate-pulse" style={{
-            left: mousePosition.x / 10,
-            top: mousePosition.y / 10,
-            transform: 'translate(-50%, -50%)'
-          }} />
+            <div 
+              className="absolute w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30 animate-pulse"
+              style={{
+                left: mousePosition.x / 10,
+                top: mousePosition.y / 10,
+                transform: 'translate(-50%, -50%)'
+              }}
+            />
             
-            <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in" style={{
-            animationDelay: '0.8s'
-          }}>
+            <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: '0.8s' }}>
               Wir produzieren Content, der bewegt, inspiriert und Reichweite generiert.
               <br />
               <span className="text-blue-600 font-medium">Von der Strategie bis zur viralen Umsetzung.</span>
             </p>
             
-            <div className="animate-fade-in" style={{
-            animationDelay: '1s'
-          }}>
-              <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4" asChild>
+            <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
+              <Button 
+                size="lg" 
+                className="bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4"
+                asChild
+              >
                 <Link to="/#contact-section">
                   Projekt starten
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-300 hover:scale-105 text-lg px-8 py-4">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-300 hover:scale-105 text-lg px-8 py-4"
+              >
                 Portfolio ansehen
               </Button>
             </div>
@@ -154,83 +152,63 @@ const Media = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Video className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Video Production</h3>
-                <p className="text-gray-600 leading-relaxed">Content-Management & Reichweite für maximale Sichtbarkeit.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.1s'
-          }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Camera className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Photography</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Hochwertige Fotografie für Produkte, Events und Corporate Needs.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.2s'
-          }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Megaphone className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Social Media</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Strategische Social Media Kampagnen mit messbaren Ergebnissen.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.3s'
-          }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Edit className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Content Creation</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Kreative Content-Entwicklung für alle digitalen Kanäle.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.4s'
-          }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <BarChart className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Analytics & Insights</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Datengetriebene Analysen zur Optimierung Ihrer Content-Performance.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.5s'
-          }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                   <Target className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Influencer Marketing</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Operative Umsetzung</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Strategische Kooperationen mit den richtigen Influencern für Ihre Marke.
+                  Content-Produktion & Reichweite für maximale Sichtbarkeit.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.1s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
+                  <Megaphone className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Marketing & Sichtbarkeit</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Launchkampagnen & Performance-Marketing für nachhaltigen Erfolg.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.2s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
+                  <Search className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">SEO/SEA-Umsetzung & Conversion-Tracking</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Content-Marketing & Copywriting für optimale Suchmaschinenpräsenz.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.3s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
+                  <Video className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Creative Content Production</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Video, Visuals, Reels - hochwertiger Content für alle Kanäle.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group md:col-span-2" style={{ animationDelay: '0.4s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
+                  <Mail className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Newsletter, Ads & Kampagnenausspieling</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Ganzheitliche Kampagnenbetreuung von der Planung bis zur Umsetzung.
                 </p>
               </CardContent>
             </Card>
@@ -245,7 +223,11 @@ const Media = () => {
           <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in">
             Lassen Sie uns gemeinsam Ihre Content-Strategie revolutionieren und nachhaltige Reichweite aufbauen.
           </p>
-          <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" asChild>
+          <Button 
+            size="lg" 
+            className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
+            asChild
+          >
             <Link to="/#contact-section">
               Projekt starten
             </Link>
@@ -257,13 +239,13 @@ const Media = () => {
           <div className="absolute top-20 left-20 animate-float">
             <Video className="w-32 h-32" />
           </div>
-          <div className="absolute bottom-20 right-20 animate-float" style={{
-          animationDelay: '1s'
-        }}>
+          <div className="absolute bottom-20 right-20 animate-float" style={{ animationDelay: '1s' }}>
             <Megaphone className="w-24 h-24" />
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default Media;
