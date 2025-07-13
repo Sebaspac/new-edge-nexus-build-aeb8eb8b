@@ -354,7 +354,7 @@ const Index = () => {
                 className="relative group"
                 transition={{ duration: 0.6 }}
               >
-                <Card className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 border border-purple-500/20 shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 backdrop-blur-lg h-full">
+                <Card className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 border border-purple-500/20 shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 backdrop-blur-lg h-full">
                   <CardContent className="p-8 text-center relative overflow-hidden">
                     <motion.div 
                       animate={hoveredCard === 'studio' ? {
@@ -365,7 +365,7 @@ const Index = () => {
                     />
                     
                     <motion.div 
-                      className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                      className="inline-block bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
                       whileHover={{ scale: 1.05 }}
                     >
                       New Edge Studio
@@ -391,7 +391,7 @@ const Index = () => {
                     </ul>
                     
                     <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 w-full relative z-10 transition-all duration-300" asChild>
+                      <Button className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 w-full relative z-10 transition-all duration-300" asChild>
                         <Link to="/studio">
                           Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
