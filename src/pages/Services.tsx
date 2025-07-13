@@ -7,7 +7,7 @@ import * as THREE from "three";
 import { ArrowRight, ArrowDown, ChevronDown, Palette, Video, Cpu, Star, Zap, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { MobileNavigation } from "@/components/MobileNavigation";
 
 // 3D Particle System Component
 function ParticleField() {
@@ -135,58 +135,7 @@ const Services = () => {
         </Canvas>
       </div>
 
-      {/* Navigation */}
-      <motion.nav 
-        initial={{ y: -100 }} 
-        animate={{ y: 0 }} 
-        className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-purple-500/30"
-      >
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <motion.div whileHover={{ scale: 1.1 }} className="flex items-center">
-              <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
-              <div className="text-2xl font-bold text-white">
-                New Edge<span className="text-purple-400"></span>
-              </div>
-            </motion.div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-300 hover:text-white transition-all duration-300">Home</Link>
-              
-              <div className="relative flex items-center">
-                <Link to="/services" className="text-white font-medium">Services</Link>
-                <DropdownMenu>
-                  <DropdownMenuTrigger className="text-gray-300 hover:text-white transition-all duration-300 ml-1">
-                    <ChevronDown className="w-4 h-4" />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-black/90 border border-purple-500/30 shadow-lg backdrop-blur-lg z-50">
-                    <DropdownMenuItem asChild>
-                      <Link to="/studio" className="w-full text-gray-300 hover:text-white hover:bg-purple-500/20">
-                        New Edge Studio
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to="/media" className="w-full text-gray-300 hover:text-white hover:bg-blue-500/20">
-                        New Edge Media
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to="/lab" className="w-full text-gray-300 hover:text-white hover:bg-yellow-500/20">
-                        New Edge Lab
-                      </Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
-              
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 animate-glow-pulse">
-                  Kontakt
-                </Button>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </motion.nav>
+      <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">

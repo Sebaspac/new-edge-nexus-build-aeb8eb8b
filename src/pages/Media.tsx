@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Megaphone, Target, BarChart, Users, TrendingUp, Eye, ChevronDown, Video, Camera, Edit, Settings, Search, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { MobileNavigation } from "@/components/MobileNavigation";
 const Media = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -29,54 +29,7 @@ const Media = () => {
     window.location.href = '/#contact-section';
   };
   return <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 animate-slide-in-right">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center hover:scale-105 transition-transform duration-300">
-              <img alt="New Edge Logo" className="h-8 w-8 mr-3 animate-float" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
-              <div className="text-2xl font-bold text-black">
-                New Edge<span className="text-primary"></span>
-              </div>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110">Home</Link>
-              
-              <div className="relative flex items-center">
-                <Link to="/services" className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110">
-                  Services
-                </Link>
-                <DropdownMenu>
-                  <DropdownMenuTrigger className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110 ml-1">
-                    <ChevronDown className="w-4 h-4" />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg">
-                    <DropdownMenuItem asChild>
-                      <Link to="/studio" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
-                        New Edge Studio
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to="/media" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
-                        New Edge Media
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to="/lab" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
-                        New Edge Lab
-                      </Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
-              
-              <Button onClick={scrollToContact} className="bg-black text-white hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                Kontakt
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
       {/* Hero Section */}
       <section className="pt-32 pb-32 px-6 bg-white relative overflow-hidden">
