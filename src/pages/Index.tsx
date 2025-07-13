@@ -136,7 +136,7 @@ const Index = () => {
               {/* CTA Button */}
               <Button 
                 onClick={scrollToContact} 
-                className="bg-accent text-black hover:bg-accent/90 transition-all duration-300 px-8 py-4 text-lg font-semibold rounded-full hover:scale-110 hover:shadow-2xl animate-pulse"
+                className="bg-accent text-black hover:bg-accent/90 transition-all duration-300 px-8 py-4 text-lg font-semibold rounded-full hover:scale-110 hover:shadow-2xl"
               >
                 Ready to Scale? <ArrowRight className="ml-2 h-5 w-5 animate-bounce" />
               </Button>
