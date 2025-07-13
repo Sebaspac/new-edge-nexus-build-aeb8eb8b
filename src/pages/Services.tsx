@@ -208,9 +208,7 @@ const Services = () => {
         }} className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
             Wir begleiten Sie auf einer strukturierten Reise von der ersten Idee bis zur finalen Implementierung.
             <br />
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">
-              Ein nahtloser Prozess. Drei spezialisierte Teams. Ein Ziel.
-            </span>
+            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">For strategy. aesthetics. &amp; tech.</span>
           </motion.p>
 
           {/* Scroll Indicator */}
