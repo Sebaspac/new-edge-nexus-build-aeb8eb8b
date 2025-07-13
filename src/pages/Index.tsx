@@ -522,7 +522,7 @@ const Index = () => {
                     </ul>
                     
                     <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button className="bg-gradient-to-r from-yellow-600 to-amber-600 text-black hover:from-yellow-700 hover:to-amber-700 w-full relative z-10 transition-all duration-300" asChild>
+                      <Button className="bg-gradient-to-r from-yellow-600 to-amber-600 text-white hover:from-yellow-700 hover:to-amber-700 w-full relative z-10 transition-all duration-300" asChild>
                         <Link to="/lab">
                           Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
