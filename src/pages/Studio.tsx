@@ -152,78 +152,76 @@ const Studio = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            
-            {/* Left Column */}
-            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-black mb-2">Strategie & Markenidentität</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
+                  <Palette className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Strategie & Markenidentität</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Strategische Markenpositionierung und Zielgruppenanalyse für eine klare Ausrichtung.
+                </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-black mb-2">Markenpositionierung & Zielgruppenanalyse</h3>
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.1s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
+                  <Sparkles className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Brand Story</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Authentische Markenstories mit klaren Werten und einzigartiger Tonalität.
+                </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-black mb-2">Brand Story</h3>
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.2s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
+                  <Monitor className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Wettbewerbsanalyse & Differenzierungsstrategie</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Strategische Marktanalyse und visuelles Konzept für klare Abgrenzung.
+                </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-black mb-2">Werte & Tonalität</h3>
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.3s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
+                  <FileImage className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Moodboards & Keyvisual-Richtung</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Kreative Design- und Farbwelten für eine einheitliche visuelle Identität.
+                </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-black mb-2">Wettbewerbsanalyse & Differenzierungsstrategie</h3>
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.4s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
+                  <Package className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Template-Rahmen für Social Media & Print</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Einheitliche Vorlagen und digitale Struktur mit Funnel-Logik.
+                </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-black mb-2">Visuelles Konzept</h3>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-black mb-2">Moodboards & Keyvisual-Richtung</h3>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-black mb-2">Design- und Farbwelten</h3>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-black mb-2">Template-Rahmen für Social Media & Print</h3>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-black mb-2">Digitale Struktur & Funnel-Logik</h3>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-black mb-2">Nutzerführung & Funnel-Wireframes</h3>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-black mb-2">Conversion-Ziele & Seitenaufbau-Strategien</h3>
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.5s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
+                  <Grid3x3 className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Nutzerführung & Funnel-Wireframes</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Conversion-Ziele und strategischer Seitenaufbau für maximale Effektivität.
+                </p>
               </CardContent>
             </Card>
           </div>
