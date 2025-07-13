@@ -78,7 +78,9 @@ const Studio = () => {
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 sm:mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in px-4" style={{
             animationDelay: '0.8s'
           }}>
-              STUDIO liefert das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
+              STUDIO liefert das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant – damit MEDIA & LAB reibungslos umsetzen können.
+              <br className="hidden sm:block" />
+              <span className="text-purple-600 font-medium">Für eine reibungslose Umsetzung in MEDIA & LAB</span>
             </p>
             
             <div className="animate-fade-in flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4" style={{
