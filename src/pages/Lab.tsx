@@ -1,37 +1,34 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Brain, Cpu, Eye, Cog, BarChart, Code, ChevronDown, Zap, Lightbulb, Server, Database, Bot } from "lucide-react";
+import { Brain, Cpu, Eye, Cog, BarChart, Code, ChevronDown, Zap, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 const Lab = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0
+  });
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
     setIsVisible(true);
-    
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY
+      });
     };
-
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
   const scrollToContact = () => {
     window.location.href = '/#contact-section';
   };
-
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 animate-slide-in-right">
         <div className="container mx-auto px-6 py-4">
@@ -86,55 +83,60 @@ const Lab = () => {
         <div className="container mx-auto text-center relative z-10">
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
             <h1 className="text-6xl md:text-8xl font-black text-black mb-8 leading-tight tracking-tight">
-              <span className="inline-block animate-fade-in" style={{ animationDelay: '0.2s' }}>NEW EDGE</span>
+              <span className="inline-block animate-fade-in" style={{
+              animationDelay: '0.2s'
+            }}>NEW EDGE</span>
               <br />
-              <span className="italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{ animationDelay: '0.4s', color: '#FFED00' }}>LAB</span>
+              <span className="text-green-600 italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{
+              animationDelay: '0.4s'
+            }}>LAB</span>
               <br />
-              <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{ animationDelay: '0.6s' }}>AI INNOVATION</span>
+              <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{
+              animationDelay: '0.6s'
+            }}>AI INNOVATION</span>
             </h1>
             
             {/* Floating icons */}
-            <div className="absolute top-20 left-10 animate-float" style={{ animationDelay: '0.5s' }}>
-              <Brain className="w-8 h-8 text-yellow-400" />
+            <div className="absolute top-20 left-10 animate-float" style={{
+            animationDelay: '0.5s'
+          }}>
+              <Brain className="w-8 h-8 text-green-400" />
             </div>
-            <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: '1s' }}>
-              <Zap className="w-6 h-6 text-yellow-400" />
+            <div className="absolute top-40 right-20 animate-float" style={{
+            animationDelay: '1s'
+          }}>
+              <Zap className="w-6 h-6 text-emerald-400" />
             </div>
-            <div className="absolute bottom-20 left-20 animate-float" style={{ animationDelay: '1.5s' }}>
-              <Cpu className="w-10 h-10 text-yellow-300" />
+            <div className="absolute bottom-20 left-20 animate-float" style={{
+            animationDelay: '1.5s'
+          }}>
+              <Cpu className="w-10 h-10 text-green-300" />
             </div>
 
             {/* Interactive background elements */}
-            <div 
-              className="absolute w-96 h-96 bg-yellow-100 rounded-full blur-3xl opacity-30 animate-pulse"
-              style={{
-                left: mousePosition.x / 10,
-                top: mousePosition.y / 10,
-                transform: 'translate(-50%, -50%)'
-              }}
-            />
+            <div className="absolute w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-30 animate-pulse" style={{
+            left: mousePosition.x / 10,
+            top: mousePosition.y / 10,
+            transform: 'translate(-50%, -50%)'
+          }} />
             
-            <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in" style={{
+            animationDelay: '0.8s'
+          }}>
               Wir erforschen die Grenzen des Möglichen und entwickeln KI-Lösungen für morgen.
               <br />
-              <span className="font-medium" style={{color: '#FFED00'}}>Innovation durch intelligente Automatisierung.</span>
+              <span className="text-green-600 font-medium">Innovation durch intelligente Automatisierung.</span>
             </p>
             
-            <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
-              <Button 
-                size="lg" 
-                className="text-black hover:text-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4" style={{background: '#FFED00'}}
-                asChild
-              >
+            <div className="animate-fade-in" style={{
+            animationDelay: '1s'
+          }}>
+              <Button size="lg" className="bg-green-600 text-white hover:bg-green-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4" asChild>
                 <Link to="/#contact-section">
                   Innovation starten
                 </Link>
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="transition-all duration-300 hover:scale-105 text-lg px-8 py-4" style={{border: '2px solid #FFED00', color: '#FFED00'}}
-              >
+              <Button variant="outline" size="lg" className="border-green-600 text-green-600 hover:bg-green-50 transition-all duration-300 hover:scale-105 text-lg px-8 py-4">
                 Technologien entdecken
               </Button>
             </div>
@@ -152,63 +154,84 @@ const Lab = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
-                  <Server className="w-8 h-8" style={{color: '#FFED00'}} />
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                  <Brain className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Technische Umsetzung</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Machine Learning</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  KI-Integration & Automation für intelligente Systeme.
+                  Entwicklung intelligenter Algorithmen für Datenanalyse und Vorhersagemodelle.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.1s' }}>
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
+            animationDelay: '0.1s'
+          }}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
-                  <Cpu className="w-8 h-8" style={{color: '#FFED00'}} />
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                  <Eye className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Backend & Tech-Implementierung</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Computer Vision</h3>
+                <p className="text-gray-600 leading-relaxed">Webentwicklung (CMS, Landingpages, Funnels).</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
+            animationDelay: '0.2s'
+          }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                  <Code className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Prozessautomatisierung</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Webentwicklung (CMS, Landingpages, Funnels) - maßgeschneiderte Lösungen.
+                  Maßgeschneiderte KI-Anwendungen für spezifische Unternehmensanforderungen.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.2s' }}>
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
+            animationDelay: '0.3s'
+          }}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
-                  <Cog className="w-8 h-8" style={{color: '#FFED00'}} />
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                  <Cog className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">nön-gestützte Prozessautomatisierung</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Maßgeschneiderte
+Lösungen
+
+              </h3>
+                <p className="text-gray-600 leading-relaxed">Komplexe Workflows vereinfachen - auf Anfrage.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
+            animationDelay: '0.4s'
+          }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                  <BarChart className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Predictive Analytics</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  KI-Agenten-Integration (Text, Mail, CRM) für effiziente Workflows.
+                  Vorhersagemodelle für fundierte Geschäftsentscheidungen und Trends.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.3s' }}>
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
+            animationDelay: '0.5s'
+          }}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
-                  <Database className="w-8 h-8" style={{color: '#FFED00'}} />
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                  <Lightbulb className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Formular- & Datenbank-Anbindungen</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">AI Consulting</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Notion, Airtable, Supabase - nahtlose Datenintegration.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group md:col-span-2" style={{ animationDelay: '0.4s' }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
-                  <BarChart className="w-8 h-8" style={{color: '#FFED00'}} />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Tracking- & Analyse-Setups</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  GA4, Tag Manager, Pixel, Dashboards - datengetriebene Entscheidungen ermöglichen.
+                  Strategische Beratung für die optimale Integration von KI in Ihr Unternehmen.
                 </p>
               </CardContent>
             </Card>
@@ -217,17 +240,13 @@ const Lab = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 text-black relative overflow-hidden" style={{background: '#FFED00'}}>
+      <section className="py-32 bg-gradient-to-r from-green-600 to-emerald-600 text-white relative overflow-hidden">
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="text-5xl font-bold mb-6 animate-fade-in">Bereit für die Zukunft?</h2>
           <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in">
             Lassen Sie uns gemeinsam innovative KI-Lösungen entwickeln, die Ihr Unternehmen transformieren.
           </p>
-          <Button 
-            size="lg" 
-            className="bg-black text-white hover:bg-gray-800 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
-            asChild
-          >
+          <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" asChild>
             <Link to="/#contact-section">
               Innovation starten
             </Link>
@@ -239,13 +258,13 @@ const Lab = () => {
           <div className="absolute top-20 left-20 animate-float">
             <Brain className="w-32 h-32" />
           </div>
-          <div className="absolute bottom-20 right-20 animate-float" style={{ animationDelay: '1s' }}>
+          <div className="absolute bottom-20 right-20 animate-float" style={{
+          animationDelay: '1s'
+        }}>
             <Cpu className="w-24 h-24" />
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Lab;
