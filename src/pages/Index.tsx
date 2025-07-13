@@ -255,10 +255,10 @@ const Index = () => {
                 opacity: 0.05
               }} 
               style={{
-                scale: useTransform(scrollY, [200, 800], [1, 0.1]),
-                x: useTransform(scrollY, [200, 800], [0, "45vw"]),
-                y: useTransform(scrollY, [200, 800], [0, "-40vh"]),
-                borderRadius: useTransform(scrollY, [200, 800], ["0%", "50%"])
+                scale: useTransform(scrollY, [400, 1000], [1, 0.02]),
+                borderRadius: useTransform(scrollY, [400, 1000], ["0%", "50%"]),
+                x: useTransform(scrollY, [400, 1000], ["0%", "2000%"]),
+                y: useTransform(scrollY, [400, 1000], ["0%", "-1000%"])
               }}
               transition={{
                 duration: 1,
