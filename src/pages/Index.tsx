@@ -728,7 +728,7 @@ const Index = () => {
               <h4 className="font-semibold mb-4 text-white">Kontakt</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>info@newedgebrand.com</li>
-                <li>+49 (0) 15750998236</li>
+                <li className="">+49 15750998236</li>
                 <li>Deutschland</li>
               </ul>
             </div>
