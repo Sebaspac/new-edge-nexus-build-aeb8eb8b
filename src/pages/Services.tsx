@@ -7,12 +7,7 @@ import * as THREE from "three";
 import { ArrowRight, ArrowDown, ChevronDown, Palette, Video, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 // 3D Particle System Component
 function ParticleField() {
@@ -26,53 +21,44 @@ function ParticleField() {
     }
     return positions;
   });
-
   useFrame((state, delta) => {
     if (ref.current) {
       ref.current.rotation.x -= delta / 10;
       ref.current.rotation.y -= delta / 15;
     }
   });
-
-  return (
-    <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
-      <PointMaterial
-        transparent
-        color="#8b5cf6"
-        size={0.05}
-        sizeAttenuation={true}
-        depthWrite={false}
-      />
-    </Points>
-  );
+  return <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
+      <PointMaterial transparent color="#8b5cf6" size={0.05} sizeAttenuation={true} depthWrite={false} />
+    </Points>;
 }
 
 // 3D Floating Box Component
-function FloatingBox({ position, color }: { position: [number, number, number], color: string }) {
+function FloatingBox({
+  position,
+  color
+}: {
+  position: [number, number, number];
+  color: string;
+}) {
   const mesh = useRef<THREE.Mesh>(null);
-  
-  useFrame((state) => {
+  useFrame(state => {
     if (mesh.current) {
       mesh.current.rotation.x = Math.sin(state.clock.elapsedTime) * 0.3;
       mesh.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.8) * 0.5;
       mesh.current.position.y = position[1] + Math.sin(state.clock.elapsedTime) * 0.5;
     }
   });
-
-  return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
+  return <Float speed={2} rotationIntensity={1} floatIntensity={2}>
       <mesh ref={mesh} position={position} scale={[0.5, 0.5, 0.5]}>
         <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial color={color} transparent opacity={0.8} />
       </mesh>
-    </Float>
-  );
+    </Float>;
 }
 
 // 3D Background Scene
 function Background3D() {
-  return (
-    <>
+  return <>
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
       <ParticleField />
@@ -81,66 +67,71 @@ function Background3D() {
       <FloatingBox position={[0, 3, -4]} color="#10b981" />
       <FloatingBox position={[-3, -3, -1]} color="#f59e0b" />
       <FloatingBox position={[4, 1, -5]} color="#ec4899" />
-    </>
-  );
+    </>;
 }
-
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0
+  });
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
-  const { scrollY } = useScroll();
+  const {
+    scrollY
+  } = useScroll();
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   // Parallax effects
   const y1 = useTransform(scrollY, [0, 1000], [0, -200]);
   const y2 = useTransform(scrollY, [0, 1000], [0, -400]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.3]);
-
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
     setIsVisible(true);
-    
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ 
-        x: (e.clientX / window.innerWidth) * 2 - 1,
+      setMousePosition({
+        x: e.clientX / window.innerWidth * 2 - 1,
         y: -(e.clientY / window.innerHeight) * 2 + 1
       });
     };
-
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
   const scrollToContact = () => {
     window.location.href = '/#contact-section';
   };
-
   const cardVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    hidden: {
+      opacity: 0,
+      y: 50,
+      scale: 0.8
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
       scale: 1
     },
-    hover: { 
-      scale: 1.05, 
+    hover: {
+      scale: 1.05,
       y: -10
     }
   };
-
   const iconVariants = {
     hover: {
       rotate: 360,
       scale: 1.2
     }
   };
-
-  return (
-    <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
+  return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
       {/* 3D Background Canvas */}
       <div className="fixed inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+        <Canvas camera={{
+        position: [0, 0, 5],
+        fov: 75
+      }}>
           <Suspense fallback={null}>
             <Background3D />
           </Suspense>
@@ -148,17 +139,16 @@ const Services = () => {
       </div>
 
       {/* Navigation */}
-      <motion.nav 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-purple-500/30"
-      >
+      <motion.nav initial={{
+      y: -100
+    }} animate={{
+      y: 0
+    }} className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-purple-500/30">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <motion.div 
-              whileHover={{ scale: 1.1 }}
-              className="flex items-center"
-            >
+            <motion.div whileHover={{
+            scale: 1.1
+          }} className="flex items-center">
               <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
               <div className="text-2xl font-bold text-white">
                 New Edge<span className="text-purple-400"></span>
@@ -195,7 +185,11 @@ const Services = () => {
                 </DropdownMenu>
               </div>
               
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div whileHover={{
+              scale: 1.05
+            }} whileTap={{
+              scale: 0.95
+            }}>
                 <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700">
                   Kontakt
                 </Button>
@@ -207,105 +201,111 @@ const Services = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
-        <motion.div style={{ y: y1, opacity }} className="text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="mb-12"
-          >
-            <motion.div
-              animate={{ 
-                background: [
-                  "linear-gradient(45deg, #8b5cf6, #3b82f6, #10b981)",
-                  "linear-gradient(45deg, #3b82f6, #10b981, #8b5cf6)",
-                  "linear-gradient(45deg, #10b981, #8b5cf6, #3b82f6)"
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              className="inline-block text-transparent bg-clip-text text-8xl md:text-9xl font-black tracking-tight"
-            >
+        <motion.div style={{
+        y: y1,
+        opacity
+      }} className="text-center relative z-10">
+          <motion.div initial={{
+          opacity: 0,
+          scale: 0.5
+        }} animate={{
+          opacity: 1,
+          scale: 1
+        }} transition={{
+          duration: 1,
+          ease: [0.25, 0.46, 0.45, 0.94]
+        }} className="mb-12">
+            <motion.div animate={{
+            background: ["linear-gradient(45deg, #8b5cf6, #3b82f6, #10b981)", "linear-gradient(45deg, #3b82f6, #10b981, #8b5cf6)", "linear-gradient(45deg, #10b981, #8b5cf6, #3b82f6)"]
+          }} transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "linear"
+          }} className="inline-block text-transparent bg-clip-text text-8xl md:text-9xl font-black tracking-tight">
               THE
             </motion.div>
             <br />
-            <motion.div
-              initial={{ rotateX: -90 }}
-              animate={{ rotateX: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-8xl md:text-9xl font-black text-white italic mb-4"
-            >
+            <motion.div initial={{
+            rotateX: -90
+          }} animate={{
+            rotateX: 0
+          }} transition={{
+            delay: 0.5,
+            duration: 0.8
+          }} className="text-8xl md:text-9xl font-black text-white italic mb-4">
               JOURNEY
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.8 }}
-              className="text-4xl md:text-6xl text-gray-400 font-light"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 50
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            delay: 1,
+            duration: 0.8
+          }} className="text-4xl md:text-6xl text-gray-400 font-light">
               FROM VISION TO REALITY
             </motion.div>
           </motion.div>
           
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
-            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed"
-          >
+          <motion.p initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          delay: 1.5,
+          duration: 0.8
+        }} className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
             Wir begleiten Sie auf einer strukturierten Reise von der ersten Idee bis zur finalen Implementierung.
             <br />
             <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent font-medium">Ein nahtloser Prozess. Drei spezialisierte Teams. Ein Ziel.</span>
           </motion.p>
 
           {/* Scroll Indicator */}
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="absolute bottom-20 left-1/2 transform -translate-x-1/2"
-          >
+          <motion.div animate={{
+          y: [0, 10, 0]
+        }} transition={{
+          duration: 2,
+          repeat: Infinity
+        }} className="absolute bottom-20 left-1/2 transform -translate-x-1/2">
             <ArrowDown className="w-8 h-8 text-purple-400" />
           </motion.div>
         </motion.div>
 
         {/* Interactive Floating Elements */}
-        <motion.div
-          style={{
-            x: mousePosition.x * 100,
-            y: mousePosition.y * 100,
-          }}
-          className="absolute top-20 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl"
-        />
-        <motion.div
-          style={{
-            x: -mousePosition.x * 150,
-            y: -mousePosition.y * 150,
-          }}
-          className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/20 rounded-full blur-xl"
-        />
+        <motion.div style={{
+        x: mousePosition.x * 100,
+        y: mousePosition.y * 100
+      }} className="absolute top-20 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl" />
+        <motion.div style={{
+        x: -mousePosition.x * 150,
+        y: -mousePosition.y * 150
+      }} className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/20 rounded-full blur-xl" />
       </section>
 
       {/* Key Activities Section */}
       <section className="relative py-32 bg-gradient-to-b from-black via-gray-900 to-black">
-        <motion.div style={{ y: y2 }} className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-20"
-          >
-            <motion.div
-              animate={{ 
-                boxShadow: [
-                  "0 0 20px #8b5cf6",
-                  "0 0 40px #3b82f6", 
-                  "0 0 20px #10b981",
-                  "0 0 40px #8b5cf6"
-                ]
-              }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="inline-block bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12"
-            >
+        <motion.div style={{
+        y: y2
+      }} className="container mx-auto px-6">
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="text-center mb-20">
+            <motion.div animate={{
+            boxShadow: ["0 0 20px #8b5cf6", "0 0 40px #3b82f6", "0 0 20px #10b981", "0 0 40px #8b5cf6"]
+          }} transition={{
+            duration: 4,
+            repeat: Infinity
+          }} className="inline-block bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12">
               Key Activities
             </motion.div>
             <h2 className="text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
@@ -315,47 +315,30 @@ const Services = () => {
             <div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
               
               {/* Studio Card */}
-              <motion.div
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                whileHover="hover"
-                viewport={{ once: true }}
-                onHoverStart={() => setHoveredCard('studio')}
-                onHoverEnd={() => setHoveredCard(null)}
-                className="relative group"
-              >
+              <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
+              once: true
+            }} onHoverStart={() => setHoveredCard('studio')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-purple-500/30 shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 backdrop-blur-lg">
                   <CardContent className="p-8 text-center relative overflow-hidden">
                     {/* Animated Background */}
-                    <motion.div
-                      animate={hoveredCard === 'studio' ? {
-                        background: [
-                          "radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)",
-                          "radial-gradient(circle, rgba(236,72,153,0.2) 0%, transparent 70%)",
-                          "radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)"
-                        ]
-                      } : {}}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="absolute inset-0"
-                    />
+                    <motion.div animate={hoveredCard === 'studio' ? {
+                    background: ["radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(236,72,153,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)"]
+                  } : {}} transition={{
+                    duration: 2,
+                    repeat: Infinity
+                  }} className="absolute inset-0" />
                     
-                    <motion.div
-                      animate={hoveredCard === 'studio' ? { 
-                        scale: [1, 1.1, 1],
-                        rotate: [0, 5, -5, 0]
-                      } : {}}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
-                    >
+                    <motion.div animate={hoveredCard === 'studio' ? {
+                    scale: [1, 1.1, 1],
+                    rotate: [0, 5, -5, 0]
+                  } : {}} transition={{
+                    duration: 2,
+                    repeat: Infinity
+                  }} className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10">
                       New Edge Studio
                     </motion.div>
                     
-                    <motion.div
-                      variants={iconVariants}
-                      whileHover="hover"
-                      className="w-20 h-20 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-purple-500/30 relative z-10"
-                    >
+                    <motion.div variants={iconVariants} whileHover="hover" className="w-20 h-20 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-purple-500/30 relative z-10">
                       <Palette className="w-10 h-10 text-purple-400" />
                     </motion.div>
                     
@@ -367,11 +350,12 @@ const Services = () => {
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button 
-                        className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 w-full relative z-10"
-                        asChild
-                      >
+                    <motion.div whileHover={{
+                    scale: 1.05
+                  }} whileTap={{
+                    scale: 0.95
+                  }}>
+                      <Button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 w-full relative z-10" asChild>
                         <Link to="/studio">
                           Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
@@ -382,57 +366,43 @@ const Services = () => {
 
                 {/* Animated Arrow */}
                 <div className="hidden lg:block absolute -right-6 top-1/2 transform -translate-y-1/2 z-20">
-                  <motion.div
-                    animate={{ x: [0, 10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
+                  <motion.div animate={{
+                  x: [0, 10, 0]
+                }} transition={{
+                  duration: 2,
+                  repeat: Infinity
+                }}>
                     <ArrowRight className="w-8 h-8 text-purple-400" />
                   </motion.div>
                 </div>
               </motion.div>
 
               {/* Media Card */}
-              <motion.div
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                whileHover="hover"
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                onHoverStart={() => setHoveredCard('media')}
-                onHoverEnd={() => setHoveredCard(null)}
-                className="relative group"
-              >
+              <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
+              once: true
+            }} transition={{
+              delay: 0.2
+            }} onHoverStart={() => setHoveredCard('media')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-gradient-to-br from-blue-900/50 to-cyan-900/50 border border-blue-500/30 shadow-2xl hover:shadow-blue-500/20 transition-all duration-700 backdrop-blur-lg">
                   <CardContent className="p-8 text-center relative overflow-hidden">
-                    <motion.div
-                      animate={hoveredCard === 'media' ? {
-                        background: [
-                          "radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)",
-                          "radial-gradient(circle, rgba(6,182,212,0.2) 0%, transparent 70%)",
-                          "radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)"
-                        ]
-                      } : {}}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="absolute inset-0"
-                    />
+                    <motion.div animate={hoveredCard === 'media' ? {
+                    background: ["radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(6,182,212,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)"]
+                  } : {}} transition={{
+                    duration: 2,
+                    repeat: Infinity
+                  }} className="absolute inset-0" />
                     
-                    <motion.div
-                      animate={hoveredCard === 'media' ? { 
-                        scale: [1, 1.1, 1],
-                        rotate: [0, -5, 5, 0]
-                      } : {}}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
-                    >
+                    <motion.div animate={hoveredCard === 'media' ? {
+                    scale: [1, 1.1, 1],
+                    rotate: [0, -5, 5, 0]
+                  } : {}} transition={{
+                    duration: 2,
+                    repeat: Infinity
+                  }} className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10">
                       New Edge Media
                     </motion.div>
                     
-                    <motion.div
-                      variants={iconVariants}
-                      whileHover="hover"
-                      className="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-blue-500/30 relative z-10"
-                    >
+                    <motion.div variants={iconVariants} whileHover="hover" className="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-blue-500/30 relative z-10">
                       <Video className="w-10 h-10 text-blue-400" />
                     </motion.div>
                     
@@ -444,11 +414,12 @@ const Services = () => {
                       Content, der bewegt. Hier entstehen alle visuellen und medialen Inhalte für Ihre Marke.
                     </p>
                     
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button 
-                        className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700 w-full relative z-10"
-                        asChild
-                      >
+                    <motion.div whileHover={{
+                    scale: 1.05
+                  }} whileTap={{
+                    scale: 0.95
+                  }}>
+                      <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700 w-full relative z-10" asChild>
                         <Link to="/media">
                           Content produzieren <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
@@ -458,57 +429,44 @@ const Services = () => {
                 </Card>
 
                 <div className="hidden lg:block absolute -right-6 top-1/2 transform -translate-y-1/2 z-20">
-                  <motion.div
-                    animate={{ x: [0, 10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                  >
+                  <motion.div animate={{
+                  x: [0, 10, 0]
+                }} transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: 0.5
+                }}>
                     <ArrowRight className="w-8 h-8 text-blue-400" />
                   </motion.div>
                 </div>
               </motion.div>
 
               {/* Lab Card */}
-              <motion.div
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                whileHover="hover"
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                onHoverStart={() => setHoveredCard('lab')}
-                onHoverEnd={() => setHoveredCard(null)}
-                className="relative group"
-              >
+              <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
+              once: true
+            }} transition={{
+              delay: 0.4
+            }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-gradient-to-br from-green-900/50 to-emerald-900/50 border border-green-500/30 shadow-2xl hover:shadow-green-500/20 transition-all duration-700 backdrop-blur-lg">
                   <CardContent className="p-8 text-center relative overflow-hidden">
-                    <motion.div
-                      animate={hoveredCard === 'lab' ? {
-                        background: [
-                          "radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)",
-                          "radial-gradient(circle, rgba(5,150,105,0.2) 0%, transparent 70%)",
-                          "radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)"
-                        ]
-                      } : {}}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="absolute inset-0"
-                    />
+                    <motion.div animate={hoveredCard === 'lab' ? {
+                    background: ["radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(5,150,105,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)"]
+                  } : {}} transition={{
+                    duration: 2,
+                    repeat: Infinity
+                  }} className="absolute inset-0" />
                     
-                    <motion.div
-                      animate={hoveredCard === 'lab' ? { 
-                        scale: [1, 1.1, 1],
-                        rotate: [0, 5, -5, 0]
-                      } : {}}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="inline-block bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
-                    >
+                    <motion.div animate={hoveredCard === 'lab' ? {
+                    scale: [1, 1.1, 1],
+                    rotate: [0, 5, -5, 0]
+                  } : {}} transition={{
+                    duration: 2,
+                    repeat: Infinity
+                  }} className="inline-block bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10">
                       New Edge Lab
                     </motion.div>
                     
-                    <motion.div
-                      variants={iconVariants}
-                      whileHover="hover"
-                      className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-green-500/30 relative z-10"
-                    >
+                    <motion.div variants={iconVariants} whileHover="hover" className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-green-500/30 relative z-10">
                       <Cpu className="w-10 h-10 text-green-400" />
                     </motion.div>
                     
@@ -520,11 +478,12 @@ const Services = () => {
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
                     
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button 
-                        className="bg-gradient-to-r from-green-600 to-emerald-600 text-white hover:from-green-700 hover:to-emerald-700 w-full relative z-10"
-                        asChild
-                      >
+                    <motion.div whileHover={{
+                    scale: 1.05
+                  }} whileTap={{
+                    scale: 0.95
+                  }}>
+                      <Button className="bg-gradient-to-r from-green-600 to-emerald-600 text-white hover:from-green-700 hover:to-emerald-700 w-full relative z-10" asChild>
                         <Link to="/lab">
                           Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
@@ -536,43 +495,55 @@ const Services = () => {
             </div>
 
             {/* Process Flow */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="mt-20 text-center"
-            >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="inline-block bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 backdrop-blur-lg"
-              >
+            <motion.div initial={{
+            opacity: 0,
+            scale: 0.8
+          }} whileInView={{
+            opacity: 1,
+            scale: 1
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.6,
+            duration: 0.8
+          }} className="mt-20 text-center">
+              <motion.div whileHover={{
+              scale: 1.05
+            }} className="inline-block bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 backdrop-blur-lg">
                 <p className="text-lg text-white font-medium mb-4">
                   All das geschieht hier - im kreativen Headquarter für Reichweite, Wirkung & Wachstum.
                 </p>
                 <div className="flex items-center justify-center space-x-4 text-sm">
-                  <motion.span 
-                    whileHover={{ scale: 1.1 }}
-                    className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full border border-purple-500/30"
-                  >
+                  <motion.span whileHover={{
+                  scale: 1.1
+                }} className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full border border-purple-500/30">
                     Strategie
                   </motion.span>
-                  <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 1, repeat: Infinity }}>
+                  <motion.div animate={{
+                  x: [0, 5, 0]
+                }} transition={{
+                  duration: 1,
+                  repeat: Infinity
+                }}>
                     <ArrowRight className="w-4 h-4 text-gray-400" />
                   </motion.div>
-                  <motion.span 
-                    whileHover={{ scale: 1.1 }}
-                    className="bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full border border-blue-500/30"
-                  >
+                  <motion.span whileHover={{
+                  scale: 1.1
+                }} className="bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full border border-blue-500/30">
                     Umsetzung
                   </motion.span>
-                  <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 1, repeat: Infinity, delay: 0.5 }}>
+                  <motion.div animate={{
+                  x: [0, 5, 0]
+                }} transition={{
+                  duration: 1,
+                  repeat: Infinity,
+                  delay: 0.5
+                }}>
                     <ArrowRight className="w-4 h-4 text-gray-400" />
                   </motion.div>
-                  <motion.span 
-                    whileHover={{ scale: 1.1 }}
-                    className="bg-green-500/20 text-green-300 px-4 py-2 rounded-full border border-green-500/30"
-                  >
+                  <motion.span whileHover={{
+                  scale: 1.1
+                }} className="bg-green-500/20 text-green-300 px-4 py-2 rounded-full border border-green-500/30">
                     Technologie
                   </motion.span>
                 </div>
@@ -583,183 +554,55 @@ const Services = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-32 bg-gradient-to-b from-black to-gray-900 relative">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="container mx-auto px-6"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <h2 className="text-6xl font-bold text-white mb-6">Transparente Preise</h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Klare Kostenstrukturen für jeden Projektumfang
-            </p>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              { 
-                title: "Studio Starter", 
-                price: "€2.500", 
-                colorClass: "purple",
-                features: ["Brand Identity Entwicklung", "Logo & Farbschema", "Style Guide (Basic)", "3 Designkonzepte"],
-                delay: 0
-              },
-              { 
-                title: "Complete Journey", 
-                price: "€8.500", 
-                colorClass: "blue",
-                features: ["Studio + Media + Lab", "Vollständige Brand Identity", "Content-Produktion", "KI-Integration & Backend", "6 Monate Support"],
-                popular: true,
-                delay: 0.2
-              },
-              { 
-                title: "Enterprise", 
-                price: "Individual", 
-                colorClass: "green",
-                features: ["Maßgeschneiderte Lösungen", "Dedicated Team", "Unlimited Revisions", "Priority Support", "Custom KI-Development"],
-                delay: 0.4
-              }
-            ].map((plan, index) => {
-              const getColorClasses = (color: string) => {
-                switch(color) {
-                  case 'purple':
-                    return {
-                      gradient: 'from-purple-900/20 to-purple-800/20',
-                      border: 'border-purple-500/30',
-                      text: 'text-purple-400',
-                      bg: 'bg-purple-500',
-                      bgGradient: 'from-purple-600 to-purple-700',
-                      hoverGradient: 'from-purple-700 to-purple-800'
-                    };
-                  case 'blue':
-                    return {
-                      gradient: 'from-blue-900/20 to-blue-800/20',
-                      border: 'border-blue-500/30',
-                      text: 'text-blue-400',
-                      bg: 'bg-blue-500',
-                      bgGradient: 'from-blue-600 to-blue-700',
-                      hoverGradient: 'from-blue-700 to-blue-800'
-                    };
-                  case 'green':
-                    return {
-                      gradient: 'from-green-900/20 to-green-800/20',
-                      border: 'border-green-500/30',
-                      text: 'text-green-400',
-                      bg: 'bg-green-500',
-                      bgGradient: 'from-green-600 to-green-700',
-                      hoverGradient: 'from-green-700 to-green-800'
-                    };
-                  default:
-                    return {
-                      gradient: 'from-gray-900/20 to-gray-800/20',
-                      border: 'border-gray-500/30',
-                      text: 'text-gray-400',
-                      bg: 'bg-gray-500',
-                      bgGradient: 'from-gray-600 to-gray-700',
-                      hoverGradient: 'from-gray-700 to-gray-800'
-                    };
-                }
-              };
-              
-              const colors = getColorClasses(plan.colorClass);
-              return (
-                <motion.div
-                  key={plan.title}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ scale: 1.05, y: -10 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: plan.delay, duration: 0.6 }}
-                  className="relative"
-                >
-                  {plan.popular && (
-                    <motion.div
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-2 rounded-full text-sm font-bold z-10"
-                    >
-                      Beliebt
-                    </motion.div>
-                  )}
-                  <Card className={`bg-gradient-to-br ${colors.gradient} border ${colors.border} shadow-2xl backdrop-blur-lg h-full`}>
-                    <CardContent className="p-8 text-center">
-                      <h3 className={`text-2xl font-bold ${colors.text} mb-4`}>{plan.title}</h3>
-                      <div className="text-4xl font-bold text-white mb-6">{plan.price}</div>
-                      <ul className="text-gray-300 mb-8 space-y-3">
-                        {plan.features.map((feature, i) => (
-                          <motion.li 
-                            key={i}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ delay: plan.delay + (i * 0.1) }}
-                            className="flex items-center"
-                          >
-                            <div className={`w-2 h-2 ${colors.bg} rounded-full mr-3`}></div>
-                            {feature}
-                          </motion.li>
-                        ))}
-                      </ul>
-                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                        <Button className={`w-full bg-gradient-to-r ${colors.bgGradient} text-white hover:${colors.hoverGradient}`} asChild>
-                          <Link to="/#contact-section">
-                            {plan.price === "Individual" ? "Angebot anfordern" : "Jetzt starten"}
-                          </Link>
-                        </Button>
-                      </motion.div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
-      </section>
+      
 
       {/* CTA Section */}
       <section className="py-32 bg-gradient-to-r from-purple-900 via-blue-900 to-green-900 relative overflow-hidden">
-        <motion.div 
-          className="container mx-auto px-6 text-center relative z-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <motion.h2 
-            initial={{ scale: 0.5 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            className="text-6xl font-bold mb-6 text-white"
-          >
+        <motion.div className="container mx-auto px-6 text-center relative z-10" initial={{
+        opacity: 0
+      }} whileInView={{
+        opacity: 1
+      }} viewport={{
+        once: true
+      }}>
+          <motion.h2 initial={{
+          scale: 0.5
+        }} whileInView={{
+          scale: 1
+        }} viewport={{
+          once: true
+        }} className="text-6xl font-bold mb-6 text-white">
             Bereit für Ihre Reise?
           </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed text-gray-200"
-          >
+          <motion.p initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          delay: 0.3
+        }} className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed text-gray-200">
             Lassen Sie uns gemeinsam Ihre Vision Schritt für Schritt zur Realität werden.
           </motion.p>
-          <motion.div 
-            whileHover={{ scale: 1.1 }} 
-            whileTap={{ scale: 0.9 }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-          >
-            <Button 
-              size="lg" 
-              className="bg-white text-gray-800 hover:bg-gray-100 text-xl px-16 py-6 rounded-full shadow-2xl"
-              asChild
-            >
+          <motion.div whileHover={{
+          scale: 1.1
+        }} whileTap={{
+          scale: 0.9
+        }} initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          delay: 0.6
+        }}>
+            <Button size="lg" className="bg-white text-gray-800 hover:bg-gray-100 text-xl px-16 py-6 rounded-full shadow-2xl" asChild>
               <Link to="/#contact-section">
                 Projekt starten
               </Link>
@@ -768,25 +611,23 @@ const Services = () => {
         </motion.div>
         
         {/* Animated Background Elements */}
-        <motion.div
-          animate={{
-            rotate: 360,
-            scale: [1, 1.2, 1],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-20 left-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"
-        />
-        <motion.div
-          animate={{
-            rotate: -360,
-            scale: [1.2, 1, 1.2],
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-20 right-20 w-40 h-40 bg-green-500/10 rounded-full blur-xl"
-        />
+        <motion.div animate={{
+        rotate: 360,
+        scale: [1, 1.2, 1]
+      }} transition={{
+        duration: 20,
+        repeat: Infinity,
+        ease: "linear"
+      }} className="absolute top-20 left-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl" />
+        <motion.div animate={{
+        rotate: -360,
+        scale: [1.2, 1, 1.2]
+      }} transition={{
+        duration: 25,
+        repeat: Infinity,
+        ease: "linear"
+      }} className="absolute bottom-20 right-20 w-40 h-40 bg-green-500/10 rounded-full blur-xl" />
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Services;
