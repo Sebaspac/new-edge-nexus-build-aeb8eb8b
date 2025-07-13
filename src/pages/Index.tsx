@@ -164,12 +164,12 @@ const Index = () => {
             <div className="grid grid-cols-4 md:grid-cols-6 gap-8 items-center opacity-60 max-w-4xl mx-auto animate-fade-in" style={{
             animationDelay: '1s'
           }}>
-              <div className="text-gray-400 text-sm font-semibold hover:text-primary transition-colors hover:scale-110 duration-300">AUDI</div>
-              <div className="text-gray-400 text-sm font-semibold hover:text-primary transition-colors hover:scale-110 duration-300">OPEL</div>
-              <div className="text-gray-400 text-sm font-semibold hover:text-primary transition-colors hover:scale-110 duration-300">BMW</div>
-              <div className="text-gray-400 text-sm font-semibold hover:text-primary transition-colors hover:scale-110 duration-300">VW</div>
-              <div className="text-gray-400 text-sm font-semibold hover:text-primary transition-colors hover:scale-110 duration-300">NIKE</div>
-              <div className="text-gray-400 text-sm font-semibold hover:text-primary transition-colors hover:scale-110 duration-300">ADIDAS</div>
+              
+              
+              
+              
+              
+              
             </div>
           </div>
         </div>
