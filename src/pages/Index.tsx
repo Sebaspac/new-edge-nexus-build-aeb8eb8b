@@ -372,10 +372,10 @@ const Index = () => {
                     </motion.div>
                     
                     <h3 className="text-3xl font-bold text-white mb-4 relative z-10">STUDIO</h3>
-                    <p className="text-lg text-purple-200 mb-6 leading-relaxed relative z-10">
+                    <p className="text-lg text-white mb-6 leading-relaxed relative z-10">
                       Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
                     </p>
-                    <ul className="space-y-3 text-gray-300 mb-8 relative z-10 text-left">
+                    <ul className="space-y-3 text-gray-100 mb-8 relative z-10 text-left">
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
                         Strategie & Markenidentität
@@ -438,10 +438,10 @@ const Index = () => {
                     </motion.div>
                     
                     <h3 className="text-3xl font-bold text-white mb-4 relative z-10">MEDIA</h3>
-                    <p className="text-lg text-blue-200 mb-6 leading-relaxed relative z-10">
+                    <p className="text-lg text-white mb-6 leading-relaxed relative z-10">
                       Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
                     </p>
-                    <ul className="space-y-3 text-gray-300 mb-8 relative z-10 text-left">
+                    <ul className="space-y-3 text-gray-100 mb-8 relative z-10 text-left">
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
                         Content-Produktion & Reichweite
@@ -504,10 +504,10 @@ const Index = () => {
                     </motion.div>
                     
                     <h3 className="text-3xl font-bold text-white mb-4 relative z-10">LAB</h3>
-                    <p className="text-lg text-yellow-200 mb-6 leading-relaxed relative z-10">
+                    <p className="text-lg text-white mb-6 leading-relaxed relative z-10">
                       Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
                     </p>
-                    <ul className="space-y-3 text-gray-300 mb-8 relative z-10 text-left">
+                    <ul className="space-y-3 text-gray-100 mb-8 relative z-10 text-left">
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
                         KI-Integration & Automation
