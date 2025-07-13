@@ -8,22 +8,23 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
-
 const Services = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0
+  });
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY
+      });
     };
-
     window.addEventListener('mousemove', handleMouseMove);
-    
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
-
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
@@ -32,7 +33,6 @@ const Services = () => {
       });
     }
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
@@ -64,9 +64,7 @@ const Services = () => {
       });
     }
   };
-
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 animate-slide-in-right">
         <div className="container mx-auto px-6 py-4">
@@ -99,31 +97,55 @@ const Services = () => {
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/15 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-xl animate-bounce" style={{ animationDelay: '2s', animationDuration: '3s' }}></div>
-          <div className="absolute top-1/6 right-1/6 w-48 h-48 bg-accent/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '4s' }}></div>
-          <div className="absolute bottom-1/6 left-1/6 w-56 h-56 bg-primary/15 rounded-full blur-xl animate-bounce" style={{ animationDelay: '3s', animationDuration: '4s' }}></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/15 rounded-full blur-2xl animate-pulse" style={{
+          animationDelay: '1s'
+        }}></div>
+          <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-xl animate-bounce" style={{
+          animationDelay: '2s',
+          animationDuration: '3s'
+        }}></div>
+          <div className="absolute top-1/6 right-1/6 w-48 h-48 bg-accent/10 rounded-full blur-2xl animate-pulse" style={{
+          animationDelay: '4s'
+        }}></div>
+          <div className="absolute bottom-1/6 left-1/6 w-56 h-56 bg-primary/15 rounded-full blur-xl animate-bounce" style={{
+          animationDelay: '3s',
+          animationDuration: '4s'
+        }}></div>
           
           {/* Floating Icons */}
-          <div className="absolute top-1/4 left-1/4 text-primary/30 animate-float" style={{ animationDelay: '0.5s' }}>
+          <div className="absolute top-1/4 left-1/4 text-primary/30 animate-float" style={{
+          animationDelay: '0.5s'
+        }}>
             <Target size={32} className="animate-spin-slow" />
           </div>
-          <div className="absolute top-3/4 right-1/4 text-accent/30 animate-float" style={{ animationDelay: '1.5s' }}>
+          <div className="absolute top-3/4 right-1/4 text-accent/30 animate-float" style={{
+          animationDelay: '1.5s'
+        }}>
             <Sparkles size={28} className="animate-pulse" />
           </div>
-          <div className="absolute top-1/3 right-1/3 text-primary/40 animate-float" style={{ animationDelay: '2.5s' }}>
+          <div className="absolute top-1/3 right-1/3 text-primary/40 animate-float" style={{
+          animationDelay: '2.5s'
+        }}>
             <Lightbulb size={24} className="animate-bounce" />
           </div>
-          <div className="absolute bottom-1/3 left-1/5 text-accent/35 animate-float" style={{ animationDelay: '3s' }}>
+          <div className="absolute bottom-1/3 left-1/5 text-accent/35 animate-float" style={{
+          animationDelay: '3s'
+        }}>
             <Zap size={30} className="animate-pulse" />
           </div>
-          <div className="absolute top-1/6 left-2/3 text-primary/25 animate-float" style={{ animationDelay: '4s' }}>
+          <div className="absolute top-1/6 left-2/3 text-primary/25 animate-float" style={{
+          animationDelay: '4s'
+        }}>
             <Brain size={26} className="animate-spin-slow" />
           </div>
-          <div className="absolute bottom-1/6 right-1/6 text-accent/40 animate-float" style={{ animationDelay: '5s' }}>
+          <div className="absolute bottom-1/6 right-1/6 text-accent/40 animate-float" style={{
+          animationDelay: '5s'
+        }}>
             <Megaphone size={28} className="animate-bounce" />
           </div>
-          <div className="absolute top-2/3 left-1/6 text-primary/30 animate-float" style={{ animationDelay: '6s' }}>
+          <div className="absolute top-2/3 left-1/6 text-primary/30 animate-float" style={{
+          animationDelay: '6s'
+        }}>
             <Globe size={32} className="animate-spin-slow" />
           </div>
         </div>
@@ -136,35 +158,42 @@ const Services = () => {
             </div>
           </div>
           
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-black mb-8 leading-none animate-fade-in transform hover:scale-105 transition-transform duration-500" style={{ animationDelay: '0.3s' }}>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-black mb-8 leading-none animate-fade-in transform hover:scale-105 transition-transform duration-500" style={{
+          animationDelay: '0.3s'
+        }}>
             SERVICES
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 animate-fade-in" style={{
+          animationDelay: '0.6s'
+        }}>
             Von der strategischen Planung bis zur technischen Umsetzung – 
             wir verbinden Kreativität mit Technologie für maximalen Impact.
           </p>
 
           {/* Dynamic background gradient elements */}
-          <div 
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-3xl -z-10 animate-pulse"
-            style={{
-              transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px) translate(-50%, -50%)`
-            }}
-          ></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-3xl -z-10 animate-pulse" style={{
+          transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px) translate(-50%, -50%)`
+        }}></div>
         </div>
       </section>
 
       {/* Services Header */}
       <section className="py-20 bg-black relative overflow-hidden">
         {/* Floating elements in black section */}
-        <div className="absolute top-10 left-20 text-accent/30 animate-float" style={{ animationDelay: '1s' }}>
+        <div className="absolute top-10 left-20 text-accent/30 animate-float" style={{
+        animationDelay: '1s'
+      }}>
           <Star size={24} className="animate-spin-slow" />
         </div>
-        <div className="absolute bottom-10 right-20 text-primary/40 animate-float" style={{ animationDelay: '2s' }}>
+        <div className="absolute bottom-10 right-20 text-primary/40 animate-float" style={{
+        animationDelay: '2s'
+      }}>
           <Users size={28} className="animate-pulse" />
         </div>
-        <div className="absolute top-1/2 right-1/4 text-accent/25 animate-float" style={{ animationDelay: '3s' }}>
+        <div className="absolute top-1/2 right-1/4 text-accent/25 animate-float" style={{
+        animationDelay: '3s'
+      }}>
           <Rocket size={20} className="animate-bounce" />
         </div>
         
@@ -172,7 +201,9 @@ const Services = () => {
           <h2 className="text-5xl md:text-6xl font-black text-white mb-4 animate-fade-in hover:scale-105 transition-transform duration-500">
             Unsere <span className="text-accent animate-pulse">Leistungen</span>
           </h2>
-          <p className="text-xl max-w-3xl mx-auto text-gray-50 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <p className="text-xl max-w-3xl mx-auto text-gray-50 animate-fade-in" style={{
+          animationDelay: '0.3s'
+        }}>
             Innovative Lösungen für die digitale Transformation
           </p>
         </div>
@@ -181,12 +212,18 @@ const Services = () => {
       {/* STUDIO Section */}
       <section className="py-20 bg-gray-50 relative overflow-hidden">
         {/* Background animations */}
-        <div className="absolute top-10 right-20 w-32 h-32 bg-purple-100/50 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-10 left-20 w-40 h-40 bg-purple-200/30 rounded-full blur-2xl animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-10 right-20 w-32 h-32 bg-purple-100/50 rounded-full blur-xl animate-float" style={{
+        animationDelay: '2s'
+      }}></div>
+        <div className="absolute bottom-10 left-20 w-40 h-40 bg-purple-200/30 rounded-full blur-2xl animate-float" style={{
+        animationDelay: '3s'
+      }}></div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="animate-fade-in" style={{
+            animationDelay: '0.2s'
+          }}>
               <div className="flex items-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mr-4 animate-bounce hover:scale-110 transition-transform duration-300">
                   <span className="text-3xl animate-pulse">🟣</span>
@@ -203,7 +240,9 @@ const Services = () => {
               </p>
               
               <div className="space-y-6">
-                <Card className="border-l-4 border-l-purple-500 shadow-sm hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:rotate-1" style={{ animationDelay: '0.4s' }}>
+                <Card className="border-l-4 border-l-purple-500 shadow-sm hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:rotate-1" style={{
+                animationDelay: '0.4s'
+              }}>
                   <CardContent className="p-6">
                     <h4 className="font-semibold text-lg mb-3 flex items-center">
                       <Target className="mr-2 h-5 w-5 text-purple-500 animate-spin-slow" />
@@ -218,7 +257,9 @@ const Services = () => {
                   </CardContent>
                 </Card>
                 
-                <Card className="border-l-4 border-l-purple-500 shadow-sm hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:-rotate-1" style={{ animationDelay: '0.6s' }}>
+                <Card className="border-l-4 border-l-purple-500 shadow-sm hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:-rotate-1" style={{
+                animationDelay: '0.6s'
+              }}>
                   <CardContent className="p-6">
                     <h4 className="font-semibold text-lg mb-3 flex items-center">
                       <Sparkles className="mr-2 h-5 w-5 text-purple-500 animate-pulse" />
@@ -232,7 +273,9 @@ const Services = () => {
                   </CardContent>
                 </Card>
                 
-                <Card className="border-l-4 border-l-purple-500 shadow-sm hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:rotate-1" style={{ animationDelay: '0.8s' }}>
+                <Card className="border-l-4 border-l-purple-500 shadow-sm hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:rotate-1" style={{
+                animationDelay: '0.8s'
+              }}>
                   <CardContent className="p-6">
                     <h4 className="font-semibold text-lg mb-3 flex items-center">
                       <Globe className="mr-2 h-5 w-5 text-purple-500 animate-bounce" />
@@ -247,13 +290,17 @@ const Services = () => {
               </div>
             </div>
             
-            <div className="relative animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <div className="relative animate-fade-in" style={{
+            animationDelay: '0.4s'
+          }}>
               <div className="bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl p-8 text-white relative overflow-hidden hover:scale-105 transition-transform duration-500">
                 {/* Floating icons in purple box */}
                 <div className="absolute top-4 right-4 animate-float">
                   <Sparkles className="w-6 h-6 text-white/70 animate-pulse" />
                 </div>
-                <div className="absolute bottom-4 left-4 animate-float" style={{ animationDelay: '1s' }}>
+                <div className="absolute bottom-4 left-4 animate-float" style={{
+                animationDelay: '1s'
+              }}>
                   <Target className="w-5 h-5 text-white/60 animate-spin-slow" />
                 </div>
                 
@@ -281,12 +328,18 @@ const Services = () => {
       {/* MEDIA Section */}
       <section className="py-20 bg-white relative overflow-hidden">
         {/* Background animations */}
-        <div className="absolute top-10 left-20 w-32 h-32 bg-blue-100/50 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-10 right-20 w-40 h-40 bg-cyan-200/30 rounded-full blur-2xl animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-10 left-20 w-32 h-32 bg-blue-100/50 rounded-full blur-xl animate-float" style={{
+        animationDelay: '2s'
+      }}></div>
+        <div className="absolute bottom-10 right-20 w-40 h-40 bg-cyan-200/30 rounded-full blur-2xl animate-float" style={{
+        animationDelay: '3s'
+      }}></div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="lg:order-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="lg:order-2 animate-fade-in" style={{
+            animationDelay: '0.2s'
+          }}>
               <div className="flex items-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mr-4 animate-bounce hover:scale-110 transition-transform duration-300">
                   <span className="text-3xl animate-pulse">🔵</span>
@@ -302,7 +355,9 @@ const Services = () => {
               </p>
               
               <div className="space-y-6">
-                <Card className="border-l-4 border-l-blue-500 shadow-sm hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:rotate-1" style={{ animationDelay: '0.4s' }}>
+                <Card className="border-l-4 border-l-blue-500 shadow-sm hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:rotate-1" style={{
+                animationDelay: '0.4s'
+              }}>
                   <CardContent className="p-6">
                     <h4 className="font-semibold text-lg mb-3 flex items-center">
                       <Megaphone className="mr-2 h-5 w-5 text-blue-500 animate-pulse" />
@@ -316,7 +371,9 @@ const Services = () => {
                   </CardContent>
                 </Card>
                 
-                <Card className="border-l-4 border-l-blue-500 shadow-sm hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:-rotate-1" style={{ animationDelay: '0.6s' }}>
+                <Card className="border-l-4 border-l-blue-500 shadow-sm hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:-rotate-1" style={{
+                animationDelay: '0.6s'
+              }}>
                   <CardContent className="p-6">
                     <h4 className="font-semibold text-lg mb-3 flex items-center">
                       <BarChart className="mr-2 h-5 w-5 text-blue-500 animate-bounce" />
@@ -330,7 +387,9 @@ const Services = () => {
                   </CardContent>
                 </Card>
                 
-                <Card className="border-l-4 border-l-blue-500 shadow-sm hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:rotate-1" style={{ animationDelay: '0.8s' }}>
+                <Card className="border-l-4 border-l-blue-500 shadow-sm hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:rotate-1" style={{
+                animationDelay: '0.8s'
+              }}>
                   <CardContent className="p-6">
                     <h4 className="font-semibold text-lg mb-3 flex items-center">
                       <Lightbulb className="mr-2 h-5 w-5 text-blue-500 animate-spin-slow" />
@@ -344,13 +403,17 @@ const Services = () => {
               </div>
             </div>
             
-            <div className="lg:order-1 relative animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <div className="lg:order-1 relative animate-fade-in" style={{
+            animationDelay: '0.4s'
+          }}>
               <div className="bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl p-8 text-white relative overflow-hidden hover:scale-105 transition-transform duration-500">
                 {/* Floating icons in blue box */}
                 <div className="absolute top-4 right-4 animate-float">
                   <Megaphone className="w-6 h-6 text-white/70 animate-pulse" />
                 </div>
-                <div className="absolute bottom-4 left-4 animate-float" style={{ animationDelay: '1s' }}>
+                <div className="absolute bottom-4 left-4 animate-float" style={{
+                animationDelay: '1s'
+              }}>
                   <BarChart className="w-5 h-5 text-white/60 animate-bounce" />
                 </div>
                 
@@ -378,12 +441,20 @@ const Services = () => {
       {/* LAB Section */}
       <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
         {/* Floating background elements */}
-        <div className="absolute top-10 left-20 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-10 right-20 w-40 h-40 bg-primary/15 rounded-full blur-2xl animate-float" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute top-1/2 left-1/4 text-accent/20 animate-float" style={{ animationDelay: '4s' }}>
+        <div className="absolute top-10 left-20 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-float" style={{
+        animationDelay: '2s'
+      }}></div>
+        <div className="absolute bottom-10 right-20 w-40 h-40 bg-primary/15 rounded-full blur-2xl animate-float" style={{
+        animationDelay: '3s'
+      }}></div>
+        <div className="absolute top-1/2 left-1/4 text-accent/20 animate-float" style={{
+        animationDelay: '4s'
+      }}>
           <Brain size={48} className="animate-spin-slow" />
         </div>
-        <div className="absolute top-1/4 right-1/3 text-primary/15 animate-float" style={{ animationDelay: '5s' }}>
+        <div className="absolute top-1/4 right-1/3 text-primary/15 animate-float" style={{
+        animationDelay: '5s'
+      }}>
           <Zap size={36} className="animate-pulse" />
         </div>
         
@@ -402,13 +473,17 @@ const Services = () => {
               </div>
             </div>
             
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed animate-fade-in" style={{
+            animationDelay: '0.3s'
+          }}>
               LAB macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            <Card className="border-0 shadow-lg bg-gray-800 border border-gray-700 hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:rotate-1" style={{ animationDelay: '0.2s' }}>
+            <Card className="border-0 shadow-lg bg-gray-800 border border-gray-700 hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:rotate-1" style={{
+            animationDelay: '0.2s'
+          }}>
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4 animate-bounce hover:scale-110 transition-transform duration-300">
                   <Brain className="h-6 w-6 text-white animate-pulse" />
@@ -441,7 +516,9 @@ const Services = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg bg-gray-800 border border-gray-700 hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:-rotate-1" style={{ animationDelay: '0.4s' }}>
+            <Card className="border-0 shadow-lg bg-gray-800 border border-gray-700 hover:shadow-xl transition-all duration-500 animate-fade-in hover:scale-105 transform hover:-rotate-1" style={{
+            animationDelay: '0.4s'
+          }}>
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center mb-4 animate-float hover:scale-110 transition-transform duration-300">
                   <Database className="h-6 w-6 text-white animate-pulse" />
@@ -463,12 +540,16 @@ const Services = () => {
             </Card>
           </div>
 
-          <div className="bg-gradient-to-r from-gray-800 to-black rounded-2xl p-12 text-white text-center border border-accent/20 relative overflow-hidden hover:scale-105 transition-transform duration-500 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="bg-gradient-to-r from-gray-800 to-black rounded-2xl p-12 text-white text-center border border-accent/20 relative overflow-hidden hover:scale-105 transition-transform duration-500 animate-fade-in" style={{
+          animationDelay: '0.6s'
+        }}>
             {/* Floating elements inside gradient box */}
             <div className="absolute top-6 left-6 animate-float">
               <Rocket className="w-8 h-8 text-accent/50 animate-bounce" />
             </div>
-            <div className="absolute bottom-6 right-6 animate-float" style={{ animationDelay: '1s' }}>
+            <div className="absolute bottom-6 right-6 animate-float" style={{
+            animationDelay: '1s'
+          }}>
               <Star className="w-6 h-6 text-accent/60 animate-pulse" />
             </div>
             
@@ -478,7 +559,7 @@ const Services = () => {
             <p className="text-xl mb-8 max-w-3xl mx-auto">Von KI-gestützten Chatbots bis zu vollautomatisierten Funnels – LAB bringt Ihre digitalen Visionen zum Leben.</p>
             <div className="grid md:grid-cols-4 gap-6">
               <div className="text-center hover:scale-110 transition-transform duration-300">
-                <div className="text-3xl font-bold text-accent mb-2 animate-bounce">95%</div>
+                <div className="text-3xl font-bold text-accent mb-2 animate-bounce">45%</div>
                 <div className="text-sm text-gray-300">Effizienzsteigerung</div>
               </div>
               <div className="text-center hover:scale-110 transition-transform duration-300">
@@ -501,80 +582,57 @@ const Services = () => {
       {/* Contact Section */}
       <section id="contact-section" className="py-20 bg-white relative overflow-hidden">
         {/* Background animations */}
-        <div className="absolute top-10 right-20 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-10 left-20 w-40 h-40 bg-accent/10 rounded-full blur-2xl animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-10 right-20 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-float" style={{
+        animationDelay: '2s'
+      }}></div>
+        <div className="absolute bottom-10 left-20 w-40 h-40 bg-accent/10 rounded-full blur-2xl animate-float" style={{
+        animationDelay: '3s'
+      }}></div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-5xl md:text-6xl font-black text-black mb-6 hover:scale-105 transition-transform duration-500">
               Bereit für den <span className="text-primary animate-pulse">nächsten Schritt?</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in" style={{
+            animationDelay: '0.3s'
+          }}>
               Lassen Sie uns gemeinsam Ihre digitale Zukunft gestalten.
             </p>
           </div>
 
           <div className="max-w-2xl mx-auto">
-            <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in" style={{
+            animationDelay: '0.4s'
+          }}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-sm font-medium text-gray-700">Name *</Label>
-                  <Input 
-                    id="name"
-                    name="name"
-                    required 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 hover:border-primary"
-                    placeholder="Ihr Name"
-                  />
+                  <Input id="name" name="name" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 hover:border-primary" placeholder="Ihr Name" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-sm font-medium text-gray-700">E-Mail *</Label>
-                  <Input 
-                    id="email"
-                    name="email"
-                    type="email" 
-                    required 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 hover:border-primary"
-                    placeholder="ihre@email.de"
-                  />
+                  <Input id="email" name="email" type="email" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 hover:border-primary" placeholder="ihre@email.de" />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <Label htmlFor="company" className="text-sm font-medium text-gray-700">Unternehmen</Label>
-                <Input 
-                  id="company"
-                  name="company"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 hover:border-primary"
-                  placeholder="Ihr Unternehmen"
-                />
+                <Input id="company" name="company" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 hover:border-primary" placeholder="Ihr Unternehmen" />
               </div>
               
               <div className="space-y-2">
                 <Label htmlFor="message" className="text-sm font-medium text-gray-700">Nachricht *</Label>
-                <Textarea 
-                  id="message"
-                  name="message"
-                  required 
-                  rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-all duration-300 hover:border-primary"
-                  placeholder="Erzählen Sie uns von Ihrem Projekt..."
-                />
+                <Textarea id="message" name="message" required rows={6} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-all duration-300 hover:border-primary" placeholder="Erzählen Sie uns von Ihrem Projekt..." />
               </div>
               
-              <Button 
-                type="submit" 
-                size="lg" 
-                className="w-full bg-black text-white hover:bg-gray-800 transition-colors py-4 text-lg font-semibold rounded-lg"
-              >
+              <Button type="submit" size="lg" className="w-full bg-black text-white hover:bg-gray-800 transition-colors py-4 text-lg font-semibold rounded-lg">
                 Nachricht senden <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </form>
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Services;
