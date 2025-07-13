@@ -709,9 +709,7 @@ const Index = () => {
                 <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
                   <span className="text-sm">in</span>
                 </a>
-                <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
-                  <span className="text-sm">ig</span>
-                </div>
+                
               </div>
             </div>
             
