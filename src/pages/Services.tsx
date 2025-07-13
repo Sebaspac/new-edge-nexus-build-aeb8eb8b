@@ -190,7 +190,7 @@ const Services = () => {
             }} whileTap={{
               scale: 0.95
             }}>
-                <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700">
+                <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800">
                   Kontakt
                 </Button>
               </motion.div>
@@ -331,11 +331,11 @@ const Services = () => {
               <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
               once: true
             }} onHoverStart={() => setHoveredCard('studio')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-purple-500/30 shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 backdrop-blur-lg">
+                <Card className="bg-gradient-to-br from-purple-900/50 to-purple-800/50 border border-purple-500/30 shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 backdrop-blur-lg">
                   <CardContent className="p-8 text-center relative overflow-hidden">
                     {/* Animated Background */}
                     <motion.div animate={hoveredCard === 'studio' ? {
-                    background: ["radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(236,72,153,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)"]
+                    background: ["radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(147,51,234,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)"]
                   } : {}} transition={{
                     duration: 2,
                     repeat: Infinity
@@ -347,7 +347,7 @@ const Services = () => {
                   } : {}} transition={{
                     duration: 2,
                     repeat: Infinity
-                  }} className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10">
+                  }} className="inline-block bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10">
                       New Edge Studio
                     </motion.div>
                     
@@ -368,7 +368,7 @@ const Services = () => {
                   }} whileTap={{
                     scale: 0.95
                   }}>
-                      <Button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 w-full relative z-10" asChild>
+                      <Button className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 w-full relative z-10" asChild>
                         <Link to="/studio">
                           Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
@@ -622,10 +622,62 @@ const Services = () => {
         </motion.div>
       </section>
 
-      {/* Pricing Section */}
-      
-
-      {/* CTA Section */}
+      {/* Results Section */}
+      <section className="py-32 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            className="text-center mb-20"
+          >
+            <h2 className="text-6xl font-bold text-white mb-6">Das Ergebnis</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
+            </p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05, y: -10 }}
+              className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 p-8 rounded-2xl border border-purple-500/20 text-center backdrop-blur-lg"
+            >
+              <div className="text-5xl font-bold text-purple-400 mb-4">01</div>
+              <h3 className="text-2xl font-bold text-white mb-4">Klare Strategie</h3>
+              <p className="text-gray-300">Eine durchdachte Roadmap und visuelle Identität als solides Fundament.</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ scale: 1.05, y: -10 }}
+              className="bg-gradient-to-br from-blue-900/30 to-blue-800/30 p-8 rounded-2xl border border-blue-500/20 text-center backdrop-blur-lg"
+            >
+              <div className="text-5xl font-bold text-blue-400 mb-4">02</div>
+              <h3 className="text-2xl font-bold text-white mb-4">Überzeugende Inhalte</h3>
+              <p className="text-gray-300">Content, der Ihre Zielgruppe erreicht und nachhaltig begeistert.</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ scale: 1.05, y: -10 }}
+              className="bg-gradient-to-br from-yellow-900/30 to-yellow-800/30 p-8 rounded-2xl border border-yellow-500/20 text-center backdrop-blur-lg"
+            >
+              <div className="text-5xl font-bold text-yellow-400 mb-4">03</div>
+              <h3 className="text-2xl font-bold text-white mb-4">Intelligente Umsetzung</h3>
+              <p className="text-gray-300">Technische Exzellenz und Automatisierung für nachhaltigen Erfolg.</p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
       <section className="py-16 bg-gradient-to-r from-purple-900 via-blue-900 to-yellow-900 relative overflow-hidden">
         <motion.div className="container mx-auto px-6 text-center relative z-10" initial={{
         opacity: 0
