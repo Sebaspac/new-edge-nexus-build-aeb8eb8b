@@ -353,7 +353,7 @@ const Index = () => {
 
           <div className="text-center mt-12 animate-fade-up" style={{ animationDelay: '0.7s' }}>
             <Link to="/services">
-              <Button size="lg" className="bg-black text-white hover:bg-gray-800 transition-all duration-300 px-8 py-4 hover:scale-110 hover:shadow-2xl animate-pulse">
+              <Button size="lg" className="bg-black text-white hover:bg-gray-800 transition-all duration-300 px-8 py-4 hover:scale-110 hover:shadow-2xl">
                 Alle Services entdecken <ArrowRight className="ml-2 h-5 w-5 animate-bounce" />
               </Button>
             </Link>
@@ -403,7 +403,7 @@ const Index = () => {
                   </div>
                   
                   <div className="md:col-span-2 animate-fade-up" style={{ animationDelay: '0.6s' }}>
-                    <Button type="submit" className="w-full bg-black text-white hover:bg-gray-800 transition-all duration-300 py-3 text-lg hover:scale-105 hover:shadow-2xl animate-pulse">
+                    <Button type="submit" className="w-full bg-black text-white hover:bg-gray-800 transition-all duration-300 py-3 text-lg hover:scale-105 hover:shadow-2xl">
                       Loslegen <ArrowRight className="ml-2 h-5 w-5 animate-bounce" />
                     </Button>
                   </div>
