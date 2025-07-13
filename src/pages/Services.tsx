@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef, Suspense } from "react";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Points, PointMaterial, Float, Text3D, OrbitControls, Sphere, Box, Torus } from "@react-three/drei";
+import { Points, PointMaterial, Float } from "@react-three/drei";
 import * as THREE from "three";
-import { ArrowRight, ArrowDown, Sparkles, Zap, Brain, Target, Eye, Rocket, Star, Lightbulb, Users, ChevronDown, Palette, Video, Cpu } from "lucide-react";
+import { ArrowRight, ArrowDown, ChevronDown, Palette, Video, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -47,8 +47,8 @@ function ParticleField() {
   );
 }
 
-// 3D Floating Icons
-function FloatingIcon({ position, icon, color }: { position: [number, number, number], icon: string, color: string }) {
+// 3D Floating Box Component
+function FloatingBox({ position, color }: { position: [number, number, number], color: string }) {
   const mesh = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
@@ -61,9 +61,10 @@ function FloatingIcon({ position, icon, color }: { position: [number, number, nu
 
   return (
     <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-      <Box ref={mesh} position={position} scale={[0.5, 0.5, 0.5]}>
+      <mesh ref={mesh} position={position} scale={[0.5, 0.5, 0.5]}>
+        <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial color={color} transparent opacity={0.8} />
-      </Box>
+      </mesh>
     </Float>
   );
 }
@@ -75,11 +76,11 @@ function Background3D() {
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
       <ParticleField />
-      <FloatingIcon position={[-5, 2, -3]} icon="palette" color="#8b5cf6" />
-      <FloatingIcon position={[5, -2, -2]} icon="video" color="#3b82f6" />
-      <FloatingIcon position={[0, 3, -4]} icon="cpu" color="#10b981" />
-      <FloatingIcon position={[-3, -3, -1]} icon="brain" color="#f59e0b" />
-      <FloatingIcon position={[4, 1, -5]} icon="sparkles" color="#ec4899" />
+      <FloatingBox position={[-5, 2, -3]} color="#8b5cf6" />
+      <FloatingBox position={[5, -2, -2]} color="#3b82f6" />
+      <FloatingBox position={[0, 3, -4]} color="#10b981" />
+      <FloatingBox position={[-3, -3, -1]} color="#f59e0b" />
+      <FloatingBox position={[4, 1, -5]} color="#ec4899" />
     </>
   );
 }
@@ -606,14 +607,14 @@ const Services = () => {
               { 
                 title: "Studio Starter", 
                 price: "€2.500", 
-                color: "purple",
+                colorClass: "purple",
                 features: ["Brand Identity Entwicklung", "Logo & Farbschema", "Style Guide (Basic)", "3 Designkonzepte"],
                 delay: 0
               },
               { 
                 title: "Complete Journey", 
                 price: "€8.500", 
-                color: "blue",
+                colorClass: "blue",
                 features: ["Studio + Media + Lab", "Vollständige Brand Identity", "Content-Produktion", "KI-Integration & Backend", "6 Monate Support"],
                 popular: true,
                 delay: 0.2
@@ -621,58 +622,102 @@ const Services = () => {
               { 
                 title: "Enterprise", 
                 price: "Individual", 
-                color: "green",
+                colorClass: "green",
                 features: ["Maßgeschneiderte Lösungen", "Dedicated Team", "Unlimited Revisions", "Priority Support", "Custom KI-Development"],
                 delay: 0.4
               }
-            ].map((plan, index) => (
-              <motion.div
-                key={plan.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.05, y: -10 }}
-                viewport={{ once: true }}
-                transition={{ delay: plan.delay, duration: 0.6 }}
-                className="relative"
-              >
-                {plan.popular && (
-                  <motion.div
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-2 rounded-full text-sm font-bold z-10"
-                  >
-                    Beliebt
-                  </motion.div>
-                )}
-                <Card className={`bg-gradient-to-br from-${plan.color}-900/20 to-${plan.color}-800/20 border border-${plan.color}-500/30 shadow-2xl backdrop-blur-lg h-full`}>
-                  <CardContent className="p-8 text-center">
-                    <h3 className={`text-2xl font-bold text-${plan.color}-400 mb-4`}>{plan.title}</h3>
-                    <div className="text-4xl font-bold text-white mb-6">{plan.price}</div>
-                    <ul className="text-gray-300 mb-8 space-y-3">
-                      {plan.features.map((feature, i) => (
-                        <motion.li 
-                          key={i}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: plan.delay + (i * 0.1) }}
-                          className="flex items-center"
-                        >
-                          <div className={`w-2 h-2 bg-${plan.color}-500 rounded-full mr-3`}></div>
-                          {feature}
-                        </motion.li>
-                      ))}
-                    </ul>
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button className={`w-full bg-gradient-to-r from-${plan.color}-600 to-${plan.color}-700 text-white hover:from-${plan.color}-700 hover:to-${plan.color}-800`} asChild>
-                        <Link to="/#contact-section">
-                          {plan.price === "Individual" ? "Angebot anfordern" : "Jetzt starten"}
-                        </Link>
-                      </Button>
+            ].map((plan, index) => {
+              const getColorClasses = (color: string) => {
+                switch(color) {
+                  case 'purple':
+                    return {
+                      gradient: 'from-purple-900/20 to-purple-800/20',
+                      border: 'border-purple-500/30',
+                      text: 'text-purple-400',
+                      bg: 'bg-purple-500',
+                      bgGradient: 'from-purple-600 to-purple-700',
+                      hoverGradient: 'from-purple-700 to-purple-800'
+                    };
+                  case 'blue':
+                    return {
+                      gradient: 'from-blue-900/20 to-blue-800/20',
+                      border: 'border-blue-500/30',
+                      text: 'text-blue-400',
+                      bg: 'bg-blue-500',
+                      bgGradient: 'from-blue-600 to-blue-700',
+                      hoverGradient: 'from-blue-700 to-blue-800'
+                    };
+                  case 'green':
+                    return {
+                      gradient: 'from-green-900/20 to-green-800/20',
+                      border: 'border-green-500/30',
+                      text: 'text-green-400',
+                      bg: 'bg-green-500',
+                      bgGradient: 'from-green-600 to-green-700',
+                      hoverGradient: 'from-green-700 to-green-800'
+                    };
+                  default:
+                    return {
+                      gradient: 'from-gray-900/20 to-gray-800/20',
+                      border: 'border-gray-500/30',
+                      text: 'text-gray-400',
+                      bg: 'bg-gray-500',
+                      bgGradient: 'from-gray-600 to-gray-700',
+                      hoverGradient: 'from-gray-700 to-gray-800'
+                    };
+                }
+              };
+              
+              const colors = getColorClasses(plan.colorClass);
+              return (
+                <motion.div
+                  key={plan.title}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: plan.delay, duration: 0.6 }}
+                  className="relative"
+                >
+                  {plan.popular && (
+                    <motion.div
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-2 rounded-full text-sm font-bold z-10"
+                    >
+                      Beliebt
                     </motion.div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                  )}
+                  <Card className={`bg-gradient-to-br ${colors.gradient} border ${colors.border} shadow-2xl backdrop-blur-lg h-full`}>
+                    <CardContent className="p-8 text-center">
+                      <h3 className={`text-2xl font-bold ${colors.text} mb-4`}>{plan.title}</h3>
+                      <div className="text-4xl font-bold text-white mb-6">{plan.price}</div>
+                      <ul className="text-gray-300 mb-8 space-y-3">
+                        {plan.features.map((feature, i) => (
+                          <motion.li 
+                            key={i}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: plan.delay + (i * 0.1) }}
+                            className="flex items-center"
+                          >
+                            <div className={`w-2 h-2 ${colors.bg} rounded-full mr-3`}></div>
+                            {feature}
+                          </motion.li>
+                        ))}
+                      </ul>
+                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                        <Button className={`w-full bg-gradient-to-r ${colors.bgGradient} text-white hover:${colors.hoverGradient}`} asChild>
+                          <Link to="/#contact-section">
+                            {plan.price === "Individual" ? "Angebot anfordern" : "Jetzt starten"}
+                          </Link>
+                        </Button>
+                      </motion.div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </section>
