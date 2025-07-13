@@ -465,102 +465,138 @@ const Services = () => {
               </motion.div>
             </div>
 
-            {/* Process Flow */}
+            {/* Process Flow - Vertical Apple Style */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }} 
-              whileInView={{ opacity: 1, scale: 1 }} 
+              initial={{ opacity: 0, y: 50 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ delay: 0.6, duration: 0.8 }} 
-              className="mt-20 text-center"
+              className="mt-16 sm:mt-20"
             >
               <motion.div 
-                whileHover={{ scale: 1.05, rotateX: 5 }}
-                className="inline-block bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 backdrop-blur-lg relative overflow-hidden"
+                className="max-w-2xl mx-auto bg-white/5 backdrop-blur-xl rounded-3xl p-8 sm:p-12 border border-white/10 shadow-2xl relative overflow-hidden"
               >
                 {/* Animated background */}
                 <motion.div 
                   animate={{
                     background: [
-                      "radial-gradient(circle at 50% 50%, rgba(139,92,246,0.1) 0%, transparent 70%)",
-                      "radial-gradient(circle at 50% 50%, rgba(59,130,246,0.1) 0%, transparent 70%)",
-                      "radial-gradient(circle at 50% 50%, rgba(245,158,11,0.1) 0%, transparent 70%)",
-                      "radial-gradient(circle at 50% 50%, rgba(139,92,246,0.1) 0%, transparent 70%)"
+                      "radial-gradient(circle at 20% 30%, rgba(139,92,246,0.05) 0%, transparent 50%)",
+                      "radial-gradient(circle at 80% 70%, rgba(59,130,246,0.05) 0%, transparent 50%)",
+                      "radial-gradient(circle at 50% 50%, rgba(245,158,11,0.05) 0%, transparent 50%)",
+                      "radial-gradient(circle at 20% 30%, rgba(139,92,246,0.05) 0%, transparent 50%)"
                     ]
                   }}
-                  transition={{ duration: 4, repeat: Infinity }}
+                  transition={{ duration: 8, repeat: Infinity }}
                   className="absolute inset-0"
                 />
                 
                 <motion.p 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  className="text-lg text-white font-medium mb-6 relative z-10"
+                  transition={{ delay: 0.2 }}
+                  className="text-xl sm:text-2xl text-white font-light mb-12 text-center relative z-10 leading-relaxed"
                 >
-                  All das geschieht hier - im kreativen Headquarter für Reichweite, Wirkung & Wachstum.
+                  All das geschieht hier – im kreativen Headquarter für Reichweite, Wirkung & Wachstum.
                 </motion.p>
                 
-                <div className="flex items-center justify-center space-x-4 text-sm relative z-10">
-                  <motion.span 
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    whileTap={{ scale: 0.95 }}
-                    animate={{ 
-                      boxShadow: [
-                        "0 0 10px rgba(139,92,246,0.3)",
-                        "0 0 20px rgba(139,92,246,0.5)",
-                        "0 0 10px rgba(139,92,246,0.3)"
-                      ]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full border border-purple-500/30 cursor-pointer"
-                  >
-                    Strategie
-                  </motion.span>
-                  
+                {/* Vertical Process Flow */}
+                <div className="space-y-8 relative z-10">
+                  {/* Step 1 */}
                   <motion.div 
-                    animate={{ x: [0, 10, 0], scale: [1, 1.2, 1] }} 
-                    transition={{ duration: 1.5, repeat: Infinity }}
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.4, duration: 0.6 }}
+                    className="flex items-center group"
                   >
-                    <ArrowRight className="w-4 h-4 text-yellow-400" />
+                    <motion.div 
+                      whileHover={{ scale: 1.1 }}
+                      animate={{ 
+                        boxShadow: [
+                          "0 0 20px rgba(139,92,246,0.2)",
+                          "0 0 30px rgba(139,92,246,0.4)",
+                          "0 0 20px rgba(139,92,246,0.2)"
+                        ]
+                      }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                      className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-purple-600/20 text-purple-300 rounded-2xl flex items-center justify-center border border-purple-500/30 mr-6"
+                    >
+                      <span className="text-2xl font-bold">1</span>
+                    </motion.div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-white mb-1">Strategie</h4>
+                      <p className="text-gray-400 text-sm">Fundament und Planung für Ihren Erfolg</p>
+                    </div>
                   </motion.div>
                   
-                  <motion.span 
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    whileTap={{ scale: 0.95 }}
-                    animate={{ 
-                      boxShadow: [
-                        "0 0 10px rgba(59,130,246,0.3)",
-                        "0 0 20px rgba(59,130,246,0.5)", 
-                        "0 0 10px rgba(59,130,246,0.3)"
-                      ]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                    className="bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full border border-blue-500/30 cursor-pointer"
-                  >
-                    Umsetzung
-                  </motion.span>
-                  
+                  {/* Connector */}
                   <motion.div 
-                    animate={{ x: [0, 10, 0], scale: [1, 1.2, 1] }} 
-                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.7 }}
+                    initial={{ height: 0 }}
+                    whileInView={{ height: "2rem" }}
+                    transition={{ delay: 0.6, duration: 0.4 }}
+                    className="w-px bg-gradient-to-b from-purple-500/50 to-blue-500/50 ml-8"
+                  />
+                  
+                  {/* Step 2 */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.8, duration: 0.6 }}
+                    className="flex items-center group"
                   >
-                    <ArrowRight className="w-4 h-4 text-yellow-400" />
+                    <motion.div 
+                      whileHover={{ scale: 1.1 }}
+                      animate={{ 
+                        boxShadow: [
+                          "0 0 20px rgba(59,130,246,0.2)",
+                          "0 0 30px rgba(59,130,246,0.4)",
+                          "0 0 20px rgba(59,130,246,0.2)"
+                        ]
+                      }}
+                      transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+                      className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-600/20 text-blue-300 rounded-2xl flex items-center justify-center border border-blue-500/30 mr-6"
+                    >
+                      <span className="text-2xl font-bold">2</span>
+                    </motion.div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-white mb-1">Umsetzung</h4>
+                      <p className="text-gray-400 text-sm">Content-Produktion und Reichweite-Aufbau</p>
+                    </div>
                   </motion.div>
                   
-                  <motion.span 
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    whileTap={{ scale: 0.95 }}
-                    animate={{ 
-                      boxShadow: [
-                        "0 0 10px rgba(245,158,11,0.3)",
-                        "0 0 20px rgba(245,158,11,0.5)",
-                        "0 0 10px rgba(245,158,11,0.3)"
-                      ]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                    className="bg-yellow-500/20 text-yellow-300 px-4 py-2 rounded-full border border-yellow-500/30 cursor-pointer"
+                  {/* Connector */}
+                  <motion.div 
+                    initial={{ height: 0 }}
+                    whileInView={{ height: "2rem" }}
+                    transition={{ delay: 1.0, duration: 0.4 }}
+                    className="w-px bg-gradient-to-b from-blue-500/50 to-yellow-500/50 ml-8"
+                  />
+                  
+                  {/* Step 3 */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.2, duration: 0.6 }}
+                    className="flex items-center group"
                   >
-                    Technologie
-                  </motion.span>
+                    <motion.div 
+                      whileHover={{ scale: 1.1 }}
+                      animate={{ 
+                        boxShadow: [
+                          "0 0 20px rgba(245,158,11,0.2)",
+                          "0 0 30px rgba(245,158,11,0.4)",
+                          "0 0 20px rgba(245,158,11,0.2)"
+                        ]
+                      }}
+                      transition={{ duration: 3, repeat: Infinity, delay: 2 }}
+                      className="w-16 h-16 bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 text-yellow-300 rounded-2xl flex items-center justify-center border border-yellow-500/30 mr-6"
+                    >
+                      <span className="text-2xl font-bold">3</span>
+                    </motion.div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-white mb-1">Innovation</h4>
+                      <p className="text-gray-400 text-sm">Technische Implementierung und Automation</p>
+                    </div>
+                  </motion.div>
                 </div>
               </motion.div>
             </motion.div>
