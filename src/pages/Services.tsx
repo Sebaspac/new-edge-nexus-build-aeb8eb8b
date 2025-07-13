@@ -251,7 +251,7 @@ const Services = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
               
-              {/* Studio Card */}
+              {/* Studio Card - Apple Style */}
               <motion.div 
                 variants={cardVariants}
                 initial="hidden" 
@@ -260,52 +260,46 @@ const Services = () => {
                 viewport={{ once: true }} 
                 onHoverStart={() => setHoveredCard('studio')} 
                 onHoverEnd={() => setHoveredCard(null)} 
-                className="relative group hover-lift"
+                className="relative group"
               >
-                <Card className="bg-gradient-to-br from-purple-900/50 to-purple-800/50 border border-purple-500/30 shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 backdrop-blur-lg">
-                  <CardContent className="p-8 text-center relative overflow-hidden">
-                    {/* Animated Background */}
+                <Card className="bg-white/[0.02] backdrop-blur-xl border border-white/10 shadow-2xl hover:shadow-white/5 transition-all duration-700 rounded-3xl overflow-hidden">
+                  <CardContent className="p-10 text-center relative">
+                    {/* Subtle Gradient Background */}
                     <motion.div 
                       animate={hoveredCard === 'studio' ? {
-                        background: [
-                          "radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)",
-                          "radial-gradient(circle, rgba(147,51,234,0.2) 0%, transparent 70%)",
-                          "radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)"
-                        ]
+                        opacity: [0.02, 0.05, 0.02]
                       } : {}} 
-                      transition={{ duration: 2, repeat: Infinity }} 
-                      className="absolute inset-0" 
+                      transition={{ duration: 3, repeat: Infinity }} 
+                      className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent" 
                     />
                     
+                    {/* Service Tag */}
                     <motion.div 
-                      animate={hoveredCard === 'studio' ? {
-                        scale: [1, 1.1, 1],
-                        rotate: [0, 5, -5, 0]
-                      } : {}} 
-                      transition={{ duration: 2, repeat: Infinity }} 
-                      className="inline-block bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                      whileHover={{ scale: 1.02 }}
+                      className="inline-block bg-white/5 backdrop-blur-sm text-white/80 px-6 py-2 rounded-full text-sm font-medium mb-8 relative z-10 border border-white/10"
                     >
                       New Edge Studio
                     </motion.div>
                     
+                    {/* Icon */}
                     <motion.div 
                       variants={iconVariants} 
                       whileHover="hover" 
-                      className="w-20 h-20 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-purple-500/30 relative z-10"
+                      className="w-16 h-16 bg-white/5 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-8 relative z-10 border border-white/10"
                     >
-                      <Palette className="w-10 h-10 text-purple-400" />
+                      <Palette className="w-8 h-8 text-white/70" />
                     </motion.div>
                     
-                    <h3 className="text-3xl font-bold text-white mb-4 relative z-10">STUDIO</h3>
-                    <p className="text-lg text-purple-200 mb-6 leading-relaxed relative z-10">
+                    <h3 className="text-2xl font-semibold text-white mb-3 relative z-10">STUDIO</h3>
+                    <p className="text-lg text-white/60 mb-6 leading-relaxed relative z-10 font-light">
                       Ihre Ideen, unsere Strategie
                     </p>
-                    <p className="text-gray-300 text-sm leading-relaxed mb-8 relative z-10">
+                    <p className="text-white/40 text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto">
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 w-full relative z-10 hover-lift" asChild>
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button className="bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/15 w-full relative z-10 rounded-xl py-3 font-medium transition-all duration-300" asChild>
                         <Link to="/studio">
                           Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
@@ -314,15 +308,15 @@ const Services = () => {
                   </CardContent>
                 </Card>
 
-                {/* Animated Arrow */}
-                <div className="hidden lg:block absolute -right-6 top-1/2 transform -translate-y-1/2 z-20">
-                  <motion.div animate={{ x: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }}>
-                    <ArrowRight className="w-8 h-8 text-purple-400" />
+                {/* Minimalist Arrow */}
+                <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-20">
+                  <motion.div animate={{ x: [0, 5, 0], opacity: [0.3, 0.7, 0.3] }} transition={{ duration: 2, repeat: Infinity }}>
+                    <ArrowRight className="w-5 h-5 text-white/30" />
                   </motion.div>
                 </div>
               </motion.div>
 
-              {/* Media Card */}
+              {/* Media Card - Apple Style */}
               <motion.div 
                 variants={cardVariants}
                 initial="hidden" 
@@ -332,29 +326,21 @@ const Services = () => {
                 transition={{ delay: 0.2 }} 
                 onHoverStart={() => setHoveredCard('media')} 
                 onHoverEnd={() => setHoveredCard(null)} 
-                className="relative group hover-lift"
+                className="relative group"
               >
-                <Card className="bg-gradient-to-br from-blue-900/50 to-cyan-900/50 border border-blue-500/30 shadow-2xl hover:shadow-blue-500/20 transition-all duration-700 backdrop-blur-lg">
-                  <CardContent className="p-8 text-center relative overflow-hidden">
+                <Card className="bg-white/[0.02] backdrop-blur-xl border border-white/10 shadow-2xl hover:shadow-white/5 transition-all duration-700 rounded-3xl overflow-hidden">
+                  <CardContent className="p-10 text-center relative">
                     <motion.div 
                       animate={hoveredCard === 'media' ? {
-                        background: [
-                          "radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)",
-                          "radial-gradient(circle, rgba(6,182,212,0.2) 0%, transparent 70%)",
-                          "radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)"
-                        ]
+                        opacity: [0.02, 0.05, 0.02]
                       } : {}} 
-                      transition={{ duration: 2, repeat: Infinity }} 
-                      className="absolute inset-0" 
+                      transition={{ duration: 3, repeat: Infinity }} 
+                      className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent" 
                     />
                     
                     <motion.div 
-                      animate={hoveredCard === 'media' ? {
-                        scale: [1, 1.1, 1],
-                        rotate: [0, -5, 5, 0]
-                      } : {}} 
-                      transition={{ duration: 2, repeat: Infinity }} 
-                      className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                      whileHover={{ scale: 1.02 }}
+                      className="inline-block bg-white/5 backdrop-blur-sm text-white/80 px-6 py-2 rounded-full text-sm font-medium mb-8 relative z-10 border border-white/10"
                     >
                       New Edge Media
                     </motion.div>
@@ -362,40 +348,38 @@ const Services = () => {
                     <motion.div 
                       variants={iconVariants} 
                       whileHover="hover" 
-                      className="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-blue-500/30 relative z-10"
+                      className="w-16 h-16 bg-white/5 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-8 relative z-10 border border-white/10"
                     >
-                      <Video className="w-10 h-10 text-blue-400" />
+                      <Video className="w-8 h-8 text-white/70" />
                     </motion.div>
                     
-                    <h3 className="text-3xl font-bold text-white mb-4 relative z-10">MEDIA</h3>
-                    <p className="text-lg text-blue-200 mb-6 leading-relaxed relative z-10">
-                      Für ein klares & einzigartiges Bild nach Außen
+                    <h3 className="text-2xl font-semibold text-white mb-3 relative z-10">MEDIA</h3>
+                    <p className="text-lg text-white/60 mb-6 leading-relaxed relative z-10 font-light">
+                      Die perfekte Bühne für Ihre Marke
                     </p>
-                    <p className="text-gray-300 text-sm leading-relaxed mb-8 relative z-10">
-                      Content, der bewegt. Hier entstehen alle visuellen und medialen Inhalte für Ihre Marke.
+                    <p className="text-white/40 text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto">
+                      Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
                     </p>
                     
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700 w-full relative z-10 hover-lift" asChild>
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button className="bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/15 w-full relative z-10 rounded-xl py-3 font-medium transition-all duration-300" asChild>
                         <Link to="/media">
-                          Content produzieren <ArrowRight className="ml-2 w-4 h-4" />
+                          Content erstellen <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
                       </Button>
                     </motion.div>
                   </CardContent>
                 </Card>
 
-                <div className="hidden lg:block absolute -right-6 top-1/2 transform -translate-y-1/2 z-20">
-                  <motion.div 
-                    animate={{ x: [0, 10, 0] }} 
-                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                  >
-                    <ArrowRight className="w-8 h-8 text-blue-400" />
+                {/* Minimalist Arrow */}
+                <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-20">
+                  <motion.div animate={{ x: [0, 5, 0], opacity: [0.3, 0.7, 0.3] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}>
+                    <ArrowRight className="w-5 h-5 text-white/30" />
                   </motion.div>
                 </div>
               </motion.div>
 
-              {/* Lab Card */}
+              {/* Lab Card - Apple Style */}
               <motion.div 
                 variants={cardVariants}
                 initial="hidden" 
@@ -405,30 +389,21 @@ const Services = () => {
                 transition={{ delay: 0.4 }} 
                 onHoverStart={() => setHoveredCard('lab')} 
                 onHoverEnd={() => setHoveredCard(null)} 
-                className="relative group hover-lift"
+                className="relative group"
               >
-                <Card className="bg-gradient-to-br from-yellow-900/50 to-yellow-900/50 border border-yellow-500/30 shadow-2xl hover:shadow-yellow-500/20 transition-all duration-700 backdrop-blur-lg">
-                  <CardContent className="p-8 text-center relative overflow-hidden">
+                <Card className="bg-white/[0.02] backdrop-blur-xl border border-white/10 shadow-2xl hover:shadow-white/5 transition-all duration-700 rounded-3xl overflow-hidden">
+                  <CardContent className="p-10 text-center relative">
                     <motion.div 
                       animate={hoveredCard === 'lab' ? {
-                        background: [
-                          "radial-gradient(circle, rgba(255,237,0,0.1) 0%, transparent 70%)",
-                          "radial-gradient(circle, rgba(255,237,0,0.2) 0%, transparent 70%)",
-                          "radial-gradient(circle, rgba(255,237,0,0.1) 0%, transparent 70%)"
-                        ]
+                        opacity: [0.02, 0.05, 0.02]
                       } : {}} 
-                      transition={{ duration: 2, repeat: Infinity }} 
-                      className="absolute inset-0" 
+                      transition={{ duration: 3, repeat: Infinity }} 
+                      className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent" 
                     />
                     
                     <motion.div 
-                      animate={hoveredCard === 'lab' ? {
-                        scale: [1, 1.1, 1],
-                        rotate: [0, 5, -5, 0]
-                      } : {}} 
-                      transition={{ duration: 2, repeat: Infinity }} 
-                      className="inline-block text-black px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10" 
-                      style={{background: '#FFED00'}}
+                      whileHover={{ scale: 1.02 }}
+                      className="inline-block bg-white/5 backdrop-blur-sm text-white/80 px-6 py-2 rounded-full text-sm font-medium mb-8 relative z-10 border border-white/10"
                     >
                       New Edge Lab
                     </motion.div>
@@ -436,25 +411,21 @@ const Services = () => {
                     <motion.div 
                       variants={iconVariants} 
                       whileHover="hover" 
-                      className="w-20 h-20 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-yellow-500/30 relative z-10"
+                      className="w-16 h-16 bg-white/5 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-8 relative z-10 border border-white/10"
                     >
-                      <Cpu className="w-10 h-10 text-yellow-400" />
+                      <Cpu className="w-8 h-8 text-white/70" />
                     </motion.div>
                     
-                    <h3 className="text-3xl font-bold text-white mb-4 relative z-10">LAB</h3>
-                    <p className="text-lg text-yellow-200 mb-6 leading-relaxed relative z-10">
+                    <h3 className="text-2xl font-semibold text-white mb-3 relative z-10">LAB</h3>
+                    <p className="text-lg text-white/60 mb-6 leading-relaxed relative z-10 font-light">
                       Die perfekte Schnittstelle für Strategie & Technologie
                     </p>
-                    <p className="text-gray-300 text-sm leading-relaxed mb-8 relative z-10">
+                    <p className="text-white/40 text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto">
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
                     
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button 
-                        className="text-black hover:text-gray-800 w-full relative z-10 hover-lift" 
-                        style={{background: '#FFED00'}} 
-                        asChild
-                      >
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button className="bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/15 w-full relative z-10 rounded-xl py-3 font-medium transition-all duration-300" asChild>
                         <Link to="/lab">
                           Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
