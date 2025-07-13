@@ -314,16 +314,16 @@ const Index = () => {
         }} transition={{
           duration: 0.8
         }} className="text-center mb-16">
-            <motion.div className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full text-xl font-bold mb-8" whileHover={{
+            <motion.div className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold mb-8 sm:mb-8" whileHover={{
             scale: 1.05
           }}>
               Drei Bereiche
             </motion.div>
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
               
               {/* Studio Card */}
               <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
@@ -700,28 +700,28 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900/80 text-white py-16 border-t border-gray-800">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            <div className="md:col-span-2">
+      <footer className="bg-gray-900/80 text-white py-12 sm:py-16 border-t border-gray-800">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+            <div className="sm:col-span-2">
               <div className="flex items-center mb-4">
-                <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" />
-                <div className="text-3xl font-bold">
+                <img alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" />
+                <div className="text-2xl sm:text-3xl font-bold">
                   New Edge<span className="text-purple-400"></span>
                 </div>
               </div>
-              <p className="text-gray-400 mb-6 max-w-md">New Edge ist ein Creative-Tech-Studio für zukunftsorientierte Markenkommunikation. </p>
+              <p className="text-gray-400 mb-4 sm:mb-6 max-w-md text-sm sm:text-base">New Edge ist ein Creative-Tech-Studio für zukunftsorientierte Markenkommunikation. </p>
               <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
-                  <span className="text-sm">in</span>
+                <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
+                  <span className="text-xs sm:text-sm">in</span>
                 </a>
                 
               </div>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4 text-white">Services</h4>
-              <ul className="space-y-2 text-gray-400">
+              <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base">Services</h4>
+              <ul className="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
                 <li><Link to="/studio" className="hover:text-white transition-colors">STUDIO</Link></li>
                 <li><Link to="/media" className="hover:text-white transition-colors">MEDIA</Link></li>
                 <li><Link to="/lab" className="hover:text-white transition-colors">LAB</Link></li>
@@ -729,21 +729,21 @@ const Index = () => {
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4 text-white">Kontakt</h4>
-              <ul className="space-y-2 text-gray-400">
+              <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base">Kontakt</h4>
+              <ul className="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
                 <li>info@newedgebrand.com</li>
-                <li className="">+49 15750998236</li>
+                <li>+49 15750998236</li>
                 <li>Deutschland</li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">©2024 New Edge. Alle Rechte vorbehalten.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Impressum</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Datenschutz</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">AGB</a>
+          <div className="border-t border-gray-800 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-xs sm:text-sm">©2024 New Edge. Alle Rechte vorbehalten.</p>
+            <div className="flex space-x-4 sm:space-x-6 mt-3 sm:mt-4 md:mt-0">
+              <a href="#" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">Impressum</a>
+              <a href="#" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">Datenschutz</a>
+              <a href="#" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">AGB</a>
             </div>
           </div>
         </div>
