@@ -682,9 +682,7 @@ const Services = () => {
           once: true
         }} className="text-center mb-20">
             <h2 className="font-bold text-white mb-6 text-3xl">Warum New Edge?</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Drei spezialisierte Teams, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.
-            </p>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.</p>
           </motion.div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
