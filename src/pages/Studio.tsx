@@ -115,7 +115,7 @@ const Studio = () => {
             />
             
             <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: '0.8s' }}>
-              Wir erschaffen visuelle Identitäten, die Geschichten erzählen und Emotionen wecken.
+              STUDIO liefert das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant – damit MEDIA & LAB reibungslos umsetzen können.
               <br />
               <span className="text-purple-600 font-medium">Von der ersten Idee bis zur finalen Umsetzung.</span>
             </p>
@@ -146,82 +146,84 @@ const Studio = () => {
       <section className="py-32 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
-            <h2 className="text-5xl font-bold text-black mb-6 animate-fade-in">Design-Services</h2>
+            <h2 className="text-5xl font-bold text-black mb-6 animate-fade-in">UNSERE LEISTUNGEN</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in">
-              Umfassende Designlösungen für moderne Marken
+              Strategische Fundamente für Ihren Markenerfolg
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <Palette className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Strategie & Markenidentität</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Markenpositionierung & Zielgruppenanalyse für eine klare strategische Ausrichtung.
-                </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            
+            {/* Left Column */}
+            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-lg font-bold text-black mb-2">Strategie & Markenidentität</h3>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.1s' }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <Sparkles className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Brand Story</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Werte & Tonalität - authentische Markenstories, die emotional berühren.
-                </p>
+            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-lg font-bold text-black mb-2">Markenpositionierung & Zielgruppenanalyse</h3>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.2s' }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <Monitor className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Wettbewerbsanalyse & Differenzierung</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Visuelles Konzept mit strategischer Differenzierungsstrategie.
-                </p>
+            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-lg font-bold text-black mb-2">Brand Story</h3>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.3s' }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <FileImage className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Moodboards & Keyvisual-Richtung</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Design- und Farbwelten für eine einheitliche visuelle Identität.
-                </p>
+            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-lg font-bold text-black mb-2">Werte & Tonalität</h3>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.4s' }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <Package className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Template-Rahmen für Social Media & Print</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Digitale Struktur & Funnel-Logik für optimale Nutzerführung.
-                </p>
+            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-lg font-bold text-black mb-2">Wettbewerbsanalyse & Differenzierungsstrategie</h3>
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{ animationDelay: '0.5s' }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <Grid3x3 className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Nutzerführung & Funnel-Wireframes</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Conversion-Ziele & Seitenaufbau-Strategien für maximale Effektivität.
-                </p>
+            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-lg font-bold text-black mb-2">Visuelles Konzept</h3>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-lg font-bold text-black mb-2">Moodboards & Keyvisual-Richtung</h3>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-lg font-bold text-black mb-2">Design- und Farbwelten</h3>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-lg font-bold text-black mb-2">Template-Rahmen für Social Media & Print</h3>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-lg font-bold text-black mb-2">Digitale Struktur & Funnel-Logik</h3>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-lg font-bold text-black mb-2">Nutzerführung & Funnel-Wireframes</h3>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-lg font-bold text-black mb-2">Conversion-Ziele & Seitenaufbau-Strategien</h3>
               </CardContent>
             </Card>
           </div>
@@ -229,7 +231,7 @@ const Studio = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-gradient-to-r from-purple-600 to-pink-600 text-white relative overflow-hidden">
+      <section className="py-32 bg-gradient-to-r from-purple-600 to-purple-700 text-white relative overflow-hidden">
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="text-5xl font-bold mb-6 animate-fade-in">Lassen Sie Ihre Marke strahlen</h2>
           <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in">
