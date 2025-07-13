@@ -4,14 +4,12 @@ import { Brain, Cpu, Settings, Code, ChevronDown, Zap, Database, BarChart3, Glob
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
-
 const Lab = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0
   });
-
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -27,64 +25,51 @@ const Lab = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
   const scrollToContact = () => {
     window.location.href = '/#contact-section';
   };
-
-  const services = [
-    {
-      title: "Technische Umsetzung",
-      description: "Professionelle Entwicklung und Implementierung technischer Lösungen für Ihr Unternehmen.",
-      icon: Settings,
-      delay: "0s"
-    },
-    {
-      title: "KI-Integration & Automation",
-      description: "Intelligente Automatisierung und KI-Integration in bestehende Geschäftsprozesse.",
-      icon: Brain,
-      delay: "0.1s"
-    },
-    {
-      title: "Backend & Tech-Implementierung",
-      description: "Robuste Backend-Systeme und technische Infrastruktur für skalierbare Anwendungen.",
-      icon: Database,
-      delay: "0.2s"
-    },
-    {
-      title: "Webentwicklung",
-      description: "CMS, Landingpages, Funnels - maßgeschneiderte Weblösungen für Ihren Erfolg.",
-      icon: Globe,
-      delay: "0.3s"
-    },
-    {
-      title: "KI-gestützte Prozessautomatisierung",
-      description: "Optimierung und Automatisierung von Geschäftsprozessen durch künstliche Intelligenz.",
-      icon: Cpu,
-      delay: "0.4s"
-    },
-    {
-      title: "KI-Agenten-Integration",
-      description: "Text, Mail, CRM - intelligente Agenten für automatisierte Kommunikation und Verwaltung.",
-      icon: Bot,
-      delay: "0.5s"
-    },
-    {
-      title: "Formular- & Datenbank-Anbindungen",
-      description: "Nahtlose Integration von Notion, Airtable, Supabase und anderen Datenquellen.",
-      icon: FormInput,
-      delay: "0.6s"
-    },
-    {
-      title: "Tracking- & Analyse-Setups",
-      description: "GA4, Tag Manager, Pixel, Dashboards - umfassende Datenanalyse und Reporting.",
-      icon: BarChart3,
-      delay: "0.7s"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-white">
+  const services = [{
+    title: "Technische Umsetzung",
+    description: "Professionelle Entwicklung und Implementierung technischer Lösungen für Ihr Unternehmen.",
+    icon: Settings,
+    delay: "0s"
+  }, {
+    title: "KI-Integration & Automation",
+    description: "Intelligente Automatisierung und KI-Integration in bestehende Geschäftsprozesse.",
+    icon: Brain,
+    delay: "0.1s"
+  }, {
+    title: "Backend & Tech-Implementierung",
+    description: "Robuste Backend-Systeme und technische Infrastruktur für skalierbare Anwendungen.",
+    icon: Database,
+    delay: "0.2s"
+  }, {
+    title: "Webentwicklung",
+    description: "CMS, Landingpages, Funnels - maßgeschneiderte Weblösungen für Ihren Erfolg.",
+    icon: Globe,
+    delay: "0.3s"
+  }, {
+    title: "KI-gestützte Prozessautomatisierung",
+    description: "Optimierung und Automatisierung von Geschäftsprozessen durch künstliche Intelligenz.",
+    icon: Cpu,
+    delay: "0.4s"
+  }, {
+    title: "KI-Agenten-Integration",
+    description: "Text, Mail, CRM - intelligente Agenten für automatisierte Kommunikation und Verwaltung.",
+    icon: Bot,
+    delay: "0.5s"
+  }, {
+    title: "Formular- & Datenbank-Anbindungen",
+    description: "Nahtlose Integration von Notion, Airtable, Supabase und anderen Datenquellen.",
+    icon: FormInput,
+    delay: "0.6s"
+  }, {
+    title: "Tracking- & Analyse-Setups",
+    description: "GA4, Tag Manager, Pixel, Dashboards - umfassende Datenanalyse und Reporting.",
+    icon: BarChart3,
+    delay: "0.7s"
+  }];
+  return <div className="min-h-screen bg-white">
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
       {/* Hero Section */}
@@ -93,63 +78,69 @@ const Lab = () => {
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
             <h1 className="text-6xl md:text-8xl font-black text-black mb-8 leading-tight tracking-tight">
               <span className="inline-block animate-fade-in" style={{
-                animationDelay: '0.2s'
-              }}>NEW EDGE</span>
+              animationDelay: '0.2s'
+            }}>NEW EDGE</span>
               <br />
               <span className="italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{
-                animationDelay: '0.4s',
-                color: '#FFED00'
-              }}>LAB</span>
+              animationDelay: '0.4s',
+              color: '#FFED00'
+            }}>LAB</span>
               <br />
               <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{
-                animationDelay: '0.6s'
-              }}>TECH INNOVATION</span>
+              animationDelay: '0.6s'
+            }}>TECH INNOVATION</span>
             </h1>
             
             {/* Floating icons */}
             <div className="absolute top-20 left-10 animate-float" style={{
-              animationDelay: '0.5s'
-            }}>
-              <Brain className="w-8 h-8" style={{ color: '#FFED00' }} />
+            animationDelay: '0.5s'
+          }}>
+              <Brain className="w-8 h-8" style={{
+              color: '#FFED00'
+            }} />
             </div>
             <div className="absolute top-40 right-20 animate-float" style={{
-              animationDelay: '1s'
-            }}>
-              <Zap className="w-6 h-6" style={{ color: '#FFED00' }} />
+            animationDelay: '1s'
+          }}>
+              <Zap className="w-6 h-6" style={{
+              color: '#FFED00'
+            }} />
             </div>
             <div className="absolute bottom-20 left-20 animate-float" style={{
-              animationDelay: '1.5s'
-            }}>
-              <Cpu className="w-10 h-10" style={{ color: '#FFED00' }} />
+            animationDelay: '1.5s'
+          }}>
+              <Cpu className="w-10 h-10" style={{
+              color: '#FFED00'
+            }} />
             </div>
 
             {/* Interactive background elements */}
             <div className="absolute w-96 h-96 rounded-full blur-3xl opacity-30 animate-pulse" style={{
-              left: mousePosition.x / 10,
-              top: mousePosition.y / 10,
-              transform: 'translate(-50%, -50%)',
-              backgroundColor: '#FFED00'
-            }} />
+            left: mousePosition.x / 10,
+            top: mousePosition.y / 10,
+            transform: 'translate(-50%, -50%)',
+            backgroundColor: '#FFED00'
+          }} />
             
             <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in" style={{
-              animationDelay: '0.8s'
-            }}>
+            animationDelay: '0.8s'
+          }}>
               LAB macht aus Ideen reale, funktionierende Systeme — sicher, automatisiert, effizient.
               <br />
               <span className="font-medium text-gray-900">Innovation durch intelligente Technologie.</span>
             </p>
             
             <div className="animate-fade-in" style={{
-              animationDelay: '1s'
-            }}>
-              <Button size="lg" className="text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4" style={{ backgroundColor: '#FFED00' }} asChild>
+            animationDelay: '1s'
+          }}>
+              <Button size="lg" className="text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4" style={{
+              backgroundColor: '#FFED00'
+            }} asChild>
                 <Link to="/#contact-section">
                   Projekt starten
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="transition-all duration-300 hover:scale-105 text-lg px-8 py-4 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white">
-                Services entdecken
-              </Button>
+              
             </div>
           </div>
         </div>
@@ -166,30 +157,32 @@ const Lab = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
+            {services.map((service, index) => <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{ backgroundColor: '#FFED0020' }}>
-                    <service.icon className="w-8 h-8" style={{ color: '#FFED00' }} />
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{
+                backgroundColor: '#FFED0020'
+              }}>
+                    <service.icon className="w-8 h-8" style={{
+                  color: '#FFED00'
+                }} />
                   </div>
                   <h3 className="text-lg font-bold text-black mb-4">{service.title}</h3>
                   <p className="text-gray-600 leading-relaxed text-sm">
                     {service.description}
                   </p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 text-black relative overflow-hidden" style={{ background: `linear-gradient(to right, #FFED00, #FFED00)` }}>
+      <section className="py-32 text-black relative overflow-hidden" style={{
+      background: `linear-gradient(to right, #FFED00, #FFED00)`
+    }}>
         <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 className="text-5xl font-bold mb-6 animate-fade-in text-black">Bereit für die digitale Transformation?</h2>
-          <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in text-gray-800">
-            Lassen Sie uns gemeinsam innovative Lösungen entwickeln, die Ihr Unternehmen voranbringen.
-          </p>
+          <h2 className="text-5xl font-bold mb-6 animate-fade-in text-black">Let´s design the Edge</h2>
+          <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in text-gray-800"></p>
           <Button size="lg" className="bg-black hover:bg-gray-800 text-white text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" asChild>
             <Link to="/#contact-section">
               Projekt besprechen
@@ -203,14 +196,12 @@ const Lab = () => {
             <Brain className="w-32 h-32" />
           </div>
           <div className="absolute bottom-20 right-20 animate-float" style={{
-            animationDelay: '1s'
-          }}>
+          animationDelay: '1s'
+        }}>
             <Settings className="w-24 h-24" />
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Lab;
