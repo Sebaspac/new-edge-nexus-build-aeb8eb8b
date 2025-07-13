@@ -87,8 +87,9 @@ const Lab = () => {
               animationDelay: '0.2s'
             }}>NEW EDGE</span>
               <br />
-              <span className="text-green-600 italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{
-              animationDelay: '0.4s'
+              <span className="italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{
+              animationDelay: '0.4s',
+              color: '#FFED00'
             }}>LAB</span>
               <br />
               <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{
@@ -100,24 +101,25 @@ const Lab = () => {
             <div className="absolute top-20 left-10 animate-float" style={{
             animationDelay: '0.5s'
           }}>
-              <Brain className="w-8 h-8 text-green-400" />
+              <Brain className="w-8 h-8" style={{ color: '#FFED00' }} />
             </div>
             <div className="absolute top-40 right-20 animate-float" style={{
             animationDelay: '1s'
           }}>
-              <Zap className="w-6 h-6 text-emerald-400" />
+              <Zap className="w-6 h-6" style={{ color: '#FFED00' }} />
             </div>
             <div className="absolute bottom-20 left-20 animate-float" style={{
             animationDelay: '1.5s'
           }}>
-              <Cpu className="w-10 h-10 text-green-300" />
+              <Cpu className="w-10 h-10" style={{ color: '#FFED00' }} />
             </div>
 
             {/* Interactive background elements */}
-            <div className="absolute w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-30 animate-pulse" style={{
+            <div className="absolute w-96 h-96 rounded-full blur-3xl opacity-30 animate-pulse" style={{
             left: mousePosition.x / 10,
             top: mousePosition.y / 10,
-            transform: 'translate(-50%, -50%)'
+            transform: 'translate(-50%, -50%)',
+            backgroundColor: '#FFED00'
           }} />
             
             <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in" style={{
@@ -125,18 +127,18 @@ const Lab = () => {
           }}>
               Wir erforschen die Grenzen des Möglichen und entwickeln KI-Lösungen für morgen.
               <br />
-              <span className="text-green-600 font-medium">Innovation durch intelligente Automatisierung.</span>
+              <span className="font-medium" style={{ color: '#FFED00' }}>Innovation durch intelligente Automatisierung.</span>
             </p>
             
             <div className="animate-fade-in" style={{
             animationDelay: '1s'
           }}>
-              <Button size="lg" className="bg-green-600 text-white hover:bg-green-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4" asChild>
+              <Button size="lg" className="text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4" style={{ backgroundColor: '#FFED00', color: 'black' }} asChild>
                 <Link to="/#contact-section">
                   Innovation starten
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-green-600 text-green-600 hover:bg-green-50 transition-all duration-300 hover:scale-105 text-lg px-8 py-4">
+              <Button variant="outline" size="lg" className="transition-all duration-300 hover:scale-105 text-lg px-8 py-4" style={{ borderColor: '#FFED00', color: '#FFED00' }}>
                 Technologien entdecken
               </Button>
             </div>
@@ -157,12 +159,12 @@ const Lab = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
-                  <Brain className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{ backgroundColor: '#FFED0040' }}>
+                  <Code className="w-8 h-8" style={{ color: '#FFED00' }} />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Machine Learning</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Technische Umsetzung</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Entwicklung intelligenter Algorithmen für Datenanalyse und Vorhersagemodelle.
+                  Komplette technische Realisierung Ihrer digitalen Projekte und Systeme.
                 </p>
               </CardContent>
             </Card>
@@ -171,11 +173,13 @@ const Lab = () => {
             animationDelay: '0.1s'
           }}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
-                  <Eye className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{ backgroundColor: '#FFED0040' }}>
+                  <Brain className="w-8 h-8" style={{ color: '#FFED00' }} />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Computer Vision</h3>
-                <p className="text-gray-600 leading-relaxed">Webentwicklung (CMS, Landingpages, Funnels).</p>
+                <h3 className="text-2xl font-bold text-black mb-4">KI-Integration & Automation</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Intelligente Automatisierung und KI-Systeme für Ihre Geschäftsprozesse.
+                </p>
               </CardContent>
             </Card>
 
@@ -183,12 +187,12 @@ const Lab = () => {
             animationDelay: '0.2s'
           }}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
-                  <Code className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{ backgroundColor: '#FFED0040' }}>
+                  <Cpu className="w-8 h-8" style={{ color: '#FFED00' }} />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Prozessautomatisierung</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Backend & Tech-Implementierung</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Maßgeschneiderte KI-Anwendungen für spezifische Unternehmensanforderungen.
+                  Robuste Backend-Systeme und technische Infrastruktur für Ihre Anwendungen.
                 </p>
               </CardContent>
             </Card>
@@ -197,14 +201,13 @@ const Lab = () => {
             animationDelay: '0.3s'
           }}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
-                  <Cog className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{ backgroundColor: '#FFED0040' }}>
+                  <Eye className="w-8 h-8" style={{ color: '#FFED00' }} />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Maßgeschneiderte
-Lösungen
-
-              </h3>
-                <p className="text-gray-600 leading-relaxed">Komplexe Workflows vereinfachen - auf Anfrage.</p>
+                <h3 className="text-2xl font-bold text-black mb-4">Webentwicklung (CMS, Landingpages, Funnels)</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Professionelle Websites, Content-Management-Systeme und Conversion-Funnels.
+                </p>
               </CardContent>
             </Card>
 
@@ -212,12 +215,12 @@ Lösungen
             animationDelay: '0.4s'
           }}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
-                  <BarChart className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{ backgroundColor: '#FFED0040' }}>
+                  <Cog className="w-8 h-8" style={{ color: '#FFED00' }} />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Predictive Analytics</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">nön-gestützte Prozessautomatisierung</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Vorhersagemodelle für fundierte Geschäftsentscheidungen und Trends.
+                  Automatisierung wiederkehrender Prozesse durch intelligente no-code Lösungen.
                 </p>
               </CardContent>
             </Card>
@@ -226,12 +229,40 @@ Lösungen
             animationDelay: '0.5s'
           }}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
-                  <Lightbulb className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{ backgroundColor: '#FFED0040' }}>
+                  <Zap className="w-8 h-8" style={{ color: '#FFED00' }} />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Prozessautomatisierung</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">KI-Agenten-Integration (Text, Mail, CRM)</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Strategische Beratung für die optimale Integration von KI in Ihr Unternehmen.
+                  Intelligente KI-Agenten für automatisierte Kommunikation und CRM-Prozesse.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
+            animationDelay: '0.6s'
+          }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{ backgroundColor: '#FFED0040' }}>
+                  <BarChart className="w-8 h-8" style={{ color: '#FFED00' }} />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Formular- & Datenbank-Anbindungen</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Nahtlose Integration von Formularen und Datenbanken (Notion, Airtable, Supabase).
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
+            animationDelay: '0.7s'
+          }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{ backgroundColor: '#FFED0040' }}>
+                  <Lightbulb className="w-8 h-8" style={{ color: '#FFED00' }} />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">Tracking- & Analyse-Setups</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Umfassende Analyse-Systeme (GA4, Tag Manager, Pixel, Dashboards) für datengetriebene Entscheidungen.
                 </p>
               </CardContent>
             </Card>
@@ -240,13 +271,13 @@ Lösungen
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-gradient-to-r from-green-600 to-emerald-600 text-white relative overflow-hidden">
+      <section className="py-32 text-white relative overflow-hidden" style={{ background: `linear-gradient(to right, #FFED00, #F0D000)` }}>
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="text-5xl font-bold mb-6 animate-fade-in">Bereit für die Zukunft?</h2>
           <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in">
             Lassen Sie uns gemeinsam innovative KI-Lösungen entwickeln, die Ihr Unternehmen transformieren.
           </p>
-          <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" asChild>
+          <Button size="lg" className="bg-white hover:bg-gray-100 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" style={{ color: '#FFED00' }} asChild>
             <Link to="/#contact-section">
               Innovation starten
             </Link>
