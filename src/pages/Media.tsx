@@ -136,9 +136,7 @@ const Media = () => {
                   Projekt starten
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-300 hover:scale-105 text-lg px-8 py-4">
-                Portfolio ansehen
-              </Button>
+              
             </div>
           </div>
         </div>
