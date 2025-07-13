@@ -324,7 +324,7 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }} 
             viewport={{ once: true }} 
             transition={{ duration: 0.8 }} 
-            className="text-center mb-20"
+            className="text-center mb-12"
           >
             <motion.div 
               animate={{
