@@ -256,7 +256,7 @@ für intelligente Markenkommunikation in Europa
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 max-w-4xl mx-auto leading-tight animate-fade-up">
             <span className="inline-block hover:scale-105 transition-transform duration-300">Innovation voranbringen durch</span>
-            <span className="text-primary animate-pulse hover:text-secondary transition-colors duration-500"> intelligente Automatisierung</span>
+            <span className="text-primary hover:text-secondary transition-colors duration-500"> intelligente Automatisierung</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-slide-in-right" style={{
           animationDelay: '0.3s'
