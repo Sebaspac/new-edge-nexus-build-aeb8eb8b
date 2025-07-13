@@ -17,6 +17,7 @@ import {
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0
@@ -39,9 +40,15 @@ const Index = () => {
       });
     };
 
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -153,14 +160,15 @@ const Index = () => {
                 </DropdownMenu>
               </div>
               
-              <motion.div 
-                whileHover={{ scale: 1.05 }} 
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300">
-                  Kontakt
-                </Button>
-              </motion.div>
+               <motion.div 
+                 whileHover={{ scale: 1.05 }} 
+                 whileTap={{ scale: 0.95 }}
+                 className="relative"
+               >
+                 <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300 animate-glow-pulse">
+                   Kontakt
+                 </Button>
+               </motion.div>
             </div>
           </div>
         </div>
@@ -179,15 +187,19 @@ const Index = () => {
             className="mb-12"
           >
             <motion.div 
-              className="text-8xl md:text-9xl font-black tracking-tight mb-4"
+              className="text-8xl md:text-9xl font-black tracking-tight mb-4 relative"
               style={{
                 background: "linear-gradient(45deg, #9f91f8, #4f97f0, #FFED00)",
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 color: "transparent"
               }}
+              whileHover={{
+                scale: 1.02,
+                transition: { duration: 0.3 }
+              }}
             >
-              BRAND
+              <div className="animate-text-shimmer">BRAND</div>
             </motion.div>
             <motion.div 
               initial={{ rotateX: -90 }} 
@@ -351,7 +363,7 @@ const Index = () => {
                 viewport={{ once: true }} 
                 onHoverStart={() => setHoveredCard('studio')} 
                 onHoverEnd={() => setHoveredCard(null)} 
-                className="relative group"
+                className="relative group hover-lift"
                 transition={{ duration: 0.6 }}
               >
                 <Card className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 border border-purple-500/20 shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 backdrop-blur-lg h-full">
@@ -644,9 +656,14 @@ const Index = () => {
                       transition={{ delay: 0.6, duration: 0.5 }} 
                       className="md:col-span-2"
                     >
-                      <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300 py-3 text-lg">
-                        Loslegen <ArrowRight className="ml-2 h-5 w-5" />
-                      </Button>
+                      <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300 py-3 text-lg animate-glow-pulse hover-lift">
+                          Loslegen <ArrowRight className="ml-2 h-5 w-5" />
+                        </Button>
+                      </motion.div>
                     </motion.div>
                   </form>
                 </CardContent>
@@ -707,6 +724,21 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-purple-600 to-blue-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-glow-pulse hover-lift"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <ArrowRight className="w-6 h-6 transform -rotate-90" />
+        </motion.button>
+      )}
     </div>;
 };
 
