@@ -331,7 +331,7 @@ const Index = () => {
                 boxShadow: ["0 0 20px #9f91f8", "0 0 40px #4f97f0", "0 0 20px #FFED00", "0 0 40px #9f91f8"]
               }} 
               transition={{ duration: 4, repeat: Infinity }} 
-              className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12 -mt-20"
+              className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12 -mt-96"
             >
               Drei Bereiche
             </motion.div>
