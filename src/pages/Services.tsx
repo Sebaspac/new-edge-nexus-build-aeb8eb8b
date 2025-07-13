@@ -71,11 +71,17 @@ const Services = () => {
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 animate-slide-in-right">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center hover:scale-105 transition-transform duration-300">
-              <img alt="New Edge Logo" className="h-8 w-8 mr-3 animate-float" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
-              <div className="text-2xl font-bold text-black">
-                New Edge<span className="text-primary animate-pulse"></span>
+            <div className="flex flex-col items-start">
+              <div className="flex items-center hover:scale-105 transition-transform duration-300 mb-2">
+                <img alt="New Edge Logo" className="h-8 w-8 mr-3 animate-float" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
+                <div className="text-2xl font-bold text-black">
+                  New Edge<span className="text-primary animate-pulse"></span>
+                </div>
               </div>
+              <Link to="/" className="inline-flex items-center text-gray-500 hover:text-black transition-all duration-300 hover:scale-110 animate-fade-in text-sm">
+                <ArrowLeft className="mr-2 h-3 w-3" />
+                Zurück zur Homepage
+              </Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
               <Link to="/" className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110">Home</Link>
@@ -123,10 +129,6 @@ const Services = () => {
         </div>
 
         <div className="container mx-auto text-center relative z-10">
-          <Link to="/" className="inline-flex items-center text-gray-500 hover:text-black transition-all duration-300 hover:scale-110 mb-8 animate-fade-in">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Zurück zur Homepage
-          </Link>
           
           <div className="bg-black px-8 py-4 rounded-2xl inline-block mt-16 mb-12 shadow-2xl animate-fade-in transform hover:scale-105 transition-transform duration-300">
             <div className="text-white text-3xl md:text-4xl font-black tracking-wider animate-pulse">
