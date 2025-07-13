@@ -125,7 +125,7 @@ const Media = () => {
           }}>
               MEDIA produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
               <br />
-              <span className="text-blue-600 font-medium">Von der Strategie bis zur viralen Umsetzung.</span>
+              <span className="text-blue-600 font-medium">Ab Strategie bis zur viralen Umsetzung.</span>
             </p>
             
             <div className="animate-fade-in" style={{
