@@ -143,8 +143,9 @@ const Lab = () => {
                 animationDelay: '0.2s'
               }}>NEW EDGE</span>
               <br />
-              <span className="text-yellow-500 italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{
-                animationDelay: '0.4s'
+              <span className="italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{
+                animationDelay: '0.4s',
+                color: '#FFED00'
               }}>LAB</span>
               <br />
               <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{
@@ -156,24 +157,25 @@ const Lab = () => {
             <div className="absolute top-20 left-10 animate-float" style={{
               animationDelay: '0.5s'
             }}>
-              <Brain className="w-8 h-8 text-yellow-400" />
+              <Brain className="w-8 h-8" style={{ color: '#FFED00' }} />
             </div>
             <div className="absolute top-40 right-20 animate-float" style={{
               animationDelay: '1s'
             }}>
-              <Zap className="w-6 h-6 text-yellow-500" />
+              <Zap className="w-6 h-6" style={{ color: '#FFED00' }} />
             </div>
             <div className="absolute bottom-20 left-20 animate-float" style={{
               animationDelay: '1.5s'
             }}>
-              <Cpu className="w-10 h-10 text-yellow-300" />
+              <Cpu className="w-10 h-10" style={{ color: '#FFED00' }} />
             </div>
 
             {/* Interactive background elements */}
-            <div className="absolute w-96 h-96 bg-yellow-100 rounded-full blur-3xl opacity-30 animate-pulse" style={{
+            <div className="absolute w-96 h-96 rounded-full blur-3xl opacity-30 animate-pulse" style={{
               left: mousePosition.x / 10,
               top: mousePosition.y / 10,
-              transform: 'translate(-50%, -50%)'
+              transform: 'translate(-50%, -50%)',
+              backgroundColor: '#FFED00'
             }} />
             
             <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in" style={{
@@ -181,18 +183,18 @@ const Lab = () => {
             }}>
               LAB macht aus Ideen reale, funktionierende Systeme — sicher, automatisiert, effizient.
               <br />
-              <span className="text-yellow-600 font-medium">Innovation durch intelligente Technologie.</span>
+              <span className="font-medium" style={{ color: '#FFED00' }}>Innovation durch intelligente Technologie.</span>
             </p>
             
             <div className="animate-fade-in" style={{
               animationDelay: '1s'
             }}>
-              <Button size="lg" className="bg-yellow-500 text-white hover:bg-yellow-600 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4" asChild>
+              <Button size="lg" className="text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg px-8 py-4 mr-4" style={{ backgroundColor: '#FFED00' }} asChild>
                 <Link to="/#contact-section">
                   Projekt starten
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-yellow-500 text-yellow-600 hover:bg-yellow-50 transition-all duration-300 hover:scale-105 text-lg px-8 py-4">
+              <Button variant="outline" size="lg" className="transition-all duration-300 hover:scale-105 text-lg px-8 py-4" style={{ borderColor: '#FFED00', color: '#FFED00' }}>
                 Services entdecken
               </Button>
             </div>
@@ -214,8 +216,8 @@ const Lab = () => {
             {services.map((service, index) => (
               <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
-                    <service.icon className="w-8 h-8 text-yellow-600" />
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{ backgroundColor: '#FFED0020' }}>
+                    <service.icon className="w-8 h-8" style={{ color: '#FFED00' }} />
                   </div>
                   <h3 className="text-lg font-bold text-black mb-4">{service.title}</h3>
                   <p className="text-gray-600 leading-relaxed text-sm">
@@ -229,13 +231,13 @@ const Lab = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white relative overflow-hidden">
+      <section className="py-32 text-white relative overflow-hidden" style={{ background: `linear-gradient(to right, #FFED00, #FFED00)` }}>
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="text-5xl font-bold mb-6 animate-fade-in">Bereit für die digitale Transformation?</h2>
           <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in">
             Lassen Sie uns gemeinsam innovative Lösungen entwickeln, die Ihr Unternehmen voranbringen.
           </p>
-          <Button size="lg" className="bg-white text-yellow-600 hover:bg-gray-100 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" asChild>
+          <Button size="lg" className="bg-white hover:bg-gray-100 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" style={{ color: '#FFED00' }} asChild>
             <Link to="/#contact-section">
               Projekt besprechen
             </Link>
