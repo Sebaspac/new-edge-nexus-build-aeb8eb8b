@@ -318,7 +318,7 @@ const Services = () => {
           }} transition={{
             duration: 4,
             repeat: Infinity
-          }} className="inline-block bg-gradient-to-r from-purple-600 via-blue-600 to-yellow-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12">
+          }} className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12">
               Key Activities
             </motion.div>
             <h2 className="text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
