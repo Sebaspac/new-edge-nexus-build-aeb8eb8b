@@ -130,7 +130,7 @@ const Services = () => {
           
           <div className="bg-black px-8 py-4 rounded-2xl inline-block mb-8 shadow-2xl animate-fade-in transform hover:scale-105 transition-transform duration-300">
             <div className="text-white text-3xl md:text-4xl font-black tracking-wider animate-pulse">
-              DESIGN THE EDGE
+              DESIGN <span className="text-yellow-400">THE EDGE</span>
             </div>
           </div>
           
@@ -191,12 +191,12 @@ const Services = () => {
                 </div>
                 <div>
                   <h2 className="text-4xl font-bold text-black hover:text-purple-600 transition-colors duration-300">New Edge° STUDIO</h2>
-                  <p className="text-purple-600 font-medium animate-pulse">Das strategische Fundament</p>
+                  <p className="text-purple-600 font-medium animate-pulse">strategische Fundament</p>
                 </div>
               </div>
               
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                STUDIO liefert das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant – 
+                STUDIO liefert <span className="font-bold text-purple-600">DAS</span> Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant – 
                 damit MEDIA & LAB reibungslos umsetzen können.
               </p>
               
