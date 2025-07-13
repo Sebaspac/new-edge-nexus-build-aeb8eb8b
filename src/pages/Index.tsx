@@ -358,7 +358,7 @@ const Index = () => {
                   <CardContent className="p-8 text-center relative overflow-hidden">
                     <motion.div 
                       animate={hoveredCard === 'studio' ? {
-                        background: ["radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(236,72,153,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)"]
+                        background: ["radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(147,51,234,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)"]
                       } : {}} 
                       transition={{ duration: 3, repeat: Infinity }} 
                       className="absolute inset-0" 
