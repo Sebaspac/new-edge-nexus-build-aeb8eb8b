@@ -128,7 +128,7 @@ const Services = () => {
             Zurück zur Homepage
           </Link>
           
-          <div className="bg-black px-8 py-4 rounded-2xl inline-block mb-8 shadow-2xl animate-fade-in transform hover:scale-105 transition-transform duration-300">
+          <div className="bg-black px-8 py-4 rounded-2xl inline-block mt-16 mb-12 shadow-2xl animate-fade-in transform hover:scale-105 transition-transform duration-300">
             <div className="text-white text-3xl md:text-4xl font-black tracking-wider animate-pulse">
               DESIGN <span className="text-yellow-400">THE EDGE</span>
             </div>
