@@ -496,12 +496,11 @@ const Index = () => {
                       className="absolute inset-0" 
                     />
                     
-                    <motion.div 
+                    <div 
                       className="inline-block bg-gradient-to-r from-yellow-600 to-amber-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
-                      whileHover={{ scale: 1.05 }}
                     >
                       New Edge Lab
-                    </motion.div>
+                    </div>
                     
                     <h3 className="text-3xl font-bold text-white mb-4 relative z-10">LAB</h3>
                     <p className="text-lg text-white mb-6 leading-relaxed relative z-10">
