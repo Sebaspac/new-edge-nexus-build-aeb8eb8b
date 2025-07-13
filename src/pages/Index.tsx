@@ -9,23 +9,24 @@ import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0
+  });
   const [scrollY, setScrollY] = useState(0);
-
   useEffect(() => {
     setIsVisible(true);
-    
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY
+      });
     };
-    
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
-
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
-    
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
@@ -98,35 +99,55 @@ const Index = () => {
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
             {/* Main Headline - Inspired by Mawave's bold typography */}
             <h1 className="text-6xl md:text-8xl font-black text-black mb-8 leading-tight tracking-tight">
-              <span className="inline-block animate-fade-in" style={{ animationDelay: '0.2s' }}>BRAND</span>
+              <span className="inline-block animate-fade-in" style={{
+              animationDelay: '0.2s'
+            }}>BRAND</span>
               <br />
-              <span className="text-black italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{ animationDelay: '0.4s' }}>INTELLIGENCE</span>
+              <span className="text-black italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{
+              animationDelay: '0.4s'
+            }}>INTELLIGENCE</span>
               <br />
-              <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{ animationDelay: '0.6s' }}>FOR CONSUMER BRANDS</span>
+              <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{
+              animationDelay: '0.6s'
+            }}>FOR CONSUMER BRANDS</span>
             </h1>
             
             {/* Floating icons */}
-            <div className="absolute top-20 left-10 animate-float" style={{ animationDelay: '1s' }}>
+            <div className="absolute top-20 left-10 animate-float" style={{
+            animationDelay: '1s'
+          }}>
               <Sparkles className="w-8 h-8 text-primary opacity-60 animate-spin-slow" />
             </div>
-            <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: '1.5s' }}>
+            <div className="absolute top-40 right-20 animate-float" style={{
+            animationDelay: '1.5s'
+          }}>
               <Zap className="w-10 h-10 text-accent opacity-60 animate-bounce" />
             </div>
-            <div className="absolute bottom-20 left-20 animate-float" style={{ animationDelay: '2s' }}>
+            <div className="absolute bottom-20 left-20 animate-float" style={{
+            animationDelay: '2s'
+          }}>
               <Brain className="w-12 h-12 text-secondary opacity-60 animate-pulse" />
             </div>
-            <div className="absolute top-10 right-10 animate-float" style={{ animationDelay: '2.5s' }}>
+            <div className="absolute top-10 right-10 animate-float" style={{
+            animationDelay: '2.5s'
+          }}>
               <Target className="w-6 h-6 text-primary opacity-50 animate-spin-slow" />
             </div>
-            <div className="absolute bottom-40 right-40 animate-float" style={{ animationDelay: '3s' }}>
+            <div className="absolute bottom-40 right-40 animate-float" style={{
+            animationDelay: '3s'
+          }}>
               <Eye className="w-8 h-8 text-accent opacity-40 animate-pulse" />
             </div>
-            <div className="absolute top-1/3 left-1/4 animate-float" style={{ animationDelay: '3.5s' }}>
+            <div className="absolute top-1/3 left-1/4 animate-float" style={{
+            animationDelay: '3.5s'
+          }}>
               <Rocket className="w-7 h-7 text-secondary opacity-60 animate-bounce" />
             </div>
             
             {/* Subtitle */}
-            <div className="max-w-2xl mx-auto mb-12 animate-slide-in-right" style={{ animationDelay: '0.8s' }}>
+            <div className="max-w-2xl mx-auto mb-12 animate-slide-in-right" style={{
+            animationDelay: '0.8s'
+          }}>
               <p className="text-xl text-gray-600 mb-6">
                 New Edge ist die führende Creative-Tech-Agentur 
                 <br />
@@ -134,16 +155,15 @@ const Index = () => {
               </p>
               
               {/* CTA Button */}
-              <Button 
-                onClick={scrollToContact} 
-                className="bg-accent text-black hover:bg-accent/90 transition-all duration-300 px-8 py-4 text-lg font-semibold rounded-full hover:scale-110 hover:shadow-2xl"
-              >
+              <Button onClick={scrollToContact} className="bg-accent text-black hover:bg-accent/90 transition-all duration-300 px-8 py-4 text-lg font-semibold rounded-full hover:scale-110 hover:shadow-2xl">
                 Ready to Scale? <ArrowRight className="ml-2 h-5 w-5 animate-bounce" />
               </Button>
             </div>
 
             {/* Brand Logos Grid - Similar to Mawave */}
-            <div className="grid grid-cols-4 md:grid-cols-6 gap-8 items-center opacity-60 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: '1s' }}>
+            <div className="grid grid-cols-4 md:grid-cols-6 gap-8 items-center opacity-60 max-w-4xl mx-auto animate-fade-in" style={{
+            animationDelay: '1s'
+          }}>
               <div className="text-gray-400 text-sm font-semibold hover:text-primary transition-colors hover:scale-110 duration-300">AUDI</div>
               <div className="text-gray-400 text-sm font-semibold hover:text-primary transition-colors hover:scale-110 duration-300">OPEL</div>
               <div className="text-gray-400 text-sm font-semibold hover:text-primary transition-colors hover:scale-110 duration-300">BMW</div>
@@ -155,31 +175,23 @@ const Index = () => {
         </div>
 
         {/* Dynamic background gradient elements */}
-        <div 
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-3xl -z-10 animate-pulse"
-          style={{
-            transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px) translate(-50%, -50%)`
-          }}
-        ></div>
-        <div 
-          className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-secondary/15 to-primary/15 rounded-full blur-2xl -z-10 animate-float"
-        ></div>
-        <div 
-          className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-full blur-xl -z-10 animate-float"
-          style={{ animationDelay: '1s' }}
-        ></div>
-        <div 
-          className="absolute top-10 right-1/3 w-32 h-32 bg-gradient-to-r from-primary/25 to-accent/25 rounded-full blur-xl -z-10 animate-bounce"
-          style={{ animationDelay: '2s', animationDuration: '4s' }}
-        ></div>
-        <div 
-          className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-full blur-2xl -z-10 animate-pulse"
-          style={{ animationDelay: '3s' }}
-        ></div>
-        <div 
-          className="absolute top-2/3 left-10 w-24 h-24 bg-gradient-to-r from-accent/30 to-secondary/30 rounded-full blur-lg -z-10 animate-float"
-          style={{ animationDelay: '4s' }}
-        ></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-3xl -z-10 animate-pulse" style={{
+        transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px) translate(-50%, -50%)`
+      }}></div>
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-secondary/15 to-primary/15 rounded-full blur-2xl -z-10 animate-float"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-full blur-xl -z-10 animate-float" style={{
+        animationDelay: '1s'
+      }}></div>
+        <div className="absolute top-10 right-1/3 w-32 h-32 bg-gradient-to-r from-primary/25 to-accent/25 rounded-full blur-xl -z-10 animate-bounce" style={{
+        animationDelay: '2s',
+        animationDuration: '4s'
+      }}></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-full blur-2xl -z-10 animate-pulse" style={{
+        animationDelay: '3s'
+      }}></div>
+        <div className="absolute top-2/3 left-10 w-24 h-24 bg-gradient-to-r from-accent/30 to-secondary/30 rounded-full blur-lg -z-10 animate-float" style={{
+        animationDelay: '4s'
+      }}></div>
       </section>
 
       {/* Video/Visual Section - Inspired by Mawave's cyan block */}
@@ -189,30 +201,47 @@ const Index = () => {
           <div className="relative h-96 md:h-[500px] bg-gradient-to-br from-cyan-400 to-blue-500 rounded-3xl overflow-hidden flex items-center justify-center group hover:scale-105 transition-transform duration-500 animate-gradient">
             <div className="text-center text-white z-10">
               <h2 className="text-4xl md:text-6xl font-black mb-4">
-                <span className="inline-block animate-slide-in-right" style={{ animationDelay: '0.2s' }}>WITH YOUR</span>
+                <span className="inline-block animate-slide-in-right" style={{
+                animationDelay: '0.2s'
+              }}>STRATEGIE </span>
                 <br />
-                <span className="text-5xl md:text-7xl text-accent font-black inline-block animate-fade-up hover:rotate-2 transition-transform duration-300" style={{ animationDelay: '0.4s' }}>ONE-STOP</span>
+                <span className="text-5xl md:text-7xl text-accent font-black inline-block animate-fade-up hover:rotate-2 transition-transform duration-300" style={{
+                animationDelay: '0.4s'
+              }}>ON-POINT</span>
                 <br />
-                <span className="text-4xl md:text-6xl inline-block animate-slide-in-right" style={{ animationDelay: '0.6s' }}>SOCIAL SHOP</span>
+                <span className="text-4xl md:text-6xl inline-block animate-slide-in-right" style={{
+                animationDelay: '0.6s'
+              }}>CREATIVE TECH
+              </span>
               </h2>
               
               {/* Floating elements */}
               <div className="absolute top-10 left-10 animate-float">
                 <Star className="w-8 h-8 text-accent opacity-70 animate-spin-slow" />
               </div>
-              <div className="absolute bottom-10 right-10 animate-float" style={{ animationDelay: '1s' }}>
+              <div className="absolute bottom-10 right-10 animate-float" style={{
+              animationDelay: '1s'
+            }}>
                 <Lightbulb className="w-10 h-10 text-yellow-300 opacity-70 animate-pulse" />
               </div>
-              <div className="absolute top-1/2 left-20 animate-float" style={{ animationDelay: '2s' }}>
+              <div className="absolute top-1/2 left-20 animate-float" style={{
+              animationDelay: '2s'
+            }}>
                 <Users className="w-6 h-6 text-white opacity-70 animate-bounce" />
               </div>
-              <div className="absolute top-1/4 right-1/4 animate-float" style={{ animationDelay: '2.5s' }}>
+              <div className="absolute top-1/4 right-1/4 animate-float" style={{
+              animationDelay: '2.5s'
+            }}>
                 <Sparkles className="w-7 h-7 text-white opacity-60 animate-pulse" />
               </div>
-              <div className="absolute bottom-1/4 left-1/3 animate-float" style={{ animationDelay: '3s' }}>
+              <div className="absolute bottom-1/4 left-1/3 animate-float" style={{
+              animationDelay: '3s'
+            }}>
                 <Zap className="w-9 h-9 text-accent opacity-80 animate-bounce" />
               </div>
-              <div className="absolute top-3/4 right-1/3 animate-float" style={{ animationDelay: '3.5s' }}>
+              <div className="absolute top-3/4 right-1/3 animate-float" style={{
+              animationDelay: '3.5s'
+            }}>
                 <Target className="w-5 h-5 text-yellow-300 opacity-50 animate-spin-slow" />
               </div>
             </div>
@@ -231,7 +260,9 @@ const Index = () => {
             <span className="inline-block hover:scale-105 transition-transform duration-300">Innovation voranbringen durch</span>
             <span className="text-primary animate-pulse hover:text-secondary transition-colors duration-500"> intelligente Automatisierung</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-slide-in-right" style={{ animationDelay: '0.3s' }}>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-slide-in-right" style={{
+          animationDelay: '0.3s'
+        }}>
             Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme – für Marken, die funktionieren und wachsen.
           </p>
         </div>
@@ -253,7 +284,9 @@ const Index = () => {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {/* STUDIO */}
-            <Card className="bg-white border-0 shadow-sm hover:shadow-xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+            <Card className="bg-white border-0 shadow-sm hover:shadow-xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 animate-fade-up" style={{
+            animationDelay: '0.1s'
+          }}>
               <CardContent className="p-8 h-full">
                 <div className="mb-6">
                   <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform duration-300 animate-float">
@@ -283,10 +316,14 @@ const Index = () => {
             </Card>
 
             {/* MEDIA */}
-            <Card className="bg-white border-0 shadow-sm hover:shadow-xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+            <Card className="bg-white border-0 shadow-sm hover:shadow-xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 animate-fade-up" style={{
+            animationDelay: '0.3s'
+          }}>
               <CardContent className="p-8 h-full">
                 <div className="mb-6">
-                  <div className="w-16 h-16 bg-cyan-500 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform duration-300 animate-float" style={{ animationDelay: '1s' }}>
+                  <div className="w-16 h-16 bg-cyan-500 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform duration-300 animate-float" style={{
+                  animationDelay: '1s'
+                }}>
                     <span className="text-3xl font-bold text-white">M</span>
                   </div>
                   <h3 className="text-3xl font-black text-black mb-2 group-hover:text-cyan-500 transition-colors duration-300">MEDIA</h3>
@@ -313,13 +350,17 @@ const Index = () => {
             </Card>
 
             {/* LAB */}
-            <Card className="bg-white border-0 shadow-sm hover:shadow-xl transition-all duration-500 group relative hover:scale-105 hover:-translate-y-2 animate-fade-up" style={{ animationDelay: '0.5s' }}>
+            <Card className="bg-white border-0 shadow-sm hover:shadow-xl transition-all duration-500 group relative hover:scale-105 hover:-translate-y-2 animate-fade-up" style={{
+            animationDelay: '0.5s'
+          }}>
               <div className="absolute top-6 right-6">
                 <span className="bg-accent text-black text-xs font-bold px-3 py-1 rounded-full animate-bounce group-hover:scale-110 transition-transform duration-300">🚀 INNOVATION</span>
               </div>
               <CardContent className="p-8 h-full">
                 <div className="mb-6">
-                  <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform duration-300 animate-float" style={{ animationDelay: '2s' }}>
+                  <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform duration-300 animate-float" style={{
+                  animationDelay: '2s'
+                }}>
                     <span className="text-3xl font-bold text-black">L</span>
                   </div>
                   <h3 className="text-3xl font-black text-black mb-2 group-hover:text-accent transition-colors duration-300">LAB</h3>
@@ -351,7 +392,9 @@ const Index = () => {
             </Card>
           </div>
 
-          <div className="text-center mt-12 animate-fade-up" style={{ animationDelay: '0.7s' }}>
+          <div className="text-center mt-12 animate-fade-up" style={{
+          animationDelay: '0.7s'
+        }}>
             <Link to="/services">
               <Button size="lg" className="bg-black text-white hover:bg-gray-800 transition-all duration-300 px-8 py-4 hover:scale-110 hover:shadow-2xl">
                 Alle Services entdecken <ArrowRight className="ml-2 h-5 w-5 animate-bounce" />
@@ -374,35 +417,49 @@ const Index = () => {
               </p>
             </div>
 
-            <Card className="bg-white border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 animate-fade-up hover:scale-105" style={{ animationDelay: '0.2s' }}>
+            <Card className="bg-white border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 animate-fade-up hover:scale-105" style={{
+            animationDelay: '0.2s'
+          }}>
               <CardContent className="p-8">
                 <form action="https://formspree.io/f/xjkrnyon" method="POST" onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2 animate-slide-in-right" style={{ animationDelay: '0.1s' }}>
+                  <div className="space-y-2 animate-slide-in-right" style={{
+                  animationDelay: '0.1s'
+                }}>
                     <Label htmlFor="fullname" className="text-black">Vollständiger Name</Label>
                     <Input name="fullname" id="fullname" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary transition-all duration-300 hover:border-accent focus:scale-105" placeholder="Max Mustermann" />
                   </div>
                   
-                  <div className="space-y-2 animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
+                  <div className="space-y-2 animate-slide-in-right" style={{
+                  animationDelay: '0.2s'
+                }}>
                     <Label htmlFor="email" className="text-black">E-Mail Adresse</Label>
                     <Input name="email" id="email" type="email" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary transition-all duration-300 hover:border-accent focus:scale-105" placeholder="max@example.com" />
                   </div>
                   
-                  <div className="space-y-2 animate-slide-in-right" style={{ animationDelay: '0.3s' }}>
+                  <div className="space-y-2 animate-slide-in-right" style={{
+                  animationDelay: '0.3s'
+                }}>
                     <Label htmlFor="company" className="text-black">Firma</Label>
                     <Input name="company" id="company" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary transition-all duration-300 hover:border-accent focus:scale-105" placeholder="Ihr Unternehmen" />
                   </div>
                   
-                  <div className="space-y-2 animate-slide-in-right" style={{ animationDelay: '0.4s' }}>
+                  <div className="space-y-2 animate-slide-in-right" style={{
+                  animationDelay: '0.4s'
+                }}>
                     <Label htmlFor="position" className="text-black">Position</Label>
                     <Input name="position" id="position" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary transition-all duration-300 hover:border-accent focus:scale-105" placeholder="Ihre Position" />
                   </div>
                   
-                  <div className="md:col-span-2 space-y-2 animate-fade-up" style={{ animationDelay: '0.5s' }}>
+                  <div className="md:col-span-2 space-y-2 animate-fade-up" style={{
+                  animationDelay: '0.5s'
+                }}>
                     <Label htmlFor="message" className="text-black">Nachricht (optional)</Label>
                     <Textarea name="message" id="message" className="bg-white border-gray-300 text-black placeholder:text-gray-400 min-h-[120px] focus:border-primary transition-all duration-300 hover:border-accent focus:scale-105" placeholder="Erzählen Sie uns von Ihrem Projekt..." />
                   </div>
                   
-                  <div className="md:col-span-2 animate-fade-up" style={{ animationDelay: '0.6s' }}>
+                  <div className="md:col-span-2 animate-fade-up" style={{
+                  animationDelay: '0.6s'
+                }}>
                     <Button type="submit" className="w-full bg-black text-white hover:bg-gray-800 transition-all duration-300 py-3 text-lg hover:scale-105 hover:shadow-2xl">
                       Loslegen <ArrowRight className="ml-2 h-5 w-5 animate-bounce" />
                     </Button>
@@ -425,10 +482,7 @@ const Index = () => {
                   New Edge<span className="text-primary"></span>
                 </div>
               </div>
-              <p className="text-gray-400 mb-6 max-w-md">
-                New Edge ist ein Creative-Tech-Studio für zukunftsorientierte Markenkommunikation.
-                Wir entwickeln strukturierte, skalierbare und KI-gestützte Lösungen, die Marken nachhaltig positionieren und messbar stärken.
-              </p>
+              <p className="text-gray-400 mb-6 max-w-md">New Edge ist ein Creative-Tech-Studio für zukunftsorientierte Markenkommunikation. </p>
               <div className="flex space-x-4">
                 <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
                   <span className="text-sm">in</span>
