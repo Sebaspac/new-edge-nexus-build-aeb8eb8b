@@ -271,7 +271,7 @@ const Services = () => {
               duration: 2,
               repeat: Infinity
             }} 
-            className="absolute bottom-1 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
             onClick={() => {
               const nextSection = document.querySelector('.key-activities-section');
               nextSection?.scrollIntoView({ behavior: 'smooth' });
