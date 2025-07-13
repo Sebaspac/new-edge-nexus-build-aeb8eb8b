@@ -279,7 +279,7 @@ const Services = () => {
               once: true
             }} onHoverStart={() => setHoveredCard('studio')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-white/[0.02] backdrop-blur-xl border border-white/10 shadow-2xl hover:shadow-white/5 transition-all duration-700 rounded-3xl overflow-hidden">
-                  <CardContent className="p-10 text-center relative bg-purple-700">
+                  <CardContent className="p-10 text-center relative bg-purple-700 px-[10px] py-[20px]">
                     {/* Subtle Gradient Background */}
                     <motion.div animate={hoveredCard === 'studio' ? {
                     opacity: [0.02, 0.05, 0.02]
@@ -343,7 +343,7 @@ const Services = () => {
               delay: 0.2
             }} onHoverStart={() => setHoveredCard('media')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-white/[0.02] backdrop-blur-xl border border-white/10 shadow-2xl hover:shadow-white/5 transition-all duration-700 rounded-3xl overflow-hidden">
-                  <CardContent className="p-10 text-center relative bg-blue-800">
+                  <CardContent className="p-10 text-center relative bg-blue-800 py-[20px] px-[10px]">
                     <motion.div animate={hoveredCard === 'media' ? {
                     opacity: [0.02, 0.05, 0.02]
                   } : {}} transition={{
@@ -405,7 +405,7 @@ const Services = () => {
               delay: 0.4
             }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-white/[0.02] backdrop-blur-xl border border-white/10 shadow-2xl hover:shadow-white/5 transition-all duration-700 rounded-3xl overflow-hidden">
-                  <CardContent className="p-10 text-center relative">
+                  <CardContent className="p-10 text-center relative bg-yellow-300 px-[10px] py-[20px]">
                     <motion.div animate={hoveredCard === 'lab' ? {
                     opacity: [0.02, 0.05, 0.02]
                   } : {}} transition={{
@@ -415,19 +415,19 @@ const Services = () => {
                     
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block bg-white/5 backdrop-blur-sm text-white/80 px-6 py-2 rounded-full text-sm font-medium mb-8 relative z-10 border border-white/10">
+                  }} className="inline-block backdrop-blur-sm text-white/80 rounded-full text-sm font-medium mb-8 relative z-10 border border-white/10 bg-zinc-900 py-[8px] px-[24px]">
                       New Edge Lab
                     </motion.div>
                     
                     <motion.div variants={iconVariants} whileHover="hover" className="w-16 h-16 bg-white/5 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-8 relative z-10 border border-white/10">
-                      <Cpu className="w-8 h-8 text-white/70" />
+                      <Cpu className="w-8 h-8 text-white/70 bg-yellow-300" />
                     </motion.div>
                     
                     
-                    <p className="text-lg mb-6 leading-relaxed relative z-10 font-light text-gray-50">
+                    <p className="text-lg mb-6 leading-relaxed relative z-10 font-light text-zinc-900">
                       Die perfekte Schnittstelle für Strategie & Technologie
                     </p>
-                    <p className="text-white/40 text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto">
+                    <p className="text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto text-zinc-900">
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
                     
