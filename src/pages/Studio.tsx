@@ -196,7 +196,7 @@ const Studio = () => {
       {/* CTA Section */}
       <section className="py-16 sm:py-32 bg-gradient-to-r from-purple-600 to-purple-700 text-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in">Lassen Sie Ihre Marke strahlen</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in">Let´s design the edge</h2>
           <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in px-4">
             Gemeinsam entwickeln wir ein Design, das Ihre Vision zum Leben erweckt und Ihre Zielgruppe begeistert.
           </p>
