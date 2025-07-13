@@ -82,7 +82,7 @@ const Services = () => {
               </div>
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-black mb-6 leading-tight">
-              
+              Unsere Services
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-12">
               Von der strategischen Planung bis zur technischen Umsetzung – 

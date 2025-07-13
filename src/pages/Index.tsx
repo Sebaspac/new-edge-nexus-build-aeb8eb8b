@@ -107,13 +107,22 @@ const Index = () => {
             
             {/* Floating icons */}
             <div className="absolute top-20 left-10 animate-float" style={{ animationDelay: '1s' }}>
-              <Sparkles className="w-8 h-8 text-primary opacity-60" />
+              <Sparkles className="w-8 h-8 text-primary opacity-60 animate-spin-slow" />
             </div>
             <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: '1.5s' }}>
-              <Zap className="w-10 h-10 text-accent opacity-60" />
+              <Zap className="w-10 h-10 text-accent opacity-60 animate-bounce" />
             </div>
             <div className="absolute bottom-20 left-20 animate-float" style={{ animationDelay: '2s' }}>
-              <Brain className="w-12 h-12 text-secondary opacity-60" />
+              <Brain className="w-12 h-12 text-secondary opacity-60 animate-pulse" />
+            </div>
+            <div className="absolute top-10 right-10 animate-float" style={{ animationDelay: '2.5s' }}>
+              <Target className="w-6 h-6 text-primary opacity-50 animate-spin-slow" />
+            </div>
+            <div className="absolute bottom-40 right-40 animate-float" style={{ animationDelay: '3s' }}>
+              <Eye className="w-8 h-8 text-accent opacity-40 animate-pulse" />
+            </div>
+            <div className="absolute top-1/3 left-1/4 animate-float" style={{ animationDelay: '3.5s' }}>
+              <Rocket className="w-7 h-7 text-secondary opacity-60 animate-bounce" />
             </div>
             
             {/* Subtitle */}
@@ -159,6 +168,18 @@ const Index = () => {
           className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-full blur-xl -z-10 animate-float"
           style={{ animationDelay: '1s' }}
         ></div>
+        <div 
+          className="absolute top-10 right-1/3 w-32 h-32 bg-gradient-to-r from-primary/25 to-accent/25 rounded-full blur-xl -z-10 animate-bounce"
+          style={{ animationDelay: '2s', animationDuration: '4s' }}
+        ></div>
+        <div 
+          className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-full blur-2xl -z-10 animate-pulse"
+          style={{ animationDelay: '3s' }}
+        ></div>
+        <div 
+          className="absolute top-2/3 left-10 w-24 h-24 bg-gradient-to-r from-accent/30 to-secondary/30 rounded-full blur-lg -z-10 animate-float"
+          style={{ animationDelay: '4s' }}
+        ></div>
       </section>
 
       {/* Video/Visual Section - Inspired by Mawave's cyan block */}
@@ -177,13 +198,22 @@ const Index = () => {
               
               {/* Floating elements */}
               <div className="absolute top-10 left-10 animate-float">
-                <Star className="w-8 h-8 text-accent opacity-70" />
+                <Star className="w-8 h-8 text-accent opacity-70 animate-spin-slow" />
               </div>
               <div className="absolute bottom-10 right-10 animate-float" style={{ animationDelay: '1s' }}>
-                <Lightbulb className="w-10 h-10 text-yellow-300 opacity-70" />
+                <Lightbulb className="w-10 h-10 text-yellow-300 opacity-70 animate-pulse" />
               </div>
               <div className="absolute top-1/2 left-20 animate-float" style={{ animationDelay: '2s' }}>
-                <Users className="w-6 h-6 text-white opacity-70" />
+                <Users className="w-6 h-6 text-white opacity-70 animate-bounce" />
+              </div>
+              <div className="absolute top-1/4 right-1/4 animate-float" style={{ animationDelay: '2.5s' }}>
+                <Sparkles className="w-7 h-7 text-white opacity-60 animate-pulse" />
+              </div>
+              <div className="absolute bottom-1/4 left-1/3 animate-float" style={{ animationDelay: '3s' }}>
+                <Zap className="w-9 h-9 text-accent opacity-80 animate-bounce" />
+              </div>
+              <div className="absolute top-3/4 right-1/3 animate-float" style={{ animationDelay: '3.5s' }}>
+                <Target className="w-5 h-5 text-yellow-300 opacity-50 animate-spin-slow" />
               </div>
             </div>
             
