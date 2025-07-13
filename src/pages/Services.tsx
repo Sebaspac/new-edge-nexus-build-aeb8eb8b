@@ -1,5 +1,9 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { Link } from "react-router-dom";
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Points, PointMaterial, Float, Text3D, OrbitControls, Sphere, Box, Torus } from "@react-three/drei";
+import * as THREE from "three";
 import { ArrowRight, ArrowDown, Sparkles, Zap, Brain, Target, Eye, Rocket, Star, Lightbulb, Users, ChevronDown, Palette, Video, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,75 +14,179 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+// 3D Particle System Component
+function ParticleField() {
+  const ref = useRef<THREE.Points>(null);
+  const [sphere] = useState(() => {
+    const positions = new Float32Array(2000 * 3);
+    for (let i = 0; i < 2000; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+    }
+    return positions;
+  });
+
+  useFrame((state, delta) => {
+    if (ref.current) {
+      ref.current.rotation.x -= delta / 10;
+      ref.current.rotation.y -= delta / 15;
+    }
+  });
+
+  return (
+    <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
+      <PointMaterial
+        transparent
+        color="#8b5cf6"
+        size={0.05}
+        sizeAttenuation={true}
+        depthWrite={false}
+      />
+    </Points>
+  );
+}
+
+// 3D Floating Icons
+function FloatingIcon({ position, icon, color }: { position: [number, number, number], icon: string, color: string }) {
+  const mesh = useRef<THREE.Mesh>(null);
+  
+  useFrame((state) => {
+    if (mesh.current) {
+      mesh.current.rotation.x = Math.sin(state.clock.elapsedTime) * 0.3;
+      mesh.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.8) * 0.5;
+      mesh.current.position.y = position[1] + Math.sin(state.clock.elapsedTime) * 0.5;
+    }
+  });
+
+  return (
+    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
+      <Box ref={mesh} position={position} scale={[0.5, 0.5, 0.5]}>
+        <meshStandardMaterial color={color} transparent opacity={0.8} />
+      </Box>
+    </Float>
+  );
+}
+
+// 3D Background Scene
+function Background3D() {
+  return (
+    <>
+      <ambientLight intensity={0.5} />
+      <pointLight position={[10, 10, 10]} />
+      <ParticleField />
+      <FloatingIcon position={[-5, 2, -3]} icon="palette" color="#8b5cf6" />
+      <FloatingIcon position={[5, -2, -2]} icon="video" color="#3b82f6" />
+      <FloatingIcon position={[0, 3, -4]} icon="cpu" color="#10b981" />
+      <FloatingIcon position={[-3, -3, -1]} icon="brain" color="#f59e0b" />
+      <FloatingIcon position={[4, 1, -5]} icon="sparkles" color="#ec4899" />
+    </>
+  );
+}
+
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [scrollY, setScrollY] = useState(0);
-  const studioRef = useRef<HTMLDivElement>(null);
-  const mediaRef = useRef<HTMLDivElement>(null);
-  const labRef = useRef<HTMLDivElement>(null);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const { scrollY } = useScroll();
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Parallax effects
+  const y1 = useTransform(scrollY, [0, 1000], [0, -200]);
+  const y2 = useTransform(scrollY, [0, 1000], [0, -400]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0.3]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setIsVisible(true);
     
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
+      setMousePosition({ 
+        x: (e.clientX / window.innerWidth) * 2 - 1,
+        y: -(e.clientY / window.innerHeight) * 2 + 1
+      });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   const scrollToContact = () => {
     window.location.href = '/#contact-section';
   };
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1
+    },
+    hover: { 
+      scale: 1.05, 
+      y: -10
+    }
+  };
+
+  const iconVariants = {
+    hover: {
+      rotate: 360,
+      scale: 1.2
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-white">
+    <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
+      {/* 3D Background Canvas */}
+      <div className="fixed inset-0 z-0">
+        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+          <Suspense fallback={null}>
+            <Background3D />
+          </Suspense>
+        </Canvas>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
+      <motion.nav 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-purple-500/30"
+      >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center hover:scale-105 transition-transform duration-300">
-              <img alt="New Edge Logo" className="h-8 w-8 mr-3 animate-float" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
-              <div className="text-2xl font-bold text-black">
-                New Edge<span className="text-primary"></span>
+            <motion.div 
+              whileHover={{ scale: 1.1 }}
+              className="flex items-center"
+            >
+              <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
+              <div className="text-2xl font-bold text-white">
+                New Edge<span className="text-purple-400"></span>
               </div>
-            </div>
+            </motion.div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110">Home</Link>
+              <Link to="/" className="text-gray-300 hover:text-white transition-all duration-300">Home</Link>
               
               <div className="relative flex items-center">
-                <Link to="/services" className="text-black font-medium transition-all duration-300 hover:scale-110">
+                <Link to="/services" className="text-white font-medium">
                   Services
                 </Link>
                 <DropdownMenu>
-                  <DropdownMenuTrigger className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110 ml-1">
+                  <DropdownMenuTrigger className="text-gray-300 hover:text-white transition-all duration-300 ml-1">
                     <ChevronDown className="w-4 h-4" />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg">
+                  <DropdownMenuContent className="bg-black/90 border border-purple-500/30 shadow-lg backdrop-blur-lg">
                     <DropdownMenuItem asChild>
-                      <Link to="/studio" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                      <Link to="/studio" className="w-full text-gray-300 hover:text-white hover:bg-purple-500/20">
                         New Edge Studio
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/media" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                      <Link to="/media" className="w-full text-gray-300 hover:text-white hover:bg-blue-500/20">
                         New Edge Media
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/lab" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                      <Link to="/lab" className="w-full text-gray-300 hover:text-white hover:bg-green-500/20">
                         New Edge Lab
                       </Link>
                     </DropdownMenuItem>
@@ -86,293 +194,551 @@ const Services = () => {
                 </DropdownMenu>
               </div>
               
-              <Button onClick={scrollToContact} className="bg-black text-white hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                Kontakt
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700">
+                  Kontakt
+                </Button>
+              </motion.div>
             </div>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 bg-white relative overflow-hidden">
-        <div className="container mx-auto text-center relative z-10">
-          <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
-            <h1 className="text-6xl md:text-8xl font-black text-black mb-8 leading-tight tracking-tight">
-              <span className="inline-block animate-fade-in" style={{ animationDelay: '0.2s' }}>THE</span>
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{ animationDelay: '0.4s' }}>JOURNEY</span>
-              <br />
-              <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{ animationDelay: '0.6s' }}>FROM VISION TO REALITY</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: '0.8s' }}>
-              Wir begleiten Sie auf einer strukturierten Reise von der ersten Idee bis zur finalen Implementierung.
-              <br />
-              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent font-medium">Ein nahtloser Prozess. Drei spezialisierte Teams. Ein Ziel.</span>
-            </p>
-          </div>
-        </div>
+      <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+        <motion.div style={{ y: y1, opacity }} className="text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="mb-12"
+          >
+            <motion.div
+              animate={{ 
+                background: [
+                  "linear-gradient(45deg, #8b5cf6, #3b82f6, #10b981)",
+                  "linear-gradient(45deg, #3b82f6, #10b981, #8b5cf6)",
+                  "linear-gradient(45deg, #10b981, #8b5cf6, #3b82f6)"
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              className="inline-block text-transparent bg-clip-text text-8xl md:text-9xl font-black tracking-tight"
+            >
+              THE
+            </motion.div>
+            <br />
+            <motion.div
+              initial={{ rotateX: -90 }}
+              animate={{ rotateX: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="text-8xl md:text-9xl font-black text-white italic mb-4"
+            >
+              JOURNEY
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="text-4xl md:text-6xl text-gray-400 font-light"
+            >
+              FROM VISION TO REALITY
+            </motion.div>
+          </motion.div>
+          
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 0.8 }}
+            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed"
+          >
+            Wir begleiten Sie auf einer strukturierten Reise von der ersten Idee bis zur finalen Implementierung.
+            <br />
+            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent font-medium">Ein nahtloser Prozess. Drei spezialisierte Teams. Ein Ziel.</span>
+          </motion.p>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="absolute bottom-20 left-1/2 transform -translate-x-1/2"
+          >
+            <ArrowDown className="w-8 h-8 text-purple-400" />
+          </motion.div>
+        </motion.div>
+
+        {/* Interactive Floating Elements */}
+        <motion.div
+          style={{
+            x: mousePosition.x * 100,
+            y: mousePosition.y * 100,
+          }}
+          className="absolute top-20 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl"
+        />
+        <motion.div
+          style={{
+            x: -mousePosition.x * 150,
+            y: -mousePosition.y * 150,
+          }}
+          className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/20 rounded-full blur-xl"
+        />
       </section>
 
-      {/* Key Activities Overview */}
-      <section className="py-20 bg-gradient-to-r from-purple-50 via-blue-50 to-green-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="inline-block bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 text-white px-8 py-4 rounded-full text-xl font-bold mb-8 animate-fade-in">
+      {/* Key Activities Section */}
+      <section className="relative py-32 bg-gradient-to-b from-black via-gray-900 to-black">
+        <motion.div style={{ y: y2 }} className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
+          >
+            <motion.div
+              animate={{ 
+                boxShadow: [
+                  "0 0 20px #8b5cf6",
+                  "0 0 40px #3b82f6", 
+                  "0 0 20px #10b981",
+                  "0 0 40px #8b5cf6"
+                ]
+              }}
+              transition={{ duration: 4, repeat: Infinity }}
+              className="inline-block bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12"
+            >
               Key Activities
-            </div>
-            <h2 className="text-5xl font-bold text-black mb-6 animate-fade-in">Ihr Weg zum Erfolg</h2>
-          </div>
+            </motion.div>
+            <h2 className="text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
+          </motion.div>
 
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
               
               {/* Studio Card */}
-              <div 
-                ref={studioRef}
-                className="relative group animate-fade-in"
-                style={{ animationDelay: '0.2s' }}
+              <motion.div
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                whileHover="hover"
+                viewport={{ once: true }}
+                onHoverStart={() => setHoveredCard('studio')}
+                onHoverEnd={() => setHoveredCard(null)}
+                className="relative group"
               >
-                <Card className="bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-700 hover:scale-105 group relative overflow-hidden">
-                  <CardContent className="p-8 text-center relative z-10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <Card className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-purple-500/30 shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 backdrop-blur-lg">
+                  <CardContent className="p-8 text-center relative overflow-hidden">
+                    {/* Animated Background */}
+                    <motion.div
+                      animate={hoveredCard === 'studio' ? {
+                        background: [
+                          "radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)",
+                          "radial-gradient(circle, rgba(236,72,153,0.2) 0%, transparent 70%)",
+                          "radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)"
+                        ]
+                      } : {}}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute inset-0"
+                    />
                     
-                    <div className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6">
+                    <motion.div
+                      animate={hoveredCard === 'studio' ? { 
+                        scale: [1, 1.1, 1],
+                        rotate: [0, 5, -5, 0]
+                      } : {}}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                    >
                       New Edge Studio
-                    </div>
+                    </motion.div>
                     
-                    <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-all duration-500 group-hover:scale-110">
-                      <Palette className="w-10 h-10 text-purple-600" />
-                    </div>
+                    <motion.div
+                      variants={iconVariants}
+                      whileHover="hover"
+                      className="w-20 h-20 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-purple-500/30 relative z-10"
+                    >
+                      <Palette className="w-10 h-10 text-purple-400" />
+                    </motion.div>
                     
-                    <h3 className="text-2xl font-bold text-black mb-4">STUDIO</h3>
-                    <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    <h3 className="text-3xl font-bold text-white mb-4 relative z-10">STUDIO</h3>
+                    <p className="text-lg text-purple-200 mb-6 leading-relaxed relative z-10">
                       Ihre Ideen, unsere Strategie
                     </p>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-8">
+                    <p className="text-gray-300 text-sm leading-relaxed mb-8 relative z-10">
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
-                    <Button 
-                      className="bg-purple-600 text-white hover:bg-purple-700 transition-all duration-300 hover:scale-105 w-full group-hover:shadow-lg"
-                      asChild
-                    >
-                      <Link to="/studio">
-                        Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
-                      </Link>
-                    </Button>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button 
+                        className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 w-full relative z-10"
+                        asChild
+                      >
+                        <Link to="/studio">
+                          Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
+                        </Link>
+                      </Button>
+                    </motion.div>
                   </CardContent>
                 </Card>
 
-                {/* Arrow to next step */}
+                {/* Animated Arrow */}
                 <div className="hidden lg:block absolute -right-6 top-1/2 transform -translate-y-1/2 z-20">
-                  <div className="animate-bounce">
+                  <motion.div
+                    animate={{ x: [0, 10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
                     <ArrowRight className="w-8 h-8 text-purple-400" />
-                  </div>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Media Card */}
-              <div 
-                ref={mediaRef}
-                className="relative group animate-fade-in"
-                style={{ animationDelay: '0.4s' }}
+              <motion.div
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                whileHover="hover"
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                onHoverStart={() => setHoveredCard('media')}
+                onHoverEnd={() => setHoveredCard(null)}
+                className="relative group"
               >
-                <Card className="bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-700 hover:scale-105 group relative overflow-hidden">
-                  <CardContent className="p-8 text-center relative z-10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <Card className="bg-gradient-to-br from-blue-900/50 to-cyan-900/50 border border-blue-500/30 shadow-2xl hover:shadow-blue-500/20 transition-all duration-700 backdrop-blur-lg">
+                  <CardContent className="p-8 text-center relative overflow-hidden">
+                    <motion.div
+                      animate={hoveredCard === 'media' ? {
+                        background: [
+                          "radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)",
+                          "radial-gradient(circle, rgba(6,182,212,0.2) 0%, transparent 70%)",
+                          "radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)"
+                        ]
+                      } : {}}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute inset-0"
+                    />
                     
-                    <div className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6">
+                    <motion.div
+                      animate={hoveredCard === 'media' ? { 
+                        scale: [1, 1.1, 1],
+                        rotate: [0, -5, 5, 0]
+                      } : {}}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                    >
                       New Edge Media
-                    </div>
+                    </motion.div>
                     
-                    <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-all duration-500 group-hover:scale-110">
-                      <Video className="w-10 h-10 text-blue-600" />
-                    </div>
+                    <motion.div
+                      variants={iconVariants}
+                      whileHover="hover"
+                      className="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-blue-500/30 relative z-10"
+                    >
+                      <Video className="w-10 h-10 text-blue-400" />
+                    </motion.div>
                     
-                    <h3 className="text-2xl font-bold text-black mb-4">MEDIA</h3>
-                    <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    <h3 className="text-3xl font-bold text-white mb-4 relative z-10">MEDIA</h3>
+                    <p className="text-lg text-blue-200 mb-6 leading-relaxed relative z-10">
                       Für ein klares & einzigartiges Bild nach Außen
                     </p>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-8">
+                    <p className="text-gray-300 text-sm leading-relaxed mb-8 relative z-10">
                       Content, der bewegt. Hier entstehen alle visuellen und medialen Inhalte für Ihre Marke.
                     </p>
                     
-                    <Button 
-                      className="bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 hover:scale-105 w-full group-hover:shadow-lg"
-                      asChild
-                    >
-                      <Link to="/media">
-                        Content produzieren <ArrowRight className="ml-2 w-4 h-4" />
-                      </Link>
-                    </Button>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button 
+                        className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700 w-full relative z-10"
+                        asChild
+                      >
+                        <Link to="/media">
+                          Content produzieren <ArrowRight className="ml-2 w-4 h-4" />
+                        </Link>
+                      </Button>
+                    </motion.div>
                   </CardContent>
                 </Card>
 
-                {/* Arrow to next step */}
                 <div className="hidden lg:block absolute -right-6 top-1/2 transform -translate-y-1/2 z-20">
-                  <div className="animate-bounce" style={{ animationDelay: '0.5s' }}>
+                  <motion.div
+                    animate={{ x: [0, 10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                  >
                     <ArrowRight className="w-8 h-8 text-blue-400" />
-                  </div>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Lab Card */}
-              <div 
-                ref={labRef}
-                className="relative group animate-fade-in"
-                style={{ animationDelay: '0.6s' }}
+              <motion.div
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                whileHover="hover"
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                onHoverStart={() => setHoveredCard('lab')}
+                onHoverEnd={() => setHoveredCard(null)}
+                className="relative group"
               >
-                <Card className="bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-700 hover:scale-105 group relative overflow-hidden">
-                  <CardContent className="p-8 text-center relative z-10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <Card className="bg-gradient-to-br from-green-900/50 to-emerald-900/50 border border-green-500/30 shadow-2xl hover:shadow-green-500/20 transition-all duration-700 backdrop-blur-lg">
+                  <CardContent className="p-8 text-center relative overflow-hidden">
+                    <motion.div
+                      animate={hoveredCard === 'lab' ? {
+                        background: [
+                          "radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)",
+                          "radial-gradient(circle, rgba(5,150,105,0.2) 0%, transparent 70%)",
+                          "radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)"
+                        ]
+                      } : {}}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute inset-0"
+                    />
                     
-                    <div className="inline-block bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6">
+                    <motion.div
+                      animate={hoveredCard === 'lab' ? { 
+                        scale: [1, 1.1, 1],
+                        rotate: [0, 5, -5, 0]
+                      } : {}}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="inline-block bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                    >
                       New Edge Lab
-                    </div>
+                    </motion.div>
                     
-                    <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-all duration-500 group-hover:scale-110">
-                      <Cpu className="w-10 h-10 text-green-600" />
-                    </div>
+                    <motion.div
+                      variants={iconVariants}
+                      whileHover="hover"
+                      className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-lg border border-green-500/30 relative z-10"
+                    >
+                      <Cpu className="w-10 h-10 text-green-400" />
+                    </motion.div>
                     
-                    <h3 className="text-2xl font-bold text-black mb-4">LAB</h3>
-                    <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    <h3 className="text-3xl font-bold text-white mb-4 relative z-10">LAB</h3>
+                    <p className="text-lg text-green-200 mb-6 leading-relaxed relative z-10">
                       Die perfekte Schnittstelle für Strategie & Technologie
                     </p>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-8">
+                    <p className="text-gray-300 text-sm leading-relaxed mb-8 relative z-10">
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
                     
-                    <Button 
-                      className="bg-green-600 text-white hover:bg-green-700 transition-all duration-300 hover:scale-105 w-full group-hover:shadow-lg"
-                      asChild
-                    >
-                      <Link to="/lab">
-                        Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
-                      </Link>
-                    </Button>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button 
+                        className="bg-gradient-to-r from-green-600 to-emerald-600 text-white hover:from-green-700 hover:to-emerald-700 w-full relative z-10"
+                        asChild
+                      >
+                        <Link to="/lab">
+                          Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
+                        </Link>
+                      </Button>
+                    </motion.div>
                   </CardContent>
                 </Card>
-              </div>
+              </motion.div>
             </div>
 
-            {/* Process Flow Visualization */}
-            <div className="mt-20 text-center">
-              <div className="inline-block bg-white rounded-2xl p-8 shadow-lg animate-fade-in">
-                <p className="text-lg text-gray-700 font-medium mb-4">
+            {/* Process Flow */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="mt-20 text-center"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="inline-block bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 backdrop-blur-lg"
+              >
+                <p className="text-lg text-white font-medium mb-4">
                   All das geschieht hier - im kreativen Headquarter für Reichweite, Wirkung & Wachstum.
                 </p>
-                <div className="flex items-center justify-center space-x-4 text-sm text-gray-500">
-                  <span className="bg-purple-100 text-purple-600 px-3 py-1 rounded-full">Strategie</span>
-                  <ArrowRight className="w-4 h-4" />
-                  <span className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full">Umsetzung</span>
-                  <ArrowRight className="w-4 h-4" />
-                  <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full">Technologie</span>
+                <div className="flex items-center justify-center space-x-4 text-sm">
+                  <motion.span 
+                    whileHover={{ scale: 1.1 }}
+                    className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full border border-purple-500/30"
+                  >
+                    Strategie
+                  </motion.span>
+                  <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 1, repeat: Infinity }}>
+                    <ArrowRight className="w-4 h-4 text-gray-400" />
+                  </motion.div>
+                  <motion.span 
+                    whileHover={{ scale: 1.1 }}
+                    className="bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full border border-blue-500/30"
+                  >
+                    Umsetzung
+                  </motion.span>
+                  <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 1, repeat: Infinity, delay: 0.5 }}>
+                    <ArrowRight className="w-4 h-4 text-gray-400" />
+                  </motion.div>
+                  <motion.span 
+                    whileHover={{ scale: 1.1 }}
+                    className="bg-green-500/20 text-green-300 px-4 py-2 rounded-full border border-green-500/30"
+                  >
+                    Technologie
+                  </motion.span>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Pricing Section */}
-      <section className="py-32 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl font-bold text-black mb-6 animate-fade-in">Transparente Preise</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in">
+      <section className="py-32 bg-gradient-to-b from-black to-gray-900 relative">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="container mx-auto px-6"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <h2 className="text-6xl font-bold text-white mb-6">Transparente Preise</h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Klare Kostenstrukturen für jeden Projektumfang
             </p>
-          </div>
+          </motion.div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card className="bg-white border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in">
-              <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-bold text-purple-600 mb-4">Studio Starter</h3>
-                <div className="text-4xl font-bold text-black mb-6">€2.500</div>
-                <ul className="text-gray-600 mb-8 space-y-2">
-                  <li>• Brand Identity Entwicklung</li>
-                  <li>• Logo & Farbschema</li>
-                  <li>• Style Guide (Basic)</li>
-                  <li>• 3 Designkonzepte</li>
-                </ul>
-                <Button className="w-full bg-purple-600 text-white hover:bg-purple-700" asChild>
-                  <Link to="/#contact-section">Jetzt starten</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-2 border-blue-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in relative" style={{ animationDelay: '0.1s' }}>
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">
-                Beliebt
-              </div>
-              <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-bold text-blue-600 mb-4">Complete Journey</h3>
-                <div className="text-4xl font-bold text-black mb-6">€8.500</div>
-                <ul className="text-gray-600 mb-8 space-y-2">
-                  <li>• Studio + Media + Lab</li>
-                  <li>• Vollständige Brand Identity</li>
-                  <li>• Content-Produktion</li>
-                  <li>• KI-Integration & Backend</li>
-                  <li>• 6 Monate Support</li>
-                </ul>
-                <Button className="w-full bg-blue-600 text-white hover:bg-blue-700" asChild>
-                  <Link to="/#contact-section">Komplett-Paket</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-2 border-green-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-bold text-green-600 mb-4">Enterprise</h3>
-                <div className="text-4xl font-bold text-black mb-6">Individual</div>
-                <ul className="text-gray-600 mb-8 space-y-2">
-                  <li>• Maßgeschneiderte Lösungen</li>
-                  <li>• Dedicated Team</li>
-                  <li>• Unlimited Revisions</li>
-                  <li>• Priority Support</li>
-                  <li>• Custom KI-Development</li>
-                </ul>
-                <Button className="w-full bg-green-600 text-white hover:bg-green-700" asChild>
-                  <Link to="/#contact-section">Angebot anfordern</Link>
-                </Button>
-              </CardContent>
-            </Card>
+            {[
+              { 
+                title: "Studio Starter", 
+                price: "€2.500", 
+                color: "purple",
+                features: ["Brand Identity Entwicklung", "Logo & Farbschema", "Style Guide (Basic)", "3 Designkonzepte"],
+                delay: 0
+              },
+              { 
+                title: "Complete Journey", 
+                price: "€8.500", 
+                color: "blue",
+                features: ["Studio + Media + Lab", "Vollständige Brand Identity", "Content-Produktion", "KI-Integration & Backend", "6 Monate Support"],
+                popular: true,
+                delay: 0.2
+              },
+              { 
+                title: "Enterprise", 
+                price: "Individual", 
+                color: "green",
+                features: ["Maßgeschneiderte Lösungen", "Dedicated Team", "Unlimited Revisions", "Priority Support", "Custom KI-Development"],
+                delay: 0.4
+              }
+            ].map((plan, index) => (
+              <motion.div
+                key={plan.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.05, y: -10 }}
+                viewport={{ once: true }}
+                transition={{ delay: plan.delay, duration: 0.6 }}
+                className="relative"
+              >
+                {plan.popular && (
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-2 rounded-full text-sm font-bold z-10"
+                  >
+                    Beliebt
+                  </motion.div>
+                )}
+                <Card className={`bg-gradient-to-br from-${plan.color}-900/20 to-${plan.color}-800/20 border border-${plan.color}-500/30 shadow-2xl backdrop-blur-lg h-full`}>
+                  <CardContent className="p-8 text-center">
+                    <h3 className={`text-2xl font-bold text-${plan.color}-400 mb-4`}>{plan.title}</h3>
+                    <div className="text-4xl font-bold text-white mb-6">{plan.price}</div>
+                    <ul className="text-gray-300 mb-8 space-y-3">
+                      {plan.features.map((feature, i) => (
+                        <motion.li 
+                          key={i}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ delay: plan.delay + (i * 0.1) }}
+                          className="flex items-center"
+                        >
+                          <div className={`w-2 h-2 bg-${plan.color}-500 rounded-full mr-3`}></div>
+                          {feature}
+                        </motion.li>
+                      ))}
+                    </ul>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button className={`w-full bg-gradient-to-r from-${plan.color}-600 to-${plan.color}-700 text-white hover:from-${plan.color}-700 hover:to-${plan.color}-800`} asChild>
+                        <Link to="/#contact-section">
+                          {plan.price === "Individual" ? "Angebot anfordern" : "Jetzt starten"}
+                        </Link>
+                      </Button>
+                    </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 text-white relative overflow-hidden">
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 className="text-5xl font-bold mb-6 animate-fade-in">Bereit für Ihre Reise?</h2>
-          <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in">
-            Lassen Sie uns gemeinsam Ihre Vision Schritt für Schritt zur Realität werden.
-          </p>
-          <Button 
-            size="lg" 
-            className="bg-white text-gray-800 hover:bg-gray-100 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
-            asChild
+      <section className="py-32 bg-gradient-to-r from-purple-900 via-blue-900 to-green-900 relative overflow-hidden">
+        <motion.div 
+          className="container mx-auto px-6 text-center relative z-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <motion.h2 
+            initial={{ scale: 0.5 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            className="text-6xl font-bold mb-6 text-white"
           >
-            <Link to="/#contact-section">
-              Projekt starten
-            </Link>
-          </Button>
-        </div>
+            Bereit für Ihre Reise?
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed text-gray-200"
+          >
+            Lassen Sie uns gemeinsam Ihre Vision Schritt für Schritt zur Realität werden.
+          </motion.p>
+          <motion.div 
+            whileHover={{ scale: 1.1 }} 
+            whileTap={{ scale: 0.9 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6 }}
+          >
+            <Button 
+              size="lg" 
+              className="bg-white text-gray-800 hover:bg-gray-100 text-xl px-16 py-6 rounded-full shadow-2xl"
+              asChild
+            >
+              <Link to="/#contact-section">
+                Projekt starten
+              </Link>
+            </Button>
+          </motion.div>
+        </motion.div>
         
-        {/* Background decoration */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-20 left-20 animate-float">
-            <Palette className="w-32 h-32" />
-          </div>
-          <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: '1s' }}>
-            <Video className="w-24 h-24" />
-          </div>
-          <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 animate-float" style={{ animationDelay: '1.5s' }}>
-            <Cpu className="w-28 h-28" />
-          </div>
-        </div>
+        {/* Animated Background Elements */}
+        <motion.div
+          animate={{
+            rotate: 360,
+            scale: [1, 1.2, 1],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute top-20 left-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"
+        />
+        <motion.div
+          animate={{
+            rotate: -360,
+            scale: [1.2, 1, 1.2],
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-20 right-20 w-40 h-40 bg-green-500/10 rounded-full blur-xl"
+        />
       </section>
     </div>
   );
