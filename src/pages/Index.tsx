@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, Zap, Brain, Target, Eye, Rocket, Star, Lightbulb, Users, ChevronDown } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Sparkles, Zap, Brain, Target, Eye, Rocket, Star, Lightbulb, Users, ChevronDown, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,31 +14,37 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0
   });
-  const [scrollY, setScrollY] = useState(0);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const { scrollY } = useScroll();
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Parallax effects
+  const y1 = useTransform(scrollY, [0, 1000], [0, -200]);
+  const y2 = useTransform(scrollY, [0, 1000], [0, -400]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0.3]);
+
   useEffect(() => {
     setIsVisible(true);
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
-        x: e.clientX,
-        y: e.clientY
+        x: e.clientX / window.innerWidth * 2 - 1,
+        y: -(e.clientY / window.innerHeight) * 2 + 1
       });
     };
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
@@ -46,6 +53,7 @@ const Index = () => {
       });
     }
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
@@ -77,41 +85,66 @@ const Index = () => {
       });
     }
   };
-  return <div className="min-h-screen bg-white">
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      scale: 0.8
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1
+    },
+    hover: {
+      scale: 1.05,
+      y: -10
+    }
+  };
+
+  return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 animate-slide-in-right">
+      <motion.nav 
+        initial={{ y: -100 }} 
+        animate={{ y: 0 }} 
+        className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-purple-500/30"
+      >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center hover:scale-105 transition-transform duration-300">
-              <img alt="New Edge Logo" className="h-8 w-8 mr-3 animate-float" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
-              <div className="text-2xl font-bold text-black">
-                New Edge<span className="text-primary animate-pulse"></span>
+            <motion.div 
+              whileHover={{ scale: 1.1 }} 
+              className="flex items-center"
+            >
+              <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png" />
+              <div className="text-2xl font-bold text-white">
+                New Edge<span className="text-purple-400"></span>
               </div>
-            </div>
+            </motion.div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110">Home</Link>
+              <Link to="/" className="text-white font-medium">Home</Link>
               
               <div className="relative flex items-center">
-                <Link to="/services" className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110">
+                <Link to="/services" className="text-gray-300 hover:text-white transition-all duration-300">
                   Services
                 </Link>
                 <DropdownMenu>
-                  <DropdownMenuTrigger className="text-gray-600 hover:text-black transition-all duration-300 hover:scale-110 ml-1">
+                  <DropdownMenuTrigger className="text-gray-300 hover:text-white transition-all duration-300 ml-1">
                     <ChevronDown className="w-4 h-4" />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg">
+                  <DropdownMenuContent className="bg-black/90 border border-purple-500/30 shadow-lg backdrop-blur-lg">
                     <DropdownMenuItem asChild>
-                      <Link to="/studio" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                      <Link to="/studio" className="w-full text-gray-300 hover:text-white hover:bg-purple-500/20">
                         New Edge Studio
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/media" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                      <Link to="/media" className="w-full text-gray-300 hover:text-white hover:bg-blue-500/20">
                         New Edge Media
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/lab" className="w-full text-gray-700 hover:text-black hover:bg-gray-50">
+                      <Link to="/lab" className="w-full text-gray-300 hover:text-white hover:bg-yellow-500/20">
                         New Edge Lab
                       </Link>
                     </DropdownMenuItem>
@@ -119,386 +152,517 @@ const Index = () => {
                 </DropdownMenu>
               </div>
               
-              <Button onClick={scrollToContact} className="bg-black text-white hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                Kontakt
-              </Button>
+              <motion.div 
+                whileHover={{ scale: 1.05 }} 
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700">
+                  Kontakt
+                </Button>
+              </motion.div>
             </div>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-32 px-6 bg-white relative overflow-hidden">
-        <div className="container mx-auto text-center relative z-10">
-          <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
-            {/* Main Headline - Inspired by Mawave's bold typography */}
-            <h1 className="text-6xl md:text-8xl font-black text-black mb-8 leading-tight tracking-tight">
-              <span className="inline-block animate-fade-in" style={{
-              animationDelay: '0.2s'
-            }}>BRAND</span>
-              <br />
-              <span className="text-black italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{
-              animationDelay: '0.4s'
-            }}>INTELLIGENCE</span>
-              <br />
-              <span className="text-4xl md:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{
-              animationDelay: '0.6s'
-            }}>FOR CONSUMER BRANDS</span>
-            </h1>
-            
-            {/* Floating icons */}
-            <div className="absolute top-20 left-10 animate-float" style={{
-            animationDelay: '1s'
-          }}>
-              <Sparkles className="w-8 h-8 text-primary opacity-60 animate-spin-slow" />
-            </div>
-            <div className="absolute top-40 right-20 animate-float" style={{
-            animationDelay: '1.5s'
-          }}>
-              <Zap className="w-10 h-10 text-accent opacity-60 animate-bounce" />
-            </div>
-            <div className="absolute bottom-20 left-20 animate-float" style={{
-            animationDelay: '2s'
-          }}>
-              <Brain className="w-12 h-12 text-secondary opacity-60 animate-pulse" />
-            </div>
-            <div className="absolute top-10 right-10 animate-float" style={{
-            animationDelay: '2.5s'
-          }}>
-              <Target className="w-6 h-6 text-primary opacity-50 animate-spin-slow" />
-            </div>
-            <div className="absolute bottom-40 right-40 animate-float" style={{
-            animationDelay: '3s'
-          }}>
-              <Eye className="w-8 h-8 text-accent opacity-40 animate-pulse" />
-            </div>
-            <div className="absolute top-1/3 left-1/4 animate-float" style={{
-            animationDelay: '3.5s'
-          }}>
-              <Rocket className="w-7 h-7 text-secondary opacity-60 animate-bounce" />
-            </div>
-            
-            {/* Subtitle */}
-            <div className="max-w-2xl mx-auto mb-12 animate-slide-in-right" style={{
-            animationDelay: '0.8s'
-          }}>
-              <p className="text-xl text-gray-600 mb-6">New Edge ist eine der innovativsten Creative-Tech-Agentur
-für intelligente Markenkommunikation in Europa
-            </p>
-              
-              {/* CTA Button */}
-              <Button onClick={scrollToContact} className="bg-accent text-black hover:bg-accent/90 transition-all duration-300 px-8 py-4 text-lg font-semibold rounded-full hover:scale-110 hover:shadow-2xl">
-                Ready to Scale? <ArrowRight className="ml-2 h-5 w-5 animate-bounce" />
-              </Button>
-            </div>
+      <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+        <motion.div 
+          style={{ y: y1, opacity }} 
+          className="text-center relative z-10"
+        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.5 }} 
+            animate={{ opacity: 1, scale: 1 }} 
+            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }} 
+            className="mb-12"
+          >
+            <motion.div 
+              animate={{
+                background: ["linear-gradient(45deg, #9f91f8, #4f97f0, #FFED00)", "linear-gradient(45deg, #4f97f0, #FFED00, #9f91f8)", "linear-gradient(45deg, #FFED00, #9f91f8, #4f97f0)"]
+              }} 
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }} 
+              className="inline-block text-transparent bg-clip-text text-8xl md:text-9xl font-black tracking-tight"
+            >
+              BRAND
+            </motion.div>
+            <br />
+            <motion.div 
+              initial={{ rotateX: -90 }} 
+              animate={{ rotateX: 0 }} 
+              transition={{ delay: 0.5, duration: 0.8 }} 
+              className="text-8xl md:text-9xl font-black text-white italic mb-4"
+            >
+              INTELLIGENCE
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ delay: 1, duration: 0.8 }} 
+              className="text-4xl md:text-6xl text-gray-400 font-light"
+            >
+              FOR CONSUMER BRANDS
+            </motion.div>
+          </motion.div>
+          
+          <motion.p 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            transition={{ delay: 1.5, duration: 0.8 }} 
+            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed"
+          >
+            New Edge ist eine der innovativsten Creative-Tech-Agentur für intelligente Markenkommunikation in Europa
+            <br />
+            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">Drei spezialisierte Teams. Ein Ziel.</span>
+          </motion.p>
 
-            {/* Brand Logos Grid - Similar to Mawave */}
-            <div className="grid grid-cols-4 md:grid-cols-6 gap-8 items-center opacity-60 max-w-4xl mx-auto animate-fade-in" style={{
-            animationDelay: '1s'
-          }}>
-              
-              
-              
-              
-              
-              
-            </div>
-          </div>
-        </div>
+          {/* Scroll Indicator */}
+          <motion.div 
+            animate={{ y: [0, 10, 0] }} 
+            transition={{ duration: 2, repeat: Infinity }} 
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
+            onClick={() => {
+              const nextSection = document.querySelector('.services-section');
+              nextSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ArrowDown className="w-8 h-8 text-purple-400" />
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
-        {/* Dynamic background gradient elements */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-3xl -z-10 animate-pulse" style={{
-        transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px) translate(-50%, -50%)`
-      }}></div>
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-secondary/15 to-primary/15 rounded-full blur-2xl -z-10 animate-float"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-full blur-xl -z-10 animate-float" style={{
-        animationDelay: '1s'
-      }}></div>
-        <div className="absolute top-10 right-1/3 w-32 h-32 bg-gradient-to-r from-primary/25 to-accent/25 rounded-full blur-xl -z-10 animate-bounce" style={{
-        animationDelay: '2s',
-        animationDuration: '4s'
-      }}></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-full blur-2xl -z-10 animate-pulse" style={{
-        animationDelay: '3s'
-      }}></div>
-        <div className="absolute top-2/3 left-10 w-24 h-24 bg-gradient-to-r from-accent/30 to-secondary/30 rounded-full blur-lg -z-10 animate-float" style={{
-        animationDelay: '4s'
-      }}></div>
+        {/* Interactive Floating Elements */}
+        <motion.div 
+          style={{ x: mousePosition.x * 100, y: mousePosition.y * 100 }} 
+          className="absolute top-20 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl" 
+        />
+        <motion.div 
+          style={{ x: -mousePosition.x * 150, y: -mousePosition.y * 150 }} 
+          className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/20 rounded-full blur-xl" 
+        />
       </section>
 
-      {/* Video/Visual Section - Inspired by Mawave's cyan block */}
-      <section className="py-0 bg-white relative">
-        <div className="container mx-auto px-6">
-          {/* Large Visual Block */}
-          <div className="relative h-96 md:h-[500px] bg-gradient-to-br from-cyan-400 to-blue-500 rounded-3xl overflow-hidden flex items-center justify-center group hover:scale-105 transition-transform duration-500 animate-gradient">
+      {/* Video/Visual Section */}
+      <section className="py-20 bg-gradient-to-b from-black to-gray-900 relative">
+        <motion.div style={{ y: y2 }} className="container mx-auto px-6">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }} 
+            whileInView={{ opacity: 1, scale: 1 }} 
+            viewport={{ once: true }} 
+            whileHover={{ scale: 1.02 }} 
+            transition={{ duration: 0.8 }} 
+            className="relative h-96 md:h-[500px] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-800 rounded-3xl overflow-hidden flex items-center justify-center group"
+          >
             <div className="text-center text-white z-10">
-              <h2 className="text-4xl md:text-6xl font-black mb-4">
-                <span className="inline-block animate-slide-in-right" style={{
-                animationDelay: '0.2s'
-              }}>STRATEGIE </span>
+              <motion.h2 
+                initial={{ y: 50, opacity: 0 }} 
+                whileInView={{ y: 0, opacity: 1 }} 
+                viewport={{ once: true }} 
+                transition={{ delay: 0.2, duration: 0.8 }} 
+                className="text-4xl md:text-6xl font-black mb-4"
+              >
+                <span className="inline-block">STRATEGIE </span>
                 <br />
-                <span className="text-5xl md:text-7xl text-accent font-black inline-block animate-fade-up hover:rotate-2 transition-transform duration-300" style={{
-                animationDelay: '0.4s'
-              }}>ON-POINT</span>
+                <span className="text-5xl md:text-7xl bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent font-black inline-block">ON-POINT</span>
                 <br />
-                <span className="text-4xl md:text-6xl inline-block animate-slide-in-right" style={{
-                animationDelay: '0.6s'
-              }}>CREATIVE TECH
-              </span>
-              </h2>
-              
-              {/* Floating elements */}
-              <div className="absolute top-10 left-10 animate-float">
-                <Star className="w-8 h-8 text-accent opacity-70 animate-spin-slow" />
-              </div>
-              <div className="absolute bottom-10 right-10 animate-float" style={{
-              animationDelay: '1s'
-            }}>
-                <Lightbulb className="w-10 h-10 text-yellow-300 opacity-70 animate-pulse" />
-              </div>
-              <div className="absolute top-1/2 left-20 animate-float" style={{
-              animationDelay: '2s'
-            }}>
-                <Users className="w-6 h-6 text-white opacity-70 animate-bounce" />
-              </div>
-              <div className="absolute top-1/4 right-1/4 animate-float" style={{
-              animationDelay: '2.5s'
-            }}>
-                <Sparkles className="w-7 h-7 text-white opacity-60 animate-pulse" />
-              </div>
-              <div className="absolute bottom-1/4 left-1/3 animate-float" style={{
-              animationDelay: '3s'
-            }}>
-                <Zap className="w-9 h-9 text-accent opacity-80 animate-bounce" />
-              </div>
-              <div className="absolute top-3/4 right-1/3 animate-float" style={{
-              animationDelay: '3.5s'
-            }}>
-                <Target className="w-5 h-5 text-yellow-300 opacity-50 animate-spin-slow" />
-              </div>
+                <span className="text-4xl md:text-6xl inline-block">CREATIVE TECH</span>
+              </motion.h2>
             </div>
             
             {/* Animated background pattern */}
-            <div className="absolute inset-0 bg-black/10 animate-pulse"></div>
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent animate-slide-in-right opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          </div>
-        </div>
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 0.1 }} 
+              transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }} 
+              className="absolute inset-0 bg-black/10" 
+            />
+            <motion.div 
+              initial={{ x: "-100%" }} 
+              whileInView={{ x: "100%" }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 2, ease: "easeInOut" }} 
+              className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent" 
+            />
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Mission Statement */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 max-w-4xl mx-auto leading-tight animate-fade-up">
+      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          viewport={{ once: true }} 
+          transition={{ duration: 0.8 }} 
+          className="container mx-auto px-6 text-center"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 max-w-4xl mx-auto leading-tight">
             <span className="inline-block hover:scale-105 transition-transform duration-300">Innovation voranbringen durch</span>
-            <span className="text-primary hover:text-secondary transition-colors duration-500"> intelligente Automatisierung</span>
+            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent hover:from-yellow-400 hover:to-purple-400 transition-all duration-500"> intelligente Automatisierung</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-slide-in-right" style={{
-          animationDelay: '0.3s'
-        }}>
+          <motion.p 
+            initial={{ opacity: 0 }} 
+            whileInView={{ opacity: 1 }} 
+            viewport={{ once: true }} 
+            transition={{ delay: 0.3, duration: 0.8 }} 
+            className="text-xl text-gray-300 max-w-3xl mx-auto"
+          >
             Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme – für Marken, die funktionieren und wachsen.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black text-black mb-6 leading-tight">
-              DREI BEREICHE.
-              <br />
-              <span className="text-primary">EINE LÖSUNG.</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Creative-Tech-Studio für die neue Ära der Kommunikation. KI-basierte Marketinglösungen, die Marken messbar stärken.
-            </p>
+      <section className="services-section relative py-32 bg-gradient-to-b from-black via-gray-900 to-black">
+        <motion.div style={{ y: y2 }} className="container mx-auto px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ duration: 0.8 }} 
+            className="text-center mb-20"
+          >
+            <motion.div 
+              animate={{
+                boxShadow: ["0 0 20px #9f91f8", "0 0 40px #4f97f0", "0 0 20px #FFED00", "0 0 40px #9f91f8"]
+              }} 
+              transition={{ duration: 4, repeat: Infinity }} 
+              className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12"
+            >
+              Drei Bereiche
+            </motion.div>
+            <h2 className="text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
+          </motion.div>
+
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
+              
+              {/* Studio Card */}
+              <motion.div 
+                variants={cardVariants}
+                initial="hidden" 
+                whileInView="visible" 
+                whileHover="hover" 
+                viewport={{ once: true }} 
+                onHoverStart={() => setHoveredCard('studio')} 
+                onHoverEnd={() => setHoveredCard(null)} 
+                className="relative group"
+              >
+                <Card className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-purple-500/30 shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 backdrop-blur-lg">
+                  <CardContent className="p-8 text-center relative overflow-hidden">
+                    <motion.div 
+                      animate={hoveredCard === 'studio' ? {
+                        background: ["radial-gradient(circle, rgba(159,145,248,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(236,72,153,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(159,145,248,0.1) 0%, transparent 70%)"]
+                      } : {}} 
+                      transition={{ duration: 2, repeat: Infinity }} 
+                      className="absolute inset-0" 
+                    />
+                    
+                    <motion.div 
+                      animate={hoveredCard === 'studio' ? {
+                        scale: [1, 1.1, 1],
+                        rotate: [0, 5, -5, 0]
+                      } : {}} 
+                      transition={{ duration: 2, repeat: Infinity }} 
+                      className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                    >
+                      New Edge Studio
+                    </motion.div>
+                    
+                    <h3 className="text-3xl font-bold text-white mb-4 relative z-10">STUDIO</h3>
+                    <p className="text-lg text-purple-200 mb-6 leading-relaxed relative z-10">
+                      Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
+                    </p>
+                    <ul className="space-y-3 text-gray-300 mb-8 relative z-10">
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                        Strategie & Markenidentität
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                        Visuelles Konzept
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                        Digitale Struktur & Funnel-Logik
+                      </li>
+                    </ul>
+                    
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 w-full relative z-10" asChild>
+                        <Link to="/studio">
+                          Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
+                        </Link>
+                      </Button>
+                    </motion.div>
+                  </CardContent>
+                </Card>
+
+                {/* Animated Arrow */}
+                <div className="hidden lg:block absolute -right-6 top-1/2 transform -translate-y-1/2 z-20">
+                  <motion.div animate={{ x: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }}>
+                    <ArrowRight className="w-8 h-8 text-purple-400" />
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Media Card */}
+              <motion.div 
+                variants={cardVariants}
+                initial="hidden" 
+                whileInView="visible" 
+                whileHover="hover" 
+                viewport={{ once: true }} 
+                transition={{ delay: 0.2 }} 
+                onHoverStart={() => setHoveredCard('media')} 
+                onHoverEnd={() => setHoveredCard(null)} 
+                className="relative group"
+              >
+                <Card className="bg-gradient-to-br from-blue-900/50 to-cyan-900/50 border border-blue-500/30 shadow-2xl hover:shadow-blue-500/20 transition-all duration-700 backdrop-blur-lg">
+                  <CardContent className="p-8 text-center relative overflow-hidden">
+                    <motion.div 
+                      animate={hoveredCard === 'media' ? {
+                        background: ["radial-gradient(circle, rgba(79,151,240,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(6,182,212,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(79,151,240,0.1) 0%, transparent 70%)"]
+                      } : {}} 
+                      transition={{ duration: 2, repeat: Infinity }} 
+                      className="absolute inset-0" 
+                    />
+                    
+                    <motion.div 
+                      animate={hoveredCard === 'media' ? {
+                        scale: [1, 1.1, 1],
+                        rotate: [0, -5, 5, 0]
+                      } : {}} 
+                      transition={{ duration: 2, repeat: Infinity }} 
+                      className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                    >
+                      New Edge Media
+                    </motion.div>
+                    
+                    <h3 className="text-3xl font-bold text-white mb-4 relative z-10">MEDIA</h3>
+                    <p className="text-lg text-blue-200 mb-6 leading-relaxed relative z-10">
+                      Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
+                    </p>
+                    <ul className="space-y-3 text-gray-300 mb-8 relative z-10">
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                        Content-Produktion & Reichweite
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                        Marketing & Sichtbarkeit
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                        Creative Content Production
+                      </li>
+                    </ul>
+                    
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700 w-full relative z-10" asChild>
+                        <Link to="/media">
+                          Content produzieren <ArrowRight className="ml-2 w-4 h-4" />
+                        </Link>
+                      </Button>
+                    </motion.div>
+                  </CardContent>
+                </Card>
+
+                {/* Animated Arrow */}
+                <div className="hidden lg:block absolute -right-6 top-1/2 transform -translate-y-1/2 z-20">
+                  <motion.div animate={{ x: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}>
+                    <ArrowRight className="w-8 h-8 text-blue-400" />
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Lab Card */}
+              <motion.div 
+                variants={cardVariants}
+                initial="hidden" 
+                whileInView="visible" 
+                whileHover="hover" 
+                viewport={{ once: true }} 
+                transition={{ delay: 0.4 }} 
+                onHoverStart={() => setHoveredCard('lab')} 
+                onHoverEnd={() => setHoveredCard(null)} 
+                className="relative group"
+              >
+                <Card className="bg-gradient-to-br from-yellow-900/50 to-amber-900/50 border border-yellow-500/30 shadow-2xl hover:shadow-yellow-500/20 transition-all duration-700 backdrop-blur-lg">
+                  <CardContent className="p-8 text-center relative overflow-hidden">
+                    <motion.div 
+                      animate={hoveredCard === 'lab' ? {
+                        background: ["radial-gradient(circle, rgba(255,237,0,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(217,119,6,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(255,237,0,0.1) 0%, transparent 70%)"]
+                      } : {}} 
+                      transition={{ duration: 2, repeat: Infinity }} 
+                      className="absolute inset-0" 
+                    />
+                    
+                    <motion.div 
+                      animate={hoveredCard === 'lab' ? {
+                        scale: [1, 1.1, 1],
+                        rotate: [0, 5, -5, 0]
+                      } : {}} 
+                      transition={{ duration: 2, repeat: Infinity }} 
+                      className="inline-block bg-gradient-to-r from-yellow-600 to-amber-600 text-black px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                    >
+                      New Edge Lab
+                    </motion.div>
+                    
+                    <h3 className="text-3xl font-bold text-white mb-4 relative z-10">LAB</h3>
+                    <p className="text-lg text-yellow-200 mb-6 leading-relaxed relative z-10">
+                      Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
+                    </p>
+                    <ul className="space-y-3 text-gray-300 mb-8 relative z-10">
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                        KI-Integration & Automation
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                        Backend & Tech-Implementierung
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                        Webentwicklung & Prozessautomatisierung
+                      </li>
+                    </ul>
+                    
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button className="bg-gradient-to-r from-yellow-600 to-amber-600 text-black hover:from-yellow-700 hover:to-amber-700 w-full relative z-10" asChild>
+                        <Link to="/lab">
+                          Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
+                        </Link>
+                      </Button>
+                    </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* STUDIO */}
-            <Card className="bg-white border-0 shadow-sm hover:shadow-xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 animate-fade-up" style={{
-            animationDelay: '0.1s'
-          }}>
-              <CardContent className="p-8 h-full">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform duration-300 animate-float">
-                    <span className="text-3xl font-bold text-white">S</span>
-                  </div>
-                  <h3 className="text-3xl font-black text-black mb-2 group-hover:text-purple-500 transition-colors duration-300">STUDIO</h3>
-                  <div className="w-12 h-1 bg-purple-500 mb-4 group-hover:w-20 transition-all duration-300"></div>
-                </div>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
-                </p>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                    Strategie & Markenidentität
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                    Visuelles Konzept
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                    Digitale Struktur & Funnel-Logik
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* MEDIA */}
-            <Card className="bg-white border-0 shadow-sm hover:shadow-xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 animate-fade-up" style={{
-            animationDelay: '0.3s'
-          }}>
-              <CardContent className="p-8 h-full">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-cyan-500 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform duration-300 animate-float" style={{
-                  animationDelay: '1s'
-                }}>
-                    <span className="text-3xl font-bold text-white">M</span>
-                  </div>
-                  <h3 className="text-3xl font-black text-black mb-2 group-hover:text-cyan-500 transition-colors duration-300">MEDIA</h3>
-                  <div className="w-12 h-1 bg-cyan-500 mb-4 group-hover:w-20 transition-all duration-300"></div>
-                </div>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
-                </p>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
-                    Content-Produktion & Reichweite
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
-                    Marketing & Sichtbarkeit
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
-                    Creative Content Production
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* LAB */}
-            <Card className="bg-white border-0 shadow-sm hover:shadow-xl transition-all duration-500 group relative hover:scale-105 hover:-translate-y-2 animate-fade-up" style={{
-            animationDelay: '0.5s'
-          }}>
-              <div className="absolute top-6 right-6">
-                <span className="bg-accent text-black text-xs font-bold px-3 py-1 rounded-full animate-bounce group-hover:scale-110 transition-transform duration-300">🚀 INNOVATION</span>
-              </div>
-              <CardContent className="p-8 h-full">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform duration-300 animate-float" style={{
-                  animationDelay: '2s'
-                }}>
-                    <span className="text-3xl font-bold text-black">L</span>
-                  </div>
-                  <h3 className="text-3xl font-black text-black mb-2 group-hover:text-accent transition-colors duration-300">LAB</h3>
-                  <div className="w-12 h-1 bg-accent mb-4 group-hover:w-20 transition-all duration-300"></div>
-                </div>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed font-semibold">
-                  Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
-                </p>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-accent rounded-full mr-3"></div>
-                    KI-Integration & Automation
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-accent rounded-full mr-3"></div>
-                    Backend & Tech-Implementierung
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-accent rounded-full mr-3"></div>
-                    Webentwicklung & Prozessautomatisierung
-                  </li>
-                </ul>
-                <div className="mt-6 p-4 bg-accent/10 rounded-lg">
-                  <p className="text-sm text-accent font-semibold text-center">
-                    Führend in KI-basierter Innovation
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="text-center mt-12 animate-fade-up" style={{
-          animationDelay: '0.7s'
-        }}>
-            <Link to="/services">
-              <Button size="lg" className="bg-black text-white hover:bg-gray-800 transition-all duration-300 px-8 py-4 hover:scale-110 hover:shadow-2xl">
-                Alle Services entdecken <ArrowRight className="ml-2 h-5 w-5 animate-bounce" />
+          <div className="text-center mt-20">
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ delay: 0.6 }} 
+              whileHover={{ scale: 1.05 }} 
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-8 py-4" asChild>
+                <Link to="/services">
+                  Alle Services entdecken <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
-            </Link>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Contact Form */}
-      <section id="contact-section" className="py-20 bg-white">
+      <section id="contact-section" className="py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4 text-black">
-                Bereit für den nächsten <span className="gradient-primary bg-clip-text text-gray-900">Schritt?</span>
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.8 }} 
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl font-bold mb-4 text-white">
+                Bereit für den nächsten <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Schritt?</span>
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-300">
                 Lassen Sie uns über Ihr Projekt sprechen.
               </p>
-            </div>
+            </motion.div>
 
-            <Card className="bg-white border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 animate-fade-up hover:scale-105" style={{
-            animationDelay: '0.2s'
-          }}>
-              <CardContent className="p-8">
-                <form action="https://formspree.io/f/xjkrnyon" method="POST" onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2 animate-slide-in-right" style={{
-                  animationDelay: '0.1s'
-                }}>
-                    <Label htmlFor="fullname" className="text-black">Vollständiger Name</Label>
-                    <Input name="fullname" id="fullname" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary transition-all duration-300 hover:border-accent focus:scale-105" placeholder="Max Mustermann" />
-                  </div>
-                  
-                  <div className="space-y-2 animate-slide-in-right" style={{
-                  animationDelay: '0.2s'
-                }}>
-                    <Label htmlFor="email" className="text-black">E-Mail Adresse</Label>
-                    <Input name="email" id="email" type="email" required className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary transition-all duration-300 hover:border-accent focus:scale-105" placeholder="max@example.com" />
-                  </div>
-                  
-                  <div className="space-y-2 animate-slide-in-right" style={{
-                  animationDelay: '0.3s'
-                }}>
-                    <Label htmlFor="company" className="text-black">Firma</Label>
-                    <Input name="company" id="company" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary transition-all duration-300 hover:border-accent focus:scale-105" placeholder="Ihr Unternehmen" />
-                  </div>
-                  
-                  <div className="space-y-2 animate-slide-in-right" style={{
-                  animationDelay: '0.4s'
-                }}>
-                    <Label htmlFor="position" className="text-black">Position</Label>
-                    <Input name="position" id="position" className="bg-white border-gray-300 text-black placeholder:text-gray-400 focus:border-primary transition-all duration-300 hover:border-accent focus:scale-105" placeholder="Ihre Position" />
-                  </div>
-                  
-                  <div className="md:col-span-2 space-y-2 animate-fade-up" style={{
-                  animationDelay: '0.5s'
-                }}>
-                    <Label htmlFor="message" className="text-black">Nachricht (optional)</Label>
-                    <Textarea name="message" id="message" className="bg-white border-gray-300 text-black placeholder:text-gray-400 min-h-[120px] focus:border-primary transition-all duration-300 hover:border-accent focus:scale-105" placeholder="Erzählen Sie uns von Ihrem Projekt..." />
-                  </div>
-                  
-                  <div className="md:col-span-2 animate-fade-up" style={{
-                  animationDelay: '0.6s'
-                }}>
-                    <Button type="submit" className="w-full bg-black text-white hover:bg-gray-800 transition-all duration-300 py-3 text-lg hover:scale-105 hover:shadow-2xl">
-                      Loslegen <ArrowRight className="ml-2 h-5 w-5 animate-bounce" />
-                    </Button>
-                  </div>
-                </form>
-              </CardContent>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <Card className="bg-gray-900/50 border border-purple-500/30 shadow-2xl backdrop-blur-lg">
+                <CardContent className="p-8">
+                  <form action="https://formspree.io/f/xjkrnyon" method="POST" onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
+                    <motion.div 
+                      initial={{ opacity: 0, x: -50 }} 
+                      whileInView={{ opacity: 1, x: 0 }} 
+                      viewport={{ once: true }} 
+                      transition={{ delay: 0.1, duration: 0.5 }} 
+                      className="space-y-2"
+                    >
+                      <Label htmlFor="fullname" className="text-white">Vollständiger Name</Label>
+                      <Input name="fullname" id="fullname" required className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-500 transition-all duration-300" placeholder="Max Mustermann" />
+                    </motion.div>
+                    
+                    <motion.div 
+                      initial={{ opacity: 0, x: 50 }} 
+                      whileInView={{ opacity: 1, x: 0 }} 
+                      viewport={{ once: true }} 
+                      transition={{ delay: 0.2, duration: 0.5 }} 
+                      className="space-y-2"
+                    >
+                      <Label htmlFor="email" className="text-white">E-Mail Adresse</Label>
+                      <Input name="email" id="email" type="email" required className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-500 transition-all duration-300" placeholder="max@example.com" />
+                    </motion.div>
+                    
+                    <motion.div 
+                      initial={{ opacity: 0, x: -50 }} 
+                      whileInView={{ opacity: 1, x: 0 }} 
+                      viewport={{ once: true }} 
+                      transition={{ delay: 0.3, duration: 0.5 }} 
+                      className="space-y-2"
+                    >
+                      <Label htmlFor="company" className="text-white">Firma</Label>
+                      <Input name="company" id="company" className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-500 transition-all duration-300" placeholder="Ihr Unternehmen" />
+                    </motion.div>
+                    
+                    <motion.div 
+                      initial={{ opacity: 0, x: 50 }} 
+                      whileInView={{ opacity: 1, x: 0 }} 
+                      viewport={{ once: true }} 
+                      transition={{ delay: 0.4, duration: 0.5 }} 
+                      className="space-y-2"
+                    >
+                      <Label htmlFor="position" className="text-white">Position</Label>
+                      <Input name="position" id="position" className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-500 transition-all duration-300" placeholder="Ihre Position" />
+                    </motion.div>
+                    
+                    <motion.div 
+                      initial={{ opacity: 0, y: 50 }} 
+                      whileInView={{ opacity: 1, y: 0 }} 
+                      viewport={{ once: true }} 
+                      transition={{ delay: 0.5, duration: 0.5 }} 
+                      className="md:col-span-2 space-y-2"
+                    >
+                      <Label htmlFor="message" className="text-white">Nachricht (optional)</Label>
+                      <Textarea name="message" id="message" className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400 min-h-[120px] focus:border-purple-500 transition-all duration-300" placeholder="Erzählen Sie uns von Ihrem Projekt..." />
+                    </motion.div>
+                    
+                    <motion.div 
+                      initial={{ opacity: 0, y: 50 }} 
+                      whileInView={{ opacity: 1, y: 0 }} 
+                      viewport={{ once: true }} 
+                      transition={{ delay: 0.6, duration: 0.5 }} 
+                      className="md:col-span-2"
+                    >
+                      <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300 py-3 text-lg">
+                        Loslegen <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
+                    </motion.div>
+                  </form>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -511,15 +675,15 @@ für intelligente Markenkommunikation in Europa
               <div className="flex items-center mb-4">
                 <img alt="New Edge Logo" className="h-8 w-8 mr-3" src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" />
                 <div className="text-3xl font-bold">
-                  New Edge<span className="text-primary"></span>
+                  New Edge<span className="text-purple-400"></span>
                 </div>
               </div>
-              <p className="text-gray-400 mb-6 max-w-md">New Edge ist ein Creative-Tech-Studio für zukunftsorientierte Markenkommunikation. </p>
+              <p className="text-gray-400 mb-6 max-w-md">New Edge ist ein Creative-Tech-Studio für zukunftsorientierte Markenkommunikation. </p>
               <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
                   <span className="text-sm">in</span>
                 </a>
-                <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
                   <span className="text-sm">ig</span>
                 </div>
               </div>
@@ -556,4 +720,5 @@ für intelligente Markenkommunikation in Europa
       </footer>
     </div>;
 };
+
 export default Index;
