@@ -497,7 +497,7 @@ const Index = () => {
                     />
                     
                     <div 
-                      className="inline-block bg-gradient-to-r from-yellow-600 to-yellow-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                      className="inline-block text-black px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10" style={{background: '#FFED00'}}
                     >
                       New Edge Lab
                     </div>
@@ -522,7 +522,7 @@ const Index = () => {
                     </ul>
                     
                     <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button className="bg-gradient-to-r from-yellow-600 to-yellow-600 text-white hover:from-yellow-700 hover:to-yellow-700 w-full relative z-10 transition-all duration-300" asChild>
+                      <Button className="text-black hover:text-gray-800 w-full relative z-10 transition-all duration-300" style={{background: '#FFED00'}} asChild>
                         <Link to="/lab">
                           Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
