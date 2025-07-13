@@ -212,20 +212,39 @@ const Index = () => {
         <motion.div style={{
         y: y2
       }} className="container mx-auto px-6">
-          <motion.div initial={{
-          opacity: 0,
-          scale: 0.9
-        }} whileInView={{
-          opacity: 1,
-          scale: 1
-        }} viewport={{
-          once: true
-        }} whileHover={{
-          scale: 1.01
-        }} transition={{
-          duration: 0.8
-        }} className="relative h-96 md:h-[500px] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-800 rounded-3xl overflow-hidden flex items-center justify-center group">
-            <div className="text-center text-white z-10">
+        <motion.div 
+          initial={{
+            opacity: 0,
+            scale: 0.9
+          }} 
+          whileInView={{
+            opacity: 1,
+            scale: 1
+          }} 
+          viewport={{
+            once: true
+          }} 
+          whileHover={{
+            scale: 1.01
+          }} 
+          transition={{
+            duration: 0.8
+          }}
+          style={{
+            scale: useTransform(scrollY, [600, 1200], [1, 0.05]),
+            borderRadius: useTransform(scrollY, [600, 1200], ["24px", "50%"]),
+            x: useTransform(scrollY, [600, 1200], ["0px", "50vw"]),
+            y: useTransform(scrollY, [600, 1200], ["0px", "-30vh"]),
+            opacity: useTransform(scrollY, [600, 1200], [1, 0.3])
+          }}
+          className="relative h-96 md:h-[500px] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-800 rounded-3xl overflow-hidden flex items-center justify-center group"
+        >
+            <motion.div 
+              className="text-center text-white z-10"
+              style={{
+                opacity: useTransform(scrollY, [600, 900], [1, 0])
+              }}
+            >
               <motion.h2 initial={{
               y: 30,
               opacity: 0
@@ -244,29 +263,7 @@ const Index = () => {
                 <br />
                 <span className="text-4xl md:text-6xl inline-block">CREATIVE TECH</span>
               </motion.h2>
-            </div>
-            
-            {/* Subtle Animation Overlay */}
-            <motion.div 
-              initial={{
-                opacity: 0
-              }} 
-              animate={{
-                opacity: 0.05
-              }} 
-              style={{
-                scale: useTransform(scrollY, [400, 1000], [1, 0.02]),
-                borderRadius: useTransform(scrollY, [400, 1000], ["0%", "50%"]),
-                x: useTransform(scrollY, [400, 1000], ["0%", "2000%"]),
-                y: useTransform(scrollY, [400, 1000], ["0%", "-1000%"])
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                repeatType: "reverse"
-              }} 
-              className="absolute inset-0 bg-white/5" 
-            />
+            </motion.div>
           </motion.div>
         </motion.div>
       </section>
