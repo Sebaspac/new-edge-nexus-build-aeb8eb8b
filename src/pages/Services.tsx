@@ -205,7 +205,7 @@ const Services = () => {
         }} transition={{
           delay: 1.5,
           duration: 0.8
-        }} className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
+        }} className="md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed text-xl">
             Wir begleiten Sie auf einer strukturierten Reise von der ersten Idee bis zur finalen Implementierung.
             <br />
             <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">For strategy. aesthetics. &amp; tech.</span>
