@@ -168,9 +168,7 @@ const Index = () => {
             Wir verwandeln Visionen in digitale Realitäten durch intelligente Strategien, 
             überzeugende Inhalte und innovative Technologien.
             <br className="hidden sm:block" />
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">
-              Ein Team. Drei Welten. Unendliche Möglichkeiten.
-            </span>
+            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">Ein Team. Drei Ansätze. Unendliche Möglichkeiten.</span>
           </motion.p>
           
           
