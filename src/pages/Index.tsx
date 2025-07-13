@@ -497,7 +497,7 @@ const Index = () => {
                     />
                     
                     <motion.div 
-                      className="inline-block bg-gradient-to-r from-yellow-600 to-amber-600 text-black px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
+                      className="inline-block bg-gradient-to-r from-yellow-600 to-amber-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10"
                       whileHover={{ scale: 1.05 }}
                     >
                       New Edge Lab
