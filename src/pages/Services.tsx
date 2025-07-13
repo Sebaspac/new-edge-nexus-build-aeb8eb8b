@@ -592,7 +592,8 @@ const Services = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-5xl md:text-6xl font-black text-black mb-6 hover:scale-105 transition-transform duration-500">
-              Bereit für den <span className="text-primary animate-pulse">nächsten Schritt?</span>
+              Bereit für den <span className="text-primary animate-pulse">
+nächsten Schritt?</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in" style={{
             animationDelay: '0.3s'
