@@ -247,15 +247,26 @@ const Index = () => {
             </div>
             
             {/* Subtle Animation Overlay */}
-            <motion.div initial={{
-            opacity: 0
-          }} animate={{
-            opacity: 0.05
-          }} transition={{
-            duration: 1,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }} className="absolute inset-0 bg-white/5" />
+            <motion.div 
+              initial={{
+                opacity: 0
+              }} 
+              animate={{
+                opacity: 0.05
+              }} 
+              style={{
+                scale: useTransform(scrollY, [200, 800], [1, 0.1]),
+                x: useTransform(scrollY, [200, 800], [0, "45vw"]),
+                y: useTransform(scrollY, [200, 800], [0, "-40vh"]),
+                borderRadius: useTransform(scrollY, [200, 800], ["0%", "50%"])
+              }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                repeatType: "reverse"
+              }} 
+              className="absolute inset-0 bg-white/5" 
+            />
           </motion.div>
         </motion.div>
       </section>
