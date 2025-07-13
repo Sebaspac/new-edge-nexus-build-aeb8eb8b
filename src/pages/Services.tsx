@@ -415,7 +415,7 @@ const Services = () => {
                     
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block backdrop-blur-sm text-white/80 rounded-full text-sm font-medium mb-8 relative z-10 border border-white/10 bg-zinc-900 py-[8px] px-[24px]">
+                  }} className="inline-block backdrop-blur-sm text-white/80 text-sm font-medium mb-8 relative z-10 border border-white/10 py-[8px] px-[24px] bg-yellow-300 rounded-full">
                       New Edge Lab
                     </motion.div>
                     
