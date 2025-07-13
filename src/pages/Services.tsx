@@ -302,8 +302,8 @@ const Services = () => {
                       <Palette className="w-8 h-8 text-white/70" />
                     </motion.div>
                     
-                    <h3 className="text-2xl font-semibold text-white mb-3 relative z-10">STUDIO</h3>
-                    <p className="text-lg text-white/60 mb-6 leading-relaxed relative z-10 font-light">
+                    
+                    <p className="text-lg mb-6 leading-relaxed relative z-10 font-light text-zinc-50">
                       Ihre Ideen, unsere Strategie
                     </p>
                     <p className="text-white/40 text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto">
@@ -363,8 +363,8 @@ const Services = () => {
                       <Video className="w-8 h-8 text-white/70" />
                     </motion.div>
                     
-                    <h3 className="text-2xl font-semibold text-white mb-3 relative z-10">MEDIA</h3>
-                    <p className="text-lg text-white/60 mb-6 leading-relaxed relative z-10 font-light">
+                    
+                    <p className="text-lg mb-6 leading-relaxed relative z-10 font-light text-gray-50">
                       Die perfekte Bühne für Ihre Marke
                     </p>
                     <p className="text-white/40 text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto">
@@ -425,8 +425,8 @@ const Services = () => {
                       <Cpu className="w-8 h-8 text-white/70" />
                     </motion.div>
                     
-                    <h3 className="text-2xl font-semibold text-white mb-3 relative z-10">LAB</h3>
-                    <p className="text-lg text-white/60 mb-6 leading-relaxed relative z-10 font-light">
+                    
+                    <p className="text-lg mb-6 leading-relaxed relative z-10 font-light text-gray-50">
                       Die perfekte Schnittstelle für Strategie & Technologie
                     </p>
                     <p className="text-white/40 text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto">
