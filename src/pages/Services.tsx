@@ -288,7 +288,7 @@ const Services = () => {
                   } : {}} transition={{
                     duration: 3,
                     repeat: Infinity
-                  }} className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent" />
+                  }} className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent bg-violet-700" />
                     
                     {/* Service Tag */}
                     <motion.div whileHover={{
@@ -351,7 +351,7 @@ const Services = () => {
                   } : {}} transition={{
                     duration: 3,
                     repeat: Infinity
-                  }} className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent bg-violet-600" />
+                  }} className="" />
                     
                     <motion.div whileHover={{
                     scale: 1.02
@@ -413,7 +413,7 @@ const Services = () => {
                   } : {}} transition={{
                     duration: 3,
                     repeat: Infinity
-                  }} className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent" />
+                  }} className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent bg-blue-900" />
                     
                     <motion.div whileHover={{
                     scale: 1.02
