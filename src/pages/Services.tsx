@@ -593,16 +593,20 @@ const Services = () => {
       </section>
 
       {/* Results Section */}
-      <section className="
-        <div className="container mx-auto px-6">
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
+     {/* Results Section */}
+<section className="py-12 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+  <div className="container mx-auto px-6">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-center mb-20"
+    >
+      <h2 className="text-6xl font-bold text-white mb-6">Das Ergebnis</h2>
+      {/* Weitere Inhalte folgen hier */}
+    </motion.div>
+  </div>
+</section>
         }} className="text-center mb-20">
             <h2 className="text-6xl font-bold text-white mb-6">Das Ergebnis</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
