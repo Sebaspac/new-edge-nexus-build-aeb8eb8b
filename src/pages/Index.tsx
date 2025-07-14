@@ -164,23 +164,21 @@ const Index = () => {
         }} transition={{
           delay: 0.6,
           duration: 0.8
-        }} className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-16 sm:mb-20 md:mb-24 max-w-4xl mx-auto font-light leading-relaxed px-4">
+        }} className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-6 sm:mb-8 md:mb-10 max-w-4xl mx-auto font-light leading-relaxed px-4">
             Wir verwandeln Visionen in digitale Realitäten durch intelligente Strategien, 
             überzeugende Inhalte und innovative Technologien.
             <br className="hidden sm:block" />
             <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">Ein Team. Drei Ansätze. Unendliche Möglichkeiten.</span>
           </motion.p>
           
-          
-
-          {/* Scroll Indicator - Positioned lower with 80px spacing and centered on mobile */}
+          {/* Scroll Indicator - Positioned with more spacing and properly centered on mobile */}
           <motion.div animate={{
           y: [0, 10, 0]
         }} transition={{
           duration: 2,
           repeat: Infinity,
           ease: "easeInOut"
-        }} className="absolute bottom-5 left-1/2 transform -translate-x-1/2 cursor-pointer z-20 flex justify-center w-full" onClick={() => {
+        }} className="flex justify-center w-full mt-16 sm:mt-20 md:mt-24 mb-8" onClick={() => {
           const nextSection = document.querySelector('.visual-section');
           nextSection?.scrollIntoView({
             behavior: 'smooth'
@@ -190,7 +188,7 @@ const Index = () => {
             scale: 1.2
           }} whileTap={{
             scale: 0.9
-          }}>
+          }} className="cursor-pointer">
               <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
             </motion.div>
           </motion.div>
@@ -321,7 +319,7 @@ const Index = () => {
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 relative">
               
               {/* Studio Card */}
               <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
@@ -329,7 +327,7 @@ const Index = () => {
             }} onHoverStart={() => setHoveredCard('studio')} onHoverEnd={() => setHoveredCard(null)} className="relative group hover-lift" transition={{
               duration: 0.6
             }}>
-                <Card className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 border border-purple-500/20 shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 backdrop-blur-lg h-full min-h-[480px]">
+                <Card className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 border border-purple-500/20 shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 backdrop-blur-lg h-full min-h-[520px]">
                   <CardContent className="p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     <motion.div animate={hoveredCard === 'studio' ? {
                     background: ["radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(147,51,234,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)"]
@@ -377,8 +375,8 @@ const Index = () => {
                   </CardContent>
                 </Card>
 
-                {/* Animated Arrow - Positioned with spacing */}
-                <div className="hidden lg:block absolute -right-8 top-1/2 transform -translate-y-1/2 z-20">
+                {/* Animated Arrow - Positioned with proper spacing */}
+                <div className="hidden lg:block absolute -right-12 top-1/2 transform -translate-y-1/2 z-20">
                   <motion.div animate={{
                   x: [0, 5, 0]
                 }} transition={{
@@ -398,7 +396,7 @@ const Index = () => {
               delay: 0.2,
               duration: 0.6
             }} onHoverStart={() => setHoveredCard('media')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/20 shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 backdrop-blur-lg h-full min-h-[480px]">
+                <Card className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/20 shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 backdrop-blur-lg h-full min-h-[520px]">
                   <CardContent className="p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     <motion.div animate={hoveredCard === 'media' ? {
                     background: ["radial-gradient(circle, rgba(79,151,240,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(79,151,240,0.05) 0%, transparent 70%)"]
@@ -446,8 +444,8 @@ const Index = () => {
                   </CardContent>
                 </Card>
 
-                {/* Animated Arrow - Positioned with spacing */}
-                <div className="hidden lg:block absolute -right-8 top-1/2 transform -translate-y-1/2 z-20">
+                {/* Animated Arrow - Positioned with proper spacing */}
+                <div className="hidden lg:block absolute -right-12 top-1/2 transform -translate-y-1/2 z-20">
                   <motion.div animate={{
                   x: [0, 5, 0]
                 }} transition={{
@@ -468,7 +466,7 @@ const Index = () => {
               delay: 0.4,
               duration: 0.6
             }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-gradient-to-br from-yellow-900/30 to-yellow-900/30 border border-yellow-500/20 shadow-2xl hover:shadow-yellow-500/10 transition-all duration-500 backdrop-blur-lg h-full min-h-[480px]">
+                <Card className="bg-gradient-to-br from-yellow-900/30 to-yellow-900/30 border border-yellow-500/20 shadow-2xl hover:shadow-yellow-500/10 transition-all duration-500 backdrop-blur-lg h-full min-h-[520px]">
                   <CardContent className="p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     <motion.div animate={hoveredCard === 'lab' ? {
                     background: ["radial-gradient(circle, rgba(255,237,0,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(255,237,0,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(255,237,0,0.05) 0%, transparent 70%)"]
