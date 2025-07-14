@@ -445,7 +445,7 @@ const Index = () => {
                 </Card>
 
                 {/* Animated Arrow - Positioned with proper spacing */}
-                <div className="hidden lg:block absolute -right-12 top-1/2 transform -translate-y-1/2 z-20">
+                <div className="hidden lg:block absolute right-[-1.5rem] top-1/2 transform -translate-y-1/2 z-20">
                   <motion.div animate={{
                   x: [0, 5, 0]
                 }} transition={{
