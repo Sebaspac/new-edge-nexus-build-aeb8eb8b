@@ -594,7 +594,7 @@ const Services = () => {
       </section>
 
       {/* Results Section */}
-      <section className="py-0 bg-gradient-to-b from-black via-gray-800 to-black relative overflow-hidden">
+      <section className="h-0 overflow-hidden p-0 m-0 hidden" />
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
