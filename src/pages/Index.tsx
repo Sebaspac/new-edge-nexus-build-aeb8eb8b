@@ -229,9 +229,10 @@ const Index = () => {
             duration: 0.8
           }}
           style={{
-            scale: useTransform(scrollY, [600, 1200], [1, 0.05]),
-            borderRadius: useTransform(scrollY, [600, 1200], ["24px", "50%"]),
-            opacity: useTransform(scrollY, [600, 1200], [1, 0.3])
+            scale: useTransform(scrollY, [600, 1400], [1, 0.8]),
+            borderRadius: useTransform(scrollY, [600, 1400], ["24px", "40px"]),
+            opacity: useTransform(scrollY, [600, 1400], [1, 0.7]),
+            willChange: "transform, opacity"
           }}
           className="relative h-96 md:h-[500px] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-800 rounded-3xl overflow-hidden flex items-center justify-center group"
         >
