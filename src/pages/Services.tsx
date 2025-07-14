@@ -436,7 +436,7 @@ const Services = () => {
                   }} whileTap={{
                     scale: 0.98
                   }}>
-                      <Button className="bg-gradient-to-r from-yellow-400 to-amber-500 backdrop-blur-sm text-black border border-yellow-500/30 hover:from-yellow-500 hover:to-amber-600 w-full relative z-10 rounded-xl py-3 font-bold transition-all duration-300 shadow-lg" asChild>
+                      <Button className="bg-gradient-to-r from-yellow-400 to-amber-500 backdrop-blur-sm text-white border border-yellow-500/30 hover:from-yellow-500 hover:to-amber-600 w-full relative z-10 rounded-xl py-3 font-bold transition-all duration-300 shadow-lg" asChild>
                         <Link to="/lab">
                           Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
