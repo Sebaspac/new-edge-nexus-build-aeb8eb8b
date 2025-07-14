@@ -405,7 +405,7 @@ const Services = () => {
               delay: 0.4
             }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-white/[0.02] backdrop-blur-xl border border-white/10 shadow-2xl hover:shadow-white/5 transition-all duration-700 rounded-3xl overflow-hidden">
-                  <CardContent className="p-10 text-center relative bg-gradient-to-br from-yellow-400 to-amber-500 px-[10px] py-[20px]">
+                  <CardContent className="p-10 text-center relative px-[10px] py-[20px]" style={{backgroundColor: '#FFED00'}}>
                     <motion.div animate={hoveredCard === 'lab' ? {
                     opacity: [0.02, 0.05, 0.02]
                   } : {}} transition={{
@@ -424,10 +424,10 @@ const Services = () => {
                     </motion.div>
                     
                     
-                    <p className="text-lg mb-6 leading-relaxed relative z-10 font-semibold text-gray-200">
-                      Die perfekte Schnittstelle für Strategie & Technologie
-                    </p>
-                    <p className="text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto text-gray-200 font-normal">
+                     <p className="text-lg mb-6 leading-relaxed relative z-10 font-semibold text-white">
+                       Die perfekte Schnittstelle für Strategie & Technologie
+                     </p>
+                     <p className="text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto text-white font-normal">
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
                     
