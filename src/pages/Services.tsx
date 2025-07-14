@@ -405,7 +405,7 @@ const Services = () => {
               delay: 0.4
             }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-white/[0.02] backdrop-blur-xl border border-white/10 shadow-2xl hover:shadow-white/5 transition-all duration-700 rounded-3xl overflow-hidden">
-                  <CardContent className="p-10 text-center relative bg-yellow-300 px-[10px] py-[20px]">
+                  <CardContent className="p-10 text-center relative bg-gradient-to-br from-yellow-400 to-amber-500 px-[10px] py-[20px]">
                     <motion.div animate={hoveredCard === 'lab' ? {
                     opacity: [0.02, 0.05, 0.02]
                   } : {}} transition={{
@@ -415,19 +415,19 @@ const Services = () => {
                     
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block backdrop-blur-sm text-white/80 text-sm font-medium mb-8 relative z-10 border border-white/10 py-[8px] px-[24px] bg-yellow-300 rounded-full">
-                      New Edge Lab
+                  }} className="inline-block backdrop-blur-sm text-black text-sm font-bold mb-8 relative z-10 border border-black/20 py-[8px] px-[24px] bg-white/90 rounded-full shadow-lg">
+                       New Edge Lab
                     </motion.div>
                     
-                    <motion.div variants={iconVariants} whileHover="hover" className="w-16 h-16 backdrop-blur-sm flex items-center justify-center mx-auto mb-8 relative z-10 border border-white/10 rounded-3xl bg-yellow-200">
-                      <Cpu className="w-8 h-8 text-white/70 bg-yellow-300" />
+                    <motion.div variants={iconVariants} whileHover="hover" className="w-16 h-16 backdrop-blur-sm flex items-center justify-center mx-auto mb-8 relative z-10 border border-black/20 rounded-3xl bg-white/90 shadow-lg">
+                      <Cpu className="w-8 h-8 text-amber-600" />
                     </motion.div>
                     
                     
-                    <p className="text-lg mb-6 leading-relaxed relative z-10 font-light text-zinc-900">
+                    <p className="text-lg mb-6 leading-relaxed relative z-10 font-semibold text-black">
                       Die perfekte Schnittstelle für Strategie & Technologie
                     </p>
-                    <p className="text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto text-zinc-900">
+                    <p className="text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto text-black/80 font-medium">
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
                     
@@ -436,7 +436,7 @@ const Services = () => {
                   }} whileTap={{
                     scale: 0.98
                   }}>
-                      <Button className="bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/15 w-full relative z-10 rounded-xl py-3 font-medium transition-all duration-300" asChild>
+                      <Button className="bg-black/80 backdrop-blur-sm text-white border border-black/30 hover:bg-black/90 w-full relative z-10 rounded-xl py-3 font-medium transition-all duration-300 shadow-lg" asChild>
                         <Link to="/lab">
                           Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
