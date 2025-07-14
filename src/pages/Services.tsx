@@ -594,7 +594,7 @@ const Services = () => {
       </section>
 
       {/* Results Section */}
-      <section className="h-0 overflow-hidden p-0 m-0 hidden" />
+      <section className="py-32 bg-gradient-to-b from-black via-gray-900 to-black">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -671,8 +671,8 @@ const Services = () => {
       <section className="py-32 bg-gradient-to-b from-black via-purple-900/20 to-black relative overflow-hidden">
         <div className="container mx-auto px-6">
           <motion.div initial={{
-          opacity: 0,
-          y: 50
+            opacity: 0,
+            y: 50
         }} whileInView={{
           opacity: 1,
           y: 0
