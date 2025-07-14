@@ -413,9 +413,9 @@ const Services = () => {
                     repeat: Infinity
                   }} className="" />
                     
-                    <motion.div whileHover={{
-                    scale: 1.02
-                  }} className="inline-block backdrop-blur-sm text-black text-sm font-bold mb-8 relative z-10 border border-black/20 py-[8px] px-[24px] bg-white/90 rounded-full shadow-lg">
+                     <motion.div whileHover={{
+                     scale: 1.02
+                   }} className="inline-block backdrop-blur-sm text-black text-sm font-bold mb-8 relative z-10 border border-black/20 py-[8px] px-[24px] bg-white/90 rounded-full shadow-lg" style={{textShadow: '0 1px 2px rgba(0,0,0,0.1)'}}>
                        New Edge Lab
                     </motion.div>
                     
@@ -424,12 +424,12 @@ const Services = () => {
                     </motion.div>
                     
                     
-                     <p className="text-lg mb-6 leading-relaxed relative z-10 font-semibold text-white">
+                     <p className="text-lg mb-6 leading-relaxed relative z-10 font-bold text-white" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.7)'}}>
                        Die perfekte Schnittstelle für Strategie & Technologie
                      </p>
-                     <p className="text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto text-white font-normal">
-                      Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
-                    </p>
+                     <p className="text-sm leading-relaxed mb-10 relative z-10 max-w-sm mx-auto text-white font-semibold" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.6)'}}>
+                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
+                     </p>
                     
                     <motion.div whileHover={{
                     scale: 1.02
