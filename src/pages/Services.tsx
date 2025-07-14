@@ -133,7 +133,8 @@ const Services = () => {
       scale: 1.2
     }
   };
-  return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
+  return (
+    <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
       {/* 3D Background Canvas */}
       <div className="fixed inset-0 z-0">
         <Canvas camera={{
@@ -593,21 +594,14 @@ const Services = () => {
       </section>
 
       {/* Results Section */}
-     {/* Results Section */}
-<section className="py-12 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
-  <div className="container mx-auto px-6">
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="text-center mb-20"
-    >
-      <h2 className="text-6xl font-bold text-white mb-6">Das Ergebnis</h2>
-      {/* Weitere Inhalte folgen hier */}
-    </motion.div>
-  </div>
-</section>
-        }} className="text-center mb-20">
+      <section className="py-32 bg-gradient-to-b from-black via-gray-800 to-black relative overflow-hidden">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
             <h2 className="text-6xl font-bold text-white mb-6">Das Ergebnis</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
@@ -864,6 +858,7 @@ const Services = () => {
     }}>
           <ArrowRight className="w-6 h-6 transform -rotate-90" />
         </motion.button>}
-    </div>;
+    </div>
+  );
 };
 export default Services;
