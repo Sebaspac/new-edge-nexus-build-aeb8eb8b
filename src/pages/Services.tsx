@@ -133,8 +133,7 @@ const Services = () => {
       scale: 1.2
     }
   };
-  return (
-    <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
+  return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
       {/* 3D Background Canvas */}
       <div className="fixed inset-0 z-0">
         <Canvas camera={{
@@ -420,7 +419,7 @@ const Services = () => {
                       New Edge Lab
                     </motion.div>
                     
-                    <motion.div variants={iconVariants} whileHover="hover" className="w-16 h-16 bg-white/5 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-8 relative z-10 border border-white/10">
+                    <motion.div variants={iconVariants} whileHover="hover" className="w-16 h-16 backdrop-blur-sm flex items-center justify-center mx-auto mb-8 relative z-10 border border-white/10 rounded-3xl bg-yellow-200">
                       <Cpu className="w-8 h-8 text-white/70 bg-yellow-300" />
                     </motion.div>
                     
@@ -596,12 +595,15 @@ const Services = () => {
       {/* Results Section */}
       <section className="py-32 bg-gradient-to-b from-black via-gray-900 to-black">
         <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="text-center mb-20">
             <h2 className="text-6xl font-bold text-white mb-6">Das Ergebnis</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
@@ -671,8 +673,8 @@ const Services = () => {
       <section className="py-32 bg-gradient-to-b from-black via-purple-900/20 to-black relative overflow-hidden">
         <div className="container mx-auto px-6">
           <motion.div initial={{
-            opacity: 0,
-            y: 50
+          opacity: 0,
+          y: 50
         }} whileInView={{
           opacity: 1,
           y: 0
@@ -858,7 +860,6 @@ const Services = () => {
     }}>
           <ArrowRight className="w-6 h-6 transform -rotate-90" />
         </motion.button>}
-    </div>
-  );
+    </div>;
 };
 export default Services;
