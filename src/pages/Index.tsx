@@ -180,7 +180,7 @@ const Index = () => {
           duration: 2,
           repeat: Infinity,
           ease: "easeInOut"
-        }} className="absolute bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer z-20" onClick={() => {
+        }} className="absolute bottom-5 left-1/2 transform -translate-x-1/2 cursor-pointer z-20" onClick={() => {
           const nextSection = document.querySelector('.visual-section');
           nextSection?.scrollIntoView({
             behavior: 'smooth'
