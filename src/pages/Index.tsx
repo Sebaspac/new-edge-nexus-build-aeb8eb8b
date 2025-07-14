@@ -173,14 +173,14 @@ const Index = () => {
           
           
 
-          {/* Scroll Indicator */}
+          {/* Scroll Indicator - Positioned lower with 80px spacing */}
           <motion.div animate={{
           y: [0, 10, 0]
         }} transition={{
           duration: 2,
           repeat: Infinity,
           ease: "easeInOut"
-        }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-20" onClick={() => {
+        }} className="absolute bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer z-20" onClick={() => {
           const nextSection = document.querySelector('.visual-section');
           nextSection?.scrollIntoView({
             behavior: 'smooth'
@@ -233,8 +233,6 @@ const Index = () => {
           style={{
             scale: useTransform(scrollY, [600, 1200], [1, 0.05]),
             borderRadius: useTransform(scrollY, [600, 1200], ["24px", "50%"]),
-            x: useTransform(scrollY, [600, 1200], ["0px", "50vw"]),
-            y: useTransform(scrollY, [600, 1200], ["0px", "-30vh"]),
             opacity: useTransform(scrollY, [600, 1200], [1, 0.3])
           }}
           className="relative h-96 md:h-[500px] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-800 rounded-3xl overflow-hidden flex items-center justify-center group"
@@ -332,7 +330,7 @@ const Index = () => {
               duration: 0.6
             }}>
                 <Card className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 border border-purple-500/20 shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 backdrop-blur-lg h-full">
-                  <CardContent className="p-8 text-center relative overflow-hidden">
+                  <CardContent className="p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     <motion.div animate={hoveredCard === 'studio' ? {
                     background: ["radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(147,51,234,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)"]
                   } : {}} transition={{
@@ -340,40 +338,40 @@ const Index = () => {
                     repeat: Infinity
                   }} className="absolute inset-0" />
                     
-                    <motion.div className="inline-block bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10" whileHover={{
-                    scale: 1.05
-                  }}>
-                      New Edge Studio
-                    </motion.div>
-                    
-                    <h3 className="text-3xl font-bold text-white mb-4 relative z-10">STUDIO</h3>
-                    <p className="text-lg text-white mb-6 leading-relaxed relative z-10">
-                      Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
-                    </p>
-                    <ul className="space-y-3 text-gray-100 mb-8 relative z-10 text-left">
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                        Strategie & Markenidentität
-                      </li>
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                        Visuelles Konzept
-                      </li>
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                        Digitale Struktur & Funnel-Logik
-                      </li>
-                    </ul>
+                    <div className="relative z-10">
+                      <motion.div className="inline-block bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-3 rounded-full text-lg font-bold mb-6" whileHover={{
+                      scale: 1.05
+                    }}>
+                        New Edge Studio
+                      </motion.div>
+                      
+                      <h3 className="text-3xl font-bold text-white mb-4">STUDIO</h3>
+                      <p className="text-lg text-white mb-6 leading-relaxed">
+                        Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
+                      </p>
+                      <ul className="space-y-3 text-gray-100 mb-8 text-left">
+                        <li className="flex items-center">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                          Strategie & Markenidentität
+                        </li>
+                        <li className="flex items-center">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                          Visuelles Konzept
+                        </li>
+                        <li className="flex items-center">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                          Digitale Struktur & Funnel-Logik
+                        </li>
+                      </ul>
+                    </div>
                     
                     <motion.div whileHover={{
                     scale: 1.02
                   }} whileTap={{
                     scale: 0.98
-                  }}>
-                      <Button className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 w-full relative z-10 transition-all duration-300" asChild>
-                        <Link to="/studio">
-                          Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
-                        </Link>
+                  }} className="relative z-10">
+                      <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 w-full transition-all duration-300">
+                        Projekt starten <ArrowRight className="ml-2 w-4 h-4" />
                       </Button>
                     </motion.div>
                   </CardContent>
@@ -401,7 +399,7 @@ const Index = () => {
               duration: 0.6
             }} onHoverStart={() => setHoveredCard('media')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/20 shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 backdrop-blur-lg h-full">
-                  <CardContent className="p-8 text-center relative overflow-hidden">
+                  <CardContent className="p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     <motion.div animate={hoveredCard === 'media' ? {
                     background: ["radial-gradient(circle, rgba(79,151,240,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(79,151,240,0.05) 0%, transparent 70%)"]
                   } : {}} transition={{
@@ -409,40 +407,40 @@ const Index = () => {
                     repeat: Infinity
                   }} className="absolute inset-0" />
                     
-                    <motion.div className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10" whileHover={{
-                    scale: 1.05
-                  }}>
-                      New Edge Media
-                    </motion.div>
-                    
-                    <h3 className="text-3xl font-bold text-white mb-4 relative z-10">MEDIA</h3>
-                    <p className="text-lg text-white mb-6 leading-relaxed relative z-10">
-                      Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
-                    </p>
-                    <ul className="space-y-3 text-gray-100 mb-8 relative z-10 text-left">
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
-                        Content-Produktion & Reichweite
-                      </li>
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
-                        Marketing & Sichtbarkeit
-                      </li>
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
-                        Creative Content Production
-                      </li>
-                    </ul>
+                    <div className="relative z-10">
+                      <motion.div className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6" whileHover={{
+                      scale: 1.05
+                    }}>
+                        New Edge Media
+                      </motion.div>
+                      
+                      <h3 className="text-3xl font-bold text-white mb-4">MEDIA</h3>
+                      <p className="text-lg text-white mb-6 leading-relaxed">
+                        Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
+                      </p>
+                      <ul className="space-y-3 text-gray-100 mb-8 text-left">
+                        <li className="flex items-center">
+                          <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                          Content-Produktion & Reichweite
+                        </li>
+                        <li className="flex items-center">
+                          <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                          Marketing & Sichtbarkeit
+                        </li>
+                        <li className="flex items-center">
+                          <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                          Creative Content Production
+                        </li>
+                      </ul>
+                    </div>
                     
                     <motion.div whileHover={{
                     scale: 1.02
                   }} whileTap={{
                     scale: 0.98
-                  }}>
-                      <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700 w-full relative z-10 transition-all duration-300" asChild>
-                        <Link to="/media">
-                          Content produzieren <ArrowRight className="ml-2 w-4 h-4" />
-                        </Link>
+                  }} className="relative z-10">
+                      <Button onClick={scrollToContact} className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700 w-full transition-all duration-300">
+                        Projekt besprechen <ArrowRight className="ml-2 w-4 h-4" />
                       </Button>
                     </motion.div>
                   </CardContent>
@@ -471,7 +469,7 @@ const Index = () => {
               duration: 0.6
             }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-gradient-to-br from-yellow-900/30 to-yellow-900/30 border border-yellow-500/20 shadow-2xl hover:shadow-yellow-500/10 transition-all duration-500 backdrop-blur-lg h-full">
-                  <CardContent className="p-8 text-center relative overflow-hidden">
+                  <CardContent className="p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     <motion.div animate={hoveredCard === 'lab' ? {
                     background: ["radial-gradient(circle, rgba(255,237,0,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(255,237,0,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(255,237,0,0.05) 0%, transparent 70%)"]
                   } : {}} transition={{
@@ -479,42 +477,42 @@ const Index = () => {
                     repeat: Infinity
                   }} className="absolute inset-0" />
                     
-                    <div className="inline-block text-black px-6 py-3 rounded-full text-lg font-bold mb-6 relative z-10" style={{
-                    background: '#FFED00'
-                  }}>
-                      New Edge Lab
+                    <div className="relative z-10">
+                      <div className="inline-block text-black px-6 py-3 rounded-full text-lg font-bold mb-6" style={{
+                      background: '#FFED00'
+                    }}>
+                        New Edge Lab
+                      </div>
+                      
+                      <h3 className="text-3xl font-bold text-white mb-4">LAB</h3>
+                      <p className="text-lg text-white mb-6 leading-relaxed">
+                        Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
+                      </p>
+                      <ul className="space-y-3 text-gray-100 mb-8 text-left">
+                        <li className="flex items-center">
+                          <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                          KI-Integration & Automation
+                        </li>
+                        <li className="flex items-center">
+                          <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                          Backend & Tech-Implementierung
+                        </li>
+                        <li className="flex items-center">
+                          <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                          Webentwicklung & Prozessautomatisierung
+                        </li>
+                      </ul>
                     </div>
-                    
-                    <h3 className="text-3xl font-bold text-white mb-4 relative z-10">LAB</h3>
-                    <p className="text-lg text-white mb-6 leading-relaxed relative z-10">
-                      Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
-                    </p>
-                    <ul className="space-y-3 text-gray-100 mb-8 relative z-10 text-left">
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
-                        KI-Integration & Automation
-                      </li>
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
-                        Backend & Tech-Implementierung
-                      </li>
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
-                        Webentwicklung & Prozessautomatisierung
-                      </li>
-                    </ul>
                     
                     <motion.div whileHover={{
                     scale: 1.02
                   }} whileTap={{
                     scale: 0.98
-                  }}>
-                      <Button className="text-black hover:text-gray-800 w-full relative z-10 transition-all duration-300" style={{
+                  }} className="relative z-10">
+                      <Button onClick={scrollToContact} className="text-black hover:text-gray-800 w-full transition-all duration-300" style={{
                       background: '#FFED00'
-                    }} asChild>
-                        <Link to="/lab">
-                          Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
-                        </Link>
+                    }}>
+                        Projekt starten <ArrowRight className="ml-2 w-4 h-4" />
                       </Button>
                     </motion.div>
                   </CardContent>
