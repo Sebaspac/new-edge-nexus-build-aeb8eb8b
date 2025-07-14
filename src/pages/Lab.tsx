@@ -127,7 +127,7 @@ const Lab = () => {
           }}>
               LAB macht aus Ideen reale, funktionierende Systeme — sicher, automatisiert, effizient.
               <br className="hidden sm:block" />
-              <span className="font-medium text-gray-900">Innovation durch intelligente Technologie.</span>
+              <span className="font-medium text-gray-900">     Innovation durch intelligente Technologie.</span>
             </p>
             
             <div className="animate-fade-in flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4" style={{
