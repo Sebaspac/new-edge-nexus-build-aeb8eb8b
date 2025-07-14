@@ -119,8 +119,8 @@ const Index = () => {
         }} transition={{
           duration: 1,
           ease: "easeOut"
-        }} className="mb-8 sm:mb-12">
-            <motion.div className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tight mb-2 sm:mb-4 relative" style={{
+        }} className="mb-6 sm:mb-8 md:mb-12">
+            <motion.div className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black tracking-tight mb-2 sm:mb-3 md:mb-4 relative" style={{
             background: "linear-gradient(45deg, #9f91f8, #4f97f0, #FFED00)",
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
@@ -140,7 +140,7 @@ const Index = () => {
           }} transition={{
             delay: 0.3,
             duration: 0.8
-          }} className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-white italic mb-2 sm:mb-4">
+          }} className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black text-white italic mb-2 sm:mb-3 md:mb-4">
               INTELLIGENCE
             </motion.div>
             <motion.div initial={{
@@ -152,7 +152,7 @@ const Index = () => {
           }} transition={{
             delay: 0.4,
             duration: 0.8
-          }} className="text-xl sm:text-2xl md:text-4xl lg:text-6xl text-gray-400 font-light">
+          }} className="text-lg sm:text-xl md:text-2xl lg:text-4xl xl:text-6xl text-gray-400 font-light">
               FOR THE DIGITAL AGE
             </motion.div>
           </motion.div>
@@ -164,7 +164,7 @@ const Index = () => {
         }} transition={{
           delay: 0.6,
           duration: 0.8
-        }} className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto font-light leading-relaxed px-4">
+        }} className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-16 sm:mb-20 md:mb-24 max-w-4xl mx-auto font-light leading-relaxed px-4">
             Wir verwandeln Visionen in digitale Realitäten durch intelligente Strategien, 
             überzeugende Inhalte und innovative Technologien.
             <br className="hidden sm:block" />
@@ -173,14 +173,14 @@ const Index = () => {
           
           
 
-          {/* Scroll Indicator - Positioned lower with 80px spacing */}
+          {/* Scroll Indicator - Positioned lower with 80px spacing and centered on mobile */}
           <motion.div animate={{
           y: [0, 10, 0]
         }} transition={{
           duration: 2,
           repeat: Infinity,
           ease: "easeInOut"
-        }} className="absolute bottom-5 left-1/2 transform -translate-x-1/2 cursor-pointer z-20" onClick={() => {
+        }} className="absolute bottom-5 left-1/2 transform -translate-x-1/2 cursor-pointer z-20 flex justify-center w-full" onClick={() => {
           const nextSection = document.querySelector('.visual-section');
           nextSection?.scrollIntoView({
             behavior: 'smooth'
@@ -329,7 +329,7 @@ const Index = () => {
             }} onHoverStart={() => setHoveredCard('studio')} onHoverEnd={() => setHoveredCard(null)} className="relative group hover-lift" transition={{
               duration: 0.6
             }}>
-                <Card className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 border border-purple-500/20 shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 backdrop-blur-lg h-full">
+                <Card className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 border border-purple-500/20 shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 backdrop-blur-lg h-full min-h-[480px]">
                   <CardContent className="p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     <motion.div animate={hoveredCard === 'studio' ? {
                     background: ["radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(147,51,234,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)"]
@@ -338,7 +338,7 @@ const Index = () => {
                     repeat: Infinity
                   }} className="absolute inset-0" />
                     
-                    <div className="relative z-10">
+                    <div className="relative z-10 flex-1 flex flex-col">
                       <motion.div className="inline-block bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-3 rounded-full text-lg font-bold mb-6" whileHover={{
                       scale: 1.05
                     }}>
@@ -346,7 +346,7 @@ const Index = () => {
                       </motion.div>
                       
                       <h3 className="text-3xl font-bold text-white mb-4">STUDIO</h3>
-                      <p className="text-lg text-white mb-6 leading-relaxed">
+                      <p className="text-lg text-white mb-6 leading-relaxed flex-1">
                         Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
                       </p>
                       <ul className="space-y-3 text-gray-100 mb-8 text-left">
@@ -369,7 +369,7 @@ const Index = () => {
                     scale: 1.02
                   }} whileTap={{
                     scale: 0.98
-                  }} className="relative z-10">
+                  }} className="relative z-10 mt-auto">
                       <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 w-full transition-all duration-300">
                         Projekt starten <ArrowRight className="ml-2 w-4 h-4" />
                       </Button>
@@ -377,8 +377,8 @@ const Index = () => {
                   </CardContent>
                 </Card>
 
-                {/* Animated Arrow */}
-                <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-20">
+                {/* Animated Arrow - Positioned with spacing */}
+                <div className="hidden lg:block absolute -right-8 top-1/2 transform -translate-y-1/2 z-20">
                   <motion.div animate={{
                   x: [0, 5, 0]
                 }} transition={{
@@ -398,7 +398,7 @@ const Index = () => {
               delay: 0.2,
               duration: 0.6
             }} onHoverStart={() => setHoveredCard('media')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/20 shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 backdrop-blur-lg h-full">
+                <Card className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/20 shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 backdrop-blur-lg h-full min-h-[480px]">
                   <CardContent className="p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     <motion.div animate={hoveredCard === 'media' ? {
                     background: ["radial-gradient(circle, rgba(79,151,240,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(79,151,240,0.05) 0%, transparent 70%)"]
@@ -407,7 +407,7 @@ const Index = () => {
                     repeat: Infinity
                   }} className="absolute inset-0" />
                     
-                    <div className="relative z-10">
+                    <div className="relative z-10 flex-1 flex flex-col">
                       <motion.div className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6" whileHover={{
                       scale: 1.05
                     }}>
@@ -415,7 +415,7 @@ const Index = () => {
                       </motion.div>
                       
                       <h3 className="text-3xl font-bold text-white mb-4">MEDIA</h3>
-                      <p className="text-lg text-white mb-6 leading-relaxed">
+                      <p className="text-lg text-white mb-6 leading-relaxed flex-1">
                         Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
                       </p>
                       <ul className="space-y-3 text-gray-100 mb-8 text-left">
@@ -438,7 +438,7 @@ const Index = () => {
                     scale: 1.02
                   }} whileTap={{
                     scale: 0.98
-                  }} className="relative z-10">
+                  }} className="relative z-10 mt-auto">
                       <Button onClick={scrollToContact} className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700 w-full transition-all duration-300">
                         Projekt besprechen <ArrowRight className="ml-2 w-4 h-4" />
                       </Button>
@@ -446,8 +446,8 @@ const Index = () => {
                   </CardContent>
                 </Card>
 
-                {/* Animated Arrow */}
-                <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-20">
+                {/* Animated Arrow - Positioned with spacing */}
+                <div className="hidden lg:block absolute -right-8 top-1/2 transform -translate-y-1/2 z-20">
                   <motion.div animate={{
                   x: [0, 5, 0]
                 }} transition={{
@@ -468,7 +468,7 @@ const Index = () => {
               delay: 0.4,
               duration: 0.6
             }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-gradient-to-br from-yellow-900/30 to-yellow-900/30 border border-yellow-500/20 shadow-2xl hover:shadow-yellow-500/10 transition-all duration-500 backdrop-blur-lg h-full">
+                <Card className="bg-gradient-to-br from-yellow-900/30 to-yellow-900/30 border border-yellow-500/20 shadow-2xl hover:shadow-yellow-500/10 transition-all duration-500 backdrop-blur-lg h-full min-h-[480px]">
                   <CardContent className="p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     <motion.div animate={hoveredCard === 'lab' ? {
                     background: ["radial-gradient(circle, rgba(255,237,0,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(255,237,0,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(255,237,0,0.05) 0%, transparent 70%)"]
@@ -477,15 +477,17 @@ const Index = () => {
                     repeat: Infinity
                   }} className="absolute inset-0" />
                     
-                    <div className="relative z-10">
-                      <div className="inline-block text-black px-6 py-3 rounded-full text-lg font-bold mb-6" style={{
+                    <div className="relative z-10 flex-1 flex flex-col">
+                      <motion.div className="inline-block text-black px-6 py-3 rounded-full text-lg font-bold mb-6" style={{
                       background: '#FFED00'
+                    }} whileHover={{
+                      scale: 1.05
                     }}>
                         New Edge Lab
-                      </div>
+                      </motion.div>
                       
                       <h3 className="text-3xl font-bold text-white mb-4">LAB</h3>
-                      <p className="text-lg text-white mb-6 leading-relaxed">
+                      <p className="text-lg text-white mb-6 leading-relaxed flex-1">
                         Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
                       </p>
                       <ul className="space-y-3 text-gray-100 mb-8 text-left">
@@ -508,7 +510,7 @@ const Index = () => {
                     scale: 1.02
                   }} whileTap={{
                     scale: 0.98
-                  }} className="relative z-10">
+                  }} className="relative z-10 mt-auto">
                       <Button onClick={scrollToContact} className="text-black hover:text-gray-800 w-full transition-all duration-300" style={{
                       background: '#FFED00'
                     }}>
