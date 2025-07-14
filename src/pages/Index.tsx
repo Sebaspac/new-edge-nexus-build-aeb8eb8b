@@ -131,7 +131,7 @@ const Index = () => {
               duration: 0.3
             }
           }}>
-              <div className="animate-text-shimmer mt-8">BRAND</div>
+              <div className="animate-text-shimmer mt-16">BRAND</div>
             </motion.div>
             <motion.div initial={{
             rotateX: -90
