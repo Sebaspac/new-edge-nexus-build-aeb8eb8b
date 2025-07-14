@@ -170,7 +170,7 @@ const Services = () => {
             duration: 3,
             repeat: Infinity,
             ease: "linear"
-          }} className="inline-block text-transparent bg-clip-text text-8xl md:text-9xl font-black tracking-tight animate-text-shimmer">
+          }} className="inline-block text-transparent bg-clip-text text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight animate-text-shimmer">
               THE
             </motion.div>
             <br />
@@ -181,7 +181,7 @@ const Services = () => {
           }} transition={{
             delay: 0.5,
             duration: 0.8
-          }} className="text-8xl md:text-9xl font-black text-white italic mb-4">
+          }} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white italic mb-4">
               JOURNEY
             </motion.div>
             <motion.div initial={{
@@ -193,7 +193,7 @@ const Services = () => {
           }} transition={{
             delay: 1,
             duration: 0.8
-          }} className="text-4xl md:text-6xl text-gray-400 font-light">
+          }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-400 font-light">
               FROM VISION TO REALITY
             </motion.div>
           </motion.div>
@@ -205,7 +205,7 @@ const Services = () => {
         }} transition={{
           delay: 1.5,
           duration: 0.8
-        }} className="md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed text-xl">
+        }} className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
             Wir begleiten Sie auf einer strukturierten Reise von der ersten Idee bis zur finalen Implementierung.
             <br />
             <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">For strategy. aesthetics. &amp; tech.</span>
