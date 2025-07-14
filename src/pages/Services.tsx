@@ -405,7 +405,7 @@ const Services = () => {
               delay: 0.4
             }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-white/[0.02] backdrop-blur-xl border border-white/10 shadow-2xl hover:shadow-white/5 transition-all duration-700 rounded-3xl overflow-hidden">
-                  <CardContent className="p-10 text-center relative bg-yellow-300 px-[10px] py-[20px]">
+                  <CardContent className="p-10 text-center relative bg-yellow-300">
                     <motion.div animate={hoveredCard === 'lab' ? {
                     opacity: [0.02, 0.05, 0.02]
                   } : {}} transition={{
