@@ -258,8 +258,10 @@ const Lab = () => {
                       </div>
                       <Button size="lg" className="w-full lg:w-auto text-white text-base sm:text-lg px-8 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
                         background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
-                      }}>
-                        Jetzt entdecken →
+                      }} asChild>
+                        <a href="https://agenthub.newedgebrand.com" target="_blank" rel="noopener noreferrer">
+                          Jetzt entdecken →
+                        </a>
                       </Button>
                     </div>
                     <div className="hidden lg:block">
