@@ -176,6 +176,85 @@ const Lab = () => {
         </div>
       </section>
 
+      {/* New Edge Agent Hub */}
+      <section className="py-16 sm:py-32 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in" style={{ color: '#9F91F8' }}>
+              New Edge Agent Hub
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in px-4">
+              Entdecken Sie unsere KI-gestützten Anwendungen für maximale Effizienz
+            </p>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {/* KI-Helfer App */}
+            <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer">
+              <CardContent className="p-8 text-center">
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110" style={{
+                  background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
+                }}>
+                  <Bot className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-black mb-4">KI-Helfer Workforce</h3>
+                <p className="text-gray-700 leading-relaxed text-sm mb-6">
+                  70 spezialisierte KI-Agenten für Copywriting, HR, Marketing und mehr
+                </p>
+                <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300" style={{
+                  backgroundColor: '#FFED00',
+                  color: '#333333'
+                }}>
+                  Entdecken →
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Automation Studio */}
+            <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{ animationDelay: '0.1s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110" style={{
+                  background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
+                }}>
+                  <Settings className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-black mb-4">Automation Studio</h3>
+                <p className="text-gray-700 leading-relaxed text-sm mb-6">
+                  Workflow-Automatisierung und Prozessoptimierung für Ihr Unternehmen
+                </p>
+                <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300" style={{
+                  backgroundColor: '#FFED00',
+                  color: '#333333'
+                }}>
+                  Bald verfügbar
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Analytics Dashboard */}
+            <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{ animationDelay: '0.2s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110" style={{
+                  background: 'linear-gradient(135deg, #FFED00, #4F97F0)'
+                }}>
+                  <Activity className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-black mb-4">Intelligence Hub</h3>
+                <p className="text-gray-700 leading-relaxed text-sm mb-6">
+                  KI-gestützte Analysen und Insights für datengetriebene Entscheidungen
+                </p>
+                <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300" style={{
+                  backgroundColor: '#333333',
+                  color: '#FFED00'
+                }}>
+                  Bald verfügbar
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 sm:py-32 text-black relative overflow-hidden" style={{
       background: `linear-gradient(to right, #FFED00, #FFED00)`
