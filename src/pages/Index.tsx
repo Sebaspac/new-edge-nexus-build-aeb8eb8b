@@ -210,38 +210,27 @@ const Index = () => {
         <motion.div style={{
         y: y2
       }} className="container mx-auto px-6">
-        <motion.div 
-          initial={{
-            opacity: 0,
-            scale: 0.9
-          }} 
-          whileInView={{
-            opacity: 1,
-            scale: 1
-          }} 
-          viewport={{
-            once: true
-          }} 
-          whileHover={{
-            scale: 1.01
-          }} 
-          transition={{
-            duration: 0.8
-          }}
-          style={{
-            scale: useTransform(scrollY, [600, 1400], [1, 0.8]),
-            borderRadius: useTransform(scrollY, [600, 1400], ["24px", "40px"]),
-            opacity: useTransform(scrollY, [600, 1400], [1, 0.7]),
-            willChange: "transform, opacity"
-          }}
-          className="relative h-96 md:h-[500px] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-800 rounded-3xl overflow-hidden flex items-center justify-center group"
-        >
-            <motion.div 
-              className="text-center text-white z-10"
-              style={{
-                opacity: useTransform(scrollY, [600, 900], [1, 0])
-              }}
-            >
+        <motion.div initial={{
+          opacity: 0,
+          scale: 0.9
+        }} whileInView={{
+          opacity: 1,
+          scale: 1
+        }} viewport={{
+          once: true
+        }} whileHover={{
+          scale: 1.01
+        }} transition={{
+          duration: 0.8
+        }} style={{
+          scale: useTransform(scrollY, [600, 1400], [1, 0.8]),
+          borderRadius: useTransform(scrollY, [600, 1400], ["24px", "40px"]),
+          opacity: useTransform(scrollY, [600, 1400], [1, 0.7]),
+          willChange: "transform, opacity"
+        }} className="relative h-96 md:h-[500px] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-800 rounded-3xl overflow-hidden flex items-center justify-center group">
+            <motion.div className="text-center text-white z-10" style={{
+            opacity: useTransform(scrollY, [600, 900], [1, 0])
+          }}>
               <motion.h2 initial={{
               y: 30,
               opacity: 0
@@ -344,8 +333,8 @@ const Index = () => {
                         New Edge Studio
                       </motion.div>
                       
-                      <h3 className="text-3xl font-bold text-white mb-4">STUDIO</h3>
-                      <p className="text-lg text-white mb-6 leading-relaxed flex-1">
+                      
+                      <p className="text-white mb-6 leading-relaxed flex-1 text-xl">
                         Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
                       </p>
                       <ul className="space-y-3 text-gray-100 mb-8 text-left">
@@ -413,8 +402,8 @@ const Index = () => {
                         New Edge Media
                       </motion.div>
                       
-                      <h3 className="text-3xl font-bold text-white mb-4">MEDIA</h3>
-                      <p className="text-lg text-white mb-6 leading-relaxed flex-1">
+                      
+                      <p className="text-white mb-6 leading-relaxed flex-1 text-xl">
                         Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
                       </p>
                       <ul className="space-y-3 text-gray-100 mb-8 text-left">
@@ -485,8 +474,8 @@ const Index = () => {
                         New Edge Lab
                       </motion.div>
                       
-                      <h3 className="text-3xl font-bold text-white mb-4">LAB</h3>
-                      <p className="text-lg text-white mb-6 leading-relaxed flex-1">
+                      
+                      <p className="mb-6 leading-relaxed flex-1 text-xl text-slate-950">
                         Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
                       </p>
                       <ul className="space-y-3 text-gray-100 mb-8 text-left">
