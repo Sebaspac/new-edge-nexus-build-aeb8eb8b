@@ -317,7 +317,7 @@ const Lab = () => {
             <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{ animationDelay: '0.1s' }}>
               <CardContent className="p-8 text-center relative">
                 <div className="absolute top-4 right-4 px-2 py-1 rounded-full text-xs font-bold bg-gray-200 text-gray-600">
-                  Q2 2025
+                  Q4 2025
                 </div>
                 <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110" style={{
                   background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
@@ -337,7 +337,7 @@ const Lab = () => {
             <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{ animationDelay: '0.2s' }}>
               <CardContent className="p-8 text-center relative">
                 <div className="absolute top-4 right-4 px-2 py-1 rounded-full text-xs font-bold bg-gray-200 text-gray-600">
-                  Q3 2025
+                  Q4 2025
                 </div>
                 <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110" style={{
                   background: 'linear-gradient(135deg, #FFED00, #4F97F0)'
