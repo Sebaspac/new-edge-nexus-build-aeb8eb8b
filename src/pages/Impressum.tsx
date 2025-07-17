@@ -61,7 +61,7 @@ const Impressum = () => {
         }}>
             <Card className="bg-gray-900/50 border border-purple-500/20 backdrop-blur-lg mb-12">
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold mb-6 flex items-center">
+                <h2 className="text-xl md:text-2xl font-bold mb-6 flex items-center text-white">
                   <MapPin className="w-6 h-6 mr-3 text-purple-400" />
                   Angaben gemäß § 5 TMG
                 </h2>
