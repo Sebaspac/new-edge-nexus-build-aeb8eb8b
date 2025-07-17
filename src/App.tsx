@@ -9,6 +9,7 @@ import Services from "./pages/Services";
 import Media from "./pages/Media";
 import Studio from "./pages/Studio";
 import Lab from "./pages/Lab";
+import Impressum from "./pages/Impressum";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/media" element={<Media />} />
           <Route path="/studio" element={<Studio />} />
           <Route path="/lab" element={<Lab />} />
+          <Route path="/impressum" element={<Impressum />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

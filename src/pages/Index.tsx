@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import CookieConsent from "@/components/CookieConsent";
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -729,13 +730,16 @@ const Index = () => {
           <div className="border-t border-gray-800 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-xs sm:text-sm">©2024 New Edge. Alle Rechte vorbehalten.</p>
             <div className="flex space-x-4 sm:space-x-6 mt-3 sm:mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">Impressum</a>
-              <a href="#" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">Datenschutz</a>
+              <Link to="/impressum" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">Impressum</Link>
+              <Link to="/impressum" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">Datenschutz</Link>
               <a href="#" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">AGB</a>
             </div>
           </div>
         </div>
       </footer>
+
+      {/* Cookie Consent */}
+      <CookieConsent />
 
       {/* Scroll to Top Button */}
       {showScrollTop && <motion.button initial={{
