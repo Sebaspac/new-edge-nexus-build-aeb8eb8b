@@ -107,7 +107,7 @@ const Impressum = () => {
         }}>
             <Card className="bg-gray-900/50 border border-purple-500/20 backdrop-blur-lg">
               <CardContent className="p-8">
-                  <h2 className="text-3xl font-bold mb-8 flex items-center">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-8 flex items-center text-white">
                     <Shield className="w-8 h-8 mr-3 text-purple-400" />
                     Datenschutzerklärung
                   </h2>
