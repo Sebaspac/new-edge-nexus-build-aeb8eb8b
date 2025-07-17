@@ -59,7 +59,7 @@ const Impressum = () => {
           delay: 0.4,
           duration: 0.6
         }}>
-            <Card className="bg-gradient-to-br from-gray-900/30 to-gray-800/30 border border-purple-500/20 backdrop-blur-lg mb-12">
+            <Card className="bg-gray-900/50 border border-purple-500/20 backdrop-blur-lg mb-12">
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold mb-6 flex items-center">
                   <MapPin className="w-6 h-6 mr-3 text-purple-400" />
@@ -105,7 +105,7 @@ const Impressum = () => {
           delay: 0.6,
           duration: 0.6
         }}>
-            <Card className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/20 backdrop-blur-lg">
+            <Card className="bg-gray-900/50 border border-purple-500/20 backdrop-blur-lg">
               <CardContent className="p-8">
                   <h2 className="text-3xl font-bold mb-8 flex items-center">
                     <Shield className="w-8 h-8 mr-3 text-purple-400" />
@@ -119,12 +119,12 @@ const Impressum = () => {
                     <p className="mb-4">
                       Verantwortlich für die Verarbeitung personenbezogener Daten im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
                     </p>
-                    <div className="bg-black/20 p-4 rounded-lg">
+                    <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
                       <p>New Edge </p>
                       <p>c/o Creative Space</p>
                       <p>Koppenstr. 82</p>
                       <p>10243 Berlin</p>
-                      <p>E-Mail: <a href="mailto:info@newedgebrand.com" className="text-blue-400 hover:text-blue-300">info@newedgebrand.com</a></p>
+                      <p>E-Mail: <a href="mailto:info@newedgebrand.com" className="text-purple-400 hover:text-purple-300">info@newedgebrand.com</a></p>
                     </div>
                   </div>
 
@@ -199,7 +199,7 @@ const Impressum = () => {
                       <li>Datenübertragbarkeit</li>
                     </ul>
                     <p>
-                      Bitte richten Sie Ihre Anfrage per E-Mail an: <a href="mailto:info@newedgebrand.com" className="text-blue-400 hover:text-blue-300">info@newedgebrand.com</a>
+                      Bitte richten Sie Ihre Anfrage per E-Mail an: <a href="mailto:info@newedgebrand.com" className="text-purple-400 hover:text-purple-300">info@newedgebrand.com</a>
                     </p>
                   </div>
 
