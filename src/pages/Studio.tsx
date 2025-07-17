@@ -80,7 +80,7 @@ const Studio = () => {
           }}>
               STUDIO liefert das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
               <br className="hidden sm:block" />
-              <span className="text-purple-600 font-medium">Für eine reibungslose Umsetzung in MEDIA & LAB</span>
+              <span className="text-purple-600 font-medium"> Für eine reibungslose Umsetzung in MEDIA & LAB</span>
             </p>
             
             <div className="animate-fade-in flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4" style={{
