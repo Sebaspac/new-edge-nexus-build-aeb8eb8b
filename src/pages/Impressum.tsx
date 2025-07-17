@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Mail, MapPin, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
 const Impressum = () => {
-  return (
-    <div className="min-h-screen bg-black text-white">
+  return <div className="min-h-screen bg-black text-white">
       {/* Header */}
-      <motion.header 
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="container mx-auto px-6 py-8"
-      >
+      <motion.header initial={{
+      opacity: 0,
+      y: -20
+    }} animate={{
+      opacity: 1,
+      y: 0
+    }} className="container mx-auto px-6 py-8">
         <Link to="/">
           <Button variant="ghost" className="text-purple-400 hover:text-purple-300 mb-8">
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -23,30 +23,42 @@ const Impressum = () => {
 
       {/* Main Content */}
       <main className="container mx-auto px-6 pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.8
+      }} className="max-w-4xl mx-auto">
           {/* Title */}
-          <motion.h1 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-4xl md:text-6xl font-black mb-16 text-center"
-          >
+          <motion.h1 initial={{
+          opacity: 0,
+          scale: 0.9
+        }} animate={{
+          opacity: 1,
+          scale: 1
+        }} transition={{
+          delay: 0.2,
+          duration: 0.6
+        }} className="text-4xl md:text-6xl font-black mb-16 text-center">
             <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent">
               Impressum
             </span>
           </motion.h1>
 
           {/* Impressum Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          delay: 0.4,
+          duration: 0.6
+        }}>
             <Card className="bg-gradient-to-br from-gray-900/30 to-gray-800/30 border border-purple-500/20 backdrop-blur-lg mb-12">
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold mb-6 flex items-center">
@@ -58,8 +70,8 @@ const Impressum = () => {
                   <div>
                     <p className="font-semibold text-white">New Edge</p>
                     <p>c/o Creative Space</p>
-                    <p>Torstraße 111</p>
-                    <p>10119 Berlin</p>
+                    <p>Koppenstr. 82</p>
+                    <p>10243 Berlin</p>
                     <p>Deutschland</p>
                   </div>
                   
@@ -83,11 +95,16 @@ const Impressum = () => {
           </motion.div>
 
           {/* Datenschutzerklärung */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          delay: 0.6,
+          duration: 0.6
+        }}>
             <Card className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/20 backdrop-blur-lg">
               <CardContent className="p-8">
                 <h2 className="text-3xl font-bold mb-8 flex items-center">
@@ -199,8 +216,6 @@ const Impressum = () => {
           </motion.div>
         </motion.div>
       </main>
-    </div>
-  );
+    </div>;
 };
-
 export default Impressum;
