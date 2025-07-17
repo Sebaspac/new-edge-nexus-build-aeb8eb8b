@@ -731,8 +731,8 @@ const Index = () => {
             <p className="text-gray-400 text-xs sm:text-sm">©2024 New Edge. Alle Rechte vorbehalten.</p>
             <div className="flex space-x-4 sm:space-x-6 mt-3 sm:mt-4 md:mt-0">
               <Link to="/impressum" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">Impressum</Link>
-              <Link to="/impressum" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">Datenschutz</Link>
-              <a href="#" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">AGB</a>
+              
+              
             </div>
           </div>
         </div>
