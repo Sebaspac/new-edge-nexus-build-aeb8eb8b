@@ -135,11 +135,7 @@ const Services = () => {
     }
   };
   return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
-      <SEO 
-        title="Services - New Edge Creative Tech Studio"
-        description="Entdecke unsere Services: KI-basierte Marketinglösungen, Brand Development und innovative Tech-Lösungen."
-        canonical="https://www.newedgebrand.com/services"
-      />
+      <SEO title="Services - New Edge Creative Tech Studio" description="Entdecke unsere Services: KI-basierte Marketinglösungen, Brand Development und innovative Tech-Lösungen." canonical="https://www.newedgebrand.com/services" />
       {/* 3D Background Canvas */}
       <div className="fixed inset-0 z-0">
         <Canvas camera={{
@@ -289,7 +285,7 @@ const Services = () => {
                     {/* Service Tag */}
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block text-purple-400 px-4 sm:px-6 py-2 rounded-full text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 tracking-wider">
+                  }} className="inline-block text-purple-400 px-4 sm:px-6 py-2 rounded-full text-base sm:text-lg font-semibold mb-6 sm:mb-8 tracking-wider">
                       NEW EDGE STUDIO
                     </motion.div>
                     
@@ -343,7 +339,7 @@ const Services = () => {
                   <CardContent className="p-6 sm:p-8 lg:p-10 text-center relative h-full flex flex-col">
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block text-blue-400 px-4 sm:px-6 py-2 rounded-full text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 tracking-wider">
+                  }} className="inline-block text-blue-400 px-4 sm:px-6 py-2 rounded-full text-base sm:text-lg font-semibold mb-6 sm:mb-8 tracking-wider">
                       NEW EDGE MEDIA
                     </motion.div>
                     
@@ -397,7 +393,7 @@ const Services = () => {
                   <CardContent className="p-6 sm:p-8 lg:p-10 text-center relative h-full flex flex-col">
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block text-yellow-400 px-4 sm:px-6 py-2 rounded-full text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 tracking-wider">
+                  }} className="inline-block text-yellow-400 px-4 sm:px-6 py-2 rounded-full text-base sm:text-lg font-semibold mb-6 sm:mb-8 tracking-wider">
                       NEW EDGE LAB
                     </motion.div>
                     
@@ -776,9 +772,7 @@ const Services = () => {
           once: true
         }} transition={{
           delay: 0.3
-        }} className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed text-gray-200">
-            Lassen Sie uns gemeinsam Ihre Vision Schritt für Schritt zur Realität werden.
-          </motion.p>
+        }} className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed text-gray-200">Lassen Sie uns gemeinsam Ihre Vision Schritt für Schritt zur Realität werden</motion.p>
           <motion.div whileHover={{
           scale: 1.1
         }} whileTap={{
