@@ -491,6 +491,107 @@ const Index = () => {
           </div>
         </div>
       </section>
+    // components/NetworkSection.jsx
+'use client';
+
+import { motion } from 'framer-motion';
+
+const NetworkSection = () => {
+  return (
+    <section className="py-20 bg-gradient-to-b from-black to-gray-900">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-8">
+            Unser Netzwerk
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+            Starke Partner für{' '}
+            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              starke Ergebnisse
+            </span>
+          </h2>
+        </motion.div>
+
+        {/* Animated SVG lines */}
+        <motion.svg className="w-full h-40 mb-16" viewBox="0 0 600 250" fill="none">
+          <motion.path
+            d="M50,50 Q150,100 250,50 T450,100"
+            stroke="url(#gradient1)"
+            strokeWidth="2"
+            fill="none"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.path
+            d="M100,150 Q200,200 300,150 T500,200"
+            stroke="url(#gradient2)"
+            strokeWidth="2"
+            fill="none"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 2.5, delay: 0.5, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.path
+            d="M150,80 Q250,130 350,80 T550,130"
+            stroke="url(#gradient3)"
+            strokeWidth="2"
+            fill="none"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 4, delay: 1, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <defs>
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.8" />
+            </linearGradient>
+            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.8" />
+            </linearGradient>
+            <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#eab308" stopOpacity="0.8" />
+            </linearGradient>
+          </defs>
+        </motion.svg>
+
+        {/* Node grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12 text-white">
+          {[
+            { label: 'Coaches', value: 10, color: 'blue' },
+            { label: 'Creative Agencys', value: 3, color: 'purple' },
+            { label: 'Entwickler', value: 3, color: 'cyan' },
+            { label: 'Länder', value: 4, color: 'yellow' },
+            { label: 'Sprachen', value: 5, color: 'green' },
+          ].map(({ label, value, color }, i) => (
+            <motion.div
+              key={i}
+              className="text-center"
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
+              <div className={`w-16 h-16 mx-auto bg-${color}-500/20 border-2 border-${color}-400 rounded-full flex items-center justify-center mb-2 backdrop-blur-sm`}>
+                <div className={`w-8 h-8 bg-${color}-400 rounded-full animate-pulse`}></div>
+              </div>
+              <div className={`text-3xl font-bold text-${color}-400 mb-1`}>{value}</div>
+              <div className="text-sm font-medium text-gray-300">{label}</div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default NetworkSection;
 
       {/* Unternehmensvorteile Section */}
       <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
