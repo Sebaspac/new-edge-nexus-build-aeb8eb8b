@@ -278,14 +278,14 @@ const Services = () => {
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
+            <div className="grid lg:grid-cols-3 gap-12 lg:gap-8 items-stretch">
               
               {/* Studio Card - Apple Style */}
               <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
               once: true
             }} onHoverStart={() => setHoveredCard('studio')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-transparent border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 rounded-3xl">
-                  <CardContent className="p-10 text-center relative">
+                <Card className="bg-transparent border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 rounded-3xl h-full">
+                  <CardContent className="p-10 text-center relative h-full flex flex-col">
                     {/* Service Tag */}
                     <motion.div whileHover={{
                     scale: 1.02
@@ -301,7 +301,7 @@ const Services = () => {
                     <p className="text-lg mb-6 leading-relaxed font-light text-gray-200">
                       Ihre Ideen, unsere Strategie
                     </p>
-                    <p className="text-sm leading-relaxed mb-10 max-w-sm mx-auto text-gray-300">
+                    <p className="text-sm leading-relaxed mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
@@ -339,8 +339,8 @@ const Services = () => {
             }} transition={{
               delay: 0.2
             }} onHoverStart={() => setHoveredCard('media')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-transparent border-2 border-blue-500 hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 rounded-3xl">
-                  <CardContent className="p-10 text-center relative">
+                <Card className="bg-transparent border-2 border-blue-500 hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 rounded-3xl h-full">
+                  <CardContent className="p-10 text-center relative h-full flex flex-col">
                     <motion.div whileHover={{
                     scale: 1.02
                   }} className="inline-block text-blue-400 px-6 py-2 rounded-full text-lg font-semibold mb-8 tracking-wider">
@@ -354,7 +354,7 @@ const Services = () => {
                     <p className="text-lg mb-6 leading-relaxed font-light text-gray-200">
                       Die perfekte Bühne für Ihre Marke
                     </p>
-                    <p className="text-sm leading-relaxed mb-10 max-w-sm mx-auto text-gray-300">
+                    <p className="text-sm leading-relaxed mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
                       Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
                     </p>
                     
@@ -393,8 +393,8 @@ const Services = () => {
             }} transition={{
               delay: 0.4
             }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-transparent border-2 border-yellow-500 hover:border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/20 rounded-3xl">
-                  <CardContent className="p-10 text-center relative">
+                <Card className="bg-transparent border-2 border-yellow-500 hover:border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/20 rounded-3xl h-full">
+                  <CardContent className="p-10 text-center relative h-full flex flex-col">
                     <motion.div whileHover={{
                     scale: 1.02
                   }} className="inline-block text-yellow-400 px-6 py-2 rounded-full text-lg font-semibold mb-8 tracking-wider">
@@ -408,7 +408,7 @@ const Services = () => {
                     <p className="text-lg mb-6 leading-relaxed font-light text-gray-200">
                       Die perfekte Schnittstelle für Strategie & Technologie
                     </p>
-                    <p className="text-sm leading-relaxed mb-10 max-w-sm mx-auto text-gray-300">
+                    <p className="text-sm leading-relaxed mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
                     
