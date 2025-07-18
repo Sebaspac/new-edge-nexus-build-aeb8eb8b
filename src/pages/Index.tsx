@@ -325,7 +325,7 @@ const Index = () => {
           }}>
               <Card className="bg-transparent border-2 border-purple-500 h-full hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20">
                 <CardContent className="p-8 text-center">
-                  <div className="text-purple-400 text-sm font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
+                  <div className="text-purple-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
                   <p className="text-gray-200 leading-relaxed">
                     Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme — für Marken, die funktionieren und wachsen.
                   </p>
@@ -348,7 +348,7 @@ const Index = () => {
           }}>
               <Card className="bg-transparent border-2 border-blue-500 h-full hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20">
                 <CardContent className="p-8 text-center">
-                  <div className="text-blue-400 text-sm font-semibold mb-4 tracking-wider">UNSERE VISION</div>
+                  <div className="text-blue-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSERE VISION</div>
                   <p className="text-gray-200 leading-relaxed">
                     Wir gestalten eine neue Generation von Marken: automatisiert, strukturiert und sichtbar.
                   </p>
@@ -371,7 +371,7 @@ const Index = () => {
           }}>
               <Card className="bg-transparent border-2 border-yellow-500 h-full hover:border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/20">
                 <CardContent className="p-8 text-center">
-                  <div className="text-yellow-400 text-sm font-semibold mb-4 tracking-wider">UNSER ZIEL</div>
+                  <div className="text-yellow-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSER ZIEL</div>
                   <p className="text-gray-200 leading-relaxed">
                     Menschen und Unternehmen den Zugang zu Innovation bieten für einfachere und effektivere Abläufe.
                   </p>
@@ -626,13 +626,17 @@ const Index = () => {
       {/* Network Section */}
       <section className="py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Unser <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Netzwerk</span>
             </h2>
@@ -677,9 +681,11 @@ const Index = () => {
                   <CardContent className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     
                     <div className="relative z-10 flex-1 flex flex-col">
-                      <motion.div className="inline-block bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-semibold mb-4" whileHover={{
-                      scale: 1.05
-                    }}>New Edge Studio</motion.div>
+                      <Link to="/studio">
+                        <motion.div whileHover={{
+                        scale: 1.05
+                      }} className="inline-block bg-purple-600 text-white py-3 rounded-lg text-base font-semibold mb-4 px-4 cursor-pointer hover:bg-purple-700 transition-colors">New Edge Studio</motion.div>
+                      </Link>
                       
                       <p className="text-white mb-4 leading-relaxed flex-1 text-base">
                         Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
@@ -725,11 +731,13 @@ const Index = () => {
                   <CardContent className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     
                     <div className="relative z-10 flex-1 flex flex-col">
-                      <motion.div className="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold mb-4" whileHover={{
-                      scale: 1.05
-                    }}>
-                        New Edge Media
-                      </motion.div>
+                      <Link to="/media">
+                        <motion.div className="inline-block bg-blue-600 text-white px-4 py-3 rounded-lg text-base font-semibold mb-4 cursor-pointer hover:bg-blue-700 transition-colors" whileHover={{
+                        scale: 1.05
+                      }}>
+                          New Edge Media
+                        </motion.div>
+                      </Link>
                       
                       <p className="text-white mb-4 leading-relaxed flex-1 text-base">
                         Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
@@ -775,13 +783,15 @@ const Index = () => {
                   <CardContent className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     
                     <div className="relative z-10 flex-1 flex flex-col">
-                      <motion.div className="inline-block text-black px-4 py-2 rounded-lg text-sm font-semibold mb-4" style={{
-                      background: '#FFED00'
-                    }} whileHover={{
-                      scale: 1.05
-                    }}>
-                        New Edge Lab
-                      </motion.div>
+                      <Link to="/lab">
+                        <motion.div className="inline-block text-black px-4 py-3 rounded-lg text-base font-semibold mb-4 cursor-pointer hover:bg-yellow-400 transition-colors" style={{
+                        background: '#FFED00'
+                      }} whileHover={{
+                        scale: 1.05
+                      }}>
+                          New Edge Lab
+                        </motion.div>
+                      </Link>
                       
                       <p className="mb-4 leading-relaxed flex-1 text-base text-white">
                         Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
@@ -1006,7 +1016,7 @@ const Index = () => {
                   New Edge<span className="text-purple-400"></span>
                 </div>
               </div>
-              <p className="text-gray-400 mb-4 sm:mb-6 max-w-md text-sm sm:text-base">New Edge ist eine Creative-Agentur für innovative Markenkommunikation. </p>
+              <p className="text-gray-400 mb-4 sm:mb-6 max-w-md text-sm sm:text-base">New Edge ist ein Creative-Tech-Studio für zukunftsorientierte Markenkommunikation. </p>
               <div className="flex space-x-4">
                 <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
                   <span className="text-xs sm:text-sm">in</span>
