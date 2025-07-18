@@ -78,6 +78,14 @@
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   }
+
+  /* Mobile-optimized touch targets */
+  @media (max-width: 768px) {
+    button, a[role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
 }
 
 /* Custom animations */
@@ -204,6 +212,21 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
+/* Mobile optimized hover effects - disable on touch devices */
+@media (hover: hover) {
+  .hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (hover: none) {
+  .hover-lift:active {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
 /* Gradient backgrounds */
 .gradient-primary {
   background: linear-gradient(135deg, #9f91f8 0%, #4f97f0 100%);
@@ -220,6 +243,24 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Mobile-optimized text sizing */
+@media (max-width: 640px) {
+  .text-hero {
+    font-size: clamp(2rem, 8vw, 4rem);
+    line-height: 1.1;
+  }
+  
+  .text-section-title {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    line-height: 1.2;
+  }
+  
+  .text-card-title {
+    font-size: clamp(1.125rem, 4vw, 1.5rem);
+    line-height: 1.3;
+  }
+}
+
 /* Custom scroll behavior */
 html {
   scroll-behavior: smooth;
@@ -233,4 +274,22 @@ html {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Mobile-specific spacing utilities */
+@media (max-width: 640px) {
+  .mobile-px {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .mobile-py {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .mobile-section-py {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 }

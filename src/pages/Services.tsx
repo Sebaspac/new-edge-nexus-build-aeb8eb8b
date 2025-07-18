@@ -155,7 +155,7 @@ const Services = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden pt-20 sm:pt-0">
         <motion.div style={{
         y: y1,
         opacity
@@ -176,7 +176,7 @@ const Services = () => {
             duration: 3,
             repeat: Infinity,
             ease: "linear"
-          }} className="inline-block text-transparent bg-clip-text text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight animate-text-shimmer">
+          }} className="inline-block text-transparent bg-clip-text text-hero sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight animate-text-shimmer">
               THE
             </motion.div>
             <br />
@@ -187,7 +187,7 @@ const Services = () => {
           }} transition={{
             delay: 0.5,
             duration: 0.8
-          }} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white italic mb-4">
+          }} className="text-hero sm:text-6xl md:text-7xl lg:text-8xl font-black text-white italic mb-4">
               JOURNEY
             </motion.div>
             <motion.div initial={{
@@ -199,7 +199,7 @@ const Services = () => {
           }} transition={{
             delay: 1,
             duration: 0.8
-          }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-400 font-light">
+          }} className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-400 font-light">
               FROM VISION TO REALITY
             </motion.div>
           </motion.div>
@@ -211,7 +211,7 @@ const Services = () => {
         }} transition={{
           delay: 1.5,
           duration: 0.8
-        }} className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
+        }} className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto font-light leading-relaxed">
             Wir begleiten Sie auf einer strukturierten Reise von der ersten Idee bis zur finalen Implementierung.
             <br />
             <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">For strategy. aesthetics. &amp; tech.</span>
@@ -251,10 +251,10 @@ const Services = () => {
       </section>
 
       {/* Services Overview Section */}
-      <section className="services-overview relative py-32 bg-gradient-to-b from-black via-gray-900 to-black">
+      <section className="services-overview relative py-20 sm:py-24 md:py-32 bg-gradient-to-b from-black via-gray-900 to-black">
         <motion.div style={{
         y: y2
-      }} className="container mx-auto px-6">
+      }} className="container mx-auto px-4 sm:px-6">
           <motion.div initial={{
           opacity: 0,
           y: 50
@@ -274,34 +274,34 @@ const Services = () => {
           }} className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12 animate-glow-pulse">
               Key Activities
             </motion.div>
-            <h2 className="text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
+            <h2 className="text-section-title sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-3 gap-12 lg:gap-8 items-stretch">
+            <div className="grid lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-8 items-stretch">
               
               {/* Studio Card - Apple Style */}
               <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
               once: true
             }} onHoverStart={() => setHoveredCard('studio')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-transparent border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 rounded-3xl h-full">
-                  <CardContent className="p-10 text-center relative h-full flex flex-col">
+                  <CardContent className="p-6 sm:p-8 lg:p-10 text-center relative h-full flex flex-col">
                     {/* Service Tag */}
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block text-purple-400 px-6 py-2 rounded-full text-lg font-semibold mb-8 tracking-wider">
+                  }} className="inline-block text-purple-400 px-4 sm:px-6 py-2 rounded-full text-base sm:text-lg font-semibold mb-6 sm:mb-8 tracking-wider">
                       NEW EDGE STUDIO
                     </motion.div>
                     
                     {/* Icon */}
-                    <motion.div variants={iconVariants} whileHover="hover" className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                      <Palette className="w-8 h-8 text-purple-400" />
+                    <motion.div variants={iconVariants} whileHover="hover" className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8">
+                      <Palette className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
                     </motion.div>
                     
-                    <p className="text-lg mb-6 leading-relaxed font-light text-gray-200">
+                    <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
                       Ihre Ideen, unsere Strategie
                     </p>
-                    <p className="text-sm leading-relaxed mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
+                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
@@ -310,7 +310,7 @@ const Services = () => {
                   }} whileTap={{
                     scale: 0.98
                   }}>
-                      <Button className="bg-transparent border border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white w-full rounded-xl py-3 font-medium transition-all duration-300" asChild>
+                      <Button className="bg-transparent border border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white w-full rounded-xl py-3 sm:py-4 font-medium transition-all duration-300 text-sm sm:text-base" asChild>
                         <Link to="/studio">
                           Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
@@ -340,21 +340,21 @@ const Services = () => {
               delay: 0.2
             }} onHoverStart={() => setHoveredCard('media')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-transparent border-2 border-blue-500 hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 rounded-3xl h-full">
-                  <CardContent className="p-10 text-center relative h-full flex flex-col">
+                  <CardContent className="p-6 sm:p-8 lg:p-10 text-center relative h-full flex flex-col">
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block text-blue-400 px-6 py-2 rounded-full text-lg font-semibold mb-8 tracking-wider">
+                  }} className="inline-block text-blue-400 px-4 sm:px-6 py-2 rounded-full text-base sm:text-lg font-semibold mb-6 sm:mb-8 tracking-wider">
                       NEW EDGE MEDIA
                     </motion.div>
                     
-                    <motion.div variants={iconVariants} whileHover="hover" className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                      <Video className="w-8 h-8 text-blue-400" />
+                    <motion.div variants={iconVariants} whileHover="hover" className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8">
+                      <Video className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
                     </motion.div>
                     
-                    <p className="text-lg mb-6 leading-relaxed font-light text-gray-200">
+                    <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
                       Die perfekte Bühne für Ihre Marke
                     </p>
-                    <p className="text-sm leading-relaxed mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
+                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
                       Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
                     </p>
                     
@@ -363,7 +363,7 @@ const Services = () => {
                   }} whileTap={{
                     scale: 0.98
                   }}>
-                      <Button className="bg-transparent border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white w-full rounded-xl py-3 font-medium transition-all duration-300" asChild>
+                      <Button className="bg-transparent border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white w-full rounded-xl py-3 sm:py-4 font-medium transition-all duration-300 text-sm sm:text-base" asChild>
                         <Link to="/media">
                           Content erstellen <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
@@ -394,21 +394,21 @@ const Services = () => {
               delay: 0.4
             }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
                 <Card className="bg-transparent border-2 border-yellow-500 hover:border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/20 rounded-3xl h-full">
-                  <CardContent className="p-10 text-center relative h-full flex flex-col">
+                  <CardContent className="p-6 sm:p-8 lg:p-10 text-center relative h-full flex flex-col">
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block text-yellow-400 px-6 py-2 rounded-full text-lg font-semibold mb-8 tracking-wider">
+                  }} className="inline-block text-yellow-400 px-4 sm:px-6 py-2 rounded-full text-base sm:text-lg font-semibold mb-6 sm:mb-8 tracking-wider">
                       NEW EDGE LAB
                     </motion.div>
                     
-                    <motion.div variants={iconVariants} whileHover="hover" className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                      <Cpu className="w-8 h-8 text-yellow-400" />
+                    <motion.div variants={iconVariants} whileHover="hover" className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8">
+                      <Cpu className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" />
                     </motion.div>
                     
-                    <p className="text-lg mb-6 leading-relaxed font-light text-gray-200">
+                    <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
                       Die perfekte Schnittstelle für Strategie & Technologie
                     </p>
-                    <p className="text-sm leading-relaxed mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
+                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
                     
@@ -417,7 +417,7 @@ const Services = () => {
                   }} whileTap={{
                     scale: 0.98
                   }}>
-                      <Button className="bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white w-full rounded-xl py-3 font-medium transition-all duration-300" asChild>
+                      <Button className="bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white w-full rounded-xl py-3 sm:py-4 font-medium transition-all duration-300 text-sm sm:text-base" asChild>
                         <Link to="/lab">
                           Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>

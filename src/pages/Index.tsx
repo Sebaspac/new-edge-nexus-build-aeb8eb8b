@@ -109,7 +109,7 @@ const Index = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden pt-20 sm:pt-0">
         <motion.div style={{
         y: y1,
         opacity
@@ -123,8 +123,8 @@ const Index = () => {
         }} transition={{
           duration: 1,
           ease: "easeOut"
-        }} className="mb-6 sm:mb-8 md:mb-12">
-            <motion.div className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black tracking-tight mb-2 sm:mb-3 md:mb-4 relative" style={{
+        }} className="mb-8 sm:mb-12 md:mb-16">
+            <motion.div className="text-hero sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black tracking-tight mb-2 sm:mb-3 md:mb-4 relative" style={{
             background: "linear-gradient(45deg, #9f91f8, #4f97f0, #FFED00)",
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
@@ -135,7 +135,7 @@ const Index = () => {
               duration: 0.3
             }
           }}>
-              <div className="animate-text-shimmer mt-16">BRAND</div>
+              <div className="animate-text-shimmer pt-4 sm:pt-8 md:pt-16">BRAND</div>
             </motion.div>
             <motion.div initial={{
             rotateX: -90
@@ -144,7 +144,7 @@ const Index = () => {
           }} transition={{
             delay: 0.3,
             duration: 0.8
-          }} className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black text-white italic mb-2 sm:mb-3 md:mb-4">
+          }} className="text-hero sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black text-white italic mb-2 sm:mb-3 md:mb-4">
               INTELLIGENCE
             </motion.div>
             <motion.div initial={{
@@ -156,7 +156,7 @@ const Index = () => {
           }} transition={{
             delay: 0.4,
             duration: 0.8
-          }} className="text-lg sm:text-xl md:text-2xl lg:text-4xl xl:text-6xl text-gray-400 font-light">
+          }} className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-400 font-light">
               FOR THE DIGITAL AGE
             </motion.div>
           </motion.div>
@@ -168,7 +168,7 @@ const Index = () => {
         }} transition={{
           delay: 0.6,
           duration: 0.8
-        }} className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-6 sm:mb-8 md:mb-10 max-w-4xl mx-auto font-light leading-relaxed px-4">
+        }} className="text-base sm:text-lg md:text-xl lg:text-xl text-gray-300 mb-8 sm:mb-12 md:mb-16 max-w-4xl mx-auto font-light leading-relaxed px-4">
             Wir verwandeln Visionen in digitale Realitäten durch intelligente Strategien, 
             überzeugende Inhalte und innovative Technologien.
             <br className="hidden sm:block" />
@@ -182,7 +182,7 @@ const Index = () => {
           duration: 2,
           repeat: Infinity,
           ease: "easeInOut"
-        }} className="flex justify-center w-full mt-16 sm:mt-20 md:mt-24 mb-8" onClick={() => {
+        }} className="flex justify-center w-full mt-12 sm:mt-16 md:mt-20 mb-8" onClick={() => {
           const nextSection = document.querySelector('.visual-section');
           nextSection?.scrollIntoView({
             behavior: 'smooth'
@@ -210,7 +210,7 @@ const Index = () => {
       </section>
 
       {/* Visual Section */}
-      <section className="visual-section py-20 bg-gradient-to-b from-black to-gray-900 relative">
+      <section className="visual-section py-16 sm:py-20 bg-gradient-to-b from-black to-gray-900 relative">
         <motion.div style={{
         y: y2
       }} className="container mx-auto px-6">
@@ -231,7 +231,7 @@ const Index = () => {
           borderRadius: useTransform(scrollY, [600, 1400], ["24px", "40px"]),
           opacity: useTransform(scrollY, [600, 1400], [1, 0.7]),
           willChange: "transform, opacity"
-        }} className="relative h-96 md:h-[500px] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-800 rounded-3xl overflow-hidden flex items-center justify-center group">
+        }} className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-800 rounded-2xl sm:rounded-3xl overflow-hidden flex items-center justify-center group">
             <motion.div className="text-center text-white z-10" style={{
             opacity: useTransform(scrollY, [600, 900], [1, 0])
           }}>
@@ -246,12 +246,12 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.6
-            }} className="text-4xl md:text-6xl font-black mb-4">
+            }} className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-black mb-4">
                 <span className="inline-block">STRATEGIE </span>
                 <br />
-                <span className="text-5xl md:text-7xl bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent font-black inline-block">ON-POINT</span>
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent font-black inline-block">ON-POINT</span>
                 <br />
-                <span className="text-4xl md:text-6xl inline-block">CREATIVE TECH</span>
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl inline-block">CREATIVE TECH</span>
               </motion.h2>
             </motion.div>
           </motion.div>
@@ -259,7 +259,7 @@ const Index = () => {
       </section>
 
       {/* Mission Statement */}
-      <section className="py-16 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-12 sm:py-16 bg-gradient-to-b from-gray-900 to-black">
         <motion.div initial={{
         opacity: 0,
         y: 30
@@ -270,8 +270,8 @@ const Index = () => {
         once: true
       }} transition={{
         duration: 0.8
-      }} className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 max-w-4xl mx-auto leading-tight">
+      }} className="container mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-section-title sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 max-w-4xl mx-auto leading-tight">
             <span className="inline-block">Innovation voranbringen durch </span>
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> intelligente Automatisierung</span>
           </h2>
@@ -284,7 +284,7 @@ const Index = () => {
         }} transition={{
           delay: 0.3,
           duration: 0.8
-        }} className="text-xl text-gray-300 max-w-3xl mx-auto">
+        }} className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
             Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme – für Marken, die funktionieren und wachsen.
           </motion.p>
         </motion.div>
