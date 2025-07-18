@@ -322,10 +322,10 @@ const Index = () => {
             delay: 0.1,
             duration: 0.6
           }}>
-              <Card className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-purple-500/30 h-full">
+              <Card className="bg-gradient-to-br from-purple-800/30 to-blue-800/30 border border-purple-700/50 h-full">
                 <CardContent className="p-8 text-center">
-                  <div className="text-purple-400 text-sm font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
-                  <p className="text-white leading-relaxed">
+                  <div className="text-purple-300 text-sm font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
+                  <p className="text-gray-200 leading-relaxed">
                     Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme — für Marken, die funktionieren und wachsen.
                   </p>
                 </CardContent>
