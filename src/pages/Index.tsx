@@ -103,11 +103,7 @@ const Index = () => {
     }
   };
   return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
-      <SEO 
-        title="New Edge - Creative Tech Studio"
-        description="New Edge - where brand meets intelligence. Creative-Tech-Studio für KI-basierte Marketinglösungen."
-        canonical="https://www.newedgebrand.com/"
-      />
+      <SEO title="New Edge - Creative Tech Studio" description="New Edge - where brand meets intelligence. Creative-Tech-Studio für KI-basierte Marketinglösungen." canonical="https://www.newedgebrand.com/" />
       {/* Mobile Navigation */}
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
@@ -330,9 +326,7 @@ const Index = () => {
                     <div className="relative z-10 flex-1 flex flex-col">
                       <motion.div className="inline-block bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-semibold mb-4" whileHover={{
                       scale: 1.05
-                    }}>
-                        New Edge Studio
-                      </motion.div>
+                    }}>New Edge Studio</motion.div>
                       
                       <p className="text-white mb-4 leading-relaxed flex-1 text-base">
                         Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
