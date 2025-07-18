@@ -868,7 +868,9 @@ const Index = () => {
               <h2 className="text-4xl font-bold mb-4 text-white">
                 Bereit für den nächsten <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Schritt?</span>
               </h2>
-              <p className="text-xl text-gray-300">Lassen Sie uns über Ihr Projekt sprechen</p>
+              <p className="text-xl text-gray-300">
+                Lassen Sie uns über Ihr Projekt sprechen.
+              </p>
             </motion.div>
 
             <motion.div initial={{
