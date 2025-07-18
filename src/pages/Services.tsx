@@ -223,7 +223,7 @@ const Services = () => {
         }} transition={{
           duration: 2,
           repeat: Infinity
-        }} className="absolute bottom-32 left-1/2 transform -translate-x-1/2 cursor-pointer z-20" onClick={() => {
+        }} className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer z-20" onClick={() => {
           const nextSection = document.querySelector('.services-overview');
           nextSection?.scrollIntoView({
             behavior: 'smooth'
