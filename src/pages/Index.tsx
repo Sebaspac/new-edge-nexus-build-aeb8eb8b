@@ -12,6 +12,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import CookieConsent from "@/components/CookieConsent";
 import SEO from "@/components/SEO";
+import NetworkVisualization from "@/components/NetworkVisualization";
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -622,23 +623,25 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Network Section */}
+      <section className="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Unser <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Netzwerk</span>
+            </h2>
+          </motion.div>
+          
+          <NetworkVisualization />
+        </div>
+      </section>
 
-import NetworkSection from "@/components/NetworkSection";
-
-export default function Index() {
-  return (
-    <main>
-      {/* ...andere Sections */}
-
-      {/* Netzwerk Section */}
-      <NetworkSection />
-
-      {/* ...weitere Sections */}
-    </main>
-  );
-}
-    
-    
       {/* Services Overview */}
       <section className="services-section relative py-20 bg-gradient-to-b from-black via-gray-900 to-black">
         <motion.div className="container mx-auto px-6">
