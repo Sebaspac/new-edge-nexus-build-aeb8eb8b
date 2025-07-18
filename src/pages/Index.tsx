@@ -352,8 +352,8 @@ const Index = () => {
                   }} whileTap={{
                     scale: 0.98
                   }} className="relative z-10 mt-auto">
-                      <Button onClick={scrollToContact} className="bg-purple-600 text-white hover:bg-purple-700 w-full transition-all duration-300 rounded-lg py-2 text-sm">
-                        Projekt starten <ArrowRight className="ml-2 w-3 h-3" />
+                      <Button onClick={scrollToContact} className="bg-purple-600 text-white hover:bg-purple-700 w-full transition-all duration-300 rounded-lg py-1 text-xs">
+                        Projekt starten <ArrowRight className="ml-1 w-2.5 h-2.5" />
                       </Button>
                     </motion.div>
                   </CardContent>
@@ -402,8 +402,8 @@ const Index = () => {
                   }} whileTap={{
                     scale: 0.98
                   }} className="relative z-10 mt-auto">
-                      <Button onClick={scrollToContact} className="bg-blue-600 text-white hover:bg-blue-700 w-full transition-all duration-300 rounded-lg py-2 text-sm">
-                        Projekt besprechen <ArrowRight className="ml-2 w-3 h-3" />
+                      <Button onClick={scrollToContact} className="bg-blue-600 text-white hover:bg-blue-700 w-full transition-all duration-300 rounded-lg py-1 text-xs">
+                        Projekt besprechen <ArrowRight className="ml-1 w-2.5 h-2.5" />
                       </Button>
                     </motion.div>
                   </CardContent>
@@ -454,10 +454,10 @@ const Index = () => {
                   }} whileTap={{
                     scale: 0.98
                   }} className="relative z-10 mt-auto">
-                      <Button onClick={scrollToContact} className="text-black hover:text-gray-800 w-full transition-all duration-300 rounded-lg py-2 text-sm" style={{
+                      <Button onClick={scrollToContact} className="text-black hover:text-gray-800 w-full transition-all duration-300 rounded-lg py-1 text-xs" style={{
                       background: '#FFED00'
                     }}>
-                        Projekt starten <ArrowRight className="ml-2 w-3 h-3" />
+                        Projekt starten <ArrowRight className="ml-1 w-2.5 h-2.5" />
                       </Button>
                     </motion.div>
                   </CardContent>
