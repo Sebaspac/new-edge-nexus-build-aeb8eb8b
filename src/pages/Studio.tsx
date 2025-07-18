@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, Sparkles, Palette, Monitor, Package, FileImage, Grid3x3, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,6 +7,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import SEO from "@/components/SEO";
 const Studio = () => {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
     x: 0,
@@ -28,7 +29,13 @@ const Studio = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
   const scrollToContact = () => {
-    window.location.href = '/#contact-section';
+    navigate('/', { replace: true });
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact-section');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
   return <div className="min-h-screen bg-white">
       <SEO 
@@ -92,10 +99,12 @@ const Studio = () => {
             <div className="animate-fade-in flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4" style={{
             animationDelay: '1s'
           }}>
-              <Button size="lg" className="w-full sm:w-auto bg-purple-600 text-white hover:bg-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" asChild>
-                <Link to="/#contact-section">
-                  Projekt starten
-                </Link>
+              <Button 
+                size="lg" 
+                className="w-full sm:w-auto bg-purple-600 text-white hover:bg-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4"
+                onClick={scrollToContact}
+              >
+                Projekt starten
               </Button>
               
             </div>
@@ -206,10 +215,12 @@ const Studio = () => {
           <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in px-4">
             Gemeinsam entwickeln wir ein Design, das Ihre Vision zum Leben erweckt und Ihre Zielgruppe begeistert.
           </p>
-          <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" asChild>
-            <Link to="/#contact-section">
-              Design-Projekt starten
-            </Link>
+          <Button 
+            size="lg" 
+            className="bg-white text-purple-600 hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
+            onClick={scrollToContact}
+          >
+            Design-Projekt starten
           </Button>
         </div>
         
