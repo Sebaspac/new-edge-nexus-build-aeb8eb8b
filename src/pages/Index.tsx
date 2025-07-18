@@ -626,17 +626,13 @@ const Index = () => {
       {/* Network Section */}
       <section className="py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="container mx-auto px-6">
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Unser <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Netzwerk</span>
             </h2>
@@ -681,9 +677,9 @@ const Index = () => {
                   <CardContent className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     
                     <div className="relative z-10 flex-1 flex flex-col">
-                      <motion.div whileHover={{
+                      <motion.div className="inline-block bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-semibold mb-4" whileHover={{
                       scale: 1.05
-                    }} className="inline-block bg-purple-600 text-white py-2 rounded-lg text-sm font-semibold mb-4 px-[12px]">New Edge Studio</motion.div>
+                    }}>New Edge Studio</motion.div>
                       
                       <p className="text-white mb-4 leading-relaxed flex-1 text-base">
                         Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
@@ -1010,7 +1006,7 @@ const Index = () => {
                   New Edge<span className="text-purple-400"></span>
                 </div>
               </div>
-              <p className="text-gray-400 mb-4 sm:mb-6 max-w-md text-sm sm:text-base">New Edge ist ein Creative-Tech-Studio für zukunftsorientierte Markenkommunikation. </p>
+              <p className="text-gray-400 mb-4 sm:mb-6 max-w-md text-sm sm:text-base">New Edge ist eine Creative-Agentur für innovative Markenkommunikation. </p>
               <div className="flex space-x-4">
                 <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
                   <span className="text-xs sm:text-sm">in</span>
@@ -1020,7 +1016,7 @@ const Index = () => {
             </div>
             
             <div>
-              <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base">New Edge ist ein Creative-Tech-Studio für zukunftsorientierte Markenkommunikation.</h4>
+              <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base">Services</h4>
               <ul className="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
                 <li><Link to="/studio" className="hover:text-white transition-colors">STUDIO</Link></li>
                 <li><Link to="/media" className="hover:text-white transition-colors">MEDIA</Link></li>
