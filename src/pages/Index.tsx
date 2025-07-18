@@ -783,13 +783,15 @@ const Index = () => {
                   <CardContent className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     
                     <div className="relative z-10 flex-1 flex flex-col">
-                      <motion.div className="inline-block text-black px-4 py-3 rounded-lg text-base font-semibold mb-4" style={{
-                      background: '#FFED00'
-                    }} whileHover={{
-                      scale: 1.05
-                    }}>
-                        New Edge Lab
-                      </motion.div>
+                      <Link to="/lab">
+                        <motion.div className="inline-block text-black px-4 py-3 rounded-lg text-base font-semibold mb-4 cursor-pointer hover:bg-yellow-400 transition-colors" style={{
+                        background: '#FFED00'
+                      }} whileHover={{
+                        scale: 1.05
+                      }}>
+                          New Edge Lab
+                        </motion.div>
+                      </Link>
                       
                       <p className="mb-4 leading-relaxed flex-1 text-base text-white">
                         Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
