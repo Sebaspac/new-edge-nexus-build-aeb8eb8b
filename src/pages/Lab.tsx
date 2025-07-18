@@ -71,11 +71,7 @@ const Lab = () => {
     delay: "0.7s"
   }];
   return <div className="min-h-screen bg-white">
-      <SEO 
-        title="Lab - New Edge Creative Tech Studio"
-        description="Unser Lab: Experimentelle Projekte, Forschung und innovative Technologien im Creative Tech Bereich."
-        canonical="https://www.newedgebrand.com/lab"
-      />
+      <SEO title="Lab - New Edge Creative Tech Studio" description="Unser Lab: Experimentelle Projekte, Forschung und innovative Technologien im Creative Tech Bereich." canonical="https://www.newedgebrand.com/lab" />
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
       {/* Hero Section */}
@@ -197,7 +193,9 @@ const Lab = () => {
       <section className="py-8 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center">
-            <div className="w-1 h-16 mx-auto mb-4" style={{ backgroundColor: '#FFED00' }}></div>
+            <div className="w-1 h-16 mx-auto mb-4" style={{
+            backgroundColor: '#FFED00'
+          }}></div>
             <p className="text-gray-500 font-medium">ZUSÄTZLICH</p>
           </div>
         </div>
@@ -208,19 +206,23 @@ const Lab = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-20">
             <div className="inline-block px-4 py-2 rounded-full shadow-sm mb-6" style={{
-              background: 'linear-gradient(135deg, #9F91F8, #4F97F0)',
-              color: 'white'
-            }}>
+            background: 'linear-gradient(135deg, #9F91F8, #4F97F0)',
+            color: 'white'
+          }}>
               <span className="text-sm font-medium">KI-POWERED SOLUTIONS</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in" style={{ color: '#9F91F8' }}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in" style={{
+            color: '#9F91F8'
+          }}>
               New Edge Agent Hub
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in px-4 mb-8">
               Unsere eigenen KI-Anwendungen – sofort einsatzbereit für maximale Effizienz
             </p>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-50 rounded-full">
-              <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#FFED00' }}></div>
+              <div className="w-2 h-2 rounded-full animate-pulse" style={{
+              backgroundColor: '#FFED00'
+            }}></div>
               <span className="text-sm font-medium text-gray-700">In aktiver Entwicklung</span>
             </div>
           </div>
@@ -230,17 +232,17 @@ const Lab = () => {
             <div className="lg:col-span-3 mb-8">
               <Card className="bg-gradient-to-br from-purple-50 via-blue-50 to-yellow-50 border-2 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-fade-in group cursor-pointer overflow-hidden relative">
                 <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold" style={{
-                  backgroundColor: '#FFED00',
-                  color: '#333333'
-                }}>
+                backgroundColor: '#FFED00',
+                color: '#333333'
+              }}>
                   VERFÜGBAR
                 </div>
                 <CardContent className="p-8 sm:p-12">
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     <div className="text-center lg:text-left">
                       <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12" style={{
-                        background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
-                      }}>
+                      background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
+                    }}>
                         <Bot className="w-12 h-12 text-white" />
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">KI-Helfer Workforce</h3>
@@ -250,24 +252,28 @@ const Lab = () => {
                       </p>
                       <div className="space-y-3 mb-8">
                         <div className="flex items-center justify-center lg:justify-start gap-3">
-                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#4F97F0' }}></div>
+                          <div className="w-2 h-2 rounded-full" style={{
+                          backgroundColor: '#4F97F0'
+                        }}></div>
                           <span className="text-sm text-gray-600">Keine monatlichen Kosten</span>
                         </div>
                         <div className="flex items-center justify-center lg:justify-start gap-3">
-                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#9F91F8' }}></div>
+                          <div className="w-2 h-2 rounded-full" style={{
+                          backgroundColor: '#9F91F8'
+                        }}></div>
                           <span className="text-sm text-gray-600">Sofort einsatzbereit</span>
                         </div>
                         <div className="flex items-center justify-center lg:justify-start gap-3">
-                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#FFED00' }}></div>
+                          <div className="w-2 h-2 rounded-full" style={{
+                          backgroundColor: '#FFED00'
+                        }}></div>
                           <span className="text-sm text-gray-600">80% Rabatt für kurze Zeit</span>
                         </div>
                       </div>
                       <Button size="lg" className="w-full lg:w-auto text-white text-base sm:text-lg px-8 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
-                        background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
-                      }} asChild>
-                        <a href="https://agenthub.newedgebrand.com" target="_blank" rel="noopener noreferrer">
-                          Jetzt entdecken →
-                        </a>
+                      background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
+                    }} asChild>
+                        <a href="https://agenthub.newedgebrand.com" target="_blank" rel="noopener noreferrer">TBD</a>
                       </Button>
                     </div>
                     <div className="hidden lg:block">
@@ -275,8 +281,12 @@ const Lab = () => {
                         <div className="space-y-4">
                           <div className="bg-white p-4 rounded-lg shadow-sm">
                             <div className="flex items-center gap-3 mb-2">
-                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#9F91F820' }}>
-                                <Code className="w-4 h-4" style={{ color: '#9F91F8' }} />
+                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{
+                              backgroundColor: '#9F91F820'
+                            }}>
+                                <Code className="w-4 h-4" style={{
+                                color: '#9F91F8'
+                              }} />
                               </div>
                               <span className="text-sm font-medium">Cody</span>
                             </div>
@@ -284,8 +294,12 @@ const Lab = () => {
                           </div>
                           <div className="bg-white p-4 rounded-lg shadow-sm">
                             <div className="flex items-center gap-3 mb-2">
-                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#4F97F020' }}>
-                                <BarChart3 className="w-4 h-4" style={{ color: '#4F97F0' }} />
+                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{
+                              backgroundColor: '#4F97F020'
+                            }}>
+                                <BarChart3 className="w-4 h-4" style={{
+                                color: '#4F97F0'
+                              }} />
                               </div>
                               <span className="text-sm font-medium">Inti</span>
                             </div>
@@ -295,8 +309,12 @@ const Lab = () => {
                         <div className="space-y-4 mt-8">
                           <div className="bg-white p-4 rounded-lg shadow-sm">
                             <div className="flex items-center gap-3 mb-2">
-                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#FFED0020' }}>
-                                <Globe className="w-4 h-4" style={{ color: '#FFED00' }} />
+                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{
+                              backgroundColor: '#FFED0020'
+                            }}>
+                                <Globe className="w-4 h-4" style={{
+                                color: '#FFED00'
+                              }} />
                               </div>
                               <span className="text-sm font-medium">Dimarko</span>
                             </div>
@@ -304,8 +322,12 @@ const Lab = () => {
                           </div>
                           <div className="bg-white p-4 rounded-lg shadow-sm">
                             <div className="flex items-center gap-3 mb-2">
-                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#9F91F820' }}>
-                                <Brain className="w-4 h-4" style={{ color: '#9F91F8' }} />
+                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{
+                              backgroundColor: '#9F91F820'
+                            }}>
+                                <Brain className="w-4 h-4" style={{
+                                color: '#9F91F8'
+                              }} />
                               </div>
                               <span className="text-sm font-medium">+66 weitere</span>
                             </div>
@@ -320,14 +342,16 @@ const Lab = () => {
             </div>
 
             {/* Coming Soon Apps */}
-            <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{ animationDelay: '0.1s' }}>
+            <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{
+            animationDelay: '0.1s'
+          }}>
               <CardContent className="p-8 text-center relative">
                 <div className="absolute top-4 right-4 px-2 py-1 rounded-full text-xs font-bold bg-gray-200 text-gray-600">
                   Q4 2025
                 </div>
                 <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110" style={{
-                  background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
-                }}>
+                background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
+              }}>
                   <Settings className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-black mb-4">Automation Studio</h3>
@@ -340,14 +364,16 @@ const Lab = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{ animationDelay: '0.2s' }}>
+            <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{
+            animationDelay: '0.2s'
+          }}>
               <CardContent className="p-8 text-center relative">
                 <div className="absolute top-4 right-4 px-2 py-1 rounded-full text-xs font-bold bg-gray-200 text-gray-600">
                   Q4 2025
                 </div>
                 <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110" style={{
-                  background: 'linear-gradient(135deg, #FFED00, #4F97F0)'
-                }}>
+                background: 'linear-gradient(135deg, #FFED00, #4F97F0)'
+              }}>
                   <Activity className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-black mb-4">Intelligence Hub</h3>
@@ -360,7 +386,9 @@ const Lab = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-green-50 to-green-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{ animationDelay: '0.3s' }}>
+            <Card className="bg-gradient-to-br from-green-50 to-green-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{
+            animationDelay: '0.3s'
+          }}>
               <CardContent className="p-8 text-center relative">
                 <div className="absolute top-4 right-4 px-2 py-1 rounded-full text-xs font-bold bg-gray-200 text-gray-600">
                   TBD
