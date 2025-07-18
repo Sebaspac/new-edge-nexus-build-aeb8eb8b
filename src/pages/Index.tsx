@@ -535,7 +535,7 @@ const Index = () => {
                     </div>
                     <div className="text-center">
                       <div className="text-4xl md:text-5xl font-bold text-purple-400 mb-2">3</div>
-                      <div className="text-gray-300 text-sm">kooperation mit - Creative Agencys</div>
+                      <div className="text-gray-300 text-sm">Kooperation mit - Creative Agencys</div>
                     </div>
                     <div className="text-center">
                       <div className="text-4xl md:text-5xl font-bold text-cyan-400 mb-2">3</div>
@@ -544,6 +544,10 @@ const Index = () => {
                     <div className="text-center">
                       <div className="text-4xl md:text-5xl font-bold text-yellow-400 mb-2">4</div>
                       <div className="text-gray-300 text-sm">Länder</div>
+                    </div>
+                     <div className="text-center">
+                      <div className="text-4xl md:text-5xl font-bold text-yellow-400 mb-2">5</div>
+                      <div className="text-gray-300 text-sm">Sprachen</div>
                     </div>
                     <div className="text-center md:col-span-2">
                       <div className="text-4xl md:text-5xl font-bold text-green-400 mb-2">&gt;15</div>
