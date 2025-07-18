@@ -322,9 +322,9 @@ const Index = () => {
             delay: 0.1,
             duration: 0.6
           }}>
-              <Card className="bg-gradient-to-br from-purple-800/30 to-blue-800/30 border border-purple-700/50 h-full">
+              <Card className="bg-transparent border-2 border-purple-500 h-full hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20">
                 <CardContent className="p-8 text-center">
-                  <div className="text-purple-300 text-sm font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
+                  <div className="text-purple-400 text-sm font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
                   <p className="text-gray-200 leading-relaxed">
                     Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme — für Marken, die funktionieren und wachsen.
                   </p>
@@ -345,10 +345,10 @@ const Index = () => {
             delay: 0.2,
             duration: 0.6
           }}>
-              <Card className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-blue-500/30 h-full">
+              <Card className="bg-transparent border-2 border-blue-500 h-full hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-blue-400 text-sm font-semibold mb-4 tracking-wider">UNSERE VISION</div>
-                  <p className="text-white leading-relaxed">
+                  <p className="text-gray-200 leading-relaxed">
                     Wir gestalten eine neue Generation von Marken: automatisiert, strukturiert und sichtbar.
                   </p>
                 </CardContent>
@@ -368,10 +368,10 @@ const Index = () => {
             delay: 0.3,
             duration: 0.6
           }}>
-              <Card className="bg-gradient-to-br from-yellow-600/20 to-orange-600/20 border border-yellow-500/30 h-full">
+              <Card className="bg-transparent border-2 border-yellow-500 h-full hover:border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-yellow-400 text-sm font-semibold mb-4 tracking-wider">UNSER ZIEL</div>
-                  <p className="text-white leading-relaxed">
+                  <p className="text-gray-200 leading-relaxed">
                     Menschen und Unternehmen den Zugang zu Innovation bieten für einfachere und effektivere Abläufe.
                   </p>
                 </CardContent>
