@@ -514,51 +514,50 @@ const Index = () => {
             </h2>
           </motion.div>
 
-          <div className="max-w-3xl mx-auto">
-            <motion.div initial={{
-            opacity: 0,
-            scale: 0.9
-          }} whileInView={{
-            opacity: 1,
-            scale: 1
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.8
-          }} className="relative">
-              <Card className="bg-transparent border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20">
-                <CardContent className="p-12 text-center">
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-                    <div className="text-center">
-                      <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">10</div>
-                      <div className="text-gray-300 text-sm">Coaches</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-4xl md:text-5xl font-bold text-purple-400 mb-2">3</div>
-                      <div className="text-gray-300 text-sm">Kooperation mit - Creative Agencys</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-4xl md:text-5xl font-bold text-cyan-400 mb-2">3</div>
-                      <div className="text-gray-300 text-sm">Entwickler</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-4xl md:text-5xl font-bold text-yellow-400 mb-2">4</div>
-                      <div className="text-gray-300 text-sm">Länder</div>
-                    </div>
-                     <div className="text-center">
-                      <div className="text-4xl md:text-5xl font-bold text-yellow-400 mb-2">5</div>
-                      <div className="text-gray-300 text-sm">Sprachen</div>
-                    </div>
-                    <div className="text-center md:col-span-2">
-                      <div className="text-4xl md:text-5xl font-bold text-green-400 mb-2">&gt;15</div>
-                      <div className="text-gray-300 text-sm">Freelancer</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
+             <svg className="w-full h-full">
+            {/* Animated connection lines */}
+            <motion.path
+              d="M50,50 Q150,100 250,50 T450,100"
+              stroke="url(#gradient1)"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.path
+              d="M100,150 Q200,200 300,150 T500,200"
+              stroke="url(#gradient2)"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 2.5, delay: 0.5, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.path
+              d="M150,80 Q250,130 350,80 T550,130"
+              stroke="url(#gradient3)"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 4, delay: 1, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <defs>
+              <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.8" />
+              </linearGradient>
+              <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.8" />
+              </linearGradient>
+              <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#eab308" stopOpacity="0.8" />
+              </linearGradient>
+            </defs>
+          </svg>
       </section>
 
       {/* Unternehmensvorteile Section */}
