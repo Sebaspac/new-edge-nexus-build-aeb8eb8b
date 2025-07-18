@@ -731,11 +731,13 @@ const Index = () => {
                   <CardContent className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     
                     <div className="relative z-10 flex-1 flex flex-col">
-                      <motion.div className="inline-block bg-blue-600 text-white px-4 py-3 rounded-lg text-base font-semibold mb-4" whileHover={{
-                      scale: 1.05
-                    }}>
-                        New Edge Media
-                      </motion.div>
+                      <Link to="/media">
+                        <motion.div className="inline-block bg-blue-600 text-white px-4 py-3 rounded-lg text-base font-semibold mb-4 cursor-pointer hover:bg-blue-700 transition-colors" whileHover={{
+                        scale: 1.05
+                      }}>
+                          New Edge Media
+                        </motion.div>
+                      </Link>
                       
                       <p className="text-white mb-4 leading-relaxed flex-1 text-base">
                         Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
