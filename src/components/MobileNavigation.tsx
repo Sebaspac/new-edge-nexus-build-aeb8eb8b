@@ -40,15 +40,17 @@ export const MobileNavigation = ({
         <div className="container mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <motion.div 
-              whileHover={{ scale: 1.05 }} 
-              className="flex items-center z-50"
-            >
-              <img alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" src={logoSrc} />
-              <div className={`text-lg sm:text-2xl font-bold ${textColor}`}>
-                New Edge
-              </div>
-            </motion.div>
+            <Link to="/">
+              <motion.div 
+                whileHover={{ scale: 1.05 }} 
+                className="flex items-center z-50"
+              >
+                <img alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" src={logoSrc} />
+                <div className={`text-lg sm:text-2xl font-bold ${textColor}`}>
+                  New Edge
+                </div>
+              </motion.div>
+            </Link>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
