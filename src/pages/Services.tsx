@@ -289,7 +289,7 @@ const Services = () => {
                     {/* Service Tag */}
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block text-purple-400 px-4 sm:px-6 py-2 rounded-full text-base sm:text-lg font-semibold mb-6 sm:mb-8 tracking-wider">
+                  }} className="inline-block text-purple-400 px-4 sm:px-6 py-2 rounded-full text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 tracking-wider">
                       NEW EDGE STUDIO
                     </motion.div>
                     
@@ -343,7 +343,7 @@ const Services = () => {
                   <CardContent className="p-6 sm:p-8 lg:p-10 text-center relative h-full flex flex-col">
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block text-blue-400 px-4 sm:px-6 py-2 rounded-full text-base sm:text-lg font-semibold mb-6 sm:mb-8 tracking-wider">
+                  }} className="inline-block text-blue-400 px-4 sm:px-6 py-2 rounded-full text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 tracking-wider">
                       NEW EDGE MEDIA
                     </motion.div>
                     
@@ -397,7 +397,7 @@ const Services = () => {
                   <CardContent className="p-6 sm:p-8 lg:p-10 text-center relative h-full flex flex-col">
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block text-yellow-400 px-4 sm:px-6 py-2 rounded-full text-base sm:text-lg font-semibold mb-6 sm:mb-8 tracking-wider">
+                  }} className="inline-block text-yellow-400 px-4 sm:px-6 py-2 rounded-full text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 tracking-wider">
                       NEW EDGE LAB
                     </motion.div>
                     
