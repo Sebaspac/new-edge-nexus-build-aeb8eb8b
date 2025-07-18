@@ -535,10 +535,10 @@ const Index = () => {
                     </div>
                     <div className="text-center">
                       <div className="text-4xl md:text-5xl font-bold text-purple-400 mb-2">3</div>
-                      <div className="text-gray-300 text-sm">Creative Agencys</div>
+                      <div className="text-gray-300 text-sm">kooperation mit - Creative Agencys</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-4xl md:text-5xl font-bold text-cyan-400 mb-2">2</div>
+                      <div className="text-4xl md:text-5xl font-bold text-cyan-400 mb-2">3</div>
                       <div className="text-gray-300 text-sm">Entwickler</div>
                     </div>
                     <div className="text-center">
