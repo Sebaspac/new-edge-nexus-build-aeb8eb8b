@@ -710,10 +710,7 @@ const Index = () => {
                     scale: 1.02
                   }} whileTap={{
                     scale: 0.98
-                  }} className="relative z-10 mt-auto">
-                      <Button onClick={scrollToContact} className="bg-purple-600 text-white hover:bg-purple-700 w-full transition-all duration-300 rounded-lg py-1 text-xs">
-                        Projekt starten <ArrowRight className="ml-1 w-2.5 h-2.5" />
-                      </Button>
+                  }} className="relative z-10 mt-auto" 
                     </motion.div>
                   </CardContent>
                 </Card>
