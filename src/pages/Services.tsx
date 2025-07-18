@@ -289,7 +289,7 @@ const Services = () => {
                     {/* Service Tag */}
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block text-purple-400 px-6 py-2 rounded-full text-sm font-semibold mb-8 tracking-wider">
+                  }} className="inline-block text-purple-400 px-6 py-2 rounded-full text-lg font-semibold mb-8 tracking-wider">
                       NEW EDGE STUDIO
                     </motion.div>
                     
@@ -343,7 +343,7 @@ const Services = () => {
                   <CardContent className="p-10 text-center relative">
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block text-blue-400 px-6 py-2 rounded-full text-sm font-semibold mb-8 tracking-wider">
+                  }} className="inline-block text-blue-400 px-6 py-2 rounded-full text-lg font-semibold mb-8 tracking-wider">
                       NEW EDGE MEDIA
                     </motion.div>
                     
@@ -397,7 +397,7 @@ const Services = () => {
                   <CardContent className="p-10 text-center relative">
                     <motion.div whileHover={{
                     scale: 1.02
-                  }} className="inline-block text-yellow-400 px-6 py-2 rounded-full text-sm font-semibold mb-8 tracking-wider">
+                  }} className="inline-block text-yellow-400 px-6 py-2 rounded-full text-lg font-semibold mb-8 tracking-wider">
                       NEW EDGE LAB
                     </motion.div>
                     
@@ -566,6 +566,11 @@ const Services = () => {
                       <p className="text-gray-400 text-sm">Technische Implementierung und Automation</p>
                     </div>
                   </motion.div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Results Section */}
