@@ -330,9 +330,7 @@ const Index = () => {
               <Card className="bg-transparent border-2 border-purple-500 h-full hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-purple-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
-                  <p className="text-gray-200 leading-relaxed">
-                    Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme — für Marken, die funktionieren und wachsen.
-                  </p>
+                  <p className="text-gray-200 leading-relaxed">Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.</p>
                 </CardContent>
               </Card>
             </motion.div>
