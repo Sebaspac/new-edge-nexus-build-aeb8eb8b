@@ -316,45 +316,38 @@ const Index = () => {
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 relative">
+            <div className="grid lg:grid-cols-3 gap-4 sm:gap-6 relative max-w-5xl mx-auto">
               
               {/* Studio Card */}
               <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
               once: true
-            }} onHoverStart={() => setHoveredCard('studio')} onHoverEnd={() => setHoveredCard(null)} className="relative group hover-lift" transition={{
+            }} onHoverStart={() => setHoveredCard('studio')} onHoverEnd={() => setHoveredCard(null)} className="relative group" transition={{
               duration: 0.6
             }}>
-                <Card className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 border border-purple-500/20 shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 backdrop-blur-lg h-full min-h-[520px]">
-                  <CardContent className="p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
-                    <motion.div animate={hoveredCard === 'studio' ? {
-                    background: ["radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(147,51,234,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(159,145,248,0.05) 0%, transparent 70%)"]
-                  } : {}} transition={{
-                    duration: 3,
-                    repeat: Infinity
-                  }} className="absolute inset-0" />
+                <Card className="bg-white/5 border border-white/10 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm h-full min-h-[320px] rounded-xl">
+                  <CardContent className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     
                     <div className="relative z-10 flex-1 flex flex-col">
-                      <motion.div className="inline-block bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-3 rounded-full text-lg font-bold mb-6" whileHover={{
+                      <motion.div className="inline-block bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-semibold mb-4" whileHover={{
                       scale: 1.05
                     }}>
                         New Edge Studio
                       </motion.div>
                       
-                      
-                      <p className="text-white mb-6 leading-relaxed flex-1 text-xl">
+                      <p className="text-white mb-4 leading-relaxed flex-1 text-base">
                         Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
                       </p>
-                      <ul className="space-y-3 text-gray-100 mb-8 text-left">
+                      <ul className="space-y-2 text-gray-300 mb-6 text-left text-sm">
                         <li className="flex items-center">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                          <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></div>
                           Strategie & Markenidentität
                         </li>
                         <li className="flex items-center">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                          <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></div>
                           Visuelles Konzept
                         </li>
                         <li className="flex items-center">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                          <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></div>
                           Digitale Struktur & Funnel-Logik
                         </li>
                       </ul>
@@ -365,25 +358,13 @@ const Index = () => {
                   }} whileTap={{
                     scale: 0.98
                   }} className="relative z-10 mt-auto">
-                      <Button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 w-full transition-all duration-300">
-                        Projekt starten <ArrowRight className="ml-2 w-4 h-4" />
+                      <Button onClick={scrollToContact} className="bg-purple-600 text-white hover:bg-purple-700 w-full transition-all duration-300 rounded-lg py-2 text-sm">
+                        Projekt starten <ArrowRight className="ml-2 w-3 h-3" />
                       </Button>
                     </motion.div>
                   </CardContent>
                 </Card>
 
-                {/* Animated Arrow - Positioned with proper spacing */}
-                <div className="hidden lg:block absolute right-[-1.5rem] top-1/2 transform -translate-y-1/2 z-20">
-                  <motion.div animate={{
-                  x: [0, 5, 0]
-                }} transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}>
-                    <ArrowRight className="w-6 h-6 text-purple-400/60" />
-                  </motion.div>
-                </div>
               </motion.div>
 
               {/* Media Card */}
@@ -393,37 +374,30 @@ const Index = () => {
               delay: 0.2,
               duration: 0.6
             }} onHoverStart={() => setHoveredCard('media')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/20 shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 backdrop-blur-lg h-full min-h-[520px]">
-                  <CardContent className="p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
-                    <motion.div animate={hoveredCard === 'media' ? {
-                    background: ["radial-gradient(circle, rgba(79,151,240,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(79,151,240,0.05) 0%, transparent 70%)"]
-                  } : {}} transition={{
-                    duration: 3,
-                    repeat: Infinity
-                  }} className="absolute inset-0" />
+                <Card className="bg-white/5 border border-white/10 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm h-full min-h-[320px] rounded-xl">
+                  <CardContent className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     
                     <div className="relative z-10 flex-1 flex flex-col">
-                      <motion.div className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6" whileHover={{
+                      <motion.div className="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold mb-4" whileHover={{
                       scale: 1.05
                     }}>
                         New Edge Media
                       </motion.div>
                       
-                      
-                      <p className="text-white mb-6 leading-relaxed flex-1 text-xl">
+                      <p className="text-white mb-4 leading-relaxed flex-1 text-base">
                         Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
                       </p>
-                      <ul className="space-y-3 text-gray-100 mb-8 text-left">
+                      <ul className="space-y-2 text-gray-300 mb-6 text-left text-sm">
                         <li className="flex items-center">
-                          <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                          <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2"></div>
                           Content-Produktion & Reichweite
                         </li>
                         <li className="flex items-center">
-                          <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                          <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2"></div>
                           Marketing & Sichtbarkeit
                         </li>
                         <li className="flex items-center">
-                          <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                          <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2"></div>
                           Creative Content Production
                         </li>
                       </ul>
@@ -434,26 +408,13 @@ const Index = () => {
                   }} whileTap={{
                     scale: 0.98
                   }} className="relative z-10 mt-auto">
-                      <Button onClick={scrollToContact} className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700 w-full transition-all duration-300">
-                        Projekt besprechen <ArrowRight className="ml-2 w-4 h-4" />
+                      <Button onClick={scrollToContact} className="bg-blue-600 text-white hover:bg-blue-700 w-full transition-all duration-300 rounded-lg py-2 text-sm">
+                        Projekt besprechen <ArrowRight className="ml-2 w-3 h-3" />
                       </Button>
                     </motion.div>
                   </CardContent>
                 </Card>
 
-                {/* Animated Arrow - Positioned with proper spacing */}
-                <div className="hidden lg:block absolute right-[-1.5rem] top-1/2 transform -translate-y-1/2 z-20">
-                  <motion.div animate={{
-                  x: [0, 5, 0]
-                }} transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  delay: 0.5,
-                  ease: "easeInOut"
-                }}>
-                    <ArrowRight className="w-6 h-6 text-blue-400/60" />
-                  </motion.div>
-                </div>
               </motion.div>
 
               {/* Lab Card */}
@@ -463,17 +424,11 @@ const Index = () => {
               delay: 0.4,
               duration: 0.6
             }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-gradient-to-br from-yellow-900/30 to-yellow-900/30 border border-yellow-500/20 shadow-2xl hover:shadow-yellow-500/10 transition-all duration-500 backdrop-blur-lg h-full min-h-[520px]">
-                  <CardContent className="p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
-                    <motion.div animate={hoveredCard === 'lab' ? {
-                    background: ["radial-gradient(circle, rgba(255,237,0,0.05) 0%, transparent 70%)", "radial-gradient(circle, rgba(255,237,0,0.1) 0%, transparent 70%)", "radial-gradient(circle, rgba(255,237,0,0.05) 0%, transparent 70%)"]
-                  } : {}} transition={{
-                    duration: 3,
-                    repeat: Infinity
-                  }} className="absolute inset-0" />
+                <Card className="bg-white/5 border border-white/10 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm h-full min-h-[320px] rounded-xl">
+                  <CardContent className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     
                     <div className="relative z-10 flex-1 flex flex-col">
-                      <motion.div className="inline-block text-black px-6 py-3 rounded-full text-lg font-bold mb-6" style={{
+                      <motion.div className="inline-block text-black px-4 py-2 rounded-lg text-sm font-semibold mb-4" style={{
                       background: '#FFED00'
                     }} whileHover={{
                       scale: 1.05
@@ -481,21 +436,20 @@ const Index = () => {
                         New Edge Lab
                       </motion.div>
                       
-                      
-                      <p className="mb-6 leading-relaxed flex-1 text-xl text-slate-950">
+                      <p className="mb-4 leading-relaxed flex-1 text-base text-white">
                         Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
                       </p>
-                      <ul className="space-y-3 text-gray-100 mb-8 text-left">
+                      <ul className="space-y-2 text-gray-300 mb-6 text-left text-sm">
                         <li className="flex items-center">
-                          <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                          <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-2"></div>
                           KI-Integration & Automation
                         </li>
                         <li className="flex items-center">
-                          <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                          <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-2"></div>
                           Backend & Tech-Implementierung
                         </li>
                         <li className="flex items-center">
-                          <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                          <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-2"></div>
                           Webentwicklung & Prozessautomatisierung
                         </li>
                       </ul>
@@ -506,10 +460,10 @@ const Index = () => {
                   }} whileTap={{
                     scale: 0.98
                   }} className="relative z-10 mt-auto">
-                      <Button onClick={scrollToContact} className="text-black hover:text-gray-800 w-full transition-all duration-300" style={{
+                      <Button onClick={scrollToContact} className="text-black hover:text-gray-800 w-full transition-all duration-300 rounded-lg py-2 text-sm" style={{
                       background: '#FFED00'
                     }}>
-                        Projekt starten <ArrowRight className="ml-2 w-4 h-4" />
+                        Projekt starten <ArrowRight className="ml-2 w-3 h-3" />
                       </Button>
                     </motion.div>
                   </CardContent>
