@@ -167,11 +167,11 @@ const Index = () => {
         }} transition={{
           delay: 0.6,
           duration: 0.8
-        }} className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-6 sm:mb-8 md:mb-10 max-w-4xl mx-auto font-light leading-relaxed px-4">
+        }} className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-foreground mb-6 sm:mb-8 md:mb-10 max-w-4xl mx-auto font-light leading-relaxed px-4">
             Wir verwandeln Visionen in digitale Realitäten durch intelligente Strategien, 
             überzeugende Inhalte und innovative Technologien.
             <br className="hidden sm:block" />
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">Ein Team. Drei Ansätze. Unendliche Möglichkeiten.</span>
+            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent font-semibold">Ein Team. Drei Ansätze. Unendliche Möglichkeiten.</span>
           </motion.p>
           
           {/* Scroll Indicator - Positioned with more spacing and properly centered on mobile */}
@@ -283,7 +283,7 @@ const Index = () => {
         }} transition={{
           delay: 0.3,
           duration: 0.8
-        }} className="text-xl text-gray-300 max-w-3xl mx-auto">
+        }} className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme – für Marken, die funktionieren und wachsen.
           </motion.p>
         </motion.div>
@@ -303,7 +303,7 @@ const Index = () => {
         }} transition={{
           duration: 0.8
         }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Wir wachsen mit unseren Kunden
             </h2>
           </motion.div>
@@ -324,8 +324,8 @@ const Index = () => {
           }}>
               <Card className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-purple-500/30 h-full">
                 <CardContent className="p-8 text-center">
-                  <div className="text-purple-400 text-sm font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
-                  <p className="text-white leading-relaxed">
+                  <div className="text-primary text-sm font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
+                  <p className="text-card-foreground leading-relaxed">
                     Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme — für Marken, die funktionieren und wachsen.
                   </p>
                 </CardContent>
@@ -347,8 +347,8 @@ const Index = () => {
           }}>
               <Card className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-blue-500/30 h-full">
                 <CardContent className="p-8 text-center">
-                  <div className="text-blue-400 text-sm font-semibold mb-4 tracking-wider">UNSERE VISION</div>
-                  <p className="text-white leading-relaxed">
+                  <div className="text-secondary text-sm font-semibold mb-4 tracking-wider">UNSERE VISION</div>
+                  <p className="text-card-foreground leading-relaxed">
                     Wir gestalten eine neue Generation von Marken: automatisiert, strukturiert und sichtbar.
                   </p>
                 </CardContent>
@@ -370,8 +370,8 @@ const Index = () => {
           }}>
               <Card className="bg-gradient-to-br from-yellow-600/20 to-orange-600/20 border border-yellow-500/30 h-full">
                 <CardContent className="p-8 text-center">
-                  <div className="text-yellow-400 text-sm font-semibold mb-4 tracking-wider">UNSER ZIEL</div>
-                  <p className="text-white leading-relaxed">
+                  <div className="text-accent text-sm font-semibold mb-4 tracking-wider">UNSER ZIEL</div>
+                  <p className="text-card-foreground leading-relaxed">
                     Menschen und Unternehmen den Zugang zu Innovation bieten für einfachere und effektivere Abläufe.
                   </p>
                 </CardContent>
@@ -395,8 +395,8 @@ const Index = () => {
         }} transition={{
           duration: 0.8
         }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-              Warum <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">New Edge?</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+              Warum <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">New Edge?</span>
             </h2>
           </motion.div>
 
@@ -414,11 +414,11 @@ const Index = () => {
             delay: 0.1,
             duration: 0.6
           }} className="flex items-center space-x-6">
-              <div className="flex-shrink-0 w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">01</div>
-              <Card className="flex-1 bg-white/5 border border-white/10">
+              <div className="flex-shrink-0 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-2xl font-bold">01</div>
+              <Card className="flex-1 bg-card border border-border">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">Impact durch Automatisierung</h3>
-                  <p className="text-gray-300">Intelligente Systeme steigern Ihre Effizienz nachhaltig</p>
+                  <h3 className="text-xl font-bold text-card-foreground mb-2">Impact durch Automatisierung</h3>
+                  <p className="text-muted-foreground">Intelligente Systeme steigern Ihre Effizienz nachhaltig</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -436,11 +436,11 @@ const Index = () => {
             delay: 0.2,
             duration: 0.6
           }} className="flex items-center space-x-6">
-              <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">02</div>
-              <Card className="flex-1 bg-white/5 border border-white/10">
+              <div className="flex-shrink-0 w-16 h-16 bg-secondary rounded-full flex items-center justify-center text-secondary-foreground text-2xl font-bold">02</div>
+              <Card className="flex-1 bg-card border border-border">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">Marketingexpertise trifft technische Umsetzung</h3>
-                  <p className="text-gray-300">Perfekte Symbiose aus Strategie und Innovation</p>
+                  <h3 className="text-xl font-bold text-card-foreground mb-2">Marketingexpertise trifft technische Umsetzung</h3>
+                  <p className="text-muted-foreground">Perfekte Symbiose aus Strategie und Innovation</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -458,11 +458,11 @@ const Index = () => {
             delay: 0.3,
             duration: 0.6
           }} className="flex items-center space-x-6">
-              <div className="flex-shrink-0 w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">03</div>
-              <Card className="flex-1 bg-white/5 border border-white/10">
+              <div className="flex-shrink-0 w-16 h-16 bg-accent rounded-full flex items-center justify-center text-accent-foreground text-2xl font-bold">03</div>
+              <Card className="flex-1 bg-card border border-border">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">Zugänglichkeit & Klarheit statt Komplexität</h3>
-                  <p className="text-gray-300">Einfache Lösungen für komplexe Herausforderungen</p>
+                  <h3 className="text-xl font-bold text-card-foreground mb-2">Zugänglichkeit & Klarheit statt Komplexität</h3>
+                  <p className="text-muted-foreground">Einfache Lösungen für komplexe Herausforderungen</p>
                 </CardContent>
               </Card>
             </motion.div>
