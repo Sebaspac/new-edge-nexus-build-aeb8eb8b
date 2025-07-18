@@ -347,9 +347,13 @@ const Index = () => {
                       </ul>
                     </div>
                     
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative z-10 mt-auto">
-                      <Button onClick={scrollToContact} variant="outline" className="w-full border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-400 transition-all duration-300">
-                        Mehr erfahren
+                    <motion.div whileHover={{
+                    scale: 1.02
+                  }} whileTap={{
+                    scale: 0.98
+                  }} className="relative z-10 mt-auto">
+                      <Button onClick={scrollToContact} className="bg-purple-600 text-white hover:bg-purple-700 w-full transition-all duration-300 rounded-lg py-2 text-sm">
+                        Projekt starten <ArrowRight className="ml-2 w-3 h-3" />
                       </Button>
                     </motion.div>
                   </CardContent>
@@ -393,9 +397,13 @@ const Index = () => {
                       </ul>
                     </div>
                     
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative z-10 mt-auto">
-                      <Button onClick={scrollToContact} variant="outline" className="w-full border-blue-500/30 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300">
-                        Mehr erfahren
+                    <motion.div whileHover={{
+                    scale: 1.02
+                  }} whileTap={{
+                    scale: 0.98
+                  }} className="relative z-10 mt-auto">
+                      <Button onClick={scrollToContact} className="bg-blue-600 text-white hover:bg-blue-700 w-full transition-all duration-300 rounded-lg py-2 text-sm">
+                        Projekt besprechen <ArrowRight className="ml-2 w-3 h-3" />
                       </Button>
                     </motion.div>
                   </CardContent>
@@ -441,9 +449,15 @@ const Index = () => {
                       </ul>
                     </div>
                     
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative z-10 mt-auto">
-                      <Button onClick={scrollToContact} variant="outline" className="w-full border-yellow-500/30 text-yellow-400 hover:bg-yellow-500/10 hover:border-yellow-400 transition-all duration-300">
-                        Mehr erfahren
+                    <motion.div whileHover={{
+                    scale: 1.02
+                  }} whileTap={{
+                    scale: 0.98
+                  }} className="relative z-10 mt-auto">
+                      <Button onClick={scrollToContact} className="text-black hover:text-gray-800 w-full transition-all duration-300 rounded-lg py-2 text-sm" style={{
+                      background: '#FFED00'
+                    }}>
+                        Projekt starten <ArrowRight className="ml-2 w-3 h-3" />
                       </Button>
                     </motion.div>
                   </CardContent>
