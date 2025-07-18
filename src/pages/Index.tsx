@@ -681,9 +681,11 @@ const Index = () => {
                   <CardContent className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
                     
                     <div className="relative z-10 flex-1 flex flex-col">
-                      <motion.div whileHover={{
-                      scale: 1.05
-                    }} className="inline-block bg-purple-600 text-white py-2 rounded-lg text-sm font-semibold mb-4 px-[12px]">New Edge Studio</motion.div>
+                      <Link to="/studio">
+                        <motion.div whileHover={{
+                        scale: 1.05
+                      }} className="inline-block bg-purple-600 text-white py-2 rounded-lg text-sm font-semibold mb-4 px-[12px] cursor-pointer hover:bg-purple-700 transition-colors">New Edge Studio</motion.div>
+                      </Link>
                       
                       <p className="text-white mb-4 leading-relaxed flex-1 text-base">
                         Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
