@@ -419,7 +419,7 @@ const Index = () => {
             delay: 0.1,
             duration: 0.6
           }} className="flex items-center space-x-6">
-              <div className="flex-shrink-0 w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">01</div>
+              <div className="flex-shrink-0 w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-medium">01</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-white mb-2">Impact durch Automatisierung</h3>
