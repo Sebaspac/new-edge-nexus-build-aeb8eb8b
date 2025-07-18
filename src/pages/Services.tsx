@@ -515,10 +515,6 @@ const Services = () => {
                     </div>
                   </motion.div>
                 </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </motion.div>
       </section>
 
       {/* Results Section */}
