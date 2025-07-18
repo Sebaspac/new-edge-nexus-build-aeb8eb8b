@@ -30,7 +30,7 @@ const Index = () => {
   const y1 = useTransform(scrollY, [0, 1000], [0, -50]);
   const y2 = useTransform(scrollY, [0, 1000], [0, -100]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.8]);
-  
+
   // Visual section transforms
   const visualScale = useTransform(scrollY, [600, 1400], [1, 0.8]);
   const visualOpacity = useTransform(scrollY, [600, 1400], [1, 0.7]);
@@ -715,9 +715,7 @@ const Index = () => {
                   }} whileTap={{
                     scale: 0.98
                   }} className="relative z-10 mt-auto">
-                      <Button onClick={scrollToContact} className="bg-purple-600 text-white hover:bg-purple-700 w-full transition-all duration-300 rounded-lg py-1 text-xs">
-                        Projekt starten <ArrowRight className="ml-1 w-2.5 h-2.5" />
-                      </Button>
+                      
                     </motion.div>
                   </CardContent>
                 </Card>
@@ -767,9 +765,7 @@ const Index = () => {
                   }} whileTap={{
                     scale: 0.98
                   }} className="relative z-10 mt-auto">
-                      <Button onClick={scrollToContact} className="bg-blue-600 text-white hover:bg-blue-700 w-full transition-all duration-300 rounded-lg py-1 text-xs">
-                        Projekt besprechen <ArrowRight className="ml-1 w-2.5 h-2.5" />
-                      </Button>
+                      
                     </motion.div>
                   </CardContent>
                 </Card>
@@ -821,11 +817,7 @@ const Index = () => {
                   }} whileTap={{
                     scale: 0.98
                   }} className="relative z-10 mt-auto">
-                      <Button onClick={scrollToContact} className="text-black hover:text-gray-800 w-full transition-all duration-300 rounded-lg py-1 text-xs" style={{
-                      background: '#FFED00'
-                    }}>
-                        Projekt starten <ArrowRight className="ml-1 w-2.5 h-2.5" />
-                      </Button>
+                      
                     </motion.div>
                   </CardContent>
                 </Card>
