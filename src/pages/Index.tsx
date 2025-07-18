@@ -441,7 +441,7 @@ const Index = () => {
             delay: 0.2,
             duration: 0.6
           }} className="flex items-center space-x-6">
-              <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">02</div>
+              <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-medium">02</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-white mb-2">Marketingexpertise trifft technische Umsetzung</h3>
@@ -463,7 +463,7 @@ const Index = () => {
             delay: 0.3,
             duration: 0.6
           }} className="flex items-center space-x-6">
-              <div className="flex-shrink-0 w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">03</div>
+              <div className="flex-shrink-0 w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center text-white text-xl font-medium">03</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-white mb-2">Zugänglichkeit & Klarheit statt Komplexität</h3>
@@ -485,7 +485,7 @@ const Index = () => {
             delay: 0.4,
             duration: 0.6
           }} className="flex items-center space-x-6">
-              <div className="flex-shrink-0 w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">04</div>
+              <div className="flex-shrink-0 w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center text-white text-xl font-medium">04</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-white mb-2">Individuelle Setups ohne Standardbausteine</h3>
