@@ -526,7 +526,7 @@ const Index = () => {
           }} transition={{
             duration: 0.8
           }} className="relative">
-              <Card className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/30">
+              <Card className="bg-transparent border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20">
                 <CardContent className="p-12 text-center">
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                     <div className="text-center">
