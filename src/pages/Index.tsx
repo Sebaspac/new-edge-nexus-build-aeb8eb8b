@@ -514,7 +514,7 @@ const Index = () => {
             </h2>
           </motion.div>
 
-             <svg className="w-full h-full">
+          <svg className="w-full h-full">
             {/* Animated connection lines */}
             <motion.path
               d="M50,50 Q150,100 250,50 T450,100"
@@ -558,6 +558,7 @@ const Index = () => {
               </linearGradient>
             </defs>
           </svg>
+        </div>
       </section>
 
       {/* Unternehmensvorteile Section */}
