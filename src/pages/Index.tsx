@@ -30,6 +30,11 @@ const Index = () => {
   const y1 = useTransform(scrollY, [0, 1000], [0, -50]);
   const y2 = useTransform(scrollY, [0, 1000], [0, -100]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.8]);
+  
+  // Visual section transforms
+  const visualScale = useTransform(scrollY, [600, 1400], [1, 0.8]);
+  const visualOpacity = useTransform(scrollY, [600, 1400], [1, 0.7]);
+  const visualTextOpacity = useTransform(scrollY, [600, 900], [1, 0]);
   useEffect(() => {
     setIsVisible(true);
     const handleMouseMove = (e: MouseEvent) => {
@@ -227,13 +232,12 @@ const Index = () => {
         }} transition={{
           duration: 0.8
         }} style={{
-          scale: useTransform(scrollY, [600, 1400], [1, 0.8]),
-          borderRadius: useTransform(scrollY, [600, 1400], ["24px", "40px"]),
-          opacity: useTransform(scrollY, [600, 1400], [1, 0.7]),
+          scale: visualScale,
+          opacity: visualOpacity,
           willChange: "transform, opacity"
         }} className="relative h-96 md:h-[500px] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-800 rounded-3xl overflow-hidden flex items-center justify-center group">
             <motion.div className="text-center text-white z-10" style={{
-            opacity: useTransform(scrollY, [600, 900], [1, 0])
+            opacity: visualTextOpacity
           }}>
               <motion.h2 initial={{
               y: 30,
