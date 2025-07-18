@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import SEO from "@/components/SEO";
 const Studio = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -30,6 +31,11 @@ const Studio = () => {
     window.location.href = '/#contact-section';
   };
   return <div className="min-h-screen bg-white">
+      <SEO 
+        title="Studio - New Edge Creative Tech Studio"
+        description="Unser Studio: Einblicke in unsere Arbeitsweise, Team und kreative Prozesse im Creative Tech Bereich."
+        canonical="https://www.newedgebrand.com/studio"
+      />
       {/* Mobile Navigation */}
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
 

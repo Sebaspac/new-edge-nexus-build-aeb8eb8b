@@ -4,6 +4,7 @@ import { Megaphone, Target, BarChart, Users, TrendingUp, Eye, ChevronDown, Video
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
+import SEO from "@/components/SEO";
 const Media = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -29,6 +30,11 @@ const Media = () => {
     window.location.href = '/#contact-section';
   };
   return <div className="min-h-screen bg-white">
+      <SEO 
+        title="Media - New Edge Creative Tech Studio"
+        description="Unsere Media-Sektion: Kreative Inhalte, Fallstudien und Insights aus dem Creative Tech Bereich."
+        canonical="https://www.newedgebrand.com/media"
+      />
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
       {/* Hero Section */}

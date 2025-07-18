@@ -8,6 +8,7 @@ import { ArrowRight, ArrowDown, ChevronDown, Palette, Video, Cpu, Star, Zap, Tar
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
+import SEO from "@/components/SEO";
 
 // 3D Particle System Component
 function ParticleField() {
@@ -134,6 +135,11 @@ const Services = () => {
     }
   };
   return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
+      <SEO 
+        title="Services - New Edge Creative Tech Studio"
+        description="Entdecke unsere Services: KI-basierte Marketinglösungen, Brand Development und innovative Tech-Lösungen."
+        canonical="https://www.newedgebrand.com/services"
+      />
       {/* 3D Background Canvas */}
       <div className="fixed inset-0 z-0">
         <Canvas camera={{

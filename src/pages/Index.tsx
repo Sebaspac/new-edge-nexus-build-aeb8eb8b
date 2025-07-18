@@ -11,6 +11,7 @@ import { toast } from "@/hooks/use-toast";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import CookieConsent from "@/components/CookieConsent";
+import SEO from "@/components/SEO";
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -102,6 +103,11 @@ const Index = () => {
     }
   };
   return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
+      <SEO 
+        title="New Edge - Creative Tech Studio"
+        description="New Edge - where brand meets intelligence. Creative-Tech-Studio für KI-basierte Marketinglösungen."
+        canonical="https://www.newedgebrand.com/"
+      />
       {/* Mobile Navigation */}
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
