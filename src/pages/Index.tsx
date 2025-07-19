@@ -13,7 +13,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import CookieConsent from "@/components/CookieConsent";
 import SEO from "@/components/SEO";
 import NetworkVisualization from "@/components/NetworkVisualization";
-import LanguageToggle from "@/components/LanguageToggle";
+import NetworkVisualization from "@/components/NetworkVisualization";
 import { useLanguage } from "@/contexts/LanguageContext";
 const Index = () => {
   const { t } = useLanguage();
@@ -113,7 +113,6 @@ const Index = () => {
   };
   return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
       <SEO title="New Edge - Creative Tech Studio" description="New Edge - where brand meets intelligence. Creative-Tech-Studio für KI-basierte Marketinglösungen." canonical="https://www.newedgebrand.com/" />
-      <LanguageToggle />
       {/* Mobile Navigation */}
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 

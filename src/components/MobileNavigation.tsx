@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface MobileNavigationProps {
   onContactClick: () => void;
@@ -17,6 +18,7 @@ export const MobileNavigation = ({
 }: MobileNavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { language, setLanguage } = useLanguage();
 
   const isDark = theme === 'dark';
   const textColor = isDark ? 'text-white' : 'text-black';
@@ -100,6 +102,17 @@ export const MobileNavigation = ({
                 size="sm"
               >
                 Kontakt
+              </Button>
+
+              {/* Language Toggle */}
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setLanguage(language === 'de' ? 'en' : 'de')}
+                className={`${isDark ? 'border-white/20 text-white hover:bg-white/10' : 'border-gray-300 text-gray-600 hover:bg-gray-50'} ml-2`}
+              >
+                <Languages className="h-4 w-4 mr-1" />
+                {language === 'de' ? 'EN' : 'DE'}
               </Button>
             </div>
 
