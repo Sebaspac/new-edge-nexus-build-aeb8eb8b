@@ -1,182 +1,141 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-
 const NetworkVisualization = () => {
-  const networkNodes = [
-    { id: 1, label: "Coaches", value: "10", angle: -110, radius: 26, color: "214 70% 55%" },
-    { id: 2, label: "Creative Agencys", value: "3", angle: -30, radius: 20, color: "255 45% 55%" },
-    { id: 3, label: "Freelancer", value: ">15", angle: 60, radius: 30, color: "60 80% 50%" },
-    { id: 4, label: "Länder", value: "4", angle: 150, radius: 24, color: "255 70% 65%" },
-    { id: 5, label: "Entwickler", value: "2", angle: -160, radius: 28, color: "214 70% 65%" }
-  ];
-
-  // Calculate positions based on angle and radius (adjusted for 120x80 viewBox)
-  const getPosition = (angle: number, radius: number) => {
-    const radian = (angle * Math.PI) / 180;
-    return {
-      x: 60 + radius * Math.cos(radian), // Center at x=60
-      y: 40 + radius * Math.sin(radian)  // Center at y=40
-    };
-  };
-
-  return (
-    <Card className="bg-transparent border-none shadow-none">
-      <CardContent className="p-6 relative overflow-hidden h-[250px]">
-        {/* Title */}
-        <motion.div 
-          className="absolute top-4 left-4 z-20"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="bg-primary text-primary-foreground px-3 py-1.5 rounded-full text-sm font-medium shadow-lg">
-            Unser Netzwerk
-          </div>
-        </motion.div>
-
-        {/* Main SVG */}
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <svg className="w-full h-full max-w-lg max-h-60" viewBox="0 0 120 80" preserveAspectRatio="xMidYMid meet">
+  return <Card className="bg-transparent border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20">
+      <CardContent className="p-12 text-center relative overflow-hidden">
+        {/* Network Animation Background */}
+        <div className="absolute inset-0 opacity-20">
+          <svg className="w-full h-full">
+            {/* Animated connection lines */}
+            <motion.path d="M50,50 Q150,100 250,50 T450,100" stroke="url(#gradient1)" strokeWidth="2" fill="none" initial={{
+            pathLength: 0
+          }} animate={{
+            pathLength: 1
+          }} transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} />
+            <motion.path d="M100,150 Q200,200 300,150 T500,200" stroke="url(#gradient2)" strokeWidth="2" fill="none" initial={{
+            pathLength: 0
+          }} animate={{
+            pathLength: 1
+          }} transition={{
+            duration: 2.5,
+            delay: 0.5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} />
+            <motion.path d="M150,80 Q250,130 350,80 T550,130" stroke="url(#gradient3)" strokeWidth="2" fill="none" initial={{
+            pathLength: 0
+          }} animate={{
+            pathLength: 1
+          }} transition={{
+            duration: 4,
+            delay: 1,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} />
             <defs>
-              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                <feMerge> 
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-              <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="hsl(255 45% 55%)" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="hsl(214 70% 55%)" stopOpacity="0.4" />
+              <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.8" />
+              </linearGradient>
+              <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.8" />
+              </linearGradient>
+              <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#eab308" stopOpacity="0.8" />
               </linearGradient>
             </defs>
-
-            {/* Connection Lines */}
-            {networkNodes.map((node, index) => {
-              const pos = getPosition(node.angle, node.radius);
-              return (
-                <motion.line
-                  key={`line-${node.id}`}
-                  x1="60"
-                  y1="40"
-                  x2={pos.x}
-                  y2={pos.y}
-                  stroke="url(#connectionGradient)"
-                  strokeWidth="1"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ 
-                    duration: 1,
-                    delay: index * 0.15 + 0.3,
-                    ease: "easeOut"
-                  }}
-                />
-              );
-            })}
-
-            {/* Central Hub */}
-            <motion.circle
-              cx="60"
-              cy="40"
-              r="4"
-              fill="hsl(var(--background))"
-              stroke="hsl(255 45% 55%)"
-              strokeWidth="2"
-              filter="url(#glow)"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            />
-            
-            {/* Pulsing center */}
-            <motion.circle
-              cx="60"
-              cy="40"
-              r="1.5"
-              fill="hsl(255 45% 55%)"
-              initial={{ scale: 0 }}
-              animate={{ scale: [0, 1, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            />
-
-            {/* Outer Nodes */}
-            {networkNodes.map((node, index) => {
-              const pos = getPosition(node.angle, node.radius);
-              return (
-                <motion.g key={`node-${node.id}`}>
-                  <motion.circle
-                    cx={pos.x}
-                    cy={pos.y}
-                    r="2.5"
-                    fill="hsl(var(--background))"
-                    stroke={`hsl(${node.color})`}
-                    strokeWidth="1.5"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ 
-                      duration: 0.4,
-                      delay: index * 0.1 + 0.5
-                    }}
-                  />
-                  <motion.circle
-                    cx={pos.x}
-                    cy={pos.y}
-                    r="1"
-                    fill={`hsl(${node.color})`}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ 
-                      duration: 0.3,
-                      delay: index * 0.1 + 0.7
-                    }}
-                  />
-                </motion.g>
-              );
-            })}
           </svg>
         </div>
 
-        {/* Node Labels */}
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <div className="relative w-full max-w-lg h-60">
-            {networkNodes.map((node, index) => {
-              const pos = getPosition(node.angle, node.radius);
-              const labelOffset = getPosition(node.angle, node.radius + (node.label.length > 10 ? 16 : 14));
-              
-              return (
-                <motion.div
-                  key={`label-${node.id}`}
-                  className="absolute"
-                  style={{
-                    left: `${labelOffset.x}%`,
-                    top: `${labelOffset.y}%`,
-                    transform: 'translate(-50%, -50%)'
-                  }}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ 
-                    duration: 0.5,
-                    delay: index * 0.1 + 0.8
-                  }}
-                >
-                  <div className="text-center">
-                    <div 
-                      className="text-lg font-bold mb-0.5"
-                      style={{ color: `hsl(${node.color})` }}
-                    >
-                      {node.value}
-                    </div>
-                    <div className="text-xs text-muted-foreground font-medium whitespace-nowrap">
-                      {node.label}
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+        {/* Network nodes */}
+        <div className="relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12">
+            <motion.div className="text-center relative" whileHover={{
+            scale: 1.1
+          }} transition={{
+            type: "spring",
+            stiffness: 300
+          }}>
+              <div className="relative mb-4">
+                <div className="w-16 h-16 mx-auto bg-blue-500/20 border-2 border-blue-400 rounded-full flex items-center justify-center mb-2 backdrop-blur-sm">
+                  <div className="w-8 h-8 bg-blue-400 rounded-full animate-pulse"></div>
+                </div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-1">10</div>
+              </div>
+              <div className="text-gray-300 text-sm font-medium">Coaches</div>
+            </motion.div>
+
+            <motion.div className="text-center relative" whileHover={{
+            scale: 1.1
+          }} transition={{
+            type: "spring",
+            stiffness: 300
+          }}>
+              <div className="relative mb-4">
+                <div className="w-16 h-16 mx-auto bg-purple-500/20 border-2 border-purple-400 rounded-full flex items-center justify-center mb-2 backdrop-blur-sm">
+                  <div className="w-8 h-8 bg-purple-400 rounded-full animate-pulse"></div>
+                </div>
+                <div className="text-3xl md:text-4xl font-bold text-purple-400 mb-1">3</div>
+              </div>
+              <div className="text-gray-300 text-sm font-medium">Creative Agencys</div>
+            </motion.div>
+
+            <motion.div className="text-center relative" whileHover={{
+            scale: 1.1
+          }} transition={{
+            type: "spring",
+            stiffness: 300
+          }}>
+              <div className="relative mb-4">
+                <div className="w-16 h-16 mx-auto bg-cyan-500/20 border-2 border-cyan-400 rounded-full flex items-center justify-center mb-2 backdrop-blur-sm">
+                  <div className="w-8 h-8 bg-cyan-400 rounded-full animate-pulse"></div>
+                </div>
+                <div className="text-3xl md:text-4xl font-bold text-cyan-400 mb-1">3</div>
+              </div>
+              <div className="text-gray-300 text-sm font-medium">Entwickler</div>
+            </motion.div>
+
+            <motion.div className="text-center relative" whileHover={{
+            scale: 1.1
+          }} transition={{
+            type: "spring",
+            stiffness: 300
+          }}>
+              <div className="relative mb-4">
+                <div className="w-16 h-16 mx-auto bg-yellow-500/20 border-2 border-yellow-400 rounded-full flex items-center justify-center mb-2 backdrop-blur-sm">
+                  <div className="w-8 h-8 bg-yellow-400 rounded-full animate-pulse"></div>
+                </div>
+                <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-1">4</div>
+              </div>
+              <div className="text-gray-300 text-sm font-medium">Länder</div>
+            </motion.div>
+
+            <motion.div className="text-center relative col-span-2 md:col-span-1" whileHover={{
+            scale: 1.1
+          }} transition={{
+            type: "spring",
+            stiffness: 300
+          }}>
+              <div className="relative mb-4">
+                <div className="w-16 h-16 mx-auto bg-green-500/20 border-2 border-green-400 rounded-full flex items-center justify-center mb-2 backdrop-blur-sm">
+                  <div className="w-8 h-8 bg-green-400 rounded-full animate-pulse"></div>
+                </div>
+                <div className="text-3xl md:text-4xl font-bold text-green-400 mb-1">5</div>
+              </div>
+              <div className="text-gray-300 text-sm font-medium">Sprachen</div>
+            </motion.div>
           </div>
+
+          {/* Central network hub */}
+          
         </div>
       </CardContent>
-    </Card>
-  );
+    </Card>;
 };
 export default NetworkVisualization;
