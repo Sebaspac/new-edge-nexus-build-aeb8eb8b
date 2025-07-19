@@ -3,11 +3,11 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const NetworkVisualization = () => {
   const networkNodes = [
-    { id: 1, label: "Coaches", value: "10", angle: -135, radius: 25, color: "214 70% 55%" },
-    { id: 2, label: "Creative Agencys", value: "3", angle: -45, radius: 30, color: "255 45% 55%" },
-    { id: 3, label: "Freelancer", value: ">15", angle: 45, radius: 35, color: "60 80% 50%" },
-    { id: 4, label: "Länder", value: "4", angle: 135, radius: 28, color: "255 70% 65%" },
-    { id: 5, label: "Entwickler", value: "2", angle: 180, radius: 32, color: "214 70% 65%" }
+    { id: 1, label: "Coaches", value: "10", angle: -120, radius: 22, color: "214 70% 55%" },
+    { id: 2, label: "Creative Agencys", value: "3", angle: -30, radius: 25, color: "255 45% 55%" },
+    { id: 3, label: "Freelancer", value: ">15", angle: 60, radius: 30, color: "60 80% 50%" },
+    { id: 4, label: "Länder", value: "4", angle: 150, radius: 24, color: "255 70% 65%" },
+    { id: 5, label: "Entwickler", value: "2", angle: -160, radius: 28, color: "214 70% 65%" }
   ];
 
   // Calculate positions based on angle and radius
@@ -141,7 +141,7 @@ const NetworkVisualization = () => {
           <div className="relative w-full max-w-sm h-72">
             {networkNodes.map((node, index) => {
               const pos = getPosition(node.angle, node.radius);
-              const labelOffset = getPosition(node.angle, node.radius + 12);
+              const labelOffset = getPosition(node.angle, node.radius + (node.label.length > 10 ? 16 : 14));
               
               return (
                 <motion.div
