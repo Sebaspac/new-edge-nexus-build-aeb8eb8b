@@ -18,7 +18,7 @@ export const MobileNavigation = ({
 }: MobileNavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
 
   const isDark = theme === 'dark';
   const textColor = isDark ? 'text-white' : 'text-black';
@@ -60,7 +60,7 @@ export const MobileNavigation = ({
                 to="/" 
                 className={`${textColorSecondary} hover:${textColor.split('-')[1]} transition-all duration-300 font-medium`}
               >
-                Home
+                {t('nav.home')}
               </Link>
               
               <div className="relative group">
@@ -68,7 +68,7 @@ export const MobileNavigation = ({
                   to="/services" 
                   className={`${textColorSecondary} hover:${textColor.split('-')[1]} transition-all duration-300 font-medium`}
                 >
-                  Services
+                  {t('nav.services')}
                 </Link>
                 
                 {/* Desktop Dropdown */}
@@ -78,19 +78,19 @@ export const MobileNavigation = ({
                       to="/studio" 
                       className={`block px-4 py-2 ${textColorSecondary} hover:${textColor.split('-')[1]} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}
                     >
-                      New Edge Studio
+                      {t('nav.studio')}
                     </Link>
                     <Link 
                       to="/media" 
                       className={`block px-4 py-2 ${textColorSecondary} hover:${textColor.split('-')[1]} ${isDark ? 'hover:bg-blue-500/20' : 'hover:bg-gray-50'} transition-colors`}
                     >
-                      New Edge Media
+                      {t('nav.media')}
                     </Link>
                     <Link 
                       to="/lab" 
                       className={`block px-4 py-2 ${textColorSecondary} hover:${textColor.split('-')[1]} ${isDark ? 'hover:bg-yellow-500/20' : 'hover:bg-gray-50'} transition-colors`}
                     >
-                      New Edge Lab
+                      {t('nav.lab')}
                     </Link>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ export const MobileNavigation = ({
                 className={`${isDark ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700' : 'bg-black hover:bg-gray-800'} text-white transition-all duration-300 hover:scale-105`}
                 size="sm"
               >
-                Kontakt
+                {t('nav.contact')}
               </Button>
             </div>
 
@@ -162,7 +162,7 @@ export const MobileNavigation = ({
                       onClick={handleLinkClick}
                       className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors border-b ${borderColor}`}
                     >
-                      Home
+                      {t('nav.home')}
                     </Link>
                   </motion.div>
 
@@ -176,7 +176,7 @@ export const MobileNavigation = ({
                       onClick={handleLinkClick}
                       className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors border-b ${borderColor}`}
                     >
-                      Services
+                      {t('nav.services')}
                     </Link>
                   </motion.div>
 
@@ -237,7 +237,7 @@ export const MobileNavigation = ({
                     onClick={handleContactClick}
                     className={`w-full ${isDark ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700' : 'bg-black hover:bg-gray-800'} text-white py-4 text-lg font-medium`}
                   >
-                    Kontakt aufnehmen
+                    {t('nav.contactAction')}
                   </Button>
                 </motion.div>
               </div>
