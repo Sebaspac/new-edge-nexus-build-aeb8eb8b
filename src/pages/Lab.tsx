@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEO from "@/components/SEO";
-import LanguageToggle from "@/components/LanguageToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
 const Lab = () => {
   const { t } = useLanguage();
@@ -82,7 +81,6 @@ const Lab = () => {
   }];
   return <div className="min-h-screen bg-white">
       <SEO title="Lab - New Edge Creative Tech Studio" description="Unser Lab: Experimentelle Projekte, Forschung und innovative Technologien im Creative Tech Bereich." canonical="https://www.newedgebrand.com/lab" />
-      <LanguageToggle />
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
       {/* Hero Section */}

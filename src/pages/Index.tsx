@@ -13,7 +13,6 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import CookieConsent from "@/components/CookieConsent";
 import SEO from "@/components/SEO";
 import NetworkVisualization from "@/components/NetworkVisualization";
-import NetworkVisualization from "@/components/NetworkVisualization";
 import { useLanguage } from "@/contexts/LanguageContext";
 const Index = () => {
   const { t } = useLanguage();

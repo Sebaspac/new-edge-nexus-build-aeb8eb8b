@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import SEO from "@/components/SEO";
-import LanguageToggle from "@/components/LanguageToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const NotFound = () => {
@@ -23,7 +22,6 @@ const NotFound = () => {
         canonical="https://www.newedgebrand.com/"
         robots="noindex,nofollow"
       />
-      <LanguageToggle />
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">{t('notFound.title')}</h1>
         <p className="text-xl text-gray-600 mb-4">{t('notFound.subtitle')}</p>

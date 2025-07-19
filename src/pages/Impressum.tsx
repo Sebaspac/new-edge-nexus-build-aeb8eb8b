@@ -4,7 +4,6 @@ import { ArrowLeft, Mail, MapPin, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import SEO from "@/components/SEO";
-import LanguageToggle from "@/components/LanguageToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
 const Impressum = () => {
   const { t } = useLanguage();
@@ -15,7 +14,6 @@ const Impressum = () => {
         description="Impressum und rechtliche Informationen von New Edge Creative Tech Studio."
         canonical="https://www.newedgebrand.com/impressum"
       />
-      <LanguageToggle />
       {/* Header */}
       <motion.header initial={{
       opacity: 0,

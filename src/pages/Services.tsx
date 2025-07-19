@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEO from "@/components/SEO";
-import LanguageToggle from "@/components/LanguageToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // 3D Particle System Component
@@ -143,7 +142,6 @@ const Services = () => {
         description="Entdecke unsere Services: KI-basierte Marketinglösungen, Brand Development und innovative Tech-Lösungen."
         canonical="https://www.newedgebrand.com/services"
       />
-      <LanguageToggle />
       {/* 3D Background Canvas */}
       <div className="fixed inset-0 z-0">
         <Canvas camera={{

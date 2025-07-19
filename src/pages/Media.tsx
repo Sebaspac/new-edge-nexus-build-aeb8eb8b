@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEO from "@/components/SEO";
-import LanguageToggle from "@/components/LanguageToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
 const Media = () => {
   const { t } = useLanguage();
@@ -45,7 +44,6 @@ const Media = () => {
         description="Unsere Media-Sektion: Kreative Inhalte, Fallstudien und Insights aus dem Creative Tech Bereich."
         canonical="https://www.newedgebrand.com/media"
       />
-      <LanguageToggle />
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
       {/* Hero Section */}
