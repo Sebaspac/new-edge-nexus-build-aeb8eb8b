@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Sparkles, Zap, Brain, Target, Eye, Rocket, Star, Lightbulb, Users, ChevronDown, ArrowDown } from "lucide-react";
@@ -14,6 +14,7 @@ import CookieConsent from "@/components/CookieConsent";
 import SEO from "@/components/SEO";
 import NetworkVisualization from "@/components/NetworkVisualization";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { LazyImage } from "@/components/LazyImage";
 const Index = () => {
   const {
     t
@@ -30,15 +31,15 @@ const Index = () => {
   } = useScroll();
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Optimierte Parallax-Effekte (reduzierte Intensität)
-  const y1 = useTransform(scrollY, [0, 1000], [0, -50]);
-  const y2 = useTransform(scrollY, [0, 1000], [0, -100]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0.8]);
+  // Further optimized Parallax effects (minimal performance impact)
+  const y1 = useTransform(scrollY, [0, 1000], [0, -30]);
+  const y2 = useTransform(scrollY, [0, 1000], [0, -60]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0.9]);
 
-  // Visual section transforms
-  const visualScale = useTransform(scrollY, [600, 1400], [1, 0.8]);
-  const visualOpacity = useTransform(scrollY, [600, 1400], [1, 0.7]);
-  const visualTextOpacity = useTransform(scrollY, [600, 900], [1, 0]);
+  // Reduced visual section transforms for better performance
+  const visualScale = useTransform(scrollY, [600, 1400], [1, 0.95]);
+  const visualOpacity = useTransform(scrollY, [600, 1400], [1, 0.8]);
+  const visualTextOpacity = useTransform(scrollY, [600, 900], [1, 0.3]);
   useEffect(() => {
     setIsVisible(true);
     const handleMouseMove = (e: MouseEvent) => {
@@ -65,7 +66,7 @@ const Index = () => {
       });
     }
   };
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     try {
@@ -95,7 +96,7 @@ const Index = () => {
         duration: 5000
       });
     }
-  };
+  }, []);
   const cardVariants = {
     hidden: {
       opacity: 0,
@@ -1008,7 +1009,12 @@ const Index = () => {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div className="sm:col-span-2">
               <div className="flex items-center mb-4">
-                <img alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" />
+                <LazyImage 
+                  alt="New Edge Logo" 
+                  className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" 
+                  src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png"
+                  sizes="(max-width: 640px) 24px, 32px"
+                />
                 <div className="text-2xl sm:text-3xl font-bold">
                   New Edge<span className="text-purple-400"></span>
                 </div>

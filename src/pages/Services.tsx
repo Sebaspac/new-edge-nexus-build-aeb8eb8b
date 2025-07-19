@@ -11,26 +11,26 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-// 3D Particle System Component
+// Optimized 3D Particle System Component (reduced particle count)
 function ParticleField() {
   const ref = useRef<THREE.Points>(null);
   const [sphere] = useState(() => {
-    const positions = new Float32Array(2000 * 3);
-    for (let i = 0; i < 2000; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 20;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+    const positions = new Float32Array(800 * 3); // Reduced from 2000 to 800
+    for (let i = 0; i < 800; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 15; // Reduced spread
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 15;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 15;
     }
     return positions;
   });
   useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
+      ref.current.rotation.x -= delta / 15; // Slower rotation
+      ref.current.rotation.y -= delta / 20;
     }
   });
-  return <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
-      <PointMaterial transparent color="#8b5cf6" size={0.05} sizeAttenuation={true} depthWrite={false} />
+  return <Points ref={ref} positions={sphere} stride={3} frustumCulled={true}>
+      <PointMaterial transparent color="#8b5cf6" size={0.04} sizeAttenuation={true} depthWrite={false} />
     </Points>;
 }
 
@@ -142,12 +142,14 @@ const Services = () => {
         description="Entdecke unsere Services: KI-basierte Marketinglösungen, Brand Development und innovative Tech-Lösungen."
         canonical="https://www.newedgebrand.com/services"
       />
-      {/* 3D Background Canvas */}
+      {/* Optimized 3D Background Canvas */}
       <div className="fixed inset-0 z-0">
-        <Canvas camera={{
-        position: [0, 0, 5],
-        fov: 75
-      }}>
+        <Canvas 
+          camera={{ position: [0, 0, 5], fov: 75 }}
+          performance={{ min: 0.8 }}
+          dpr={[1, 1.5]}
+          frameloop="demand"
+        >
           <Suspense fallback={null}>
             <Background3D />
           </Suspense>
