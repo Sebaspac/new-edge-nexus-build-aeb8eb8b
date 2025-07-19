@@ -72,7 +72,7 @@ const Impressum = () => {
               <CardContent className="p-8">
                 <h2 className="text-xl md:text-2xl font-bold mb-6 flex items-center text-white">
                   <MapPin className="w-6 h-6 mr-3 text-purple-400" />
-                  {t('legal.legalInfo')}
+                  Angaben gemäß § 5 TMG
                 </h2>
                 
                 <div className="space-y-4 text-gray-300">
@@ -118,7 +118,7 @@ const Impressum = () => {
               <CardContent className="p-8">
                   <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 flex items-center text-white">
                     <Shield className="w-8 h-8 mr-3 text-purple-400" />
-                    {t('legal.privacyPage')}
+                    Datenschutzerklärung
                   </h2>
                 
                 <div className="space-y-8 text-gray-300">
