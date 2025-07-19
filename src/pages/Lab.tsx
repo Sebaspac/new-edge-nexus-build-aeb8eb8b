@@ -7,7 +7,9 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 const Lab = () => {
-  const { t } = useLanguage();
+  const {
+    t
+  } = useLanguage();
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -30,11 +32,15 @@ const Lab = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
   const scrollToContact = () => {
-    navigate('/', { replace: true });
+    navigate('/', {
+      replace: true
+    });
     setTimeout(() => {
       const contactSection = document.getElementById('contact-section');
       if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
+        contactSection.scrollIntoView({
+          behavior: 'smooth'
+        });
       }
     }, 100);
   };
@@ -144,12 +150,9 @@ const Lab = () => {
             <div className="animate-fade-in flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4" style={{
             animationDelay: '1s'
           }}>
-              <Button 
-                size="lg" 
-                className="w-full sm:w-auto text-black hover:bg-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" 
-                style={{backgroundColor: '#FFED00'}}
-                onClick={scrollToContact}
-              >
+              <Button size="lg" className="w-full sm:w-auto text-black hover:bg-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" style={{
+              backgroundColor: '#FFED00'
+            }} onClick={scrollToContact}>
                 Projekt starten
               </Button>
               
@@ -190,11 +193,7 @@ const Lab = () => {
           </div>
 
           <div className="text-center">
-            <Button 
-              size="lg" 
-              className="bg-black hover:bg-gray-800 text-white text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
-              onClick={scrollToContact}
-            >
+            <Button size="lg" className="bg-black hover:bg-gray-800 text-white text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" onClick={scrollToContact}>
               Projekt anfragen
             </Button>
           </div>
@@ -284,9 +283,7 @@ const Lab = () => {
                       </div>
                       <Button size="lg" className="w-full lg:w-auto text-white text-base sm:text-lg px-8 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
                       background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
-                    }}>
-                        In 48 Stunden
-                      </Button>
+                    }}>Loslegen</Button>
                     </div>
                     <div className="hidden lg:block">
                       <div className="grid grid-cols-2 gap-4">
@@ -412,12 +409,7 @@ const Lab = () => {
                 <p className="text-gray-700 leading-relaxed text-sm mb-6">
                   Haben Sie spezielle Anforderungen? Wir entwickeln maßgeschneiderte KI-Lösungen
                 </p>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="border-green-300 text-green-700 hover:bg-green-50"
-                  onClick={scrollToContact}
-                >
+                <Button variant="outline" size="sm" className="border-green-300 text-green-700 hover:bg-green-50" onClick={scrollToContact}>
                   Anfrage stellen
                 </Button>
               </CardContent>
@@ -435,11 +427,7 @@ const Lab = () => {
           <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in text-gray-800 px-4">
             Gemeinsam entwickeln wir innovative Technologielösungen, die Ihr Unternehmen voranbringen.
           </p>
-          <Button 
-            size="lg" 
-            className="bg-black hover:bg-gray-800 text-white text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
-            onClick={scrollToContact}
-          >
+          <Button size="lg" className="bg-black hover:bg-gray-800 text-white text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" onClick={scrollToContact}>
             Projekt besprechen
           </Button>
         </div>
