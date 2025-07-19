@@ -55,6 +55,8 @@ const SEO = ({
     updateMetaTag('robots', robots);
     updateMetaTag('og:title', title, true);
     updateMetaTag('og:description', description, true);
+    updateMetaTag('og:image', 'https://www.newedgebrand.com/lovable-uploads/198e2b1f-64ac-4570-82fe-278fb98b54ef.png', true);
+    updateMetaTag('og:url', canonical, true);
     
     // Update canonical link
     updateLinkTag('canonical', canonical);
