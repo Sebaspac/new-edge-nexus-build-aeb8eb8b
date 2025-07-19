@@ -3,19 +3,19 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const NetworkVisualization = () => {
   const networkNodes = [
-    { id: 1, label: "Coaches", value: "10", position: { x: 20, y: 20 }, color: "hsl(var(--secondary))" },
-    { id: 2, label: "Creative Agencys", value: "3", position: { x: 80, y: 15 }, color: "hsl(var(--primary))" },
-    { id: 3, label: "Freelancer", value: ">15", position: { x: 85, y: 65 }, color: "hsl(var(--accent))" },
-    { id: 4, label: "Entwickler", value: "2", position: { x: 15, y: 75 }, color: "hsl(214 70% 65%)" },
-    { id: 5, label: "Länder", value: "4", position: { x: 75, y: 85 }, color: "hsl(255 70% 65%)" }
+    { id: 1, label: "Coaches", value: "10", position: { x: 25, y: 30 }, color: "214 70% 45%" },
+    { id: 2, label: "Creative Agencys", value: "3", position: { x: 70, y: 20 }, color: "255 45% 45%" },
+    { id: 3, label: "Freelancer", value: ">15", position: { x: 80, y: 70 }, color: "60 80% 40%" },
+    { id: 4, label: "Entwickler", value: "2", position: { x: 20, y: 80 }, color: "214 70% 65%" },
+    { id: 5, label: "Länder", value: "4", position: { x: 75, y: 85 }, color: "255 70% 65%" }
   ];
 
   return (
-    <Card className="bg-transparent border-2 border-primary/30 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+    <Card className="bg-card border-2 border-primary/30 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
       <CardContent className="p-8 md:p-12 relative overflow-hidden min-h-[400px]">
         {/* Title */}
         <div className="absolute top-4 left-6 z-20">
-          <div className="bg-primary/90 text-primary-foreground px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
+          <div className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium">
             Unser Netzwerk
           </div>
         </div>
@@ -32,8 +32,8 @@ const NetworkVisualization = () => {
                 </feMerge>
               </filter>
               <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="hsl(var(--secondary))" stopOpacity="0.8" />
+                <stop offset="0%" stopColor="hsl(255 45% 45%)" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="hsl(214 70% 45%)" stopOpacity="0.6" />
               </linearGradient>
             </defs>
 
@@ -41,10 +41,10 @@ const NetworkVisualization = () => {
             <motion.circle
               cx="50"
               cy="50"
-              r="8"
+              r="6"
               fill="hsl(var(--background))"
-              stroke="hsl(var(--primary))"
-              strokeWidth="2"
+              stroke="hsl(255 45% 45%)"
+              strokeWidth="2.5"
               filter="url(#glow)"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -55,8 +55,8 @@ const NetworkVisualization = () => {
             <motion.circle
               cx="50"
               cy="50"
-              r="4"
-              fill="hsl(var(--primary))"
+              r="2.5"
+              fill="hsl(255 45% 45%)"
               initial={{ scale: 0 }}
               animate={{ scale: [0, 1, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -90,9 +90,9 @@ const NetworkVisualization = () => {
                 <motion.circle
                   cx={node.position.x}
                   cy={node.position.y}
-                  r="3.5"
+                  r="3"
                   fill="hsl(var(--background))"
-                  stroke={node.color}
+                  stroke={`hsl(${node.color})`}
                   strokeWidth="2"
                   filter="url(#glow)"
                   initial={{ scale: 0 }}
@@ -107,8 +107,8 @@ const NetworkVisualization = () => {
                 <motion.circle
                   cx={node.position.x}
                   cy={node.position.y}
-                  r="1.5"
-                  fill={node.color}
+                  r="1.2"
+                  fill={`hsl(${node.color})`}
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ 
@@ -126,7 +126,7 @@ const NetworkVisualization = () => {
           {networkNodes.map((node, index) => (
             <motion.div
               key={`label-${node.id}`}
-              className="absolute text-center"
+              className="absolute text-center pointer-events-none"
               style={{
                 left: `${node.position.x}%`,
                 top: `${node.position.y}%`,
@@ -139,26 +139,26 @@ const NetworkVisualization = () => {
                 delay: index * 0.1 + 1.2
               }}
             >
-              <div className="relative">
+              <div className="relative bg-background/80 backdrop-blur-sm rounded-lg p-2 border border-border/50">
                 {/* Value */}
                 <div 
-                  className="text-2xl md:text-3xl font-bold mb-1"
-                  style={{ color: node.color }}
+                  className="text-xl md:text-2xl font-bold mb-1"
+                  style={{ color: `hsl(${node.color})` }}
                 >
                   {node.value}
                 </div>
                 
                 {/* Label */}
-                <div className="text-xs md:text-sm text-muted-foreground font-medium">
+                <div className="text-xs md:text-sm text-foreground font-medium whitespace-nowrap">
                   {node.label}
                 </div>
                 
                 {/* Underline */}
                 <motion.div
-                  className="h-0.5 bg-current opacity-60 mt-1"
-                  style={{ backgroundColor: node.color }}
+                  className="h-0.5 opacity-80 mt-1 mx-auto"
+                  style={{ backgroundColor: `hsl(${node.color})` }}
                   initial={{ width: 0 }}
-                  animate={{ width: '100%' }}
+                  animate={{ width: '80%' }}
                   transition={{ 
                     duration: 0.6,
                     delay: index * 0.1 + 1.5
