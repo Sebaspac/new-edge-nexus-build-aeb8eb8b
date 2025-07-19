@@ -3,8 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const NetworkVisualization = () => {
   const networkNodes = [
-    { id: 1, label: "Coaches", value: "10", angle: -120, radius: 22, color: "214 70% 55%" },
-    { id: 2, label: "Creative Agencys", value: "3", angle: -30, radius: 25, color: "255 45% 55%" },
+    { id: 1, label: "Coaches", value: "10", angle: -110, radius: 26, color: "214 70% 55%" },
+    { id: 2, label: "Creative Agencys", value: "3", angle: -30, radius: 20, color: "255 45% 55%" },
     { id: 3, label: "Freelancer", value: ">15", angle: 60, radius: 30, color: "60 80% 50%" },
     { id: 4, label: "Länder", value: "4", angle: 150, radius: 24, color: "255 70% 65%" },
     { id: 5, label: "Entwickler", value: "2", angle: -160, radius: 28, color: "214 70% 65%" }
