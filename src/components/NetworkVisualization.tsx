@@ -3,11 +3,11 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const NetworkVisualization = () => {
   const networkNodes = [
-    { id: 1, label: "Coaches", value: "10", angle: -90, radius: 35, color: "214 70% 55%" },
-    { id: 2, label: "Creative Agencys", value: "3", angle: -30, radius: 38, color: "255 45% 55%" },
-    { id: 3, label: "Freelancer", value: ">15", angle: 30, radius: 42, color: "60 80% 50%" },
-    { id: 4, label: "Länder", value: "4", angle: 90, radius: 35, color: "255 70% 65%" },
-    { id: 5, label: "Entwickler", value: "2", angle: 150, radius: 40, color: "214 70% 65%" }
+    { id: 1, label: "Coaches", value: "10", angle: -135, radius: 25, color: "214 70% 55%" },
+    { id: 2, label: "Creative Agencys", value: "3", angle: -45, radius: 30, color: "255 45% 55%" },
+    { id: 3, label: "Freelancer", value: ">15", angle: 45, radius: 35, color: "60 80% 50%" },
+    { id: 4, label: "Länder", value: "4", angle: 135, radius: 28, color: "255 70% 65%" },
+    { id: 5, label: "Entwickler", value: "2", angle: 180, radius: 32, color: "214 70% 65%" }
   ];
 
   // Calculate positions based on angle and radius
@@ -20,11 +20,11 @@ const NetworkVisualization = () => {
   };
 
   return (
-    <Card className="bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500">
-      <CardContent className="p-8 relative overflow-hidden h-[350px]">
+    <Card className="bg-transparent border-none shadow-none">
+      <CardContent className="p-6 relative overflow-hidden h-[300px]">
         {/* Title */}
         <motion.div 
-          className="absolute top-6 left-6 z-20"
+          className="absolute top-4 left-4 z-20"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -36,7 +36,7 @@ const NetworkVisualization = () => {
 
         {/* Main SVG */}
         <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <svg className="w-full h-full max-w-md max-h-80" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+          <svg className="w-full h-full max-w-sm max-h-72" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
             <defs>
               <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
                 <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
@@ -138,7 +138,7 @@ const NetworkVisualization = () => {
 
         {/* Node Labels */}
         <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <div className="relative w-full max-w-md h-80">
+          <div className="relative w-full max-w-sm h-72">
             {networkNodes.map((node, index) => {
               const pos = getPosition(node.angle, node.radius);
               const labelOffset = getPosition(node.angle, node.radius + 12);
