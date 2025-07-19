@@ -15,9 +15,7 @@ import SEO from "@/components/SEO";
 import NetworkVisualization from "@/components/NetworkVisualization";
 import { useLanguage } from "@/contexts/LanguageContext";
 const Index = () => {
-  const {
-    t
-  } = useLanguage();
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -78,8 +76,8 @@ const Index = () => {
       });
       if (response.ok) {
         toast({
-          title: t('home.contact.success.title'),
-          description: t('home.contact.success.message'),
+          title: "Wir designen für dich",
+          description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
           duration: 5000
         });
         form.reset();
@@ -89,8 +87,8 @@ const Index = () => {
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
-        title: t('home.contact.error.title'),
-        description: t('home.contact.error.message'),
+        title: "Fehler",
+        description: "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
         variant: "destructive",
         duration: 5000
       });
@@ -144,7 +142,7 @@ const Index = () => {
               duration: 0.3
             }
           }}>
-              <div className="animate-text-shimmer mt-16">{t('home.hero.brand')}</div>
+              <div className="animate-text-shimmer mt-16">BRAND</div>
             </motion.div>
             <motion.div initial={{
             rotateX: -90
@@ -154,7 +152,7 @@ const Index = () => {
             delay: 0.3,
             duration: 0.8
           }} className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black text-white italic mb-2 sm:mb-3 md:mb-4">
-              {t('home.hero.intelligence')}
+              INTELLIGENCE
             </motion.div>
             <motion.div initial={{
             opacity: 0,
@@ -166,7 +164,7 @@ const Index = () => {
             delay: 0.4,
             duration: 0.8
           }} className="text-lg sm:text-xl md:text-2xl lg:text-4xl xl:text-6xl text-gray-400 font-light">
-              {t('home.hero.forDigitalAge')}
+              FOR THE DIGITAL AGE
             </motion.div>
           </motion.div>
           
@@ -254,11 +252,11 @@ const Index = () => {
               delay: 0.2,
               duration: 0.6
             }} className="text-4xl md:text-6xl font-black mb-4">
-                <span className="inline-block">{t('home.visual.strategy')} </span>
+                <span className="inline-block">STRATEGIE </span>
                 <br />
-                <span className="text-5xl md:text-7xl bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent font-black inline-block">{t('home.visual.onPoint')}</span>
+                <span className="text-5xl md:text-7xl bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent font-black inline-block">ON-POINT</span>
                 <br />
-                <span className="text-4xl md:text-6xl inline-block">{t('home.visual.creative')}</span>
+                <span className="text-4xl md:text-6xl inline-block">CREATIVE TECH</span>
               </motion.h2>
             </motion.div>
           </motion.div>
@@ -279,8 +277,8 @@ const Index = () => {
         duration: 0.8
       }} className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 max-w-4xl mx-auto leading-tight">
-            <span className="inline-block">{t('home.mission.title').split('intelligente Automatisierung')[0]} </span>
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> {t('home.mission.title').split('durch ')[1]}</span>
+            <span className="inline-block">Innovation voranbringen durch </span>
+            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> intelligente Automatisierung</span>
           </h2>
           <motion.p initial={{
           opacity: 0
@@ -292,7 +290,7 @@ const Index = () => {
           delay: 0.3,
           duration: 0.8
         }} className="text-xl text-gray-300 max-w-3xl mx-auto">
-            {t('home.mission.description')}
+            Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme – für Marken, die funktionieren und wachsen.
           </motion.p>
         </motion.div>
       </section>
@@ -312,7 +310,7 @@ const Index = () => {
           duration: 0.8
         }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {t('home.grow.title')}
+              Wir wachsen mit unseren Kunden
             </h2>
           </motion.div>
 
@@ -332,8 +330,8 @@ const Index = () => {
           }}>
               <Card className="bg-transparent border-2 border-purple-500 h-full hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20">
                 <CardContent className="p-8 text-center">
-                  <div className="text-purple-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">{t('home.mission.card.title')}</div>
-                  <p className="text-gray-200 leading-relaxed">{t('home.mission.card.description')}</p>
+                  <div className="text-purple-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
+                  <p className="text-gray-200 leading-relaxed">Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -353,9 +351,9 @@ const Index = () => {
           }}>
               <Card className="bg-transparent border-2 border-blue-500 h-full hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20">
                 <CardContent className="p-8 text-center">
-                  <div className="text-blue-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">{t('home.vision.card.title')}</div>
+                  <div className="text-blue-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSERE VISION</div>
                   <p className="text-gray-200 leading-relaxed">
-                    {t('home.vision.card.description')}
+                    Wir gestalten eine neue Generation von Marken: automatisiert, strukturiert und sichtbar.
                   </p>
                 </CardContent>
               </Card>
@@ -376,9 +374,9 @@ const Index = () => {
           }}>
               <Card className="bg-transparent border-2 border-yellow-500 h-full hover:border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/20">
                 <CardContent className="p-8 text-center">
-                  <div className="text-yellow-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">{t('home.goal.card.title')}</div>
+                  <div className="text-yellow-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSER ZIEL</div>
                   <p className="text-gray-200 leading-relaxed">
-                    {t('home.goal.card.description')}
+                    Menschen und Unternehmen den Zugang zu Innovation bieten für einfachere und effektivere Abläufe.
                   </p>
                 </CardContent>
               </Card>
@@ -402,7 +400,7 @@ const Index = () => {
           duration: 0.8
         }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-              {t('home.why.title').split('New Edge?')[0]} <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">New Edge?</span>
+              Warum <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">New Edge?</span>
             </h2>
           </motion.div>
 
@@ -423,8 +421,8 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-medium">01</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-medium">{t('home.usp1.title')}</h3>
-                  <p className="text-gray-300">{t('home.usp1.description')}</p>
+                  <h3 className="text-xl font-bold text-white mb-2">Impact durch Automatisierung</h3>
+                  <p className="text-gray-300">Intelligente Systeme steigern Ihre Effizienz nachhaltig</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -445,8 +443,8 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-medium">02</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-medium">{t('home.usp2.title')}</h3>
-                  <p className="text-gray-300">{t('home.usp2.description')}</p>
+                  <h3 className="text-xl font-bold text-white mb-2">Marketingexpertise trifft technische Umsetzung</h3>
+                  <p className="text-gray-300">Perfekte Symbiose aus Strategie und Innovation</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -467,7 +465,7 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center text-white text-xl font-medium">03</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-medium">Zugänglichkeit & Klarheit statt Komplexität</h3>
+                  <h3 className="text-xl font-bold text-white mb-2">Zugänglichkeit & Klarheit statt Komplexität</h3>
                   <p className="text-gray-300">Einfache Lösungen für komplexe Herausforderungen</p>
                 </CardContent>
               </Card>
@@ -489,7 +487,7 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center text-white text-xl font-medium">04</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-medium">Individuelle Setups ohne Standardbausteine</h3>
+                  <h3 className="text-xl font-bold text-white mb-2">Individuelle Setups ohne Standardbausteine</h3>
                   <p className="text-gray-300">Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen</p>
                 </CardContent>
               </Card>
