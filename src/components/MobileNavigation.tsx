@@ -96,23 +96,22 @@ export const MobileNavigation = ({
                 </div>
               </div>
               
+              {/* Language Toggle - minimal above contact */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setLanguage(language === 'de' ? 'en' : 'de')}
+                className={`${isDark ? 'text-white/70 hover:text-white hover:bg-white/5' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'} px-2 py-1 text-xs font-medium`}
+              >
+                {language === 'de' ? 'EN' : 'DE'}
+              </Button>
+
               <Button 
                 onClick={onContactClick} 
                 className={`${isDark ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700' : 'bg-black hover:bg-gray-800'} text-white transition-all duration-300 hover:scale-105`}
                 size="sm"
               >
                 Kontakt
-              </Button>
-
-              {/* Language Toggle */}
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setLanguage(language === 'de' ? 'en' : 'de')}
-                className={`${isDark ? 'border-white/20 text-white hover:bg-white/10' : 'border-gray-300 text-gray-600 hover:bg-gray-50'} ml-2`}
-              >
-                <Languages className="h-4 w-4 mr-1" />
-                {language === 'de' ? 'EN' : 'DE'}
               </Button>
             </div>
 
