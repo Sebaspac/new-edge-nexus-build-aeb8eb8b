@@ -39,43 +39,43 @@ const Lab = () => {
     }, 100);
   };
   const services = [{
-    title: "Technische Umsetzung",
-    description: "Professionelle Entwicklung und Implementierung technischer Lösungen für Ihr Unternehmen.",
+    title: t('lab.services.technical'),
+    description: t('lab.services.technicalDesc'),
     icon: Settings,
     delay: "0s"
   }, {
-    title: "KI-Integration & Automation",
-    description: "Intelligente Automatisierung und KI-Integration in bestehende Geschäftsprozesse.",
+    title: t('lab.services.aiIntegration'),
+    description: t('lab.services.aiIntegrationDesc'),
     icon: Brain,
     delay: "0.1s"
   }, {
-    title: "Backend & Tech-Implementierung",
-    description: "Robuste Backend-Systeme und technische Infrastruktur für skalierbare Anwendungen.",
+    title: t('lab.services.backendTech'),
+    description: t('lab.services.backendTechDesc'),
     icon: Database,
     delay: "0.2s"
   }, {
-    title: "Webentwicklung",
-    description: "CMS, Landingpages, Funnels - maßgeschneiderte Weblösungen für Ihren Erfolg.",
+    title: t('lab.services.webDev'),
+    description: t('lab.services.webDevDesc'),
     icon: Globe,
     delay: "0.3s"
   }, {
-    title: "KI-gestützte Prozessautomatisierung",
-    description: "Optimierung und Automatisierung von Geschäftsprozessen durch künstliche Intelligenz.",
+    title: t('lab.services.processAuto'),
+    description: t('lab.services.processAutoDesc'),
     icon: Cpu,
     delay: "0.4s"
   }, {
-    title: "KI-Agenten-Integration",
-    description: "Text, Mail, CRM - intelligente Agenten für automatisierte Kommunikation und Verwaltung.",
+    title: t('lab.services.agentIntegration'),
+    description: t('lab.services.agentIntegrationDesc'),
     icon: Bot,
     delay: "0.5s"
   }, {
-    title: "Formular- & Datenbank-Anbindungen",
-    description: "Nahtlose Integration von Notion, Airtable, Supabase und anderen Datenquellen.",
+    title: t('lab.services.formConnections'),
+    description: t('lab.services.formConnectionsDesc'),
     icon: FormInput,
     delay: "0.6s"
   }, {
-    title: "Tracking- & Analyse-Setups",
-    description: "GA4, Tag Manager, Pixel, Dashboards - umfassende Datenanalyse und Reporting.",
+    title: t('lab.services.trackingAnalytics'),
+    description: t('lab.services.trackingAnalyticsDesc'),
     icon: BarChart3,
     delay: "0.7s"
   }];
@@ -99,7 +99,7 @@ const Lab = () => {
               <br />
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{
               animationDelay: '0.6s'
-            }}>TECH INNOVATION</span>
+            }}>{t('lab.subtitle')}</span>
             </h1>
             
             {/* Floating icons */}
@@ -150,7 +150,7 @@ const Lab = () => {
                 style={{backgroundColor: '#FFED00'}}
                 onClick={scrollToContact}
               >
-                Projekt starten
+                {t('lab.startProject')}
               </Button>
               
             </div>
@@ -163,11 +163,11 @@ const Lab = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-20">
             <div className="inline-block px-4 py-2 bg-white rounded-full shadow-sm mb-6">
-              <span className="text-sm font-medium text-gray-600">PROJEKTBASIERTE LEISTUNGEN</span>
+              <span className="text-sm font-medium text-gray-600">{t('lab.projectServices')}</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4 sm:mb-6 animate-fade-in">Technische Umsetzung</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4 sm:mb-6 animate-fade-in">{t('lab.technicalImplementation')}</h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in px-4">
-              Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen
+              {t('lab.customSolutions')}
             </p>
           </div>
           
@@ -195,7 +195,7 @@ const Lab = () => {
               className="bg-black hover:bg-gray-800 text-white text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
               onClick={scrollToContact}
             >
-              Projekt anfragen
+              {t('lab.requestProject')}
             </Button>
           </div>
         </div>
@@ -208,7 +208,7 @@ const Lab = () => {
             <div className="w-1 h-16 mx-auto mb-4" style={{
             backgroundColor: '#FFED00'
           }}></div>
-            <p className="text-gray-500 font-medium">ZUSÄTZLICH</p>
+            <p className="text-gray-500 font-medium">{t('lab.additionally')}</p>
           </div>
         </div>
       </section>
@@ -221,21 +221,21 @@ const Lab = () => {
             background: 'linear-gradient(135deg, #9F91F8, #4F97F0)',
             color: 'white'
           }}>
-              <span className="text-sm font-medium">KI-POWERED SOLUTIONS</span>
+              <span className="text-sm font-medium">{t('lab.kiPowered')}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in" style={{
             color: '#9F91F8'
           }}>
-              New Edge Agent Hub
+              {t('lab.agentHub')}
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in px-4 mb-8">
-              Unsere eigenen KI-Anwendungen – sofort einsatzbereit für maximale Effizienz
+              {t('lab.agentHubDesc')}
             </p>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-50 rounded-full">
               <div className="w-2 h-2 rounded-full animate-pulse" style={{
               backgroundColor: '#FFED00'
             }}></div>
-              <span className="text-sm font-medium text-gray-700">In aktiver Entwicklung</span>
+              <span className="text-sm font-medium text-gray-700">{t('lab.inDevelopment')}</span>
             </div>
           </div>
           
@@ -247,7 +247,7 @@ const Lab = () => {
                 backgroundColor: '#FFED00',
                 color: '#333333'
               }}>
-                  VERFÜGBAR
+                  {t('lab.available')}
                 </div>
                 <CardContent className="p-8 sm:p-12">
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -257,35 +257,35 @@ const Lab = () => {
                     }}>
                         <Bot className="w-12 h-12 text-white" />
                       </div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">KI-Helfer Workforce</h3>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">{t('lab.helferWorkforce')}</h3>
                       <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg">
-                        70+ spezialisierte KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr. 
-                        <span className="font-semibold"> Lebenslanger Zugang ohne Abonnement.</span>
+                        {t('lab.helferDesc')} 
+                        <span className="font-semibold"> {t('lab.lifetimeAccess')}</span>
                       </p>
                       <div className="space-y-3 mb-8">
                         <div className="flex items-center justify-center lg:justify-start gap-3">
                           <div className="w-2 h-2 rounded-full" style={{
                           backgroundColor: '#4F97F0'
                         }}></div>
-                          <span className="text-sm text-gray-600">Keine monatlichen Kosten</span>
+                          <span className="text-sm text-gray-600">{t('lab.noCosts')}</span>
                         </div>
                         <div className="flex items-center justify-center lg:justify-start gap-3">
                           <div className="w-2 h-2 rounded-full" style={{
                           backgroundColor: '#9F91F8'
                         }}></div>
-                          <span className="text-sm text-gray-600">Sofort einsatzbereit</span>
+                          <span className="text-sm text-gray-600">{t('lab.readyToUse')}</span>
                         </div>
                         <div className="flex items-center justify-center lg:justify-start gap-3">
                           <div className="w-2 h-2 rounded-full" style={{
                           backgroundColor: '#FFED00'
                         }}></div>
-                          <span className="text-sm text-gray-600">80% Rabatt für kurze Zeit</span>
+                          <span className="text-sm text-gray-600">{t('lab.discount')}</span>
                         </div>
                       </div>
                       <Button size="lg" className="w-full lg:w-auto text-white text-base sm:text-lg px-8 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
                       background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
                     }}>
-                        In 48 Stunden
+                        {t('lab.inHours')}
                       </Button>
                     </div>
                     <div className="hidden lg:block">

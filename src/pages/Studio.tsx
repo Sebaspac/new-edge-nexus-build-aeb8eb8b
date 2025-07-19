@@ -63,7 +63,7 @@ const Studio = () => {
               <br />
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{
               animationDelay: '0.6s'
-            }}>DESIGN EXCELLENCE</span>
+            }}>{t('studio.subtitle')}</span>
             </h1>
             
             {/* Floating icons */}
@@ -106,7 +106,7 @@ const Studio = () => {
                 className="w-full sm:w-auto bg-purple-600 text-white hover:bg-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4"
                 onClick={scrollToContact}
               >
-                Projekt starten
+                {t('studio.startProject')}
               </Button>
               
             </div>
@@ -118,9 +118,9 @@ const Studio = () => {
       <section className="py-16 sm:py-32 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-20">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4 sm:mb-6 animate-fade-in">UNSERE LEISTUNGEN</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4 sm:mb-6 animate-fade-in">{t('studio.ourServices')}</h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in px-4">
-              Strategische Fundamente für Ihren Markenerfolg
+              {t('studio.servicesSubtitle')}
             </p>
           </div>
           
@@ -130,9 +130,9 @@ const Studio = () => {
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors duration-300">
                   <Palette className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
                 </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">Strategie & Markenidentität</h3>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">{t('studio.strategy.title')}</h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Strategische Markenpositionierung und Zielgruppenanalyse für eine klare Ausrichtung.
+                  {t('studio.strategy.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -144,9 +144,9 @@ const Studio = () => {
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors duration-300">
                   <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
                 </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">Brand Story</h3>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">{t('studio.brandStory.title')}</h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Authentische Markenstories mit klaren Werten und einzigartiger Tonalität.
+                  {t('studio.brandStory.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -158,9 +158,9 @@ const Studio = () => {
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors duration-300">
                   <Monitor className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
                 </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">Wettbewerbsanalyse & Differenzierungsstrategie</h3>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">{t('studio.competitive.title')}</h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Strategische Marktanalyse und visuelles Konzept für klare Abgrenzung.
+                  {t('studio.competitive.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -172,9 +172,9 @@ const Studio = () => {
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors duration-300">
                   <FileImage className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
                 </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">Moodboards & Keyvisual-Richtung</h3>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">{t('studio.moodboards.title')}</h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Kreative Design- und Farbwelten für eine einheitliche visuelle Identität.
+                  {t('studio.moodboards.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -186,9 +186,9 @@ const Studio = () => {
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors duration-300">
                   <Package className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
                 </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">Template-Rahmen für Social Media & Print</h3>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">{t('studio.templates.title')}</h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Einheitliche Vorlagen und digitale Struktur mit Funnel-Logik.
+                  {t('studio.templates.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -200,9 +200,9 @@ const Studio = () => {
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors duration-300">
                   <Grid3x3 className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
                 </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">Nutzerführung & Funnel-Wireframes</h3>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">{t('studio.userFlow.title')}</h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Conversion-Ziele und strategischer Seitenaufbau für maximale Effektivität.
+                  {t('studio.userFlow.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -213,16 +213,16 @@ const Studio = () => {
       {/* CTA Section */}
       <section className="py-16 sm:py-32 bg-gradient-to-r from-purple-600 to-purple-700 text-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in">Let´s design the edge</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in">{t('studio.ctaTitle')}</h2>
           <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in px-4">
-            Gemeinsam entwickeln wir ein Design, das Ihre Vision zum Leben erweckt und Ihre Zielgruppe begeistert.
+            {t('studio.ctaDescription')}
           </p>
           <Button 
             size="lg" 
             className="bg-white text-purple-600 hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
             onClick={scrollToContact}
           >
-            Design-Projekt starten
+            {t('studio.ctaButton')}
           </Button>
         </div>
         
