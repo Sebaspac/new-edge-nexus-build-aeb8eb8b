@@ -539,7 +539,7 @@ const Index = () => {
                   <div className="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Brain className="w-8 h-8 text-purple-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-4">PERSÖNLICHE BERATUNG</h3>
+                  <h3 className="text-lg text-white mb-4 font-medium">PERSÖNLICHE BERATUNG</h3>
                   <p className="text-gray-300 text-sm leading-relaxed">
                     Individuelle Betreuung und maßgeschneiderte Strategien für Ihr Unternehmen
                   </p>
@@ -565,7 +565,7 @@ const Index = () => {
                   <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Target className="w-8 h-8 text-blue-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-4">MODULAR & SKALIERBAR</h3>
+                  <h3 className="text-white mb-4 text-lg font-medium">MODULAR & SKALIERBAR</h3>
                   <p className="text-gray-300 text-sm leading-relaxed">
                     Flexible Lösungen, die mit Ihrem Unternehmen wachsen und sich anpassen
                   </p>
@@ -591,7 +591,7 @@ const Index = () => {
                   <div className="w-16 h-16 bg-green-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Star className="w-8 h-8 text-green-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-4">FAIRE PREISE</h3>
+                  <h3 className="text-lg text-white mb-4 font-medium">FAIRE PREISE</h3>
                   <p className="text-gray-300 text-sm leading-relaxed">
                     Transparente Kostenstruktur ohne versteckte Gebühren für maximale Planungssicherheit
                   </p>
@@ -617,7 +617,7 @@ const Index = () => {
                   <div className="w-16 h-16 bg-yellow-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Eye className="w-8 h-8 text-yellow-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-4">TRANSPARENTER ABLAUF</h3>
+                  <h3 className="text-lg text-white mb-4 font-medium">TRANSPARENTER ABLAUF</h3>
                   <p className="text-gray-300 text-sm leading-relaxed">
                     Klare Kommunikation und nachvollziehbare Prozesse in jeder Projektphase
                   </p>
