@@ -15,7 +15,9 @@ import SEO from "@/components/SEO";
 import NetworkVisualization from "@/components/NetworkVisualization";
 import { useLanguage } from "@/contexts/LanguageContext";
 const Index = () => {
-  const { t } = useLanguage();
+  const {
+    t
+  } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -421,7 +423,7 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-medium">01</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">Impact durch Automatisierung</h3>
+                  <h3 className="text-xl text-white mb-2 font-medium">Impact durch Automatisierung</h3>
                   <p className="text-gray-300">Intelligente Systeme steigern Ihre Effizienz nachhaltig</p>
                 </CardContent>
               </Card>
@@ -443,7 +445,7 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-medium">02</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">Marketingexpertise trifft technische Umsetzung</h3>
+                  <h3 className="text-xl text-white mb-2 font-medium">Marketingexpertise trifft technische Umsetzung</h3>
                   <p className="text-gray-300">Perfekte Symbiose aus Strategie und Innovation</p>
                 </CardContent>
               </Card>
@@ -465,7 +467,7 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center text-white text-xl font-medium">03</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">Zugänglichkeit & Klarheit statt Komplexität</h3>
+                  <h3 className="text-xl text-white mb-2 font-medium">Zugänglichkeit & Klarheit statt Komplexität</h3>
                   <p className="text-gray-300">Einfache Lösungen für komplexe Herausforderungen</p>
                 </CardContent>
               </Card>
@@ -487,7 +489,7 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center text-white text-xl font-medium">04</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">Individuelle Setups ohne Standardbausteine</h3>
+                  <h3 className="text-xl text-white mb-2 font-medium">Individuelle Setups ohne Standardbausteine</h3>
                   <p className="text-gray-300">Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen</p>
                 </CardContent>
               </Card>
