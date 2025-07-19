@@ -10,18 +10,18 @@ const NetworkVisualization = () => {
     { id: 5, label: "Entwickler", value: "2", angle: -160, radius: 28, color: "214 70% 65%" }
   ];
 
-  // Calculate positions based on angle and radius
+  // Calculate positions based on angle and radius (adjusted for 120x80 viewBox)
   const getPosition = (angle: number, radius: number) => {
     const radian = (angle * Math.PI) / 180;
     return {
-      x: 50 + radius * Math.cos(radian),
-      y: 50 + radius * Math.sin(radian)
+      x: 60 + radius * Math.cos(radian), // Center at x=60
+      y: 40 + radius * Math.sin(radian)  // Center at y=40
     };
   };
 
   return (
     <Card className="bg-transparent border-none shadow-none">
-      <CardContent className="p-6 relative overflow-hidden h-[300px]">
+      <CardContent className="p-6 relative overflow-hidden h-[250px]">
         {/* Title */}
         <motion.div 
           className="absolute top-4 left-4 z-20"
@@ -36,7 +36,7 @@ const NetworkVisualization = () => {
 
         {/* Main SVG */}
         <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <svg className="w-full h-full max-w-sm max-h-72" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+          <svg className="w-full h-full max-w-lg max-h-60" viewBox="0 0 120 80" preserveAspectRatio="xMidYMid meet">
             <defs>
               <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
                 <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
@@ -57,8 +57,8 @@ const NetworkVisualization = () => {
               return (
                 <motion.line
                   key={`line-${node.id}`}
-                  x1="50"
-                  y1="50"
+                  x1="60"
+                  y1="40"
                   x2={pos.x}
                   y2={pos.y}
                   stroke="url(#connectionGradient)"
@@ -76,8 +76,8 @@ const NetworkVisualization = () => {
 
             {/* Central Hub */}
             <motion.circle
-              cx="50"
-              cy="50"
+              cx="60"
+              cy="40"
               r="4"
               fill="hsl(var(--background))"
               stroke="hsl(255 45% 55%)"
@@ -90,8 +90,8 @@ const NetworkVisualization = () => {
             
             {/* Pulsing center */}
             <motion.circle
-              cx="50"
-              cy="50"
+              cx="60"
+              cy="40"
               r="1.5"
               fill="hsl(255 45% 55%)"
               initial={{ scale: 0 }}
@@ -138,7 +138,7 @@ const NetworkVisualization = () => {
 
         {/* Node Labels */}
         <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <div className="relative w-full max-w-sm h-72">
+          <div className="relative w-full max-w-lg h-60">
             {networkNodes.map((node, index) => {
               const pos = getPosition(node.angle, node.radius);
               const labelOffset = getPosition(node.angle, node.radius + (node.label.length > 10 ? 16 : 14));
