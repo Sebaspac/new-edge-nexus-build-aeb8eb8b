@@ -4,13 +4,18 @@ import { ArrowLeft, Mail, MapPin, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import SEO from "@/components/SEO";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 const Impressum = () => {
+  const { t } = useLanguage();
+  
   return <div className="min-h-screen bg-black text-white">
       <SEO 
         title="Impressum - New Edge Creative Tech Studio"
         description="Impressum und rechtliche Informationen von New Edge Creative Tech Studio."
         canonical="https://www.newedgebrand.com/impressum"
       />
+      <LanguageToggle />
       {/* Header */}
       <motion.header initial={{
       opacity: 0,
@@ -22,7 +27,7 @@ const Impressum = () => {
         <Link to="/">
           <Button variant="ghost" className="text-purple-400 hover:text-purple-300 mb-8">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Zurück zur Startseite
+            {t('legal.backToHome')}
           </Button>
         </Link>
       </motion.header>

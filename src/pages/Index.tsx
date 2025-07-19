@@ -13,7 +13,10 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import CookieConsent from "@/components/CookieConsent";
 import SEO from "@/components/SEO";
 import NetworkVisualization from "@/components/NetworkVisualization";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 const Index = () => {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -110,6 +113,7 @@ const Index = () => {
   };
   return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
       <SEO title="New Edge - Creative Tech Studio" description="New Edge - where brand meets intelligence. Creative-Tech-Studio für KI-basierte Marketinglösungen." canonical="https://www.newedgebrand.com/" />
+      <LanguageToggle />
       {/* Mobile Navigation */}
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
@@ -174,10 +178,9 @@ const Index = () => {
           delay: 0.6,
           duration: 0.8
         }} className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-6 sm:mb-8 md:mb-10 max-w-4xl mx-auto font-light leading-relaxed px-4">
-            Wir verwandeln Visionen in digitale Realitäten durch intelligente Strategien, 
-            überzeugende Inhalte und innovative Technologien.
+            {t('home.hero.description')}
             <br className="hidden sm:block" />
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">Ein Team. Drei Ansätze. Unendliche Möglichkeiten.</span>
+            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">{t('home.hero.subtitle')}</span>
           </motion.p>
           
           {/* Scroll Indicator - Positioned with more spacing and properly centered on mobile */}

@@ -6,7 +6,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import SEO from "@/components/SEO";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 const Studio = () => {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -43,6 +46,7 @@ const Studio = () => {
         description="Unser Studio: Einblicke in unsere Arbeitsweise, Team und kreative Prozesse im Creative Tech Bereich."
         canonical="https://www.newedgebrand.com/studio"
       />
+      <LanguageToggle />
       {/* Mobile Navigation */}
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
 

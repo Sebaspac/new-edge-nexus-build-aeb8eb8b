@@ -5,7 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEO from "@/components/SEO";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 const Media = () => {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -42,6 +45,7 @@ const Media = () => {
         description="Unsere Media-Sektion: Kreative Inhalte, Fallstudien und Insights aus dem Creative Tech Bereich."
         canonical="https://www.newedgebrand.com/media"
       />
+      <LanguageToggle />
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
       {/* Hero Section */}
@@ -102,7 +106,7 @@ const Media = () => {
                 className="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4"
                 onClick={scrollToContact}
               >
-                Projekt starten
+                {t('common.startProject')}
               </Button>
               
             </div>

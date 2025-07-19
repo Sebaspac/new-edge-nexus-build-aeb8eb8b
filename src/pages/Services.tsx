@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEO from "@/components/SEO";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // 3D Particle System Component
 function ParticleField() {
@@ -71,6 +73,7 @@ function Background3D() {
     </>;
 }
 const Services = () => {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -140,6 +143,7 @@ const Services = () => {
         description="Entdecke unsere Services: KI-basierte Marketinglösungen, Brand Development und innovative Tech-Lösungen."
         canonical="https://www.newedgebrand.com/services"
       />
+      <LanguageToggle />
       {/* 3D Background Canvas */}
       <div className="fixed inset-0 z-0">
         <Canvas camera={{
@@ -212,9 +216,9 @@ const Services = () => {
           delay: 1.5,
           duration: 0.8
         }} className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto font-light leading-relaxed">
-            Wir begleiten Sie auf einer strukturierten Reise von der ersten Idee bis zur finalen Implementierung.
+            {t('services.hero.description')}
             <br />
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">For strategy. aesthetics. &amp; tech.</span>
+            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">{t('services.hero.subtitle')}</span>
           </motion.p>
 
           {/* Scroll Indicator */}
@@ -272,7 +276,7 @@ const Services = () => {
             duration: 4,
             repeat: Infinity
           }} className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12 animate-glow-pulse">
-              Key Activities
+              {t('services.keyActivities')}
             </motion.div>
             <h2 className="text-section-title sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
@@ -290,7 +294,7 @@ const Services = () => {
                     <motion.div whileHover={{
                     scale: 1.02
                   }} className="inline-block text-purple-400 px-4 sm:px-6 py-2 rounded-full text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 tracking-wider">
-                      NEW EDGE STUDIO
+                      {t('services.hero.title').includes('STUDIO') ? t('studio.hero.title') : 'NEW EDGE STUDIO'}
                     </motion.div>
                     
                     {/* Icon */}
