@@ -423,7 +423,7 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-medium">01</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-semibold">{t('home.usp1.title')}</h3>
+                  <h3 className="text-xl text-white mb-2 font-medium">{t('home.usp1.title')}</h3>
                   <p className="text-gray-300">{t('home.usp1.description')}</p>
                 </CardContent>
               </Card>
@@ -445,7 +445,7 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-medium">02</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-semibold">{t('home.usp2.title')}</h3>
+                  <h3 className="text-xl text-white mb-2 font-medium">{t('home.usp2.title')}</h3>
                   <p className="text-gray-300">{t('home.usp2.description')}</p>
                 </CardContent>
               </Card>
@@ -489,7 +489,7 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center text-white text-xl font-medium">04</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">Individuelle Setups ohne Standardbausteine</h3>
+                  <h3 className="text-xl text-white mb-2 font-medium">Individuelle Setups ohne Standardbausteine</h3>
                   <p className="text-gray-300">Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen</p>
                 </CardContent>
               </Card>
