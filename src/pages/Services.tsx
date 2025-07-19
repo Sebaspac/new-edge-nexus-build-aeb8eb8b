@@ -179,7 +179,7 @@ const Services = () => {
             repeat: Infinity,
             ease: "linear"
           }} className="inline-block text-transparent bg-clip-text text-hero sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight animate-text-shimmer">
-              THE
+              {t('services.hero.journey')}
             </motion.div>
             <br />
             <motion.div initial={{
@@ -190,7 +190,7 @@ const Services = () => {
             delay: 0.5,
             duration: 0.8
           }} className="text-hero sm:text-6xl md:text-7xl lg:text-8xl font-black text-white italic mb-4">
-              JOURNEY
+              {t('services.hero.journey')}
             </motion.div>
             <motion.div initial={{
             opacity: 0,
@@ -202,7 +202,7 @@ const Services = () => {
             delay: 1,
             duration: 0.8
           }} className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-400 font-light">
-              FROM VISION TO REALITY
+              {t('services.hero.fromVision')}
             </motion.div>
           </motion.div>
           
@@ -276,7 +276,7 @@ const Services = () => {
           }} className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12 animate-glow-pulse">
               {t('services.keyActivities')}
             </motion.div>
-            <h2 className="text-section-title sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
+            <h2 className="text-section-title sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{t('services.yourPath')}</h2>
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
@@ -292,7 +292,7 @@ const Services = () => {
                     <motion.div whileHover={{
                     scale: 1.02
                   }} className="inline-block text-purple-400 px-4 sm:px-6 py-2 rounded-full text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 tracking-wider">
-                      {t('services.hero.title').includes('STUDIO') ? t('studio.hero.title') : 'NEW EDGE STUDIO'}
+                      {t('services.studio.tag')}
                     </motion.div>
                     
                     {/* Icon */}
@@ -301,10 +301,10 @@ const Services = () => {
                     </motion.div>
                     
                     <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
-                      Ihre Ideen, unsere Strategie
+                      {t('services.studio.tagline')}
                     </p>
                     <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
-                      Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
+                      {t('services.studio.description')}
                     </p>
                     
                     <motion.div whileHover={{
@@ -314,7 +314,7 @@ const Services = () => {
                   }}>
                       <Button className="bg-transparent border border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white w-full rounded-xl py-3 sm:py-4 font-medium transition-all duration-300 text-sm sm:text-base" asChild>
                         <Link to="/studio">
-                          Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
+                          {t('services.studio.button')} <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
                       </Button>
                     </motion.div>
@@ -346,7 +346,7 @@ const Services = () => {
                     <motion.div whileHover={{
                     scale: 1.02
                   }} className="inline-block text-blue-400 px-4 sm:px-6 py-2 rounded-full text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 tracking-wider">
-                      NEW EDGE MEDIA
+                      {t('services.media.tag')}
                     </motion.div>
                     
                     <motion.div variants={iconVariants} whileHover="hover" className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8">
@@ -354,10 +354,10 @@ const Services = () => {
                     </motion.div>
                     
                     <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
-                      Die perfekte Bühne für Ihre Marke
+                      {t('services.media.tagline')}
                     </p>
                     <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
-                      Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
+                      {t('services.media.description')}
                     </p>
                     
                     <motion.div whileHover={{
@@ -367,7 +367,7 @@ const Services = () => {
                   }}>
                       <Button className="bg-transparent border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white w-full rounded-xl py-3 sm:py-4 font-medium transition-all duration-300 text-sm sm:text-base" asChild>
                         <Link to="/media">
-                          Content erstellen <ArrowRight className="ml-2 w-4 h-4" />
+                          {t('services.media.button')} <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
                       </Button>
                     </motion.div>
@@ -400,7 +400,7 @@ const Services = () => {
                     <motion.div whileHover={{
                     scale: 1.02
                   }} className="inline-block text-yellow-400 px-4 sm:px-6 py-2 rounded-full text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 tracking-wider">
-                      NEW EDGE LAB
+                      {t('services.lab.tag')}
                     </motion.div>
                     
                     <motion.div variants={iconVariants} whileHover="hover" className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8">
@@ -408,10 +408,10 @@ const Services = () => {
                     </motion.div>
                     
                     <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
-                      Die perfekte Schnittstelle für Strategie & Technologie
+                      {t('services.lab.tagline')}
                     </p>
                     <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
-                      Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
+                      {t('services.lab.description')}
                     </p>
                     
                     <motion.div whileHover={{
@@ -421,7 +421,7 @@ const Services = () => {
                   }}>
                       <Button className="bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white w-full rounded-xl py-3 sm:py-4 font-medium transition-all duration-300 text-sm sm:text-base" asChild>
                         <Link to="/lab">
-                          Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
+                          {t('services.lab.button')} <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
                       </Button>
                     </motion.div>

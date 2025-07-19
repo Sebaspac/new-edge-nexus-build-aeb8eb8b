@@ -61,7 +61,7 @@ const Media = () => {
               <br />
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{
               animationDelay: '0.6s'
-            }}>CONTENT REVOLUTION</span>
+            }}>{t('media.hero.revolution')}</span>
             </h1>
             
             {/* Floating icons */}
@@ -116,9 +116,9 @@ const Media = () => {
       <section className="py-16 sm:py-32 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-20">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4 sm:mb-6 animate-fade-in">UNSERE LEISTUNGEN</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4 sm:mb-6 animate-fade-in">{t('common.ourServices')}</h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in px-4">
-              Content-Produktion und strategische Reichweite für Ihren Erfolg
+              {t('media.services.operative').split(':')[0]}
             </p>
           </div>
           
@@ -128,9 +128,9 @@ const Media = () => {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                   <Settings className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Operative Umsetzung</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">{t('media.services.operative')}</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Strategische Content-Produktion und zielgerichtete Reichweite für maximale Sichtbarkeit.
+                  {t('media.services.operative.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -142,9 +142,9 @@ const Media = () => {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                   <Video className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Content-Produktion & Reichweite</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">{t('media.services.content')}</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Professionelle Content-Erstellung für maximale Reichweite und Engagement.
+                  {t('media.services.content.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -156,9 +156,9 @@ const Media = () => {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                   <Eye className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Marketing & Sichtbarkeit</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">{t('media.services.marketing')}</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Strategische Kampagnen für optimale Performance-Marketing und Launchkampagnen.
+                  {t('media.services.marketing.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -170,9 +170,9 @@ const Media = () => {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                   <TrendingUp className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Launchkampagnen & Performance-Marketing</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">{t('media.services.launch')}</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Erfolgreiche Produktlaunches und datengetriebenes Performance-Marketing.
+                  {t('media.services.launch.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -184,9 +184,9 @@ const Media = () => {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                   <Search className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">SEO/SEA-Umsetzung & Conversion-Tracking</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">{t('media.services.seo')}</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Suchmaschinenoptimierung und Content-Marketing mit präzisem Copywriting.
+                  {t('media.services.seo.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -198,9 +198,9 @@ const Media = () => {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                   <Edit className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Content-Marketing & Copywriting</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">{t('media.services.copywriting')}</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Strategisches Content-Marketing mit überzeugenden Texten und Botschaften.
+                  {t('media.services.copywriting.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -212,9 +212,9 @@ const Media = () => {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                   <Camera className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Creative Content Production (Video, Visuals, Reels)</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">{t('media.services.creative')}</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Hochwertige Video- und Visual-Produktion für alle digitalen Kanäle.
+                  {t('media.services.creative.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -226,9 +226,9 @@ const Media = () => {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                   <Mail className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Newsletter, Ads & Kampagnenausspielung</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">{t('media.services.newsletter')}</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Professionelle Newsletter-Kampagnen und strategische Werbeanzeigen-Ausspielung.
+                  {t('media.services.newsletter.desc')}
                 </p>
               </CardContent>
             </Card>
@@ -239,16 +239,16 @@ const Media = () => {
       {/* CTA Section */}
       <section className="py-16 sm:py-32 bg-gradient-to-r from-blue-600 to-cyan-600 text-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in">Bereit für den nächsten Schritt?</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in">{t('media.cta.title')}</h2>
           <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in px-4">
-            Lassen Sie uns gemeinsam Ihre Content-Strategie revolutionieren und nachhaltige Reichweite aufbauen.
+            {t('media.cta.description')}
           </p>
           <Button 
             size="lg" 
             className="bg-white text-blue-600 hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
             onClick={scrollToContact}
           >
-            Projekt starten
+            {t('common.startProject')}
           </Button>
         </div>
         
