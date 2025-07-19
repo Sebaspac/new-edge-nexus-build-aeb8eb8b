@@ -11,10 +11,10 @@ const LanguageToggle = () => {
 
   return (
     <Button
-      variant="ghost"
+      variant="outline"
       size="sm"
       onClick={toggleLanguage}
-      className="fixed top-4 right-4 z-50 bg-background/80 backdrop-blur-sm border border-border/50 hover:bg-accent/50 transition-all duration-200"
+      className="fixed top-6 right-6 z-50 bg-white/90 backdrop-blur-sm border-2 border-primary/20 hover:bg-white hover:border-primary/40 transition-all duration-200 shadow-lg font-semibold"
     >
       <Languages className="h-4 w-4 mr-2" />
       {language === 'de' ? 'EN' : 'DE'}
