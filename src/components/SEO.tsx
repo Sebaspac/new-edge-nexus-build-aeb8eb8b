@@ -9,7 +9,7 @@ interface SEOProps {
 
 const SEO = ({ 
   title = "New Edge X Driving Innovation ",
-  description = "New Edge - where brand meets intelligence. Creative-Agency für innovationsgetriebene Marketinglösungen.",
+  description = "New Edge - where brand meets intelligence. Creative-Tech Agency für innovationsgetriebene Marketinglösungen.",
   canonical = "https://www.newedgebrand.com/",
   robots = "index,follow"
 }: SEOProps) => {
