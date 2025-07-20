@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
   title?: string;
@@ -13,84 +14,48 @@ const SEO = ({
   canonical = "https://www.newedgebrand.com/",
   robots = "index,follow"
 }: SEOProps) => {
-  useEffect(() => {
-    // Update title
-    document.title = title;
-    
-    // Update or create meta tags
-    const updateMetaTag = (name: string, content: string, property?: boolean) => {
-      const selector = property ? `meta[property="${name}"]` : `meta[name="${name}"]`;
-      let meta = document.querySelector(selector) as HTMLMetaElement;
+  // Dynamic Open Graph content based on page
+  const ogTitle = canonical.includes('/studio') 
+    ? 'KI Agentur für Markenstrategie, Automatisierung & Workshops | New Edge Studio'
+    : canonical.includes('/services')
+    ? 'Top Marketing Agentur in München für KI & digitale Strategien | New Edge'
+    : 'New Edge X Driving Innovation';
+  
+  const ogDescription = canonical.includes('/studio')
+    ? 'Markenentwicklung mit KI – New Edge Studio bietet Workshops, Strategien & smarte Automatisierung für Unternehmen, die modern denken und handeln.'
+    : canonical.includes('/services')
+    ? 'Maßgeschneiderte Marketing Services für Unternehmen: KI-Strategie, Content Creation, Webentwicklung & Automatisierung – alles aus einer Hand.'
+    : 'Full Service Agentur für KI-Marketing ✅ Beratung ✅ Konzeption ✅ Umsetzung. Individuelle Strategien für mehr Leads, Umsatz und Markenaufbau.';
+  
+  const ogImage = canonical.includes('/studio')
+    ? 'https://www.newedgebrand.com/assets/studio-og.jpg'
+    : canonical.includes('/services')
+    ? 'https://www.newedgebrand.com/assets/services-og.jpg'
+    : 'https://www.newedgebrand.com/lovable-uploads/198e2b1f-64ac-4570-82fe-278fb98b54ef.png';
+
+  return (
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="robots" content={robots} />
       
-      if (meta) {
-        meta.content = content;
-      } else {
-        meta = document.createElement('meta');
-        if (property) {
-          meta.setAttribute('property', name);
-        } else {
-          meta.setAttribute('name', name);
-        }
-        meta.content = content;
-        document.head.appendChild(meta);
-      }
-    };
-
-    // Update or create link tags
-    const updateLinkTag = (rel: string, href: string) => {
-      let link = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement;
+      {/* Open Graph tags */}
+      <meta property="og:title" content={ogTitle} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:description" content={ogDescription} />
+      <meta property="og:site_name" content="New Edge" />
+      <meta property="og:image" content={ogImage} />
       
-      if (link) {
-        link.href = href;
-      } else {
-        link = document.createElement('link');
-        link.rel = rel;
-        link.href = href;
-        document.head.appendChild(link);
-      }
-    };
-
-    // Update meta tags
-    updateMetaTag('description', description);
-    updateMetaTag('robots', robots);
-    
-    // Open Graph tags - dynamic based on page
-    const ogTitle = canonical.includes('/studio') 
-      ? 'KI Agentur für Markenstrategie, Automatisierung & Workshops | New Edge Studio'
-      : canonical.includes('/services')
-      ? 'Top Marketing Agentur in München für KI & digitale Strategien | New Edge'
-      : 'New Edge X Driving Innovation';
-    
-    const ogDescription = canonical.includes('/studio')
-      ? 'Markenentwicklung mit KI – New Edge Studio bietet Workshops, Strategien & smarte Automatisierung für Unternehmen, die modern denken und handeln.'
-      : canonical.includes('/services')
-      ? 'Maßgeschneiderte Marketing Services für Unternehmen: KI-Strategie, Content Creation, Webentwicklung & Automatisierung – alles aus einer Hand.'
-      : 'Full Service Agentur für KI-Marketing ✅ Beratung ✅ Konzeption ✅ Umsetzung. Individuelle Strategien für mehr Leads, Umsatz und Markenaufbau.';
-    
-    const ogImage = canonical.includes('/studio')
-      ? 'https://www.newedgebrand.com/assets/studio-og.jpg'
-      : canonical.includes('/services')
-      ? 'https://www.newedgebrand.com/assets/services-og.jpg'
-      : 'https://www.newedgebrand.com/lovable-uploads/198e2b1f-64ac-4570-82fe-278fb98b54ef.png';
-    
-    updateMetaTag('og:title', ogTitle, true);
-    updateMetaTag('og:type', 'website', true);
-    updateMetaTag('og:url', canonical, true);
-    updateMetaTag('og:description', ogDescription, true);
-    updateMetaTag('og:site_name', 'New Edge', true);
-    updateMetaTag('og:image', ogImage, true);
-    
-    // Twitter tags
-    updateMetaTag('twitter:card', 'summary_large_image');
-    updateMetaTag('twitter:title', 'New Edge X Driving Innovation');
-    updateMetaTag('twitter:description', 'New Edge - where brand meets intelligence. Full Service Agentur für KI-Marketing mit datengetriebener Kreativität und KI-Power für deinen Marketing-Erfolg.');
-    
-    // Update canonical link
-    updateLinkTag('canonical', canonical);
-    
-  }, [title, description, canonical, robots]);
-
-  return null;
+      {/* Twitter tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="New Edge X Driving Innovation" />
+      <meta name="twitter:description" content="New Edge - where brand meets intelligence. Full Service Agentur für KI-Marketing mit datengetriebener Kreativität und KI-Power für deinen Marketing-Erfolg." />
+      
+      {/* Canonical link */}
+      <link rel="canonical" href={canonical} />
+    </Helmet>
+  );
 };
 
 export default SEO;
