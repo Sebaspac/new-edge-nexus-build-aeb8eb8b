@@ -31,7 +31,7 @@ const translations = {
     // Homepage
     'home.hero.title': 'New Edge',
     'home.hero.subtitle': 'For strategy. aesthetics. & tech.',
-    'home.hero.description': 'Wir entwickeln digitale Lösungen, die über das Gewöhnliche hinausgehen. Von strategischer Beratung bis hin zu cutting-edge Technologie - wir bringen Ihre Vision zum Leben.',
+    'home.hero.description': 'Wir entwickeln digitale Lösungen, die über das Gewöhnliche hinausgehen. Von strategischer Beratung bis hin zu cutting-edge Technologie.',
     'home.about.title': 'Über uns',
     'home.about.description': 'New Edge ist ein kreatives Tech-Studio, das sich auf innovative digitale Lösungen spezialisiert hat. Wir verbinden strategisches Denken mit ästhetischem Design und modernster Technologie.',
     'home.services.title': 'Unsere Services',
@@ -55,7 +55,7 @@ const translations = {
     // Media
     'media.hero.title': 'NEW EDGE MEDIA',
     'media.hero.subtitle': 'For strategy. aesthetics. & tech.',
-    'media.hero.description': 'Kreative Medienproduktion, die Geschichten erzählt und Emotionen weckt. Von Konzept bis zur finalen Umsetzung - wir bringen Ihre Vision zum Leben.',
+    'media.hero.description': 'Kreative Medienproduktion, die Geschichten erzählt und Emotionen weckt. Von Konzept bis zur finalen Umsetzung.',
     'media.services.title': 'Media Services',
     'media.video.title': 'Video Production',
     'media.video.description': 'Professionelle Videoproduktion für alle Ihre Kommunikationsbedürfnisse.',
