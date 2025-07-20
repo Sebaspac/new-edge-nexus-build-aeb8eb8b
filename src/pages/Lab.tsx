@@ -350,25 +350,78 @@ const Lab = () => {
               </Card>
             </div>
 
-            {/* Coming Soon Apps */}
-            <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{
+            {/* AI ChatBot Solution - Featured */}
+            <Card className="bg-gradient-to-br from-blue-50 to-indigo-100 border-2 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-fade-in group cursor-pointer overflow-hidden relative" style={{
             animationDelay: '0.1s'
           }}>
-              <CardContent className="p-8 text-center relative">
-                <div className="absolute top-4 right-4 px-2 py-1 rounded-full text-xs font-bold bg-gray-200 text-gray-600">
-                  Q4 2025
-                </div>
-                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110" style={{
-                background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
+              <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold" style={{
+                backgroundColor: '#4F97F0',
+                color: 'white'
               }}>
-                  <Settings className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-black mb-4">Automation Studio</h3>
-                <p className="text-gray-700 leading-relaxed text-sm mb-6">
-                  Workflow-Automatisierung und Prozessoptimierung für Ihr Unternehmen
-                </p>
-                <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-600">
-                  In Entwicklung
+                SOFORT VERFÜGBAR
+              </div>
+              <CardContent className="p-8 relative">
+                <div className="text-center">
+                  <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12" style={{
+                    background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
+                  }}>
+                    <Bot className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-black mb-4">KI-ChatBot Studio</h3>
+                  <p className="text-gray-700 leading-relaxed mb-6 text-sm">
+                    24/7 Kundenbetreuung mit KI-gestützten Antworten. Sofortige Einrichtung für Ihre Website mit intelligenter Konversation und Ultra-High Zufriedenheitsraten.
+                  </p>
+                  
+                  {/* Chat Demo Preview */}
+                  <div className="bg-white rounded-lg p-4 shadow-inner mb-6 max-w-sm mx-auto">
+                    <div className="space-y-3 text-left">
+                      <div className="flex items-start gap-2">
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{backgroundColor: '#4F97F0'}}>
+                          AI
+                        </div>
+                        <div className="bg-gray-100 rounded-lg px-3 py-2 text-xs max-w-[200px]">
+                          Hallo! Wie kann ich Ihnen heute helfen?
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-2 justify-end">
+                        <div className="bg-blue-500 text-white rounded-lg px-3 py-2 text-xs max-w-[200px]">
+                          Welche Leistungen bieten Sie an?
+                        </div>
+                        <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-xs">
+                          👤
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{backgroundColor: '#4F97F0'}}>
+                          AI
+                        </div>
+                        <div className="bg-gray-100 rounded-lg px-3 py-2 text-xs max-w-[200px]">
+                          Wir bieten KI-Integration, Webentwicklung und Automatisierung. Soll ich Ihnen mehr Details geben?
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 mb-6 text-sm">
+                    <div className="flex items-center justify-center gap-3">
+                      <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#4F97F0'}}></div>
+                      <span className="text-gray-600">Sofortige KI-Antworten</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-3">
+                      <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#9F91F8'}}></div>
+                      <span className="text-gray-600">Multichannel-Integration</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-3">
+                      <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#FFED00'}}></div>
+                      <span className="text-gray-600">Individuelle Anpassung</span>
+                    </div>
+                  </div>
+                  
+                  <Button size="lg" className="w-full text-white text-base px-8 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
+                    background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
+                  }} onClick={scrollToContact}>
+                    ChatBot einrichten
+                  </Button>
                 </div>
               </CardContent>
             </Card>
