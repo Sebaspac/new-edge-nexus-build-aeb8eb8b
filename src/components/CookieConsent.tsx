@@ -108,7 +108,7 @@ const CookieConsent = () => {
                     <Button
                       onClick={acceptNecessary}
                       variant="outline"
-                      className="border-gray-500/50 text-gray-300 hover:bg-gray-500/10"
+                      className="border-gray-400 text-white hover:bg-gray-600/20 hover:border-gray-300"
                     >
                       Nur Notwendige
                     </Button>
