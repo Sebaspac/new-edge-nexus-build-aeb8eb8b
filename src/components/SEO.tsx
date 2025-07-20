@@ -57,14 +57,20 @@ const SEO = ({
     // Open Graph tags - dynamic based on page
     const ogTitle = canonical.includes('/studio') 
       ? 'KI Agentur für Markenstrategie, Automatisierung & Workshops | New Edge Studio'
+      : canonical.includes('/services')
+      ? 'Top Marketing Agentur in München für KI & digitale Strategien | New Edge'
       : 'New Edge X Driving Innovation';
     
     const ogDescription = canonical.includes('/studio')
       ? 'Markenentwicklung mit KI – New Edge Studio bietet Workshops, Strategien & smarte Automatisierung für Unternehmen, die modern denken und handeln.'
+      : canonical.includes('/services')
+      ? 'Maßgeschneiderte Marketing Services für Unternehmen: KI-Strategie, Content Creation, Webentwicklung & Automatisierung – alles aus einer Hand.'
       : 'Full Service Agentur für KI-Marketing ✅ Beratung ✅ Konzeption ✅ Umsetzung. Individuelle Strategien für mehr Leads, Umsatz und Markenaufbau.';
     
     const ogImage = canonical.includes('/studio')
       ? 'https://www.newedgebrand.com/assets/studio-og.jpg'
+      : canonical.includes('/services')
+      ? 'https://www.newedgebrand.com/assets/services-og.jpg'
       : 'https://www.newedgebrand.com/lovable-uploads/198e2b1f-64ac-4570-82fe-278fb98b54ef.png';
     
     updateMetaTag('og:title', ogTitle, true);
