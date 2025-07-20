@@ -1009,17 +1009,12 @@ const Index = () => {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div className="sm:col-span-2">
               <div className="flex items-center mb-4">
-                <LazyImage 
-                  alt="New Edge Logo" 
-                  className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" 
-                  src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png"
-                  sizes="(max-width: 640px) 24px, 32px"
-                />
+                <LazyImage alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" sizes="(max-width: 640px) 24px, 32px" />
                 <div className="text-2xl sm:text-3xl font-bold">
                   New Edge<span className="text-purple-400"></span>
                 </div>
               </div>
-              <p className="text-gray-400 mb-4 sm:mb-6 max-w-md text-sm sm:text-base">New Edge ist eine Creative-Agentur für innovationsgetriebene Markenkommunikation. </p>
+              <p className="text-gray-400 mb-4 sm:mb-6 max-w-md text-sm sm:text-base">New Edge ist eine Creative-Tech Agentur für innovationsgetriebene Markenkommunikation.</p>
               <div className="flex space-x-4">
                 <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
                   <span className="text-xs sm:text-sm">in</span>
