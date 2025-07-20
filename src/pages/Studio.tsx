@@ -41,8 +41,8 @@ const Studio = () => {
   };
   return <div className="min-h-screen bg-white">
       <SEO 
-        title="Studio - New Edge Creative Tech Studio"
-        description="Unser Studio: Einblicke in unsere Arbeitsweise, Team und kreative Prozesse im Creative Tech Bereich."
+        title="KI Agentur für Markenstrategie, Automatisierung & Workshops | New Edge Studio"
+        description="New Edge Studio – die KI Agentur für Markenstrategie, smarte Automatisierung & kreative Workshops. Mit KI-gestützten Strategien zu mehr Sichtbarkeit & Wirkung."
         canonical="https://www.newedgebrand.com/studio"
       />
       {/* Mobile Navigation */}

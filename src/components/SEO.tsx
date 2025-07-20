@@ -54,13 +54,25 @@ const SEO = ({
     updateMetaTag('description', description);
     updateMetaTag('robots', robots);
     
-    // Open Graph tags
-    updateMetaTag('og:title', 'New Edge X Driving Innovation', true);
+    // Open Graph tags - dynamic based on page
+    const ogTitle = canonical.includes('/studio') 
+      ? 'KI Agentur für Markenstrategie, Automatisierung & Workshops | New Edge Studio'
+      : 'New Edge X Driving Innovation';
+    
+    const ogDescription = canonical.includes('/studio')
+      ? 'Markenentwicklung mit KI – New Edge Studio bietet Workshops, Strategien & smarte Automatisierung für Unternehmen, die modern denken und handeln.'
+      : 'Full Service Agentur für KI-Marketing ✅ Beratung ✅ Konzeption ✅ Umsetzung. Individuelle Strategien für mehr Leads, Umsatz und Markenaufbau.';
+    
+    const ogImage = canonical.includes('/studio')
+      ? 'https://www.newedgebrand.com/assets/studio-og.jpg'
+      : 'https://www.newedgebrand.com/lovable-uploads/198e2b1f-64ac-4570-82fe-278fb98b54ef.png';
+    
+    updateMetaTag('og:title', ogTitle, true);
     updateMetaTag('og:type', 'website', true);
-    updateMetaTag('og:url', 'https://newedgebrand.com/', true);
-    updateMetaTag('og:description', 'Full Service Agentur für KI-Marketing ✅ Beratung ✅ Konzeption ✅ Umsetzung. Individuelle Strategien für mehr Leads, Umsatz und Markenaufbau.', true);
+    updateMetaTag('og:url', canonical, true);
+    updateMetaTag('og:description', ogDescription, true);
     updateMetaTag('og:site_name', 'New Edge', true);
-    updateMetaTag('og:image', 'https://www.newedgebrand.com/lovable-uploads/198e2b1f-64ac-4570-82fe-278fb98b54ef.png', true);
+    updateMetaTag('og:image', ogImage, true);
     
     // Twitter tags
     updateMetaTag('twitter:card', 'summary_large_image');
