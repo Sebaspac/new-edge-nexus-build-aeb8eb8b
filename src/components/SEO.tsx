@@ -8,8 +8,8 @@ interface SEOProps {
 }
 
 const SEO = ({ 
-  title = "New Edge - Creative Tech Studio",
-  description = "New Edge - where brand meets intelligence. Creative-Tech-Studio für KI-basierte Marketinglösungen.",
+  title = "New Edge X Driving Innovation ",
+  description = "New Edge - where brand meets intelligence. Creative-Agency für innovationsgetriebene Marketinglösungen.",
   canonical = "https://www.newedgebrand.com/",
   robots = "index,follow"
 }: SEOProps) => {
