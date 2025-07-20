@@ -21,8 +21,8 @@ export default defineConfig(({ mode, command }) => ({
   },
   ssr: {
     // Define which dependencies should not be externalized for SSR
-    noExternal: ['react-router-dom', 'framer-motion', '@tanstack/react-query'],
-    // Enable SSR for better hydration
+    noExternal: ['react-router-dom', 'framer-motion', '@tanstack/react-query', 'lucide-react'],
+    // Optimize dependencies for SSR
     optimizeDeps: {
       include: ['react', 'react-dom'],
     },
