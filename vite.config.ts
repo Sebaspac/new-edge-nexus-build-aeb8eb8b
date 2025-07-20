@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode, command }) => ({
+export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
@@ -17,14 +17,6 @@ export default defineConfig(({ mode, command }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-    },
-  },
-  ssr: {
-    // Define which dependencies should not be externalized for SSR
-    noExternal: ['react-router-dom', 'framer-motion', '@tanstack/react-query', 'lucide-react'],
-    // Optimize dependencies for SSR
-    optimizeDeps: {
-      include: ['react', 'react-dom'],
     },
   },
   build: {
