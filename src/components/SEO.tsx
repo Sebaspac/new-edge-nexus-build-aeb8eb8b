@@ -8,8 +8,8 @@ interface SEOProps {
 }
 
 const SEO = ({ 
-  title = "New Edge X Driving Innovation ",
-  description = "New Edge - where brand meets intelligence. Creative-Tech Agency für innovationsgetriebene Marketinglösungen.",
+  title = "Full Service Agentur für AI-Solutions X New Edge",
+  description = "New Edge - where brand meets intelligence. Full Service Agentur mit datengetriebener Kreativität für AI-Driven Solutions ✅ Beratung ✅ Konzeption ✅ Umsetzung. Individuelle Strategien für mehr Leads, Umsatz und Markenaufbau.",
   canonical = "https://www.newedgebrand.com/",
   robots = "index,follow"
 }: SEOProps) => {
@@ -53,10 +53,19 @@ const SEO = ({
     // Update meta tags
     updateMetaTag('description', description);
     updateMetaTag('robots', robots);
-    updateMetaTag('og:title', title, true);
-    updateMetaTag('og:description', description, true);
+    
+    // Open Graph tags
+    updateMetaTag('og:title', 'New Edge X Driving Innovation', true);
+    updateMetaTag('og:type', 'website', true);
+    updateMetaTag('og:url', 'https://newedgebrand.com/', true);
+    updateMetaTag('og:description', 'Full Service Agentur für KI-Marketing ✅ Beratung ✅ Konzeption ✅ Umsetzung. Individuelle Strategien für mehr Leads, Umsatz und Markenaufbau.', true);
+    updateMetaTag('og:site_name', 'New Edge', true);
     updateMetaTag('og:image', 'https://www.newedgebrand.com/lovable-uploads/198e2b1f-64ac-4570-82fe-278fb98b54ef.png', true);
-    updateMetaTag('og:url', canonical, true);
+    
+    // Twitter tags
+    updateMetaTag('twitter:card', 'summary_large_image');
+    updateMetaTag('twitter:title', 'New Edge X Driving Innovation');
+    updateMetaTag('twitter:description', 'New Edge - where brand meets intelligence. Full Service Agentur für KI-Marketing mit datengetriebener Kreativität und KI-Power für deinen Marketing-Erfolg.');
     
     // Update canonical link
     updateLinkTag('canonical', canonical);
