@@ -15,7 +15,7 @@ const SEO = ({
 }: SEOProps) => {
   // Dynamic Open Graph data based on page
   const ogTitle = canonical.includes('/studio') 
-    ? 'KI Agentur für Markenstrategie, Automatisierung & Workshops | New Edge Studio'
+    ? 'KI Agentur für Markenstrategie & Automatisierung | New Edge Studio'
     : canonical.includes('/services')
     ? 'Top Marketing Agentur in München für KI & digitale Strategien | New Edge'
     : 'New Edge X Driving Innovation';
