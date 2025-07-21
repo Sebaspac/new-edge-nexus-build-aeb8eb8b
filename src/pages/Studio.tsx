@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import SEO from "@/components/SEO";
+
 import { useLanguage } from "@/contexts/LanguageContext";
 const Studio = () => {
   const { t } = useLanguage();
@@ -40,11 +40,6 @@ const Studio = () => {
     }, 100);
   };
   return <div className="min-h-screen bg-white">
-      <SEO 
-        title="KI Agentur für Markenstrategie, Automatisierung & Workshops | New Edge Studio"
-        description="New Edge Studio – die KI Agentur für Markenstrategie, smarte Automatisierung & kreative Workshops."
-        canonical="https://www.newedgebrand.com/studio"
-      />
       {/* Mobile Navigation */}
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
 

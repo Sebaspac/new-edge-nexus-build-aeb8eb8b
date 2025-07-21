@@ -3,17 +3,12 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Mail, MapPin, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import SEO from "@/components/SEO";
+
 import { useLanguage } from "@/contexts/LanguageContext";
 const Impressum = () => {
   const { t } = useLanguage();
   
   return <div className="min-h-screen bg-black text-white">
-      <SEO 
-        title="Impressum - New Edge Creative Tech Studio"
-        description="Impressum und rechtliche Informationen von New Edge Creative Tech Studio."
-        canonical="https://www.newedgebrand.com/impressum"
-      />
       {/* Header */}
       <motion.header initial={{
       opacity: 0,

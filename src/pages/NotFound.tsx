@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import SEO from "@/components/SEO";
+
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const NotFound = () => {
@@ -16,12 +16,6 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <SEO 
-        title="404 - Seite nicht gefunden | New Edge"
-        description="Die angeforderte Seite wurde nicht gefunden. Zurück zur New Edge Homepage."
-        canonical="https://www.newedgebrand.com/"
-        robots="noindex,nofollow"
-      />
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">{t('notFound.title')}</h1>
         <p className="text-xl text-gray-600 mb-4">{t('notFound.subtitle')}</p>

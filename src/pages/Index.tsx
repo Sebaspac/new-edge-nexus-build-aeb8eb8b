@@ -11,7 +11,7 @@ import { toast } from "@/hooks/use-toast";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import CookieConsent from "@/components/CookieConsent";
-import SEO from "@/components/SEO";
+
 import NetworkVisualization from "@/components/NetworkVisualization";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LazyImage } from "@/components/LazyImage";
@@ -114,11 +114,6 @@ const Index = () => {
     }
   };
   return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
-      <SEO 
-        title="Full Service Agentur für AI-Solutions X New Edge"
-        description="New Edge - where brand meets intelligence. Full Service Agentur mit datengetriebener Kreativität für AI-Driven Solutions ✅ Beratung ✅ Konzeption ✅ Umsetzung. Individuelle Strategien für mehr Leads, Umsatz und Markenaufbau."
-        canonical="https://www.newedgebrand.com/"
-      />
       {/* Mobile Navigation */}
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 

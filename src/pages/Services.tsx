@@ -8,7 +8,7 @@ import { ArrowRight, ArrowDown, ChevronDown, Palette, Video, Cpu, Star, Zap, Tar
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import SEO from "@/components/SEO";
+
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // Optimized 3D Particle System Component (reduced particle count)
@@ -137,11 +137,6 @@ const Services = () => {
     }
   };
   return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
-      <SEO 
-        title="Top Marketing Agentur in München für KI & digitale Strategien | New Edge"
-        description="Entdecke New Edge – deine Top Marketing Agentur in München. KI-gestützte Strategien, Content, Web & Automatisierung für Wachstum mit System."
-        canonical="https://www.newedgebrand.com/services"
-      />
       {/* Optimized 3D Background Canvas */}
       <div className="fixed inset-0 z-0">
         <Canvas 
