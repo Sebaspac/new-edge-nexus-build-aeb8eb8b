@@ -114,7 +114,11 @@ const Index = () => {
     }
   };
   return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
-      <SEO title="New Edge - Creative Tech Studio" description="New Edge - where brand meets intelligence. Creative-Tech-Studio für KI-basierte Marketinglösungen." canonical="https://www.newedgebrand.com/" />
+      <SEO 
+        title="Full Service Agentur für AI-Solutions X New Edge"
+        description="New Edge - where brand meets intelligence. Full Service Agentur mit datengetriebener Kreativität für AI-Driven Solutions ✅ Beratung ✅ Konzeption ✅ Umsetzung. Individuelle Strategien für mehr Leads, Umsatz und Markenaufbau."
+        canonical="https://www.newedgebrand.com/"
+      />
       {/* Mobile Navigation */}
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
