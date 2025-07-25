@@ -4,10 +4,11 @@ import { Megaphone, Target, BarChart, Users, TrendingUp, Eye, ChevronDown, Video
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
-
 import { useLanguage } from "@/contexts/LanguageContext";
 const Media = () => {
-  const { t } = useLanguage();
+  const {
+    t
+  } = useLanguage();
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -30,11 +31,15 @@ const Media = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
   const scrollToContact = () => {
-    navigate('/', { replace: true });
+    navigate('/', {
+      replace: true
+    });
     setTimeout(() => {
       const contactSection = document.getElementById('contact-section');
       if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
+        contactSection.scrollIntoView({
+          behavior: 'smooth'
+        });
       }
     }, 100);
   };
@@ -94,11 +99,7 @@ const Media = () => {
             <div className="animate-fade-in flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4" style={{
             animationDelay: '1s'
           }}>
-              <Button 
-                size="lg" 
-                className="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4"
-                onClick={scrollToContact}
-              >
+              <Button size="lg" className="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" onClick={scrollToContact}>
                 {t('common.startProject')}
               </Button>
               
@@ -138,9 +139,7 @@ const Media = () => {
                   <Eye className="w-8 h-8 text-blue-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-4">Social Media Management</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Community/- & Content Management
-                </p>
+                <p className="text-gray-600 leading-relaxed">Strategisches Community-Management und kanalübergreifende Content-Ausspielung für nachhaltige Markenbindung.</p>
               </CardContent>
             </Card>
 
@@ -166,9 +165,7 @@ const Media = () => {
                   <Search className="w-8 h-8 text-blue-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-4">Content-Marketing & Copywriting</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Langfristige Sichtbarkeit durch relevante Inhalte.
-                </p>
+                <p className="text-gray-600 leading-relaxed">Strategisches Content-Marketing mit suchmaschinenoptimierten Texten, klarer Botschaft und markenkonformer Tonalität.</p>
               </CardContent>
             </Card>
 
@@ -201,11 +198,7 @@ const Media = () => {
           <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in px-4">
             Lassen Sie uns gemeinsam Ihre Content-Strategie revolutionieren und nachhaltige Reichweite aufbauen.
           </p>
-          <Button 
-            size="lg" 
-            className="bg-white text-blue-600 hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
-            onClick={scrollToContact}
-          >
+          <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" onClick={scrollToContact}>
             Projekt starten
           </Button>
         </div>
