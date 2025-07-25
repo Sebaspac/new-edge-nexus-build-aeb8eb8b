@@ -11,7 +11,6 @@ import { toast } from "@/hooks/use-toast";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import CookieConsent from "@/components/CookieConsent";
-
 import NetworkVisualization from "@/components/NetworkVisualization";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LazyImage } from "@/components/LazyImage";
@@ -333,7 +332,7 @@ const Index = () => {
               <Card className="bg-transparent border-2 border-purple-500 h-full hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-purple-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
-                  <p className="text-gray-200 leading-relaxed">Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.</p>
+                  <p className="text-gray-200 leading-relaxed text-base font-light">Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -354,7 +353,7 @@ const Index = () => {
               <Card className="bg-transparent border-2 border-blue-500 h-full hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-blue-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSERE VISION</div>
-                  <p className="text-gray-200 leading-relaxed">
+                  <p className="text-gray-200 leading-relaxed font-light">
                     Wir gestalten eine neue Generation von Marken: automatisiert, strukturiert und sichtbar.
                   </p>
                 </CardContent>
@@ -377,7 +376,7 @@ const Index = () => {
               <Card className="bg-transparent border-2 border-yellow-500 h-full hover:border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-yellow-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSER ZIEL</div>
-                  <p className="text-gray-200 leading-relaxed">
+                  <p className="text-gray-200 leading-relaxed font-light">
                     Menschen und Unternehmen den Zugang zu Innovation bieten für einfachere und effektivere Abläufe.
                   </p>
                 </CardContent>
@@ -423,7 +422,7 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-medium">01</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-medium">Impact durch Automatisierung</h3>
+                  <h3 className="text-xl text-white mb-2 font-normal">Impact durch Automatisierung</h3>
                   <p className="text-gray-300">Intelligente Systeme steigern Ihre Effizienz nachhaltig</p>
                 </CardContent>
               </Card>
@@ -445,7 +444,7 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-medium">02</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-medium">Marketingexpertise trifft technische Umsetzung</h3>
+                  <h3 className="text-xl text-white mb-2 font-normal">Marketingexpertise trifft technische Umsetzung</h3>
                   <p className="text-gray-300">Perfekte Symbiose aus Strategie und Innovation</p>
                 </CardContent>
               </Card>
@@ -467,7 +466,7 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center text-white text-xl font-medium">03</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-medium">Zugänglichkeit & Klarheit statt Komplexität</h3>
+                  <h3 className="text-xl text-white mb-2 font-normal">Zugänglichkeit & Klarheit statt Komplexität</h3>
                   <p className="text-gray-300">Einfache Lösungen für komplexe Herausforderungen</p>
                 </CardContent>
               </Card>
@@ -489,7 +488,7 @@ const Index = () => {
               <div className="flex-shrink-0 w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center text-white text-xl font-medium">04</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-medium">Individuelle Setups ohne Standardbausteine</h3>
+                  <h3 className="text-xl text-white mb-2 font-normal">Individuelle Setups ohne Standardbausteine</h3>
                   <p className="text-gray-300">Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen</p>
                 </CardContent>
               </Card>
@@ -754,10 +753,7 @@ const Index = () => {
                           <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2"></div>
                           Marketing & Sichtbarkeit
                         </li>
-                        <li className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2"></div>
-                          Creative Content Production
-                        </li>
+                        
                       </ul>
                     </div>
                     
