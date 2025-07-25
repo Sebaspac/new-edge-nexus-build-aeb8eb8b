@@ -213,6 +213,7 @@ const Services = () => {
           duration: 0.8
         }} className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-4 sm:mb-6 max-w-4xl mx-auto font-light leading-relaxed">
             Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden.
+            
             Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.
           </motion.p>
           
