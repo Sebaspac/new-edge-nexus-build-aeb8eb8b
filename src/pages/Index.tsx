@@ -741,7 +741,7 @@ const Index = () => {
                         </motion.div>
                       </Link>
                       
-                      <p className="text-white mb-4 leading-relaxed flex-1 text-base">
+                      <p className="text-white mb-4 leading-relaxed flex-1 text-base text-left">
                         Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
                       </p>
                       <ul className="space-y-2 text-gray-300 mb-6 text-left text-sm">
@@ -790,9 +790,8 @@ const Index = () => {
                         </motion.div>
                       </Link>
                       
-                      <p className="mb-4 leading-relaxed flex-1 text-base text-white">
-                        Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
-                      </p>
+                      <p className="mb-4 leading-relaxed flex-1 text-base text-white text-left">Macht aus Ideen reale, funktionierende Systeme. 
+Sicher, automatisiert, effizient.</p>
                       <ul className="space-y-2 text-gray-300 mb-6 text-left text-sm">
                         <li className="flex items-center">
                           <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-2"></div>
