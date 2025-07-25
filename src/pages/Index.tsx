@@ -747,7 +747,7 @@ const Index = () => {
                       <ul className="space-y-2 text-gray-300 mb-6 text-left text-sm">
                         <li className="flex items-center">
                           <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2"></div>
-                          Content-Produktion & Reichweite
+                          Content-Produktion & Reichweite, Paid Kampagnen und SEO
                         </li>
                         <li className="flex items-center">
                           <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2"></div>
