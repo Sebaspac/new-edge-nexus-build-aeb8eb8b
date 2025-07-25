@@ -491,7 +491,7 @@ const Index = () => {
             delay: 0.4,
             duration: 0.6
           }} className="flex items-center space-x-6">
-              <div className="flex-shrink-0 w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center text-white text-xl font-medium">04</div>
+              <div className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-white text-xl font-medium bg-yellow-300">04</div>
               <Card className="flex-1 bg-white/5 border border-white/10">
                 <CardContent className="p-6">
                   <h3 className="text-xl text-white mb-2 font-normal">Individuelle Setups ohne Standardbausteine</h3>
