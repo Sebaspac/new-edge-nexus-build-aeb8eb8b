@@ -123,9 +123,9 @@ const Media = () => {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                   <Settings className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Operative Umsetzung</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Content-Produktion & Creative Asset</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Strategische Content-Produktion und zielgerichtete Reichweite für maximale Sichtbarkeit.
+                  Strategische Content-Produktion für maximale Wirkung auf allen Kanälen.
                 </p>
               </CardContent>
             </Card>
@@ -135,25 +135,11 @@ const Media = () => {
           }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Video className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Content-Produktion & Reichweite</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Professionelle Content-Erstellung für maximale Reichweite und Engagement.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.2s'
-          }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                   <Eye className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Marketing & Sichtbarkeit</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Social Media Management</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Strategische Kampagnen für optimale Performance-Marketing und Launchkampagnen.
+                  Community/- & Content Management
                 </p>
               </CardContent>
             </Card>
@@ -179,9 +165,9 @@ const Media = () => {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                   <Search className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">SEO/SEA-Umsetzung & Conversion-Tracking</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Content-Marketing & Copywriting</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Suchmaschinenoptimierung und Content-Marketing mit präzisem Copywriting.
+                  Langfristige Sichtbarkeit durch relevante Inhalte.
                 </p>
               </CardContent>
             </Card>
@@ -191,39 +177,11 @@ const Media = () => {
           }}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Edit className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Content-Marketing & Copywriting</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Strategisches Content-Marketing mit überzeugenden Texten und Botschaften.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.6s'
-          }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Camera className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Creative Content Production (Video, Visuals, Reels)</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Hochwertige Video- und Visual-Produktion für alle digitalen Kanäle.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.7s'
-          }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                   <Mail className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Newsletter, Ads & Kampagnenausspielung</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">E-Mail-Marketing & CRM-Automation</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Professionelle Newsletter-Kampagnen und strategische Werbeanzeigen-Ausspielung.
+                  Gezielte Kommunikation für Engagement & Kundenbindung.
                 </p>
               </CardContent>
             </Card>
