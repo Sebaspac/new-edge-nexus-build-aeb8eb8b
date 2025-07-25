@@ -210,9 +210,29 @@ const Services = () => {
         }} transition={{
           delay: 1.5,
           duration: 0.8
-        }} className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto font-light leading-relaxed">
-            {t('services.hero.description')}
-            <br />
+        }} className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-4 sm:mb-6 max-w-4xl mx-auto font-light leading-relaxed">
+            Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden.
+          </motion.p>
+          
+          <motion.p initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          delay: 1.7,
+          duration: 0.8
+        }} className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-4 sm:mb-6 max-w-4xl mx-auto font-light leading-relaxed">
+            Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.
+          </motion.p>
+          
+          <motion.p initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          delay: 1.9,
+          duration: 0.8
+        }} className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-4xl mx-auto font-light leading-relaxed">
             <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">{t('services.hero.subtitle')}</span>
           </motion.p>
 
