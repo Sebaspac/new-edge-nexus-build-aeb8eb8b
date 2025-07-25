@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-
 import { useLanguage } from "@/contexts/LanguageContext";
 const Studio = () => {
-  const { t } = useLanguage();
+  const {
+    t
+  } = useLanguage();
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -31,11 +32,15 @@ const Studio = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
   const scrollToContact = () => {
-    navigate('/', { replace: true });
+    navigate('/', {
+      replace: true
+    });
     setTimeout(() => {
       const contactSection = document.getElementById('contact-section');
       if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
+        contactSection.scrollIntoView({
+          behavior: 'smooth'
+        });
       }
     }, 100);
   };
@@ -96,11 +101,7 @@ const Studio = () => {
             <div className="animate-fade-in flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4" style={{
             animationDelay: '1s'
           }}>
-              <Button 
-                size="lg" 
-                className="w-full sm:w-auto bg-purple-600 text-white hover:bg-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4"
-                onClick={scrollToContact}
-              >
+              <Button size="lg" className="w-full sm:w-auto bg-purple-600 text-white hover:bg-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" onClick={scrollToContact}>
                 Projekt starten
               </Button>
               
@@ -146,33 +147,9 @@ const Studio = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.2s'
-          }}>
-              <CardContent className="p-6 sm:p-8 text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <Monitor className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
-                </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">Wettbewerbsanalyse & Differenzierungsstrategie</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Strategische Marktanalyse und visuelles Konzept für klare Abgrenzung.
-                </p>
-              </CardContent>
-            </Card>
+            
 
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.3s'
-          }}>
-              <CardContent className="p-6 sm:p-8 text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <FileImage className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
-                </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">Moodboards & Keyvisual-Richtung</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Kreative Design- und Farbwelten für eine einheitliche visuelle Identität.
-                </p>
-              </CardContent>
-            </Card>
+            
 
             <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
             animationDelay: '0.4s'
@@ -212,11 +189,7 @@ const Studio = () => {
           <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in px-4">
             Gemeinsam entwickeln wir ein Design, das Ihre Vision zum Leben erweckt und Ihre Zielgruppe begeistert.
           </p>
-          <Button 
-            size="lg" 
-            className="bg-white text-purple-600 hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in"
-            onClick={scrollToContact}
-          >
+          <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" onClick={scrollToContact}>
             Design-Projekt starten
           </Button>
         </div>
