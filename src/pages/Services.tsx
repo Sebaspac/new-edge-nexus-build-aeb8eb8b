@@ -8,7 +8,6 @@ import { ArrowRight, ArrowDown, ChevronDown, Palette, Video, Cpu, Star, Zap, Tar
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
-
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // Optimized 3D Particle System Component (reduced particle count)
@@ -72,7 +71,9 @@ function Background3D() {
     </>;
 }
 const Services = () => {
-  const { t } = useLanguage();
+  const {
+    t
+  } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -139,12 +140,12 @@ const Services = () => {
   return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
       {/* Optimized 3D Background Canvas */}
       <div className="fixed inset-0 z-0">
-        <Canvas 
-          camera={{ position: [0, 0, 5], fov: 75 }}
-          performance={{ min: 0.8 }}
-          dpr={[1, 1.5]}
-          frameloop="demand"
-        >
+        <Canvas camera={{
+        position: [0, 0, 5],
+        fov: 75
+      }} performance={{
+        min: 0.8
+      }} dpr={[1, 1.5]} frameloop="demand">
           <Suspense fallback={null}>
             <Background3D />
           </Suspense>
@@ -221,7 +222,7 @@ const Services = () => {
         }} transition={{
           delay: 1.7,
           duration: 0.8
-        }} className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-4 sm:mb-6 max-w-4xl mx-auto font-light leading-relaxed">
+        }} className="text-base sm:text-lg lg:text-2xl text-gray-300 mb-4 sm:mb-6 max-w-4xl mx-auto leading-relaxed font-light md:text-xl">
             Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.
           </motion.p>
           
@@ -233,7 +234,7 @@ const Services = () => {
           delay: 1.9,
           duration: 0.8
         }} className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-4xl mx-auto font-light leading-relaxed">
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium">{t('services.hero.subtitle')}</span>
+            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium text-3xl">{t('services.hero.subtitle')}</span>
           </motion.p>
 
           {/* Scroll Indicator */}
