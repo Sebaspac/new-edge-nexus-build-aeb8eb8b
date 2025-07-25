@@ -45,45 +45,25 @@ const Lab = () => {
     }, 100);
   };
   const services = [{
-    title: "Technische Umsetzung",
-    description: "Professionelle Entwicklung und Implementierung technischer Lösungen für Ihr Unternehmen.",
-    icon: Settings,
+    title: "KI-gestützte Prozessautomatisierung",
+    description: "Optimierung und Automatisierung von Geschäftsprozessen durch künstliche Intelligenz.",
+    icon: Cpu,
     delay: "0s"
-  }, {
-    title: "KI-Integration & Automation",
-    description: "Intelligente Automatisierung und KI-Integration in bestehende Geschäftsprozesse.",
-    icon: Brain,
-    delay: "0.1s"
-  }, {
-    title: "Backend & Tech-Implementierung",
-    description: "Robuste Backend-Systeme und technische Infrastruktur für skalierbare Anwendungen.",
-    icon: Database,
-    delay: "0.2s"
   }, {
     title: "Webentwicklung",
     description: "CMS, Landingpages, Funnels - maßgeschneiderte Weblösungen für Ihren Erfolg.",
     icon: Globe,
-    delay: "0.3s"
-  }, {
-    title: "KI-gestützte Prozessautomatisierung",
-    description: "Optimierung und Automatisierung von Geschäftsprozessen durch künstliche Intelligenz.",
-    icon: Cpu,
-    delay: "0.4s"
+    delay: "0.1s"
   }, {
     title: "KI-Agenten-Integration",
     description: "Text, Mail, CRM - intelligente Agenten für automatisierte Kommunikation und Verwaltung.",
     icon: Bot,
-    delay: "0.5s"
-  }, {
-    title: "Formular- & Datenbank-Anbindungen",
-    description: "Nahtlose Integration von Notion, Airtable, Supabase und anderen Datenquellen.",
-    icon: FormInput,
-    delay: "0.6s"
+    delay: "0.2s"
   }, {
     title: "Tracking- & Analyse-Setups",
     description: "GA4, Tag Manager, Pixel, Dashboards - umfassende Datenanalyse und Reporting.",
     icon: BarChart3,
-    delay: "0.7s"
+    delay: "0.3s"
   }];
   return <div className="min-h-screen bg-white">
       
