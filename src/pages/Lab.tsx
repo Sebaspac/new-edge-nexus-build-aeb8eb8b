@@ -4,7 +4,6 @@ import { Brain, Cpu, Settings, Code, ChevronDown, Zap, Database, BarChart3, Glob
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
-
 import { useLanguage } from "@/contexts/LanguageContext";
 const Lab = () => {
   const {
@@ -124,7 +123,7 @@ const Lab = () => {
           }}>
               LAB macht aus Ideen reale, funktionierende Systeme — sicher, automatisiert, effizient.
               <br className="hidden sm:block" />
-              <span className="font-medium text-gray-900">     Innovation durch intelligente Technologie.</span>
+              <span className="font-medium text-gray-900">Innovation durch intelligente Technologie</span>
             </p>
             
             <div className="animate-fade-in flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4" style={{
@@ -335,16 +334,16 @@ const Lab = () => {
             animationDelay: '0.1s'
           }}>
               <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold" style={{
-                backgroundColor: '#4F97F0',
-                color: 'white'
-              }}>
+              backgroundColor: '#4F97F0',
+              color: 'white'
+            }}>
                 SOFORT VERFÜGBAR
               </div>
               <CardContent className="p-8 relative">
                 <div className="text-center">
                   <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12" style={{
-                    background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
-                  }}>
+                  background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
+                }}>
                     <Bot className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-black mb-4">KI-ChatBot Studio</h3>
@@ -356,7 +355,9 @@ const Lab = () => {
                   <div className="bg-white rounded-lg p-4 shadow-inner mb-6 max-w-sm mx-auto">
                     <div className="space-y-3 text-left">
                       <div className="flex items-start gap-2">
-                        <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{backgroundColor: '#4F97F0'}}>
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{
+                        backgroundColor: '#4F97F0'
+                      }}>
                           AI
                         </div>
                         <div className="bg-gray-100 rounded-lg px-3 py-2 text-xs max-w-[200px]">
@@ -372,7 +373,9 @@ const Lab = () => {
                         </div>
                       </div>
                       <div className="flex items-start gap-2">
-                        <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{backgroundColor: '#4F97F0'}}>
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{
+                        backgroundColor: '#4F97F0'
+                      }}>
                           AI
                         </div>
                         <div className="bg-gray-100 rounded-lg px-3 py-2 text-xs max-w-[200px]">
@@ -384,22 +387,28 @@ const Lab = () => {
 
                   <div className="space-y-3 mb-6 text-sm">
                     <div className="flex items-center justify-center gap-3">
-                      <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#4F97F0'}}></div>
+                      <div className="w-2 h-2 rounded-full" style={{
+                      backgroundColor: '#4F97F0'
+                    }}></div>
                       <span className="text-gray-600">Sofortige KI-Antworten</span>
                     </div>
                     <div className="flex items-center justify-center gap-3">
-                      <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#9F91F8'}}></div>
+                      <div className="w-2 h-2 rounded-full" style={{
+                      backgroundColor: '#9F91F8'
+                    }}></div>
                       <span className="text-gray-600">Multichannel-Integration</span>
                     </div>
                     <div className="flex items-center justify-center gap-3">
-                      <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#FFED00'}}></div>
+                      <div className="w-2 h-2 rounded-full" style={{
+                      backgroundColor: '#FFED00'
+                    }}></div>
                       <span className="text-gray-600">Individuelle Anpassung</span>
                     </div>
                   </div>
                   
                   <Button size="lg" className="w-full text-white text-base px-8 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
-                    background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
-                  }} onClick={scrollToContact}>
+                  background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
+                }} onClick={scrollToContact}>
                     ChatBot einrichten
                   </Button>
                 </div>
