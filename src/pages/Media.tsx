@@ -139,7 +139,7 @@ const Media = () => {
                   <Eye className="w-8 h-8 text-blue-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-4">Social Media Management</h3>
-                <p className="text-gray-600 leading-relaxed">Strategisches Community-Management und kanalübergreifende Content-Ausspielung für nachhaltige Markenbindung.</p>
+                <p className="text-gray-600 leading-relaxed">Community- und Content-Management für starke Markenbindung auf allen Kanälen.</p>
               </CardContent>
             </Card>
 
@@ -165,7 +165,7 @@ const Media = () => {
                   <Search className="w-8 h-8 text-blue-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-4">Content-Marketing & Copywriting</h3>
-                <p className="text-gray-600 leading-relaxed">Strategisches Content-Marketing mit suchmaschinenoptimierten Texten, klarer Botschaft und markenkonformer Tonalität.</p>
+                <p className="text-gray-600 leading-relaxed">Gestaltung relevanter Inhalte und klarer Botschaften für mehr Sichtbarkeit und Markenwirkung.</p>
               </CardContent>
             </Card>
 
