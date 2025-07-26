@@ -184,7 +184,7 @@ const Index = () => {
               {t('home.hero.descriptionSecond')}
             </div>
             <div>
-              <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium text-2xl">{t('home.hero.subtitle')}</span>
+              <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium text-2xl whitespace-pre-line">{t('home.hero.subtitle')}</span>
             </div>
           </motion.div>
           
