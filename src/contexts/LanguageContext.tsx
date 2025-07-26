@@ -30,7 +30,7 @@ const translations = {
     
     // Homepage
     'home.hero.title': 'New Edge',
-    'home.hero.subtitle': 'For strategy. aesthetics. & tech.',
+    'home.hero.subtitle': 'For strategy. aesthetics.\n& tech.',
     'home.hero.description': 'Wir entwickeln digitale Lösungen, die über das Gewöhnliche hinausgehen.',
     'home.hero.descriptionSecond': 'Von strategischer Beratung bis hin zu cutting-edge Technologie.',
     'home.about.title': 'Über uns',
