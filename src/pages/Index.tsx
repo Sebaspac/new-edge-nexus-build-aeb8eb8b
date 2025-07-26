@@ -222,7 +222,7 @@ const Index = () => {
       }} className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-xl" />
       </section>
 
-      {/* Visual Section */}
+      {/* AI Visual Section */}
       <section className="visual-section py-20 bg-gradient-to-b from-black to-gray-900 relative">
         <motion.div style={{
         y: y2
@@ -243,8 +243,21 @@ const Index = () => {
           scale: visualScale,
           opacity: visualOpacity,
           willChange: "transform, opacity"
-        }} className="relative h-96 md:h-[500px] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-800 rounded-3xl overflow-hidden flex items-center justify-center group">
-            <motion.div className="text-center text-white z-10" style={{
+        }} className="relative h-96 md:h-[500px] rounded-3xl overflow-hidden flex items-center justify-center group">
+            
+            {/* Background Image */}
+            <div className="absolute inset-0 w-full h-full">
+              <LazyImage 
+                src="/lovable-uploads/8b2fd89c-8469-4c89-bbba-463d2c352273.png"
+                alt="AI Technology Visualization"
+                className="w-full h-full object-cover"
+                sizes="(max-width: 768px) 100vw, 1200px"
+              />
+              <div className="absolute inset-0 bg-black/30"></div>
+            </div>
+
+            {/* Text Overlay */}
+            <motion.div className="text-center text-white z-10 relative" style={{
             opacity: visualTextOpacity
           }}>
               <motion.h2 initial={{
@@ -259,11 +272,11 @@ const Index = () => {
               delay: 0.2,
               duration: 0.6
             }} className="text-4xl md:text-6xl font-black mb-4">
-                <span className="inline-block">STRATEGIE </span>
+                <span className="inline-block">KI-POWERED </span>
                 <br />
-                <span className="text-5xl md:text-7xl bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent font-black inline-block">ON-POINT</span>
+                <span className="text-5xl md:text-7xl bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent font-black inline-block">BRAND</span>
                 <br />
-                <span className="text-4xl md:text-6xl inline-block">CREATIVE TECH</span>
+                <span className="text-4xl md:text-6xl inline-block">INTELLIGENCE</span>
               </motion.h2>
             </motion.div>
           </motion.div>
