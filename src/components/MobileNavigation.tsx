@@ -61,6 +61,10 @@ export const MobileNavigation = ({
                 Home
               </Link>
               
+              <Link to="/team" className={`${textColorSecondary} hover:${textColor.split('-')[1]} transition-all duration-300 font-medium`}>
+                Unser Team
+              </Link>
+              
               <div className="relative group">
                 <Link to="/services" className={`${textColorSecondary} hover:${textColor.split('-')[1]} transition-all duration-300 font-medium`}>
                   Services
@@ -138,6 +142,20 @@ export const MobileNavigation = ({
               }}>
                     <Link to="/" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors border-b ${borderColor}`}>
                       Home
+                    </Link>
+                  </motion.div>
+
+                  <motion.div initial={{
+                opacity: 0,
+                x: 50
+              }} animate={{
+                opacity: 1,
+                x: 0
+              }} transition={{
+                delay: 0.13
+              }}>
+                    <Link to="/team" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors border-b ${borderColor}`}>
+                      Unser Team
                     </Link>
                   </motion.div>
 

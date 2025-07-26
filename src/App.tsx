@@ -14,6 +14,7 @@ const OptimizedServices = lazy(() => import("./components/OptimizedServices"));
 const OptimizedMedia = lazy(() => import("./components/OptimizedMedia"));
 const OptimizedStudio = lazy(() => import("./components/OptimizedStudio"));
 const OptimizedLab = lazy(() => import("./components/OptimizedLab"));
+const Team = lazy(() => import("./pages/Team"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -40,6 +41,7 @@ const App = () => (
                 <Route path="/media" element={<OptimizedMedia />} />
                 <Route path="/studio" element={<OptimizedStudio />} />
                 <Route path="/lab" element={<OptimizedLab />} />
+                <Route path="/team" element={<Team />} />
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

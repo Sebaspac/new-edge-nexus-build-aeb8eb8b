@@ -17,6 +17,7 @@ const translations = {
     'nav.media': 'Media',
     'nav.studio': 'Studio',
     'nav.lab': 'Lab',
+    'nav.team': 'Unser Team',
     'nav.home': 'Start',
     
     // Common
@@ -132,6 +133,7 @@ const translations = {
     'nav.media': 'Media',
     'nav.studio': 'Studio',
     'nav.lab': 'Lab',
+    'nav.team': 'Our Team',
     'nav.home': 'Home',
     
     // Common
