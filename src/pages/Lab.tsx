@@ -6,9 +6,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ServicesSection } from "@/components/ServicesSection";
-
 const Lab = () => {
-  const { t } = useLanguage();
+  const {
+    t
+  } = useLanguage();
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -43,29 +44,23 @@ const Lab = () => {
       }
     }, 100);
   };
-
-  const labServices = [
-    {
-      title: "KI-gestützte Prozessautomatisierung",
-      description: "Optimierung und Automatisierung von Geschäftsprozessen durch künstliche Intelligenz.",
-      icon: Cpu
-    },
-    {
-      title: "Webentwicklung",
-      description: "CMS, Landingpages, Funnels - maßgeschneiderte Weblösungen für Ihren Erfolg.",
-      icon: Globe
-    },
-    {
-      title: "KI-Agenten-Integration",
-      description: "Text, Mail, CRM - intelligente Agenten für automatisierte Kommunikation und Verwaltung.",
-      icon: Bot
-    },
-    {
-      title: "Tracking- & Analyse-Setups",
-      description: "GA4, Tag Manager, Pixel, Dashboards - umfassende Datenanalyse und Reporting.",
-      icon: BarChart3
-    }
-  ];
+  const labServices = [{
+    title: "KI-gestützte Prozessautomatisierung",
+    description: "Optimierung und Automatisierung von Geschäftsprozessen durch künstliche Intelligenz.",
+    icon: Cpu
+  }, {
+    title: "Webentwicklung",
+    description: "CMS, Landingpages, Funnels - maßgeschneiderte Weblösungen für Ihren Erfolg.",
+    icon: Globe
+  }, {
+    title: "KI-Agenten-Integration",
+    description: "Text, Mail, CRM - intelligente Agenten für automatisierte Kommunikation und Verwaltung.",
+    icon: Bot
+  }, {
+    title: "Tracking- & Analyse-Setups",
+    description: "GA4, Tag Manager, Pixel, Dashboards - umfassende Datenanalyse und Reporting.",
+    icon: BarChart3
+  }];
   return <div className="min-h-screen bg-white">
       
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
@@ -145,19 +140,9 @@ const Lab = () => {
       {/* Services Overview */}
       <section className="py-16 sm:py-32 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12 sm:mb-20">
-            <div className="inline-block px-4 py-2 bg-white rounded-full shadow-sm mb-6">
-              <span className="text-sm font-medium text-gray-600">PROJEKTBASIERTE LEISTUNGEN</span>
-            </div>
-          </div>
           
-          <ServicesSection
-            title="Technische Umsetzung"
-            subtitle="Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen"
-            services={labServices}
-            accentColor="#FFED00"
-            bgColor="bg-transparent"
-          />
+          
+          <ServicesSection title="Technische Umsetzung" subtitle="Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen" services={labServices} accentColor="#FFED00" bgColor="bg-transparent" />
 
           <div className="text-center mt-12">
             <Button size="lg" className="bg-black hover:bg-gray-800 text-white text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" onClick={scrollToContact}>
