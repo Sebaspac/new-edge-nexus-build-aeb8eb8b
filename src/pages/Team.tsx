@@ -189,25 +189,7 @@ const Team = () => {
             </motion.div>
 
             <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-4xl mx-auto">
-              {clients.map((client, index) => <motion.div key={client.name} initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: index * 0.1
-            }} whileHover={{
-              scale: 1.05
-            }} className="aspect-square bg-white rounded-2xl shadow-lg flex items-center justify-center p-6 border border-gray-100">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg"></div>
-                    <p className="text-sm font-semibold text-gray-700">{client.name}</p>
-                  </div>
-                </motion.div>)}
+              {clients.map((client, index) => {})}
             </div>
           </div>
         </section>
