@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Code, Palette, Globe, Briefcase, ArrowRight, Star, TrendingUp, Zap } from "lucide-react";
+import { MobileNavigation } from "@/components/MobileNavigation";
 const Team = () => {
   const {
     t
@@ -24,6 +25,13 @@ const Team = () => {
   const handleContactClick = () => {
     setContactClick(true);
     setTimeout(() => setContactClick(false), 200);
+  };
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   // Team data
@@ -87,6 +95,9 @@ const Team = () => {
         <title>Unser Team - New Edge Brand</title>
         <meta name="description" content="Lernen Sie das Team von New Edge Brand kennen - Experten für Strategie, Content & Technologie." />
       </Helmet>
+
+      {/* Mobile Navigation */}
+      <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
       <div className="min-h-screen bg-white" ref={containerRef}>
         {/* Hero Section */}
