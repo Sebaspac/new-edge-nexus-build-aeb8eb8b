@@ -642,9 +642,7 @@ const Index = () => {
       </section>
 
       {/* Network Section */}
-      <section className="py-20 bg-gradient-to-b from-black to-gray-900">
-        
-      </section>
+      
 
       {/* Services Overview */}
       <section className="services-section relative py-20 bg-gradient-to-b from-black via-gray-900 to-black">
