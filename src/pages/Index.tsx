@@ -247,12 +247,7 @@ const Index = () => {
             
             {/* Background Image */}
             <div className="absolute inset-0 w-full h-full">
-              <LazyImage 
-                src="/lovable-uploads/8b2fd89c-8469-4c89-bbba-463d2c352273.png"
-                alt="AI Technology Visualization"
-                className="w-full h-full object-cover"
-                sizes="(max-width: 768px) 100vw, 1200px"
-              />
+              <LazyImage src="/lovable-uploads/8b2fd89c-8469-4c89-bbba-463d2c352273.png" alt="AI Technology Visualization" className="w-full h-full object-cover" sizes="(max-width: 768px) 100vw, 1200px" />
               <div className="absolute inset-0 bg-black/30"></div>
             </div>
 
@@ -648,25 +643,7 @@ const Index = () => {
 
       {/* Network Section */}
       <section className="py-20 bg-gradient-to-b from-black to-gray-900">
-        <div className="container mx-auto px-6">
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Unser <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Netzwerk</span>
-            </h2>
-          </motion.div>
-          
-          <NetworkVisualization />
-        </div>
+        
       </section>
 
       {/* Services Overview */}
