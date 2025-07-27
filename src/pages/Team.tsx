@@ -26,11 +26,12 @@ const Team = () => {
     setContactClick(true);
     setTimeout(() => setContactClick(false), 200);
   };
-
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -121,9 +122,7 @@ const Team = () => {
                   Profis für Strategie, Content & Tech
                 </Badge>
                 <h1 className="text-5xl md:text-7xl font-black mb-6">
-                  <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                    UNSER TEAM
-                  </span>
+                  <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">UNSER  TEAM</span>
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">
                   Wir bringen Wissen und Erfahrung mit – 
