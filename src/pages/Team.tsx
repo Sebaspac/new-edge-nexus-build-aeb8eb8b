@@ -203,37 +203,7 @@ const Team = () => {
           }} transition={{
             duration: 1
           }} className="relative max-w-3xl mx-auto">
-              <div className="aspect-video bg-gradient-to-br from-purple-600 to-blue-600 rounded-3xl p-8 text-white relative overflow-hidden">
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-bold mb-4">Globales Expertennetzwerk</h3>
-                  <p className="text-purple-100 mb-6">
-                    Strategisch verteilte Teams in 4 Ländern, die nahtlos zusammenarbeiten
-                  </p>
-                  <div className="flex items-center space-x-4">
-                    <TrendingUp className="w-6 h-6" />
-                    <span>100% Remote-Ready</span>
-                    <Zap className="w-6 h-6 ml-4" />
-                    <span>Agile Workflows</span>
-                  </div>
-                </div>
-                
-                {/* Background Animation */}
-                <div className="absolute inset-0 opacity-20">
-                  {[...Array(6)].map((_, i) => <motion.div key={i} className="absolute w-2 h-2 bg-white rounded-full" animate={{
-                  x: [0, 100, 200, 300],
-                  y: [0, -50, 50, 0],
-                  opacity: [0, 1, 1, 0]
-                }} transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  delay: i * 0.5,
-                  ease: "easeInOut"
-                }} style={{
-                  left: `${Math.random() * 80}%`,
-                  top: `${Math.random() * 80}%`
-                }} />)}
-                </div>
-              </div>
+              
             </motion.div>
           </div>
         </section>
