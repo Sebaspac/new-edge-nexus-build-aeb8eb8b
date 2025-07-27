@@ -289,17 +289,17 @@ const Team = () => {
               {[{
               phase: "Studio",
               title: "Strategie & Beratung",
-              description: "Unsere Strategy Leads und Coaches entwickeln maßgeschneiderte Markenstrategien",
+              description: "Unsere Strategy Leads und Coaches entwickeln maßgeschneiderte Markenstrategien.",
               team: "Strategy Leads, Brand Coaches"
             }, {
               phase: "Media",
               title: "Content & Kreation",
-              description: "Creative Agencies und Freelancer setzen Ihre Inhalte professionell um",
+              description: "Creative Agencies und Freelancer setzen Ihre Inhalte professionell um.",
               team: "Creative Directors, Content Specialists"
             }, {
               phase: "Lab",
               title: "Technologie & Innovation",
-              description: "Unsere Entwickler und Tech-Experten bringen Ihre Visionen zum Leben",
+              description: "Unsere Entwickler und Tech-Experten bringen Ihre Visionen zum Leben.",
               team: "Lead Developers, Tech Innovators"
             }].map((item, index) => <motion.div key={item.phase} initial={{
               opacity: 0,
