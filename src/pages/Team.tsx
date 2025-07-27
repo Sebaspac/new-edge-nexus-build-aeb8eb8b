@@ -100,27 +100,7 @@ const Team = () => {
 
       <div className="min-h-screen bg-white" ref={containerRef}>
         {/* Hero Section - Apple Style */}
-        <section className="pt-32 pb-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.8,
-            ease: "easeOut"
-          }} className="text-center">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-gray-900 mb-8">
-                Unser Team
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-                Menschen, die Marken zum Leben erwecken.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+        
 
         {/* Founders Section - Apple Card Style */}
         
@@ -137,7 +117,7 @@ const Team = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-gray-900">
+              <h2 className="text-3xl font-semibold mb-6 text-gray-900 md:text-6xl">
                 Unser Netzwerk
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
