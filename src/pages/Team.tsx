@@ -102,57 +102,7 @@ const Team = () => {
 
       <div className="min-h-screen bg-white" ref={containerRef}>
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 bg-gradient-to-br from-purple-50 via-white to-blue-50">
-          <div className="container mx-auto px-6">
-            <motion.div style={{
-            y,
-            opacity
-          }} className="text-center max-w-4xl mx-auto">
-              <motion.div initial={{
-              opacity: 0,
-              y: 30
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.8
-            }} className="mb-8">
-                <Badge className="mb-4 bg-purple-100 text-purple-800 px-4 py-2">
-                  <Star className="w-4 h-4 mr-2" />
-                  Profis für Strategie, Content & Tech
-                </Badge>
-                <h1 className="text-5xl md:text-7xl font-black mb-6">
-                  <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">UNSER  TEAM</span>
-                </h1>
-                <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">
-                  Wir bringen Wissen und Erfahrung mit – 
-                  <br className="hidden md:block" />
-                  <span className="font-semibold text-purple-600">
-                    für Ihren digitalen Erfolg
-                  </span>
-                </p>
-              </motion.div>
-            </motion.div>
-          </div>
-
-          {/* Floating Elements */}
-          <motion.div animate={{
-          y: [0, -20, 0],
-          rotate: [0, 5, 0]
-        }} transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} className="absolute top-40 left-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl" />
-          <motion.div animate={{
-          y: [0, 20, 0],
-          rotate: [0, -5, 0]
-        }} transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} className="absolute bottom-40 right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-xl" />
-        </section>
+        
 
         {/* Founders Section */}
         
@@ -171,7 +121,7 @@ const Team = () => {
           }} transition={{
             duration: 0.8
           }} className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black mb-4">
+              <h2 className="text-4xl font-black mb-4 md:text-7xl">
                 Unser <span className="text-purple-600">Netzwerk</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
