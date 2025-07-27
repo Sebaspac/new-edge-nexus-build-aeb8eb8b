@@ -6,10 +6,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ServicesSection } from "@/components/ServicesSection";
+
 const Studio = () => {
-  const {
-    t
-  } = useLanguage();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -44,6 +44,30 @@ const Studio = () => {
       }
     }, 100);
   };
+
+  const studioServices = [
+    {
+      title: "Strategie & Markenidentität",
+      description: "Strategische Markenpositionierung und Zielgruppenanalyse für eine klare Ausrichtung.",
+      icon: Palette
+    },
+    {
+      title: "Brand Story",
+      description: "Authentische Markenstories mit klaren Werten und einzigartiger Tonalität.",
+      icon: Sparkles
+    },
+    {
+      title: "Template-Rahmen für Social Media & Print",
+      description: "Einheitliche Vorlagen und digitale Struktur mit Funnel-Logik.",
+      icon: Package
+    },
+    {
+      title: "Nutzerführung & Funnel-Wireframes",
+      description: "Conversion-Ziele und strategischer Seitenaufbau für maximale Effektivität.",
+      icon: Grid3x3
+    }
+  ];
+
   return <div className="min-h-screen bg-white">
       {/* Mobile Navigation */}
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
@@ -111,76 +135,12 @@ const Studio = () => {
       </section>
 
       {/* Services Overview */}
-      <section className="py-16 sm:py-32 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12 sm:mb-20">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4 sm:mb-6 animate-fade-in">UNSERE LEISTUNGEN</h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in px-4">
-              Strategische Fundamente für Ihren Markenerfolg
-            </p>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-6 sm:p-8 text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <Palette className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
-                </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">Strategie & Markenidentität</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Strategische Markenpositionierung und Zielgruppenanalyse für eine klare Ausrichtung.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.1s'
-          }}>
-              <CardContent className="p-6 sm:p-8 text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
-                </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">Brand Story</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Authentische Markenstories mit klaren Werten und einzigartiger Tonalität.
-                </p>
-              </CardContent>
-            </Card>
-
-            
-
-            
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.4s'
-          }}>
-              <CardContent className="p-6 sm:p-8 text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <Package className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
-                </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">Template-Rahmen für Social Media & Print</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Einheitliche Vorlagen und digitale Struktur mit Funnel-Logik.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.5s'
-          }}>
-              <CardContent className="p-6 sm:p-8 text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors duration-300">
-                  <Grid3x3 className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
-                </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3 sm:mb-4">Nutzerführung & Funnel-Wireframes</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Conversion-Ziele und strategischer Seitenaufbau für maximale Effektivität.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      <ServicesSection
+        title="UNSERE LEISTUNGEN"
+        subtitle="Strategische Fundamente für Ihren Markenerfolg"
+        services={studioServices}
+        accentColor="#7c3aed"
+      />
 
       {/* CTA Section */}
       <section className="py-16 sm:py-32 bg-gradient-to-r from-purple-600 to-purple-700 text-white relative overflow-hidden">

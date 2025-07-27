@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ServicesSection } from "@/components/ServicesSection";
+
 const Media = () => {
-  const {
-    t
-  } = useLanguage();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -43,6 +43,30 @@ const Media = () => {
       }
     }, 100);
   };
+
+  const mediaServices = [
+    {
+      title: "Content-Produktion & Creative Asset",
+      description: "Strategische Content-Produktion für maximale Wirkung auf allen Kanälen.",
+      icon: Settings
+    },
+    {
+      title: "Social Media Management",
+      description: "Community- und Content-Management für starke Markenbindung auf allen Kanälen.",
+      icon: Eye
+    },
+    {
+      title: "Launchkampagnen & Performance-Marketing",
+      description: "Erfolgreiche Produktlaunches und datengetriebenes Performance-Marketing.",
+      icon: TrendingUp
+    },
+    {
+      title: "Content-Marketing & Copywriting",
+      description: "Gestaltung relevanter Inhalte und klarer Botschaften für mehr Sichtbarkeit und Markenwirkung.",
+      icon: Search
+    }
+  ];
+
   return <div className="min-h-screen bg-white">
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
@@ -109,87 +133,12 @@ const Media = () => {
       </section>
 
       {/* Services Overview */}
-      <section className="py-16 sm:py-32 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12 sm:mb-20">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4 sm:mb-6 animate-fade-in">UNSERE LEISTUNGEN</h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in px-4">
-              Content-Produktion und strategische Reichweite für Ihren Erfolg
-            </p>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Settings className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Content-Produktion & Creative Asset</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Strategische Content-Produktion für maximale Wirkung auf allen Kanälen.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.1s'
-          }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Eye className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Social Media Management</h3>
-                <p className="text-gray-600 leading-relaxed">Community- und Content-Management für starke Markenbindung auf allen Kanälen.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.3s'
-          }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <TrendingUp className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Launchkampagnen & Performance-Marketing</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Erfolgreiche Produktlaunches und datengetriebenes Performance-Marketing.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-            animationDelay: '0.4s'
-          }}>
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <Search className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">Content-Marketing & Copywriting</h3>
-                <p className="text-gray-600 leading-relaxed">Gestaltung relevanter Inhalte und klarer Botschaften für mehr Sichtbarkeit und Markenwirkung.</p>
-              </CardContent>
-            </Card>
-
-            {/* Centered 5th card */}
-            <div className="sm:col-span-2 flex justify-center">
-              <div className="w-full sm:max-w-md">
-                <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group" style={{
-                animationDelay: '0.5s'
-              }}>
-                  <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                      <Mail className="w-8 h-8 text-blue-600" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-black mb-4">E-Mail-Marketing & CRM-Automation</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Gezielte Kommunikation für Engagement & Kundenbindung.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServicesSection
+        title="UNSERE LEISTUNGEN"
+        subtitle="Content-Produktion und strategische Reichweite für Ihren Erfolg"
+        services={mediaServices}
+        accentColor="#2563eb"
+      />
 
       {/* CTA Section */}
       <section className="py-16 sm:py-32 bg-gradient-to-r from-blue-600 to-cyan-600 text-white relative overflow-hidden">

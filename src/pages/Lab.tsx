@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ServicesSection } from "@/components/ServicesSection";
+
 const Lab = () => {
-  const {
-    t
-  } = useLanguage();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -43,27 +43,29 @@ const Lab = () => {
       }
     }, 100);
   };
-  const services = [{
-    title: "KI-gestützte Prozessautomatisierung",
-    description: "Optimierung und Automatisierung von Geschäftsprozessen durch künstliche Intelligenz.",
-    icon: Cpu,
-    delay: "0s"
-  }, {
-    title: "Webentwicklung",
-    description: "CMS, Landingpages, Funnels - maßgeschneiderte Weblösungen für Ihren Erfolg.",
-    icon: Globe,
-    delay: "0.1s"
-  }, {
-    title: "KI-Agenten-Integration",
-    description: "Text, Mail, CRM - intelligente Agenten für automatisierte Kommunikation und Verwaltung.",
-    icon: Bot,
-    delay: "0.2s"
-  }, {
-    title: "Tracking- & Analyse-Setups",
-    description: "GA4, Tag Manager, Pixel, Dashboards - umfassende Datenanalyse und Reporting.",
-    icon: BarChart3,
-    delay: "0.3s"
-  }];
+
+  const labServices = [
+    {
+      title: "KI-gestützte Prozessautomatisierung",
+      description: "Optimierung und Automatisierung von Geschäftsprozessen durch künstliche Intelligenz.",
+      icon: Cpu
+    },
+    {
+      title: "Webentwicklung",
+      description: "CMS, Landingpages, Funnels - maßgeschneiderte Weblösungen für Ihren Erfolg.",
+      icon: Globe
+    },
+    {
+      title: "KI-Agenten-Integration",
+      description: "Text, Mail, CRM - intelligente Agenten für automatisierte Kommunikation und Verwaltung.",
+      icon: Bot
+    },
+    {
+      title: "Tracking- & Analyse-Setups",
+      description: "GA4, Tag Manager, Pixel, Dashboards - umfassende Datenanalyse und Reporting.",
+      icon: BarChart3
+    }
+  ];
   return <div className="min-h-screen bg-white">
       
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
@@ -147,31 +149,17 @@ const Lab = () => {
             <div className="inline-block px-4 py-2 bg-white rounded-full shadow-sm mb-6">
               <span className="text-sm font-medium text-gray-600">PROJEKTBASIERTE LEISTUNGEN</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4 sm:mb-6 animate-fade-in">Technische Umsetzung</h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in px-4">
-              Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen
-            </p>
           </div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
-            {services.map((service, index) => <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300" style={{
-                backgroundColor: '#FFED0020'
-              }}>
-                    <service.icon className="w-8 h-8" style={{
-                  color: '#FFED00'
-                }} />
-                  </div>
-                  <h3 className="text-lg font-bold text-black mb-4">{service.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>)}
-          </div>
+          <ServicesSection
+            title="Technische Umsetzung"
+            subtitle="Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen"
+            services={labServices}
+            accentColor="#FFED00"
+            bgColor="bg-transparent"
+          />
 
-          <div className="text-center">
+          <div className="text-center mt-12">
             <Button size="lg" className="bg-black hover:bg-gray-800 text-white text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" onClick={scrollToContact}>
               Projekt anfragen
             </Button>
