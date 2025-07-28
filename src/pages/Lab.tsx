@@ -284,9 +284,9 @@ const Lab = () => {
                                 color: '#9F91F8'
                               }} />
                               </div>
-                              <span className="text-sm font-medium">+66 weitere</span>
-                            </div>
-                            <p className="text-xs text-gray-600">Alle Bereiche</p>
+                               <span className="text-sm font-medium">+9 weitere</span>
+                             </div>
+                             <p className="text-xs text-gray-600">Alle Bereiche für Ihr Business</p>
                           </div>
                         </div>
                       </div>
