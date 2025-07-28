@@ -174,19 +174,13 @@ const Lab = () => {
           }}>
               <span className="text-sm font-medium">KI-POWERED SOLUTIONS</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in" style={{
-            color: '#9F91F8'
-          }}>
-              New Edge Agent Hub
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in px-4 mb-8">
-              Unsere eigenen KI-Anwendungen – sofort einsatzbereit für maximale Effizienz
-            </p>
+            
+            
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-50 rounded-full">
               <div className="w-2 h-2 rounded-full animate-pulse" style={{
               backgroundColor: '#FFED00'
             }}></div>
-              <span className="text-sm font-medium text-gray-700">In aktiver Entwicklung</span>
+              
             </div>
           </div>
           
@@ -203,17 +197,14 @@ const Lab = () => {
                 <CardContent className="p-8 sm:p-12">
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     <div className="text-center lg:text-left">
-                      <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
-                        <div className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-12" style={{
-                        background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
-                      }}>
-                          <Bot className="w-8 h-8 text-white" />
-                        </div>
-                        <h2 className="text-xl sm:text-2xl font-bold text-black">New Edge Agent Hub</h2>
+                      <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12" style={{
+                      background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
+                    }}>
+                        <Bot className="w-12 h-12 text-white" />
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">KI-Helfer Workforce</h3>
                       <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg">
-                        12 spezialisierte KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr. 
+                        70+ spezialisierte KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr. 
                         <span className="font-semibold"> Lebenslanger Zugang ohne Abonnement.</span>
                       </p>
                       <div className="space-y-3 mb-8">
