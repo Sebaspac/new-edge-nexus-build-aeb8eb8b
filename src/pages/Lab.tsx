@@ -201,6 +201,9 @@ const Lab = () => {
                   VERFÜGBAR
                 </div>
                 <CardContent className="p-8 sm:p-12">
+                  <div className="text-center mb-8">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-black">New Edge Agent Hub</h2>
+                  </div>
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     <div className="text-center lg:text-left">
                       <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12" style={{
