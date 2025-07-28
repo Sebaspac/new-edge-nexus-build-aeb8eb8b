@@ -164,24 +164,22 @@ const Team = () => {
               <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-gray-900">
                 Unsere Erfahrung
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-                Wir bringen über 7 Jahre Inhouse- und Projekterfahrung aus unterschiedlichsten 
-                Unternehmen und Branchen mit – von Startups bis Konzernen.
-              </p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">Wir bringen über 7 Jahre kombinierte Inhouse- und Projekterfahrung mit - aus unterschiedlichsten Branchen, Unternehmensgrößen und Agenturkontexten.
+Ob Startup oder Konzern: Wir kennen interne Abläufe, kreative Prozesse und strategische Anforderungen aus erster Hand.</p>
             </motion.div>
 
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
-              {clients.map((client, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-center justify-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
+              {clients.map((client, index) => <motion.div key={index} className="flex items-center justify-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300" initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              delay: index * 0.1
+            }}>
                   <span className="text-gray-900 font-medium text-sm">{client.name}</span>
-                </motion.div>
-              ))}
+                </motion.div>)}
             </div>
           </div>
         </section>
