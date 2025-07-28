@@ -201,15 +201,15 @@ const Lab = () => {
                   VERFÜGBAR
                 </div>
                 <CardContent className="p-8 sm:p-12">
-                  <div className="text-center mb-8">
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black tracking-tight">New Edge Agent Hub</h2>
-                  </div>
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     <div className="text-center lg:text-left">
-                      <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12" style={{
-                      background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
-                    }}>
-                        <Bot className="w-12 h-12 text-white" />
+                      <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
+                        <div className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-12" style={{
+                        background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
+                      }}>
+                          <Bot className="w-8 h-8 text-white" />
+                        </div>
+                        <h2 className="text-xl sm:text-2xl font-bold text-black">New Edge Agent Hub</h2>
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">KI-Helfer Workforce</h3>
                       <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg">
