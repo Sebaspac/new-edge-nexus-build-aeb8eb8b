@@ -202,7 +202,7 @@ const Lab = () => {
                 </div>
                 <CardContent className="p-8 sm:p-12">
                   <div className="text-center mb-8">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-black">New Edge Agent Hub</h2>
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black tracking-tight">New Edge Agent Hub</h2>
                   </div>
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     <div className="text-center lg:text-left">
