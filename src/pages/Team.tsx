@@ -184,8 +184,8 @@ const Team = () => {
                 }}
               >
                 <div className="absolute inset-0 bg-black/20"></div>
-                <div className="relative z-10 h-full flex items-end justify-end p-8">
-                  <div className="text-right max-w-2xl">
+                <div className="relative z-10 h-full flex items-end justify-end p-12">
+                  <div className="text-right max-w-xl">
                     <blockquote className="text-2xl md:text-3xl font-medium text-purple-300 leading-relaxed mb-4 italic">
                       "Wir kennen kreative Prozesse, interne Entscheidungswege und strategische Herausforderungen aus erster Hand."
                     </blockquote>
