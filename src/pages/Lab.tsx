@@ -46,7 +46,7 @@ const Lab = () => {
   };
   const labServices = [{
     title: "KI-gestützte Prozessautomatisierung",
-    description: "Optimierung und Automatisierung von Geschäftsprozessen durch künstliche Intelligenz.",
+    description: "Optimierung und Automatisierung operativer Aufgaben durch künstliche Intelligenz.",
     icon: Cpu
   }, {
     title: "Webentwicklung",
