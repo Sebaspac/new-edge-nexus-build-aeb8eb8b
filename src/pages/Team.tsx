@@ -226,7 +226,7 @@ const Team = () => {
               <p className="text-gray-700 max-w-3xl mx-auto mt-8 mb-4 font-bold text-5xl">
                 Hintergrund unserer Teammitglieder:
               </p>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light mb-8">BMW • MINI • Infosys Consulting • Serviceplan Group • Pressonit • Campbell & Hörmann</p>
+              <p className="text-gray-600 max-w-3xl mx-auto font-light mb-8 text-sm">BMW • MINI • Infosys Consulting • Serviceplan Group • Pressonit • Campbell & Hörmann</p>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light">Aktuell entstehen erste Projekte - gemeinsam mit Innovationspartnern aus der DACH-Region.</p>
             </motion.div>
           </div>
