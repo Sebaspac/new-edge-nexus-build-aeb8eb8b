@@ -164,7 +164,7 @@ const Team = () => {
               <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-gray-900">
                 Unsere Erfahrung
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6">
+              <p className="text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6 text-3xl">
                 Wir sind neu als Marke – aber nicht neu im Geschäft.
               </p>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6">
