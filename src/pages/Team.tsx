@@ -164,8 +164,10 @@ const Team = () => {
               <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-gray-900">
                 Unsere Erfahrung
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">Wir bringen über 7 Jahre kombinierte Inhouse- und Projekterfahrung mit - aus unterschiedlichsten Branchen, Unternehmensgrößen und Agenturkontexten.
-Ob Startup oder Konzern: Wir kennen interne Abläufe, kreative Prozesse und strategische Anforderungen aus erster Hand.</p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">Wir bringen über 4 Jahre kombinierte Inhouse- und Projekterfahrung mit - aus unterschiedlichsten Branchen, Unternehmensgrößen und Agenturkontexten. 
+
+Wir kennen interne Abläufe, kreative Prozesse und strategische Anforderungen aus erster Hand.
+            </p>
             </motion.div>
 
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
