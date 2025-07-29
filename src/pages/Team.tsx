@@ -164,24 +164,19 @@ const Team = () => {
               <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-gray-900">
                 Unsere Erfahrung
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">Wir bringen über 4 Jahre kombinierte Inhouse- und Projekterfahrung mit - aus unterschiedlichsten Branchen, Unternehmensgrößen und Agenturkontexten.</p>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mt-4">Wir kennen interne Abläufe, kreative Prozesse und strategische Anforderungen aus erster Hand.
-            </p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+                Wir sind neu als Marke – aber nicht neu im Geschäft. Unser Team bringt mehr als 4 Jahre kombinierte Inhouse- und Projekterfahrung mit – aus Agenturen, Konzernen und Tech-Startups. Wir kennen kreative Prozesse, interne Entscheidungswege und strategische Herausforderungen aus erster Hand.
+              </p>
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto font-medium mt-8 mb-4">
+                Hintergrund unserer Teammitglieder:
+              </p>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light mb-8">
+                BMW • MINI • Infosys Consulting • Serviceplan Group • Pressonit
+              </p>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light">
+                🧪 Aktuell entstehen erste Projekte im Rahmen unseres Labs – gemeinsam mit Innovationspartnern aus der DACH-Region.
+              </p>
             </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
-              {clients.map((client, index) => <motion.div key={index} className="flex items-center justify-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300" initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              delay: index * 0.1
-            }}>
-                  <span className="text-gray-900 font-medium text-sm">{client.name}</span>
-                </motion.div>)}
-            </div>
           </div>
         </section>
 
