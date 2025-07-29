@@ -101,23 +101,23 @@ const Team = () => {
       <div className="min-h-screen bg-white" ref={containerRef}>
         {/* Hero Section */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
-          <div 
-            className="absolute inset-0 z-0"
-            style={{
-              backgroundImage: "url('/placeholder.svg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center"
-            }}
-          >
+          <div className="absolute inset-0 z-0" style={{
+          backgroundImage: "url('/placeholder.svg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}>
             <div className="absolute inset-0 bg-black/30"></div>
           </div>
           
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="relative z-10 text-center text-white px-6"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 1
+        }} className="relative z-10 text-center text-white px-6">
             <h1 className="text-4xl md:text-7xl font-semibold mb-6 leading-tight">
               Unser Team
             </h1>
@@ -196,18 +196,21 @@ const Team = () => {
                 Unser Team bringt mehr als 4 Jahre kombinierte Inhouse- und Projekterfahrung mit - aus Agenturen, Konzernen und Tech-Startups.
               </p>
               {/* Quote Module */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative rounded-3xl overflow-hidden min-h-[400px] max-w-4xl mx-auto"
-                style={{
-                  backgroundImage: "url('/placeholder.svg')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center"
-                }}
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.8
+            }} className="relative rounded-3xl overflow-hidden min-h-[400px] max-w-4xl mx-auto" style={{
+              backgroundImage: "url('/placeholder.svg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center"
+            }}>
                 <div className="absolute inset-0 bg-black/20"></div>
                 <div className="relative z-10 h-full flex items-end justify-end p-12">
                   <div className="text-right max-w-2xl mb-8">
@@ -220,7 +223,7 @@ const Team = () => {
                   </div>
                 </div>
               </motion.div>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto font-medium mt-8 mb-4">
+              <p className="text-gray-700 max-w-3xl mx-auto font-medium mt-8 mb-4 text-3xl">
                 Hintergrund unserer Teammitglieder:
               </p>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light mb-8">BMW • MINI • Infosys Consulting • Serviceplan Group • Pressonit • Campbell & Hörmann</p>
