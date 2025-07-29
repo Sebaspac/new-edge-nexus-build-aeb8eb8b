@@ -216,7 +216,7 @@ Wir kennen interne Abläufe, kreative Prozesse und strategische Anforderungen au
             }, {
               phase: "Media",
               title: "Content & Kreation",
-              description: "Creative Agencies und Freelancer setzen Ihre Inhalte professionell um.",
+              description: "Unsere Content-Teams kreieren Inhalte – kreativ, datenbasiert und KI-gestützt.",
               team: "Creative Directors, Content Specialists"
             }, {
               phase: "Lab",
