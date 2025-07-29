@@ -176,23 +176,24 @@ const Team = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-purple-600 to-purple-800 p-12 max-w-4xl mx-auto"
+                className="relative rounded-3xl overflow-hidden min-h-[400px] max-w-4xl mx-auto"
                 style={{
                   backgroundImage: "url('/placeholder.svg')",
                   backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundBlendMode: "overlay"
+                  backgroundPosition: "center"
                 }}
               >
-                <div className="relative z-10">
-                  <blockquote className="text-2xl md:text-3xl font-medium text-white leading-relaxed mb-6">
-                    "Wir kennen kreative Prozesse, interne Entscheidungswege und strategische Herausforderungen aus erster Hand."
-                  </blockquote>
-                  <cite className="text-purple-200 text-lg font-light not-italic">
-                    — Wenjamin Zabhezhanskiy
-                  </cite>
+                <div className="absolute inset-0 bg-black/20"></div>
+                <div className="relative z-10 h-full flex items-end justify-end p-8">
+                  <div className="text-right max-w-2xl">
+                    <blockquote className="text-2xl md:text-3xl font-medium text-purple-300 leading-relaxed mb-4 italic">
+                      "Wir kennen kreative Prozesse, interne Entscheidungswege und strategische Herausforderungen aus erster Hand."
+                    </blockquote>
+                    <cite className="text-purple-200 text-lg font-light not-italic">
+                      — Wenjamin Zabhezhanskiy
+                    </cite>
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-purple-600/60"></div>
               </motion.div>
               <p className="text-lg text-gray-700 max-w-3xl mx-auto font-medium mt-8 mb-4">
                 Hintergrund unserer Teammitglieder:
