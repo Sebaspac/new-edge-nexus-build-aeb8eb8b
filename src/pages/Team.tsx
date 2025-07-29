@@ -223,7 +223,7 @@ const Team = () => {
                   </div>
                 </div>
               </motion.div>
-              <p className="text-gray-700 max-w-3xl mx-auto font-medium mt-8 mb-4 text-3xl">
+              <p className="text-gray-700 max-w-3xl mx-auto mt-8 mb-4 font-bold text-5xl">
                 Hintergrund unserer Teammitglieder:
               </p>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light mb-8">BMW • MINI • Infosys Consulting • Serviceplan Group • Pressonit • Campbell & Hörmann</p>
