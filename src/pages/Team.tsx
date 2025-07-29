@@ -99,8 +99,33 @@ const Team = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
       <div className="min-h-screen bg-white" ref={containerRef}>
-        {/* Hero Section - Apple Style */}
-        
+        {/* Hero Section */}
+        <section className="relative h-screen flex items-center justify-center overflow-hidden">
+          <div 
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: "url('/placeholder.svg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center"
+            }}
+          >
+            <div className="absolute inset-0 bg-black/30"></div>
+          </div>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="relative z-10 text-center text-white px-6"
+          >
+            <h1 className="text-4xl md:text-7xl font-semibold mb-6 leading-tight">
+              Unser Team
+            </h1>
+            <p className="text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed">
+              Experten für Strategie, Content & Technologie
+            </p>
+          </motion.div>
+        </section>
 
         {/* Founders Section - Apple Card Style */}
         
