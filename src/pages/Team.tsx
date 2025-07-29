@@ -170,9 +170,30 @@ const Team = () => {
               <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6">
                 Unser Team bringt mehr als 4 Jahre kombinierte Inhouse- und Projekterfahrung mit - aus Agenturen, Konzernen und Tech-Startups.
               </p>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-                Wir kennen kreative Prozesse, interne Entscheidungswege und strategische Herausforderungen aus erster Hand.
-              </p>
+              {/* Quote Module */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-purple-600 to-purple-800 p-12 max-w-4xl mx-auto"
+                style={{
+                  backgroundImage: "url('/placeholder.svg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundBlendMode: "overlay"
+                }}
+              >
+                <div className="relative z-10">
+                  <blockquote className="text-2xl md:text-3xl font-medium text-white leading-relaxed mb-6">
+                    "Wir kennen kreative Prozesse, interne Entscheidungswege und strategische Herausforderungen aus erster Hand."
+                  </blockquote>
+                  <cite className="text-purple-200 text-lg font-light not-italic">
+                    — Wenjamin Zabhezhanskiy
+                  </cite>
+                </div>
+                <div className="absolute inset-0 bg-purple-600/60"></div>
+              </motion.div>
               <p className="text-lg text-gray-700 max-w-3xl mx-auto font-medium mt-8 mb-4">
                 Hintergrund unserer Teammitglieder:
               </p>
