@@ -164,7 +164,15 @@ const Team = () => {
               <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-gray-900">
                 Unsere Erfahrung
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">Wir sind neu als Marke – aber nicht neu im Geschäft. Unser Team bringt mehr als 4 Jahre kombinierte Inhouse- und Projekterfahrung mit - aus Agenturen, Konzernen und Tech-Startups. Wir kennen kreative Prozesse, interne Entscheidungswege und strategische Herausforderungen aus erster Hand.</p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6">
+                Wir sind neu als Marke – aber nicht neu im Geschäft.
+              </p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6">
+                Unser Team bringt mehr als 4 Jahre kombinierte Inhouse- und Projekterfahrung mit - aus Agenturen, Konzernen und Tech-Startups.
+              </p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+                Wir kennen kreative Prozesse, interne Entscheidungswege und strategische Herausforderungen aus erster Hand.
+              </p>
               <p className="text-lg text-gray-700 max-w-3xl mx-auto font-medium mt-8 mb-4">
                 Hintergrund unserer Teammitglieder:
               </p>
