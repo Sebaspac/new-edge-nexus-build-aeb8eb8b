@@ -227,7 +227,7 @@ const Team = () => {
                 Hintergrund unserer Teammitglieder:
               </p>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light mb-8">BMW • MINI • Infosys Consulting • Serviceplan Group • Pressonit • Campbell & Hörmann</p>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light">Aktuell entstehen erste Projekte im Rahmen unseres Labs - gemeinsam mit Innovationspartnern aus der DACH-Region.</p>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light">Aktuell entstehen erste Projekte - gemeinsam mit Innovationspartnern aus der DACH-Region.</p>
             </motion.div>
           </div>
         </section>
