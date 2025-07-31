@@ -243,10 +243,27 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Mobile-optimized text sizing */
+/* Mobile-optimized text sizing - Enhanced for accessibility */
+.text-hero {
+  @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl;
+}
+
+.text-section-title {
+  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+}
+
+/* Improved mobile buttons */
 @media (max-width: 640px) {
+  .btn-mobile {
+    @apply px-6 py-4 text-base min-h-[48px];
+  }
+  
+  .hero-text {
+    @apply px-4 text-center;
+  }
+  
   .text-hero {
-    font-size: clamp(2rem, 8vw, 4rem);
+    font-size: clamp(2rem, 8vw, 3.5rem);
     line-height: 1.1;
   }
   
@@ -294,24 +311,41 @@ html {
   }
 }
 
-/* Performance optimizations */
-* {
-  will-change: auto;
+/* Performance optimizations - Enhanced */
+.animate-glow-pulse {
+  will-change: box-shadow;
 }
 
-.animate-fade-in,
-.animate-slide-in-right,
-.animate-slide-in-left {
-  will-change: transform, opacity;
+.hover-lift {
+  will-change: transform;
+  transition: transform 0.2s ease-out;
 }
 
-/* Reduce motion for users who prefer it */
+@media (hover: hover) {
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Improved accessibility and reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  
+  .parallax-element {
+    transform: none !important;
+  }
+}
+
+/* Focus improvements for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  @apply outline-2 outline-purple-500 outline-offset-2;
 }
 
 html {

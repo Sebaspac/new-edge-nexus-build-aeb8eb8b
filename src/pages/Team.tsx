@@ -127,8 +127,63 @@ const Team = () => {
           </motion.div>
         </section>
 
-        {/* Founders Section - Apple Card Style */}
-        
+          {/* Founders Section - Apple Card Style */}
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-gray-900">
+                Die Gründer
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
+                Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+              {founders.map((founder, index) => (
+                <motion.div
+                  key={founder.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="relative mb-8">
+                    <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-gray-100 shadow-lg">
+                      <img 
+                        src={founder.image} 
+                        alt={`${founder.name} - ${founder.role}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-2xl font-semibold mb-2 text-gray-900">{founder.name}</h3>
+                  <p className="text-blue-600 font-medium mb-4">{founder.role}</p>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{founder.bio}</p>
+                  
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {founder.expertise.map((skill, skillIndex) => (
+                      <span 
+                        key={skillIndex}
+                        className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Network Stats - Apple Minimalist Style */}
         <section className="py-20 px-6 bg-gray-50/50">

@@ -30,10 +30,10 @@ const Index = () => {
   } = useScroll();
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Further optimized Parallax effects (minimal performance impact)
-  const y1 = useTransform(scrollY, [0, 1000], [0, -30]);
-  const y2 = useTransform(scrollY, [0, 1000], [0, -60]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0.9]);
+  // Ultra-optimized Parallax effects (minimal performance impact)
+  const y1 = useTransform(scrollY, [0, 1000], [0, -10]);
+  const y2 = useTransform(scrollY, [0, 1000], [0, -20]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0.95]);
 
   // Reduced visual section transforms for better performance
   const visualScale = useTransform(scrollY, [600, 1400], [1, 0.95]);
@@ -41,22 +41,51 @@ const Index = () => {
   const visualTextOpacity = useTransform(scrollY, [600, 900], [1, 0.3]);
   useEffect(() => {
     setIsVisible(true);
-    const handleMouseMove = (e: MouseEvent) => {
+    
+    // Optimized throttled event handlers
+    const handleMouseMove = throttle((e: MouseEvent) => {
       setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 0.5,
-        y: (e.clientY / window.innerHeight - 0.5) * 0.5
+        x: (e.clientX / window.innerWidth - 0.5) * 0.3,
+        y: (e.clientY / window.innerHeight - 0.5) * 0.3
       });
-    };
-    const handleScroll = () => {
+    }, 50);
+    
+    const handleScroll = throttle(() => {
       setShowScrollTop(window.scrollY > 300);
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
+    }, 100);
+    
+    // Only add mouse move on desktop
+    if (window.innerWidth >= 768) {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Throttle function
+  const throttle = (func: Function, delay: number) => {
+    let timeoutId: NodeJS.Timeout;
+    let lastExecTime = 0;
+    
+    return function (this: any, ...args: any[]) {
+      const currentTime = Date.now();
+      
+      if (currentTime - lastExecTime > delay) {
+        func.apply(this, args);
+        lastExecTime = currentTime;
+      } else {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          func.apply(this, args);
+          lastExecTime = Date.now();
+        }, delay - (currentTime - lastExecTime));
+      }
+    };
+  };
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
@@ -132,7 +161,7 @@ const Index = () => {
           duration: 1,
           ease: "easeOut"
         }} className="mb-6 sm:mb-8 md:mb-12">
-            <motion.div className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black tracking-tight mb-2 sm:mb-3 md:mb-4 relative" style={{
+            <motion.div className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight mb-2 sm:mb-3 md:mb-4 relative" style={{
             background: "linear-gradient(45deg, #9f91f8, #4f97f0, #FFED00)",
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
@@ -143,7 +172,7 @@ const Index = () => {
               duration: 0.3
             }
           }}>
-              <div className="animate-text-shimmer mt-16">BRAND</div>
+              <div className="animate-text-shimmer mt-8 sm:mt-16">BRAND</div>
             </motion.div>
             <motion.div initial={{
             rotateX: -90
@@ -152,7 +181,7 @@ const Index = () => {
           }} transition={{
             delay: 0.3,
             duration: 0.8
-          }} className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black text-white italic mb-2 sm:mb-3 md:mb-4">
+          }} className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white italic mb-2 sm:mb-3 md:mb-4">
               INTELLIGENCE
             </motion.div>
             <motion.div initial={{
@@ -164,7 +193,7 @@ const Index = () => {
           }} transition={{
             delay: 0.4,
             duration: 0.8
-          }} className="text-lg sm:text-xl md:text-2xl lg:text-4xl xl:text-6xl text-gray-400 font-light">
+          }} className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-400 font-light">
               FOR THE DIGITAL AGE
             </motion.div>
           </motion.div>
@@ -247,7 +276,13 @@ const Index = () => {
             
             {/* Background Image */}
             <div className="absolute inset-0 w-full h-full">
-              <LazyImage src="/lovable-uploads/8b2fd89c-8469-4c89-bbba-463d2c352273.png" alt="AI Technology Visualization" className="w-full h-full object-cover" sizes="(max-width: 768px) 100vw, 1200px" />
+            <LazyImage 
+              src="/lovable-uploads/8b2fd89c-8469-4c89-bbba-463d2c352273.png" 
+              alt="KI-gestützte Brand Intelligence Visualization mit modernen Datenanalyse-Tools" 
+              className="w-full h-full object-cover" 
+              sizes="(max-width: 768px) 100vw, 1200px" 
+              loading="lazy"
+            />
               <div className="absolute inset-0 bg-black/30"></div>
             </div>
 
@@ -983,7 +1018,7 @@ const Index = () => {
                     }} whileTap={{
                       scale: 0.98
                     }}>
-                        <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300 py-3 text-lg animate-glow-pulse hover-lift">
+                        <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300 py-3 text-lg btn-mobile">
                           Loslegen <ArrowRight className="ml-2 h-5 w-5" />
                         </Button>
                       </motion.div>
@@ -1050,22 +1085,14 @@ const Index = () => {
       <CookieConsent />
 
       {/* Scroll to Top Button */}
-      {showScrollTop && <motion.button initial={{
-      opacity: 0,
-      scale: 0
-    }} animate={{
-      opacity: 1,
-      scale: 1
-    }} exit={{
-      opacity: 0,
-      scale: 0
-    }} onClick={() => window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })} className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-purple-600 to-blue-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-glow-pulse hover-lift" whileHover={{
-      scale: 1.1
-    }} whileTap={{
-      scale: 0.9
+      {showScrollTop && <motion.button 
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0 }}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-purple-600 to-blue-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 btn-mobile"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9
     }}>
           <ArrowRight className="w-6 h-6 transform -rotate-90" />
         </motion.button>}

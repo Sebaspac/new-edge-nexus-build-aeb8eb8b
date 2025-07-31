@@ -86,10 +86,10 @@ const Services = () => {
   } = useScroll();
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Parallax effects
-  const y1 = useTransform(scrollY, [0, 1000], [0, -200]);
-  const y2 = useTransform(scrollY, [0, 1000], [0, -400]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0.3]);
+  // Optimized Parallax effects with reduced calculations
+  const y1 = useTransform(scrollY, [0, 1000], [0, -50]);
+  const y2 = useTransform(scrollY, [0, 1000], [0, -100]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0.8]);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -138,19 +138,8 @@ const Services = () => {
     }
   };
   return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
-      {/* Optimized 3D Background Canvas */}
-      <div className="fixed inset-0 z-0">
-        <Canvas camera={{
-        position: [0, 0, 5],
-        fov: 75
-      }} performance={{
-        min: 0.8
-      }} dpr={[1, 1.5]} frameloop="demand">
-          <Suspense fallback={null}>
-            <Background3D />
-          </Suspense>
-        </Canvas>
-      </div>
+      {/* Simplified gradient background for better performance */}
+      <div className="fixed inset-0 z-0 bg-gradient-to-br from-black via-gray-900 to-purple-900"></div>
 
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 

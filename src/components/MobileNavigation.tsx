@@ -61,25 +61,25 @@ export const MobileNavigation = ({
                 Home
               </Link>
               
-              <Link to="/team" className={`${textColorSecondary} hover:${textColor.split('-')[1]} transition-all duration-300 font-medium`}>
+              <Link to="/team" className={`${textColorSecondary} hover:text-current transition-all duration-300 font-medium`}>
                 Unser Team
               </Link>
               
               <div className="relative group">
-                <Link to="/services" className={`${textColorSecondary} hover:${textColor.split('-')[1]} transition-all duration-300 font-medium`}>
+                <Link to="/services" className={`${textColorSecondary} hover:text-current transition-all duration-300 font-medium`}>
                   Services
                 </Link>
                 
-                {/* Desktop Dropdown */}
-                <div className={`absolute top-full left-0 mt-2 w-48 ${bgColor} border ${borderColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-lg`}>
+                {/* Desktop Dropdown - Fixed hover states */}
+                <div className={`absolute top-full left-0 mt-2 w-48 ${bgColor} border ${borderColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-lg z-50`}>
                   <div className="py-2">
-                    <Link to="/studio" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor.split('-')[1]} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                    <Link to="/studio" className={`block px-4 py-2 ${textColorSecondary} hover:text-current ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
                       New Edge Studio
                     </Link>
-                    <Link to="/media" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor.split('-')[1]} ${isDark ? 'hover:bg-blue-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                    <Link to="/media" className={`block px-4 py-2 ${textColorSecondary} hover:text-current ${isDark ? 'hover:bg-blue-500/20' : 'hover:bg-gray-50'} transition-colors`}>
                       New Edge Media
                     </Link>
-                    <Link to="/lab" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor.split('-')[1]} ${isDark ? 'hover:bg-yellow-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                    <Link to="/lab" className={`block px-4 py-2 ${textColorSecondary} hover:text-current ${isDark ? 'hover:bg-yellow-500/20' : 'hover:bg-gray-50'} transition-colors`}>
                       New Edge Lab
                     </Link>
                   </div>
