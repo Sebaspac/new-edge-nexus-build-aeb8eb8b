@@ -229,60 +229,40 @@ const Team = () => {
           </div>
         </section>
 
-        {/* Client Experience */}
+        {/* Experience Section */}
         <section className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center mb-16">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
               <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-gray-900">
                 Unsere Erfahrung
               </h2>
-              <p className="text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6 text-3xl">
+              <p className="text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6 text-lg">
                 Wir sind neu als Marke – aber nicht neu im Geschäft.
               </p>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-12">
                 Unser Team bringt mehr als 4 Jahre kombinierte Inhouse- und Projekterfahrung mit - aus Agenturen, Konzernen und Tech-Startups.
               </p>
-              {/* Quote Module */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.8
-            }} className="relative rounded-3xl overflow-hidden min-h-[400px] max-w-4xl mx-auto" style={{
-              backgroundImage: "url('/placeholder.svg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center"
-            }}>
-                <div className="absolute inset-0 bg-black/20"></div>
-                <div className="relative z-10 h-full flex items-end justify-end p-12">
-                  <div className="text-right max-w-2xl mb-8">
-                    <blockquote className="text-2xl md:text-3xl font-medium text-purple-300 leading-relaxed mb-4 italic">
-                      "Wir kennen kreative Prozesse, interne Entscheidungswege und strategische Herausforderungen aus erster Hand."
-                    </blockquote>
-                    <cite className="text-purple-200 text-lg font-light not-italic">
-                      — Wenjamin Zabhezhanskiy
-                    </cite>
-                  </div>
-                </div>
+              
+              {/* Image */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="max-w-4xl mx-auto"
+              >
+                <img 
+                  src="/lovable-uploads/f714a080-17fc-4912-b85f-1b5fae527f49.png"
+                  alt="Wenjamin Zabezhanskiy - Unser Team bringt kreative Prozesse, interne Entscheidungswege und strategische Herausforderungen aus erster Hand mit"
+                  className="w-full h-auto rounded-3xl shadow-lg"
+                  loading="lazy"
+                />
               </motion.div>
-              <p className="text-gray-700 max-w-3xl mx-auto mt-8 mb-4 font-bold text-5xl">
-                Hintergrund unserer Teammitglieder:
-              </p>
-              <p className="text-gray-600 max-w-3xl mx-auto font-light mb-8 text-sm">BMW • MINI • Infosys Consulting • Serviceplan Group • Pressonit • Campbell & Hörmann</p>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light">Aktuell entstehen erste Projekte - gemeinsam mit Innovationspartnern aus der DACH-Region.</p>
             </motion.div>
           </div>
         </section>
