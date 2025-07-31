@@ -202,7 +202,7 @@ const Lab = () => {
                     }}>
                         <Bot className="w-12 h-12 text-white" />
                       </div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">KI-Helfer Workforce</h3>
+                      <h3 className="text-2xl text-black mb-4 font-extrabold sm:text-6xl">Agent Hub</h3>
                        <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg">
                          8+ spezialisierte KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr.
                         <span className="font-semibold"> Lebenslanger Zugang ohne Abonnement.</span>
