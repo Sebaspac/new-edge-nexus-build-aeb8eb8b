@@ -36,16 +36,14 @@ const Team = () => {
   // Team data
   const founders = [{
     name: "Wenjamin Zabezhanskiy",
-    role: "Geschäftsführer & Strategy Lead",
+    role: "Geschäftsführer X CMO",
     image: "/lovable-uploads/8aa5239b-f420-4047-a353-3b2eb4c3d9ee.png",
-    bio: "Strategischer Visionär mit 10+ Jahren Erfahrung in Brand Intelligence und digitaler Transformation.",
-    expertise: ["Brand Strategy", "Digital Transformation", "Business Development"]
+    expertise: ["Brand Developement", "Digital Transformation"]
   }, {
-    name: "Sebastian Pachon",
-    role: "Geschäftsführer & Tech Lead",
+    name: "Sebastian Pachón",
+    role: "Geschäftsführer X CEO",
     image: "/placeholder.svg",
-    bio: "Technologie-Experte mit Fokus auf innovative Lösungen und Creative Technology.",
-    expertise: ["Creative Technology", "Digital Innovation", "Team Leadership"]
+    expertise: ["Strategy", "Operations", "Team Leadership"]
   }];
   const networkStats = [{
     icon: Users,
