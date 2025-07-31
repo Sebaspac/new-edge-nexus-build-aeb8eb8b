@@ -41,7 +41,7 @@ const Index = () => {
   const visualTextOpacity = useTransform(scrollY, [600, 900], [1, 0.3]);
   useEffect(() => {
     setIsVisible(true);
-
+    
     // Optimized throttled event handlers
     const handleMouseMove = throttle((e: MouseEvent) => {
       setMousePosition({
@@ -49,17 +49,17 @@ const Index = () => {
         y: (e.clientY / window.innerHeight - 0.5) * 0.3
       });
     }, 50);
+    
     const handleScroll = throttle(() => {
       setShowScrollTop(window.scrollY > 300);
     }, 100);
-
+    
     // Only add mouse move on desktop
     if (window.innerWidth >= 768) {
       window.addEventListener('mousemove', handleMouseMove);
     }
-    window.addEventListener('scroll', handleScroll, {
-      passive: true
-    });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
@@ -70,8 +70,10 @@ const Index = () => {
   const throttle = (func: Function, delay: number) => {
     let timeoutId: NodeJS.Timeout;
     let lastExecTime = 0;
+    
     return function (this: any, ...args: any[]) {
       const currentTime = Date.now();
+      
       if (currentTime - lastExecTime > delay) {
         func.apply(this, args);
         lastExecTime = currentTime;
@@ -170,7 +172,7 @@ const Index = () => {
               duration: 0.3
             }
           }}>
-              <div className="animate-text-shimmer mt-8 sm:-bottom-0.5 ">BRAND</div>
+              <div className="animate-text-shimmer mt-8 sm:mt-16">BRAND</div>
             </motion.div>
             <motion.div initial={{
             rotateX: -90
@@ -179,7 +181,7 @@ const Index = () => {
           }} transition={{
             delay: 0.3,
             duration: 0.8
-          }} className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:-bottom-10 -bottom-1.5 text-7xl text-7xl mb-2 sm:mb-3 md:mb-4">
+          }} className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white italic mb-2 sm:mb-3 md:mb-4">
               INTELLIGENCE
             </motion.div>
             <motion.div initial={{
@@ -274,7 +276,13 @@ const Index = () => {
             
             {/* Background Image */}
             <div className="absolute inset-0 w-full h-full">
-            <LazyImage src="/lovable-uploads/8b2fd89c-8469-4c89-bbba-463d2c352273.png" alt="KI-gestützte Brand Intelligence Visualization mit modernen Datenanalyse-Tools" className="w-full h-full object-cover" sizes="(max-width: 768px) 100vw, 1200px" loading="lazy" />
+            <LazyImage 
+              src="/lovable-uploads/8b2fd89c-8469-4c89-bbba-463d2c352273.png" 
+              alt="KI-gestützte Brand Intelligence Visualization mit modernen Datenanalyse-Tools" 
+              className="w-full h-full object-cover" 
+              sizes="(max-width: 768px) 100vw, 1200px" 
+              loading="lazy"
+            />
               <div className="absolute inset-0 bg-black/30"></div>
             </div>
 
@@ -1077,22 +1085,14 @@ const Index = () => {
       <CookieConsent />
 
       {/* Scroll to Top Button */}
-      {showScrollTop && <motion.button initial={{
-      opacity: 0,
-      scale: 0
-    }} animate={{
-      opacity: 1,
-      scale: 1
-    }} exit={{
-      opacity: 0,
-      scale: 0
-    }} onClick={() => window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })} className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-purple-600 to-blue-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 btn-mobile" whileHover={{
-      scale: 1.1
-    }} whileTap={{
-      scale: 0.9
+      {showScrollTop && <motion.button 
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0 }}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-purple-600 to-blue-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 btn-mobile"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9
     }}>
           <ArrowRight className="w-6 h-6 transform -rotate-90" />
         </motion.button>}
