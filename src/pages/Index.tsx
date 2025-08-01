@@ -161,7 +161,7 @@ const Index = () => {
           duration: 1,
           ease: "easeOut"
         }} className="mb-6 sm:mb-8 md:mb-12">
-            <motion.div className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight mb-2 sm:mb-3 md:mb-4 relative" style={{
+            <motion.div className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight mb-2 sm:mb-3 md:mb-4 relative" style={{
             background: "linear-gradient(45deg, #9f91f8, #4f97f0, #FFED00)",
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
@@ -181,7 +181,7 @@ const Index = () => {
           }} transition={{
             delay: 0.3,
             duration: 0.8
-          }} className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white italic mb-2 sm:mb-3 md:mb-4">
+          }} className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white italic mb-2 sm:mb-3 md:mb-4">
               INTELLIGENCE
             </motion.div>
             <motion.div initial={{
