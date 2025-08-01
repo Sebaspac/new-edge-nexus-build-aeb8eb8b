@@ -128,15 +128,12 @@ const Team = () => {
           {/* Founders Section - Apple Card Style */}
         <section className="py-20 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center mb-16">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
               <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-gray-900">
                 Die Gründer
               </h2>
@@ -146,21 +143,23 @@ const Team = () => {
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-              {founders.map((founder, index) => <motion.div key={founder.name} initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: index * 0.1
-            }} className="text-center">
+              {founders.map((founder, index) => (
+                <motion.div
+                  key={founder.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="text-center"
+                >
                   <div className="relative mb-8">
                     <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-gray-100 shadow-lg">
-                      <img src={founder.image} alt={`${founder.name} - ${founder.role}`} className="w-full h-full object-cover" loading="lazy" />
+                      <img 
+                        src={founder.image} 
+                        alt={`${founder.name} - ${founder.role}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
                     </div>
                   </div>
                   
@@ -168,11 +167,17 @@ const Team = () => {
                   <p className="text-blue-600 font-medium mb-4">{founder.role}</p>
                   
                   <div className="flex flex-wrap gap-2 justify-center">
-                    {founder.expertise.map((skill, skillIndex) => <span key={skillIndex} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+                    {founder.expertise.map((skill, skillIndex) => (
+                      <span 
+                        key={skillIndex}
+                        className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"
+                      >
                         {skill}
-                      </span>)}
+                      </span>
+                    ))}
                   </div>
-                </motion.div>)}
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -224,17 +229,16 @@ const Team = () => {
         {/* Experience Section */}
         <section className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center mb-16">
-              
-              <p className="max-w-3xl mx-auto leading-relaxed mb-6 font-semibold text-slate-950 text-5xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-gray-900">
+                Unsere Erfahrung
+              </h2>
+              <p className="text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6 text-lg">
                 Wir sind neu als Marke – aber nicht neu im Geschäft.
               </p>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-12">
@@ -242,18 +246,19 @@ const Team = () => {
               </p>
               
               {/* Image */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.8
-            }} className="max-w-4xl mx-auto">
-                <img src="/lovable-uploads/f714a080-17fc-4912-b85f-1b5fae527f49.png" alt="Wenjamin Zabezhanskiy - Unser Team bringt kreative Prozesse, interne Entscheidungswege und strategische Herausforderungen aus erster Hand mit" className="w-full h-auto rounded-3xl shadow-lg" loading="lazy" />
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="max-w-4xl mx-auto"
+              >
+                <img 
+                  src="/lovable-uploads/f714a080-17fc-4912-b85f-1b5fae527f49.png"
+                  alt="Wenjamin Zabezhanskiy - Unser Team bringt kreative Prozesse, interne Entscheidungswege und strategische Herausforderungen aus erster Hand mit"
+                  className="w-full h-auto rounded-3xl shadow-lg"
+                  loading="lazy"
+                />
               </motion.div>
             </motion.div>
           </div>
