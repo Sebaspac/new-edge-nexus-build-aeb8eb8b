@@ -139,7 +139,7 @@ const Services = () => {
   };
   return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
       {/* Simplified gradient background for better performance */}
-      <div className="fixed inset-0 z-0 bg-gradient-to-br from-black via-gray-900 to-purple-900"></div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-black via-gray-900 to-purple-900"></div>
 
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
