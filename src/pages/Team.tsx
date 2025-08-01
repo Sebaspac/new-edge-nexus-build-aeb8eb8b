@@ -100,7 +100,7 @@ const Team = () => {
         {/* Hero Section */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0" style={{
-          backgroundImage: "url('/placeholder.svg')",
+          backgroundImage: "url('/lovable-uploads/2d88dc02-55ec-4dd1-ae07-1ac7b7ced67b.png')",
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}>
