@@ -165,7 +165,6 @@ const Team = () => {
                   
                   <h3 className="text-2xl font-semibold mb-2 text-gray-900">{founder.name}</h3>
                   <p className="text-blue-600 font-medium mb-4">{founder.role}</p>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{founder.bio}</p>
                   
                   <div className="flex flex-wrap gap-2 justify-center">
                     {founder.expertise.map((skill, skillIndex) => (
