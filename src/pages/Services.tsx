@@ -276,8 +276,8 @@ const Services = () => {
             <h2 className="text-section-title sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-8 items-stretch">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-6 items-stretch">
               
               {/* Studio Card - Apple Style */}
               <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
