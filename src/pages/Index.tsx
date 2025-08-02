@@ -147,18 +147,6 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden">
-        {/* Background with uploaded face and tech themes */}
-        <div 
-          className="absolute inset-0 w-full h-full z-0"
-          style={{
-            backgroundImage: `url('/lovable-uploads/6c676ad1-12f2-4b29-91c2-836cc7a4cd5c.png'), url('/src/assets/tech-hero-bg.jpg')`,
-            backgroundSize: '300px auto, cover',
-            backgroundPosition: 'right 10% center, center',
-            backgroundRepeat: 'no-repeat, no-repeat'
-          }}
-        />
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/60 z-5"></div>
         <motion.div style={{
         y: y1,
         opacity
