@@ -254,8 +254,8 @@ const Team = () => {
               once: true
             }} transition={{
               duration: 0.8
-            }} className="max-w-4xl mx-auto">
-                <img src="/lovable-uploads/f714a080-17fc-4912-b85f-1b5fae527f49.png" alt="Wenjamin Zabezhanskiy - Unser Team bringt kreative Prozesse, interne Entscheidungswege und strategische Herausforderungen aus erster Hand mit" className="w-full h-auto rounded-3xl shadow-lg" loading="lazy" />
+            }} className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+                <img src="/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png" alt="Wenjamin Zabezhanskiy - Wir öffnen Innovationsräume, übersetzen Spitzentechnologie und machen Zukunft so für jedes Team nutzbar" className="w-full h-auto object-cover" loading="lazy" />
               </motion.div>
             </motion.div>
           </div>
