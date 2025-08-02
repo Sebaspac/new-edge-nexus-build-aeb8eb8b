@@ -57,29 +57,29 @@ export const MobileNavigation = ({
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-              <Link to="/" className={`${textColorSecondary} hover:${textColor.split('-')[1]} transition-all duration-300 font-medium`}>
+              <Link to="/" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
                 Home
               </Link>
               
-              <Link to="/team" className={`${textColorSecondary} hover:text-current transition-all duration-300 font-medium`}>
+              <Link to="/team" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
                 Unser Team
               </Link>
               
               <div className="relative group">
-                <Link to="/services" className={`${textColorSecondary} hover:text-current transition-all duration-300 font-medium`}>
+                <Link to="/services" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
                   Services
                 </Link>
                 
                 {/* Desktop Dropdown - Fixed hover states */}
                 <div className={`absolute top-full left-0 mt-2 w-48 ${bgColor} border ${borderColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-lg z-50`}>
                   <div className="py-2">
-                    <Link to="/studio" className={`block px-4 py-2 ${textColorSecondary} hover:text-current ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                    <Link to="/studio" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
                       New Edge Studio
                     </Link>
-                    <Link to="/media" className={`block px-4 py-2 ${textColorSecondary} hover:text-current ${isDark ? 'hover:bg-blue-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                    <Link to="/media" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-blue-500/20' : 'hover:bg-gray-50'} transition-colors`}>
                       New Edge Media
                     </Link>
-                    <Link to="/lab" className={`block px-4 py-2 ${textColorSecondary} hover:text-current ${isDark ? 'hover:bg-yellow-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                    <Link to="/lab" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-yellow-500/20' : 'hover:bg-gray-50'} transition-colors`}>
                       New Edge Lab
                     </Link>
                   </div>
@@ -184,7 +184,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.2
                 }}>
-                      <Link to="/studio" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor.split('-')[1]} hover:bg-purple-500/10 rounded-lg transition-colors`}>
+                      <Link to="/studio" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 rounded-lg transition-colors`}>
                         New Edge Studio
                       </Link>
                     </motion.div>
@@ -198,7 +198,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.25
                 }}>
-                      <Link to="/media" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor.split('-')[1]} hover:bg-blue-500/10 rounded-lg transition-colors`}>
+                      <Link to="/media" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-blue-500/10 rounded-lg transition-colors`}>
                         New Edge Media
                       </Link>
                     </motion.div>
@@ -212,7 +212,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.3
                 }}>
-                      <Link to="/lab" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor.split('-')[1]} hover:bg-yellow-500/10 rounded-lg transition-colors`}>
+                      <Link to="/lab" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-yellow-500/10 rounded-lg transition-colors`}>
                         New Edge Lab
                       </Link>
                     </motion.div>
