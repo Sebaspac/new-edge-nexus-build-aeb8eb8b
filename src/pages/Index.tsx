@@ -147,18 +147,89 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden">
-        {/* Background Video */}
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        >
-          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-        </video>
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/50 z-5"></div>
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-black to-blue-900">
+          {/* Floating particles animation */}
+          <div className="absolute inset-0 overflow-hidden">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-2 h-2 bg-white/20 rounded-full"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                }}
+                animate={{
+                  y: [-20, -100],
+                  opacity: [0, 1, 0],
+                  scale: [0, 1, 0],
+                }}
+                transition={{
+                  duration: Math.random() * 3 + 2,
+                  repeat: Infinity,
+                  delay: Math.random() * 2,
+                }}
+              />
+            ))}
+          </div>
+          
+          {/* Gradient orbs */}
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/30 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.6, 0.3, 0.6],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2,
+            }}
+          />
+          
+          {/* Animated lines */}
+          <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="rgba(168, 85, 247, 0)" />
+                <stop offset="50%" stopColor="rgba(168, 85, 247, 0.5)" />
+                <stop offset="100%" stopColor="rgba(168, 85, 247, 0)" />
+              </linearGradient>
+            </defs>
+            {[...Array(5)].map((_, i) => (
+              <motion.line
+                key={i}
+                x1={`${i * 25}%`}
+                y1="0%"
+                x2={`${i * 25 + 25}%`}
+                y2="100%"
+                stroke="url(#lineGradient)"
+                strokeWidth="1"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: i * 0.5,
+                  repeatType: "reverse",
+                }}
+              />
+            ))}
+          </svg>
+        </div>
         <motion.div style={{
         y: y1,
         opacity
