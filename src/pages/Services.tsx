@@ -4,10 +4,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Float } from "@react-three/drei";
 import * as THREE from "three";
-import { ArrowRight, ArrowDown, ChevronDown, Palette, Video, Cpu, Star, Zap, Target } from "lucide-react";
+import { ArrowRight, ArrowDown, ChevronDown, Palette, Video, Cpu, Star, Zap, Target, Brain, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
+import { LazyImage } from "@/components/LazyImage";
+import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // Optimized 3D Particle System Component (reduced particle count)
@@ -442,7 +444,12 @@ const Services = () => {
           }} className="mt-16 sm:mt-20">
               <motion.div className="max-w-2xl mx-auto bg-white/5 backdrop-blur-xl rounded-3xl p-8 sm:p-12 border border-white/10 shadow-2xl relative overflow-hidden">
                 {/* Animated background */}
-                
+                <motion.div animate={{
+                background: ["radial-gradient(circle at 20% 30%, rgba(139,92,246,0.05) 0%, transparent 50%)", "radial-gradient(circle at 80% 70%, rgba(59,130,246,0.05) 0%, transparent 50%)", "radial-gradient(circle at 50% 50%, rgba(245,158,11,0.05) 0%, transparent 50%)", "radial-gradient(circle at 20% 30%, rgba(139,92,246,0.05) 0%, transparent 50%)"]
+              }} transition={{
+                duration: 8,
+                repeat: Infinity
+              }} className="absolute inset-0" />
                 
                 <motion.p initial={{
                 opacity: 0,
@@ -647,7 +654,18 @@ const Services = () => {
       {/* Benefits Section */}
       <section className="py-32 bg-gradient-to-b from-black via-purple-900/20 to-black relative overflow-hidden">
         <div className="container mx-auto px-6">
-          
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="text-center mb-20">
+            <h2 className="font-bold text-white mb-6 text-3xl">Warum New Edge?</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.</p>
+          </motion.div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             <motion.div initial={{
@@ -803,6 +821,187 @@ const Services = () => {
         ease: "linear"
       }} className="absolute bottom-20 right-20 w-40 h-40 bg-yellow-500/10 rounded-full blur-xl" />
       </section>
+
+      {/* Unternehmensvorteile Section */}
+      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div className="container mx-auto px-6">
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="text-center mb-16">
+            <div className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-8">
+              Vorteile für Ihr Unternehmen
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Persönlich, transparent, individuell
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {/* Vorteil 1 */}
+            <motion.div initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.1,
+            duration: 0.6
+          }}>
+              <Card className="bg-white/5 border border-white/10 h-full hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Brain className="w-8 h-8 text-purple-400" />
+                  </div>
+                  <h3 className="text-lg text-white mb-4 font-medium">PERSÖNLICHE BERATUNG</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Individuelle Betreuung und maßgeschneiderte Strategien für Ihr Unternehmen
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Vorteil 2 */}
+            <motion.div initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.2,
+            duration: 0.6
+          }}>
+              <Card className="bg-white/5 border border-white/10 h-full hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Target className="w-8 h-8 text-blue-400" />
+                  </div>
+                  <h3 className="text-white mb-4 text-lg font-medium">MODULAR & SKALIERBAR</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Flexible Lösungen, die mit Ihrem Unternehmen wachsen und sich anpassen
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Vorteil 3 */}
+            <motion.div initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.3,
+            duration: 0.6
+          }}>
+              <Card className="bg-white/5 border border-white/10 h-full hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-green-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Star className="w-8 h-8 text-green-400" />
+                  </div>
+                  <h3 className="text-lg text-white mb-4 font-medium">FAIRE PREISE</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Transparente Kostenstruktur ohne versteckte Gebühren für maximale Planungssicherheit
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Vorteil 4 */}
+            <motion.div initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.4,
+            duration: 0.6
+          }}>
+              <Card className="bg-white/5 border border-white/10 h-full hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-yellow-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Eye className="w-8 h-8 text-yellow-400" />
+                  </div>
+                  <h3 className="text-lg text-white mb-4 font-medium">TRANSPARENTER ABLAUF</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Klare Kommunikation und nachvollziehbare Prozesse in jeder Projektphase
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900/80 text-white py-12 sm:py-16 border-t border-gray-800">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+            <div className="sm:col-span-2">
+              <div className="flex items-center mb-4">
+                <LazyImage alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" sizes="(max-width: 640px) 24px, 32px" />
+                <div className="text-2xl sm:text-3xl font-bold">
+                  New Edge<span className="text-purple-400"></span>
+                </div>
+              </div>
+              <p className="text-gray-400 mb-4 sm:mb-6 max-w-md text-sm sm:text-base">New Edge ist eine Creative-Tech Agentur für innovationsgetriebene Markenkommunikation.</p>
+              <div className="flex space-x-4">
+                <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
+                  <span className="text-xs sm:text-sm">in</span>
+                </a>
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base">Services</h4>
+              <ul className="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
+                <li><Link to="/studio" className="hover:text-white transition-colors">STUDIO</Link></li>
+                <li><Link to="/media" className="hover:text-white transition-colors">MEDIA</Link></li>
+                <li><Link to="/lab" className="hover:text-white transition-colors">LAB</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base">Kontakt</h4>
+              <ul className="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
+                <li>info@newedgebrand.com</li>
+                <li>+49 15750998236</li>
+                <li>Deutschland</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-800 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-xs sm:text-sm">©2024 New Edge. Alle Rechte vorbehalten.</p>
+            <div className="flex space-x-4 sm:space-x-6 mt-3 sm:mt-4 md:mt-0">
+              <Link to="/impressum" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">Impressum</Link>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Cookie Consent */}
+      <CookieConsent />
+
 
       {/* Scroll to Top Button */}
       {showScrollTop && <motion.button initial={{
