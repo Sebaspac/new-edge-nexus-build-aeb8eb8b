@@ -281,27 +281,6 @@ const Index = () => {
             </motion.div>
           </motion.div>
           
-          {/* Scroll Indicator - Positioned with more spacing and properly centered on mobile */}
-          <motion.div animate={{
-          y: [0, 10, 0]
-        }} transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} className="flex justify-center w-full mt-16 sm:mt-20 md:mt-24 mb-8" onClick={() => {
-          const nextSection = document.querySelector('.visual-section');
-          nextSection?.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }}>
-            <motion.div whileHover={{
-            scale: 1.2
-          }} whileTap={{
-            scale: 0.9
-          }} className="cursor-pointer">
-              <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
-            </motion.div>
-          </motion.div>
         </motion.div>
 
         {/* Subtle Floating Elements */}
