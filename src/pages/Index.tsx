@@ -281,25 +281,6 @@ const Index = () => {
             </motion.div>
           </motion.div>
           
-          <motion.div initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          delay: 0.6,
-          duration: 0.8
-        }} className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-6 sm:mb-8 md:mb-10 max-w-4xl mx-auto font-light leading-relaxed px-4">
-            <div className="mb-2">
-              {t('home.hero.description')}
-            </div>
-            <div className="mb-4 rounded-none">
-              {t('home.hero.descriptionSecond')}
-            </div>
-            <div>
-              <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium text-2xl whitespace-pre-line">{t('home.hero.subtitle')}</span>
-            </div>
-          </motion.div>
-          
           {/* Scroll Indicator - Positioned with more spacing and properly centered on mobile */}
           <motion.div animate={{
           y: [0, 10, 0]
@@ -332,6 +313,26 @@ const Index = () => {
         x: -mousePosition.x * 40,
         y: -mousePosition.y * 40
       }} className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-xl" />
+      
+      {/* Text Module positioned at the bottom of header */}
+      <motion.div initial={{
+        opacity: 0
+      }} animate={{
+        opacity: 1
+      }} transition={{
+        delay: 0.6,
+        duration: 0.8
+      }} className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-6 sm:mb-8 md:mb-10 max-w-4xl mx-auto font-light leading-relaxed px-4 relative z-10">
+        <div className="mb-2">
+          {t('home.hero.description')}
+        </div>
+        <div className="mb-4 rounded-none">
+          {t('home.hero.descriptionSecond')}
+        </div>
+        <div>
+          <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium text-2xl whitespace-pre-line">{t('home.hero.subtitle')}</span>
+        </div>
+      </motion.div>
       </section>
 
       {/* AI Visual Section */}
