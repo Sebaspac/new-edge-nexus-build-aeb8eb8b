@@ -240,9 +240,7 @@ const Team = () => {
               <p className="text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6 text-lg">
                 Wir sind neu als Marke – aber nicht neu im Geschäft.
               </p>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-12 text-left">
-                Unser Team bringt mehr als 4 Jahre kombinierte Inhouse- und Projekterfahrung mit - aus Agenturen, Konzernen und Tech-Startups.
-              </p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-12 text-left">Unser Team bringt mehr als 4 Jahre kombinierte Inhouse- und Projekterfahrung mit - aus Agenturen, Konzernen und Startups.</p>
               
               {/* Image */}
               <motion.div initial={{
