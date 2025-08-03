@@ -355,7 +355,7 @@ const Index = () => {
               <Card className="bg-transparent border-2 border-purple-500 h-full hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-purple-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
-                  <p className="text-gray-200 leading-relaxed text-base font-light">Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.</p>
+                  <p className="text-gray-200 leading-relaxed text-base font-light text-left">Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -376,7 +376,7 @@ const Index = () => {
               <Card className="bg-transparent border-2 border-blue-500 h-full hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-blue-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSERE VISION</div>
-                  <p className="text-gray-200 leading-relaxed font-light">
+                  <p className="text-gray-200 leading-relaxed font-light text-left">
                     Wir gestalten eine neue Generation von Marken: automatisiert, strukturiert und sichtbar.
                   </p>
                 </CardContent>
@@ -399,7 +399,7 @@ const Index = () => {
               <Card className="bg-transparent border-2 border-yellow-500 h-full hover:border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-yellow-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSER ZIEL</div>
-                  <p className="text-gray-200 leading-relaxed font-light">Menschen und Unternehmen den Zugang zu Innovation bieten - für einfachere und effektivere Abläufe.</p>
+                  <p className="text-gray-200 leading-relaxed font-light text-left">Menschen und Unternehmen den Zugang zu Innovation bieten - für einfachere und effektivere Abläufe.</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -559,7 +559,7 @@ const Index = () => {
                       }} className="inline-block bg-purple-600 text-white py-3 rounded-lg text-base font-semibold mb-4 px-4 cursor-pointer hover:bg-purple-700 transition-colors">New Edge Studio</motion.div>
                       </Link>
                       
-                      <p className="text-white mb-4 leading-relaxed flex-1 text-base">
+                      <p className="text-white mb-4 leading-relaxed flex-1 text-base text-left">
                         Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
                       </p>
                       <ul className="space-y-2 text-gray-300 mb-6 text-left text-sm">
@@ -609,7 +609,7 @@ const Index = () => {
                         </motion.div>
                       </Link>
                       
-                      <p className="text-white mb-4 leading-relaxed flex-1 text-base">
+                      <p className="text-white mb-4 leading-relaxed flex-1 text-base text-left">
                         Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
                       </p>
                       <ul className="space-y-2 text-gray-300 mb-6 text-left text-sm">
@@ -662,7 +662,7 @@ const Index = () => {
                         </motion.div>
                       </Link>
                       
-                      <p className="mb-4 leading-relaxed flex-1 text-base text-white">
+                      <p className="mb-4 leading-relaxed flex-1 text-base text-white text-left">
                         Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
                       </p>
                       <ul className="space-y-2 text-gray-300 mb-6 text-left text-sm">
