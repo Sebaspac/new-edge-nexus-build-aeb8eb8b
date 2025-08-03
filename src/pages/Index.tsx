@@ -33,9 +33,6 @@ const Index = () => {
   // Ultra-optimized Parallax effects (minimal performance impact)
   const y1 = useTransform(scrollY, [0, 1000], [0, -10]);
   const y2 = useTransform(scrollY, [0, 1000], [0, -20]);
-  const y3 = useTransform(scrollY, [0, 1000], [0, -30]);
-  const y4 = useTransform(scrollY, [0, 1000], [0, -20]);
-  const y5 = useTransform(scrollY, [0, 1000], [0, -10]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.95]);
 
   // Reduced visual section transforms for better performance
@@ -284,6 +281,27 @@ const Index = () => {
             </motion.div>
           </motion.div>
           
+          {/* Scroll Indicator - Positioned with more spacing and properly centered on mobile */}
+          <motion.div animate={{
+          y: [0, 10, 0]
+        }} transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }} className="flex justify-center w-full mt-16 sm:mt-20 md:mt-24 mb-8" onClick={() => {
+          const nextSection = document.querySelector('.visual-section');
+          nextSection?.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }}>
+            <motion.div whileHover={{
+            scale: 1.2
+          }} whileTap={{
+            scale: 0.9
+          }} className="cursor-pointer">
+              <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
+            </motion.div>
+          </motion.div>
         </motion.div>
 
         {/* Subtle Floating Elements */}
@@ -321,13 +339,8 @@ const Index = () => {
       </div>
       </section>
 
-      {/* AI Visual Section with overlap effect */}
-      <motion.section 
-        className="visual-section py-20 bg-gradient-to-b from-black to-gray-900 relative -mt-32 pt-40 z-20"
-        style={{
-          y: y2
-        }}
-      >
+      {/* AI Visual Section */}
+      <section className="visual-section py-20 bg-gradient-to-b from-black to-gray-900 relative">
         <motion.div style={{
         y: y2
       }} className="container mx-auto px-6">
@@ -386,13 +399,10 @@ const Index = () => {
             </motion.div>
           </motion.div>
         </motion.div>
-      </motion.section>
+      </section>
 
-      {/* Mission Statement with overlap effect */}
-      <motion.section 
-        className="py-16 bg-gradient-to-b from-gray-900 to-black relative -mt-20 pt-28 z-30"
-        style={{ y: y3 }}
-      >
+      {/* Mission Statement */}
+      <section className="py-16 bg-gradient-to-b from-gray-900 to-black">
         <motion.div initial={{
         opacity: 0,
         y: 30
@@ -421,13 +431,10 @@ const Index = () => {
             Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme – für Marken, die funktionieren und wachsen.
           </motion.p>
         </motion.div>
-      </motion.section>
+      </section>
 
-      {/* Mission/Vision/Ziel Section with overlap effect */}
-      <motion.section 
-        className="py-20 bg-gradient-to-b from-black to-gray-900 relative -mt-16 pt-24 z-40"
-        style={{ y: y4 }}
-      >
+      {/* Mission/Vision/Ziel Section */}
+      <section className="py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="container mx-auto px-6">
           <motion.div initial={{
           opacity: 0,
@@ -514,13 +521,10 @@ const Index = () => {
             </motion.div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* USPs Section with overlap effect */}
-      <motion.section 
-        className="py-20 bg-gradient-to-b from-gray-900 to-black relative -mt-12 pt-20 z-50"
-        style={{ y: y5 }}
-      >
+      {/* USPs Section */}
+      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
         <div className="container mx-auto px-6">
           <motion.div initial={{
           opacity: 0,
@@ -628,7 +632,7 @@ const Index = () => {
             </motion.div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
 
       {/* Network Section */}
