@@ -317,18 +317,7 @@ const Index = () => {
             <span className="inline-block">Innovation voranbringen durch </span>
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> intelligente Automatisierung</span>
           </h2>
-          <motion.p initial={{
-          opacity: 0
-        }} whileInView={{
-          opacity: 1
-        }} viewport={{
-          once: true
-        }} transition={{
-          delay: 0.3,
-          duration: 0.8
-        }} className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme – für Marken, die funktionieren und wachsen.
-          </motion.p>
+          
         </motion.div>
       </section>
 
@@ -346,9 +335,7 @@ const Index = () => {
         }} transition={{
           duration: 0.8
         }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Wir wachsen mit unseren Kunden
-            </h2>
+            
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -412,9 +399,7 @@ const Index = () => {
               <Card className="bg-transparent border-2 border-yellow-500 h-full hover:border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-yellow-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSER ZIEL</div>
-                  <p className="text-gray-200 leading-relaxed font-light">
-                    Menschen und Unternehmen den Zugang zu Innovation bieten für einfachere und effektivere Abläufe.
-                  </p>
+                  <p className="text-gray-200 leading-relaxed font-light">Menschen und Unternehmen den Zugang zu Innovation bieten - für einfachere und effektivere Abläufe.</p>
                 </CardContent>
               </Card>
             </motion.div>
