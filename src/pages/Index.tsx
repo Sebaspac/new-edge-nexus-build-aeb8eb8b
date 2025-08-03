@@ -536,11 +536,7 @@ const Index = () => {
         }} transition={{
           duration: 0.8
         }} className="text-center mb-16">
-            <motion.div className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold mb-8 sm:mb-8" whileHover={{
-            scale: 1.05
-          }}>
-              Drei Bereiche
-            </motion.div>
+            
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
