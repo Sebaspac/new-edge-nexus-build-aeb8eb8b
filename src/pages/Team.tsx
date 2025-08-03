@@ -190,10 +190,10 @@ const Team = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-16">
-              <h2 className="text-3xl font-semibold mb-6 text-gray-900 md:text-5xl">
+              <h2 className="text-3xl font-semibold mb-6 text-gray-900 text-center md:text-5xl">
                 Unser Netzwerk
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed text-left">
                 Ein starkes Team aus Experten, Coaches und Partnern – 
                 für jede Herausforderung die richtige Expertise.
               </p>
@@ -240,7 +240,7 @@ const Team = () => {
               <p className="text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6 text-lg">
                 Wir sind neu als Marke – aber nicht neu im Geschäft.
               </p>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-12">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-12 text-left">
                 Unser Team bringt mehr als 4 Jahre kombinierte Inhouse- und Projekterfahrung mit - aus Agenturen, Konzernen und Tech-Startups.
               </p>
               
@@ -316,7 +316,7 @@ const Team = () => {
                       {item.phase}
                     </Badge>
                     <h3 className="text-2xl font-semibold mb-4 text-white">{item.title}</h3>
-                    <p className="text-gray-300 mb-6 font-light leading-relaxed">{item.description}</p>
+                    <p className="text-gray-300 mb-6 font-light leading-relaxed text-left">{item.description}</p>
                     <p className="text-sm text-blue-400 font-medium">{item.team}</p>
                   </div>
                 </motion.div>)}
@@ -339,7 +339,7 @@ const Team = () => {
               <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-gray-900">
                 Bereit für Ihr Projekt?
               </h2>
-              <p className="text-xl text-gray-600 mb-12 font-light leading-relaxed max-w-2xl mx-auto">
+              <p className="text-xl text-gray-600 mb-12 font-light leading-relaxed max-w-2xl mx-auto text-left">
                 Lernen Sie uns persönlich kennen und erfahren Sie, 
                 wie unser Team Ihre Marke zum Erfolg führt.
               </p>
