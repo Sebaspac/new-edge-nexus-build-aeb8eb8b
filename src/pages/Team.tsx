@@ -23,6 +23,7 @@ const Team = () => {
   const handleContactClick = () => {
     setContactClick(true);
     setTimeout(() => setContactClick(false), 200);
+    scrollToContact();
   };
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
