@@ -274,10 +274,10 @@ const Team = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-semibold mb-6">
+              <h2 className="text-3xl font-semibold mb-6 md:text-4xl text-center">
                 Know-how trifft Prozess
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed text-left">
                 Unser Team bringt sein Fachwissen gezielt in jede Phase ein – 
                 von der Strategie bis zur Technologie-Umsetzung.
               </p>
