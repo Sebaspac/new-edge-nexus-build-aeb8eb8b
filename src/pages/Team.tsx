@@ -256,8 +256,8 @@ const Team = () => {
           </div>
         </section>
 
-        {/* Process Connection - Apple Dark Theme */}
-        <section className="py-20 px-6 bg-gray-900 text-white">
+        {/* Process Connection - Apple Light Theme */}
+        <section className="py-20 px-6 bg-gray-100 text-black">
           <div className="max-w-6xl mx-auto">
             <motion.div initial={{
             opacity: 0,
@@ -271,7 +271,7 @@ const Team = () => {
               <h2 className="text-3xl font-semibold mb-6 md:text-4xl text-center">
                 Know-how trifft Prozess
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed text-left">
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto font-light leading-relaxed text-left">
                 Unser Team bringt sein Fachwissen gezielt in jede Phase ein – 
                 von der Strategie bis zur Technologie-Umsetzung.
               </p>
@@ -305,12 +305,12 @@ const Team = () => {
               duration: 0.6,
               delay: index * 0.1
             }} className="text-center">
-                  <div className="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:bg-gray-800/80 transition-all duration-300">
+                  <div className="bg-white backdrop-blur-sm rounded-2xl p-8 border border-gray-200 hover:bg-gray-50 transition-all duration-300">
                     <Badge className="mb-6 bg-blue-600 hover:bg-blue-600 text-white px-4 py-2 rounded-full font-medium">
                       {item.phase}
                     </Badge>
-                    <h3 className="text-2xl font-semibold mb-4 text-white">{item.title}</h3>
-                    <p className="text-gray-300 mb-6 font-light leading-relaxed text-left">{item.description}</p>
+                    <h3 className="text-2xl font-semibold mb-4 text-black">{item.title}</h3>
+                    <p className="text-gray-700 mb-6 font-light leading-relaxed text-left">{item.description}</p>
                     <p className="text-sm text-blue-400 font-medium">{item.team}</p>
                   </div>
                 </motion.div>)}

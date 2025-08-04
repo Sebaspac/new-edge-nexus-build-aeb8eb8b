@@ -139,14 +139,14 @@ const Index = () => {
       y: -5
     }
   };
-  return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
+  return <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
       {/* Mobile Navigation */}
-      <MobileNavigation onContactClick={scrollToContact} theme="dark" />
+      <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden">
         {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-black to-blue-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-white to-blue-100">
           {/* Floating particles animation */}
           <div className="absolute inset-0 overflow-hidden">
             {[...Array(20)].map((_, i) => <motion.div key={i} className="absolute w-2 h-2 bg-white/20 rounded-full" style={{
@@ -237,7 +237,7 @@ const Index = () => {
           }} transition={{
             delay: 0.3,
             duration: 0.8
-          }} className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white italic mb-2 sm:mb-3 md:mb-4">
+          }} className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-black italic mb-2 sm:mb-3 md:mb-4">
               INTELLIGENCE
             </motion.div>
             <motion.div initial={{
@@ -249,7 +249,7 @@ const Index = () => {
           }} transition={{
             delay: 0.4,
             duration: 0.8
-          }} className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-400 font-light">
+          }} className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-600 font-light">
               FOR THE DIGITAL AGE
             </motion.div>
           </motion.div>
@@ -277,7 +277,7 @@ const Index = () => {
         }} transition={{
           delay: 0.6,
           duration: 0.8
-        }} className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 max-w-4xl mx-auto font-light leading-relaxed px-4 text-center">
+        }} className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-700 max-w-4xl mx-auto font-light leading-relaxed px-4 text-center">
           <div className="mb-2">
             {t('home.hero.description')}
           </div>
@@ -292,7 +292,7 @@ const Index = () => {
       </section>
 
       {/* AI Visual Section */}
-      <section className="visual-section py-20 bg-gradient-to-b from-black to-gray-900 relative">
+      <section className="visual-section py-20 bg-gradient-to-b from-white to-gray-100 relative">
         <motion.div style={{
         y: y2
       }} className="container mx-auto px-6">
@@ -301,7 +301,7 @@ const Index = () => {
       </section>
 
       {/* Mission Statement */}
-      <section className="py-16 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-16 bg-gradient-to-b from-gray-100 to-white">
         <motion.div initial={{
         opacity: 0,
         y: 30
@@ -313,7 +313,7 @@ const Index = () => {
       }} transition={{
         duration: 0.8
       }} className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 max-w-4xl mx-auto leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 max-w-4xl mx-auto leading-tight">
             <span className="inline-block">Innovation voranbringen durch </span>
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> intelligente Automatisierung</span>
           </h2>
@@ -322,7 +322,7 @@ const Index = () => {
       </section>
 
       {/* Mission/Vision/Ziel Section */}
-      <section className="py-20 bg-gradient-to-b from-black to-gray-900">
+      <section className="py-20 bg-gradient-to-b from-white to-gray-100">
         <div className="container mx-auto px-6">
           <motion.div initial={{
           opacity: 0,
@@ -355,7 +355,7 @@ const Index = () => {
               <Card className="bg-transparent border-2 border-purple-500 h-full hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-purple-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
-                  <p className="text-gray-200 leading-relaxed text-base font-light text-left">Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.</p>
+                  <p className="text-gray-800 leading-relaxed text-base font-light text-left">Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -376,7 +376,7 @@ const Index = () => {
               <Card className="bg-transparent border-2 border-blue-500 h-full hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-blue-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSERE VISION</div>
-                  <p className="text-gray-200 leading-relaxed font-light text-left">
+                  <p className="text-gray-800 leading-relaxed font-light text-left">
                     Wir gestalten eine neue Generation von Marken: automatisiert, strukturiert und sichtbar.
                   </p>
                 </CardContent>
@@ -399,7 +399,7 @@ const Index = () => {
               <Card className="bg-transparent border-2 border-yellow-500 h-full hover:border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-yellow-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSER ZIEL</div>
-                  <p className="text-gray-200 leading-relaxed font-light text-left">Menschen und Unternehmen den Zugang zu Innovation bieten - für einfachere und effektivere Abläufe.</p>
+                  <p className="text-gray-800 leading-relaxed font-light text-left">Menschen und Unternehmen den Zugang zu Innovation bieten - für einfachere und effektivere Abläufe.</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -408,7 +408,7 @@ const Index = () => {
       </section>
 
       {/* USPs Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-20 bg-gradient-to-b from-gray-100 to-white">
         <div className="container mx-auto px-6">
           <motion.div initial={{
           opacity: 0,
@@ -421,7 +421,7 @@ const Index = () => {
         }} transition={{
           duration: 0.8
         }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-8">
               Ins Wandel mit <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">New Edge</span>
             </h2>
           </motion.div>
@@ -441,10 +441,10 @@ const Index = () => {
             duration: 0.6
           }} className="flex items-center space-x-6">
               <div className="flex-shrink-0 w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-medium">01</div>
-              <Card className="flex-1 bg-white/5 border border-white/10">
+              <Card className="flex-1 bg-gray-50 border border-gray-200">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-normal">Impact durch Automatisierung</h3>
-                  <p className="text-gray-300">Intelligente Systeme steigern Ihre Effizienz nachhaltig</p>
+                  <h3 className="text-xl text-black mb-2 font-normal">Impact durch Automatisierung</h3>
+                  <p className="text-gray-700">Intelligente Systeme steigern Ihre Effizienz nachhaltig</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -463,10 +463,10 @@ const Index = () => {
             duration: 0.6
           }} className="flex items-center space-x-6">
               <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-medium">02</div>
-              <Card className="flex-1 bg-white/5 border border-white/10">
+              <Card className="flex-1 bg-gray-50 border border-gray-200">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-normal">Marketingexpertise trifft technische Umsetzung</h3>
-                  <p className="text-gray-300">Perfekte Symbiose aus Strategie und Innovation</p>
+                  <h3 className="text-xl text-black mb-2 font-normal">Marketingexpertise trifft technische Umsetzung</h3>
+                  <p className="text-gray-700">Perfekte Symbiose aus Strategie und Innovation</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -485,10 +485,10 @@ const Index = () => {
             duration: 0.6
           }} className="flex items-center space-x-6">
               <div className="flex-shrink-0 w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center text-white text-xl font-medium">03</div>
-              <Card className="flex-1 bg-white/5 border border-white/10">
+              <Card className="flex-1 bg-gray-50 border border-gray-200">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-normal">Zugänglichkeit & Klarheit statt Komplexität</h3>
-                  <p className="text-gray-300">Einfache Lösungen für komplexe Herausforderungen</p>
+                  <h3 className="text-xl text-black mb-2 font-normal">Zugänglichkeit & Klarheit statt Komplexität</h3>
+                  <p className="text-gray-700">Einfache Lösungen für komplexe Herausforderungen</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -507,10 +507,10 @@ const Index = () => {
             duration: 0.6
           }} className="flex items-center space-x-6">
               <div className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-white text-xl font-medium bg-yellow-300">04</div>
-              <Card className="flex-1 bg-white/5 border border-white/10">
+              <Card className="flex-1 bg-gray-50 border border-gray-200">
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-normal">Individuelle Setups ohne Standardbausteine</h3>
-                  <p className="text-gray-300">Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen</p>
+                  <h3 className="text-xl text-black mb-2 font-normal">Individuelle Setups ohne Standardbausteine</h3>
+                  <p className="text-gray-700">Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -523,7 +523,7 @@ const Index = () => {
       
 
       {/* Services Overview */}
-      <section className="services-section relative py-20 bg-gradient-to-b from-black via-gray-900 to-black">
+      <section className="services-section relative py-20 bg-gradient-to-b from-white via-gray-100 to-white">
         <motion.div className="container mx-auto px-6">
           <motion.div initial={{
           opacity: 0,
@@ -537,7 +537,7 @@ const Index = () => {
           duration: 0.8
         }} className="text-center mb-16">
             
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
@@ -722,7 +722,7 @@ const Index = () => {
       </section>
 
       {/* Contact Form */}
-      <section id="contact-section" className="py-20 bg-gradient-to-b from-black to-gray-900">
+      <section id="contact-section" className="py-20 bg-gradient-to-b from-white to-gray-100">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div initial={{
@@ -736,10 +736,10 @@ const Index = () => {
           }} transition={{
             duration: 0.8
           }} className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4 text-white">
+              <h2 className="text-4xl font-bold mb-4 text-black">
                 Bereit für den nächsten <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Schritt?</span>
               </h2>
-              <p className="text-xl text-gray-300">
+              <p className="text-xl text-gray-700">
                 Lassen Sie uns über Ihr Projekt sprechen.
               </p>
             </motion.div>
@@ -757,7 +757,7 @@ const Index = () => {
           }} whileHover={{
             scale: 1.01
           }}>
-              <Card className="bg-gray-900/50 border border-purple-500/20 shadow-2xl backdrop-blur-lg">
+              <Card className="bg-white border border-gray-300 shadow-2xl">
                 <CardContent className="p-8">
                   <form action="https://formspree.io/f/xjkrnyon" method="POST" onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
                     <motion.div initial={{
@@ -772,8 +772,8 @@ const Index = () => {
                     delay: 0.1,
                     duration: 0.5
                   }} className="space-y-2">
-                      <Label htmlFor="fullname" className="text-white">Vollständiger Name</Label>
-                      <Input name="fullname" id="fullname" required className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-500 transition-all duration-300" placeholder="Max Mustermann" />
+                       <Label htmlFor="fullname" className="text-black">Vollständiger Name</Label>
+                       <Input name="fullname" id="fullname" required className="bg-gray-50 border-gray-300 text-black placeholder:text-gray-500 focus:border-purple-500 transition-all duration-300" placeholder="Max Mustermann" />
                     </motion.div>
                     
                     <motion.div initial={{
@@ -871,7 +871,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900/80 text-white py-12 sm:py-16 border-t border-gray-800">
+      <footer className="bg-gray-100 text-black py-12 sm:py-16 border-t border-gray-300">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div className="sm:col-span-2">
