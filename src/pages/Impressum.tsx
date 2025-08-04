@@ -8,7 +8,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const Impressum = () => {
   const { t } = useLanguage();
   
-  return <div className="min-h-screen bg-white text-black">
+  return <div className="min-h-screen bg-black text-white">
       {/* Header */}
       <motion.header initial={{
       opacity: 0,
@@ -63,16 +63,16 @@ const Impressum = () => {
           delay: 0.4,
           duration: 0.6
         }}>
-            <Card className="bg-gray-50 border border-gray-300 backdrop-blur-lg mb-12">
+            <Card className="bg-gray-900/50 border border-purple-500/20 backdrop-blur-lg mb-12">
               <CardContent className="p-8">
-                <h2 className="text-xl md:text-2xl font-bold mb-6 flex items-center text-black">
+                <h2 className="text-xl md:text-2xl font-bold mb-6 flex items-center text-white">
                   <MapPin className="w-6 h-6 mr-3 text-purple-400" />
                   Angaben gemäß § 5 TMG
                 </h2>
                 
-                <div className="space-y-4 text-gray-700">
+                <div className="space-y-4 text-gray-300">
                   <div>
-                    <p className="font-semibold text-black">New Edge</p>
+                    <p className="font-semibold text-white">New Edge</p>
                     <p>c/o Creative Space</p>
                     <p>Koppenstr. 82</p>
                     <p>10243 Berlin</p>
@@ -109,17 +109,17 @@ const Impressum = () => {
           delay: 0.6,
           duration: 0.6
         }}>
-            <Card className="bg-gray-50 border border-gray-300 backdrop-blur-lg">
+            <Card className="bg-gray-900/50 border border-purple-500/20 backdrop-blur-lg">
               <CardContent className="p-8">
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 flex items-center text-black">
+                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 flex items-center text-white">
                     <Shield className="w-8 h-8 mr-3 text-purple-400" />
                     Datenschutzerklärung
                   </h2>
                 
-                <div className="space-y-8 text-gray-700">
+                <div className="space-y-8 text-gray-300">
                   {/* Section 1 */}
                   <div>
-                    <h3 className="text-xl font-semibold text-black mb-4">1. Verantwortlicher Anbieter</h3>
+                    <h3 className="text-xl font-semibold text-white mb-4">1. Verantwortlicher Anbieter</h3>
                     <p className="mb-4">
                       Verantwortlich für die Verarbeitung personenbezogener Daten im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
                     </p>

@@ -139,11 +139,11 @@ const Services = () => {
       scale: 1.2
     }
   };
-  return <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
+  return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
       {/* Simplified gradient background for better performance */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-white via-gray-100 to-purple-100"></div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-black via-gray-900 to-purple-900"></div>
 
-      <MobileNavigation onContactClick={scrollToContact} theme="light" />
+      <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden pt-20 sm:pt-0">
@@ -178,7 +178,7 @@ const Services = () => {
           }} transition={{
             delay: 0.5,
             duration: 0.8
-          }} className="text-hero sm:text-6xl md:text-7xl lg:text-8xl font-black text-black italic mb-4">
+          }} className="text-hero sm:text-6xl md:text-7xl lg:text-8xl font-black text-white italic mb-4">
               JOURNEY
             </motion.div>
             <motion.div initial={{
@@ -190,7 +190,7 @@ const Services = () => {
           }} transition={{
             delay: 1,
             duration: 0.8
-          }} className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 font-light">
+          }} className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-400 font-light">
               FROM VISION TO REALITY
             </motion.div>
           </motion.div>
@@ -202,7 +202,7 @@ const Services = () => {
         }} transition={{
           delay: 1.5,
           duration: 0.8
-        }} className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-4 sm:mb-6 max-w-4xl mx-auto font-light leading-relaxed">
+        }} className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-4 sm:mb-6 max-w-4xl mx-auto font-light leading-relaxed">
             <div>Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden.</div>
             <div>Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.</div>
           </motion.div>
@@ -252,7 +252,7 @@ const Services = () => {
       </section>
 
       {/* Services Overview Section */}
-      <section className="services-overview relative py-20 sm:py-24 md:py-32 bg-gradient-to-b from-white via-gray-100 to-white">
+      <section className="services-overview relative py-20 sm:py-24 md:py-32 bg-gradient-to-b from-black via-gray-900 to-black">
         <motion.div style={{
         y: y2
       }} className="container mx-auto px-4 sm:px-6">
@@ -275,7 +275,7 @@ const Services = () => {
           }} className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12 animate-glow-pulse">
               {t('services.keyActivities')}
             </motion.div>
-            <h2 className="text-h2 text-black mb-6">Ihr Weg zum Erfolg</h2>
+            <h2 className="text-section-title sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
           <div className="max-w-5xl mx-auto">
@@ -299,10 +299,10 @@ const Services = () => {
                       <Palette className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
                     </motion.div>
                     
-                    <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-800">
+                    <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
                       Ihre Ideen, unsere Strategie
                     </p>
-                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-700 flex-grow">
+                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
@@ -352,10 +352,10 @@ const Services = () => {
                       <Video className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
                     </motion.div>
                     
-                    <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-800">
+                    <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
                       Die perfekte Bühne für Ihre Marke
                     </p>
-                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-700 flex-grow">
+                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
                       Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
                     </p>
                     
@@ -406,10 +406,10 @@ const Services = () => {
                       <Cpu className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" />
                     </motion.div>
                     
-                    <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-800">
+                    <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
                       Die perfekte Schnittstelle für Strategie & Technologie
                     </p>
-                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-700 flex-grow">
+                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
                     
@@ -442,7 +442,7 @@ const Services = () => {
             delay: 0.6,
             duration: 0.8
           }} className="mt-16 sm:mt-20">
-              <motion.div className="max-w-2xl mx-auto bg-gray-50 backdrop-blur-xl rounded-3xl p-8 sm:p-12 border border-gray-200 shadow-2xl relative overflow-hidden">
+              <motion.div className="max-w-2xl mx-auto bg-white/5 backdrop-blur-xl rounded-3xl p-8 sm:p-12 border border-white/10 shadow-2xl relative overflow-hidden">
                 {/* Animated background */}
                 <motion.div animate={{
                 background: ["radial-gradient(circle at 20% 30%, rgba(139,92,246,0.05) 0%, transparent 50%)", "radial-gradient(circle at 80% 70%, rgba(59,130,246,0.05) 0%, transparent 50%)", "radial-gradient(circle at 50% 50%, rgba(245,158,11,0.05) 0%, transparent 50%)", "radial-gradient(circle at 20% 30%, rgba(139,92,246,0.05) 0%, transparent 50%)"]
@@ -459,7 +459,7 @@ const Services = () => {
                 y: 0
               }} transition={{
                 delay: 0.2
-              }} className="text-xl sm:text-2xl text-black font-light mb-12 text-center relative z-10 leading-relaxed">
+              }} className="text-xl sm:text-2xl text-white font-light mb-12 text-center relative z-10 leading-relaxed">
                   All das geschieht hier – im kreativen Headquarter für Reichweite, Wirkung & Wachstum.
                 </motion.p>
                 
@@ -487,8 +487,8 @@ const Services = () => {
                       <span className="text-2xl font-bold">1</span>
                     </motion.div>
                     <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-black mb-1">Strategie</h4>
-                      <p className="text-gray-600 text-sm">Fundament und Planung für Ihren Erfolg</p>
+                      <h4 className="text-lg font-semibold text-white mb-1">Strategie</h4>
+                      <p className="text-gray-400 text-sm">Fundament und Planung für Ihren Erfolg</p>
                     </div>
                   </motion.div>
                   
@@ -525,8 +525,8 @@ const Services = () => {
                       <span className="text-2xl font-bold">2</span>
                     </motion.div>
                     <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-black mb-1">Umsetzung</h4>
-                      <p className="text-gray-600 text-sm">Content-Produktion und Reichweite-Aufbau</p>
+                      <h4 className="text-lg font-semibold text-white mb-1">Umsetzung</h4>
+                      <p className="text-gray-400 text-sm">Content-Produktion und Reichweite-Aufbau</p>
                     </div>
                   </motion.div>
                   
@@ -563,8 +563,8 @@ const Services = () => {
                       <span className="text-2xl font-bold">3</span>
                     </motion.div>
                     <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-black mb-1">Innovation</h4>
-                      <p className="text-gray-600 text-sm">Technische Implementierung und Automation</p>
+                      <h4 className="text-lg font-semibold text-white mb-1">Innovation</h4>
+                      <p className="text-gray-400 text-sm">Technische Implementierung und Automation</p>
                     </div>
                   </motion.div>
                 </div>
@@ -575,7 +575,7 @@ const Services = () => {
       </section>
 
       {/* Results Section */}
-      <section className="py-32 bg-gradient-to-b from-white via-gray-100 to-white">
+      <section className="py-32 bg-gradient-to-b from-black via-gray-900 to-black">
         <div className="container mx-auto px-6">
           <motion.div initial={{
           opacity: 0,
@@ -586,8 +586,8 @@ const Services = () => {
         }} viewport={{
           once: true
         }} className="text-center mb-20">
-            <h2 className="text-6xl font-bold text-black mb-6">Das Ergebnis</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <h2 className="text-6xl font-bold text-white mb-6">Das Ergebnis</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
             </p>
           </motion.div>
@@ -652,7 +652,7 @@ const Services = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-32 bg-gradient-to-b from-white via-purple-100/20 to-white relative overflow-hidden">
+      <section className="py-32 bg-gradient-to-b from-black via-purple-900/20 to-black relative overflow-hidden">
         <div className="container mx-auto px-6">
           <motion.div initial={{
           opacity: 0,
@@ -663,8 +663,8 @@ const Services = () => {
         }} viewport={{
           once: true
         }} className="text-center mb-20">
-            <h2 className="font-bold text-black mb-6 text-3xl">Warum New Edge?</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.</p>
+            <h2 className="font-bold text-white mb-6 text-3xl">Warum New Edge?</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.</p>
           </motion.div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
