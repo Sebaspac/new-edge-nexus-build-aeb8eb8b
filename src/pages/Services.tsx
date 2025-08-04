@@ -275,7 +275,7 @@ const Services = () => {
           }} className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12 animate-glow-pulse">
               {t('services.keyActivities')}
             </motion.div>
-            <h2 className="text-section-title sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6">Ihr Weg zum Erfolg</h2>
+            <h2 className="text-h2 text-black mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
           <div className="max-w-5xl mx-auto">

@@ -313,7 +313,7 @@ const Index = () => {
       }} transition={{
         duration: 0.8
       }} className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 max-w-4xl mx-auto leading-tight">
+          <h2 className="text-h2 text-black mb-8 max-w-4xl mx-auto">
             <span className="inline-block">Innovation voranbringen durch </span>
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> intelligente Automatisierung</span>
           </h2>
@@ -421,7 +421,7 @@ const Index = () => {
         }} transition={{
           duration: 0.8
         }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-black mb-8">
+            <h2 className="text-h2 text-black mb-8">
               Ins Wandel mit <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">New Edge</span>
             </h2>
           </motion.div>
@@ -537,7 +537,7 @@ const Index = () => {
           duration: 0.8
         }} className="text-center mb-16">
             
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-6">Ihr Weg zum Erfolg</h2>
+            <h2 className="text-h2 text-black mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
