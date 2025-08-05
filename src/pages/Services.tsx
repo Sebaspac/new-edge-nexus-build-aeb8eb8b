@@ -279,151 +279,100 @@ const Services = () => {
           </motion.div>
 
           <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-4 items-stretch">
+            <div className="grid-modern">
               
-              {/* Studio Card - Apple Style */}
-              <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
-              once: true
-            }} onHoverStart={() => setHoveredCard('studio')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-transparent border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 rounded-3xl h-full">
-                  <CardContent className="p-6 sm:p-8 lg:p-10 text-center relative h-full flex flex-col">
-                    {/* Service Tag */}
-                    <motion.div whileHover={{
-                    scale: 1.02
-                  }} className="inline-block text-purple-400 px-4 sm:px-6 py-2 rounded-full text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 tracking-wider">
-                      {t('services.hero.title').includes('STUDIO') ? t('studio.hero.title') : 'NEW EDGE STUDIO'}
-                    </motion.div>
-                    
-                    {/* Icon */}
-                    <motion.div variants={iconVariants} whileHover="hover" className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8">
-                      <Palette className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
-                    </motion.div>
-                    
-                    <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
+              {/* Studio Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0 * 0.2, duration: 0.6 }}
+                className="group"
+              >
+                <Card className="card-modern h-full hover-lift">
+                  <CardContent className="p-8">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-primary-dark p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <Palette className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-h3 font-semibold mb-4 text-foreground">
+                      NEW EDGE STUDIO
+                    </h3>
+                    <p className="text-body text-muted-foreground mb-6 leading-relaxed">
                       Ihre Ideen, unsere Strategie
                     </p>
-                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow text-left">
+                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8">
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
-                    <motion.div whileHover={{
-                    scale: 1.02
-                  }} whileTap={{
-                    scale: 0.98
-                  }}>
-                      <Button className="bg-transparent border border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white w-full rounded-xl py-3 sm:py-4 font-medium transition-all duration-300 text-sm sm:text-base" asChild>
-                        <Link to="/studio">
-                          Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
-                        </Link>
-                      </Button>
-                    </motion.div>
+                    <Button className="btn-primary w-full" asChild>
+                      <Link to="/studio">
+                        Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
+                      </Link>
+                    </Button>
                   </CardContent>
                 </Card>
-
-                {/* Minimalist Arrow */}
-                <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-20">
-                  <motion.div animate={{
-                  x: [0, 5, 0],
-                  opacity: [0.3, 0.7, 0.3]
-                }} transition={{
-                  duration: 2,
-                  repeat: Infinity
-                }}>
-                    <ArrowRight className="w-5 h-5 text-white/30" />
-                  </motion.div>
-                </div>
               </motion.div>
 
-              {/* Media Card - Apple Style */}
-              <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
-              once: true
-            }} transition={{
-              delay: 0.2
-            }} onHoverStart={() => setHoveredCard('media')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-transparent border-2 border-blue-500 hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 rounded-3xl h-full">
-                  <CardContent className="p-6 sm:p-8 lg:p-10 text-center relative h-full flex flex-col">
-                    <motion.div whileHover={{
-                    scale: 1.02
-                  }} className="inline-block text-blue-400 px-4 sm:px-6 py-2 rounded-full text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 tracking-wider">
+              {/* Media Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 1 * 0.2, duration: 0.6 }}
+                className="group"
+              >
+                <Card className="card-modern h-full hover-lift">
+                  <CardContent className="p-8">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-accent-dark p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <Video className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-h3 font-semibold mb-4 text-foreground">
                       NEW EDGE MEDIA
-                    </motion.div>
-                    
-                    <motion.div variants={iconVariants} whileHover="hover" className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8">
-                      <Video className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
-                    </motion.div>
-                    
-                    <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
+                    </h3>
+                    <p className="text-body text-muted-foreground mb-6 leading-relaxed">
                       Die perfekte Bühne für Ihre Marke
                     </p>
-                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow text-left">
+                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8">
                       Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
                     </p>
                     
-                    <motion.div whileHover={{
-                    scale: 1.02
-                  }} whileTap={{
-                    scale: 0.98
-                  }}>
-                      <Button className="bg-transparent border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white w-full rounded-xl py-3 sm:py-4 font-medium transition-all duration-300 text-sm sm:text-base" asChild>
-                        <Link to="/media">
-                          Content erstellen <ArrowRight className="ml-2 w-4 h-4" />
-                        </Link>
-                      </Button>
-                    </motion.div>
+                    <Button className="btn-primary w-full" asChild>
+                      <Link to="/media">
+                        Content erstellen <ArrowRight className="ml-2 w-4 h-4" />
+                      </Link>
+                    </Button>
                   </CardContent>
                 </Card>
-
-                {/* Minimalist Arrow */}
-                <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-20">
-                  <motion.div animate={{
-                  x: [0, 5, 0],
-                  opacity: [0.3, 0.7, 0.3]
-                }} transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  delay: 0.5
-                }}>
-                    <ArrowRight className="w-5 h-5 text-white/30" />
-                  </motion.div>
-                </div>
               </motion.div>
 
-              {/* Lab Card - Apple Style */}
-              <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
-              once: true
-            }} transition={{
-              delay: 0.4
-            }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-transparent border-2 border-yellow-500 hover:border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/20 rounded-3xl h-full">
-                  <CardContent className="p-6 sm:p-8 lg:p-10 text-center relative h-full flex flex-col">
-                    <motion.div whileHover={{
-                    scale: 1.02
-                  }} className="inline-block text-yellow-400 px-4 sm:px-6 py-2 rounded-full text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 tracking-wider">
+              {/* Lab Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 2 * 0.2, duration: 0.6 }}
+                className="group"
+              >
+                <Card className="card-modern h-full hover-lift">
+                  <CardContent className="p-8">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary to-secondary-dark p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <Cpu className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-h3 font-semibold mb-4 text-foreground">
                       NEW EDGE LAB
-                    </motion.div>
-                    
-                    <motion.div variants={iconVariants} whileHover="hover" className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8">
-                      <Cpu className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" />
-                    </motion.div>
-                    
-                    <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
+                    </h3>
+                    <p className="text-body text-muted-foreground mb-6 leading-relaxed">
                       Die perfekte Schnittstelle für Strategie & Technologie
                     </p>
-                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow text-left">
+                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8">
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
                     
-                    <motion.div whileHover={{
-                    scale: 1.02
-                  }} whileTap={{
-                    scale: 0.98
-                  }}>
-                      <Button className="bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white w-full rounded-xl py-3 sm:py-4 font-medium transition-all duration-300 text-sm sm:text-base" asChild>
-                        <Link to="/lab">
-                          Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
-                        </Link>
-                      </Button>
-                    </motion.div>
+                    <Button className="btn-primary w-full" asChild>
+                      <Link to="/lab">
+                        Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
+                      </Link>
+                    </Button>
                   </CardContent>
                 </Card>
               </motion.div>
