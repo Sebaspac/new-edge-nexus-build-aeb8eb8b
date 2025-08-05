@@ -302,7 +302,7 @@ const Services = () => {
                     <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
                       Ihre Ideen, unsere Strategie
                     </p>
-                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
+                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow text-left">
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
@@ -355,7 +355,7 @@ const Services = () => {
                     <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
                       Die perfekte Bühne für Ihre Marke
                     </p>
-                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
+                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow text-left">
                       Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
                     </p>
                     
@@ -409,7 +409,7 @@ const Services = () => {
                     <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed font-light text-gray-200">
                       Die perfekte Schnittstelle für Strategie & Technologie
                     </p>
-                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow">
+                    <p className="text-sm leading-relaxed mb-8 sm:mb-10 max-w-sm mx-auto text-gray-300 flex-grow text-left">
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
                     
@@ -586,8 +586,8 @@ const Services = () => {
         }} viewport={{
           once: true
         }} className="text-center mb-20">
-            <h2 className="text-6xl font-bold text-white mb-6">Das Ergebnis</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <h2 className="text-6xl font-bold text-white mb-6 text-center">Das Ergebnis</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-left">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
             </p>
           </motion.div>
@@ -606,8 +606,8 @@ const Services = () => {
             y: -10
           }} className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 p-8 rounded-2xl border border-purple-500/20 text-center backdrop-blur-lg hover-lift">
               <div className="text-5xl font-bold text-purple-400 mb-4">01</div>
-              <h3 className="text-white mb-4 text-2xl font-medium">Klare Strategie</h3>
-              <p className="text-gray-300">Eine durchdachte Roadmap und visuelle Identität als solides Fundament.</p>
+              <h3 className="text-white mb-4 text-2xl font-medium text-left">Klare Strategie</h3>
+              <p className="text-gray-300 text-left">Eine durchdachte Roadmap und visuelle Identität als solides Fundament.</p>
             </motion.div>
             
             <motion.div initial={{
@@ -625,8 +625,8 @@ const Services = () => {
             y: -10
           }} className="bg-gradient-to-br from-blue-900/30 to-blue-800/30 p-8 rounded-2xl border border-blue-500/20 text-center backdrop-blur-lg hover-lift">
               <div className="text-5xl font-bold text-blue-400 mb-4">02</div>
-              <h3 className="text-white mb-4 text-2xl font-medium">Überzeugende Inhalte</h3>
-              <p className="text-gray-300">Content, der Ihre Zielgruppe erreicht und nachhaltig begeistert.</p>
+              <h3 className="text-white mb-4 text-2xl font-medium text-left">Überzeugende Inhalte</h3>
+              <p className="text-gray-300 text-left">Content, der Ihre Zielgruppe erreicht und nachhaltig begeistert.</p>
             </motion.div>
             
             <motion.div initial={{
@@ -644,8 +644,8 @@ const Services = () => {
             y: -10
           }} className="bg-gradient-to-br from-yellow-900/30 to-yellow-800/30 p-8 rounded-2xl border border-yellow-500/20 text-center backdrop-blur-lg hover-lift">
               <div className="text-5xl font-bold text-yellow-400 mb-4">03</div>
-              <h3 className="text-2xl text-white mb-4 font-medium">Intelligente Umsetzung</h3>
-              <p className="text-gray-300">Technische Exzellenz und Automatisierung für nachhaltigen Erfolg.</p>
+              <h3 className="text-2xl text-white mb-4 font-medium text-left">Intelligente Umsetzung</h3>
+              <p className="text-gray-300 text-left">Technische Exzellenz und Automatisierung für nachhaltigen Erfolg.</p>
             </motion.div>
           </div>
         </div>
