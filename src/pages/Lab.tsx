@@ -203,7 +203,7 @@ const Lab = () => {
                         <Bot className="w-12 h-12 text-white" />
                       </div>
                       <h3 className="text-2xl text-black mb-4 font-extrabold sm:text-6xl">Agent Hub</h3>
-                       <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg">
+                       <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg text-left">
                          8+ spezialisierte KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr.
                         <span className="font-semibold"> Lebenslanger Zugang ohne Abonnement.</span>
                       </p>
@@ -316,7 +316,7 @@ const Lab = () => {
                         </div>
                         <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black tracking-tight leading-tight">KI-ChatBot Studio</h3>
                       </div>
-                      <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg">
+                      <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg text-left">
                         24/7 Kundenbetreuung mit KI-gestützten Antworten. Sofortige Einrichtung für Ihre Website mit intelligenter Konversation.
                         <span className="font-semibold"> Ultra-High Zufriedenheitsraten durch personalisierte Antworten.</span>
                       </p>
