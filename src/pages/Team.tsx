@@ -305,10 +305,8 @@ const Team = () => {
               duration: 0.6,
               delay: index * 0.1
             }} className="text-center">
-                  <div className="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:bg-gray-800/80 transition-all duration-300">
-                    <Badge className="mb-6 bg-blue-600 hover:bg-blue-600 text-white px-4 py-2 rounded-full font-medium">
-                      {item.phase}
-                    </Badge>
+                  <div className="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:bg-gray-800/80 transition-all duration-300 py-[4px]">
+                    
                     <h3 className="text-2xl font-semibold mb-4 text-white">{item.title}</h3>
                     <p className="text-gray-300 mb-6 font-light leading-relaxed text-left">{item.description}</p>
                     <p className="text-sm text-blue-400 font-medium">{item.team}</p>
