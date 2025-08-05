@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Sparkles, Zap, Brain, Target, Eye, Rocket, Star, Lightbulb, Users, ChevronDown, ArrowDown } from "lucide-react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { ArrowRight, Sparkles, Zap, Brain, Target, Eye, Rocket, Star, Lightbulb, Users, ChevronDown, ArrowDown, Play, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,89 +9,40 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import CookieConsent from "@/components/CookieConsent";
-import NetworkVisualization from "@/components/NetworkVisualization";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { LazyImage } from "@/components/LazyImage";
+
 const Index = () => {
-  const {
-    t
-  } = useLanguage();
-  const [isVisible, setIsVisible] = useState(false);
-  const [showScrollTop, setShowScrollTop] = useState(false);
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0
-  });
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
-  const {
-    scrollY
-  } = useScroll();
+  const { t } = useLanguage();
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [activeSection, setActiveSection] = useState(0);
+  const { scrollY } = useScroll();
   const containerRef = useRef<HTMLDivElement>(null);
+  
+  // 🎭 Parallax transforms
+  const heroY = useTransform(scrollY, [0, 1000], [0, -200]);
+  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
+  const heroScale = useTransform(scrollY, [0, 500], [1, 0.9]);
 
-  // Ultra-optimized Parallax effects (minimal performance impact)
-  const y1 = useTransform(scrollY, [0, 1000], [0, -10]);
-  const y2 = useTransform(scrollY, [0, 1000], [0, -20]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0.95]);
-
-  // Reduced visual section transforms for better performance
-  const visualScale = useTransform(scrollY, [600, 1400], [1, 0.95]);
-  const visualOpacity = useTransform(scrollY, [600, 1400], [1, 0.8]);
-  const visualTextOpacity = useTransform(scrollY, [600, 900], [1, 0.3]);
   useEffect(() => {
-    setIsVisible(true);
-
-    // Optimized throttled event handlers
-    const handleMouseMove = throttle((e: MouseEvent) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 0.3,
-        y: (e.clientY / window.innerHeight - 0.5) * 0.3
+        x: (e.clientX / window.innerWidth - 0.5) * 2,
+        y: (e.clientY / window.innerHeight - 0.5) * 2
       });
-    }, 50);
-    const handleScroll = throttle(() => {
-      setShowScrollTop(window.scrollY > 300);
-    }, 100);
-
-    // Only add mouse move on desktop
-    if (window.innerWidth >= 768) {
-      window.addEventListener('mousemove', handleMouseMove);
-    }
-    window.addEventListener('scroll', handleScroll, {
-      passive: true
-    });
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
     };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Throttle function
-  const throttle = (func: Function, delay: number) => {
-    let timeoutId: NodeJS.Timeout;
-    let lastExecTime = 0;
-    return function (this: any, ...args: any[]) {
-      const currentTime = Date.now();
-      if (currentTime - lastExecTime > delay) {
-        func.apply(this, args);
-        lastExecTime = currentTime;
-      } else {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => {
-          func.apply(this, args);
-          lastExecTime = Date.now();
-        }, delay - (currentTime - lastExecTime));
-      }
-    };
-  };
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
-      contactSection.scrollIntoView({
-        behavior: 'smooth'
-      });
+      contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
@@ -99,9 +50,7 @@ const Index = () => {
       const response = await fetch('https://formspree.io/f/xjkrnyon', {
         method: 'POST',
         body: new FormData(form),
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
       });
       if (response.ok) {
         toast({
@@ -123,826 +72,346 @@ const Index = () => {
       });
     }
   }, []);
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30,
-      scale: 0.95
+
+  const services = [
+    {
+      icon: Brain,
+      title: "Media Intelligence",
+      description: "KI-gestützte Inhaltsstrategien, die Ihre Zielgruppe erreichen und konvertieren.",
+      gradient: "from-primary to-secondary"
     },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1
+    {
+      icon: Sparkles,
+      title: "Studio Design",
+      description: "Visuelles Storytelling und Brand-Design, das im Gedächtnis bleibt.",
+      gradient: "from-secondary to-accent"
     },
-    hover: {
-      scale: 1.02,
-      y: -5
+    {
+      icon: Zap,
+      title: "Lab Automation",
+      description: "Intelligente Systeme und Workflows für maximale Effizienz.",
+      gradient: "from-accent to-primary"
     }
-  };
-  return <div ref={containerRef} className="min-h-screen bg-black overflow-hidden">
-      {/* Mobile Navigation */}
+  ];
+
+  const stats = [
+    { number: "150+", label: "Projekte realisiert", icon: Target },
+    { number: "98%", label: "Kundenzufriedenheit", icon: Star },
+    { number: "5x", label: "Durchschnittliche Effizienzsteigerung", icon: Rocket },
+    { number: "24/7", label: "Support verfügbar", icon: Users }
+  ];
+
+  return (
+    <div ref={containerRef} className="min-h-screen bg-background overflow-x-hidden">
+      {/* 📱 Mobile Navigation */}
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-black to-blue-900">
-          {/* Floating particles animation */}
-          <div className="absolute inset-0 overflow-hidden">
-            {[...Array(20)].map((_, i) => <motion.div key={i} className="absolute w-2 h-2 bg-white/20 rounded-full" style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`
-          }} animate={{
-            y: [-20, -100],
-            opacity: [0, 1, 0],
-            scale: [0, 1, 0]
-          }} transition={{
-            duration: Math.random() * 3 + 2,
-            repeat: Infinity,
-            delay: Math.random() * 2
-          }} />)}
-          </div>
+      {/* 🚀 Hero Section */}
+      <section className="hero-section relative">
+        {/* 🌌 Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-surface-elevated">
+          {/* ✨ Floating Orbs */}
+          <motion.div 
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+              rotate: [0, 180, 360]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"
+            animate={{ 
+              scale: [1.2, 1, 1.2],
+              opacity: [0.6, 0.3, 0.6],
+              rotate: [360, 180, 0]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+          />
+          <motion.div 
+            className="absolute top-1/2 right-1/4 w-64 h-64 bg-accent/15 rounded-full blur-2xl"
+            animate={{ 
+              x: [0, 50, 0],
+              y: [0, -30, 0],
+              scale: [1, 0.8, 1]
+            }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          {/* 🌊 Gradient Mesh */}
+          <div className="absolute inset-0 bg-gradient-glow opacity-50" />
           
-          {/* Gradient orbs */}
-          <motion.div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl" animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3]
-        }} transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
-          <motion.div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/30 rounded-full blur-3xl" animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.6, 0.3, 0.6]
-        }} transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2
-        }} />
-          
-          {/* Animated lines */}
-          <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="rgba(168, 85, 247, 0)" />
-                <stop offset="50%" stopColor="rgba(168, 85, 247, 0.5)" />
-                <stop offset="100%" stopColor="rgba(168, 85, 247, 0)" />
-              </linearGradient>
-            </defs>
-            {[...Array(5)].map((_, i) => <motion.line key={i} x1={`${i * 25}%`} y1="0%" x2={`${i * 25 + 25}%`} y2="100%" stroke="url(#lineGradient)" strokeWidth="1" initial={{
-            pathLength: 0
-          }} animate={{
-            pathLength: 1
-          }} transition={{
-            duration: 2,
-            repeat: Infinity,
-            delay: i * 0.5,
-            repeatType: "reverse"
-          }} />)}
-          </svg>
-        </div>
-        <motion.div style={{
-        y: y1,
-        opacity
-      }} className="text-center relative z-10 max-w-6xl mx-auto">
-          <motion.div initial={{
-          opacity: 0,
-          scale: 0.8
-        }} animate={{
-          opacity: 1,
-          scale: 1
-        }} transition={{
-          duration: 1,
-          ease: "easeOut"
-        }} className="mb-6 sm:mb-8 md:mb-12">
-            <motion.div className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight mb-2 sm:mb-3 md:mb-4 relative" style={{
-            background: "linear-gradient(45deg, #9f91f8, #4f97f0, #FFED00)",
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            color: "transparent"
-          }} whileHover={{
-            scale: 1.02,
-            transition: {
-              duration: 0.3
-            }
-          }}>
-              <div className="animate-text-shimmer mt-8 sm:mt-16">BRAND</div>
-            </motion.div>
-            <motion.div initial={{
-            rotateX: -90
-          }} animate={{
-            rotateX: 0
-          }} transition={{
-            delay: 0.3,
-            duration: 0.8
-          }} className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white italic mb-2 sm:mb-3 md:mb-4">
-              INTELLIGENCE
-            </motion.div>
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.4,
-            duration: 0.8
-          }} className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-400 font-light">
-              FOR THE DIGITAL AGE
-            </motion.div>
-          </motion.div>
-          
-        </motion.div>
-
-        {/* Subtle Floating Elements */}
-        <motion.div style={{
-        x: mousePosition.x * 30,
-        y: mousePosition.y * 30
-      }} className="absolute top-20 left-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl" />
-        <motion.div style={{
-        x: -mousePosition.x * 40,
-        y: -mousePosition.y * 40
-      }} className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-xl" />
-      
-      {/* Text Module positioned at the bottom of header - centered */}
-      <div className="absolute bottom-8 left-0 right-0 z-10">
-        <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          delay: 0.6,
-          duration: 0.8
-        }} className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 max-w-4xl mx-auto font-light leading-relaxed px-4 text-center">
-          <div className="mb-2">
-            {t('home.hero.description')}
-          </div>
-          <div className="mb-4 rounded-none">
-            {t('home.hero.descriptionSecond')}
-          </div>
-          <div>
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent font-medium text-2xl whitespace-pre-line">{t('home.hero.subtitle')}</span>
-          </div>
-        </motion.div>
-      </div>
-      </section>
-
-      {/* AI Visual Section */}
-      <section className="visual-section py-20 bg-gradient-to-b from-black to-gray-900 relative">
-        <motion.div style={{
-        y: y2
-      }} className="container mx-auto px-6">
-        
-        </motion.div>
-      </section>
-
-      {/* Mission Statement */}
-      <section className="py-16 bg-gradient-to-b from-gray-900 to-black">
-        <motion.div initial={{
-        opacity: 0,
-        y: 30
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true
-      }} transition={{
-        duration: 0.8
-      }} className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 max-w-4xl mx-auto leading-tight">
-            <span className="inline-block">Innovation voranbringen durch </span>
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"> intelligente Automatisierung</span>
-          </h2>
-          
-        </motion.div>
-      </section>
-
-      {/* Mission/Vision/Ziel Section */}
-      <section className="py-20 bg-gradient-to-b from-black to-gray-900">
-        <div className="container mx-auto px-6">
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="text-center mb-16">
-            
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Mission */}
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.1,
-            duration: 0.6
-          }}>
-              <Card className="bg-transparent border-2 border-purple-500 h-full hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20">
-                <CardContent className="p-8 text-center">
-                  <div className="text-purple-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSERE MISSION</div>
-                  <p className="text-gray-200 leading-relaxed text-base font-light text-left">Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Vision */}
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.2,
-            duration: 0.6
-          }}>
-              <Card className="bg-transparent border-2 border-blue-500 h-full hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20">
-                <CardContent className="p-8 text-center">
-                  <div className="text-blue-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSERE VISION</div>
-                  <p className="text-gray-200 leading-relaxed font-light text-left">
-                    Wir gestalten eine neue Generation von Marken: automatisiert, strukturiert und sichtbar.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Ziel */}
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.3,
-            duration: 0.6
-          }}>
-              <Card className="bg-transparent border-2 border-yellow-500 h-full hover:border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/20">
-                <CardContent className="p-8 text-center">
-                  <div className="text-yellow-400 text-base sm:text-lg font-semibold mb-4 tracking-wider">UNSER ZIEL</div>
-                  <p className="text-gray-200 leading-relaxed font-light text-left">Menschen und Unternehmen den Zugang zu Innovation bieten - für einfachere und effektivere Abläufe.</p>
-                </CardContent>
-              </Card>
-            </motion.div>
+          {/* ⚡ Animated Grid */}
+          <div className="absolute inset-0 opacity-20">
+            <svg width="100%" height="100%" className="animate-parallax">
+              <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
           </div>
         </div>
-      </section>
 
-      {/* USPs Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
-        <div className="container mx-auto px-6">
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-              Ins Wandel mit <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">New Edge</span>
-            </h2>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto space-y-8">
-            {/* USP 1 */}
-            <motion.div initial={{
-            opacity: 0,
-            x: -30
-          }} whileInView={{
-            opacity: 1,
-            x: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.1,
-            duration: 0.6
-          }} className="flex items-center space-x-6">
-              <div className="flex-shrink-0 w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-medium">01</div>
-              <Card className="flex-1 bg-white/5 border border-white/10">
-                <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-normal">Impact durch Automatisierung</h3>
-                  <p className="text-gray-300">Intelligente Systeme steigern Ihre Effizienz nachhaltig</p>
-                </CardContent>
-              </Card>
+        {/* 🎯 Hero Content */}
+        <motion.div 
+          style={{ y: heroY, opacity: heroOpacity, scale: heroScale }}
+          className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="max-w-6xl mx-auto"
+          >
+            {/* 🏷️ Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-6 py-3 mb-8 glass rounded-full border border-primary/20"
+            >
+              <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+              <span className="text-body-sm text-muted-foreground">Willkommen zur Zukunft des Brandings</span>
             </motion.div>
 
-            {/* USP 2 */}
-            <motion.div initial={{
-            opacity: 0,
-            x: 30
-          }} whileInView={{
-            opacity: 1,
-            x: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.2,
-            duration: 0.6
-          }} className="flex items-center space-x-6">
-              <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-medium">02</div>
-              <Card className="flex-1 bg-white/5 border border-white/10">
-                <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-normal">Marketingexpertise trifft technische Umsetzung</h3>
-                  <p className="text-gray-300">Perfekte Symbiose aus Strategie und Innovation</p>
-                </CardContent>
-              </Card>
-            </motion.div>
+            {/* 🎨 Main Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="text-display-xl font-black mb-6"
+            >
+              <span className="block bg-gradient-primary bg-clip-text text-transparent animate-gradient">
+                BRAND
+              </span>
+              <span className="block text-foreground">
+                INTELLIGENCE
+              </span>
+              <span className="block text-display-lg text-muted-foreground">
+                FOR THE DIGITAL AGE
+              </span>
+            </motion.h1>
 
-            {/* USP 3 */}
-            <motion.div initial={{
-            opacity: 0,
-            x: -30
-          }} whileInView={{
-            opacity: 1,
-            x: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.3,
-            duration: 0.6
-          }} className="flex items-center space-x-6">
-              <div className="flex-shrink-0 w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center text-white text-xl font-medium">03</div>
-              <Card className="flex-1 bg-white/5 border border-white/10">
-                <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-normal">Zugänglichkeit & Klarheit statt Komplexität</h3>
-                  <p className="text-gray-300">Einfache Lösungen für komplexe Herausforderungen</p>
-                </CardContent>
-              </Card>
-            </motion.div>
+            {/* 📝 Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="text-body-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
+            >
+              {t('home.hero.description')} <br/>
+              <span className="text-primary font-medium">{t('home.hero.subtitle')}</span>
+            </motion.p>
 
-            {/* USP 4 */}
-            <motion.div initial={{
-            opacity: 0,
-            x: 30
-          }} whileInView={{
-            opacity: 1,
-            x: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.4,
-            duration: 0.6
-          }} className="flex items-center space-x-6">
-              <div className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-white text-xl font-medium bg-yellow-300">04</div>
-              <Card className="flex-1 bg-white/5 border border-white/10">
-                <CardContent className="p-6">
-                  <h3 className="text-xl text-white mb-2 font-normal">Individuelle Setups ohne Standardbausteine</h3>
-                  <p className="text-gray-300">Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* Network Section */}
-      
-
-      {/* Services Overview */}
-      <section className="services-section relative py-20 bg-gradient-to-b from-black via-gray-900 to-black">
-        <motion.div className="container mx-auto px-6">
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="text-center mb-16">
-            
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
-          </motion.div>
-
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-3 gap-4 sm:gap-6 relative max-w-5xl mx-auto">
-              
-              {/* Studio Card */}
-              <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
-              once: true
-            }} onHoverStart={() => setHoveredCard('studio')} onHoverEnd={() => setHoveredCard(null)} className="relative group" transition={{
-              duration: 0.6
-            }}>
-                <Card className="bg-white/5 border border-white/10 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm h-full min-h-[320px] rounded-xl">
-                  <CardContent className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
-                    
-                    <div className="relative z-10 flex-1 flex flex-col">
-                      <Link to="/studio">
-                        <motion.div whileHover={{
-                        scale: 1.05
-                      }} className="inline-block bg-purple-600 text-white py-3 rounded-lg text-base font-semibold mb-4 px-4 cursor-pointer hover:bg-purple-700 transition-colors">New Edge Studio</motion.div>
-                      </Link>
-                      
-                      <p className="text-white mb-4 leading-relaxed flex-1 text-base text-left">
-                        Das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
-                      </p>
-                      <ul className="space-y-2 text-gray-300 mb-6 text-left text-sm">
-                        <li className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></div>
-                          Strategie & Markenidentität
-                        </li>
-                        <li className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></div>
-                          Visuelles Konzept
-                        </li>
-                        <li className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></div>
-                          Digitale Struktur & Funnel-Logik
-                        </li>
-                      </ul>
-                    </div>
-                    
-                    <motion.div whileHover={{
-                    scale: 1.02
-                  }} whileTap={{
-                    scale: 0.98
-                  }} className="relative z-10 mt-auto">
-                      
-                    </motion.div>
-                  </CardContent>
-                </Card>
-
-              </motion.div>
-
-              {/* Media Card */}
-              <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
-              once: true
-            }} transition={{
-              delay: 0.2,
-              duration: 0.6
-            }} onHoverStart={() => setHoveredCard('media')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-white/5 border border-white/10 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm h-full min-h-[320px] rounded-xl">
-                  <CardContent className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
-                    
-                    <div className="relative z-10 flex-1 flex flex-col">
-                      <Link to="/media">
-                        <motion.div className="inline-block bg-blue-600 text-white px-4 py-3 rounded-lg text-base font-semibold mb-4 cursor-pointer hover:bg-blue-700 transition-colors" whileHover={{
-                        scale: 1.05
-                      }}>
-                          New Edge Media
-                        </motion.div>
-                      </Link>
-                      
-                      <p className="text-white mb-4 leading-relaxed flex-1 text-base text-left">
-                        Produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
-                      </p>
-                      <ul className="space-y-2 text-gray-300 mb-6 text-left text-sm">
-                        <li className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2"></div>
-                          Content-Produktion & Reichweite
-                        </li>
-                         <li className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2"></div>
-                          Paid Kampagnen und SEO
-                        </li>
-                        <li className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2"></div>
-                          Marketing & Sichtbarkeit
-                        </li>
-                        
-                      </ul>
-                    </div>
-                    
-                    <motion.div whileHover={{
-                    scale: 1.02
-                  }} whileTap={{
-                    scale: 0.98
-                  }} className="relative z-10 mt-auto">
-                      
-                    </motion.div>
-                  </CardContent>
-                </Card>
-
-              </motion.div>
-
-              {/* Lab Card */}
-              <motion.div variants={cardVariants} initial="hidden" whileInView="visible" whileHover="hover" viewport={{
-              once: true
-            }} transition={{
-              delay: 0.4,
-              duration: 0.6
-            }} onHoverStart={() => setHoveredCard('lab')} onHoverEnd={() => setHoveredCard(null)} className="relative group">
-                <Card className="bg-white/5 border border-white/10 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm h-full min-h-[320px] rounded-xl">
-                  <CardContent className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
-                    
-                    <div className="relative z-10 flex-1 flex flex-col">
-                      <Link to="/lab">
-                        <motion.div className="inline-block text-black px-4 py-3 rounded-lg text-base font-semibold mb-4 cursor-pointer hover:bg-yellow-400 transition-colors" style={{
-                        background: '#FFED00'
-                      }} whileHover={{
-                        scale: 1.05
-                      }}>
-                          New Edge Lab
-                        </motion.div>
-                      </Link>
-                      
-                      <p className="mb-4 leading-relaxed flex-1 text-base text-white text-left">
-                        Macht aus Ideen reale, funktionierende Systeme – sicher, automatisiert, effizient.
-                      </p>
-                      <ul className="space-y-2 text-gray-300 mb-6 text-left text-sm">
-                        <li className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-2"></div>
-                          KI-Integration & Automation
-                        </li>
-                        <li className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-2"></div>
-                          Backend & Tech-Implementierung
-                        </li>
-                        <li className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-2"></div>
-                          Webentwicklung & Prozessautomatisierung
-                        </li>
-                      </ul>
-                    </div>
-                    
-                    <motion.div whileHover={{
-                    scale: 1.02
-                  }} whileTap={{
-                    scale: 0.98
-                  }} className="relative z-10 mt-auto">
-                      
-                    </motion.div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </div>
-          </div>
-
-          <div className="text-center mt-16">
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.6,
-            duration: 0.6
-          }} whileHover={{
-            scale: 1.02
-          }} whileTap={{
-            scale: 0.98
-          }}>
-              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-8 py-4 transition-all duration-300" asChild>
+            {/* 🔥 CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <Button 
+                onClick={scrollToContact}
+                size="lg"
+                className="group btn-primary hover-magnetic"
+              >
+                Projekt starten
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="btn-secondary hover-glow"
+                asChild
+              >
                 <Link to="/services">
-                  Alle Services entdecken <ArrowRight className="ml-2 h-5 w-5" />
+                  Unsere Services entdecken
                 </Link>
               </Button>
             </motion.div>
-          </div>
+          </motion.div>
+        </motion.div>
+
+        {/* 🔽 Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="flex flex-col items-center gap-2 text-muted-foreground"
+          >
+            <span className="text-body-sm">Scroll to explore</span>
+            <ChevronDown className="w-5 h-5" />
+          </motion.div>
         </motion.div>
       </section>
 
-      {/* Contact Form */}
-      <section id="contact-section" className="py-20 bg-gradient-to-b from-black to-gray-900">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.8
-          }} className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4 text-white">
-                Bereit für den nächsten <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Schritt?</span>
-              </h2>
-              <p className="text-xl text-gray-300">
-                Lassen Sie uns über Ihr Projekt sprechen.
-              </p>
-            </motion.div>
+      {/* 🎯 Services Section */}
+      <section className="section-padding bg-gradient-subtle">
+        <div className="container-xl">
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-display font-bold mb-6">
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Unsere Services
+              </span>
+            </h2>
+            <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
+              Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
+            </p>
+          </motion.div>
 
-            <motion.div initial={{
-            opacity: 0,
-            scale: 0.95
-          }} whileInView={{
-            opacity: 1,
-            scale: 1
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.8
-          }} whileHover={{
-            scale: 1.01
-          }}>
-              <Card className="bg-gray-900/50 border border-purple-500/20 shadow-2xl backdrop-blur-lg">
-                <CardContent className="p-8">
-                  <form action="https://formspree.io/f/xjkrnyon" method="POST" onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
-                    <motion.div initial={{
-                    opacity: 0,
-                    x: -20
-                  }} whileInView={{
-                    opacity: 1,
-                    x: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    delay: 0.1,
-                    duration: 0.5
-                  }} className="space-y-2">
-                      <Label htmlFor="fullname" className="text-white">Vollständiger Name</Label>
-                      <Input name="fullname" id="fullname" required className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-500 transition-all duration-300" placeholder="Max Mustermann" />
-                    </motion.div>
-                    
-                    <motion.div initial={{
-                    opacity: 0,
-                    x: 20
-                  }} whileInView={{
-                    opacity: 1,
-                    x: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    delay: 0.2,
-                    duration: 0.5
-                  }} className="space-y-2">
-                      <Label htmlFor="email" className="text-white">E-Mail Adresse</Label>
-                      <Input name="email" id="email" type="email" required className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-500 transition-all duration-300" placeholder="max@example.com" />
-                    </motion.div>
-                    
-                    <motion.div initial={{
-                    opacity: 0,
-                    x: -20
-                  }} whileInView={{
-                    opacity: 1,
-                    x: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    delay: 0.3,
-                    duration: 0.5
-                  }} className="space-y-2">
-                      <Label htmlFor="company" className="text-white">Firma</Label>
-                      <Input name="company" id="company" className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-500 transition-all duration-300" placeholder="Ihr Unternehmen" />
-                    </motion.div>
-                    
-                    <motion.div initial={{
-                    opacity: 0,
-                    x: 20
-                  }} whileInView={{
-                    opacity: 1,
-                    x: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    delay: 0.4,
-                    duration: 0.5
-                  }} className="space-y-2">
-                      <Label htmlFor="position" className="text-white">Position</Label>
-                      <Input name="position" id="position" className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-500 transition-all duration-300" placeholder="Ihre Position" />
-                    </motion.div>
-                    
-                    <motion.div initial={{
-                    opacity: 0,
-                    y: 20
-                  }} whileInView={{
-                    opacity: 1,
-                    y: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    delay: 0.5,
-                    duration: 0.5
-                  }} className="md:col-span-2 space-y-2">
-                      <Label htmlFor="message" className="text-white">Nachricht (optional)</Label>
-                      <Textarea name="message" id="message" className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400 min-h-[120px] focus:border-purple-500 transition-all duration-300" placeholder="Erzählen Sie uns von Ihrem Projekt..." />
-                    </motion.div>
-                    
-                    <motion.div initial={{
-                    opacity: 0,
-                    y: 20
-                  }} whileInView={{
-                    opacity: 1,
-                    y: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    delay: 0.6,
-                    duration: 0.5
-                  }} className="md:col-span-2">
-                      <motion.div whileHover={{
-                      scale: 1.02
-                    }} whileTap={{
-                      scale: 0.98
-                    }}>
-                        <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300 py-3 text-lg btn-mobile">
-                          Loslegen <ArrowRight className="ml-2 h-5 w-5" />
-                        </Button>
-                      </motion.div>
-                    </motion.div>
-                  </form>
-                </CardContent>
-              </Card>
-            </motion.div>
+          <div className="grid-modern">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2, duration: 0.6 }}
+                className="group"
+              >
+                <Card className="card-modern h-full hover-lift">
+                  <CardContent className="p-8">
+                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <service.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-h3 font-semibold mb-4 text-foreground">
+                      {service.title}
+                    </h3>
+                    <p className="text-body text-muted-foreground leading-relaxed">
+                      {service.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900/80 text-white py-12 sm:py-16 border-t border-gray-800">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
-            <div className="sm:col-span-2">
-              <div className="flex items-center mb-4">
-                <LazyImage alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" sizes="(max-width: 640px) 24px, 32px" />
-                <div className="text-2xl sm:text-3xl font-bold">
-                  New Edge<span className="text-purple-400"></span>
+      {/* 📊 Stats Section */}
+      <section className="section-padding-sm bg-surface">
+        <div className="container-xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                className="text-center group"
+              >
+                <div className="mb-4 flex justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <stat.icon className="w-6 h-6 text-primary" />
+                  </div>
                 </div>
-              </div>
-              <p className="text-gray-400 mb-4 sm:mb-6 max-w-md text-sm sm:text-base">New Edge ist eine Creative-Tech Agentur für innovationsgetriebene Markenkommunikation.</p>
-              <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
-                  <span className="text-xs sm:text-sm">in</span>
-                </a>
-                
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base">Services</h4>
-              <ul className="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
-                <li><Link to="/studio" className="hover:text-white transition-colors">STUDIO</Link></li>
-                <li><Link to="/media" className="hover:text-white transition-colors">MEDIA</Link></li>
-                <li><Link to="/lab" className="hover:text-white transition-colors">LAB</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base">Kontakt</h4>
-              <ul className="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
-                <li>info@newedgebrand.com</li>
-                <li>+49 15750998236</li>
-                <li>Deutschland</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-xs sm:text-sm">©2024 New Edge. Alle Rechte vorbehalten.</p>
-            <div className="flex space-x-4 sm:space-x-6 mt-3 sm:mt-4 md:mt-0">
-              <Link to="/impressum" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">Impressum</Link>
-              
-              
-            </div>
+                <div className="text-h2 font-bold text-foreground mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-body-sm text-muted-foreground">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </footer>
+      </section>
 
-      {/* Cookie Consent */}
+      {/* 📧 Contact Section */}
+      <section id="contact-section" className="section-padding bg-gradient-to-br from-surface via-background to-surface">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-display font-bold mb-6">
+              Bereit für den nächsten Schritt?
+            </h2>
+            <p className="text-body-xl text-muted-foreground">
+              Lassen Sie uns gemeinsam Ihre Vision in die Realität umsetzen.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <Card className="card-modern">
+              <CardContent className="p-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="text-body font-medium">Name</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        placeholder="Ihr Name"
+                        required
+                        className="bg-surface border-border"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-body font-medium">E-Mail</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="ihre@email.com"
+                        required
+                        className="bg-surface border-border"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="text-body font-medium">Nachricht</Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Erzählen Sie uns von Ihrem Projekt..."
+                      rows={6}
+                      required
+                      className="bg-surface border-border resize-none"
+                    />
+                  </div>
+                  <Button 
+                    type="submit" 
+                    size="lg"
+                    className="w-full btn-primary hover-magnetic"
+                  >
+                    Nachricht senden
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 🍪 Cookie Consent */}
       <CookieConsent />
-
-      {/* Scroll to Top Button */}
-      {showScrollTop && <motion.button initial={{
-      opacity: 0,
-      scale: 0
-    }} animate={{
-      opacity: 1,
-      scale: 1
-    }} exit={{
-      opacity: 0,
-      scale: 0
-    }} onClick={() => window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })} className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-purple-600 to-blue-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 btn-mobile" whileHover={{
-      scale: 1.1
-    }} whileTap={{
-      scale: 0.9
-    }}>
-          <ArrowRight className="w-6 h-6 transform -rotate-90" />
-        </motion.button>}
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
