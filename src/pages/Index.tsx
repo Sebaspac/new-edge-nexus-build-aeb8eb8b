@@ -333,8 +333,121 @@ const Index = () => {
         </div>
       </section>
 
+      {/* 🎯 Mission/Vision Section */}
+      <section className="section-padding bg-gradient-subtle">
+        <div className="container-xl">
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-h1 font-bold mb-4 bg-gradient-accent bg-clip-text text-transparent">
+              Ins Wandel mit New Edge
+            </h2>
+          </motion.div>
+
+          <div className="grid-modern">
+            {[
+              {
+                title: "UNSERE MISSION",
+                description: "Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.",
+                icon: Target
+              },
+              {
+                title: "UNSERE VISION", 
+                description: "Wir gestalten eine neue Generation von Marken: automatisiert, strukturiert und sichtbar.",
+                icon: Eye
+              },
+              {
+                title: "UNSER ZIEL",
+                description: "Menschen und Unternehmen den Zugang zu Innovation bieten - für einfachere und effektivere Abläufe.",
+                icon: Rocket
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2, duration: 0.6 }}
+                className="group"
+              >
+                <Card className="card-modern h-full hover-lift">
+                  <CardContent className="p-8">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <item.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-h3 font-semibold mb-4 text-primary">
+                      {item.title}
+                    </h3>
+                    <p className="text-body text-muted-foreground leading-relaxed">
+                      {item.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 🚀 Impact Points Section */}
+      <section className="section-padding bg-surface">
+        <div className="container-xl">
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                number: "01",
+                title: "Impact durch Automatisierung",
+                description: "Intelligente Systeme steigern Ihre Effizienz nachhaltig"
+              },
+              {
+                number: "02", 
+                title: "Marketingexpertise trifft technische Umsetzung",
+                description: "Perfekte Symbiose aus Strategie und Innovation"
+              },
+              {
+                number: "03",
+                title: "Zugänglichkeit & Klarheit statt Komplexität", 
+                description: "Einfache Lösungen für komplexe Herausforderungen"
+              },
+              {
+                number: "04",
+                title: "Individuelle Setups ohne Standardbausteine",
+                description: "Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen"
+              }
+            ].map((point, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+                className="group hover-lift"
+              >
+                <div className="flex items-start gap-6 p-6 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm hover:bg-card transition-all duration-300">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-h3 group-hover:scale-110 transition-transform duration-300">
+                    {point.number}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-h3 font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                      {point.title}
+                    </h3>
+                    <p className="text-body text-muted-foreground leading-relaxed">
+                      {point.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 📊 Stats Section */}
-      <section className="section-padding-sm bg-surface">
+      <section className="section-padding-sm bg-gradient-subtle">
         <div className="container-xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => <motion.div key={index} initial={{
