@@ -384,7 +384,54 @@ const Index = () => {
       </section>
 
       {/* 🚀 Impact Points Section */}
-      
+      <section className="section-padding bg-surface">
+        <div className="container-xl">
+          <div className="grid md:grid-cols-2 gap-8">
+            {[{
+            number: "01",
+            title: "Impact durch Automatisierung",
+            description: "Intelligente Systeme steigern Ihre Effizienz nachhaltig"
+          }, {
+            number: "02",
+            title: "Marketingexpertise trifft technische Umsetzung",
+            description: "Perfekte Symbiose aus Strategie und Innovation"
+          }, {
+            number: "03",
+            title: "Zugänglichkeit & Klarheit statt Komplexität",
+            description: "Einfache Lösungen für komplexe Herausforderungen"
+          }, {
+            number: "04",
+            title: "Individuelle Setups ohne Standardbausteine",
+            description: "Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen"
+          }].map((point, index) => <motion.div key={index} initial={{
+            opacity: 0,
+            x: index % 2 === 0 ? -50 : 50
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: index * 0.15,
+            duration: 0.6
+          }} className="group hover-lift">
+                <div className="flex items-start gap-6 p-6 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm hover:bg-card transition-all duration-300">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-h3 group-hover:scale-110 transition-transform duration-300">
+                    {point.number}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-h3 font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                      {point.title}
+                    </h3>
+                    <p className="text-body text-muted-foreground leading-relaxed">
+                      {point.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>)}
+          </div>
+        </div>
+      </section>
 
       {/* 📊 Stats Section */}
       
