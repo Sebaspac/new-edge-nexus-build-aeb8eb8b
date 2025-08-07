@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Float } from "@react-three/drei";
 import * as THREE from "three";
-import { ArrowRight, ArrowDown, ChevronDown, Palette, Video, Cpu, Star, Zap, Target, Brain, Eye } from "lucide-react";
+import { ArrowRight, ArrowDown, ChevronDown, Sparkles, Brain, Zap, Star, Target, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
@@ -292,7 +292,7 @@ const Services = () => {
                 <Card className="card-modern h-full hover-lift">
                   <CardContent className="p-8">
                     <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-primary-dark p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <Palette className="w-8 h-8 text-white" />
+                      <Sparkles className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-h3 font-semibold mb-4 text-foreground">
                       NEW EDGE STUDIO
@@ -324,7 +324,7 @@ const Services = () => {
                 <Card className="card-modern h-full hover-lift">
                   <CardContent className="p-8">
                     <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-accent-dark p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <Video className="w-8 h-8 text-white" />
+                      <Brain className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-h3 font-semibold mb-4 text-foreground">
                       NEW EDGE MEDIA
@@ -356,7 +356,7 @@ const Services = () => {
                 <Card className="card-modern h-full hover-lift">
                   <CardContent className="p-8">
                     <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary to-secondary-dark p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <Cpu className="w-8 h-8 text-white" />
+                      <Zap className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-h3 font-semibold mb-4 text-foreground">
                       NEW EDGE LAB
