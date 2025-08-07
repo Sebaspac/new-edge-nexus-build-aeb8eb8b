@@ -266,61 +266,6 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* 🎯 Services Section */}
-      <section className="section-padding bg-gradient-subtle">
-        <div className="container-xl">
-          <motion.div initial={{
-          opacity: 0,
-          y: 60
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="text-center mb-16">
-            <h2 className="text-display font-bold mb-6">
-              <span className="bg-gradient-accent bg-clip-text text-transparent">
-                Unsere Services
-              </span>
-            </h2>
-            <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
-              Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
-            </p>
-          </motion.div>
-
-          <div className="grid-modern">
-            {services.map((service, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 60
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: index * 0.2,
-            duration: 0.6
-          }} className="group">
-                <Card className="card-modern h-full hover-lift">
-                  <CardContent className="p-8">
-                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                      <service.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-h3 font-semibold mb-4 text-foreground">
-                      {service.title}
-                    </h3>
-                    <p className="text-body text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>)}
-          </div>
-        </div>
-      </section>
-
       {/* 🎯 Mission/Vision Section */}
       <section className="section-padding bg-gradient-subtle">
         <div className="container-xl">
@@ -375,6 +320,61 @@ const Index = () => {
                     </h3>
                     <p className="text-body text-muted-foreground leading-relaxed">
                       {item.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>)}
+          </div>
+        </div>
+      </section>
+
+      {/* 🎯 Services Section */}
+      <section className="section-padding bg-gradient-subtle">
+        <div className="container-xl">
+          <motion.div initial={{
+          opacity: 0,
+          y: 60
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="text-center mb-16">
+            <h2 className="text-display font-bold mb-6">
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Unsere Services
+              </span>
+            </h2>
+            <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
+              Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
+            </p>
+          </motion.div>
+
+          <div className="grid-modern">
+            {services.map((service, index) => <motion.div key={index} initial={{
+            opacity: 0,
+            y: 60
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: index * 0.2,
+            duration: 0.6
+          }} className="group">
+                <Card className="card-modern h-full hover-lift">
+                  <CardContent className="p-8">
+                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <service.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-h3 font-semibold mb-4 text-foreground">
+                      {service.title}
+                    </h3>
+                    <p className="text-body text-muted-foreground leading-relaxed">
+                      {service.description}
                     </p>
                   </CardContent>
                 </Card>
