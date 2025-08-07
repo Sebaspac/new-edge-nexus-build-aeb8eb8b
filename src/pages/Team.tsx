@@ -95,257 +95,320 @@ const Team = () => {
       </Helmet>
 
       {/* Mobile Navigation */}
-      <MobileNavigation onContactClick={scrollToContact} theme="light" />
+      <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
-      <div className="min-h-screen bg-white" ref={containerRef}>
+      <div className="min-h-screen bg-background overflow-x-hidden" ref={containerRef}>
         {/* Hero Section */}
-        <section className="relative h-screen flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0" style={{
-          backgroundImage: "url('/lovable-uploads/2d88dc02-55ec-4dd1-ae07-1ac7b7ced67b.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center"
-        }}>
-            <div className="absolute inset-0 bg-black/30"></div>
+        <section className="hero-section relative">
+          {/* 🌌 Animated Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-surface-elevated">
+            {/* ✨ Floating Orbs */}
+            <motion.div 
+              className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" 
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.6, 0.3],
+                rotate: [0, 180, 360]
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <motion.div 
+              className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-secondary/20 rounded-full blur-3xl" 
+              animate={{
+                scale: [1.2, 1, 1.2],
+                opacity: [0.6, 0.3, 0.6],
+                rotate: [360, 180, 0]
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 4
+              }}
+            />
+            <motion.div 
+              className="absolute top-1/2 right-1/4 w-64 h-64 bg-accent/15 rounded-full blur-2xl" 
+              animate={{
+                x: [0, 50, 0],
+                y: [0, -30, 0],
+                scale: [1, 0.8, 1]
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+
+            {/* 🌊 Gradient Mesh */}
+            <div className="absolute inset-0 bg-gradient-glow opacity-50" />
+            
+            {/* ⚡ Animated Grid */}
+            <div className="absolute inset-0 opacity-20">
+              <svg width="100%" height="100%" className="animate-parallax">
+                <defs>
+                  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+              </svg>
+            </div>
+            
+            {/* Team Background Image with Overlay */}
+            <div className="absolute inset-0 z-0" style={{
+              backgroundImage: "url('/lovable-uploads/2d88dc02-55ec-4dd1-ae07-1ac7b7ced67b.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              opacity: 0.3
+            }}>
+              <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-surface/60 to-surface-elevated/80"></div>
+            </div>
           </div>
           
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 1
-        }} className="relative z-10 text-center text-white px-6">
-            <h1 className="text-4xl md:text-7xl font-semibold mb-6 leading-tight">
-              Unser Team
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 1 }} 
+            className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center"
+          >
+            <h1 className="text-display-xl font-black mb-6">
+              <span className="block bg-gradient-primary bg-clip-text text-transparent animate-gradient">
+                UNSER
+              </span>
+              <span className="block text-foreground">
+                TEAM
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed">
+            <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Experten für Strategie, Content & Technologie
             </p>
           </motion.div>
         </section>
 
-          {/* Founders Section - Apple Card Style */}
-        <section className="py-20 px-6 bg-white">
-          <div className="max-w-6xl mx-auto">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-gray-900">
-                Die Gründer
+        {/* Founders Section */}
+        <section className="section-padding bg-surface">
+          <div className="container-xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              className="text-center mb-16"
+            >
+              <h2 className="text-display font-bold mb-6">
+                <span className="bg-gradient-primary bg-clip-text text-transparent">
+                  Die Gründer
+                </span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
+              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-              {founders.map((founder, index) => <motion.div key={founder.name} initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: index * 0.1
-            }} className="text-center">
-                  <div className="relative mb-8">
-                    <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-gray-100 shadow-lg">
-                      <img src={founder.image} alt={`${founder.name} - ${founder.role}`} className="w-full h-full object-cover" loading="lazy" />
+              {founders.map((founder, index) => (
+                <motion.div 
+                  key={founder.name} 
+                  initial={{ opacity: 0, y: 30 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.6, delay: index * 0.1 }} 
+                  className="group hover-lift"
+                >
+                  <Card className="card-modern h-full text-center">
+                    <div className="p-8">
+                      <div className="relative mb-8">
+                        <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-border/20 shadow-lg group-hover:border-primary/30 transition-colors duration-300">
+                          <img 
+                            src={founder.image} 
+                            alt={`${founder.name} - ${founder.role}`} 
+                            className="w-full h-full object-cover" 
+                            loading="lazy" 
+                          />
+                        </div>
+                      </div>
+                      
+                      <h3 className="text-h3 font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+                        {founder.name}
+                      </h3>
+                      <p className="text-primary font-medium mb-6">{founder.role}</p>
+                      
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        {founder.expertise.map((skill, skillIndex) => (
+                          <span key={skillIndex} className="px-3 py-1 bg-surface-elevated/50 text-muted-foreground rounded-full text-sm font-medium border border-border/30">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  
-                  <h3 className="text-2xl font-semibold mb-2 text-gray-900">{founder.name}</h3>
-                  <p className="text-blue-600 font-medium mb-4">{founder.role}</p>
-                  
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {founder.expertise.map((skill, skillIndex) => <span key={skillIndex} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
-                        {skill}
-                      </span>)}
-                  </div>
-                </motion.div>)}
+                  </Card>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Network Stats - Apple Minimalist Style */}
-        <section className="py-20 px-6 bg-gray-50/50">
-          <div className="max-w-6xl mx-auto">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center mb-16">
-              <h2 className="text-3xl font-semibold mb-6 text-gray-900 text-center md:text-5xl">
+        {/* Network Stats */}
+        <section className="section-padding bg-gradient-subtle">
+          <div className="container-xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              className="text-center mb-16"
+            >
+              <h2 className="text-display font-bold mb-6 bg-gradient-accent bg-clip-text text-transparent">
                 Unser Netzwerk
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed text-left">
+              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Ein starkes Team aus Experten, Coaches und Partnern – 
                 für jede Herausforderung die richtige Expertise.
               </p>
             </motion.div>
 
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
-              {networkStats.map((stat, index) => <motion.div key={stat.label} initial={{
-              opacity: 0,
-              scale: 0.9
-            }} whileInView={{
-              opacity: 1,
-              scale: 1
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.4,
-              delay: index * 0.05
-            }} className="text-center">
-                  <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
-                    <stat.icon className={`w-8 h-8 mx-auto mb-4 ${stat.color}`} />
-                    <div className="text-3xl font-semibold text-gray-900 mb-1">{stat.value}</div>
-                    <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-                  </div>
-                </motion.div>)}
+              {networkStats.map((stat, index) => (
+                <motion.div 
+                  key={stat.label} 
+                  initial={{ opacity: 0, scale: 0.9 }} 
+                  whileInView={{ opacity: 1, scale: 1 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.4, delay: index * 0.05 }} 
+                  className="group hover-lift"
+                >
+                  <Card className="card-modern text-center h-full">
+                    <div className="p-6">
+                      <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-primary p-3 group-hover:scale-110 transition-transform duration-300">
+                        <stat.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="text-h2 font-semibold text-foreground mb-1">{stat.value}</div>
+                      <div className="text-body-sm text-muted-foreground font-medium">{stat.label}</div>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Experience Section */}
-        <section className="py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center mb-16">
-              
-              
-              
-              
-              {/* Image */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.8
-            }} className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-                <img src="/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png" alt="Wenjamin Zabezhanskiy - Wir öffnen Innovationsräume, übersetzen Spitzentechnologie und machen Zukunft so für jedes Team nutzbar" className="w-full h-auto object-cover" loading="lazy" />
-              </motion.div>
+        <section className="section-padding bg-background">
+          <div className="container-xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.8 }} 
+              className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]"
+            >
+              <img 
+                src="/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png" 
+                alt="Wenjamin Zabezhanskiy - Wir öffnen Innovationsräume, übersetzen Spitzentechnologie und machen Zukunft so für jedes Team nutzbar" 
+                className="w-full h-auto object-cover" 
+                loading="lazy" 
+              />
             </motion.div>
           </div>
         </section>
 
-        {/* Process Connection - Apple Dark Theme */}
-        <section className="py-20 px-6 bg-gray-900 text-white">
-          <div className="max-w-6xl mx-auto">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center mb-16">
-              <h2 className="text-3xl font-semibold mb-6 md:text-4xl text-center">
+        {/* Process Connection */}
+        <section className="section-padding bg-surface-elevated">
+          <div className="container-xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              className="text-center mb-16"
+            >
+              <h2 className="text-display font-bold mb-6 text-foreground">
                 Know-how trifft Prozess
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed text-left">
+              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Unser Team bringt sein Fachwissen gezielt in jede Phase ein – 
                 von der Strategie bis zur Technologie-Umsetzung.
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {[{
-              phase: "Studio",
-              title: "Strategie & Beratung",
-              description: "Unsere Strategy Leads und Coaches entwickeln maßgeschneiderte Markenstrategien.",
-              team: "Strategy Leads, Brand Coaches"
-            }, {
-              phase: "Media",
-              title: "Content & Kreation",
-              description: "Unsere Content-Teams kreieren Inhalte – kreativ, datenbasiert und KI-gestützt.",
-              team: "Creative Directors, Content Specialists"
-            }, {
-              phase: "Lab",
-              title: "Technologie & Innovation",
-              description: "Unsere Entwickler und Tech-Experten bringen Ihre Visionen zum Leben.",
-              team: "Lead Developers, Tech Innovators"
-            }].map((item, index) => <motion.div key={item.phase} initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: index * 0.1
-            }} className="text-center">
-                  <div className="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:bg-gray-800/80 transition-all duration-300 py-[4px]">
-                    
-                    <h3 className="text-2xl font-semibold mb-4 text-white">{item.title}</h3>
-                    <p className="text-gray-300 mb-6 font-light leading-relaxed text-left">{item.description}</p>
-                    <p className="text-sm text-blue-400 font-medium">{item.team}</p>
-                  </div>
-                </motion.div>)}
+              {[
+                {
+                  phase: "Studio",
+                  title: "Strategie & Beratung",
+                  description: "Unsere Strategy Leads und Coaches entwickeln maßgeschneiderte Markenstrategien.",
+                  team: "Strategy Leads, Brand Coaches"
+                },
+                {
+                  phase: "Media",
+                  title: "Content & Kreation",
+                  description: "Unsere Content-Teams kreieren Inhalte – kreativ, datenbasiert und KI-gestützt.",
+                  team: "Creative Directors, Content Specialists"
+                },
+                {
+                  phase: "Lab",
+                  title: "Technologie & Innovation",
+                  description: "Unsere Entwickler und Tech-Experten bringen Ihre Visionen zum Leben.",
+                  team: "Lead Developers, Tech Innovators"
+                }
+              ].map((item, index) => (
+                <motion.div 
+                  key={item.phase} 
+                  initial={{ opacity: 0, y: 30 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.6, delay: index * 0.1 }} 
+                  className="group hover-lift"
+                >
+                  <Card className="card-modern h-full bg-card/80 backdrop-blur-sm border-border/50 hover:bg-card transition-all duration-300">
+                    <div className="p-8 text-center">
+                      <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-body text-muted-foreground mb-6 leading-relaxed">
+                        {item.description}
+                      </p>
+                      <p className="text-body-sm text-primary font-medium">{item.team}</p>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section - Apple Style */}
-        <section className="py-24 px-6 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center">
-              <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-gray-900">
-                Bereit für Ihr Projekt?
+        {/* CTA Section */}
+        <section className="section-padding bg-gradient-to-br from-surface via-background to-surface">
+          <div className="container-narrow">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              className="text-center"
+            >
+              <h2 className="text-display font-bold mb-6">
+                <span className="bg-gradient-primary bg-clip-text text-transparent">
+                  Bereit für Ihr Projekt?
+                </span>
               </h2>
-              <p className="text-xl text-gray-600 mb-12 font-light leading-relaxed max-w-2xl mx-auto text-left">
+              <p className="text-body-xl text-muted-foreground mb-12 leading-relaxed max-w-2xl mx-auto">
                 Lernen Sie uns persönlich kennen und erfahren Sie, 
                 wie unser Team Ihre Marke zum Erfolg führt.
               </p>
               
-              <motion.div animate={contactClick ? {
-              scale: 0.98
-            } : {
-              scale: 1
-            }} transition={{
-              duration: 0.1
-            }}>
-                <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-full border-0 font-medium shadow-lg hover:shadow-xl transition-all duration-300">
+              <motion.div 
+                animate={contactClick ? { scale: 0.98 } : { scale: 1 }} 
+                transition={{ duration: 0.1 }}
+              >
+                <Button 
+                  size="lg" 
+                  onClick={handleContactClick} 
+                  className="btn-primary hover-magnetic group"
+                >
                   Lernen Sie uns kennen
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
               </motion.div>
             </motion.div>
