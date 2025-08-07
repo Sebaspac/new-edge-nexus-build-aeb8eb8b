@@ -182,19 +182,7 @@ const Index = () => {
           ease: "easeOut"
         }} className="max-w-6xl mx-auto">
             {/* 🏷️ Badge */}
-            <motion.div initial={{
-            opacity: 0,
-            scale: 0.8
-          }} animate={{
-            opacity: 1,
-            scale: 1
-          }} transition={{
-            delay: 0.2,
-            duration: 0.6
-          }} className="inline-flex items-center gap-2 px-6 py-3 mb-8 glass rounded-full border border-primary/20">
-              <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-body-sm text-muted-foreground">Willkommen zur Zukunft des Brandings</span>
-            </motion.div>
+            
 
             {/* 🎨 Main Headline */}
             <motion.h1 initial={{
