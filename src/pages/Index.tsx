@@ -469,19 +469,31 @@ const Index = () => {
             <Card className="card-modern">
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-6">
                     <div className="space-y-2">
-                      <Label htmlFor="name" className="text-body font-medium">Name</Label>
+                      <Label htmlFor="name" className="text-body font-medium">Name *</Label>
                       <Input id="name" name="name" placeholder="Ihr Name" required className="bg-surface border-border" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-body font-medium">E-Mail</Label>
+                      <Label htmlFor="email" className="text-body font-medium">E-Mail *</Label>
                       <Input id="email" name="email" type="email" placeholder="ihre@email.com" required className="bg-surface border-border" />
                     </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-body font-medium">Nachricht</Label>
-                    <Textarea id="message" name="message" placeholder="Erzählen Sie uns von Ihrem Projekt..." rows={6} required className="bg-surface border-border resize-none" />
+                    <div className="space-y-2">
+                      <Label htmlFor="position" className="text-body font-medium">Position *</Label>
+                      <Input id="position" name="position" placeholder="Ihre Position" required className="bg-surface border-border" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="company" className="text-body font-medium">Firma *</Label>
+                      <Input id="company" name="company" placeholder="Ihr Unternehmen" required className="bg-surface border-border" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="phone" className="text-body font-medium">Telefon</Label>
+                      <Input id="phone" name="phone" type="tel" placeholder="Ihre Telefonnummer" className="bg-surface border-border" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="message" className="text-body font-medium">Nachricht</Label>
+                      <Textarea id="message" name="message" placeholder="Erzählen Sie uns von Ihrem Projekt..." rows={6} className="bg-surface border-border resize-none" />
+                    </div>
                   </div>
                   <Button type="submit" size="lg" className="w-full btn-primary hover-magnetic">
                     Nachricht senden
