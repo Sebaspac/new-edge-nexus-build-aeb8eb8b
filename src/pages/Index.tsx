@@ -54,33 +54,26 @@ const Index = () => {
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
     
-    // Log all form fields to debug
-    console.log('Raw FormData entries:');
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: "${value}"`);
-    }
-    
-    // Convert FormData to JSON for the webhook - ensure ALL fields are captured
+    // Convert FormData to JSON for the webhook
     const data = {
-      name: formData.get('name')?.toString() || '',
-      email: formData.get('email')?.toString() || '',
-      position: formData.get('position')?.toString() || '',
-      company: formData.get('company')?.toString() || '',
-      phone: formData.get('phone')?.toString() || '',
-      message: formData.get('message')?.toString() || ''
+      name: formData.get('name'),
+      email: formData.get('email'),
+      position: formData.get('position'),
+      company: formData.get('company'),
+      phone: formData.get('phone'),
+      message: formData.get('message')
     };
     
-    console.log('Complete data object to send to webhook:', data);
-    console.log('Phone (telefon):', data.phone);
-    console.log('Company (firma):', data.company);
-    console.log('Message (nachricht):', data.message);
+    console.log('Form data to send:', data);
     
     try {
       console.log('Attempting to send to webhook...');
       const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+      name, email, position, firma, telefon, nachricht,
+      website: "" // Honeypot leer lassen
         },
         body: JSON.stringify(data)
       });
