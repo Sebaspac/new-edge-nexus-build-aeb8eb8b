@@ -11,24 +11,22 @@ import { toast } from "@/hooks/use-toast";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
+
 const Index = () => {
-  const {
-    t
-  } = useLanguage();
+  const { t } = useLanguage();
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0
   });
   const [activeSection, setActiveSection] = useState(0);
-  const {
-    scrollY
-  } = useScroll();
+  const { scrollY } = useScroll();
   const containerRef = useRef<HTMLDivElement>(null);
 
   // 🎭 Parallax transforms
   const heroY = useTransform(scrollY, [0, 1000], [0, -200]);
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
   const heroScale = useTransform(scrollY, [0, 500], [1, 0.9]);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
@@ -39,6 +37,7 @@ const Index = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
@@ -47,6 +46,8 @@ const Index = () => {
       });
     }
   };
+
+  // ✅ KORRIGIERTE handleSubmit Funktion - alle 6 Felder werden korrekt übertragen
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted - handleSubmit called');
@@ -60,20 +61,20 @@ const Index = () => {
       console.log(`${key}: "${value}"`);
     }
     
-    // Convert FormData to JSON for the webhook - ensure ALL fields are captured
+    // ✅ KORRIGIERT: Deutsche Feldnamen für Webhook + korrekte Feldzuordnung
     const data = {
       name: formData.get('name')?.toString() || '',
       email: formData.get('email')?.toString() || '',
       position: formData.get('position')?.toString() || '',
-      firma: formData.get('firma')?.toString() || '',
-      telefon: formData.get('telefon')?.toString() || '',
-      nachricht: formData.get('nachricht')?.toString() || ''
+      firma: formData.get('firma')?.toString() || '',        // ← firma (nicht company!)
+      telefon: formData.get('telefon')?.toString() || '',    // ← telefon (nicht phone!)
+      nachricht: formData.get('nachricht')?.toString() || '' // ← nachricht (nicht message!)
     };
     
     console.log('Complete data object to send to webhook:', data);
-    console.log('Phone (telefon):', data.telefon);
-    console.log('Company (firma):', data.firma);
-    console.log('Message (nachricht):', data.nachricht);
+    console.log('Firma:', data.firma);
+    console.log('Telefon:', data.telefon);
+    console.log('Nachricht:', data.nachricht);
     
     try {
       console.log('Attempting to send to webhook...');
@@ -111,6 +112,7 @@ const Index = () => {
       });
     }
   }, []);
+
   const services = [{
     icon: Brain,
     title: "Media Intelligence",
@@ -127,6 +129,7 @@ const Index = () => {
     description: "Intelligente Systeme und Workflows für maximale Effizienz.",
     gradient: "from-accent to-primary"
   }];
+
   const stats = [{
     number: "150+",
     label: "Projekte realisiert",
@@ -144,7 +147,9 @@ const Index = () => {
     label: "Support verfügbar",
     icon: Users
   }];
-  return <div ref={containerRef} className="min-h-screen bg-background overflow-x-hidden">
+
+  return (
+    <div ref={containerRef} className="min-h-screen bg-background overflow-x-hidden">
       {/* 📱 Mobile Navigation */}
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
@@ -153,34 +158,46 @@ const Index = () => {
         {/* 🌌 Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-surface-elevated">
           {/* ✨ Floating Orbs */}
-          <motion.div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3],
-          rotate: [0, 180, 360]
-        }} transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
-          <motion.div className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-secondary/20 rounded-full blur-3xl" animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.6, 0.3, 0.6],
-          rotate: [360, 180, 0]
-        }} transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 4
-        }} />
-          <motion.div className="absolute top-1/2 right-1/4 w-64 h-64 bg-accent/15 rounded-full blur-2xl" animate={{
-          x: [0, 50, 0],
-          y: [0, -30, 0],
-          scale: [1, 0.8, 1]
-        }} transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
+          <motion.div 
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" 
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+              rotate: [0, 180, 360]
+            }} 
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }} 
+          />
+          <motion.div 
+            className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-secondary/20 rounded-full blur-3xl" 
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.6, 0.3, 0.6],
+              rotate: [360, 180, 0]
+            }} 
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 4
+            }} 
+          />
+          <motion.div 
+            className="absolute top-1/2 right-1/4 w-64 h-64 bg-accent/15 rounded-full blur-2xl" 
+            animate={{
+              x: [0, 50, 0],
+              y: [0, -30, 0],
+              scale: [1, 0.8, 1]
+            }} 
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }} 
+          />
 
           {/* 🌊 Gradient Mesh */}
           <div className="absolute inset-0 bg-gradient-glow opacity-50" />
@@ -199,35 +216,45 @@ const Index = () => {
         </div>
 
         {/* 🎯 Hero Content */}
-        <motion.div style={{
-        y: heroY,
-        opacity: heroOpacity,
-        scale: heroScale
-      }} className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center">
-          <motion.div initial={{
-          opacity: 0,
-          y: 100
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 1,
-          ease: "easeOut"
-        }} className="max-w-6xl mx-auto">
-            {/* 🏷️ Badge */}
-            
-
+        <motion.div 
+          style={{
+            y: heroY,
+            opacity: heroOpacity,
+            scale: heroScale
+          }} 
+          className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center"
+        >
+          <motion.div 
+            initial={{
+              opacity: 0,
+              y: 100
+            }} 
+            animate={{
+              opacity: 1,
+              y: 0
+            }} 
+            transition={{
+              duration: 1,
+              ease: "easeOut"
+            }} 
+            className="max-w-6xl mx-auto"
+          >
             {/* 🎨 Main Headline */}
-            <motion.h1 initial={{
-            opacity: 0,
-            y: 50
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.4,
-            duration: 0.8
-          }} className="text-display-xl font-black mb-6">
+            <motion.h1 
+              initial={{
+                opacity: 0,
+                y: 50
+              }} 
+              animate={{
+                opacity: 1,
+                y: 0
+              }} 
+              transition={{
+                delay: 0.4,
+                duration: 0.8
+              }} 
+              className="text-display-xl font-black mb-6"
+            >
               <span className="block bg-gradient-primary bg-clip-text text-transparent animate-gradient">
                 BRAND
               </span>
@@ -240,31 +267,41 @@ const Index = () => {
             </motion.h1>
 
             {/* 📝 Description */}
-            <motion.p initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.6,
-            duration: 0.8
-          }} className="text-body-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
+            <motion.p 
+              initial={{
+                opacity: 0,
+                y: 30
+              }} 
+              animate={{
+                opacity: 1,
+                y: 0
+              }} 
+              transition={{
+                delay: 0.6,
+                duration: 0.8
+              }} 
+              className="text-body-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
+            >
               {t('home.hero.description')} <br />
               <span className="text-primary font-medium">{t('home.hero.subtitle')}</span>
             </motion.p>
 
             {/* 🔥 CTA Buttons */}
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.8,
-            duration: 0.6
-          }} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <motion.div 
+              initial={{
+                opacity: 0,
+                y: 20
+              }} 
+              animate={{
+                opacity: 1,
+                y: 0
+              }} 
+              transition={{
+                delay: 0.8,
+                duration: 0.6
+              }} 
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
               <Button onClick={scrollToContact} size="lg" className="group btn-primary hover-magnetic">
                 Projekt starten
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
@@ -279,20 +316,29 @@ const Index = () => {
         </motion.div>
 
         {/* 🔽 Scroll Indicator */}
-        <motion.div initial={{
-        opacity: 0
-      }} animate={{
-        opacity: 1
-      }} transition={{
-        delay: 1.2,
-        duration: 0.6
-      }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <motion.div animate={{
-          y: [0, 10, 0]
-        }} transition={{
-          duration: 2,
-          repeat: Infinity
-        }} className="flex flex-col items-center gap-2 text-muted-foreground">
+        <motion.div 
+          initial={{
+            opacity: 0
+          }} 
+          animate={{
+            opacity: 1
+          }} 
+          transition={{
+            delay: 1.2,
+            duration: 0.6
+          }} 
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        >
+          <motion.div 
+            animate={{
+              y: [0, 10, 0]
+            }} 
+            transition={{
+              duration: 2,
+              repeat: Infinity
+            }} 
+            className="flex flex-col items-center gap-2 text-muted-foreground"
+          >
             <span className="text-body-sm">Scroll to explore</span>
             <ChevronDown className="w-5 h-5" />
           </motion.div>
@@ -302,45 +348,61 @@ const Index = () => {
       {/* 🎯 Mission/Vision Section */}
       <section className="section-padding bg-gradient-subtle">
         <div className="container-xl">
-          <motion.div initial={{
-          opacity: 0,
-          y: 60
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="text-center mb-16">
-            <h2 className="text-h1 font-bold mb-4 bg-gradient-accent bg-clip-text text-transparent">In den Wandel mit New Edge</h2>
+          <motion.div 
+            initial={{
+              opacity: 0,
+              y: 60
+            }} 
+            whileInView={{
+              opacity: 1,
+              y: 0
+            }} 
+            viewport={{
+              once: true
+            }} 
+            transition={{
+              duration: 0.8
+            }} 
+            className="text-center mb-16"
+          >
+            <h2 className="text-h1 font-bold mb-4 bg-gradient-accent bg-clip-text text-transparent">
+              In den Wandel mit New Edge
+            </h2>
           </motion.div>
 
           <div className="grid-modern">
             {[{
-            title: "UNSERE MISSION",
-            description: "Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.",
-            icon: Target
-          }, {
-            title: "UNSERE VISION",
-            description: "Wir gestalten eine neue Generation von Marken: automatisiert, strukturiert und sichtbar.",
-            icon: Eye
-          }, {
-            title: "UNSER ZIEL",
-            description: "Menschen und Unternehmen den Zugang zu Innovation bieten - für einfachere und effektivere Abläufe.",
-            icon: Rocket
-          }].map((item, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 60
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: index * 0.2,
-            duration: 0.6
-          }} className="group">
+              title: "UNSERE MISSION",
+              description: "Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.",
+              icon: Target
+            }, {
+              title: "UNSERE VISION",
+              description: "Wir gestalten eine neue Generation von Marken: automatisiert, strukturiert und sichtbar.",
+              icon: Eye
+            }, {
+              title: "UNSER ZIEL",
+              description: "Menschen und Unternehmen den Zugang zu Innovation bieten - für einfachere und effektivere Abläufe.",
+              icon: Rocket
+            }].map((item, index) => (
+              <motion.div 
+                key={index} 
+                initial={{
+                  opacity: 0,
+                  y: 60
+                }} 
+                whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} 
+                viewport={{
+                  once: true
+                }} 
+                transition={{
+                  delay: index * 0.2,
+                  duration: 0.6
+                }} 
+                className="group"
+              >
                 <Card className="card-modern h-full hover-lift">
                   <CardContent className="p-8">
                     <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -354,7 +416,8 @@ const Index = () => {
                     </p>
                   </CardContent>
                 </Card>
-              </motion.div>)}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -362,17 +425,23 @@ const Index = () => {
       {/* 🎯 Services Section */}
       <section className="section-padding bg-gradient-subtle">
         <div className="container-xl">
-          <motion.div initial={{
-          opacity: 0,
-          y: 60
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="text-center mb-16">
+          <motion.div 
+            initial={{
+              opacity: 0,
+              y: 60
+            }} 
+            whileInView={{
+              opacity: 1,
+              y: 0
+            }} 
+            viewport={{
+              once: true
+            }} 
+            transition={{
+              duration: 0.8
+            }} 
+            className="text-center mb-16"
+          >
             <h2 className="text-display font-bold mb-6">
               <span className="bg-gradient-accent bg-clip-text text-transparent">
                 Unsere Services
@@ -384,18 +453,26 @@ const Index = () => {
           </motion.div>
 
           <div className="grid-modern">
-            {services.map((service, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 60
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: index * 0.2,
-            duration: 0.6
-          }} className="group">
+            {services.map((service, index) => (
+              <motion.div 
+                key={index} 
+                initial={{
+                  opacity: 0,
+                  y: 60
+                }} 
+                whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} 
+                viewport={{
+                  once: true
+                }} 
+                transition={{
+                  delay: index * 0.2,
+                  duration: 0.6
+                }} 
+                className="group"
+              >
                 <Card className="card-modern h-full hover-lift">
                   <CardContent className="p-8">
                     <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`}>
@@ -409,7 +486,8 @@ const Index = () => {
                     </p>
                   </CardContent>
                 </Card>
-              </motion.div>)}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -419,33 +497,41 @@ const Index = () => {
         <div className="container-xl">
           <div className="grid md:grid-cols-2 gap-8">
             {[{
-            number: "01",
-            title: "Impact durch Automatisierung",
-            description: "Intelligente Systeme steigern Ihre Effizienz nachhaltig"
-          }, {
-            number: "02",
-            title: "Marketingexpertise trifft technische Umsetzung",
-            description: "Perfekte Symbiose aus Strategie und Innovation"
-          }, {
-            number: "03",
-            title: "Zugänglichkeit & Klarheit statt Komplexität",
-            description: "Einfache Lösungen für komplexe Herausforderungen"
-          }, {
-            number: "04",
-            title: "Individuelle Setups ohne Standardbausteine",
-            description: "Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen"
-          }].map((point, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            x: index % 2 === 0 ? -50 : 50
-          }} whileInView={{
-            opacity: 1,
-            x: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: index * 0.15,
-            duration: 0.6
-          }} className="group hover-lift">
+              number: "01",
+              title: "Impact durch Automatisierung",
+              description: "Intelligente Systeme steigern Ihre Effizienz nachhaltig"
+            }, {
+              number: "02",
+              title: "Marketingexpertise trifft technische Umsetzung",
+              description: "Perfekte Symbiose aus Strategie und Innovation"
+            }, {
+              number: "03",
+              title: "Zugänglichkeit & Klarheit statt Komplexität",
+              description: "Einfache Lösungen für komplexe Herausforderungen"
+            }, {
+              number: "04",
+              title: "Individuelle Setups ohne Standardbausteine",
+              description: "Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen"
+            }].map((point, index) => (
+              <motion.div 
+                key={index} 
+                initial={{
+                  opacity: 0,
+                  x: index % 2 === 0 ? -50 : 50
+                }} 
+                whileInView={{
+                  opacity: 1,
+                  x: 0
+                }} 
+                viewport={{
+                  once: true
+                }} 
+                transition={{
+                  delay: index * 0.15,
+                  duration: 0.6
+                }} 
+                className="group hover-lift"
+              >
                 <div className="flex items-start gap-6 p-6 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm hover:bg-card transition-all duration-300">
                   <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-h3 group-hover:scale-110 transition-transform duration-300">
                     {point.number}
@@ -459,73 +545,132 @@ const Index = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>)}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 📊 Stats Section */}
-      
-
-      {/* 📧 Contact Section */}
+      {/* 📧 Contact Section - ✅ KORRIGIERTE FELDNAMEN */}
       <section id="contact-section" className="section-padding bg-gradient-to-br from-surface via-background to-surface">
         <div className="container-narrow">
-          <motion.div initial={{
-          opacity: 0,
-          y: 60
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="text-center mb-12">
+          <motion.div 
+            initial={{
+              opacity: 0,
+              y: 60
+            }} 
+            whileInView={{
+              opacity: 1,
+              y: 0
+            }} 
+            viewport={{
+              once: true
+            }} 
+            transition={{
+              duration: 0.8
+            }} 
+            className="text-center mb-12"
+          >
             <h2 className="text-display font-bold mb-6">
               Bereit für den nächsten Schritt?
             </h2>
-            <p className="text-body-xl text-muted-foreground">Ready when you are. Wir bringen’s online.</p>
+            <p className="text-body-xl text-muted-foreground">
+              Ready when you are. Wir bringen's online.
+            </p>
           </motion.div>
 
-          <motion.div initial={{
-          opacity: 0,
-          y: 40
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          delay: 0.2,
-          duration: 0.8
-        }}>
+          <motion.div 
+            initial={{
+              opacity: 0,
+              y: 40
+            }} 
+            whileInView={{
+              opacity: 1,
+              y: 0
+            }} 
+            viewport={{
+              once: true
+            }} 
+            transition={{
+              delay: 0.2,
+              duration: 0.8
+            }}
+          >
             <Card className="card-modern">
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-6">
+                    {/* ✅ Name - korrekt */}
                     <div className="space-y-2">
                       <Label htmlFor="name" className="text-body font-medium">Name *</Label>
-                      <Input id="name" name="name" placeholder="Ihr Name" required className="bg-surface border-border" />
+                      <Input 
+                        id="name" 
+                        name="name" 
+                        placeholder="Ihr Name" 
+                        required 
+                        className="bg-surface border-border" 
+                      />
                     </div>
+
+                    {/* ✅ E-Mail - korrekt */}
                     <div className="space-y-2">
                       <Label htmlFor="email" className="text-body font-medium">E-Mail *</Label>
-                      <Input id="email" name="email" type="email" placeholder="ihre@email.com" required className="bg-surface border-border" />
+                      <Input 
+                        id="email" 
+                        name="email" 
+                        type="email" 
+                        placeholder="ihre@email.com" 
+                        required 
+                        className="bg-surface border-border" 
+                      />
                     </div>
+
+                    {/* ✅ Position - korrekt */}
                     <div className="space-y-2">
                       <Label htmlFor="position" className="text-body font-medium">Position *</Label>
-                      <Input id="position" name="position" placeholder="Ihre Position" required className="bg-surface border-border" />
+                      <Input 
+                        id="position" 
+                        name="position" 
+                        placeholder="Ihre Position" 
+                        required 
+                        className="bg-surface border-border" 
+                      />
                     </div>
+
+                    {/* ✅ KORRIGIERT: company → firma */}
                     <div className="space-y-2">
-                      <Label htmlFor="company" className="text-body font-medium">Firma *</Label>
-                      <Input id="company" name="company" placeholder="Ihr Unternehmen" required className="bg-surface border-border" />
+                      <Label htmlFor="firma" className="text-body font-medium">Firma *</Label>
+                      <Input 
+                        id="firma" 
+                        name="firma" 
+                        placeholder="Ihr Unternehmen" 
+                        required 
+                        className="bg-surface border-border" 
+                      />
                     </div>
+
+                    {/* ✅ KORRIGIERT: phone → telefon */}
                     <div className="space-y-2">
-                      <Label htmlFor="phone" className="text-body font-medium">Telefon</Label>
-                      <Input id="phone" name="phone" type="tel" placeholder="Ihre Telefonnummer" className="bg-surface border-border" />
+                      <Label htmlFor="telefon" className="text-body font-medium">Telefon</Label>
+                      <Input 
+                        id="telefon" 
+                        name="telefon" 
+                        type="tel" 
+                        placeholder="Ihre Telefonnummer" 
+                        className="bg-surface border-border" 
+                      />
                     </div>
+
+                    {/* ✅ KORRIGIERT: message → nachricht */}
                     <div className="space-y-2">
-                      <Label htmlFor="message" className="text-body font-medium">Nachricht</Label>
-                      <Textarea id="message" name="message" placeholder="Erzählen Sie uns von Ihrem Projekt..." rows={6} className="bg-surface border-border resize-none" />
+                      <Label htmlFor="nachricht" className="text-body font-medium">Nachricht</Label>
+                      <Textarea 
+                        id="nachricht" 
+                        name="nachricht" 
+                        placeholder="Erzählen Sie uns von Ihrem Projekt..." 
+                        rows={6} 
+                        className="bg-surface border-border resize-none" 
+                      />
                     </div>
                   </div>
                   <Button type="submit" size="lg" className="w-full btn-primary hover-magnetic">
@@ -541,6 +686,8 @@ const Index = () => {
 
       {/* 🍪 Cookie Consent */}
       <CookieConsent />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
