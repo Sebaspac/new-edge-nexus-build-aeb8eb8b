@@ -281,7 +281,7 @@ const Services = () => {
           <div className="max-w-5xl mx-auto">
             <div className="grid-modern">
               
-              {/* Studio Card */}
+              {/* Media Card */}
               <motion.div
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -291,39 +291,7 @@ const Services = () => {
               >
                 <Card className="card-modern h-full hover-lift">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-primary-dark p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <Sparkles className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-h3 font-semibold mb-4 text-foreground">
-                      NEW EDGE STUDIO
-                    </h3>
-                    <p className="text-body text-muted-foreground mb-6 leading-relaxed">
-                      Ihre Ideen, unsere Strategie
-                    </p>
-                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8">
-                      Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
-                    </p>
-                    
-                    <Button className="btn-primary w-full" asChild>
-                      <Link to="/studio">
-                        Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              {/* Media Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 1 * 0.2, duration: 0.6 }}
-                className="group"
-              >
-                <Card className="card-modern h-full hover-lift">
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-accent-dark p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
                       <Brain className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-h3 font-semibold mb-4 text-foreground">
@@ -345,6 +313,38 @@ const Services = () => {
                 </Card>
               </motion.div>
 
+              {/* Studio Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 1 * 0.2, duration: 0.6 }}
+                className="group"
+              >
+                <Card className="card-modern h-full hover-lift">
+                  <CardContent className="p-8">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary to-accent p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <Sparkles className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-h3 font-semibold mb-4 text-foreground">
+                      NEW EDGE STUDIO
+                    </h3>
+                    <p className="text-body text-muted-foreground mb-6 leading-relaxed">
+                      Ihre Ideen, unsere Strategie
+                    </p>
+                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8">
+                      Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
+                    </p>
+                    
+                    <Button className="btn-primary w-full" asChild>
+                      <Link to="/studio">
+                        Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
               {/* Lab Card */}
               <motion.div
                 initial={{ opacity: 0, y: 60 }}
@@ -355,7 +355,7 @@ const Services = () => {
               >
                 <Card className="card-modern h-full hover-lift">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary to-secondary-dark p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-primary p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
                       <Zap className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-h3 font-semibold mb-4 text-foreground">
