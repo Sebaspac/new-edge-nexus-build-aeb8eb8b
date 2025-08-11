@@ -65,15 +65,15 @@ const Index = () => {
       name: formData.get('name')?.toString() || '',
       email: formData.get('email')?.toString() || '',
       position: formData.get('position')?.toString() || '',
-      company: formData.get('company')?.toString() || '',
-      phone: formData.get('phone')?.toString() || '',
-      message: formData.get('message')?.toString() || ''
+      firma: formData.get('firma')?.toString() || '',
+      telefon: formData.get('telefon')?.toString() || '',
+      nachricht: formData.get('nachricht')?.toString() || ''
     };
     
     console.log('Complete data object to send to webhook:', data);
-    console.log('Phone (telefon):', data.phone);
-    console.log('Company (firma):', data.company);
-    console.log('Message (nachricht):', data.message);
+    console.log('Phone (telefon):', data.telefon);
+    console.log('Company (firma):', data.firma);
+    console.log('Message (nachricht):', data.nachricht);
     
     try {
       console.log('Attempting to send to webhook...');
