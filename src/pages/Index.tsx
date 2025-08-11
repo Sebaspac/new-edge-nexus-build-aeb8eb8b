@@ -49,6 +49,8 @@ const Index = () => {
   };
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Form submitted - handleSubmit called');
+    
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
     
@@ -62,7 +64,10 @@ const Index = () => {
       message: formData.get('message')
     };
     
+    console.log('Form data to send:', data);
+    
     try {
+      console.log('Attempting to send to webhook...');
       const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook-test/kontakt', {
         method: 'POST',
         headers: {
@@ -71,7 +76,11 @@ const Index = () => {
         body: JSON.stringify(data)
       });
       
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
+      
       if (response.ok) {
+        console.log('Form submitted successfully');
         toast({
           title: "Wir designen für dich",
           description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
@@ -79,7 +88,9 @@ const Index = () => {
         });
         form.reset();
       } else {
-        throw new Error('Failed to send message');
+        const errorText = await response.text();
+        console.error('Server error:', errorText);
+        throw new Error(`Server responded with ${response.status}: ${errorText}`);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
