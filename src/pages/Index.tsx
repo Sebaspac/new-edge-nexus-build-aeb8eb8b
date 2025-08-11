@@ -280,9 +280,7 @@ const Index = () => {
         }} transition={{
           duration: 0.8
         }} className="text-center mb-16">
-            <h2 className="text-h1 font-bold mb-4 bg-gradient-accent bg-clip-text text-transparent">
-              Ins Wandel mit New Edge
-            </h2>
+            <h2 className="text-h1 font-bold mb-4 bg-gradient-accent bg-clip-text text-transparent">In den Wandel mit New Edge</h2>
           </motion.div>
 
           <div className="grid-modern">
