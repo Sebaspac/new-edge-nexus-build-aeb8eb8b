@@ -65,9 +65,9 @@ const Index = () => {
       name: formData.get('name')?.toString() || '',
       email: formData.get('email')?.toString() || '',
       position: formData.get('position')?.toString() || '',
-      company: formData.get('firma')?.toString() || '',
-      phone: formData.get('telefon')?.toString() || '',
-      message: formData.get('nachricht')?.toString() || ''
+      firma: formData.get('firma')?.toString() || '',
+      telefon: formData.get('telefon')?.toString() || '',
+      nachricht: formData.get('nachricht')?.toString() || ''
     };
     
     console.log('Complete data object to send to webhook:', data);
