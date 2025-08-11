@@ -68,7 +68,7 @@ const Index = () => {
     
     try {
       console.log('Attempting to send to webhook...');
-      const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook-test/kontakt', {
+      const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
