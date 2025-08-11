@@ -50,14 +50,27 @@ const Index = () => {
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    
+    // Convert FormData to JSON for the webhook
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      position: formData.get('position'),
+      company: formData.get('company'),
+      phone: formData.get('phone'),
+      message: formData.get('message')
+    };
+    
     try {
-      const response = await fetch('https://formspree.io/f/xjkrnyon', {
+      const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook-test/kontakt', {
         method: 'POST',
-        body: new FormData(form),
         headers: {
-          'Accept': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
       });
+      
       if (response.ok) {
         toast({
           title: "Wir designen für dich",
