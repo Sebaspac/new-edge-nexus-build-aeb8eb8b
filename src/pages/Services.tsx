@@ -11,6 +11,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { LazyImage } from "@/components/LazyImage";
 import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
 // Optimized 3D Particle System Component (reduced particle count)
 function ParticleField() {
@@ -378,147 +379,293 @@ const Services = () => {
               </motion.div>
             </div>
 
-            {/* Process Flow - Vertical Apple Style */}
-            <motion.div initial={{
-            opacity: 0,
-            y: 50
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.6,
-            duration: 0.8
-          }} className="mt-16 sm:mt-20">
-              <motion.div className="max-w-2xl mx-auto bg-white/5 backdrop-blur-xl rounded-3xl p-8 sm:p-12 border border-white/10 shadow-2xl relative overflow-hidden">
-                {/* Animated background */}
-                <motion.div animate={{
-                background: ["radial-gradient(circle at 20% 30%, rgba(139,92,246,0.05) 0%, transparent 50%)", "radial-gradient(circle at 80% 70%, rgba(59,130,246,0.05) 0%, transparent 50%)", "radial-gradient(circle at 50% 50%, rgba(245,158,11,0.05) 0%, transparent 50%)", "radial-gradient(circle at 20% 30%, rgba(139,92,246,0.05) 0%, transparent 50%)"]
-              }} transition={{
-                duration: 8,
-                repeat: Infinity
-              }} className="absolute inset-0" />
-                
-                <motion.p initial={{
-                opacity: 0,
-                y: 20
-              }} whileInView={{
-                opacity: 1,
-                y: 0
-              }} transition={{
-                delay: 0.2
-              }} className="text-xl sm:text-2xl text-white font-light mb-12 text-center relative z-10 leading-relaxed">
-                  All das geschieht hier – im kreativen Headquarter für Reichweite, Wirkung & Wachstum.
-                </motion.p>
-                
-                {/* Vertical Process Flow */}
-                <div className="space-y-8 relative z-10">
-                  {/* Step 1 */}
-                  <motion.div initial={{
-                  opacity: 0,
-                  x: -50
-                }} whileInView={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.4,
-                  duration: 0.6
-                }} className="flex items-center group">
-                    <motion.div whileHover={{
-                    scale: 1.1
-                  }} animate={{
-                    boxShadow: ["0 0 20px rgba(139,92,246,0.2)", "0 0 30px rgba(139,92,246,0.4)", "0 0 20px rgba(139,92,246,0.2)"]
-                  }} transition={{
-                    duration: 3,
-                    repeat: Infinity
-                  }} className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-purple-600/20 text-purple-300 rounded-2xl flex items-center justify-center border border-purple-500/30 mr-6">
-                      <span className="text-2xl font-bold">1</span>
-                    </motion.div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-white mb-1">Strategie</h4>
-                      <p className="text-gray-400 text-sm">Fundament und Planung für Ihren Erfolg</p>
-                    </div>
-                  </motion.div>
-                  
-                  {/* Connector */}
-                  <motion.div initial={{
-                  height: 0
-                }} whileInView={{
-                  height: "2rem"
-                }} transition={{
-                  delay: 0.6,
-                  duration: 0.4
-                }} className="w-px bg-gradient-to-b from-purple-500/50 to-blue-500/50 ml-8" />
-                  
-                  {/* Step 2 */}
-                  <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} whileInView={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.8,
-                  duration: 0.6
-                }} className="flex items-center group">
-                    <motion.div whileHover={{
-                    scale: 1.1
-                  }} animate={{
-                    boxShadow: ["0 0 20px rgba(59,130,246,0.2)", "0 0 30px rgba(59,130,246,0.4)", "0 0 20px rgba(59,130,246,0.2)"]
-                  }} transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: 1
-                  }} className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-600/20 text-blue-300 rounded-2xl flex items-center justify-center border border-blue-500/30 mr-6">
-                      <span className="text-2xl font-bold">2</span>
-                    </motion.div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-white mb-1">Umsetzung</h4>
-                      <p className="text-gray-400 text-sm">Content-Produktion und Reichweite-Aufbau</p>
-                    </div>
-                  </motion.div>
-                  
-                  {/* Connector */}
-                  <motion.div initial={{
-                  height: 0
-                }} whileInView={{
-                  height: "2rem"
-                }} transition={{
-                  delay: 1.0,
-                  duration: 0.4
-                }} className="w-px bg-gradient-to-b from-blue-500/50 to-yellow-500/50 ml-8" />
-                  
-                  {/* Step 3 */}
-                  <motion.div initial={{
-                  opacity: 0,
-                  x: -50
-                }} whileInView={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 1.2,
-                  duration: 0.6
-                }} className="flex items-center group">
-                    <motion.div whileHover={{
-                    scale: 1.1
-                  }} animate={{
-                    boxShadow: ["0 0 20px rgba(245,158,11,0.2)", "0 0 30px rgba(245,158,11,0.4)", "0 0 20px rgba(245,158,11,0.2)"]
-                  }} transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: 2
-                  }} className="w-16 h-16 bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 text-yellow-300 rounded-2xl flex items-center justify-center border border-yellow-500/30 mr-6">
-                      <span className="text-2xl font-bold">3</span>
-                    </motion.div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-white mb-1">Innovation</h4>
-                      <p className="text-gray-400 text-sm">Technische Implementierung und Automation</p>
-                    </div>
-                  </motion.div>
+            {/* Enhanced Journey Visualization */}
+            <ScrollAnimation animation="scaleIn" delay={0.3} className="mt-16 sm:mt-20">
+              <div className="max-w-4xl mx-auto">
+                {/* Journey Header */}
+                <ScrollAnimation animation="fadeUp" delay={0.1}>
+                  <div className="text-center mb-16">
+                    <motion.h3 
+                      className="text-4xl sm:text-5xl font-bold text-white mb-6"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                      🚀 Unsere Journey
+                    </motion.h3>
+                    <motion.p 
+                      className="text-xl text-gray-300 max-w-2xl mx-auto"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2, duration: 0.6 }}
+                    >
+                      Von der Vision zur Realität - erleben Sie jeden Schritt unserer digitalen Transformation
+                    </motion.p>
+                  </div>
+                </ScrollAnimation>
+
+                {/* Animated Journey Path */}
+                <div className="relative">
+                  {/* Main Journey Line */}
+                  <motion.div 
+                    className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-blue-500 to-yellow-500 transform -translate-x-1/2"
+                    initial={{ scaleY: 0, opacity: 0 }}
+                    whileInView={{ scaleY: 1, opacity: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 2, ease: "easeInOut" }}
+                    style={{ originY: 0 }}
+                  />
+
+                  {/* Journey Steps */}
+                  <div className="space-y-24 relative z-10">
+                    
+                    {/* Step 1: Strategy */}
+                    <ScrollAnimation animation="fadeLeft" delay={0.5}>
+                      <motion.div 
+                        className="flex items-center"
+                        whileInView={{ x: [100, 0], opacity: [0, 1] }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                      >
+                        <div className="flex-1 max-w-md mr-8">
+                          <motion.div 
+                            className="bg-gradient-to-br from-purple-900/40 to-purple-800/40 backdrop-blur-xl p-8 rounded-3xl border border-purple-500/30 shadow-2xl"
+                            whileHover={{ 
+                              scale: 1.05, 
+                              y: -10,
+                              boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.3)"
+                            }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <motion.div 
+                              className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 mx-auto"
+                              whileHover={{ rotate: 360, scale: 1.1 }}
+                              transition={{ duration: 0.6 }}
+                            >
+                              <Target className="w-8 h-8 text-white" />
+                            </motion.div>
+                            <h4 className="text-2xl font-bold text-purple-300 mb-4 text-center">STRATEGIE</h4>
+                            <p className="text-gray-300 text-center leading-relaxed">
+                              Das Fundament für Ihren Erfolg. Wir entwickeln eine klare Roadmap und visuelle Identität.
+                            </p>
+                          </motion.div>
+                        </div>
+                        
+                        {/* Central Journey Node */}
+                        <motion.div 
+                          className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full border-4 border-white shadow-2xl flex items-center justify-center relative z-20"
+                          initial={{ scale: 0, rotate: -180 }}
+                          whileInView={{ scale: 1, rotate: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.7, duration: 0.6, type: "spring", stiffness: 200 }}
+                          whileHover={{ scale: 1.2, boxShadow: "0 0 30px rgba(139, 92, 246, 0.6)" }}
+                        >
+                          <span className="text-white font-bold text-2xl">1</span>
+                          
+                          {/* Pulsing Ring */}
+                          <motion.div
+                            className="absolute inset-0 rounded-full border-2 border-purple-400"
+                            animate={{ scale: [1, 1.5, 1], opacity: [1, 0, 1] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          />
+                        </motion.div>
+                        
+                        <div className="flex-1 max-w-md ml-8 opacity-30">
+                          <div className="h-32"></div>
+                        </div>
+                      </motion.div>
+                    </ScrollAnimation>
+
+                    {/* Step 2: Implementation */}
+                    <ScrollAnimation animation="fadeRight" delay={0.7}>
+                      <motion.div 
+                        className="flex items-center"
+                        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                      >
+                        <div className="flex-1 max-w-md mr-8 opacity-30">
+                          <div className="h-32"></div>
+                        </div>
+                        
+                        {/* Central Journey Node */}
+                        <motion.div 
+                          className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full border-4 border-white shadow-2xl flex items-center justify-center relative z-20"
+                          initial={{ scale: 0, rotate: 180 }}
+                          whileInView={{ scale: 1, rotate: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.9, duration: 0.6, type: "spring", stiffness: 200 }}
+                          whileHover={{ scale: 1.2, boxShadow: "0 0 30px rgba(59, 130, 246, 0.6)" }}
+                        >
+                          <span className="text-white font-bold text-2xl">2</span>
+                          
+                          {/* Pulsing Ring */}
+                          <motion.div
+                            className="absolute inset-0 rounded-full border-2 border-blue-400"
+                            animate={{ scale: [1, 1.5, 1], opacity: [1, 0, 1] }}
+                            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                          />
+                        </motion.div>
+                        
+                        <div className="flex-1 max-w-md ml-8">
+                          <motion.div 
+                            className="bg-gradient-to-br from-blue-900/40 to-blue-800/40 backdrop-blur-xl p-8 rounded-3xl border border-blue-500/30 shadow-2xl"
+                            whileHover={{ 
+                              scale: 1.05, 
+                              y: -10,
+                              boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.3)"
+                            }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <motion.div 
+                              className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto"
+                              whileHover={{ rotate: 360, scale: 1.1 }}
+                              transition={{ duration: 0.6 }}
+                            >
+                              <Brain className="w-8 h-8 text-white" />
+                            </motion.div>
+                            <h4 className="text-2xl font-bold text-blue-300 mb-4 text-center">UMSETZUNG</h4>
+                            <p className="text-gray-300 text-center leading-relaxed">
+                              Content-Produktion und Reichweite-Aufbau. Ihre Botschaft erreicht die richtige Zielgruppe.
+                            </p>
+                          </motion.div>
+                        </div>
+                      </motion.div>
+                    </ScrollAnimation>
+
+                    {/* Step 3: Innovation */}
+                    <ScrollAnimation animation="fadeLeft" delay={0.9}>
+                      <motion.div 
+                        className="flex items-center"
+                        whileInView={{ x: [100, 0], opacity: [0, 1] }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                      >
+                        <div className="flex-1 max-w-md mr-8">
+                          <motion.div 
+                            className="bg-gradient-to-br from-yellow-900/40 to-yellow-800/40 backdrop-blur-xl p-8 rounded-3xl border border-yellow-500/30 shadow-2xl"
+                            whileHover={{ 
+                              scale: 1.05, 
+                              y: -10,
+                              boxShadow: "0 25px 50px -12px rgba(245, 158, 11, 0.3)"
+                            }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <motion.div 
+                              className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-6 mx-auto"
+                              whileHover={{ rotate: 360, scale: 1.1 }}
+                              transition={{ duration: 0.6 }}
+                            >
+                              <Zap className="w-8 h-8 text-white" />
+                            </motion.div>
+                            <h4 className="text-2xl font-bold text-yellow-300 mb-4 text-center">INNOVATION</h4>
+                            <p className="text-gray-300 text-center leading-relaxed">
+                              Technische Implementierung und Automation für nachhaltigen, messbaren Erfolg.
+                            </p>
+                          </motion.div>
+                        </div>
+                        
+                        {/* Central Journey Node */}
+                        <motion.div 
+                          className="w-20 h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full border-4 border-white shadow-2xl flex items-center justify-center relative z-20"
+                          initial={{ scale: 0, rotate: -180 }}
+                          whileInView={{ scale: 1, rotate: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 1.1, duration: 0.6, type: "spring", stiffness: 200 }}
+                          whileHover={{ scale: 1.2, boxShadow: "0 0 30px rgba(245, 158, 11, 0.6)" }}
+                        >
+                          <span className="text-white font-bold text-2xl">3</span>
+                          
+                          {/* Pulsing Ring */}
+                          <motion.div
+                            className="absolute inset-0 rounded-full border-2 border-yellow-400"
+                            animate={{ scale: [1, 1.5, 1], opacity: [1, 0, 1] }}
+                            transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                          />
+                        </motion.div>
+                        
+                        <div className="flex-1 max-w-md ml-8 opacity-30">
+                          <div className="h-32"></div>
+                        </div>
+                      </motion.div>
+                    </ScrollAnimation>
+
+                    {/* Journey Success - Final Destination */}
+                    <ScrollAnimation animation="scaleIn" delay={1.1}>
+                      <motion.div 
+                        className="text-center pt-16"
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 1.3, duration: 0.8, type: "spring" }}
+                      >
+                        <motion.div 
+                          className="w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full border-8 border-white shadow-2xl flex items-center justify-center mx-auto mb-8 relative"
+                          animate={{ 
+                            boxShadow: ["0 0 20px rgba(16, 185, 129, 0.3)", "0 0 40px rgba(16, 185, 129, 0.6)", "0 0 20px rgba(16, 185, 129, 0.3)"]
+                          }}
+                          transition={{ 
+                            boxShadow: { duration: 3, repeat: Infinity }
+                          }}
+                          whileHover={{ 
+                            scale: 1.1, 
+                            boxShadow: "0 0 50px rgba(16, 185, 129, 0.8)",
+                            transition: { duration: 0.3 }
+                          }}
+                         >
+                           <Sparkles className="w-16 h-16 text-white" />
+                          
+                          {/* Success Particles */}
+                          {[...Array(8)].map((_, i) => (
+                            <motion.div
+                              key={i}
+                              className="absolute w-2 h-2 bg-yellow-400 rounded-full"
+                              style={{
+                                top: "50%",
+                                left: "50%",
+                                originX: 0.5,
+                                originY: 0.5
+                              }}
+                              animate={{
+                                x: [0, Math.cos(i * 45 * Math.PI / 180) * 60],
+                                y: [0, Math.sin(i * 45 * Math.PI / 180) * 60],
+                                opacity: [1, 0],
+                                scale: [0, 1, 0]
+                              }}
+                              transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                delay: i * 0.2,
+                                ease: "easeOut"
+                              }}
+                            />
+                          ))}
+                        </motion.div>
+                        
+                        <motion.h4 
+                          className="text-3xl font-bold text-green-400 mb-4"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 1.5, duration: 0.6 }}
+                        >
+                          🎯 ERFOLG ERREICHT
+                        </motion.h4>
+                        <motion.p 
+                          className="text-xl text-gray-300 max-w-2xl mx-auto"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 1.7, duration: 0.6 }}
+                        >
+                          Ihre digitale Transformation ist komplett. Messbare Ergebnisse, nachhaltige Prozesse und dauerhafter Wettbewerbsvorteil.
+                        </motion.p>
+                      </motion.div>
+                    </ScrollAnimation>
+                  </div>
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </ScrollAnimation>
           </div>
         </motion.div>
       </section>
