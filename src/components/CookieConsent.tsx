@@ -95,7 +95,7 @@ const CookieConsent = () => {
                       <Settings className="w-4 h-4 mr-2" />
                       Einstellungen
                     </Button>
-                    <Button onClick={acceptNecessary} variant="outline" className="border-gray-400 hover:border-gray-300 text-violet-400 bg-gray-900 hover:bg-gray-800">
+                    <Button onClick={acceptNecessary} variant="outline" className="border-purple-500/50 text-purple-400 hover:border-purple-400 bg-gray-950 hover:bg-gray-800">
                       Nur Notwendige
                     </Button>
                     <Button onClick={acceptAll} className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700">
