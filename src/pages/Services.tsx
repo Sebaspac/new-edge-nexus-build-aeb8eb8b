@@ -779,7 +779,7 @@ const Services = () => {
             y: -10
           }} className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 p-8 rounded-2xl border border-purple-500/20 text-center backdrop-blur-lg hover-lift">
               <div className="text-5xl font-bold text-purple-400 mb-4">01</div>
-              <h3 className="text-white mb-4 text-2xl font-medium text-left">Klare Strategie</h3>
+              <h3 className="text-white mb-4 text-2xl font-medium text-center">Klare Strategie</h3>
               <p className="text-gray-300 text-left">Eine durchdachte Roadmap und visuelle Identität als solides Fundament.</p>
             </motion.div>
             
@@ -798,7 +798,7 @@ const Services = () => {
             y: -10
           }} className="bg-gradient-to-br from-blue-900/30 to-blue-800/30 p-8 rounded-2xl border border-blue-500/20 text-center backdrop-blur-lg hover-lift">
               <div className="text-5xl font-bold text-blue-400 mb-4">02</div>
-              <h3 className="text-white mb-4 text-2xl font-medium text-left">Überzeugende Inhalte</h3>
+              <h3 className="text-white mb-4 text-2xl font-medium text-center">Überzeugende Inhalte</h3>
               <p className="text-gray-300 text-left">Content, der Ihre Zielgruppe erreicht und nachhaltig begeistert.</p>
             </motion.div>
             
@@ -817,7 +817,7 @@ const Services = () => {
             y: -10
           }} className="bg-gradient-to-br from-yellow-900/30 to-yellow-800/30 p-8 rounded-2xl border border-yellow-500/20 text-center backdrop-blur-lg hover-lift">
               <div className="text-5xl font-bold text-yellow-400 mb-4">03</div>
-              <h3 className="text-2xl text-white mb-4 font-medium text-left">Intelligente Umsetzung</h3>
+              <h3 className="text-2xl text-white mb-4 font-medium text-center">Intelligente Umsetzung</h3>
               <p className="text-gray-300 text-left">Technische Exzellenz und Automatisierung für nachhaltigen Erfolg.</p>
             </motion.div>
           </div>
