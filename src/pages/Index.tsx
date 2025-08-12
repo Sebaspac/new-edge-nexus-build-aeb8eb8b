@@ -11,6 +11,7 @@ import { toast } from "@/hooks/use-toast";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ScrollAnimation, useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -346,31 +347,30 @@ const Index = () => {
       </section>
 
       {/* 🎯 Mission/Vision Section */}
-      <section className="section-padding bg-gradient-subtle">
+      <ScrollAnimation animation="fadeUp" className="section-padding bg-gradient-subtle">
         <div className="container-xl">
-          <motion.div 
-            initial={{
-              opacity: 0,
-              y: 60
-            }} 
-            whileInView={{
-              opacity: 1,
-              y: 0
-            }} 
-            viewport={{
-              once: true
-            }} 
-            transition={{
-              duration: 0.8
-            }} 
-            className="text-center mb-16"
-          >
+          <ScrollAnimation animation="scaleIn" delay={0.1} className="text-center mb-16">
             <h2 className="text-h1 font-bold mb-4 bg-gradient-accent bg-clip-text text-transparent">
               In den Wandel mit New Edge
             </h2>
-          </motion.div>
+          </ScrollAnimation>
 
-          <div className="grid-modern">
+          <motion.div 
+            className="grid-modern"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.2,
+                  delayChildren: 0.3
+                }
+              }
+            }}
+          >
             {[{
               title: "UNSERE MISSION",
               description: "Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.",
@@ -386,28 +386,32 @@ const Index = () => {
             }].map((item, index) => (
               <motion.div 
                 key={index} 
-                initial={{
-                  opacity: 0,
-                  y: 60
-                }} 
-                whileInView={{
-                  opacity: 1,
-                  y: 0
-                }} 
-                viewport={{
-                  once: true
-                }} 
-                transition={{
-                  delay: index * 0.2,
-                  duration: 0.6
-                }} 
+                variants={{
+                  hidden: { opacity: 0, y: 60, scale: 0.9 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                    transition: { 
+                      duration: 0.6, 
+                      ease: "easeOut" 
+                    }
+                  }
+                }}
+                whileHover={{ 
+                  y: -10, 
+                  transition: { duration: 0.2 } 
+                }}
                 className="group"
               >
                 <Card className="card-modern h-full hover-lift">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <motion.div 
+                      className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-4 mb-6 group-hover:scale-110 transition-transform duration-300"
+                      whileHover={{ rotate: 5 }}
+                    >
                       <item.icon className="w-8 h-8 text-white" />
-                    </div>
+                    </motion.div>
                     <h3 className="text-h3 font-semibold mb-4 text-primary">
                       {item.title}
                     </h3>
@@ -418,30 +422,14 @@ const Index = () => {
                 </Card>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </ScrollAnimation>
 
       {/* 🎯 Services Section */}
-      <section className="section-padding bg-gradient-subtle">
+      <ScrollAnimation animation="fadeLeft" className="section-padding bg-gradient-subtle">
         <div className="container-xl">
-          <motion.div 
-            initial={{
-              opacity: 0,
-              y: 60
-            }} 
-            whileInView={{
-              opacity: 1,
-              y: 0
-            }} 
-            viewport={{
-              once: true
-            }} 
-            transition={{
-              duration: 0.8
-            }} 
-            className="text-center mb-16"
-          >
+          <ScrollAnimation animation="fadeUp" delay={0.2} className="text-center mb-16">
             <h2 className="text-display font-bold mb-6">
               <span className="bg-gradient-accent bg-clip-text text-transparent">
                 Unsere Services
@@ -450,34 +438,55 @@ const Index = () => {
             <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
               Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
             </p>
-          </motion.div>
+          </ScrollAnimation>
 
-          <div className="grid-modern">
+          <motion.div 
+            className="grid-modern"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.3,
+                  delayChildren: 0.4
+                }
+              }
+            }}
+          >
             {services.map((service, index) => (
               <motion.div 
                 key={index} 
-                initial={{
-                  opacity: 0,
-                  y: 60
-                }} 
-                whileInView={{
-                  opacity: 1,
-                  y: 0
-                }} 
-                viewport={{
-                  once: true
-                }} 
-                transition={{
-                  delay: index * 0.2,
-                  duration: 0.6
-                }} 
+                variants={{
+                  hidden: { opacity: 0, y: 80, rotateX: 45 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    rotateX: 0,
+                    transition: { 
+                      duration: 0.8, 
+                      ease: "easeOut" 
+                    }
+                  }
+                }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -15,
+                  transition: { duration: 0.3 } 
+                }}
                 className="group"
               >
                 <Card className="card-modern h-full hover-lift">
                   <CardContent className="p-8">
-                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <motion.div 
+                      className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`}
+                      whileHover={{ rotate: 360, scale: 1.2 }}
+                      transition={{ duration: 0.6 }}
+                    >
                       <service.icon className="w-8 h-8 text-white" />
-                    </div>
+                    </motion.div>
                     <h3 className="text-h3 font-semibold mb-4 text-foreground">
                       {service.title}
                     </h3>
@@ -488,14 +497,29 @@ const Index = () => {
                 </Card>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </ScrollAnimation>
 
       {/* 🚀 Impact Points Section */}
-      <section className="section-padding bg-surface">
+      <ScrollAnimation animation="fadeRight" className="section-padding bg-surface">
         <div className="container-xl">
-          <div className="grid md:grid-cols-2 gap-8">
+          <motion.div 
+            className="grid md:grid-cols-2 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.15,
+                  delayChildren: 0.2
+                }
+              }
+            }}
+          >
             {[{
               number: "01",
               title: "Impact durch Automatisierung",
@@ -515,27 +539,39 @@ const Index = () => {
             }].map((point, index) => (
               <motion.div 
                 key={index} 
-                initial={{
-                  opacity: 0,
-                  x: index % 2 === 0 ? -50 : 50
-                }} 
-                whileInView={{
-                  opacity: 1,
-                  x: 0
-                }} 
-                viewport={{
-                  once: true
-                }} 
-                transition={{
-                  delay: index * 0.15,
-                  duration: 0.6
-                }} 
+                variants={{
+                  hidden: { 
+                    opacity: 0,
+                    x: index % 2 === 0 ? -60 : 60,
+                    scale: 0.9
+                  },
+                  visible: { 
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    transition: { 
+                      duration: 0.7, 
+                      ease: "easeOut",
+                      type: "spring",
+                      stiffness: 100
+                    }
+                  }
+                }}
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -5,
+                  transition: { duration: 0.2 } 
+                }}
                 className="group hover-lift"
               >
                 <div className="flex items-start gap-6 p-6 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm hover:bg-card transition-all duration-300">
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-h3 group-hover:scale-110 transition-transform duration-300">
+                  <motion.div 
+                    className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-h3 group-hover:scale-110 transition-transform duration-300"
+                    whileHover={{ rotate: 180 }}
+                    transition={{ duration: 0.4 }}
+                  >
                     {point.number}
-                  </div>
+                  </motion.div>
                   <div className="flex-1">
                     <h3 className="text-h3 font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
                       {point.title}
@@ -547,142 +583,131 @@ const Index = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </ScrollAnimation>
 
       {/* 📧 Contact Section - ✅ KORRIGIERTE FELDNAMEN */}
-      <section id="contact-section" className="section-padding bg-gradient-to-br from-surface via-background to-surface">
-        <div className="container-narrow">
-          <motion.div 
-            initial={{
-              opacity: 0,
-              y: 60
-            }} 
-            whileInView={{
-              opacity: 1,
-              y: 0
-            }} 
-            viewport={{
-              once: true
-            }} 
-            transition={{
-              duration: 0.8
-            }} 
-            className="text-center mb-12"
-          >
-            <h2 className="text-display font-bold mb-6">
-              Bereit für den nächsten Schritt?
-            </h2>
-            <p className="text-body-xl text-muted-foreground">
-              Ready when you are. Wir bringen's online.
-            </p>
-          </motion.div>
+      <ScrollAnimation animation="scaleIn" threshold={0.1}>
+        <section id="contact-section" className="section-padding bg-gradient-to-br from-surface via-background to-surface">
+          <div className="container-narrow">
+            <ScrollAnimation animation="fadeUp" delay={0.1} className="text-center mb-12">
+              <h2 className="text-display font-bold mb-6">
+                Bereit für den nächsten Schritt?
+              </h2>
+              <p className="text-body-xl text-muted-foreground">
+                Ready when you are. Wir bringen's online.
+              </p>
+            </ScrollAnimation>
 
-          <motion.div 
-            initial={{
-              opacity: 0,
-              y: 40
-            }} 
-            whileInView={{
-              opacity: 1,
-              y: 0
-            }} 
-            viewport={{
-              once: true
-            }} 
-            transition={{
-              delay: 0.2,
-              duration: 0.8
-            }}
-          >
-            <Card className="card-modern">
-              <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-6">
-                    {/* ✅ Name - korrekt */}
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-body font-medium">Name *</Label>
-                      <Input 
-                        id="name" 
-                        name="name" 
-                        placeholder="Ihr Name" 
-                        required 
-                        className="bg-surface border-border" 
-                      />
-                    </div>
+            <ScrollAnimation animation="fadeUp" delay={0.3}>
+              <Card className="card-modern">
+                <CardContent className="p-8">
+                  <motion.form 
+                    onSubmit={handleSubmit} 
+                    className="space-y-6"
+                    initial="hidden"
+                    animate="visible"
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: {
+                        opacity: 1,
+                        transition: {
+                          staggerChildren: 0.1,
+                          delayChildren: 0.2
+                        }
+                      }
+                    }}
+                  >
+                    <motion.div 
+                      className="space-y-6"
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: {
+                          opacity: 1,
+                          transition: {
+                            staggerChildren: 0.1
+                          }
+                        }
+                      }}
+                    >
+                      {/* Form fields with staggered animations */}
+                      {[
+                        { id: "name", label: "Name *", type: "text", placeholder: "Ihr Name", required: true },
+                        { id: "email", label: "E-Mail *", type: "email", placeholder: "ihre@email.com", required: true },
+                        { id: "position", label: "Position *", type: "text", placeholder: "Ihre Position", required: true },
+                        { id: "firma", label: "Firma *", type: "text", placeholder: "Ihr Unternehmen", required: true },
+                        { id: "telefon", label: "Telefon", type: "tel", placeholder: "Ihre Telefonnummer", required: false }
+                      ].map((field) => (
+                        <motion.div 
+                          key={field.id}
+                          className="space-y-2"
+                          variants={{
+                            hidden: { opacity: 0, y: 20 },
+                            visible: { 
+                              opacity: 1, 
+                              y: 0,
+                              transition: { duration: 0.4, ease: "easeOut" }
+                            }
+                          }}
+                        >
+                          <Label htmlFor={field.id} className="text-body font-medium">{field.label}</Label>
+                          <Input 
+                            id={field.id} 
+                            name={field.id} 
+                            type={field.type}
+                            placeholder={field.placeholder} 
+                            required={field.required} 
+                            className="bg-surface border-border" 
+                          />
+                        </motion.div>
+                      ))}
 
-                    {/* ✅ E-Mail - korrekt */}
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-body font-medium">E-Mail *</Label>
-                      <Input 
-                        id="email" 
-                        name="email" 
-                        type="email" 
-                        placeholder="ihre@email.com" 
-                        required 
-                        className="bg-surface border-border" 
-                      />
-                    </div>
-
-                    {/* ✅ Position - korrekt */}
-                    <div className="space-y-2">
-                      <Label htmlFor="position" className="text-body font-medium">Position *</Label>
-                      <Input 
-                        id="position" 
-                        name="position" 
-                        placeholder="Ihre Position" 
-                        required 
-                        className="bg-surface border-border" 
-                      />
-                    </div>
-
-                    {/* ✅ KORRIGIERT: company → firma */}
-                    <div className="space-y-2">
-                      <Label htmlFor="firma" className="text-body font-medium">Firma *</Label>
-                      <Input 
-                        id="firma" 
-                        name="firma" 
-                        placeholder="Ihr Unternehmen" 
-                        required 
-                        className="bg-surface border-border" 
-                      />
-                    </div>
-
-                    {/* ✅ KORRIGIERT: phone → telefon */}
-                    <div className="space-y-2">
-                      <Label htmlFor="telefon" className="text-body font-medium">Telefon</Label>
-                      <Input 
-                        id="telefon" 
-                        name="telefon" 
-                        type="tel" 
-                        placeholder="Ihre Telefonnummer" 
-                        className="bg-surface border-border" 
-                      />
-                    </div>
-
-                    {/* ✅ KORRIGIERT: message → nachricht */}
-                    <div className="space-y-2">
-                      <Label htmlFor="nachricht" className="text-body font-medium">Nachricht</Label>
-                      <Textarea 
-                        id="nachricht" 
-                        name="nachricht" 
-                        placeholder="Erzählen Sie uns von Ihrem Projekt..." 
-                        rows={6} 
-                        className="bg-surface border-border resize-none" 
-                      />
-                    </div>
-                  </div>
-                  <Button type="submit" size="lg" className="w-full btn-primary hover-magnetic">
-                    Nachricht senden
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
+                      {/* Message field */}
+                      <motion.div 
+                        className="space-y-2"
+                        variants={{
+                          hidden: { opacity: 0, y: 20 },
+                          visible: { 
+                            opacity: 1, 
+                            y: 0,
+                            transition: { duration: 0.4, ease: "easeOut" }
+                          }
+                        }}
+                      >
+                        <Label htmlFor="nachricht" className="text-body font-medium">Nachricht</Label>
+                        <Textarea 
+                          id="nachricht" 
+                          name="nachricht" 
+                          placeholder="Erzählen Sie uns von Ihrem Projekt..." 
+                          rows={6} 
+                          className="bg-surface border-border resize-none" 
+                        />
+                      </motion.div>
+                    </motion.div>
+                    
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { 
+                          opacity: 1, 
+                          y: 0,
+                          transition: { duration: 0.5, ease: "easeOut" }
+                        }
+                      }}
+                    >
+                      <Button type="submit" size="lg" className="w-full btn-primary hover-magnetic">
+                        Nachricht senden
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </motion.div>
+                  </motion.form>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
+          </div>
+        </section>
+      </ScrollAnimation>
 
       {/* 🍪 Cookie Consent */}
       <CookieConsent />
