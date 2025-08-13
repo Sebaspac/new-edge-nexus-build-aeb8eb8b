@@ -432,7 +432,9 @@ const Services = () => {
                 {/* Animated Journey Path */}
                 <div className="relative">
                   {/* Main Journey Line */}
-                  <motion.div className="absolute left-1/2 top-0 w-1 bg-gradient-to-b from-purple-500 via-blue-500 to-yellow-500 transform -translate-x-1/2" style={{ height: 'calc(100% - 200px)' }} initial={{
+                  <motion.div className="absolute left-1/2 top-0 w-1 bg-gradient-to-b from-purple-500 via-blue-500 to-yellow-500 transform -translate-x-1/2" style={{
+                  height: 'calc(100% - 200px)'
+                }} initial={{
                   scaleY: 0,
                   opacity: 0
                 }} whileInView={{
@@ -720,9 +722,7 @@ const Services = () => {
                       }} transition={{
                         delay: 1.5,
                         duration: 0.6
-                      }}>
-                          🎯 ERFOLG ERREICHT
-                        </motion.h4>
+                      }}>ERFOLG ERREICHT</motion.h4>
                         <motion.p className="text-xl text-gray-300 max-w-2xl mx-auto" initial={{
                         opacity: 0,
                         y: 20
