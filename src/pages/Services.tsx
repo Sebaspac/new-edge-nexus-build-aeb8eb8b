@@ -252,8 +252,36 @@ const Services = () => {
       }} className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/20 rounded-full blur-xl" />
       </section>
 
-      {/* Services Overview Section */}
-      <section className="services-overview relative py-20 sm:py-24 md:py-32 bg-gradient-to-b from-black via-gray-900 to-black">
+      {/* Services Overview Section with Overlap Effect */}
+      <section className="services-overview relative -mt-32 pt-40 pb-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
+        {/* Floating geometric shapes for modern effect */}
+        <motion.div 
+          className="absolute top-20 left-20 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl"
+          animate={{
+            y: [0, -30, 0],
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"
+          animate={{
+            y: [0, 20, 0],
+            scale: [1, 0.8, 1],
+            rotate: [360, 180, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
         <motion.div style={{
         y: y2
       }} className="container mx-auto px-4 sm:px-6">
@@ -745,8 +773,34 @@ const Services = () => {
         </motion.div>
       </section>
 
-      {/* Results Section */}
-      <section className="py-32 bg-gradient-to-b from-black via-gray-900 to-black">
+      {/* Results Section with Overlap Effect */}
+      <section className="relative -mt-20 pt-32 pb-32 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
+        {/* Floating animated elements */}
+        <motion.div 
+          className="absolute top-20 left-10 w-28 h-28 bg-purple-500/15 rounded-full blur-2xl"
+          animate={{
+            x: [0, 40, 0],
+            y: [0, -25, 0],
+            scale: [1, 1.4, 1],
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-40 right-10 w-36 h-36 bg-blue-500/15 rounded-full blur-2xl"
+          animate={{
+            rotate: [0, -360],
+            scale: [1, 0.7, 1],
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
         <div className="container mx-auto px-6">
           <motion.div initial={{
           opacity: 0,
