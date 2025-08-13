@@ -504,6 +504,21 @@ const Index = () => {
       {/* 🚀 Impact Points Section */}
       <ScrollAnimation animation="fadeRight" className="section-padding bg-surface">
         <div className="container-xl">
+          {/* Section Title */}
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-h1 font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+              Warum New Edge?
+            </h2>
+            <p className="text-h4 text-muted-foreground max-w-3xl mx-auto">
+              Entdecken Sie die Vorteile unserer einzigartigen Herangehensweise
+            </p>
+          </motion.div>
           <motion.div 
             className="grid md:grid-cols-2 gap-8"
             initial="hidden"
