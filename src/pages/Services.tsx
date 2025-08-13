@@ -432,7 +432,7 @@ const Services = () => {
                 {/* Animated Journey Path */}
                 <div className="relative">
                   {/* Main Journey Line */}
-                  <motion.div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-blue-500 to-yellow-500 transform -translate-x-1/2" initial={{
+                  <motion.div className="absolute left-1/2 top-0 w-1 bg-gradient-to-b from-purple-500 via-blue-500 to-yellow-500 transform -translate-x-1/2" style={{ height: 'calc(100% - 200px)' }} initial={{
                   scaleY: 0,
                   opacity: 0
                 }} whileInView={{
@@ -444,8 +444,6 @@ const Services = () => {
                 }} transition={{
                   duration: 2,
                   ease: "easeInOut"
-                }} style={{
-                  originY: 0
                 }} />
 
                   {/* Journey Steps */}
