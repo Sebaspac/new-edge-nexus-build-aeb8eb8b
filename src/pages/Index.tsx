@@ -350,7 +350,7 @@ const Index = () => {
       <ScrollAnimation animation="fadeUp" className="section-padding bg-gradient-subtle">
         <div className="container-xl">
           <ScrollAnimation animation="scaleIn" delay={0.1} className="text-center mb-16">
-            <h2 className="text-h1 font-bold mb-4 bg-gradient-accent bg-clip-text text-transparent">
+            <h2 className="text-h1 font-bold mb-4 text-foreground">
               In den Wandel mit New Edge
             </h2>
           </ScrollAnimation>
@@ -430,10 +430,8 @@ const Index = () => {
       <ScrollAnimation animation="fadeLeft" className="section-padding bg-gradient-subtle">
         <div className="container-xl">
           <ScrollAnimation animation="fadeUp" delay={0.2} className="text-center mb-16">
-            <h2 className="text-display font-bold mb-6">
-              <span className="bg-gradient-accent bg-clip-text text-transparent">
-                Unsere Services
-              </span>
+            <h2 className="text-h1 font-bold mb-6 text-foreground">
+              Unsere Services
             </h2>
             <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
               Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
@@ -512,10 +510,10 @@ const Index = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-h1 font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+            <h2 className="text-h1 font-bold mb-6 text-foreground">
               Warum New Edge?
             </h2>
-            <p className="text-h4 text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-h3 text-muted-foreground max-w-3xl mx-auto">
               Entdecken Sie die Vorteile unserer einzigartigen Herangehensweise
             </p>
           </motion.div>
@@ -607,7 +605,7 @@ const Index = () => {
         <section id="contact-section" className="section-padding bg-gradient-to-br from-surface via-background to-surface">
           <div className="container-narrow">
             <ScrollAnimation animation="fadeUp" delay={0.1} className="text-center mb-12">
-              <h2 className="text-display font-bold mb-6">
+              <h2 className="text-h1 font-bold mb-6 text-foreground">
                 Bereit für den nächsten Schritt?
               </h2>
               <p className="text-body-xl text-muted-foreground">
