@@ -540,7 +540,7 @@ const Index = () => {
             }, {
               number: "02",
               title: "Marketingexpertise trifft technische Umsetzung",
-              description: "Perfekte Symbiose aus Strategie und Innovation"
+              description: "Perfekte Schnittstelle zwischen Strategie und Innovation"
             }, {
               number: "03",
               title: "Zugänglichkeit & Klarheit statt Komplexität",
