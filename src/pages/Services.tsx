@@ -252,8 +252,36 @@ const Services = () => {
       }} className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/20 rounded-full blur-xl" />
       </section>
 
-      {/* Services Overview Section */}
-      <section className="services-overview relative py-20 sm:py-24 md:py-32 bg-gradient-to-b from-black via-gray-900 to-black">
+      {/* Services Overview Section with Overlap Effect */}
+      <section className="services-overview relative -mt-32 pt-40 pb-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
+        {/* Floating geometric shapes for modern effect */}
+        <motion.div 
+          className="absolute top-20 left-20 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl"
+          animate={{
+            y: [0, -30, 0],
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"
+          animate={{
+            y: [0, 20, 0],
+            scale: [1, 0.8, 1],
+            rotate: [360, 180, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
         <motion.div style={{
         y: y2
       }} className="container mx-auto px-4 sm:px-6">
@@ -745,8 +773,34 @@ const Services = () => {
         </motion.div>
       </section>
 
-      {/* Results Section */}
-      <section className="py-32 bg-gradient-to-b from-black via-gray-900 to-black">
+      {/* Results Section with Overlap Effect */}
+      <section className="relative -mt-20 pt-32 pb-32 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
+        {/* Floating animated elements */}
+        <motion.div 
+          className="absolute top-20 left-10 w-28 h-28 bg-purple-500/15 rounded-full blur-2xl"
+          animate={{
+            x: [0, 40, 0],
+            y: [0, -25, 0],
+            scale: [1, 1.4, 1],
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-40 right-10 w-36 h-36 bg-blue-500/15 rounded-full blur-2xl"
+          animate={{
+            rotate: [0, -360],
+            scale: [1, 0.7, 1],
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
         <div className="container mx-auto px-6">
           <motion.div initial={{
           opacity: 0,
@@ -997,6 +1051,52 @@ const Services = () => {
       
 
       {/* Footer */}
+      <footer className="bg-gray-900/80 text-white py-12 sm:py-16 border-t border-gray-800">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+            <div className="sm:col-span-2">
+              <div className="flex items-center mb-4">
+                <LazyImage alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" sizes="(max-width: 640px) 24px, 32px" />
+                <div className="text-2xl sm:text-3xl font-bold">
+                  New Edge<span className="text-purple-400"></span>
+                </div>
+              </div>
+              <p className="text-gray-400 mb-4 sm:mb-6 max-w-md text-sm sm:text-base">New Edge ist eine Creative-Tech Agentur für innovationsgetriebene Markenkommunikation.</p>
+              <div className="flex space-x-4">
+                <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
+                  <span className="text-xs sm:text-sm">in</span>
+                </a>
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base">Services</h4>
+              <ul className="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
+                <li><Link to="/studio" className="hover:text-white transition-colors">STUDIO</Link></li>
+                <li><Link to="/media" className="hover:text-white transition-colors">MEDIA</Link></li>
+                <li><Link to="/lab" className="hover:text-white transition-colors">LAB</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base">Kontakt</h4>
+              <ul className="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
+                <li>info@newedgebrand.com</li>
+                <li>+49 15750998236</li>
+                <li>Deutschland</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-800 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-xs sm:text-sm">©2024 New Edge. Alle Rechte vorbehalten.</p>
+            <div className="flex space-x-4 sm:space-x-6 mt-3 sm:mt-4 md:mt-0">
+              <Link to="/impressum" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">Impressum</Link>
+            </div>
+          </div>
+        </div>
+      </footer>
+   {/* Footer */}
       <footer className="bg-gray-900/80 text-white py-12 sm:py-16 border-t border-gray-800">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">

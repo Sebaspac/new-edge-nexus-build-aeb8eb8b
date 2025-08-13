@@ -346,8 +346,34 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* 🎯 Mission/Vision Section */}
-      <ScrollAnimation animation="fadeUp" className="section-padding bg-gradient-subtle">
+      {/* 🎯 Mission/Vision Section with Overlap Effect */}
+      <ScrollAnimation animation="fadeUp" className="relative -mt-32 pt-40 pb-20 bg-gradient-subtle overflow-hidden">
+        {/* Floating geometric shapes */}
+        <motion.div 
+          className="absolute top-10 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"
+          animate={{
+            y: [0, -20, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-20 right-20 w-32 h-32 bg-accent/10 rounded-full blur-xl"
+          animate={{
+            y: [0, 15, 0],
+            scale: [1, 0.9, 1],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
         <div className="container-xl">
           <ScrollAnimation animation="scaleIn" delay={0.1} className="text-center mb-16">
             <h2 className="text-h1 font-bold mb-4 text-foreground">
@@ -426,8 +452,27 @@ const Index = () => {
         </div>
       </ScrollAnimation>
 
-      {/* 🎯 Services Section */}
-      <ScrollAnimation animation="fadeLeft" className="section-padding bg-gradient-subtle">
+      {/* 🎯 Services Section with Overlap Effect */}
+      <ScrollAnimation animation="fadeLeft" className="relative -mt-20 pt-32 pb-20 bg-gradient-to-r from-background to-surface overflow-hidden">
+        {/* Animated background elements */}
+        <motion.div 
+          className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-gradient-subtle/50 to-transparent"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        />
+        <motion.div 
+          className="absolute -top-10 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
         <div className="container-xl">
           <ScrollAnimation animation="fadeUp" delay={0.2} className="text-center mb-16">
             <h2 className="text-h1 font-bold mb-6 text-foreground">
@@ -499,8 +544,34 @@ const Index = () => {
         </div>
       </ScrollAnimation>
 
-      {/* 🚀 Impact Points Section */}
-      <ScrollAnimation animation="fadeRight" className="section-padding bg-surface">
+      {/* 🚀 Impact Points Section with Overlap Effect */}
+      <ScrollAnimation animation="fadeRight" className="relative -mt-16 pt-24 pb-20 bg-gradient-to-l from-surface to-background overflow-hidden">
+        {/* Modern floating elements */}
+        <motion.div 
+          className="absolute top-40 right-10 w-24 h-24 bg-accent/10 rounded-full blur-xl"
+          animate={{
+            x: [0, 30, 0],
+            y: [0, -20, 0],
+            scale: [1, 1.3, 1],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-20 left-20 w-36 h-36 bg-primary/5 rounded-full blur-2xl"
+          animate={{
+            rotate: [0, 360],
+            scale: [1, 0.8, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
         <div className="container-xl">
           {/* Section Title */}
           <motion.div 
@@ -602,7 +673,33 @@ const Index = () => {
 
       {/* 📧 Contact Section - ✅ KORRIGIERTE FELDNAMEN */}
       <ScrollAnimation animation="scaleIn" threshold={0.1}>
-        <section id="contact-section" className="section-padding bg-gradient-to-br from-surface via-background to-surface">
+        <section id="contact-section" className="relative -mt-24 pt-32 pb-20 bg-gradient-to-br from-surface via-background to-surface overflow-hidden">
+          {/* Modern floating elements */}
+          <motion.div 
+            className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl"
+            animate={{
+              scale: [1, 1.5, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div 
+            className="absolute bottom-40 right-20 w-40 h-40 bg-accent/5 rounded-full blur-2xl"
+            animate={{
+              y: [0, -30, 0],
+              scale: [1, 0.8, 1],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2
+            }}
+          />
           <div className="container-narrow">
             <ScrollAnimation animation="fadeUp" delay={0.1} className="text-center mb-12">
               <h2 className="text-h1 font-bold mb-6 text-foreground">
@@ -721,53 +818,6 @@ const Index = () => {
           </div>
         </section>
       </ScrollAnimation>
-
-            {/* Footer */}
-      <footer className="bg-gray-900/80 text-white py-12 sm:py-16 border-t border-gray-800">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
-            <div className="sm:col-span-2">
-              <div className="flex items-center mb-4">
-                <LazyImage alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" sizes="(max-width: 640px) 24px, 32px" />
-                <div className="text-2xl sm:text-3xl font-bold">
-                  New Edge<span className="text-purple-400"></span>
-                </div>
-              </div>
-              <p className="text-gray-400 mb-4 sm:mb-6 max-w-md text-sm sm:text-base">New Edge ist eine Creative-Tech Agentur für innovationsgetriebene Markenkommunikation.</p>
-              <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
-                  <span className="text-xs sm:text-sm">in</span>
-                </a>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base">Services</h4>
-              <ul className="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
-                <li><Link to="/studio" className="hover:text-white transition-colors">STUDIO</Link></li>
-                <li><Link to="/media" className="hover:text-white transition-colors">MEDIA</Link></li>
-                <li><Link to="/lab" className="hover:text-white transition-colors">LAB</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base">Kontakt</h4>
-              <ul className="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
-                <li>info@newedgebrand.com</li>
-                <li>+49 15750998236</li>
-                <li>Deutschland</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-xs sm:text-sm">©2024 New Edge. Alle Rechte vorbehalten.</p>
-            <div className="flex space-x-4 sm:space-x-6 mt-3 sm:mt-4 md:mt-0">
-              <Link to="/impressum" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">Impressum</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
 
       {/* 🍪 Cookie Consent */}
       <CookieConsent />
