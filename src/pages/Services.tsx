@@ -252,83 +252,94 @@ const Services = () => {
       }} className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/20 rounded-full blur-xl" />
       </section>
 
-      {/* Services Overview Section with Overlap Effect */}
-      <section className="services-overview relative -mt-32 pt-40 pb-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
-        {/* Floating geometric shapes for modern effect */}
+      {/* Services Overview Section with Subtle Overlap Effect */}
+      <section className="services-overview relative -mt-20 pt-32 pb-24 bg-gradient-to-b from-background/95 via-surface/90 to-surface-elevated/95 overflow-hidden backdrop-blur-sm">
+        {/* Subtle floating elements - reduced animations for better performance */}
         <motion.div 
-          className="absolute top-20 left-20 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl"
+          className="absolute top-20 left-10 w-24 h-24 bg-primary/5 rounded-full blur-xl"
           animate={{
-            y: [0, -30, 0],
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
+            y: [0, -15, 0],
+            opacity: [0.3, 0.6, 0.3],
           }}
           transition={{
-            duration: 8,
+            duration: 6,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         />
         <motion.div 
-          className="absolute bottom-20 right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"
+          className="absolute bottom-10 right-10 w-32 h-32 bg-secondary/5 rounded-full blur-xl"
           animate={{
-            y: [0, 20, 0],
-            scale: [1, 0.8, 1],
-            rotate: [360, 180, 0],
+            y: [0, 10, 0],
+            opacity: [0.4, 0.2, 0.4],
           }}
           transition={{
-            duration: 6,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 2
+            delay: 3
           }}
         />
-        <motion.div style={{
-        y: y2
-      }} className="container mx-auto px-4 sm:px-6">
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="text-center mb-20">
-            <motion.div animate={{
-            boxShadow: ["0 0 20px #8b5cf6", "0 0 40px #3b82f6", "0 0 20px #f59e0b", "0 0 40px #8b5cf6"]
-          }} transition={{
-            duration: 4,
-            repeat: Infinity
-          }} className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-12 py-6 rounded-full text-2xl font-bold mb-12 animate-glow-pulse">
+        <motion.div 
+          style={{ y: y2 }} 
+          className="container mx-auto px-4 sm:px-6 relative z-10"
+        >
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true, margin: "-100px" }} 
+            transition={{ duration: 0.8 }} 
+            className="text-center mb-20"
+          >
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-block bg-gradient-primary text-white px-8 py-4 rounded-full text-xl font-semibold mb-12 shadow-elegant"
+            >
               {t('services.keyActivities')}
             </motion.div>
-            <h2 className="text-section-title sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Ihr Weg zum Erfolg</h2>
+            <h2 className="text-h1 font-bold text-foreground mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
           <div className="max-w-5xl mx-auto">
-            <div className="grid-modern">
+            <motion.div 
+              className="grid md:grid-cols-3 gap-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.1
+                  }
+                }
+              }}
+            >
               
               {/* Media Card */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 60
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0 * 0.2,
-              duration: 0.6
-            }} className="group">
-                <Card className="card-modern h-full hover-lift">
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, y: 40, scale: 0.95 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                    transition: { duration: 0.6, ease: "easeOut" }
+                  }
+                }}
+                className="group hover-lift"
+              >
+                <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                       <Brain className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-h3 font-semibold mb-4 text-foreground">
+                    <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
                       NEW EDGE MEDIA
                     </h3>
                     <p className="text-body text-muted-foreground mb-6 leading-relaxed">
@@ -348,24 +359,24 @@ const Services = () => {
               </motion.div>
 
               {/* Studio Card */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 60
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 1 * 0.2,
-              duration: 0.6
-            }} className="group">
-                <Card className="card-modern h-full hover-lift">
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, y: 40, scale: 0.95 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                    transition: { duration: 0.6, ease: "easeOut" }
+                  }
+                }}
+                className="group hover-lift"
+              >
+                <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary to-accent p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary to-accent p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                       <Sparkles className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-h3 font-semibold mb-4 text-foreground">
+                    <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
                       NEW EDGE STUDIO
                     </h3>
                     <p className="text-body text-muted-foreground mb-6 leading-relaxed">
@@ -385,24 +396,24 @@ const Services = () => {
               </motion.div>
 
               {/* Lab Card */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 60
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 2 * 0.2,
-              duration: 0.6
-            }} className="group">
-                <Card className="card-modern h-full hover-lift">
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, y: 40, scale: 0.95 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                    transition: { duration: 0.6, ease: "easeOut" }
+                  }
+                }}
+                className="group hover-lift"
+              >
+                <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-primary p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-primary p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                       <Zap className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-h3 font-semibold mb-4 text-foreground">
+                    <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
                       NEW EDGE LAB
                     </h3>
                     <p className="text-body text-muted-foreground mb-6 leading-relaxed">
@@ -420,7 +431,7 @@ const Services = () => {
                   </CardContent>
                 </Card>
               </motion.div>
-            </div>
+            </motion.div>
 
             {/* Enhanced Journey Visualization */}
             <ScrollAnimation animation="scaleIn" delay={0.3} className="mt-16 sm:mt-20">
