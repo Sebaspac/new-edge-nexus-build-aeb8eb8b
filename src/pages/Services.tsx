@@ -366,8 +366,8 @@ const Services = () => {
             <h2 className="text-h1 font-bold text-foreground mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
-          <div className="max-w-5xl mx-auto">
-            <motion.div className="grid md:grid-cols-3 gap-8" initial="hidden" whileInView="visible" viewport={{
+          <div className="max-w-6xl mx-auto px-4">
+            <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch" initial="hidden" whileInView="visible" viewport={{
             once: true,
             margin: "-50px"
           }} variants={{
@@ -377,7 +377,7 @@ const Services = () => {
             visible: {
               opacity: 1,
               transition: {
-                staggerChildren: 0.2,
+                staggerChildren: 0.15,
                 delayChildren: 0.1
               }
             }
