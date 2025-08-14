@@ -960,7 +960,7 @@ const Services = () => {
             icon: Target,
             title: "Zielgerichtet",
             description: "Fokus auf messbare Ergebnisse",
-            gradient: "from-amber-600 to-amber-800"
+            gradient: "from-yellow-500 to-yellow-600"
           }, {
             icon: ArrowRight,
             title: "Kontinuität",
