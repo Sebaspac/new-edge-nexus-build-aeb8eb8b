@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -414,6 +415,64 @@ const Team = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* Footer */}
+        <footer className="bg-surface-elevated/80 border-t border-border py-12 sm:py-16">
+          <div className="container-xl">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+              <div className="sm:col-span-2">
+                <div className="flex items-center mb-4">
+                  <img 
+                    src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" 
+                    alt="New Edge Logo" 
+                    className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" 
+                  />
+                  <div className="text-2xl sm:text-3xl font-bold text-foreground">
+                    New Edge<span className="text-primary"></span>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-4 sm:mb-6 max-w-md text-sm sm:text-base">
+                  New Edge ist eine Creative-Tech Agentur für innovationsgetriebene Markenkommunikation.
+                </p>
+                <div className="flex space-x-4">
+                  <a 
+                    href="https://www.linkedin.com/company/new-edge-brand/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-8 h-8 sm:w-10 sm:h-10 bg-surface rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer"
+                  >
+                    <span className="text-xs sm:text-sm text-foreground hover:text-white">in</span>
+                  </a>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold mb-3 sm:mb-4 text-foreground text-sm sm:text-base">Services</h4>
+                <ul className="space-y-1 sm:space-y-2 text-muted-foreground text-sm sm:text-base">
+                  <li><Link to="/studio" className="hover:text-primary transition-colors">STUDIO</Link></li>
+                  <li><Link to="/media" className="hover:text-primary transition-colors">MEDIA</Link></li>
+                  <li><Link to="/lab" className="hover:text-primary transition-colors">LAB</Link></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold mb-3 sm:mb-4 text-foreground text-sm sm:text-base">Kontakt</h4>
+                <ul className="space-y-1 sm:space-y-2 text-muted-foreground text-sm sm:text-base">
+                  <li>info@newedgebrand.com</li>
+                  <li>+49 15750998236</li>
+                  <li>Deutschland</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="border-t border-border pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
+              <p className="text-muted-foreground text-xs sm:text-sm">©2024 New Edge. Alle Rechte vorbehalten.</p>
+              <div className="flex space-x-4 sm:space-x-6 mt-3 sm:mt-4 md:mt-0">
+                <Link to="/impressum" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">Impressum</Link>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </>;
 };
