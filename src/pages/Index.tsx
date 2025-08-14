@@ -473,7 +473,7 @@ const Index = () => {
             ease: "linear"
           }}
         />
-        <div className="container-xl">
+        <div className="container-xl mt-16">
           <ScrollAnimation animation="fadeUp" delay={0.2} className="text-center mb-16">
             <h2 className="text-h1 font-bold mb-6 text-foreground">
               Unsere Services
