@@ -38,12 +38,12 @@ const Team = () => {
   // Team data
   const founders = [{
     name: "Sebastian Pachón",
-    role: "Geschäftsführer",
+    role: "Founder & Creative-Tech Partner",
     image: "/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png",
     expertise: ["Strategie", "Technologie"]
   }, {
     name: "Wenjamin Zabezhanskiy",
-    role: "Geschäftsführer",
+    role: "Operations & Innovation Partner",
     image: "/lovable-uploads/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png",
     expertise: ["Kreation", "Support"]
   }];
