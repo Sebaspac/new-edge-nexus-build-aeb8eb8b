@@ -490,7 +490,7 @@ const Services = () => {
                       <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-accent to-primary p-3 sm:p-4 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                         <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
-                      <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight">
+                      <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase">
                         <span dangerouslySetInnerHTML={{ __html: "new edge<br />lab" }} />
                       </h3>
                     </div>
