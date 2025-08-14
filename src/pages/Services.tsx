@@ -495,7 +495,7 @@ const Services = () => {
                     
                     <Button className="btn-primary w-full h-12 text-sm md:text-base px-4" asChild>
                       <Link to="/lab" className="flex items-center justify-center gap-2">
-                        <span className="truncate">Technologie implementieren</span>
+                        <span className="truncate">Automatisieren</span>
                         <ArrowRight className="w-4 h-4 shrink-0" />
                       </Link>
                     </Button>
