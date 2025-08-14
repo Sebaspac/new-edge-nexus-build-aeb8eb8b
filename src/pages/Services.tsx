@@ -401,7 +401,7 @@ const Services = () => {
               }
             }} className="group hover-lift">
                 <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
-                  <CardContent className="p-8">
+                  <CardContent className="p-8 flex flex-col h-full">
                     <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                       <Brain className="w-8 h-8 text-white" />
                     </div>
@@ -409,11 +409,11 @@ const Services = () => {
                       NEW EDGE MEDIA
                     </h3>
                     
-                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8">
+                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow">
                       Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
                     </p>
                     
-                    <Button className="btn-primary w-full h-12 text-sm md:text-base px-4" asChild>
+                    <Button className="btn-primary w-full h-12 text-sm md:text-base px-4 mt-auto" asChild>
                       <Link to="/media" className="flex items-center justify-center gap-2">
                         <span className="truncate">Content erstellen</span>
                         <ArrowRight className="w-4 h-4 shrink-0" />
@@ -441,7 +441,7 @@ const Services = () => {
               }
             }} className="group hover-lift">
                 <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
-                  <CardContent className="p-8">
+                  <CardContent className="p-8 flex flex-col h-full">
                     <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary to-accent p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                       <Sparkles className="w-8 h-8 text-white" />
                     </div>
@@ -449,11 +449,11 @@ const Services = () => {
                       NEW EDGE STUDIO
                     </h3>
                     
-                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8">
+                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow">
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
-                    <Button className="btn-primary w-full h-12 text-sm md:text-base px-4" asChild>
+                    <Button className="btn-primary w-full h-12 text-sm md:text-base px-4 mt-auto" asChild>
                       <Link to="/studio" className="flex items-center justify-center gap-2">
                         <span className="truncate">Strategie entwickeln</span>
                         <ArrowRight className="w-4 h-4 shrink-0" />
@@ -481,7 +481,7 @@ const Services = () => {
               }
             }} className="group hover-lift">
                 <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
-                  <CardContent className="p-8">
+                  <CardContent className="p-8 flex flex-col h-full">
                     <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-primary p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                       <Zap className="w-8 h-8 text-white" />
                     </div>
@@ -489,10 +489,10 @@ const Services = () => {
                       NEW EDGE LAB
                     </h3>
                     
-                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8">
+                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow">
 Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.</p>
                     
-                    <Button className="btn-primary w-full h-12 text-sm md:text-base px-4" asChild>
+                    <Button className="btn-primary w-full h-12 text-sm md:text-base px-4 mt-auto" asChild>
                       <Link to="/lab" className="flex items-center justify-center gap-2">
                         <span className="truncate">Automatisieren</span>
                         <ArrowRight className="w-4 h-4 shrink-0" />
