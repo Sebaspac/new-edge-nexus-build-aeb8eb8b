@@ -284,35 +284,31 @@ const Index = () => {
         delay: 1.2,
         duration: 0.6
       }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <motion.div 
-            animate={{
-              y: [0, 10, 0]
-            }} 
-            transition={{
-              duration: 2,
-              repeat: Infinity
-            }} 
-            className="flex flex-col items-center gap-2 text-muted-foreground cursor-pointer hover-scale"
-            onClick={() => {
-              const nextSection = document.querySelector('.relative.-mt-32.pt-40.pb-20');
-              if (nextSection) {
-                nextSection.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <motion.div animate={{
+          y: [0, 10, 0]
+        }} transition={{
+          duration: 2,
+          repeat: Infinity
+        }} className="flex flex-col items-center gap-2 text-muted-foreground cursor-pointer hover-scale" onClick={() => {
+          const nextSection = document.querySelector('.relative.-mt-32.pt-40.pb-20');
+          if (nextSection) {
+            nextSection.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        }} whileHover={{
+          scale: 1.1
+        }} whileTap={{
+          scale: 0.95
+        }}>
             <span className="text-body-sm">Scroll to explore</span>
-            <motion.div
-              animate={{ 
-                y: [0, 5, 0] 
-              }}
-              transition={{ 
-                duration: 1.5, 
-                repeat: Infinity,
-                delay: 0.5
-              }}
-            >
+            <motion.div animate={{
+            y: [0, 5, 0]
+          }} transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            delay: 0.5
+          }}>
               <ChevronDown className="w-5 h-5" />
             </motion.div>
           </motion.div>
@@ -600,7 +596,7 @@ const Index = () => {
                     {point.number}
                   </motion.div>
                   <div className="flex-1">
-                    <h3 className="text-h3 font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="text-h3 mb-3 text-foreground group-hover:text-primary transition-colors text-base font-semibold">
                       {point.title}
                     </h3>
                     <p className="text-body text-muted-foreground leading-relaxed">
