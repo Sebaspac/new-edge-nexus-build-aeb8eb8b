@@ -477,7 +477,7 @@ const Team = () => {
               </div>
               
               <div>
-                <h4 className="font-semibold mb-3 sm:mb-4 text-foreground text-sm sm:text-base">Services</h4>
+                <Link to="/services" className="font-semibold mb-3 sm:mb-4 text-foreground text-sm sm:text-base hover:text-primary transition-colors cursor-pointer block">Services</Link>
                 <ul className="space-y-1 sm:space-y-2 text-muted-foreground text-sm sm:text-base">
                   <li><Link to="/studio" className="hover:text-primary transition-colors">STUDIO</Link></li>
                   <li><Link to="/media" className="hover:text-primary transition-colors">MEDIA</Link></li>
