@@ -44,7 +44,7 @@ const Team = () => {
   }, {
     name: "Sebastian Pachón",
     role: "Geschäftsführer",
-    image: "/lovable-uploads/380a4a8b-6a3d-4e43-b3c7-3e7519fa87b2.png",
+    image: "/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png",
     expertise: ["Strategy", "Operations", "Team Leadership"]
   }];
   const networkStats = [{
