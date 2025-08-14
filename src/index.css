@@ -342,8 +342,7 @@
 .btn-primary {
   @apply px-8 py-4 bg-primary text-primary-foreground rounded-xl font-medium;
   @apply transition-all duration-300 ease-out;
-  @apply hover:scale-105 hover:shadow-lg;
-  background: var(--gradient-primary);
+  @apply hover:scale-105 hover:shadow-lg hover:bg-primary/90;
   box-shadow: var(--shadow-soft);
 }
 
