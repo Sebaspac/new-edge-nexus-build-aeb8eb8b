@@ -613,7 +613,7 @@ const Services = () => {
                       </div>
                       
                 {/* Central Journey Node */}
-                <motion.div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full border-2 sm:border-4 border-white shadow-2xl flex items-center justify-center relative z-20 mx-auto lg:mx-0" initial={{
+                <motion.div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full border-2 sm:border-4 border-white shadow-2xl flex items-center justify-center relative z-20 mx-auto lg:mx-0 aspect-square" initial={{
                 scale: 0,
                 rotate: -180
               }} whileInView={{
@@ -633,7 +633,7 @@ const Services = () => {
                   <span className="text-white font-bold text-lg sm:text-2xl">1</span>
                   
                   {/* Pulsing Ring */}
-                  <motion.div className="absolute inset-0 rounded-full border-2 border-purple-400" animate={{
+                  <motion.div className="absolute inset-0 rounded-full border-2 border-purple-400 aspect-square" animate={{
                   scale: [1, 1.5, 1],
                   opacity: [1, 0, 1]
                 }} transition={{
@@ -662,7 +662,7 @@ const Services = () => {
                       </div>
                       
                       {/* Central Journey Node */}
-                      <motion.div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full border-4 border-white shadow-2xl flex items-center justify-center relative z-20" initial={{
+                      <motion.div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full border-2 sm:border-4 border-white shadow-2xl flex items-center justify-center relative z-20 mx-auto lg:mx-0 aspect-square" initial={{
                       scale: 0,
                       rotate: 180
                     }} whileInView={{
@@ -679,10 +679,10 @@ const Services = () => {
                       scale: 1.2,
                       boxShadow: "0 0 30px rgba(59, 130, 246, 0.6)"
                     }}>
-                        <span className="text-white font-bold text-2xl">2</span>
+                        <span className="text-white font-bold text-lg sm:text-2xl">2</span>
                         
                         {/* Pulsing Ring */}
-                        <motion.div className="absolute inset-0 rounded-full border-2 border-blue-400" animate={{
+                        <motion.div className="absolute inset-0 rounded-full border-2 border-blue-400 aspect-square" animate={{
                         scale: [1, 1.5, 1],
                         opacity: [1, 0, 1]
                       }} transition={{
@@ -750,7 +750,7 @@ const Services = () => {
                       </div>
                       
                       {/* Central Journey Node */}
-                      <motion.div className="w-20 h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full border-4 border-white shadow-2xl flex items-center justify-center relative z-20" initial={{
+                      <motion.div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full border-2 sm:border-4 border-white shadow-2xl flex items-center justify-center relative z-20 mx-auto lg:mx-0 aspect-square" initial={{
                       scale: 0,
                       rotate: -180
                     }} whileInView={{
@@ -767,10 +767,10 @@ const Services = () => {
                       scale: 1.2,
                       boxShadow: "0 0 30px rgba(245, 158, 11, 0.6)"
                     }}>
-                        <span className="text-white font-bold text-2xl">3</span>
+                        <span className="text-white font-bold text-lg sm:text-2xl">3</span>
                         
                         {/* Pulsing Ring */}
-                        <motion.div className="absolute inset-0 rounded-full border-2 border-yellow-400" animate={{
+                        <motion.div className="absolute inset-0 rounded-full border-2 border-yellow-400 aspect-square" animate={{
                         scale: [1, 1.5, 1],
                         opacity: [1, 0, 1]
                       }} transition={{
