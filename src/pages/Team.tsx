@@ -260,24 +260,30 @@ const Team = () => {
               duration: 0.6,
               delay: index * 0.1
             }} className="group hover-lift">
-                  <Card className="card-modern h-full text-center">
-                    <div className="p-8">
-                      <div className="relative mb-8">
-                        <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-border/20 shadow-lg group-hover:border-primary/30 transition-colors duration-300">
+                  <Card className="card-modern h-full">
+                    <div className="p-6 sm:p-8 flex flex-col h-full">
+                      <div className="flex-shrink-0 mb-6">
+                        <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden border-4 border-border/20 shadow-lg group-hover:border-primary/30 transition-colors duration-300">
                           <img src={founder.image} alt={`${founder.name} - ${founder.role}`} className="w-full h-full object-cover" loading="lazy" />
                         </div>
                       </div>
                       
-                      <h3 className="text-h3 font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
-                        {founder.name}
-                      </h3>
-                       <p className="text-primary font-medium mb-8">{founder.role}</p>
-                       
-                       <div className="flex justify-center gap-3 mt-auto">
-                         {founder.expertise.map((skill, skillIndex) => <span key={skillIndex} className="px-4 py-2 bg-white/10 backdrop-blur-sm text-foreground rounded-xl text-sm font-medium border border-white/20 shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-200 hover:shadow-xl">
-                             {skill}
-                           </span>)}
-                       </div>
+                      <div className="text-center flex-grow flex flex-col justify-between">
+                        <div>
+                          <h3 className="text-h3 font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                            {founder.name}
+                          </h3>
+                          <p className="text-primary font-medium mb-6">{founder.role}</p>
+                        </div>
+                        
+                        <div className="flex justify-center gap-2 sm:gap-3 flex-wrap">
+                          {founder.expertise.map((skill, skillIndex) => (
+                            <span key={skillIndex} className="px-3 py-2 sm:px-4 bg-white/10 backdrop-blur-sm text-foreground rounded-xl text-sm font-medium border border-white/20 shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-200 hover:shadow-xl">
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </Card>
                 </motion.div>)}
