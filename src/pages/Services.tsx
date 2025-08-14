@@ -406,8 +406,10 @@ const Services = () => {
                       <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-3 sm:p-4 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                         <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
-                      <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors">
-                        NEW EDGE MEDIA
+                      <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase">
+                        <span dangerouslySetInnerHTML={{
+                        __html: "new edge<br />media"
+                      }} />
                       </h3>
                     </div>
                     
@@ -448,8 +450,10 @@ const Services = () => {
                       <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-secondary to-accent p-3 sm:p-4 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                         <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
-                      <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors">
-                        NEW EDGE STUDIO
+                      <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase">
+                        <span dangerouslySetInnerHTML={{
+                        __html: "new edge<br />studio"
+                      }} />
                       </h3>
                     </div>
                     
