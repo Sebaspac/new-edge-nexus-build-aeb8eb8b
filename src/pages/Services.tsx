@@ -411,7 +411,7 @@ const Services = () => {
                       </h3>
                     </div>
                     
-                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow">
+                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow mt-8">
                       Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
                     </p>
                     
@@ -453,7 +453,7 @@ const Services = () => {
                       </h3>
                     </div>
                     
-                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow">
+                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow mt-8">
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
@@ -495,7 +495,7 @@ const Services = () => {
                       </h3>
                     </div>
                     
-                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow">
+                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow mt-8">
 Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.</p>
                     
                     <Button className="btn-primary w-full h-12 text-sm md:text-base px-4 mt-auto" asChild>
