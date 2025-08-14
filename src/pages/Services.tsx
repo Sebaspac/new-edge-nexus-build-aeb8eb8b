@@ -532,9 +532,45 @@ const Services = () => {
                   </p>
                 </div>
 
-                {/* Simple Journey Steps */}
-                <div className="grid md:grid-cols-3 gap-8">
-                  {[{
+                {/* Journey Steps with Animation Line */}
+                <div className="relative">
+                  {/* Animated Journey Line */}
+                  <div className="hidden md:block absolute top-10 left-1/2 transform -translate-x-1/2 w-full max-w-2xl">
+                    <motion.div 
+                      initial={{ pathLength: 0 }}
+                      whileInView={{ pathLength: 1 }}
+                      transition={{ duration: 2, ease: "easeInOut" }}
+                      viewport={{ once: true }}
+                    >
+                      <svg width="100%" height="60" viewBox="0 0 400 60" className="absolute top-0">
+                        <motion.path
+                          d="M20,30 Q100,10 200,30 T380,30"
+                          stroke="hsl(var(--primary))"
+                          strokeWidth="2"
+                          fill="none"
+                          strokeDasharray="5,5"
+                          initial={{ pathLength: 0 }}
+                          whileInView={{ pathLength: 1 }}
+                          transition={{ duration: 2, ease: "easeInOut" }}
+                          viewport={{ once: true }}
+                        />
+                        {/* Green dot at the end */}
+                        <motion.circle
+                          cx="380"
+                          cy="30"
+                          r="4"
+                          fill="hsl(var(--primary))"
+                          initial={{ scale: 0, opacity: 0 }}
+                          whileInView={{ scale: 1, opacity: 1 }}
+                          transition={{ delay: 2, duration: 0.3 }}
+                          viewport={{ once: true }}
+                        />
+                      </svg>
+                    </motion.div>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-3 gap-8 relative z-10">
+                    {[{
                   number: "01",
                   title: "STRATEGIE",
                   description: "Das Fundament für Ihren Erfolg. Wir entwickeln eine klare Roadmap und visuelle Identität.",
@@ -552,7 +588,7 @@ const Services = () => {
                   description: "Intelligente Systeme und Workflows für nachhaltigen Erfolg und Effizienz.",
                   icon: Eye,
                   gradient: "from-accent to-accent"
-                }].map((step, index) => <motion.div key={step.number} initial={{
+                 }].map((step, index) => <motion.div key={step.number} initial={{
                   opacity: 0,
                   y: 30
                 }} whileInView={{
@@ -580,6 +616,7 @@ const Services = () => {
                         {step.description}
                       </p>
                     </motion.div>)}
+                  </div>
                 </div>
               </div>
             </motion.div>
