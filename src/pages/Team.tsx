@@ -40,12 +40,12 @@ const Team = () => {
     name: "Sebastian Pachón",
     role: "Geschäftsführer",
     image: "/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png",
-    expertise: ["Strategie", "Markenführung", "Technologie", "Vision"]
+    expertise: ["Strategie", "Technologie", "Vision"]
   }, {
     name: "Wenjamin Zabezhanskiy",
     role: "Geschäftsführer",
     image: "/lovable-uploads/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png",
-    expertise: ["Kreation", "Umsetzung", "Prozesse", "Support"]
+    expertise: ["Kreation", "Support"]
   }];
   const networkStats = [{
     icon: Users,
