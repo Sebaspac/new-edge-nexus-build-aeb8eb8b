@@ -490,8 +490,7 @@ const Services = () => {
                     </h3>
                     
                     <p className="text-body-sm text-muted-foreground leading-relaxed mb-8">
-                      Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
-                    </p>
+Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.</p>
                     
                     <Button className="btn-primary w-full h-12 text-sm md:text-base px-4" asChild>
                       <Link to="/lab" className="flex items-center justify-center gap-2">
