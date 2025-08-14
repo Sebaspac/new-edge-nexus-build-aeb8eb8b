@@ -611,7 +611,7 @@ const Services = () => {
                         }}>
                             <Target className="w-8 h-8 text-white" />
                           </motion.div>
-                          <h4 className="text-2xl font-bold text-purple-300 mb-4 text-center">STRATEGIE</h4>
+                          <h4 className="text-2xl font-bold mb-4 text-center text-slate-50">STRATEGIE</h4>
                           <p className="text-gray-300 text-center leading-relaxed">
                             Das Fundament für Ihren Erfolg. Wir entwickeln eine klare Roadmap und visuelle Identität.
                           </p>
@@ -714,7 +714,7 @@ const Services = () => {
                         }}>
                             <Brain className="w-8 h-8 text-white" />
                           </motion.div>
-                          <h4 className="text-2xl font-bold text-blue-300 mb-4 text-center">UMSETZUNG</h4>
+                          <h4 className="text-2xl font-bold mb-4 text-center text-slate-50">UMSETZUNG</h4>
                           <p className="text-gray-300 text-center leading-relaxed">
                             Content-Produktion und Reichweite-Aufbau. Ihre Botschaft erreicht die richtige Zielgruppe.
                           </p>
@@ -748,7 +748,7 @@ const Services = () => {
                         }}>
                             <Zap className="w-8 h-8 text-white" />
                           </motion.div>
-                          <h4 className="text-2xl font-bold text-yellow-300 mb-4 text-center">INNOVATION</h4>
+                          <h4 className="text-2xl font-bold mb-4 text-center text-slate-50">INNOVATION</h4>
                           <p className="text-gray-300 text-center leading-relaxed">
                             Technische Implementierung und Automation für nachhaltigen, messbaren Erfolg.
                           </p>
@@ -840,7 +840,7 @@ const Services = () => {
                       }} />)}
                       </motion.div>
                       
-                      <motion.h4 className="text-3xl font-bold text-green-400 mb-4" initial={{
+                      <motion.h4 initial={{
                       opacity: 0,
                       y: 20
                     }} whileInView={{
@@ -849,7 +849,7 @@ const Services = () => {
                     }} transition={{
                       delay: 1.5,
                       duration: 0.6
-                    }}>
+                    }} className="text-3xl font-bold mb-4 text-slate-50">
                         ERFOLG ERREICHT
                       </motion.h4>
                       <motion.p className="text-xl text-gray-300 max-w-2xl mx-auto" initial={{
