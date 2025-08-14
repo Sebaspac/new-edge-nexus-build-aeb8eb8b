@@ -406,7 +406,7 @@ const Services = () => {
                       <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                         <Brain className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="text-h3 font-semibold mb-6 text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="text-h3 font-semibold mb-8 text-foreground group-hover:text-primary transition-colors">
                         NEW EDGE MEDIA
                       </h3>
                     </div>
@@ -448,7 +448,7 @@ const Services = () => {
                       <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary to-accent p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                         <Sparkles className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="text-h3 font-semibold mb-6 text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="text-h3 font-semibold mb-8 text-foreground group-hover:text-primary transition-colors">
                         NEW EDGE STUDIO
                       </h3>
                     </div>
@@ -490,7 +490,7 @@ const Services = () => {
                       <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-primary p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                         <Zap className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="text-h3 font-semibold mb-6 text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="text-h3 font-semibold mb-8 text-foreground group-hover:text-primary transition-colors">
                         NEW EDGE LAB
                       </h3>
                     </div>
