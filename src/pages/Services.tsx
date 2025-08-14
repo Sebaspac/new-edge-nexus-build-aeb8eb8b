@@ -367,7 +367,7 @@ const Services = () => {
           </motion.div>
 
           <div className="max-w-6xl mx-auto px-4">
-            <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch" initial="hidden" whileInView="visible" viewport={{
+            <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-end" initial="hidden" whileInView="visible" viewport={{
             once: true,
             margin: "-50px"
           }} variants={{
