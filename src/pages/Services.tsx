@@ -408,7 +408,9 @@ const Services = () => {
                     <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
                       NEW EDGE MEDIA
                     </h3>
-                    
+                    <p className="text-body text-muted-foreground mb-6 leading-relaxed">
+                      Die perfekte Bühne für Ihre Marke
+                    </p>
                     <p className="text-body-sm text-muted-foreground leading-relaxed mb-8">
                       Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
                     </p>
@@ -447,7 +449,9 @@ const Services = () => {
                     <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
                       NEW EDGE STUDIO
                     </h3>
-                    
+                    <p className="text-body text-muted-foreground mb-6 leading-relaxed">
+                      Ihre Ideen, unsere Strategie
+                    </p>
                     <p className="text-body-sm text-muted-foreground leading-relaxed mb-8">
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
@@ -486,7 +490,9 @@ const Services = () => {
                     <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
                       NEW EDGE LAB
                     </h3>
-                    
+                    <p className="text-body text-muted-foreground mb-6 leading-relaxed">
+                      Die perfekte Schnittstelle für Strategie & Technologie
+                    </p>
                     <p className="text-body-sm text-muted-foreground leading-relaxed mb-8">
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
