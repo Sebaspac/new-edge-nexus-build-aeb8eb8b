@@ -490,9 +490,10 @@ const Services = () => {
                       <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-primary p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                         <Zap className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="text-h3 font-semibold mb-12 text-foreground group-hover:text-primary transition-colors">
-                        NEW EDGE LAB
-                      </h3>
+                      <h3 className="text-h3 font-semibold mb-12 text-foreground group-hover:text-primary transition-colors">NEW EDGE 
+LAB
+
+                    </h3>
                     </div>
                     
                     <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow mt-8">
