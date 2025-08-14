@@ -248,7 +248,7 @@ const Index = () => {
             duration: 0.8
           }} className="text-body-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
               {t('home.hero.description')} <br />
-              <span className="text-primary font-medium">{t('home.hero.subtitle')}</span>
+              
             </motion.p>
 
             {/* 🔥 CTA Buttons */}
