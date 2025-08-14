@@ -491,8 +491,8 @@ const Services = () => {
                         <Zap className="w-8 h-8 text-white" />
                       </div>
                       <h3 className="text-h3 font-semibold mb-12 text-foreground group-hover:text-primary transition-colors">
-                        new edge<br />
-                        lab
+                        NEW EDGE<br />
+                        LAB
                       </h3>
                     </div>
                     
