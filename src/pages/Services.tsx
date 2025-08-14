@@ -982,9 +982,7 @@ const Services = () => {
                 <h3 className="text-h4 font-semibold text-foreground mb-4 group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-body-sm text-muted-foreground leading-relaxed text-left">
-                  {item.description}
-                </p>
+                
               </motion.div>)}
           </div>
         </div>
