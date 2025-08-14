@@ -413,9 +413,9 @@ const Services = () => {
                       Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
                     </p>
                     
-                    <Button className="btn-primary w-full" asChild>
-                      <Link to="/media">
-                        Content erstellen <ArrowRight className="ml-2 w-4 h-4" />
+                    <Button className="btn-primary w-full h-12 text-sm" asChild>
+                      <Link to="/media" className="flex items-center justify-center whitespace-nowrap text-ellipsis overflow-hidden">
+                        Content erstellen <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
                       </Link>
                     </Button>
                   </CardContent>
@@ -452,9 +452,9 @@ const Services = () => {
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
-                    <Button className="btn-primary w-full" asChild>
-                      <Link to="/studio">
-                        Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4" />
+                    <Button className="btn-primary w-full h-12 text-sm" asChild>
+                      <Link to="/studio" className="flex items-center justify-center whitespace-nowrap text-ellipsis overflow-hidden">
+                        Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
                       </Link>
                     </Button>
                   </CardContent>
@@ -491,9 +491,9 @@ const Services = () => {
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
                     
-                    <Button className="btn-primary w-full" asChild>
-                      <Link to="/lab">
-                        Technologie implementieren <ArrowRight className="ml-2 w-4 h-4" />
+                    <Button className="btn-primary w-full h-12 text-sm" asChild>
+                      <Link to="/lab" className="flex items-center justify-center whitespace-nowrap text-ellipsis overflow-hidden">
+                        Technologie implementieren <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
                       </Link>
                     </Button>
                   </CardContent>
