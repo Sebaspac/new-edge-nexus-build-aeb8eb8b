@@ -525,31 +525,31 @@ const Services = () => {
                 {/* Journey Header */}
                 <div className="text-center mb-16">
                   <motion.h3 className="text-4xl sm:text-5xl font-bold text-white mb-6" initial={{
-                    opacity: 0,
-                    scale: 0.8
-                  }} whileInView={{
-                    opacity: 1,
-                    scale: 1
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    duration: 0.8,
-                    ease: "easeOut"
-                  }}>
+                  opacity: 0,
+                  scale: 0.8
+                }} whileInView={{
+                  opacity: 1,
+                  scale: 1
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  duration: 0.8,
+                  ease: "easeOut"
+                }}>
                     Unsere Journey
                   </motion.h3>
                   <motion.p className="text-xl text-gray-300 max-w-2xl mx-auto" initial={{
-                    opacity: 0,
-                    y: 20
-                  }} whileInView={{
-                    opacity: 1,
-                    y: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    delay: 0.2,
-                    duration: 0.6
-                  }}>
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  delay: 0.2,
+                  duration: 0.6
+                }}>
                     Von der Vision zur Realität - erleben Sie jeden Schritt unserer digitalen Transformation
                   </motion.p>
                 </div>
@@ -558,48 +558,48 @@ const Services = () => {
                 <div className="relative">
                   {/* Main Journey Line */}
                   <motion.div className="absolute left-1/2 top-0 w-1 bg-gradient-to-b from-purple-500 via-blue-500 to-yellow-500 transform -translate-x-1/2" style={{
-                    height: 'calc(100% - 200px)'
-                  }} initial={{
-                    scaleY: 0,
-                    opacity: 0
-                  }} whileInView={{
-                    scaleY: 1,
-                    opacity: 1
-                  }} viewport={{
-                    once: true,
-                    margin: "-100px"
-                  }} transition={{
-                    duration: 2,
-                    ease: "easeInOut"
-                  }} />
+                  height: 'calc(100% - 200px)'
+                }} initial={{
+                  scaleY: 0,
+                  opacity: 0
+                }} whileInView={{
+                  scaleY: 1,
+                  opacity: 1
+                }} viewport={{
+                  once: true,
+                  margin: "-100px"
+                }} transition={{
+                  duration: 2,
+                  ease: "easeInOut"
+                }} />
 
                   {/* Journey Steps */}
                   <div className="space-y-24 relative z-10">
                     
                     {/* Step 1: Strategy */}
                     <motion.div className="flex items-center" whileInView={{
-                      x: [100, 0],
-                      opacity: [0, 1]
-                    }} viewport={{
-                      once: true
-                    }} transition={{
-                      duration: 0.8,
-                      ease: "easeOut"
-                    }}>
+                    x: [100, 0],
+                    opacity: [0, 1]
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    duration: 0.8,
+                    ease: "easeOut"
+                  }}>
                       <div className="flex-1 max-w-md mr-8">
                         <motion.div className="bg-gradient-to-br from-purple-900/40 to-purple-800/40 backdrop-blur-xl p-8 rounded-3xl border border-purple-500/30 shadow-2xl" whileHover={{
-                          scale: 1.05,
-                          y: -10,
-                          boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.3)"
-                        }} transition={{
-                          duration: 0.3
-                        }}>
+                        scale: 1.05,
+                        y: -10,
+                        boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.3)"
+                      }} transition={{
+                        duration: 0.3
+                      }}>
                           <motion.div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 mx-auto" whileHover={{
-                            rotate: 360,
-                            scale: 1.1
-                          }} transition={{
-                            duration: 0.6
-                          }}>
+                          rotate: 360,
+                          scale: 1.1
+                        }} transition={{
+                          duration: 0.6
+                        }}>
                             <Target className="w-8 h-8 text-white" />
                           </motion.div>
                           <h4 className="text-2xl font-bold text-purple-300 mb-4 text-center">STRATEGIE</h4>
@@ -611,32 +611,32 @@ const Services = () => {
                       
                       {/* Central Journey Node */}
                       <motion.div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full border-4 border-white shadow-2xl flex items-center justify-center relative z-20" initial={{
-                        scale: 0,
-                        rotate: -180
-                      }} whileInView={{
-                        scale: 1,
-                        rotate: 0
-                      }} viewport={{
-                        once: true
-                      }} transition={{
-                        delay: 0.7,
-                        duration: 0.6,
-                        type: "spring",
-                        stiffness: 200
-                      }} whileHover={{
-                        scale: 1.2,
-                        boxShadow: "0 0 30px rgba(139, 92, 246, 0.6)"
-                      }}>
+                      scale: 0,
+                      rotate: -180
+                    }} whileInView={{
+                      scale: 1,
+                      rotate: 0
+                    }} viewport={{
+                      once: true
+                    }} transition={{
+                      delay: 0.7,
+                      duration: 0.6,
+                      type: "spring",
+                      stiffness: 200
+                    }} whileHover={{
+                      scale: 1.2,
+                      boxShadow: "0 0 30px rgba(139, 92, 246, 0.6)"
+                    }}>
                         <span className="text-white font-bold text-2xl">1</span>
                         
                         {/* Pulsing Ring */}
                         <motion.div className="absolute inset-0 rounded-full border-2 border-purple-400" animate={{
-                          scale: [1, 1.5, 1],
-                          opacity: [1, 0, 1]
-                        }} transition={{
-                          duration: 2,
-                          repeat: Infinity
-                        }} />
+                        scale: [1, 1.5, 1],
+                        opacity: [1, 0, 1]
+                      }} transition={{
+                        duration: 2,
+                        repeat: Infinity
+                      }} />
                       </motion.div>
                       
                       <div className="flex-1 max-w-md ml-8 opacity-30">
@@ -646,63 +646,63 @@ const Services = () => {
 
                     {/* Step 2: Implementation */}
                     <motion.div className="flex items-center" whileInView={{
-                      x: [-100, 0],
-                      opacity: [0, 1]
-                    }} viewport={{
-                      once: true
-                    }} transition={{
-                      duration: 0.8,
-                      ease: "easeOut"
-                    }}>
+                    x: [-100, 0],
+                    opacity: [0, 1]
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    duration: 0.8,
+                    ease: "easeOut"
+                  }}>
                       <div className="flex-1 max-w-md mr-8 opacity-30">
                         <div className="h-32"></div>
                       </div>
                       
                       {/* Central Journey Node */}
                       <motion.div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full border-4 border-white shadow-2xl flex items-center justify-center relative z-20" initial={{
-                        scale: 0,
-                        rotate: 180
-                      }} whileInView={{
-                        scale: 1,
-                        rotate: 0
-                      }} viewport={{
-                        once: true
-                      }} transition={{
-                        delay: 0.9,
-                        duration: 0.6,
-                        type: "spring",
-                        stiffness: 200
-                      }} whileHover={{
-                        scale: 1.2,
-                        boxShadow: "0 0 30px rgba(59, 130, 246, 0.6)"
-                      }}>
+                      scale: 0,
+                      rotate: 180
+                    }} whileInView={{
+                      scale: 1,
+                      rotate: 0
+                    }} viewport={{
+                      once: true
+                    }} transition={{
+                      delay: 0.9,
+                      duration: 0.6,
+                      type: "spring",
+                      stiffness: 200
+                    }} whileHover={{
+                      scale: 1.2,
+                      boxShadow: "0 0 30px rgba(59, 130, 246, 0.6)"
+                    }}>
                         <span className="text-white font-bold text-2xl">2</span>
                         
                         {/* Pulsing Ring */}
                         <motion.div className="absolute inset-0 rounded-full border-2 border-blue-400" animate={{
-                          scale: [1, 1.5, 1],
-                          opacity: [1, 0, 1]
-                        }} transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: 0.5
-                        }} />
+                        scale: [1, 1.5, 1],
+                        opacity: [1, 0, 1]
+                      }} transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: 0.5
+                      }} />
                       </motion.div>
                       
                       <div className="flex-1 max-w-md ml-8">
                         <motion.div className="bg-gradient-to-br from-blue-900/40 to-blue-800/40 backdrop-blur-xl p-8 rounded-3xl border border-blue-500/30 shadow-2xl" whileHover={{
-                          scale: 1.05,
-                          y: -10,
-                          boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.3)"
-                        }} transition={{
-                          duration: 0.3
-                        }}>
+                        scale: 1.05,
+                        y: -10,
+                        boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.3)"
+                      }} transition={{
+                        duration: 0.3
+                      }}>
                           <motion.div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto" whileHover={{
-                            rotate: 360,
-                            scale: 1.1
-                          }} transition={{
-                            duration: 0.6
-                          }}>
+                          rotate: 360,
+                          scale: 1.1
+                        }} transition={{
+                          duration: 0.6
+                        }}>
                             <Brain className="w-8 h-8 text-white" />
                           </motion.div>
                           <h4 className="text-2xl font-bold text-blue-300 mb-4 text-center">UMSETZUNG</h4>
@@ -715,28 +715,28 @@ const Services = () => {
 
                     {/* Step 3: Innovation */}
                     <motion.div className="flex items-center" whileInView={{
-                      x: [100, 0],
-                      opacity: [0, 1]
-                    }} viewport={{
-                      once: true
-                    }} transition={{
-                      duration: 0.8,
-                      ease: "easeOut"
-                    }}>
+                    x: [100, 0],
+                    opacity: [0, 1]
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    duration: 0.8,
+                    ease: "easeOut"
+                  }}>
                       <div className="flex-1 max-w-md mr-8">
                         <motion.div className="bg-gradient-to-br from-yellow-900/40 to-yellow-800/40 backdrop-blur-xl p-8 rounded-3xl border border-yellow-500/30 shadow-2xl" whileHover={{
-                          scale: 1.05,
-                          y: -10,
-                          boxShadow: "0 25px 50px -12px rgba(245, 158, 11, 0.3)"
-                        }} transition={{
-                          duration: 0.3
-                        }}>
+                        scale: 1.05,
+                        y: -10,
+                        boxShadow: "0 25px 50px -12px rgba(245, 158, 11, 0.3)"
+                      }} transition={{
+                        duration: 0.3
+                      }}>
                           <motion.div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-6 mx-auto" whileHover={{
-                            rotate: 360,
-                            scale: 1.1
-                          }} transition={{
-                            duration: 0.6
-                          }}>
+                          rotate: 360,
+                          scale: 1.1
+                        }} transition={{
+                          duration: 0.6
+                        }}>
                             <Zap className="w-8 h-8 text-white" />
                           </motion.div>
                           <h4 className="text-2xl font-bold text-yellow-300 mb-4 text-center">INNOVATION</h4>
@@ -748,33 +748,33 @@ const Services = () => {
                       
                       {/* Central Journey Node */}
                       <motion.div className="w-20 h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full border-4 border-white shadow-2xl flex items-center justify-center relative z-20" initial={{
-                        scale: 0,
-                        rotate: -180
-                      }} whileInView={{
-                        scale: 1,
-                        rotate: 0
-                      }} viewport={{
-                        once: true
-                      }} transition={{
-                        delay: 1.1,
-                        duration: 0.6,
-                        type: "spring",
-                        stiffness: 200
-                      }} whileHover={{
-                        scale: 1.2,
-                        boxShadow: "0 0 30px rgba(245, 158, 11, 0.6)"
-                      }}>
+                      scale: 0,
+                      rotate: -180
+                    }} whileInView={{
+                      scale: 1,
+                      rotate: 0
+                    }} viewport={{
+                      once: true
+                    }} transition={{
+                      delay: 1.1,
+                      duration: 0.6,
+                      type: "spring",
+                      stiffness: 200
+                    }} whileHover={{
+                      scale: 1.2,
+                      boxShadow: "0 0 30px rgba(245, 158, 11, 0.6)"
+                    }}>
                         <span className="text-white font-bold text-2xl">3</span>
                         
                         {/* Pulsing Ring */}
                         <motion.div className="absolute inset-0 rounded-full border-2 border-yellow-400" animate={{
-                          scale: [1, 1.5, 1],
-                          opacity: [1, 0, 1]
-                        }} transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: 1
-                        }} />
+                        scale: [1, 1.5, 1],
+                        opacity: [1, 0, 1]
+                      }} transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: 1
+                      }} />
                       </motion.div>
                       
                       <div className="flex-1 max-w-md ml-8 opacity-30">
@@ -784,77 +784,75 @@ const Services = () => {
 
                     {/* Journey Success - Final Destination */}
                     <motion.div className="text-center pt-16" initial={{
-                      opacity: 0,
-                      scale: 0.5
-                    }} whileInView={{
-                      opacity: 1,
-                      scale: 1
-                    }} viewport={{
-                      once: true
-                    }} transition={{
-                      delay: 1.3,
-                      duration: 0.8,
-                      type: "spring"
-                    }}>
+                    opacity: 0,
+                    scale: 0.5
+                  }} whileInView={{
+                    opacity: 1,
+                    scale: 1
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    delay: 1.3,
+                    duration: 0.8,
+                    type: "spring"
+                  }}>
                       <motion.div className="w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full border-8 border-white shadow-2xl flex items-center justify-center mx-auto mb-8 relative" animate={{
-                        boxShadow: ["0 0 20px rgba(16, 185, 129, 0.3)", "0 0 40px rgba(16, 185, 129, 0.6)", "0 0 20px rgba(16, 185, 129, 0.3)"]
-                      }} transition={{
-                        boxShadow: {
-                          duration: 3,
-                          repeat: Infinity
-                        }
-                      }} whileHover={{
-                        scale: 1.1,
-                        boxShadow: "0 0 50px rgba(16, 185, 129, 0.8)",
-                        transition: {
-                          duration: 0.3
-                        }
-                      }}>
+                      boxShadow: ["0 0 20px rgba(16, 185, 129, 0.3)", "0 0 40px rgba(16, 185, 129, 0.6)", "0 0 20px rgba(16, 185, 129, 0.3)"]
+                    }} transition={{
+                      boxShadow: {
+                        duration: 3,
+                        repeat: Infinity
+                      }
+                    }} whileHover={{
+                      scale: 1.1,
+                      boxShadow: "0 0 50px rgba(16, 185, 129, 0.8)",
+                      transition: {
+                        duration: 0.3
+                      }
+                    }}>
                         <Sparkles className="w-16 h-16 text-white" />
                         
                         {/* Success Particles */}
-                        {[...Array(8)].map((_, i) => (
-                          <motion.div key={i} className="absolute w-2 h-2 bg-yellow-400 rounded-full" style={{
-                            top: "50%",
-                            left: "50%",
-                            originX: 0.5,
-                            originY: 0.5
-                          }} animate={{
-                            x: [0, Math.cos(i * 45 * Math.PI / 180) * 60],
-                            y: [0, Math.sin(i * 45 * Math.PI / 180) * 60],
-                            opacity: [1, 0],
-                            scale: [0, 1, 0]
-                          }} transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            delay: i * 0.2,
-                            ease: "easeOut"
-                          }} />
-                        ))}
+                        {[...Array(8)].map((_, i) => <motion.div key={i} className="absolute w-2 h-2 bg-yellow-400 rounded-full" style={{
+                        top: "50%",
+                        left: "50%",
+                        originX: 0.5,
+                        originY: 0.5
+                      }} animate={{
+                        x: [0, Math.cos(i * 45 * Math.PI / 180) * 60],
+                        y: [0, Math.sin(i * 45 * Math.PI / 180) * 60],
+                        opacity: [1, 0],
+                        scale: [0, 1, 0]
+                      }} transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: i * 0.2,
+                        ease: "easeOut"
+                      }} />)}
                       </motion.div>
                       
                       <motion.h4 className="text-3xl font-bold text-green-400 mb-4" initial={{
-                        opacity: 0,
-                        y: 20
-                      }} whileInView={{
-                        opacity: 1,
-                        y: 0
-                      }} transition={{
-                        delay: 1.5,
-                        duration: 0.6
-                      }}>
+                      opacity: 0,
+                      y: 20
+                    }} whileInView={{
+                      opacity: 1,
+                      y: 0
+                    }} transition={{
+                      delay: 1.5,
+                      duration: 0.6
+                    }}>
                         ERFOLG ERREICHT
                       </motion.h4>
                       <motion.p className="text-xl text-gray-300 max-w-2xl mx-auto" initial={{
-                        opacity: 0,
-                        y: 20
-                      }} whileInView={{
-                        opacity: 1,
-                        y: 0
-                      }} transition={{
-                        delay: 1.7,
-                        duration: 0.6
-                      }}>
+                      opacity: 0,
+                      y: 20
+                    }} whileInView={{
+                      opacity: 1,
+                      y: 0
+                    }} transition={{
+                      delay: 1.7,
+                      duration: 0.6
+                    }}>
                         Ihre digitale Transformation ist komplett. Messbare Ergebnisse, nachhaltige Prozesse und dauerhafter Wettbewerbsvorteil.
                       </motion.p>
                     </motion.div>
@@ -869,13 +867,17 @@ const Services = () => {
       {/* Das Ergebnis Section */}
       <section className="relative py-24 px-4 sm:px-6 bg-gradient-to-br from-background via-surface to-surface-elevated overflow-hidden">
         <div className="container-xl relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-20"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="text-center mb-20">
             <h2 className="text-h1 font-bold text-foreground mb-6">Das Ergebnis</h2>
             <p className="text-body-xl text-muted-foreground max-w-4xl mx-auto">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
@@ -883,44 +885,42 @@ const Services = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                number: "01",
-                title: "Klare Strategie",
-                description: "Eine durchdachte Roadmap und visuelle Identität als solides Fundament.",
-                gradient: "from-purple-600 to-purple-800",
-                bgColor: "bg-purple-600/10"
-              },
-              {
-                number: "02", 
-                title: "Überzeugende Inhalte",
-                description: "Content, der Ihre Zielgruppe erreicht und nachhaltig begeistert.",
-                gradient: "from-blue-600 to-blue-800",
-                bgColor: "bg-blue-600/10"
-              },
-              {
-                number: "03",
-                title: "Intelligente Umsetzung", 
-                description: "Technische Exzellenz und Automatisierung für nachhaltigen Erfolg.",
-                gradient: "from-amber-600 to-amber-800",
-                bgColor: "bg-amber-600/10"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={item.number}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`${item.bgColor} rounded-3xl p-8 border border-border/50 backdrop-blur-sm hover:scale-105 transition-all duration-300`}
-              >
+            {[{
+            number: "01",
+            title: "Klare Strategie",
+            description: "Eine durchdachte Roadmap und visuelle Identität als solides Fundament.",
+            gradient: "from-purple-600 to-purple-800",
+            bgColor: "bg-purple-600/10"
+          }, {
+            number: "02",
+            title: "Überzeugende Inhalte",
+            description: "Content, der Ihre Zielgruppe erreicht und nachhaltig begeistert.",
+            gradient: "from-blue-600 to-blue-800",
+            bgColor: "bg-blue-600/10"
+          }, {
+            number: "03",
+            title: "Intelligente Umsetzung",
+            description: "Technische Exzellenz und Automatisierung für nachhaltigen Erfolg.",
+            gradient: "from-amber-600 to-amber-800",
+            bgColor: "bg-amber-600/10"
+          }].map((item, index) => <motion.div key={item.number} initial={{
+            opacity: 0,
+            y: 40
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6,
+            delay: index * 0.1
+          }} className={`${item.bgColor} rounded-3xl p-8 border border-border/50 backdrop-blur-sm hover:scale-105 transition-all duration-300`}>
                 <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} text-white font-bold text-2xl mb-6`}>
                   {item.number}
                 </div>
                 <h3 className="text-h3 font-semibold text-foreground mb-4">{item.title}</h3>
                 <p className="text-body text-muted-foreground leading-relaxed">{item.description}</p>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </div>
       </section>
@@ -928,13 +928,17 @@ const Services = () => {
       {/* Warum New Edge Section */}
       <section className="relative py-24 px-4 sm:px-6 bg-gradient-subtle overflow-hidden">
         <div className="container-xl relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-20"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="text-center mb-20">
             <h2 className="text-h1 font-bold text-foreground mb-6">Warum New Edge?</h2>
             <p className="text-body-xl text-muted-foreground max-w-4xl mx-auto">
               Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.
@@ -942,40 +946,38 @@ const Services = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                icon: Star,
-                title: "Expertise",
-                description: "Spezialisierte Teams für jeden Bereich",
-                gradient: "from-purple-600 to-purple-800"
-              },
-              {
-                icon: Zap,
-                title: "Effizienz", 
-                description: "Optimierte Prozesse und kurze Wege",
-                gradient: "from-blue-600 to-blue-800"
-              },
-              {
-                icon: Target,
-                title: "Zielgerichtet",
-                description: "Fokus auf messbare Ergebnisse",
-                gradient: "from-amber-600 to-amber-800"
-              },
-              {
-                icon: ArrowRight,
-                title: "Kontinuität",
-                description: "Nahtlose Übergänge zwischen den Phasen",
-                gradient: "from-green-600 to-green-800"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center group"
-              >
+            {[{
+            icon: Star,
+            title: "Expertise",
+            description: "Spezialisierte Teams für jeden Bereich",
+            gradient: "from-purple-600 to-purple-800"
+          }, {
+            icon: Zap,
+            title: "Effizienz",
+            description: "Optimierte Prozesse und kurze Wege",
+            gradient: "from-blue-600 to-blue-800"
+          }, {
+            icon: Target,
+            title: "Zielgerichtet",
+            description: "Fokus auf messbare Ergebnisse",
+            gradient: "from-amber-600 to-amber-800"
+          }, {
+            icon: ArrowRight,
+            title: "Kontinuität",
+            description: "Nahtlose Übergänge zwischen den Phasen",
+            gradient: "from-green-600 to-green-800"
+          }].map((item, index) => <motion.div key={item.title} initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6,
+            delay: index * 0.1
+          }} className="text-center group">
                 <div className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft`}>
                   <item.icon className="w-8 h-8 text-white" />
                 </div>
@@ -985,55 +987,13 @@ const Services = () => {
                 <p className="text-body-sm text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </div>
       </section>
 
       {/* Erfolg Erreicht Section */}
-      <section className="relative py-24 px-4 sm:px-6 bg-gradient-to-br from-surface via-background to-surface-elevated overflow-hidden">
-        <div className="container-xl text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center mb-8 shadow-glow">
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.5, type: "spring" }}
-              >
-                <Sparkles className="w-16 h-16 text-white" />
-              </motion.div>
-            </div>
-            
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-h1 font-bold text-green-600 mb-6"
-            >
-              ERFOLG ERREICHT
-            </motion.h2>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-body-xl text-muted-foreground leading-relaxed"
-            >
-              Ihre digitale Transformation ist komplett. Messbare Ergebnisse, nachhaltige Prozesse und dauerhafter Wettbewerbsvorteil.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
+      
 
       {/* CTA Section */}
       <section className="relative py-24 px-4 sm:px-6 bg-gradient-to-br from-surface via-background to-surface-elevated overflow-hidden">
