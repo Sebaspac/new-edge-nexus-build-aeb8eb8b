@@ -273,7 +273,7 @@ const Team = () => {
                       </h3>
                       <p className="text-primary font-medium mb-6">{founder.role}</p>
                       
-                      <div className="flex flex-wrap gap-2 justify-center">
+                      <div className="grid grid-cols-2 gap-2 max-w-xs mx-auto">
                         {founder.expertise.map((skill, skillIndex) => <span key={skillIndex} className="px-3 py-1 bg-surface-elevated/50 text-muted-foreground rounded-full text-sm font-medium border border-border/30">
                             {skill}
                           </span>)}
