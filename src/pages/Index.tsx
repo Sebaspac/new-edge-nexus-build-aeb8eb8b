@@ -526,12 +526,8 @@ const Index = () => {
         }} transition={{
           duration: 0.6
         }}>
-            <h2 className="text-h1 font-bold mb-6 text-foreground">
-              Warum New Edge?
-            </h2>
-            <p className="text-h3 text-muted-foreground max-w-3xl mx-auto">
-              Entdecken Sie die Vorteile unserer einzigartigen Herangehensweise
-            </p>
+            <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere innovative Herangehensweise</h2>
+            
           </motion.div>
           <motion.div className="grid md:grid-cols-2 gap-8" initial="hidden" whileInView="visible" viewport={{
           once: true,
