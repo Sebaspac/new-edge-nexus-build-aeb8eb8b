@@ -491,7 +491,9 @@ const Services = () => {
                         <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
                       <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase">
-                        <span dangerouslySetInnerHTML={{ __html: "new edge<br />lab" }} />
+                        <span dangerouslySetInnerHTML={{
+                        __html: "new edge<br />lab"
+                      }} />
                       </h3>
                     </div>
                     
@@ -614,32 +616,32 @@ const Services = () => {
                       
                 {/* Central Journey Node */}
                 <motion.div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full border-2 sm:border-4 border-white shadow-2xl flex items-center justify-center relative z-20 mx-auto lg:mx-0 aspect-square" initial={{
-                scale: 0,
-                rotate: -180
-              }} whileInView={{
-                scale: 1,
-                rotate: 0
-              }} viewport={{
-                once: true
-              }} transition={{
-                delay: 0.7,
-                duration: 0.6,
-                type: "spring",
-                stiffness: 200
-              }} whileHover={{
-                scale: 1.1,
-                boxShadow: "0 0 30px rgba(139, 92, 246, 0.6)"
-              }}>
+                      scale: 0,
+                      rotate: -180
+                    }} whileInView={{
+                      scale: 1,
+                      rotate: 0
+                    }} viewport={{
+                      once: true
+                    }} transition={{
+                      delay: 0.7,
+                      duration: 0.6,
+                      type: "spring",
+                      stiffness: 200
+                    }} whileHover={{
+                      scale: 1.1,
+                      boxShadow: "0 0 30px rgba(139, 92, 246, 0.6)"
+                    }}>
                   <span className="text-white font-bold text-lg sm:text-2xl">1</span>
                   
                   {/* Pulsing Ring */}
                   <motion.div className="absolute inset-0 rounded-full border-2 border-purple-400 aspect-square" animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [1, 0, 1]
-                }} transition={{
-                  duration: 2,
-                  repeat: Infinity
-                }} />
+                        scale: [1, 1.5, 1],
+                        opacity: [1, 0, 1]
+                      }} transition={{
+                        duration: 2,
+                        repeat: Infinity
+                      }} />
                 </motion.div>
                 
                 <div className="hidden lg:block flex-1 max-w-md ml-8 opacity-30">
@@ -1072,7 +1074,7 @@ const Services = () => {
           </div>
           
           <div className="border-t border-border pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-muted-foreground text-xs sm:text-sm">©2024 New Edge. Alle Rechte vorbehalten.</p>
+            <p className="text-muted-foreground text-xs sm:text-sm">©2025 New Edge. Alle Rechte vorbehalten.</p>
             <div className="flex space-x-4 sm:space-x-6 mt-3 sm:mt-4 md:mt-0">
               <Link to="/impressum" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">Impressum</Link>
             </div>
