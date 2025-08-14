@@ -284,14 +284,37 @@ const Index = () => {
         delay: 1.2,
         duration: 0.6
       }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <motion.div animate={{
-          y: [0, 10, 0]
-        }} transition={{
-          duration: 2,
-          repeat: Infinity
-        }} className="flex flex-col items-center gap-2 text-muted-foreground">
+          <motion.div 
+            animate={{
+              y: [0, 10, 0]
+            }} 
+            transition={{
+              duration: 2,
+              repeat: Infinity
+            }} 
+            className="flex flex-col items-center gap-2 text-muted-foreground cursor-pointer hover-scale"
+            onClick={() => {
+              const nextSection = document.querySelector('.relative.-mt-32.pt-40.pb-20');
+              if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
             <span className="text-body-sm">Scroll to explore</span>
-            <ChevronDown className="w-5 h-5" />
+            <motion.div
+              animate={{ 
+                y: [0, 5, 0] 
+              }}
+              transition={{ 
+                duration: 1.5, 
+                repeat: Infinity,
+                delay: 0.5
+              }}
+            >
+              <ChevronDown className="w-5 h-5" />
+            </motion.div>
           </motion.div>
         </motion.div>
       </section>
