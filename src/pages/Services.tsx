@@ -43,76 +43,235 @@ const Services = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden pt-20 sm:pt-0">
-        {/* Simplified gradient background */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-background via-surface to-surface-elevated"></div>
+        {/* Complex animated background with particles and geometric shapes */}
+        <div className="absolute inset-0 z-0">
+          {/* Main gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-surface-elevated"></div>
+          
+          {/* Animated geometric shapes */}
+          <motion.div 
+            className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.2, 1],
+              rotate: [0, 180, 360],
+              x: [0, 50, 0],
+              y: [0, -30, 0]
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute top-3/4 right-1/4 w-48 h-48 bg-secondary/15 rounded-full blur-2xl"
+            animate={{ 
+              scale: [1.2, 1, 1.2],
+              rotate: [360, 180, 0],
+              x: [0, -40, 0],
+              y: [0, 20, 0]
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 5 }}
+          />
+          <motion.div 
+            className="absolute bottom-1/4 left-1/3 w-32 h-32 bg-accent/20 rounded-full blur-xl"
+            animate={{ 
+              scale: [1, 1.5, 1],
+              x: [0, 60, 0],
+              y: [0, -50, 0]
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          />
+          
+          {/* Floating particles */}
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-primary/30 rounded-full"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -100, 0],
+                opacity: [0, 1, 0],
+                scale: [0, 1, 0],
+              }}
+              transition={{
+                duration: 8 + Math.random() * 4,
+                repeat: Infinity,
+                delay: Math.random() * 5,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+          
+          {/* Hexagonal grid pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="hexagons" x="0" y="0" width="50" height="43.4" patternUnits="userSpaceOnUse">
+                  <polygon fill="none" stroke="currentColor" strokeWidth="1" points="24.8,22 37.3,29.2 37.3,43.7 24.8,50.9 12.3,43.7 12.3,29.2"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#hexagons)" className="text-primary"/>
+            </svg>
+          </div>
+          
+          {/* Dynamic light rays */}
+          <motion.div 
+            className="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent"
+            animate={{ opacity: [0.3, 0.6, 0.3], scale: [0.8, 1.2, 0.8] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
         
         <motion.div 
           style={{ y: y1, opacity }} 
           className="text-center relative z-10"
         >
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }} 
-            animate={{ opacity: 1, scale: 1 }} 
-            transition={{ duration: 1, ease: "easeOut" }} 
+            initial={{ opacity: 0, scale: 0.8, rotateX: -20 }} 
+            animate={{ opacity: 1, scale: 1, rotateX: 0 }} 
+            transition={{ duration: 1.2, ease: "easeOut" }} 
             className="mb-12"
           >
+            {/* Complex text animations */}
             <motion.div 
-              className="inline-block text-transparent bg-gradient-primary bg-clip-text text-display-xl font-black tracking-tight mb-4"
+              initial={{ opacity: 0, y: -50, rotateY: -45 }}
+              animate={{ opacity: 1, y: 0, rotateY: 0 }}
+              transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
+              className="inline-block text-transparent bg-gradient-primary bg-clip-text text-display-xl font-black tracking-tight mb-4 perspective-1000"
             >
-              THE
+              <motion.span
+                animate={{ 
+                  textShadow: [
+                    "0 0 20px rgba(var(--primary-rgb), 0.5)",
+                    "0 0 40px rgba(var(--primary-rgb), 0.8)",
+                    "0 0 20px rgba(var(--primary-rgb), 0.5)"
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                THE
+              </motion.span>
             </motion.div>
             <br />
             <motion.div 
-              initial={{ rotateX: -90 }} 
-              animate={{ rotateX: 0 }} 
-              transition={{ delay: 0.5, duration: 0.8 }} 
-              className="text-display-xl font-black text-foreground italic mb-4"
+              initial={{ opacity: 0, rotateX: -90, scale: 0.5 }} 
+              animate={{ opacity: 1, rotateX: 0, scale: 1 }} 
+              transition={{ delay: 0.7, duration: 1.2, ease: "backOut" }} 
+              className="text-display-xl font-black text-foreground italic mb-4 transform-gpu"
             >
-              JOURNEY
+              <motion.span
+                animate={{ 
+                  rotateZ: [0, 2, -2, 0],
+                  scale: [1, 1.02, 1]
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                JOURNEY
+              </motion.span>
             </motion.div>
             <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ delay: 1, duration: 0.8 }} 
+              initial={{ opacity: 0, y: 50, scale: 0.8 }} 
+              animate={{ opacity: 1, y: 0, scale: 1 }} 
+              transition={{ delay: 1.2, duration: 1, ease: "easeOut" }} 
               className="text-body-xl text-muted-foreground font-light"
             >
-              FROM VISION TO REALITY
+              <motion.span
+                animate={{ opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                FROM VISION TO REALITY
+              </motion.span>
             </motion.div>
           </motion.div>
           
+          {/* Parallax text content */}
           <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ delay: 1.5, duration: 0.8 }} 
+            initial={{ opacity: 0, y: 30 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ delay: 1.8, duration: 1 }} 
             className="text-body-lg text-muted-foreground mb-6 max-w-4xl mx-auto font-light leading-relaxed"
           >
-            <div>Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden.</div>
-            <div>Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.</div>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 2, duration: 0.8 }}
+            >
+              Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden.
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 2.3, duration: 0.8 }}
+            >
+              Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.
+            </motion.div>
           </motion.div>
           
           <motion.p 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ delay: 1.9, duration: 0.8 }} 
+            initial={{ opacity: 0, scale: 0.9 }} 
+            animate={{ opacity: 1, scale: 1 }} 
+            transition={{ delay: 2.5, duration: 0.8 }} 
             className="text-body-lg mb-12 max-w-4xl mx-auto font-light leading-relaxed"
           >
             <span className="bg-gradient-primary bg-clip-text text-transparent font-medium text-h2">
-              {t('services.hero.subtitle')}
+              <motion.span
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                }}
+                transition={{ duration: 4, repeat: Infinity }}
+                style={{ backgroundSize: "200% 200%" }}
+              >
+                {t('services.hero.subtitle')}
+              </motion.span>
             </span>
           </motion.p>
 
-          {/* Scroll Indicator */}
+          {/* Enhanced scroll indicator with complex animations */}
           <motion.div 
-            animate={{ y: [0, 10, 0] }} 
-            transition={{ duration: 2, repeat: Infinity }} 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 3, duration: 0.8 }}
             className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer z-20" 
             onClick={() => {
               const nextSection = document.querySelector('.services-overview');
               nextSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
-              <ArrowDown className="w-8 h-8 text-primary" />
+            <motion.div 
+              whileHover={{ scale: 1.3, rotate: 5 }} 
+              whileTap={{ scale: 0.8 }}
+              className="relative"
+            >
+              {/* Pulsing ring */}
+              <motion.div
+                className="absolute inset-0 w-16 h-16 -m-4 rounded-full border-2 border-primary/50"
+                animate={{ 
+                  scale: [1, 1.5, 1],
+                  opacity: [0.5, 0, 0.5]
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              {/* Main arrow with glow effect */}
+              <motion.div
+                animate={{ y: [0, 8, 0] }} 
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="relative"
+              >
+                <motion.div
+                  className="absolute inset-0 blur-sm"
+                  animate={{ 
+                    boxShadow: [
+                      "0 0 20px rgba(var(--primary-rgb), 0.8)",
+                      "0 0 40px rgba(var(--primary-rgb), 1)",
+                      "0 0 20px rgba(var(--primary-rgb), 0.8)"
+                    ]
+                  }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <ArrowDown className="w-8 h-8 text-primary" />
+                </motion.div>
+                <ArrowDown className="w-8 h-8 text-primary relative z-10" />
+              </motion.div>
             </motion.div>
           </motion.div>
         </motion.div>
