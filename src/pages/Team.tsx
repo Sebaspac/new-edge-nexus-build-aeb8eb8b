@@ -40,7 +40,7 @@ const Team = () => {
     name: "Wenjamin Zabezhanskiy",
     role: "Geschäftsführer",
     image: "/lovable-uploads/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png",
-    expertise: ["Brand Developement", "Digital Transformation"]
+    expertise: ["Kreation", "Umsetzung", "Prozesse", "Support"]
   }, {
     name: "Sebastian Pachón",
     role: "Geschäftsführer",
