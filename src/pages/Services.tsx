@@ -852,18 +852,7 @@ const Services = () => {
                     }} className="text-3xl font-bold mb-4 text-slate-50">
                         ERFOLG ERREICHT
                       </motion.h4>
-                      <motion.p className="text-xl text-gray-300 max-w-2xl mx-auto" initial={{
-                      opacity: 0,
-                      y: 20
-                    }} whileInView={{
-                      opacity: 1,
-                      y: 0
-                    }} transition={{
-                      delay: 1.7,
-                      duration: 0.6
-                    }}>
-                        Ihre digitale Transformation ist komplett. Messbare Ergebnisse, nachhaltige Prozesse und dauerhafter Wettbewerbsvorteil.
-                      </motion.p>
+                      
                     </motion.div>
                   </div>
                 </div>
