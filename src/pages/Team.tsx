@@ -37,15 +37,15 @@ const Team = () => {
 
   // Team data
   const founders = [{
-    name: "Sebastian Pachón",
-    role: "Geschäftsführer",
-    image: "/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png",
-    expertise: ["Strategie", "Technologie"]
-  }, {
     name: "Wenjamin Zabezhanskiy",
-    role: "Geschäftsführer",
+    role: "Operations & Innovation Partner",
     image: "/lovable-uploads/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png",
-    expertise: ["Kreation", "Support"]
+    expertise: ["Kreation", "Umsetzung", "Prozesse", "Support"]
+  }, {
+    name: "Sebastian Pachón",
+    role: "Founder & Creative-Tech Partner",
+    image: "/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png",
+    expertise: ["Strategie", "Markenführung", "Technologie", "Vision"]
   }];
   const networkStats = [{
     icon: Users,
@@ -150,7 +150,7 @@ const Team = () => {
             
             {/* Team Background Image with Overlay */}
             <div className="absolute inset-0 z-0" style={{
-            backgroundImage: "url('/lovable-uploads/072b3572-872a-4a44-b919-80bad436c002.png')",
+            backgroundImage: "url('/lovable-uploads/2d88dc02-55ec-4dd1-ae07-1ac7b7ced67b.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.3
@@ -271,13 +271,13 @@ const Team = () => {
                       <h3 className="text-h3 font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                         {founder.name}
                       </h3>
-                       <p className="text-primary font-medium mb-8">{founder.role}</p>
-                       
-                       <div className="flex justify-center gap-3 mt-auto">
-                         {founder.expertise.map((skill, skillIndex) => <span key={skillIndex} className="px-4 py-2 bg-white/10 backdrop-blur-sm text-foreground rounded-xl text-sm font-medium border border-white/20 shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-200 hover:shadow-xl">
-                             {skill}
-                           </span>)}
-                       </div>
+                      <p className="text-primary font-medium mb-6">{founder.role}</p>
+                      
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        {founder.expertise.map((skill, skillIndex) => <span key={skillIndex} className="px-3 py-1 bg-surface-elevated/50 text-muted-foreground rounded-full text-sm font-medium border border-border/30">
+                            {skill}
+                          </span>)}
+                      </div>
                     </div>
                   </Card>
                 </motion.div>)}
