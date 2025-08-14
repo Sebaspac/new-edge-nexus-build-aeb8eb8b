@@ -167,7 +167,7 @@ const Team = () => {
           y: 0
         }} transition={{
           duration: 1
-        }} className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center">
+        }} className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center pt-16">
             <h1 className="text-display-xl font-black mb-6">
               <span className="block bg-gradient-primary bg-clip-text text-transparent animate-gradient">
                 UNSER
