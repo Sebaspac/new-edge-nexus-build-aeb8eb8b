@@ -183,42 +183,38 @@ const Team = () => {
           
           {/* Scroll Indicator */}
           <motion.div initial={{
-            opacity: 0
-          }} animate={{
-            opacity: 1
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          delay: 1.2,
+          duration: 0.6
+        }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+            <motion.div animate={{
+            y: [0, 10, 0]
           }} transition={{
-            delay: 1.2,
-            duration: 0.6
-          }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-            <motion.div 
-              animate={{
-                y: [0, 10, 0]
-              }} 
-              transition={{
-                duration: 2,
-                repeat: Infinity
-              }} 
-              className="flex flex-col items-center gap-2 text-muted-foreground cursor-pointer hover-scale"
-              onClick={() => {
-                const foundersSection = document.querySelector('.section-padding.bg-surface');
-                if (foundersSection) {
-                  foundersSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            duration: 2,
+            repeat: Infinity
+          }} className="flex flex-col items-center gap-2 text-muted-foreground cursor-pointer hover-scale" onClick={() => {
+            const foundersSection = document.querySelector('.section-padding.bg-surface');
+            if (foundersSection) {
+              foundersSection.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }
+          }} whileHover={{
+            scale: 1.1
+          }} whileTap={{
+            scale: 0.95
+          }}>
               <span className="text-body-sm">Scroll to explore</span>
-              <motion.div
-                animate={{ 
-                  y: [0, 5, 0] 
-                }}
-                transition={{ 
-                  duration: 1.5, 
-                  repeat: Infinity,
-                  delay: 0.5
-                }}
-              >
+              <motion.div animate={{
+              y: [0, 5, 0]
+            }} transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              delay: 0.5
+            }}>
                 <ChevronDown className="w-5 h-5" />
               </motion.div>
             </motion.div>
@@ -277,11 +273,9 @@ const Team = () => {
                         </div>
                         
                         <div className="flex justify-center gap-2 sm:gap-3 flex-wrap">
-                          {founder.expertise.map((skill, skillIndex) => (
-                            <span key={skillIndex} className="px-3 py-2 sm:px-4 bg-white/10 backdrop-blur-sm text-foreground rounded-xl text-sm font-medium border border-white/20 shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-200 hover:shadow-xl">
+                          {founder.expertise.map((skill, skillIndex) => <span key={skillIndex} className="px-3 py-2 sm:px-4 bg-white/10 backdrop-blur-sm text-foreground rounded-xl text-sm font-medium border border-white/20 shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-200 hover:shadow-xl">
                               {skill}
-                            </span>
-                          ))}
+                            </span>)}
                         </div>
                       </div>
                     </div>
@@ -415,7 +409,7 @@ const Team = () => {
                       <p className="text-body text-muted-foreground mb-6 leading-relaxed">
                         {item.description}
                       </p>
-                      <p className="text-body-sm text-primary font-medium">{item.team}</p>
+                      
                     </div>
                   </Card>
                 </motion.div>)}
