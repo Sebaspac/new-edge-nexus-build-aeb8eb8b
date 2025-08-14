@@ -40,7 +40,7 @@ const Team = () => {
     name: "Sebastian Pachón",
     role: "Geschäftsführer",
     image: "/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png",
-    expertise: ["Strategie", "Technologie", "Vision"]
+    expertise: ["Strategie", "Technologie"]
   }, {
     name: "Wenjamin Zabezhanskiy",
     role: "Geschäftsführer",
@@ -271,13 +271,13 @@ const Team = () => {
                       <h3 className="text-h3 font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                         {founder.name}
                       </h3>
-                      <p className="text-primary font-medium mb-6">{founder.role}</p>
-                      
-                      <div className="grid grid-cols-2 gap-2 max-w-xs mx-auto">
+                       <p className="text-primary font-medium mb-8">{founder.role}</p>
+                       
+                       <div className="flex justify-center gap-3 mt-auto">
                          {founder.expertise.map((skill, skillIndex) => <span key={skillIndex} className="px-4 py-2 bg-white/10 backdrop-blur-sm text-foreground rounded-xl text-sm font-medium border border-white/20 shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-200 hover:shadow-xl">
                              {skill}
                            </span>)}
-                      </div>
+                       </div>
                     </div>
                   </Card>
                 </motion.div>)}
