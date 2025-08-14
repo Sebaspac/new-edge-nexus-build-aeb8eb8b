@@ -150,7 +150,7 @@ const Team = () => {
             
             {/* Team Background Image with Overlay */}
             <div className="absolute inset-0 z-0" style={{
-            backgroundImage: "url('/lovable-uploads/2d88dc02-55ec-4dd1-ae07-1ac7b7ced67b.png')",
+            backgroundImage: "url('/lovable-uploads/072b3572-872a-4a44-b919-80bad436c002.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.3
