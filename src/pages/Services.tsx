@@ -536,70 +536,75 @@ const Services = () => {
                 <div className="relative">
                   {/* Animated Journey Line */}
                   <div className="hidden md:block absolute top-10 left-1/2 transform -translate-x-1/2 w-full max-w-2xl">
-                    <motion.div 
-                      initial={{ pathLength: 0 }}
-                      whileInView={{ pathLength: 1 }}
-                      transition={{ duration: 2, ease: "easeInOut" }}
-                      viewport={{ once: true }}
-                    >
+                    <motion.div initial={{
+                    pathLength: 0
+                  }} whileInView={{
+                    pathLength: 1
+                  }} transition={{
+                    duration: 2,
+                    ease: "easeInOut"
+                  }} viewport={{
+                    once: true
+                  }}>
                       <svg width="100%" height="60" viewBox="0 0 400 60" className="absolute top-0">
-                        <motion.path
-                          d="M20,30 Q100,10 200,30 T380,30"
-                          stroke="hsl(var(--primary))"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeDasharray="5,5"
-                          initial={{ pathLength: 0 }}
-                          whileInView={{ pathLength: 1 }}
-                          transition={{ duration: 2, ease: "easeInOut" }}
-                          viewport={{ once: true }}
-                        />
+                        <motion.path d="M20,30 Q100,10 200,30 T380,30" stroke="hsl(var(--primary))" strokeWidth="2" fill="none" strokeDasharray="5,5" initial={{
+                        pathLength: 0
+                      }} whileInView={{
+                        pathLength: 1
+                      }} transition={{
+                        duration: 2,
+                        ease: "easeInOut"
+                      }} viewport={{
+                        once: true
+                      }} />
                         {/* Green dot at the end */}
-                        <motion.circle
-                          cx="380"
-                          cy="30"
-                          r="4"
-                          fill="hsl(var(--primary))"
-                          initial={{ scale: 0, opacity: 0 }}
-                          whileInView={{ scale: 1, opacity: 1 }}
-                          transition={{ delay: 2, duration: 0.3 }}
-                          viewport={{ once: true }}
-                        />
+                        <motion.circle cx="380" cy="30" r="4" fill="hsl(var(--primary))" initial={{
+                        scale: 0,
+                        opacity: 0
+                      }} whileInView={{
+                        scale: 1,
+                        opacity: 1
+                      }} transition={{
+                        delay: 2,
+                        duration: 0.3
+                      }} viewport={{
+                        once: true
+                      }} />
                       </svg>
                     </motion.div>
                   </div>
                   
                   <div className="grid md:grid-cols-3 gap-8 relative z-10">
                     {[{
-                  number: "01",
-                  title: "STRATEGIE",
-                  description: "Das Fundament für Ihren Erfolg. Wir entwickeln eine klare Roadmap und visuelle Identität.",
-                  icon: Target,
-                  gradient: "from-primary to-primary"
-                }, {
-                  number: "02",
-                  title: "PRODUKTION",
-                  description: "Content-Erstellung und kreative Umsetzung. Hier entstehen die Inhalte für Ihre Marke.",
-                  icon: Star,
-                  gradient: "from-secondary to-secondary"
-                }, {
-                  number: "03",
-                  title: "AUTOMATION",
-                  description: "Intelligente Systeme und Workflows für nachhaltigen Erfolg und Effizienz.",
-                  icon: Eye,
-                  gradient: "from-accent to-accent"
-                 }].map((step, index) => <motion.div key={step.number} initial={{
-                  opacity: 0,
-                  y: 30
-                }} whileInView={{
-                  opacity: 1,
-                  y: 0
-                }} viewport={{
-                  once: true
-                }} transition={{
-                  duration: 0.6,
-                  delay: index * 0.1
-                }} className="text-center group">
+                    number: "01",
+                    title: "STRATEGIE",
+                    description: "Das Fundament für Ihren Erfolg. Wir entwickeln eine klare Roadmap und visuelle Identität.",
+                    icon: Target,
+                    gradient: "from-primary to-primary"
+                  }, {
+                    number: "02",
+                    title: "PRODUKTION",
+                    description: "Content-Erstellung und kreative Umsetzung. Hier entstehen die Inhalte für Ihre Marke.",
+                    icon: Star,
+                    gradient: "from-secondary to-secondary"
+                  }, {
+                    number: "03",
+                    title: "AUTOMATION",
+                    description: "Intelligente Systeme und Workflows für nachhaltigen Erfolg und Effizienz.",
+                    icon: Eye,
+                    gradient: "from-accent to-accent"
+                  }].map((step, index) => <motion.div key={step.number} initial={{
+                    opacity: 0,
+                    y: 30
+                  }} whileInView={{
+                    opacity: 1,
+                    y: 0
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    duration: 0.6,
+                    delay: index * 0.1
+                  }} className="text-center group">
                       <div className="relative mb-6">
                         <div className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-soft group-hover:scale-105 transition-transform duration-300`}>
                           <span className="text-white font-bold text-xl">{step.number}</span>
@@ -627,13 +632,17 @@ const Services = () => {
       {/* Das Ergebnis Section */}
       <section className="relative py-24 px-4 sm:px-6 bg-gradient-to-br from-background via-surface to-surface-elevated overflow-hidden">
         <div className="container-xl relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-20"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="text-center mb-20">
             <h2 className="text-h1 font-bold text-foreground mb-6">Das Ergebnis</h2>
             <p className="text-body-xl text-muted-foreground max-w-4xl mx-auto">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
@@ -641,44 +650,42 @@ const Services = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                number: "01",
-                title: "Klare Strategie",
-                description: "Eine durchdachte Roadmap und visuelle Identität als solides Fundament.",
-                gradient: "from-purple-600 to-purple-800",
-                bgColor: "bg-purple-600/10"
-              },
-              {
-                number: "02", 
-                title: "Überzeugende Inhalte",
-                description: "Content, der Ihre Zielgruppe erreicht und nachhaltig begeistert.",
-                gradient: "from-blue-600 to-blue-800",
-                bgColor: "bg-blue-600/10"
-              },
-              {
-                number: "03",
-                title: "Intelligente Umsetzung", 
-                description: "Technische Exzellenz und Automatisierung für nachhaltigen Erfolg.",
-                gradient: "from-amber-600 to-amber-800",
-                bgColor: "bg-amber-600/10"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={item.number}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`${item.bgColor} rounded-3xl p-8 border border-border/50 backdrop-blur-sm hover:scale-105 transition-all duration-300`}
-              >
+            {[{
+            number: "01",
+            title: "Klare Strategie",
+            description: "Eine durchdachte Roadmap und visuelle Identität als solides Fundament.",
+            gradient: "from-purple-600 to-purple-800",
+            bgColor: "bg-purple-600/10"
+          }, {
+            number: "02",
+            title: "Überzeugende Inhalte",
+            description: "Content, der Ihre Zielgruppe erreicht und nachhaltig begeistert.",
+            gradient: "from-blue-600 to-blue-800",
+            bgColor: "bg-blue-600/10"
+          }, {
+            number: "03",
+            title: "Intelligente Umsetzung",
+            description: "Technische Exzellenz und Automatisierung für nachhaltigen Erfolg.",
+            gradient: "from-amber-600 to-amber-800",
+            bgColor: "bg-amber-600/10"
+          }].map((item, index) => <motion.div key={item.number} initial={{
+            opacity: 0,
+            y: 40
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6,
+            delay: index * 0.1
+          }} className={`${item.bgColor} rounded-3xl p-8 border border-border/50 backdrop-blur-sm hover:scale-105 transition-all duration-300`}>
                 <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} text-white font-bold text-2xl mb-6`}>
                   {item.number}
                 </div>
                 <h3 className="text-h3 font-semibold text-foreground mb-4">{item.title}</h3>
                 <p className="text-body text-muted-foreground leading-relaxed">{item.description}</p>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </div>
       </section>
@@ -686,13 +693,17 @@ const Services = () => {
       {/* Warum New Edge Section */}
       <section className="relative py-24 px-4 sm:px-6 bg-gradient-subtle overflow-hidden">
         <div className="container-xl relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-20"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="text-center mb-20">
             <h2 className="text-h1 font-bold text-foreground mb-6">Warum New Edge?</h2>
             <p className="text-body-xl text-muted-foreground max-w-4xl mx-auto">
               Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.
@@ -700,40 +711,38 @@ const Services = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                icon: Star,
-                title: "Expertise",
-                description: "Spezialisierte Teams für jeden Bereich",
-                gradient: "from-purple-600 to-purple-800"
-              },
-              {
-                icon: Zap,
-                title: "Effizienz", 
-                description: "Optimierte Prozesse und kurze Wege",
-                gradient: "from-blue-600 to-blue-800"
-              },
-              {
-                icon: Target,
-                title: "Zielgerichtet",
-                description: "Fokus auf messbare Ergebnisse",
-                gradient: "from-amber-600 to-amber-800"
-              },
-              {
-                icon: ArrowRight,
-                title: "Kontinuität",
-                description: "Nahtlose Übergänge zwischen den Phasen",
-                gradient: "from-green-600 to-green-800"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center group"
-              >
+            {[{
+            icon: Star,
+            title: "Expertise",
+            description: "Spezialisierte Teams für jeden Bereich",
+            gradient: "from-purple-600 to-purple-800"
+          }, {
+            icon: Zap,
+            title: "Effizienz",
+            description: "Optimierte Prozesse und kurze Wege",
+            gradient: "from-blue-600 to-blue-800"
+          }, {
+            icon: Target,
+            title: "Zielgerichtet",
+            description: "Fokus auf messbare Ergebnisse",
+            gradient: "from-amber-600 to-amber-800"
+          }, {
+            icon: ArrowRight,
+            title: "Kontinuität",
+            description: "Nahtlose Übergänge zwischen den Phasen",
+            gradient: "from-green-600 to-green-800"
+          }].map((item, index) => <motion.div key={item.title} initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6,
+            delay: index * 0.1
+          }} className="text-center group">
                 <div className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft`}>
                   <item.icon className="w-8 h-8 text-white" />
                 </div>
@@ -743,55 +752,13 @@ const Services = () => {
                 <p className="text-body-sm text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </div>
       </section>
 
       {/* Erfolg Erreicht Section */}
-      <section className="relative py-24 px-4 sm:px-6 bg-gradient-to-br from-surface via-background to-surface-elevated overflow-hidden">
-        <div className="container-xl text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center mb-8 shadow-glow">
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.5, type: "spring" }}
-              >
-                <Sparkles className="w-16 h-16 text-white" />
-              </motion.div>
-            </div>
-            
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-h1 font-bold text-green-600 mb-6"
-            >
-              ERFOLG ERREICHT
-            </motion.h2>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-body-xl text-muted-foreground leading-relaxed"
-            >
-              Ihre digitale Transformation ist komplett. Messbare Ergebnisse, nachhaltige Prozesse und dauerhafter Wettbewerbsvorteil.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
+      
 
       {/* CTA Section */}
       <section className="relative py-24 px-4 sm:px-6 bg-gradient-to-br from-surface via-background to-surface-elevated overflow-hidden">
