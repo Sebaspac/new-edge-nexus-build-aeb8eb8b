@@ -7,7 +7,7 @@ import { LazyImage } from "@/components/LazyImage";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Users, Code, Palette, Globe, Briefcase, ArrowRight, Play, Apple, Star } from "lucide-react";
+import { Users, Code, Palette, Globe, Briefcase, ArrowRight, Play, Apple, Star, ChevronDown } from "lucide-react";
 import { MobileNavigation } from "@/components/MobileNavigation";
 const Team = () => {
   const {
@@ -179,6 +179,49 @@ const Team = () => {
             <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Experten für Strategie, Content & Technologie
             </p>
+          </motion.div>
+          
+          {/* Scroll Indicator */}
+          <motion.div initial={{
+            opacity: 0
+          }} animate={{
+            opacity: 1
+          }} transition={{
+            delay: 1.2,
+            duration: 0.6
+          }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+            <motion.div 
+              animate={{
+                y: [0, 10, 0]
+              }} 
+              transition={{
+                duration: 2,
+                repeat: Infinity
+              }} 
+              className="flex flex-col items-center gap-2 text-muted-foreground cursor-pointer hover-scale"
+              onClick={() => {
+                const foundersSection = document.querySelector('.section-padding.bg-surface');
+                if (foundersSection) {
+                  foundersSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="text-body-sm">Scroll to explore</span>
+              <motion.div
+                animate={{ 
+                  y: [0, 5, 0] 
+                }}
+                transition={{ 
+                  duration: 1.5, 
+                  repeat: Infinity,
+                  delay: 0.5
+                }}
+              >
+                <ChevronDown className="w-5 h-5" />
+              </motion.div>
+            </motion.div>
           </motion.div>
         </section>
 
