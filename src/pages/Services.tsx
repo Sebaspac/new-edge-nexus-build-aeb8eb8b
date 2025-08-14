@@ -413,9 +413,10 @@ const Services = () => {
                       Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
                     </p>
                     
-                    <Button className="btn-primary w-full h-12 text-sm" asChild>
-                      <Link to="/media" className="flex items-center justify-center whitespace-nowrap text-ellipsis overflow-hidden">
-                        Content erstellen <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
+                    <Button className="btn-primary w-full h-12 text-sm md:text-base px-4" asChild>
+                      <Link to="/media" className="flex items-center justify-center gap-2">
+                        <span className="truncate">Content erstellen</span>
+                        <ArrowRight className="w-4 h-4 shrink-0" />
                       </Link>
                     </Button>
                   </CardContent>
@@ -452,9 +453,10 @@ const Services = () => {
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
-                    <Button className="btn-primary w-full h-12 text-sm" asChild>
-                      <Link to="/studio" className="flex items-center justify-center whitespace-nowrap text-ellipsis overflow-hidden">
-                        Strategie entwickeln <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
+                    <Button className="btn-primary w-full h-12 text-sm md:text-base px-4" asChild>
+                      <Link to="/studio" className="flex items-center justify-center gap-2">
+                        <span className="truncate">Strategie entwickeln</span>
+                        <ArrowRight className="w-4 h-4 shrink-0" />
                       </Link>
                     </Button>
                   </CardContent>
@@ -491,9 +493,10 @@ const Services = () => {
                       Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.
                     </p>
                     
-                    <Button className="btn-primary w-full h-12 text-sm" asChild>
-                      <Link to="/lab" className="flex items-center justify-center whitespace-nowrap text-ellipsis overflow-hidden">
-                        Technologie implementieren <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
+                    <Button className="btn-primary w-full h-12 text-sm md:text-base px-4" asChild>
+                      <Link to="/lab" className="flex items-center justify-center gap-2">
+                        <span className="truncate">Technologie implementieren</span>
+                        <ArrowRight className="w-4 h-4 shrink-0" />
                       </Link>
                     </Button>
                   </CardContent>
