@@ -402,12 +402,14 @@ const Services = () => {
             }} className="group hover-lift">
                 <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
                   <CardContent className="p-8 flex flex-col h-full">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                      <Brain className="w-8 h-8 text-white" />
+                    <div className="h-32 flex flex-col">
+                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
+                        <Brain className="w-8 h-8 text-white" />
+                      </div>
+                      <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
+                        NEW EDGE MEDIA
+                      </h3>
                     </div>
-                    <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
-                      NEW EDGE MEDIA
-                    </h3>
                     
                     <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow">
                       Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
@@ -442,12 +444,14 @@ const Services = () => {
             }} className="group hover-lift">
                 <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
                   <CardContent className="p-8 flex flex-col h-full">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary to-accent p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                      <Sparkles className="w-8 h-8 text-white" />
+                    <div className="h-32 flex flex-col">
+                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary to-accent p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
+                        <Sparkles className="w-8 h-8 text-white" />
+                      </div>
+                      <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
+                        NEW EDGE STUDIO
+                      </h3>
                     </div>
-                    <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
-                      NEW EDGE STUDIO
-                    </h3>
                     
                     <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow">
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
@@ -482,12 +486,14 @@ const Services = () => {
             }} className="group hover-lift">
                 <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
                   <CardContent className="p-8 flex flex-col h-full">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-primary p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                      <Zap className="w-8 h-8 text-white" />
+                    <div className="h-32 flex flex-col">
+                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-primary p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
+                        <Zap className="w-8 h-8 text-white" />
+                      </div>
+                      <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
+                        NEW EDGE LAB
+                      </h3>
                     </div>
-                    <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
-                      NEW EDGE LAB
-                    </h3>
                     
                     <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow">
 Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.</p>
