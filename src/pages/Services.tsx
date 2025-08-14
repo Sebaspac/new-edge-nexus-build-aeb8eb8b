@@ -42,7 +42,7 @@ const Services = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden pt-20 sm:pt-0">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden pt-16 sm:pt-20 lg:pt-0">
         {/* Complex animated background with particles and geometric shapes */}
         <div className="absolute inset-0 z-0">
           {/* Main gradient background */}
@@ -401,21 +401,21 @@ const Services = () => {
               }
             }} className="group hover-lift">
                 <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
-                  <CardContent className="p-8 flex flex-col h-full">
-                    <div className="h-32 flex flex-col">
-                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                        <Brain className="w-8 h-8 text-white" />
+                  <CardContent className="p-6 sm:p-8 flex flex-col h-full">
+                    <div className="min-h-[120px] sm:h-32 flex flex-col">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-3 sm:p-4 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
+                        <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
-                      <h3 className="text-h3 font-semibold mb-12 text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors">
                         NEW EDGE MEDIA
                       </h3>
                     </div>
                     
-                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow mt-8">
+                    <p className="text-sm sm:text-body-sm text-muted-foreground leading-relaxed mb-6 sm:mb-8 flex-grow mt-4 sm:mt-8">
                       Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
                     </p>
                     
-                    <Button className="btn-primary w-full h-12 text-sm md:text-base px-4 mt-auto" asChild>
+                    <Button className="btn-primary w-full h-12 sm:h-14 text-sm sm:text-base px-4 mt-auto" asChild>
                       <Link to="/media" className="flex items-center justify-center gap-2">
                         <span className="truncate">Content erstellen</span>
                         <ArrowRight className="w-4 h-4 shrink-0" />
@@ -443,21 +443,21 @@ const Services = () => {
               }
             }} className="group hover-lift">
                 <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
-                  <CardContent className="p-8 flex flex-col h-full">
-                    <div className="h-32 flex flex-col">
-                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary to-accent p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                        <Sparkles className="w-8 h-8 text-white" />
+                  <CardContent className="p-6 sm:p-8 flex flex-col h-full">
+                    <div className="min-h-[120px] sm:h-32 flex flex-col">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-secondary to-accent p-3 sm:p-4 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
+                        <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
-                      <h3 className="text-h3 font-semibold mb-12 text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors">
                         NEW EDGE STUDIO
                       </h3>
                     </div>
                     
-                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow mt-8">
+                    <p className="text-sm sm:text-body-sm text-muted-foreground leading-relaxed mb-6 sm:mb-8 flex-grow mt-4 sm:mt-8">
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
-                    <Button className="btn-primary w-full h-12 text-sm md:text-base px-4 mt-auto" asChild>
+                    <Button className="btn-primary w-full h-12 sm:h-14 text-sm sm:text-base px-4 mt-auto" asChild>
                       <Link to="/studio" className="flex items-center justify-center gap-2">
                         <span className="truncate">Strategie entwickeln</span>
                         <ArrowRight className="w-4 h-4 shrink-0" />
@@ -485,21 +485,21 @@ const Services = () => {
               }
             }} className="group hover-lift">
                 <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
-                  <CardContent className="p-8 flex flex-col h-full">
-                    <div className="h-32 flex flex-col">
-                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-primary p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                        <Zap className="w-8 h-8 text-white" />
+                  <CardContent className="p-6 sm:p-8 flex flex-col h-full">
+                    <div className="min-h-[120px] sm:h-32 flex flex-col">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-accent to-primary p-3 sm:p-4 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
+                        <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
-                      <h3 className="text-h3 font-semibold mb-12 text-foreground group-hover:text-primary transition-colors">
-                        NEW EDGE<br />
-                        LAB
+                      <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight">
+                        <span dangerouslySetInnerHTML={{ __html: "new edge<br />lab" }} />
                       </h3>
                     </div>
                     
-                    <p className="text-body-sm text-muted-foreground leading-relaxed mb-8 flex-grow mt-8">
-Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisiert.</p>
+                    <p className="text-sm sm:text-body-sm text-muted-foreground leading-relaxed mb-6 sm:mb-8 flex-grow mt-4 sm:mt-8">
+                      Tech-Innovation und Automatisierung. Von MVP bis zur finalen technischen Umsetzung.
+                    </p>
                     
-                    <Button className="btn-primary w-full h-12 text-sm md:text-base px-4 mt-auto" asChild>
+                    <Button className="btn-primary w-full h-12 sm:h-14 text-sm sm:text-base px-4 mt-auto" asChild>
                       <Link to="/lab" className="flex items-center justify-center gap-2">
                         <span className="truncate">Automatisieren</span>
                         <ArrowRight className="w-4 h-4 shrink-0" />
@@ -612,39 +612,39 @@ Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisi
                         </motion.div>
                       </div>
                       
-                      {/* Central Journey Node */}
-                      <motion.div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full border-4 border-white shadow-2xl flex items-center justify-center relative z-20" initial={{
-                      scale: 0,
-                      rotate: -180
-                    }} whileInView={{
-                      scale: 1,
-                      rotate: 0
-                    }} viewport={{
-                      once: true
-                    }} transition={{
-                      delay: 0.7,
-                      duration: 0.6,
-                      type: "spring",
-                      stiffness: 200
-                    }} whileHover={{
-                      scale: 1.2,
-                      boxShadow: "0 0 30px rgba(139, 92, 246, 0.6)"
-                    }}>
-                        <span className="text-white font-bold text-2xl">1</span>
-                        
-                        {/* Pulsing Ring */}
-                        <motion.div className="absolute inset-0 rounded-full border-2 border-purple-400" animate={{
-                        scale: [1, 1.5, 1],
-                        opacity: [1, 0, 1]
-                      }} transition={{
-                        duration: 2,
-                        repeat: Infinity
-                      }} />
-                      </motion.div>
-                      
-                      <div className="flex-1 max-w-md ml-8 opacity-30">
-                        <div className="h-32"></div>
-                      </div>
+                {/* Central Journey Node */}
+                <motion.div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full border-2 sm:border-4 border-white shadow-2xl flex items-center justify-center relative z-20 mx-auto lg:mx-0" initial={{
+                scale: 0,
+                rotate: -180
+              }} whileInView={{
+                scale: 1,
+                rotate: 0
+              }} viewport={{
+                once: true
+              }} transition={{
+                delay: 0.7,
+                duration: 0.6,
+                type: "spring",
+                stiffness: 200
+              }} whileHover={{
+                scale: 1.1,
+                boxShadow: "0 0 30px rgba(139, 92, 246, 0.6)"
+              }}>
+                  <span className="text-white font-bold text-lg sm:text-2xl">1</span>
+                  
+                  {/* Pulsing Ring */}
+                  <motion.div className="absolute inset-0 rounded-full border-2 border-purple-400" animate={{
+                  scale: [1, 1.5, 1],
+                  opacity: [1, 0, 1]
+                }} transition={{
+                  duration: 2,
+                  repeat: Infinity
+                }} />
+                </motion.div>
+                
+                <div className="hidden lg:block flex-1 max-w-md ml-8 opacity-30">
+                  <div className="h-32"></div>
+                </div>
                     </motion.div>
 
                     {/* Step 2: Implementation */}
@@ -887,7 +887,7 @@ Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisi
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto px-4 sm:px-0">
             {[{
             number: "01",
             title: "Klare Strategie",
@@ -948,7 +948,7 @@ Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisi
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto px-4 sm:px-0">
             {[{
             icon: Star,
             title: "Expertise",
@@ -1096,12 +1096,12 @@ Backend, KI und technische Umsetzung. Hier wird alles intelligent und automatisi
     }} onClick={() => window.scrollTo({
       top: 0,
       behavior: 'smooth'
-    })} className="fixed bottom-8 right-8 z-50 bg-gradient-primary text-white p-3 rounded-full shadow-elegant hover:shadow-glow transition-all duration-300 hover-lift" whileHover={{
+    })} className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 bg-gradient-primary text-white p-3 sm:p-4 rounded-full shadow-elegant hover:shadow-glow transition-all duration-300 hover-lift min-h-[48px] min-w-[48px]" whileHover={{
       scale: 1.1
     }} whileTap={{
       scale: 0.9
     }}>
-          <ArrowRight className="w-6 h-6 transform -rotate-90" />
+          <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 transform -rotate-90" />
         </motion.button>}
     </div>;
 };

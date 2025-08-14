@@ -99,6 +99,27 @@
       min-height: 48px;
       min-width: 48px;
     }
+    
+    /* Improved mobile spacing */
+    .container-xl { padding: 0 1rem; }
+    .section-padding { padding: 2rem 0; }
+    
+    /* Mobile typography adjustments */
+    .text-display-xl { font-size: clamp(2.5rem, 8vw, 4rem); }
+    .text-h1 { font-size: clamp(1.5rem, 6vw, 2.5rem); }
+    
+    /* Prevent horizontal overflow */
+    body { overflow-x: hidden; }
+    * { max-width: 100%; }
+    
+    /* Mobile grid improvements */
+    .grid { gap: 1rem; }
+  }
+  
+  /* Tablet optimizations */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .container-xl { padding: 0 1.5rem; }
+    .grid { gap: 1.5rem; }
   }
 }
 
