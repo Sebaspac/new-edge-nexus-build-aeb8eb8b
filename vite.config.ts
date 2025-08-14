@@ -23,10 +23,19 @@ export default defineConfig(({ mode }) => ({
     // Optimize build for better performance
     target: 'esnext',
     minify: 'terser',
+    cssMinify: true,
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
+        passes: 2,
+        pure_funcs: ['console.log', 'console.info'],
+      },
+      mangle: {
+        safari10: true,
+      },
+      format: {
+        comments: false,
       },
     },
     rollupOptions: {
@@ -39,11 +48,33 @@ export default defineConfig(({ mode }) => ({
           'motion': ['framer-motion'],
           'three': ['three', '@react-three/fiber', '@react-three/drei'],
         },
+        // Better file naming for caching
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: (assetInfo) => {
+          const extType = assetInfo.name?.split('.').at(1);
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType ?? '')) {
+            return `assets/images/[name]-[hash][extname]`;
+          }
+          if (/css/i.test(extType ?? '')) {
+            return `assets/css/[name]-[hash][extname]`;
+          }
+          return `assets/[name]-[hash][extname]`;
+        },
       },
     },
     chunkSizeWarningLimit: 1000,
+    // Additional performance optimizations
+    reportCompressedSize: false,
+    sourcemap: false,
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
+    exclude: ['lucide-react'],
+  },
+  // Additional performance settings
+  esbuild: {
+    target: 'esnext',
+    drop: ['console', 'debugger'],
   },
 }));

@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LazyImage } from "@/components/LazyImage";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -260,7 +261,7 @@ const Team = () => {
                     <div className="p-6 sm:p-8 flex flex-col h-full">
                       <div className="flex-shrink-0 mb-6">
                         <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden border-4 border-border/20 shadow-lg group-hover:border-primary/30 transition-colors duration-300">
-                          <img src={founder.image} alt={`${founder.name} - ${founder.role}`} className="w-full h-full object-cover" loading="lazy" />
+                          <OptimizedImage src={founder.image} alt={`${founder.name} - ${founder.role}`} className="w-full h-full object-cover" sizes="(max-width: 640px) 112px, 128px" />
                         </div>
                       </div>
                       
@@ -347,7 +348,7 @@ const Team = () => {
           }} transition={{
             duration: 0.8
           }} className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-              <img src="/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png" alt="Wenjamin Zabezhanskiy - Wir öffnen Innovationsräume, übersetzen Spitzentechnologie und machen Zukunft so für jedes Team nutzbar" className="w-full h-auto object-cover" loading="lazy" />
+              <OptimizedImage src="/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png" alt="Wenjamin Zabezhanskiy - Wir öffnen Innovationsräume, übersetzen Spitzentechnologie und machen Zukunft so für jedes Team nutzbar" className="w-full h-auto object-cover" sizes="100vw" />
             </motion.div>
           </div>
         </section>
@@ -461,7 +462,7 @@ const Team = () => {
             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
               <div className="sm:col-span-2">
                 <div className="flex items-center mb-4">
-                  <img src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" />
+                  <OptimizedImage src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" priority sizes="32px" />
                   <div className="text-2xl sm:text-3xl font-bold text-foreground">
                     New Edge<span className="text-primary"></span>
                   </div>

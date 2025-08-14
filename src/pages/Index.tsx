@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
 import { MobileNavigation } from "@/components/MobileNavigation";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ScrollAnimation, useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -771,7 +772,7 @@ const Index = () => {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div className="sm:col-span-2">
               <div className="flex items-center mb-4">
-                <img src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" />
+                <OptimizedImage src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" priority sizes="32px" />
                 <div className="text-2xl sm:text-3xl font-bold text-foreground">
                   New Edge<span className="text-primary"></span>
                 </div>
