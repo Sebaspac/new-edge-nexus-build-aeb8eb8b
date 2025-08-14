@@ -529,7 +529,7 @@ const Index = () => {
             <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere innovative Herangehensweise</h2>
             
           </motion.div>
-          <motion.div className="grid md:grid-cols-2 gap-8" initial="hidden" whileInView="visible" viewport={{
+          <motion.div className="grid md:grid-cols-2 gap-8 items-stretch" initial="hidden" whileInView="visible" viewport={{
           once: true,
           margin: "-100px"
         }} variants={{
