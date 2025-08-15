@@ -489,7 +489,11 @@ const Team = () => {
               <div>
                 <h4 className="font-semibold mb-3 sm:mb-4 text-foreground text-sm sm:text-base">Kontakt</h4>
                 <ul className="space-y-1 sm:space-y-2 text-muted-foreground text-sm sm:text-base">
-                  <li>info@newedgebrand.com</li>
+                  <li>
+                    <a href="mailto:info@newedgebrand.com" className="hover:text-primary transition-colors">
+                      info@newedgebrand.com
+                    </a>
+                  </li>
                   <li>+49 15750998236</li>
                   <li>Deutschland</li>
                 </ul>
