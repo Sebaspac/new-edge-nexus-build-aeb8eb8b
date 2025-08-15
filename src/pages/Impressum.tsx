@@ -84,7 +84,7 @@ const Impressum = () => {
                       <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-purple-400 flex-shrink-0" />
                       E-Mail: <a href="mailto:info@newedgebrand.com" className="text-purple-400 hover:text-purple-300 ml-1 break-all sm:break-normal">info@newedgebrand.com</a>
                     </p>
-                    <p>Website: <a href="https://www.newedgebrand.com" className="text-purple-400 hover:text-purple-300">www.newedgebrand.com</a></p>
+                    
                   </div>
                   
                   <div className="pt-4 border-t border-gray-700">
