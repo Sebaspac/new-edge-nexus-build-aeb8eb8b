@@ -72,7 +72,7 @@ const Impressum = () => {
                 
                 <div className="space-y-4 text-gray-300">
                   <div>
-                    <p className="font-semibold text-white">New Edge</p>
+                    <p className="font-semibold text-white">New Edge GbR</p>
                     <p>c/o Creative Space</p>
                     <p>Koppenstr. 82</p>
                     <p>10243 Berlin</p>
@@ -88,9 +88,11 @@ const Impressum = () => {
                   </div>
                   
                   <div className="pt-4 border-t border-gray-700">
+                    <p><strong>Rechtsform:</strong> Gesellschaft bürgerlichen Rechts (GbR)</p>
                     <p><strong>Vertretungsberechtigt:</strong> Verantwortliche Person auf Anfrage</p>
                     <p className="text-sm text-gray-400 mt-2">
-                      <strong>Hinweis:</strong> Es handelt sich um ein Kleingewerbe gemäß § 19 UStG – Umsatzsteuer wird nicht ausgewiesen.
+                      <strong>Umsatzsteuer:</strong><br />
+                      Hinweis gemäß § 19 UStG: Es handelt sich um ein Kleingewerbe. Umsatzsteuer wird nicht ausgewiesen.
                     </p>
                   </div>
                 </div>
@@ -124,7 +126,7 @@ const Impressum = () => {
                       Verantwortlich für die Verarbeitung personenbezogener Daten im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
                     </p>
                     <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
-                      <p>New Edge </p>
+                      <p>New Edge GbR</p>
                       <p>c/o Creative Space</p>
                       <p>Koppenstr. 82</p>
                       <p>10243 Berlin</p>
