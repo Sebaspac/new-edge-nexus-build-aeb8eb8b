@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Mail, MapPin, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
 import { useLanguage } from "@/contexts/LanguageContext";
 const Impressum = () => {
-  const { t } = useLanguage();
-  
+  const {
+    t
+  } = useLanguage();
   return <div className="min-h-screen bg-black text-white">
       {/* Header */}
       <motion.header initial={{
