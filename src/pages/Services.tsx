@@ -42,81 +42,117 @@ const Services = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden pt-16 sm:pt-20 lg:pt-0">
-        {/* Complex animated background with particles and geometric shapes */}
+      <section className="relative h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Dark space background with floating geometric shapes */}
         <div className="absolute inset-0 z-0">
-          {/* Main gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-surface-elevated"></div>
+          {/* Dark background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-black"></div>
           
-          {/* Animated geometric shapes */}
-          <motion.div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 180, 360],
-          x: [0, 50, 0],
-          y: [0, -30, 0]
-        }} transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
-          <motion.div className="absolute top-3/4 right-1/4 w-48 h-48 bg-secondary/15 rounded-full blur-2xl" animate={{
-          scale: [1.2, 1, 1.2],
-          rotate: [360, 180, 0],
-          x: [0, -40, 0],
-          y: [0, 20, 0]
-        }} transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 5
-        }} />
-          <motion.div className="absolute bottom-1/4 left-1/3 w-32 h-32 bg-accent/20 rounded-full blur-xl" animate={{
-          scale: [1, 1.5, 1],
-          x: [0, 60, 0],
-          y: [0, -50, 0]
-        }} transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2
-        }} />
+          {/* Floating geometric shapes - larger and more prominent */}
+          <motion.div 
+            className="absolute top-[15%] left-[10%] w-32 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg opacity-80"
+            animate={{
+              y: [0, -20, 0],
+              x: [0, 15, 0],
+              rotate: [0, 10, 0]
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
           
-          {/* Floating particles */}
-          {[...Array(15)].map((_, i) => <motion.div key={i} className="absolute w-2 h-2 bg-primary/30 rounded-full" style={{
-          top: `${Math.random() * 100}%`,
-          left: `${Math.random() * 100}%`
-        }} animate={{
-          y: [0, -100, 0],
-          opacity: [0, 1, 0],
-          scale: [0, 1, 0]
-        }} transition={{
-          duration: 8 + Math.random() * 4,
-          repeat: Infinity,
-          delay: Math.random() * 5,
-          ease: "easeInOut"
-        }} />)}
+          <motion.div 
+            className="absolute top-[60%] right-[15%] w-24 h-32 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl opacity-70"
+            animate={{
+              y: [0, 25, 0],
+              x: [0, -10, 0],
+              rotate: [0, -15, 0]
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2
+            }}
+          />
           
-          {/* Hexagonal grid pattern */}
+          <motion.div 
+            className="absolute bottom-[20%] left-[20%] w-20 h-20 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-xl opacity-75"
+            animate={{
+              y: [0, -15, 0],
+              x: [0, 20, 0],
+              rotate: [0, 20, 0]
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 4
+            }}
+          />
+          
+          <motion.div 
+            className="absolute top-[30%] right-[35%] w-16 h-24 bg-gradient-to-br from-green-500 to-emerald-400 rounded-lg opacity-60"
+            animate={{
+              y: [0, 30, 0],
+              x: [0, -25, 0],
+              rotate: [0, -10, 0]
+            }}
+            transition={{
+              duration: 9,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+          />
+          
+          {/* Additional smaller floating elements */}
+          <motion.div 
+            className="absolute top-[70%] left-[60%] w-12 h-12 bg-purple-400 rounded-full opacity-50"
+            animate={{
+              y: [0, -40, 0],
+              scale: [1, 1.2, 1]
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 3
+            }}
+          />
+          
+          {/* Scattered particles */}
+          {[...Array(50)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-white rounded-full opacity-60"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`
+              }}
+              animate={{
+                y: [0, -20, 0],
+                opacity: [0.3, 1, 0.3],
+                scale: [0.5, 1, 0.5]
+              }}
+              transition={{
+                duration: 3 + Math.random() * 4,
+                repeat: Infinity,
+                delay: Math.random() * 5,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+          
+          {/* Subtle grid overlay */}
           <div className="absolute inset-0 opacity-5">
-            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="hexagons" x="0" y="0" width="50" height="43.4" patternUnits="userSpaceOnUse">
-                  <polygon fill="none" stroke="currentColor" strokeWidth="1" points="24.8,22 37.3,29.2 37.3,43.7 24.8,50.9 12.3,43.7 12.3,29.2" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#hexagons)" className="text-primary" />
-            </svg>
+            <div className="w-full h-full" style={{
+              backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)',
+              backgroundSize: '40px 40px'
+            }}></div>
           </div>
-          
-          {/* Dynamic light rays */}
-          <motion.div className="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent" animate={{
-          opacity: [0.3, 0.6, 0.3],
-          scale: [0.8, 1.2, 0.8]
-        }} transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
         </div>
         
         <motion.div style={{
