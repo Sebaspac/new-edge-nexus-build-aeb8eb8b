@@ -256,7 +256,7 @@ const Services = () => {
         <motion.div style={{
         y: y1,
         opacity
-      }} className="absolute inset-0 flex flex-col items-center justify-center z-10">
+      }} className="text-center relative z-10">
           <motion.div initial={{
           opacity: 0,
           scale: 0.8,
