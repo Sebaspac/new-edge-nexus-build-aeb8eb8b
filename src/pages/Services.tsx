@@ -42,7 +42,7 @@ const Services = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* Hero Section */}
-      <section className="relative w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ height: '100vh' }}>
+      <section className="hero-section relative px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Space-like background with stars and floating elements */}
         <div className="absolute inset-0 z-0">
           {/* Deep space gradient background */}
