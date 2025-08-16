@@ -555,20 +555,20 @@ const Index = () => {
         }}>
             {[{
             number: "01",
-            title: "Impact durch Automatisierung",
-            description: "Intelligente Systeme steigern Ihre Effizienz nachhaltig"
+            title: "Automatisierung mit Impact",
+            description: "Wir automatisieren repetitive Aufgaben, damit Sie sich auf Ihr Kerngeschäft konzentrieren können."
           }, {
             number: "02",
-            title: "Marketingexpertise trifft technische Umsetzung",
-            description: "Perfekte Schnittstelle zwischen Strategie und Innovation"
+            title: "Marketing & Technologie vereint",
+            description: "Interdisziplinäres Team aus Strategen, Creatives und Entwicklern; alles aus einer Hand."
           }, {
             number: "03",
-            title: "Zugänglichkeit & Klarheit statt Komplexität",
-            description: "Einfache Lösungen für komplexe Herausforderungen"
+            title: "Einfach & klar",
+            description: "Transparente Prozesse und verständliche Lösungen statt Technik Buzzwords."
           }, {
             number: "04",
-            title: "Individuelle Setups ohne Standardbausteine",
-            description: "Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen"
+            title: "Individuell & skalierbar",
+            description: "Maßgeschneiderte Setups ohne Abo Modelle – Sie bezahlen nur, was Sie nutzen."
           }].map((point, index) => <motion.div key={index} variants={{
             hidden: {
               opacity: 0,
