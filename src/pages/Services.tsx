@@ -46,7 +46,7 @@ const Services = () => {
         {/* Space-like background with stars and floating elements */}
         <div className="absolute inset-0 z-0">
           {/* Deep space gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-purple-950/50 to-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-slate-900/80 to-purple-950/30"></div>
           
           {/* Starfield */}
           {[...Array(150)].map((_, i) => (
