@@ -363,7 +363,7 @@ const Services = () => {
             delay: 2,
             duration: 0.8
           }}>
-              Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden.
+              <span className="text-white">Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden.</span>
             </motion.div>
             <motion.div initial={{
             opacity: 0,
