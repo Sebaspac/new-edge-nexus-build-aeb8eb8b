@@ -446,47 +446,58 @@ const Index = () => {
             }
           }
         }}>
-            {services.map((service, index) => <motion.div key={index} variants={{
-            hidden: {
-              opacity: 0,
-              y: 80,
-              rotateX: 45
-            },
-            visible: {
-              opacity: 1,
-              y: 0,
-              rotateX: 0,
-              transition: {
-                duration: 0.8,
-                ease: "easeOut"
-              }
-            }
-          }} whileHover={{
-            scale: 1.05,
-            y: -15,
-            transition: {
-              duration: 0.3
-            }
-          }} className="group">
-                <Card className="card-modern h-full hover-lift">
-                  <CardContent className="p-8">
-                    <motion.div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`} whileHover={{
-                  rotate: 360,
-                  scale: 1.2
-                }} transition={{
-                  duration: 0.6
-                }}>
-                      <service.icon className="w-8 h-8 text-white" />
-                    </motion.div>
-                    <h3 className="text-h3 font-semibold mb-4 text-foreground">
-                      {service.title}
-                    </h3>
-                    <p className="text-body text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>)}
+            {services.map((service, index) => {
+              const links = ['/media', '/studio', '/lab'];
+              return (
+                <motion.div key={index} variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: 80,
+                    rotateX: 45
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    rotateX: 0,
+                    transition: {
+                      duration: 0.8,
+                      ease: "easeOut"
+                    }
+                  }
+                }} whileHover={{
+                  scale: 1.05,
+                  y: -15,
+                  transition: {
+                    duration: 0.3
+                  }
+                }} className="group">
+                  <Card className="card-modern h-full hover-lift">
+                    <CardContent className="p-8 flex flex-col h-full">
+                      <motion.div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`} whileHover={{
+                        rotate: 360,
+                        scale: 1.2
+                      }} transition={{
+                        duration: 0.6
+                      }}>
+                        <service.icon className="w-8 h-8 text-white" />
+                      </motion.div>
+                      <h3 className="text-h3 font-semibold mb-4 text-foreground">
+                        {service.title}
+                      </h3>
+                      <p className="text-body text-muted-foreground leading-relaxed mb-6 flex-grow">
+                        {service.description}
+                      </p>
+                      <Button variant="outline" size="sm" className="self-start group/btn" asChild>
+                        <Link to={links[index]}>
+                          Mehr erfahren
+                          <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </ScrollAnimation>
