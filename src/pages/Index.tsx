@@ -563,7 +563,7 @@ const Index = () => {
             description: "Interdisziplinäres Team aus Strategen, Creatives und Entwicklern; alles aus einer Hand."
           }, {
             number: "03",
-            title: "Einfach & klar",
+            title: "Zugänglichkeit statt Komplexität",
             description: "Transparente Prozesse und verständliche Lösungen statt Technik Buzzwords."
           }, {
             number: "04",
