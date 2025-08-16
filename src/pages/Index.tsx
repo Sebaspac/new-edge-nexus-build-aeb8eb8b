@@ -673,9 +673,7 @@ const Index = () => {
               <h2 className="text-h1 font-bold mb-6 text-foreground">
                 Bereit für den nächsten Schritt?
               </h2>
-              <p className="text-body-xl text-muted-foreground">
-                Lassen Sie uns Ihr Projekt besprechen und eine kostenlose Erstberatung vereinbaren.
-              </p>
+              <p className="text-body-xl text-muted-foreground">Lassen Sie uns Ihr Projekt besprechen</p>
             </ScrollAnimation>
 
             <ScrollAnimation animation="fadeUp" delay={0.3}>
