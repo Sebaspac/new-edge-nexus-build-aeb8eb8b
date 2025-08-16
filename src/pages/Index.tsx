@@ -247,7 +247,7 @@ const Index = () => {
           }} transition={{
             delay: 0.6,
             duration: 0.8
-          }} className="text-body-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
+          }} className="text-body-xl max-w-3xl mx-auto mb-12 leading-relaxed text-base text-slate-50">
               {t('home.hero.description')} <br />
               
             </motion.p>
@@ -302,7 +302,7 @@ const Index = () => {
         }} whileTap={{
           scale: 0.95
         }}>
-            <span className="text-body-sm">Scrollen</span>
+            <span className="text-body-sm">Scroll to explore</span>
             <motion.div animate={{
             y: [0, 5, 0]
           }} transition={{
