@@ -42,7 +42,7 @@ const Services = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* Hero Section */}
-      <section className="relative h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[100vh]">
         {/* Space-like background with stars and floating elements */}
         <div className="absolute inset-0 z-0">
           {/* Deep space gradient background */}
@@ -94,12 +94,12 @@ const Services = () => {
             />
           ))}
           
-          {/* Beautiful floating geometric elements */}
+          {/* Beautiful floating geometric elements - more transparent */}
           <motion.div 
-            className="absolute top-[15%] left-[8%] w-20 h-32 rounded-2xl"
+            className="absolute top-[15%] left-[8%] w-20 h-32 rounded-2xl opacity-20"
             style={{
               background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
-              boxShadow: '0 0 30px rgba(139, 92, 246, 0.4)'
+              boxShadow: '0 0 15px rgba(139, 92, 246, 0.2)'
             }}
             animate={{
               y: [0, -30, 0],
@@ -115,10 +115,10 @@ const Services = () => {
           />
           
           <motion.div 
-            className="absolute top-[55%] right-[12%] w-24 h-24 rounded-xl"
+            className="absolute top-[55%] right-[12%] w-24 h-24 rounded-xl opacity-25"
             style={{
               background: 'linear-gradient(45deg, #06B6D4, #3B82F6)',
-              boxShadow: '0 0 25px rgba(6, 182, 212, 0.3)'
+              boxShadow: '0 0 15px rgba(6, 182, 212, 0.2)'
             }}
             animate={{
               y: [0, 25, 0],
@@ -135,10 +135,10 @@ const Services = () => {
           />
           
           <motion.div 
-            className="absolute bottom-[25%] left-[25%] w-16 h-28 rounded-lg"
+            className="absolute bottom-[25%] left-[25%] w-16 h-28 rounded-lg opacity-30"
             style={{
               background: 'linear-gradient(225deg, #F59E0B, #EF4444)',
-              boxShadow: '0 0 20px rgba(245, 158, 11, 0.4)'
+              boxShadow: '0 0 12px rgba(245, 158, 11, 0.2)'
             }}
             animate={{
               y: [0, -20, 0],
@@ -155,10 +155,10 @@ const Services = () => {
           />
           
           <motion.div 
-            className="absolute top-[35%] right-[30%] w-18 h-18 rounded-full"
+            className="absolute top-[35%] right-[30%] w-18 h-18 rounded-full opacity-25"
             style={{
               background: 'linear-gradient(90deg, #10B981, #059669)',
-              boxShadow: '0 0 15px rgba(16, 185, 129, 0.5)'
+              boxShadow: '0 0 10px rgba(16, 185, 129, 0.3)'
             }}
             animate={{
               y: [0, 35, 0],
@@ -175,11 +175,11 @@ const Services = () => {
           
           {/* Floating crystal-like elements */}
           <motion.div 
-            className="absolute top-[70%] left-[60%] w-12 h-20"
+            className="absolute top-[70%] left-[60%] w-12 h-20 opacity-25"
             style={{
               background: 'linear-gradient(180deg, #A855F7, #7C3AED)',
               clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
-              boxShadow: '0 0 20px rgba(168, 85, 247, 0.3)'
+              boxShadow: '0 0 10px rgba(168, 85, 247, 0.2)'
             }}
             animate={{
               y: [0, -40, 0],
