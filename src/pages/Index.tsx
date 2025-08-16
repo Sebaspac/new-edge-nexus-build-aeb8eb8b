@@ -487,7 +487,7 @@ const Index = () => {
                       <p className="text-body text-muted-foreground leading-relaxed mb-6 flex-grow">
                         {service.description}
                       </p>
-                      <Button variant="outline" size="sm" className="self-start group/btn" asChild>
+                      <Button variant="default" size="sm" className="self-start group/btn btn-primary" asChild>
                         <Link to={links[index]}>
                           Mehr erfahren
                           <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
