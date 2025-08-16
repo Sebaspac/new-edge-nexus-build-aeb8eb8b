@@ -150,7 +150,7 @@ const Index = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* 🚀 Hero Section */}
-      <section className="hero-section relative h-screen">
+      <section className="hero-section relative">
         {/* 🌌 Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-surface-elevated">
           {/* ✨ Floating Orbs */}
@@ -204,7 +204,7 @@ const Index = () => {
         y: heroY,
         opacity: heroOpacity,
         scale: heroScale
-      }} className="relative z-10 container-xl hero-section flex flex-col items-center justify-end pb-32 text-center px-6">
+      }} className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center px-6">
           <motion.div initial={{
           opacity: 0,
           y: 100
