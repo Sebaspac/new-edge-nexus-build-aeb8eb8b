@@ -226,9 +226,14 @@ const Index = () => {
             delay: 0.4,
             duration: 0.8
           }} className="text-display-xl font-black mb-6">
-              <span className="block bg-gradient-primary bg-clip-text text-transparent animate-gradient">
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="block bg-gradient-primary bg-clip-text text-transparent animate-gradient"
+              >
                 Digitale Markenintelligenz
-              </span>
+              </motion.span>
               <span className="block text-display-lg text-muted-foreground">
                 für Ihren Vorsprung
               </span>
