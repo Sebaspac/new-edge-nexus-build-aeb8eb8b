@@ -113,19 +113,19 @@ const Index = () => {
     }
   }, []);
   const services = [{
-    icon: Brain,
-    title: "Media Intelligence",
-    description: "KI-gestützte Inhaltsstrategien, die Ihre Zielgruppe erreichen und konvertieren.",
+    icon: Sparkles,
+    title: "Studio (Strategie & Design)",
+    description: "Grundstein Ihrer Marke: Positionierung, Identität & visuelle Systeme.",
     gradient: "from-primary to-secondary"
   }, {
-    icon: Sparkles,
-    title: "Studio Design",
-    description: "Visuelles Storytelling und Brand-Design, das im Gedächtnis bleibt.",
+    icon: Brain,
+    title: "Media (Content & Reichweite)",
+    description: "Cross mediale Inhalte, Social Media Management und Performance Kampagnen für mehr Sichtbarkeit.",
     gradient: "from-secondary to-accent"
   }, {
     icon: Zap,
-    title: "Lab Automation",
-    description: "Intelligente Systeme und Workflows für maximale Effizienz.",
+    title: "Lab (Tech & Automation)",
+    description: "Individuelle KI Lösungen, Automatisierung und Daten Analytics für nachhaltigen Erfolg.",
     gradient: "from-accent to-primary"
   }];
   const stats = [{
@@ -227,13 +227,10 @@ const Index = () => {
             duration: 0.8
           }} className="text-display-xl font-black mb-6">
               <span className="block bg-gradient-primary bg-clip-text text-transparent animate-gradient">
-                BRAND
-              </span>
-              <span className="block text-foreground">
-                INTELLIGENCE
+                Digitale Markenintelligenz
               </span>
               <span className="block text-display-lg text-muted-foreground">
-                FOR THE DIGITAL AGE
+                für Ihren Vorsprung
               </span>
             </motion.h1>
 
@@ -247,9 +244,22 @@ const Index = () => {
           }} transition={{
             delay: 0.6,
             duration: 0.8
-          }} className="text-body-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
-              {t('home.hero.description')} <br />
-              
+          }} className="text-body-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
+              Wir verbinden Markenstrategie, Content und KI Automatisierung. Für kleine und mittlere Unternehmen, die effizienter arbeiten, sichtbarer werden und wachsen möchten.
+            </motion.p>
+
+            {/* 📝 Sub-description */}
+            <motion.p initial={{
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            delay: 0.7,
+            duration: 0.8
+          }} className="text-body text-muted-foreground max-w-2xl mx-auto mb-12">
+              Erzählen Sie uns von Ihrem Vorhaben – wir melden uns innerhalb von 24 Stunden.
             </motion.p>
 
             {/* 🔥 CTA Buttons */}
@@ -426,7 +436,7 @@ const Index = () => {
         <div className="container-xl mt-16">
           <ScrollAnimation animation="fadeUp" delay={0.2} className="text-center mb-16">
             <h2 className="text-h1 font-bold mb-6 text-foreground">
-              Unsere Services
+              Unsere Kompetenzbereiche
             </h2>
             <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
               Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
@@ -483,11 +493,20 @@ const Index = () => {
                     <h3 className="text-h3 font-semibold mb-4 text-foreground">
                       {service.title}
                     </h3>
-                    <p className="text-body text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                     <p className="text-body text-muted-foreground leading-relaxed mb-6">
+                       {service.description}
+                     </p>
+                     <Button 
+                       size="sm" 
+                       variant="outline" 
+                       className="group"
+                       onClick={scrollToContact}
+                     >
+                       Mehr erfahren
+                       <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                     </Button>
+                   </CardContent>
+                 </Card>
               </motion.div>)}
           </motion.div>
         </div>
@@ -546,20 +565,20 @@ const Index = () => {
         }}>
             {[{
             number: "01",
-            title: "Impact durch Automatisierung",
-            description: "Intelligente Systeme steigern Ihre Effizienz nachhaltig"
+             title: "Automatisierung mit Impact",
+             description: "Wir automatisieren repetitive Aufgaben, damit Sie sich auf Ihr Kerngeschäft konzentrieren können."
           }, {
             number: "02",
-            title: "Marketingexpertise trifft technische Umsetzung",
-            description: "Perfekte Schnittstelle zwischen Strategie und Innovation"
+             title: "Marketing & Technologie vereint",
+             description: "Interdisziplinäres Team aus Strategen, Creatives und Entwicklern; alles aus einer Hand."
           }, {
             number: "03",
-            title: "Zugänglichkeit & Klarheit statt Komplexität",
-            description: "Einfache Lösungen für komplexe Herausforderungen"
+             title: "Einfach & klar",
+             description: "Transparente Prozesse und verständliche Lösungen statt Technik Buzzwords."
           }, {
             number: "04",
-            title: "Individuelle Setups ohne Standardbausteine",
-            description: "Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen"
+             title: "Individuell & skalierbar",
+             description: "Maßgeschneiderte Setups ohne Abo Modelle – Sie bezahlen nur, was Sie nutzen."
           }].map((point, index) => <motion.div key={index} variants={{
             hidden: {
               opacity: 0,
@@ -633,7 +652,7 @@ const Index = () => {
                 Bereit für den nächsten Schritt?
               </h2>
               <p className="text-body-xl text-muted-foreground">
-                Ready when you are. Wir bringen's online.
+                Lassen Sie uns Ihr Projekt besprechen und eine kostenlose Erstberatung vereinbaren.
               </p>
             </ScrollAnimation>
 
@@ -746,10 +765,10 @@ const Index = () => {
                       }
                     }
                   }}>
-                      <Button type="submit" size="lg" className="w-full btn-primary hover-magnetic">
-                        Nachricht senden
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
+                       <Button type="submit" size="lg" className="w-full btn-primary hover-magnetic">
+                         Kostenloses Beratungsgespräch buchen
+                         <ArrowRight className="w-4 h-4 ml-2" />
+                       </Button>
                     </motion.div>
                   </motion.form>
                 </CardContent>
