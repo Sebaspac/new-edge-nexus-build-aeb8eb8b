@@ -505,10 +505,12 @@ const Index = () => {
                        size="sm" 
                        variant="outline" 
                        className="group"
-                       onClick={scrollToContact}
+                       asChild
                      >
-                       Mehr erfahren
-                       <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                       <Link to={index === 0 ? "/studio" : index === 1 ? "/media" : "/lab"}>
+                         Mehr erfahren
+                         <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                       </Link>
                      </Button>
                    </CardContent>
                  </Card>
