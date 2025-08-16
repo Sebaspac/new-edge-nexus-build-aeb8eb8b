@@ -90,27 +90,52 @@ const Studio = () => {
             }}>DESIGN EXCELLENCE</span>
             </h1>
             
-            {/* Floating icons */}
-            <div className="absolute top-10 sm:top-20 left-4 sm:left-10 animate-float" style={{
+            {/* Enhanced floating design elements */}
+            <div className="absolute top-10 sm:top-20 left-4 sm:left-10 animate-float-1" style={{
             animationDelay: '0.5s'
           }}>
               <Palette className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
             </div>
-            <div className="absolute top-20 sm:top-40 right-8 sm:right-20 animate-float" style={{
+            <div className="absolute top-20 sm:top-40 right-8 sm:right-20 animate-float-2" style={{
             animationDelay: '1s'
           }}>
               <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-purple-400" />
             </div>
-            <div className="absolute bottom-10 sm:bottom-20 left-8 sm:left-20 animate-float" style={{
+            <div className="absolute bottom-10 sm:bottom-20 left-8 sm:left-20 animate-float-3" style={{
             animationDelay: '1.5s'
           }}>
               <Monitor className="w-8 h-8 sm:w-10 sm:h-10 text-purple-300" />
             </div>
+            
+            {/* Additional design elements */}
+            <div className="absolute top-1/2 left-1/4 animate-drift opacity-20" style={{
+            animationDelay: '2s'
+          }}>
+              <Package className="w-12 h-12 text-purple-300" />
+            </div>
+            <div className="absolute top-1/3 right-1/4 animate-orbit opacity-30" style={{
+            animationDelay: '3s'
+          }}>
+              <Grid3x3 className="w-8 h-8 text-purple-400" />
+            </div>
+            
+            {/* Geometric shapes */}
+            <div className="absolute top-20 right-1/3 w-20 h-20 bg-purple-200 rounded-full animate-float-1 opacity-20" style={{
+            animationDelay: '4s'
+          }}></div>
+            <div className="absolute bottom-1/3 right-10 w-16 h-16 bg-purple-300 rounded-lg animate-float-2 opacity-25" style={{
+            animationDelay: '2.5s'
+          }}></div>
 
             {/* Interactive background elements */}
-            <div className="absolute w-64 h-64 sm:w-96 sm:h-96 bg-purple-100 rounded-full blur-3xl opacity-30 animate-pulse" style={{
+            <div className="absolute w-64 h-64 sm:w-96 sm:h-96 bg-purple-100 rounded-full blur-3xl opacity-30 animate-pulse-glow" style={{
             left: mousePosition.x / 10,
             top: mousePosition.y / 10,
+            transform: 'translate(-50%, -50%)'
+          }} />
+            <div className="absolute w-32 h-32 bg-purple-200 rounded-full blur-2xl opacity-20 animate-drift" style={{
+            left: mousePosition.x / 15,
+            top: mousePosition.y / 15,
             transform: 'translate(-50%, -50%)'
           }} />
             
