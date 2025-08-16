@@ -425,9 +425,7 @@ const Index = () => {
       }} />
         <div className="container-xl mt-16">
           <ScrollAnimation animation="fadeUp" delay={0.2} className="text-center mb-16">
-            <h2 className="text-h1 font-bold mb-6 text-foreground">
-              Unsere Services
-            </h2>
+            <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere Kompetenzbereiche</h2>
             <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
               Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
             </p>
