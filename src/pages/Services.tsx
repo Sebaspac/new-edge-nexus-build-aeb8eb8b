@@ -306,14 +306,18 @@ const Services = () => {
             duration: 1.2,
             ease: "backOut"
           }} className="text-display-xl font-black text-foreground italic mb-4 transform-gpu">
-              <motion.span animate={{
-              rotateZ: [0, 2, -2, 0],
-              scale: [1, 1.02, 1]
-            }} transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}>
+              <motion.span 
+                className="text-transparent bg-gradient-primary bg-clip-text"
+                animate={{
+                  rotateZ: [0, 2, -2, 0],
+                  scale: [1, 1.02, 1]
+                }} 
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
                 JOURNEY
               </motion.span>
             </motion.div>
