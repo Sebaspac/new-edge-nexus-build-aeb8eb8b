@@ -32,7 +32,7 @@ const translations = {
     // Homepage
     'home.hero.title': 'New Edge',
     'home.hero.subtitle': 'For strategy. aesthetics.\n& tech.',
-    'home.hero.description': 'Wir verbinden Markenstrategie, Content und KI Automatisierung. Für kleine und mittlere Unternehmen, die effizienter arbeiten, sichtbarer werden und wachsen möchten.',
+    'home.hero.description': 'Wir helfen Marken, sichtbar zu werden, Prozesse zu automatisieren – und den Wandel durch Innovation aktiv zu gestalten.',
     'home.hero.descriptionSecond': 'Von strategischer Beratung bis hin zu cutting-edge Technologie.',
     'home.about.title': 'Über uns',
     'home.about.description': 'New Edge ist ein kreatives Tech-Studio, das sich auf innovative digitale Lösungen spezialisiert hat. Wir verbinden strategisches Denken mit ästhetischem Design und modernster Technologie.',
