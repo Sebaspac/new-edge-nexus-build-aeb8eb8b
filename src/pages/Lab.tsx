@@ -68,11 +68,11 @@ const Lab = () => {
       {/* Hero Section */}
       <section className="h-screen px-4 sm:px-6 bg-white relative overflow-hidden flex items-center">
         {/* Animated Grid Background */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-25">
           <svg width="100%" height="100%" className="animate-parallax">
             <defs>
               <pattern id="lab-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFED00" strokeWidth="0.5" />
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#D97706" strokeWidth="0.5" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#lab-grid)" />
