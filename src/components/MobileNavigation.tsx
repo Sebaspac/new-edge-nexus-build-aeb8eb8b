@@ -31,7 +31,14 @@ export const MobileNavigation = ({
   };
   const handleContactClick = () => {
     setIsOpen(false);
-    onContactClick();
+    // Quick scroll to contact form
+    const contactSection = document.querySelector('#contact-section') || document.querySelector('[id*="contact"]') || document.querySelector('form');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      // Fallback: scroll to bottom if no contact section found
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
   };
   return <>
       {/* Desktop Navigation */}
