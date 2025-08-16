@@ -283,12 +283,16 @@ const Services = () => {
             duration: 1,
             ease: "easeOut"
           }} className="inline-block text-transparent bg-gradient-primary bg-clip-text text-display-xl font-black tracking-tight mb-4 perspective-1000">
-              <motion.span animate={{
-              textShadow: ["0 0 20px rgba(var(--primary-rgb), 0.5)", "0 0 40px rgba(var(--primary-rgb), 0.8)", "0 0 20px rgba(var(--primary-rgb), 0.5)"]
-            }} transition={{
-              duration: 3,
-              repeat: Infinity
-            }}>
+              <motion.span 
+                className="text-white"
+                animate={{
+                  textShadow: ["0 0 20px rgba(255, 255, 255, 0.5)", "0 0 40px rgba(255, 255, 255, 0.8)", "0 0 20px rgba(255, 255, 255, 0.5)"]
+                }} 
+                transition={{
+                  duration: 3,
+                  repeat: Infinity
+                }}
+              >
                 THE
               </motion.span>
             </motion.div>
