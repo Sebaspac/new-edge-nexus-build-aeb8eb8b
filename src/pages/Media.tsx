@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Megaphone, Target, BarChart, Users, TrendingUp, Eye, ChevronDown, Video, Camera, Edit, Settings, Search, Mail } from "lucide-react";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
@@ -154,24 +153,9 @@ const Media = () => {
             <div className="animate-fade-in flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4" style={{
             animationDelay: '1s'
           }}>
-              <motion.div whileHover={{
-                scale: 1.3,
-                rotate: 5
-              }} whileTap={{
-                scale: 0.8
-              }} className="relative">
-                {/* Pulsing ring */}
-                <motion.div className="absolute inset-0 w-16 h-16 -m-4 rounded-full border-2 border-blue-500/50" animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.5, 0, 0.5]
-                }} transition={{
-                  duration: 2,
-                  repeat: Infinity
-                }} />
-                <Button size="lg" className="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" onClick={scrollToContact}>
-                  {t('common.startProject')}
-                </Button>
-              </motion.div>
+              <Button size="lg" className="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" onClick={scrollToContact}>
+                {t('common.startProject')}
+              </Button>
               
             </div>
           </div>
