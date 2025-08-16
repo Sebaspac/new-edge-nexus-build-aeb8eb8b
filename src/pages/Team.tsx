@@ -239,9 +239,7 @@ const Team = () => {
                   Die Gründer
                 </span>
               </h2>
-              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.
-              </p>
+              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.</p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
