@@ -75,7 +75,7 @@ const Studio = () => {
       {/* Hero Section */}
       <section className="h-screen px-4 sm:px-6 bg-white relative overflow-hidden flex items-center">
         {/* Animated Grid Background */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-25">
           <svg width="100%" height="100%" className="animate-parallax">
             <defs>
               <pattern id="studio-grid" width="40" height="40" patternUnits="userSpaceOnUse">
