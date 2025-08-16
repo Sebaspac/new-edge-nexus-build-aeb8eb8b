@@ -302,7 +302,7 @@ const Index = () => {
         }} whileTap={{
           scale: 0.95
         }}>
-            <span className="text-body-sm">Scroll to explore</span>
+            <span className="text-body-sm">Scrollen</span>
             <motion.div animate={{
             y: [0, 5, 0]
           }} transition={{
@@ -447,38 +447,37 @@ const Index = () => {
           }
         }}>
             {services.map((service, index) => {
-              const links = ['/studio', '/media', '/lab'];
-              return (
-                <motion.div key={index} variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 80,
-                    rotateX: 45
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    rotateX: 0,
-                    transition: {
-                      duration: 0.8,
-                      ease: "easeOut"
-                    }
-                  }
-                }} whileHover={{
-                  scale: 1.05,
-                  y: -15,
-                  transition: {
-                    duration: 0.3
-                  }
-                }} className="group">
+            const links = ['/studio', '/media', '/lab'];
+            return <motion.div key={index} variants={{
+              hidden: {
+                opacity: 0,
+                y: 80,
+                rotateX: 45
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                rotateX: 0,
+                transition: {
+                  duration: 0.8,
+                  ease: "easeOut"
+                }
+              }
+            }} whileHover={{
+              scale: 1.05,
+              y: -15,
+              transition: {
+                duration: 0.3
+              }
+            }} className="group">
                   <Card className="card-modern h-full hover-lift">
                     <CardContent className="p-8 flex flex-col h-full">
                       <motion.div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`} whileHover={{
-                        rotate: 360,
-                        scale: 1.2
-                      }} transition={{
-                        duration: 0.6
-                      }}>
+                    rotate: 360,
+                    scale: 1.2
+                  }} transition={{
+                    duration: 0.6
+                  }}>
                         <service.icon className="w-8 h-8 text-white" />
                       </motion.div>
                       <h3 className="text-h3 font-semibold mb-4 text-foreground">
@@ -495,9 +494,8 @@ const Index = () => {
                       </Button>
                     </CardContent>
                   </Card>
-                </motion.div>
-              );
-            })}
+                </motion.div>;
+          })}
           </motion.div>
         </div>
       </ScrollAnimation>
