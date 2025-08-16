@@ -143,19 +143,6 @@ const Lab = () => {
             animationDelay: '6s'
           }}></div>
 
-            {/* Interactive background elements */}
-            <div className="absolute w-64 h-64 sm:w-96 sm:h-96 rounded-full blur-3xl opacity-30 animate-pulse-glow" style={{
-            left: mousePosition.x / 10,
-            top: mousePosition.y / 10,
-            transform: 'translate(-50%, -50%)',
-            backgroundColor: '#FFED00'
-          }} />
-            <div className="absolute w-40 h-40 rounded-full blur-2xl opacity-20 animate-drift" style={{
-            left: mousePosition.x / 12,
-            top: mousePosition.y / 12,
-            transform: 'translate(-50%, -50%)',
-            backgroundColor: '#FFED00'
-          }} />
             
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 sm:mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in px-4" style={{
             animationDelay: '0.8s'

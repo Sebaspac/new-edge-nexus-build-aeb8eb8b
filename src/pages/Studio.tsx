@@ -127,17 +127,6 @@ const Studio = () => {
             animationDelay: '2.5s'
           }}></div>
 
-            {/* Interactive background elements */}
-            <div className="absolute w-64 h-64 sm:w-96 sm:h-96 bg-purple-100 rounded-full blur-3xl opacity-30 animate-pulse-glow" style={{
-            left: mousePosition.x / 10,
-            top: mousePosition.y / 10,
-            transform: 'translate(-50%, -50%)'
-          }} />
-            <div className="absolute w-32 h-32 bg-purple-200 rounded-full blur-2xl opacity-20 animate-drift" style={{
-            left: mousePosition.x / 15,
-            top: mousePosition.y / 15,
-            transform: 'translate(-50%, -50%)'
-          }} />
             
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 sm:mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in px-4" style={{
             animationDelay: '0.8s'
