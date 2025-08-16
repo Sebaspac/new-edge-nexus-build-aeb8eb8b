@@ -208,7 +208,7 @@ const Team = () => {
           }} whileTap={{
             scale: 0.95
           }}>
-              <span className="text-body-sm">Scroll to explore</span>
+              <span className="text-body-sm">Runter scrollen</span>
               <motion.div animate={{
               y: [0, 5, 0]
             }} transition={{
