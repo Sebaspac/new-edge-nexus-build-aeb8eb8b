@@ -10,10 +10,10 @@ import { lazy, Suspense } from "react";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
-const OptimizedServices = lazy(() => import("./components/OptimizedServices"));
-const OptimizedMedia = lazy(() => import("./components/OptimizedMedia"));
-const OptimizedStudio = lazy(() => import("./components/OptimizedStudio"));
-const OptimizedLab = lazy(() => import("./components/OptimizedLab"));
+const Services = lazy(() => import("./pages/Services"));
+const Media = lazy(() => import("./pages/Media"));
+const Studio = lazy(() => import("./pages/Studio"));
+const Lab = lazy(() => import("./pages/Lab"));
 const Team = lazy(() => import("./pages/Team"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -37,10 +37,10 @@ const App = () => (
             <Suspense fallback={<LoadingFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />
-                <Route path="/services" element={<OptimizedServices />} />
-                <Route path="/media" element={<OptimizedMedia />} />
-                <Route path="/studio" element={<OptimizedStudio />} />
-                <Route path="/lab" element={<OptimizedLab />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/media" element={<Media />} />
+                <Route path="/studio" element={<Studio />} />
+                <Route path="/lab" element={<Lab />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="*" element={<NotFound />} />
