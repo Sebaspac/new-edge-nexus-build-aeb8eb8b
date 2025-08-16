@@ -71,8 +71,8 @@ const Media = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
       {/* Hero Section */}
-      <section className="pt-20 sm:pt-32 pb-16 sm:pb-32 px-4 sm:px-6 bg-white relative overflow-hidden">
-        <div className="container mx-auto text-center relative z-10">
+      <section className="h-screen px-4 sm:px-6 bg-white relative overflow-hidden flex items-center">
+        <div className="container mx-auto text-center relative z-10" style={{ transform: 'translateY(10vh)' }}>
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-black mb-6 sm:mb-8 leading-tight tracking-tight">
               <span className="inline-block animate-fade-in" style={{
