@@ -150,7 +150,7 @@ const Index = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* 🚀 Hero Section */}
-      <section className="hero-section relative">
+      <section className="hero-section relative h-screen">
         {/* 🌌 Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-surface-elevated">
           {/* ✨ Floating Orbs */}
