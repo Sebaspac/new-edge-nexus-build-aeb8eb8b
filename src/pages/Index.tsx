@@ -204,7 +204,7 @@ const Index = () => {
         y: heroY,
         opacity: heroOpacity,
         scale: heroScale
-      }} className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center px-6">
+      }} className="relative z-10 container-xl hero-section flex flex-col items-center justify-end pb-32 text-center px-6">
           <motion.div initial={{
           opacity: 0,
           y: 100
