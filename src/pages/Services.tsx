@@ -43,32 +43,88 @@ const Services = () => {
 
       {/* Hero Section */}
       <section className="relative h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Dark space background with floating geometric shapes */}
+        {/* Space-like background with stars and floating elements */}
         <div className="absolute inset-0 z-0">
-          {/* Dark background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-black"></div>
+          {/* Deep space gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-purple-950/50 to-black"></div>
           
-          {/* Floating geometric shapes - larger and more prominent */}
+          {/* Starfield */}
+          {[...Array(150)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-white rounded-full"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                opacity: Math.random() * 0.8 + 0.2
+              }}
+              animate={{
+                opacity: [0.2, 1, 0.2],
+                scale: [0.5, 1.2, 0.5]
+              }}
+              transition={{
+                duration: 2 + Math.random() * 4,
+                repeat: Infinity,
+                delay: Math.random() * 5,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+          
+          {/* Large twinkling stars */}
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={`star-${i}`}
+              className="absolute w-2 h-2 bg-white rounded-full opacity-70"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                filter: 'blur(0.5px)'
+              }}
+              animate={{
+                opacity: [0.3, 1, 0.3],
+                scale: [0.8, 1.5, 0.8]
+              }}
+              transition={{
+                duration: 3 + Math.random() * 3,
+                repeat: Infinity,
+                delay: Math.random() * 4,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+          
+          {/* Beautiful floating geometric elements */}
           <motion.div 
-            className="absolute top-[15%] left-[10%] w-32 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg opacity-80"
+            className="absolute top-[15%] left-[8%] w-20 h-32 rounded-2xl"
+            style={{
+              background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
+              boxShadow: '0 0 30px rgba(139, 92, 246, 0.4)'
+            }}
             animate={{
-              y: [0, -20, 0],
-              x: [0, 15, 0],
-              rotate: [0, 10, 0]
+              y: [0, -30, 0],
+              x: [0, 20, 0],
+              rotate: [0, 15, 0],
+              scale: [1, 1.1, 1]
             }}
             transition={{
-              duration: 8,
+              duration: 12,
               repeat: Infinity,
               ease: "easeInOut"
             }}
           />
           
           <motion.div 
-            className="absolute top-[60%] right-[15%] w-24 h-32 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl opacity-70"
+            className="absolute top-[55%] right-[12%] w-24 h-24 rounded-xl"
+            style={{
+              background: 'linear-gradient(45deg, #06B6D4, #3B82F6)',
+              boxShadow: '0 0 25px rgba(6, 182, 212, 0.3)'
+            }}
             animate={{
               y: [0, 25, 0],
-              x: [0, -10, 0],
-              rotate: [0, -15, 0]
+              x: [0, -15, 0],
+              rotate: [0, -20, 0],
+              scale: [1, 1.15, 1]
             }}
             transition={{
               duration: 10,
@@ -79,14 +135,19 @@ const Services = () => {
           />
           
           <motion.div 
-            className="absolute bottom-[20%] left-[20%] w-20 h-20 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-xl opacity-75"
+            className="absolute bottom-[25%] left-[25%] w-16 h-28 rounded-lg"
+            style={{
+              background: 'linear-gradient(225deg, #F59E0B, #EF4444)',
+              boxShadow: '0 0 20px rgba(245, 158, 11, 0.4)'
+            }}
             animate={{
-              y: [0, -15, 0],
-              x: [0, 20, 0],
-              rotate: [0, 20, 0]
+              y: [0, -20, 0],
+              x: [0, 25, 0],
+              rotate: [0, 25, 0],
+              scale: [1, 1.2, 1]
             }}
             transition={{
-              duration: 12,
+              duration: 14,
               repeat: Infinity,
               ease: "easeInOut",
               delay: 4
@@ -94,65 +155,102 @@ const Services = () => {
           />
           
           <motion.div 
-            className="absolute top-[30%] right-[35%] w-16 h-24 bg-gradient-to-br from-green-500 to-emerald-400 rounded-lg opacity-60"
+            className="absolute top-[35%] right-[30%] w-18 h-18 rounded-full"
+            style={{
+              background: 'linear-gradient(90deg, #10B981, #059669)',
+              boxShadow: '0 0 15px rgba(16, 185, 129, 0.5)'
+            }}
             animate={{
-              y: [0, 30, 0],
-              x: [0, -25, 0],
-              rotate: [0, -10, 0]
+              y: [0, 35, 0],
+              x: [0, -30, 0],
+              scale: [1, 1.3, 1]
             }}
             transition={{
-              duration: 9,
+              duration: 8,
               repeat: Infinity,
               ease: "easeInOut",
               delay: 1
             }}
           />
           
-          {/* Additional smaller floating elements */}
+          {/* Floating crystal-like elements */}
           <motion.div 
-            className="absolute top-[70%] left-[60%] w-12 h-12 bg-purple-400 rounded-full opacity-50"
+            className="absolute top-[70%] left-[60%] w-12 h-20"
+            style={{
+              background: 'linear-gradient(180deg, #A855F7, #7C3AED)',
+              clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+              boxShadow: '0 0 20px rgba(168, 85, 247, 0.3)'
+            }}
             animate={{
               y: [0, -40, 0],
-              scale: [1, 1.2, 1]
+              rotate: [0, 180, 360],
+              scale: [1, 1.1, 1]
             }}
             transition={{
-              duration: 6,
+              duration: 15,
               repeat: Infinity,
               ease: "easeInOut",
               delay: 3
             }}
           />
           
-          {/* Scattered particles */}
-          {[...Array(50)].map((_, i) => (
+          {/* Nebula-like glow effects */}
+          <motion.div 
+            className="absolute top-[20%] right-[20%] w-40 h-40 rounded-full opacity-20"
+            style={{
+              background: 'radial-gradient(circle, #8B5CF6, transparent)',
+              filter: 'blur(30px)'
+            }}
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.1, 0.3, 0.1]
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          <motion.div 
+            className="absolute bottom-[30%] right-[40%] w-32 h-32 rounded-full opacity-15"
+            style={{
+              background: 'radial-gradient(circle, #06B6D4, transparent)',
+              filter: 'blur(25px)'
+            }}
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.1, 0.25, 0.1]
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 5
+            }}
+          />
+          
+          {/* Shooting stars */}
+          {[...Array(3)].map((_, i) => (
             <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-white rounded-full opacity-60"
+              key={`shooting-star-${i}`}
+              className="absolute w-1 h-1 bg-white rounded-full"
               style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`
+                top: `${20 + i * 25}%`,
+                left: '-5%'
               }}
               animate={{
-                y: [0, -20, 0],
-                opacity: [0.3, 1, 0.3],
-                scale: [0.5, 1, 0.5]
+                x: ['0vw', '110vw'],
+                opacity: [0, 1, 1, 0]
               }}
               transition={{
-                duration: 3 + Math.random() * 4,
+                duration: 3,
                 repeat: Infinity,
-                delay: Math.random() * 5,
-                ease: "easeInOut"
+                delay: i * 8 + Math.random() * 5,
+                ease: "easeOut"
               }}
             />
           ))}
-          
-          {/* Subtle grid overlay */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="w-full h-full" style={{
-              backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }}></div>
-          </div>
         </div>
         
         <motion.div style={{
