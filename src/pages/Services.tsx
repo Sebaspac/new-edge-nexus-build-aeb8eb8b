@@ -375,7 +375,7 @@ const Services = () => {
             delay: 2.3,
             duration: 0.8
           }}>
-              Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.
+              <span className="text-white">Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.</span>
             </motion.div>
           </motion.div>
           
