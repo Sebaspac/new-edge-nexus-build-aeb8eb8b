@@ -113,15 +113,15 @@ const Index = () => {
     }
   }, []);
   const services = [{
-    icon: Brain,
-    title: "Media Intelligence",
-    description: "KI-gestützte Inhaltsstrategien, die Ihre Zielgruppe erreichen und konvertieren.",
-    gradient: "from-primary to-secondary"
-  }, {
     icon: Sparkles,
     title: "Studio Design",
     description: "Visuelles Storytelling und Brand-Design, das im Gedächtnis bleibt.",
     gradient: "from-secondary to-accent"
+  }, {
+    icon: Brain,
+    title: "Media Intelligence",
+    description: "KI-gestützte Inhaltsstrategien, die Ihre Zielgruppe erreichen und konvertieren.",
+    gradient: "from-primary to-secondary"
   }, {
     icon: Zap,
     title: "Lab Automation",
@@ -447,7 +447,7 @@ const Index = () => {
           }
         }}>
             {services.map((service, index) => {
-              const links = ['/media', '/studio', '/lab'];
+              const links = ['/studio', '/media', '/lab'];
               return (
                 <motion.div key={index} variants={{
                   hidden: {
