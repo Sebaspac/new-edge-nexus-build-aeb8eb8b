@@ -184,14 +184,14 @@ const Index = () => {
         }} />
 
           {/* 🌊 Gradient Mesh */}
-          <div className="absolute inset-0 bg-gradient-glow opacity-50" />
+          <div className="absolute inset-0 bg-gradient-glow opacity-30" />
           
-          {/* ⚡ Animated Grid */}
-          <div className="absolute inset-0 opacity-20">
+          {/* ⚡ Subtle Grid */}
+          <div className="absolute inset-0 opacity-10">
             <svg width="100%" height="100%" className="animate-parallax">
               <defs>
-                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
+                <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                  <path d="M 60 0 L 0 0 0 60" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.3" />
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#grid)" />
@@ -204,7 +204,7 @@ const Index = () => {
         y: heroY,
         opacity: heroOpacity,
         scale: heroScale
-      }} className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center">
+      }} className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center px-6">
           <motion.div initial={{
           opacity: 0,
           y: 100
@@ -214,7 +214,21 @@ const Index = () => {
         }} transition={{
           duration: 1,
           ease: "easeOut"
-        }} className="max-w-6xl mx-auto">
+        }} className="max-w-5xl mx-auto">
+            
+            {/* 🎨 Professional Badge */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface/80 border border-border/50 backdrop-blur-sm mb-8"
+            >
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-sm font-medium text-muted-foreground">
+                Creative-Tech Agentur für Innovation
+              </span>
+            </motion.div>
+
             {/* 🎨 Main Headline */}
             <motion.h1 initial={{
             opacity: 0,
@@ -225,49 +239,45 @@ const Index = () => {
           }} transition={{
             delay: 0.4,
             duration: 0.8
-          }} className="text-display-xl font-black mb-6">
+          }} className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 leading-tight">
               <motion.span 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                className="block bg-gradient-primary bg-clip-text text-transparent animate-gradient"
+                className="block bg-gradient-primary bg-clip-text text-transparent"
               >
                 Digitale Markenintelligenz
               </motion.span>
-              <span className="block text-display-lg text-muted-foreground">
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+                className="block text-foreground/90 mt-2"
+              >
                 für Ihren Vorsprung
-              </span>
+              </motion.span>
             </motion.h1>
 
-            {/* 📝 Description */}
-            <motion.p initial={{
+            {/* 📝 Professional Description */}
+            <motion.div initial={{
             opacity: 0,
             y: 30
           }} animate={{
             opacity: 1,
             y: 0
           }} transition={{
-            delay: 0.6,
+            delay: 1.0,
             duration: 0.8
-          }} className="text-body-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-              Wir verbinden Markenstrategie, Content und KI Automatisierung. Für kleine und mittlere Unternehmen, die effizienter arbeiten, sichtbarer werden und wachsen möchten.
-            </motion.p>
+          }} className="space-y-4 mb-12">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
+                Wir verbinden Markenstrategie, Content und KI Automatisierung. Für kleine und mittlere Unternehmen, die effizienter arbeiten, sichtbarer werden und wachsen möchten.
+              </p>
+              <p className="text-base text-muted-foreground/80 max-w-2xl mx-auto">
+                Erzählen Sie uns von Ihrem Vorhaben – wir melden uns innerhalb von 24 Stunden.
+              </p>
+            </motion.div>
 
-            {/* 📝 Sub-description */}
-            <motion.p initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.7,
-            duration: 0.8
-          }} className="text-body text-muted-foreground max-w-2xl mx-auto mb-12">
-              Erzählen Sie uns von Ihrem Vorhaben – wir melden uns innerhalb von 24 Stunden.
-            </motion.p>
-
-            {/* 🔥 CTA Buttons */}
+            {/* 🔥 Professional CTA Section */}
             <motion.div initial={{
             opacity: 0,
             y: 20
@@ -275,14 +285,24 @@ const Index = () => {
             opacity: 1,
             y: 0
           }} transition={{
-            delay: 0.8,
+            delay: 1.2,
             duration: 0.6
           }} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button onClick={scrollToContact} size="lg" className="group btn-primary hover-magnetic">
+              <Button 
+                onClick={scrollToContact} 
+                size="lg" 
+                className="group px-8 py-3 text-base font-semibold bg-primary hover:bg-primary/90 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
                 Projekt starten
-                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button variant="outline" size="lg" className="btn-secondary hover-glow" asChild>
+              
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="px-8 py-3 text-base font-semibold bg-surface/50 border-border/50 backdrop-blur-sm hover:bg-surface/80 rounded-xl transition-all duration-300" 
+                asChild
+              >
                 <Link to="/services">
                   Unsere Services entdecken
                 </Link>
@@ -291,42 +311,36 @@ const Index = () => {
           </motion.div>
         </motion.div>
 
-        {/* 🔽 Scroll Indicator */}
+        {/* 🔽 Elegant Scroll Indicator */}
         <motion.div initial={{
         opacity: 0
       }} animate={{
         opacity: 1
       }} transition={{
-        delay: 1.2,
+        delay: 1.4,
         duration: 0.6
       }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <motion.div animate={{
-          y: [0, 10, 0]
-        }} transition={{
-          duration: 2,
-          repeat: Infinity
-        }} className="flex flex-col items-center gap-2 text-muted-foreground cursor-pointer hover-scale" onClick={() => {
-          const nextSection = document.querySelector('.relative.-mt-32.pt-40.pb-20');
-          if (nextSection) {
-            nextSection.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-        }} whileHover={{
-          scale: 1.1
-        }} whileTap={{
-          scale: 0.95
-        }}>
-            <span className="text-body-sm">Scroll to explore</span>
-            <motion.div animate={{
-            y: [0, 5, 0]
-          }} transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            delay: 0.5
-          }}>
-              <ChevronDown className="w-5 h-5" />
-            </motion.div>
+          <motion.div 
+            animate={{ y: [0, 8, 0] }} 
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-3 text-muted-foreground/60 cursor-pointer group" 
+            onClick={() => {
+              const nextSection = document.querySelector('.relative.-mt-32.pt-40.pb-20');
+              if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
+            <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center">
+              <motion.div 
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                className="w-1 h-3 bg-muted-foreground/40 rounded-full mt-2"
+              />
+            </div>
+            <span className="text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              Scroll to explore
+            </span>
           </motion.div>
         </motion.div>
       </section>
