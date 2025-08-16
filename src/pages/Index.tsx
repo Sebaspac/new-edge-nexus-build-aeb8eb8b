@@ -113,19 +113,19 @@ const Index = () => {
     }
   }, []);
   const services = [{
-    icon: Sparkles,
-    title: "Studio (Strategie & Design)",
-    description: "Grundstein Ihrer Marke: Positionierung, Identität & visuelle Systeme.",
+    icon: Brain,
+    title: "Media Intelligence",
+    description: "KI-gestützte Inhaltsstrategien, die Ihre Zielgruppe erreichen und konvertieren.",
     gradient: "from-primary to-secondary"
   }, {
-    icon: Brain,
-    title: "Media (Content & Reichweite)",
-    description: "Cross mediale Inhalte, Social Media Management und Performance Kampagnen für mehr Sichtbarkeit.",
+    icon: Sparkles,
+    title: "Studio Design",
+    description: "Visuelles Storytelling und Brand-Design, das im Gedächtnis bleibt.",
     gradient: "from-secondary to-accent"
   }, {
     icon: Zap,
-    title: "Lab (Tech & Automation)",
-    description: "Individuelle KI Lösungen, Automatisierung und Daten Analytics für nachhaltigen Erfolg.",
+    title: "Lab Automation",
+    description: "Intelligente Systeme und Workflows für maximale Effizienz.",
     gradient: "from-accent to-primary"
   }];
   const stats = [{
@@ -184,14 +184,14 @@ const Index = () => {
         }} />
 
           {/* 🌊 Gradient Mesh */}
-          <div className="absolute inset-0 bg-gradient-glow opacity-30" />
+          <div className="absolute inset-0 bg-gradient-glow opacity-50" />
           
-          {/* ⚡ Subtle Grid */}
-          <div className="absolute inset-0 opacity-10">
+          {/* ⚡ Animated Grid */}
+          <div className="absolute inset-0 opacity-20">
             <svg width="100%" height="100%" className="animate-parallax">
               <defs>
-                <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                  <path d="M 60 0 L 0 0 0 60" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.3" />
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#grid)" />
@@ -204,7 +204,7 @@ const Index = () => {
         y: heroY,
         opacity: heroOpacity,
         scale: heroScale
-      }} className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center px-6">
+      }} className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center">
           <motion.div initial={{
           opacity: 0,
           y: 100
@@ -214,25 +214,7 @@ const Index = () => {
         }} transition={{
           duration: 1,
           ease: "easeOut"
-        }} className="max-w-5xl mx-auto">
-            
-            {/* 🎨 Professional Badge */}
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.2,
-            duration: 0.6
-          }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface/80 border border-border/50 backdrop-blur-sm mb-8">
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-sm font-medium text-muted-foreground">
-                Creative-Tech Agentur für Innovation
-              </span>
-            </motion.div>
-
+        }} className="max-w-6xl mx-auto">
             {/* 🎨 Main Headline */}
             <motion.h1 initial={{
             opacity: 0,
@@ -243,51 +225,34 @@ const Index = () => {
           }} transition={{
             delay: 0.4,
             duration: 0.8
-          }} className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 leading-tight">
-              <motion.span initial={{
-              opacity: 0,
-              y: 20
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              delay: 0.6,
-              duration: 0.6
-            }} className="block bg-gradient-primary bg-clip-text text-transparent">
-                Digitale Markenintelligenz
-              </motion.span>
-              <motion.span initial={{
-              opacity: 0,
-              y: 20
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              delay: 0.8,
-              duration: 0.6
-            }} className="block text-foreground/90 mt-2">
-                für Ihren Vorsprung
-              </motion.span>
+          }} className="text-display-xl font-black mb-6">
+              <span className="block bg-gradient-primary bg-clip-text text-transparent animate-gradient">
+                BRAND
+              </span>
+              <span className="block text-foreground">
+                INTELLIGENCE
+              </span>
+              <span className="block text-display-lg text-muted-foreground">
+                FOR THE DIGITAL AGE
+              </span>
             </motion.h1>
 
-            {/* 📝 Professional Description */}
-            <motion.div initial={{
+            {/* 📝 Description */}
+            <motion.p initial={{
             opacity: 0,
             y: 30
           }} animate={{
             opacity: 1,
             y: 0
           }} transition={{
-            delay: 1.0,
+            delay: 0.6,
             duration: 0.8
-          }} className="space-y-4 mb-12">
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
-                Wir verbinden Markenstrategie, Content und KI Automatisierung. Für kleine und mittlere Unternehmen, die effizienter arbeiten, sichtbarer werden und wachsen möchten.
-              </p>
+          }} className="text-body-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
+              {t('home.hero.description')} <br />
               
-            </motion.div>
+            </motion.p>
 
-            {/* 🔥 Professional CTA Section */}
+            {/* 🔥 CTA Buttons */}
             <motion.div initial={{
             opacity: 0,
             y: 20
@@ -295,15 +260,14 @@ const Index = () => {
             opacity: 1,
             y: 0
           }} transition={{
-            delay: 1.2,
+            delay: 0.8,
             duration: 0.6
           }} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button onClick={scrollToContact} size="lg" className="group px-8 py-3 text-base font-semibold bg-primary hover:bg-primary/90 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button onClick={scrollToContact} size="lg" className="group btn-primary hover-magnetic">
                 Projekt starten
-                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
-              
-              <Button variant="outline" size="lg" className="px-8 py-3 text-base font-semibold bg-surface/50 border-border/50 backdrop-blur-sm hover:bg-surface/80 rounded-xl transition-all duration-300" asChild>
+              <Button variant="outline" size="lg" className="btn-secondary hover-glow" asChild>
                 <Link to="/services">
                   Unsere Services entdecken
                 </Link>
@@ -312,41 +276,42 @@ const Index = () => {
           </motion.div>
         </motion.div>
 
-        {/* 🔽 Elegant Scroll Indicator */}
+        {/* 🔽 Scroll Indicator */}
         <motion.div initial={{
         opacity: 0
       }} animate={{
         opacity: 1
       }} transition={{
-        delay: 1.4,
+        delay: 1.2,
         duration: 0.6
       }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
           <motion.div animate={{
-          y: [0, 8, 0]
+          y: [0, 10, 0]
         }} transition={{
           duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} className="flex flex-col items-center gap-3 text-muted-foreground/60 cursor-pointer group" onClick={() => {
+          repeat: Infinity
+        }} className="flex flex-col items-center gap-2 text-muted-foreground cursor-pointer hover-scale" onClick={() => {
           const nextSection = document.querySelector('.relative.-mt-32.pt-40.pb-20');
           if (nextSection) {
             nextSection.scrollIntoView({
               behavior: 'smooth'
             });
           }
+        }} whileHover={{
+          scale: 1.1
+        }} whileTap={{
+          scale: 0.95
         }}>
-            <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center">
-              <motion.div animate={{
-              y: [0, 12, 0]
-            }} transition={{
-              duration: 2,
-              repeat: Infinity,
-              delay: 0.5
-            }} className="w-1 h-3 bg-muted-foreground/40 rounded-full mt-2" />
-            </div>
-            <span className="text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Scroll to explore
-            </span>
+            <span className="text-body-sm">Scroll to explore</span>
+            <motion.div animate={{
+            y: [0, 5, 0]
+          }} transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            delay: 0.5
+          }}>
+              <ChevronDown className="w-5 h-5" />
+            </motion.div>
           </motion.div>
         </motion.div>
       </section>
@@ -461,7 +426,7 @@ const Index = () => {
         <div className="container-xl mt-16">
           <ScrollAnimation animation="fadeUp" delay={0.2} className="text-center mb-16">
             <h2 className="text-h1 font-bold mb-6 text-foreground">
-              Unsere Kompetenzbereiche
+              Unsere Services
             </h2>
             <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
               Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
@@ -518,17 +483,11 @@ const Index = () => {
                     <h3 className="text-h3 font-semibold mb-4 text-foreground">
                       {service.title}
                     </h3>
-                     <p className="text-body text-muted-foreground leading-relaxed mb-6">
-                       {service.description}
-                     </p>
-                     <Button size="sm" variant="outline" className="group" asChild>
-                       <Link to={index === 0 ? "/studio" : index === 1 ? "/media" : "/lab"}>
-                         Mehr erfahren
-                         <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                       </Link>
-                     </Button>
-                   </CardContent>
-                 </Card>
+                    <p className="text-body text-muted-foreground leading-relaxed">
+                      {service.description}
+                    </p>
+                  </CardContent>
+                </Card>
               </motion.div>)}
           </motion.div>
         </div>
@@ -587,20 +546,20 @@ const Index = () => {
         }}>
             {[{
             number: "01",
-            title: "Automatisierung mit Impact",
-            description: "Wir automatisieren repetitive Aufgaben, damit Sie sich auf Ihr Kerngeschäft konzentrieren können."
+            title: "Impact durch Automatisierung",
+            description: "Intelligente Systeme steigern Ihre Effizienz nachhaltig"
           }, {
             number: "02",
-            title: "Marketing & Technologie vereint",
-            description: "Interdisziplinäres Team aus Strategen, Creatives und Entwicklern; alles aus einer Hand."
+            title: "Marketingexpertise trifft technische Umsetzung",
+            description: "Perfekte Schnittstelle zwischen Strategie und Innovation"
           }, {
             number: "03",
-            title: "Einfach & klar",
-            description: "Transparente Prozesse und verständliche Lösungen statt Technik Buzzwords."
+            title: "Zugänglichkeit & Klarheit statt Komplexität",
+            description: "Einfache Lösungen für komplexe Herausforderungen"
           }, {
             number: "04",
-            title: "Individuell & skalierbar",
-            description: "Maßgeschneiderte Setups ohne Abo Modelle – Sie bezahlen nur, was Sie nutzen."
+            title: "Individuelle Setups ohne Standardbausteine",
+            description: "Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen"
           }].map((point, index) => <motion.div key={index} variants={{
             hidden: {
               opacity: 0,
@@ -673,7 +632,9 @@ const Index = () => {
               <h2 className="text-h1 font-bold mb-6 text-foreground">
                 Bereit für den nächsten Schritt?
               </h2>
-              <p className="text-body-xl text-muted-foreground">Lassen Sie uns Ihr Projekt besprechen</p>
+              <p className="text-body-xl text-muted-foreground">
+                Ready when you are. Wir bringen's online.
+              </p>
             </ScrollAnimation>
 
             <ScrollAnimation animation="fadeUp" delay={0.3}>
@@ -785,10 +746,10 @@ const Index = () => {
                       }
                     }
                   }}>
-                       <Button type="submit" size="lg" className="w-full btn-primary hover-magnetic">
-                         Kostenloses Beratungsgespräch buchen
-                         <ArrowRight className="w-4 h-4 ml-2" />
-                       </Button>
+                      <Button type="submit" size="lg" className="w-full btn-primary hover-magnetic">
+                        Nachricht senden
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
                     </motion.div>
                   </motion.form>
                 </CardContent>
