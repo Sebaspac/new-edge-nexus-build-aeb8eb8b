@@ -227,13 +227,13 @@ const Index = () => {
             duration: 0.8
           }} className="text-display-xl font-black mb-6">
               <span className="block bg-gradient-primary bg-clip-text text-transparent animate-gradient">
-                NEW EDGE
+                BRAND
               </span>
               <span className="block text-foreground">
-                IST DIE AGENTUR
+                INTELLIGENCE
               </span>
               <span className="block text-display-lg text-muted-foreground">
-                FÜR INNOVATION
+                FOR THE DIGITAL AGE
               </span>
             </motion.h1>
 
@@ -248,13 +248,8 @@ const Index = () => {
             delay: 0.6,
             duration: 0.8
           }} className="text-body-xl max-w-3xl mx-auto mb-12 leading-relaxed text-base text-slate-50">
-              Für uns ist Innovation kein einzelnes Feature – sie ist ein kontinuierlicher Prozess. 
-              Wir schaffen den Zugang zu echter Innovation für KMU, Selbständige und Marken im Wandel.
-              <br />
-              <br />
-              <span className="text-primary font-medium">
-                Unser Fokus: ganzheitliche, kreative Transformation. Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools.
-              </span>
+              {t('home.hero.description')} <br />
+              
             </motion.p>
 
             {/* 🔥 CTA Buttons */}
@@ -343,12 +338,9 @@ const Index = () => {
       }} />
         <div className="container-xl">
           <ScrollAnimation animation="scaleIn" delay={0.1} className="text-center mb-16">
-            <h2 className="text-h1 font-bold mb-6 text-foreground">
-              New Edge als kreatives Headquarter für Innovation
+            <h2 className="text-h1 font-bold mb-4 text-foreground">
+              In den Wandel mit New Edge
             </h2>
-            <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto">
-              Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.
-            </p>
           </ScrollAnimation>
 
           <motion.div className="grid-modern" initial="hidden" whileInView="visible" viewport={{
@@ -367,17 +359,17 @@ const Index = () => {
           }
         }}>
             {[{
-            title: "KONTINUIERLICHER PROZESS",
-            description: "Innovation ist für uns kein einzelnes Feature, sondern ein kontinuierlicher Prozess, der echte Transformation ermöglicht.",
+            title: "UNSERE MISSION",
+            description: "Mit Media, Studio und Lab verbinden wir Inhalte, Design und Systeme - für Marken, die funktionieren und wachsen.",
             icon: Target
           }, {
-            title: "GANZHEITLICHE TRANSFORMATION", 
-            description: "Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools – alles aus einer Hand.",
-            icon: Brain
+            title: "UNSERE VISION",
+            description: "Wir gestalten eine neue Generation von Marken: automatisiert, strukturiert und sichtbar.",
+            icon: Eye
           }, {
-            title: "ZUKUNFTSKRAFT SCHAFFEN",
-            description: "Wir machen New Edge als kreatives Headquarter erlebbar, wo Ideen, Technologien und Design zu echter Zukunftskraft werden.",
-            icon: Lightbulb
+            title: "UNSER ZIEL",
+            description: "Menschen und Unternehmen den Zugang zu Innovation bieten - für einfachere und effektivere Abläufe.",
+            icon: Rocket
           }].map((item, index) => <motion.div key={index} variants={{
             hidden: {
               opacity: 0,
