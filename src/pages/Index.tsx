@@ -454,23 +454,46 @@ const Index = () => {
           }} transition={{
             duration: 0.3
           }}>
-              <Card className="card-modern p-8 bg-gradient-to-br from-surface to-surface-elevated border-primary/20">
-                <CardContent className="p-0">
-                  <motion.div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary mb-8" animate={{
-                  rotate: [0, 5, -5, 0],
-                  scale: [1, 1.05, 1]
-                }} transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}>
-                    <Brain className="w-8 h-8 text-white" />
+              <Card className="relative overflow-hidden bg-gradient-to-br from-background via-surface to-surface-elevated border-0 shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.1),transparent_50%)]" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+                
+                <CardContent className="relative p-12 text-center">
+                  <motion.div 
+                    className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary via-primary to-secondary mb-10 shadow-lg shadow-primary/20" 
+                    animate={{
+                      rotate: [0, 5, -5, 0],
+                      scale: [1, 1.05, 1]
+                    }} 
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    whileHover={{
+                      scale: 1.1,
+                      rotate: 10,
+                      transition: { duration: 0.3 }
+                    }}
+                  >
+                    <Brain className="w-10 h-10 text-white drop-shadow-sm" />
                   </motion.div>
-                  <h3 className="text-h2 font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-                    Kreatives Headquarter für Innovation
+                  
+                  <h3 className="text-4xl font-bold mb-8 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight">
+                    Kreatives Headquarter<br />für Innovation
                   </h3>
-                  <p className="text-body-lg text-muted-foreground leading-relaxed mb-4">Mit New Edge Innovation erlebbar machen.</p>
-                  <p className="text-body-lg text-muted-foreground leading-relaxed">Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.</p>
+                  
+                  <div className="space-y-4 max-w-2xl mx-auto">
+                    <p className="text-lg text-foreground/80 leading-relaxed font-medium">
+                      Mit New Edge Innovation erlebbar machen.
+                    </p>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.
+                    </p>
+                  </div>
+                  
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
                 </CardContent>
               </Card>
             </motion.div>
