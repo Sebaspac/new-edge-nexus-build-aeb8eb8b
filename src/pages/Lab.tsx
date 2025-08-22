@@ -78,7 +78,9 @@ const Lab = () => {
             <rect width="100%" height="100%" fill="url(#lab-grid)" />
           </svg>
         </div>
-        <div className="container mx-auto text-center relative z-10" style={{ transform: 'translateY(10vh)' }}>
+        <div className="container mx-auto text-center relative z-10" style={{
+        transform: 'translateY(10vh)'
+      }}>
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-black mb-6 sm:mb-8 leading-tight tracking-tight">
               <span className="inline-block animate-fade-in" style={{
@@ -122,22 +124,30 @@ const Lab = () => {
             <div className="absolute top-1/2 right-1/4 animate-drift opacity-20" style={{
             animationDelay: '2s'
           }}>
-              <Database className="w-12 h-12" style={{ color: '#FFED00' }} />
+              <Database className="w-12 h-12" style={{
+              color: '#FFED00'
+            }} />
             </div>
             <div className="absolute top-1/3 left-1/4 animate-orbit opacity-30" style={{
             animationDelay: '3s'
           }}>
-              <Bot className="w-8 h-8" style={{ color: '#FFED00' }} />
+              <Bot className="w-8 h-8" style={{
+              color: '#FFED00'
+            }} />
             </div>
             <div className="absolute bottom-1/4 right-1/3 animate-float-1 opacity-25" style={{
             animationDelay: '4s'
           }}>
-              <Code className="w-10 h-10" style={{ color: '#FFED00' }} />
+              <Code className="w-10 h-10" style={{
+              color: '#FFED00'
+            }} />
             </div>
             <div className="absolute top-1/4 right-10 animate-float-2 opacity-20" style={{
             animationDelay: '5s'
           }}>
-              <Settings className="w-8 h-8" style={{ color: '#FFED00' }} />
+              <Settings className="w-8 h-8" style={{
+              color: '#FFED00'
+            }} />
             </div>
             
             {/* Tech circuit patterns */}
@@ -209,7 +219,9 @@ const Lab = () => {
         {/* Background Elements */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-tl from-secondary/10 to-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-tl from-secondary/10 to-primary/10 rounded-full blur-3xl animate-pulse" style={{
+          animationDelay: '2s'
+        }} />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -543,47 +555,10 @@ const Lab = () => {
 
           {/* Closing Statement & CTA */}
           <div className="text-center">
-            <div className="bg-gradient-to-br from-white via-gray-50 to-white border-0 shadow-2xl rounded-2xl p-8 sm:p-12 mb-12 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5" />
-              <div className="relative z-10">
-                <h3 className="text-2xl sm:text-3xl font-bold text-black mb-6">
-                  Ihr perfektes KI-Team wartet auf Sie
-                </h3>
-                <p className="text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto text-lg">
-                  Unsere KI-Agenten arbeiten nahtlos zusammen, um Ihr Unternehmen effizienter zu machen. 
-                  Entdecken Sie, wie New Edge Ihr perfektes KI-Team bereitstellt.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <Button 
-                    size="lg" 
-                    className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white text-lg px-8 py-4 hover:scale-105 transition-all duration-300 hover:shadow-xl"
-                    onClick={scrollToContact}
-                  >
-                    Jetzt mehr erfahren & Projekt starten
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
-                    className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
-                    onClick={scrollToContact}
-                  >
-                    Demo anfordern
-                  </Button>
-                </div>
-              </div>
-            </div>
+            
 
             {/* Customer Logos */}
-            <div className="text-center">
-              <p className="text-sm text-gray-500 mb-6 uppercase tracking-wider">Vertrauen von führenden Unternehmen</p>
-              <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-                <div className="text-2xl font-bold text-gray-400">Muster GmbH</div>
-                <div className="text-2xl font-bold text-gray-400">Beispiel AG</div>
-                <div className="text-2xl font-bold text-gray-400">Innovativ GmbH</div>
-                <div className="text-2xl font-bold text-gray-400">Service24</div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
