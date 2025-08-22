@@ -444,7 +444,7 @@ const Index = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="card-modern p-12 bg-gradient-to-r from-primary/5 via-background to-secondary/5 border-0 shadow-2xl">
+              <Card className="card-modern p-8 bg-gradient-to-br from-surface to-surface-elevated border-primary/20">
                 <CardContent className="p-0">
                   <motion.div
                     className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary mb-8"
