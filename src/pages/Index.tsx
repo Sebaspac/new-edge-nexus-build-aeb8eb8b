@@ -337,9 +337,16 @@ const Index = () => {
         delay: 1
       }} />
         
-        <div className="container-xl">
+        <div className="container-xl relative">
+          {/* Decorative background elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-full blur-3xl opacity-60" />
+            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tl from-accent/10 via-accent/5 to-transparent rounded-full blur-3xl opacity-60" />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-secondary/8 to-primary/8 rounded-full blur-2xl opacity-40" />
+          </div>
+
           {/* Header */}
-          <ScrollAnimation animation="scaleIn" delay={0.1} className="text-center mb-16">
+          <ScrollAnimation animation="scaleIn" delay={0.1} className="text-center mb-20 relative z-10">
             <motion.div initial={{
             opacity: 0,
             y: 30
@@ -348,18 +355,24 @@ const Index = () => {
             y: 0
           }} transition={{
             duration: 0.8
-          }} className="mb-6">
-              <span className="inline-block text-body-sm font-semibold text-primary tracking-wider uppercase mb-4">
-                New Edge
-              </span>
-              <h2 className="text-h1 font-bold text-foreground">
-                Die Agentur für Innovation
+          }} className="mb-8">
+              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 backdrop-blur-sm mb-6">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span className="text-sm font-semibold text-primary tracking-wider uppercase">
+                  New Edge
+                </span>
+              </div>
+              <h2 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                Die Agentur für{" "}
+                <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                  Innovation
+                </span>
               </h2>
             </motion.div>
           </ScrollAnimation>
 
           {/* Main Content Grid */}
-          <motion.div className="grid lg:grid-cols-2 gap-12 items-center mb-20" initial="hidden" whileInView="visible" viewport={{
+          <motion.div className="grid lg:grid-cols-2 gap-16 items-stretch mb-24 relative z-10" initial="hidden" whileInView="visible" viewport={{
           once: true,
           margin: "-100px"
         }} variants={{
@@ -389,23 +402,33 @@ const Index = () => {
               }
             }
           }} className="space-y-6">
-              <Card className="card-modern p-8 bg-gradient-to-br from-background to-surface border-primary/20">
-                <CardContent className="p-0">
-                  <motion.div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 mb-6" whileHover={{
-                  scale: 1.1,
-                  rotate: 360
-                }} transition={{
-                  duration: 0.6
-                }}>
-                    <Lightbulb className="w-6 h-6 text-primary" />
+              <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-background via-surface to-surface-elevated border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                
+                <CardContent className="relative p-10 h-full flex flex-col">
+                  <motion.div 
+                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary via-primary to-primary/80 shadow-lg shadow-primary/25 mb-8" 
+                    whileHover={{
+                    scale: 1.1,
+                    rotate: 360
+                  }} 
+                  transition={{
+                    duration: 0.6
+                  }}
+                  >
+                    <Lightbulb className="w-8 h-8 text-white drop-shadow-sm" />
                   </motion.div>
-                  <h3 className="text-h3 font-semibold mb-4 text-primary">
+                  
+                  <h3 className="text-2xl font-bold mb-6 text-primary leading-tight">
                     Innovation als Prozess
                   </h3>
-                  <p className="text-body text-muted-foreground leading-relaxed">
+                  <p className="text-base text-muted-foreground leading-relaxed flex-grow">
                     Für uns ist Innovation kein einzelnes Feature – sie ist ein kontinuierlicher Prozess. 
                     Wir schaffen den Zugang zu echter Innovation für KMU, Selbständige und Marken im Wandel.
                   </p>
+                  
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
                 </CardContent>
               </Card>
             </motion.div>
@@ -425,31 +448,41 @@ const Index = () => {
               }
             }
           }} className="space-y-6">
-              <Card className="card-modern p-8 bg-gradient-to-br from-surface to-surface-elevated border-accent/20">
-                <CardContent className="p-0">
-                  <motion.div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-accent/10 mb-6" whileHover={{
-                  scale: 1.1,
-                  rotate: -360
-                }} transition={{
-                  duration: 0.6
-                }}>
-                    <Zap className="w-6 h-6 text-accent" />
+              <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-surface via-surface-elevated to-background border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+                
+                <CardContent className="relative p-10 h-full flex flex-col">
+                  <motion.div 
+                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent via-accent to-accent/80 shadow-lg shadow-accent/25 mb-8" 
+                    whileHover={{
+                    scale: 1.1,
+                    rotate: -360
+                  }} 
+                  transition={{
+                    duration: 0.6
+                  }}
+                  >
+                    <Zap className="w-8 h-8 text-white drop-shadow-sm" />
                   </motion.div>
-                  <h3 className="text-h3 font-semibold mb-4 text-accent">
+                  
+                  <h3 className="text-2xl font-bold mb-6 text-accent leading-tight">
                     Ganzheitliche Transformation
                   </h3>
-                  <p className="text-body text-muted-foreground leading-relaxed">
+                  <p className="text-base text-muted-foreground leading-relaxed flex-grow">
                     Unser Fokus liegt nicht nur auf Automatisierung oder Chatbots, sondern auf ganzheitlicher, 
                     kreativer Transformation: Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools.
                   </p>
+                  
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
                 </CardContent>
               </Card>
             </motion.div>
           </motion.div>
 
           {/* Vision Statement */}
-          <ScrollAnimation animation="fadeUp" delay={0.4} className="text-center mb-16">
-            <motion.div className="max-w-4xl mx-auto" whileHover={{
+          <ScrollAnimation animation="fadeUp" delay={0.4} className="text-center mb-20 relative z-10">
+            <motion.div className="max-w-5xl mx-auto" whileHover={{
             scale: 1.02
           }} transition={{
             duration: 0.3
@@ -500,7 +533,7 @@ const Index = () => {
           </ScrollAnimation>
 
           {/* Interactive Innovation Areas */}
-          <motion.div className="grid md:grid-cols-3 gap-8" initial="hidden" whileInView="visible" viewport={{
+          <motion.div className="grid md:grid-cols-3 gap-8 relative z-10" initial="hidden" whileInView="visible" viewport={{
           once: true,
           margin: "-50px"
         }} variants={{
@@ -552,22 +585,32 @@ const Index = () => {
               duration: 0.2
             }
           }} className="group cursor-pointer">
-                <Card className="card-modern h-full hover-lift bg-gradient-to-br from-surface to-background border-0 shadow-lg">
-                  <CardContent className="p-8 text-center">
-                    <motion.div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${area.gradient} p-4 mb-6 mx-auto`} whileHover={{
-                  rotate: 15,
-                  scale: 1.1
-                }} transition={{
-                  duration: 0.3
-                }}>
-                      <area.icon className="w-8 h-8 text-white" />
+                <Card className="relative overflow-hidden h-full bg-gradient-to-br from-surface via-background to-surface-elevated border-0 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <CardContent className="relative p-8 text-center h-full flex flex-col">
+                    <motion.div 
+                      className={`w-18 h-18 rounded-2xl bg-gradient-to-br ${area.gradient} p-5 mb-6 mx-auto shadow-lg`} 
+                      whileHover={{
+                      rotate: 15,
+                      scale: 1.1
+                    }} 
+                    transition={{
+                      duration: 0.3
+                    }}
+                    >
+                      <area.icon className="w-8 h-8 text-white drop-shadow-sm" />
                     </motion.div>
-                    <h4 className="text-h4 font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                    
+                    <h4 className="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
                       {area.title}
                     </h4>
-                    <p className="text-body-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground flex-grow">
                       {area.description}
                     </p>
+                    
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </CardContent>
                 </Card>
               </motion.div>)}
