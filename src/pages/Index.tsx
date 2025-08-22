@@ -320,32 +320,35 @@ const Index = () => {
       <ScrollAnimation animation="fadeUp" className="relative -mt-32 pt-40 pb-20 bg-gradient-subtle overflow-hidden">
         {/* Dynamic background elements */}
         <motion.div className="absolute top-10 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl" animate={{
-          y: [0, -20, 0],
-          scale: [1, 1.1, 1]
-        }} transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
+        y: [0, -20, 0],
+        scale: [1, 1.1, 1]
+      }} transition={{
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }} />
         <motion.div className="absolute bottom-20 right-20 w-32 h-32 bg-accent/10 rounded-full blur-xl" animate={{
-          y: [0, 15, 0],
-          scale: [1, 0.9, 1]
-        }} transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
-        }} />
+        y: [0, 15, 0],
+        scale: [1, 0.9, 1]
+      }} transition={{
+        duration: 5,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: 1
+      }} />
         
         <div className="container-xl">
           {/* Header */}
           <ScrollAnimation animation="scaleIn" delay={0.1} className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="mb-6"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.8
+          }} className="mb-6">
               <span className="inline-block text-body-sm font-semibold text-primary tracking-wider uppercase mb-4">
                 New Edge
               </span>
@@ -356,41 +359,44 @@ const Index = () => {
           </ScrollAnimation>
 
           {/* Main Content Grid */}
-          <motion.div 
-            className="grid lg:grid-cols-2 gap-12 items-center mb-20"
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.3,
-                  delayChildren: 0.2
-                }
-              }
-            }}
-          >
+          <motion.div className="grid lg:grid-cols-2 gap-12 items-center mb-20" initial="hidden" whileInView="visible" viewport={{
+          once: true,
+          margin: "-100px"
+        }} variants={{
+          hidden: {
+            opacity: 0
+          },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.3,
+              delayChildren: 0.2
+            }
+          }
+        }}>
             {/* Left: Core Philosophy */}
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, x: -50 },
-                visible: { 
-                  opacity: 1, 
-                  x: 0,
-                  transition: { duration: 0.8, ease: "easeOut" }
-                }
-              }}
-              className="space-y-6"
-            >
+            <motion.div variants={{
+            hidden: {
+              opacity: 0,
+              x: -50
+            },
+            visible: {
+              opacity: 1,
+              x: 0,
+              transition: {
+                duration: 0.8,
+                ease: "easeOut"
+              }
+            }
+          }} className="space-y-6">
               <Card className="card-modern p-8 bg-gradient-to-br from-background to-surface border-primary/20">
                 <CardContent className="p-0">
-                  <motion.div
-                    className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 mb-6"
-                    whileHover={{ scale: 1.1, rotate: 360 }}
-                    transition={{ duration: 0.6 }}
-                  >
+                  <motion.div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 mb-6" whileHover={{
+                  scale: 1.1,
+                  rotate: 360
+                }} transition={{
+                  duration: 0.6
+                }}>
                     <Lightbulb className="w-6 h-6 text-primary" />
                   </motion.div>
                   <h3 className="text-h3 font-semibold mb-4 text-primary">
@@ -405,24 +411,28 @@ const Index = () => {
             </motion.div>
 
             {/* Right: Approach */}
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, x: 50 },
-                visible: { 
-                  opacity: 1, 
-                  x: 0,
-                  transition: { duration: 0.8, ease: "easeOut" }
-                }
-              }}
-              className="space-y-6"
-            >
+            <motion.div variants={{
+            hidden: {
+              opacity: 0,
+              x: 50
+            },
+            visible: {
+              opacity: 1,
+              x: 0,
+              transition: {
+                duration: 0.8,
+                ease: "easeOut"
+              }
+            }
+          }} className="space-y-6">
               <Card className="card-modern p-8 bg-gradient-to-br from-surface to-surface-elevated border-accent/20">
                 <CardContent className="p-0">
-                  <motion.div
-                    className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-accent/10 mb-6"
-                    whileHover={{ scale: 1.1, rotate: -360 }}
-                    transition={{ duration: 0.6 }}
-                  >
+                  <motion.div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-accent/10 mb-6" whileHover={{
+                  scale: 1.1,
+                  rotate: -360
+                }} transition={{
+                  duration: 0.6
+                }}>
                     <Zap className="w-6 h-6 text-accent" />
                   </motion.div>
                   <h3 className="text-h3 font-semibold mb-4 text-accent">
@@ -439,104 +449,93 @@ const Index = () => {
 
           {/* Vision Statement */}
           <ScrollAnimation animation="fadeUp" delay={0.4} className="text-center mb-16">
-            <motion.div
-              className="max-w-4xl mx-auto"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
+            <motion.div className="max-w-4xl mx-auto" whileHover={{
+            scale: 1.02
+          }} transition={{
+            duration: 0.3
+          }}>
               <Card className="card-modern p-8 bg-gradient-to-br from-surface to-surface-elevated border-primary/20">
                 <CardContent className="p-0">
-                  <motion.div
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary mb-8"
-                    animate={{ 
-                      rotate: [0, 5, -5, 0],
-                      scale: [1, 1.05, 1]
-                    }}
-                    transition={{ 
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
+                  <motion.div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary mb-8" animate={{
+                  rotate: [0, 5, -5, 0],
+                  scale: [1, 1.05, 1]
+                }} transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}>
                     <Brain className="w-8 h-8 text-white" />
                   </motion.div>
                   <h3 className="text-h2 font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
                     Kreatives Headquarter für Innovation
                   </h3>
-                  <p className="text-body-lg text-muted-foreground leading-relaxed">
-                    Unser Anspruch: New Edge als kreatives Headquarter für Innovation erlebbar machen. 
-                    Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.
-                  </p>
+                  <p className="text-body-lg text-muted-foreground leading-relaxed">Mit New Edge Innovation erlebbar machen. Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.</p>
                 </CardContent>
               </Card>
             </motion.div>
           </ScrollAnimation>
 
           {/* Interactive Innovation Areas */}
-          <motion.div 
-            className="grid md:grid-cols-3 gap-8"
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true, margin: "-50px" }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.2,
-                  delayChildren: 0.5
-                }
+          <motion.div className="grid md:grid-cols-3 gap-8" initial="hidden" whileInView="visible" viewport={{
+          once: true,
+          margin: "-50px"
+        }} variants={{
+          hidden: {
+            opacity: 0
+          },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.2,
+              delayChildren: 0.5
+            }
+          }
+        }}>
+            {[{
+            title: "Markenentwicklung",
+            description: "Identität und Positionierung",
+            icon: Target,
+            gradient: "from-primary to-primary/70"
+          }, {
+            title: "Medienproduktion",
+            description: "Content und Storytelling",
+            icon: Eye,
+            gradient: "from-secondary to-secondary/70"
+          }, {
+            title: "KI-Tools & Prototypen",
+            description: "Technologie und Innovation",
+            icon: Rocket,
+            gradient: "from-accent to-accent/70"
+          }].map((area, index) => <motion.div key={index} variants={{
+            hidden: {
+              opacity: 0,
+              y: 60,
+              scale: 0.9
+            },
+            visible: {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              transition: {
+                duration: 0.6,
+                ease: "easeOut"
               }
-            }}
-          >
-            {[
-              {
-                title: "Markenentwicklung",
-                description: "Identität und Positionierung",
-                icon: Target,
-                gradient: "from-primary to-primary/70"
-              },
-              {
-                title: "Medienproduktion", 
-                description: "Content und Storytelling",
-                icon: Eye,
-                gradient: "from-secondary to-secondary/70"
-              },
-              {
-                title: "KI-Tools & Prototypen",
-                description: "Technologie und Innovation",
-                icon: Rocket,
-                gradient: "from-accent to-accent/70"
-              }
-            ].map((area, index) => (
-              <motion.div
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, y: 60, scale: 0.9 },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0, 
-                    scale: 1,
-                    transition: { duration: 0.6, ease: "easeOut" }
-                  }
-                }}
-                whileHover={{ 
-                  y: -10,
-                  scale: 1.05,
-                  transition: { duration: 0.2 }
-                }}
-                className="group cursor-pointer"
-              >
+            }
+          }} whileHover={{
+            y: -10,
+            scale: 1.05,
+            transition: {
+              duration: 0.2
+            }
+          }} className="group cursor-pointer">
                 <Card className="card-modern h-full hover-lift bg-gradient-to-br from-surface to-background border-0 shadow-lg">
                   <CardContent className="p-8 text-center">
-                    <motion.div
-                      className={`w-16 h-16 rounded-xl bg-gradient-to-br ${area.gradient} p-4 mb-6 mx-auto`}
-                      whileHover={{ 
-                        rotate: 15,
-                        scale: 1.1
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
+                    <motion.div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${area.gradient} p-4 mb-6 mx-auto`} whileHover={{
+                  rotate: 15,
+                  scale: 1.1
+                }} transition={{
+                  duration: 0.3
+                }}>
                       <area.icon className="w-8 h-8 text-white" />
                     </motion.div>
                     <h4 className="text-h4 font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
@@ -547,8 +546,7 @@ const Index = () => {
                     </p>
                   </CardContent>
                 </Card>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </motion.div>
         </div>
       </ScrollAnimation>
