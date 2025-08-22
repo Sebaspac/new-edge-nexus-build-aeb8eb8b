@@ -469,7 +469,8 @@ const Index = () => {
                   <h3 className="text-h2 font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
                     Kreatives Headquarter für Innovation
                   </h3>
-                  <p className="text-body-lg text-muted-foreground leading-relaxed">Mit New Edge Innovation erlebbar machen. Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.</p>
+                  <p className="text-body-lg text-muted-foreground leading-relaxed mb-4">Mit New Edge Innovation erlebbar machen.</p>
+                  <p className="text-body-lg text-muted-foreground leading-relaxed">Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.</p>
                 </CardContent>
               </Card>
             </motion.div>
