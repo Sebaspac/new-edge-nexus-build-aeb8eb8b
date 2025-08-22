@@ -17,7 +17,7 @@ const Lab = () => {
     y: 0
   });
   const [activeAgent, setActiveAgent] = useState(0);
-  const [showAgents, setShowAgents] = useState(false);
+  const [showAgents, setShowAgents] = useState(true); // Show agents by default
   const [robotPosition, setRobotPosition] = useState({ x: -100, y: 50 });
   useEffect(() => {
     window.scrollTo({
@@ -313,7 +313,7 @@ const Lab = () => {
             {/* Interactive Agent Cards */}
             <div className="space-y-16">
               {/* RAG Agent */}
-              <div className={`transition-all duration-1000 ${showAgents && activeAgent >= 0 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-20 scale-95'}`}>
+              <div className="transition-all duration-1000 opacity-100 translate-y-0 scale-100">
                 <div className="group cursor-pointer max-w-4xl mx-auto">
                   <div className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white border-0 shadow-xl hover:shadow-2xl rounded-2xl transition-all duration-500 hover:scale-[1.02]">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -384,7 +384,7 @@ const Lab = () => {
               </div>
 
               {/* Lead Gen Agent */}
-              <div className={`transition-all duration-1000 delay-300 ${showAgents && activeAgent >= 1 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-20 scale-95'}`}>
+              <div className="transition-all duration-1000 delay-300 opacity-100 translate-y-0 scale-100">
                 <div className="group cursor-pointer max-w-4xl mx-auto">
                   <div className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white border-0 shadow-xl hover:shadow-2xl rounded-2xl transition-all duration-500 hover:scale-[1.02]">
                     <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -455,7 +455,7 @@ const Lab = () => {
               </div>
 
               {/* Content Agent */}
-              <div className={`transition-all duration-1000 delay-500 ${showAgents && activeAgent >= 2 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-20 scale-95'}`}>
+              <div className="transition-all duration-1000 delay-500 opacity-100 translate-y-0 scale-100">
                 <div className="group cursor-pointer max-w-4xl mx-auto">
                   <div className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white border-0 shadow-xl hover:shadow-2xl rounded-2xl transition-all duration-500 hover:scale-[1.02]">
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -526,7 +526,7 @@ const Lab = () => {
               </div>
 
               {/* Voice Agent */}
-              <div className={`transition-all duration-1000 delay-700 ${showAgents && activeAgent >= 3 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-20 scale-95'}`}>
+              <div className="transition-all duration-1000 delay-700 opacity-100 translate-y-0 scale-100">
                 <div className="group cursor-pointer max-w-4xl mx-auto">
                   <div className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white border-0 shadow-xl hover:shadow-2xl rounded-2xl transition-all duration-500 hover:scale-[1.02]">
                     <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 via-transparent to-yellow-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -597,7 +597,7 @@ const Lab = () => {
               </div>
 
               {/* Website Chatbot */}
-              <div className={`transition-all duration-1000 delay-1000 ${showAgents && activeAgent >= 4 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-20 scale-95'}`}>
+              <div className="transition-all duration-1000 delay-1000 opacity-100 translate-y-0 scale-100">
                 <div className="group cursor-pointer max-w-4xl mx-auto">
                   <div className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white border-0 shadow-xl hover:shadow-2xl rounded-2xl transition-all duration-500 hover:scale-[1.02]">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
