@@ -204,267 +204,326 @@ const Lab = () => {
         </div>
       </section>
 
-      {/* New Edge Agent Hub */}
-      <section className="py-16 sm:py-32 bg-white">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12 sm:mb-20">
-            <div className="inline-block px-4 py-2 rounded-full shadow-sm mb-6" style={{
-            background: 'linear-gradient(135deg, #9F91F8, #4F97F0)',
-            color: 'white'
-          }}>
-              <span className="text-sm font-medium">KI-POWERED SOLUTIONS</span>
+      {/* Comprehensive KI-Agents Module */}
+      <section className="py-16 sm:py-32 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-tl from-secondary/10 to-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          {/* Module Header */}
+          <div className="text-center mb-16 sm:mb-24">
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 backdrop-blur-sm mb-8">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-sm font-semibold text-primary tracking-wider uppercase">KI-POWERED SOLUTIONS</span>
             </div>
             
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black mb-8 leading-tight">
+              Unsere{" "}
+              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                KI-Agenten
+              </span>
+              <br />
+              <span className="text-3xl sm:text-4xl lg:text-5xl text-gray-600">
+                Ihr digitales Team für mehr Effizienz
+              </span>
+            </h2>
             
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-50 rounded-full">
-              <div className="w-2 h-2 rounded-full animate-pulse" style={{
-              backgroundColor: '#FFED00'
-            }}></div>
-              
+            <p className="text-lg sm:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              Mit unseren KI-Agenten automatisieren Sie Routineaufgaben und gewinnen wertvolle Zeit. 
+              Lernen Sie unsere vier smarten Helfer kennen – sie unterstützen Sie in Recherche, Lead-Generierung, 
+              Content-Erstellung und im Kundenkontakt.
+            </p>
+          </div>
+
+          {/* AI Agents Grid */}
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 mb-20">
+            {/* RAG Agent */}
+            <div className="group cursor-pointer">
+              <div className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white border-0 shadow-xl hover:shadow-2xl rounded-2xl transition-all duration-500 hover:scale-[1.02]">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                
+                <div className="relative p-8 sm:p-10">
+                  <div className="flex items-start gap-6 mb-8">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-primary/80 shadow-lg shadow-primary/25 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Database className="w-10 h-10 text-white drop-shadow-sm" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4 group-hover:text-primary transition-colors">
+                        RAG Agent
+                      </h3>
+                      <p className="text-sm uppercase tracking-wider text-primary font-semibold mb-4">
+                        Recherche & Wissensautomatisierung
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6 text-base">
+                    Der RAG Agent durchsucht blitzschnell Datenbanken und das Web, um relevante Informationen zu liefern. 
+                    Er beantwortet Fragen, erstellt Berichte und findet Hintergrundwissen – ganz automatisch.
+                  </p>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-primary" />
+                      <span className="text-sm font-medium text-gray-800">Sofort Zugriff auf aktualisiertes Expertenwissen ohne manuellen Aufwand</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-primary" />
+                      <span className="text-sm font-medium text-gray-800">Spart Ihrem Team wertvolle Stunden bei der Informationssuche</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-primary" />
+                      <span className="text-sm font-medium text-gray-800">Erstellt auf Knopfdruck Marktanalysen oder Trendüberblicke</span>
+                    </div>
+                  </div>
+                  
+                  {/* Testimonial */}
+                  <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl p-6 border-l-4 border-primary">
+                    <p className="text-gray-700 italic mb-3 text-sm leading-relaxed">
+                      "Dank des RAG Agent haben wir in Minuten Antworten, für die wir früher Tage benötigten."
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                        <span className="text-primary font-bold text-sm">AM</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">Anna Müller</p>
+                        <p className="text-xs text-gray-600">Geschäftsführerin, Muster GmbH</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Lead Gen Agent */}
+            <div className="group cursor-pointer">
+              <div className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white border-0 shadow-xl hover:shadow-2xl rounded-2xl transition-all duration-500 hover:scale-[1.02]">
+                <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent" />
+                
+                <div className="relative p-8 sm:p-10">
+                  <div className="flex items-start gap-6 mb-8">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-secondary to-secondary/80 shadow-lg shadow-secondary/25 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <BarChart3 className="w-10 h-10 text-white drop-shadow-sm" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4 group-hover:text-secondary transition-colors">
+                        Lead Gen Agent
+                      </h3>
+                      <p className="text-sm uppercase tracking-wider text-secondary font-semibold mb-4">
+                        Lead-Identifikation & Qualifizierung
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6 text-base">
+                    Dieser Agent identifiziert eigenständig potenzielle Kunden und qualifiziert Leads automatisch. 
+                    Er findet relevante Kontakte, nimmt Erstansprache vor und vereinbart Termine.
+                  </p>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-secondary" />
+                      <span className="text-sm font-medium text-gray-800">Ein stetiger Strom neuer, qualifizierter Leads ohne Mehraufwand im Vertrieb</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-secondary" />
+                      <span className="text-sm font-medium text-gray-800">Höhere Abschlussraten durch personalisierte Ansprachen</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-secondary" />
+                      <span className="text-sm font-medium text-gray-800">Scannt das Internet nach Branchen-News und generiert warme Leads</span>
+                    </div>
+                  </div>
+                  
+                  {/* Testimonial */}
+                  <div className="bg-gradient-to-r from-secondary/5 to-secondary/10 rounded-xl p-6 border-l-4 border-secondary">
+                    <p className="text-gray-700 italic mb-3 text-sm leading-relaxed">
+                      "Mit dem Lead Gen Agent konnten wir unsere Abschlussrate verdoppeln und die Kontaktpflege vereinfachen!"
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+                        <span className="text-secondary font-bold text-sm">MM</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">Max Mustermann</p>
+                        <p className="text-xs text-gray-600">Vertriebsleiter, Beispiel AG</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Content Agent */}
+            <div className="group cursor-pointer">
+              <div className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white border-0 shadow-xl hover:shadow-2xl rounded-2xl transition-all duration-500 hover:scale-[1.02]">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+                
+                <div className="relative p-8 sm:p-10">
+                  <div className="flex items-start gap-6 mb-8">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent to-accent/80 shadow-lg shadow-accent/25 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <FormInput className="w-10 h-10 text-white drop-shadow-sm" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4 group-hover:text-accent transition-colors">
+                        Content Agent
+                      </h3>
+                      <p className="text-sm uppercase tracking-wider text-accent font-semibold mb-4">
+                        Texterstellung & Contentautomatisierung
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6 text-base">
+                    Der Content Agent erstellt auf Knopfdruck ansprechende Texte für Blog, Social Media oder Produktbeschreibungen. 
+                    Er passt Ton und Stil an Ihre Marke an und optimiert Inhalte für bessere Auffindbarkeit.
+                  </p>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-accent" />
+                      <span className="text-sm font-medium text-gray-800">Regelmäßig frische Inhalte, ohne dass Sie einen Texter beauftragen müssen</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-accent" />
+                      <span className="text-sm font-medium text-gray-800">Steigert Ihre Online-Sichtbarkeit und stärkt die Markenbindung</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-accent" />
+                      <span className="text-sm font-medium text-gray-800">Schreibt redaktionelle Artikel oder Social-Posts für sofortige Veröffentlichung</span>
+                    </div>
+                  </div>
+                  
+                  {/* Testimonial */}
+                  <div className="bg-gradient-to-r from-accent/5 to-accent/10 rounded-xl p-6 border-l-4 border-accent">
+                    <p className="text-gray-700 italic mb-3 text-sm leading-relaxed">
+                      "Seit der Einsatz des Content Agent arbeiten wir kostengünstig mit konstantem Content-Nachschub. Die Resonanz ist hervorragend."
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                        <span className="text-accent font-bold text-sm">JS</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">Julia Schmidt</p>
+                        <p className="text-xs text-gray-600">Marketingmanagerin, Innovativ GmbH</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Voice Agent */}
+            <div className="group cursor-pointer">
+              <div className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white border-0 shadow-xl hover:shadow-2xl rounded-2xl transition-all duration-500 hover:scale-[1.02]">
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 via-transparent to-yellow-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-yellow-400/30 to-transparent" />
+                
+                <div className="relative p-8 sm:p-10">
+                  <div className="flex items-start gap-6 mb-8">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-yellow-400 to-yellow-500 shadow-lg shadow-yellow-400/25 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Bot className="w-10 h-10 text-white drop-shadow-sm" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4 group-hover:text-yellow-600 transition-colors">
+                        Voice Agent
+                      </h3>
+                      <p className="text-sm uppercase tracking-wider text-yellow-600 font-semibold mb-4">
+                        Telefon- & Sprachassistenz
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6 text-base">
+                    Unser Voice Agent ist Ihr virtueller Telefonist und Sprach-Assistent. Er übernimmt Anrufmanagement, 
+                    führt vorqualifizierende Telefonate oder nimmt per Sprachdialog Termine an.
+                  </p>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-yellow-500" />
+                      <span className="text-sm font-medium text-gray-800">Rund-um-die-Uhr-Erreichbarkeit ohne zusätzlichen Personalaufwand</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-yellow-500" />
+                      <span className="text-sm font-medium text-gray-800">Freundliche, effiziente Kundenkommunikation – sogar außerhalb der Geschäftszeiten</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-yellow-500" />
+                      <span className="text-sm font-medium text-gray-800">Bucht selbstständig Termine oder beantwortet häufige Kundenfragen per Telefon</span>
+                    </div>
+                  </div>
+                  
+                  {/* Testimonial */}
+                  <div className="bg-gradient-to-r from-yellow-400/5 to-yellow-400/10 rounded-xl p-6 border-l-4 border-yellow-400">
+                    <p className="text-gray-700 italic mb-3 text-sm leading-relaxed">
+                      "Der Voice Agent hat unseren Kundenservice erweitert – jetzt gehen keine Anrufe mehr verloren."
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-yellow-400/20 flex items-center justify-center">
+                        <span className="text-yellow-600 font-bold text-sm">PB</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">Petra Becker</p>
+                        <p className="text-xs text-gray-600">Inhaberin, Service24</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          
-          <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-            {/* KI-Helfer App - Featured */}
-            <div className="lg:col-span-3 mb-8">
-              <Card className="bg-gradient-to-br from-purple-50 via-blue-50 to-yellow-50 border-2 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-fade-in group cursor-pointer overflow-hidden relative">
-                <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold" style={{
-                backgroundColor: '#FFED00',
-                color: '#333333'
-              }}>
-                  VERFÜGBAR
+
+          {/* Closing Statement & CTA */}
+          <div className="text-center">
+            <div className="bg-gradient-to-br from-white via-gray-50 to-white border-0 shadow-2xl rounded-2xl p-8 sm:p-12 mb-12 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5" />
+              <div className="relative z-10">
+                <h3 className="text-2xl sm:text-3xl font-bold text-black mb-6">
+                  Ihr perfektes KI-Team wartet auf Sie
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto text-lg">
+                  Unsere KI-Agenten arbeiten nahtlos zusammen, um Ihr Unternehmen effizienter zu machen. 
+                  Entdecken Sie, wie New Edge Ihr perfektes KI-Team bereitstellt.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white text-lg px-8 py-4 hover:scale-105 transition-all duration-300 hover:shadow-xl"
+                    onClick={scrollToContact}
+                  >
+                    Jetzt mehr erfahren & Projekt starten
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
+                    onClick={scrollToContact}
+                  >
+                    Demo anfordern
+                  </Button>
                 </div>
-                <CardContent className="p-8 sm:p-12">
-                  <div className="grid lg:grid-cols-2 gap-8 items-center">
-                    <div className="text-center lg:text-left">
-                      <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12" style={{
-                      background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
-                    }}>
-                        <Bot className="w-12 h-12 text-white" />
-                      </div>
-                      <h3 className="text-2xl text-black mb-4 font-extrabold sm:text-6xl">Agent Hub</h3>
-                       <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg text-left">
-                         8+ spezialisierte KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr.
-                        <span className="font-semibold"> Lebenslanger Zugang ohne Abonnement.</span>
-                      </p>
-                      <div className="space-y-3 mb-8">
-                        <div className="flex items-center justify-center lg:justify-start gap-3">
-                          <div className="w-2 h-2 rounded-full" style={{
-                          backgroundColor: '#4F97F0'
-                        }}></div>
-                          <span className="text-sm text-gray-600">Keine monatlichen Kosten</span>
-                        </div>
-                        <div className="flex items-center justify-center lg:justify-start gap-3">
-                          <div className="w-2 h-2 rounded-full" style={{
-                          backgroundColor: '#9F91F8'
-                        }}></div>
-                          <span className="text-sm text-gray-600">Sofort einsatzbereit</span>
-                        </div>
-                        <div className="flex items-center justify-center lg:justify-start gap-3">
-                          <div className="w-2 h-2 rounded-full" style={{
-                          backgroundColor: '#FFED00'
-                        }}></div>
-                          <span className="text-sm text-gray-600">80% Rabatt für kurze Zeit</span>
-                        </div>
-                      </div>
-                      <Button size="lg" className="w-full lg:w-auto text-white text-base sm:text-lg px-8 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
-                      background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
-                    }} onClick={() => window.open('https://agenthub.newedgebrand.com', '_blank')}>Loslegen</Button>
-                    </div>
-                    <div className="hidden lg:block">
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-4">
-                          <div className="bg-white p-4 rounded-lg shadow-sm">
-                            <div className="flex items-center gap-3 mb-2">
-                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{
-                              backgroundColor: '#9F91F820'
-                            }}>
-                                <Code className="w-4 h-4" style={{
-                                color: '#9F91F8'
-                              }} />
-                              </div>
-                              <span className="text-sm font-medium">Cody</span>
-                            </div>
-                            <p className="text-xs text-gray-600">Copywriting</p>
-                          </div>
-                          <div className="bg-white p-4 rounded-lg shadow-sm">
-                            <div className="flex items-center gap-3 mb-2">
-                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{
-                              backgroundColor: '#4F97F020'
-                            }}>
-                                <BarChart3 className="w-4 h-4" style={{
-                                color: '#4F97F0'
-                              }} />
-                              </div>
-                              <span className="text-sm font-medium">Inti</span>
-                            </div>
-                            <p className="text-xs text-gray-600">HR & Recruiting</p>
-                          </div>
-                        </div>
-                        <div className="space-y-4 mt-8">
-                          <div className="bg-white p-4 rounded-lg shadow-sm">
-                            <div className="flex items-center gap-3 mb-2">
-                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{
-                              backgroundColor: '#FFED0020'
-                            }}>
-                                <Globe className="w-4 h-4" style={{
-                                color: '#FFED00'
-                              }} />
-                              </div>
-                              <span className="text-sm font-medium">Dimarko</span>
-                            </div>
-                            <p className="text-xs text-gray-600">Digital Marketing</p>
-                          </div>
-                          <div className="bg-white p-4 rounded-lg shadow-sm">
-                            <div className="flex items-center gap-3 mb-2">
-                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{
-                              backgroundColor: '#9F91F820'
-                            }}>
-                                <Brain className="w-4 h-4" style={{
-                                color: '#9F91F8'
-                              }} />
-                              </div>
-                               <span className="text-sm font-medium">+9 weitere</span>
-                             </div>
-                             <p className="text-xs text-gray-600">Alle Bereiche für Ihr Business</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              </div>
             </div>
 
-            {/* KI-ChatBot Studio - Featured */}
-            <div className="lg:col-span-3 mb-8">
-              <Card className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border-2 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-fade-in group cursor-pointer overflow-hidden relative">
-                <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold" style={{
-                backgroundColor: '#4F97F0',
-                color: 'white'
-              }}>
-                  SOFORT VERFÜGBAR
-                </div>
-                <CardContent className="p-8 sm:p-12">
-                  <div className="grid lg:grid-cols-2 gap-8 items-center">
-                    <div className="text-center lg:text-left">
-                      <div className="flex items-center gap-4 mb-6 justify-center lg:justify-start">
-                        <div className="w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-12" style={{
-                        background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
-                      }}>
-                          <Bot className="w-12 h-12 text-white" />
-                        </div>
-                        <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black tracking-tight leading-tight">KI-ChatBot Studio</h3>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg text-left">
-                        24/7 Kundenbetreuung mit KI-gestützten Antworten. Sofortige Einrichtung für Ihre Website mit intelligenter Konversation.
-                        <span className="font-semibold"> Ultra-High Zufriedenheitsraten durch personalisierte Antworten.</span>
-                      </p>
-                      <div className="space-y-3 mb-8">
-                        <div className="flex items-center justify-center lg:justify-start gap-3">
-                          <div className="w-2 h-2 rounded-full" style={{
-                          backgroundColor: '#4F97F0'
-                        }}></div>
-                          <span className="text-sm text-gray-600">Sofortige KI-Antworten</span>
-                        </div>
-                        <div className="flex items-center justify-center lg:justify-start gap-3">
-                          <div className="w-2 h-2 rounded-full" style={{
-                          backgroundColor: '#9F91F8'
-                        }}></div>
-                          <span className="text-sm text-gray-600">Multichannel-Integration</span>
-                        </div>
-                        <div className="flex items-center justify-center lg:justify-start gap-3">
-                          <div className="w-2 h-2 rounded-full" style={{
-                          backgroundColor: '#FFED00'
-                        }}></div>
-                          <span className="text-sm text-gray-600">Individuelle Anpassung</span>
-                        </div>
-                      </div>
-                      <Button size="lg" className="w-full lg:w-auto text-white text-base sm:text-lg px-8 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
-                      background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
-                    }} onClick={scrollToContact}>ChatBot einrichten</Button>
-                    </div>
-                    <div className="hidden lg:block">
-                      {/* Chat Demo Preview */}
-                      <div className="bg-white rounded-lg p-6 shadow-lg max-w-md mx-auto">
-                        <div className="space-y-4 text-left">
-                          <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white" style={{
-                            backgroundColor: '#4F97F0'
-                          }}>
-                              AI
-                            </div>
-                            <div className="bg-gray-100 rounded-lg px-4 py-3 text-sm max-w-[250px]">
-                              Hallo! Wie kann ich Ihnen heute helfen?
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3 justify-end">
-                            <div className="bg-blue-500 text-white rounded-lg px-4 py-3 text-sm max-w-[250px]">
-                              Welche Leistungen bieten Sie an?
-                            </div>
-                            <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm">
-                              👤
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white" style={{
-                            backgroundColor: '#4F97F0'
-                          }}>
-                              AI
-                            </div>
-                            <div className="bg-gray-100 rounded-lg px-4 py-3 text-sm max-w-[250px]">
-                              Wir bieten KI-Integration, Webentwicklung und Automatisierung. Soll ich Ihnen mehr Details geben?
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            {/* Customer Logos */}
+            <div className="text-center">
+              <p className="text-sm text-gray-500 mb-6 uppercase tracking-wider">Vertrauen von führenden Unternehmen</p>
+              <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+                <div className="text-2xl font-bold text-gray-400">Muster GmbH</div>
+                <div className="text-2xl font-bold text-gray-400">Beispiel AG</div>
+                <div className="text-2xl font-bold text-gray-400">Innovativ GmbH</div>
+                <div className="text-2xl font-bold text-gray-400">Service24</div>
+              </div>
             </div>
-
-            <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{
-            animationDelay: '0.2s'
-          }}>
-              <CardContent className="p-8 text-center relative">
-                <div className="absolute top-4 right-4 px-2 py-1 rounded-full text-xs font-bold bg-gray-200 text-gray-600">
-                  Q4 2025
-                </div>
-                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110" style={{
-                background: 'linear-gradient(135deg, #FFED00, #4F97F0)'
-              }}>
-                  <Activity className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-black mb-4">Intelligence Hub</h3>
-                <p className="text-gray-700 leading-relaxed text-sm mb-6">
-                  KI-gestützte Analysen und Insights für datengetriebene Entscheidungen
-                </p>
-                <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-600">
-                  In Planung
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-green-50 to-green-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{
-            animationDelay: '0.3s'
-          }}>
-              <CardContent className="p-8 text-center relative">
-                <div className="absolute top-4 right-4 px-2 py-1 rounded-full text-xs font-bold bg-gray-200 text-gray-600">
-                  TBD
-                </div>
-                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110 bg-gradient-to-br from-green-400 to-blue-500">
-                  <ChevronDown className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-black mb-4">Weitere Apps</h3>
-                <p className="text-gray-700 leading-relaxed text-sm mb-6">
-                  Haben Sie spezielle Anforderungen? Wir entwickeln maßgeschneiderte KI-Lösungen
-                </p>
-                <Button variant="outline" size="sm" className="border-green-300 text-green-700 hover:bg-green-50" onClick={scrollToContact}>
-                  Anfrage stellen
-                </Button>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
