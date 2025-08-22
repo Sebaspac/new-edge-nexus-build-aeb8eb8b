@@ -479,6 +479,66 @@ const Lab = () => {
                 </div>
               </div>
             </div>
+
+            {/* Chatbot Agent */}
+            <div className="group cursor-pointer lg:col-span-2 max-w-2xl mx-auto">
+              <div className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white border-0 shadow-xl hover:shadow-2xl rounded-2xl transition-all duration-500 hover:scale-[1.02]">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+                
+                <div className="relative p-8 sm:p-10">
+                  <div className="flex items-start gap-6 mb-8">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg shadow-blue-500/25 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Bot className="w-10 h-10 text-white drop-shadow-sm" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4 group-hover:text-blue-600 transition-colors">
+                        Website Chatbot
+                      </h3>
+                      <p className="text-sm uppercase tracking-wider text-blue-600 font-semibold mb-4">
+                        24/7 Kundenbetreuung & Support
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6 text-base">
+                    Unser Website Chatbot ist Ihr digitaler Kundenservice-Mitarbeiter. Er beantwortet Fragen rund um die Uhr, 
+                    führt Besucher durch Ihre Website und sammelt wertvolle Leads – vollautomatisch und intelligent.
+                  </p>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-blue-500" />
+                      <span className="text-sm font-medium text-gray-800">24/7 Verfügbarkeit ohne Personalkosten oder Warteschlangen</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-blue-500" />
+                      <span className="text-sm font-medium text-gray-800">Sofortige Antworten steigern Kundenzufriedenheit und Conversion-Rate</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-blue-500" />
+                      <span className="text-sm font-medium text-gray-800">Sammelt automatisch Kontaktdaten und leitet qualifizierte Anfragen weiter</span>
+                    </div>
+                  </div>
+                  
+                  {/* Testimonial */}
+                  <div className="bg-gradient-to-r from-blue-500/5 to-blue-500/10 rounded-xl p-6 border-l-4 border-blue-500">
+                    <p className="text-gray-700 italic mb-3 text-sm leading-relaxed">
+                      "Seit wir den Website Chatbot nutzen, haben sich unsere Anfragen verdreifacht und die Kunden sind begeistert vom schnellen Service."
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
+                        <span className="text-blue-600 font-bold text-sm">TB</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">Thomas Bauer</p>
+                        <p className="text-xs text-gray-600">Geschäftsführer, Digital Solutions</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Closing Statement & CTA */}
