@@ -475,12 +475,14 @@ const Index = () => {
                     </p>
                   </div>
                   
-                  {/* Image Placeholder */}
-                  <div className="w-32 h-32 ml-8 flex-shrink-0 rounded-xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 animate-pulse" />
-                    <div className="relative w-16 h-16 rounded-lg bg-primary/20 flex items-center justify-center">
-                      <Eye className="w-8 h-8 text-primary/60" />
-                    </div>
+                  {/* Team Collaboration Image */}
+                  <div className="w-32 h-32 ml-8 flex-shrink-0 rounded-xl overflow-hidden border border-primary/20">
+                    <OptimizedImage 
+                      src="/lovable-uploads/804d1765-b7c9-45f5-93a3-dddb443996f4.png" 
+                      alt="Team collaboration - people working together on innovative solutions" 
+                      className="w-full h-full object-cover"
+                      sizes="128px"
+                    />
                   </div>
                   
                   <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
