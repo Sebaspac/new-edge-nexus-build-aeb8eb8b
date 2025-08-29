@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Text, Sphere, Box, Cylinder, Environment, Float, useScroll } from '@react-three/drei';
+import { OrbitControls, Sphere, Box, Cylinder, Environment, Float } from '@react-three/drei';
 import { motion, useScroll as useFramerScroll, useTransform } from 'framer-motion';
 import * as THREE from 'three';
 import { Button } from '@/components/ui/button';
@@ -12,6 +12,8 @@ const Robot = ({ position, color, animation }: { position: [number, number, numb
   useEffect(() => {
     if (!meshRef.current) return;
     
+    let animationId: number;
+    
     const animate = () => {
       if (meshRef.current) {
         if (animation === 'rotate') {
@@ -20,9 +22,15 @@ const Robot = ({ position, color, animation }: { position: [number, number, numb
           meshRef.current.position.y = position[1] + Math.sin(Date.now() * 0.002) * 0.2;
         }
       }
-      requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(animate);
     };
     animate();
+    
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
   }, [animation, position]);
 
   return (
