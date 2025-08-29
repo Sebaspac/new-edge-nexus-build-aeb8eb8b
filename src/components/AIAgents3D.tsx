@@ -154,24 +154,45 @@ const VoiceAgentScene = ({ active }: { active: boolean }) => (
   <group visible={active}>
     <Robot position={[0, 0, 0]} color="#aa00ff" animation="bounce" />
     
-    {/* Sound Waves */}
+    {/* Sound Waves - Simplified */}
     <Float speed={2} rotationIntensity={0.8} floatIntensity={0.2}>
       <group position={[0, 1.5, 0]}>
-        {[1, 1.5, 2, 2.5].map((radius, index) => (
-          <Cylinder 
-            key={index}
-            args={[radius, radius, 0.05]} 
-            rotation={[Math.PI / 2, 0, 0]}
-            position={[0, 0, index * 0.1]}
-          >
-            <meshStandardMaterial 
-              color="#aa00ff" 
-              transparent 
-              opacity={0.3 - index * 0.05}
-              wireframe
-            />
-          </Cylinder>
-        ))}
+        <Cylinder 
+          args={[1, 1, 0.05]} 
+          rotation={[Math.PI / 2, 0, 0]}
+          position={[0, 0, 0]}
+        >
+          <meshStandardMaterial 
+            color="#aa00ff" 
+            transparent 
+            opacity={0.3}
+            wireframe
+          />
+        </Cylinder>
+        <Cylinder 
+          args={[1.5, 1.5, 0.05]} 
+          rotation={[Math.PI / 2, 0, 0]}
+          position={[0, 0, 0.1]}
+        >
+          <meshStandardMaterial 
+            color="#aa00ff" 
+            transparent 
+            opacity={0.25}
+            wireframe
+          />
+        </Cylinder>
+        <Cylinder 
+          args={[2, 2, 0.05]} 
+          rotation={[Math.PI / 2, 0, 0]}
+          position={[0, 0, 0.2]}
+        >
+          <meshStandardMaterial 
+            color="#aa00ff" 
+            transparent 
+            opacity={0.2}
+            wireframe
+          />
+        </Cylinder>
       </group>
     </Float>
     
