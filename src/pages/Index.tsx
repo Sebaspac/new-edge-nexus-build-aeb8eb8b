@@ -418,7 +418,6 @@ const Index = () => {
           }} className="mb-8">
               
               <h2 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                Die Agentur für{" "}
                 <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                   Innovation
                 </span>
