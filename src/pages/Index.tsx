@@ -340,90 +340,69 @@ const Index = () => {
         <div className="container-xl relative">
           {/* Interactive decorative background elements */}
           <div className="absolute inset-0 overflow-hidden">
-            <motion.div 
-              className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-full blur-3xl opacity-60" 
-              animate={{
-                x: [0, 30, -20, 0],
-                y: [0, -40, 20, 0],
-                scale: [1, 1.1, 0.9, 1],
-                rotate: [0, 90, 180, 360]
-              }}
-              transition={{
-                duration: 12,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              whileHover={{
-                scale: 1.3,
-                opacity: 0.8
-              }}
-            />
-            <motion.div 
-              className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tl from-accent/10 via-accent/5 to-transparent rounded-full blur-3xl opacity-60" 
-              animate={{
-                x: [0, -40, 25, 0],
-                y: [0, 30, -15, 0],
-                scale: [1, 0.8, 1.2, 1],
-                rotate: [360, 270, 90, 0]
-              }}
-              transition={{
-                duration: 15,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 3
-              }}
-              whileHover={{
-                scale: 1.4,
-                opacity: 0.9
-              }}
-            />
-            <motion.div 
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-secondary/8 to-primary/8 rounded-full blur-2xl opacity-40" 
-              animate={{
-                x: [0, 50, -30, 20, 0],
-                y: [0, -25, 35, -10, 0],
-                scale: [1, 1.3, 0.7, 1.1, 1],
-                rotate: [0, 180, -90, 270, 360]
-              }}
-              transition={{
-                duration: 18,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 6
-              }}
-              whileHover={{
-                scale: 1.5,
-                opacity: 0.7,
-                transition: { duration: 0.3 }
-              }}
-            />
+            <motion.div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-full blur-3xl opacity-60" animate={{
+            x: [0, 30, -20, 0],
+            y: [0, -40, 20, 0],
+            scale: [1, 1.1, 0.9, 1],
+            rotate: [0, 90, 180, 360]
+          }} transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} whileHover={{
+            scale: 1.3,
+            opacity: 0.8
+          }} />
+            <motion.div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tl from-accent/10 via-accent/5 to-transparent rounded-full blur-3xl opacity-60" animate={{
+            x: [0, -40, 25, 0],
+            y: [0, 30, -15, 0],
+            scale: [1, 0.8, 1.2, 1],
+            rotate: [360, 270, 90, 0]
+          }} transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3
+          }} whileHover={{
+            scale: 1.4,
+            opacity: 0.9
+          }} />
+            <motion.div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-secondary/8 to-primary/8 rounded-full blur-2xl opacity-40" animate={{
+            x: [0, 50, -30, 20, 0],
+            y: [0, -25, 35, -10, 0],
+            scale: [1, 1.3, 0.7, 1.1, 1],
+            rotate: [0, 180, -90, 270, 360]
+          }} transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 6
+          }} whileHover={{
+            scale: 1.5,
+            opacity: 0.7,
+            transition: {
+              duration: 0.3
+            }
+          }} />
             
             {/* Connecting lines between elements */}
-            <motion.div
-              className="absolute top-1/4 left-1/3 w-px h-32 bg-gradient-to-b from-primary/20 to-transparent"
-              animate={{
-                height: [128, 200, 100, 128],
-                opacity: [0.2, 0.5, 0.1, 0.2]
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-            <motion.div
-              className="absolute bottom-1/3 right-1/3 w-24 h-px bg-gradient-to-r from-accent/20 to-transparent"
-              animate={{
-                width: [96, 150, 60, 96],
-                opacity: [0.2, 0.6, 0.1, 0.2]
-              }}
-              transition={{
-                duration: 10,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 4
-              }}
-            />
+            <motion.div className="absolute top-1/4 left-1/3 w-px h-32 bg-gradient-to-b from-primary/20 to-transparent" animate={{
+            height: [128, 200, 100, 128],
+            opacity: [0.2, 0.5, 0.1, 0.2]
+          }} transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} />
+            <motion.div className="absolute bottom-1/3 right-1/3 w-24 h-px bg-gradient-to-r from-accent/20 to-transparent" animate={{
+            width: [96, 150, 60, 96],
+            opacity: [0.2, 0.6, 0.1, 0.2]
+          }} transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 4
+          }} />
           </div>
 
           {/* Header */}
@@ -437,12 +416,7 @@ const Index = () => {
           }} transition={{
             duration: 0.8
           }} className="mb-8">
-              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 backdrop-blur-sm mb-6">
-                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-sm font-semibold text-primary tracking-wider uppercase">
-                  New Edge
-                </span>
-              </div>
+              
               <h2 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                 Die Agentur für{" "}
                 <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
@@ -488,16 +462,12 @@ const Index = () => {
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
                 
                 <CardContent className="relative p-10 h-full flex flex-col">
-                  <motion.div 
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary via-primary to-primary/80 shadow-lg shadow-primary/25 mb-8" 
-                    whileHover={{
-                    scale: 1.1,
-                    rotate: 360
-                  }} 
-                  transition={{
-                    duration: 0.6
-                  }}
-                  >
+                  <motion.div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary via-primary to-primary/80 shadow-lg shadow-primary/25 mb-8" whileHover={{
+                  scale: 1.1,
+                  rotate: 360
+                }} transition={{
+                  duration: 0.6
+                }}>
                     <Lightbulb className="w-8 h-8 text-white drop-shadow-sm" />
                   </motion.div>
                   
@@ -534,16 +504,12 @@ const Index = () => {
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
                 
                 <CardContent className="relative p-10 h-full flex flex-col">
-                  <motion.div 
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent via-accent to-accent/80 shadow-lg shadow-accent/25 mb-8" 
-                    whileHover={{
-                    scale: 1.1,
-                    rotate: -360
-                  }} 
-                  transition={{
-                    duration: 0.6
-                  }}
-                  >
+                  <motion.div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent via-accent to-accent/80 shadow-lg shadow-accent/25 mb-8" whileHover={{
+                  scale: 1.1,
+                  rotate: -360
+                }} transition={{
+                  duration: 0.6
+                }}>
                     <Zap className="w-8 h-8 text-white drop-shadow-sm" />
                   </motion.div>
                   
@@ -574,23 +540,20 @@ const Index = () => {
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
                 
                 <CardContent className="relative p-12 text-center">
-                  <motion.div 
-                    className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary via-primary to-secondary mb-10 shadow-lg shadow-primary/20" 
-                    animate={{
-                      rotate: [0, 5, -5, 0],
-                      scale: [1, 1.05, 1]
-                    }} 
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    whileHover={{
-                      scale: 1.1,
-                      rotate: 10,
-                      transition: { duration: 0.3 }
-                    }}
-                  >
+                  <motion.div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary via-primary to-secondary mb-10 shadow-lg shadow-primary/20" animate={{
+                  rotate: [0, 5, -5, 0],
+                  scale: [1, 1.05, 1]
+                }} transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }} whileHover={{
+                  scale: 1.1,
+                  rotate: 10,
+                  transition: {
+                    duration: 0.3
+                  }
+                }}>
                     <Brain className="w-10 h-10 text-white drop-shadow-sm" />
                   </motion.div>
                   
