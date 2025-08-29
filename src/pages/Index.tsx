@@ -338,11 +338,92 @@ const Index = () => {
       }} />
         
         <div className="container-xl relative">
-          {/* Decorative background elements */}
+          {/* Interactive decorative background elements */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-full blur-3xl opacity-60" />
-            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tl from-accent/10 via-accent/5 to-transparent rounded-full blur-3xl opacity-60" />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-secondary/8 to-primary/8 rounded-full blur-2xl opacity-40" />
+            <motion.div 
+              className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-full blur-3xl opacity-60" 
+              animate={{
+                x: [0, 30, -20, 0],
+                y: [0, -40, 20, 0],
+                scale: [1, 1.1, 0.9, 1],
+                rotate: [0, 90, 180, 360]
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              whileHover={{
+                scale: 1.3,
+                opacity: 0.8
+              }}
+            />
+            <motion.div 
+              className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tl from-accent/10 via-accent/5 to-transparent rounded-full blur-3xl opacity-60" 
+              animate={{
+                x: [0, -40, 25, 0],
+                y: [0, 30, -15, 0],
+                scale: [1, 0.8, 1.2, 1],
+                rotate: [360, 270, 90, 0]
+              }}
+              transition={{
+                duration: 15,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 3
+              }}
+              whileHover={{
+                scale: 1.4,
+                opacity: 0.9
+              }}
+            />
+            <motion.div 
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-secondary/8 to-primary/8 rounded-full blur-2xl opacity-40" 
+              animate={{
+                x: [0, 50, -30, 20, 0],
+                y: [0, -25, 35, -10, 0],
+                scale: [1, 1.3, 0.7, 1.1, 1],
+                rotate: [0, 180, -90, 270, 360]
+              }}
+              transition={{
+                duration: 18,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 6
+              }}
+              whileHover={{
+                scale: 1.5,
+                opacity: 0.7,
+                transition: { duration: 0.3 }
+              }}
+            />
+            
+            {/* Connecting lines between elements */}
+            <motion.div
+              className="absolute top-1/4 left-1/3 w-px h-32 bg-gradient-to-b from-primary/20 to-transparent"
+              animate={{
+                height: [128, 200, 100, 128],
+                opacity: [0.2, 0.5, 0.1, 0.2]
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <motion.div
+              className="absolute bottom-1/3 right-1/3 w-24 h-px bg-gradient-to-r from-accent/20 to-transparent"
+              animate={{
+                width: [96, 150, 60, 96],
+                opacity: [0.2, 0.6, 0.1, 0.2]
+              }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 4
+              }}
+            />
           </div>
 
           {/* Header */}
