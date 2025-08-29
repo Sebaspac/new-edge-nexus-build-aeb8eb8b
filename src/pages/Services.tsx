@@ -9,6 +9,7 @@ import { LazyImage } from "@/components/LazyImage";
 import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
 const Services = () => {
+  console.log('Services component loaded successfully');
   const {
     t
   } = useLanguage();
