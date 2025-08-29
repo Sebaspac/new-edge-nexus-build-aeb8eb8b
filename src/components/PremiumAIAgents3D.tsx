@@ -1,20 +1,18 @@
 import React, { Suspense, useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, Text, Float, Sphere, Box, Torus, Cylinder } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { Button } from '@/components/ui/button';
 import { Database, BarChart3, FileText, Headphones } from 'lucide-react';
 import * as THREE from 'three';
 
-// Robot component for each agent
-const Robot = ({ position, color, icon, isActive, scene }: { 
+// Simple Robot component using basic geometries
+const Robot = ({ position, color, isActive, scene }: { 
   position: [number, number, number]; 
   color: string; 
-  icon: string;
   isActive: boolean;
   scene: number;
 }) => {
   const meshRef = useRef<THREE.Group>(null);
-  const [hovered, setHovered] = useState(false);
   
   useFrame((state) => {
     if (meshRef.current && isActive && state?.clock) {
@@ -28,115 +26,36 @@ const Robot = ({ position, color, icon, isActive, scene }: {
       ref={meshRef} 
       position={position}
       scale={isActive ? 1.2 : 0.8}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
     >
       {/* Robot Body */}
-      <Box args={[1, 1.5, 0.8]} position={[0, 0, 0]}>
+      <mesh position={[0, 0, 0]}>
+        <boxGeometry args={[1, 1.5, 0.8]} />
         <meshStandardMaterial 
           color={color || '#ffffff'} 
           metalness={0.8} 
           roughness={0.2}
-          emissive={isActive && color ? color : '#000000'}
-          emissiveIntensity={isActive ? 0.3 : 0}
         />
-      </Box>
+      </mesh>
       
       {/* Robot Head */}
-      <Sphere args={[0.6]} position={[0, 1.2, 0]}>
+      <mesh position={[0, 1.2, 0]}>
+        <sphereGeometry args={[0.6]} />
         <meshStandardMaterial 
           color={color || '#ffffff'} 
           metalness={0.8} 
           roughness={0.2}
-          emissive={isActive && color ? color : '#000000'}
-          emissiveIntensity={isActive ? 0.2 : 0}
         />
-      </Sphere>
+      </mesh>
       
       {/* Eyes */}
-      <Sphere args={[0.1]} position={[-0.2, 1.3, 0.5]}>
-        <meshStandardMaterial color="#ffffff" emissive="#00ff00" emissiveIntensity={isActive ? 1 : 0.5} />
-      </Sphere>
-      <Sphere args={[0.1]} position={[0.2, 1.3, 0.5]}>
-        <meshStandardMaterial color="#ffffff" emissive="#00ff00" emissiveIntensity={isActive ? 1 : 0.5} />
-      </Sphere>
-      
-      {/* Arms */}
-      <Cylinder args={[0.15, 0.15, 1]} position={[-0.8, 0.2, 0]} rotation={[0, 0, Math.PI / 6]}>
-        <meshStandardMaterial color={color || '#ffffff'} metalness={0.7} roughness={0.3} />
-      </Cylinder>
-      <Cylinder args={[0.15, 0.15, 1]} position={[0.8, 0.2, 0]} rotation={[0, 0, -Math.PI / 6]}>
-        <meshStandardMaterial color={color || '#ffffff'} metalness={0.7} roughness={0.3} />
-      </Cylinder>
-      
-      {/* Legs */}
-      <Cylinder args={[0.2, 0.2, 1.2]} position={[-0.3, -1.3, 0]}>
-        <meshStandardMaterial color={color || '#ffffff'} metalness={0.7} roughness={0.3} />
-      </Cylinder>
-      <Cylinder args={[0.2, 0.2, 1.2]} position={[0.3, -1.3, 0]}>
-        <meshStandardMaterial color={color || '#ffffff'} metalness={0.7} roughness={0.3} />
-      </Cylinder>
-      
-      {/* Floating Data Elements for different agents */}
-      {scene === 0 && ( // RAG Agent - Data elements
-        <>
-          <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
-            <Box args={[0.3, 0.2, 0.1]} position={[1.5, 1, 1]}>
-              <meshStandardMaterial color="#4FC3F7" emissive="#4FC3F7" emissiveIntensity={0.3} />
-            </Box>
-          </Float>
-          <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.8}>
-            <Sphere args={[0.15]} position={[-1.2, 0.8, 1.2]}>
-              <meshStandardMaterial color="#81C784" emissive="#81C784" emissiveIntensity={0.3} />
-            </Sphere>
-          </Float>
-        </>
-      )}
-      
-      {scene === 1 && ( // Lead Gen Agent - Target elements
-        <>
-          <Float speed={2.5} rotationIntensity={0.8} floatIntensity={0.6}>
-            <Torus args={[0.5, 0.1]} position={[1.8, 0.5, 0.8]} rotation={[Math.PI / 2, 0, 0]}>
-              <meshStandardMaterial color="#FF7043" emissive="#FF7043" emissiveIntensity={0.4} />
-            </Torus>
-          </Float>
-          <Float speed={1.8} rotationIntensity={0.4} floatIntensity={0.7}>
-            <Box args={[0.2, 0.2, 0.2]} position={[-1.5, 1.2, 1]}>
-              <meshStandardMaterial color="#FFB74D" emissive="#FFB74D" emissiveIntensity={0.3} />
-            </Box>
-          </Float>
-        </>
-      )}
-      
-      {scene === 2 && ( // Content Agent - Text elements
-        <>
-          <Float speed={1.2} rotationIntensity={0.6} floatIntensity={0.9}>
-            <Box args={[0.8, 0.1, 0.5]} position={[1.2, 1.5, 0.8]}>
-              <meshStandardMaterial color="#AB47BC" emissive="#AB47BC" emissiveIntensity={0.3} />
-            </Box>
-          </Float>
-          <Float speed={2} rotationIntensity={0.3} floatIntensity={0.5}>
-            <Cylinder args={[0.05, 0.05, 1]} position={[-1.8, 0.3, 1.2]}>
-              <meshStandardMaterial color="#7E57C2" emissive="#7E57C2" emissiveIntensity={0.4} />
-            </Cylinder>
-          </Float>
-        </>
-      )}
-      
-      {scene === 3 && ( // Voice Agent - Sound waves
-        <>
-          <Float speed={3} rotationIntensity={0.2} floatIntensity={0.4}>
-            <Torus args={[0.8, 0.05]} position={[0, 1.8, 1.5]} rotation={[0, Math.PI / 4, 0]}>
-              <meshStandardMaterial color="#66BB6A" emissive="#66BB6A" emissiveIntensity={0.5} />
-            </Torus>
-          </Float>
-          <Float speed={2.2} rotationIntensity={0.1} floatIntensity={0.6}>
-            <Torus args={[1.2, 0.03]} position={[0, 1.8, 1.5]} rotation={[0, Math.PI / 4, 0]}>
-              <meshStandardMaterial color="#4CAF50" emissive="#4CAF50" emissiveIntensity={0.3} />
-            </Torus>
-          </Float>
-        </>
-      )}
+      <mesh position={[-0.2, 1.3, 0.5]}>
+        <sphereGeometry args={[0.1]} />
+        <meshStandardMaterial color="#ffffff" />
+      </mesh>
+      <mesh position={[0.2, 1.3, 0.5]}>
+        <sphereGeometry args={[0.1]} />
+        <meshStandardMaterial color="#ffffff" />
+      </mesh>
     </group>
   );
 };
@@ -216,7 +135,6 @@ const Scene = ({ activeScene }: { activeScene: number }) => {
           key={index}
           position={agent.position}
           color={agent.color}
-          icon=""
           isActive={activeScene === index}
           scene={agent.scene}
         />
@@ -229,16 +147,14 @@ const Scene = ({ activeScene }: { activeScene: number }) => {
       </mesh>
       
       {/* Background elements */}
-      <Float speed={0.5} rotationIntensity={0.1} floatIntensity={0.2}>
-        <Sphere args={[0.5]} position={[8, 5, -10]}>
-          <meshStandardMaterial color="#333" wireframe />
-        </Sphere>
-      </Float>
-      <Float speed={0.3} rotationIntensity={0.05} floatIntensity={0.1}>
-        <Torus args={[2, 0.1]} position={[-8, 3, -12]} rotation={[Math.PI / 3, 0, Math.PI / 4]}>
-          <meshStandardMaterial color="#444" wireframe />
-        </Torus>
-      </Float>
+      <mesh position={[8, 5, -10]}>
+        <sphereGeometry args={[0.5]} />
+        <meshStandardMaterial color="#333" wireframe />
+      </mesh>
+      <mesh position={[-8, 3, -12]} rotation={[Math.PI / 3, 0, Math.PI / 4]}>
+        <torusGeometry args={[2, 0.1]} />
+        <meshStandardMaterial color="#444" wireframe />
+      </mesh>
     </>
   );
 };
