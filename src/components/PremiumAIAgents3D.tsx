@@ -17,7 +17,7 @@ const Robot = ({ position, color, icon, isActive, scene }: {
   const [hovered, setHovered] = useState(false);
   
   useFrame((state) => {
-    if (meshRef.current && isActive) {
+    if (meshRef.current && isActive && state?.clock) {
       meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
       meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 2) * 0.1;
     }
@@ -34,10 +34,10 @@ const Robot = ({ position, color, icon, isActive, scene }: {
       {/* Robot Body */}
       <Box args={[1, 1.5, 0.8]} position={[0, 0, 0]}>
         <meshStandardMaterial 
-          color={color} 
+          color={color || '#ffffff'} 
           metalness={0.8} 
           roughness={0.2}
-          emissive={isActive ? color : '#000000'}
+          emissive={isActive && color ? color : '#000000'}
           emissiveIntensity={isActive ? 0.3 : 0}
         />
       </Box>
@@ -45,10 +45,10 @@ const Robot = ({ position, color, icon, isActive, scene }: {
       {/* Robot Head */}
       <Sphere args={[0.6]} position={[0, 1.2, 0]}>
         <meshStandardMaterial 
-          color={color} 
+          color={color || '#ffffff'} 
           metalness={0.8} 
           roughness={0.2}
-          emissive={isActive ? color : '#000000'}
+          emissive={isActive && color ? color : '#000000'}
           emissiveIntensity={isActive ? 0.2 : 0}
         />
       </Sphere>
@@ -63,18 +63,18 @@ const Robot = ({ position, color, icon, isActive, scene }: {
       
       {/* Arms */}
       <Cylinder args={[0.15, 0.15, 1]} position={[-0.8, 0.2, 0]} rotation={[0, 0, Math.PI / 6]}>
-        <meshStandardMaterial color={color} metalness={0.7} roughness={0.3} />
+        <meshStandardMaterial color={color || '#ffffff'} metalness={0.7} roughness={0.3} />
       </Cylinder>
       <Cylinder args={[0.15, 0.15, 1]} position={[0.8, 0.2, 0]} rotation={[0, 0, -Math.PI / 6]}>
-        <meshStandardMaterial color={color} metalness={0.7} roughness={0.3} />
+        <meshStandardMaterial color={color || '#ffffff'} metalness={0.7} roughness={0.3} />
       </Cylinder>
       
       {/* Legs */}
       <Cylinder args={[0.2, 0.2, 1.2]} position={[-0.3, -1.3, 0]}>
-        <meshStandardMaterial color={color} metalness={0.7} roughness={0.3} />
+        <meshStandardMaterial color={color || '#ffffff'} metalness={0.7} roughness={0.3} />
       </Cylinder>
       <Cylinder args={[0.2, 0.2, 1.2]} position={[0.3, -1.3, 0]}>
-        <meshStandardMaterial color={color} metalness={0.7} roughness={0.3} />
+        <meshStandardMaterial color={color || '#ffffff'} metalness={0.7} roughness={0.3} />
       </Cylinder>
       
       {/* Floating Data Elements for different agents */}
@@ -199,9 +199,7 @@ const Scene = ({ activeScene }: { activeScene: number }) => {
       <directionalLight 
         position={[10, 10, 5]} 
         intensity={1} 
-        castShadow 
-        shadow-mapSize-width={2048}
-        shadow-mapSize-height={2048}
+        castShadow
       />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color="#4FC3F7" />
       <spotLight 
@@ -209,8 +207,7 @@ const Scene = ({ activeScene }: { activeScene: number }) => {
         angle={0.3} 
         penumbra={1} 
         intensity={1} 
-        castShadow 
-        target-position={[0, 0, 0]}
+        castShadow
       />
       
       {/* Robots */}
