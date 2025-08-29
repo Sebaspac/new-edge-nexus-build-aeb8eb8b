@@ -529,12 +529,14 @@ const Index = () => {
                     </p>
                   </div>
                   
-                  {/* Image Placeholder */}
-                  <div className="w-32 h-32 ml-8 flex-shrink-0 rounded-xl bg-gradient-to-br from-accent/10 via-accent/5 to-transparent border border-accent/20 flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 animate-pulse" />
-                    <div className="relative w-16 h-16 rounded-lg bg-accent/20 flex items-center justify-center">
-                      <Zap className="w-8 h-8 text-accent/60" />
-                    </div>
+                  {/* Business Analytics Image */}
+                  <div className="w-32 h-32 ml-8 flex-shrink-0 rounded-xl overflow-hidden border border-accent/20">
+                    <OptimizedImage 
+                      src="/lovable-uploads/72768da6-5ac5-423e-a9df-579dd83dc1aa.png" 
+                      alt="Business analytics and data visualization - comprehensive transformation approach" 
+                      className="w-full h-full object-cover"
+                      sizes="128px"
+                    />
                   </div>
                   
                   <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
