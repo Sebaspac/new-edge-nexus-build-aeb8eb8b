@@ -576,95 +576,6 @@ const Index = () => {
         </div>
       </ScrollAnimation>
 
-      {/* 🎯 Services Section with Overlap Effect */}
-      <ScrollAnimation animation="fadeLeft" className="relative -mt-20 pt-32 pb-20 bg-gradient-to-r from-background to-surface overflow-hidden">
-        {/* Animated background elements */}
-        
-        <motion.div className="absolute -top-10 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
-        scale: [1, 1.2, 1],
-        rotate: [0, 180, 360]
-      }} transition={{
-        duration: 12,
-        repeat: Infinity,
-        ease: "linear"
-      }} />
-        <div className="container-xl mt-16">
-          <ScrollAnimation animation="fadeUp" delay={0.2} className="text-center mb-16">
-            <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere Kompetenzbereiche</h2>
-            <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
-              Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
-            </p>
-          </ScrollAnimation>
-
-          <motion.div className="grid-modern" initial="hidden" whileInView="visible" viewport={{
-          once: true,
-          margin: "-50px"
-        }} variants={{
-          hidden: {
-            opacity: 0
-          },
-          visible: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.3,
-              delayChildren: 0.4
-            }
-          }
-        }}>
-            {services.map((service, index) => {
-            const links = ['/studio', '/media', '/lab'];
-            return <motion.div key={index} variants={{
-              hidden: {
-                opacity: 0,
-                y: 80,
-                rotateX: 45
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-                rotateX: 0,
-                transition: {
-                  duration: 0.8,
-                  ease: "easeOut"
-                }
-              }
-            }} whileHover={{
-              scale: 1.05,
-              y: -15,
-              transition: {
-                duration: 0.3
-              }
-            }} className="group">
-                  <Card className="card-modern h-full hover-lift">
-                    <CardContent className="p-8 flex flex-col h-full">
-                      <motion.div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`} whileHover={{
-                    rotate: 360,
-                    scale: 1.2
-                  }} transition={{
-                    duration: 0.6
-                  }}>
-                        <service.icon className="w-8 h-8 text-white" />
-                      </motion.div>
-                      <h3 className="text-h3 font-semibold mb-4 text-foreground">
-                        {service.title}
-                      </h3>
-                      <p className="text-body text-muted-foreground leading-relaxed mb-6 flex-grow">
-                        {service.description}
-                      </p>
-                      <Button variant="default" size="sm" className="self-start group/btn btn-primary" asChild>
-                        <Link to={links[index]}>
-                          Mehr erfahren
-                          <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>;
-          })}
-          </motion.div>
-        </div>
-      </ScrollAnimation>
-
       {/* 🚀 Impact Points Section with Overlap Effect */}
       <ScrollAnimation animation="fadeRight" className="relative -mt-16 pt-24 pb-20 bg-gradient-to-l from-surface to-background overflow-hidden">
         {/* Modern floating elements */}
@@ -774,6 +685,95 @@ const Index = () => {
                   </div>
                 </div>
               </motion.div>)}
+          </motion.div>
+        </div>
+      </ScrollAnimation>
+
+      {/* 🎯 Services Section with Overlap Effect */}
+      <ScrollAnimation animation="fadeLeft" className="relative -mt-20 pt-32 pb-20 bg-gradient-to-r from-background to-surface overflow-hidden">
+        {/* Animated background elements */}
+        
+        <motion.div className="absolute -top-10 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
+        scale: [1, 1.2, 1],
+        rotate: [0, 180, 360]
+      }} transition={{
+        duration: 12,
+        repeat: Infinity,
+        ease: "linear"
+      }} />
+        <div className="container-xl mt-16">
+          <ScrollAnimation animation="fadeUp" delay={0.2} className="text-center mb-16">
+            <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere Kompetenzbereiche</h2>
+            <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
+              Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
+            </p>
+          </ScrollAnimation>
+
+          <motion.div className="grid-modern" initial="hidden" whileInView="visible" viewport={{
+          once: true,
+          margin: "-50px"
+        }} variants={{
+          hidden: {
+            opacity: 0
+          },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.3,
+              delayChildren: 0.4
+            }
+          }
+        }}>
+            {services.map((service, index) => {
+            const links = ['/studio', '/media', '/lab'];
+            return <motion.div key={index} variants={{
+              hidden: {
+                opacity: 0,
+                y: 80,
+                rotateX: 45
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                rotateX: 0,
+                transition: {
+                  duration: 0.8,
+                  ease: "easeOut"
+                }
+              }
+            }} whileHover={{
+              scale: 1.05,
+              y: -15,
+              transition: {
+                duration: 0.3
+              }
+            }} className="group">
+                  <Card className="card-modern h-full hover-lift">
+                    <CardContent className="p-8 flex flex-col h-full">
+                      <motion.div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`} whileHover={{
+                    rotate: 360,
+                    scale: 1.2
+                  }} transition={{
+                    duration: 0.6
+                  }}>
+                        <service.icon className="w-8 h-8 text-white" />
+                      </motion.div>
+                      <h3 className="text-h3 font-semibold mb-4 text-foreground">
+                        {service.title}
+                      </h3>
+                      <p className="text-body text-muted-foreground leading-relaxed mb-6 flex-grow">
+                        {service.description}
+                      </p>
+                      <Button variant="default" size="sm" className="self-start group/btn btn-primary" asChild>
+                        <Link to={links[index]}>
+                          Mehr erfahren
+                          <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>;
+          })}
           </motion.div>
         </div>
       </ScrollAnimation>
