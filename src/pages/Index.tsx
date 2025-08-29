@@ -698,12 +698,10 @@ const Index = () => {
         }} transition={{
           duration: 0.6
         }}>
-            <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere Kompetenzbereiche</h2>
-            <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
-              Drei spezialisierte Bereiche, die perfekt zusammenarbeiten, um Ihre Vision zu realisieren.
-            </p>
+            <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere innovative Herangehensweise</h2>
+            
           </motion.div>
-          <motion.div className="grid md:grid-cols-3 gap-8 items-stretch" initial="hidden" whileInView="visible" viewport={{
+          <motion.div className="grid md:grid-cols-2 gap-8 items-stretch" initial="hidden" whileInView="visible" viewport={{
           once: true,
           margin: "-100px"
         }} variants={{
@@ -713,75 +711,68 @@ const Index = () => {
           visible: {
             opacity: 1,
             transition: {
-              staggerChildren: 0.2,
+              staggerChildren: 0.15,
               delayChildren: 0.2
             }
           }
         }}>
             {[{
-            icon: "🎨",
-            title: "STUDIO Design",
-            description: "Visuelles Storytelling und Brand-Design, das im Gedächtnis bleibt. Von der Markenentwicklung bis zur finalen Umsetzung.",
-            gradient: "from-secondary to-accent",
-            link: "/studio"
+            number: "01",
+            title: "Automatisierung mit Impact",
+            description: "Wir automatisieren repetitive Aufgaben, damit Sie sich auf Ihr Kerngeschäft konzentrieren können."
           }, {
-            icon: "🧠",
-            title: "MEDIA Intelligence",
-            description: "KI-gestützte Inhaltsstrategien, die Ihre Zielgruppe erreichen und konvertieren. Datengetrieben und kreativ.",
-            gradient: "from-primary to-secondary",
-            link: "/media"
+            number: "02",
+            title: "Marketing & Technologie vereint",
+            description: "Interdisziplinäres Team aus Strategen, Creatives und Entwicklern; alles aus einer Hand."
           }, {
-            icon: "⚡",
-            title: "LAB Automation",
-            description: "Intelligente Systeme und Workflows für maximale Effizienz. Prototyping und maßgeschneiderte Tools.",
-            gradient: "from-accent to-primary",
-            link: "/lab"
-          }].map((area, index) => <motion.div key={index} variants={{
+            number: "03",
+            title: "Zugänglichkeit statt Komplexität",
+            description: "Transparente Prozesse und verständliche Lösungen statt Technik Buzzwords."
+          }, {
+            number: "04",
+            title: "Individuell & skalierbar",
+            description: "Maßgeschneiderte Setups ohne Abo Modelle – Sie bezahlen nur, was Sie nutzen."
+          }].map((point, index) => <motion.div key={index} variants={{
             hidden: {
               opacity: 0,
-              y: 80,
-              rotateX: 45
+              x: index % 2 === 0 ? -60 : 60,
+              scale: 0.9
             },
             visible: {
               opacity: 1,
-              y: 0,
-              rotateX: 0,
+              x: 0,
+              scale: 1,
               transition: {
-                duration: 0.8,
-                ease: "easeOut"
+                duration: 0.7,
+                ease: "easeOut",
+                type: "spring",
+                stiffness: 100
               }
             }
           }} whileHover={{
-            scale: 1.05,
-            y: -15,
+            scale: 1.02,
+            y: -5,
             transition: {
-              duration: 0.3
+              duration: 0.2
             }
           }} className="group hover-lift h-full">
-                <Card className="card-modern h-full">
-                  <CardContent className="p-8 flex flex-col h-full">
-                    <motion.div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${area.gradient} flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300`} whileHover={{
-                    rotate: 360,
-                    scale: 1.2
-                  }} transition={{
-                    duration: 0.6
-                  }}>
-                      {area.icon}
-                    </motion.div>
-                    <h3 className="text-h3 font-semibold mb-4 text-foreground">
-                      {area.title}
+                <div className="flex items-start gap-6 p-6 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm hover:bg-card transition-all duration-300 h-full">
+                  <motion.div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-h3 group-hover:scale-110 transition-transform duration-300" whileHover={{
+                rotate: 180
+              }} transition={{
+                duration: 0.4
+              }}>
+                    {point.number}
+                  </motion.div>
+                  <div className="flex-1">
+                    <h3 className="text-h3 mb-3 text-foreground group-hover:text-primary transition-colors text-base font-semibold">
+                      {point.title}
                     </h3>
-                    <p className="text-body text-muted-foreground leading-relaxed mb-6 flex-grow">
-                      {area.description}
+                    <p className="text-body text-muted-foreground leading-relaxed">
+                      {point.description}
                     </p>
-                    <Button variant="default" size="sm" className="self-start group/btn btn-primary" asChild>
-                      <Link to={area.link}>
-                        Mehr erfahren
-                        <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>)}
           </motion.div>
         </div>
