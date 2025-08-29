@@ -1,7 +1,7 @@
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { ArrowRight, Sparkles, Zap, Brain, Target, Eye, Rocket, Star, Lightbulb, Users, ChevronDown, ArrowDown, Play, Pause } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Sparkles, Zap, Brain, Target, Rocket, Star, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,35 +12,25 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ScrollAnimation, useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { ScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useImagePreloader } from "@/hooks/useImagePreloader";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { HeroSection } from "@/components/HeroSection";
+import { InnovationSection } from "@/components/InnovationSection";
 const Index = () => {
-  const {
-    t
-  } = useLanguage();
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0
-  });
-  const [activeSection, setActiveSection] = useState(0);
-  const {
-    scrollY
-  } = useScroll();
-  const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
-  // 🎭 Parallax transforms
-  const heroY = useTransform(scrollY, [0, 1000], [0, -200]);
-  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
-  const heroScale = useTransform(scrollY, [0, 500], [1, 0.9]);
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 2,
-        y: (e.clientY / window.innerHeight - 0.5) * 2
-      });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  // Critical images that need to be preloaded
+  const criticalImages = [
+    "/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png", // Logo
+    "/lovable-uploads/804d1765-b7c9-45f5-93a3-dddb443996f4.png", // Team collaboration
+    "/lovable-uploads/72768da6-5ac5-423e-a9df-579dd83dc1aa.png", // Business analytics
+  ];
+
+  const { loaded: imagesLoaded, progress } = useImagePreloader({
+    images: criticalImages,
+    timeout: 8000
+  });
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
@@ -144,455 +134,28 @@ const Index = () => {
     number: "24/7",
     label: "Support verfügbar",
     icon: Users
-  }];
-  return <div ref={containerRef} className="min-h-screen bg-background overflow-x-hidden">
-      {/* 📱 Mobile Navigation */}
+      }];
+  
+  // Show loading screen until critical images are loaded
+  if (!imagesLoaded) {
+    return <LoadingScreen progress={progress} />;
+  }
+
+  return (
+    <motion.div 
+      className="min-h-screen bg-background overflow-x-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* Mobile Navigation */}
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
-      {/* 🚀 Hero Section */}
-      <section className="hero-section relative">
-        {/* 🌌 Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-surface-elevated">
-          {/* ✨ Floating Orbs */}
-          <motion.div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3],
-          rotate: [0, 180, 360]
-        }} transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
-          <motion.div className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-secondary/20 rounded-full blur-3xl" animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.6, 0.3, 0.6],
-          rotate: [360, 180, 0]
-        }} transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 4
-        }} />
-          <motion.div className="absolute top-1/2 right-1/4 w-64 h-64 bg-accent/15 rounded-full blur-2xl" animate={{
-          x: [0, 50, 0],
-          y: [0, -30, 0],
-          scale: [1, 0.8, 1]
-        }} transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
+      {/* Hero Section */}
+      <HeroSection onContactClick={scrollToContact} />
 
-          {/* 🌊 Gradient Mesh */}
-          <div className="absolute inset-0 bg-gradient-glow opacity-50" />
-          
-          {/* ⚡ Animated Grid */}
-          <div className="absolute inset-0 opacity-20">
-            <svg width="100%" height="100%" className="animate-parallax">
-              <defs>
-                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
-          </div>
-        </div>
-
-        {/* 🎯 Hero Content */}
-        <motion.div style={{
-        y: heroY,
-        opacity: heroOpacity,
-        scale: heroScale
-      }} className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center">
-          <motion.div initial={{
-          opacity: 0,
-          y: 100
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 1,
-          ease: "easeOut"
-        }} className="max-w-6xl mx-auto">
-            {/* 🎨 Main Headline */}
-            <motion.h1 initial={{
-            opacity: 0,
-            y: 50
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.4,
-            duration: 0.8
-          }} className="text-display-xl font-black mb-6">
-              <span className="block bg-gradient-primary bg-clip-text text-transparent animate-gradient">
-                BRAND
-              </span>
-              <span className="block text-foreground">
-                INTELLIGENCE
-              </span>
-              <span className="block text-display-lg text-muted-foreground">
-                FOR THE DIGITAL AGE
-              </span>
-            </motion.h1>
-
-            {/* 📝 Description */}
-            <motion.p initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.6,
-            duration: 0.8
-          }} className="text-body-xl max-w-3xl mx-auto mb-12 leading-relaxed text-base text-slate-50">
-              {t('home.hero.description')} <br />
-              
-            </motion.p>
-
-            {/* 🔥 CTA Buttons */}
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.8,
-            duration: 0.6
-          }} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button onClick={scrollToContact} size="lg" className="group btn-primary hover-magnetic">
-                Projekt starten
-                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button variant="outline" size="lg" className="btn-secondary hover-glow" asChild>
-                <Link to="/services">
-                  Unsere Services entdecken
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </motion.div>
-
-        {/* 🔽 Scroll Indicator */}
-        <motion.div initial={{
-        opacity: 0
-      }} animate={{
-        opacity: 1
-      }} transition={{
-        delay: 1.2,
-        duration: 0.6
-      }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <motion.div animate={{
-          y: [0, 10, 0]
-        }} transition={{
-          duration: 2,
-          repeat: Infinity
-        }} className="flex flex-col items-center gap-2 text-muted-foreground cursor-pointer hover-scale" onClick={() => {
-          const nextSection = document.querySelector('.relative.-mt-32.pt-40.pb-20');
-          if (nextSection) {
-            nextSection.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-        }} whileHover={{
-          scale: 1.1
-        }} whileTap={{
-          scale: 0.95
-        }}>
-            <span className="text-body-sm">Scroll to explore</span>
-            <motion.div animate={{
-            y: [0, 5, 0]
-          }} transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            delay: 0.5
-          }}>
-              <ChevronDown className="w-5 h-5" />
-            </motion.div>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* 🚀 New Edge Innovation Module */}
-      <ScrollAnimation animation="fadeUp" className="relative -mt-32 pt-40 pb-20 bg-gradient-subtle overflow-hidden">
-        {/* Dynamic background elements */}
-        <motion.div className="absolute top-10 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl" animate={{
-        y: [0, -20, 0],
-        scale: [1, 1.1, 1]
-      }} transition={{
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }} />
-        <motion.div className="absolute bottom-20 right-20 w-32 h-32 bg-accent/10 rounded-full blur-xl" animate={{
-        y: [0, 15, 0],
-        scale: [1, 0.9, 1]
-      }} transition={{
-        duration: 5,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: 1
-      }} />
-        
-        <div className="container-xl relative">
-          {/* Interactive decorative background elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-full blur-3xl opacity-60" animate={{
-            x: [0, 30, -20, 0],
-            y: [0, -40, 20, 0],
-            scale: [1, 1.1, 0.9, 1],
-            rotate: [0, 90, 180, 360]
-          }} transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} whileHover={{
-            scale: 1.3,
-            opacity: 0.8
-          }} />
-            <motion.div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tl from-accent/10 via-accent/5 to-transparent rounded-full blur-3xl opacity-60" animate={{
-            x: [0, -40, 25, 0],
-            y: [0, 30, -15, 0],
-            scale: [1, 0.8, 1.2, 1],
-            rotate: [360, 270, 90, 0]
-          }} transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 3
-          }} whileHover={{
-            scale: 1.4,
-            opacity: 0.9
-          }} />
-            <motion.div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-secondary/8 to-primary/8 rounded-full blur-2xl opacity-40" animate={{
-            x: [0, 50, -30, 20, 0],
-            y: [0, -25, 35, -10, 0],
-            scale: [1, 1.3, 0.7, 1.1, 1],
-            rotate: [0, 180, -90, 270, 360]
-          }} transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 6
-          }} whileHover={{
-            scale: 1.5,
-            opacity: 0.7,
-            transition: {
-              duration: 0.3
-            }
-          }} />
-            
-            {/* Connecting lines between elements */}
-            <motion.div className="absolute top-1/4 left-1/3 w-px h-32 bg-gradient-to-b from-primary/20 to-transparent" animate={{
-            height: [128, 200, 100, 128],
-            opacity: [0.2, 0.5, 0.1, 0.2]
-          }} transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} />
-            <motion.div className="absolute bottom-1/3 right-1/3 w-24 h-px bg-gradient-to-r from-accent/20 to-transparent" animate={{
-            width: [96, 150, 60, 96],
-            opacity: [0.2, 0.6, 0.1, 0.2]
-          }} transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 4
-          }} />
-          </div>
-
-          {/* Header */}
-          <ScrollAnimation animation="scaleIn" delay={0.1} className="text-center mb-20 relative z-10">
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.8
-          }} className="mb-8">
-              
-            </motion.div>
-          </ScrollAnimation>
-
-          {/* Main Content Grid */}
-          <motion.div className="grid lg:grid-cols-2 gap-16 items-stretch mb-24 relative z-10" initial="hidden" whileInView="visible" viewport={{
-          once: true,
-          margin: "-100px"
-        }} variants={{
-          hidden: {
-            opacity: 0
-          },
-          visible: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.3,
-              delayChildren: 0.2
-            }
-          }
-        }}>
-            {/* Left: Core Philosophy */}
-            <motion.div variants={{
-            hidden: {
-              opacity: 0,
-              x: -50
-            },
-            visible: {
-              opacity: 1,
-              x: 0,
-              transition: {
-                duration: 0.8,
-                ease: "easeOut"
-              }
-            }
-          }} className="space-y-6">
-              <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-background via-surface to-surface-elevated border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-                
-                <CardContent className="relative p-10 h-full flex">
-                  <div className="flex-1 flex flex-col">
-                    <motion.div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary via-primary to-primary/80 shadow-lg shadow-primary/25 mb-8" whileHover={{
-                    scale: 1.1,
-                    rotate: 360
-                  }} transition={{
-                    duration: 0.6
-                  }}>
-                      <Lightbulb className="w-8 h-8 text-white drop-shadow-sm" />
-                    </motion.div>
-                    
-                    <h3 className="text-2xl font-bold mb-6 text-primary leading-tight">
-                      Innovation als Prozess
-                    </h3>
-                    <p className="text-base text-muted-foreground leading-relaxed flex-grow">
-                      Für uns ist Innovation kein einzelnes Feature – sie ist ein kontinuierlicher Prozess. 
-                      Wir schaffen den Zugang zu echter Innovation für KMU, Selbständige und Marken im Wandel.
-                    </p>
-                  </div>
-                  
-                  {/* Team Collaboration Image */}
-                  <div className="w-32 h-32 ml-8 flex-shrink-0 rounded-xl overflow-hidden border border-primary/20">
-                    <OptimizedImage 
-                      src="/lovable-uploads/804d1765-b7c9-45f5-93a3-dddb443996f4.png" 
-                      alt="Team collaboration - people working together on innovative solutions" 
-                      className="w-full h-full object-cover"
-                      sizes="128px"
-                    />
-                  </div>
-                  
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Right: Approach */}
-            <motion.div variants={{
-            hidden: {
-              opacity: 0,
-              x: 50
-            },
-            visible: {
-              opacity: 1,
-              x: 0,
-              transition: {
-                duration: 0.8,
-                ease: "easeOut"
-              }
-            }
-          }} className="space-y-6">
-              <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-surface via-surface-elevated to-background border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
-                
-                <CardContent className="relative p-10 h-full flex">
-                  <div className="flex-1 flex flex-col">
-                    <motion.div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent via-accent to-accent/80 shadow-lg shadow-accent/25 mb-8" whileHover={{
-                    scale: 1.1,
-                    rotate: -360
-                  }} transition={{
-                    duration: 0.6
-                  }}>
-                      <Zap className="w-8 h-8 text-white drop-shadow-sm" />
-                    </motion.div>
-                    
-                    <h3 className="text-2xl font-bold mb-6 text-accent leading-tight">
-                      Ganzheitliche Transformation
-                    </h3>
-                    <p className="text-base text-muted-foreground leading-relaxed flex-grow">
-                      Unser Fokus liegt nicht nur auf Automatisierung oder Chatbots, sondern auf ganzheitlicher, 
-                      kreativer Transformation: Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools.
-                    </p>
-                  </div>
-                  
-                  {/* Business Analytics Image */}
-                  <div className="w-32 h-32 ml-8 flex-shrink-0 rounded-xl overflow-hidden border border-accent/20">
-                    <OptimizedImage 
-                      src="/lovable-uploads/72768da6-5ac5-423e-a9df-579dd83dc1aa.png" 
-                      alt="Business analytics and data visualization - comprehensive transformation approach" 
-                      className="w-full h-full object-cover"
-                      sizes="128px"
-                    />
-                  </div>
-                  
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
-                </CardContent>
-              </Card>
-            </motion.div>
-          </motion.div>
-
-          {/* Vision Statement */}
-          <ScrollAnimation animation="fadeUp" delay={0.4} className="text-center mb-20 relative z-10">
-            <motion.div className="max-w-5xl mx-auto" whileHover={{
-            scale: 1.02
-          }} transition={{
-            duration: 0.3
-          }}>
-              <Card className="relative overflow-hidden bg-gradient-to-br from-background via-surface to-surface-elevated border-0 shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.1),transparent_50%)]" />
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-                
-                <CardContent className="relative p-12 text-center">
-                  <motion.div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary via-primary to-secondary mb-10 shadow-lg shadow-primary/20" animate={{
-                  rotate: [0, 5, -5, 0],
-                  scale: [1, 1.05, 1]
-                }} transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }} whileHover={{
-                  scale: 1.1,
-                  rotate: 10,
-                  transition: {
-                    duration: 0.3
-                  }
-                }}>
-                    <Brain className="w-10 h-10 text-white drop-shadow-sm" />
-                  </motion.div>
-                  
-                  <h3 className="text-4xl font-bold mb-8 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight">
-                    Kreatives Headquarter<br />für Innovation
-                  </h3>
-                  
-                  <div className="space-y-4 max-w-2xl mx-auto">
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.
-                    </p>
-                  </div>
-                  
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-                </CardContent>
-              </Card>
-            </motion.div>
-          </ScrollAnimation>
-
-        </div>
-      </ScrollAnimation>
+      {/* Innovation Section */}
+      <InnovationSection />
 
       {/* 🚀 Impact Points Section with Overlap Effect */}
       <ScrollAnimation animation="fadeRight" className="relative -mt-16 pt-24 pb-20 bg-gradient-to-l from-surface to-background overflow-hidden">
@@ -1004,6 +567,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>;
+    </motion.div>
+  );
 };
+
 export default Index;
