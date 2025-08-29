@@ -73,147 +73,145 @@ const Robot = ({ position, color, animation }: { position: [number, number, numb
 };
 
 // Scene Components for each agent
-const RAGAgentScene = ({ active }: { active: boolean }) => (
-  <group visible={active}>
-    <Robot position={[0, 0, 0]} color="#0066ff" animation="rotate" />
-    
-    {/* Floating Data Elements */}
-    <Float speed={1} rotationIntensity={0.5} floatIntensity={0.5}>
-      <Box args={[0.3, 0.3, 0.1]} position={[-2, 1, 0]}>
-        <meshStandardMaterial color="#00ff00" transparent opacity={0.7} />
-      </Box>
-    </Float>
-    
-    <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.8}>
-      <Sphere args={[0.2]} position={[2, 0.5, 0]}>
-        <meshStandardMaterial color="#ff00ff" transparent opacity={0.6} />
-      </Sphere>
-    </Float>
-    
-    {/* Light rays */}
-    <pointLight position={[0, 2, 2]} intensity={1} color="#0066ff" />
-    <spotLight position={[3, 3, 3]} angle={0.3} penumbra={1} intensity={1} color="#00ffff" />
-  </group>
-);
+const RAGAgentScene = ({ active }: { active: boolean }) => {
+  if (!active) return null;
+  
+  return (
+    <group>
+      <Robot position={[0, 0, 0]} color="#0066ff" animation="rotate" />
+      
+      {/* Floating Data Elements */}
+      <Float speed={1} rotationIntensity={0.5} floatIntensity={0.5}>
+        <Box args={[0.3, 0.3, 0.1]} position={[-2, 1, 0]}>
+          <meshStandardMaterial color="#00ff00" transparent opacity={0.7} />
+        </Box>
+      </Float>
+      
+      <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.8}>
+        <Sphere args={[0.2]} position={[2, 0.5, 0]}>
+          <meshStandardMaterial color="#ff00ff" transparent opacity={0.6} />
+        </Sphere>
+      </Float>
+      
+      {/* Light rays */}
+      <pointLight position={[0, 2, 2]} intensity={1} color="#0066ff" />
+      <spotLight position={[3, 3, 3]} angle={0.3} penumbra={1} intensity={1} color="#00ffff" />
+    </group>
+  );
+};
 
-const LeadGenAgentScene = ({ active }: { active: boolean }) => (
-  <group visible={active}>
-    <Robot position={[0, 0, 0]} color="#ff6600" animation="bounce" />
-    
-    {/* Target Elements */}
-    <Float speed={2} rotationIntensity={1} floatIntensity={0.3}>
-      <group position={[-2, 1, -1]}>
-        <Cylinder args={[0.8, 0.8, 0.1]} rotation={[Math.PI / 2, 0, 0]}>
-          <meshStandardMaterial color="#ff6600" transparent opacity={0.3} />
-        </Cylinder>
-        <Cylinder args={[0.6, 0.6, 0.12]} rotation={[Math.PI / 2, 0, 0]}>
-          <meshStandardMaterial color="#ffaa00" transparent opacity={0.5} />
-        </Cylinder>
-        <Cylinder args={[0.4, 0.4, 0.14]} rotation={[Math.PI / 2, 0, 0]}>
-          <meshStandardMaterial color="#ffdd00" transparent opacity={0.7} />
-        </Cylinder>
-      </group>
-    </Float>
-    
-    {/* Scanning beams */}
-    <pointLight position={[0, 2, 1]} intensity={1.5} color="#ff6600" />
-    <spotLight position={[-3, 2, 2]} angle={0.5} penumbra={1} intensity={1} color="#ffaa00" />
-  </group>
-);
+const LeadGenAgentScene = ({ active }: { active: boolean }) => {
+  if (!active) return null;
+  
+  return (
+    <group>
+      <Robot position={[0, 0, 0]} color="#ff6600" animation="bounce" />
+      
+      {/* Target Elements */}
+      <Float speed={2} rotationIntensity={1} floatIntensity={0.3}>
+        <group position={[-2, 1, -1]}>
+          <Cylinder args={[0.8, 0.8, 0.1]} rotation={[Math.PI / 2, 0, 0]}>
+            <meshStandardMaterial color="#ff6600" transparent opacity={0.3} />
+          </Cylinder>
+          <Cylinder args={[0.6, 0.6, 0.12]} rotation={[Math.PI / 2, 0, 0]}>
+            <meshStandardMaterial color="#ffaa00" transparent opacity={0.5} />
+          </Cylinder>
+          <Cylinder args={[0.4, 0.4, 0.14]} rotation={[Math.PI / 2, 0, 0]}>
+            <meshStandardMaterial color="#ffdd00" transparent opacity={0.7} />
+          </Cylinder>
+        </group>
+      </Float>
+      
+      {/* Scanning beams */}
+      <pointLight position={[0, 2, 1]} intensity={1.5} color="#ff6600" />
+      <spotLight position={[-3, 2, 2]} angle={0.5} penumbra={1} intensity={1} color="#ffaa00" />
+    </group>
+  );
+};
 
-const ContentAgentScene = ({ active }: { active: boolean }) => (
-  <group visible={active}>
-    <Robot position={[0, 0, 0]} color="#00aa44" animation="rotate" />
-    
-    {/* Floating Text Elements */}
-    <Float speed={1.2} rotationIntensity={0.4} floatIntensity={0.6}>
-      <Box args={[1.5, 0.8, 0.1]} position={[-1.5, 1.5, 0]}>
-        <meshStandardMaterial color="#00ff88" transparent opacity={0.4} />
-      </Box>
-    </Float>
-    
-    <Float speed={0.8} rotationIntensity={0.6} floatIntensity={0.4}>
-      <Box args={[1.2, 0.6, 0.1]} position={[1.8, 0.8, 0]}>
-        <meshStandardMaterial color="#44ff44" transparent opacity={0.5} />
-      </Box>
-    </Float>
-    
-    <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.8}>
-      <Box args={[0.8, 1, 0.1]} position={[0.5, -0.5, 1]}>
-        <meshStandardMaterial color="#88ff00" transparent opacity={0.6} />
-      </Box>
-    </Float>
-    
-    {/* Writing light */}
-    <pointLight position={[0, 3, 1]} intensity={1.2} color="#00ff44" />
-    <spotLight position={[2, 2, 3]} angle={0.4} penumbra={0.8} intensity={1} color="#44ff88" />
-  </group>
-);
+const ContentAgentScene = ({ active }: { active: boolean }) => {
+  if (!active) return null;
+  
+  return (
+    <group>
+      <Robot position={[0, 0, 0]} color="#00aa44" animation="rotate" />
+      
+      {/* Floating Text Elements */}
+      <Float speed={1.2} rotationIntensity={0.4} floatIntensity={0.6}>
+        <Box args={[1.5, 0.8, 0.1]} position={[-1.5, 1.5, 0]}>
+          <meshStandardMaterial color="#00ff88" transparent opacity={0.4} />
+        </Box>
+      </Float>
+      
+      <Float speed={0.8} rotationIntensity={0.6} floatIntensity={0.4}>
+        <Box args={[1.2, 0.6, 0.1]} position={[1.8, 0.8, 0]}>
+          <meshStandardMaterial color="#44ff44" transparent opacity={0.5} />
+        </Box>
+      </Float>
+      
+      <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.8}>
+        <Box args={[0.8, 1, 0.1]} position={[0.5, -0.5, 1]}>
+          <meshStandardMaterial color="#88ff00" transparent opacity={0.6} />
+        </Box>
+      </Float>
+      
+      {/* Writing light */}
+      <pointLight position={[0, 3, 1]} intensity={1.2} color="#00ff44" />
+      <spotLight position={[2, 2, 3]} angle={0.4} penumbra={0.8} intensity={1} color="#44ff88" />
+    </group>
+  );
+};
 
-const VoiceAgentScene = ({ active }: { active: boolean }) => (
-  <group visible={active}>
-    <Robot position={[0, 0, 0]} color="#aa00ff" animation="bounce" />
-    
-    {/* Sound Waves - Simplified */}
-    <Float speed={2} rotationIntensity={0.8} floatIntensity={0.2}>
-      <group position={[0, 1.5, 0]}>
-        <Cylinder 
-          args={[1, 1, 0.05]} 
-          rotation={[Math.PI / 2, 0, 0]}
-          position={[0, 0, 0]}
-        >
-          <meshStandardMaterial 
-            color="#aa00ff" 
-            transparent 
-            opacity={0.3}
-            wireframe
-          />
-        </Cylinder>
-        <Cylinder 
-          args={[1.5, 1.5, 0.05]} 
-          rotation={[Math.PI / 2, 0, 0]}
-          position={[0, 0, 0.1]}
-        >
-          <meshStandardMaterial 
-            color="#aa00ff" 
-            transparent 
-            opacity={0.25}
-            wireframe
-          />
-        </Cylinder>
-        <Cylinder 
-          args={[2, 2, 0.05]} 
-          rotation={[Math.PI / 2, 0, 0]}
-          position={[0, 0, 0.2]}
-        >
-          <meshStandardMaterial 
-            color="#aa00ff" 
-            transparent 
-            opacity={0.2}
-            wireframe
-          />
-        </Cylinder>
-      </group>
-    </Float>
-    
-    {/* Communication elements */}
-    <Float speed={1.8} rotationIntensity={0.5} floatIntensity={0.7}>
-      <Sphere args={[0.3]} position={[-2.5, 0.8, 0]}>
-        <meshStandardMaterial color="#ff00aa" transparent opacity={0.6} />
-      </Sphere>
-    </Float>
-    
-    <Float speed={1.3} rotationIntensity={0.7} floatIntensity={0.5}>
-      <Sphere args={[0.25]} position={[2.2, 1.2, 0]}>
-        <meshStandardMaterial color="#ff66ff" transparent opacity={0.5} />
-      </Sphere>
-    </Float>
-    
-    {/* Voice lighting */}
-    <pointLight position={[0, 2, 2]} intensity={1.3} color="#aa00ff" />
-    <spotLight position={[-2, 3, 2]} angle={0.6} penumbra={1} intensity={0.8} color="#ff66ff" />
-  </group>
-);
+const VoiceAgentScene = ({ active }: { active: boolean }) => {
+  if (!active) return null;
+  
+  return (
+    <group>
+      <Robot position={[0, 0, 0]} color="#aa00ff" animation="bounce" />
+      
+      {/* Sound Waves - Simplified */}
+      <Float speed={2} rotationIntensity={0.8} floatIntensity={0.2}>
+        <group position={[0, 1.5, 0]}>
+          <Cylinder 
+            args={[1, 1, 0.05]} 
+            rotation={[Math.PI / 2, 0, 0]}
+            position={[0, 0, 0]}
+          >
+            <meshStandardMaterial 
+              color="#aa00ff" 
+              transparent 
+              opacity={0.3}
+              wireframe
+            />
+          </Cylinder>
+          <Cylinder 
+            args={[1.5, 1.5, 0.05]} 
+            rotation={[Math.PI / 2, 0, 0]}
+            position={[0, 0, 0.1]}
+          >
+            <meshStandardMaterial 
+              color="#aa00ff" 
+              transparent 
+              opacity={0.25}
+              wireframe
+            />
+          </Cylinder>
+        </group>
+      </Float>
+      
+      {/* Communication elements */}
+      <Float speed={1.8} rotationIntensity={0.5} floatIntensity={0.7}>
+        <Sphere args={[0.3]} position={[-2.5, 0.8, 0]}>
+          <meshStandardMaterial color="#ff00aa" transparent opacity={0.6} />
+        </Sphere>
+      </Float>
+      
+      {/* Voice lighting */}
+      <pointLight position={[0, 2, 2]} intensity={1.3} color="#aa00ff" />
+      <spotLight position={[-2, 3, 2]} angle={0.6} penumbra={1} intensity={0.8} color="#ff66ff" />
+    </group>
+  );
+};
 
 const Scene3D = ({ activeScene }: { activeScene: number }) => {
   return (
