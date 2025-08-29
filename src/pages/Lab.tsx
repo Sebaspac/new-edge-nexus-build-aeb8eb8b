@@ -6,7 +6,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ServicesSection } from "@/components/ServicesSection";
-import PremiumAIAgents3D from "@/components/PremiumAIAgents3D";
 const Lab = () => {
   const {
     t
@@ -17,7 +16,6 @@ const Lab = () => {
     x: 0,
     y: 0
   });
-  
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -31,10 +29,7 @@ const Lab = () => {
       });
     };
     window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
   const scrollToContact = () => {
     navigate('/', {
@@ -83,9 +78,7 @@ const Lab = () => {
             <rect width="100%" height="100%" fill="url(#lab-grid)" />
           </svg>
         </div>
-        <div className="container mx-auto text-center relative z-10" style={{
-        transform: 'translateY(10vh)'
-      }}>
+        <div className="container mx-auto text-center relative z-10" style={{ transform: 'translateY(10vh)' }}>
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-black mb-6 sm:mb-8 leading-tight tracking-tight">
               <span className="inline-block animate-fade-in" style={{
@@ -129,30 +122,22 @@ const Lab = () => {
             <div className="absolute top-1/2 right-1/4 animate-drift opacity-20" style={{
             animationDelay: '2s'
           }}>
-              <Database className="w-12 h-12" style={{
-              color: '#FFED00'
-            }} />
+              <Database className="w-12 h-12" style={{ color: '#FFED00' }} />
             </div>
             <div className="absolute top-1/3 left-1/4 animate-orbit opacity-30" style={{
             animationDelay: '3s'
           }}>
-              <Bot className="w-8 h-8" style={{
-              color: '#FFED00'
-            }} />
+              <Bot className="w-8 h-8" style={{ color: '#FFED00' }} />
             </div>
             <div className="absolute bottom-1/4 right-1/3 animate-float-1 opacity-25" style={{
             animationDelay: '4s'
           }}>
-              <Code className="w-10 h-10" style={{
-              color: '#FFED00'
-            }} />
+              <Code className="w-10 h-10" style={{ color: '#FFED00' }} />
             </div>
             <div className="absolute top-1/4 right-10 animate-float-2 opacity-20" style={{
             animationDelay: '5s'
           }}>
-              <Settings className="w-8 h-8" style={{
-              color: '#FFED00'
-            }} />
+              <Settings className="w-8 h-8" style={{ color: '#FFED00' }} />
             </div>
             
             {/* Tech circuit patterns */}
@@ -219,8 +204,270 @@ const Lab = () => {
         </div>
       </section>
 
-      {/* Premium 3D AI Agents Module */}
-      <PremiumAIAgents3D />
+      {/* New Edge Agent Hub */}
+      <section className="py-16 sm:py-32 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-20">
+            <div className="inline-block px-4 py-2 rounded-full shadow-sm mb-6" style={{
+            background: 'linear-gradient(135deg, #9F91F8, #4F97F0)',
+            color: 'white'
+          }}>
+              <span className="text-sm font-medium">KI-POWERED SOLUTIONS</span>
+            </div>
+            
+            
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-50 rounded-full">
+              <div className="w-2 h-2 rounded-full animate-pulse" style={{
+              backgroundColor: '#FFED00'
+            }}></div>
+              
+            </div>
+          </div>
+          
+          <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+            {/* KI-Helfer App - Featured */}
+            <div className="lg:col-span-3 mb-8">
+              <Card className="bg-gradient-to-br from-purple-50 via-blue-50 to-yellow-50 border-2 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-fade-in group cursor-pointer overflow-hidden relative">
+                <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold" style={{
+                backgroundColor: '#FFED00',
+                color: '#333333'
+              }}>
+                  VERFÜGBAR
+                </div>
+                <CardContent className="p-8 sm:p-12">
+                  <div className="grid lg:grid-cols-2 gap-8 items-center">
+                    <div className="text-center lg:text-left">
+                      <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12" style={{
+                      background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
+                    }}>
+                        <Bot className="w-12 h-12 text-white" />
+                      </div>
+                      <h3 className="text-2xl text-black mb-4 font-extrabold sm:text-6xl">Agent Hub</h3>
+                       <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg text-left">
+                         8+ spezialisierte KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr.
+                        <span className="font-semibold"> Lebenslanger Zugang ohne Abonnement.</span>
+                      </p>
+                      <div className="space-y-3 mb-8">
+                        <div className="flex items-center justify-center lg:justify-start gap-3">
+                          <div className="w-2 h-2 rounded-full" style={{
+                          backgroundColor: '#4F97F0'
+                        }}></div>
+                          <span className="text-sm text-gray-600">Keine monatlichen Kosten</span>
+                        </div>
+                        <div className="flex items-center justify-center lg:justify-start gap-3">
+                          <div className="w-2 h-2 rounded-full" style={{
+                          backgroundColor: '#9F91F8'
+                        }}></div>
+                          <span className="text-sm text-gray-600">Sofort einsatzbereit</span>
+                        </div>
+                        <div className="flex items-center justify-center lg:justify-start gap-3">
+                          <div className="w-2 h-2 rounded-full" style={{
+                          backgroundColor: '#FFED00'
+                        }}></div>
+                          <span className="text-sm text-gray-600">80% Rabatt für kurze Zeit</span>
+                        </div>
+                      </div>
+                      <Button size="lg" className="w-full lg:w-auto text-white text-base sm:text-lg px-8 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
+                      background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
+                    }} onClick={() => window.open('https://agenthub.newedgebrand.com', '_blank')}>Loslegen</Button>
+                    </div>
+                    <div className="hidden lg:block">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-4">
+                          <div className="bg-white p-4 rounded-lg shadow-sm">
+                            <div className="flex items-center gap-3 mb-2">
+                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{
+                              backgroundColor: '#9F91F820'
+                            }}>
+                                <Code className="w-4 h-4" style={{
+                                color: '#9F91F8'
+                              }} />
+                              </div>
+                              <span className="text-sm font-medium">Cody</span>
+                            </div>
+                            <p className="text-xs text-gray-600">Copywriting</p>
+                          </div>
+                          <div className="bg-white p-4 rounded-lg shadow-sm">
+                            <div className="flex items-center gap-3 mb-2">
+                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{
+                              backgroundColor: '#4F97F020'
+                            }}>
+                                <BarChart3 className="w-4 h-4" style={{
+                                color: '#4F97F0'
+                              }} />
+                              </div>
+                              <span className="text-sm font-medium">Inti</span>
+                            </div>
+                            <p className="text-xs text-gray-600">HR & Recruiting</p>
+                          </div>
+                        </div>
+                        <div className="space-y-4 mt-8">
+                          <div className="bg-white p-4 rounded-lg shadow-sm">
+                            <div className="flex items-center gap-3 mb-2">
+                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{
+                              backgroundColor: '#FFED0020'
+                            }}>
+                                <Globe className="w-4 h-4" style={{
+                                color: '#FFED00'
+                              }} />
+                              </div>
+                              <span className="text-sm font-medium">Dimarko</span>
+                            </div>
+                            <p className="text-xs text-gray-600">Digital Marketing</p>
+                          </div>
+                          <div className="bg-white p-4 rounded-lg shadow-sm">
+                            <div className="flex items-center gap-3 mb-2">
+                              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{
+                              backgroundColor: '#9F91F820'
+                            }}>
+                                <Brain className="w-4 h-4" style={{
+                                color: '#9F91F8'
+                              }} />
+                              </div>
+                               <span className="text-sm font-medium">+9 weitere</span>
+                             </div>
+                             <p className="text-xs text-gray-600">Alle Bereiche für Ihr Business</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* KI-ChatBot Studio - Featured */}
+            <div className="lg:col-span-3 mb-8">
+              <Card className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border-2 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] animate-fade-in group cursor-pointer overflow-hidden relative">
+                <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold" style={{
+                backgroundColor: '#4F97F0',
+                color: 'white'
+              }}>
+                  SOFORT VERFÜGBAR
+                </div>
+                <CardContent className="p-8 sm:p-12">
+                  <div className="grid lg:grid-cols-2 gap-8 items-center">
+                    <div className="text-center lg:text-left">
+                      <div className="flex items-center gap-4 mb-6 justify-center lg:justify-start">
+                        <div className="w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-12" style={{
+                        background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
+                      }}>
+                          <Bot className="w-12 h-12 text-white" />
+                        </div>
+                        <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black tracking-tight leading-tight">KI-ChatBot Studio</h3>
+                      </div>
+                      <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg text-left">
+                        24/7 Kundenbetreuung mit KI-gestützten Antworten. Sofortige Einrichtung für Ihre Website mit intelligenter Konversation.
+                        <span className="font-semibold"> Ultra-High Zufriedenheitsraten durch personalisierte Antworten.</span>
+                      </p>
+                      <div className="space-y-3 mb-8">
+                        <div className="flex items-center justify-center lg:justify-start gap-3">
+                          <div className="w-2 h-2 rounded-full" style={{
+                          backgroundColor: '#4F97F0'
+                        }}></div>
+                          <span className="text-sm text-gray-600">Sofortige KI-Antworten</span>
+                        </div>
+                        <div className="flex items-center justify-center lg:justify-start gap-3">
+                          <div className="w-2 h-2 rounded-full" style={{
+                          backgroundColor: '#9F91F8'
+                        }}></div>
+                          <span className="text-sm text-gray-600">Multichannel-Integration</span>
+                        </div>
+                        <div className="flex items-center justify-center lg:justify-start gap-3">
+                          <div className="w-2 h-2 rounded-full" style={{
+                          backgroundColor: '#FFED00'
+                        }}></div>
+                          <span className="text-sm text-gray-600">Individuelle Anpassung</span>
+                        </div>
+                      </div>
+                      <Button size="lg" className="w-full lg:w-auto text-white text-base sm:text-lg px-8 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
+                      background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
+                    }} onClick={scrollToContact}>ChatBot einrichten</Button>
+                    </div>
+                    <div className="hidden lg:block">
+                      {/* Chat Demo Preview */}
+                      <div className="bg-white rounded-lg p-6 shadow-lg max-w-md mx-auto">
+                        <div className="space-y-4 text-left">
+                          <div className="flex items-start gap-3">
+                            <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white" style={{
+                            backgroundColor: '#4F97F0'
+                          }}>
+                              AI
+                            </div>
+                            <div className="bg-gray-100 rounded-lg px-4 py-3 text-sm max-w-[250px]">
+                              Hallo! Wie kann ich Ihnen heute helfen?
+                            </div>
+                          </div>
+                          <div className="flex items-start gap-3 justify-end">
+                            <div className="bg-blue-500 text-white rounded-lg px-4 py-3 text-sm max-w-[250px]">
+                              Welche Leistungen bieten Sie an?
+                            </div>
+                            <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm">
+                              👤
+                            </div>
+                          </div>
+                          <div className="flex items-start gap-3">
+                            <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white" style={{
+                            backgroundColor: '#4F97F0'
+                          }}>
+                              AI
+                            </div>
+                            <div className="bg-gray-100 rounded-lg px-4 py-3 text-sm max-w-[250px]">
+                              Wir bieten KI-Integration, Webentwicklung und Automatisierung. Soll ich Ihnen mehr Details geben?
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{
+            animationDelay: '0.2s'
+          }}>
+              <CardContent className="p-8 text-center relative">
+                <div className="absolute top-4 right-4 px-2 py-1 rounded-full text-xs font-bold bg-gray-200 text-gray-600">
+                  Q4 2025
+                </div>
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110" style={{
+                background: 'linear-gradient(135deg, #FFED00, #4F97F0)'
+              }}>
+                  <Activity className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-black mb-4">Intelligence Hub</h3>
+                <p className="text-gray-700 leading-relaxed text-sm mb-6">
+                  KI-gestützte Analysen und Insights für datengetriebene Entscheidungen
+                </p>
+                <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-600">
+                  In Planung
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-green-50 to-green-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{
+            animationDelay: '0.3s'
+          }}>
+              <CardContent className="p-8 text-center relative">
+                <div className="absolute top-4 right-4 px-2 py-1 rounded-full text-xs font-bold bg-gray-200 text-gray-600">
+                  TBD
+                </div>
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110 bg-gradient-to-br from-green-400 to-blue-500">
+                  <ChevronDown className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-black mb-4">Weitere Apps</h3>
+                <p className="text-gray-700 leading-relaxed text-sm mb-6">
+                  Haben Sie spezielle Anforderungen? Wir entwickeln maßgeschneiderte KI-Lösungen
+                </p>
+                <Button variant="outline" size="sm" className="border-green-300 text-green-700 hover:bg-green-50" onClick={scrollToContact}>
+                  Anfrage stellen
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-16 sm:py-32 text-black relative overflow-hidden" style={{
