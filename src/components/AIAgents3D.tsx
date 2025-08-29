@@ -4,25 +4,35 @@ import { OrbitControls, Sphere, Box, Cylinder, Environment, Float } from '@react
 import { motion, useScroll as useFramerScroll, useTransform } from 'framer-motion';
 import * as THREE from 'three';
 import { Button } from '@/components/ui/button';
+import ErrorBoundary from './ErrorBoundary';
 
 // Robot Component for each agent
-const Robot = ({ position, color, animation }: { position: [number, number, number], color: string, animation: string }) => {
+const Robot = ({ position = [0, 0, 0], color = "#ffffff", animation = "none" }: { 
+  position?: [number, number, number], 
+  color?: string, 
+  animation?: string 
+}) => {
   const meshRef = useRef<THREE.Group>(null);
   
   useEffect(() => {
-    if (!meshRef.current) return;
+    if (!meshRef.current || !Array.isArray(position) || position.length !== 3) return;
     
     let animationId: number;
     
     const animate = () => {
-      if (meshRef.current) {
-        if (animation === 'rotate') {
-          meshRef.current.rotation.y += 0.01;
-        } else if (animation === 'bounce') {
-          meshRef.current.position.y = position[1] + Math.sin(Date.now() * 0.002) * 0.2;
+      try {
+        if (meshRef.current && animation) {
+          if (animation === 'rotate') {
+            meshRef.current.rotation.y += 0.01;
+          } else if (animation === 'bounce') {
+            const baseY = typeof position[1] === 'number' ? position[1] : 0;
+            meshRef.current.position.y = baseY + Math.sin(Date.now() * 0.002) * 0.2;
+          }
         }
+        animationId = requestAnimationFrame(animate);
+      } catch (error) {
+        console.error('Animation error:', error);
       }
-      animationId = requestAnimationFrame(animate);
     };
     animate();
     
@@ -33,11 +43,14 @@ const Robot = ({ position, color, animation }: { position: [number, number, numb
     };
   }, [animation, position]);
 
+  const safePosition = Array.isArray(position) && position.length === 3 ? position : [0, 0, 0];
+  const safeColor = typeof color === 'string' ? color : "#ffffff";
+
   return (
-    <group ref={meshRef} position={position}>
+    <group ref={meshRef} position={safePosition as [number, number, number]}>
       {/* Robot Head */}
       <Box args={[0.8, 0.8, 0.8]} position={[0, 1.5, 0]}>
-        <meshStandardMaterial color={color} metalness={0.8} roughness={0.2} />
+        <meshStandardMaterial color={safeColor} metalness={0.8} roughness={0.2} />
       </Box>
       
       {/* Robot Eyes */}
@@ -50,23 +63,23 @@ const Robot = ({ position, color, animation }: { position: [number, number, numb
       
       {/* Robot Body */}
       <Cylinder args={[0.6, 0.8, 1.5]} position={[0, 0.5, 0]}>
-        <meshStandardMaterial color={color} metalness={0.8} roughness={0.2} />
+        <meshStandardMaterial color={safeColor} metalness={0.8} roughness={0.2} />
       </Cylinder>
       
       {/* Robot Arms */}
       <Cylinder args={[0.15, 0.15, 1]} position={[-1, 0.8, 0]} rotation={[0, 0, Math.PI / 2]}>
-        <meshStandardMaterial color={color} metalness={0.8} roughness={0.2} />
+        <meshStandardMaterial color={safeColor} metalness={0.8} roughness={0.2} />
       </Cylinder>
       <Cylinder args={[0.15, 0.15, 1]} position={[1, 0.8, 0]} rotation={[0, 0, Math.PI / 2]}>
-        <meshStandardMaterial color={color} metalness={0.8} roughness={0.2} />
+        <meshStandardMaterial color={safeColor} metalness={0.8} roughness={0.2} />
       </Cylinder>
       
       {/* Robot Legs */}
       <Cylinder args={[0.2, 0.2, 1]} position={[-0.3, -0.8, 0]}>
-        <meshStandardMaterial color={color} metalness={0.8} roughness={0.2} />
+        <meshStandardMaterial color={safeColor} metalness={0.8} roughness={0.2} />
       </Cylinder>
       <Cylinder args={[0.2, 0.2, 1]} position={[0.3, -0.8, 0]}>
-        <meshStandardMaterial color={color} metalness={0.8} roughness={0.2} />
+        <meshStandardMaterial color={safeColor} metalness={0.8} roughness={0.2} />
       </Cylinder>
     </group>
   );
@@ -213,41 +226,58 @@ const VoiceAgentScene = ({ active }: { active: boolean }) => {
   );
 };
 
-const Scene3D = ({ activeScene }: { activeScene: number }) => {
-  return (
-    <>
-      <Environment preset="night" />
-      <ambientLight intensity={0.2} />
-      
-      <RAGAgentScene active={activeScene === 0} />
-      <LeadGenAgentScene active={activeScene === 1} />
-      <ContentAgentScene active={activeScene === 2} />
-      <VoiceAgentScene active={activeScene === 3} />
-      
-      <OrbitControls 
-        enableZoom={false} 
-        enablePan={false}
-        autoRotate={false}
-        maxPolarAngle={Math.PI / 2}
-        minPolarAngle={Math.PI / 3}
-      />
-    </>
-  );
+const Scene3D = ({ activeScene = 0 }: { activeScene?: number }) => {
+  const safeActiveScene = typeof activeScene === 'number' && !isNaN(activeScene) ? activeScene : 0;
+  
+  try {
+    return (
+      <>
+        <ambientLight intensity={0.3} />
+        <directionalLight position={[10, 10, 5]} intensity={1} />
+        
+        <RAGAgentScene active={safeActiveScene === 0} />
+        <LeadGenAgentScene active={safeActiveScene === 1} />
+        <ContentAgentScene active={safeActiveScene === 2} />
+        <VoiceAgentScene active={safeActiveScene === 3} />
+        
+        <OrbitControls 
+          enableZoom={false} 
+          enablePan={false}
+          autoRotate={false}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 3}
+        />
+      </>
+    );
+  } catch (error) {
+    console.error('Scene3D render error:', error);
+    return null;
+  }
 };
 
 const AIAgents3D = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeScene, setActiveScene] = useState(0);
-  const { scrollYProgress } = useFramerScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const sceneProgress = useTransform(scrollYProgress, [0, 1], [0, 3]);
+  
+  let scrollYProgress, sceneProgress;
+  
+  try {
+    const scrollData = useFramerScroll({
+      target: containerRef,
+      offset: ["start end", "end start"]
+    });
+    scrollYProgress = scrollData.scrollYProgress;
+    sceneProgress = useTransform(scrollYProgress, [0, 1], [0, 3]);
+  } catch (error) {
+    console.error('Scroll setup error:', error);
+  }
 
   useEffect(() => {
+    if (!sceneProgress) return;
+    
     const unsubscribe = sceneProgress.onChange((latest) => {
-      setActiveScene(Math.min(Math.floor(latest), 3));
+      const safeLatest = typeof latest === 'number' && !isNaN(latest) ? latest : 0;
+      setActiveScene(Math.min(Math.max(Math.floor(safeLatest), 0), 3));
     });
     return unsubscribe;
   }, [sceneProgress]);
@@ -284,11 +314,18 @@ const AIAgents3D = () => {
       {/* Hero Section */}
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <div className="absolute inset-0 z-10">
-          <Canvas camera={{ position: [0, 2, 8], fov: 50 }}>
-            <Suspense fallback={null}>
-              <Scene3D activeScene={activeScene} />
-            </Suspense>
-          </Canvas>
+          <ErrorBoundary>
+            <Canvas 
+              camera={{ position: [0, 2, 8], fov: 50 }}
+              onCreated={({ gl }) => {
+                gl.setClearColor('#000000');
+              }}
+            >
+              <Suspense fallback={null}>
+                <Scene3D activeScene={activeScene} />
+              </Suspense>
+            </Canvas>
+          </ErrorBoundary>
         </div>
         
         {/* Overlay Content */}
