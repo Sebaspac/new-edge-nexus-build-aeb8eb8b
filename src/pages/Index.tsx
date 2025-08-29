@@ -562,9 +562,6 @@ const Index = () => {
                   </h3>
                   
                   <div className="space-y-4 max-w-2xl mx-auto">
-                    <p className="text-lg text-foreground/80 leading-relaxed font-medium">
-                      Mit New Edge Innovation erlebbar machen.
-                    </p>
                     <p className="text-lg text-muted-foreground leading-relaxed">
                       Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.
                     </p>
