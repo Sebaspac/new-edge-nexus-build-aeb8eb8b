@@ -455,23 +455,33 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
                 
-                <CardContent className="relative p-10 h-full flex flex-col">
-                  <motion.div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary via-primary to-primary/80 shadow-lg shadow-primary/25 mb-8" whileHover={{
-                  scale: 1.1,
-                  rotate: 360
-                }} transition={{
-                  duration: 0.6
-                }}>
-                    <Lightbulb className="w-8 h-8 text-white drop-shadow-sm" />
-                  </motion.div>
+                <CardContent className="relative p-10 h-full flex">
+                  <div className="flex-1 flex flex-col">
+                    <motion.div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary via-primary to-primary/80 shadow-lg shadow-primary/25 mb-8" whileHover={{
+                    scale: 1.1,
+                    rotate: 360
+                  }} transition={{
+                    duration: 0.6
+                  }}>
+                      <Lightbulb className="w-8 h-8 text-white drop-shadow-sm" />
+                    </motion.div>
+                    
+                    <h3 className="text-2xl font-bold mb-6 text-primary leading-tight">
+                      Innovation als Prozess
+                    </h3>
+                    <p className="text-base text-muted-foreground leading-relaxed flex-grow">
+                      Für uns ist Innovation kein einzelnes Feature – sie ist ein kontinuierlicher Prozess. 
+                      Wir schaffen den Zugang zu echter Innovation für KMU, Selbständige und Marken im Wandel.
+                    </p>
+                  </div>
                   
-                  <h3 className="text-2xl font-bold mb-6 text-primary leading-tight">
-                    Innovation als Prozess
-                  </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed flex-grow">
-                    Für uns ist Innovation kein einzelnes Feature – sie ist ein kontinuierlicher Prozess. 
-                    Wir schaffen den Zugang zu echter Innovation für KMU, Selbständige und Marken im Wandel.
-                  </p>
+                  {/* Image Placeholder */}
+                  <div className="w-32 h-32 ml-8 flex-shrink-0 rounded-xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 animate-pulse" />
+                    <div className="relative w-16 h-16 rounded-lg bg-primary/20 flex items-center justify-center">
+                      <Eye className="w-8 h-8 text-primary/60" />
+                    </div>
+                  </div>
                   
                   <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
                 </CardContent>
@@ -497,23 +507,33 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
                 
-                <CardContent className="relative p-10 h-full flex flex-col">
-                  <motion.div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent via-accent to-accent/80 shadow-lg shadow-accent/25 mb-8" whileHover={{
-                  scale: 1.1,
-                  rotate: -360
-                }} transition={{
-                  duration: 0.6
-                }}>
-                    <Zap className="w-8 h-8 text-white drop-shadow-sm" />
-                  </motion.div>
+                <CardContent className="relative p-10 h-full flex">
+                  <div className="flex-1 flex flex-col">
+                    <motion.div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent via-accent to-accent/80 shadow-lg shadow-accent/25 mb-8" whileHover={{
+                    scale: 1.1,
+                    rotate: -360
+                  }} transition={{
+                    duration: 0.6
+                  }}>
+                      <Zap className="w-8 h-8 text-white drop-shadow-sm" />
+                    </motion.div>
+                    
+                    <h3 className="text-2xl font-bold mb-6 text-accent leading-tight">
+                      Ganzheitliche Transformation
+                    </h3>
+                    <p className="text-base text-muted-foreground leading-relaxed flex-grow">
+                      Unser Fokus liegt nicht nur auf Automatisierung oder Chatbots, sondern auf ganzheitlicher, 
+                      kreativer Transformation: Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools.
+                    </p>
+                  </div>
                   
-                  <h3 className="text-2xl font-bold mb-6 text-accent leading-tight">
-                    Ganzheitliche Transformation
-                  </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed flex-grow">
-                    Unser Fokus liegt nicht nur auf Automatisierung oder Chatbots, sondern auf ganzheitlicher, 
-                    kreativer Transformation: Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools.
-                  </p>
+                  {/* Image Placeholder */}
+                  <div className="w-32 h-32 ml-8 flex-shrink-0 rounded-xl bg-gradient-to-br from-accent/10 via-accent/5 to-transparent border border-accent/20 flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 animate-pulse" />
+                    <div className="relative w-16 h-16 rounded-lg bg-accent/20 flex items-center justify-center">
+                      <Zap className="w-8 h-8 text-accent/60" />
+                    </div>
+                  </div>
                   
                   <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
                 </CardContent>
