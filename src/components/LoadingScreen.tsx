@@ -9,8 +9,15 @@ export const LoadingScreen = ({ progress }: LoadingScreenProps) => {
   return (
     <motion.div 
       className="fixed inset-0 z-50 bg-background flex flex-col items-center justify-center"
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+      exit={{ 
+        opacity: 0, 
+        scale: 0.95,
+        filter: "blur(10px)"
+      }}
+      transition={{ 
+        duration: 0.8, 
+        ease: [0.4, 0, 0.2, 1]
+      }}
     >
       {/* Logo */}
       <motion.div 
@@ -20,70 +27,69 @@ export const LoadingScreen = ({ progress }: LoadingScreenProps) => {
         transition={{ duration: 0.6 }}
       >
         <div className="flex items-center">
-          <OptimizedImage 
-            src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" 
-            alt="New Edge Logo" 
-            className="h-8 w-8 mr-3" 
-            priority 
-            sizes="32px" 
-          />
+          <div className="h-8 w-8 mr-3 bg-primary rounded-md animate-pulse" />
           <div className="text-3xl font-bold text-foreground">
-            New Edge<span className="text-primary"></span>
+            New Edge<span className="text-primary">.</span>
           </div>
         </div>
       </motion.div>
 
       {/* Progress Bar */}
       <motion.div 
-        className="w-64 h-1 bg-surface rounded-full overflow-hidden"
+        className="w-80 h-2 bg-surface rounded-full overflow-hidden border border-border/50"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
         <motion.div 
           className="h-full bg-gradient-primary rounded-full origin-left"
+          style={{
+            background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)))'
+          }}
           initial={{ scaleX: 0 }}
           animate={{ scaleX: progress / 100 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          transition={{ 
+            duration: 0.3, 
+            ease: "easeOut",
+            delay: progress === 100 ? 0.5 : 0 // Small delay when complete
+          }}
         />
       </motion.div>
 
       {/* Progress Text */}
       <motion.p 
-        className="text-muted-foreground text-sm mt-4"
+        className="text-muted-foreground text-sm mt-4 font-medium"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        Lädt Assets... {Math.round(progress)}%
+        {progress < 100 ? `Lädt Assets... ${Math.round(progress)}%` : 'Fertig!'}
       </motion.p>
 
-      {/* Floating orbs for visual interest */}
+      {/* Minimal floating elements for performance */}
       <motion.div 
-        className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/10 rounded-full blur-2xl"
+        className="absolute top-1/4 left-1/4 w-24 h-24 bg-primary/5 rounded-full blur-xl"
         animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3],
-          rotate: [0, 180, 360] 
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.5, 0.3],
         }}
         transition={{ 
-          duration: 4, 
+          duration: 3, 
           repeat: Infinity, 
           ease: "easeInOut" 
         }}
       />
       <motion.div 
-        className="absolute bottom-1/3 right-1/3 w-24 h-24 bg-accent/10 rounded-full blur-2xl"
+        className="absolute bottom-1/3 right-1/3 w-16 h-16 bg-accent/5 rounded-full blur-xl"
         animate={{ 
-          scale: [1.2, 1, 1.2],
-          opacity: [0.6, 0.3, 0.6],
-          rotate: [360, 180, 0] 
+          scale: [1.1, 1, 1.1],
+          opacity: [0.5, 0.3, 0.5],
         }}
         transition={{ 
-          duration: 4, 
+          duration: 3, 
           repeat: Infinity, 
           ease: "easeInOut",
-          delay: 2
+          delay: 1.5
         }}
       />
     </motion.div>

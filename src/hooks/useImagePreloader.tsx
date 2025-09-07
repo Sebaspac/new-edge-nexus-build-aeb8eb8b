@@ -3,66 +3,91 @@ import { useState, useEffect } from 'react';
 interface UseImagePreloaderOptions {
   images: string[];
   timeout?: number;
+  minLoadTime?: number; // Minimum loading time to show loading screen
 }
 
-export const useImagePreloader = ({ images, timeout = 10000 }: UseImagePreloaderOptions) => {
+export const useImagePreloader = ({ 
+  images, 
+  timeout = 6000, 
+  minLoadTime = 1000 
+}: UseImagePreloaderOptions) => {
   const [loaded, setLoaded] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [startTime] = useState(Date.now());
 
   useEffect(() => {
     if (images.length === 0) {
-      setLoaded(true);
+      // Still respect minimum loading time even with no images
+      setTimeout(() => setLoaded(true), minLoadTime);
       return;
     }
 
     let loadedCount = 0;
     const totalImages = images.length;
-    const imagePromises: Promise<void>[] = [];
+    let hasTimedOut = false;
 
     // Create timeout promise
     const timeoutPromise = new Promise<void>((resolve) => {
       setTimeout(() => {
-        console.warn('Image preloading timeout reached');
-        resolve();
+        if (!hasTimedOut) {
+          console.warn(`Image preloading timeout reached (${timeout}ms)`);
+          hasTimedOut = true;
+          resolve();
+        }
       }, timeout);
     });
 
-    images.forEach((src) => {
-      const imagePromise = new Promise<void>((resolve) => {
+    // Create image loading promises
+    const imagePromises = images.map((src, index) => {
+      return new Promise<void>((resolve) => {
         const img = new Image();
         
+        // Set loading priority for critical images
+        if (index < 3) {
+          (img as any).fetchPriority = 'high';
+        }
+        
         const handleLoad = () => {
-          loadedCount++;
-          setProgress((loadedCount / totalImages) * 100);
+          if (!hasTimedOut) {
+            loadedCount++;
+            setProgress(Math.min((loadedCount / totalImages) * 100, 99));
+          }
           resolve();
         };
 
         const handleError = () => {
           console.warn(`Failed to load image: ${src}`);
-          loadedCount++;
-          setProgress((loadedCount / totalImages) * 100);
+          if (!hasTimedOut) {
+            loadedCount++;
+            setProgress(Math.min((loadedCount / totalImages) * 100, 99));
+          }
           resolve();
         };
 
-        img.addEventListener('load', handleLoad);
-        img.addEventListener('error', handleError);
+        img.addEventListener('load', handleLoad, { once: true });
+        img.addEventListener('error', handleError, { once: true });
         
-        // Start loading
+        // Start loading immediately
         img.src = src;
       });
-
-      imagePromises.push(imagePromise);
     });
 
-    // Wait for all images or timeout
+    // Wait for all images or timeout, but respect minimum loading time
     Promise.race([
       Promise.all(imagePromises),
       timeoutPromise
     ]).then(() => {
-      setLoaded(true);
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, minLoadTime - elapsedTime);
+      
+      setProgress(100);
+      
+      setTimeout(() => {
+        setLoaded(true);
+      }, remainingTime);
     });
 
-  }, [images, timeout]);
+  }, [images, timeout, minLoadTime, startTime]);
 
   return { loaded, progress };
 };

@@ -42,19 +42,56 @@ export function debounce<T extends (...args: any[]) => any>(
 }
 
 /**
- * Preload critical images for better performance
+ * Preload critical images with priority and resource hints
  */
-export function preloadImages(imageUrls: string[]): void {
-  const imagePromises = imageUrls.map((url) => {
-    return new Promise<HTMLImageElement>((resolve, reject) => {
+export function preloadImages(imageUrls: string[]): Promise<void> {
+  // Add resource hints to document head
+  imageUrls.forEach((url) => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = url;
+    link.crossOrigin = 'anonymous';
+    document.head.appendChild(link);
+  });
+
+  // Preload images with timeout and priority handling
+  const imagePromises = imageUrls.map((url, index) => {
+    return new Promise<void>((resolve) => {
       const img = new Image();
-      img.onload = () => resolve(img);
-      img.onerror = reject;
+      
+      // Set higher priority for first few images
+      if (index < 3) {
+        (img as any).fetchPriority = 'high';
+      }
+      
+      const cleanup = () => {
+        img.onload = null;
+        img.onerror = null;
+      };
+      
+      img.onload = () => {
+        cleanup();
+        resolve();
+      };
+      
+      img.onerror = () => {
+        console.warn(`Failed to preload image: ${url}`);
+        cleanup();
+        resolve();
+      };
+      
+      // Timeout after 3 seconds per image
+      setTimeout(() => {
+        cleanup();
+        resolve();
+      }, 3000);
+      
       img.src = url;
     });
   });
   
-  Promise.allSettled(imagePromises);
+  return Promise.allSettled(imagePromises).then(() => {});
 }
 
 /**
@@ -78,12 +115,14 @@ export function getOptimizedAnimationDuration(baseDuration: number = 0.3): numbe
 }
 
 /**
- * List of critical images that should be preloaded
+ * List of critical images that should be preloaded (above the fold)
  */
 export const CRITICAL_IMAGES = [
   '/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png', // Logo
   '/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png', // Sebastian
   '/lovable-uploads/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png', // Wenjamin
+  '/lovable-uploads/804d1765-b7c9-45f5-93a3-dddb443996f4.png', // Team collaboration image
+  '/lovable-uploads/72768da6-5ac5-423e-a9df-579dd83dc1aa.png', // Analytics image
 ];
 
 /**
@@ -115,18 +154,70 @@ export function createPerformanceObserver(): PerformanceObserver | null {
 }
 
 /**
- * Initialize all performance optimizations
+ * Add critical resource hints to improve loading performance
  */
-export function initializePerformanceOptimizations(): void {
-  console.log('🚀 Initializing performance optimizations...');
+export function addResourceHints(): void {
+  const head = document.head;
   
-  // Preload critical images
-  preloadImages(CRITICAL_IMAGES);
+  // Preconnect to external domains
+  const preconnectUrls = [
+    'https://fonts.googleapis.com',
+    'https://fonts.gstatic.com',
+  ];
   
-  // Setup performance monitoring in development
-  if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+  preconnectUrls.forEach(url => {
+    const link = document.createElement('link');
+    link.rel = 'preconnect';
+    link.href = url;
+    link.crossOrigin = 'anonymous';
+    head.appendChild(link);
+  });
+
+  // DNS prefetch for potential resources
+  const dnsPrefetchUrls = [
+    '//cdn.jsdelivr.net',
+  ];
+  
+  dnsPrefetchUrls.forEach(url => {
+    const link = document.createElement('link');
+    link.rel = 'dns-prefetch';
+    link.href = url;
+    head.appendChild(link);
+  });
+}
+
+/**
+ * Initialize all performance optimizations with comprehensive approach
+ */
+export async function initializePerformanceOptimizations(): Promise<void> {
+  console.time('🚀 Performance optimizations');
+  
+  // Add resource hints immediately
+  addResourceHints();
+  
+  // Preload critical images with priority
+  const imagePreloadPromise = preloadImages(CRITICAL_IMAGES);
+  
+  // Setup performance monitoring
+  if (typeof window !== 'undefined') {
     createPerformanceObserver();
   }
   
-  console.log('✅ Performance optimizations initialized');
+  // Set performance mode based on device capabilities
+  const isLowEndDevice = navigator.hardwareConcurrency <= 2;
+  const isSlowConnection = (navigator as any).connection?.effectiveType === 'slow-2g' || (navigator as any).connection?.effectiveType === '2g';
+  
+  if (isLowEndDevice || isSlowConnection) {
+    document.documentElement.style.setProperty('--duration-fast', '0.1s');
+    document.documentElement.style.setProperty('--duration-normal', '0.2s');
+    document.documentElement.style.setProperty('--duration-slow', '0.3s');
+  }
+  
+  // Wait for critical images to load or timeout after 4 seconds
+  await Promise.race([
+    imagePreloadPromise,
+    new Promise(resolve => setTimeout(resolve, 4000))
+  ]);
+  
+  console.timeEnd('🚀 Performance optimizations');
 }

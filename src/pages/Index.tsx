@@ -1,36 +1,25 @@
-import { useCallback, useState } from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Zap, Brain, Target, Rocket, Star, Users } from "lucide-react";
+import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
+import { HeroSection } from '../components/HeroSection';
+import { InnovationSection } from '../components/InnovationSection';
+import { ScrollAnimation } from '../hooks/useScrollAnimation';
+import { FastLoadWrapper } from '../components/FastLoadWrapper';
+import { MobileNavigation } from '@/components/MobileNavigation';
+import CookieConsent from '@/components/CookieConsent';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
-import { MobileNavigation } from "@/components/MobileNavigation";
-import { OptimizedImage } from "@/components/OptimizedImage";
-import CookieConsent from "@/components/CookieConsent";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { ScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useImagePreloader } from "@/hooks/useImagePreloader";
-import { LoadingScreen } from "@/components/LoadingScreen";
-import { HeroSection } from "@/components/HeroSection";
-import { InnovationSection } from "@/components/InnovationSection";
+import { useCallback } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Sparkles, Zap, Brain, Target, Rocket, Star, Users } from "lucide-react";
+
 const Index = () => {
   const { t } = useLanguage();
 
-  // Critical images that need to be preloaded
-  const criticalImages = [
-    "/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png", // Logo
-    "/lovable-uploads/804d1765-b7c9-45f5-93a3-dddb443996f4.png", // Team collaboration
-    "/lovable-uploads/72768da6-5ac5-423e-a9df-579dd83dc1aa.png", // Business analytics
-  ];
-
-  const { loaded: imagesLoaded, progress } = useImagePreloader({
-    images: criticalImages,
-    timeout: 8000
-  });
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
@@ -102,6 +91,7 @@ const Index = () => {
       });
     }
   }, []);
+
   const services = [{
     icon: Sparkles,
     title: "Studio Design",
@@ -118,6 +108,7 @@ const Index = () => {
     description: "Intelligente Systeme und Workflows für maximale Effizienz.",
     gradient: "from-accent to-primary"
   }];
+
   const stats = [{
     number: "150+",
     label: "Projekte realisiert",
@@ -134,440 +125,392 @@ const Index = () => {
     number: "24/7",
     label: "Support verfügbar",
     icon: Users
-      }];
-  
-  // Show loading screen until critical images are loaded
-  if (!imagesLoaded) {
-    return <LoadingScreen progress={progress} />;
-  }
+  }];
 
   return (
-    <motion.div 
-      className="min-h-screen bg-background overflow-x-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      {/* Mobile Navigation */}
-      <MobileNavigation onContactClick={scrollToContact} theme="dark" />
+    <FastLoadWrapper>
+      <Helmet>
+        <title>New Edge - Innovation trifft Strategie</title>
+        <meta name="description" content="New Edge verbindet modernste Technologie mit strategischer Beratung. Wir entwickeln maßgeschneiderte digitale Lösungen und begleiten Unternehmen auf dem Weg in die Zukunft." />
+        <meta name="keywords" content="Digitale Transformation, Innovation, Technologie, Beratung, Software, KI, Automatisierung" />
+        <meta property="og:title" content="New Edge - Innovation trifft Strategie" />
+        <meta property="og:description" content="Modernste Technologie mit strategischer Beratung für die digitale Zukunft Ihres Unternehmens." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://new-edge.com" />
+      </Helmet>
 
-      {/* Hero Section */}
-      <HeroSection onContactClick={scrollToContact} />
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+        {/* Mobile Navigation */}
+        <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
-      {/* Innovation Section */}
-      <InnovationSection />
+        {/* Hero Section */}
+        <HeroSection onContactClick={scrollToContact} />
 
-      {/* 🚀 Impact Points Section with Overlap Effect */}
-      <ScrollAnimation animation="fadeRight" className="relative -mt-16 pt-24 pb-20 bg-gradient-to-l from-surface to-background overflow-hidden">
-        {/* Modern floating elements */}
-        <motion.div className="absolute top-40 right-10 w-24 h-24 bg-accent/10 rounded-full blur-xl" animate={{
-        x: [0, 30, 0],
-        y: [0, -20, 0],
-        scale: [1, 1.3, 1]
-      }} transition={{
-        duration: 6,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }} />
-        <motion.div className="absolute bottom-20 left-20 w-36 h-36 bg-primary/5 rounded-full blur-2xl" animate={{
-        rotate: [0, 360],
-        scale: [1, 0.8, 1]
-      }} transition={{
-        duration: 10,
-        repeat: Infinity,
-        ease: "linear"
-      }} />
-        <div className="container-xl">
-          {/* Section Title */}
-          <motion.div className="text-center mb-16" initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6
-        }}>
-            <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere innovative Herangehensweise</h2>
-            
-          </motion.div>
-          <motion.div className="grid md:grid-cols-2 gap-8 items-stretch" initial="hidden" whileInView="visible" viewport={{
-          once: true,
-          margin: "-100px"
-        }} variants={{
-          hidden: {
-            opacity: 0
-          },
-          visible: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.15,
-              delayChildren: 0.2
-            }
-          }
-        }}>
-            {[{
-            number: "01",
-            title: "Automatisierung mit Impact",
-            description: "Wir automatisieren repetitive Aufgaben, damit Sie sich auf Ihr Kerngeschäft konzentrieren können."
-          }, {
-            number: "02",
-            title: "Marketing & Technologie vereint",
-            description: "Interdisziplinäres Team aus Strategen, Creatives und Entwicklern; alles aus einer Hand."
-          }, {
-            number: "03",
-            title: "Zugänglichkeit statt Komplexität",
-            description: "Transparente Prozesse und verständliche Lösungen statt Technik Buzzwords."
-          }, {
-            number: "04",
-            title: "Individuell & skalierbar",
-            description: "Maßgeschneiderte Setups ohne Abo Modelle – Sie bezahlen nur, was Sie nutzen."
-          }].map((point, index) => <motion.div key={index} variants={{
-            hidden: {
+        {/* Innovation Section */}
+        <InnovationSection />
+
+        {/* Impact Points Section with Overlap Effect */}
+        <ScrollAnimation animation="fadeRight" className="relative -mt-16 pt-24 pb-20 bg-gradient-to-l from-surface to-background overflow-hidden">
+          {/* Modern floating elements */}
+          <motion.div className="absolute top-40 right-10 w-24 h-24 bg-accent/10 rounded-full blur-xl" animate={{
+            x: [0, 30, 0],
+            y: [0, -20, 0],
+            scale: [1, 1.3, 1]
+          }} transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} />
+          <motion.div className="absolute bottom-20 left-20 w-36 h-36 bg-primary/5 rounded-full blur-2xl" animate={{
+            rotate: [0, 360],
+            scale: [1, 0.8, 1]
+          }} transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "linear"
+          }} />
+          <div className="container-xl">
+            {/* Section Title */}
+            <motion.div className="text-center mb-16" initial={{
               opacity: 0,
-              x: index % 2 === 0 ? -60 : 60,
-              scale: 0.9
-            },
-            visible: {
+              y: 30
+            }} whileInView={{
               opacity: 1,
-              x: 0,
-              scale: 1,
-              transition: {
-                duration: 0.7,
-                ease: "easeOut",
-                type: "spring",
-                stiffness: 100
-              }
-            }
-          }} whileHover={{
-            scale: 1.02,
-            y: -5,
-            transition: {
-              duration: 0.2
-            }
-          }} className="group hover-lift h-full">
-                <div className="flex items-start gap-6 p-6 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm hover:bg-card transition-all duration-300 h-full">
-                  <motion.div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-h3 group-hover:scale-110 transition-transform duration-300" whileHover={{
-                rotate: 180
-              }} transition={{
-                duration: 0.4
-              }}>
-                    {point.number}
-                  </motion.div>
-                  <div className="flex-1">
-                    <h3 className="text-h3 mb-3 text-foreground group-hover:text-primary transition-colors text-base font-semibold">
-                      {point.title}
-                    </h3>
-                    <p className="text-body text-muted-foreground leading-relaxed">
-                      {point.description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>)}
-          </motion.div>
-        </div>
-      </ScrollAnimation>
-
-      {/* 🎯 Services Section with Overlap Effect */}
-      <ScrollAnimation animation="fadeLeft" className="relative -mt-20 pt-32 pb-20 bg-gradient-to-r from-background to-surface overflow-hidden">
-        {/* Animated background elements */}
-        
-        <motion.div className="absolute -top-10 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
-        scale: [1, 1.2, 1],
-        rotate: [0, 180, 360]
-      }} transition={{
-        duration: 12,
-        repeat: Infinity,
-        ease: "linear"
-      }} />
-        <div className="container-xl mt-16">
-          <ScrollAnimation animation="fadeUp" delay={0.2} className="text-center mb-16">
-            <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere Kompetenzbereiche</h2>
-            <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
-              Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
-            </p>
-          </ScrollAnimation>
-
-          <motion.div className="grid-modern" initial="hidden" whileInView="visible" viewport={{
-          once: true,
-          margin: "-50px"
-        }} variants={{
-          hidden: {
-            opacity: 0
-          },
-          visible: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.3,
-              delayChildren: 0.4
-            }
-          }
-        }}>
-            {services.map((service, index) => {
-            const links = ['/studio', '/media', '/lab'];
-            return <motion.div key={index} variants={{
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6
+            }}>
+              <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere innovative Herangehensweise</h2>
+            </motion.div>
+            <motion.div className="grid md:grid-cols-2 gap-8 items-stretch" initial="hidden" whileInView="visible" viewport={{
+              once: true,
+              margin: "-100px"
+            }} variants={{
               hidden: {
-                opacity: 0,
-                y: 80,
-                rotateX: 45
+                opacity: 0
               },
               visible: {
                 opacity: 1,
-                y: 0,
-                rotateX: 0,
                 transition: {
-                  duration: 0.8,
-                  ease: "easeOut"
+                  staggerChildren: 0.15,
+                  delayChildren: 0.2
                 }
               }
-            }} whileHover={{
-              scale: 1.05,
-              y: -15,
-              transition: {
-                duration: 0.3
-              }
-            }} className="group">
-                  <Card className="card-modern h-full hover-lift">
-                    <CardContent className="p-8 flex flex-col h-full">
-                      <motion.div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`} whileHover={{
-                    rotate: 360,
-                    scale: 1.2
-                  }} transition={{
-                    duration: 0.6
-                  }}>
-                        <service.icon className="w-8 h-8 text-white" />
-                      </motion.div>
-                      <h3 className="text-h3 font-semibold mb-4 text-foreground">
-                        {service.title}
-                      </h3>
-                      <p className="text-body text-muted-foreground leading-relaxed mb-6 flex-grow">
-                        {service.description}
-                      </p>
-                      <Button variant="default" size="sm" className="self-start group/btn btn-primary" asChild>
-                        <Link to={links[index]}>
-                          Mehr erfahren
-                          <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>;
-          })}
-          </motion.div>
-        </div>
-      </ScrollAnimation>
-
-      {/* 📧 Contact Section - ✅ KORRIGIERTE FELDNAMEN */}
-      <ScrollAnimation animation="scaleIn" threshold={0.1}>
-        <section id="contact-section" className="relative -mt-24 pt-32 pb-20 bg-gradient-to-br from-surface via-background to-surface overflow-hidden">
-          {/* Modern floating elements */}
-          <motion.div className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl" animate={{
-          scale: [1, 1.5, 1],
-          rotate: [0, 180, 360]
-        }} transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
-          <motion.div className="absolute bottom-40 right-20 w-40 h-40 bg-accent/5 rounded-full blur-2xl" animate={{
-          y: [0, -30, 0],
-          scale: [1, 0.8, 1]
-        }} transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2
-        }} />
-          <div className="container-narrow">
-            <ScrollAnimation animation="fadeUp" delay={0.1} className="text-center mb-12">
-              <h2 className="text-h1 font-bold mb-6 text-foreground">
-                Bereit für den nächsten Schritt?
-              </h2>
-              <p className="text-body-xl text-muted-foreground">
-                Ready when you are. Wir bringen's online.
-              </p>
-            </ScrollAnimation>
-
-            <ScrollAnimation animation="fadeUp" delay={0.3}>
-              <Card className="card-modern">
-                <CardContent className="p-8">
-                  <motion.form onSubmit={handleSubmit} className="space-y-6" initial="hidden" animate="visible" variants={{
+            }}>
+              {[{
+                number: "01",
+                title: "Automatisierung mit Impact",
+                description: "Wir automatisieren repetitive Aufgaben, damit Sie sich auf Ihr Kerngeschäft konzentrieren können."
+              }, {
+                number: "02",
+                title: "Marketing & Technologie vereint",
+                description: "Interdisziplinäres Team aus Strategen, Creatives und Entwicklern; alles aus einer Hand."
+              }, {
+                number: "03",
+                title: "Zugänglichkeit statt Komplexität",
+                description: "Transparente Prozesse und verständliche Lösungen statt Technik Buzzwords."
+              }, {
+                number: "04",
+                title: "Individuell & skalierbar",
+                description: "Maßgeschneiderte Setups ohne Abo Modelle – Sie bezahlen nur, was Sie nutzen."
+              }].map((point, index) => 
+                <motion.div key={index} variants={{
                   hidden: {
-                    opacity: 0
+                    opacity: 0,
+                    x: index % 2 === 0 ? -60 : 60,
+                    scale: 0.9
                   },
                   visible: {
                     opacity: 1,
+                    x: 0,
+                    scale: 1,
                     transition: {
-                      staggerChildren: 0.1,
-                      delayChildren: 0.2
+                      duration: 0.7,
+                      ease: "easeOut",
+                      type: "spring",
+                      stiffness: 100
                     }
                   }
-                }}>
-                    <motion.div className="space-y-6" variants={{
-                    hidden: {
-                      opacity: 0
-                    },
-                    visible: {
-                      opacity: 1,
-                      transition: {
-                        staggerChildren: 0.1
-                      }
-                    }
-                  }}>
-                      {/* Form fields with staggered animations */}
-                      {[{
-                      id: "name",
-                      label: "Name *",
-                      type: "text",
-                      placeholder: "Ihr Name",
-                      required: true
-                    }, {
-                      id: "email",
-                      label: "E-Mail *",
-                      type: "email",
-                      placeholder: "ihre@email.com",
-                      required: true
-                    }, {
-                      id: "position",
-                      label: "Position *",
-                      type: "text",
-                      placeholder: "Ihre Position",
-                      required: true
-                    }, {
-                      id: "firma",
-                      label: "Firma *",
-                      type: "text",
-                      placeholder: "Ihr Unternehmen",
-                      required: true
-                    }, {
-                      id: "telefon",
-                      label: "Telefon",
-                      type: "tel",
-                      placeholder: "Ihre Telefonnummer",
-                      required: false
-                    }].map(field => <motion.div key={field.id} className="space-y-2" variants={{
-                      hidden: {
-                        opacity: 0,
-                        y: 20
-                      },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                          duration: 0.4,
-                          ease: "easeOut"
-                        }
-                      }
+                }} whileHover={{
+                  scale: 1.02,
+                  y: -5,
+                  transition: {
+                    duration: 0.2
+                  }
+                }} className="group hover-lift h-full">
+                  <div className="flex items-start gap-6 p-6 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm hover:bg-card transition-all duration-300 h-full">
+                    <motion.div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-h3 group-hover:scale-110 transition-transform duration-300" whileHover={{
+                      rotate: 180
+                    }} transition={{
+                      duration: 0.4
                     }}>
-                          <Label htmlFor={field.id} className="text-body font-medium">{field.label}</Label>
-                          <Input id={field.id} name={field.id} type={field.type} placeholder={field.placeholder} required={field.required} className="bg-surface border-border" />
-                        </motion.div>)}
-
-                      {/* Message field */}
-                      <motion.div className="space-y-2" variants={{
-                      hidden: {
-                        opacity: 0,
-                        y: 20
-                      },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                          duration: 0.4,
-                          ease: "easeOut"
-                        }
-                      }
-                    }}>
-                        <Label htmlFor="nachricht" className="text-body font-medium">Nachricht</Label>
-                        <Textarea id="nachricht" name="nachricht" placeholder="Erzählen Sie uns von Ihrem Projekt..." rows={6} className="bg-surface border-border resize-none" />
-                      </motion.div>
+                      {point.number}
                     </motion.div>
-                    
-                    <motion.div variants={{
+                    <div className="flex-1">
+                      <h3 className="text-h3 mb-3 text-foreground group-hover:text-primary transition-colors text-base font-semibold">
+                        {point.title}
+                      </h3>
+                      <p className="text-body text-muted-foreground leading-relaxed">
+                        {point.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </motion.div>
+          </div>
+        </ScrollAnimation>
+
+        {/* Services Section with Overlap Effect */}
+        <ScrollAnimation animation="fadeLeft" className="relative -mt-20 pt-32 pb-20 bg-gradient-to-r from-background to-surface overflow-hidden">
+          <motion.div className="absolute -top-10 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360]
+          }} transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "linear"
+          }} />
+          <div className="container-xl mt-16">
+            <ScrollAnimation animation="fadeUp" delay={0.2} className="text-center mb-16">
+              <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere Kompetenzbereiche</h2>
+              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
+                Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
+              </p>
+            </ScrollAnimation>
+
+            <motion.div className="grid-modern" initial="hidden" whileInView="visible" viewport={{
+              once: true,
+              margin: "-50px"
+            }} variants={{
+              hidden: {
+                opacity: 0
+              },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.3,
+                  delayChildren: 0.4
+                }
+              }
+            }}>
+              {services.map((service, index) => {
+                const links = ['/studio', '/media', '/lab'];
+                return (
+                  <motion.div key={index} variants={{
                     hidden: {
                       opacity: 0,
-                      y: 20
+                      y: 80,
+                      rotateX: 45
                     },
                     visible: {
                       opacity: 1,
                       y: 0,
+                      rotateX: 0,
                       transition: {
-                        duration: 0.5,
+                        duration: 0.8,
                         ease: "easeOut"
                       }
                     }
-                  }}>
-                      <Button type="submit" size="lg" className="w-full btn-primary hover-magnetic">
-                        Nachricht senden
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </motion.div>
-                  </motion.form>
-                </CardContent>
-              </Card>
-            </ScrollAnimation>
+                  }} whileHover={{
+                    scale: 1.05,
+                    y: -15,
+                    transition: {
+                      duration: 0.3
+                    }
+                  }} className="group">
+                    <Card className="card-modern h-full hover-lift">
+                      <CardContent className="p-8 flex flex-col h-full">
+                        <motion.div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`} whileHover={{
+                          rotate: 360,
+                          scale: 1.2
+                        }} transition={{
+                          duration: 0.6
+                        }}>
+                          <service.icon className="w-8 h-8 text-white" />
+                        </motion.div>
+                        <h3 className="text-h3 font-semibold mb-4 text-foreground">
+                          {service.title}
+                        </h3>
+                        <p className="text-body text-muted-foreground leading-relaxed mb-6 flex-grow">
+                          {service.description}
+                        </p>
+                        <Button variant="default" size="sm" className="self-start group/btn btn-primary" asChild>
+                          <Link to={links[index]}>
+                            Mehr erfahren
+                            <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
+                          </Link>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
           </div>
-        </section>
-      </ScrollAnimation>
+        </ScrollAnimation>
 
-      {/* 🍪 Cookie Consent */}
-      <CookieConsent />
+        {/* Contact Section */}
+        <ScrollAnimation animation="scaleIn" threshold={0.1}>
+          <section id="contact-section" className="relative -mt-24 pt-32 pb-20 bg-gradient-to-br from-surface via-background to-surface overflow-hidden">
+            {/* Modern floating elements */}
+            <motion.div className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl" animate={{
+              scale: [1, 1.5, 1],
+              rotate: [0, 180, 360]
+            }} transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }} />
+            <motion.div className="absolute bottom-40 right-20 w-40 h-40 bg-accent/5 rounded-full blur-2xl" animate={{
+              y: [0, -30, 0],
+              scale: [1, 0.8, 1]
+            }} transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2
+            }} />
+            <div className="container-narrow">
+              <ScrollAnimation animation="fadeUp" delay={0.1} className="text-center mb-12">
+                <h2 className="text-h1 font-bold mb-6 text-foreground">
+                  Bereit für den nächsten Schritt?
+                </h2>
+                <p className="text-body-xl text-muted-foreground">
+                  Ready when you are. Wir bringen's online.
+                </p>
+              </ScrollAnimation>
 
-      {/* Footer */}
-      <footer className="bg-surface-elevated/80 border-t border-border py-12 sm:py-16">
-        <div className="container-xl">
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
-            <div className="sm:col-span-2">
-              <div className="flex items-center mb-4">
-                <OptimizedImage src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" priority sizes="32px" />
-                <div className="text-2xl sm:text-3xl font-bold text-foreground">
-                  New Edge<span className="text-primary"></span>
-                </div>
-              </div>
-              <p className="text-muted-foreground mb-4 sm:mb-6 max-w-md text-sm sm:text-base">
-                New Edge ist eine Creative-Tech Agentur für innovationsgetriebene Markenkommunikation.
-              </p>
-              <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 sm:w-10 sm:h-10 bg-surface rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
-                  <span className="text-xs sm:text-sm text-foreground hover:text-white">in</span>
-                </a>
-              </div>
+              <ScrollAnimation animation="fadeUp" delay={0.3}>
+                <Card className="card-modern">
+                  <CardContent className="p-8">
+                    <motion.form onSubmit={handleSubmit} className="space-y-6" initial="hidden" animate="visible" variants={{
+                      hidden: { opacity: 0 },
+                      visible: {
+                        opacity: 1,
+                        transition: {
+                          staggerChildren: 0.1,
+                          delayChildren: 0.2
+                        }
+                      }
+                    }}>
+                      <motion.div className="space-y-6" variants={{
+                        hidden: { opacity: 0 },
+                        visible: {
+                          opacity: 1,
+                          transition: { staggerChildren: 0.1 }
+                        }
+                      }}>
+                        {/* Form fields with staggered animations */}
+                        {[{
+                          id: "name",
+                          label: "Name *",
+                          type: "text",
+                          placeholder: "Ihr Name",
+                          required: true
+                        }, {
+                          id: "email",
+                          label: "E-Mail *",
+                          type: "email",
+                          placeholder: "ihre@email.com",
+                          required: true
+                        }, {
+                          id: "position",
+                          label: "Position *",
+                          type: "text",
+                          placeholder: "Ihre Position",
+                          required: true
+                        }, {
+                          id: "firma",
+                          label: "Firma *",
+                          type: "text",
+                          placeholder: "Ihr Unternehmen",
+                          required: true
+                        }, {
+                          id: "telefon",
+                          label: "Telefon",
+                          type: "tel",
+                          placeholder: "Ihre Telefonnummer",
+                          required: false
+                        }].map(field => (
+                          <motion.div key={field.id} className="space-y-2" variants={{
+                            hidden: { opacity: 0, y: 20 },
+                            visible: {
+                              opacity: 1,
+                              y: 0,
+                              transition: {
+                                duration: 0.4,
+                                ease: "easeOut"
+                              }
+                            }
+                          }}>
+                            <Label htmlFor={field.id} className="text-foreground font-medium">
+                              {field.label}
+                            </Label>
+                            <Input
+                              id={field.id}
+                              name={field.id}
+                              type={field.type}
+                              placeholder={field.placeholder}
+                              required={field.required}
+                              className="bg-background/50 border-border focus:border-primary transition-colors"
+                            />
+                          </motion.div>
+                        ))}
+                        
+                        <motion.div className="space-y-2" variants={{
+                          hidden: { opacity: 0, y: 20 },
+                          visible: {
+                            opacity: 1,
+                            y: 0,
+                            transition: { duration: 0.4, ease: "easeOut" }
+                          }
+                        }}>
+                          <Label htmlFor="nachricht" className="text-foreground font-medium">
+                            Nachricht *
+                          </Label>
+                          <Textarea
+                            id="nachricht"
+                            name="nachricht"
+                            placeholder="Erzählen Sie uns von Ihrem Projekt..."
+                            required
+                            className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none"
+                          />
+                        </motion.div>
+                      </motion.div>
+
+                      <motion.div variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: {
+                          opacity: 1,
+                          y: 0,
+                          transition: { duration: 0.4, ease: "easeOut" }
+                        }
+                      }}>
+                        <Button
+                          type="submit"
+                          size="lg"
+                          className="w-full btn-primary"
+                        >
+                          Nachricht senden
+                          <ArrowRight className="w-5 h-5 ml-2" />
+                        </Button>
+                      </motion.div>
+                    </motion.form>
+                  </CardContent>
+                </Card>
+              </ScrollAnimation>
             </div>
-            
-            <div>
-              <h4 className="font-semibold mb-3 sm:mb-4 text-foreground text-sm sm:text-base">Services</h4>
-              <ul className="space-y-1 sm:space-y-2 text-muted-foreground text-sm sm:text-base">
-                <li><Link to="/studio" className="hover:text-primary transition-colors">STUDIO</Link></li>
-                <li><Link to="/media" className="hover:text-primary transition-colors">MEDIA</Link></li>
-                <li><Link to="/lab" className="hover:text-primary transition-colors">LAB</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-3 sm:mb-4 text-foreground text-sm sm:text-base">Kontakt</h4>
-              <ul className="space-y-1 sm:space-y-2 text-muted-foreground text-sm sm:text-base">
-                <li>
-                  <a href="mailto:info@newedgebrand.com" className="hover:text-primary transition-colors">
-                    info@newedgebrand.com
-                  </a>
-                </li>
-                <li>+49 15750998236</li>
-                <li>Deutschland</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-border pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-muted-foreground text-xs sm:text-sm">©2025 New Edge. Alle Rechte vorbehalten.</p>
-            <div className="flex space-x-4 sm:space-x-6 mt-3 sm:mt-4 md:mt-0">
-              <Link to="/impressum" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">Impressum</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </motion.div>
+          </section>
+        </ScrollAnimation>
+
+        {/* Cookie Consent */}
+        <CookieConsent />
+      </div>
+    </FastLoadWrapper>
   );
 };
 
