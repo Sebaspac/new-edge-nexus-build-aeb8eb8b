@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HardPreloadScreen } from './HardPreloadScreen';
-import { initializeHardPreload, type PreloadProgress, type PreloadResult } from '@/utils/hardPreloader';
+import { LoadingScreen } from './LoadingScreen';
+import { ABOVE_THE_FOLD_IMAGES, preloadImages } from '@/utils/performanceOptimizations';
 
 interface FastLoadWrapperProps {
   children: React.ReactNode;
@@ -9,69 +9,62 @@ interface FastLoadWrapperProps {
 
 export const FastLoadWrapper: React.FC<FastLoadWrapperProps> = ({ children }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [progress, setProgress] = useState<PreloadProgress>({
-    loaded: 0,
-    total: 0,
-    percentage: 0,
-    failed: 0,
-    skipped: 0,
-    phase: 'initializing'
-  });
-  const [result, setResult] = useState<PreloadResult>();
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const startHardPreload = async () => {
-      console.time('🚀 Hard Preload Wrapper');
+    const preloadCriticalImagesOnly = async () => {
+      console.time('FastLoad: Critical images only');
       
       try {
-        // Initialize hard preload with progress callback
-        const preloadResult = await initializeHardPreload((currentProgress) => {
-          setProgress(currentProgress);
-        });
-
-        setResult(preloadResult);
+        // Start with progress animation
+        setProgress(30);
         
-        // Brief pause to show completion state
-        if (preloadResult.success) {
-          await new Promise(resolve => setTimeout(resolve, 800));
-        } else {
-          // Even if preload failed, show the site after a brief delay
-          await new Promise(resolve => setTimeout(resolve, 1500));
-        }
+        // Preload only above-the-fold images
+        await Promise.race([
+          preloadImages(ABOVE_THE_FOLD_IMAGES),
+          new Promise(resolve => setTimeout(resolve, 500))
+        ]);
         
-        console.timeEnd('🚀 Hard Preload Wrapper');
+        setProgress(80);
         
-        // Unlock the website
-        setIsLoaded(true);
+        // Minimum load time for smooth UX
+        await new Promise(resolve => setTimeout(resolve, 100));
         
-      } catch (error) {
-        console.error('❌ Hard preload wrapper failed:', error);
+        console.timeEnd('FastLoad: Critical images only');
+        setProgress(100);
         
-        // Fallback: show site after a timeout even if preloading fails
+        // Quick transition to content
         setTimeout(() => {
           setIsLoaded(true);
-        }, 3000);
+        }, 100);
+        
+      } catch (error) {
+        console.warn('FastLoad: Critical image preloading failed, continuing anyway', error);
+        setProgress(100);
+        setTimeout(() => {
+          setIsLoaded(true);
+        }, 200);
       }
     };
 
-    startHardPreload();
+    preloadCriticalImagesOnly();
   }, []);
 
   return (
     <>
       <AnimatePresence mode="wait">
         {!isLoaded && (
-          <HardPreloadScreen progress={progress} result={result} />
+          <LoadingScreen progress={progress} />
         )}
       </AnimatePresence>
       
       {isLoaded && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ 
-            duration: 0.8, 
-            ease: [0.25, 0.25, 0, 1] 
+            duration: 0.6, 
+            ease: [0.4, 0, 0.2, 1] 
           }}
         >
           {children}

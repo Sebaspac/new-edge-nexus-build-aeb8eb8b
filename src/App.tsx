@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { HelmetProvider } from 'react-helmet-async';
 import { lazy, Suspense, useEffect } from "react";
+import { FastLoadWrapper } from "@/components/FastLoadWrapper";
+
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
 const Services = lazy(() => import("./pages/Services"));
@@ -35,7 +37,8 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
         <LanguageProvider>
-          <TooltipProvider>
+          <FastLoadWrapper>
+            <TooltipProvider>
               <Toaster />
               <Sonner />
               <BrowserRouter>
@@ -53,6 +56,7 @@ const App = () => {
               </Suspense>
             </BrowserRouter>
           </TooltipProvider>
+          </FastLoadWrapper>
         </LanguageProvider>
       </HelmetProvider>
     </QueryClientProvider>
