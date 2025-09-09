@@ -355,75 +355,7 @@ const Lab = () => {
               }}>
                   SOFORT VERFÜGBAR
                 </div>
-                <CardContent className="p-8 sm:p-12">
-                  <div className="grid lg:grid-cols-2 gap-8 items-center">
-                    <div className="text-center lg:text-left">
-                      
-                      <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg text-left">
-                        24/7 Kundenbetreuung mit KI-gestützten Antworten. Sofortige Einrichtung für Ihre Website mit intelligenter Konversation.
-                        <span className="font-semibold"> Ultra-High Zufriedenheitsraten durch personalisierte Antworten.</span>
-                      </p>
-                      <div className="space-y-3 mb-8">
-                        <div className="flex items-center justify-center lg:justify-start gap-3">
-                          <div className="w-2 h-2 rounded-full" style={{
-                          backgroundColor: '#4F97F0'
-                        }}></div>
-                          <span className="text-sm text-gray-600">Sofortige KI-Antworten</span>
-                        </div>
-                        <div className="flex items-center justify-center lg:justify-start gap-3">
-                          <div className="w-2 h-2 rounded-full" style={{
-                          backgroundColor: '#9F91F8'
-                        }}></div>
-                          <span className="text-sm text-gray-600">Multichannel-Integration</span>
-                        </div>
-                        <div className="flex items-center justify-center lg:justify-start gap-3">
-                          <div className="w-2 h-2 rounded-full" style={{
-                          backgroundColor: '#FFED00'
-                        }}></div>
-                          <span className="text-sm text-gray-600">Individuelle Anpassung</span>
-                        </div>
-                      </div>
-                      <Button size="lg" className="w-full lg:w-auto text-white text-base sm:text-lg px-8 py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
-                      background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
-                    }} onClick={scrollToContact}>ChatBot einrichten</Button>
-                    </div>
-                    <div className="hidden lg:block">
-                      {/* Chat Demo Preview */}
-                      <div className="bg-white rounded-lg p-6 shadow-lg max-w-md mx-auto">
-                        <div className="space-y-4 text-left">
-                          <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white" style={{
-                            backgroundColor: '#4F97F0'
-                          }}>
-                              AI
-                            </div>
-                            <div className="bg-gray-100 rounded-lg px-4 py-3 text-sm max-w-[250px]">
-                              Hallo! Wie kann ich Ihnen heute helfen?
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3 justify-end">
-                            <div className="bg-blue-500 text-white rounded-lg px-4 py-3 text-sm max-w-[250px]">
-                              Welche Leistungen bieten Sie an?
-                            </div>
-                            <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm">
-                              👤
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white" style={{
-                            backgroundColor: '#4F97F0'
-                          }}>
-                              AI
-                            </div>
-                            <div className="bg-gray-100 rounded-lg px-4 py-3 text-sm max-w-[250px]">
-                              Wir bieten KI-Integration, Webentwicklung und Automatisierung. Soll ich Ihnen mehr Details geben?
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
+                
               </Card>
             </div>
 
@@ -452,21 +384,7 @@ const Lab = () => {
             <Card className="bg-gradient-to-br from-green-50 to-green-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{
             animationDelay: '0.3s'
           }}>
-              <CardContent className="p-8 text-center relative">
-                <div className="absolute top-4 right-4 px-2 py-1 rounded-full text-xs font-bold bg-gray-200 text-gray-600">
-                  TBD
-                </div>
-                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110 bg-gradient-to-br from-green-400 to-blue-500">
-                  <ChevronDown className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-black mb-4">Weitere Apps</h3>
-                <p className="text-gray-700 leading-relaxed text-sm mb-6">
-                  Haben Sie spezielle Anforderungen? Wir entwickeln maßgeschneiderte KI-Lösungen
-                </p>
-                <Button variant="outline" size="sm" className="border-green-300 text-green-700 hover:bg-green-50" onClick={scrollToContact}>
-                  Anfrage stellen
-                </Button>
-              </CardContent>
+              
             </Card>
           </div>
         </div>
