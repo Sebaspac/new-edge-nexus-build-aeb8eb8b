@@ -6,7 +6,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { LazyImage } from "@/components/LazyImage";
 import { BlurUpImage } from "@/components/BlurUpImage";
 import { InlineLogoSVG } from "@/components/InlineLogoSVG";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -261,13 +260,7 @@ const Team = () => {
                     <div className="p-6 sm:p-8 flex flex-col h-full">
                       <div className="flex-shrink-0 mb-6">
                          <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden border-4 border-border/20 shadow-lg group-hover:border-primary/30 transition-colors duration-300">
-                           <BlurUpImage 
-                             src={founder.image} 
-                             alt={`${founder.name} - ${founder.role}`} 
-                             className="w-full h-full object-cover" 
-                             sizes="(max-width: 640px) 112px, 128px"
-                             priority={index === 0}
-                           />
+                           <BlurUpImage src={founder.image} alt={`${founder.name} - ${founder.role}`} className="w-full h-full object-cover" sizes="(max-width: 640px) 112px, 128px" priority={index === 0} />
                          </div>
                       </div>
                       
@@ -343,21 +336,18 @@ const Team = () => {
         {/* Experience Section */}
         <section className="section-padding bg-background">
           <div className="container-xl">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.8 }} 
-              className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]"
-            >
-              <BlurUpImage 
-                src="/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png" 
-                alt="Wenjamin Zabezhanskiy - Wir öffnen Innovationsräume, übersetzen Spitzentechnologie und machen Zukunft so für jedes Team nutzbar" 
-                className="w-full h-auto object-cover" 
-                sizes="100vw"
-                priority={false}
-                blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMxYTFhMmUiLz48cmVjdCB3aWR0aD0iNTAlIiBoZWlnaHQ9IjUwJSIgeD0iMjUlIiB5PSIyNSUiIGZpbGw9IiMxNjIxM2UiIG9wYWNpdHk9IjAuNyIvPjwvc3ZnPg=="
-              />
+            <motion.div initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.8
+          }} className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+              <BlurUpImage src="/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png" alt="Wenjamin Zabezhanskiy - Wir öffnen Innovationsräume, übersetzen Spitzentechnologie und machen Zukunft so für jedes Team nutzbar" className="w-full h-auto object-cover" sizes="100vw" priority={false} blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMxYTFhMmUiLz48cmVjdCB3aWR0aD0iNTAlIiBoZWlnaHQ9IjUwJSIgeD0iMjUlIiB5PSIyNSUiIGZpbGw9IiMxNjIxM2UiIG9wYWNpdHk9IjAuNyIvPjwvc3ZnPg==" />
             </motion.div>
           </div>
         </section>
@@ -467,59 +457,8 @@ const Team = () => {
 
         {/* Footer */}
         <footer className="bg-surface-elevated/80 border-t border-border py-12 sm:py-16">
-          <div className="container-xl">
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
-              <div className="sm:col-span-2">
-                <div className="flex items-center mb-4">
-                  <InlineLogoSVG className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" />
-                  <div className="text-2xl sm:text-3xl font-bold text-foreground">
-                    New Edge<span className="text-primary">.</span>
-                  </div>
-                </div>
-                <p className="text-muted-foreground mb-4 sm:mb-6 max-w-md text-sm sm:text-base">
-                  New Edge ist eine Creative-Tech Agentur für innovationsgetriebene Markenkommunikation.
-                </p>
-                <div className="flex space-x-4">
-                  <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 sm:w-10 sm:h-10 bg-surface rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
-                    <span className="text-xs sm:text-sm text-foreground hover:text-white">in</span>
-                  </a>
-                </div>
-              </div>
-              
-              <div>
-                <Link to="/services" className="font-semibold mb-3 sm:mb-4 text-foreground text-sm sm:text-base hover:text-primary transition-colors cursor-pointer block">Services</Link>
-                <ul className="space-y-1 sm:space-y-2 text-muted-foreground text-sm sm:text-base">
-                  <li><Link to="/studio" className="hover:text-primary transition-colors">STUDIO</Link></li>
-                  <li><Link to="/media" className="hover:text-primary transition-colors">MEDIA</Link></li>
-                  <li><Link to="/lab" className="hover:text-primary transition-colors">LAB</Link></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-semibold mb-3 sm:mb-4 text-foreground text-sm sm:text-base">Kontakt</h4>
-                <ul className="space-y-1 sm:space-y-2 text-muted-foreground text-sm sm:text-base">
-                  <li>
-                    <a href="mailto:info@newedgebrand.com" className="hover:text-primary transition-colors">
-                      info@newedgebrand.com
-                    </a>
-                  </li>
-                  <li>+49 15750998236</li>
-                  <li>Deutschland</li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="border-t border-border pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
-              <p className="text-muted-foreground text-xs sm:text-sm">©2025 New Edge. Alle Rechte vorbehalten.</p>
-              <div className="flex space-x-4 sm:space-x-6 mt-3 sm:mt-4 md:mt-0">
-                <Link to="/impressum" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">Datenschutz &amp; Impressum</Link>
-              </div>
-            </div>
-          </div>
+          
         </footer>
-        
-        {/* New Footer */}
-        <Footer />
       </div>
     </>;
 };
