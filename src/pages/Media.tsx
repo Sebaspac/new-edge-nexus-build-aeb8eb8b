@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ServicesSection } from "@/components/ServicesSection";
-import { Footer } from "@/components/Footer";
+
 import { Helmet } from 'react-helmet-async';
 
 const Media = () => {
@@ -209,8 +209,6 @@ const Media = () => {
         </div>
       </section>
       
-      {/* Footer */}
-      <Footer />
     </div>
     </>
   );

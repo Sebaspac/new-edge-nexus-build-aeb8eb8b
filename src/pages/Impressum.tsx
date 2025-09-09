@@ -4,7 +4,7 @@ import { ArrowLeft, Mail, MapPin, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Footer } from "@/components/Footer";
+
 const Impressum = () => {
   const {
     t
@@ -224,8 +224,6 @@ const Impressum = () => {
         </motion.div>
       </main>
       
-      {/* Footer */}
-      <Footer />
     </div>;
 };
 export default Impressum;
