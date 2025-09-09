@@ -115,11 +115,30 @@ export function getOptimizedAnimationDuration(baseDuration: number = 0.3): numbe
 }
 
 /**
- * List of critical images that should be preloaded (above the fold)
+ * List of ALL images that should be preloaded for instant navigation
+ */
+export const ALL_WEBSITE_IMAGES = [
+  // Critical images (logos, founders)
+  '/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png', // Mobile nav logo
+  '/lovable-uploads/7081eb62-a5ae-4260-97c8-e5b31dc0040e.png', // Main logo
+  '/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png', // Footer logo
+  '/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png', // Sebastian - founder
+  '/lovable-uploads/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png', // Wenjamin - founder
+  
+  // Content images
+  '/lovable-uploads/804d1765-b7c9-45f5-93a3-dddb443996f4.png', // Team collaboration
+  '/lovable-uploads/72768da6-5ac5-423e-a9df-579dd83dc1aa.png', // Business analytics
+  '/lovable-uploads/072b3572-872a-4a44-b919-80bad436c002.png', // Team background
+  '/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png', // Wenjamin portrait
+];
+
+/**
+ * Most critical images that must load first
  */
 export const CRITICAL_IMAGES = [
   '/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png', // Mobile nav logo
-  '/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png', // Sebastian - founder
+  '/lovable-uploads/7081eb62-a5ae-4260-97c8-e5b31dc0040e.png', // Main logo
+  '/lovable-uploads/c19dc1d8-e3c-4d25-a965-34dbef5d9fe1.png', // Sebastian - founder
 ];
 
 /**
@@ -184,16 +203,37 @@ export function addResourceHints(): void {
 }
 
 /**
- * Initialize all performance optimizations with ultra-fast approach
+ * Preload all website images aggressively for instant navigation
+ */
+export async function preloadAllWebsiteImages(): Promise<void> {
+  console.time('🖼️ Preloading all images');
+  
+  // Preload critical images first with high priority
+  const criticalPromise = preloadImages(CRITICAL_IMAGES);
+  
+  // Preload remaining images in background
+  const remainingImages = ALL_WEBSITE_IMAGES.filter(img => !CRITICAL_IMAGES.includes(img));
+  const backgroundPromise = preloadImages(remainingImages);
+  
+  // Wait for critical images, then continue with background loading
+  await Promise.race([criticalPromise, new Promise(resolve => setTimeout(resolve, 500))]);
+  
+  // Continue background loading without blocking
+  backgroundPromise.catch(() => {
+    console.warn('Some background images failed to preload');
+  });
+  
+  console.timeEnd('🖼️ Preloading all images');
+}
+
+/**
+ * Initialize all performance optimizations with comprehensive image preloading
  */
 export async function initializePerformanceOptimizations(): Promise<void> {
-  console.time('⚡ Ultra-fast optimizations');
+  console.time('⚡ Performance optimizations');
   
   // Add resource hints immediately
   addResourceHints();
-  
-  // Only preload the most critical image (mobile logo)
-  const criticalImagePromise = preloadImages([CRITICAL_IMAGES[0]]);
   
   // Setup performance monitoring
   if (typeof window !== 'undefined') {
@@ -210,11 +250,8 @@ export async function initializePerformanceOptimizations(): Promise<void> {
     document.documentElement.style.setProperty('--duration-slow', '0.15s');
   }
   
-  // Ultra-fast timeout - only wait 1 second max for critical images
-  await Promise.race([
-    criticalImagePromise,
-    new Promise(resolve => setTimeout(resolve, 1000))
-  ]);
+  // Start aggressive image preloading
+  await preloadAllWebsiteImages();
   
-  console.timeEnd('⚡ Ultra-fast optimizations');
+  console.timeEnd('⚡ Performance optimizations');
 }

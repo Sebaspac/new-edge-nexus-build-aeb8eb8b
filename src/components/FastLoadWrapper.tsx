@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LoadingScreen } from './LoadingScreen';
-import { CRITICAL_IMAGES } from '@/utils/performanceOptimizations';
+import { ALL_WEBSITE_IMAGES, CRITICAL_IMAGES, preloadImages } from '@/utils/performanceOptimizations';
 
 interface FastLoadWrapperProps {
   children: React.ReactNode;
@@ -12,64 +12,54 @@ export const FastLoadWrapper: React.FC<FastLoadWrapperProps> = ({ children }) =>
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const startTime = Date.now();
-    let loadedImages = 0;
-    const totalImages = CRITICAL_IMAGES.length;
-    const minLoadTime = 100; // Ultra-fast minimum loading time
-    
-    if (totalImages === 0) {
-      setTimeout(() => setIsLoaded(true), minLoadTime);
-      return;
-    }
-
-    // Aggressive image loading with very short timeouts
-    const imagePromises = CRITICAL_IMAGES.map((src, index) => {
-      return new Promise<void>((resolve) => {
-        const img = new Image();
+    const preloadAllImagesAggressively = async () => {
+      console.time('FastLoad: All website images');
+      
+      try {
+        // Start with progress animation
+        setProgress(20);
         
-        // High priority only for first image
-        if (index === 0) {
-          (img as any).fetchPriority = 'high';
-        }
-
-        const handleComplete = () => {
-          loadedImages++;
-          const currentProgress = Math.min((loadedImages / totalImages) * 100, 100);
-          setProgress(currentProgress);
-          
-          if (loadedImages === totalImages) {
-            setProgress(100);
-            
-            // Ultra-short minimum loading time
-            const elapsedTime = Date.now() - startTime;
-            const remainingTime = Math.max(0, minLoadTime - elapsedTime);
-            
-            setTimeout(() => {
-              setIsLoaded(true);
-            }, remainingTime);
-          }
-          resolve();
-        };
-
-        img.onload = handleComplete;
-        img.onerror = handleComplete;
+        // Preload critical images first (fast)
+        const criticalPromise = preloadImages(CRITICAL_IMAGES);
+        await Promise.race([
+          criticalPromise,
+          new Promise(resolve => setTimeout(resolve, 400))
+        ]);
         
-        // Very short timeout for individual images (250ms)
-        setTimeout(handleComplete, 250);
+        setProgress(60);
         
-        img.src = src;
-      });
-    });
-
-    // Ultra-short global timeout (800ms max)
-    const globalTimeout = setTimeout(() => {
-      setProgress(100);
-      setIsLoaded(true);
-    }, 800);
-
-    return () => {
-      clearTimeout(globalTimeout);
+        // Continue with remaining images
+        const remainingImages = ALL_WEBSITE_IMAGES.filter(img => !CRITICAL_IMAGES.includes(img));
+        const allImagesPromise = preloadImages(remainingImages);
+        
+        await Promise.race([
+          allImagesPromise,
+          new Promise(resolve => setTimeout(resolve, 800))
+        ]);
+        
+        setProgress(90);
+        
+        // Minimum load time for smooth UX (200ms)
+        await new Promise(resolve => setTimeout(resolve, 200));
+        
+        console.timeEnd('FastLoad: All website images');
+        setProgress(100);
+        
+        // Quick transition to content
+        setTimeout(() => {
+          setIsLoaded(true);
+        }, 150);
+        
+      } catch (error) {
+        console.warn('FastLoad: Image preloading failed, continuing anyway', error);
+        setProgress(100);
+        setTimeout(() => {
+          setIsLoaded(true);
+        }, 300);
+      }
     };
+
+    preloadAllImagesAggressively();
   }, []);
 
   return (
