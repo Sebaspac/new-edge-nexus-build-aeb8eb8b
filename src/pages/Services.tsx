@@ -5,7 +5,6 @@ import { ArrowRight, ArrowDown, ChevronDown, Sparkles, Brain, Zap, Star, Target,
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { LazyOptimizedImage } from "@/components/OptimizedImageSystem";
 import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Footer } from "@/components/Footer";
@@ -1165,15 +1164,14 @@ const Services = () => {
         <div className="container-xl">
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div className="sm:col-span-2">
-              <div className="flex items-center mb-4">
-                <LazyOptimizedImage 
-                  alt="New Edge Logo" 
-                  className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" 
-                  src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png" 
-                  width={32} 
-                  height={32}
-                  sizes="(max-width: 640px) 24px, 32px" 
-                />
+               <div className="flex items-center mb-4">
+                 <img 
+                   src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png"
+                   alt="New Edge Logo" 
+                   className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" 
+                   width={32}
+                   height={32}
+                 />
                 <div className="text-2xl sm:text-3xl font-bold text-foreground">
                   New Edge<span className="text-primary"></span>
                 </div>

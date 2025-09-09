@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { OptimizedImage } from "./OptimizedImage";
 
 interface LoadingScreenProps {
   progress: number;

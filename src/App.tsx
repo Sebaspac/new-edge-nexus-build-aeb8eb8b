@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { HelmetProvider } from 'react-helmet-async';
 import { lazy, Suspense, useEffect } from "react";
-import { ImagePreloadManager, initPerformanceMonitoring } from "@/components/ImagePreloadManager";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -29,9 +28,6 @@ const LoadingFallback = () => (
 
 const App = () => {
   useEffect(() => {
-    // Initialize performance monitoring for Core Web Vitals
-    initPerformanceMonitoring();
-    
     // Set document language for SEO
     document.documentElement.lang = 'de';
   }, []);
@@ -40,11 +36,10 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
         <LanguageProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <ImagePreloadManager />
-            <BrowserRouter>
+            <TooltipProvider>
+              <Toaster />
+              <Sonner />
+              <BrowserRouter>
               <Suspense fallback={<LoadingFallback />}>
                 <Routes>
                 <Route path="/" element={<Index />} />
