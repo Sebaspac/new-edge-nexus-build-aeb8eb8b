@@ -29,16 +29,14 @@ export const OptimizedLogo: React.FC<OptimizedLogoProps> = ({
       style={{ 
         width: typeof width === 'number' ? `${width}px` : width,
         height: typeof height === 'number' ? `${height}px` : height,
-        // Fallback background matching logo colors
-        background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
-        borderRadius: '8px'
+        background: 'transparent'
       }}
     >
-      {/* CSS Background Fallback */}
+      {/* CSS Background Fallback - Transparent */}
       <div 
-        className="absolute inset-0 rounded-lg opacity-100 transition-opacity duration-300"
+        className="absolute inset-0 opacity-100 transition-opacity duration-300"
         style={{
-          background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
+          background: 'transparent',
           opacity: isLoaded ? 0 : 1
         }}
       />
@@ -49,7 +47,7 @@ export const OptimizedLogo: React.FC<OptimizedLogoProps> = ({
         alt="New Edge Logo"
         width={width}
         height={height}
-        className={`absolute inset-0 w-full h-full object-contain rounded-lg transition-opacity duration-300 ${
+        className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${
           isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
         onLoad={() => setIsLoaded(true)}
