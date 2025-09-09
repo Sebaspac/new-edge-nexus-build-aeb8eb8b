@@ -15,7 +15,7 @@ export const FastLoadWrapper: React.FC<FastLoadWrapperProps> = ({ children }) =>
     const startTime = Date.now();
     let loadedImages = 0;
     const totalImages = CRITICAL_IMAGES.length;
-    const minLoadTime = 800; // Minimum loading time
+    const minLoadTime = 200; // Reduced minimum loading time for faster experience
 
     if (totalImages === 0) {
       setTimeout(() => setIsLoaded(true), minLoadTime);
@@ -54,18 +54,18 @@ export const FastLoadWrapper: React.FC<FastLoadWrapperProps> = ({ children }) =>
         img.onload = handleComplete;
         img.onerror = handleComplete;
         
-        // Timeout for individual images (2 seconds)
-        setTimeout(handleComplete, 2000);
+        // Reduced timeout for individual images (500ms)
+        setTimeout(handleComplete, 500);
         
         img.src = src;
       });
     });
 
-    // Global timeout (4 seconds max)
+    // Reduced global timeout (1.5 seconds max)
     const globalTimeout = setTimeout(() => {
       setProgress(100);
       setIsLoaded(true);
-    }, 4000);
+    }, 1500);
 
     return () => {
       clearTimeout(globalTimeout);

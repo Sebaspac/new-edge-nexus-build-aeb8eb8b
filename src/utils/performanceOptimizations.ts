@@ -118,11 +118,8 @@ export function getOptimizedAnimationDuration(baseDuration: number = 0.3): numbe
  * List of critical images that should be preloaded (above the fold)
  */
 export const CRITICAL_IMAGES = [
-  '/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png', // Logo
-  '/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png', // Sebastian
-  '/lovable-uploads/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png', // Wenjamin
-  '/lovable-uploads/804d1765-b7c9-45f5-93a3-dddb443996f4.png', // Team collaboration image
-  '/lovable-uploads/72768da6-5ac5-423e-a9df-579dd83dc1aa.png', // Analytics image
+  '/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png', // Logo - essential for hero
+  '/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png', // Sebastian - main team member
 ];
 
 /**
