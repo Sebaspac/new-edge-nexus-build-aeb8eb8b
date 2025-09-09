@@ -113,6 +113,7 @@ const Impressum = () => {
                   <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 flex items-center text-white">
                     <Shield className="w-8 h-8 mr-3 text-purple-400" />
                     Datenschutzerklärung
+                    <span className="text-sm font-normal text-gray-400 ml-3">(Stand: September 2025)</span>
                   </h2>
                 
                 <div className="space-y-8 text-gray-300">
@@ -127,15 +128,19 @@ const Impressum = () => {
                       <p>Inhaber: Juan Sebastián Pachón Araque</p>
                       <p>Pachemstraße 9</p>
                       <p>81673 München</p>
-                      <p>E-Mail: <a href="mailto:info@newedgebrand.com" className="text-purple-400 hover:text-purple-300">info@newedgebrand.com</a></p>
+                      <p>Deutschland</p>
+                      <p>📧 E-Mail: <a href="mailto:info@newedgebrand.com" className="text-purple-400 hover:text-purple-300">info@newedgebrand.com</a></p>
                     </div>
                   </div>
 
                   {/* Section 2 */}
                   <div className="border-t border-gray-700 pt-8">
                     <h3 className="text-xl font-semibold text-white mb-4">2. Erhebung und Verarbeitung personenbezogener Daten</h3>
+                    <p className="mb-4">
+                      Wir verarbeiten personenbezogene Daten nur, wenn dies zur Bereitstellung unserer Website, zur Kommunikation oder zur Durchführung unserer Leistungen erforderlich ist.
+                    </p>
                     <p>
-                      Personenbezogene Daten werden von uns nur dann verarbeitet, wenn dies zur Bereitstellung unserer Website, zur Kommunikation oder zur Durchführung von Werbemaßnahmen erforderlich ist. Eine Weitergabe an Dritte erfolgt ausschließlich im Rahmen gesetzlicher Bestimmungen.
+                      Eine Weitergabe Ihrer Daten an Dritte erfolgt ausschließlich im Rahmen gesetzlicher Bestimmungen oder aufgrund Ihrer ausdrücklichen Einwilligung.
                     </p>
                   </div>
 
@@ -143,7 +148,7 @@ const Impressum = () => {
                   <div className="border-t border-gray-700 pt-8">
                     <h3 className="text-xl font-semibold text-white mb-4">3. Server-Logfiles</h3>
                     <p className="mb-4">
-                      Beim Besuch unserer Website werden automatisch folgende Daten durch den Hostinganbieter erfasst:
+                      Beim Besuch unserer Website werden automatisch folgende Daten durch unseren Hostinganbieter erfasst:
                     </p>
                     <ul className="list-disc list-inside space-y-2 mb-4">
                       <li>IP-Adresse</li>
@@ -152,16 +157,22 @@ const Impressum = () => {
                       <li>Betriebssystem</li>
                       <li>Referrer-URL</li>
                     </ul>
+                    <p className="mb-4">
+                      Diese Daten dienen ausschließlich der technischen Sicherheit, Optimierung der Website und Fehleranalyse.
+                    </p>
                     <p>
-                      Diese Daten dienen ausschließlich der technischen Sicherheit und der Fehleranalyse. Eine Zusammenführung mit anderen Datenquellen findet nicht statt.
+                      Eine Zusammenführung mit anderen Datenquellen findet nicht statt.
                     </p>
                   </div>
 
                   {/* Section 4 */}
                   <div className="border-t border-gray-700 pt-8">
                     <h3 className="text-xl font-semibold text-white mb-4">4. Kontaktaufnahme</h3>
+                    <p className="mb-4">
+                      Wenn Sie uns per E-Mail oder über ein Kontaktformular kontaktieren, speichern wir Ihre Angaben zur Bearbeitung Ihrer Anfrage sowie für etwaige Rückfragen.
+                    </p>
                     <p>
-                      Wenn Sie uns per E-Mail oder über ein Kontaktformular kontaktieren, speichern wir Ihre Angaben zur Bearbeitung Ihrer Anfrage sowie für etwaige Rückfragen. Diese Daten werden nicht ohne Ihre Einwilligung weitergegeben.
+                      Diese Daten geben wir nicht ohne Ihre Einwilligung an Dritte weiter.
                     </p>
                   </div>
 
@@ -169,29 +180,119 @@ const Impressum = () => {
                   <div className="border-t border-gray-700 pt-8">
                     <h3 className="text-xl font-semibold text-white mb-4">5. Verwendung des Meta (Facebook) Pixels</h3>
                     <p className="mb-4">
-                      Wir nutzen auf unserer Website das Meta Pixel, um das Verhalten von Nutzer:innen nach dem Klick auf eine Werbeanzeige auf Facebook oder Instagram nachvollziehen zu können. Dies dient der Analyse und Optimierung unserer Kampagnen.
+                      Wir nutzen auf unserer Website das Meta Pixel, um das Verhalten von Nutzer:innen nach dem Klick auf eine Werbeanzeige auf Facebook oder Instagram nachvollziehen zu können.
                     </p>
                     <p className="mb-4">
-                      Die erhobenen Daten sind für uns anonym, werden jedoch von Meta verarbeitet und mit Ihrem Meta-Profil verknüpft, sofern Sie dort eingeloggt sind. Weitere Informationen hierzu finden Sie in den Datenschutzbestimmungen von Meta.
+                      Dies dient der Analyse und Optimierung unserer Kampagnen.
                     </p>
-                    <p>
-                      <strong>Widerspruchsmöglichkeit:</strong> Sie können der Erfassung durch das Meta Pixel jederzeit widersprechen – etwa über die Cookie-Einstellungen auf unserer Website oder direkt bei Meta.
+                    <p className="mb-4">
+                      Die erhobenen Daten sind für uns anonym.
                     </p>
+                    <p className="mb-4">
+                      Meta kann diese Daten jedoch mit Ihrem Meta-Profil verknüpfen, sofern Sie eingeloggt sind.
+                    </p>
+                    <p className="mb-4">
+                      Weitere Informationen hierzu finden Sie in den Datenschutzbestimmungen von Meta: <a href="https://www.facebook.com/about/privacy" className="text-purple-400 hover:text-purple-300 underline" target="_blank" rel="noopener noreferrer">https://www.facebook.com/about/privacy</a>
+                    </p>
+                    <div className="bg-yellow-900/20 border border-yellow-500/30 p-4 rounded-lg">
+                      <p className="font-semibold text-yellow-300 mb-2">Widerspruchsmöglichkeit:</p>
+                      <p>
+                        Sie können der Erfassung durch das Meta Pixel jederzeit widersprechen – z. B. über die Cookie-Einstellungen auf unserer Website oder direkt bei Meta.
+                      </p>
+                    </div>
                   </div>
 
                   {/* Section 6 */}
                   <div className="border-t border-gray-700 pt-8">
-                    <h3 className="text-xl font-semibold text-white mb-4">6. Cookies</h3>
+                    <h3 className="text-xl font-semibold text-white mb-4">6. Verwendung des Google Tag Managers</h3>
+                    <p className="mb-4">
+                      Wir setzen auf unserer Website den Google Tag Manager ein.
+                    </p>
+                    <p className="mb-4">
+                      Der Google Tag Manager ist ein Dienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
+                    </p>
+                    <p className="mb-4">
+                      Der Tag Manager ermöglicht uns, Website-Tags zentral zu verwalten.
+                    </p>
+                    <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600 mb-4">
+                      <p className="font-semibold text-white mb-2">Das Tool selbst:</p>
+                      <ul className="list-disc list-inside space-y-1">
+                        <li>Speichert keine personenbezogenen Daten</li>
+                        <li>Setzt keine Cookies</li>
+                        <li>Dient lediglich der Einbindung anderer Tracking-Tools (z. B. Google Analytics, Meta Pixel).</li>
+                      </ul>
+                    </div>
                     <p>
-                      Unsere Website verwendet Cookies, um grundlegende Funktionen bereitzustellen und Ihre Nutzererfahrung zu verbessern. Sie haben die Möglichkeit, über unsere Cookie-Einstellungen festzulegen, welche Cookies Sie zulassen möchten.
+                      Weitere Informationen finden Sie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" className="text-purple-400 hover:text-purple-300 underline" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>
                     </p>
                   </div>
 
                   {/* Section 7 */}
                   <div className="border-t border-gray-700 pt-8">
-                    <h3 className="text-xl font-semibold text-white mb-4">7. Ihre Rechte</h3>
+                    <h3 className="text-xl font-semibold text-white mb-4">7. Einsatz von Google Analytics</h3>
                     <p className="mb-4">
-                      Als betroffene Person haben Sie gemäß DSGVO jederzeit folgende Rechte:
+                      Wir nutzen Google Analytics, einen Webanalysedienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
+                    </p>
+                    
+                    <div className="mb-6">
+                      <h4 className="text-lg font-semibold text-white mb-3">Zweck der Verarbeitung:</h4>
+                      <p className="mb-2">Google Analytics verwendet Cookies, um die Nutzung unserer Website auszuwerten und Berichte über die Websiteaktivitäten zu erstellen.</p>
+                      <p>Dadurch können wir unsere Website und Marketingmaßnahmen optimieren.</p>
+                    </div>
+
+                    <div className="mb-6">
+                      <h4 className="text-lg font-semibold text-white mb-3">Verarbeitete Daten:</h4>
+                      <ul className="list-disc list-inside space-y-1">
+                        <li>IP-Adresse (anonymisiert)</li>
+                        <li>Browsertyp und -version</li>
+                        <li>Verwendetes Endgerät und Betriebssystem</li>
+                        <li>Referrer-URL</li>
+                        <li>Zeitpunkt und Dauer des Besuchs</li>
+                        <li>Interaktionen auf der Website</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-green-900/20 border border-green-500/30 p-4 rounded-lg mb-4">
+                      <h4 className="text-lg font-semibold text-green-300 mb-2">IP-Anonymisierung:</h4>
+                      <p className="mb-2">
+                        Wir haben Google Analytics so konfiguriert, dass Ihre IP-Adresse innerhalb der EU oder des EWR gekürzt wird, bevor sie an Google weitergeleitet wird.
+                      </p>
+                    </div>
+
+                    <p>
+                      Weitere Informationen finden Sie hier: <a href="https://support.google.com/analytics/answer/6004245" className="text-purple-400 hover:text-purple-300 underline" target="_blank" rel="noopener noreferrer">https://support.google.com/analytics/answer/6004245</a>
+                    </p>
+                  </div>
+
+                  {/* Section 8 */}
+                  <div className="border-t border-gray-700 pt-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">8. Cookies</h3>
+                    <p className="mb-4">
+                      Unsere Website verwendet Cookies, um grundlegende Funktionen bereitzustellen und Ihre Nutzererfahrung zu verbessern.
+                    </p>
+                    
+                    <div className="mb-6">
+                      <h4 className="text-lg font-semibold text-white mb-3">Arten von Cookies:</h4>
+                      <ul className="list-disc list-inside space-y-2">
+                        <li><strong>Essenzielle Cookies</strong> → notwendig für den Betrieb der Website</li>
+                        <li><strong>Statistik-Cookies</strong> → zur Analyse durch Google Analytics</li>
+                        <li><strong>Marketing-Cookies</strong> → für Meta Pixel und Google Ads</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-blue-900/20 border border-blue-500/30 p-4 rounded-lg">
+                      <h4 className="text-lg font-semibold text-blue-300 mb-2">Ihre Kontrolle:</h4>
+                      <p>
+                        Über unsere Cookie-Einstellungen können Sie individuell festlegen, welche Cookies Sie zulassen möchten.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Section 9 */}
+                  <div className="border-t border-gray-700 pt-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">9. Ihre Rechte als betroffene Person</h3>
+                    <p className="mb-4">
+                      Gemäß DSGVO haben Sie jederzeit folgende Rechte:
                     </p>
                     <ul className="list-disc list-inside space-y-2 mb-4">
                       <li>Auskunft über die zu Ihrer Person gespeicherten Daten</li>
@@ -202,16 +303,46 @@ const Impressum = () => {
                       <li>Datenübertragbarkeit</li>
                     </ul>
                     <p>
-                      Bitte richten Sie Ihre Anfrage per E-Mail an: <a href="mailto:info@newedgebrand.com" className="text-purple-400 hover:text-purple-300">info@newedgebrand.com</a>
+                      Bitte richten Sie Ihre Anfrage an: <a href="mailto:info@newedgebrand.com" className="text-purple-400 hover:text-purple-300">info@newedgebrand.com</a>
                     </p>
                   </div>
 
-                  {/* Section 8 */}
+                  {/* Section 10 */}
                   <div className="border-t border-gray-700 pt-8">
-                    <h3 className="text-xl font-semibold text-white mb-4">8. Änderungen dieser Datenschutzerklärung</h3>
-                    <p>
-                      Wir behalten uns vor, diese Datenschutzerklärung anzupassen, sofern Änderungen an unserer Website oder rechtliche Vorgaben dies erforderlich machen. Die jeweils aktuelle Version finden Sie stets auf dieser Seite.
+                    <h3 className="text-xl font-semibold text-white mb-4">10. Datensicherheit</h3>
+                    <p className="mb-4">
+                      Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten gegen Manipulation, Verlust oder unbefugten Zugriff zu schützen.
                     </p>
+                    <p>
+                      Unsere Sicherheitsmaßnahmen werden regelmäßig überprüft und verbessert.
+                    </p>
+                  </div>
+
+                  {/* Section 11 */}
+                  <div className="border-t border-gray-700 pt-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">11. Änderungen dieser Datenschutzerklärung</h3>
+                    <p className="mb-4">
+                      Wir behalten uns vor, diese Datenschutzerklärung anzupassen, sofern Änderungen an unserer Website oder rechtliche Vorgaben dies erforderlich machen.
+                    </p>
+                    <p>
+                      Die jeweils aktuelle Version finden Sie jederzeit auf dieser Seite.
+                    </p>
+                  </div>
+
+                  {/* Section 12 */}
+                  <div className="border-t border-gray-700 pt-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">12. Cookie-Consent & Tracking-Opt-in</h3>
+                    <p className="mb-4">
+                      Da wir Meta Pixel, Google Tag Manager und Google Analytics verwenden, setzen wir ein Cookie-Banner mit Opt-in-Funktion ein.
+                    </p>
+                    <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
+                      <ul className="list-disc list-inside space-y-2">
+                        <li>Tracking-Skripte werden erst aktiv, wenn Sie zugestimmt haben.</li>
+                        <li>Opt-in vor Tracking → DSGVO-konform</li>
+                        <li>Link zur Datenschutzerklärung</li>
+                        <li>Möglichkeit zum Widerruf</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </CardContent>
