@@ -118,8 +118,8 @@ export function getOptimizedAnimationDuration(baseDuration: number = 0.3): numbe
  * List of critical images that should be preloaded (above the fold)
  */
 export const CRITICAL_IMAGES = [
-  '/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png', // Logo - essential for hero
-  '/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png', // Sebastian - main team member
+  '/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png', // Mobile nav logo
+  '/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png', // Sebastian - founder
 ];
 
 /**
@@ -184,37 +184,37 @@ export function addResourceHints(): void {
 }
 
 /**
- * Initialize all performance optimizations with comprehensive approach
+ * Initialize all performance optimizations with ultra-fast approach
  */
 export async function initializePerformanceOptimizations(): Promise<void> {
-  console.time('🚀 Performance optimizations');
+  console.time('⚡ Ultra-fast optimizations');
   
   // Add resource hints immediately
   addResourceHints();
   
-  // Preload critical images with priority
-  const imagePreloadPromise = preloadImages(CRITICAL_IMAGES);
+  // Only preload the most critical image (mobile logo)
+  const criticalImagePromise = preloadImages([CRITICAL_IMAGES[0]]);
   
   // Setup performance monitoring
   if (typeof window !== 'undefined') {
     createPerformanceObserver();
   }
   
-  // Set performance mode based on device capabilities
+  // Aggressive performance mode for low-end devices
   const isLowEndDevice = navigator.hardwareConcurrency <= 2;
   const isSlowConnection = (navigator as any).connection?.effectiveType === 'slow-2g' || (navigator as any).connection?.effectiveType === '2g';
   
   if (isLowEndDevice || isSlowConnection) {
-    document.documentElement.style.setProperty('--duration-fast', '0.1s');
-    document.documentElement.style.setProperty('--duration-normal', '0.2s');
-    document.documentElement.style.setProperty('--duration-slow', '0.3s');
+    document.documentElement.style.setProperty('--duration-fast', '0.05s');
+    document.documentElement.style.setProperty('--duration-normal', '0.1s');
+    document.documentElement.style.setProperty('--duration-slow', '0.15s');
   }
   
-  // Wait for critical images to load or timeout after 4 seconds
+  // Ultra-fast timeout - only wait 1 second max for critical images
   await Promise.race([
-    imagePreloadPromise,
-    new Promise(resolve => setTimeout(resolve, 4000))
+    criticalImagePromise,
+    new Promise(resolve => setTimeout(resolve, 1000))
   ]);
   
-  console.timeEnd('🚀 Performance optimizations');
+  console.timeEnd('⚡ Ultra-fast optimizations');
 }

@@ -491,13 +491,66 @@ textarea:focus-visible,
   color: hsl(var(--foreground));
 }
 
-/* 🎭 Loading States */
+/* 🚀 LOADING & SKELETON STATES */
+
+/* Shimmer effect for loading states */
+@keyframes shimmer-load {
+  0% { 
+    background-position: -200% 0;
+    opacity: 0.8;
+  }
+  100% { 
+    background-position: 200% 0;
+    opacity: 1;
+  }
+}
+
+/* Loading skeleton utility */
 .loading-skeleton {
   background: linear-gradient(
     90deg,
     hsl(var(--muted)) 0%,
-    hsl(var(--muted-foreground) / 0.2) 50%,
+    hsl(var(--muted-foreground) / 0.3) 50%,
     hsl(var(--muted)) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-load 2s ease-in-out infinite;
+}
+
+/* Image loading states */
+.img-loading {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--surface)) 0%,
+    hsl(var(--muted)) 50%,
+    hsl(var(--surface)) 100%
+  );
+  animation: shimmer-load 1.5s ease-in-out infinite;
+}
+
+/* Blur-up effect for images */
+.blur-up {
+  filter: blur(8px);
+  transform: scale(1.02);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blur-up.loaded {
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* Content loading states */
+.content-loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.content-loaded {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.4s ease-out;
+}
   );
   background-size: 200% 100%;
   animation: shimmer-effect 1.5s ease-in-out infinite;

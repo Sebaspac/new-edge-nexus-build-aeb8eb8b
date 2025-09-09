@@ -27,7 +27,14 @@ export const LoadingScreen = ({ progress }: LoadingScreenProps) => {
         transition={{ duration: 0.6 }}
       >
         <div className="flex items-center">
-          <div className="h-8 w-8 mr-3 bg-primary rounded-md animate-pulse" />
+          <div 
+            className="h-8 w-8 mr-3 bg-gradient-primary rounded-md flex items-center justify-center"
+            style={{ 
+              background: 'linear-gradient(135deg, hsl(270, 91%, 65%), hsl(210, 100%, 60%))',
+            }}
+          >
+            <div className="text-white font-bold text-sm">NE</div>
+          </div>
           <div className="text-3xl font-bold text-foreground">
             New Edge<span className="text-primary">.</span>
           </div>

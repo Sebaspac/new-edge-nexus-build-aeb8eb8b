@@ -15,32 +15,32 @@ export const FastLoadWrapper: React.FC<FastLoadWrapperProps> = ({ children }) =>
     const startTime = Date.now();
     let loadedImages = 0;
     const totalImages = CRITICAL_IMAGES.length;
-    const minLoadTime = 200; // Reduced minimum loading time for faster experience
-
+    const minLoadTime = 100; // Ultra-fast minimum loading time
+    
     if (totalImages === 0) {
       setTimeout(() => setIsLoaded(true), minLoadTime);
       return;
     }
 
-    // Fast image preloading with optimized timeout
+    // Aggressive image loading with very short timeouts
     const imagePromises = CRITICAL_IMAGES.map((src, index) => {
       return new Promise<void>((resolve) => {
         const img = new Image();
         
-        // High priority for first images
-        if (index < 2) {
+        // High priority only for first image
+        if (index === 0) {
           (img as any).fetchPriority = 'high';
         }
 
         const handleComplete = () => {
           loadedImages++;
-          const currentProgress = Math.min((loadedImages / totalImages) * 95, 95);
+          const currentProgress = Math.min((loadedImages / totalImages) * 100, 100);
           setProgress(currentProgress);
           
           if (loadedImages === totalImages) {
             setProgress(100);
             
-            // Ensure minimum loading time for smooth UX
+            // Ultra-short minimum loading time
             const elapsedTime = Date.now() - startTime;
             const remainingTime = Math.max(0, minLoadTime - elapsedTime);
             
@@ -54,18 +54,18 @@ export const FastLoadWrapper: React.FC<FastLoadWrapperProps> = ({ children }) =>
         img.onload = handleComplete;
         img.onerror = handleComplete;
         
-        // Reduced timeout for individual images (500ms)
-        setTimeout(handleComplete, 500);
+        // Very short timeout for individual images (250ms)
+        setTimeout(handleComplete, 250);
         
         img.src = src;
       });
     });
 
-    // Reduced global timeout (1.5 seconds max)
+    // Ultra-short global timeout (800ms max)
     const globalTimeout = setTimeout(() => {
       setProgress(100);
       setIsLoaded(true);
-    }, 1500);
+    }, 800);
 
     return () => {
       clearTimeout(globalTimeout);
