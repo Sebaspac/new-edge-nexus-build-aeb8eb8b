@@ -126,7 +126,7 @@ const Impressum = () => {
                       Verantwortlich für die Verarbeitung personenbezogener Daten im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
                     </p>
                     <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
-                      <p>New Edge GbR</p>
+                      <p>New Edge</p>
                       <p>c/o Creative Space</p>
                       <p>Koppenstr. 82</p>
                       <p>10243 Berlin</p>
