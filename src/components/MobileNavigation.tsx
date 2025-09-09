@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { InlineLogoSVG } from "@/components/InlineLogoSVG";
+import { OptimizedLogo } from "@/components/OptimizedLogo";
 interface MobileNavigationProps {
   onContactClick: () => void;
   logoSrc?: string;
@@ -47,8 +47,16 @@ export const MobileNavigation = ({
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/">
-              <motion.div whileHover={{ scale: 1.05 }} className="flex items-center z-50">
-                <InlineLogoSVG className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" />
+              <motion.div 
+                whileHover={{ scale: 1.05 }} 
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center z-50"
+              >
+                <OptimizedLogo 
+                  className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" 
+                  width={32}
+                  height={32}
+                />
                 <div className={`text-lg sm:text-2xl font-bold ${textColor}`}>
                   New Edge
                 </div>
