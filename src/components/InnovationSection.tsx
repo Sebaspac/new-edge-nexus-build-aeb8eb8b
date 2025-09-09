@@ -80,7 +80,7 @@ export const InnovationSection = () => {
                     src="/assets/804d1765-b7c9-45f5-93a3-dddb443996f4.png" 
                     alt="Team collaboration - people working together on innovative solutions" 
                     className="w-full h-full object-cover"
-                    loading="eager"
+                    loading="lazy"
                   />
                 </div>
                 
@@ -130,7 +130,7 @@ export const InnovationSection = () => {
                     src="/assets/72768da6-5ac5-423e-a9df-579dd83dc1aa.png" 
                     alt="Business analytics and data visualization - comprehensive transformation approach" 
                     className="w-full h-full object-cover"
-                    loading="eager"
+                    loading="lazy"
                   />
                 </div>
                 
