@@ -13,7 +13,7 @@ export const OptimizedLogo: React.FC<OptimizedLogoProps> = ({
 }) => {
   return (
     <img
-      src="/lovable-uploads/7081eb62-a5ae-4260-97c8-e5b31dc0040e.png"
+      src="/assets/7081eb62-a5ae-4260-97c8-e5b31dc0040e.png"
       alt="New Edge Logo"
       width={width}
       height={height}

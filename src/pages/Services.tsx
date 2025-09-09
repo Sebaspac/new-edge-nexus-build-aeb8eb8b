@@ -1166,7 +1166,7 @@ const Services = () => {
             <div className="sm:col-span-2">
                <div className="flex items-center mb-4">
                  <img 
-                   src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png"
+                   src="/assets/90e4fdca-8c29-48f7-9568-686b611a62f4.png"
                    alt="New Edge Logo" 
                    className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" 
                    width={32}

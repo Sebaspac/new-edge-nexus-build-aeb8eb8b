@@ -39,12 +39,12 @@ const Team = () => {
   const founders = [{
     name: "Sebastian Pachón",
     role: "Founder & Creative-Tech Partner",
-    image: "/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png",
+    image: "/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png",
     expertise: ["Strategie", "Technologie"]
   }, {
     name: "Wenjamin Zabezhanskiy",
     role: "Operations & Innovation Partner",
-    image: "/lovable-uploads/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png",
+    image: "/assets/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png",
     expertise: ["Kreation", "Support"]
   }];
   const networkStats = [{
@@ -150,7 +150,7 @@ const Team = () => {
             
             {/* Team Background Image with Overlay */}
             <div className="absolute inset-0 z-0" style={{
-            backgroundImage: "url('/lovable-uploads/072b3572-872a-4a44-b919-80bad436c002.png')",
+            backgroundImage: "url('/assets/072b3572-872a-4a44-b919-80bad436c002.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.3
@@ -353,7 +353,7 @@ const Team = () => {
             duration: 0.8
           }} className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
               <img 
-                src="/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png" 
+                src="/assets/db231edd-d76b-46cd-ad70-02ac9544d6ff.png" 
                 alt="Wenjamin Zabezhanskiy - Wir öffnen Innovationsräume, übersetzen Spitzentechnologie und machen Zukunft so für jedes Team nutzbar" 
                 className="w-full h-auto object-cover"
                 loading="lazy"
@@ -472,7 +472,7 @@ const Team = () => {
               <div className="sm:col-span-2">
                  <div className="flex items-center mb-4">
                    <img 
-                     src="/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png"
+                     src="/assets/90e4fdca-8c29-48f7-9568-686b611a62f4.png"
                      alt="New Edge Logo" 
                      className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" 
                      width={32}

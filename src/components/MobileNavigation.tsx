@@ -12,7 +12,7 @@ interface MobileNavigationProps {
 }
 export const MobileNavigation = ({
   onContactClick,
-  logoSrc = "/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png",
+  logoSrc = "/assets/93b90410-bdbd-4098-938c-5ff9f158253c.png",
   theme = 'light'
 }: MobileNavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);

@@ -118,20 +118,20 @@ export function getOptimizedAnimationDuration(baseDuration: number = 0.3): numbe
  * Only above-the-fold images that are immediately visible
  */
 export const ABOVE_THE_FOLD_IMAGES = [
-  '/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png', // Mobile nav logo (always visible)
-  '/lovable-uploads/804d1765-b7c9-45f5-93a3-dddb443996f4.png', // Team collaboration (innovation section)
-  '/lovable-uploads/72768da6-5ac5-423e-a9df-579dd83dc1aa.png', // Business analytics (innovation section)
+  '/assets/93b90410-bdbd-4098-938c-5ff9f158253c.png', // Mobile nav logo (always visible)
+  '/assets/804d1765-b7c9-45f5-93a3-dddb443996f4.png', // Team collaboration (innovation section)
+  '/assets/72768da6-5ac5-423e-a9df-579dd83dc1aa.png', // Business analytics (innovation section)
 ];
 
 /**
  * Images for lazy loading on other pages
  */
 export const LAZY_LOAD_IMAGES = [
-  '/lovable-uploads/7081eb62-a5ae-4260-97c8-e5b31dc0040e.png', // Main logo (for other pages)
-  '/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png', // Footer logo
-  '/lovable-uploads/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png', // Wenjamin - founder
-  '/lovable-uploads/072b3572-872a-4a44-b919-80bad436c002.png', // Team background
-  '/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png', // Wenjamin portrait
+  '/assets/7081eb62-a5ae-4260-97c8-e5b31dc0040e.png', // Main logo (for other pages)
+  '/assets/90e4fdca-8c29-48f7-9568-686b611a62f4.png', // Footer logo
+  '/assets/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png', // Wenjamin - founder
+  '/assets/072b3572-872a-4a44-b919-80bad436c002.png', // Team background
+  '/assets/db231edd-d76b-46cd-ad70-02ac9544d6ff.png', // Wenjamin portrait
 ];
 
 /**
