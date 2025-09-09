@@ -470,7 +470,7 @@ const Lab = () => {
                 <p className="text-gray-700 leading-relaxed text-sm mb-6">
                   Haben Sie spezielle Anforderungen? Wir entwickeln maßgeschneiderte KI-Lösungen
                 </p>
-                <Button variant="outline" size="sm" className="border-gray-200 text-gray-600 hover:bg-gray-50 bg-white" onClick={scrollToContact}>
+                <Button variant="outline" size="sm" className="border-gray-200 text-gray-600 hover:bg-yellow-50 bg-white" onClick={scrollToContact}>
                   Anfrage stellen
                 </Button>
               </CardContent>
