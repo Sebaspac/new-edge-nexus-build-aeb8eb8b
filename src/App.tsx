@@ -6,7 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { HelmetProvider } from 'react-helmet-async';
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { ImagePreloadManager, initPerformanceMonitoring } from "@/components/ImagePreloadManager";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -26,16 +27,26 @@ const LoadingFallback = () => (
   </div>
 );
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <HelmetProvider>
-      <LanguageProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Suspense fallback={<LoadingFallback />}>
-              <Routes>
+const App = () => {
+  useEffect(() => {
+    // Initialize performance monitoring for Core Web Vitals
+    initPerformanceMonitoring();
+    
+    // Set document language for SEO
+    document.documentElement.lang = 'de';
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <LanguageProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <ImagePreloadManager />
+            <BrowserRouter>
+              <Suspense fallback={<LoadingFallback />}>
+                <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/media" element={<Media />} />
@@ -44,13 +55,14 @@ const App = () => (
                 <Route path="/team" element={<Team />} />
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </BrowserRouter>
-        </TooltipProvider>
-      </LanguageProvider>
-    </HelmetProvider>
-  </QueryClientProvider>
-);
+                </Routes>
+              </Suspense>
+            </BrowserRouter>
+          </TooltipProvider>
+        </LanguageProvider>
+      </HelmetProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;

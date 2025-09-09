@@ -493,6 +493,51 @@ textarea:focus-visible,
 
 /* 🚀 LOADING & SKELETON STATES */
 
+/* ⚡ IMAGE OPTIMIZATION & LAZY LOADING */
+.lazy-img {
+  opacity: 0;
+  transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease;
+  transform: scale(1.02);
+  filter: blur(2px);
+}
+
+.lazy-img.is-loaded {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* Hero image specific optimizations */
+.hero-image {
+  content-visibility: visible;
+  contain-intrinsic-size: 1280px 720px;
+}
+
+/* Standard image optimizations */
+.standard-image {
+  content-visibility: auto;
+  contain-intrinsic-size: 640px 400px;
+}
+
+/* Performance optimizations for images */
+.lazy-img {
+  will-change: opacity, transform, filter;
+}
+
+.lazy-img.is-loaded {
+  will-change: auto;
+}
+
+/* Prevent layout shift with aspect-ratio support */
+img[width][height] {
+  height: auto;
+}
+
+/* Modern image formats progressive enhancement */
+picture {
+  display: contents;
+}
+
 /* Shimmer effect for loading states */
 @keyframes shimmer-load {
   0% { 

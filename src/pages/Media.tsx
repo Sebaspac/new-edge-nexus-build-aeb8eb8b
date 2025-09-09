@@ -7,6 +7,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ServicesSection } from "@/components/ServicesSection";
 import { Footer } from "@/components/Footer";
+import { Helmet } from 'react-helmet-async';
 
 const Media = () => {
   const { t } = useLanguage();
@@ -68,7 +69,19 @@ const Media = () => {
     }
   ];
 
-  return <div className="min-h-screen bg-white">
+  return (
+    <>
+      <Helmet>
+        <title>NEW EDGE MEDIA - Content Revolution & Strategic Reach | Performance Marketing</title>
+        <meta name="description" content="NEW EDGE MEDIA produziert, veröffentlicht und steuert Content für maximale Wirkung. Von Strategie bis zur viralen Umsetzung - Content-Produktion und strategische Reichweite." />
+        <meta name="keywords" content="Content Marketing, Social Media Management, Performance Marketing, Content Produktion, Launchkampagnen, Copywriting" />
+        <link rel="canonical" href="https://new-edge.de/media" />
+        <meta property="og:title" content="NEW EDGE MEDIA - Content Revolution" />
+        <meta property="og:description" content="Content-Produktion und strategische Reichweite für Ihren Erfolg" />
+        <meta property="og:url" content="https://new-edge.de/media" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <div className="min-h-screen bg-white">
       <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
       {/* Hero Section */}
@@ -198,6 +211,8 @@ const Media = () => {
       
       {/* Footer */}
       <Footer />
-    </div>;
+    </div>
+    </>
+  );
 };
 export default Media;
