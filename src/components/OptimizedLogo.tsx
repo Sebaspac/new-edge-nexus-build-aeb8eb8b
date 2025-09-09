@@ -54,7 +54,6 @@ export const OptimizedLogo: React.FC<OptimizedLogoProps> = ({
         onError={() => setHasError(true)}
         // Performance optimizations
         loading="eager"
-        fetchPriority="high"
         decoding="async"
         // Responsive sizes
         sizes="(max-width: 640px) 24px, (max-width: 768px) 32px, 32px"
