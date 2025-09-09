@@ -50,6 +50,8 @@
     --ring: var(--primary);
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
+    --success: 142 70% 49%;
+    --warning: 45 93% 47%;
 
     /* 🔧 DESIGN TOKENS */
     --radius: 16px; /* Increased for modern feel */
