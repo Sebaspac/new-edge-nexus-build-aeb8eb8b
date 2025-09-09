@@ -381,11 +381,7 @@ const Lab = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-green-50 to-green-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group cursor-pointer" style={{
-            animationDelay: '0.3s'
-          }}>
-              
-            </Card>
+            
           </div>
         </div>
       </section>
