@@ -4,7 +4,6 @@ import { ArrowLeft, Mail, MapPin, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
-
 const Impressum = () => {
   const {
     t
@@ -73,7 +72,7 @@ const Impressum = () => {
                 
                 <div className="space-y-4 text-gray-300">
                   <div>
-                    <p className="font-semibold text-white">New Edge GbR</p>
+                    <p className="font-semibold text-white">New Edge</p>
                     <p>c/o Creative Space</p>
                     <p>Koppenstr. 82</p>
                     <p>10243 Berlin</p>
