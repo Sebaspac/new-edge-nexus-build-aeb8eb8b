@@ -6,7 +6,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ServicesSection } from "@/components/ServicesSection";
-import { Footer } from "@/components/Footer";
 const Lab = () => {
   const {
     t
@@ -79,7 +78,9 @@ const Lab = () => {
             <rect width="100%" height="100%" fill="url(#lab-grid)" />
           </svg>
         </div>
-        <div className="container mx-auto text-center relative z-10" style={{ transform: 'translateY(10vh)' }}>
+        <div className="container mx-auto text-center relative z-10" style={{
+        transform: 'translateY(10vh)'
+      }}>
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-black mb-6 sm:mb-8 leading-tight tracking-tight">
               <span className="inline-block animate-fade-in" style={{
@@ -123,22 +124,30 @@ const Lab = () => {
             <div className="absolute top-1/2 right-1/4 animate-drift opacity-20" style={{
             animationDelay: '2s'
           }}>
-              <Database className="w-12 h-12" style={{ color: '#FFED00' }} />
+              <Database className="w-12 h-12" style={{
+              color: '#FFED00'
+            }} />
             </div>
             <div className="absolute top-1/3 left-1/4 animate-orbit opacity-30" style={{
             animationDelay: '3s'
           }}>
-              <Bot className="w-8 h-8" style={{ color: '#FFED00' }} />
+              <Bot className="w-8 h-8" style={{
+              color: '#FFED00'
+            }} />
             </div>
             <div className="absolute bottom-1/4 right-1/3 animate-float-1 opacity-25" style={{
             animationDelay: '4s'
           }}>
-              <Code className="w-10 h-10" style={{ color: '#FFED00' }} />
+              <Code className="w-10 h-10" style={{
+              color: '#FFED00'
+            }} />
             </div>
             <div className="absolute top-1/4 right-10 animate-float-2 opacity-20" style={{
             animationDelay: '5s'
           }}>
-              <Settings className="w-8 h-8" style={{ color: '#FFED00' }} />
+              <Settings className="w-8 h-8" style={{
+              color: '#FFED00'
+            }} />
             </div>
             
             {/* Tech circuit patterns */}
@@ -244,7 +253,7 @@ const Lab = () => {
                         <Bot className="w-12 h-12 text-white" />
                       </div>
                       <h3 className="text-2xl text-black mb-4 font-extrabold sm:text-6xl">Agent Hub</h3>
-                       <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg text-left">
+                       <p className="text-gray-700 leading-relaxed mb-6 text-base text-center sm:text-4xl">
                          8+ spezialisierte KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr.
                         <span className="font-semibold"> Lebenslanger Zugang ohne Abonnement.</span>
                       </p>
@@ -496,9 +505,6 @@ const Lab = () => {
           </div>
         </div>
       </section>
-      
-      {/* Footer */}
-      <Footer />
     </div>;
 };
 export default Lab;
