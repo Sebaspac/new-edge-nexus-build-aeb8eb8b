@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { LazyImage } from "@/components/LazyImage";
 import { BlurUpImage } from "@/components/BlurUpImage";
 import { InlineLogoSVG } from "@/components/InlineLogoSVG";
+import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -516,6 +517,9 @@ const Team = () => {
             </div>
           </div>
         </footer>
+        
+        {/* New Footer */}
+        <Footer />
       </div>
     </>;
 };

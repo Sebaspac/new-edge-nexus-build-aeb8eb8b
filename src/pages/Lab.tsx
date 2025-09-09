@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ServicesSection } from "@/components/ServicesSection";
+import { Footer } from "@/components/Footer";
 const Lab = () => {
   const {
     t
@@ -495,6 +496,9 @@ const Lab = () => {
           </div>
         </div>
       </section>
+      
+      {/* Footer */}
+      <Footer />
     </div>;
 };
 export default Lab;

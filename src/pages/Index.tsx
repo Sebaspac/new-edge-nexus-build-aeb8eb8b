@@ -7,6 +7,7 @@ import { FastLoadWrapper } from '../components/FastLoadWrapper';
 import { MobileNavigation } from '@/components/MobileNavigation';
 import CookieConsent from '@/components/CookieConsent';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Footer } from '@/components/Footer';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -502,95 +503,7 @@ const Index = () => {
         </ScrollAnimation>
 
         {/* Footer Section */}
-        <footer className="bg-background border-t border-border/20">
-          <div className="container-xl py-12">
-            <div className="grid md:grid-cols-4 gap-8">
-              {/* Company Info */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-foreground">New Edge</h3>
-                <p className="text-muted-foreground text-sm">
-                  Innovation trifft Strategie. Wir entwickeln maßgeschneiderte digitale Lösungen für die Zukunft Ihres Unternehmens.
-                </p>
-              </div>
-              
-              {/* Services */}
-              <div className="space-y-4">
-                <h4 className="font-semibold text-foreground">Services</h4>
-                <ul className="space-y-3 text-sm">
-                  <li>
-                    <Link to="/studio" className="text-muted-foreground hover:text-primary transition-colors">
-                      New Edge Studio
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/media" className="text-muted-foreground hover:text-primary transition-colors">
-                      New Edge Media
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/lab" className="text-muted-foreground hover:text-primary transition-colors">
-                      New Edge Lab
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              
-              {/* Company */}
-              <div className="space-y-4">
-                <h4 className="font-semibold text-foreground">Unternehmen</h4>
-                <ul className="space-y-3 text-sm">
-                  <li>
-                    <Link to="/team" className="text-muted-foreground hover:text-primary transition-colors">
-                      Unser Team
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">
-                      Alle Services
-                    </Link>
-                  </li>
-                  <li>
-                    <button onClick={scrollToContact} className="text-muted-foreground hover:text-primary transition-colors">
-                      Kontakt
-                    </button>
-                  </li>
-                </ul>
-              </div>
-              
-              {/* Legal */}
-              <div className="space-y-4">
-                <h4 className="font-semibold text-foreground">Rechtliches</h4>
-                <ul className="space-y-3 text-sm">
-                  <li>
-                    <Link to="/impressum" className="text-muted-foreground hover:text-primary transition-colors">
-                      Impressum
-                    </Link>
-                  </li>
-                  <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                      Datenschutz
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                      AGB
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            
-            {/* Bottom Bar */}
-            <div className="mt-12 pt-8 border-t border-border/20 flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-muted-foreground text-sm">
-                © 2024 New Edge. Alle Rechte vorbehalten.
-              </p>
-              <div className="flex items-center gap-6">
-                
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
 
         {/* Cookie Consent */}
         <CookieConsent />

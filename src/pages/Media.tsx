@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ServicesSection } from "@/components/ServicesSection";
+import { Footer } from "@/components/Footer";
 
 const Media = () => {
   const { t } = useLanguage();
@@ -194,6 +195,9 @@ const Media = () => {
           </div>
         </div>
       </section>
+      
+      {/* Footer */}
+      <Footer />
     </div>;
 };
 export default Media;

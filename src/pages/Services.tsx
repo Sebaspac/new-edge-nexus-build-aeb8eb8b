@@ -8,6 +8,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { LazyImage } from "@/components/LazyImage";
 import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Footer } from "@/components/Footer";
 const Services = () => {
   console.log('Services component loaded successfully');
   const {
@@ -1235,6 +1236,9 @@ const Services = () => {
     }}>
           <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 transform -rotate-90" />
         </motion.button>}
+        
+        {/* Footer */}
+        <Footer />
     </div>;
 };
 export default Services;

@@ -7,6 +7,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ServicesSection } from "@/components/ServicesSection";
+import { Footer } from "@/components/Footer";
 
 const Studio = () => {
   const { t } = useLanguage();
@@ -191,6 +192,9 @@ const Studio = () => {
           </div>
         </div>
       </section>
+      
+      {/* Footer */}
+      <Footer />
     </div>;
 };
 export default Studio;
