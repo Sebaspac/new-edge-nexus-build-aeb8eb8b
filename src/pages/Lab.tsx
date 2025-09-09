@@ -252,9 +252,9 @@ const Lab = () => {
                     }}>
                         <Bot className="w-12 h-12 text-white" />
                       </div>
-                      <h3 className="text-2xl text-black mb-4 font-extrabold sm:text-6xl">Agent Hub</h3>
-                       <p className="text-gray-700 leading-relaxed mb-6 text-base text-center sm:text-4xl">
-                         8+ spezialisierte KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr.
+                      <h3 className="text-2xl sm:text-3xl lg:text-4xl text-black mb-4 font-extrabold">Agent Hub</h3>
+                       <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg">
+                          8+ spezialisierte KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr.
                         <span className="font-semibold"> Lebenslanger Zugang ohne Abonnement.</span>
                       </p>
                       <div className="space-y-3 mb-8">
@@ -262,7 +262,7 @@ const Lab = () => {
                           <div className="w-2 h-2 rounded-full" style={{
                           backgroundColor: '#4F97F0'
                         }}></div>
-                          <span className="text-gray-600 text-5xl">Keine monatlichen Kosten</span>
+                          <span className="text-gray-600 text-sm">Keine monatlichen Kosten</span>
                         </div>
                         <div className="flex items-center justify-center lg:justify-start gap-3">
                           <div className="w-2 h-2 rounded-full" style={{
