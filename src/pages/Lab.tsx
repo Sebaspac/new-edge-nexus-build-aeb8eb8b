@@ -262,7 +262,7 @@ const Lab = () => {
                           <div className="w-2 h-2 rounded-full" style={{
                           backgroundColor: '#4F97F0'
                         }}></div>
-                          <span className="text-sm text-gray-600">Keine monatlichen Kosten</span>
+                          <span className="text-gray-600 text-5xl">Keine monatlichen Kosten</span>
                         </div>
                         <div className="flex items-center justify-center lg:justify-start gap-3">
                           <div className="w-2 h-2 rounded-full" style={{
@@ -470,7 +470,7 @@ const Lab = () => {
                 <p className="text-gray-700 leading-relaxed text-sm mb-6">
                   Haben Sie spezielle Anforderungen? Wir entwickeln maßgeschneiderte KI-Lösungen
                 </p>
-                <Button variant="outline" size="sm" className="border-gray-200 text-gray-900 hover:bg-yellow-50 bg-white" onClick={scrollToContact}>
+                <Button variant="outline" size="sm" className="border-green-300 text-green-700 hover:bg-green-50" onClick={scrollToContact}>
                   Anfrage stellen
                 </Button>
               </CardContent>
