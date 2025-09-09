@@ -84,8 +84,8 @@ const CookieConsent = () => {
                         Wir verwenden Cookies
                       </h3>
                       <p className="text-gray-300 text-sm leading-relaxed">
-                        Diese Website verwendet Cookies, um Ihre Nutzererfahrung zu verbessern und unsere Services zu optimieren. 
-                        Notwendige Cookies sind für die Grundfunktionen erforderlich und können nicht deaktiviert werden.
+                        Unsere Website verwendet Cookies, um grundlegende Funktionen bereitzustellen und Ihre Nutzererfahrung zu verbessern. 
+                        Über unsere Cookie-Einstellungen können Sie individuell festlegen, welche Cookies Sie zulassen möchten.
                       </p>
                     </div>
                   </div>
@@ -114,23 +114,23 @@ const CookieConsent = () => {
                   </div>
                   
                   <div className="space-y-6">
-                    {/* Necessary Cookies */}
+                    {/* Essential Cookies */}
                     <div className="flex items-center justify-between p-4 rounded-lg bg-gray-900/50 border border-gray-700">
                       <div className="flex-1">
-                        <Label className="text-white font-semibold">Notwendige Cookies</Label>
+                        <Label className="text-white font-semibold">Essenzielle Cookies</Label>
                         <p className="text-gray-400 text-sm mt-1">
-                          Diese Cookies sind für die Grundfunktionen der Website erforderlich.
+                          Notwendig für den Betrieb der Website
                         </p>
                       </div>
                       <Switch checked={preferences.necessary} disabled className="data-[state=checked]:bg-purple-600" />
                     </div>
                     
-                    {/* Analytics Cookies */}
+                    {/* Statistics Cookies */}
                     <div className="flex items-center justify-between p-4 rounded-lg bg-gray-900/30 border border-gray-700/50">
                       <div className="flex-1">
-                        <Label className="text-white font-semibold">Analyse-Cookies</Label>
+                        <Label className="text-white font-semibold">Statistik-Cookies</Label>
                         <p className="text-gray-400 text-sm mt-1">
-                          Helfen uns zu verstehen, wie Besucher unsere Website nutzen.
+                          Zur Analyse durch Google Analytics
                         </p>
                       </div>
                       <Switch checked={preferences.analytics} onCheckedChange={checked => handlePreferenceChange('analytics', checked)} className="data-[state=checked]:bg-purple-600" />
@@ -141,7 +141,7 @@ const CookieConsent = () => {
                       <div className="flex-1">
                         <Label className="text-white font-semibold">Marketing-Cookies</Label>
                         <p className="text-gray-400 text-sm mt-1">
-                          Ermöglichen personalisierte Werbung und Tracking über verschiedene Websites.
+                          Für Meta Pixel und Google Ads
                         </p>
                       </div>
                       <Switch checked={preferences.marketing} onCheckedChange={checked => handlePreferenceChange('marketing', checked)} className="data-[state=checked]:bg-purple-600" />
