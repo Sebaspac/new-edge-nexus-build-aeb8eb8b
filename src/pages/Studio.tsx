@@ -144,7 +144,7 @@ const Studio = () => {
             animationDelay: '0.8s'
           }}>
               STUDIO liefert das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
-              <br className="hidden sm:block" />
+              <br className="block" />
               <span className="text-purple-600 font-medium"> Für eine reibungslose Umsetzung in MEDIA & LAB</span>
             </p>
             

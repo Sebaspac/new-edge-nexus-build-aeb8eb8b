@@ -147,7 +147,7 @@ const Media = () => {
             animationDelay: '0.8s'
           }}>
               MEDIA produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
-              <br className="hidden sm:block" />
+              <br className="block" />
               <span className="text-blue-600 font-medium"> Ab Strategie bis zur viralen Umsetzung</span>
             </p>
             
