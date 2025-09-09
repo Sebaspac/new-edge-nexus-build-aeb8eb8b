@@ -20,25 +20,36 @@ export const InlineLogoSVG: React.FC<InlineLogoSVGProps> = ({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* Modern geometric logo design */}
+      {/* NE Logo design matching the uploaded PNG */}
       <defs>
         <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="hsl(270, 91%, 65%)" />
-          <stop offset="100%" stopColor="hsl(210, 100%, 60%)" />
+          <stop offset="0%" stopColor="#6366f1" />
+          <stop offset="100%" stopColor="#a855f7" />
         </linearGradient>
       </defs>
       
-      {/* Main logo shape - abstract N and E */}
-      <path
-        d="M4 8 L12 8 L20 20 L20 8 L28 8 L28 24 L20 24 L12 12 L12 24 L4 24 Z"
+      {/* Rounded square background */}
+      <rect
+        x="1"
+        y="1"
+        width="30"
+        height="30"
+        rx="8"
+        ry="8"
         fill="url(#logoGradient)"
       />
       
-      {/* Accent dot */}
-      <circle cx="26" cy="6" r="2" fill="hsl(50, 100%, 60%)" />
+      {/* Letter N */}
+      <path
+        d="M7 9 L7 23 L9.5 23 L9.5 16.5 L13.5 23 L16 23 L16 9 L13.5 9 L13.5 15.5 L9.5 9 L7 9 Z"
+        fill="white"
+      />
       
-      {/* Edge accent line */}
-      <rect x="4" y="26" width="24" height="2" rx="1" fill="url(#logoGradient)" opacity="0.6" />
+      {/* Letter E */}
+      <path
+        d="M18 9 L18 23 L25 23 L25 21 L20.5 21 L20.5 17.5 L24.5 17.5 L24.5 15.5 L20.5 15.5 L20.5 11 L25 11 L25 9 L18 9 Z"
+        fill="white"
+      />
     </svg>
   );
 };
