@@ -169,7 +169,7 @@ const Lab = () => {
             animationDelay: '0.8s'
           }}>
               LAB macht aus Ideen reale, funktionierende Systeme - sicher, automatisiert, effizient.
-              <br className="block" />
+              <br className="hidden sm:block" />
               <span className="font-medium text-gray-900">Innovation durch intelligente Technologie</span>
             </p>
             
@@ -252,9 +252,9 @@ const Lab = () => {
                     }}>
                         <Bot className="w-12 h-12 text-white" />
                       </div>
-                      <h3 className="text-2xl sm:text-3xl lg:text-4xl text-black mb-4 font-extrabold">Agent Hub</h3>
-                       <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg">
-                          8+ spezialisierte KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr.
+                      <h3 className="text-2xl text-black mb-4 font-extrabold sm:text-6xl">Agent Hub</h3>
+                       <p className="text-gray-700 leading-relaxed mb-6 text-base text-center sm:text-4xl">
+                         8+ spezialisierte KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr.
                         <span className="font-semibold"> Lebenslanger Zugang ohne Abonnement.</span>
                       </p>
                       <div className="space-y-3 mb-8">
@@ -262,7 +262,7 @@ const Lab = () => {
                           <div className="w-2 h-2 rounded-full" style={{
                           backgroundColor: '#4F97F0'
                         }}></div>
-                          <span className="text-gray-600 text-sm">Keine monatlichen Kosten</span>
+                          <span className="text-gray-600 text-5xl">Keine monatlichen Kosten</span>
                         </div>
                         <div className="flex items-center justify-center lg:justify-start gap-3">
                           <div className="w-2 h-2 rounded-full" style={{
@@ -358,14 +358,7 @@ const Lab = () => {
                 <CardContent className="p-8 sm:p-12">
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     <div className="text-center lg:text-left">
-                      <div className="flex items-center gap-4 mb-6 justify-center lg:justify-start">
-                        <div className="w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-12" style={{
-                        background: 'linear-gradient(135deg, #4F97F0, #9F91F8)'
-                      }}>
-                          <Bot className="w-12 h-12 text-white" />
-                        </div>
-                        <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black tracking-tight leading-tight">KI-ChatBot Studio</h3>
-                      </div>
+                      
                       <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg text-left">
                         24/7 Kundenbetreuung mit KI-gestützten Antworten. Sofortige Einrichtung für Ihre Website mit intelligenter Konversation.
                         <span className="font-semibold"> Ultra-High Zufriedenheitsraten durch personalisierte Antworten.</span>
