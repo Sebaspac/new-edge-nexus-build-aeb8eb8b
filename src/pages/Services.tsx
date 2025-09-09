@@ -1212,7 +1212,7 @@ const Services = () => {
           <div className="border-t border-border pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-muted-foreground text-xs sm:text-sm">©2025 New Edge. Alle Rechte vorbehalten.</p>
             <div className="flex space-x-4 sm:space-x-6 mt-3 sm:mt-4 md:mt-0">
-              <Link to="/impressum" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">Impressum</Link>
+              <Link to="/impressum" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">Impressum & Datenschutz</Link>
             </div>
           </div>
         </div>
