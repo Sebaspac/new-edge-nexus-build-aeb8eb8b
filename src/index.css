@@ -551,7 +551,3 @@ textarea:focus-visible,
   pointer-events: auto;
   transition: opacity 0.4s ease-out;
 }
-  );
-  background-size: 200% 100%;
-  animation: shimmer-effect 1.5s ease-in-out infinite;
-}
