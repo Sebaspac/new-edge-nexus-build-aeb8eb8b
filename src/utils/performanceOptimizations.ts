@@ -115,30 +115,23 @@ export function getOptimizedAnimationDuration(baseDuration: number = 0.3): numbe
 }
 
 /**
- * List of ALL images that should be preloaded for instant navigation
+ * Only above-the-fold images that are immediately visible
  */
-export const ALL_WEBSITE_IMAGES = [
-  // Critical images (logos, founders)
-  '/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png', // Mobile nav logo
-  '/lovable-uploads/7081eb62-a5ae-4260-97c8-e5b31dc0040e.png', // Main logo
-  '/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png', // Footer logo
-  '/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png', // Sebastian - founder
-  '/lovable-uploads/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png', // Wenjamin - founder
-  
-  // Content images
-  '/lovable-uploads/804d1765-b7c9-45f5-93a3-dddb443996f4.png', // Team collaboration
-  '/lovable-uploads/72768da6-5ac5-423e-a9df-579dd83dc1aa.png', // Business analytics
-  '/lovable-uploads/072b3572-872a-4a44-b919-80bad436c002.png', // Team background
-  '/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png', // Wenjamin portrait
+export const ABOVE_THE_FOLD_IMAGES = [
+  '/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png', // Mobile nav logo (always visible)
+  '/lovable-uploads/804d1765-b7c9-45f5-93a3-dddb443996f4.png', // Team collaboration (innovation section)
+  '/lovable-uploads/72768da6-5ac5-423e-a9df-579dd83dc1aa.png', // Business analytics (innovation section)
 ];
 
 /**
- * Most critical images that must load first
+ * Images for lazy loading on other pages
  */
-export const CRITICAL_IMAGES = [
-  '/lovable-uploads/93b90410-bdbd-4098-938c-5ff9f158253c.png', // Mobile nav logo
-  '/lovable-uploads/7081eb62-a5ae-4260-97c8-e5b31dc0040e.png', // Main logo
-  '/lovable-uploads/c19dc1d8-e3c-4d25-a965-34dbef5d9fe1.png', // Sebastian - founder
+export const LAZY_LOAD_IMAGES = [
+  '/lovable-uploads/7081eb62-a5ae-4260-97c8-e5b31dc0040e.png', // Main logo (for other pages)
+  '/lovable-uploads/90e4fdca-8c29-48f7-9568-686b611a62f4.png', // Footer logo
+  '/lovable-uploads/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png', // Wenjamin - founder
+  '/lovable-uploads/072b3572-872a-4a44-b919-80bad436c002.png', // Team background
+  '/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png', // Wenjamin portrait
 ];
 
 /**
@@ -203,27 +196,21 @@ export function addResourceHints(): void {
 }
 
 /**
- * Preload all website images aggressively for instant navigation
+ * Preload only above-the-fold images to prevent console warnings
  */
-export async function preloadAllWebsiteImages(): Promise<void> {
-  console.time('🖼️ Preloading all images');
+export async function preloadCriticalImages(): Promise<void> {
+  console.time('🖼️ Preloading critical images');
   
-  // Preload critical images first with high priority
-  const criticalPromise = preloadImages(CRITICAL_IMAGES);
-  
-  // Preload remaining images in background
-  const remainingImages = ALL_WEBSITE_IMAGES.filter(img => !CRITICAL_IMAGES.includes(img));
-  const backgroundPromise = preloadImages(remainingImages);
-  
-  // Wait for critical images, then continue with background loading
-  await Promise.race([criticalPromise, new Promise(resolve => setTimeout(resolve, 500))]);
-  
-  // Continue background loading without blocking
-  backgroundPromise.catch(() => {
-    console.warn('Some background images failed to preload');
-  });
-  
-  console.timeEnd('🖼️ Preloading all images');
+  try {
+    await Promise.race([
+      preloadImages(ABOVE_THE_FOLD_IMAGES), 
+      new Promise(resolve => setTimeout(resolve, 800)) // Timeout for slow connections
+    ]);
+    
+    console.timeEnd('🖼️ Preloading critical images');
+  } catch (error) {
+    console.warn('Critical image preloading failed:', error);
+  }
 }
 
 /**
@@ -250,8 +237,8 @@ export async function initializePerformanceOptimizations(): Promise<void> {
     document.documentElement.style.setProperty('--duration-slow', '0.15s');
   }
   
-  // Start aggressive image preloading
-  await preloadAllWebsiteImages();
+  // Preload only critical above-the-fold images
+  await preloadCriticalImages();
   
   console.timeEnd('⚡ Performance optimizations');
 }

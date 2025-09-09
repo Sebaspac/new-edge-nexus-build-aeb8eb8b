@@ -264,6 +264,7 @@ const Team = () => {
                               className="w-full h-full object-cover" 
                               width={128}
                               height={128}
+                              loading="lazy"
                             />
                          </div>
                       </div>
@@ -354,7 +355,8 @@ const Team = () => {
               <img 
                 src="/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png" 
                 alt="Wenjamin Zabezhanskiy - Wir öffnen Innovationsräume, übersetzen Spitzentechnologie und machen Zukunft so für jedes Team nutzbar" 
-                className="w-full h-auto object-cover" 
+                className="w-full h-auto object-cover"
+                loading="lazy"
               />
             </motion.div>
           </div>
