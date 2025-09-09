@@ -48,7 +48,7 @@ const Impressum = () => {
           duration: 0.6
         }} className="text-4xl md:text-6xl font-black mb-16 text-center">
             <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent">
-              Impressum
+              Impressum & Datenschutz
             </span>
           </motion.h1>
 
@@ -73,9 +73,9 @@ const Impressum = () => {
                 <div className="space-y-4 text-gray-300">
                   <div>
                     <p className="font-semibold text-white">New Edge</p>
-                    <p>c/o Creative Space</p>
-                    <p>Koppenstr. 82</p>
-                    <p>10243 Berlin</p>
+                    <p>Inhaber: Juan Sebastián Pachón Araque</p>
+                    <p>Pachemstraße 9</p>
+                    <p>81673 München</p>
                     <p>Deutschland</p>
                   </div>
                   
@@ -84,15 +84,12 @@ const Impressum = () => {
                       <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-purple-400 flex-shrink-0" />
                       E-Mail: <a href="mailto:info@newedgebrand.com" className="text-purple-400 hover:text-purple-300 ml-1 break-all sm:break-normal">info@newedgebrand.com</a>
                     </p>
-                    
                   </div>
                   
                   <div className="pt-4 border-t border-gray-700">
-                    <p><strong>Rechtsform:</strong> Gesellschaft bürgerlichen Rechts (GbR)</p>
-                    <p><strong>Vertretungsberechtigt:</strong> Verantwortliche Person auf Anfrage</p>
+                    <p><strong>Rechtsform:</strong> Einzelunternehmen (Kleingewerbe)</p>
                     <p className="text-sm text-gray-400 mt-2">
-                      <strong>Umsatzsteuer:</strong><br />
-                      Hinweis gemäß § 19 UStG: Es handelt sich um ein Kleingewerbe. Umsatzsteuer wird nicht ausgewiesen.
+                      <strong>Umsatzsteuer:</strong> Gemäß § 19 UStG wird keine Umsatzsteuer ausgewiesen.
                     </p>
                   </div>
                 </div>
@@ -127,9 +124,9 @@ const Impressum = () => {
                     </p>
                     <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
                       <p>New Edge</p>
-                      <p>c/o Creative Space</p>
-                      <p>Koppenstr. 82</p>
-                      <p>10243 Berlin</p>
+                      <p>Inhaber: Juan Sebastián Pachón Araque</p>
+                      <p>Pachemstraße 9</p>
+                      <p>81673 München</p>
                       <p>E-Mail: <a href="mailto:info@newedgebrand.com" className="text-purple-400 hover:text-purple-300">info@newedgebrand.com</a></p>
                     </div>
                   </div>
