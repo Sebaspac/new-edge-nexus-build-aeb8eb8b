@@ -69,10 +69,6 @@ export const MobileNavigation = ({
                 Home
               </Link>
               
-              <Link to="/products" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
-                Produkte
-              </Link>
-              
               <Link to="/team" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
                 Unser Team
               </Link>
@@ -97,6 +93,10 @@ export const MobileNavigation = ({
                   </div>
                 </div>
               </div>
+              
+              <Link to="/products" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
+                Produkte
+              </Link>
               
               {/* Language Toggle - minimal above contact */}
               
@@ -166,20 +166,6 @@ export const MobileNavigation = ({
               }} transition={{
                 delay: 0.12
               }}>
-                    <Link to="/products" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors border-b ${borderColor}`}>
-                      Produkte
-                    </Link>
-                  </motion.div>
-
-                  <motion.div initial={{
-                opacity: 0,
-                x: 50
-              }} animate={{
-                opacity: 1,
-                x: 0
-              }} transition={{
-                delay: 0.14
-              }}>
                     <Link to="/team" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors border-b ${borderColor}`}>
                       Unser Team
                     </Link>
@@ -192,7 +178,7 @@ export const MobileNavigation = ({
                 opacity: 1,
                 x: 0
               }} transition={{
-                delay: 0.15
+                delay: 0.14
               }}>
                     <Link to="/services" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors border-b ${borderColor}`}>
                       Services
@@ -243,6 +229,20 @@ export const MobileNavigation = ({
                       </Link>
                     </motion.div>
                   </div>
+
+                  <motion.div initial={{
+                opacity: 0,
+                x: 50
+              }} animate={{
+                opacity: 1,
+                x: 0
+              }} transition={{
+                delay: 0.15
+              }}>
+                    <Link to="/products" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors border-b ${borderColor}`}>
+                      Produkte
+                    </Link>
+                  </motion.div>
                 </div>
 
                 {/* Mobile Contact Button */}
