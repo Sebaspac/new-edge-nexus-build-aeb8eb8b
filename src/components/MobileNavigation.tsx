@@ -79,7 +79,7 @@ export const MobileNavigation = ({
                 </Link>
                 
                 {/* Desktop Dropdown - Fixed hover states */}
-                <div className={`absolute top-full left-0 mt-2 w-48 ${bgColor} border ${borderColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-lg z-50`}>
+                <div className={`absolute top-full left-0 mt-2 w-48 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-lg z-50`}>
                   <div className="py-2">
                     <Link to="/studio" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
                       New Edge Studio
@@ -139,7 +139,7 @@ export const MobileNavigation = ({
           type: "spring",
           damping: 25,
           stiffness: 200
-        }} className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] ${bgColor} backdrop-blur-lg z-50 md:hidden border-l ${borderColor} shadow-2xl`}>
+        }} className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] ${bgColor} backdrop-blur-lg z-50 md:hidden shadow-2xl`}>
               <div className="flex flex-col h-full pt-20 pb-6">
                 {/* Mobile Menu Items */}
                 <div className="flex-1 px-6 space-y-1">
@@ -152,7 +152,7 @@ export const MobileNavigation = ({
               }} transition={{
                 delay: 0.1
               }}>
-                    <Link to="/" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors border-b ${borderColor}`}>
+                    <Link to="/" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
                       Home
                     </Link>
                   </motion.div>
@@ -166,7 +166,7 @@ export const MobileNavigation = ({
               }} transition={{
                 delay: 0.12
               }}>
-                    <Link to="/team" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors border-b ${borderColor}`}>
+                    <Link to="/team" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
                       Unser Team
                     </Link>
                   </motion.div>
@@ -180,7 +180,7 @@ export const MobileNavigation = ({
               }} transition={{
                 delay: 0.14
               }}>
-                    <Link to="/services" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors border-b ${borderColor}`}>
+                    <Link to="/services" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
                       Services
                     </Link>
                   </motion.div>
@@ -239,7 +239,7 @@ export const MobileNavigation = ({
               }} transition={{
                 delay: 0.15
               }}>
-                    <Link to="/products" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors border-b ${borderColor}`}>
+                    <Link to="/products" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
                       Produkte
                     </Link>
                   </motion.div>
@@ -254,7 +254,7 @@ export const MobileNavigation = ({
               y: 0
             }} transition={{
               delay: 0.35
-            }} className="px-6 pt-6 border-t border-gray-200/20">
+            }} className="px-6 pt-6 border-t border-transparent">
                   <Button onClick={handleContactClick} className={`w-full ${isDark ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700' : 'bg-black hover:bg-gray-800'} text-white py-4 text-lg font-medium`}>
                     Kontakt aufnehmen
                   </Button>
