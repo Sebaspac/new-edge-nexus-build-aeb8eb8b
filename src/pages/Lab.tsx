@@ -234,7 +234,7 @@ const Lab = () => {
                   KI Strategie & Leadership
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Wir befähigen Ihr Führungsteam, KI als festen Bestandteil jeder Entscheidung zu nutzen – mit klaren Leitplanken, priorisierten Use Cases und Automatisierungs-Roadmaps, die operative Exzellenz messbar steigern.
+                  Künstliche Intelligenz ist für uns nicht nur ein weiteres Tool – sie ist der Wendepunkt, der Marken in ein neues Zeitalter führt. Wer KI nur für Kostensenkung oder schnellere Inhalte nutzt, bleibt weit hinter dem Möglichen zurück. New Edge verbindet Kreativität mit Technologie zu maßgeschneiderten, datengetriebenen Lösungen – von Branding und Content bis zu Automatisierung und eigens entwickelten Prototypen. So verändern wir nicht nur, was Unternehmen tun, sondern wie sie arbeiten, Kund:innen begeistern und ihre Märkte anführen.
                 </p>
               </div>
               <div className="order-first lg:order-last">
