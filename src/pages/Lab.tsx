@@ -192,21 +192,6 @@ const Lab = () => {
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="py-16 sm:py-32 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          
-          
-          <ServicesSection title="Technische Umsetzung" subtitle="Maßgeschneiderte Lösungen für Ihre spezifischen Anforderungen" services={labServices} accentColor="#FFED00" bgColor="bg-transparent" />
-
-          <div className="text-center mt-12">
-            <Button size="lg" className="bg-black hover:bg-gray-800 text-white text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" onClick={scrollToContact}>
-              Projekt anfragen
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* KI Transformation Section - PDF Style */}
       <section className="py-16 sm:py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
