@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
+import { motion } from "framer-motion";
 
 const Products = () => {
   const navigate = useNavigate();
@@ -62,57 +63,188 @@ const Products = () => {
         </section>
 
         {/* Riley - Wissensagent */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-white">
+        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-white via-purple-50/30 to-blue-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
-              <div>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #9F91F8, #4F97F0)' }}>
-                    <Lightbulb className="w-6 h-6 text-white" />
-                  </div>
-                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-black">Riley – Ihr Wissensagent</h2>
-                </div>
-                
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black mt-8">Was macht Riley?</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
-                  Riley nutzt Retrieval‑Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten. Der Einsatz von RAG verringert Halluzinationen und schafft mehr Vertrauen in die Ergebnisse.
-                </p>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">So funktioniert Riley</h3>
-                <ol className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 space-y-2 list-decimal list-inside">
-                  <li><strong>Daten sammeln & organisieren:</strong> Alle wichtigen Dokumente, FAQs und Anleitungen werden in einer zentralen Wissensbasis gespeichert.</li>
-                  <li><strong>Recherche & Analyse:</strong> Riley identifiziert die relevanten Abschnitte und bringt sie in den richtigen Kontext.</li>
-                  <li><strong>Generieren & Antworten:</strong> Das Sprachmodell erstellt daraus eine verständliche, hochwertige Antwort.</li>
-                  <li><strong>Lernen & verbessern:</strong> Nutzerfeedback fließt in die Optimierung ein; so werden Antworten stetig präziser.</li>
-                </ol>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">Ihre Vorteile mit Riley</h3>
-                <ul className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 space-y-2 list-disc list-inside">
-                  <li>Verlässliche und aktuelle Informationen anstelle von Halluzinationen</li>
-                  <li>Schneller Zugriff auf verborgenes Wissen und weniger Suchaufwand</li>
-                  <li>Maßgeschneiderte Antworten für Ihr Team und Ihre Kunden</li>
-                  <li>Integration in bestehende Systeme wie Chat- oder CRM‑Tools</li>
-                </ul>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">Riley in der Praxis</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-8">
-                  Ein neuer Mitarbeiter stellt im internen Chat Fragen zum Onboarding. Riley greift auf Handbücher und FAQs zu, liefert sofort die korrekte Antwort und verkürzt so die Einarbeitungszeit.
-                </p>
-
-                <Button 
-                  size="lg" 
-                  className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-full font-medium transition-all duration-300"
-                  onClick={scrollToContact}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.15,
+                    delayChildren: 0.1
+                  }
+                }
+              }}
+              className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16"
+            >
+              <div className="space-y-6">
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, x: -30 },
+                    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+                  }}
+                  className="flex items-center gap-4 mb-8"
                 >
-                  Jetzt mit Riley starten
-                </Button>
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl" 
+                    style={{ background: 'linear-gradient(135deg, #9F91F8, #4F97F0)' }}
+                  >
+                    <Lightbulb className="w-8 h-8 text-white" />
+                  </motion.div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">Riley – Ihr Wissensagent</h2>
+                </motion.div>
+                
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Was macht Riley?</h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                    Riley nutzt Retrieval‑Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten. Der Einsatz von RAG verringert Halluzinationen und schafft mehr Vertrauen in die Ergebnisse.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Riley</h3>
+                  <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">1</span>
+                      <span><strong>Daten sammeln & organisieren:</strong> Alle wichtigen Dokumente, FAQs und Anleitungen werden in einer zentralen Wissensbasis gespeichert.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">2</span>
+                      <span><strong>Recherche & Analyse:</strong> Riley identifiziert die relevanten Abschnitte und bringt sie in den richtigen Kontext.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">3</span>
+                      <span><strong>Generieren & Antworten:</strong> Das Sprachmodell erstellt daraus eine verständliche, hochwertige Antwort.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">4</span>
+                      <span><strong>Lernen & verbessern:</strong> Nutzerfeedback fließt in die Optimierung ein; so werden Antworten stetig präziser.</span>
+                    </motion.li>
+                  </ol>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-gradient-to-br from-purple-600 to-blue-600 p-6 rounded-2xl shadow-xl text-white"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4">Ihre Vorteile mit Riley</h3>
+                  <ul className="text-sm sm:text-base leading-relaxed space-y-2">
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Verlässliche und aktuelle Informationen anstelle von Halluzinationen</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Schneller Zugriff auf verborgenes Wissen und weniger Suchaufwand</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Maßgeschneiderte Antworten für Ihr Team und Ihre Kunden</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Integration in bestehende Systeme wie Chat- oder CRM‑Tools</span>
+                    </li>
+                  </ul>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Riley in der Praxis</h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
+                    Ein neuer Mitarbeiter stellt im internen Chat Fragen zum Onboarding. Riley greift auf Handbücher und FAQs zu, liefert sofort die korrekte Antwort und verkürzt so die Einarbeitungszeit.
+                  </p>
+
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <Button 
+                      size="lg" 
+                      className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300"
+                      onClick={scrollToContact}
+                    >
+                      Jetzt mit Riley starten
+                    </Button>
+                  </motion.div>
+                </motion.div>
               </div>
-              <div className="hidden lg:block">
-                <div className="w-full h-64 bg-gradient-to-br from-purple-100 to-blue-100 rounded-lg flex items-center justify-center">
-                  <Lightbulb className="w-32 h-32 text-purple-600" />
-                </div>
-              </div>
-            </div>
+              
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
+                }}
+                className="hidden lg:block sticky top-24"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.05, rotate: 2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="w-full h-96 bg-gradient-to-br from-purple-500 via-blue-500 to-purple-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <motion.div
+                    animate={{ 
+                      rotate: [0, 360],
+                      scale: [1, 1.1, 1]
+                    }}
+                    transition={{ 
+                      duration: 20, 
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  >
+                    <Lightbulb className="w-40 h-40 text-white drop-shadow-2xl" />
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
