@@ -283,7 +283,7 @@ const Products = () => {
                 <motion.div 
                   whileHover={{ scale: 1.05, rotate: -2 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="w-full h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-blue-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden"
+                  className="w-full h-96 bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden"
                 >
                   <video 
                     autoPlay 
@@ -310,7 +310,7 @@ const Products = () => {
                   <motion.div 
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl" 
-                    style={{ background: 'linear-gradient(135deg, #4F97F0, #9F91F8)' }}
+                    style={{ background: 'linear-gradient(135deg, #a855f7, #ec4899)' }}
                   >
                     <Bot className="w-8 h-8 text-white" />
                   </motion.div>
@@ -322,9 +322,9 @@ const Products = () => {
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
                   }}
-                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-blue-100"
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100"
                 >
-                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Was macht Liam?</h3>
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Was macht Liam?</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                     Liam automatisiert Ihre Lead‑Generierung. Er kombiniert Chatbots, Segmentierung, Predictive Lead Scoring und automatisierte E‑Mail‑Kampagnen. Dadurch identifiziert und pflegt er wertvolle Kontakte, während Ihr Vertrieb sich auf Abschlüsse konzentriert. KI‑gestützte Lead‑Generierung steigert Effizienz, verbessert die Lead‑Qualität und ermöglicht hyperpersonalisierte Ansprache.
                   </p>
@@ -335,7 +335,7 @@ const Products = () => {
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
                   }}
-                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-blue-100"
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100"
                 >
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Liam</h3>
                   <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
@@ -346,7 +346,7 @@ const Products = () => {
                       }}
                       className="flex gap-3"
                     >
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">1</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">1</span>
                       <span><strong>Erkennen & Segmentieren:</strong> Liam analysiert Website‑Besucher und teilt sie in Zielgruppen ein.</span>
                     </motion.li>
                     <motion.li 
@@ -356,7 +356,7 @@ const Products = () => {
                       }}
                       className="flex gap-3"
                     >
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">2</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">2</span>
                       <span><strong>Interagieren & Qualifizieren:</strong> Ein Chatbot begrüßt Interessenten, beantwortet Fragen und erfasst Kontaktdaten samt Lead‑Score.</span>
                     </motion.li>
                     <motion.li 
@@ -366,7 +366,7 @@ const Products = () => {
                       }}
                       className="flex gap-3"
                     >
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">3</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">3</span>
                       <span><strong>Nurturing & Personalisierung:</strong> Automatisierte E‑Mails und Nachrichten liefern passende Inhalte und pflegen den Kontakt.</span>
                     </motion.li>
                     <motion.li 
@@ -376,7 +376,7 @@ const Products = () => {
                       }}
                       className="flex gap-3"
                     >
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">4</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">4</span>
                       <span><strong>Übergabe an den Vertrieb:</strong> Heiß qualifizierte Leads werden mit Scoring und Empfehlungen an Ihr Team übergeben.</span>
                     </motion.li>
                   </ol>
@@ -387,7 +387,7 @@ const Products = () => {
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
                   }}
-                  className="bg-gradient-to-br from-blue-600 to-purple-600 p-6 rounded-2xl shadow-xl text-white"
+                  className="bg-gradient-to-br from-purple-600 to-pink-600 p-6 rounded-2xl shadow-xl text-white"
                 >
                   <h3 className="text-xl sm:text-2xl font-black mb-4">Ihre Vorteile mit Liam</h3>
                   <ul className="text-sm sm:text-base leading-relaxed space-y-2">
@@ -415,7 +415,7 @@ const Products = () => {
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
                   }}
-                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-blue-100"
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100"
                 >
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Liam in der Praxis</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
@@ -425,7 +425,7 @@ const Products = () => {
                   <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                     <Button 
                       size="lg" 
-                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300"
+                      className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300"
                       onClick={scrollToContact}
                     >
                       Mehr qualifizierte Leads – Liam jetzt testen
