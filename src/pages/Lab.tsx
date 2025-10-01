@@ -92,12 +92,12 @@ const Lab = () => {
               animationDelay: '0.2s'
             }}>NEW EDGE</span>
               <br />
-              <span className="italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{
+              <span className="italic font-black inline-block animate-fade-in hover-title-spacing" style={{
               animationDelay: '0.4s',
               color: '#FFED00'
             }}>LAB</span>
               <br />
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-gray-600 font-normal inline-block animate-fade-in hover-title-scale" style={{
               animationDelay: '0.6s'
             }}>TECH INNOVATION</span>
             </h1>
@@ -195,11 +195,11 @@ const Lab = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Header */}
           <div className="mb-16 sm:mb-24 lg:mb-32">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 sm:mb-8 leading-tight text-black">
-              TRANSFORMIEREN<br />
-              SIE IHR<br />
-              UNTERNEHMEN<br />
-              <span className="italic font-black">Heute</span> MIT KI
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 sm:mb-8 leading-tight text-black hover-title-wave">
+              <span className="char">T</span><span className="char">R</span><span className="char">A</span><span className="char">N</span><span className="char">S</span><span className="char">F</span><span className="char">O</span><span className="char">R</span><span className="char">M</span><span className="char">I</span><span className="char">E</span><span className="char">R</span><span className="char">E</span><span className="char">N</span><br />
+              <span className="char">S</span><span className="char">I</span><span className="char">E</span> <span className="char">I</span><span className="char">H</span><span className="char">R</span><br />
+              <span className="char">U</span><span className="char">N</span><span className="char">T</span><span className="char">E</span><span className="char">R</span><span className="char">N</span><span className="char">E</span><span className="char">H</span><span className="char">M</span><span className="char">E</span><span className="char">N</span><br />
+              <span className="italic font-black char">H</span><span className="italic font-black char">e</span><span className="italic font-black char">u</span><span className="italic font-black char">t</span><span className="italic font-black char">e</span> <span className="char">M</span><span className="char">I</span><span className="char">T</span> <span className="char">K</span><span className="char">I</span>
             </h2>
             <p className="text-sm sm:text-base lg:text-lg text-gray-700 max-w-2xl leading-relaxed">
               Künstliche Intelligenz ist nicht nur noch ein weiteres Tool – sie ist der Wendepunkt, der Ihr gesamtes Unternehmen verändern wird. 
@@ -505,7 +505,9 @@ const Lab = () => {
       background: `linear-gradient(to right, #FFED00, #FFED00)`
     }}>
         <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in text-black">Let´s design the Edge</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in text-black hover-title-rotate">
+            <span className="char">L</span><span className="char">e</span><span className="char">t</span><span className="char">´</span><span className="char">s</span> <span className="char">d</span><span className="char">e</span><span className="char">s</span><span className="char">i</span><span className="char">g</span><span className="char">n</span> <span className="char">t</span><span className="char">h</span><span className="char">e</span> <span className="char">E</span><span className="char">d</span><span className="char">g</span><span className="char">e</span>
+          </h2>
           <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in text-gray-800 px-4">
             Gemeinsam entwickeln wir innovative Technologielösungen, die Ihr Unternehmen voranbringen.
           </p>
