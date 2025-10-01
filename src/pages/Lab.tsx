@@ -234,8 +234,7 @@ const Lab = () => {
                   KI Strategie & Leadership
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Wir helfen Ihrem Führungsteam, das Potenzial von KI für die Umgestaltung Ihres gesamten Unternehmens voll zu erfassen. 
-                  Gemeinsam entwickeln wir eine zukunftsorientierte, anpassungsfähige KI Strategie, die KI in die Entscheidungsfindung einbezieht und Ihre Arbeitsweise transformiert.
+                  Wir befähigen Ihr Führungsteam, KI als festen Bestandteil jeder Entscheidung zu nutzen – mit klaren Leitplanken, priorisierten Use Cases und Automatisierungs-Roadmaps, die operative Exzellenz messbar steigern.
                 </p>
               </div>
               <div className="order-first lg:order-last">
@@ -250,8 +249,7 @@ const Lab = () => {
                   KI Grundlagen & Infrastruktur
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  KI ist nur so leistungsfähig wie die Daten, die ihr zugrunde liegen. 
-                  Wir helfen Ihnen beim Aufbau einer skalierbaren, sicheren Dateninfrastruktur mit ethischen Frameworks und Systemen, die Ihr KI Wachstum nahtlos vorantreiben.
+                  Wir schaffen die Basis, auf der KI wirkt: skalierbare Datenarchitekturen, verantwortungsvolle Governance – plus maßgeschneiderte Webentwicklung (CMS, Landingpages, Funnels), die Ihre KI-Systeme nahtlos integriert und mitwächst.
                 </p>
               </div>
               <div className="order-first lg:order-last">
@@ -266,7 +264,7 @@ const Lab = () => {
                   KI-gesteuerte Customer Experiences & Produkte
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Wir nutzen KI, um Ihre Kund:innen besser zu verstehen, damit Sie personalisierte, immersive Experiences und innovative Produkte schaffen können, die Ihre Zielgruppe immer wieder aufs Neue begeistern.
+                  Wir entwickeln Erlebnisse, die konvertieren: Durch KI-Agenten verbinden wir Text, E-Mail und CRM zu automatisierten Journeys – für schnellere Reaktionen, relevantere Interaktionen und spürbar besseren Service.
                 </p>
               </div>
               <div className="order-first lg:order-last">
@@ -281,8 +279,7 @@ const Lab = () => {
                   KI-gestützte Inhalte & Media
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Verändern Sie Ihr Marketing und Ihren Vertrieb mit KI-gesteuerten, personalisierten Kampagnen, die bei Ihren Kund:innen gut ankommen. 
-                  Wir unterstützen Sie bei der Entwicklung intelligenter Medienstrategien und nahtloser Shopping Experiences, um die Kundenbindung und den Umsatz zu steigern.
+                  Wir liefern personalisierte Content- und Media-Setups – präzise getrackt mit GA4, Tag Manager, Pixel & individuellen Dashboards. So erhalten Sie verlässliche Daten und klare Entscheidungsgrundlagen statt Bauchgefühl.
                 </p>
               </div>
               <div className="order-first lg:order-last">
@@ -297,8 +294,7 @@ const Lab = () => {
                   Prozess- und Workflow Optimierung
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Bei KI geht es nicht nur um Geschwindigkeit, sondern auch um intelligentere, effizientere Arbeitsabläufe. 
-                  Wir integrieren KI in Ihr Unternehmen, um Prozesse zu rationalisieren, die Leistung zu optimieren und Ressourcen für größere Innovationen freizusetzen.
+                  Wir eliminieren Reibung: Wiederkehrende Aufgaben werden KI-gestützt automatisiert, Teams entlastet und Durchlaufzeiten verkürzt – damit mehr Zeit für Innovation und Wachstum bleibt.
                 </p>
               </div>
               <div className="order-first lg:order-last">
