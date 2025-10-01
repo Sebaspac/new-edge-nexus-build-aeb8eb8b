@@ -106,7 +106,7 @@ const Studio = () => {
               <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
                   NEW EDGE<br />
-                  <span className="italic font-black">STUDIO</span><br />
+                  <span className="italic font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">STUDIO</span><br />
                   <span className="text-2xl sm:text-3xl lg:text-4xl font-normal">DESIGN EXCELLENCE</span>
                 </h1>
                 <p className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed">
