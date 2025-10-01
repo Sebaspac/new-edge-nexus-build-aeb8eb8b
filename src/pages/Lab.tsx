@@ -6,6 +6,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ServicesSection } from "@/components/ServicesSection";
+import kiStrategyImg from "@/assets/ki-strategy.png";
+import kiInfrastructureImg from "@/assets/ki-infrastructure.png";
+import kiCustomerImg from "@/assets/ki-customer.png";
+import kiMediaImg from "@/assets/ki-media.png";
+import kiWorkflowImg from "@/assets/ki-workflow.png";
 const Lab = () => {
   const {
     t
@@ -203,126 +208,137 @@ const Lab = () => {
       </section>
 
       {/* KI Transformation Section - PDF Style */}
-      <section className="py-16 sm:py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
-        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+      <section className="py-16 sm:py-24 lg:py-32 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Header */}
-          <div className="text-center mb-16 sm:mb-24">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-              TRANSFORMIEREN SIE IHR<br />UNTERNEHMEN{' '}
-              <span className="inline-block relative">
-                <span className="relative z-10">Heute</span>
-                <span className="absolute bottom-0 left-0 w-full h-3 bg-yellow-400 -z-10"></span>
-              </span>{' '}
-              MIT KI
+          <div className="mb-16 sm:mb-24 lg:mb-32">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 sm:mb-8 leading-tight text-black">
+              TRANSFORMIEREN<br />
+              SIE IHR<br />
+              UNTERNEHMEN<br />
+              <span className="italic font-black">Heute</span> MIT KI
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-gray-700 max-w-2xl leading-relaxed">
               Künstliche Intelligenz ist nicht nur noch ein weiteres Tool – sie ist der Wendepunkt, der Ihr gesamtes Unternehmen verändern wird. 
               Wenn Sie KI ausschließlich als Mittel zur Kostenreduktion oder zur schnelleren Erstellung von Inhalten betrachten, schöpfen Sie nur einen Bruchteil ihres tatsächlichen Potenzials aus. 
               Bei DEPT® entfalten wir das volle Potenzial von KI und helfen Unternehmen nicht nur dabei, sich zu verbessern, sondern auch die Art und Weise wie sie arbeiten, Kund:innen ansprechen und ihre Märkte anführen, radikal zu verändern.
             </p>
           </div>
 
-          {/* Service Cards Grid */}
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-16">
-            {/* Card 1 */}
-            <Card className="bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
-              <CardContent className="p-6 sm:p-8">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                  <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">KI Strategie & Leadership</h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+          {/* Service Items */}
+          <div className="space-y-12 sm:space-y-16 lg:space-y-20 mb-16 sm:mb-24">
+            {/* Item 1 */}
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
+              <div>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-black">
+                  KI Strategie & Leadership
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                   Wir helfen Ihrem Führungsteam, das Potenzial von KI für die Umgestaltung Ihres gesamten Unternehmens voll zu erfassen. 
                   Gemeinsam entwickeln wir eine zukunftsorientierte, anpassungsfähige KI Strategie, die KI in die Entscheidungsfindung einbezieht und Ihre Arbeitsweise transformiert.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="order-first lg:order-last">
+                <img src={kiStrategyImg} alt="KI Strategie" className="w-full h-auto rounded-lg shadow-sm" />
+              </div>
+            </div>
 
-            {/* Card 2 */}
-            <Card className="bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
-              <CardContent className="p-6 sm:p-8">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                  <Database className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">KI Grundlagen & Infrastruktur</h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+            {/* Item 2 */}
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
+              <div>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-black">
+                  KI Grundlagen & Infrastruktur
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                   KI ist nur so leistungsfähig wie die Daten, die ihr zugrunde liegen. 
                   Wir helfen Ihnen beim Aufbau einer skalierbaren, sicheren Dateninfrastruktur mit ethischen Frameworks und Systemen, die Ihr KI Wachstum nahtlos vorantreiben.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="order-first lg:order-last">
+                <img src={kiInfrastructureImg} alt="KI Infrastruktur" className="w-full h-auto rounded-lg shadow-sm" />
+              </div>
+            </div>
 
-            {/* Card 3 */}
-            <Card className="bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
-              <CardContent className="p-6 sm:p-8">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                  <Globe className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">KI-gesteuerte Customer Experiences & Produkte</h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+            {/* Item 3 */}
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
+              <div>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-black">
+                  KI-gesteuerte Customer Experiences & Produkte
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                   Wir nutzen KI, um Ihre Kund:innen besser zu verstehen, damit Sie personalisierte, immersive Experiences und innovative Produkte schaffen können, die Ihre Zielgruppe immer wieder aufs Neue begeistern.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="order-first lg:order-last">
+                <img src={kiCustomerImg} alt="KI Customer Experiences" className="w-full h-auto rounded-lg shadow-sm" />
+              </div>
+            </div>
 
-            {/* Card 4 */}
-            <Card className="bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
-              <CardContent className="p-6 sm:p-8">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                  <BarChart3 className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">KI-gestützte Inhalte & Media</h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+            {/* Item 4 */}
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
+              <div>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-black">
+                  KI-gestützte Inhalte & Media
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                   Verändern Sie Ihr Marketing und Ihren Vertrieb mit KI-gesteuerten, personalisierten Kampagnen, die bei Ihren Kund:innen gut ankommen. 
                   Wir unterstützen Sie bei der Entwicklung intelligenter Medienstrategien und nahtloser Shopping Experiences, um die Kundenbindung und den Umsatz zu steigern.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="order-first lg:order-last">
+                <img src={kiMediaImg} alt="KI Media" className="w-full h-auto rounded-lg shadow-sm" />
+              </div>
+            </div>
 
-            {/* Card 5 */}
-            <Card className="bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
-              <CardContent className="p-6 sm:p-8">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                  <Settings className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">Prozess- und Workflow Optimierung</h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+            {/* Item 5 */}
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
+              <div>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-black">
+                  Prozess- und Workflow Optimierung
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                   Bei KI geht es nicht nur um Geschwindigkeit, sondern auch um intelligentere, effizientere Arbeitsabläufe. 
                   Wir integrieren KI in Ihr Unternehmen, um Prozesse zu rationalisieren, die Leistung zu optimieren und Ressourcen für größere Innovationen freizusetzen.
                 </p>
-              </CardContent>
-            </Card>
-
-            {/* Card 6 */}
-            <Card className="bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
-              <CardContent className="p-6 sm:p-8">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-yellow-400 to-orange-600 flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                  <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">Wo KI auf reale Erfolge trifft</h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                  Mit unserer Erfahrung und unseren starken Partnerschaften liefern wir KI Lösungen, die nicht nur Trends folgen, sondern die Art und Weise, wie Sie Ihr Unternehmen betreiben, neu definieren – und Sie schneller, intelligenter und wettbewerbsfähiger machen.
-                </p>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="order-first lg:order-last">
+                <img src={kiWorkflowImg} alt="KI Workflow" className="w-full h-auto rounded-lg shadow-sm" />
+              </div>
+            </div>
           </div>
 
-          {/* CTA */}
-          <div className="text-center">
-            <Button 
-              size="lg" 
-              className="text-black hover:bg-yellow-300 transition-all duration-300 hover:scale-105 hover:shadow-2xl text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-6 font-bold"
-              style={{ backgroundColor: '#FFED00' }}
-              onClick={scrollToContact}
-            >
-              KONTAKT AUFNEHMEN
-            </Button>
+          {/* Bottom Section */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center pt-8 sm:pt-12">
+            <div>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-black">
+                Wo KI auf reale<br />Erfolge trifft
+              </h3>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 sm:mb-8">
+                Mit unserer Erfahrung und unseren starken Partnerschaften liefern wir KI Lösungen, die nicht nur Trends folgen, sondern die Art und Weise, wie Sie Ihr Unternehmen betreiben, neu definieren – und Sie schneller, intelligenter und wettbewerbsfähiger machen.
+              </p>
+              <Button 
+                size="lg" 
+                className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-full font-medium transition-all duration-300"
+                onClick={scrollToContact}
+              >
+                KONTAKT AUFNEHMEN
+              </Button>
+            </div>
+            <div className="hidden lg:block">
+              <div className="flex items-center gap-8 opacity-40">
+                <span className="text-xl font-bold text-gray-400">MASIMO</span>
+                <span className="text-xl font-bold text-gray-400">Signify</span>
+                <span className="text-xl font-bold text-gray-400">ebay</span>
+                <span className="text-xl font-bold text-gray-400">Just Spices</span>
+                <span className="text-xl font-bold text-gray-400">Google</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Transition Section */}
-      <section className="py-8 bg-gradient-to-b from-black to-gray-50">
+      <section className="py-8 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center">
             <div className="w-1 h-16 mx-auto mb-4" style={{
