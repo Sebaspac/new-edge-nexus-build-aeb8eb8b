@@ -244,7 +244,7 @@ const Products = () => {
                     playsInline
                     className="absolute inset-0 w-full h-full object-cover"
                   >
-                    <source src="/assets/products-hero-video.mp4" type="video/mp4" />
+                    <source src="/assets/liam-agent-video.mp4" type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </motion.div>
