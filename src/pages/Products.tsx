@@ -247,19 +247,6 @@ const Products = () => {
                     <source src="/assets/products-hero-video.mp4" type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  <motion.div
-                    animate={{ 
-                      rotate: [0, 360],
-                      scale: [1, 1.1, 1]
-                    }}
-                    transition={{ 
-                      duration: 20, 
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                  >
-                    <Lightbulb className="w-40 h-40 text-white drop-shadow-2xl" />
-                  </motion.div>
                 </motion.div>
               </motion.div>
             </motion.div>
