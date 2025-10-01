@@ -173,8 +173,6 @@ const Lab = () => {
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 sm:mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in px-4" style={{
             animationDelay: '0.8s'
           }}>
-              LAB macht aus Ideen reale, funktionierende Systeme - sicher, automatisiert, effizient.
-              <br />
               <span className="font-medium text-gray-900">Innovation durch intelligente Technologie</span>
             </p>
             
