@@ -1,47 +1,26 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Megaphone, Target, BarChart, Users, TrendingUp, Eye, ChevronDown, Video, Camera, Edit, Settings, Search, Mail } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Megaphone, Video, Camera, Settings, Eye, TrendingUp, Search, Edit } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { ServicesSection } from "@/components/ServicesSection";
-
 import { Helmet } from 'react-helmet-async';
+import { motion } from "framer-motion";
 
 const Media = () => {
-  const { t } = useLanguage();
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0
-  });
+
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setIsVisible(true);
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
-      });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
   const scrollToContact = () => {
-    navigate('/', {
-      replace: true
-    });
+    navigate('/', { replace: true });
     setTimeout(() => {
       const contactSection = document.getElementById('contact-section');
       if (contactSection) {
-        contactSection.scrollIntoView({
-          behavior: 'smooth'
-        });
+        contactSection.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
   };
@@ -50,22 +29,50 @@ const Media = () => {
     {
       title: "Content-Produktion & Creative Asset",
       description: "Strategische Content-Produktion für maximale Wirkung auf allen Kanälen.",
-      icon: Settings
+      details: [
+        "Video- und Foto-Content-Produktion",
+        "Motion Graphics und Animationen",
+        "Creative Assets für alle Plattformen",
+        "Content-Strategie und Konzeption"
+      ],
+      icon: Settings,
+      gradient: "from-blue-500 to-cyan-500"
     },
     {
       title: "Social Media Management",
       description: "Community- und Content-Management für starke Markenbindung auf allen Kanälen.",
-      icon: Eye
+      details: [
+        "Community Management und Engagement",
+        "Content-Planung und Publishing",
+        "Performance-Analyse und Reporting",
+        "Influencer-Kooperationen"
+      ],
+      icon: Eye,
+      gradient: "from-cyan-500 to-blue-500"
     },
     {
       title: "Launchkampagnen & Performance-Marketing",
       description: "Erfolgreiche Produktlaunches und datengetriebenes Performance-Marketing.",
-      icon: TrendingUp
+      details: [
+        "Launch-Strategien entwickeln",
+        "Paid Advertising Kampagnen",
+        "Conversion-Optimierung",
+        "A/B-Testing und Analytics"
+      ],
+      icon: TrendingUp,
+      gradient: "from-blue-500 to-indigo-500"
     },
     {
       title: "Content-Marketing & Copywriting",
       description: "Gestaltung relevanter Inhalte und klarer Botschaften für mehr Sichtbarkeit und Markenwirkung.",
-      icon: Search
+      details: [
+        "SEO-optimierte Texte erstellen",
+        "Storytelling und Narratives",
+        "Blog- und Artikel-Content",
+        "E-Mail-Marketing-Texte"
+      ],
+      icon: Search,
+      gradient: "from-indigo-500 to-blue-500"
     }
   ];
 
@@ -81,136 +88,191 @@ const Media = () => {
         <meta property="og:url" content="https://new-edge.de/media" />
         <meta property="og:type" content="website" />
       </Helmet>
+
       <div className="min-h-screen bg-white">
-      <MobileNavigation onContactClick={scrollToContact} theme="light" />
+        <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
-      {/* Hero Section */}
-      <section className="h-screen px-4 sm:px-6 bg-white relative overflow-hidden flex items-center">
-        {/* Animated Grid Background */}
-        <div className="absolute inset-0 opacity-25">
-          <svg width="100%" height="100%" className="animate-parallax">
-            <defs>
-              <pattern id="media-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2563eb" strokeWidth="0.5" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#media-grid)" />
-          </svg>
-        </div>
-        <div className="container mx-auto text-center relative z-10" style={{ transform: 'translateY(10vh)' }}>
-          <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-black mb-6 sm:mb-8 leading-tight tracking-tight">
-              <span className="inline-block animate-fade-in" style={{
-              animationDelay: '0.2s'
-            }}>NEW EDGE</span>
-              <br />
-              <span className="text-blue-600 italic font-black inline-block animate-fade-in hover:scale-105 transition-transform duration-500" style={{
-              animationDelay: '0.4s'
-            }}>MEDIA</span>
-              <br />
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-gray-600 font-normal inline-block animate-fade-in" style={{
-              animationDelay: '0.6s'
-            }}>CONTENT REVOLUTION</span>
-            </h1>
-            
-            {/* Enhanced floating media elements */}
-            <div className="absolute top-10 sm:top-20 left-4 sm:left-10 animate-float-1" style={{
-            animationDelay: '0.5s'
-          }}>
-              <Video className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
-            </div>
-            <div className="absolute top-20 sm:top-40 right-8 sm:right-20 animate-float-2" style={{
-            animationDelay: '1s'
-          }}>
-              <Camera className="w-4 h-4 sm:w-6 sm:h-6 text-cyan-400" />
-            </div>
-            <div className="absolute bottom-10 sm:bottom-20 left-8 sm:left-20 animate-float-3" style={{
-            animationDelay: '1.5s'
-          }}>
-              <Megaphone className="w-8 h-8 sm:w-10 sm:h-10 text-blue-300" />
-            </div>
-            
-            {/* Additional media elements */}
-            <div className="absolute top-1/2 right-1/4 animate-drift opacity-20" style={{
-            animationDelay: '2s'
-          }}>
-              <TrendingUp className="w-12 h-12 text-blue-300" />
-            </div>
-            <div className="absolute top-1/3 left-1/4 animate-orbit opacity-30" style={{
-            animationDelay: '3s'
-          }}>
-              <Eye className="w-8 h-8 text-cyan-400" />
-            </div>
-            <div className="absolute bottom-1/4 right-1/3 animate-float-1 opacity-25" style={{
-            animationDelay: '4s'
-          }}>
-              <Search className="w-10 h-10 text-blue-400" />
-            </div>
-            
-            {/* Content bubbles */}
-            <div className="absolute top-20 left-1/3 w-24 h-24 bg-blue-200 rounded-full animate-float-2 opacity-20" style={{
-            animationDelay: '3.5s'
-          }}></div>
-            <div className="absolute bottom-1/3 left-10 w-16 h-16 bg-cyan-300 rounded-lg animate-drift opacity-25" style={{
-            animationDelay: '2.5s'
-          }}></div>
-
-            
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 sm:mb-12 max-w-4xl mx-auto font-light leading-relaxed animate-fade-in px-4" style={{
-            animationDelay: '0.8s'
-          }}>
-              MEDIA produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird.
-              <br className="block" />
-              <span className="text-blue-600 font-medium"> Ab Strategie bis zur viralen Umsetzung</span>
-            </p>
-            
-            <div className="animate-fade-in flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4" style={{
-            animationDelay: '1s'
-          }}>
-              <Button size="lg" className="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" onClick={scrollToContact}>
-                {t('common.startProject')}
-              </Button>
+        {/* Hero Section */}
+        <section className="relative w-full" style={{ marginTop: '80px' }}>
+          <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-cyan-400/10 to-background overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               
+              <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+                  NEW EDGE<br />
+                  <span className="italic font-black">MEDIA</span><br />
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-normal">CONTENT REVOLUTION</span>
+                </h1>
+                <p className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed">
+                  MEDIA produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird. 
+                  Ab Strategie bis zur viralen Umsetzung.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Services Overview */}
-      <ServicesSection
-        title="UNSERE LEISTUNGEN"
-        subtitle="Content-Produktion und strategische Reichweite für Ihren Erfolg"
-        services={mediaServices}
-        accentColor="#2563eb"
-      />
+        {/* Services Sections */}
+        {mediaServices.map((service, index) => {
+          const Icon = service.icon;
+          const isEven = index % 2 === 0;
+          
+          return (
+            <section 
+              key={index}
+              className={`py-16 sm:py-20 lg:py-24 bg-gradient-to-br ${
+                index % 2 === 0 
+                  ? 'from-white via-blue-50/30 to-cyan-50/30' 
+                  : 'from-white via-cyan-50/30 to-blue-50/30'
+              }`}
+            >
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+                <motion.div 
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                      opacity: 1,
+                      transition: {
+                        staggerChildren: 0.15,
+                        delayChildren: 0.1
+                      }
+                    }
+                  }}
+                  className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start"
+                >
+                  {/* Image - alternating left/right */}
+                  <motion.div 
+                    variants={{
+                      hidden: { opacity: 0, scale: 0.8 },
+                      visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
+                    }}
+                    className={`hidden lg:block sticky top-24 ${isEven ? 'order-2' : 'order-1'}`}
+                  >
+                    <motion.div 
+                      whileHover={{ scale: 1.05, rotate: isEven ? 2 : -2 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className={`w-full h-96 bg-gradient-to-br ${service.gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                      <motion.div
+                        animate={{ 
+                          scale: [1, 1.1, 1],
+                          rotate: [0, 5, -5, 0]
+                        }}
+                        transition={{ 
+                          duration: 5, 
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        <Icon className="w-40 h-40 text-white drop-shadow-2xl" />
+                      </motion.div>
+                    </motion.div>
+                  </motion.div>
 
-      {/* CTA Section */}
-      <section className="py-16 sm:py-32 bg-gradient-to-r from-blue-600 to-cyan-600 text-white relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in">Bereit für den nächsten Schritt?</h2>
-          <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in px-4">
-            Lassen Sie uns gemeinsam Ihre Content-Strategie revolutionieren und nachhaltige Reichweite aufbauen.
-          </p>
-          <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" onClick={scrollToContact}>
-            Projekt starten
-          </Button>
-        </div>
-        
-        {/* Background decoration */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-20 left-20 animate-float">
-            <Video className="w-32 h-32" />
+                  {/* Content - alternating right/left */}
+                  <div className={`space-y-6 ${isEven ? 'order-1' : 'order-2'}`}>
+                    <motion.div 
+                      variants={{
+                        hidden: { opacity: 0, x: isEven ? -30 : 30 },
+                        visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+                      }}
+                      className="flex items-center gap-4 mb-8"
+                    >
+                      <motion.div 
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}
+                      >
+                        <Icon className="w-8 h-8 text-white" />
+                      </motion.div>
+                      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">{service.title}</h2>
+                    </motion.div>
+                    
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                      }}
+                      className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-blue-100"
+                    >
+                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                        {service.description}
+                      </p>
+                    </motion.div>
+
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                      }}
+                      className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-blue-100"
+                    >
+                      <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Unsere Leistungen</h3>
+                      <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
+                        {service.details.map((detail, idx) => (
+                          <motion.li 
+                            key={idx}
+                            variants={{
+                              hidden: { opacity: 0, x: -20 },
+                              visible: { opacity: 1, x: 0 }
+                            }}
+                            className="flex gap-3"
+                          >
+                            <span className={`flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r ${service.gradient} text-white flex items-center justify-center text-sm font-bold`}>
+                              {idx + 1}
+                            </span>
+                            <span>{detail}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </motion.div>
+
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                      }}
+                    >
+                      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                        <Button 
+                          size="lg" 
+                          className={`w-full bg-gradient-to-r ${service.gradient} hover:opacity-90 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300`}
+                          onClick={scrollToContact}
+                        >
+                          Jetzt starten
+                        </Button>
+                      </motion.div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </div>
+            </section>
+          );
+        })}
+
+        {/* CTA Section */}
+        <section className="py-16 sm:py-32 bg-gradient-to-r from-blue-600 to-cyan-600 text-white relative overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Bereit für den nächsten Schritt?</h2>
+            <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
+              Lassen Sie uns gemeinsam Ihre Content-Strategie revolutionieren und nachhaltige Reichweite aufbauen.
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-white text-blue-600 hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg"
+              onClick={scrollToContact}
+            >
+              Projekt starten
+            </Button>
           </div>
-          <div className="absolute bottom-20 right-20 animate-float" style={{
-          animationDelay: '1s'
-        }}>
-            <Megaphone className="w-24 h-24" />
-          </div>
-        </div>
-      </section>
-      
-    </div>
+        </section>
+      </div>
     </>
   );
 };
+
 export default Media;
