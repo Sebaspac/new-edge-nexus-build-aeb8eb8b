@@ -36,7 +36,7 @@ const Studio = () => {
         "Strategische Roadmap entwickeln"
       ],
       icon: Palette,
-      gradient: "from-purple-500 to-pink-500"
+      gradient: "from-[#6366f1] to-[#a855f7]"
     },
     {
       title: "Brand Story",
@@ -48,7 +48,7 @@ const Studio = () => {
         "Konsistente Markennarrative"
       ],
       icon: Sparkles,
-      gradient: "from-pink-500 to-purple-500"
+      gradient: "from-[#a855f7] to-[#6366f1]"
     },
     {
       title: "Template-Rahmen für Social Media & Print",
@@ -60,7 +60,7 @@ const Studio = () => {
         "Digitale Asset-Bibliothek aufbauen"
       ],
       icon: Package,
-      gradient: "from-purple-500 to-indigo-500"
+      gradient: "from-[#a855f7] to-[#6366f1]"
     },
     {
       title: "Nutzerführung & Funnel-Wireframes",
@@ -72,7 +72,7 @@ const Studio = () => {
         "Funnel-Strategien entwickeln"
       ],
       icon: Grid3x3,
-      gradient: "from-indigo-500 to-purple-500"
+      gradient: "from-[#6366f1] to-[#a855f7]"
     }
   ];
 
@@ -91,7 +91,7 @@ const Studio = () => {
         {/* Hero Section */}
         <section className="relative w-full" style={{ marginTop: '80px' }}>
           <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-purple-500/20 to-purple-400/10 overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(99, 102, 241, 0.3), rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.1))' }}>
               <video 
                 autoPlay 
                 loop 
@@ -101,12 +101,12 @@ const Studio = () => {
               >
                 <source src="/assets/studio-hero-video.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-purple-900/20 to-transparent" />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(99, 102, 241, 0.6), rgba(99, 102, 241, 0.2), transparent)' }} />
               
               <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
                   NEW EDGE<br />
-                  <span className="italic font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">STUDIO</span><br />
+                  <span className="italic font-black" style={{ background: 'linear-gradient(to right, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>STUDIO</span><br />
                   <span className="text-2xl sm:text-3xl lg:text-4xl font-normal">DESIGN EXCELLENCE</span>
                 </h1>
                 <p className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed">
@@ -126,11 +126,12 @@ const Studio = () => {
           return (
             <section 
               key={index}
-              className={`py-16 sm:py-20 lg:py-24 bg-gradient-to-br ${
-                index % 2 === 0 
-                  ? 'from-white via-purple-50/30 to-pink-50/30' 
-                  : 'from-white via-pink-50/30 to-purple-50/30'
-              }`}
+              className="py-16 sm:py-20 lg:py-24"
+              style={{ 
+                background: index % 2 === 0 
+                  ? 'linear-gradient(to bottom right, white, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08))' 
+                  : 'linear-gradient(to bottom right, white, rgba(168, 85, 247, 0.08), rgba(99, 102, 241, 0.08))'
+              }}
             >
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 <motion.div 
@@ -202,7 +203,7 @@ const Studio = () => {
                         hidden: { opacity: 0, y: 20 },
                         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
                       }}
-                      className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100"
+                       className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20"
                     >
                       <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                         {service.description}
@@ -214,7 +215,7 @@ const Studio = () => {
                         hidden: { opacity: 0, y: 20 },
                         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
                       }}
-                      className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100"
+                      className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20"
                     >
                       <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Unsere Leistungen</h3>
                       <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
@@ -260,7 +261,7 @@ const Studio = () => {
         })}
 
         {/* CTA Section */}
-        <section className="py-16 sm:py-32 bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 text-white relative overflow-hidden">
+        <section className="py-16 sm:py-32 text-white relative overflow-hidden" style={{ background: 'linear-gradient(to right, #6366f1, #8b5cf6, #a855f7)' }}>
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Let´s design the edge</h2>
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
@@ -268,7 +269,8 @@ const Studio = () => {
             </p>
             <Button 
               size="lg" 
-              className="bg-white text-purple-600 hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg"
+              className="bg-white hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg"
+              style={{ color: '#6366f1' }}
               onClick={scrollToContact}
             >
               Design-Projekt starten
