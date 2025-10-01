@@ -21,14 +21,15 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     // Optimize build for better performance
-    target: 'es2015',
+    target: 'esnext',
     minify: 'terser',
     cssMinify: true,
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
-        passes: 1,
+        passes: 2,
+        pure_funcs: ['console.log', 'console.info'],
       },
       mangle: {
         safari10: true,
@@ -73,7 +74,7 @@ export default defineConfig(({ mode }) => ({
   },
   // Additional performance settings
   esbuild: {
-    target: 'es2015',
+    target: 'esnext',
     drop: ['console', 'debugger'],
   },
 }));
