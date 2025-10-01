@@ -70,16 +70,12 @@ const Team = () => {
           <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
             {/* 16:9 Aspect Ratio Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
-              {/* Background Video */}
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
+              {/* Background Image */}
+              <img 
+                src="/assets/8b2fd89c-8469-4c89-bbba-463d2c352273.png" 
+                alt="Team Background"
                 className="absolute inset-0 w-full h-full object-cover"
-              >
-                <source src="/assets/hero-video.mp4" type="video/mp4" />
-              </video>
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               
               {/* Text Content - Bottom Left */}
