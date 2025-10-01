@@ -78,12 +78,8 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-display-xl font-black mb-6"
           >
-            <span className="block bg-gradient-primary bg-clip-text text-transparent hover-title-rotate inline-flex">
-              {['B', 'R', 'A', 'N', 'D'].map((char, index) => (
-                <span key={index} className="char inline-block" style={{ flex: '1' }}>
-                  {char}
-                </span>
-              ))}
+            <span className="block bg-gradient-primary bg-clip-text text-transparent">
+              BRAND
             </span>
             <span className="block text-foreground">
               INTELLIGENCE
