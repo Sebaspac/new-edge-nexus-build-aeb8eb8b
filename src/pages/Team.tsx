@@ -103,8 +103,8 @@ const Team = () => {
               {/* Gradient Overlays */}
               <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background/80 pointer-events-none" />
               
-              {/* Text Content - Centered */}
-              <div className="absolute inset-0 flex items-center justify-center z-10 px-6">
+              {/* Text Content - Bottom */}
+              <div className="absolute inset-0 flex items-end justify-center z-10 px-6 pb-12 md:pb-16">
                 <motion.div 
                   className="text-center"
                   initial={{ opacity: 0, y: 30 }}
