@@ -99,7 +99,7 @@ const Lab = () => {
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover"
               >
-                <source src="/assets/hero-video.mp4" type="video/mp4" />
+                <source src="/assets/lab-hero-video.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-yellow-900/60 via-yellow-900/20 to-transparent" />
               
