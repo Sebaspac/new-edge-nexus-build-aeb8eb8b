@@ -285,20 +285,16 @@ const Products = () => {
                   transition={{ type: "spring", stiffness: 300 }}
                   className="w-full h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-blue-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  <motion.div
-                    animate={{ 
-                      y: [0, -20, 0],
-                      rotate: [0, 5, -5, 0]
-                    }}
-                    transition={{ 
-                      duration: 4, 
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
+                  <video 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
                   >
-                    <Bot className="w-40 h-40 text-white drop-shadow-2xl" />
-                  </motion.div>
+                    <source src="/assets/liam-video.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </motion.div>
               </motion.div>
 
