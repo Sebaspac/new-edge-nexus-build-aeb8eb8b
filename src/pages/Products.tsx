@@ -267,10 +267,41 @@ const Products = () => {
               }}
               className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16"
             >
-              <div className="space-y-6">
+              {/* Image Left */}
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
+                }}
+                className="hidden lg:block sticky top-24 order-2 lg:order-1"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.05, rotate: -2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="w-full h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-blue-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <motion.div
+                    animate={{ 
+                      y: [0, -20, 0],
+                      rotate: [0, 5, -5, 0]
+                    }}
+                    transition={{ 
+                      duration: 4, 
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <Bot className="w-40 h-40 text-white drop-shadow-2xl" />
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+
+              {/* Text Right */}
+              <div className="space-y-6 order-1 lg:order-2">
                 <motion.div 
                   variants={{
-                    hidden: { opacity: 0, x: -30 },
+                    hidden: { opacity: 0, x: 30 },
                     visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
                   }}
                   className="flex items-center gap-4 mb-8"
@@ -401,35 +432,6 @@ const Products = () => {
                   </motion.div>
                 </motion.div>
               </div>
-              
-              <motion.div 
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
-                }}
-                className="hidden lg:block sticky top-24"
-              >
-                <motion.div 
-                  whileHover={{ scale: 1.05, rotate: -2 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="w-full h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-blue-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  <motion.div
-                    animate={{ 
-                      y: [0, -20, 0],
-                      rotate: [0, 5, -5, 0]
-                    }}
-                    transition={{ 
-                      duration: 4, 
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <Bot className="w-40 h-40 text-white drop-shadow-2xl" />
-                  </motion.div>
-                </motion.div>
-              </motion.div>
             </motion.div>
           </div>
         </section>
@@ -639,10 +641,41 @@ const Products = () => {
               }}
               className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16"
             >
-              <div className="space-y-6">
+              {/* Image Left */}
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
+                }}
+                className="hidden lg:block sticky top-24 order-2 lg:order-1"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.05, rotate: -2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="w-full h-96 bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <motion.div
+                    animate={{ 
+                      rotate: [0, 10, -10, 0],
+                      y: [0, -10, 0]
+                    }}
+                    transition={{ 
+                      duration: 5, 
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <FileText className="w-40 h-40 text-white drop-shadow-2xl" />
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+
+              {/* Text Right */}
+              <div className="space-y-6 order-1 lg:order-2">
                 <motion.div 
                   variants={{
-                    hidden: { opacity: 0, x: -30 },
+                    hidden: { opacity: 0, x: 30 },
                     visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
                   }}
                   className="flex items-center gap-4 mb-8"
@@ -773,35 +806,6 @@ const Products = () => {
                   </motion.div>
                 </motion.div>
               </div>
-              
-              <motion.div 
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
-                }}
-                className="hidden lg:block sticky top-24"
-              >
-                <motion.div 
-                  whileHover={{ scale: 1.05, rotate: -2 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="w-full h-96 bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  <motion.div
-                    animate={{ 
-                      rotate: [0, 10, -10, 0],
-                      y: [0, -10, 0]
-                    }}
-                    transition={{ 
-                      duration: 5, 
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <FileText className="w-40 h-40 text-white drop-shadow-2xl" />
-                  </motion.div>
-                </motion.div>
-              </motion.div>
             </motion.div>
           </div>
         </section>
