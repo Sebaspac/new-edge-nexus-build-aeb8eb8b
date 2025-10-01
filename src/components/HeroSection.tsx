@@ -78,14 +78,14 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-display-xl font-black mb-6"
           >
-            <span className="block bg-gradient-primary bg-clip-text text-transparent hover-title-spacing">
+            <span className="block bg-gradient-primary bg-clip-text text-transparent hover-title-spacing" style={{ cursor: 'pointer' }}>
               BRAND
             </span>
-            <span className="block text-foreground hover-title-scale">
+            <span className="block text-foreground hover-title-scale" style={{ cursor: 'pointer' }}>
               INTELLIGENCE
             </span>
-            <span className="block text-display-lg text-muted-foreground hover-title-wave">
-              <span className="char">F</span><span className="char">O</span><span className="char">R</span> <span className="char">T</span><span className="char">H</span><span className="char">E</span> <span className="char">D</span><span className="char">I</span><span className="char">G</span><span className="char">I</span><span className="char">T</span><span className="char">A</span><span className="char">L</span> <span className="char">A</span><span className="char">G</span><span className="char">E</span>
+            <span className="block text-display-lg text-muted-foreground hover-title-jump" data-text="FOR THE DIGITAL AGE" style={{ cursor: 'pointer' }}>
+              FOR THE DIGITAL AGE
             </span>
           </motion.h1>
 
