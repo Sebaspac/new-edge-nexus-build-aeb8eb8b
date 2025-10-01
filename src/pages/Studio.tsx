@@ -92,6 +92,15 @@ const Studio = () => {
         <section className="relative w-full" style={{ marginTop: '80px' }}>
           <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
             <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-purple-500/20 to-purple-400/10 overflow-hidden">
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source src="/assets/studio-hero-video.mp4" type="video/mp4" />
+              </video>
               <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-purple-900/20 to-transparent" />
               
               <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl">
