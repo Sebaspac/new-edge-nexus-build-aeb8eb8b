@@ -38,18 +38,25 @@ const Products = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Hero Section */}
-        <section className="py-16 sm:py-24 lg:py-32 bg-white" style={{ paddingTop: '120px' }}>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="mb-16 sm:mb-24">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 sm:mb-8 leading-tight text-black">
-                UNSERE<br />
-                KI-AGENTEN<br />
-                <span className="italic font-black">Für Ihr Business</span>
-              </h1>
-              <p className="text-sm sm:text-base lg:text-lg text-gray-700 max-w-2xl leading-relaxed">
-                Von Wissensmanagement über Lead-Generierung bis hin zu Voice-AI und Content-Erstellung – 
-                unsere spezialisierten KI-Agenten automatisieren Ihre Prozesse und steigern Ihre Effizienz.
-              </p>
+        <section className="relative w-full" style={{ marginTop: '80px' }}>
+          <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
+            {/* 16:9 Aspect Ratio Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
+              {/* Optional: Add background image here */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              
+              {/* Text Content - Bottom Left */}
+              <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+                  UNSERE<br />
+                  KI-AGENTEN<br />
+                  <span className="italic font-black">Für Ihr Business</span>
+                </h1>
+                <p className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed">
+                  Von Wissensmanagement über Lead-Generierung bis hin zu Voice-AI und Content-Erstellung – 
+                  unsere spezialisierten KI-Agenten automatisieren Ihre Prozesse und steigern Ihre Effizienz.
+                </p>
+              </div>
             </div>
           </div>
         </section>
