@@ -42,7 +42,7 @@ export const MobileNavigation = ({
   };
   return <>
       {/* Desktop Navigation */}
-      <nav className={`fixed top-0 w-full z-50 ${bgColor} backdrop-blur-lg border-b ${borderColor}`}>
+      <nav className={`fixed top-0 w-full z-50 ${bgColor} backdrop-blur-lg`}>
         <div className="container mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
