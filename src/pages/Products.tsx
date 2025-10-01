@@ -249,264 +249,818 @@ const Products = () => {
         </section>
 
         {/* Liam - Lead-Gen-Agent */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-white">
+        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
-              <div>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #4F97F0, #9F91F8)' }}>
-                    <Bot className="w-6 h-6 text-white" />
-                  </div>
-                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-black">Liam – Ihr Lead‑Gen‑Agent</h2>
-                </div>
-                
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black mt-8">Was macht Liam?</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
-                  Liam automatisiert Ihre Lead‑Generierung. Er kombiniert Chatbots, Segmentierung, Predictive Lead Scoring und automatisierte E‑Mail‑Kampagnen. Dadurch identifiziert und pflegt er wertvolle Kontakte, während Ihr Vertrieb sich auf Abschlüsse konzentriert. KI‑gestützte Lead‑Generierung steigert Effizienz, verbessert die Lead‑Qualität und ermöglicht hyperpersonalisierte Ansprache.
-                </p>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">So funktioniert Liam</h3>
-                <ol className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 space-y-2 list-decimal list-inside">
-                  <li><strong>Erkennen & Segmentieren:</strong> Liam analysiert Website‑Besucher und teilt sie in Zielgruppen ein.</li>
-                  <li><strong>Interagieren & Qualifizieren:</strong> Ein Chatbot begrüßt Interessenten, beantwortet Fragen und erfasst Kontaktdaten samt Lead‑Score.</li>
-                  <li><strong>Nurturing & Personalisierung:</strong> Automatisierte E‑Mails und Nachrichten liefern passende Inhalte und pflegen den Kontakt.</li>
-                  <li><strong>Übergabe an den Vertrieb:</strong> Heiß qualifizierte Leads werden mit Scoring und Empfehlungen an Ihr Team übergeben.</li>
-                </ol>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">Ihre Vorteile mit Liam</h3>
-                <ul className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 space-y-2 list-disc list-inside">
-                  <li>Effizienz und Skalierbarkeit – Liam arbeitet 24/7 und verpasst keinen Besucher</li>
-                  <li>Präzises Lead‑Scoring und gezielte Segmentierung für höhere Abschlussraten</li>
-                  <li>Hyperpersonalisierte Ansprache und bessere Kundenbeziehungen</li>
-                  <li>Automatische Lead‑Pflege reduziert Ihren manuellen Aufwand</li>
-                </ul>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">Liam in der Praxis</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-8">
-                  Ein E‑Commerce‑Shop integriert Liam in sein Kontaktformular. Der Chatbot beantwortet Produktfragen, erfasst Kontaktdaten und bewertet die Kaufbereitschaft. Täglich erhält das Vertriebsteam eine Liste neuer, qualifizierter Leads inklusive Kaufwahrscheinlichkeit.
-                </p>
-
-                <Button 
-                  size="lg" 
-                  className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-full font-medium transition-all duration-300"
-                  onClick={scrollToContact}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.15,
+                    delayChildren: 0.1
+                  }
+                }
+              }}
+              className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16"
+            >
+              <div className="space-y-6">
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, x: -30 },
+                    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+                  }}
+                  className="flex items-center gap-4 mb-8"
                 >
-                  Mehr qualifizierte Leads – Liam jetzt testen
-                </Button>
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl" 
+                    style={{ background: 'linear-gradient(135deg, #4F97F0, #9F91F8)' }}
+                  >
+                    <Bot className="w-8 h-8 text-white" />
+                  </motion.div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">Liam – Ihr Lead‑Gen‑Agent</h2>
+                </motion.div>
+                
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-blue-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Was macht Liam?</h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                    Liam automatisiert Ihre Lead‑Generierung. Er kombiniert Chatbots, Segmentierung, Predictive Lead Scoring und automatisierte E‑Mail‑Kampagnen. Dadurch identifiziert und pflegt er wertvolle Kontakte, während Ihr Vertrieb sich auf Abschlüsse konzentriert. KI‑gestützte Lead‑Generierung steigert Effizienz, verbessert die Lead‑Qualität und ermöglicht hyperpersonalisierte Ansprache.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-blue-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Liam</h3>
+                  <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">1</span>
+                      <span><strong>Erkennen & Segmentieren:</strong> Liam analysiert Website‑Besucher und teilt sie in Zielgruppen ein.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">2</span>
+                      <span><strong>Interagieren & Qualifizieren:</strong> Ein Chatbot begrüßt Interessenten, beantwortet Fragen und erfasst Kontaktdaten samt Lead‑Score.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">3</span>
+                      <span><strong>Nurturing & Personalisierung:</strong> Automatisierte E‑Mails und Nachrichten liefern passende Inhalte und pflegen den Kontakt.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">4</span>
+                      <span><strong>Übergabe an den Vertrieb:</strong> Heiß qualifizierte Leads werden mit Scoring und Empfehlungen an Ihr Team übergeben.</span>
+                    </motion.li>
+                  </ol>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-gradient-to-br from-blue-600 to-purple-600 p-6 rounded-2xl shadow-xl text-white"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4">Ihre Vorteile mit Liam</h3>
+                  <ul className="text-sm sm:text-base leading-relaxed space-y-2">
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Effizienz und Skalierbarkeit – Liam arbeitet 24/7 und verpasst keinen Besucher</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Präzises Lead‑Scoring und gezielte Segmentierung für höhere Abschlussraten</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Hyperpersonalisierte Ansprache und bessere Kundenbeziehungen</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Automatische Lead‑Pflege reduziert Ihren manuellen Aufwand</span>
+                    </li>
+                  </ul>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-blue-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Liam in der Praxis</h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
+                    Ein E‑Commerce‑Shop integriert Liam in sein Kontaktformular. Der Chatbot beantwortet Produktfragen, erfasst Kontaktdaten und bewertet die Kaufbereitschaft. Täglich erhält das Vertriebsteam eine Liste neuer, qualifizierter Leads inklusive Kaufwahrscheinlichkeit.
+                  </p>
+
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <Button 
+                      size="lg" 
+                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300"
+                      onClick={scrollToContact}
+                    >
+                      Mehr qualifizierte Leads – Liam jetzt testen
+                    </Button>
+                  </motion.div>
+                </motion.div>
               </div>
-              <div className="hidden lg:block">
-                <div className="w-full h-64 bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg flex items-center justify-center">
-                  <Bot className="w-32 h-32 text-blue-600" />
-                </div>
-              </div>
-            </div>
+              
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
+                }}
+                className="hidden lg:block sticky top-24"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.05, rotate: -2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="w-full h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-blue-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <motion.div
+                    animate={{ 
+                      y: [0, -20, 0],
+                      rotate: [0, 5, -5, 0]
+                    }}
+                    transition={{ 
+                      duration: 4, 
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <Bot className="w-40 h-40 text-white drop-shadow-2xl" />
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
         {/* Vera - Voice-Agent */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-white">
+        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-white via-green-50/30 to-emerald-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
-              <div>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #22c55e, #10b981)' }}>
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-black">Vera – Ihr Voice‑Agent</h2>
-                </div>
-                
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black mt-8">Was macht Vera?</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
-                  Vera ist Ihre smarte Telefon‑Assistentin. Sie nimmt Anrufe rund um die Uhr entgegen, automatisiert Routinegespräche, beantwortet Fragen und leitet komplexe Anliegen an Ihr Team weiter. Voice‑AI‑Lösungen können hohe Anrufvolumina bewältigen, Wartezeiten verkürzen und 24/7‑Service ermöglichen.
-                </p>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">So funktioniert Vera</h3>
-                <ol className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 space-y-2 list-decimal list-inside">
-                  <li><strong>Anruf entgegennehmen:</strong> Vera nimmt jeden Anruf automatisch an und begrüßt den Kunden.</li>
-                  <li><strong>Anliegen verstehen:</strong> Dank natürlicher Spracherkennung erfasst sie Absicht und Kontext des Gesprächs.</li>
-                  <li><strong>Automatisierte Antworten & Aktionen:</strong> Sie beantwortet Fragen, führt Bestellungen aus und erfasst Feedback.</li>
-                  <li><strong>Weiterleiten & Protokollieren:</strong> Komplexere Fälle übergibt sie samt Gesprächsnotizen an Ihre Mitarbeitenden – jederzeit.</li>
-                </ol>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">Ihre Vorteile mit Vera</h3>
-                <ul className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 space-y-2 list-disc list-inside">
-                  <li>Rund‑um‑die‑Uhr‑Erreichbarkeit, ohne zusätzliches Personal</li>
-                  <li>Kürzere Wartezeiten und mehr Kundenzufriedenheit</li>
-                  <li>Entlastung Ihres Service‑Teams durch automatische Abwicklung von Routineanfragen</li>
-                  <li>Natürliche, personalisierte Gespräche für ein positives Kundenerlebnis</li>
-                </ul>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">Vera in der Praxis</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-8">
-                  Ein Service‑Center setzt Vera ein, damit Kunden jederzeit Bestellungen aufgeben oder Termine verschieben können. Standardfragen beantwortet die KI sofort, während Mitarbeitende sich auf individuelle Beratung konzentrieren.
-                </p>
-
-                <Button 
-                  size="lg" 
-                  className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-full font-medium transition-all duration-300"
-                  onClick={scrollToContact}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.15,
+                    delayChildren: 0.1
+                  }
+                }
+              }}
+              className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16"
+            >
+              <div className="space-y-6">
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, x: -30 },
+                    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+                  }}
+                  className="flex items-center gap-4 mb-8"
                 >
-                  Vera live erleben – jetzt Termin buchen
-                </Button>
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl" 
+                    style={{ background: 'linear-gradient(135deg, #22c55e, #10b981)' }}
+                  >
+                    <Phone className="w-8 h-8 text-white" />
+                  </motion.div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">Vera – Ihr Voice‑Agent</h2>
+                </motion.div>
+                
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">Was macht Vera?</h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                    Vera ist Ihre smarte Telefon‑Assistentin. Sie nimmt Anrufe rund um die Uhr entgegen, automatisiert Routinegespräche, beantwortet Fragen und leitet komplexe Anliegen an Ihr Team weiter. Voice‑AI‑Lösungen können hohe Anrufvolumina bewältigen, Wartezeiten verkürzen und 24/7‑Service ermöglichen.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Vera</h3>
+                  <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">1</span>
+                      <span><strong>Anruf entgegennehmen:</strong> Vera nimmt jeden Anruf automatisch an und begrüßt den Kunden.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">2</span>
+                      <span><strong>Anliegen verstehen:</strong> Dank natürlicher Spracherkennung erfasst sie Absicht und Kontext des Gesprächs.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">3</span>
+                      <span><strong>Automatisierte Antworten & Aktionen:</strong> Sie beantwortet Fragen, führt Bestellungen aus und erfasst Feedback.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">4</span>
+                      <span><strong>Weiterleiten & Protokollieren:</strong> Komplexere Fälle übergibt sie samt Gesprächsnotizen an Ihre Mitarbeitenden – jederzeit.</span>
+                    </motion.li>
+                  </ol>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-gradient-to-br from-green-600 to-emerald-600 p-6 rounded-2xl shadow-xl text-white"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4">Ihre Vorteile mit Vera</h3>
+                  <ul className="text-sm sm:text-base leading-relaxed space-y-2">
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Rund‑um‑die‑Uhr‑Erreichbarkeit, ohne zusätzliches Personal</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Kürzere Wartezeiten und mehr Kundenzufriedenheit</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Entlastung Ihres Service‑Teams durch automatische Abwicklung von Routineanfragen</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Natürliche, personalisierte Gespräche für ein positives Kundenerlebnis</span>
+                    </li>
+                  </ul>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Vera in der Praxis</h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
+                    Ein Service‑Center setzt Vera ein, damit Kunden jederzeit Bestellungen aufgeben oder Termine verschieben können. Standardfragen beantwortet die KI sofort, während Mitarbeitende sich auf individuelle Beratung konzentrieren.
+                  </p>
+
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <Button 
+                      size="lg" 
+                      className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300"
+                      onClick={scrollToContact}
+                    >
+                      Vera live erleben – jetzt Termin buchen
+                    </Button>
+                  </motion.div>
+                </motion.div>
               </div>
-              <div className="hidden lg:block">
-                <div className="w-full h-64 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex items-center justify-center">
-                  <Phone className="w-32 h-32 text-green-600" />
-                </div>
-              </div>
-            </div>
+              
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
+                }}
+                className="hidden lg:block sticky top-24"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.05, rotate: 2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="w-full h-96 bg-gradient-to-br from-green-500 via-emerald-500 to-green-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <motion.div
+                    animate={{ 
+                      scale: [1, 1.05, 1],
+                      rotate: [0, -3, 3, 0]
+                    }}
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <Phone className="w-40 h-40 text-white drop-shadow-2xl" />
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
         {/* Cora - Content-Agent */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-white">
+        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
-              <div>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #f59e0b, #d97706)' }}>
-                    <FileText className="w-6 h-6 text-white" />
-                  </div>
-                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-black">Cora – Ihr Content‑Agent</h2>
-                </div>
-                
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black mt-8">Was macht Cora?</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
-                  Cora erstellt und optimiert Inhalte für Blogs, Social Media und E‑Mail‑Newsletter. AI‑Content‑Agenten sparen Zeit, verbessern die Qualität und sorgen für konsistente Texte. Cora analysiert Keyword‑Trends, generiert SEO‑optimierte Texte und passt Inhalte an Ihre Zielgruppen an.
-                </p>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">So funktioniert Cora</h3>
-                <ol className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 space-y-2 list-decimal list-inside">
-                  <li><strong>Themen & Keywords recherchieren:</strong> Cora analysiert Branchentrends und Keywords für Ihre Zielgruppe.</li>
-                  <li><strong>Inhalte generieren:</strong> Die KI erstellt Blogposts, Social‑Media‑Beiträge und Newsletter‑Entwürfe.</li>
-                  <li><strong>Optimieren & Personalisieren:</strong> Grammatik und Stil werden verbessert; Texte werden für verschiedene Zielgruppen angepasst.</li>
-                  <li><strong>Veröffentlichen & Lernen:</strong> Veröffentlichungen werden geplant; Engagement‑Daten fließen zurück in die Optimierung.</li>
-                </ol>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">Ihre Vorteile mit Cora</h3>
-                <ul className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 space-y-2 list-disc list-inside">
-                  <li>Zeitersparnis durch automatisierte Content‑Erstellung</li>
-                  <li>Konsistente Qualität und Tonalität in allen Kanälen</li>
-                  <li>Bessere SEO‑Performance und höhere Sichtbarkeit</li>
-                  <li>Personalisierte Inhalte für unterschiedliche Zielgruppen</li>
-                </ul>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">Cora in der Praxis</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-8">
-                  Eine Marketing‑Abteilung nutzt Cora, um wöchentlich Blogartikel und Social‑Media‑Posts zu erstellen. Die KI passt jeden Beitrag an die jeweilige Plattform an, verbessert die Sichtbarkeit und steigert das Engagement – was wiederum zu mehr Leads führt.
-                </p>
-
-                <Button 
-                  size="lg" 
-                  className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-full font-medium transition-all duration-300"
-                  onClick={scrollToContact}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.15,
+                    delayChildren: 0.1
+                  }
+                }
+              }}
+              className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16"
+            >
+              <div className="space-y-6">
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, x: -30 },
+                    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+                  }}
+                  className="flex items-center gap-4 mb-8"
                 >
-                  Entdecken Sie, wie Cora Ihr Content‑Marketing transformiert
-                </Button>
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl" 
+                    style={{ background: 'linear-gradient(135deg, #f59e0b, #d97706)' }}
+                  >
+                    <FileText className="w-8 h-8 text-white" />
+                  </motion.div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">Cora – Ihr Content‑Agent</h2>
+                </motion.div>
+                
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-amber-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Was macht Cora?</h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                    Cora erstellt und optimiert Inhalte für Blogs, Social Media und E‑Mail‑Newsletter. AI‑Content‑Agenten sparen Zeit, verbessern die Qualität und sorgen für konsistente Texte. Cora analysiert Keyword‑Trends, generiert SEO‑optimierte Texte und passt Inhalte an Ihre Zielgruppen an.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-amber-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Cora</h3>
+                  <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">1</span>
+                      <span><strong>Themen & Keywords recherchieren:</strong> Cora analysiert Branchentrends und Keywords für Ihre Zielgruppe.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">2</span>
+                      <span><strong>Inhalte generieren:</strong> Die KI erstellt Blogposts, Social‑Media‑Beiträge und Newsletter‑Entwürfe.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">3</span>
+                      <span><strong>Optimieren & Personalisieren:</strong> Grammatik und Stil werden verbessert; Texte werden für verschiedene Zielgruppen angepasst.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">4</span>
+                      <span><strong>Veröffentlichen & Lernen:</strong> Veröffentlichungen werden geplant; Engagement‑Daten fließen zurück in die Optimierung.</span>
+                    </motion.li>
+                  </ol>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-gradient-to-br from-amber-600 to-orange-600 p-6 rounded-2xl shadow-xl text-white"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4">Ihre Vorteile mit Cora</h3>
+                  <ul className="text-sm sm:text-base leading-relaxed space-y-2">
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Zeitersparnis durch automatisierte Content‑Erstellung</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Konsistente Qualität und Tonalität in allen Kanälen</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Bessere SEO‑Performance und höhere Sichtbarkeit</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Personalisierte Inhalte für unterschiedliche Zielgruppen</span>
+                    </li>
+                  </ul>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-amber-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Cora in der Praxis</h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
+                    Eine Marketing‑Abteilung nutzt Cora, um wöchentlich Blogartikel und Social‑Media‑Posts zu erstellen. Die KI passt jeden Beitrag an die jeweilige Plattform an, verbessert die Sichtbarkeit und steigert das Engagement – was wiederum zu mehr Leads führt.
+                  </p>
+
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <Button 
+                      size="lg" 
+                      className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300"
+                      onClick={scrollToContact}
+                    >
+                      Entdecken Sie, wie Cora Ihr Content‑Marketing transformiert
+                    </Button>
+                  </motion.div>
+                </motion.div>
               </div>
-              <div className="hidden lg:block">
-                <div className="w-full h-64 bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg flex items-center justify-center">
-                  <FileText className="w-32 h-32 text-amber-600" />
-                </div>
-              </div>
-            </div>
+              
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
+                }}
+                className="hidden lg:block sticky top-24"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.05, rotate: -2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="w-full h-96 bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <motion.div
+                    animate={{ 
+                      rotate: [0, 10, -10, 0],
+                      y: [0, -10, 0]
+                    }}
+                    transition={{ 
+                      duration: 5, 
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <FileText className="w-40 h-40 text-white drop-shadow-2xl" />
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
         {/* Agent Hub */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-white">
+        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
-              <div>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #9F91F8, #4F97F0)' }}>
-                    <Bot className="w-6 h-6 text-white" />
-                  </div>
-                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-black">Agent Hub – Ihre Komplettlösung</h2>
-                </div>
-                
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black mt-8">Was ist der Agent Hub?</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
-                  Der Agent Hub ist Ihre zentrale Plattform mit 8+ spezialisierten KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr. Mit einem einmaligen Zugang erhalten Sie lebenslangen Zugriff auf alle Agenten – ohne monatliche Abonnementkosten.
-                </p>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">So funktioniert der Agent Hub</h3>
-                <ol className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 space-y-2 list-decimal list-inside">
-                  <li><strong>Einmalige Registrierung:</strong> Erstellen Sie Ihren Account und erhalten Sie sofortigen Zugang zu allen verfügbaren Agenten.</li>
-                  <li><strong>Agent auswählen:</strong> Wählen Sie aus über 8 spezialisierten Agenten den passenden für Ihre aktuelle Aufgabe.</li>
-                  <li><strong>Aufgabe definieren:</strong> Beschreiben Sie Ihr Anliegen – der Agent analysiert und verarbeitet Ihre Anfrage.</li>
-                  <li><strong>Ergebnisse nutzen:</strong> Erhalten Sie hochwertige Outputs, die Sie direkt einsetzen können.</li>
-                </ol>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">Ihre Vorteile mit dem Agent Hub</h3>
-                <ul className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 space-y-2 list-disc list-inside">
-                  <li>Keine monatlichen Kosten – einmalige Zahlung für lebenslangen Zugang</li>
-                  <li>8+ spezialisierte Agenten für alle Unternehmensbereiche</li>
-                  <li>Sofort einsatzbereit ohne komplexe Einrichtung</li>
-                  <li>Regelmäßige Updates und neue Agenten inklusive</li>
-                  <li>80% Rabatt für kurze Zeit</li>
-                </ul>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-black">Agent Hub in der Praxis</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-8">
-                  Ein Startup nutzt den Agent Hub für seine gesamte Content-Produktion: Cody erstellt Werbetexte, Dimarko plant Social-Media-Kampagnen und Inti unterstützt bei der Mitarbeitersuche. Alle Bereiche werden mit einem Tool abgedeckt – effizient und kostenoptimiert.
-                </p>
-
-                <Button 
-                  size="lg" 
-                  className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-full font-medium transition-all duration-300"
-                  onClick={() => window.open('https://agenthub.newedgebrand.com', '_blank')}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.15,
+                    delayChildren: 0.1
+                  }
+                }
+              }}
+              className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16"
+            >
+              <div className="space-y-6">
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, x: -30 },
+                    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+                  }}
+                  className="flex items-center gap-4 mb-8"
                 >
-                  Loslegen
-                </Button>
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl" 
+                    style={{ background: 'linear-gradient(135deg, #9F91F8, #4F97F0)' }}
+                  >
+                    <Bot className="w-8 h-8 text-white" />
+                  </motion.div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">Agent Hub – Ihre Komplettlösung</h2>
+                </motion.div>
+                
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-indigo-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Was ist der Agent Hub?</h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                    Der Agent Hub ist Ihre zentrale Plattform mit 8+ spezialisierten KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr. Mit einem einmaligen Zugang erhalten Sie lebenslangen Zugriff auf alle Agenten – ohne monatliche Abonnementkosten.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-indigo-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert der Agent Hub</h3>
+                  <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">1</span>
+                      <span><strong>Einmalige Registrierung:</strong> Erstellen Sie Ihren Account und erhalten Sie sofortigen Zugang zu allen verfügbaren Agenten.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">2</span>
+                      <span><strong>Agent auswählen:</strong> Wählen Sie aus über 8 spezialisierten Agenten den passenden für Ihre aktuelle Aufgabe.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">3</span>
+                      <span><strong>Aufgabe definieren:</strong> Beschreiben Sie Ihr Anliegen – der Agent analysiert und verarbeitet Ihre Anfrage.</span>
+                    </motion.li>
+                    <motion.li 
+                      variants={{
+                        hidden: { opacity: 0, x: -20 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex gap-3"
+                    >
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">4</span>
+                      <span><strong>Ergebnisse nutzen:</strong> Erhalten Sie hochwertige Outputs, die Sie direkt einsetzen können.</span>
+                    </motion.li>
+                  </ol>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-gradient-to-br from-indigo-600 to-purple-600 p-6 rounded-2xl shadow-xl text-white"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4">Ihre Vorteile mit dem Agent Hub</h3>
+                  <ul className="text-sm sm:text-base leading-relaxed space-y-2">
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Keine monatlichen Kosten – einmalige Zahlung für lebenslangen Zugang</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>8+ spezialisierte Agenten für alle Unternehmensbereiche</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Sofort einsatzbereit ohne komplexe Einrichtung</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>Regelmäßige Updates und neue Agenten inklusive</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-2xl">✓</span>
+                      <span>80% Rabatt für kurze Zeit</span>
+                    </li>
+                  </ul>
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-indigo-100"
+                >
+                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Agent Hub in der Praxis</h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
+                    Ein Startup nutzt den Agent Hub für seine gesamte Content-Produktion: Cody erstellt Werbetexte, Dimarko plant Social-Media-Kampagnen und Inti unterstützt bei der Mitarbeitersuche. Alle Bereiche werden mit einem Tool abgedeckt – effizient und kostenoptimiert.
+                  </p>
+
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <Button 
+                      size="lg" 
+                      className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300"
+                      onClick={() => window.open('https://agenthub.newedgebrand.com', '_blank')}
+                    >
+                      Loslegen
+                    </Button>
+                  </motion.div>
+                </motion.div>
               </div>
-              <div className="hidden lg:block">
-                <div className="w-full bg-gradient-to-br from-purple-100 to-blue-100 rounded-lg p-8">
+              
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
+                }}
+                className="hidden lg:block sticky top-24"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="w-full bg-gradient-to-br from-indigo-500 via-purple-500 to-indigo-600 rounded-3xl p-8 shadow-2xl"
+                >
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-4">
-                      <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <motion.div 
+                      className="space-y-4"
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+                      }}
+                    >
+                      <motion.div 
+                        variants={{
+                          hidden: { opacity: 0, y: 20 },
+                          visible: { opacity: 1, y: 0 }
+                        }}
+                        whileHover={{ scale: 1.05, y: -5 }}
+                        className="bg-white p-4 rounded-xl shadow-lg"
+                      >
                         <div className="flex items-center gap-3 mb-2">
-                          <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#9F91F820' }}>
-                            <FileText className="w-4 h-4" style={{ color: '#9F91F8' }} />
+                          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-purple-500 to-indigo-500">
+                            <FileText className="w-5 h-5 text-white" />
                           </div>
-                          <span className="text-sm font-medium">Cody</span>
+                          <span className="text-sm font-bold">Cody</span>
                         </div>
                         <p className="text-xs text-gray-600">Copywriting</p>
-                      </div>
-                      <div className="bg-white p-4 rounded-lg shadow-sm">
+                      </motion.div>
+                      <motion.div 
+                        variants={{
+                          hidden: { opacity: 0, y: 20 },
+                          visible: { opacity: 1, y: 0 }
+                        }}
+                        whileHover={{ scale: 1.05, y: -5 }}
+                        className="bg-white p-4 rounded-xl shadow-lg"
+                      >
                         <div className="flex items-center gap-3 mb-2">
-                          <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#4F97F020' }}>
-                            <Bot className="w-4 h-4" style={{ color: '#4F97F0' }} />
+                          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-cyan-500">
+                            <Bot className="w-5 h-5 text-white" />
                           </div>
-                          <span className="text-sm font-medium">Inti</span>
+                          <span className="text-sm font-bold">Inti</span>
                         </div>
                         <p className="text-xs text-gray-600">HR & Recruiting</p>
-                      </div>
-                    </div>
-                    <div className="space-y-4 mt-8">
-                      <div className="bg-white p-4 rounded-lg shadow-sm">
+                      </motion.div>
+                    </motion.div>
+                    <motion.div 
+                      className="space-y-4 mt-8"
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
+                      }}
+                    >
+                      <motion.div 
+                        variants={{
+                          hidden: { opacity: 0, y: 20 },
+                          visible: { opacity: 1, y: 0 }
+                        }}
+                        whileHover={{ scale: 1.05, y: -5 }}
+                        className="bg-white p-4 rounded-xl shadow-lg"
+                      >
                         <div className="flex items-center gap-3 mb-2">
-                          <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#FFED0020' }}>
-                            <Lightbulb className="w-4 h-4" style={{ color: '#FFED00' }} />
+                          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-yellow-500 to-orange-500">
+                            <Lightbulb className="w-5 h-5 text-white" />
                           </div>
-                          <span className="text-sm font-medium">Dimarko</span>
+                          <span className="text-sm font-bold">Dimarko</span>
                         </div>
                         <p className="text-xs text-gray-600">Digital Marketing</p>
-                      </div>
-                      <div className="bg-white p-4 rounded-lg shadow-sm">
+                      </motion.div>
+                      <motion.div 
+                        variants={{
+                          hidden: { opacity: 0, y: 20 },
+                          visible: { opacity: 1, y: 0 }
+                        }}
+                        whileHover={{ scale: 1.05, y: -5 }}
+                        className="bg-white p-4 rounded-xl shadow-lg"
+                      >
                         <div className="flex items-center gap-3 mb-2">
-                          <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#9F91F820' }}>
-                            <Bot className="w-4 h-4" style={{ color: '#9F91F8' }} />
+                          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-pink-500 to-purple-500">
+                            <Bot className="w-5 h-5 text-white" />
                           </div>
-                          <span className="text-sm font-medium">+9 weitere</span>
+                          <span className="text-sm font-bold">+9 weitere</span>
                         </div>
                         <p className="text-xs text-gray-600">Alle Bereiche</p>
-                      </div>
-                    </div>
+                      </motion.div>
+                    </motion.div>
                   </div>
-                </div>
-              </div>
-            </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
