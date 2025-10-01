@@ -101,7 +101,7 @@ const Lab = () => {
               >
                 <source src="/assets/lab-hero-video.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(253, 224, 71, 0.6), rgba(253, 224, 71, 0.2), transparent)' }} />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(251, 146, 60, 0.4), rgba(251, 191, 36, 0.2), transparent)' }} />
               
               <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
