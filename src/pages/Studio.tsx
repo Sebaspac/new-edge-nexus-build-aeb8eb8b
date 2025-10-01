@@ -173,19 +173,15 @@ const Studio = () => {
                       className={`w-full h-96 bg-gradient-to-br ${service.gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
                     >
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                      <motion.div
-                        animate={{ 
-                          rotate: [0, 360],
-                          scale: [1, 1.1, 1]
-                        }}
-                        transition={{ 
-                          duration: 20, 
-                          repeat: Infinity,
-                          ease: "linear"
-                        }}
+                      <video 
+                        autoPlay 
+                        loop 
+                        muted 
+                        playsInline
+                        className="w-full h-full object-cover rounded-2xl"
                       >
-                        <Icon className="w-40 h-40 text-white drop-shadow-2xl" />
-                      </motion.div>
+                        <source src="/assets/studio-service-video.mp4" type="video/mp4" />
+                      </video>
                     </motion.div>
                   </motion.div>
 
