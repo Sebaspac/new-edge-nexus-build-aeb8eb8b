@@ -260,15 +260,8 @@ const Index = () => {
 
         {/* Services Section with Overlap Effect */}
         <ScrollAnimation animation="fadeLeft" className="relative -mt-20 pt-32 pb-20 bg-gradient-to-r from-background to-surface overflow-hidden">
-          <motion.div className="absolute -top-10 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 180, 360]
-        }} transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "linear"
-        }} />
-          <div className="container-xl mt-16">
+          <div className="absolute -top-10 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-50 -z-10" />
+          <div className="container-xl mt-16 relative z-10">
             <ScrollAnimation animation="fadeUp" delay={0.2} className="text-center mb-16">
               <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere Kompetenzbereiche</h2>
               <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
