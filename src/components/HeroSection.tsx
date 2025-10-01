@@ -78,12 +78,14 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-display-xl font-black mb-6"
           >
-            <span className="block bg-gradient-primary bg-clip-text text-transparent flex justify-center items-center group">
-              <span className="inline-block transition-all duration-300 ease-in-out group-hover:-mt-[30px] group-hover:rotate-[-20deg]">B</span>
-              <span className="inline-block transition-all duration-300 ease-in-out group-hover:-mt-[40px] group-hover:ml-[10px] group-hover:rotate-[5deg]">R</span>
-              <span className="inline-block transition-all duration-300 ease-in-out group-hover:mt-[15px] group-hover:ml-[10px] group-hover:rotate-[12deg]">A</span>
-              <span className="inline-block transition-all duration-300 ease-in-out group-hover:-mt-[25px] group-hover:rotate-[5deg]">N</span>
-              <span className="inline-block transition-all duration-300 ease-in-out group-hover:-mt-[40px] group-hover:ml-[5px] group-hover:rotate-[-10deg]">D</span>
+            <span className="block overflow-visible py-16">
+              <span className="bg-gradient-primary bg-clip-text text-transparent flex justify-center items-center group">
+                <span className="inline-block transition-all duration-300 ease-in-out group-hover:-mt-[30px] group-hover:rotate-[-20deg]">B</span>
+                <span className="inline-block transition-all duration-300 ease-in-out group-hover:-mt-[40px] group-hover:ml-[10px] group-hover:rotate-[5deg]">R</span>
+                <span className="inline-block transition-all duration-300 ease-in-out group-hover:mt-[15px] group-hover:ml-[10px] group-hover:rotate-[12deg]">A</span>
+                <span className="inline-block transition-all duration-300 ease-in-out group-hover:-mt-[25px] group-hover:rotate-[5deg]">N</span>
+                <span className="inline-block transition-all duration-300 ease-in-out group-hover:-mt-[40px] group-hover:ml-[5px] group-hover:rotate-[-10deg]">D</span>
+              </span>
             </span>
             <span className="block text-foreground">
               INTELLIGENCE
