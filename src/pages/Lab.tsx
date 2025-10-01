@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { motion } from "framer-motion";
+import { ContactFormModal } from "@/components/ContactFormModal";
 
 const Lab = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -23,6 +25,13 @@ const Lab = () => {
         contactSection.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
+  };
+
+  const scrollToProjectButton = () => {
+    const projectButton = document.getElementById('projekt-besprechen-btn');
+    if (projectButton) {
+      projectButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   };
 
   const labServices = [
@@ -247,7 +256,7 @@ const Lab = () => {
                         <Button 
                           size="lg" 
                           className={`w-full bg-gradient-to-r ${service.gradient} hover:opacity-90 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300`}
-                          onClick={scrollToContact}
+                          onClick={scrollToProjectButton}
                         >
                           Jetzt starten
                         </Button>
@@ -268,15 +277,25 @@ const Lab = () => {
               Gemeinsam entwickeln wir innovative Technologielösungen, die Ihr Unternehmen voranbringen.
             </p>
             <Button 
+              id="projekt-besprechen-btn"
               size="lg" 
               className="bg-black text-white hover:bg-gray-800 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg"
-              onClick={scrollToContact}
+              onClick={() => setIsModalOpen(true)}
             >
               Projekt besprechen
             </Button>
           </div>
         </section>
       </div>
+
+      <ContactFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        accentColor="#fde047"
+        gradientFrom="#fde047"
+        gradientTo="#fbbf24"
+        theme="lab"
+      />
     </>
   );
 };

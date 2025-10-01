@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { motion } from "framer-motion";
+import { ContactFormModal } from "@/components/ContactFormModal";
 
 const Media = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -23,6 +25,13 @@ const Media = () => {
         contactSection.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
+  };
+
+  const scrollToProjectButton = () => {
+    const projectButton = document.getElementById('projekt-besprechen-btn');
+    if (projectButton) {
+      projectButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   };
 
   const mediaServices = [
@@ -251,7 +260,7 @@ const Media = () => {
                         <Button 
                           size="lg" 
                           className={`w-full bg-gradient-to-r ${service.gradient} hover:opacity-90 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300`}
-                          onClick={scrollToContact}
+                          onClick={scrollToProjectButton}
                         >
                           Jetzt starten
                         </Button>
@@ -272,16 +281,26 @@ const Media = () => {
               Lassen Sie uns gemeinsam Ihre Content-Strategie revolutionieren und nachhaltige Reichweite aufbauen.
             </p>
             <Button 
+              id="projekt-besprechen-btn"
               size="lg" 
               className="bg-white hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg"
               style={{ color: '#3b82f6' }}
-              onClick={scrollToContact}
+              onClick={() => setIsModalOpen(true)}
             >
               Projekt starten
             </Button>
           </div>
         </section>
       </div>
+
+      <ContactFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        accentColor="#3b82f6"
+        gradientFrom="#3b82f6"
+        gradientTo="#06b6d4"
+        theme="media"
+      />
     </>
   );
 };
