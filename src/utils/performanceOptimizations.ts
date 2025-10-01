@@ -95,6 +95,55 @@ export function preloadImages(imageUrls: string[]): Promise<void> {
 }
 
 /**
+ * Preload critical videos with priority and resource hints
+ */
+export function preloadVideos(videoUrls: string[]): Promise<void> {
+  // Add resource hints to document head
+  videoUrls.forEach((url) => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'video';
+    link.href = url;
+    document.head.appendChild(link);
+  });
+
+  // Preload videos with timeout and priority handling
+  const videoPromises = videoUrls.map((url) => {
+    return new Promise<void>((resolve) => {
+      const video = document.createElement('video');
+      video.preload = 'auto';
+      
+      const cleanup = () => {
+        video.onloadeddata = null;
+        video.onerror = null;
+        video.src = '';
+      };
+      
+      video.onloadeddata = () => {
+        cleanup();
+        resolve();
+      };
+      
+      video.onerror = () => {
+        console.warn(`Failed to preload video: ${url}`);
+        cleanup();
+        resolve();
+      };
+      
+      // Timeout after 5 seconds per video
+      setTimeout(() => {
+        cleanup();
+        resolve();
+      }, 5000);
+      
+      video.src = url;
+    });
+  });
+  
+  return Promise.allSettled(videoPromises).then(() => {});
+}
+
+/**
  * Check if user prefers reduced motion
  */
 export function prefersReducedMotion(): boolean {
@@ -123,6 +172,17 @@ export const ABOVE_THE_FOLD_IMAGES = [
   '/assets/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png', // Wenjamin Zabezhanskiy - founder  
   '/assets/072b3572-872a-4a44-b919-80bad436c002.png', // Team background
   '/assets/db231edd-d76b-46cd-ad70-02ac9544d6ff.png', // Wenjamin portrait - quote section
+];
+
+/**
+ * Critical header videos - preloaded before page shows
+ */
+export const HEADER_VIDEOS = [
+  '/assets/hero-video.mp4', // Index page hero
+  '/assets/studio-hero-video.mp4', // Studio page hero
+  '/assets/media-hero-video.mp4', // Media page hero
+  '/assets/lab-hero-video.mp4', // Lab page hero
+  '/assets/products-hero-video.mp4', // Products page hero
 ];
 
 /**
@@ -215,7 +275,25 @@ export async function preloadCriticalImages(): Promise<void> {
 }
 
 /**
- * Initialize all performance optimizations with comprehensive image preloading
+ * Preload all header videos to prevent loading delays
+ */
+export async function preloadCriticalVideos(): Promise<void> {
+  console.time('🎥 Preloading header videos');
+  
+  try {
+    await Promise.race([
+      preloadVideos(HEADER_VIDEOS),
+      new Promise(resolve => setTimeout(resolve, 2000)) // Timeout for slow connections
+    ]);
+    
+    console.timeEnd('🎥 Preloading header videos');
+  } catch (error) {
+    console.warn('Critical video preloading failed:', error);
+  }
+}
+
+/**
+ * Initialize all performance optimizations with comprehensive image and video preloading
  */
 export async function initializePerformanceOptimizations(): Promise<void> {
   console.time('⚡ Performance optimizations');
@@ -238,8 +316,11 @@ export async function initializePerformanceOptimizations(): Promise<void> {
     document.documentElement.style.setProperty('--duration-slow', '0.15s');
   }
   
-  // Preload only critical above-the-fold images
-  await preloadCriticalImages();
+  // Preload critical resources in parallel
+  await Promise.all([
+    preloadCriticalImages(),
+    preloadCriticalVideos()
+  ]);
   
   console.timeEnd('⚡ Performance optimizations');
 }
