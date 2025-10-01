@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  clearScreen: false,
   plugins: [
     react(),
     mode === 'development' &&
@@ -20,21 +21,15 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    target: 'esnext',
-    minify: 'esbuild', // Use esbuild instead of terser for better compatibility
+    target: 'es2020',
+    minify: 'esbuild',
     cssMinify: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-        },
-      },
-    },
     chunkSizeWarningLimit: 1000,
     sourcemap: false,
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom'],
+    force: true,
   },
   // Only drop console/debugger in production
   esbuild: mode === 'production' ? {
