@@ -84,24 +84,21 @@ const Team = () => {
                 />
               </div>
 
-              {/* Team Working Image - Centered */}
-              <div className="absolute inset-0 flex items-center justify-center px-8 md:px-16">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, ease: "easeOut" }}
-                  className="relative w-full max-w-4xl"
-                >
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                    <img 
-                      src="/assets/072b3572-872a-4a44-b919-80bad436c002.png" 
-                      alt="Team bei der Arbeit"
-                      className="w-full h-auto object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                  </div>
-                </motion.div>
-              </div>
+              {/* Team Working Image - Full 16:9 */}
+              <motion.div
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="absolute inset-0"
+              >
+                <img 
+                  src="/assets/072b3572-872a-4a44-b919-80bad436c002.png" 
+                  alt="Team bei der Arbeit"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: 'center' }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/30" />
+              </motion.div>
               
               {/* Gradient Overlays */}
               <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background/80 pointer-events-none" />
