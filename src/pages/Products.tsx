@@ -651,20 +651,16 @@ const Products = () => {
                   transition={{ type: "spring", stiffness: 300 }}
                   className="w-full h-96 bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  <motion.div
-                    animate={{ 
-                      rotate: [0, 10, -10, 0],
-                      y: [0, -10, 0]
-                    }}
-                    transition={{ 
-                      duration: 5, 
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
+                  <video 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
                   >
-                    <FileText className="w-40 h-40 text-white drop-shadow-2xl" />
-                  </motion.div>
+                    <source src="/assets/cora-agent-video.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </motion.div>
               </motion.div>
 
