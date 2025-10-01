@@ -9,87 +9,53 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Users, Code, Palette, Globe, Briefcase, ArrowRight, Play, Apple, Star, ChevronDown } from "lucide-react";
 import { MobileNavigation } from "@/components/MobileNavigation";
+
 const Team = () => {
-  const {
-    t
-  } = useLanguage();
+  const { t } = useLanguage();
   const [contactClick, setContactClick] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const {
-    scrollYProgress
-  } = useScroll({
+  const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
+
   const handleContactClick = () => {
     setContactClick(true);
     setTimeout(() => setContactClick(false), 200);
     scrollToContact();
   };
+
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
-      contactSection.scrollIntoView({
-        behavior: 'smooth'
-      });
+      contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   // Team data
-  const founders = [{
-    name: "Sebastian Pachón",
-    role: "Founder & Creative-Tech Partner",
-    image: "/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png",
-    expertise: ["Strategie", "Technologie"]
-  }, {
-    name: "Wenjamin Zabezhanskiy",
-    role: "Operations & Innovation Partner",
-    image: "/assets/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png",
-    expertise: ["Kreation", "Support"]
-  }];
-  const networkStats = [{
-    icon: Users,
-    label: "Coaches",
-    value: "10+",
-    color: "text-blue-600"
-  }, {
-    icon: Code,
-    label: "Entwickler",
-    value: "2",
-    color: "text-purple-600"
-  }, {
-    icon: Palette,
-    label: "Creative Agencies",
-    value: "3",
-    color: "text-pink-600"
-  }, {
-    icon: Globe,
-    label: "Länder",
-    value: "4",
-    color: "text-green-600"
-  }, {
-    icon: Briefcase,
-    label: "Freelancer",
-    value: "15+",
-    color: "text-orange-600"
-  }];
-  const clients = [{
-    name: "BMW",
-    logo: "/placeholder.svg"
-  }, {
-    name: "MINI",
-    logo: "/placeholder.svg"
-  }, {
-    name: "Pressonit",
-    logo: "/placeholder.svg"
-  }, {
-    name: "Infosys Consulting",
-    logo: "/placeholder.svg"
-  }, {
-    name: "Serviceplan Group",
-    logo: "/placeholder.svg"
-  }];
-  return <>
+  const founders = [
+    { name: "Sebastian Pachón", role: "Founder & Creative-Tech Partner", image: "/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png", expertise: ["Strategie", "Technologie"] },
+    { name: "Wenjamin Zabezhanskiy", role: "Operations & Innovation Partner", image: "/assets/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png", expertise: ["Kreation", "Support"] }
+  ];
+
+  const networkStats = [
+    { icon: Users, label: "Coaches", value: "10+", color: "text-blue-600" },
+    { icon: Code, label: "Entwickler", value: "2", color: "text-purple-600" },
+    { icon: Palette, label: "Creative Agencies", value: "3", color: "text-pink-600" },
+    { icon: Globe, label: "Länder", value: "4", color: "text-green-600" },
+    { icon: Briefcase, label: "Freelancer", value: "15+", color: "text-orange-600" }
+  ];
+
+  const clients = [
+    { name: "BMW", logo: "/placeholder.svg" },
+    { name: "MINI", logo: "/placeholder.svg" },
+    { name: "Pressonit", logo: "/placeholder.svg" },
+    { name: "Infosys Consulting", logo: "/placeholder.svg" },
+    { name: "Serviceplan Group", logo: "/placeholder.svg" }
+  ];
+
+  return (
+    <>
       <Helmet>
         <title>Unser Team - New Edge Brand</title>
         <meta name="description" content="Lernen Sie das Team von New Edge Brand kennen - Experten für Strategie, Content & Technologie." />
@@ -99,174 +65,102 @@ const Team = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       <div className="min-h-screen bg-background overflow-x-hidden" ref={containerRef}>
-        {/* Hero Section */}
-        <section className="hero-section relative">
-          {/* 🌌 Animated Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-surface-elevated">
-            {/* ✨ Floating Orbs */}
-            <motion.div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3],
-            rotate: [0, 180, 360]
-          }} transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} />
-            <motion.div className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-secondary/20 rounded-full blur-3xl" animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.6, 0.3, 0.6],
-            rotate: [360, 180, 0]
-          }} transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 4
-          }} />
-            <motion.div className="absolute top-1/2 right-1/4 w-64 h-64 bg-accent/15 rounded-full blur-2xl" animate={{
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-            scale: [1, 0.8, 1]
-          }} transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} />
-
-            {/* 🌊 Gradient Mesh */}
-            <div className="absolute inset-0 bg-gradient-glow opacity-50" />
-            
-            {/* ⚡ Animated Grid */}
-            <div className="absolute inset-0 opacity-20">
-              <svg width="100%" height="100%" className="animate-parallax">
-                <defs>
-                  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
-              </svg>
-            </div>
-            
-            {/* Team Background Image with Overlay */}
-            <div className="absolute inset-0 z-0" style={{
-            backgroundImage: "url('/assets/072b3572-872a-4a44-b919-80bad436c002.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            opacity: 0.3
-          }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-surface/60 to-surface-elevated/80"></div>
+        {/* Hero Section with Video Background */}
+        <section className="relative w-full">
+          <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
+            {/* 16:9 Aspect Ratio Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
+              {/* Background Video */}
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source src="/assets/hero-video.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              
+              {/* Text Content - Bottom Left */}
+              <div className="absolute bottom-0 left-0 right-0 z-10 px-6 pb-12 md:px-12 md:pb-16 lg:px-16 lg:pb-20">
+                <motion.div 
+                  className="max-w-3xl"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 leading-tight tracking-tight">
+                    <span className="block animate-fade-in" style={{ animationDelay: '0.2s' }}>UNSER</span>
+                    <span className="block text-primary italic font-black animate-fade-in" style={{ animationDelay: '0.4s' }}>TEAM</span>
+                  </h1>
+                  <motion.p 
+                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 max-w-2xl"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                  >
+                    Wir sind ein dynamisches Netzwerk aus Experten in Strategie, Content & Technologie
+                  </motion.p>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                  >
+                    <Button 
+                      onClick={handleContactClick} 
+                      size="lg" 
+                      className="group relative overflow-hidden text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 h-auto"
+                    >
+                      <span className="relative z-10">Jetzt Kontakt aufnehmen</span>
+                    </Button>
+                  </motion.div>
+                </motion.div>
+              </div>
             </div>
           </div>
-          
-          <motion.div initial={{
-          opacity: 0,
-          y: 50
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 1
-        }} className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center pt-16">
-            <h1 className="text-display-xl font-black mb-6">
-              <span className="block bg-gradient-primary bg-clip-text text-transparent animate-gradient">
-                UNSER
-              </span>
-              <span className="block text-foreground">
-                TEAM
-              </span>
-            </h1>
-            <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Experten für Strategie, Content & Technologie
-            </p>
-          </motion.div>
-          
-          {/* Scroll Indicator */}
-          <motion.div initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          delay: 1.2,
-          duration: 0.6
-        }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-            <motion.div animate={{
-            y: [0, 10, 0]
-          }} transition={{
-            duration: 2,
-            repeat: Infinity
-          }} className="flex flex-col items-center gap-2 text-muted-foreground cursor-pointer hover-scale" onClick={() => {
-            const foundersSection = document.querySelector('.section-padding.bg-surface');
-            if (foundersSection) {
-              foundersSection.scrollIntoView({
-                behavior: 'smooth'
-              });
-            }
-          }} whileHover={{
-            scale: 1.1
-          }} whileTap={{
-            scale: 0.95
-          }}>
-              <span className="text-body-sm">Runter scrollen</span>
-              <motion.div animate={{
-              y: [0, 5, 0]
-            }} transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              delay: 0.5
-            }}>
-                <ChevronDown className="w-5 h-5" />
-              </motion.div>
-            </motion.div>
-          </motion.div>
         </section>
 
         {/* Founders Section */}
         <section className="section-padding bg-surface">
           <div className="container-xl">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center mb-16">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              className="text-center mb-16"
+            >
               <h2 className="text-display font-bold mb-6">
-                <span className="bg-gradient-primary bg-clip-text text-slate-50">
-                  Die Gründer
-                </span>
+                <span className="bg-gradient-primary bg-clip-text text-slate-50">Die Gründer</span>
               </h2>
-              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.</p>
+              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.
+              </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-              {founders.map((founder, index) => <motion.div key={founder.name} initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: index * 0.1
-            }} className="group hover-lift">
+              {founders.map((founder, index) => (
+                <motion.div 
+                  key={founder.name} 
+                  initial={{ opacity: 0, y: 30 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.6, delay: index * 0.1 }} 
+                  className="group hover-lift"
+                >
                   <Card className="card-modern h-full">
                     <div className="p-6 sm:p-8 flex flex-col h-full">
                       <div className="flex-shrink-0 mb-6">
-                          <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden border-4 border-border/20 shadow-lg group-hover:border-primary/30 transition-colors duration-300">
-                            <img 
-                              src={founder.image} 
-                              alt={`${founder.name} - ${founder.role}`} 
-                              className="w-full h-full object-cover" 
-                              width={128}
-                              height={128}
-                              loading="lazy"
-                            />
-                         </div>
+                        <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden border-4 border-border/20 shadow-lg group-hover:border-primary/30 transition-colors duration-300">
+                          <img 
+                            src={founder.image} 
+                            alt={`${founder.name} - ${founder.role}`} 
+                            className="w-full h-full object-cover" 
+                            width={128}
+                            height={128}
+                            loading="lazy"
+                          />
+                        </div>
                       </div>
                       
                       <div className="text-center flex-grow flex flex-col justify-between">
@@ -278,14 +172,17 @@ const Team = () => {
                         </div>
                         
                         <div className="flex justify-center gap-2 sm:gap-3 flex-wrap">
-                          {founder.expertise.map((skill, skillIndex) => <span key={skillIndex} className="px-3 py-2 sm:px-4 bg-white/10 backdrop-blur-sm text-foreground rounded-xl text-sm font-medium border border-white/20 shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-200 hover:shadow-xl">
+                          {founder.expertise.map((skill, skillIndex) => (
+                            <span key={skillIndex} className="px-3 py-2 sm:px-4 bg-white/10 backdrop-blur-sm text-foreground rounded-xl text-sm font-medium border border-white/20 shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-200 hover:shadow-xl">
                               {skill}
-                            </span>)}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </div>
                   </Card>
-                </motion.div>)}
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -293,15 +190,12 @@ const Team = () => {
         {/* Network Stats */}
         <section className="section-padding bg-gradient-subtle">
           <div className="container-xl">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center mb-16">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              className="text-center mb-16"
+            >
               <h2 className="text-display font-bold mb-6 bg-gradient-accent bg-clip-text text-slate-50">
                 Unser Netzwerk
               </h2>
@@ -312,18 +206,15 @@ const Team = () => {
             </motion.div>
 
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
-              {networkStats.map((stat, index) => <motion.div key={stat.label} initial={{
-              opacity: 0,
-              scale: 0.9
-            }} whileInView={{
-              opacity: 1,
-              scale: 1
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.4,
-              delay: index * 0.05
-            }} className="group hover-lift">
+              {networkStats.map((stat, index) => (
+                <motion.div 
+                  key={stat.label} 
+                  initial={{ opacity: 0, scale: 0.9 }} 
+                  whileInView={{ opacity: 1, scale: 1 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.4, delay: index * 0.05 }} 
+                  className="group hover-lift"
+                >
                   <Card className="card-modern text-center h-full">
                     <div className="p-6">
                       <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-primary p-3 group-hover:scale-110 transition-transform duration-300">
@@ -333,7 +224,8 @@ const Team = () => {
                       <div className="text-body-sm text-muted-foreground font-medium">{stat.label}</div>
                     </div>
                   </Card>
-                </motion.div>)}
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -341,17 +233,13 @@ const Team = () => {
         {/* Experience Section */}
         <section className="section-padding bg-background">
           <div className="container-xl">
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.8
-          }} className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.8 }} 
+              className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]"
+            >
               <img 
                 src="/assets/db231edd-d76b-46cd-ad70-02ac9544d6ff.png" 
                 alt="Wenjamin Zabezhanskiy - Wir öffnen Innovationsräume, übersetzen Spitzentechnologie und machen Zukunft so für jedes Team nutzbar" 
@@ -365,15 +253,12 @@ const Team = () => {
         {/* Process Connection */}
         <section className="section-padding bg-surface-elevated">
           <div className="container-xl">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center mb-16">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              className="text-center mb-16"
+            >
               <h2 className="text-display font-bold mb-6 text-foreground">
                 Know-how trifft Prozess
               </h2>
@@ -384,33 +269,19 @@ const Team = () => {
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {[{
-              phase: "Studio",
-              title: "Strategie & Beratung",
-              description: "Unsere Strategy Leads und Coaches entwickeln maßgeschneiderte Markenstrategien.",
-              team: "Strategy Leads, Brand Coaches"
-            }, {
-              phase: "Media",
-              title: "Content & Kreation",
-              description: "Unsere Content-Teams kreieren Inhalte – kreativ, datenbasiert und KI-gestützt.",
-              team: "Creative Directors, Content Specialists"
-            }, {
-              phase: "Lab",
-              title: "Technologie & Innovation",
-              description: "Unsere Entwickler und Tech-Experten bringen Ihre Visionen zum Leben.",
-              team: "Lead Developers, Tech Innovators"
-            }].map((item, index) => <motion.div key={item.phase} initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: index * 0.1
-            }} className="group hover-lift">
+              {[
+                { phase: "Studio", title: "Strategie & Beratung", description: "Unsere Strategy Leads und Coaches entwickeln maßgeschneiderte Markenstrategien.", team: "Strategy Leads, Brand Coaches" },
+                { phase: "Media", title: "Content & Kreation", description: "Unsere Content-Teams kreieren Inhalte – kreativ, datenbasiert und KI-gestützt.", team: "Creative Directors, Content Specialists" },
+                { phase: "Lab", title: "Technologie & Innovation", description: "Unsere Entwickler und Tech-Experten bringen Ihre Visionen zum Leben.", team: "Lead Developers, Tech Innovators" }
+              ].map((item, index) => (
+                <motion.div 
+                  key={item.phase} 
+                  initial={{ opacity: 0, y: 30 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.6, delay: index * 0.1 }} 
+                  className="group hover-lift"
+                >
                   <Card className="card-modern h-full bg-card/80 backdrop-blur-sm border-border/50 hover:bg-card transition-all duration-300">
                     <div className="p-8 text-center">
                       <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
@@ -419,10 +290,10 @@ const Team = () => {
                       <p className="text-body text-muted-foreground mb-6 leading-relaxed">
                         {item.description}
                       </p>
-                      
                     </div>
                   </Card>
-                </motion.div>)}
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -430,15 +301,12 @@ const Team = () => {
         {/* CTA Section */}
         <section className="section-padding bg-gradient-to-br from-surface via-background to-surface">
           <div className="container-narrow">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              className="text-center"
+            >
               <h2 className="text-display font-bold mb-6">
                 <span className="bg-gradient-primary bg-clip-text text-slate-50">
                   Bereit für Ihr Projekt?
@@ -449,13 +317,10 @@ const Team = () => {
                 wie unser Team Ihre Marke zum Erfolg führt.
               </p>
               
-              <motion.div animate={contactClick ? {
-              scale: 0.98
-            } : {
-              scale: 1
-            }} transition={{
-              duration: 0.1
-            }}>
+              <motion.div 
+                animate={contactClick ? { scale: 0.98 } : { scale: 1 }} 
+                transition={{ duration: 0.1 }}
+              >
                 <Button size="lg" onClick={handleContactClick} className="btn-primary hover-magnetic group">
                   Lernen Sie uns kennen
                   <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
@@ -470,14 +335,14 @@ const Team = () => {
           <div className="container-xl">
             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
               <div className="sm:col-span-2">
-                 <div className="flex items-center mb-4">
-                   <img 
-                     src="/assets/90e4fdca-8c29-48f7-9568-686b611a62f4.png"
-                     alt="New Edge Logo" 
-                     className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" 
-                     width={32}
-                     height={32}
-                   />
+                <div className="flex items-center mb-4">
+                  <img 
+                    src="/assets/90e4fdca-8c29-48f7-9568-686b611a62f4.png"
+                    alt="New Edge Logo" 
+                    className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" 
+                    width={32}
+                    height={32}
+                  />
                   <div className="text-2xl sm:text-3xl font-bold text-foreground">
                     New Edge<span className="text-primary"></span>
                   </div>
@@ -524,6 +389,8 @@ const Team = () => {
           </div>
         </footer>
       </div>
-    </>;
+    </>
+  );
 };
+
 export default Team;
