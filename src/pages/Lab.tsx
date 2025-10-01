@@ -55,7 +55,7 @@ const Lab = () => {
       <section className="relative w-full">
         <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
           {/* 16:9 Aspect Ratio Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/30 via-yellow-400/20 to-yellow-300/10 overflow-hidden">
             {/* Background Video */}
             <video 
               autoPlay 
@@ -66,14 +66,14 @@ const Lab = () => {
             >
               <source src="/assets/hero-video.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-yellow-900/60 via-yellow-900/20 to-transparent" />
             
             {/* Text Content - Bottom Left */}
             <div className="absolute bottom-0 left-0 right-0 z-10 px-6 pb-12 md:px-12 md:pb-16 lg:px-16 lg:pb-20">
               <div className={`max-w-3xl transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 leading-tight tracking-tight">
                   <span className="block animate-fade-in" style={{ animationDelay: '0.2s' }}>NEW EDGE</span>
-                  <span className="block text-primary italic font-black animate-fade-in" style={{ animationDelay: '0.4s' }}>LAB</span>
+                  <span className="block text-yellow-400 italic font-black animate-fade-in" style={{ animationDelay: '0.4s' }}>LAB</span>
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 max-w-2xl animate-fade-in" style={{ animationDelay: '0.6s' }}>
                   TECH INNOVATION
@@ -214,14 +214,14 @@ const Lab = () => {
       <section className="py-8 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center">
-            <div className="w-1 h-16 mx-auto mb-4" style={{ backgroundColor: '#FFED00' }}></div>
+            <div className="w-1 h-16 mx-auto mb-4 bg-yellow-500"></div>
             <p className="text-gray-500 font-medium">ZUSÄTZLICH</p>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-32 text-black relative overflow-hidden" style={{ background: `linear-gradient(to right, #FFED00, #FFED00)` }}>
+      <section className="py-16 sm:py-32 text-black relative overflow-hidden bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400">
         <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in text-black">Let´s design the Edge</h2>
           <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in text-gray-800 px-4">
