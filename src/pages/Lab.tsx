@@ -169,7 +169,7 @@ const Lab = () => {
             animationDelay: '0.8s'
           }}>
               LAB macht aus Ideen reale, funktionierende Systeme - sicher, automatisiert, effizient.
-              <br className="hidden sm:block" />
+              <br />
               <span className="font-medium text-gray-900">Innovation durch intelligente Technologie</span>
             </p>
             
