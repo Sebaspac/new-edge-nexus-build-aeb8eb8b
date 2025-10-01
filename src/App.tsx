@@ -15,6 +15,7 @@ const Services = lazy(() => import("./pages/Services"));
 const Media = lazy(() => import("./pages/Media"));
 const Studio = lazy(() => import("./pages/Studio"));
 const Lab = lazy(() => import("./pages/Lab"));
+const Products = lazy(() => import("./pages/Products"));
 const Team = lazy(() => import("./pages/Team"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -49,6 +50,7 @@ const App = () => {
                 <Route path="/media" element={<Media />} />
                 <Route path="/studio" element={<Studio />} />
                 <Route path="/lab" element={<Lab />} />
+                <Route path="/products" element={<Products />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="*" element={<NotFound />} />
