@@ -65,63 +65,70 @@ const Team = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       <div className="min-h-screen bg-background overflow-x-hidden" ref={containerRef}>
-        {/* Hero Section with Grid Background */}
-        <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Grid Background Pattern */}
-          <div className="absolute inset-0 bg-background">
-            <div 
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage: `
-                  linear-gradient(to right, hsl(var(--primary) / 0.1) 1px, transparent 1px),
-                  linear-gradient(to bottom, hsl(var(--primary) / 0.1) 1px, transparent 1px)
-                `,
-                backgroundSize: '60px 60px'
-              }}
-            />
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
-          </div>
-
-          {/* Team Working Image */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="relative w-full max-w-5xl mx-auto px-6"
-            >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img 
-                  src="/assets/072b3572-872a-4a44-b919-80bad436c002.png" 
-                  alt="Team bei der Arbeit"
-                  className="w-full h-auto object-cover"
+        {/* Hero Section - 16:9 Format */}
+        <section className="relative w-full">
+          <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
+            {/* 16:9 Aspect Ratio Container */}
+            <div className="absolute inset-0 overflow-hidden">
+              {/* Grid Background Pattern */}
+              <div className="absolute inset-0 bg-background">
+                <div 
+                  className="absolute inset-0 opacity-20"
+                  style={{
+                    backgroundImage: `
+                      linear-gradient(to right, hsl(var(--primary) / 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, hsl(var(--primary) / 0.1) 1px, transparent 1px)
+                    `,
+                    backgroundSize: '60px 60px'
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
               </div>
-            </motion.div>
-          </div>
+
+              {/* Team Working Image - Centered */}
+              <div className="absolute inset-0 flex items-center justify-center px-8 md:px-16">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  className="relative w-full max-w-4xl"
+                >
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                    <img 
+                      src="/assets/072b3572-872a-4a44-b919-80bad436c002.png" 
+                      alt="Team bei der Arbeit"
+                      className="w-full h-auto object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  </div>
+                </motion.div>
+              </div>
               
-          {/* Text Content - Centered */}
-          <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-foreground mb-6 leading-tight tracking-tight">
-                <span className="block animate-fade-in" style={{ animationDelay: '0.2s' }}>UNSER</span>
-                <span className="block text-primary italic font-black animate-fade-in" style={{ animationDelay: '0.4s' }}>TEAM</span>
-              </h1>
-              <motion.p 
-                className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                Wir sind ein dynamisches Netzwerk aus Experten in Strategie, Content & Technologie
-              </motion.p>
-            </motion.div>
+              {/* Gradient Overlays */}
+              <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background/80 pointer-events-none" />
+              
+              {/* Text Content - Centered */}
+              <div className="absolute inset-0 flex items-center justify-center z-10 px-6">
+                <motion.div 
+                  className="text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-4 leading-tight tracking-tight">
+                    <span className="block animate-fade-in" style={{ animationDelay: '0.2s' }}>UNSER</span>
+                    <span className="block text-primary italic font-black animate-fade-in" style={{ animationDelay: '0.4s' }}>TEAM</span>
+                  </h1>
+                  <motion.p 
+                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                  >
+                    Wir sind ein dynamisches Netzwerk aus Experten in Strategie, Content & Technologie
+                  </motion.p>
+                </motion.div>
+              </div>
+            </div>
           </div>
         </section>
 
