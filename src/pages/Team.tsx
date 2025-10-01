@@ -65,56 +65,61 @@ const Team = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       <div className="min-h-screen bg-background overflow-x-hidden" ref={containerRef}>
-        {/* Hero Section with Video Background */}
-        <section className="relative w-full">
-          <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
-            {/* 16:9 Aspect Ratio Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
-              {/* Background Image */}
-              <img 
-                src="/assets/8b2fd89c-8469-4c89-bbba-463d2c352273.png" 
-                alt="Team Background"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-              
-              {/* Text Content - Bottom Left */}
-              <div className="absolute bottom-0 left-0 right-0 z-10 px-6 pb-12 md:px-12 md:pb-16 lg:px-16 lg:pb-20">
-                <motion.div 
-                  className="max-w-3xl"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                >
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 leading-tight tracking-tight">
-                    <span className="block animate-fade-in" style={{ animationDelay: '0.2s' }}>UNSER</span>
-                    <span className="block text-primary italic font-black animate-fade-in" style={{ animationDelay: '0.4s' }}>TEAM</span>
-                  </h1>
-                  <motion.p 
-                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 max-w-2xl"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                  >
-                    Wir sind ein dynamisches Netzwerk aus Experten in Strategie, Content & Technologie
-                  </motion.p>
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                  >
-                    <Button 
-                      onClick={handleContactClick} 
-                      size="lg" 
-                      className="group relative overflow-hidden text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 h-auto"
-                    >
-                      <span className="relative z-10">Jetzt Kontakt aufnehmen</span>
-                    </Button>
-                  </motion.div>
-                </motion.div>
-              </div>
-            </div>
+        {/* Hero Section */}
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img 
+              src="/assets/8b2fd89c-8469-4c89-bbba-463d2c352273.png" 
+              alt="Team Background"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/50" />
           </div>
+          
+          {/* Centered Text Content */}
+          <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-6 leading-tight tracking-tight">
+                <span className="block text-primary animate-fade-in" style={{ animationDelay: '0.2s' }}>UNSER</span>
+                <span className="block text-white animate-fade-in" style={{ animationDelay: '0.4s' }}>TEAM</span>
+              </h1>
+              <motion.p 
+                className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                Experten für Strategie, Content & Technologie
+              </motion.p>
+            </motion.div>
+          </div>
+
+          {/* Scroll Down Indicator */}
+          <motion.div
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            onClick={() => {
+              const nextSection = document.querySelector('section:nth-of-type(2)');
+              if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
+            <span className="text-white/70 text-sm mb-2">Runter scrollen</span>
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <ChevronDown className="text-white/70" size={32} />
+            </motion.div>
+          </motion.div>
         </section>
 
         {/* Founders Section */}
