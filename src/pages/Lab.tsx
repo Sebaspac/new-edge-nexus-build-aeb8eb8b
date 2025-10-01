@@ -36,7 +36,7 @@ const Lab = () => {
         "Zeit- und Kostenersparnis maximieren"
       ],
       icon: Cpu,
-      gradient: "from-[#eab308] to-[#f59e0b]"
+      gradient: "from-[#fde047] to-[#fbbf24]"
     },
     {
       title: "Webentwicklung",
@@ -48,7 +48,7 @@ const Lab = () => {
         "Responsive und performant"
       ],
       icon: Globe,
-      gradient: "from-[#f59e0b] to-[#eab308]"
+      gradient: "from-[#fbbf24] to-[#fde047]"
     },
     {
       title: "KI-Agenten-Integration",
@@ -60,7 +60,7 @@ const Lab = () => {
         "24/7 automatisierter Kundenservice"
       ],
       icon: Bot,
-      gradient: "from-[#eab308] to-[#f59e0b]"
+      gradient: "from-[#fde047] to-[#fbbf24]"
     },
     {
       title: "Tracking- & Analyse-Setups",
@@ -72,7 +72,7 @@ const Lab = () => {
         "Datengetriebene Entscheidungen"
       ],
       icon: BarChart3,
-      gradient: "from-[#f59e0b] to-[#eab308]"
+      gradient: "from-[#fbbf24] to-[#fde047]"
     }
   ];
 
@@ -91,7 +91,7 @@ const Lab = () => {
         {/* Hero Section */}
         <section className="relative w-full" style={{ marginTop: '80px' }}>
           <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
-            <div className="absolute inset-0 overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(234, 179, 8, 0.3), rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.1))' }}>
+            <div className="absolute inset-0 overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(253, 224, 71, 0.3), rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.1))' }}>
               <video 
                 autoPlay 
                 loop 
@@ -101,12 +101,12 @@ const Lab = () => {
               >
                 <source src="/assets/lab-hero-video.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(234, 179, 8, 0.6), rgba(234, 179, 8, 0.2), transparent)' }} />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(253, 224, 71, 0.6), rgba(253, 224, 71, 0.2), transparent)' }} />
               
               <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
                   NEW EDGE<br />
-                  <span className="italic font-black" style={{ background: 'linear-gradient(to right, #eab308, #f59e0b)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>LAB</span><br />
+                  <span className="italic font-black" style={{ background: 'linear-gradient(to right, #fde047, #fbbf24)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>LAB</span><br />
                   <span className="text-2xl sm:text-3xl lg:text-4xl font-normal">TECH INNOVATION</span>
                 </h1>
                 <p className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed">
@@ -129,8 +129,8 @@ const Lab = () => {
               className="py-16 sm:py-20 lg:py-24"
               style={{ 
                 background: index % 2 === 0 
-                  ? 'linear-gradient(to bottom right, white, rgba(234, 179, 8, 0.08), rgba(245, 158, 11, 0.08))' 
-                  : 'linear-gradient(to bottom right, white, rgba(245, 158, 11, 0.08), rgba(234, 179, 8, 0.08))'
+                  ? 'linear-gradient(to bottom right, white, rgba(253, 224, 71, 0.1), rgba(251, 191, 36, 0.1))' 
+                  : 'linear-gradient(to bottom right, white, rgba(251, 191, 36, 0.1), rgba(253, 224, 71, 0.1))'
               }}
             >
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -203,7 +203,7 @@ const Lab = () => {
                         hidden: { opacity: 0, y: 20 },
                         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
                       }}
-                       className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#eab308]/20"
+                       className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30"
                     >
                       <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                         {service.description}
@@ -215,7 +215,7 @@ const Lab = () => {
                         hidden: { opacity: 0, y: 20 },
                         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
                       }}
-                      className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#eab308]/20"
+                      className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30"
                     >
                       <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Unsere Leistungen</h3>
                       <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
@@ -261,7 +261,7 @@ const Lab = () => {
         })}
 
         {/* CTA Section */}
-        <section className="py-16 sm:py-32 text-black relative overflow-hidden" style={{ background: 'linear-gradient(to right, #eab308, #fbbf24, #f59e0b)' }}>
+        <section className="py-16 sm:py-32 text-black relative overflow-hidden" style={{ background: 'linear-gradient(to right, #fde047, #fbbf24, #fde047)' }}>
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Let´s innovate the edge</h2>
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-900">
