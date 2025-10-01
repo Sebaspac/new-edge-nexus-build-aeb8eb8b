@@ -96,6 +96,15 @@ const Media = () => {
         <section className="relative w-full" style={{ marginTop: '80px' }}>
           <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 via-blue-500/20 to-cyan-400/10 overflow-hidden">
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source src="/assets/media-hero-video.mp4" type="video/mp4" />
+              </video>
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-blue-900/20 to-transparent" />
               
               <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl">
