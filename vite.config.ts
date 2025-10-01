@@ -34,13 +34,10 @@ export default defineConfig(({ mode }) => ({
     sourcemap: false,
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
-    exclude: ['lucide-react'],
-    force: true, // Force rebuild of dependencies
+    include: ['react', 'react-dom', 'react-router-dom'],
   },
-  // Additional performance settings
-  esbuild: {
-    target: 'esnext',
+  // Only drop console/debugger in production
+  esbuild: mode === 'production' ? {
     drop: ['console', 'debugger'],
-  },
+  } : {},
 }));
