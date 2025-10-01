@@ -1,33 +1,18 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Brain, Cpu, Settings, Code, ChevronDown, Zap, Database, BarChart3, Globe, Bot, FormInput, Activity } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Cpu, Globe, Bot, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { ServicesSection } from "@/components/ServicesSection";
-import kiStrategyImg from "@/assets/ki-strategy.png";
-import kiInfrastructureImg from "@/assets/ki-infrastructure.png";
-import kiCustomerImg from "@/assets/ki-customer.png";
-import kiMediaImg from "@/assets/ki-media.png";
-import kiWorkflowImg from "@/assets/ki-workflow.png";
+import { Helmet } from 'react-helmet-async';
+import { motion } from "framer-motion";
 
 const Lab = () => {
-  const { t } = useLanguage();
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setIsVisible(true);
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   const scrollToContact = () => {
@@ -41,208 +26,257 @@ const Lab = () => {
   };
 
   const labServices = [
-    { title: "KI-gestützte Prozessautomatisierung", description: "Optimierung und Automatisierung operativer Aufgaben durch künstliche Intelligenz.", icon: Cpu },
-    { title: "Webentwicklung", description: "CMS, Landingpages, Funnels - maßgeschneiderte Weblösungen für Ihren Erfolg.", icon: Globe },
-    { title: "KI-Agenten-Integration", description: "Text, Mail, CRM - intelligente Agenten für automatisierte Kommunikation und Verwaltung.", icon: Bot },
-    { title: "Tracking- & Analyse-Setups", description: "GA4, Tag Manager, Pixel, Dashboards - umfassende Datenanalyse und Reporting.", icon: BarChart3 }
+    {
+      title: "KI-gestützte Prozessautomatisierung",
+      description: "Optimierung und Automatisierung operativer Aufgaben durch künstliche Intelligenz.",
+      details: [
+        "Workflow-Analyse und Optimierung",
+        "Automatisierte Entscheidungsprozesse",
+        "Intelligente Datenverarbeitung",
+        "Zeit- und Kostenersparnis maximieren"
+      ],
+      icon: Cpu,
+      gradient: "from-yellow-500 to-orange-500"
+    },
+    {
+      title: "Webentwicklung",
+      description: "CMS, Landingpages, Funnels - maßgeschneiderte Weblösungen für Ihren Erfolg.",
+      details: [
+        "Content Management Systeme",
+        "Conversion-optimierte Landingpages",
+        "Sales Funnel Entwicklung",
+        "Responsive und performant"
+      ],
+      icon: Globe,
+      gradient: "from-orange-500 to-yellow-500"
+    },
+    {
+      title: "KI-Agenten-Integration",
+      description: "Text, Mail, CRM - intelligente Agenten für automatisierte Kommunikation und Verwaltung.",
+      details: [
+        "Chatbot-Entwicklung und Integration",
+        "E-Mail-Automatisierung mit KI",
+        "CRM-Integration und -Optimierung",
+        "24/7 automatisierter Kundenservice"
+      ],
+      icon: Bot,
+      gradient: "from-yellow-500 to-amber-500"
+    },
+    {
+      title: "Tracking- & Analyse-Setups",
+      description: "GA4, Tag Manager, Pixel, Dashboards - umfassende Datenanalyse und Reporting.",
+      details: [
+        "Google Analytics 4 Setup",
+        "Tag Manager Konfiguration",
+        "Custom Dashboard Entwicklung",
+        "Datengetriebene Entscheidungen"
+      ],
+      icon: BarChart3,
+      gradient: "from-amber-500 to-yellow-500"
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      <MobileNavigation onContactClick={scrollToContact} theme="light" />
+    <>
+      <Helmet>
+        <title>NEW EDGE LAB - Tech Innovation | KI & Webentwicklung</title>
+        <meta name="description" content="NEW EDGE LAB entwickelt innovative KI-Lösungen und maßgeschneiderte Webanwendungen. Von Prozessautomatisierung bis Analytics - Technologie für Ihren Erfolg." />
+        <meta name="keywords" content="KI Entwicklung, Webentwicklung, Prozessautomatisierung, KI Agenten, Analytics, Tech Innovation" />
+        <link rel="canonical" href="https://new-edge.de/lab" />
+      </Helmet>
 
-      {/* Hero Section with Video Background */}
-      <section className="relative w-full">
-        <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
-          {/* 16:9 Aspect Ratio Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/30 via-yellow-400/20 to-yellow-300/10 overflow-hidden">
-            {/* Background Video */}
-            <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/assets/hero-video.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-yellow-900/60 via-yellow-900/20 to-transparent" />
-            
-            {/* Text Content - Bottom Left */}
-            <div className="absolute bottom-0 left-0 right-0 z-10 px-6 pb-12 md:px-12 md:pb-16 lg:px-16 lg:pb-20">
-              <div className={`max-w-3xl transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 leading-tight tracking-tight">
-                  <span className="block animate-fade-in" style={{ animationDelay: '0.2s' }}>NEW EDGE</span>
-                  <span className="block text-yellow-400 italic font-black animate-fade-in" style={{ animationDelay: '0.4s' }}>LAB</span>
-                </h1>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 max-w-2xl animate-fade-in" style={{ animationDelay: '0.6s' }}>
-                  TECH INNOVATION
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="min-h-screen bg-white">
+        <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
-      {/* KI Transformation Section - PDF Style */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          {/* Header */}
-          <div className="mb-16 sm:mb-24 lg:mb-32">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 sm:mb-8 leading-tight text-black">
-              TRANSFORMIEREN<br />
-              SIE IHR<br />
-              UNTERNEHMEN<br />
-              <span className="italic font-black">Heute</span> MIT KI
-            </h2>
-            <p className="text-sm sm:text-base lg:text-lg text-gray-700 max-w-2xl leading-relaxed">
-              Künstliche Intelligenz ist nicht nur noch ein weiteres Tool – sie ist der Wendepunkt, der Ihr gesamtes Unternehmen verändern wird. 
-              Wenn Sie KI ausschließlich als Mittel zur Kostenreduktion oder zur schnelleren Erstellung von Inhalten betrachten, schöpfen Sie nur einen Bruchteil ihres tatsächlichen Potenzials aus. 
-              Bei DEPT® entfalten wir das volle Potenzial von KI und helfen Unternehmen nicht nur dabei, sich zu verbessern, sondern auch die Art und Weise wie sie arbeiten, Kund:innen ansprechen und ihre Märkte anführen, radikal zu verändern.
-            </p>
-          </div>
-
-          {/* Service Items */}
-          <div className="space-y-12 sm:space-y-16 lg:space-y-20 mb-16 sm:mb-24">
-            {/* Item 1 */}
-            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
-              <div>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-black">
-                  KI Strategie & Leadership
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Künstliche Intelligenz ist für uns nicht nur ein weiteres Tool – sie ist der Wendepunkt, der Marken in ein neues Zeitalter führt. Wer KI nur für Kostensenkung oder schnellere Inhalte nutzt, bleibt weit hinter dem Möglichen zurück. New Edge verbindet Kreativität mit Technologie zu maßgeschneiderten, datengetriebenen Lösungen – von Branding und Content bis zu Automatisierung und eigens entwickelten Prototypen. So verändern wir nicht nur, was Unternehmen tun, sondern wie sie arbeiten, Kund:innen begeistern und ihre Märkte anführen.
-                </p>
-              </div>
-              <div className="order-first lg:order-last">
-                <img src={kiStrategyImg} alt="KI Strategie" className="w-full h-auto rounded-lg shadow-sm" />
-              </div>
-            </div>
-
-            {/* Item 2 */}
-            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
-              <div>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-black">
-                  KI Grundlagen & Infrastruktur
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Wir schaffen die Basis, auf der KI wirkt: skalierbare Datenarchitekturen, verantwortungsvolle Governance – plus maßgeschneiderte Webentwicklung (CMS, Landingpages, Funnels), die Ihre KI-Systeme nahtlos integriert und mitwächst.
-                </p>
-              </div>
-              <div className="order-first lg:order-last">
-                <img src={kiInfrastructureImg} alt="KI Infrastruktur" className="w-full h-auto rounded-lg shadow-sm" />
-              </div>
-            </div>
-
-            {/* Item 3 */}
-            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
-              <div>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-black">
-                  KI-gesteuerte Customer Experiences & Produkte
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Wir entwickeln Erlebnisse, die konvertieren: Durch KI-Agenten verbinden wir Text, E-Mail und CRM zu automatisierten Journeys – für schnellere Reaktionen, relevantere Interaktionen und spürbar besseren Service.
-                </p>
-              </div>
-              <div className="order-first lg:order-last">
-                <img src={kiCustomerImg} alt="KI Customer Experiences" className="w-full h-auto rounded-lg shadow-sm" />
-              </div>
-            </div>
-
-            {/* Item 4 */}
-            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
-              <div>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-black">
-                  KI-gestützte Inhalte & Media
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Wir liefern personalisierte Content- und Media-Setups – präzise getrackt mit GA4, Tag Manager, Pixel & individuellen Dashboards. So erhalten Sie verlässliche Daten und klare Entscheidungsgrundlagen statt Bauchgefühl.
-                </p>
-              </div>
-              <div className="order-first lg:order-last">
-                <img src={kiMediaImg} alt="KI Media" className="w-full h-auto rounded-lg shadow-sm" />
-              </div>
-            </div>
-
-            {/* Item 5 */}
-            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start pb-12 sm:pb-16 border-b border-gray-200">
-              <div>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-black">
-                  Prozess- und Workflow Optimierung
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Wir eliminieren Reibung: Wiederkehrende Aufgaben werden KI-gestützt automatisiert, Teams entlastet und Durchlaufzeiten verkürzt – damit mehr Zeit für Innovation und Wachstum bleibt.
-                </p>
-              </div>
-              <div className="order-first lg:order-last">
-                <img src={kiWorkflowImg} alt="KI Workflow" className="w-full h-auto rounded-lg shadow-sm" />
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Section */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center pt-8 sm:pt-12">
-            <div>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-black">
-                Wo KI auf reale<br />Erfolge trifft
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 sm:mb-8">
-                Mit unserer Erfahrung und unseren starken Partnerschaften liefern wir KI Lösungen, die nicht nur Trends folgen, sondern die Art und Weise, wie Sie Ihr Unternehmen betreiben, neu definieren – und Sie schneller, intelligenter und wettbewerbsfähiger machen.
-              </p>
-              <Button 
-                size="lg" 
-                className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-full font-medium transition-all duration-300"
-                onClick={scrollToContact}
+        {/* Hero Section */}
+        <section className="relative w-full" style={{ marginTop: '80px' }}>
+          <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/30 via-yellow-400/20 to-yellow-300/10 overflow-hidden">
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
               >
-                KONTAKT AUFNEHMEN
-              </Button>
-            </div>
-            <div className="hidden lg:block">
-              <div className="flex items-center gap-8 opacity-40">
-                <span className="text-xl font-bold text-gray-400">MASIMO</span>
-                <span className="text-xl font-bold text-gray-400">Signify</span>
-                <span className="text-xl font-bold text-gray-400">ebay</span>
-                <span className="text-xl font-bold text-gray-400">Just Spices</span>
-                <span className="text-xl font-bold text-gray-400">Google</span>
+                <source src="/assets/hero-video.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-yellow-900/60 via-yellow-900/20 to-transparent" />
+              
+              <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+                  NEW EDGE<br />
+                  <span className="italic font-black text-yellow-400">LAB</span><br />
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-normal">TECH INNOVATION</span>
+                </h1>
+                <p className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed">
+                  LAB entwickelt, automatisiert und skaliert Technologielösungen. 
+                  Von KI-Integration bis zur vollständigen Webentwicklung.
+                </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Transition Section */}
-      <section className="py-8 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center">
-            <div className="w-1 h-16 mx-auto mb-4 bg-yellow-500"></div>
-            <p className="text-gray-500 font-medium">ZUSÄTZLICH</p>
-          </div>
-        </div>
-      </section>
+        {/* Services Sections */}
+        {labServices.map((service, index) => {
+          const Icon = service.icon;
+          const isEven = index % 2 === 0;
+          
+          return (
+            <section 
+              key={index}
+              className={`py-16 sm:py-20 lg:py-24 bg-gradient-to-br ${
+                index % 2 === 0 
+                  ? 'from-white via-yellow-50/30 to-orange-50/30' 
+                  : 'from-white via-orange-50/30 to-yellow-50/30'
+              }`}
+            >
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+                <motion.div 
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                      opacity: 1,
+                      transition: {
+                        staggerChildren: 0.15,
+                        delayChildren: 0.1
+                      }
+                    }
+                  }}
+                  className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start"
+                >
+                  {/* Image - alternating left/right */}
+                  <motion.div 
+                    variants={{
+                      hidden: { opacity: 0, scale: 0.8 },
+                      visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
+                    }}
+                    className={`hidden lg:block sticky top-24 ${isEven ? 'order-2' : 'order-1'}`}
+                  >
+                    <motion.div 
+                      whileHover={{ scale: 1.05, rotate: isEven ? 2 : -2 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className={`w-full h-96 bg-gradient-to-br ${service.gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                      <motion.div
+                        animate={{ 
+                          scale: [1, 1.1, 1],
+                          rotate: [0, 5, -5, 0]
+                        }}
+                        transition={{ 
+                          duration: 5, 
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        <Icon className="w-40 h-40 text-white drop-shadow-2xl" />
+                      </motion.div>
+                    </motion.div>
+                  </motion.div>
 
-      {/* CTA Section */}
-      <section className="py-16 sm:py-32 text-black relative overflow-hidden bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400">
-        <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in text-black">Let´s design the Edge</h2>
-          <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in text-gray-800 px-4">
-            Gemeinsam entwickeln wir innovative Technologielösungen, die Ihr Unternehmen voranbringen.
-          </p>
-          <Button size="lg" className="bg-black hover:bg-gray-800 text-white text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fade-in" onClick={scrollToContact}>
-            Projekt besprechen
-          </Button>
-        </div>
-        
-        {/* Background decoration */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-20 left-20 animate-float">
-            <Brain className="w-32 h-32" />
+                  {/* Content - alternating right/left */}
+                  <div className={`space-y-6 ${isEven ? 'order-1' : 'order-2'}`}>
+                    <motion.div 
+                      variants={{
+                        hidden: { opacity: 0, x: isEven ? -30 : 30 },
+                        visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+                      }}
+                      className="flex items-center gap-4 mb-8"
+                    >
+                      <motion.div 
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}
+                      >
+                        <Icon className="w-8 h-8 text-white" />
+                      </motion.div>
+                      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">{service.title}</h2>
+                    </motion.div>
+                    
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                      }}
+                      className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-yellow-100"
+                    >
+                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                        {service.description}
+                      </p>
+                    </motion.div>
+
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                      }}
+                      className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-yellow-100"
+                    >
+                      <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Unsere Leistungen</h3>
+                      <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
+                        {service.details.map((detail, idx) => (
+                          <motion.li 
+                            key={idx}
+                            variants={{
+                              hidden: { opacity: 0, x: -20 },
+                              visible: { opacity: 1, x: 0 }
+                            }}
+                            className="flex gap-3"
+                          >
+                            <span className={`flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r ${service.gradient} text-white flex items-center justify-center text-sm font-bold`}>
+                              {idx + 1}
+                            </span>
+                            <span>{detail}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </motion.div>
+
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                      }}
+                    >
+                      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                        <Button 
+                          size="lg" 
+                          className={`w-full bg-gradient-to-r ${service.gradient} hover:opacity-90 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300`}
+                          onClick={scrollToContact}
+                        >
+                          Jetzt starten
+                        </Button>
+                      </motion.div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </div>
+            </section>
+          );
+        })}
+
+        {/* CTA Section */}
+        <section className="py-16 sm:py-32 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 text-black relative overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Let´s innovate the edge</h2>
+            <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-900">
+              Gemeinsam entwickeln wir innovative Technologielösungen, die Ihr Unternehmen voranbringen.
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-black text-white hover:bg-gray-800 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg"
+              onClick={scrollToContact}
+            >
+              Projekt besprechen
+            </Button>
           </div>
-          <div className="absolute bottom-20 right-20 animate-float" style={{ animationDelay: '1s' }}>
-            <Settings className="w-24 h-24" />
-          </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 };
 
