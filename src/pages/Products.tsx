@@ -237,6 +237,15 @@ const Products = () => {
                   transition={{ type: "spring", stiffness: 300 }}
                   className="w-full h-96 bg-gradient-to-br from-purple-500 via-blue-500 to-purple-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden"
                 >
+                  <video 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  >
+                    <source src="/assets/products-hero-video.mp4" type="video/mp4" />
+                  </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                   <motion.div
                     animate={{ 
