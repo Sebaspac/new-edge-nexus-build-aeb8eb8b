@@ -20,52 +20,17 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Optimize build for better performance
     target: 'esnext',
-    minify: 'terser',
+    minify: 'esbuild', // Use esbuild instead of terser for better compatibility
     cssMinify: true,
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        passes: 2,
-        pure_funcs: ['console.log', 'console.info'],
-      },
-      mangle: {
-        safari10: true,
-      },
-      format: {
-        comments: false,
-      },
-    },
     rollupOptions: {
       output: {
         manualChunks: {
-          // Split vendor libraries for better caching
-          'react-vendor': ['react', 'react-dom'],
-          'router': ['react-router-dom'],
-          'ui': ['@radix-ui/react-slot', '@radix-ui/react-dialog', '@radix-ui/react-toast'],
-          'motion': ['framer-motion'],
-          'three': ['three', '@react-three/fiber', '@react-three/drei'],
-        },
-        // Better file naming for caching
-        entryFileNames: 'assets/[name]-[hash].js',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: (assetInfo) => {
-          const extType = assetInfo.name?.split('.').at(1);
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType ?? '')) {
-            return `assets/images/[name]-[hash][extname]`;
-          }
-          if (/css/i.test(extType ?? '')) {
-            return `assets/css/[name]-[hash][extname]`;
-          }
-          return `assets/[name]-[hash][extname]`;
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
         },
       },
     },
     chunkSizeWarningLimit: 1000,
-    // Additional performance optimizations
-    reportCompressedSize: false,
     sourcemap: false,
   },
   optimizeDeps: {
