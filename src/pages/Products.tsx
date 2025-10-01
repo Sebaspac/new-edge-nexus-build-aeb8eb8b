@@ -33,6 +33,8 @@ const Products = () => {
         <meta name="description" content="Entdecken Sie unsere KI-Agenten: Riley (Wissensagent), Liam (Lead-Gen), Vera (Voice-Agent), Cora (Content-Agent) und Agent Hub mit 8+ spezialisierten KI-Agenten." />
         <meta name="keywords" content="KI Agenten, Riley, Liam, Vera, Cora, Agent Hub, RAG, Lead Generation, Voice AI, Content AI" />
         <link rel="canonical" href="https://new-edge.de/products" />
+        <link rel="preload" href="/assets/hero-video.mp4" as="video" type="video/mp4" />
+        <link rel="preload" href="/assets/products-hero-video.mp4" as="video" type="video/mp4" />
       </Helmet>
 
       <div className="min-h-screen bg-white">
@@ -49,6 +51,7 @@ const Products = () => {
                 loop 
                 muted 
                 playsInline
+                preload="auto"
                 className="absolute inset-0 w-full h-full object-cover"
               >
                 <source src="/assets/hero-video.mp4" type="video/mp4" />
@@ -242,6 +245,7 @@ const Products = () => {
                     loop 
                     muted 
                     playsInline
+                    preload="auto"
                     className="absolute inset-0 w-full h-full object-cover"
                   >
                     <source src="/assets/products-hero-video.mp4" type="video/mp4" />
@@ -290,6 +294,7 @@ const Products = () => {
                     loop 
                     muted 
                     playsInline
+                    preload="auto"
                     className="absolute inset-0 w-full h-full object-cover"
                   >
                     <source src="/assets/liam-video.mp4" type="video/mp4" />
@@ -608,6 +613,7 @@ const Products = () => {
                     loop 
                     muted 
                     playsInline
+                    preload="auto"
                     className="absolute inset-0 w-full h-full object-cover"
                   >
                     <source src="/assets/vera-agent-video.mp4" type="video/mp4" />
@@ -656,6 +662,7 @@ const Products = () => {
                     loop 
                     muted 
                     playsInline
+                    preload="auto"
                     className="absolute inset-0 w-full h-full object-cover"
                   >
                     <source src="/assets/cora-agent-video.mp4" type="video/mp4" />
