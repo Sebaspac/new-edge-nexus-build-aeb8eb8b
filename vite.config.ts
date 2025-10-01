@@ -71,6 +71,7 @@ export default defineConfig(({ mode }) => ({
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
     exclude: ['lucide-react'],
+    force: true, // Force rebuild of dependencies
   },
   // Additional performance settings
   esbuild: {
