@@ -410,35 +410,6 @@ const Services = () => {
         <motion.div style={{
         y: y2
       }} className="container-xl relative z-10">
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true,
-          margin: "-100px"
-        }} transition={{
-          duration: 0.8
-        }} className="text-center mb-20">
-            <motion.div initial={{
-            opacity: 0,
-            scale: 0.9
-          }} whileInView={{
-            opacity: 1,
-            scale: 1
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.2,
-            duration: 0.6
-          }} className="inline-block bg-gradient-primary text-white px-8 py-4 rounded-full text-xl font-semibold mb-12 shadow-elegant">
-              {t('services.keyActivities')}
-            </motion.div>
-            <h2 className="text-h1 font-bold text-foreground mb-6">Ihr Weg zum Erfolg</h2>
-          </motion.div>
-
           <div className="max-w-6xl mx-auto px-4">
             {/* Simplified Journey Visualization */}
             <motion.div initial={{
