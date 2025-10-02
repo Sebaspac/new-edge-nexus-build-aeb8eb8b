@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { HelmetProvider } from 'react-helmet-async';
 import { lazy, Suspense, useEffect } from "react";
-import { FastLoadWrapper } from "@/components/FastLoadWrapper";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -38,27 +37,25 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
         <LanguageProvider>
-          <FastLoadWrapper>
-            <TooltipProvider>
-              <Toaster />
-              <Sonner />
-              <BrowserRouter>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
               <Suspense fallback={<LoadingFallback />}>
                 <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/media" element={<Media />} />
-                <Route path="/studio" element={<Studio />} />
-                <Route path="/lab" element={<Lab />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/team" element={<Team />} />
-                <Route path="/impressum" element={<Impressum />} />
-                <Route path="*" element={<NotFound />} />
+                  <Route path="/" element={<Index />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/media" element={<Media />} />
+                  <Route path="/studio" element={<Studio />} />
+                  <Route path="/lab" element={<Lab />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/team" element={<Team />} />
+                  <Route path="/impressum" element={<Impressum />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
             </BrowserRouter>
           </TooltipProvider>
-          </FastLoadWrapper>
         </LanguageProvider>
       </HelmetProvider>
     </QueryClientProvider>
