@@ -281,10 +281,10 @@ const Lab = () => {
               transition={{ duration: 0.6 }}
               className="text-left mb-12"
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-black">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-2 text-black">
                 Meet Our Agents
               </h2>
-              <p className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto text-gray-700 leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl max-w-3xl text-gray-700 leading-relaxed">
                 Unsere spezialisierten KI-Agenten arbeiten für Ihren Erfolg
               </p>
             </motion.div>
