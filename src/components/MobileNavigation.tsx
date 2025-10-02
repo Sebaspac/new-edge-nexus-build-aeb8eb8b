@@ -85,9 +85,7 @@ export const MobileNavigation = ({
                     <Link to="/lab" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-yellow-500/20' : 'hover:bg-gray-50'} transition-colors`}>
                       Lab
                     </Link>
-                    <Link to="/products" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-green-500/20' : 'hover:bg-gray-50'} transition-colors`}>
-                      Produkte
-                    </Link>
+                    <Link to="/products" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-green-500/20' : 'hover:bg-gray-50'} transition-colors`}>Agenten</Link>
                   </div>
                 </div>
               </div>
