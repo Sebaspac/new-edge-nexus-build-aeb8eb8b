@@ -1,25 +1,23 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowDown, ChevronDown, Sparkles, Brain, Zap, Star, Target, Eye, Phone, MessageSquare } from "lucide-react";
+import { ArrowRight, ArrowDown, ChevronDown, Sparkles, Brain, Zap, Star, Target, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { toast } from "@/hooks/use-toast";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Footer } from "@/components/Footer";
 const Services = () => {
   console.log('Services component loaded successfully');
-  const { t } = useLanguage();
+  const {
+    t
+  } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
-  const { scrollY } = useScroll();
+  const {
+    scrollY
+  } = useScroll();
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Simplified parallax effects
@@ -38,54 +36,11 @@ const Services = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
-
-    const data = {
-      name: formData.get('name')?.toString() || '',
-      email: formData.get('email')?.toString() || '',
-      position: formData.get('position')?.toString() || '',
-      firma: formData.get('firma')?.toString() || '',
-      telefon: formData.get('telefon')?.toString() || '',
-      nachricht: formData.get('nachricht')?.toString() || '',
-      source: 'SERVICES'
-    };
-
-    try {
-      const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-
-      if (response.ok) {
-        toast({
-          title: "Wir designen für dich",
-          description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
-          duration: 5000
-        });
-        form.reset();
-        setIsContactSheetOpen(false);
-      } else {
-        throw new Error(`Server responded with ${response.status}`);
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      toast({
-        title: "Fehler",
-        description: "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
-        variant: "destructive",
-        duration: 5000
-      });
-    }
+  const scrollToContact = () => {
+    window.location.href = '/#contact-section';
   };
   return <div ref={containerRef} className="min-h-screen bg-background overflow-hidden">
-      <MobileNavigation onContactClick={() => setIsContactSheetOpen(true)} theme="dark" />
+      <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* Hero Section */}
       <section className="hero-section relative px-4 sm:px-6 lg:px-8 overflow-hidden h-screen flex items-center justify-center">
@@ -95,208 +50,149 @@ const Services = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-black via-slate-900/80 to-purple-950/30"></div>
           
           {/* Starfield */}
-          {[...Array(150)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-white rounded-full"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                opacity: Math.random() * 0.8 + 0.2
-              }}
-              animate={{
-                opacity: [0.2, 1, 0.2],
-                scale: [0.5, 1.2, 0.5]
-              }}
-              transition={{
-                duration: 2 + Math.random() * 4,
-                repeat: Infinity,
-                delay: Math.random() * 5,
-                ease: "easeInOut"
-              }}
-            />
-          ))}
+          {[...Array(150)].map((_, i) => <motion.div key={i} className="absolute w-1 h-1 bg-white rounded-full" style={{
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          opacity: Math.random() * 0.8 + 0.2
+        }} animate={{
+          opacity: [0.2, 1, 0.2],
+          scale: [0.5, 1.2, 0.5]
+        }} transition={{
+          duration: 2 + Math.random() * 4,
+          repeat: Infinity,
+          delay: Math.random() * 5,
+          ease: "easeInOut"
+        }} />)}
           
           {/* Large twinkling stars */}
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={`star-${i}`}
-              className="absolute w-2 h-2 bg-white rounded-full opacity-70"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                filter: 'blur(0.5px)'
-              }}
-              animate={{
-                opacity: [0.3, 1, 0.3],
-                scale: [0.8, 1.5, 0.8]
-              }}
-              transition={{
-                duration: 3 + Math.random() * 3,
-                repeat: Infinity,
-                delay: Math.random() * 4,
-                ease: "easeInOut"
-              }}
-            />
-          ))}
+          {[...Array(20)].map((_, i) => <motion.div key={`star-${i}`} className="absolute w-2 h-2 bg-white rounded-full opacity-70" style={{
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          filter: 'blur(0.5px)'
+        }} animate={{
+          opacity: [0.3, 1, 0.3],
+          scale: [0.8, 1.5, 0.8]
+        }} transition={{
+          duration: 3 + Math.random() * 3,
+          repeat: Infinity,
+          delay: Math.random() * 4,
+          ease: "easeInOut"
+        }} />)}
           
           {/* Beautiful floating geometric elements - more transparent */}
-          <motion.div 
-            className="absolute top-[15%] left-[8%] w-20 h-32 rounded-2xl opacity-20"
-            style={{
-              background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
-              boxShadow: '0 0 15px rgba(139, 92, 246, 0.2)'
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, 20, 0],
-              rotate: [0, 15, 0],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{
-              duration: 12,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
+          <motion.div className="absolute top-[15%] left-[8%] w-20 h-32 rounded-2xl opacity-20" style={{
+          background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
+          boxShadow: '0 0 15px rgba(139, 92, 246, 0.2)'
+        }} animate={{
+          y: [0, -30, 0],
+          x: [0, 20, 0],
+          rotate: [0, 15, 0],
+          scale: [1, 1.1, 1]
+        }} transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }} />
           
-          <motion.div 
-            className="absolute top-[55%] right-[12%] w-24 h-24 rounded-xl opacity-25"
-            style={{
-              background: 'linear-gradient(45deg, #06B6D4, #3B82F6)',
-              boxShadow: '0 0 15px rgba(6, 182, 212, 0.2)'
-            }}
-            animate={{
-              y: [0, 25, 0],
-              x: [0, -15, 0],
-              rotate: [0, -20, 0],
-              scale: [1, 1.15, 1]
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2
-            }}
-          />
+          <motion.div className="absolute top-[55%] right-[12%] w-24 h-24 rounded-xl opacity-25" style={{
+          background: 'linear-gradient(45deg, #06B6D4, #3B82F6)',
+          boxShadow: '0 0 15px rgba(6, 182, 212, 0.2)'
+        }} animate={{
+          y: [0, 25, 0],
+          x: [0, -15, 0],
+          rotate: [0, -20, 0],
+          scale: [1, 1.15, 1]
+        }} transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }} />
           
-          <motion.div 
-            className="absolute bottom-[25%] left-[25%] w-16 h-28 rounded-lg opacity-30"
-            style={{
-              background: 'linear-gradient(225deg, #F59E0B, #EF4444)',
-              boxShadow: '0 0 12px rgba(245, 158, 11, 0.2)'
-            }}
-            animate={{
-              y: [0, -20, 0],
-              x: [0, 25, 0],
-              rotate: [0, 25, 0],
-              scale: [1, 1.2, 1]
-            }}
-            transition={{
-              duration: 14,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 4
-            }}
-          />
+          <motion.div className="absolute bottom-[25%] left-[25%] w-16 h-28 rounded-lg opacity-30" style={{
+          background: 'linear-gradient(225deg, #F59E0B, #EF4444)',
+          boxShadow: '0 0 12px rgba(245, 158, 11, 0.2)'
+        }} animate={{
+          y: [0, -20, 0],
+          x: [0, 25, 0],
+          rotate: [0, 25, 0],
+          scale: [1, 1.2, 1]
+        }} transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 4
+        }} />
           
-          <motion.div 
-            className="absolute top-[35%] right-[30%] w-18 h-18 rounded-full opacity-25"
-            style={{
-              background: 'linear-gradient(90deg, #10B981, #059669)',
-              boxShadow: '0 0 10px rgba(16, 185, 129, 0.3)'
-            }}
-            animate={{
-              y: [0, 35, 0],
-              x: [0, -30, 0],
-              scale: [1, 1.3, 1]
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1
-            }}
-          />
+          <motion.div className="absolute top-[35%] right-[30%] w-18 h-18 rounded-full opacity-25" style={{
+          background: 'linear-gradient(90deg, #10B981, #059669)',
+          boxShadow: '0 0 10px rgba(16, 185, 129, 0.3)'
+        }} animate={{
+          y: [0, 35, 0],
+          x: [0, -30, 0],
+          scale: [1, 1.3, 1]
+        }} transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }} />
           
           {/* Floating crystal-like elements */}
-          <motion.div 
-            className="absolute top-[70%] left-[60%] w-12 h-20 opacity-25"
-            style={{
-              background: 'linear-gradient(180deg, #A855F7, #7C3AED)',
-              clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
-              boxShadow: '0 0 10px rgba(168, 85, 247, 0.2)'
-            }}
-            animate={{
-              y: [0, -40, 0],
-              rotate: [0, 180, 360],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 3
-            }}
-          />
+          <motion.div className="absolute top-[70%] left-[60%] w-12 h-20 opacity-25" style={{
+          background: 'linear-gradient(180deg, #A855F7, #7C3AED)',
+          clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+          boxShadow: '0 0 10px rgba(168, 85, 247, 0.2)'
+        }} animate={{
+          y: [0, -40, 0],
+          rotate: [0, 180, 360],
+          scale: [1, 1.1, 1]
+        }} transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 3
+        }} />
           
           {/* Nebula-like glow effects */}
-          <motion.div 
-            className="absolute top-[20%] right-[20%] w-40 h-40 rounded-full opacity-20"
-            style={{
-              background: 'radial-gradient(circle, #8B5CF6, transparent)',
-              filter: 'blur(30px)'
-            }}
-            animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.1, 0.3, 0.1]
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
+          <motion.div className="absolute top-[20%] right-[20%] w-40 h-40 rounded-full opacity-20" style={{
+          background: 'radial-gradient(circle, #8B5CF6, transparent)',
+          filter: 'blur(30px)'
+        }} animate={{
+          scale: [1, 1.5, 1],
+          opacity: [0.1, 0.3, 0.1]
+        }} transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }} />
           
-          <motion.div 
-            className="absolute bottom-[30%] right-[40%] w-32 h-32 rounded-full opacity-15"
-            style={{
-              background: 'radial-gradient(circle, #06B6D4, transparent)',
-              filter: 'blur(25px)'
-            }}
-            animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.1, 0.25, 0.1]
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 5
-            }}
-          />
+          <motion.div className="absolute bottom-[30%] right-[40%] w-32 h-32 rounded-full opacity-15" style={{
+          background: 'radial-gradient(circle, #06B6D4, transparent)',
+          filter: 'blur(25px)'
+        }} animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.1, 0.25, 0.1]
+        }} transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 5
+        }} />
           
           {/* Shooting stars */}
-          {[...Array(3)].map((_, i) => (
-            <motion.div
-              key={`shooting-star-${i}`}
-              className="absolute w-1 h-1 bg-white rounded-full"
-              style={{
-                top: `${20 + i * 25}%`,
-                left: '-5%'
-              }}
-              animate={{
-                x: ['0vw', '110vw'],
-                opacity: [0, 1, 1, 0]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                delay: i * 8 + Math.random() * 5,
-                ease: "easeOut"
-              }}
-            />
-          ))}
+          {[...Array(3)].map((_, i) => <motion.div key={`shooting-star-${i}`} className="absolute w-1 h-1 bg-white rounded-full" style={{
+          top: `${20 + i * 25}%`,
+          left: '-5%'
+        }} animate={{
+          x: ['0vw', '110vw'],
+          opacity: [0, 1, 1, 0]
+        }} transition={{
+          duration: 3,
+          repeat: Infinity,
+          delay: i * 8 + Math.random() * 5,
+          ease: "easeOut"
+        }} />)}
         </div>
         
         <motion.div style={{
@@ -347,19 +243,15 @@ const Services = () => {
             duration: 1.2,
             ease: "backOut"
           }} className="text-display-xl font-black text-foreground italic mb-4 transform-gpu">
-              <motion.span 
-                className="text-transparent bg-gradient-primary bg-clip-text"
-                animate={{
-                  rotateZ: [0, 2, -2, 0],
-                  scale: [1, 1.02, 1],
-                  textShadow: ["0 0 20px rgba(var(--primary-rgb), 0.5)", "0 0 40px rgba(var(--primary-rgb), 0.8)", "0 0 20px rgba(var(--primary-rgb), 0.5)"]
-                }} 
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
+              <motion.span className="text-transparent bg-gradient-primary bg-clip-text" animate={{
+              rotateZ: [0, 2, -2, 0],
+              scale: [1, 1.02, 1],
+              textShadow: ["0 0 20px rgba(var(--primary-rgb), 0.5)", "0 0 40px rgba(var(--primary-rgb), 0.8)", "0 0 20px rgba(var(--primary-rgb), 0.5)"]
+            }} transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}>
                 JOURNEY
               </motion.span>
             </motion.div>
@@ -1171,123 +1063,38 @@ const Services = () => {
       {/* Erfolg Erreicht Section */}
       
 
-      {/* Contact Section */}
-      <section className="relative py-24 px-4 sm:px-6 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
-        <div className="container-xl">
-          <div className="text-center mb-16">
-            <h2 className="text-h1 font-bold mb-4 text-foreground">
-              Get in touch
-            </h2>
-            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
-              Want to get in touch? We'd love to hear from you. Here's how you can reach us.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Talk to Sales */}
-            <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
-              <CardContent className="space-y-6 p-0">
-                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-                  <Phone className="w-8 h-8 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-h3 font-semibold mb-2 text-foreground">Talk to Sales</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
-                    Interested in our services? Just pick up the phone to chat with a member of our sales team.
-                  </p>
-                  <a href="tel:+4915750998236" className="text-primary font-semibold text-lg hover:underline">
-                    +49 157 5099 8236
-                  </a>
-                </div>
-                <Button 
-                  variant="outline" 
-                  className="w-full"
-                  onClick={() => window.location.href = 'tel:+4915750998236'}
-                >
-                  View all global numbers
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Contact Support */}
-            <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
-              <CardContent className="space-y-6 p-0">
-                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-                  <MessageSquare className="w-8 h-8 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-h3 font-semibold mb-2 text-foreground">Contact Customer Support</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
-                    Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
-                  </p>
-                </div>
-                <Button 
-                  className="w-full btn-primary"
-                  onClick={() => setIsContactSheetOpen(true)}
-                >
-                  Contact Support
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form Sheet */}
-      <Sheet open={isContactSheetOpen} onOpenChange={setIsContactSheetOpen}>
-        <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
-          <SheetHeader className="mb-6">
-            <SheetTitle className="text-2xl font-bold">Projekt besprechen</SheetTitle>
-            <SheetDescription>
-              Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen.
-            </SheetDescription>
-          </SheetHeader>
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div className="space-y-5">
-              {[
-                { id: "name", label: "Name *", type: "text", placeholder: "Ihr Name", required: true },
-                { id: "email", label: "E-Mail *", type: "email", placeholder: "ihre@email.com", required: true },
-                { id: "position", label: "Position *", type: "text", placeholder: "Ihre Position", required: true },
-                { id: "firma", label: "Firma *", type: "text", placeholder: "Ihr Unternehmen", required: true },
-                { id: "telefon", label: "Telefon", type: "tel", placeholder: "Ihre Telefonnummer", required: false }
-              ].map(field => (
-                <div key={field.id} className="space-y-2">
-                  <Label htmlFor={field.id} className="text-foreground font-medium">
-                    {field.label}
-                  </Label>
-                  <Input 
-                    id={field.id} 
-                    name={field.id} 
-                    type={field.type} 
-                    placeholder={field.placeholder} 
-                    required={field.required} 
-                    className="bg-background/50 border-border focus:border-primary transition-colors"
-                  />
-                </div>
-              ))}
-              
-              <div className="space-y-2">
-                <Label htmlFor="nachricht" className="text-foreground font-medium">
-                  Nachricht *
-                </Label>
-                <Textarea 
-                  id="nachricht" 
-                  name="nachricht" 
-                  placeholder="Erzählen Sie uns von Ihrem Projekt..." 
-                  required 
-                  className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none"
-                />
-              </div>
-            </div>
-
-            <Button type="submit" size="lg" className="w-full btn-primary">
-              Nachricht senden
-              <ArrowRight className="w-5 h-5 ml-2" />
+      {/* CTA Section */}
+      <section className="relative py-24 px-4 sm:px-6 bg-gradient-to-br from-surface via-background to-surface-elevated overflow-hidden">
+        <motion.div className="container-narrow text-center relative z-10" initial={{
+        opacity: 0,
+        y: 30
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true
+      }} transition={{
+        duration: 0.8
+      }}>
+          <h2 className="text-h1 font-bold mb-6 text-foreground">
+            Bereit für Ihre Reise?
+          </h2>
+          <p className="text-body-xl mb-12 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
+            Lassen Sie uns gemeinsam Ihre Vision Schritt für Schritt zur Realität werden.
+          </p>
+          <motion.div whileHover={{
+          scale: 1.05
+        }} whileTap={{
+          scale: 0.95
+        }}>
+            <Button size="lg" className="btn-primary px-12 py-4 text-lg" asChild>
+              <Link to="/#contact-section">
+                Projekt starten
+              </Link>
             </Button>
-          </form>
-        </SheetContent>
-      </Sheet>
+          </motion.div>
+        </motion.div>
+      </section>
 
       {/* Footer */}
       <footer className="bg-surface-elevated/80 border-t border-border py-12 sm:py-16">
@@ -1295,13 +1102,7 @@ const Services = () => {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div className="sm:col-span-2">
                <div className="flex items-center mb-4">
-                 <img 
-                   src="/assets/90e4fdca-8c29-48f7-9568-686b611a62f4.png"
-                   alt="New Edge Logo" 
-                   className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" 
-                   width={32}
-                   height={32}
-                 />
+                 <img src="/assets/90e4fdca-8c29-48f7-9568-686b611a62f4.png" alt="New Edge Logo" className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" width={32} height={32} />
                 <div className="text-2xl sm:text-3xl font-bold text-foreground">
                   New Edge<span className="text-primary"></span>
                 </div>
@@ -1329,9 +1130,7 @@ const Services = () => {
               <h4 className="font-semibold mb-3 sm:mb-4 text-foreground text-sm sm:text-base">Kontakt</h4>
               <ul className="space-y-1 sm:space-y-2 text-muted-foreground text-sm sm:text-base">
                 <li>
-                  <a href="mailto:info@newedgebrand.com" className="hover:text-primary transition-colors">
-                    info@newedgebrand.com
-                  </a>
+                  
                 </li>
                 <li>+49 15750998236</li>
                 <li>Deutschland</li>
