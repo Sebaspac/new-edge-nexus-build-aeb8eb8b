@@ -138,7 +138,7 @@ const Index = () => {
         <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
 
         {/* Info Section */}
-        <section className="relative py-20 sm:py-32 bg-white">
+        <section className="relative py-12 sm:py-16 bg-white">
           <div className="container-xl">
             <motion.div initial={{
             opacity: 0,
@@ -198,7 +198,7 @@ const Index = () => {
         <InnovationSection />
 
         {/* Problem-Lösung Sektion - Neu aus Briefing */}
-        <section className="relative py-20 sm:py-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+        <section className="relative py-12 sm:py-16 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
           {/* Animated background */}
           <motion.div className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
           scale: [1, 1.2, 1],
@@ -434,7 +434,7 @@ const Index = () => {
         </section>
 
         {/* Impact Points Section with Modern Animations */}
-        <section className="relative py-20 sm:py-32 bg-white overflow-hidden">
+        <section className="relative py-12 sm:py-16 bg-white overflow-hidden">
           {/* Animated floating elements with parallax */}
           <motion.div className="absolute top-40 right-10 w-24 h-24 bg-accent/10 rounded-full blur-xl" initial={{
           opacity: 0,
@@ -587,7 +587,7 @@ const Index = () => {
         </section>
 
         {/* Services Section with Modern Animations */}
-        <section className="relative py-20 sm:py-32 bg-white overflow-hidden">
+        <section className="relative py-12 sm:py-16 bg-white overflow-hidden">
           <div className="container-xl">
             <motion.div initial={{
             opacity: 0,
@@ -717,7 +717,7 @@ const Index = () => {
         </section>
 
         {/* Network Stats Section with Modern Animations */}
-        <section className="relative py-20 sm:py-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+        <section className="relative py-12 sm:py-16 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
           {/* Animated background orbs */}
           <motion.div className="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl" animate={{
           scale: [1, 1.2, 1],
@@ -879,7 +879,7 @@ const Index = () => {
         </section>
 
         {/* Founders Section with Modern Animations */}
-        <section className="relative py-20 sm:py-32 bg-gradient-to-br from-white to-gray-50 overflow-hidden">
+        <section className="relative py-12 sm:py-16 bg-gradient-to-br from-white to-gray-50 overflow-hidden">
           {/* Animated background pattern */}
           <motion.div className="absolute top-0 left-0 w-full h-full opacity-5" style={{
           backgroundImage: `radial-gradient(circle at 20px 20px, hsl(var(--primary)) 2px, transparent 0)`,
@@ -1058,7 +1058,7 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact-section" className="relative py-20 sm:py-32 bg-gradient-to-br from-primary/5 via-background to-primary/10">
+        <section id="contact-section" className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10">
           <div className="container-xl">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
