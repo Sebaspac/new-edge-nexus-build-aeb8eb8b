@@ -588,7 +588,6 @@ const Index = () => {
                     duration: 0.6,
                     type: "spring"
                   }} className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center text-white font-black text-sm shadow-lg">
-                        {point.number}
                       </motion.div>
                       <h3 className="text-base sm:text-lg font-black text-black group-hover:text-primary transition-colors flex-1 leading-tight">
                         {point.title}
