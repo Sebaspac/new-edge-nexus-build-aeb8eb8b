@@ -137,7 +137,7 @@ const Lab = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="max-w-4xl"
+              className="text-center max-w-4xl mx-auto"
             >
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 TECH INNOVATION LAB
