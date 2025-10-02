@@ -9,7 +9,6 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  clearScreen: false,
   plugins: [
     react(),
     mode === 'development' &&
@@ -29,9 +28,7 @@ export default defineConfig(({ mode }) => ({
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom'],
-    force: true,
   },
-  // Only drop console/debugger in production
   esbuild: mode === 'production' ? {
     drop: ['console', 'debugger'],
   } : {},
