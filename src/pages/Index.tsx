@@ -140,120 +140,104 @@ const Index = () => {
         {/* Info Section */}
         <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
           {/* Parallax Floating Elements */}
-          <motion.div 
-            className="absolute top-20 right-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl"
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            animate={{ 
-              y: [0, -20, 0],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ 
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          <motion.div 
-            className="absolute bottom-10 left-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            animate={{ 
-              x: [0, 20, 0],
-              rotate: [0, 180, 360]
-            }}
-            transition={{ 
-              duration: 15,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          />
+          <motion.div className="absolute top-20 right-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl" initial={{
+          opacity: 0,
+          scale: 0
+        }} whileInView={{
+          opacity: 1,
+          scale: 1
+        }} viewport={{
+          once: true
+        }} animate={{
+          y: [0, -20, 0],
+          scale: [1, 1.1, 1]
+        }} transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }} />
+          <motion.div className="absolute bottom-10 left-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl" initial={{
+          opacity: 0,
+          x: -50
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} viewport={{
+          once: true
+        }} animate={{
+          x: [0, 20, 0],
+          rotate: [0, 180, 360]
+        }} transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "linear"
+        }} />
 
           <div className="container-xl relative z-10">
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.2,
-                    delayChildren: 0.1
-                  }
+            <motion.div initial="hidden" whileInView="visible" viewport={{
+            once: true,
+            margin: "-80px"
+          }} variants={{
+            hidden: {
+              opacity: 0
+            },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.1
+              }
+            }
+          }} className="max-w-5xl space-y-4">
+              <motion.div variants={{
+              hidden: {
+                opacity: 0,
+                y: 40,
+                scale: 0.95
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.7,
+                  ease: [0.25, 0.46, 0.45, 0.94]
                 }
-              }}
-              className="max-w-5xl space-y-4"
-            >
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 40, scale: 0.95 },
-                  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } }
-                }}
-                className="mb-6"
-              >
+              }
+            }} className="mb-6">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
                   Wir bringen Ihr Unternehmen{" "}
-                  <motion.span 
-                    className="bg-gradient-primary bg-clip-text text-transparent inline-block"
-                    whileInView={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 1, delay: 0.3 }}
-                  >
+                  <motion.span className="bg-gradient-primary bg-clip-text text-transparent inline-block" whileInView={{
+                  scale: [1, 1.05, 1]
+                }} transition={{
+                  duration: 1,
+                  delay: 0.3
+                }}>
                     an die Spitze
                   </motion.span>
                   {" "}Ihrer Branche
                 </h2>
-                <motion.p
-                  className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl"
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } }
-                  }}
-                >
+                <motion.p className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl" variants={{
+                hidden: {
+                  opacity: 0,
+                  y: 20
+                },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.6,
+                    delay: 0.2
+                  }
+                }
+              }}>
                   Wir helfen Marken, sichtbar zu werden, Prozesse zu automatisieren – und den Wandel durch Innovation aktiv zu gestalten.
                 </motion.p>
               </motion.div>
               
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, x: -60, rotateY: -10 },
-                  visible: { opacity: 1, x: 0, rotateY: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } }
-                }}
-                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.3 } }}
-                className="bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300"
-              >
-                <motion.h3 
-                  className="text-lg sm:text-xl font-black mb-3 text-black bg-gradient-primary bg-clip-text text-transparent"
-                  whileHover={{ scale: 1.03 }}
-                >
-                  Unsere Mission
-                </motion.h3>
-                <p className="text-sm sm:text-base text-gray-700 leading-[1.6]">
-                  Mit Innovation und Automatisierung, für die Sie im operativen Tagesgeschäft sonst keinen Zugang hätten.
-                </p>
-              </motion.div>
+              
 
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, x: 60, rotateY: 10 },
-                  visible: { opacity: 1, x: 0, rotateY: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } }
-                }}
-                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.3 } }}
-                className="bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300"
-              >
-                <motion.h3 
-                  className="text-lg sm:text-xl font-black mb-3 text-black"
-                  whileHover={{ scale: 1.03 }}
-                >
-                  Für wen wir arbeiten
-                </motion.h3>
-                <p className="text-sm sm:text-base text-gray-700 leading-[1.6]">
-                  Spezialisiert auf mittelständische KMUs, die ihre Prozesse modernisieren und Vorreiter ihrer Branche werden wollen – ohne sich im Tagesgeschäft zu verlieren.
-                </p>
-              </motion.div>
+              
             </motion.div>
           </div>
         </section>
@@ -264,215 +248,229 @@ const Index = () => {
         {/* Problem-Lösung Sektion - Neu aus Briefing */}
         <section className="relative py-8 sm:py-12 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
           {/* Enhanced Animated background with multiple layers */}
-          <motion.div 
-            className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" 
-            animate={{
-              scale: [1, 1.3, 1],
-              x: [0, 60, 0],
-              y: [0, -40, 0],
-              rotate: [0, 90, 0]
-            }} 
-            transition={{
-              duration: 12,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }} 
-          />
-          <motion.div 
-            className="absolute bottom-20 left-20 w-64 h-64 bg-secondary/5 rounded-full blur-2xl" 
-            animate={{
-              scale: [1.2, 1, 1.2],
-              x: [0, -30, 0],
-              y: [0, 40, 0]
-            }} 
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1
-            }} 
-          />
+          <motion.div className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
+          scale: [1, 1.3, 1],
+          x: [0, 60, 0],
+          y: [0, -40, 0],
+          rotate: [0, 90, 0]
+        }} transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }} />
+          <motion.div className="absolute bottom-20 left-20 w-64 h-64 bg-secondary/5 rounded-full blur-2xl" animate={{
+          scale: [1.2, 1, 1.2],
+          x: [0, -30, 0],
+          y: [0, 40, 0]
+        }} transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }} />
 
           <div className="container-xl relative z-10">
             {/* Header with enhanced animations */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="text-left mb-12"
-            >
-              <motion.h2 
-                className="text-2xl sm:text-3xl lg:text-4xl font-black mb-4 bg-gradient-primary bg-clip-text text-transparent leading-[1.2]"
-                initial={{ opacity: 0, rotateX: -20 }}
-                whileInView={{ opacity: 1, rotateX: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.7 }}
-                whileHover={{ scale: 1.03 }}
-              >
+            <motion.div initial={{
+            opacity: 0,
+            y: 50,
+            scale: 0.9
+          }} whileInView={{
+            opacity: 1,
+            y: 0,
+            scale: 1
+          }} viewport={{
+            once: true,
+            margin: "-80px"
+          }} transition={{
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }} className="text-left mb-12">
+              <motion.h2 initial={{
+              opacity: 0,
+              rotateX: -20
+            }} whileInView={{
+              opacity: 1,
+              rotateX: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.2,
+              duration: 0.7
+            }} whileHover={{
+              scale: 1.03
+            }} className="text-2xl sm:text-3xl font-black mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 lg:text-4xl">
                 Für wen wir arbeiten & warum
               </motion.h2>
-              <motion.p 
-                className="text-sm sm:text-base text-gray-600 max-w-3xl leading-[1.6]"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-              >
+              <motion.p className="text-sm sm:text-base text-gray-600 max-w-3xl leading-[1.6]" initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.4,
+              duration: 0.6
+            }}>
                 Spezialisiert auf mittelständische KMUs, die Vorreiter werden wollen
               </motion.p>
             </motion.div>
 
             {/* Problem-Lösung Grid with enhanced animations */}
-            <motion.div 
-              className="grid lg:grid-cols-2 gap-6 max-w-6xl mx-auto mb-12"
-              initial="hidden" 
-              whileInView="visible" 
-              viewport={{ once: true, margin: "-50px" }} 
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.25,
-                    delayChildren: 0.2
-                  }
-                }
-              }}
-            >
+            <motion.div className="grid lg:grid-cols-2 gap-6 max-w-6xl mx-auto mb-12" initial="hidden" whileInView="visible" viewport={{
+            once: true,
+            margin: "-50px"
+          }} variants={{
+            hidden: {
+              opacity: 0
+            },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.25,
+                delayChildren: 0.2
+              }
+            }
+          }}>
               {/* Problem Card */}
-              <motion.div 
-                variants={{
-                  hidden: { opacity: 0, x: -80, rotateY: -25, scale: 0.9 },
-                  visible: {
-                    opacity: 1,
-                    x: 0,
-                    rotateY: 0,
-                    scale: 1,
-                    transition: {
-                      duration: 0.9,
-                      ease: [0.25, 0.46, 0.45, 0.94]
-                    }
-                  }
-                }} 
-                whileHover={{
-                  scale: 1.05,
-                  y: -15,
-                  rotateY: 5,
-                  transition: { duration: 0.4, type: "spring", stiffness: 200 }
-                }} 
-                className="perspective-1000"
-              >
+              <motion.div variants={{
+              hidden: {
+                opacity: 0,
+                x: -80,
+                rotateY: -25,
+                scale: 0.9
+              },
+              visible: {
+                opacity: 1,
+                x: 0,
+                rotateY: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.9,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }
+              }
+            }} whileHover={{
+              scale: 1.05,
+              y: -15,
+              rotateY: 5,
+              transition: {
+                duration: 0.4,
+                type: "spring",
+                stiffness: 200
+              }
+            }} className="perspective-1000">
                 <Card className="h-full bg-white border-2 border-red-200 shadow-xl hover:shadow-[0_15px_40px_rgba(239,68,68,0.2)] hover:border-red-400 transition-all duration-500">
                   <CardContent className="p-6">
-                    <motion.div 
-                      className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mb-4 shadow-lg"
-                      whileHover={{ scale: 1.15, rotate: [0, -10, 10, 0] }}
-                      transition={{ duration: 0.5 }}
-                    >
+                    <motion.div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mb-4 shadow-lg" whileHover={{
+                    scale: 1.15,
+                    rotate: [0, -10, 10, 0]
+                  }} transition={{
+                    duration: 0.5
+                  }}>
                       <Target className="w-6 h-6 text-white" />
                     </motion.div>
                     <h3 className="text-xl sm:text-2xl font-black mb-4 text-black leading-tight">Ihre Herausforderung</h3>
-                    <motion.ul 
-                      className="space-y-3"
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      variants={{
-                        visible: {
-                          transition: { staggerChildren: 0.1 }
-                        }
-                      }}
-                    >
-                      {[
-                        "Manuelle, zeitraubende Prozesse im Tagesgeschäft",
-                        "Keine Zeit für Digitalisierung und Innovation",
-                        "Fachkräftemangel und steigende Kosten",
-                        "Wettbewerber ziehen davon – Sie bleiben zurück",
-                        "Klassische Agenturen liefern keine echte Innovation"
-                      ].map((text, i) => (
-                        <motion.li 
-                          key={i}
-                          className="flex items-start gap-3"
-                          variants={{
-                            hidden: { opacity: 0, x: -20 },
-                            visible: { opacity: 1, x: 0 }
-                          }}
-                          whileHover={{ x: 8, transition: { duration: 0.2 } }}
-                        >
+                    <motion.ul className="space-y-3" initial="hidden" whileInView="visible" viewport={{
+                    once: true
+                  }} variants={{
+                    visible: {
+                      transition: {
+                        staggerChildren: 0.1
+                      }
+                    }
+                  }}>
+                      {["Manuelle, zeitraubende Prozesse im Tagesgeschäft", "Keine Zeit für Digitalisierung und Innovation", "Fachkräftemangel und steigende Kosten", "Wettbewerber ziehen davon – Sie bleiben zurück", "Klassische Agenturen liefern keine echte Innovation"].map((text, i) => <motion.li key={i} className="flex items-start gap-3" variants={{
+                      hidden: {
+                        opacity: 0,
+                        x: -20
+                      },
+                      visible: {
+                        opacity: 1,
+                        x: 0
+                      }
+                    }} whileHover={{
+                      x: 8,
+                      transition: {
+                        duration: 0.2
+                      }
+                    }}>
                           <span className="text-red-500 font-black mt-0.5 text-lg">×</span>
                           <span className="text-gray-700 text-sm leading-[1.6]">{text}</span>
-                        </motion.li>
-                      ))}
+                        </motion.li>)}
                     </motion.ul>
                   </CardContent>
                 </Card>
               </motion.div>
 
               {/* Lösung Card */}
-              <motion.div 
-                variants={{
-                  hidden: { opacity: 0, x: 80, rotateY: 25, scale: 0.9 },
-                  visible: {
-                    opacity: 1,
-                    x: 0,
-                    rotateY: 0,
-                    scale: 1,
-                    transition: {
-                      duration: 0.9,
-                      ease: [0.25, 0.46, 0.45, 0.94]
-                    }
-                  }
-                }} 
-                whileHover={{
-                  scale: 1.05,
-                  y: -15,
-                  rotateY: -5,
-                  transition: { duration: 0.4, type: "spring", stiffness: 200 }
-                }} 
-                className="perspective-1000"
-              >
+              <motion.div variants={{
+              hidden: {
+                opacity: 0,
+                x: 80,
+                rotateY: 25,
+                scale: 0.9
+              },
+              visible: {
+                opacity: 1,
+                x: 0,
+                rotateY: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.9,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }
+              }
+            }} whileHover={{
+              scale: 1.05,
+              y: -15,
+              rotateY: -5,
+              transition: {
+                duration: 0.4,
+                type: "spring",
+                stiffness: 200
+              }
+            }} className="perspective-1000">
                 <Card className="h-full bg-gradient-to-br from-white to-green-50 border-2 border-green-200 shadow-xl hover:shadow-[0_15px_40px_rgba(34,197,94,0.2)] hover:border-green-400 transition-all duration-500">
                   <CardContent className="p-6">
-                    <motion.div 
-                      className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-4 shadow-lg"
-                      whileHover={{ scale: 1.15, rotate: [0, 10, -10, 0] }}
-                      transition={{ duration: 0.5 }}
-                    >
+                    <motion.div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-4 shadow-lg" whileHover={{
+                    scale: 1.15,
+                    rotate: [0, 10, -10, 0]
+                  }} transition={{
+                    duration: 0.5
+                  }}>
                       <Rocket className="w-6 h-6 text-white" />
                     </motion.div>
                     <h3 className="text-xl sm:text-2xl font-black mb-4 text-black leading-tight">Unsere Lösung</h3>
-                    <motion.ul 
-                      className="space-y-3"
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      variants={{
-                        visible: {
-                          transition: { staggerChildren: 0.1 }
-                        }
-                      }}
-                    >
-                      {[
-                        "KI-gestützte Automatisierung Ihrer Prozesse",
-                        "30% mehr Zeit für Ihr Kerngeschäft",
-                        "Messbare Effizienzsteigerung & ROI",
-                        "Sie werden Vorreiter Ihrer Branche",
-                        "Hybrid: Marketing + Technologie + Automatisierung"
-                      ].map((text, i) => (
-                        <motion.li 
-                          key={i}
-                          className="flex items-start gap-3"
-                          variants={{
-                            hidden: { opacity: 0, x: 20 },
-                            visible: { opacity: 1, x: 0 }
-                          }}
-                          whileHover={{ x: 8, transition: { duration: 0.2 } }}
-                        >
+                    <motion.ul className="space-y-3" initial="hidden" whileInView="visible" viewport={{
+                    once: true
+                  }} variants={{
+                    visible: {
+                      transition: {
+                        staggerChildren: 0.1
+                      }
+                    }
+                  }}>
+                      {["KI-gestützte Automatisierung Ihrer Prozesse", "30% mehr Zeit für Ihr Kerngeschäft", "Messbare Effizienzsteigerung & ROI", "Sie werden Vorreiter Ihrer Branche", "Hybrid: Marketing + Technologie + Automatisierung"].map((text, i) => <motion.li key={i} className="flex items-start gap-3" variants={{
+                      hidden: {
+                        opacity: 0,
+                        x: 20
+                      },
+                      visible: {
+                        opacity: 1,
+                        x: 0
+                      }
+                    }} whileHover={{
+                      x: 8,
+                      transition: {
+                        duration: 0.2
+                      }
+                    }}>
                           <span className="text-green-500 font-black mt-0.5 text-lg">✓</span>
                           <span className="text-gray-700 font-semibold text-sm leading-[1.6]">{text}</span>
-                        </motion.li>
-                      ))}
+                        </motion.li>)}
                     </motion.ul>
                   </CardContent>
                 </Card>
@@ -480,48 +478,68 @@ const Index = () => {
             </motion.div>
 
             {/* Nutzenversprechen Box with enhanced animations */}
-            <motion.div 
-              initial={{ opacity: 0, y: 60, scale: 0.85 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.3 } }}
-              className="max-w-5xl mx-auto"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 60,
+            scale: 0.85
+          }} whileInView={{
+            opacity: 1,
+            y: 0,
+            scale: 1
+          }} viewport={{
+            once: true,
+            margin: "-80px"
+          }} transition={{
+            duration: 0.9,
+            delay: 0.3,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }} whileHover={{
+            scale: 1.02,
+            y: -5,
+            transition: {
+              duration: 0.3
+            }
+          }} className="max-w-5xl mx-auto">
               <Card className="bg-gradient-to-br from-primary via-primary to-secondary border-0 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden">
 ...
                 <CardContent className="p-8 sm:p-10 relative z-10">
                   <div className="text-center">
-                    <motion.div 
-                      className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm mb-6 shadow-xl"
-                      animate={{
-                        rotate: [0, 360],
-                        scale: [1, 1.15, 1]
-                      }} 
-                      transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }}
-                    >
+                    <motion.div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm mb-6 shadow-xl" animate={{
+                    rotate: [0, 360],
+                    scale: [1, 1.15, 1]
+                  }} transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}>
                       <Star className="w-8 h-8 text-white" />
                     </motion.div>
-                    <motion.h3 
-                      className="text-xl sm:text-2xl font-black text-white mb-4 leading-tight"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.5, duration: 0.6 }}
-                    >
+                    <motion.h3 className="text-xl sm:text-2xl font-black text-white mb-4 leading-tight" initial={{
+                    opacity: 0,
+                    y: 20
+                  }} whileInView={{
+                    opacity: 1,
+                    y: 0
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    delay: 0.5,
+                    duration: 0.6
+                  }}>
                       Konkret für Sie
                     </motion.h3>
-                    <motion.p 
-                      className="text-sm sm:text-base text-white/95 leading-[1.6] max-w-4xl mx-auto"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.7, duration: 0.6 }}
-                    >
+                    <motion.p className="text-sm sm:text-base text-white/95 leading-[1.6] max-w-4xl mx-auto" initial={{
+                    opacity: 0,
+                    y: 20
+                  }} whileInView={{
+                    opacity: 1,
+                    y: 0
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    delay: 0.7,
+                    duration: 0.6
+                  }}>
                       Für mittelständische Produktions- oder Dienstleistungsunternehmen (50-300 Mitarbeiter), die ihre Prozesse manuell betreiben und unter Fachkräftemangel leiden, implementiert New Edge <span className="font-black text-white">KI-gestützte Automatisierungen</span> und vernetzt sie mit passenden Agenturen. Dadurch gewinnen sie <span className="font-black text-white">30% mehr Zeit</span> für ihr Kerngeschäft, senken Fehlerquoten, stärken ihre Marke und werden als <span className="font-black text-white">innovative Vorreiter</span> in ihrer Branche wahrgenommen.
                     </motion.p>
                   </div>
@@ -534,130 +552,145 @@ const Index = () => {
         {/* Impact Points Section with Modern Animations */}
         <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-blue-50/20 to-white overflow-hidden">
           {/* Enhanced Parallax Floating Elements */}
-          <motion.div 
-            className="absolute top-40 right-10 w-28 h-28 bg-accent/10 rounded-full blur-xl" 
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            animate={{
-              x: [0, 40, 0],
-              y: [0, -30, 0],
-              scale: [1, 1.4, 1],
-              rotate: [0, 180, 360]
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          <motion.div 
-            className="absolute bottom-20 left-20 w-40 h-40 bg-primary/5 rounded-full blur-2xl" 
-            initial={{ opacity: 0, rotate: -180 }}
-            whileInView={{ opacity: 1, rotate: 0 }}
-            viewport={{ once: true }}
-            animate={{
-              rotate: [0, 360],
-              scale: [1, 0.8, 1],
-              x: [0, -20, 0]
-            }}
-            transition={{
-              duration: 12,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          />
+          <motion.div className="absolute top-40 right-10 w-28 h-28 bg-accent/10 rounded-full blur-xl" initial={{
+          opacity: 0,
+          scale: 0
+        }} whileInView={{
+          opacity: 1,
+          scale: 1
+        }} viewport={{
+          once: true
+        }} animate={{
+          x: [0, 40, 0],
+          y: [0, -30, 0],
+          scale: [1, 1.4, 1],
+          rotate: [0, 180, 360]
+        }} transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }} />
+          <motion.div className="absolute bottom-20 left-20 w-40 h-40 bg-primary/5 rounded-full blur-2xl" initial={{
+          opacity: 0,
+          rotate: -180
+        }} whileInView={{
+          opacity: 1,
+          rotate: 0
+        }} viewport={{
+          once: true
+        }} animate={{
+          rotate: [0, 360],
+          scale: [1, 0.8, 1],
+          x: [0, -20, 0]
+        }} transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "linear"
+        }} />
           
           <div className="container-xl relative z-10">
             {/* Section Title with enhanced scale animation */}
-            <motion.div 
-              className="text-center mb-12"
-              initial={{ opacity: 0, scale: 0.8, y: 60 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
-            >
-              <motion.h2 
-                className="text-2xl sm:text-3xl lg:text-4xl font-black mb-4 text-black leading-[1.2]"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.7 }}
-                whileHover={{ scale: 1.03 }}
-              >
+            <motion.div className="text-center mb-12" initial={{
+            opacity: 0,
+            scale: 0.8,
+            y: 60
+          }} whileInView={{
+            opacity: 1,
+            scale: 1,
+            y: 0
+          }} viewport={{
+            once: true,
+            margin: "-80px"
+          }} transition={{
+            duration: 0.9,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }}>
+              <motion.h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-4 text-black leading-[1.2]" initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.2,
+              duration: 0.7
+            }} whileHover={{
+              scale: 1.03
+            }}>
                 Unsere innovative Herangehensweise
               </motion.h2>
             </motion.div>
             
             {/* Grid with enhanced stagger animation */}
-            <motion.div 
-              className="grid md:grid-cols-2 gap-5 items-stretch max-w-6xl mx-auto"
-              initial="hidden" 
-              whileInView="visible" 
-              viewport={{ once: true, margin: "-80px" }} 
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.2,
-                    delayChildren: 0.2
-                  }
-                }
-              }}
-            >
+            <motion.div className="grid md:grid-cols-2 gap-5 items-stretch max-w-6xl mx-auto" initial="hidden" whileInView="visible" viewport={{
+            once: true,
+            margin: "-80px"
+          }} variants={{
+            hidden: {
+              opacity: 0
+            },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.2
+              }
+            }
+          }}>
               {[{
-                number: "01",
-                title: "Automatisierung mit Impact",
-                description: "Wir automatisieren repetitive Aufgaben, damit Sie sich auf Ihr Kerngeschäft konzentrieren können."
-              }, {
-                number: "02",
-                title: "Marketing & Technologie vereint",
-                description: "Interdisziplinäres Team aus Strategen, Creatives und Entwicklern; alles aus einer Hand."
-              }, {
-                number: "03",
-                title: "Zugänglichkeit statt Komplexität",
-                description: "Transparente Prozesse und verständliche Lösungen statt Technik Buzzwords."
-              }, {
-                number: "04",
-                title: "Individuell & skalierbar",
-                description: "Maßgeschneiderte Setups ohne Abo Modelle – Sie bezahlen nur, was Sie nutzen."
-              }].map((point, index) => 
-                <motion.div 
-                  key={index} 
-                  variants={{
-                    hidden: {
-                      opacity: 0,
-                      y: 60,
-                      scale: 0.85,
-                      rotateX: -15
-                    },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      rotateX: 0,
-                      transition: {
-                        duration: 0.7,
-                        ease: [0.25, 0.46, 0.45, 0.94]
-                      }
-                    }
-                  }} 
-                  whileHover={{
-                    scale: 1.05,
-                    y: -10,
-                    rotateX: 5,
-                    transition: { duration: 0.4, type: "spring", stiffness: 200 }
-                  }} 
-                  className="group h-full"
-                >
+              number: "01",
+              title: "Automatisierung mit Impact",
+              description: "Wir automatisieren repetitive Aufgaben, damit Sie sich auf Ihr Kerngeschäft konzentrieren können."
+            }, {
+              number: "02",
+              title: "Marketing & Technologie vereint",
+              description: "Interdisziplinäres Team aus Strategen, Creatives und Entwicklern; alles aus einer Hand."
+            }, {
+              number: "03",
+              title: "Zugänglichkeit statt Komplexität",
+              description: "Transparente Prozesse und verständliche Lösungen statt Technik Buzzwords."
+            }, {
+              number: "04",
+              title: "Individuell & skalierbar",
+              description: "Maßgeschneiderte Setups ohne Abo Modelle – Sie bezahlen nur, was Sie nutzen."
+            }].map((point, index) => <motion.div key={index} variants={{
+              hidden: {
+                opacity: 0,
+                y: 60,
+                scale: 0.85,
+                rotateX: -15
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                rotateX: 0,
+                transition: {
+                  duration: 0.7,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }
+              }
+            }} whileHover={{
+              scale: 1.05,
+              y: -10,
+              rotateX: 5,
+              transition: {
+                duration: 0.4,
+                type: "spring",
+                stiffness: 200
+              }
+            }} className="group h-full">
                   <div className="bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:border-primary/30 transition-all duration-500 h-full">
                     <div className="flex items-start gap-3 mb-3">
-                      <motion.div 
-                        whileHover={{ scale: 1.2, rotate: 360 }}
-                        transition={{ duration: 0.6, type: "spring" }}
-                        className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center text-white font-black text-sm shadow-lg"
-                      >
+                      <motion.div whileHover={{
+                    scale: 1.2,
+                    rotate: 360
+                  }} transition={{
+                    duration: 0.6,
+                    type: "spring"
+                  }} className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center text-white font-black text-sm shadow-lg">
                         {point.number}
                       </motion.div>
                       <h3 className="text-base sm:text-lg font-black text-black group-hover:text-primary transition-colors flex-1 leading-tight">
@@ -668,8 +701,7 @@ const Index = () => {
                       {point.description}
                     </p>
                   </div>
-                </motion.div>
-              )}
+                </motion.div>)}
             </motion.div>
           </div>
         </section>
