@@ -300,7 +300,7 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="text-center mb-12"
+              className="text-left mb-12"
             >
               <motion.h2 
                 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-4 bg-gradient-primary bg-clip-text text-transparent leading-[1.2]"
@@ -313,7 +313,7 @@ const Index = () => {
                 Für wen wir arbeiten & warum
               </motion.h2>
               <motion.p 
-                className="text-sm sm:text-base text-gray-600 max-w-3xl mx-auto leading-[1.6]"
+                className="text-sm sm:text-base text-gray-600 max-w-3xl leading-[1.6]"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
