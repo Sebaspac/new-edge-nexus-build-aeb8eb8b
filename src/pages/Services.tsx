@@ -605,7 +605,7 @@ const Services = () => {
               <div className="max-w-4xl mx-auto">
                 {/* Journey Header */}
                 <div className="text-center mb-16">
-                  <motion.h3 className="text-4xl sm:text-5xl font-bold text-white mb-6" initial={{
+                  <motion.h3 className="text-4xl sm:text-5xl font-bold text-foreground mb-6" initial={{
                   opacity: 0,
                   scale: 0.8
                 }} whileInView={{
@@ -619,7 +619,7 @@ const Services = () => {
                 }}>
                     Unsere Journey
                   </motion.h3>
-                  <motion.p className="text-xl text-gray-300 max-w-2xl mx-auto" initial={{
+                  <motion.p className="text-xl text-muted-foreground max-w-2xl mx-auto" initial={{
                   opacity: 0,
                   y: 20
                 }} whileInView={{
@@ -668,7 +668,7 @@ const Services = () => {
                     ease: "easeOut"
                   }}>
                       <div className="flex-1 max-w-md mr-8">
-                        <motion.div className="bg-gradient-to-br from-purple-900/40 to-purple-800/40 backdrop-blur-xl p-8 rounded-3xl border border-purple-500/30 shadow-2xl" whileHover={{
+                        <motion.div className="bg-gradient-to-br from-purple-100 to-purple-50 backdrop-blur-xl p-8 rounded-3xl border border-purple-300 shadow-2xl" whileHover={{
                         scale: 1.05,
                         y: -10,
                         boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.3)"
@@ -683,8 +683,8 @@ const Services = () => {
                         }}>
                             <Target className="w-8 h-8 text-white" />
                           </motion.div>
-                          <h4 className="text-2xl font-bold mb-4 text-center text-slate-50">STRATEGIE</h4>
-                          <p className="text-gray-300 text-center leading-relaxed">
+                          <h4 className="text-2xl font-bold mb-4 text-center text-foreground">STRATEGIE</h4>
+                          <p className="text-muted-foreground text-center leading-relaxed">
                             Das Fundament für Ihren Erfolg. Wir entwickeln eine klare Roadmap und visuelle Identität.
                           </p>
                         </motion.div>
@@ -771,7 +771,7 @@ const Services = () => {
                       </motion.div>
                       
                       <div className="flex-1 max-w-md ml-8">
-                        <motion.div className="bg-gradient-to-br from-blue-900/40 to-blue-800/40 backdrop-blur-xl p-8 rounded-3xl border border-blue-500/30 shadow-2xl" whileHover={{
+                        <motion.div className="bg-gradient-to-br from-blue-100 to-blue-50 backdrop-blur-xl p-8 rounded-3xl border border-blue-300 shadow-2xl" whileHover={{
                         scale: 1.05,
                         y: -10,
                         boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.3)"
@@ -786,8 +786,8 @@ const Services = () => {
                         }}>
                             <Brain className="w-8 h-8 text-white" />
                           </motion.div>
-                          <h4 className="text-2xl font-bold mb-4 text-center text-slate-50">UMSETZUNG</h4>
-                          <p className="text-gray-300 text-center leading-relaxed">
+                          <h4 className="text-2xl font-bold mb-4 text-center text-foreground">UMSETZUNG</h4>
+                          <p className="text-muted-foreground text-center leading-relaxed">
                             Content-Produktion und Reichweite-Aufbau. Ihre Botschaft erreicht die richtige Zielgruppe.
                           </p>
                         </motion.div>
@@ -805,7 +805,7 @@ const Services = () => {
                     ease: "easeOut"
                   }}>
                       <div className="flex-1 max-w-md mr-8">
-                        <motion.div className="bg-gradient-to-br from-yellow-900/40 to-yellow-800/40 backdrop-blur-xl p-8 rounded-3xl border border-yellow-500/30 shadow-2xl" whileHover={{
+                        <motion.div className="bg-gradient-to-br from-yellow-100 to-yellow-50 backdrop-blur-xl p-8 rounded-3xl border border-yellow-300 shadow-2xl" whileHover={{
                         scale: 1.05,
                         y: -10,
                         boxShadow: "0 25px 50px -12px rgba(245, 158, 11, 0.3)"
@@ -820,8 +820,8 @@ const Services = () => {
                         }}>
                             <Zap className="w-8 h-8 text-white" />
                           </motion.div>
-                          <h4 className="text-2xl font-bold mb-4 text-center text-slate-50">INNOVATION</h4>
-                          <p className="text-gray-300 text-center leading-relaxed">
+                          <h4 className="text-2xl font-bold mb-4 text-center text-foreground">INNOVATION</h4>
+                          <p className="text-muted-foreground text-center leading-relaxed">
                             Technische Implementierung und Automation für nachhaltigen, messbaren Erfolg.
                           </p>
                         </motion.div>
@@ -921,7 +921,7 @@ const Services = () => {
                     }} transition={{
                       delay: 1.5,
                       duration: 0.6
-                    }} className="text-3xl font-bold mb-4 text-slate-50">
+                    }} className="text-3xl font-bold mb-4 text-foreground">
                         ERFOLG ERREICHT
                       </motion.h4>
                       
@@ -935,7 +935,7 @@ const Services = () => {
       </section>
 
       {/* Das Ergebnis Section */}
-      <section className="relative py-24 px-4 sm:px-6 bg-gradient-to-br from-background via-surface to-surface-elevated overflow-hidden">
+      <section className="relative py-24 px-4 sm:px-6 bg-white overflow-hidden">
         <div className="container-xl relative z-10">
           <motion.div initial={{
           opacity: 0,
@@ -996,7 +996,7 @@ const Services = () => {
       </section>
 
       {/* Warum New Edge Section */}
-      <section className="relative py-24 px-4 sm:px-6 bg-gradient-subtle overflow-hidden">
+      <section className="relative py-24 px-4 sm:px-6 bg-white overflow-hidden">
         <div className="container-xl relative z-10">
           <motion.div initial={{
           opacity: 0,
@@ -1064,7 +1064,7 @@ const Services = () => {
       
 
       {/* CTA Section */}
-      <section className="relative py-24 px-4 sm:px-6 bg-gradient-to-br from-surface via-background to-surface-elevated overflow-hidden">
+      <section className="relative py-24 px-4 sm:px-6 bg-white overflow-hidden">
         <motion.div className="container-narrow text-center relative z-10" initial={{
         opacity: 0,
         y: 30
@@ -1097,7 +1097,7 @@ const Services = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-surface-elevated/80 border-t border-border py-12 sm:py-16">
+      <footer className="bg-white border-t border-border py-12 sm:py-16">
         <div className="container-xl">
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div className="sm:col-span-2">
