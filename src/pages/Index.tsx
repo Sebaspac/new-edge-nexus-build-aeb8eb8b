@@ -494,6 +494,54 @@ const Index = () => {
           </section>
         </ScrollAnimation>
 
+        {/* Process Connection */}
+        <section className="section-padding bg-surface-elevated">
+          <div className="container-xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              className="text-center mb-16"
+            >
+              <h2 className="text-display font-bold mb-6 text-foreground">
+                Know-how trifft Prozess
+              </h2>
+              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Unser Team bringt sein Fachwissen gezielt in jede Phase ein – 
+                von der Strategie bis zur Technologie-Umsetzung.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {[
+                { phase: "Studio", title: "Strategie & Beratung", description: "Unsere Strategy Leads und Coaches entwickeln maßgeschneiderte Markenstrategien.", team: "Strategy Leads, Brand Coaches" },
+                { phase: "Media", title: "Content & Kreation", description: "Unsere Content-Teams kreieren Inhalte – kreativ, datenbasiert und KI-gestützt.", team: "Creative Directors, Content Specialists" },
+                { phase: "Lab", title: "Technologie & Innovation", description: "Unsere Entwickler und Tech-Experten bringen Ihre Visionen zum Leben.", team: "Lead Developers, Tech Innovators" }
+              ].map((item, index) => (
+                <motion.div 
+                  key={item.phase} 
+                  initial={{ opacity: 0, y: 30 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.6, delay: index * 0.1 }} 
+                  className="group hover-lift"
+                >
+                  <Card className="card-modern h-full bg-card/80 backdrop-blur-sm border-border/50 hover:bg-card transition-all duration-300">
+                    <CardContent className="p-8 text-center">
+                      <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-body text-muted-foreground mb-6 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Network Stats Section */}
         <section className="section-padding bg-gradient-subtle">
           <div className="container-xl">
