@@ -891,7 +891,7 @@ const Index = () => {
                       Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
                     </p>
                   </div>
-                  <Button className="w-full btn-primary" onClick={() => setIsContactSheetOpen(true)}>
+                  <Button onClick={() => setIsContactSheetOpen(true)} className="w-full btn-primary text-slate-50">
                     Contact Support
                   </Button>
                 </CardContent>
