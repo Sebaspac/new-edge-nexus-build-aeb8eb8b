@@ -675,29 +675,37 @@ const Index = () => {
 
         {/* Services Section with Modern Animations */}
         <section className="relative py-12 sm:py-16 bg-gradient-to-br from-white via-purple-50/20 to-white overflow-hidden">
-          {/* Parallax background orbs */}
+          {/* Enhanced Parallax background orbs */}
           <motion.div 
-            className="absolute top-10 left-10 w-48 h-48 bg-primary/5 rounded-full blur-3xl"
+            className="absolute top-10 left-10 w-52 h-52 bg-primary/5 rounded-full blur-3xl"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             animate={{
-              x: [0, 30, 0],
-              y: [0, -20, 0],
-              scale: [1, 1.2, 1]
+              x: [0, 40, 0],
+              y: [0, -30, 0],
+              scale: [1, 1.3, 1],
+              rotate: [0, 90, 0]
             }}
             transition={{
-              duration: 10,
+              duration: 12,
               repeat: Infinity,
               ease: "easeInOut"
             }}
           />
           <motion.div 
-            className="absolute bottom-10 right-10 w-56 h-56 bg-secondary/5 rounded-full blur-3xl"
+            className="absolute bottom-10 right-10 w-60 h-60 bg-secondary/5 rounded-full blur-3xl"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             animate={{
-              x: [0, -30, 0],
-              y: [0, 20, 0],
-              scale: [1.2, 1, 1.2]
+              x: [0, -40, 0],
+              y: [0, 30, 0],
+              scale: [1.3, 1, 1.3],
+              rotate: [0, -90, 0]
             }}
             transition={{
-              duration: 12,
+              duration: 14,
               repeat: Infinity,
               ease: "easeInOut",
               delay: 1
@@ -706,15 +714,15 @@ const Index = () => {
 
           <div className="container-xl relative z-10">
             <motion.div 
-              initial={{ opacity: 0, y: 50, scale: 0.9 }} 
+              initial={{ opacity: 0, y: 60, scale: 0.85 }} 
               whileInView={{ opacity: 1, y: 0, scale: 1 }} 
               viewport={{ once: true, margin: "-80px" }} 
-              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }} 
-              className="text-center mb-20"
+              transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }} 
+              className="text-center mb-24"
             >
               <motion.h2 
-                className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-8 text-black leading-[1.2]"
-                initial={{ opacity: 0, rotateX: -15 }}
+                className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-10 text-black leading-[1.2]"
+                initial={{ opacity: 0, rotateX: -20 }}
                 whileInView={{ opacity: 1, rotateX: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.7 }}
@@ -723,7 +731,7 @@ const Index = () => {
                 Know-how trifft Prozess
               </motion.h2>
               <motion.p 
-                className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-[1.8] tracking-wide"
+                className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-[1.9] tracking-wide"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -738,13 +746,13 @@ const Index = () => {
               className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" 
               initial="hidden" 
               whileInView="visible" 
-              viewport={{ once: true, margin: "-50px" }} 
+              viewport={{ once: true, margin: "-60px" }} 
               variants={{
                 hidden: { opacity: 0 },
                 visible: {
                   opacity: 1,
                   transition: {
-                    staggerChildren: 0.2,
+                    staggerChildren: 0.25,
                     delayChildren: 0.2
                   }
                 }
@@ -771,9 +779,9 @@ const Index = () => {
                   variants={{
                     hidden: {
                       opacity: 0,
-                      y: 60,
-                      scale: 0.85,
-                      rotateY: -20
+                      y: 80,
+                      scale: 0.8,
+                      rotateY: -25
                     },
                     visible: {
                       opacity: 1,
@@ -781,33 +789,34 @@ const Index = () => {
                       scale: 1,
                       rotateY: 0,
                       transition: {
-                        duration: 0.7,
+                        duration: 0.8,
                         ease: [0.25, 0.46, 0.45, 0.94]
                       }
                     }
                   }} 
                   whileHover={{
-                    scale: 1.05,
-                    y: -10,
-                    rotateY: 5,
+                    scale: 1.08,
+                    y: -15,
+                    rotateY: 8,
                     transition: { duration: 0.4, type: "spring", stiffness: 200 }
                   }} 
-                  className="group"
+                  className="group perspective-1000"
                 >
-                  <div className="bg-white/90 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl hover:border-primary/30 transition-all duration-500 h-full">
+                  <div className="bg-white/90 backdrop-blur-md p-10 rounded-2xl shadow-2xl border border-gray-100 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] hover:border-primary/40 transition-all duration-500 h-full">
                     <motion.h3 
-                      className="text-2xl sm:text-3xl font-black mb-6 text-black group-hover:text-primary transition-colors leading-tight"
+                      className="text-2xl sm:text-3xl font-black mb-8 text-black group-hover:text-primary transition-colors leading-tight"
                       whileHover={{ scale: 1.05 }}
                     >
                       {item.title}
                     </motion.h3>
-                    <p className="text-base sm:text-lg text-gray-700 leading-[1.8] tracking-wide mb-6">
+                    <p className="text-base sm:text-lg text-gray-700 leading-[1.9] tracking-wide mb-8">
                       {item.description}
                     </p>
                     <motion.p 
-                      className="text-sm sm:text-base text-gray-500 font-semibold"
-                      initial={{ opacity: 0.7 }}
+                      className="text-sm sm:text-base text-gray-500 font-bold"
+                      initial={{ opacity: 0.6 }}
                       whileInView={{ opacity: 1 }}
+                      whileHover={{ scale: 1.05, x: 5 }}
                     >
                       {item.team}
                     </motion.p>
