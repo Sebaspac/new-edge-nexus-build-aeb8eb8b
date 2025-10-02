@@ -1,23 +1,25 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowDown, ChevronDown, Sparkles, Brain, Zap, Star, Target, Eye } from "lucide-react";
+import { ArrowRight, ArrowDown, ChevronDown, Sparkles, Brain, Zap, Star, Target, Eye, Phone, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { toast } from "@/hooks/use-toast";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Footer } from "@/components/Footer";
 const Services = () => {
   console.log('Services component loaded successfully');
-  const {
-    t
-  } = useLanguage();
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const {
-    scrollY
-  } = useScroll();
+  const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
+  const { scrollY } = useScroll();
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Simplified parallax effects
@@ -36,11 +38,54 @@ const Services = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  const scrollToContact = () => {
-    window.location.href = '/#contact-section';
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    const data = {
+      name: formData.get('name')?.toString() || '',
+      email: formData.get('email')?.toString() || '',
+      position: formData.get('position')?.toString() || '',
+      firma: formData.get('firma')?.toString() || '',
+      telefon: formData.get('telefon')?.toString() || '',
+      nachricht: formData.get('nachricht')?.toString() || '',
+      source: 'SERVICES'
+    };
+
+    try {
+      const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Wir designen für dich",
+          description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
+          duration: 5000
+        });
+        form.reset();
+        setIsContactSheetOpen(false);
+      } else {
+        throw new Error(`Server responded with ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Fehler",
+        description: "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
+        variant: "destructive",
+        duration: 5000
+      });
+    }
   };
   return <div ref={containerRef} className="min-h-screen bg-background overflow-hidden">
-      <MobileNavigation onContactClick={scrollToContact} theme="dark" />
+      <MobileNavigation onContactClick={() => setIsContactSheetOpen(true)} theme="dark" />
 
       {/* Hero Section */}
       <section className="hero-section relative px-4 sm:px-6 lg:px-8 overflow-hidden h-screen flex items-center justify-center">
@@ -1126,38 +1171,123 @@ const Services = () => {
       {/* Erfolg Erreicht Section */}
       
 
-      {/* CTA Section */}
-      <section className="relative py-24 px-4 sm:px-6 bg-gradient-to-br from-surface via-background to-surface-elevated overflow-hidden">
-        <motion.div className="container-narrow text-center relative z-10" initial={{
-        opacity: 0,
-        y: 30
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true
-      }} transition={{
-        duration: 0.8
-      }}>
-          <h2 className="text-h1 font-bold mb-6 text-foreground">
-            Bereit für Ihre Reise?
-          </h2>
-          <p className="text-body-xl mb-12 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
-            Lassen Sie uns gemeinsam Ihre Vision Schritt für Schritt zur Realität werden.
-          </p>
-          <motion.div whileHover={{
-          scale: 1.05
-        }} whileTap={{
-          scale: 0.95
-        }}>
-            <Button size="lg" className="btn-primary px-12 py-4 text-lg" asChild>
-              <Link to="/#contact-section">
-                Projekt starten
-              </Link>
-            </Button>
-          </motion.div>
-        </motion.div>
+      {/* Contact Section */}
+      <section className="relative py-24 px-4 sm:px-6 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
+        <div className="container-xl">
+          <div className="text-center mb-16">
+            <h2 className="text-h1 font-bold mb-4 text-foreground">
+              Get in touch
+            </h2>
+            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              Want to get in touch? We'd love to hear from you. Here's how you can reach us.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Talk to Sales */}
+            <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
+              <CardContent className="space-y-6 p-0">
+                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                  <Phone className="w-8 h-8 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-h3 font-semibold mb-2 text-foreground">Talk to Sales</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Interested in our services? Just pick up the phone to chat with a member of our sales team.
+                  </p>
+                  <a href="tel:+4915750998236" className="text-primary font-semibold text-lg hover:underline">
+                    +49 157 5099 8236
+                  </a>
+                </div>
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  onClick={() => window.location.href = 'tel:+4915750998236'}
+                >
+                  View all global numbers
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Contact Support */}
+            <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
+              <CardContent className="space-y-6 p-0">
+                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                  <MessageSquare className="w-8 h-8 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-h3 font-semibold mb-2 text-foreground">Contact Customer Support</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
+                  </p>
+                </div>
+                <Button 
+                  className="w-full btn-primary"
+                  onClick={() => setIsContactSheetOpen(true)}
+                >
+                  Contact Support
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </section>
+
+      {/* Contact Form Sheet */}
+      <Sheet open={isContactSheetOpen} onOpenChange={setIsContactSheetOpen}>
+        <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
+          <SheetHeader className="mb-6">
+            <SheetTitle className="text-2xl font-bold">Projekt besprechen</SheetTitle>
+            <SheetDescription>
+              Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen.
+            </SheetDescription>
+          </SheetHeader>
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="space-y-5">
+              {[
+                { id: "name", label: "Name *", type: "text", placeholder: "Ihr Name", required: true },
+                { id: "email", label: "E-Mail *", type: "email", placeholder: "ihre@email.com", required: true },
+                { id: "position", label: "Position *", type: "text", placeholder: "Ihre Position", required: true },
+                { id: "firma", label: "Firma *", type: "text", placeholder: "Ihr Unternehmen", required: true },
+                { id: "telefon", label: "Telefon", type: "tel", placeholder: "Ihre Telefonnummer", required: false }
+              ].map(field => (
+                <div key={field.id} className="space-y-2">
+                  <Label htmlFor={field.id} className="text-foreground font-medium">
+                    {field.label}
+                  </Label>
+                  <Input 
+                    id={field.id} 
+                    name={field.id} 
+                    type={field.type} 
+                    placeholder={field.placeholder} 
+                    required={field.required} 
+                    className="bg-background/50 border-border focus:border-primary transition-colors"
+                  />
+                </div>
+              ))}
+              
+              <div className="space-y-2">
+                <Label htmlFor="nachricht" className="text-foreground font-medium">
+                  Nachricht *
+                </Label>
+                <Textarea 
+                  id="nachricht" 
+                  name="nachricht" 
+                  placeholder="Erzählen Sie uns von Ihrem Projekt..." 
+                  required 
+                  className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none"
+                />
+              </div>
+            </div>
+
+            <Button type="submit" size="lg" className="w-full btn-primary">
+              Nachricht senden
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </form>
+        </SheetContent>
+      </Sheet>
 
       {/* Footer */}
       <footer className="bg-surface-elevated/80 border-t border-border py-12 sm:py-16">
