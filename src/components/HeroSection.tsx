@@ -68,18 +68,7 @@ export const HeroSection = ({
                 FOR THE DIGITAL AGE
               </span>
             </motion.h1>
-            <motion.p initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.4,
-            duration: 0.6
-          }} className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed">
-              Wir helfen Marken, sichtbar zu werden, Prozesse zu automatisieren – und den Wandel durch Innovation aktiv zu gestalten.
-            </motion.p>
+            
           </div>
         </div>
       </div>
