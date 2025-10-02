@@ -130,48 +130,6 @@ const Team = () => {
         </section>
 
 
-        {/* Network Stats */}
-        <section className="section-padding bg-gradient-subtle">
-          <div className="container-xl">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              className="text-center mb-16"
-            >
-              <h2 className="text-display font-bold mb-6 bg-gradient-accent bg-clip-text text-slate-50">
-                Unser Netzwerk
-              </h2>
-              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Ein starkes Team aus Experten, Coaches und Partnern – 
-                für jede Herausforderung die richtige Expertise.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
-              {networkStats.map((stat, index) => (
-                <motion.div 
-                  key={stat.label} 
-                  initial={{ opacity: 0, scale: 0.9 }} 
-                  whileInView={{ opacity: 1, scale: 1 }} 
-                  viewport={{ once: true }} 
-                  transition={{ duration: 0.4, delay: index * 0.05 }} 
-                  className="group hover-lift"
-                >
-                  <Card className="card-modern text-center h-full">
-                    <div className="p-6">
-                      <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-primary p-3 group-hover:scale-110 transition-transform duration-300">
-                        <stat.icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div className="text-h2 font-semibold text-foreground mb-1">{stat.value}</div>
-                      <div className="text-body-sm text-muted-foreground font-medium">{stat.label}</div>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Experience Section */}
         <section className="section-padding bg-background">
