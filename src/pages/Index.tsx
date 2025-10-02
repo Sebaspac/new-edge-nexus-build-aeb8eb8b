@@ -135,6 +135,45 @@ const Index = () => {
         {/* Hero Section */}
         <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
 
+        {/* Info Section */}
+        <section className="relative py-20 sm:py-32 bg-white">
+          <div className="container-xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="max-w-5xl mx-auto text-center"
+            >
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight">
+                <span className="block text-gray-900">Wir bringen Ihr Unternehmen</span>
+                <span className="block bg-gradient-primary bg-clip-text text-transparent">an die Spitze</span>
+                <span className="block text-gray-900">Ihrer Branche</span>
+              </h2>
+              
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="text-xl sm:text-2xl text-gray-700 mb-6 leading-relaxed"
+              >
+                Mit Innovation und Automatisierung, für die Sie im operativen Tagesgeschäft sonst keinen Zugang hätten.
+              </motion.p>
+
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
+              >
+                Spezialisiert auf mittelständische KMUs, die ihre Prozesse modernisieren und Vorreiter ihrer Branche werden wollen – ohne sich im Tagesgeschäft zu verlieren.
+              </motion.p>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Innovation Section */}
         <InnovationSection />
 
