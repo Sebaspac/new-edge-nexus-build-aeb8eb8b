@@ -138,7 +138,7 @@ const Index = () => {
         <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
 
         {/* Info Section */}
-        <section className="relative py-12 sm:py-16 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
+        <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
           {/* Parallax Floating Elements */}
           <motion.div 
             className="absolute top-20 right-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl"
@@ -186,16 +186,16 @@ const Index = () => {
                   }
                 }
               }}
-              className="max-w-5xl space-y-8"
+              className="max-w-5xl space-y-4"
             >
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 40, scale: 0.95 },
                   visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } }
                 }}
-                className="mb-10"
+                className="mb-6"
               >
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 leading-[1.2] text-black">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
                   Wir bringen Ihr Unternehmen{" "}
                   <motion.span 
                     className="bg-gradient-primary bg-clip-text text-transparent inline-block"
@@ -214,15 +214,15 @@ const Index = () => {
                   visible: { opacity: 1, x: 0, rotateY: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } }
                 }}
                 whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.3 } }}
-                className="bg-white/90 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl hover:border-primary/20 transition-all duration-300"
+                className="bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300"
               >
                 <motion.h3 
-                  className="text-xl sm:text-2xl font-black mb-5 text-black bg-gradient-primary bg-clip-text text-transparent"
+                  className="text-lg sm:text-xl font-black mb-3 text-black bg-gradient-primary bg-clip-text text-transparent"
                   whileHover={{ scale: 1.03 }}
                 >
                   Unsere Mission
                 </motion.h3>
-                <p className="text-base sm:text-lg text-gray-700 leading-[1.8] tracking-wide">
+                <p className="text-sm sm:text-base text-gray-700 leading-[1.6]">
                   Mit Innovation und Automatisierung, für die Sie im operativen Tagesgeschäft sonst keinen Zugang hätten.
                 </p>
               </motion.div>
@@ -233,15 +233,15 @@ const Index = () => {
                   visible: { opacity: 1, x: 0, rotateY: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } }
                 }}
                 whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.3 } }}
-                className="bg-white/90 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl hover:border-primary/20 transition-all duration-300"
+                className="bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300"
               >
                 <motion.h3 
-                  className="text-xl sm:text-2xl font-black mb-5 text-black"
+                  className="text-lg sm:text-xl font-black mb-3 text-black"
                   whileHover={{ scale: 1.03 }}
                 >
                   Für wen wir arbeiten
                 </motion.h3>
-                <p className="text-base sm:text-lg text-gray-700 leading-[1.8] tracking-wide">
+                <p className="text-sm sm:text-base text-gray-700 leading-[1.6]">
                   Spezialisiert auf mittelständische KMUs, die ihre Prozesse modernisieren und Vorreiter ihrer Branche werden wollen – ohne sich im Tagesgeschäft zu verlieren.
                 </p>
               </motion.div>
@@ -253,7 +253,7 @@ const Index = () => {
         <InnovationSection />
 
         {/* Problem-Lösung Sektion - Neu aus Briefing */}
-        <section className="relative py-12 sm:py-16 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+        <section className="relative py-8 sm:py-12 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
           {/* Enhanced Animated background with multiple layers */}
           <motion.div 
             className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" 
@@ -291,10 +291,10 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="text-center mb-24"
+              className="text-center mb-12"
             >
               <motion.h2 
-                className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-8 bg-gradient-primary bg-clip-text text-transparent leading-[1.2]" 
+                className="text-2xl sm:text-3xl lg:text-4xl font-black mb-4 bg-gradient-primary bg-clip-text text-transparent leading-[1.2]"
                 initial={{ opacity: 0, rotateX: -20 }}
                 whileInView={{ opacity: 1, rotateX: 0 }}
                 viewport={{ once: true }}
@@ -304,7 +304,7 @@ const Index = () => {
                 Für wen wir arbeiten & warum
               </motion.h2>
               <motion.p 
-                className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-[1.8] tracking-wide"
+                className="text-sm sm:text-base text-gray-600 max-w-3xl mx-auto leading-[1.6]"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -316,7 +316,7 @@ const Index = () => {
 
             {/* Problem-Lösung Grid with enhanced animations */}
             <motion.div 
-              className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-24" 
+              className="grid lg:grid-cols-2 gap-6 max-w-6xl mx-auto mb-12"
               initial="hidden" 
               whileInView="visible" 
               viewport={{ once: true, margin: "-50px" }} 
@@ -354,18 +354,18 @@ const Index = () => {
                 }} 
                 className="perspective-1000"
               >
-                <Card className="h-full bg-white border-2 border-red-200 shadow-2xl hover:shadow-[0_20px_60px_rgba(239,68,68,0.3)] hover:border-red-400 transition-all duration-500">
-                  <CardContent className="p-10">
+                <Card className="h-full bg-white border-2 border-red-200 shadow-xl hover:shadow-[0_15px_40px_rgba(239,68,68,0.2)] hover:border-red-400 transition-all duration-500">
+                  <CardContent className="p-6">
                     <motion.div 
-                      className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mb-8 shadow-lg"
+                      className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mb-4 shadow-lg"
                       whileHover={{ scale: 1.15, rotate: [0, -10, 10, 0] }}
                       transition={{ duration: 0.5 }}
                     >
-                      <Target className="w-8 h-8 text-white" />
+                      <Target className="w-6 h-6 text-white" />
                     </motion.div>
-                    <h3 className="text-2xl sm:text-3xl font-black mb-8 text-black leading-tight">Ihre Herausforderung</h3>
+                    <h3 className="text-xl sm:text-2xl font-black mb-4 text-black leading-tight">Ihre Herausforderung</h3>
                     <motion.ul 
-                      className="space-y-5"
+                      className="space-y-3"
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
@@ -391,8 +391,8 @@ const Index = () => {
                           }}
                           whileHover={{ x: 8, transition: { duration: 0.2 } }}
                         >
-                          <span className="text-red-500 font-black mt-1 text-xl">×</span>
-                          <span className="text-gray-700 text-base leading-[1.7]">{text}</span>
+                          <span className="text-red-500 font-black mt-0.5 text-lg">×</span>
+                          <span className="text-gray-700 text-sm leading-[1.6]">{text}</span>
                         </motion.li>
                       ))}
                     </motion.ul>
@@ -423,18 +423,18 @@ const Index = () => {
                 }} 
                 className="perspective-1000"
               >
-                <Card className="h-full bg-gradient-to-br from-white to-green-50 border-2 border-green-200 shadow-2xl hover:shadow-[0_20px_60px_rgba(34,197,94,0.3)] hover:border-green-400 transition-all duration-500">
-                  <CardContent className="p-10">
+                <Card className="h-full bg-gradient-to-br from-white to-green-50 border-2 border-green-200 shadow-xl hover:shadow-[0_15px_40px_rgba(34,197,94,0.2)] hover:border-green-400 transition-all duration-500">
+                  <CardContent className="p-6">
                     <motion.div 
-                      className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-8 shadow-lg"
+                      className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-4 shadow-lg"
                       whileHover={{ scale: 1.15, rotate: [0, 10, -10, 0] }}
                       transition={{ duration: 0.5 }}
                     >
-                      <Rocket className="w-8 h-8 text-white" />
+                      <Rocket className="w-6 h-6 text-white" />
                     </motion.div>
-                    <h3 className="text-2xl sm:text-3xl font-black mb-8 text-black leading-tight">Unsere Lösung</h3>
+                    <h3 className="text-xl sm:text-2xl font-black mb-4 text-black leading-tight">Unsere Lösung</h3>
                     <motion.ul 
-                      className="space-y-5"
+                      className="space-y-3"
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
@@ -460,8 +460,8 @@ const Index = () => {
                           }}
                           whileHover={{ x: 8, transition: { duration: 0.2 } }}
                         >
-                          <span className="text-green-500 font-black mt-1 text-xl">✓</span>
-                          <span className="text-gray-700 font-semibold text-base leading-[1.7]">{text}</span>
+                          <span className="text-green-500 font-black mt-0.5 text-lg">✓</span>
+                          <span className="text-gray-700 font-semibold text-sm leading-[1.6]">{text}</span>
                         </motion.li>
                       ))}
                     </motion.ul>
@@ -479,20 +479,12 @@ const Index = () => {
               whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.3 } }}
               className="max-w-5xl mx-auto"
             >
-              <Card className="bg-gradient-to-br from-primary via-primary to-secondary border-0 shadow-[0_20px_60px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_80px_rgba(0,0,0,0.25)] transition-all duration-500 overflow-hidden">
-                <motion.div 
-                  className="absolute inset-0 opacity-20" 
-                  animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }} 
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }} 
-                  style={{
-                    backgroundImage: "radial-gradient(circle at 20px 20px, white 2px, transparent 0)",
-                    backgroundSize: "40px 40px"
-                  }} 
-                />
-                <CardContent className="p-12 sm:p-16 relative z-10">
+              <Card className="bg-gradient-to-br from-primary via-primary to-secondary border-0 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden">
+...
+                <CardContent className="p-8 sm:p-10 relative z-10">
                   <div className="text-center">
                     <motion.div 
-                      className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/20 backdrop-blur-sm mb-10 shadow-2xl" 
+                      className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm mb-6 shadow-xl"
                       animate={{
                         rotate: [0, 360],
                         scale: [1, 1.15, 1]
@@ -503,10 +495,10 @@ const Index = () => {
                         ease: "linear"
                       }}
                     >
-                      <Star className="w-12 h-12 text-white" />
+                      <Star className="w-8 h-8 text-white" />
                     </motion.div>
                     <motion.h3 
-                      className="text-2xl sm:text-3xl font-black text-white mb-8 leading-tight"
+                      className="text-xl sm:text-2xl font-black text-white mb-4 leading-tight"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -515,7 +507,7 @@ const Index = () => {
                       Konkret für Sie
                     </motion.h3>
                     <motion.p 
-                      className="text-lg sm:text-xl text-white/95 leading-[1.9] max-w-4xl mx-auto tracking-wide"
+                      className="text-sm sm:text-base text-white/95 leading-[1.6] max-w-4xl mx-auto"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -531,7 +523,7 @@ const Index = () => {
         </section>
 
         {/* Impact Points Section with Modern Animations */}
-        <section className="relative py-12 sm:py-16 bg-gradient-to-br from-white via-blue-50/20 to-white overflow-hidden">
+        <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-blue-50/20 to-white overflow-hidden">
           {/* Enhanced Parallax Floating Elements */}
           <motion.div 
             className="absolute top-40 right-10 w-28 h-28 bg-accent/10 rounded-full blur-xl" 
@@ -570,14 +562,14 @@ const Index = () => {
           <div className="container-xl relative z-10">
             {/* Section Title with enhanced scale animation */}
             <motion.div 
-              className="text-center mb-20" 
+              className="text-center mb-12"
               initial={{ opacity: 0, scale: 0.8, y: 60 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <motion.h2 
-                className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-8 text-black leading-[1.2]" 
+                className="text-2xl sm:text-3xl lg:text-4xl font-black mb-4 text-black leading-[1.2]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -590,7 +582,7 @@ const Index = () => {
             
             {/* Grid with enhanced stagger animation */}
             <motion.div 
-              className="grid md:grid-cols-2 gap-8 items-stretch max-w-6xl mx-auto" 
+              className="grid md:grid-cols-2 gap-5 items-stretch max-w-6xl mx-auto"
               initial="hidden" 
               whileInView="visible" 
               viewport={{ once: true, margin: "-80px" }} 
@@ -650,20 +642,20 @@ const Index = () => {
                   }} 
                   className="group h-full"
                 >
-                  <div className="bg-white/90 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl hover:border-primary/30 transition-all duration-500 h-full">
-                    <div className="flex items-start gap-5 mb-6">
+                  <div className="bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:border-primary/30 transition-all duration-500 h-full">
+                    <div className="flex items-start gap-3 mb-3">
                       <motion.div 
                         whileHover={{ scale: 1.2, rotate: 360 }}
                         transition={{ duration: 0.6, type: "spring" }}
-                        className="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center text-white font-black text-lg shadow-lg"
+                        className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center text-white font-black text-sm shadow-lg"
                       >
                         {point.number}
                       </motion.div>
-                      <h3 className="text-xl sm:text-2xl font-black text-black group-hover:text-primary transition-colors flex-1 leading-tight">
+                      <h3 className="text-base sm:text-lg font-black text-black group-hover:text-primary transition-colors flex-1 leading-tight">
                         {point.title}
                       </h3>
                     </div>
-                    <p className="text-base sm:text-lg text-gray-700 leading-[1.8] tracking-wide pl-[4.75rem]">
+                    <p className="text-sm text-gray-700 leading-[1.6] pl-[3.25rem]">
                       {point.description}
                     </p>
                   </div>
@@ -674,7 +666,7 @@ const Index = () => {
         </section>
 
         {/* Services Section with Modern Animations */}
-        <section className="relative py-12 sm:py-16 bg-gradient-to-br from-white via-purple-50/20 to-white overflow-hidden">
+        <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-purple-50/20 to-white overflow-hidden">
           {/* Enhanced Parallax background orbs */}
           <motion.div 
             className="absolute top-10 left-10 w-52 h-52 bg-primary/5 rounded-full blur-3xl"
