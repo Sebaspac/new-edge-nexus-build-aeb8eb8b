@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Cpu, Globe, Bot, BarChart3 } from "lucide-react";
+import { Cpu, Globe, Bot, BarChart3, Lightbulb, Phone, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
@@ -268,6 +268,114 @@ const Lab = () => {
             </section>
           );
         })}
+
+        {/* Meet Our Agents Section */}
+        <section className="py-16 sm:py-24 bg-gradient-to-br from-white via-yellow-50/30 to-orange-50/30 relative overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-black">
+                Meet Our Agents
+              </h2>
+              <p className="text-base sm:text-lg lg:text-xl mb-12 max-w-3xl mx-auto text-gray-700 leading-relaxed">
+                Unsere spezialisierten KI-Agenten arbeiten für Ihren Erfolg
+              </p>
+            </motion.div>
+
+            {/* Agents Circle */}
+            <div className="relative w-full max-w-2xl mx-auto aspect-square mb-12">
+              {/* Center Circle */}
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-to-br from-[#fde047] to-[#fbbf24] flex items-center justify-center shadow-2xl z-10"
+              >
+                <span className="text-white font-black text-lg sm:text-xl text-center px-4">AI Agents</span>
+              </motion.div>
+
+              {/* Riley - Top */}
+              <motion.div
+                initial={{ opacity: 0, y: -50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                whileHover={{ scale: 1.15, rotate: 5 }}
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex flex-col items-center justify-center shadow-xl cursor-pointer"
+              >
+                <Lightbulb className="w-8 h-8 sm:w-10 sm:h-10 text-white mb-1" />
+                <span className="text-white font-bold text-xs sm:text-sm">Riley</span>
+              </motion.div>
+
+              {/* Liam - Right */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                whileHover={{ scale: 1.15, rotate: 5 }}
+                className="absolute top-1/2 right-0 -translate-y-1/2 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex flex-col items-center justify-center shadow-xl cursor-pointer"
+              >
+                <Bot className="w-8 h-8 sm:w-10 sm:h-10 text-white mb-1" />
+                <span className="text-white font-bold text-xs sm:text-sm">Liam</span>
+              </motion.div>
+
+              {/* Vera - Bottom */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                whileHover={{ scale: 1.15, rotate: 5 }}
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex flex-col items-center justify-center shadow-xl cursor-pointer"
+              >
+                <Phone className="w-8 h-8 sm:w-10 sm:h-10 text-white mb-1" />
+                <span className="text-white font-bold text-xs sm:text-sm">Vera</span>
+              </motion.div>
+
+              {/* Cora - Left */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                whileHover={{ scale: 1.15, rotate: 5 }}
+                className="absolute top-1/2 left-0 -translate-y-1/2 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex flex-col items-center justify-center shadow-xl cursor-pointer"
+              >
+                <FileText className="w-8 h-8 sm:w-10 sm:h-10 text-white mb-1" />
+                <span className="text-white font-bold text-xs sm:text-sm">Cora</span>
+              </motion.div>
+
+              {/* Connecting Lines */}
+              <svg className="absolute inset-0 w-full h-full -z-0" style={{ opacity: 0.1 }}>
+                <line x1="50%" y1="20%" x2="50%" y2="50%" stroke="#fbbf24" strokeWidth="2" />
+                <line x1="80%" y1="50%" x2="50%" y2="50%" stroke="#fbbf24" strokeWidth="2" />
+                <line x1="50%" y1="80%" x2="50%" y2="50%" stroke="#fbbf24" strokeWidth="2" />
+                <line x1="20%" y1="50%" x2="50%" y2="50%" stroke="#fbbf24" strokeWidth="2" />
+              </svg>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+            >
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-[#fde047] to-[#fbbf24] hover:opacity-90 text-black px-12 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300 hover:scale-105"
+                onClick={() => navigate('/products')}
+              >
+                Alle Agenten entdecken
+              </Button>
+            </motion.div>
+          </div>
+        </section>
 
         {/* CTA Section */}
         <section className="py-12 sm:py-16 text-black relative overflow-hidden" style={{ background: 'linear-gradient(to right, #fde047, #fbbf24, #fde047)' }}>
