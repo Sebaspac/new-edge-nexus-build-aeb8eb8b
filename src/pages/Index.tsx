@@ -425,160 +425,66 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <ScrollAnimation animation="scaleIn" threshold={0.1}>
-          <section id="contact-section" className="relative pt-20 pb-20 bg-gradient-to-br from-surface via-background to-surface overflow-hidden">
-            {/* Modern floating elements */}
-            <motion.div className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl" animate={{
-            scale: [1, 1.5, 1],
-            rotate: [0, 180, 360]
-          }} transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} />
-            <motion.div className="absolute bottom-40 right-20 w-40 h-40 bg-accent/5 rounded-full blur-2xl" animate={{
-            y: [0, -30, 0],
-            scale: [1, 0.8, 1]
-          }} transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }} />
-            <div className="container-narrow">
-              <ScrollAnimation animation="fadeUp" delay={0.1} className="text-center mb-12">
-                <h2 className="text-h1 font-bold mb-6 text-foreground">
-                  Bereit für den nächsten Schritt?
-                </h2>
-                <p className="text-body-xl text-muted-foreground">
-                  Ready when you are. Wir bringen's online.
-                </p>
-              </ScrollAnimation>
-
-              <ScrollAnimation animation="fadeUp" delay={0.3}>
-                <Card className="card-modern">
-                  <CardContent className="p-8">
-                    <motion.form onSubmit={handleSubmit} className="space-y-6" initial="hidden" animate="visible" variants={{
-                    hidden: {
-                      opacity: 0
-                    },
-                    visible: {
-                      opacity: 1,
-                      transition: {
-                        staggerChildren: 0.1,
-                        delayChildren: 0.2
-                      }
-                    }
-                  }}>
-                      <motion.div className="space-y-6" variants={{
-                      hidden: {
-                        opacity: 0
-                      },
-                      visible: {
-                        opacity: 1,
-                        transition: {
-                          staggerChildren: 0.1
-                        }
-                      }
-                    }}>
-                        {/* Form fields with staggered animations */}
-                        {[{
-                        id: "name",
-                        label: "Name *",
-                        type: "text",
-                        placeholder: "Ihr Name",
-                        required: true
-                      }, {
-                        id: "email",
-                        label: "E-Mail *",
-                        type: "email",
-                        placeholder: "ihre@email.com",
-                        required: true
-                      }, {
-                        id: "position",
-                        label: "Position *",
-                        type: "text",
-                        placeholder: "Ihre Position",
-                        required: true
-                      }, {
-                        id: "firma",
-                        label: "Firma *",
-                        type: "text",
-                        placeholder: "Ihr Unternehmen",
-                        required: true
-                      }, {
-                        id: "telefon",
-                        label: "Telefon",
-                        type: "tel",
-                        placeholder: "Ihre Telefonnummer",
-                        required: false
-                      }].map(field => <motion.div key={field.id} className="space-y-2" variants={{
-                        hidden: {
-                          opacity: 0,
-                          y: 20
-                        },
-                        visible: {
-                          opacity: 1,
-                          y: 0,
-                          transition: {
-                            duration: 0.4,
-                            ease: "easeOut"
-                          }
-                        }
-                      }}>
-                            <Label htmlFor={field.id} className="text-foreground font-medium">
-                              {field.label}
-                            </Label>
-                            <Input id={field.id} name={field.id} type={field.type} placeholder={field.placeholder} required={field.required} className="bg-background/50 border-border focus:border-primary transition-colors" />
-                          </motion.div>)}
-                        
-                        <motion.div className="space-y-2" variants={{
-                        hidden: {
-                          opacity: 0,
-                          y: 20
-                        },
-                        visible: {
-                          opacity: 1,
-                          y: 0,
-                          transition: {
-                            duration: 0.4,
-                            ease: "easeOut"
-                          }
-                        }
-                      }}>
-                          <Label htmlFor="nachricht" className="text-foreground font-medium">
-                            Nachricht *
-                          </Label>
-                          <Textarea id="nachricht" name="nachricht" placeholder="Erzählen Sie uns von Ihrem Projekt..." required className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none" />
-                        </motion.div>
-                      </motion.div>
-
-                      <motion.div variants={{
-                      hidden: {
-                        opacity: 0,
-                        y: 20
-                      },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                          duration: 0.4,
-                          ease: "easeOut"
-                        }
-                      }
-                    }}>
-                        <Button type="submit" size="lg" className="w-full btn-primary">
-                          Nachricht senden
-                          <ArrowRight className="w-5 h-5 ml-2" />
-                        </Button>
-                      </motion.div>
-                    </motion.form>
-                  </CardContent>
-                </Card>
-              </ScrollAnimation>
+        <section id="contact-section" className="section-padding bg-gradient-to-br from-surface via-background to-surface">
+          <div className="container-narrow">
+            <div className="text-center mb-12">
+              <h2 className="text-h1 font-bold mb-6 text-foreground">
+                Bereit für den nächsten Schritt?
+              </h2>
+              <p className="text-body-xl text-muted-foreground">
+                Ready when you are. Wir bringen's online.
+              </p>
             </div>
-          </section>
-        </ScrollAnimation>
+
+            <Card className="card-modern max-w-2xl mx-auto">
+              <CardContent className="p-6 sm:p-8">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="space-y-5">
+                    {[
+                      { id: "name", label: "Name *", type: "text", placeholder: "Ihr Name", required: true },
+                      { id: "email", label: "E-Mail *", type: "email", placeholder: "ihre@email.com", required: true },
+                      { id: "position", label: "Position *", type: "text", placeholder: "Ihre Position", required: true },
+                      { id: "firma", label: "Firma *", type: "text", placeholder: "Ihr Unternehmen", required: true },
+                      { id: "telefon", label: "Telefon", type: "tel", placeholder: "Ihre Telefonnummer", required: false }
+                    ].map(field => (
+                      <div key={field.id} className="space-y-2">
+                        <Label htmlFor={field.id} className="text-foreground font-medium text-sm">
+                          {field.label}
+                        </Label>
+                        <Input 
+                          id={field.id} 
+                          name={field.id} 
+                          type={field.type} 
+                          placeholder={field.placeholder} 
+                          required={field.required} 
+                          className="bg-background border-border focus:border-primary transition-colors h-11"
+                        />
+                      </div>
+                    ))}
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="nachricht" className="text-foreground font-medium text-sm">
+                        Nachricht *
+                      </Label>
+                      <Textarea 
+                        id="nachricht" 
+                        name="nachricht" 
+                        placeholder="Erzählen Sie uns von Ihrem Projekt..." 
+                        required 
+                        className="min-h-[120px] bg-background border-border focus:border-primary transition-colors resize-none"
+                      />
+                    </div>
+                  </div>
+
+                  <Button type="submit" size="lg" className="w-full btn-primary">
+                    Nachricht senden
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
 
         {/* Footer */}
         <footer className="bg-surface-elevated/80 border-t border-border py-12 sm:py-16">
