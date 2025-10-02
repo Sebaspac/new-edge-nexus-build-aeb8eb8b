@@ -706,11 +706,11 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Unsere Kompetenzbereiche - Dark Section */}
-        <section className="relative py-16 sm:py-24 bg-gray-950 overflow-hidden">
+        {/* Unsere Kompetenzbereiche - Light Section */}
+        <section className="relative py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-white overflow-hidden">
           {/* Animated background elements */}
           <motion.div 
-            className="absolute top-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" 
+            className="absolute top-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" 
             animate={{
               scale: [1, 1.2, 1],
               x: [0, 50, 0],
@@ -723,7 +723,7 @@ const Index = () => {
             }} 
           />
           <motion.div 
-            className="absolute bottom-20 left-10 w-80 h-80 bg-secondary/10 rounded-full blur-3xl" 
+            className="absolute bottom-20 left-10 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" 
             animate={{
               scale: [1.2, 1, 1.2],
               x: [0, -30, 0],
@@ -747,7 +747,7 @@ const Index = () => {
               transition={{ duration: 0.8 }}
             >
               <motion.h2 
-                className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-6 leading-[1.2]"
+                className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-6 leading-[1.2]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -756,7 +756,7 @@ const Index = () => {
                 Unsere Kompetenzbereiche
               </motion.h2>
               <motion.p 
-                className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed"
+                className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -801,7 +801,7 @@ const Index = () => {
                     transition: { duration: 0.3 }
                   }}
                 >
-                  <Card className="h-full bg-gray-900/50 border-gray-800 hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-[0_0_30px_rgba(124,58,237,0.3)]">
+                  <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
                     <CardContent className="p-8">
                       {/* Icon with gradient background */}
                       <motion.div 
@@ -816,12 +816,12 @@ const Index = () => {
                       </motion.div>
 
                       {/* Title */}
-                      <h3 className="text-2xl font-black text-white mb-4 leading-tight">
+                      <h3 className="text-2xl font-black text-foreground mb-4 leading-tight">
                         {service.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-gray-400 mb-6 leading-relaxed">
+                      <p className="text-muted-foreground mb-6 leading-relaxed">
                         {service.description}
                       </p>
 
