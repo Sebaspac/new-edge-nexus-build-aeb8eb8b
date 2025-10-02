@@ -386,7 +386,7 @@ const Services = () => {
       </section>
 
       {/* Services Overview Section with Subtle Overlap Effect */}
-      <section className="services-overview relative -mt-20 pt-32 pb-24 bg-white overflow-hidden">
+      <section className="services-overview relative py-12 sm:py-16 bg-white overflow-hidden">
         {/* Simple floating elements */}
         <motion.div className="absolute top-20 left-10 w-24 h-24 bg-primary/5 rounded-full blur-xl" animate={{
         y: [0, -15, 0],
@@ -935,7 +935,7 @@ const Services = () => {
       </section>
 
       {/* Das Ergebnis Section */}
-      <section className="relative py-24 px-4 sm:px-6 bg-white overflow-hidden">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-white overflow-hidden">
         <div className="container-xl relative z-10">
           <motion.div initial={{
           opacity: 0,
@@ -996,7 +996,7 @@ const Services = () => {
       </section>
 
       {/* Warum New Edge Section */}
-      <section className="relative py-24 px-4 sm:px-6 bg-white overflow-hidden">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-white overflow-hidden">
         <div className="container-xl relative z-10">
           <motion.div initial={{
           opacity: 0,
@@ -1064,7 +1064,7 @@ const Services = () => {
       
 
       {/* CTA Section */}
-      <section className="relative py-24 px-4 sm:px-6 bg-white overflow-hidden">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-white overflow-hidden">
         <motion.div className="container-narrow text-center relative z-10" initial={{
         opacity: 0,
         y: 30

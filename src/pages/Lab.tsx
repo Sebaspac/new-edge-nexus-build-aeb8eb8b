@@ -135,7 +135,7 @@ const Lab = () => {
           return (
             <section 
               key={index}
-              className="py-16 sm:py-20 lg:py-24"
+              className="py-12 sm:py-16"
               style={{ 
                 background: index % 2 === 0 
                   ? 'linear-gradient(to bottom right, white, rgba(253, 224, 71, 0.1), rgba(251, 191, 36, 0.1))' 
@@ -270,7 +270,7 @@ const Lab = () => {
         })}
 
         {/* CTA Section */}
-        <section className="py-16 sm:py-32 text-black relative overflow-hidden" style={{ background: 'linear-gradient(to right, #fde047, #fbbf24, #fde047)' }}>
+        <section className="py-12 sm:py-16 text-black relative overflow-hidden" style={{ background: 'linear-gradient(to right, #fde047, #fbbf24, #fde047)' }}>
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Let´s innovate the edge</h2>
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-900">

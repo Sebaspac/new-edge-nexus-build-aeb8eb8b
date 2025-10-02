@@ -75,7 +75,7 @@ const Products = () => {
         </section>
 
         {/* Riley - Wissensagent */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-white via-purple-50/30 to-blue-50/30">
+        <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-purple-50/30 to-blue-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div 
               initial="hidden"
@@ -258,7 +258,7 @@ const Products = () => {
         </section>
 
         {/* Liam - Lead-Gen-Agent */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+        <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div 
               initial="hidden"
@@ -443,7 +443,7 @@ const Products = () => {
         </section>
 
         {/* Vera - Voice-Agent */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-white via-green-50/30 to-emerald-50/30">
+        <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-green-50/30 to-emerald-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div 
               initial="hidden"
@@ -626,7 +626,7 @@ const Products = () => {
         </section>
 
         {/* Cora - Content-Agent */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/30">
+        <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div 
               initial="hidden"
@@ -811,7 +811,7 @@ const Products = () => {
         </section>
 
         {/* Agent Hub */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/30">
+        <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div 
               initial="hidden"
@@ -1069,7 +1069,7 @@ const Products = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 sm:py-32 bg-white">
+        <section className="py-12 sm:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-black">

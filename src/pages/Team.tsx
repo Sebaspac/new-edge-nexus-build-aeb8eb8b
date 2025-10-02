@@ -132,7 +132,7 @@ const Team = () => {
 
 
         {/* Experience Section */}
-        <section className="section-padding bg-background">
+        <section className="py-12 sm:py-16 bg-background">
           <div className="container-xl">
             <motion.div 
               initial={{ opacity: 0, y: 30 }} 
@@ -153,7 +153,7 @@ const Team = () => {
 
 
         {/* CTA Section */}
-        <section className="section-padding bg-gradient-to-br from-surface via-background to-surface">
+        <section className="py-12 sm:py-16 bg-gradient-to-br from-surface via-background to-surface">
           <div className="container-narrow">
             <motion.div 
               initial={{ opacity: 0, y: 20 }} 
