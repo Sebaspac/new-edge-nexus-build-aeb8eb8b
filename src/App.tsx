@@ -6,26 +6,20 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { HelmetProvider } from 'react-helmet-async';
-import { lazy, Suspense, useEffect } from "react";
+import { useEffect } from "react";
 
-// Lazy load pages for better performance
-const Index = lazy(() => import("./pages/Index"));
-const Services = lazy(() => import("./pages/Services"));
-const Media = lazy(() => import("./pages/Media"));
-const Studio = lazy(() => import("./pages/Studio"));
-const Lab = lazy(() => import("./pages/Lab"));
-const Products = lazy(() => import("./pages/Products"));
-const Team = lazy(() => import("./pages/Team"));
-const Impressum = lazy(() => import("./pages/Impressum"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+// Direct imports instead of lazy loading to fix module import issues
+import Index from "./pages/Index";
+import Services from "./pages/Services";
+import Media from "./pages/Media";
+import Studio from "./pages/Studio";
+import Lab from "./pages/Lab";
+import Products from "./pages/Products";
+import Team from "./pages/Team";
+import Impressum from "./pages/Impressum";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
-
-const LoadingFallback = () => (
-  <div className="min-h-screen bg-white flex items-center justify-center">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
-  </div>
-);
 
 const App = () => {
   useEffect(() => {
@@ -41,19 +35,17 @@ const App = () => {
             <Toaster />
             <Sonner />
             <BrowserRouter>
-              <Suspense fallback={<LoadingFallback />}>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/services" element={<Services />} />
-                  <Route path="/media" element={<Media />} />
-                  <Route path="/studio" element={<Studio />} />
-                  <Route path="/lab" element={<Lab />} />
-                  <Route path="/products" element={<Products />} />
-                  <Route path="/team" element={<Team />} />
-                  <Route path="/impressum" element={<Impressum />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/media" element={<Media />} />
+                <Route path="/studio" element={<Studio />} />
+                <Route path="/lab" element={<Lab />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/team" element={<Team />} />
+                <Route path="/impressum" element={<Impressum />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
             </BrowserRouter>
           </TooltipProvider>
         </LanguageProvider>
