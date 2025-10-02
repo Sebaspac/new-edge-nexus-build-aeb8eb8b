@@ -105,9 +105,7 @@ export const MobileNavigation = ({
                     <Link to="/careers" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
                       Careers
                     </Link>
-                    <Link to="/about" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
-                      About & Crew
-                    </Link>
+                    <Link to="/about" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>About us</Link>
                   </div>
                 </div>
               </div>
@@ -122,9 +120,7 @@ export const MobileNavigation = ({
                     <Link to="/resources" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
                       Ressourcen
                     </Link>
-                    <Link to="/blog" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
-                      Blog
-                    </Link>
+                    <Link to="/blog" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>Blog &amp; news</Link>
                     <Link to="/news" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
                       News & Press
                     </Link>
