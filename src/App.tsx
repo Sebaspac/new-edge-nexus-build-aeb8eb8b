@@ -18,6 +18,12 @@ import Products from "./pages/Products";
 import Team from "./pages/Team";
 import Impressum from "./pages/Impressum";
 import NotFound from "./pages/NotFound";
+import CaseStudies from "./pages/CaseStudies";
+import Careers from "./pages/Careers";
+import About from "./pages/About";
+import Resources from "./pages/Resources";
+import Blog from "./pages/Blog";
+import News from "./pages/News";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +49,12 @@ const App = () => {
                 <Route path="/lab" element={<Lab />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/team" element={<Team />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/resources" element={<Resources />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/news" element={<News />} />
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

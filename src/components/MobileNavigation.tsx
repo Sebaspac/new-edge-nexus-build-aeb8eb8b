@@ -69,22 +69,61 @@ export const MobileNavigation = ({
                 Home
               </Link>
               
+              {/* Services Dropdown */}
               <div className="relative group">
-                <Link to="/services" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
+                <button className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
                   Services
-                </Link>
-                
-                {/* Desktop Dropdown - Fixed hover states */}
-                <div className={`absolute top-full left-0 mt-2 w-48 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-lg z-50`}>
+                </button>
+                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-lg z-50 border ${borderColor}`}>
                   <div className="py-2">
                     <Link to="/studio" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
-                      New Edge Studio
+                      Studio
                     </Link>
                     <Link to="/media" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-blue-500/20' : 'hover:bg-gray-50'} transition-colors`}>
-                      New Edge Media
+                      Media
                     </Link>
                     <Link to="/lab" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-yellow-500/20' : 'hover:bg-gray-50'} transition-colors`}>
-                      New Edge Lab
+                      Lab
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Company Dropdown */}
+              <div className="relative group">
+                <button className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
+                  Company
+                </button>
+                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-lg z-50 border ${borderColor}`}>
+                  <div className="py-2">
+                    <Link to="/case-studies" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                      Case Studies
+                    </Link>
+                    <Link to="/careers" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                      Careers
+                    </Link>
+                    <Link to="/about" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                      About & Crew
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Dropdown */}
+              <div className="relative group">
+                <button className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
+                  Content
+                </button>
+                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-lg z-50 border ${borderColor}`}>
+                  <div className="py-2">
+                    <Link to="/resources" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                      Ressourcen
+                    </Link>
+                    <Link to="/blog" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                      Blog
+                    </Link>
+                    <Link to="/news" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                      News & Press
                     </Link>
                   </div>
                 </div>
@@ -93,9 +132,6 @@ export const MobileNavigation = ({
               <Link to="/products" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
                 Produkte
               </Link>
-              
-              {/* Language Toggle - minimal above contact */}
-              
 
               <Button onClick={onContactClick} className={`${isDark ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700' : 'bg-black hover:bg-gray-800'} text-white transition-all duration-300 hover:scale-105`} size="sm">
                 Kontakt
@@ -138,89 +174,86 @@ export const MobileNavigation = ({
         }} className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] ${bgColor} backdrop-blur-lg z-50 md:hidden shadow-2xl`}>
               <div className="flex flex-col h-full pt-20 pb-6">
                 {/* Mobile Menu Items */}
-                <div className="flex-1 px-6 space-y-1">
-                  <motion.div initial={{
-                opacity: 0,
-                x: 50
-              }} animate={{
-                opacity: 1,
-                x: 0
-              }} transition={{
-                delay: 0.1
-              }}>
+                <div className="flex-1 px-6 space-y-1 overflow-y-auto">
+                  <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }}>
                     <Link to="/" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
                       Home
                     </Link>
                   </motion.div>
 
-                  <motion.div initial={{
-                opacity: 0,
-                x: 50
-              }} animate={{
-                opacity: 1,
-                x: 0
-              }} transition={{
-                delay: 0.12
-              }}>
-                    <Link to="/services" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                  {/* Services Section */}
+                  <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.12 }}>
+                    <div className={`block py-4 px-4 text-lg font-medium ${textColor}`}>
                       Services
-                    </Link>
+                    </div>
                   </motion.div>
-
-                  {/* Mobile Submenu */}
                   <div className="pl-4 space-y-1">
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.2
-                }}>
+                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 }}>
                       <Link to="/studio" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 rounded-lg transition-colors`}>
-                        New Edge Studio
+                        Studio
                       </Link>
                     </motion.div>
-
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.25
-                }}>
+                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.18 }}>
                       <Link to="/media" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-blue-500/10 rounded-lg transition-colors`}>
-                        New Edge Media
+                        Media
                       </Link>
                     </motion.div>
-
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.3
-                }}>
+                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.21 }}>
                       <Link to="/lab" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-yellow-500/10 rounded-lg transition-colors`}>
-                        New Edge Lab
+                        Lab
                       </Link>
                     </motion.div>
                   </div>
 
-                  <motion.div initial={{
-                opacity: 0,
-                x: 50
-              }} animate={{
-                opacity: 1,
-                x: 0
-              }} transition={{
-                delay: 0.15
-              }}>
+                  {/* Company Section */}
+                  <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.24 }}>
+                    <div className={`block py-4 px-4 text-lg font-medium ${textColor}`}>
+                      Company
+                    </div>
+                  </motion.div>
+                  <div className="pl-4 space-y-1">
+                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.27 }}>
+                      <Link to="/case-studies" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                        Case Studies
+                      </Link>
+                    </motion.div>
+                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.30 }}>
+                      <Link to="/careers" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                        Careers
+                      </Link>
+                    </motion.div>
+                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.33 }}>
+                      <Link to="/about" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                        About & Crew
+                      </Link>
+                    </motion.div>
+                  </div>
+
+                  {/* Content Section */}
+                  <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.36 }}>
+                    <div className={`block py-4 px-4 text-lg font-medium ${textColor}`}>
+                      Content
+                    </div>
+                  </motion.div>
+                  <div className="pl-4 space-y-1">
+                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.39 }}>
+                      <Link to="/resources" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                        Ressourcen
+                      </Link>
+                    </motion.div>
+                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.42 }}>
+                      <Link to="/blog" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                        Blog
+                      </Link>
+                    </motion.div>
+                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.45 }}>
+                      <Link to="/news" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                        News & Press
+                      </Link>
+                    </motion.div>
+                  </div>
+
+                  <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.48 }}>
                     <Link to="/products" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
                       Produkte
                     </Link>
