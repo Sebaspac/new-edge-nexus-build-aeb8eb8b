@@ -143,7 +143,7 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="max-w-5xl mx-auto text-center"
+              className="max-w-5xl text-left"
             >
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 <span className="block text-gray-900">Wir bringen Ihr Unternehmen</span>
@@ -166,7 +166,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
+                className="text-base sm:text-lg text-gray-600 max-w-3xl leading-relaxed"
               >
                 Spezialisiert auf mittelständische KMUs, die ihre Prozesse modernisieren und Vorreiter ihrer Branche werden wollen – ohne sich im Tagesgeschäft zu verlieren.
               </motion.p>

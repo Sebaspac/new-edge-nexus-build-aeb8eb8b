@@ -373,7 +373,7 @@ export const InnovationSection = () => {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-center mb-20 relative z-10"
+          className="mb-20 relative z-10"
         >
           <motion.div 
             className="max-w-5xl mx-auto relative"
@@ -410,9 +410,9 @@ export const InnovationSection = () => {
                 }}
               />
               
-              <CardContent className="relative p-16 text-center">
+              <CardContent className="relative p-16 text-left">
                 <motion.div 
-                  className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-gradient-to-br from-primary via-secondary to-accent mb-12 shadow-2xl relative"
+                  className="flex items-center justify-start w-24 h-24 rounded-3xl bg-gradient-to-br from-primary via-secondary to-accent mb-12 shadow-2xl relative"
                   animate={{ 
                     rotate: [0, 5, -5, 0],
                     scale: hoveredCard === 3 ? [1, 1.1, 1] : 1,
@@ -453,7 +453,7 @@ export const InnovationSection = () => {
                 </motion.h3>
                 
                 <motion.div 
-                  className="space-y-4 max-w-2xl mx-auto"
+                  className="space-y-4 max-w-2xl"
                   animate={{
                     y: hoveredCard === 3 ? [0, -5, 0] : 0,
                   }}
