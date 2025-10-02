@@ -206,6 +206,15 @@ const Index = () => {
                   </motion.span>
                   {" "}Ihrer Branche
                 </h2>
+                <motion.p
+                  className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } }
+                  }}
+                >
+                  Wir helfen Marken, sichtbar zu werden, Prozesse zu automatisieren – und den Wandel durch Innovation aktiv zu gestalten.
+                </motion.p>
               </motion.div>
               
               <motion.div
