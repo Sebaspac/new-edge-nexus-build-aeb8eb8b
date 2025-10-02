@@ -11,6 +11,7 @@ const Lab = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [openAgent, setOpenAgent] = useState<string | null>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -271,145 +272,144 @@ const Lab = () => {
 
         {/* Meet Our Agents Section */}
         <section className="py-16 sm:py-24 bg-gradient-to-br from-white via-yellow-50/30 to-orange-50/30 relative overflow-hidden">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="text-center mb-12"
             >
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-black">
                 Meet Our Agents
               </h2>
-              <p className="text-base sm:text-lg lg:text-xl mb-12 max-w-3xl mx-auto text-gray-700 leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto text-gray-700 leading-relaxed">
                 Unsere spezialisierten KI-Agenten arbeiten für Ihren Erfolg
               </p>
             </motion.div>
 
-            {/* Agents Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 max-w-7xl mx-auto">
-              {/* Riley */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                whileHover={{ scale: 1.05, y: -10 }}
-                className="group cursor-pointer"
-              >
-                <div className="relative w-full aspect-square rounded-full overflow-hidden shadow-2xl">
-                  <video 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover"
-                  >
-                    <source src="/assets/products-hero-video.mp4" type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-purple-900/40 to-transparent flex items-end justify-center pb-6">
-                    <div className="text-center">
-                      <Lightbulb className="w-10 h-10 text-white mx-auto mb-2" />
-                      <span className="text-white font-black text-xl">Riley</span>
-                      <p className="text-white/90 text-sm mt-1">Wissensagent</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+            {/* Agents Accordion */}
+            <div className="max-w-6xl mx-auto space-y-4">
+              {[
+                {
+                  name: "Riley",
+                  subtitle: "Wissensagent",
+                  icon: Lightbulb,
+                  gradient: "from-purple-500 to-blue-500",
+                  description: "Riley nutzt Retrieval-Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten.",
+                  video: "/assets/products-hero-video.mp4"
+                },
+                {
+                  name: "Liam",
+                  subtitle: "Lead-Gen-Agent",
+                  icon: Bot,
+                  gradient: "from-purple-500 to-pink-500",
+                  description: "Liam automatisiert Ihre Lead-Generierung. Er kombiniert Chatbots, Segmentierung, Predictive Lead Scoring und automatisierte E-Mail-Kampagnen. Dadurch identifiziert und pflegt er wertvolle Kontakte, während Ihr Vertrieb sich auf Abschlüsse konzentriert.",
+                  video: "/assets/liam-video.mp4"
+                },
+                {
+                  name: "Vera",
+                  subtitle: "Voice-Agent",
+                  icon: Phone,
+                  gradient: "from-green-500 to-emerald-500",
+                  description: "Vera ist Ihre smarte Telefon-Assistentin. Sie nimmt Anrufe rund um die Uhr entgegen, automatisiert Routinegespräche, beantwortet Fragen und leitet komplexe Anliegen an Ihr Team weiter. Voice-AI-Lösungen können hohe Anrufvolumina bewältigen.",
+                  video: "/assets/vera-agent-video.mp4"
+                },
+                {
+                  name: "Cora",
+                  subtitle: "Content-Agent",
+                  icon: FileText,
+                  gradient: "from-amber-500 to-orange-500",
+                  description: "Cora erstellt und optimiert Inhalte für Blogs, Social Media und E-Mail-Newsletter. AI-Content-Agenten sparen Zeit, verbessern die Qualität und sorgen für konsistente Texte. Cora analysiert Keyword-Trends und generiert SEO-optimierte Texte.",
+                  video: "/assets/cora-agent-video.mp4"
+                }
+              ].map((agent, index) => {
+                const Icon = agent.icon;
+                const isOpen = openAgent === agent.name;
 
-              {/* Liam */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                whileHover={{ scale: 1.05, y: -10 }}
-                className="group cursor-pointer"
-              >
-                <div className="relative w-full aspect-square rounded-full overflow-hidden shadow-2xl">
-                  <video 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover"
+                return (
+                  <motion.div
+                    key={agent.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
                   >
-                    <source src="/assets/liam-video.mp4" type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-pink-900/80 via-pink-900/40 to-transparent flex items-end justify-center pb-6">
-                    <div className="text-center">
-                      <Bot className="w-10 h-10 text-white mx-auto mb-2" />
-                      <span className="text-white font-black text-xl">Liam</span>
-                      <p className="text-white/90 text-sm mt-1">Lead-Gen-Agent</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+                    {/* Header - Always visible */}
+                    <button
+                      onClick={() => setOpenAgent(isOpen ? null : agent.name)}
+                      className="w-full p-6 flex items-center justify-between hover:bg-gray-50/50 transition-colors"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${agent.gradient}`}>
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                        <div className="text-left">
+                          <h3 className="text-xl sm:text-2xl font-black text-black">{agent.name}</h3>
+                          <p className="text-sm text-gray-600">{agent.subtitle}</p>
+                        </div>
+                      </div>
+                      <motion.div
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <svg className="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </motion.div>
+                    </button>
 
-              {/* Vera */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ scale: 1.05, y: -10 }}
-                className="group cursor-pointer"
-              >
-                <div className="relative w-full aspect-square rounded-full overflow-hidden shadow-2xl">
-                  <video 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover"
-                  >
-                    <source src="/assets/vera-agent-video.mp4" type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/80 via-cyan-900/40 to-transparent flex items-end justify-center pb-6">
-                    <div className="text-center">
-                      <Phone className="w-10 h-10 text-white mx-auto mb-2" />
-                      <span className="text-white font-black text-xl">Vera</span>
-                      <p className="text-white/90 text-sm mt-1">Voice-Agent</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+                    {/* Content - Expandable */}
+                    <motion.div
+                      initial={false}
+                      animate={{ 
+                        height: isOpen ? "auto" : 0,
+                        opacity: isOpen ? 1 : 0
+                      }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-6 pt-0 grid lg:grid-cols-2 gap-6 lg:gap-8">
+                        {/* Left: Description */}
+                        <div className="space-y-4">
+                          <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                            {agent.description}
+                          </p>
+                          <Button
+                            size="lg"
+                            className={`w-full bg-gradient-to-r ${agent.gradient} hover:opacity-90 text-white font-bold shadow-lg`}
+                            onClick={() => navigate('/products')}
+                          >
+                            Mehr über {agent.name}
+                          </Button>
+                        </div>
 
-              {/* Cora */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                whileHover={{ scale: 1.05, y: -10 }}
-                className="group cursor-pointer"
-              >
-                <div className="relative w-full aspect-square rounded-full overflow-hidden shadow-2xl">
-                  <video 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover"
-                  >
-                    <source src="/assets/cora-agent-video.mp4" type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-orange-900/80 via-orange-900/40 to-transparent flex items-end justify-center pb-6">
-                    <div className="text-center">
-                      <FileText className="w-10 h-10 text-white mx-auto mb-2" />
-                      <span className="text-white font-black text-xl">Cora</span>
-                      <p className="text-white/90 text-sm mt-1">Content-Agent</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+                        {/* Right: Video */}
+                        <div className="relative aspect-video rounded-xl overflow-hidden shadow-xl">
+                          <video 
+                            autoPlay 
+                            loop 
+                            muted 
+                            playsInline
+                            className="absolute inset-0 w-full h-full object-cover"
+                          >
+                            <source src={agent.video} type="video/mp4" />
+                          </video>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                );
+              })}
             </div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.7 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="text-center mt-12"
             >
               <Button
                 size="lg"
