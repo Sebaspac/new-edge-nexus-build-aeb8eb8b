@@ -40,8 +40,47 @@ const Products = () => {
       <div className="min-h-screen bg-white">
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
+        {/* Introduction Section */}
+        <section className="relative py-12 sm:py-16 bg-white" style={{ marginTop: '80px' }}>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.1
+                  }
+                }
+              }}
+              className="max-w-4xl"
+            >
+              <motion.p
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.6,
+                      delay: 0.2
+                    }
+                  }
+                }}
+                className="text-base sm:text-lg text-gray-600 leading-[1.6] max-w-3xl"
+              >
+                Von Wissensmanagement über Lead-Generierung bis hin zu Voice-AI und Content-Erstellung – unsere spezialisierten KI-Agenten automatisieren Ihre Prozesse und steigern Ihre Effizienz.
+              </motion.p>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Hero Section */}
-        <section className="relative w-full" style={{ marginTop: '80px' }}>
+        <section className="relative w-full">
           <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
             {/* 16:9 Aspect Ratio Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
