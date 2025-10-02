@@ -138,106 +138,140 @@ const Index = () => {
         {/* Innovation Section */}
         <InnovationSection />
 
-        {/* Impact Points Section with Overlap Effect */}
-        <ScrollAnimation animation="fadeRight" className="relative -mt-16 pt-24 pb-20 bg-white overflow-hidden">
-          {/* Modern floating elements */}
-          <motion.div className="absolute top-40 right-10 w-24 h-24 bg-accent/10 rounded-full blur-xl" animate={{
-          x: [0, 30, 0],
-          y: [0, -20, 0],
-          scale: [1, 1.3, 1]
-        }} transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
-          <motion.div className="absolute bottom-20 left-20 w-36 h-36 bg-primary/5 rounded-full blur-2xl" animate={{
-          rotate: [0, 360],
-          scale: [1, 0.8, 1]
-        }} transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "linear"
-        }} />
+        {/* Impact Points Section with Modern Animations */}
+        <section className="relative -mt-16 pt-24 pb-20 bg-white overflow-hidden">
+          {/* Animated floating elements with parallax */}
+          <motion.div 
+            className="absolute top-40 right-10 w-24 h-24 bg-accent/10 rounded-full blur-xl" 
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            animate={{
+              x: [0, 30, 0],
+              y: [0, -20, 0],
+              scale: [1, 1.3, 1]
+            }} 
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }} 
+          />
+          <motion.div 
+            className="absolute bottom-20 left-20 w-36 h-36 bg-primary/5 rounded-full blur-2xl" 
+            initial={{ opacity: 0, rotate: -180 }}
+            whileInView={{ opacity: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            animate={{
+              rotate: [0, 360],
+              scale: [1, 0.8, 1]
+            }} 
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "linear"
+            }} 
+          />
+          
           <div className="container-xl">
-            {/* Section Title */}
-            <motion.div className="text-center mb-16" initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.6
-          }}>
-              <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere innovative Herangehensweise</h2>
+            {/* Section Title with scale animation */}
+            <motion.div 
+              className="text-center mb-16" 
+              initial={{ opacity: 0, scale: 0.8, y: 50 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <motion.h2 
+                className="text-h1 font-bold mb-6 text-foreground"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+              >
+                Unsere innovative Herangehensweise
+              </motion.h2>
             </motion.div>
-            <motion.div className="grid md:grid-cols-2 gap-8 items-stretch" initial="hidden" whileInView="visible" viewport={{
-            once: true,
-            margin: "-100px"
-          }} variants={{
-            hidden: {
-              opacity: 0
-            },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.2
-              }
-            }
-          }}>
-              {[{
-              number: "01",
-              title: "Automatisierung mit Impact",
-              description: "Wir automatisieren repetitive Aufgaben, damit Sie sich auf Ihr Kerngeschäft konzentrieren können."
-            }, {
-              number: "02",
-              title: "Marketing & Technologie vereint",
-              description: "Interdisziplinäres Team aus Strategen, Creatives und Entwicklern; alles aus einer Hand."
-            }, {
-              number: "03",
-              title: "Zugänglichkeit statt Komplexität",
-              description: "Transparente Prozesse und verständliche Lösungen statt Technik Buzzwords."
-            }, {
-              number: "04",
-              title: "Individuell & skalierbar",
-              description: "Maßgeschneiderte Setups ohne Abo Modelle – Sie bezahlen nur, was Sie nutzen."
-            }].map((point, index) => <motion.div key={index} variants={{
-              hidden: {
-                opacity: 0,
-                x: index % 2 === 0 ? -60 : 60,
-                scale: 0.9
-              },
-              visible: {
-                opacity: 1,
-                x: 0,
-                scale: 1,
-                transition: {
-                  duration: 0.7,
-                  ease: "easeOut",
-                  type: "spring",
-                  stiffness: 100
+            
+            {/* Grid with stagger animation */}
+            <motion.div 
+              className="grid md:grid-cols-2 gap-8 items-stretch" 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.3
+                  }
                 }
-              }
-            }} whileHover={{
-              scale: 1.02,
-              y: -5,
-              transition: {
-                duration: 0.2
-              }
-            }} className="group hover-lift h-full">
-                  <div className="flex items-start gap-6 p-6 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm hover:bg-card transition-all duration-300 h-full">
-                    <motion.div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-h3 group-hover:scale-110 transition-transform duration-300" whileHover={{
-                  rotate: 180
-                }} transition={{
-                  duration: 0.4
-                }}>
+              }}
+            >
+              {[
+                {
+                  number: "01",
+                  title: "Automatisierung mit Impact",
+                  description: "Wir automatisieren repetitive Aufgaben, damit Sie sich auf Ihr Kerngeschäft konzentrieren können."
+                },
+                {
+                  number: "02",
+                  title: "Marketing & Technologie vereint",
+                  description: "Interdisziplinäres Team aus Strategen, Creatives und Entwicklern; alles aus einer Hand."
+                },
+                {
+                  number: "03",
+                  title: "Zugänglichkeit statt Komplexität",
+                  description: "Transparente Prozesse und verständliche Lösungen statt Technik Buzzwords."
+                },
+                {
+                  number: "04",
+                  title: "Individuell & skalierbar",
+                  description: "Maßgeschneiderte Setups ohne Abo Modelle – Sie bezahlen nur, was Sie nutzen."
+                }
+              ].map((point, index) => (
+                <motion.div 
+                  key={index} 
+                  variants={{
+                    hidden: {
+                      opacity: 0,
+                      x: index % 2 === 0 ? -80 : 80,
+                      scale: 0.85,
+                      rotateY: index % 2 === 0 ? -15 : 15
+                    },
+                    visible: {
+                      opacity: 1,
+                      x: 0,
+                      scale: 1,
+                      rotateY: 0,
+                      transition: {
+                        duration: 0.8,
+                        ease: [0.25, 0.46, 0.45, 0.94],
+                        type: "spring",
+                        stiffness: 80
+                      }
+                    }
+                  }} 
+                  whileHover={{
+                    scale: 1.05,
+                    y: -10,
+                    rotateX: 5,
+                    transition: { duration: 0.3 }
+                  }} 
+                  className="group h-full perspective-1000"
+                >
+                  <div className="flex items-start gap-6 p-8 rounded-2xl bg-gradient-to-br from-white to-gray-50 border border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
+                    <motion.div 
+                      className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-white font-bold text-h3 shadow-lg" 
+                      whileHover={{ rotate: 360, scale: 1.2 }}
+                      transition={{ duration: 0.6, type: "spring" }}
+                    >
                       {point.number}
                     </motion.div>
                     <div className="flex-1">
-                      <h3 className="text-h3 mb-3 text-foreground group-hover:text-primary transition-colors text-base font-semibold">
+                      <h3 className="text-h3 mb-3 text-foreground group-hover:text-primary transition-colors text-lg font-bold">
                         {point.title}
                       </h3>
                       <p className="text-body text-muted-foreground leading-relaxed">
@@ -245,30 +279,59 @@ const Index = () => {
                       </p>
                     </div>
                   </div>
-                </motion.div>)}
+                </motion.div>
+              ))}
             </motion.div>
           </div>
-        </ScrollAnimation>
+        </section>
 
-        {/* Services Section with Overlap Effect */}
-        <ScrollAnimation animation="fadeLeft" className="relative -mt-20 pt-32 pb-20 bg-white overflow-hidden">
+        {/* Services Section with Modern Animations */}
+        <section className="relative -mt-20 pt-32 pb-20 bg-white overflow-hidden">
           <div className="container-xl">
             <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              className="text-center mb-16"
+              initial={{ opacity: 0, y: 40, scale: 0.9 }} 
+              whileInView={{ opacity: 1, y: 0, scale: 1 }} 
+              viewport={{ once: true, margin: "-100px" }} 
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="text-center mb-20"
             >
-              <h2 className="text-display font-bold mb-6 text-foreground">
+              <motion.h2 
+                className="text-display font-bold mb-6 text-foreground"
+                initial={{ opacity: 0, rotateX: -20 }}
+                whileInView={{ opacity: 1, rotateX: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.7 }}
+              >
                 Know-how trifft Prozess
-              </h2>
-              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              </motion.h2>
+              <motion.p 
+                className="text-body-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+              >
                 Unser Team bringt sein Fachwissen gezielt in jede Phase ein – 
                 von der Strategie bis zur Technologie-Umsetzung.
-              </p>
+              </motion.p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <motion.div 
+              className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.15,
+                    delayChildren: 0.2
+                  }
+                }
+              }}
+            >
               {[
                 { phase: "Studio", title: "Strategie & Beratung", description: "Unsere Strategy Leads und Coaches entwickeln maßgeschneiderte Markenstrategien.", team: "Strategy Leads, Brand Coaches" },
                 { phase: "Media", title: "Content & Kreation", description: "Unsere Content-Teams kreieren Inhalte – kreativ, datenbasiert und KI-gestützt.", team: "Creative Directors, Content Specialists" },
@@ -276,135 +339,354 @@ const Index = () => {
               ].map((item, index) => (
                 <motion.div 
                   key={item.phase} 
-                  initial={{ opacity: 0, y: 30 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  viewport={{ once: true }} 
-                  transition={{ duration: 0.6, delay: index * 0.1 }} 
-                  className="group hover-lift"
+                  variants={{
+                    hidden: { 
+                      opacity: 0, 
+                      y: 60,
+                      rotateY: -30,
+                      scale: 0.8
+                    },
+                    visible: { 
+                      opacity: 1, 
+                      y: 0,
+                      rotateY: 0,
+                      scale: 1,
+                      transition: { 
+                        duration: 0.7,
+                        ease: [0.25, 0.46, 0.45, 0.94]
+                      } 
+                    }
+                  }}
+                  whileHover={{
+                    y: -15,
+                    scale: 1.05,
+                    rotateY: 5,
+                    transition: { duration: 0.3, type: "spring", stiffness: 200 }
+                  }}
+                  className="group perspective-1000"
                 >
-                  <Card className="card-modern h-full bg-card/80 backdrop-blur-sm border-border/50 hover:bg-card transition-all duration-300">
-                    <CardContent className="p-8 text-center">
-                      <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
+                  <Card className="h-full bg-gradient-to-br from-white to-gray-50 border-2 border-border/50 shadow-xl hover:shadow-2xl hover:border-primary/30 transition-all duration-500 overflow-hidden">
+                    <CardContent className="p-10 text-center relative">
+                      {/* Animated gradient overlay */}
+                      <motion.div 
+                        className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        initial={false}
+                      />
+                      
+                      <motion.h3 
+                        className="text-h3 font-bold mb-4 text-foreground group-hover:text-primary transition-colors relative z-10"
+                        whileHover={{ scale: 1.05 }}
+                      >
                         {item.title}
-                      </h3>
-                      <p className="text-body text-muted-foreground mb-6 leading-relaxed">
+                      </motion.h3>
+                      <motion.p 
+                        className="text-body text-muted-foreground mb-6 leading-relaxed relative z-10"
+                        initial={{ opacity: 0.8 }}
+                        whileInView={{ opacity: 1 }}
+                      >
                         {item.description}
-                      </p>
+                      </motion.p>
                     </CardContent>
                   </Card>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </ScrollAnimation>
-
-        {/* Network Stats Section */}
-        <section className="section-padding bg-white">
-          <div className="container-xl">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              className="text-center mb-16"
-            >
-              <h2 className="text-display font-bold mb-6 bg-gradient-accent bg-clip-text text-slate-50">
-                Unser Netzwerk
-              </h2>
-              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Ein starkes Team aus Experten, Coaches und Partnern – 
-                für jede Herausforderung die richtige Expertise.
-              </p>
             </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
-              {[
-                { icon: Users, label: "Coaches", value: "10+", color: "text-blue-600" },
-                { icon: Code, label: "Entwickler", value: "2", color: "text-purple-600" },
-                { icon: Palette, label: "Creative Agencies", value: "3", color: "text-pink-600" },
-                { icon: Globe, label: "Länder", value: "4", color: "text-green-600" },
-                { icon: Briefcase, label: "Freelancer", value: "15+", color: "text-orange-600" }
-              ].map((stat, index) => (
-                <motion.div 
-                  key={stat.label} 
-                  initial={{ opacity: 0, scale: 0.9 }} 
-                  whileInView={{ opacity: 1, scale: 1 }} 
-                  viewport={{ once: true }} 
-                  transition={{ duration: 0.4, delay: index * 0.05 }} 
-                  className="group hover-lift"
-                >
-                  <Card className="card-modern text-center h-full">
-                    <CardContent className="p-6">
-                      <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-primary p-3 group-hover:scale-110 transition-transform duration-300">
-                        <stat.icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div className="text-h2 font-semibold text-foreground mb-1">{stat.value}</div>
-                      <div className="text-body-sm text-muted-foreground font-medium">{stat.label}</div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </section>
 
-        {/* Founders Section */}
-        <section className="section-padding bg-white">
-          <div className="container-xl">
+        {/* Network Stats Section with Modern Animations */}
+        <section className="section-padding bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+          {/* Animated background orbs */}
+          <motion.div
+            className="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+              x: [0, 30, 0],
+              y: [0, -30, 0]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute bottom-20 right-10 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.5, 0.3, 0.5],
+              x: [0, -30, 0],
+              y: [0, 30, 0]
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          />
+          
+          <div className="container-xl relative z-10">
             <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              className="text-center mb-16"
+              initial={{ opacity: 0, y: 50, rotateX: -20 }} 
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }} 
+              viewport={{ once: true, margin: "-100px" }} 
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="text-center mb-20"
             >
-              <h2 className="text-display font-bold mb-6">
-                <span className="bg-gradient-primary bg-clip-text text-slate-50">Die Gründer</span>
-              </h2>
-              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.
-              </p>
+              <motion.h2 
+                className="text-display font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                Unser Netzwerk
+              </motion.h2>
+              <motion.p 
+                className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+              >
+                Ein starkes Team aus Experten, Coaches und Partnern – 
+                für jede Herausforderung die richtige Expertise.
+              </motion.p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            <motion.div 
+              className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                    delayChildren: 0.2
+                  }
+                }
+              }}
+            >
+              {[
+                { icon: Users, label: "Coaches", value: "10+", color: "from-blue-600 to-blue-800" },
+                { icon: Code, label: "Entwickler", value: "2", color: "from-purple-600 to-purple-800" },
+                { icon: Palette, label: "Creative Agencies", value: "3", color: "from-pink-600 to-pink-800" },
+                { icon: Globe, label: "Länder", value: "4", color: "from-green-600 to-green-800" },
+                { icon: Briefcase, label: "Freelancer", value: "15+", color: "from-orange-600 to-orange-800" }
+              ].map((stat, index) => (
+                <motion.div 
+                  key={stat.label} 
+                  variants={{
+                    hidden: { 
+                      opacity: 0, 
+                      scale: 0.5,
+                      y: 50,
+                      rotateY: -30
+                    },
+                    visible: { 
+                      opacity: 1, 
+                      scale: 1,
+                      y: 0,
+                      rotateY: 0,
+                      transition: {
+                        duration: 0.6,
+                        ease: [0.25, 0.46, 0.45, 0.94],
+                        type: "spring",
+                        stiffness: 100
+                      }
+                    }
+                  }}
+                  whileHover={{
+                    scale: 1.15,
+                    y: -10,
+                    rotateY: 10,
+                    transition: { duration: 0.3, type: "spring", stiffness: 300 }
+                  }}
+                  className="group perspective-1000"
+                >
+                  <Card className="bg-white border-2 border-border/50 shadow-lg hover:shadow-2xl hover:border-primary/30 transition-all duration-500 h-full">
+                    <CardContent className="p-6 text-center relative overflow-hidden">
+                      {/* Animated gradient background */}
+                      <motion.div
+                        className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                      />
+                      
+                      <motion.div 
+                        className={`w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${stat.color} p-3 shadow-lg relative z-10`}
+                        whileHover={{ rotate: 360, scale: 1.2 }}
+                        transition={{ duration: 0.6, type: "spring" }}
+                      >
+                        <stat.icon className="w-full h-full text-white" />
+                      </motion.div>
+                      
+                      <motion.div 
+                        className="text-h2 font-bold text-foreground mb-1 relative z-10"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        {stat.value}
+                      </motion.div>
+                      <div className="text-body-sm text-muted-foreground font-medium relative z-10">
+                        {stat.label}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Founders Section with Modern Animations */}
+        <section className="section-padding bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
+          {/* Animated background pattern */}
+          <motion.div
+            className="absolute top-0 left-0 w-full h-full opacity-5"
+            style={{
+              backgroundImage: `radial-gradient(circle at 20px 20px, hsl(var(--primary)) 2px, transparent 0)`,
+              backgroundSize: '40px 40px'
+            }}
+            animate={{
+              backgroundPosition: ['0px 0px', '40px 40px'],
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          />
+          
+          <div className="container-xl relative z-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 50, scale: 0.9 }} 
+              whileInView={{ opacity: 1, y: 0, scale: 1 }} 
+              viewport={{ once: true, margin: "-100px" }} 
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="text-center mb-20"
+            >
+              <motion.h2 
+                className="text-display font-bold mb-6"
+                initial={{ opacity: 0, rotateX: -20 }}
+                whileInView={{ opacity: 1, rotateX: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.7 }}
+              >
+                <span className="bg-gradient-primary bg-clip-text text-transparent">Die Gründer</span>
+              </motion.h2>
+              <motion.p 
+                className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+              >
+                Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.
+              </motion.p>
+            </motion.div>
+
+            <motion.div 
+              className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.2
+                  }
+                }
+              }}
+            >
               {[
                 { name: "Sebastian Pachón", role: "Founder & Creative-Tech Partner", image: "/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png", expertise: ["Strategie", "Technologie"] },
                 { name: "Wenjamin Zabezhanskiy", role: "Operations & Innovation Partner", image: "/assets/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png", expertise: ["Kreation", "Support"] }
               ].map((founder, index) => (
                 <motion.div 
                   key={founder.name} 
-                  initial={{ opacity: 0, y: 30 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  viewport={{ once: true }} 
-                  transition={{ duration: 0.6, delay: index * 0.1 }} 
-                  className="group hover-lift"
+                  variants={{
+                    hidden: { 
+                      opacity: 0, 
+                      y: 80,
+                      rotateY: index % 2 === 0 ? -30 : 30,
+                      scale: 0.8
+                    },
+                    visible: { 
+                      opacity: 1, 
+                      y: 0,
+                      rotateY: 0,
+                      scale: 1,
+                      transition: { 
+                        duration: 0.8,
+                        ease: [0.25, 0.46, 0.45, 0.94],
+                        type: "spring",
+                        stiffness: 80
+                      } 
+                    }
+                  }}
+                  whileHover={{
+                    y: -20,
+                    scale: 1.05,
+                    rotateY: index % 2 === 0 ? 5 : -5,
+                    transition: { duration: 0.4, type: "spring", stiffness: 200 }
+                  }}
+                  className="group perspective-1000"
                 >
-                  <Card className="card-modern h-full">
-                    <div className="p-6 sm:p-8 flex flex-col h-full">
-                      <div className="flex-shrink-0 mb-6">
-                        <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden border-4 border-border/20 shadow-lg group-hover:border-primary/30 transition-colors duration-300">
-                          <img 
+                  <Card className="h-full bg-white border-2 border-border/50 shadow-xl hover:shadow-2xl hover:border-primary/40 transition-all duration-500 overflow-hidden">
+                    <div className="p-8 sm:p-10 flex flex-col h-full relative">
+                      {/* Animated gradient overlay */}
+                      <motion.div 
+                        className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        initial={false}
+                      />
+                      
+                      <div className="flex-shrink-0 mb-8 relative z-10">
+                        <motion.div 
+                          className="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-3xl overflow-hidden border-4 border-border/30 shadow-2xl group-hover:border-primary/50 transition-all duration-500 group-hover:shadow-primary/20"
+                          whileHover={{ 
+                            scale: 1.1, 
+                            rotate: [0, -5, 5, 0],
+                            transition: { duration: 0.5 }
+                          }}
+                        >
+                          <motion.img 
                             src={founder.image} 
                             alt={`${founder.name} - ${founder.role}`} 
                             className="w-full h-full object-cover" 
-                            width={128}
-                            height={128}
+                            width={160}
+                            height={160}
                             loading="lazy"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.5 }}
                           />
-                        </div>
+                        </motion.div>
                       </div>
                       
-                      <div className="text-center flex-grow flex flex-col justify-between">
+                      <div className="text-center flex-grow flex flex-col justify-between relative z-10">
                         <div>
-                          <h3 className="text-h3 font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                          <motion.h3 
+                            className="text-h3 font-bold mb-3 text-foreground group-hover:text-primary transition-colors"
+                            whileHover={{ scale: 1.05 }}
+                          >
                             {founder.name}
-                          </h3>
-                          <p className="text-primary font-medium mb-6">{founder.role}</p>
+                          </motion.h3>
+                          <motion.p 
+                            className="text-primary font-semibold mb-8 text-lg"
+                            initial={{ opacity: 0.8 }}
+                            whileInView={{ opacity: 1 }}
+                          >
+                            {founder.role}
+                          </motion.p>
                         </div>
                         
-                        <div className="flex justify-center gap-2 sm:gap-3 flex-wrap">
+                        <div className="flex justify-center gap-3 flex-wrap">
                           {founder.expertise.map((skill, skillIndex) => (
-                            <span key={skillIndex} className="px-3 py-2 sm:px-4 bg-white/10 backdrop-blur-sm text-foreground rounded-xl text-sm font-medium border border-white/20 shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-200 hover:shadow-xl">
+                            <motion.span 
+                              key={skillIndex} 
+                              className="px-5 py-3 bg-gradient-to-br from-primary/10 to-secondary/10 text-foreground rounded-2xl text-sm font-bold border-2 border-primary/20 shadow-lg hover:shadow-xl"
+                              whileHover={{ 
+                                scale: 1.1,
+                                y: -5,
+                                backgroundColor: "hsl(var(--primary) / 0.2)",
+                                transition: { duration: 0.2 }
+                              }}
+                              initial={{ opacity: 0, scale: 0 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              transition={{ delay: skillIndex * 0.1 + 0.5 }}
+                            >
                               {skill}
-                            </span>
+                            </motion.span>
                           ))}
                         </div>
                       </div>
@@ -412,7 +694,7 @@ const Index = () => {
                   </Card>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
