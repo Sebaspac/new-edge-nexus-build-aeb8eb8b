@@ -12,6 +12,7 @@ const Lab = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openAgent, setOpenAgent] = useState<string | null>(null);
+  const [selectedAgent, setSelectedAgent] = useState<string>("Riley");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -288,120 +289,178 @@ const Lab = () => {
               </p>
             </motion.div>
 
-            {/* Agents Accordion */}
-            <div className="max-w-6xl mx-auto space-y-4">
-              {[
-                {
-                  name: "Riley",
-                  subtitle: "Wissensagent",
-                  icon: Lightbulb,
-                  gradient: "from-purple-500 to-blue-500",
-                  description: "Riley nutzt Retrieval-Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten.",
-                  video: "/assets/products-hero-video.mp4"
-                },
-                {
-                  name: "Liam",
-                  subtitle: "Lead-Gen-Agent",
-                  icon: Bot,
-                  gradient: "from-purple-500 to-pink-500",
-                  description: "Liam automatisiert Ihre Lead-Generierung. Er kombiniert Chatbots, Segmentierung, Predictive Lead Scoring und automatisierte E-Mail-Kampagnen. Dadurch identifiziert und pflegt er wertvolle Kontakte, während Ihr Vertrieb sich auf Abschlüsse konzentriert.",
-                  video: "/assets/liam-video.mp4"
-                },
-                {
-                  name: "Vera",
-                  subtitle: "Voice-Agent",
-                  icon: Phone,
-                  gradient: "from-green-500 to-emerald-500",
-                  description: "Vera ist Ihre smarte Telefon-Assistentin. Sie nimmt Anrufe rund um die Uhr entgegen, automatisiert Routinegespräche, beantwortet Fragen und leitet komplexe Anliegen an Ihr Team weiter. Voice-AI-Lösungen können hohe Anrufvolumina bewältigen.",
-                  video: "/assets/vera-agent-video.mp4"
-                },
-                {
-                  name: "Cora",
-                  subtitle: "Content-Agent",
-                  icon: FileText,
-                  gradient: "from-amber-500 to-orange-500",
-                  description: "Cora erstellt und optimiert Inhalte für Blogs, Social Media und E-Mail-Newsletter. AI-Content-Agenten sparen Zeit, verbessern die Qualität und sorgen für konsistente Texte. Cora analysiert Keyword-Trends und generiert SEO-optimierte Texte.",
-                  video: "/assets/cora-agent-video.mp4"
-                }
-              ].map((agent, index) => {
-                const Icon = agent.icon;
-                const isOpen = openAgent === agent.name;
+            {/* Two-Column Layout: List Left, Content Right */}
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+              {/* Left: Agents List */}
+              <div className="space-y-2">
+                {[
+                  {
+                    name: "Riley",
+                    subtitle: "Wissensagent",
+                    icon: Lightbulb,
+                    gradient: "from-purple-500 to-blue-500",
+                    description: "Riley nutzt Retrieval-Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten.",
+                    video: "/assets/products-hero-video.mp4"
+                  },
+                  {
+                    name: "Liam",
+                    subtitle: "Lead-Gen-Agent",
+                    icon: Bot,
+                    gradient: "from-purple-500 to-pink-500",
+                    description: "Liam automatisiert Ihre Lead-Generierung. Er kombiniert Chatbots, Segmentierung, Predictive Lead Scoring und automatisierte E-Mail-Kampagnen. Dadurch identifiziert und pflegt er wertvolle Kontakte, während Ihr Vertrieb sich auf Abschlüsse konzentriert.",
+                    video: "/assets/liam-video.mp4"
+                  },
+                  {
+                    name: "Vera",
+                    subtitle: "Voice-Agent",
+                    icon: Phone,
+                    gradient: "from-green-500 to-emerald-500",
+                    description: "Vera ist Ihre smarte Telefon-Assistentin. Sie nimmt Anrufe rund um die Uhr entgegen, automatisiert Routinegespräche, beantwortet Fragen und leitet komplexe Anliegen an Ihr Team weiter. Voice-AI-Lösungen können hohe Anrufvolumina bewältigen.",
+                    video: "/assets/vera-agent-video.mp4"
+                  },
+                  {
+                    name: "Cora",
+                    subtitle: "Content-Agent",
+                    icon: FileText,
+                    gradient: "from-amber-500 to-orange-500",
+                    description: "Cora erstellt und optimiert Inhalte für Blogs, Social Media und E-Mail-Newsletter. AI-Content-Agenten sparen Zeit, verbessern die Qualität und sorgen für konsistente Texte. Cora analysiert Keyword-Trends und generiert SEO-optimierte Texte.",
+                    video: "/assets/cora-agent-video.mp4"
+                  }
+                ].map((agent, index) => {
+                  const Icon = agent.icon;
+                  const isActive = selectedAgent === agent.name;
 
-                return (
-                  <motion.div
-                    key={agent.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
-                  >
-                    {/* Header - Always visible */}
-                    <button
-                      onClick={() => setOpenAgent(isOpen ? null : agent.name)}
-                      className="w-full p-6 flex items-center justify-between hover:bg-gray-50/50 transition-colors"
+                  return (
+                    <motion.button
+                      key={agent.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      onClick={() => setSelectedAgent(agent.name)}
+                      className={`w-full p-6 rounded-2xl border-2 transition-all text-left ${
+                        isActive
+                          ? 'bg-white border-gray-300 shadow-lg'
+                          : 'bg-white/50 border-gray-200 hover:bg-white/80 hover:border-gray-300'
+                      }`}
                     >
                       <div className="flex items-center gap-4">
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${agent.gradient}`}>
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${agent.gradient} flex-shrink-0`}>
                           <Icon className="w-6 h-6 text-white" />
                         </div>
-                        <div className="text-left">
-                          <h3 className="text-xl sm:text-2xl font-black text-black">{agent.name}</h3>
+                        <div className="flex-1">
+                          <h3 className={`text-lg sm:text-xl font-black transition-colors ${
+                            isActive ? 'text-black' : 'text-gray-700'
+                          }`}>
+                            {agent.name}
+                          </h3>
                           <p className="text-sm text-gray-600">{agent.subtitle}</p>
                         </div>
+                        <motion.div
+                          animate={{ rotate: isActive ? 90 : 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </motion.div>
                       </div>
-                      <motion.div
-                        animate={{ rotate: isOpen ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <svg className="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </motion.div>
-                    </button>
+                    </motion.button>
+                  );
+                })}
+              </div>
 
-                    {/* Content - Expandable */}
+              {/* Right: Dynamic Content */}
+              <div className="lg:sticky lg:top-24 space-y-6">
+                {(() => {
+                  const agents = [
+                    {
+                      name: "Riley",
+                      subtitle: "Wissensagent",
+                      icon: Lightbulb,
+                      gradient: "from-purple-500 to-blue-500",
+                      description: "Riley nutzt Retrieval-Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten.",
+                      video: "/assets/products-hero-video.mp4"
+                    },
+                    {
+                      name: "Liam",
+                      subtitle: "Lead-Gen-Agent",
+                      icon: Bot,
+                      gradient: "from-purple-500 to-pink-500",
+                      description: "Liam automatisiert Ihre Lead-Generierung. Er kombiniert Chatbots, Segmentierung, Predictive Lead Scoring und automatisierte E-Mail-Kampagnen. Dadurch identifiziert und pflegt er wertvolle Kontakte, während Ihr Vertrieb sich auf Abschlüsse konzentriert.",
+                      video: "/assets/liam-video.mp4"
+                    },
+                    {
+                      name: "Vera",
+                      subtitle: "Voice-Agent",
+                      icon: Phone,
+                      gradient: "from-green-500 to-emerald-500",
+                      description: "Vera ist Ihre smarte Telefon-Assistentin. Sie nimmt Anrufe rund um die Uhr entgegen, automatisiert Routinegespräche, beantwortet Fragen und leitet komplexe Anliegen an Ihr Team weiter. Voice-AI-Lösungen können hohe Anrufvolumina bewältigen.",
+                      video: "/assets/vera-agent-video.mp4"
+                    },
+                    {
+                      name: "Cora",
+                      subtitle: "Content-Agent",
+                      icon: FileText,
+                      gradient: "from-amber-500 to-orange-500",
+                      description: "Cora erstellt und optimiert Inhalte für Blogs, Social Media und E-Mail-Newsletter. AI-Content-Agenten sparen Zeit, verbessern die Qualität und sorgen für konsistente Texte. Cora analysiert Keyword-Trends und generiert SEO-optimierte Texte.",
+                      video: "/assets/cora-agent-video.mp4"
+                    }
+                  ];
+                  
+                  const currentAgent = agents.find(a => a.name === selectedAgent) || agents[0];
+                  const Icon = currentAgent.icon;
+
+                  return (
                     <motion.div
-                      initial={false}
-                      animate={{ 
-                        height: isOpen ? "auto" : 0,
-                        opacity: isOpen ? 1 : 0
-                      }}
-                      transition={{ duration: 0.4, ease: "easeInOut" }}
-                      className="overflow-hidden"
+                      key={currentAgent.name}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4 }}
+                      className="space-y-6"
                     >
-                      <div className="p-6 pt-0 grid lg:grid-cols-2 gap-6 lg:gap-8">
-                        {/* Left: Description */}
-                        <div className="space-y-4">
-                          <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                            {agent.description}
-                          </p>
-                          <Button
-                            size="lg"
-                            className={`w-full bg-gradient-to-r ${agent.gradient} hover:opacity-90 text-white font-bold shadow-lg`}
-                            onClick={() => navigate('/products')}
-                          >
-                            Mehr über {agent.name}
-                          </Button>
-                        </div>
+                      {/* Video */}
+                      <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
+                        <video 
+                          key={currentAgent.video}
+                          autoPlay 
+                          loop 
+                          muted 
+                          playsInline
+                          className="absolute inset-0 w-full h-full object-cover"
+                        >
+                          <source src={currentAgent.video} type="video/mp4" />
+                        </video>
+                      </div>
 
-                        {/* Right: Video */}
-                        <div className="relative aspect-video rounded-xl overflow-hidden shadow-xl">
-                          <video 
-                            autoPlay 
-                            loop 
-                            muted 
-                            playsInline
-                            className="absolute inset-0 w-full h-full object-cover"
-                          >
-                            <source src={agent.video} type="video/mp4" />
-                          </video>
+                      {/* Description Card */}
+                      <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-200">
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className={`w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-br ${currentAgent.gradient}`}>
+                            <Icon className="w-7 h-7 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-2xl sm:text-3xl font-black text-black">{currentAgent.name}</h3>
+                            <p className="text-sm text-gray-600">{currentAgent.subtitle}</p>
+                          </div>
                         </div>
+                        
+                        <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
+                          {currentAgent.description}
+                        </p>
+
+                        <Button
+                          size="lg"
+                          className={`w-full bg-gradient-to-r ${currentAgent.gradient} hover:opacity-90 text-white font-bold shadow-lg`}
+                          onClick={() => navigate('/products')}
+                        >
+                          Mehr über {currentAgent.name} erfahren
+                        </Button>
                       </div>
                     </motion.div>
-                  </motion.div>
-                );
-              })}
+                  );
+                })()}
+              </div>
             </div>
 
             <motion.div
