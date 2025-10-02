@@ -193,12 +193,12 @@ export const InnovationSection = () => {
                   </motion.div>
                   
                   <motion.h3 
-                    className="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight"
+                    className="text-xl sm:text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight"
                     animate={{ scale: hoveredCard === 1 ? 1.05 : 1 }}
                   >
                     Innovation als Prozess
                   </motion.h3>
-                  <p className="text-base text-muted-foreground leading-relaxed flex-grow">
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed flex-grow">
                     Für uns ist Innovation kein einzelnes Feature – sie ist ein kontinuierlicher Prozess. 
                     Wir schaffen den Zugang zu echter Innovation für KMU, Selbständige und Marken im Wandel.
                   </p>
@@ -317,12 +317,12 @@ export const InnovationSection = () => {
                   </motion.div>
                   
                   <motion.h3 
-                    className="text-2xl font-bold mb-6 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent leading-tight"
+                    className="text-xl sm:text-2xl font-bold mb-6 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent leading-tight"
                     animate={{ scale: hoveredCard === 2 ? 1.05 : 1 }}
                   >
                     Ganzheitliche Transformation
                   </motion.h3>
-                  <p className="text-base text-muted-foreground leading-relaxed flex-grow">
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed flex-grow">
                     Unser Fokus liegt nicht nur auf Automatisierung oder Chatbots, sondern auf ganzheitlicher, 
                     kreativer Transformation: Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools.
                   </p>
@@ -443,7 +443,7 @@ export const InnovationSection = () => {
                 </motion.div>
                 
                 <motion.h3 
-                  className="text-5xl font-black mb-8 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-black mb-8 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight"
                   animate={{
                     scale: hoveredCard === 3 ? [1, 1.05, 1] : 1,
                   }}
@@ -459,7 +459,7 @@ export const InnovationSection = () => {
                   }}
                   transition={{ duration: 2, repeat: hoveredCard === 3 ? Infinity : 0 }}
                 >
-                  <p className="text-xl text-muted-foreground leading-relaxed font-medium">
+                  <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed font-medium">
                     Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.
                   </p>
                 </motion.div>

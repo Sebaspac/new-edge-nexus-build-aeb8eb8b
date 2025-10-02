@@ -145,7 +145,7 @@ const Index = () => {
               transition={{ duration: 0.8 }}
               className="max-w-5xl mx-auto text-center"
             >
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 <span className="block text-gray-900">Wir bringen Ihr Unternehmen</span>
                 <span className="block bg-gradient-primary bg-clip-text text-transparent">an die Spitze</span>
                 <span className="block text-gray-900">Ihrer Branche</span>
@@ -156,7 +156,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-xl sm:text-2xl text-gray-700 mb-6 leading-relaxed"
+                className="text-lg sm:text-xl text-gray-700 mb-6 leading-relaxed"
               >
                 Mit Innovation und Automatisierung, für die Sie im operativen Tagesgeschäft sonst keinen Zugang hätten.
               </motion.p>
@@ -200,12 +200,12 @@ const Index = () => {
               className="text-center mb-20"
             >
               <motion.h2 
-                className="text-display font-black mb-6 bg-gradient-primary bg-clip-text text-transparent"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent"
                 whileHover={{ scale: 1.05 }}
               >
                 Für wen wir arbeiten & warum
               </motion.h2>
-              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Spezialisiert auf mittelständische KMUs, die Vorreiter werden wollen
               </p>
             </motion.div>
@@ -250,7 +250,7 @@ const Index = () => {
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mb-6 shadow-lg">
                       <Target className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-6 text-foreground">Ihre Herausforderung</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-6 text-foreground">Ihre Herausforderung</h3>
                     <ul className="space-y-4 text-muted-foreground">
                       <motion.li 
                         className="flex items-start gap-3"
@@ -315,7 +315,7 @@ const Index = () => {
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-6 shadow-lg">
                       <Rocket className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-6 text-foreground">Unsere Lösung</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-6 text-foreground">Unsere Lösung</h3>
                     <ul className="space-y-4 text-muted-foreground">
                       <motion.li 
                         className="flex items-start gap-3"
@@ -387,10 +387,10 @@ const Index = () => {
                     >
                       <Star className="w-10 h-10 text-white" />
                     </motion.div>
-                    <h3 className="text-3xl sm:text-4xl font-black text-white mb-6">
+                    <h3 className="text-xl sm:text-2xl font-black text-white mb-6">
                       Konkret für Sie
                     </h3>
-                    <p className="text-xl text-white/90 leading-relaxed max-w-4xl mx-auto">
+                    <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-4xl mx-auto">
                       Für mittelständische Produktions- oder Dienstleistungsunternehmen (50-300 Mitarbeiter), die ihre Prozesse manuell betreiben und unter Fachkräftemangel leiden, implementiert New Edge <span className="font-bold">KI-gestützte Automatisierungen</span> und vernetzt sie mit passenden Agenturen. Dadurch gewinnen sie <span className="font-bold">30% mehr Zeit</span> für ihr Kerngeschäft, senken Fehlerquoten, stärken ihre Marke und werden als <span className="font-bold">innovative Vorreiter</span> in ihrer Branche wahrgenommen.
                     </p>
                   </div>
@@ -445,7 +445,7 @@ const Index = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <motion.h2 
-                className="text-h1 font-bold mb-6 text-foreground"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-foreground"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -525,18 +525,18 @@ const Index = () => {
                   className="group h-full perspective-1000"
                 >
                   <div className="flex items-start gap-6 p-8 rounded-2xl bg-gradient-to-br from-white to-gray-50 border border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
-                    <motion.div 
-                      className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-white font-bold text-h3 shadow-lg" 
+                  <motion.div 
+                    className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-white font-bold text-2xl shadow-lg"
                       whileHover={{ rotate: 360, scale: 1.2 }}
                       transition={{ duration: 0.6, type: "spring" }}
                     >
                       {point.number}
                     </motion.div>
                     <div className="flex-1">
-                      <h3 className="text-h3 mb-3 text-foreground group-hover:text-primary transition-colors text-lg font-bold">
+                      <h3 className="text-lg sm:text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
                         {point.title}
                       </h3>
-                      <p className="text-body text-muted-foreground leading-relaxed">
+                      <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                         {point.description}
                       </p>
                     </div>
@@ -558,7 +558,7 @@ const Index = () => {
               className="text-center mb-20"
             >
               <motion.h2 
-                className="text-display font-bold mb-6 text-foreground"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-foreground"
                 initial={{ opacity: 0, rotateX: -20 }}
                 whileInView={{ opacity: 1, rotateX: 0 }}
                 viewport={{ once: true }}
@@ -567,7 +567,7 @@ const Index = () => {
                 Know-how trifft Prozess
               </motion.h2>
               <motion.p 
-                className="text-body-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+                className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -635,14 +635,14 @@ const Index = () => {
                         initial={false}
                       />
                       
-                      <motion.h3 
-                        className="text-h3 font-bold mb-4 text-foreground group-hover:text-primary transition-colors relative z-10"
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        {item.title}
-                      </motion.h3>
-                      <motion.p 
-                        className="text-body text-muted-foreground mb-6 leading-relaxed relative z-10"
+                    <motion.h3 
+                      className="text-xl sm:text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors relative z-10"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      {item.title}
+                    </motion.h3>
+                    <motion.p 
+                      className="text-base sm:text-lg text-muted-foreground mb-6 leading-relaxed relative z-10"
                         initial={{ opacity: 0.8 }}
                         whileInView={{ opacity: 1 }}
                       >
@@ -689,14 +689,14 @@ const Index = () => {
               className="text-center mb-20"
             >
               <motion.h2 
-                className="text-display font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
                 Unser Netzwerk
               </motion.h2>
               <motion.p 
-                className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+                className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -775,13 +775,13 @@ const Index = () => {
                         <stat.icon className="w-full h-full text-white" />
                       </motion.div>
                       
-                      <motion.div 
-                        className="text-h2 font-bold text-foreground mb-1 relative z-10"
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        {stat.value}
-                      </motion.div>
-                      <div className="text-body-sm text-muted-foreground font-medium relative z-10">
+                    <motion.div 
+                      className="text-2xl sm:text-3xl font-bold text-foreground mb-1 relative z-10"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      {stat.value}
+                    </motion.div>
+                    <div className="text-sm sm:text-base text-muted-foreground font-medium relative z-10">
                         {stat.label}
                       </div>
                     </CardContent>
@@ -816,7 +816,7 @@ const Index = () => {
               className="text-center mb-20"
             >
               <motion.h2 
-                className="text-display font-bold mb-6"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
                 initial={{ opacity: 0, rotateX: -20 }}
                 whileInView={{ opacity: 1, rotateX: 0 }}
                 viewport={{ once: true }}
@@ -825,7 +825,7 @@ const Index = () => {
                 <span className="bg-gradient-primary bg-clip-text text-transparent">Die Gründer</span>
               </motion.h2>
               <motion.p 
-                className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+                className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -917,12 +917,12 @@ const Index = () => {
                       
                       <div className="text-center flex-grow flex flex-col justify-between relative z-10">
                         <div>
-                          <motion.h3 
-                            className="text-h3 font-bold mb-3 text-foreground group-hover:text-primary transition-colors"
-                            whileHover={{ scale: 1.05 }}
-                          >
-                            {founder.name}
-                          </motion.h3>
+                        <motion.h3 
+                          className="text-xl sm:text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          {founder.name}
+                        </motion.h3>
                           <motion.p 
                             className="text-primary font-semibold mb-8 text-lg"
                             initial={{ opacity: 0.8 }}
@@ -964,10 +964,10 @@ const Index = () => {
         <section id="contact-section" className="section-padding bg-gradient-to-br from-primary/5 via-background to-primary/10">
           <div className="container-xl">
             <div className="text-center mb-16">
-              <h2 className="text-h1 font-bold mb-4 text-foreground">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
                 Get in touch
               </h2>
-              <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
                 Want to get in touch? We'd love to hear from you. Here's how you can reach us.
               </p>
             </div>
@@ -980,7 +980,7 @@ const Index = () => {
                     <Phone className="w-8 h-8 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-h3 font-semibold mb-2 text-foreground">Talk to Sales</h3>
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-foreground">Talk to Sales</h3>
                     <p className="text-muted-foreground mb-4 text-sm">
                       Interested in our services? Just pick up the phone to chat with a member of our sales team.
                     </p>
@@ -1005,7 +1005,7 @@ const Index = () => {
                     <MessageSquare className="w-8 h-8 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-h3 font-semibold mb-2 text-foreground">Contact Customer Support</h3>
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-foreground">Contact Customer Support</h3>
                     <p className="text-muted-foreground mb-4 text-sm">
                       Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
                     </p>
