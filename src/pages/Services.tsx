@@ -455,36 +455,26 @@ const Services = () => {
                   />
                   
                   {/* Content */}
-                  <div className="relative p-8 sm:p-12 text-center">
-                    <motion.div 
-                      className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 shadow-xl shadow-violet-500/30 mb-6 relative"
-                      animate={{
-                        rotate: [0, 360],
-                        scale: [1, 1.1, 1],
-                      }}
-                      transition={{ 
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }}
-                    >
-                      <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </motion.div>
-                    
+                  <div className="relative p-8 sm:p-12">
                     <motion.h2
-                      className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 bg-clip-text text-transparent leading-tight"
+                      className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.2, duration: 0.6 }}
                     >
-                      FROM VISION TO REALITY
+                      FROM VISION{" "}
+                      <motion.span 
+                        className="bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 bg-clip-text text-transparent inline-block"
+                        whileInView={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                      >
+                        TO REALITY
+                      </motion.span>
                     </motion.h2>
                     
                     <motion.p
-                      className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto"
+                      className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
