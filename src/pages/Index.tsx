@@ -12,22 +12,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { toast } from "@/hooks/use-toast";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, Zap, Brain, Target, Rocket, Star, Users, Code, Palette, Globe, Briefcase } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, Brain, Target, Rocket, Star, Users, Code, Palette, Globe, Briefcase, Phone, MessageSquare } from "lucide-react";
 const Index = () => {
-  const {
-    t
-  } = useLanguage();
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact-section');
-    if (contactSection) {
-      contactSection.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  };
+  const { t } = useLanguage();
+  const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
 
   // ✅ KORRIGIERTE handleSubmit Funktion - alle 6 Felder werden korrekt übertragen
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
@@ -138,10 +130,10 @@ const Index = () => {
 
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
         {/* Mobile Navigation */}
-        <MobileNavigation onContactClick={scrollToContact} theme="dark" />
+        <MobileNavigation onContactClick={() => setIsContactSheetOpen(true)} theme="dark" />
 
         {/* Hero Section */}
-        <HeroSection onContactClick={scrollToContact} />
+        <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
 
         {/* Innovation Section */}
         <InnovationSection />
@@ -425,66 +417,122 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact-section" className="section-padding bg-gradient-to-br from-surface via-background to-surface">
-          <div className="container-narrow">
-            <div className="text-center mb-12">
-              <h2 className="text-h1 font-bold mb-6 text-foreground">
-                Bereit für den nächsten Schritt?
+        <section id="contact-section" className="section-padding bg-gradient-to-br from-primary/5 via-background to-primary/10">
+          <div className="container-xl">
+            <div className="text-center mb-16">
+              <h2 className="text-h1 font-bold mb-4 text-foreground">
+                Get in touch
               </h2>
-              <p className="text-body-xl text-muted-foreground">
-                Ready when you are. Wir bringen's online.
+              <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+                Want to get in touch? We'd love to hear from you. Here's how you can reach us.
               </p>
             </div>
 
-            <Card className="card-modern max-w-2xl mx-auto">
-              <CardContent className="p-6 sm:p-8">
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="space-y-5">
-                    {[
-                      { id: "name", label: "Name *", type: "text", placeholder: "Ihr Name", required: true },
-                      { id: "email", label: "E-Mail *", type: "email", placeholder: "ihre@email.com", required: true },
-                      { id: "position", label: "Position *", type: "text", placeholder: "Ihre Position", required: true },
-                      { id: "firma", label: "Firma *", type: "text", placeholder: "Ihr Unternehmen", required: true },
-                      { id: "telefon", label: "Telefon", type: "tel", placeholder: "Ihre Telefonnummer", required: false }
-                    ].map(field => (
-                      <div key={field.id} className="space-y-2">
-                        <Label htmlFor={field.id} className="text-foreground font-medium text-sm">
-                          {field.label}
-                        </Label>
-                        <Input 
-                          id={field.id} 
-                          name={field.id} 
-                          type={field.type} 
-                          placeholder={field.placeholder} 
-                          required={field.required} 
-                          className="bg-background border-border focus:border-primary transition-colors h-11"
-                        />
-                      </div>
-                    ))}
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="nachricht" className="text-foreground font-medium text-sm">
-                        Nachricht *
-                      </Label>
-                      <Textarea 
-                        id="nachricht" 
-                        name="nachricht" 
-                        placeholder="Erzählen Sie uns von Ihrem Projekt..." 
-                        required 
-                        className="min-h-[120px] bg-background border-border focus:border-primary transition-colors resize-none"
-                      />
-                    </div>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Talk to Sales */}
+              <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
+                <CardContent className="space-y-6 p-0">
+                  <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                    <Phone className="w-8 h-8 text-primary" />
                   </div>
-
-                  <Button type="submit" size="lg" className="w-full btn-primary">
-                    Nachricht senden
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                  <div>
+                    <h3 className="text-h3 font-semibold mb-2 text-foreground">Talk to Sales</h3>
+                    <p className="text-muted-foreground mb-4 text-sm">
+                      Interested in our services? Just pick up the phone to chat with a member of our sales team.
+                    </p>
+                    <a href="tel:+4915750998236" className="text-primary font-semibold text-lg hover:underline">
+                      +49 157 5099 8236
+                    </a>
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => window.location.href = 'tel:+4915750998236'}
+                  >
+                    View all global numbers
                   </Button>
-                </form>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+
+              {/* Contact Support */}
+              <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
+                <CardContent className="space-y-6 p-0">
+                  <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                    <MessageSquare className="w-8 h-8 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-h3 font-semibold mb-2 text-foreground">Contact Customer Support</h3>
+                    <p className="text-muted-foreground mb-4 text-sm">
+                      Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
+                    </p>
+                  </div>
+                  <Button 
+                    className="w-full btn-primary"
+                    onClick={() => setIsContactSheetOpen(true)}
+                  >
+                    Contact Support
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </section>
+
+        {/* Contact Form Sheet */}
+        <Sheet open={isContactSheetOpen} onOpenChange={setIsContactSheetOpen}>
+          <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
+            <SheetHeader className="mb-6">
+              <SheetTitle className="text-2xl font-bold">Projekt besprechen</SheetTitle>
+              <SheetDescription>
+                Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen.
+              </SheetDescription>
+            </SheetHeader>
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="space-y-5">
+                {[
+                  { id: "name", label: "Name *", type: "text", placeholder: "Ihr Name", required: true },
+                  { id: "email", label: "E-Mail *", type: "email", placeholder: "ihre@email.com", required: true },
+                  { id: "position", label: "Position *", type: "text", placeholder: "Ihre Position", required: true },
+                  { id: "firma", label: "Firma *", type: "text", placeholder: "Ihr Unternehmen", required: true },
+                  { id: "telefon", label: "Telefon", type: "tel", placeholder: "Ihre Telefonnummer", required: false }
+                ].map(field => (
+                  <div key={field.id} className="space-y-2">
+                    <Label htmlFor={field.id} className="text-foreground font-medium">
+                      {field.label}
+                    </Label>
+                    <Input 
+                      id={field.id} 
+                      name={field.id} 
+                      type={field.type} 
+                      placeholder={field.placeholder} 
+                      required={field.required} 
+                      className="bg-background/50 border-border focus:border-primary transition-colors"
+                    />
+                  </div>
+                ))}
+                
+                <div className="space-y-2">
+                  <Label htmlFor="nachricht" className="text-foreground font-medium">
+                    Nachricht *
+                  </Label>
+                  <Textarea 
+                    id="nachricht" 
+                    name="nachricht" 
+                    placeholder="Erzählen Sie uns von Ihrem Projekt..." 
+                    required 
+                    className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none"
+                  />
+                </div>
+              </div>
+
+              <Button type="submit" size="lg" className="w-full btn-primary">
+                Nachricht senden
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </form>
+          </SheetContent>
+        </Sheet>
 
         {/* Footer */}
         <footer className="bg-surface-elevated/80 border-t border-border py-12 sm:py-16">
