@@ -7,24 +7,24 @@
 
 @layer base {
   :root {
-    /* 🎨 CORE COLORS - High-contrast, premium palette */
-    --background: 0 0% 2%; /* Almost black for luxury feel */
-    --foreground: 0 0% 98%;
-    --surface: 0 0% 5%; /* Slightly lighter for cards */
-    --surface-elevated: 0 0% 8%;
+    /* 🎨 CORE COLORS - Clean white background theme */
+    --background: 0 0% 100%; /* Pure white */
+    --foreground: 0 0% 13%; /* Dark gray for text */
+    --surface: 0 0% 98%; /* Very light gray for cards */
+    --surface-elevated: 0 0% 100%;
 
     /* 🔮 BRAND COLORS - Vibrant, modern palette */
     --primary: 270 91% 65%; /* Electric purple */
     --primary-glow: 280 100% 70%;
-    --primary-subtle: 270 70% 25%;
+    --primary-subtle: 270 70% 50%;
     
     --secondary: 210 100% 60%; /* Vivid blue */
     --secondary-glow: 200 100% 65%;
-    --secondary-subtle: 210 80% 25%;
+    --secondary-subtle: 210 80% 50%;
     
     --accent: 50 100% 60%; /* Electric yellow */
     --accent-glow: 45 100% 65%;
-    --accent-subtle: 50 80% 25%;
+    --accent-subtle: 50 80% 50%;
 
     /* 🌈 GRADIENT DEFINITIONS */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
@@ -33,23 +33,23 @@
     --gradient-glow: radial-gradient(circle at 50% 50%, hsl(var(--primary-glow) / 0.3), transparent 60%);
 
     /* 💫 EFFECTS & SHADOWS */
-    --shadow-soft: 0 4px 20px hsl(var(--background) / 0.3);
-    --shadow-strong: 0 10px 40px hsl(var(--background) / 0.5);
-    --shadow-glow: 0 0 60px hsl(var(--primary-glow) / 0.4);
-    --shadow-accent: 0 8px 32px hsl(var(--accent) / 0.3);
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-strong: 0 10px 40px rgba(0, 0, 0, 0.12);
+    --shadow-glow: 0 0 60px hsl(var(--primary-glow) / 0.3);
+    --shadow-accent: 0 8px 32px hsl(var(--accent) / 0.25);
 
     /* 🎭 UI ELEMENT COLORS */
-    --card: var(--surface);
-    --card-foreground: 0 0% 95%;
-    --popover: var(--surface-elevated);
-    --popover-foreground: 0 0% 95%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-    --border: 0 0% 20%;
-    --input: var(--surface-elevated);
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --border: 0 0% 90%;
+    --input: 0 0% 100%;
     --ring: var(--primary);
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
 
     /* 🔧 DESIGN TOKENS */
     --radius: 16px; /* Increased for modern feel */

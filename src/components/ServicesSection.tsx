@@ -18,7 +18,7 @@ export const ServicesSection = ({
   subtitle,
   services,
   accentColor,
-  bgColor = "bg-gray-50"
+  bgColor = "bg-white"
 }: ServicesSectionProps) => {
   return <section className={`py-16 sm:py-32 ${bgColor}`}>
       <div className="container mx-auto px-4 sm:px-6">

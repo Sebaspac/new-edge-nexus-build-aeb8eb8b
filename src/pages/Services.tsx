@@ -386,7 +386,7 @@ const Services = () => {
       </section>
 
       {/* Services Overview Section with Subtle Overlap Effect */}
-      <section className="services-overview relative -mt-20 pt-32 pb-24 bg-gradient-subtle overflow-hidden">
+      <section className="services-overview relative -mt-20 pt-32 pb-24 bg-white overflow-hidden">
         {/* Simple floating elements */}
         <motion.div className="absolute top-20 left-10 w-24 h-24 bg-primary/5 rounded-full blur-xl" animate={{
         y: [0, -15, 0],

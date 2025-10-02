@@ -139,7 +139,7 @@ const Index = () => {
         <InnovationSection />
 
         {/* Impact Points Section with Overlap Effect */}
-        <ScrollAnimation animation="fadeRight" className="relative -mt-16 pt-24 pb-20 bg-gradient-to-l from-surface to-background overflow-hidden">
+        <ScrollAnimation animation="fadeRight" className="relative -mt-16 pt-24 pb-20 bg-white overflow-hidden">
           {/* Modern floating elements */}
           <motion.div className="absolute top-40 right-10 w-24 h-24 bg-accent/10 rounded-full blur-xl" animate={{
           x: [0, 30, 0],
@@ -251,7 +251,7 @@ const Index = () => {
         </ScrollAnimation>
 
         {/* Services Section with Overlap Effect */}
-        <ScrollAnimation animation="fadeLeft" className="relative -mt-20 pt-32 pb-20 bg-gradient-to-r from-background to-surface overflow-hidden">
+        <ScrollAnimation animation="fadeLeft" className="relative -mt-20 pt-32 pb-20 bg-white overflow-hidden">
           <div className="container-xl">
             <motion.div 
               initial={{ opacity: 0, y: 20 }} 
@@ -299,7 +299,7 @@ const Index = () => {
         </ScrollAnimation>
 
         {/* Network Stats Section */}
-        <section className="section-padding bg-gradient-subtle">
+        <section className="section-padding bg-white">
           <div className="container-xl">
             <motion.div 
               initial={{ opacity: 0, y: 20 }} 
@@ -348,7 +348,7 @@ const Index = () => {
         </section>
 
         {/* Founders Section */}
-        <section className="section-padding bg-surface">
+        <section className="section-padding bg-white">
           <div className="container-xl">
             <motion.div 
               initial={{ opacity: 0, y: 20 }} 
