@@ -709,109 +709,117 @@ const Index = () => {
         {/* Unsere Kompetenzbereiche - Light Section */}
         <section className="relative py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-white overflow-hidden">
           {/* Animated background elements */}
-          <motion.div 
-            className="absolute top-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" 
-            animate={{
-              scale: [1, 1.2, 1],
-              x: [0, 50, 0],
-              y: [0, -30, 0],
-            }} 
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }} 
-          />
-          <motion.div 
-            className="absolute bottom-20 left-10 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" 
-            animate={{
-              scale: [1.2, 1, 1.2],
-              x: [0, -30, 0],
-              y: [0, 40, 0],
-            }} 
-            transition={{
-              duration: 12,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1
-            }} 
-          />
+          <motion.div className="absolute top-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
+          scale: [1, 1.2, 1],
+          x: [0, 50, 0],
+          y: [0, -30, 0]
+        }} transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }} />
+          <motion.div className="absolute bottom-20 left-10 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" animate={{
+          scale: [1.2, 1, 1.2],
+          x: [0, -30, 0],
+          y: [0, 40, 0]
+        }} transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }} />
 
           <div className="container-xl relative z-10">
             {/* Header */}
-            <motion.div 
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <motion.h2 
-                className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-6 leading-[1.2]"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.7 }}
-              >
+            <motion.div className="text-center mb-16" initial={{
+            opacity: 0,
+            y: 40
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.8
+          }}>
+              <motion.h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-6 leading-[1.2]" initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.2,
+              duration: 0.7
+            }}>
                 Unsere Kompetenzbereiche
               </motion.h2>
-              <motion.p 
-                className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-              >
+              <motion.p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed" initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.4,
+              duration: 0.6
+            }}>
                 Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
               </motion.p>
             </motion.div>
 
             {/* Service Cards Grid */}
-            <motion.div 
-              className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.2,
-                    delayChildren: 0.3
-                  }
+            <motion.div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto" initial="hidden" whileInView="visible" viewport={{
+            once: true,
+            margin: "-100px"
+          }} variants={{
+            hidden: {
+              opacity: 0
+            },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.3
+              }
+            }
+          }}>
+              {services.map((service, index) => <motion.div key={index} variants={{
+              hidden: {
+                opacity: 0,
+                y: 60,
+                scale: 0.9
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.7,
+                  ease: [0.25, 0.46, 0.45, 0.94]
                 }
-              }}
-            >
-              {services.map((service, index) => (
-                <motion.div
-                  key={index}
-                  variants={{
-                    hidden: { opacity: 0, y: 60, scale: 0.9 },
-                    visible: { 
-                      opacity: 1, 
-                      y: 0, 
-                      scale: 1,
-                      transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }
-                    }
-                  }}
-                  whileHover={{
-                    scale: 1.05,
-                    y: -10,
-                    transition: { duration: 0.3 }
-                  }}
-                >
+              }
+            }} whileHover={{
+              scale: 1.05,
+              y: -10,
+              transition: {
+                duration: 0.3
+              }
+            }}>
                   <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
                     <CardContent className="p-8">
                       {/* Icon with gradient background */}
-                      <motion.div 
-                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg`}
-                        whileHover={{ 
-                          scale: 1.1,
-                          rotate: [0, -5, 5, 0],
-                          transition: { duration: 0.5 }
-                        }}
-                      >
+                      <motion.div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg`} whileHover={{
+                    scale: 1.1,
+                    rotate: [0, -5, 5, 0],
+                    transition: {
+                      duration: 0.5
+                    }
+                  }}>
                         <service.icon className="w-8 h-8 text-white" />
                       </motion.div>
 
@@ -826,11 +834,7 @@ const Index = () => {
                       </p>
 
                       {/* Button */}
-                      <Button 
-                        variant="default"
-                        className="bg-primary hover:bg-primary/90 text-white group"
-                        asChild
-                      >
+                      <Button variant="default" className="bg-primary hover:bg-primary/90 text-white group" asChild>
                         <Link to={`/${service.title.toLowerCase().split(' ')[0]}`}>
                           Mehr erfahren
                           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -838,8 +842,7 @@ const Index = () => {
                       </Button>
                     </CardContent>
                   </Card>
-                </motion.div>
-              ))}
+                </motion.div>)}
             </motion.div>
           </div>
         </section>
@@ -872,9 +875,7 @@ const Index = () => {
                       +49 157 5099 8236
                     </a>
                   </div>
-                  <Button variant="outline" className="w-full" onClick={() => window.location.href = 'tel:+4915750998236'}>
-                    View all global numbers
-                  </Button>
+                  
                 </CardContent>
               </Card>
 
