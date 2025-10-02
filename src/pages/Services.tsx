@@ -411,6 +411,102 @@ const Services = () => {
         y: y2
       }} className="container-xl relative z-10">
           <div className="max-w-6xl mx-auto px-4">
+            {/* Vision Statement Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 80, scale: 0.8 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="mb-20 relative z-10"
+            >
+              <motion.div 
+                className="max-w-5xl mx-auto relative"
+                whileHover={{ scale: 1.02 }}
+              >
+                {/* Pulsing glow effect */}
+                <motion.div
+                  className="absolute -inset-6 bg-gradient-to-r from-violet-500/20 via-purple-500/20 to-fuchsia-500/20 rounded-3xl blur-3xl"
+                  animate={{
+                    opacity: [0.3, 1, 0.3],
+                    scale: [1, 1.1, 1],
+                  }}
+                  transition={{ 
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                
+                <div className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white border-2 border-violet-500/20 shadow-2xl hover:border-violet-500/40 transition-all duration-500 rounded-2xl">
+                  {/* Animated gradient mesh background */}
+                  <motion.div 
+                    className="absolute inset-0"
+                    style={{
+                      backgroundImage: `
+                        radial-gradient(circle at 20% 50%, hsl(280 100% 70% / 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, hsl(290 100% 65% / 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, hsl(300 100% 60% / 0.1) 0%, transparent 50%)
+                      `,
+                    }}
+                    animate={{
+                      opacity: [0.5, 1, 0.5],
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  />
+                  
+                  {/* Content */}
+                  <div className="relative p-8 sm:p-12 text-center">
+                    <motion.div 
+                      className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 shadow-xl shadow-violet-500/30 mb-6 relative"
+                      animate={{
+                        rotate: [0, 360],
+                        scale: [1, 1.1, 1],
+                      }}
+                      transition={{ 
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "linear"
+                      }}
+                    >
+                      <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </motion.div>
+                    
+                    <motion.h2
+                      className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 bg-clip-text text-transparent leading-tight"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2, duration: 0.6 }}
+                    >
+                      FROM VISION TO REALITY
+                    </motion.h2>
+                    
+                    <motion.p
+                      className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4, duration: 0.6 }}
+                    >
+                      Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden.
+                      Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.
+                    </motion.p>
+                  </div>
+                  
+                  {/* Bottom accent line */}
+                  <motion.div 
+                    className="h-1 bg-gradient-to-r from-transparent via-violet-500 to-transparent"
+                    animate={{
+                      opacity: [0.5, 1, 0.5],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+
             {/* Simplified Journey Visualization */}
             <motion.div initial={{
             opacity: 0,
