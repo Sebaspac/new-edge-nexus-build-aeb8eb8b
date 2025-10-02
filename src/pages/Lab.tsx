@@ -286,78 +286,123 @@ const Lab = () => {
               </p>
             </motion.div>
 
-            {/* Agents Circle */}
-            <div className="relative w-full max-w-2xl mx-auto aspect-square mb-12">
-              {/* Center Circle */}
+            {/* Agents Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 max-w-7xl mx-auto">
+              {/* Riley */}
               <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-to-br from-[#fde047] to-[#fbbf24] flex items-center justify-center shadow-2xl z-10"
+                transition={{ duration: 0.5, delay: 0.1 }}
+                whileHover={{ scale: 1.05, y: -10 }}
+                className="group cursor-pointer"
               >
-                <span className="text-white font-black text-lg sm:text-xl text-center px-4">AI Agents</span>
+                <div className="relative w-full aspect-square rounded-full overflow-hidden shadow-2xl">
+                  <video 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  >
+                    <source src="/assets/products-hero-video.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-purple-900/40 to-transparent flex items-end justify-center pb-6">
+                    <div className="text-center">
+                      <Lightbulb className="w-10 h-10 text-white mx-auto mb-2" />
+                      <span className="text-white font-black text-xl">Riley</span>
+                      <p className="text-white/90 text-sm mt-1">Wissensagent</p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
 
-              {/* Riley - Top */}
+              {/* Liam */}
               <motion.div
-                initial={{ opacity: 0, y: -50 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                whileHover={{ scale: 1.05, y: -10 }}
+                className="group cursor-pointer"
+              >
+                <div className="relative w-full aspect-square rounded-full overflow-hidden shadow-2xl">
+                  <video 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  >
+                    <source src="/assets/liam-video.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-pink-900/80 via-pink-900/40 to-transparent flex items-end justify-center pb-6">
+                    <div className="text-center">
+                      <Bot className="w-10 h-10 text-white mx-auto mb-2" />
+                      <span className="text-white font-black text-xl">Liam</span>
+                      <p className="text-white/90 text-sm mt-1">Lead-Gen-Agent</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Vera */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ scale: 1.15, rotate: 5 }}
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex flex-col items-center justify-center shadow-xl cursor-pointer"
+                whileHover={{ scale: 1.05, y: -10 }}
+                className="group cursor-pointer"
               >
-                <Lightbulb className="w-8 h-8 sm:w-10 sm:h-10 text-white mb-1" />
-                <span className="text-white font-bold text-xs sm:text-sm">Riley</span>
+                <div className="relative w-full aspect-square rounded-full overflow-hidden shadow-2xl">
+                  <video 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  >
+                    <source src="/assets/vera-agent-video.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/80 via-cyan-900/40 to-transparent flex items-end justify-center pb-6">
+                    <div className="text-center">
+                      <Phone className="w-10 h-10 text-white mx-auto mb-2" />
+                      <span className="text-white font-black text-xl">Vera</span>
+                      <p className="text-white/90 text-sm mt-1">Voice-Agent</p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
 
-              {/* Liam - Right */}
+              {/* Cora */}
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                whileHover={{ scale: 1.15, rotate: 5 }}
-                className="absolute top-1/2 right-0 -translate-y-1/2 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex flex-col items-center justify-center shadow-xl cursor-pointer"
-              >
-                <Bot className="w-8 h-8 sm:w-10 sm:h-10 text-white mb-1" />
-                <span className="text-white font-bold text-xs sm:text-sm">Liam</span>
-              </motion.div>
-
-              {/* Vera - Bottom */}
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                whileHover={{ scale: 1.15, rotate: 5 }}
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex flex-col items-center justify-center shadow-xl cursor-pointer"
+                transition={{ duration: 0.5, delay: 0.4 }}
+                whileHover={{ scale: 1.05, y: -10 }}
+                className="group cursor-pointer"
               >
-                <Phone className="w-8 h-8 sm:w-10 sm:h-10 text-white mb-1" />
-                <span className="text-white font-bold text-xs sm:text-sm">Vera</span>
+                <div className="relative w-full aspect-square rounded-full overflow-hidden shadow-2xl">
+                  <video 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  >
+                    <source src="/assets/cora-agent-video.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-orange-900/80 via-orange-900/40 to-transparent flex items-end justify-center pb-6">
+                    <div className="text-center">
+                      <FileText className="w-10 h-10 text-white mx-auto mb-2" />
+                      <span className="text-white font-black text-xl">Cora</span>
+                      <p className="text-white/90 text-sm mt-1">Content-Agent</p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
-
-              {/* Cora - Left */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                whileHover={{ scale: 1.15, rotate: 5 }}
-                className="absolute top-1/2 left-0 -translate-y-1/2 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex flex-col items-center justify-center shadow-xl cursor-pointer"
-              >
-                <FileText className="w-8 h-8 sm:w-10 sm:h-10 text-white mb-1" />
-                <span className="text-white font-bold text-xs sm:text-sm">Cora</span>
-              </motion.div>
-
-              {/* Connecting Lines */}
-              <svg className="absolute inset-0 w-full h-full -z-0" style={{ opacity: 0.1 }}>
-                <line x1="50%" y1="20%" x2="50%" y2="50%" stroke="#fbbf24" strokeWidth="2" />
-                <line x1="80%" y1="50%" x2="50%" y2="50%" stroke="#fbbf24" strokeWidth="2" />
-                <line x1="50%" y1="80%" x2="50%" y2="50%" stroke="#fbbf24" strokeWidth="2" />
-                <line x1="20%" y1="50%" x2="50%" y2="50%" stroke="#fbbf24" strokeWidth="2" />
-              </svg>
             </div>
 
             <motion.div
