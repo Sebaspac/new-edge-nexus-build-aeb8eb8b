@@ -154,7 +154,10 @@ const Index = () => {
           }} className="max-w-5xl text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 <span className="block text-gray-900">Wir bringen Ihr Unternehmen</span>
-                <span className="block bg-gradient-primary bg-clip-text text-transparent">an die Spitze Ihrer Branche</span>
+                <span className="block">
+                  <span className="bg-gradient-primary bg-clip-text text-transparent">an die Spitze </span>
+                  <span className="text-gray-900">Ihrer Branche</span>
+                </span>
                 
               </h2>
               
