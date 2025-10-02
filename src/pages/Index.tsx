@@ -100,29 +100,29 @@ const Index = () => {
     gradient: "from-accent to-primary"
   }];
   const stats = [{
-    number: "150+",
-    label: "Projekte realisiert",
+    number: "30%",
+    label: "mehr Zeit fürs Kerngeschäft",
     icon: Target
   }, {
-    number: "98%",
-    label: "Kundenzufriedenheit",
-    icon: Star
+    number: "50-300",
+    label: "Mitarbeiter (unsere Zielgruppe)",
+    icon: Users
   }, {
     number: "5x",
-    label: "Durchschnittliche Effizienzsteigerung",
+    label: "ROI durch Automatisierung",
     icon: Rocket
   }, {
-    number: "24/7",
-    label: "Support verfügbar",
-    icon: Users
+    number: "95%",
+    label: "Kundenzufriedenheit",
+    icon: Star
   }];
   return <FastLoadWrapper>
       <Helmet>
-        <title>New Edge - Innovation trifft Strategie</title>
-        <meta name="description" content="New Edge verbindet modernste Technologie mit strategischer Beratung. Wir entwickeln maßgeschneiderte digitale Lösungen und begleiten Unternehmen auf dem Weg in die Zukunft." />
-        <meta name="keywords" content="Digitale Transformation, Innovation, Technologie, Beratung, Software, KI, Automatisierung" />
-        <meta property="og:title" content="New Edge - Innovation trifft Strategie" />
-        <meta property="og:description" content="Modernste Technologie mit strategischer Beratung für die digitale Zukunft Ihres Unternehmens." />
+        <title>New Edge - Ihr Unternehmen an die Spitze bringen | Innovation & Automatisierung für KMUs</title>
+        <meta name="description" content="New Edge automatisiert Geschäftsprozesse für mittelständische KMUs. Gewinnen Sie 30% mehr Zeit, steigern Sie Effizienz und werden Sie Vorreiter Ihrer Branche – mit KI-gestützten Tools und hybrider Expertise." />
+        <meta name="keywords" content="KMU Automatisierung, Prozessoptimierung, Digitalisierung Mittelstand, KI für Unternehmen, Geschäftsprozesse automatisieren, Effizienzsteigerung, Innovation für KMUs" />
+        <meta property="og:title" content="New Edge - Innovation & Automatisierung für mittelständische KMUs" />
+        <meta property="og:description" content="Automatisierung und Innovation für KMUs: 30% mehr Zeit fürs Kerngeschäft, messbare Effizienzsteigerung, Vorreiter Ihrer Branche werden." />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://new-edge.com" />
@@ -137,6 +137,229 @@ const Index = () => {
 
         {/* Innovation Section */}
         <InnovationSection />
+
+        {/* Problem-Lösung Sektion - Neu aus Briefing */}
+        <section className="relative py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+          {/* Animated background */}
+          <motion.div
+            className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              x: [0, 50, 0],
+              y: [0, -30, 0]
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          <div className="container-xl relative z-10">
+            {/* Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-20"
+            >
+              <motion.h2 
+                className="text-display font-black mb-6 bg-gradient-primary bg-clip-text text-transparent"
+                whileHover={{ scale: 1.05 }}
+              >
+                Für wen wir arbeiten & warum
+              </motion.h2>
+              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Spezialisiert auf mittelständische KMUs, die Vorreiter werden wollen
+              </p>
+            </motion.div>
+
+            {/* Problem-Lösung Grid */}
+            <motion.div
+              className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-20"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.2
+                  }
+                }
+              }}
+            >
+              {/* Problem Card */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -60, rotateY: -20 },
+                  visible: { 
+                    opacity: 1, 
+                    x: 0, 
+                    rotateY: 0,
+                    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
+                  }
+                }}
+                whileHover={{
+                  scale: 1.03,
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
+                className="perspective-1000"
+              >
+                <Card className="h-full bg-white border-2 border-red-200 shadow-xl hover:shadow-2xl hover:border-red-300 transition-all duration-500">
+                  <CardContent className="p-10">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mb-6 shadow-lg">
+                      <Target className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-6 text-foreground">Ihre Herausforderung</h3>
+                    <ul className="space-y-4 text-muted-foreground">
+                      <motion.li 
+                        className="flex items-start gap-3"
+                        whileHover={{ x: 5 }}
+                      >
+                        <span className="text-red-500 font-bold mt-1">×</span>
+                        <span>Manuelle, zeitraubende Prozesse im Tagesgeschäft</span>
+                      </motion.li>
+                      <motion.li 
+                        className="flex items-start gap-3"
+                        whileHover={{ x: 5 }}
+                      >
+                        <span className="text-red-500 font-bold mt-1">×</span>
+                        <span>Keine Zeit für Digitalisierung und Innovation</span>
+                      </motion.li>
+                      <motion.li 
+                        className="flex items-start gap-3"
+                        whileHover={{ x: 5 }}
+                      >
+                        <span className="text-red-500 font-bold mt-1">×</span>
+                        <span>Fachkräftemangel und steigende Kosten</span>
+                      </motion.li>
+                      <motion.li 
+                        className="flex items-start gap-3"
+                        whileHover={{ x: 5 }}
+                      >
+                        <span className="text-red-500 font-bold mt-1">×</span>
+                        <span>Wettbewerber ziehen davon – Sie bleiben zurück</span>
+                      </motion.li>
+                      <motion.li 
+                        className="flex items-start gap-3"
+                        whileHover={{ x: 5 }}
+                      >
+                        <span className="text-red-500 font-bold mt-1">×</span>
+                        <span>Klassische Agenturen liefern keine echte Innovation</span>
+                      </motion.li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              {/* Lösung Card */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: 60, rotateY: 20 },
+                  visible: { 
+                    opacity: 1, 
+                    x: 0, 
+                    rotateY: 0,
+                    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
+                  }
+                }}
+                whileHover={{
+                  scale: 1.03,
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
+                className="perspective-1000"
+              >
+                <Card className="h-full bg-gradient-to-br from-white to-green-50 border-2 border-green-200 shadow-xl hover:shadow-2xl hover:border-green-400 transition-all duration-500">
+                  <CardContent className="p-10">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-6 shadow-lg">
+                      <Rocket className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-6 text-foreground">Unsere Lösung</h3>
+                    <ul className="space-y-4 text-muted-foreground">
+                      <motion.li 
+                        className="flex items-start gap-3"
+                        whileHover={{ x: 5 }}
+                      >
+                        <span className="text-green-500 font-bold mt-1 text-xl">✓</span>
+                        <span className="font-medium">KI-gestützte Automatisierung Ihrer Prozesse</span>
+                      </motion.li>
+                      <motion.li 
+                        className="flex items-start gap-3"
+                        whileHover={{ x: 5 }}
+                      >
+                        <span className="text-green-500 font-bold mt-1 text-xl">✓</span>
+                        <span className="font-medium">30% mehr Zeit für Ihr Kerngeschäft</span>
+                      </motion.li>
+                      <motion.li 
+                        className="flex items-start gap-3"
+                        whileHover={{ x: 5 }}
+                      >
+                        <span className="text-green-500 font-bold mt-1 text-xl">✓</span>
+                        <span className="font-medium">Messbare Effizienzsteigerung & ROI</span>
+                      </motion.li>
+                      <motion.li 
+                        className="flex items-start gap-3"
+                        whileHover={{ x: 5 }}
+                      >
+                        <span className="text-green-500 font-bold mt-1 text-xl">✓</span>
+                        <span className="font-medium">Sie werden Vorreiter Ihrer Branche</span>
+                      </motion.li>
+                      <motion.li 
+                        className="flex items-start gap-3"
+                        whileHover={{ x: 5 }}
+                      >
+                        <span className="text-green-500 font-bold mt-1 text-xl">✓</span>
+                        <span className="font-medium">Hybrid: Marketing + Technologie + Automatisierung</span>
+                      </motion.li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </motion.div>
+
+            {/* Nutzenversprechen Box */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="max-w-5xl mx-auto"
+            >
+              <Card className="bg-gradient-to-br from-primary to-secondary border-0 shadow-2xl hover:shadow-primary/30 transition-all duration-500 overflow-hidden">
+                <motion.div
+                  className="absolute inset-0 opacity-20"
+                  animate={{
+                    backgroundPosition: ["0% 0%", "100% 100%"],
+                  }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  style={{
+                    backgroundImage: "radial-gradient(circle at 20px 20px, white 2px, transparent 0)",
+                    backgroundSize: "40px 40px"
+                  }}
+                />
+                <CardContent className="p-12 relative z-10">
+                  <div className="text-center">
+                    <motion.div
+                      className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-white/20 backdrop-blur-sm mb-8 shadow-xl"
+                      animate={{ rotate: [0, 360], scale: [1, 1.1, 1] }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    >
+                      <Star className="w-10 h-10 text-white" />
+                    </motion.div>
+                    <h3 className="text-3xl sm:text-4xl font-black text-white mb-6">
+                      Konkret für Sie
+                    </h3>
+                    <p className="text-xl text-white/90 leading-relaxed max-w-4xl mx-auto">
+                      Für mittelständische Produktions- oder Dienstleistungsunternehmen (50-300 Mitarbeiter), die ihre Prozesse manuell betreiben und unter Fachkräftemangel leiden, implementiert New Edge <span className="font-bold">KI-gestützte Automatisierungen</span> und vernetzt sie mit passenden Agenturen. Dadurch gewinnen sie <span className="font-bold">30% mehr Zeit</span> für ihr Kerngeschäft, senken Fehlerquoten, stärken ihre Marke und werden als <span className="font-bold">innovative Vorreiter</span> in ihrer Branche wahrgenommen.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </section>
 
         {/* Impact Points Section with Modern Animations */}
         <section className="relative -mt-16 pt-24 pb-20 bg-white overflow-hidden">

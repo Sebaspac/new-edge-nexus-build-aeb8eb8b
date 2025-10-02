@@ -78,14 +78,14 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-display-xl font-black mb-6"
           >
-            <span className="block bg-gradient-primary bg-clip-text text-transparent">
-              BRAND
+            <span className="block text-white text-5xl sm:text-6xl lg:text-7xl mb-4">
+              Wir bringen Ihr Unternehmen
             </span>
-            <span className="block text-white">
-              INTELLIGENCE
+            <span className="block bg-gradient-primary bg-clip-text text-transparent text-6xl sm:text-7xl lg:text-8xl">
+              an die Spitze
             </span>
-            <span className="block text-display-lg text-gray-300">
-              FOR THE DIGITAL AGE
+            <span className="block text-white text-4xl sm:text-5xl lg:text-6xl mt-4">
+              Ihrer Branche
             </span>
           </motion.h1>
 
@@ -94,9 +94,19 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-body-xl max-w-3xl mx-auto mb-12 leading-relaxed text-base text-white"
+            className="text-body-xl max-w-4xl mx-auto mb-8 leading-relaxed text-xl text-white"
           >
-            {t('home.hero.description')} <br />
+            Mit Innovation und Automatisierung, für die Sie im operativen Tagesgeschäft sonst keinen Zugang hätten.
+          </motion.p>
+
+          {/* Subtext */}
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="text-body max-w-3xl mx-auto mb-12 leading-relaxed text-base text-gray-300"
+          >
+            Spezialisiert auf mittelständische KMUs, die ihre Prozesse modernisieren und Vorreiter ihrer Branche werden wollen – ohne sich im Tagesgeschäft zu verlieren.
           </motion.p>
 
           {/* CTA Buttons */}
