@@ -26,100 +26,68 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
   };
 
   return (
-    <section ref={containerRef} className="hero-section relative">
-      {/* Simplified animated background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-slate-900 to-purple-950/60">
-        {/* Reduced number of floating orbs for better performance */}
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-80 h-80 bg-primary/15 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-secondary/15 rounded-full blur-3xl"
-          animate={{
-            scale: [1.1, 1, 1.1],
-            opacity: [0.5, 0.3, 0.5],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 3
-          }}
-        />
-
-        {/* Simplified gradient mesh */}
-        <div className="absolute inset-0 bg-gradient-glow opacity-30" />
+    <section className="relative w-full" style={{ marginTop: '80px' }}>
+      <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
+        <div className="absolute inset-0 overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(139, 92, 246, 0.3), rgba(168, 85, 247, 0.2), rgba(192, 132, 252, 0.1))' }}>
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/assets/hero-video.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(139, 92, 246, 0.6), rgba(139, 92, 246, 0.2), transparent)' }} />
+          
+          <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl">
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white"
+            >
+              <span className="block">BRAND INTELLIGENCE</span>
+              <span className="block italic font-black" style={{ background: 'linear-gradient(to right, #8b5cf6, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                meets Automation
+              </span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed"
+            >
+              Wir vereinen strategisches Marketing mit modernster Automatisierung – 
+              für Unternehmen, die ihre Marke intelligent aufbauen und ihre Prozesse transformieren wollen.
+            </motion.p>
+          </div>
+        </div>
       </div>
 
-      {/* Hero Content */}
-      <motion.div 
-        style={{ y: heroY, opacity: heroOpacity }}
-        className="relative z-10 container-xl hero-section flex flex-col items-center justify-center text-center will-change-transform"
-      >
+      {/* CTA Buttons - Below Video */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-6xl mx-auto"
+          transition={{ delay: 0.6, duration: 0.5 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          {/* Main Headline */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-display-xl font-black mb-6"
+          <Button 
+            onClick={onContactClick} 
+            size="lg" 
+            className="group btn-primary hover-magnetic"
           >
-            <span className="block text-white text-5xl sm:text-6xl lg:text-7xl mb-4">
-              BRAND INTELLIGENCE
-            </span>
-            <span className="block bg-gradient-primary bg-clip-text text-transparent text-6xl sm:text-7xl lg:text-8xl">
-              meets Automation
-            </span>
-          </motion.h1>
-
-          {/* Description */}
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-body-xl max-w-4xl mx-auto mb-12 leading-relaxed text-xl text-white"
-          >
-            Wir vereinen strategisches Marketing mit modernster Automatisierung – 
-            für Unternehmen, die ihre Marke intelligent aufbauen und ihre Prozesse transformieren wollen.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <Button 
-              onClick={onContactClick} 
-              size="lg" 
-              className="group btn-primary hover-magnetic"
-            >
-              Projekt starten
-              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button variant="outline" size="lg" className="btn-secondary hover-glow" asChild>
-              <Link to="/services">
-                Unsere Services entdecken
-              </Link>
-            </Button>
-          </motion.div>
+            Projekt starten
+            <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+          </Button>
+          <Button variant="outline" size="lg" className="btn-secondary hover-glow" asChild>
+            <Link to="/services">
+              Unsere Services entdecken
+            </Link>
+          </Button>
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Scroll Indicator */}
       <motion.div 
