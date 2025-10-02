@@ -344,7 +344,7 @@ const Lab = () => {
                         className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity"
                       >
                         <h3 className="text-xl sm:text-2xl font-bold text-black">
-                          {agent.name} y {agent.subtitle}
+                          {agent.name}
                         </h3>
                         <motion.svg
                           animate={{ rotate: isOpen ? 180 : 0 }}
