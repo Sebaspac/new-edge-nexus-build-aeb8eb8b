@@ -260,87 +260,173 @@ const Index = () => {
 
         {/* Services Section with Overlap Effect */}
         <ScrollAnimation animation="fadeLeft" className="relative -mt-20 pt-32 pb-20 bg-gradient-to-r from-background to-surface overflow-hidden">
-          <div className="absolute -top-10 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-50 -z-10" />
-          <div className="container-xl mt-16 relative z-10">
-            <ScrollAnimation animation="fadeUp" delay={0.2} className="text-center mb-16">
-              <h2 className="text-h1 font-bold mb-6 text-foreground">Unsere Kompetenzbereiche</h2>
-              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
-                Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
+          <div className="container-xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              className="text-center mb-16"
+            >
+              <h2 className="text-display font-bold mb-6 text-foreground">
+                Know-how trifft Prozess
+              </h2>
+              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Unser Team bringt sein Fachwissen gezielt in jede Phase ein – 
+                von der Strategie bis zur Technologie-Umsetzung.
               </p>
-            </ScrollAnimation>
-
-            <motion.div className="grid-modern" initial="hidden" whileInView="visible" viewport={{
-            once: true,
-            margin: "-50px"
-          }} variants={{
-            hidden: {
-              opacity: 0
-            },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.3,
-                delayChildren: 0.4
-              }
-            }
-          }}>
-              {services.map((service, index) => {
-              const links = ['/studio', '/media', '/lab'];
-              return <motion.div key={index} variants={{
-                hidden: {
-                  opacity: 0,
-                  y: 80,
-                  rotateX: 45
-                },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  rotateX: 0,
-                  transition: {
-                    duration: 0.8,
-                    ease: "easeOut"
-                  }
-                }
-              }} whileHover={{
-                scale: 1.05,
-                y: -15,
-                transition: {
-                  duration: 0.3
-                }
-              }} className="group">
-                    <Card className="card-modern h-full hover-lift">
-                      <CardContent className="p-8 flex flex-col h-full">
-                        <motion.div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`} whileHover={{
-                      rotate: 360,
-                      scale: 1.2
-                    }} transition={{
-                      duration: 0.6
-                    }}>
-                          <service.icon className="w-8 h-8 text-white" />
-                        </motion.div>
-                        <h3 className="text-h3 font-semibold mb-4 text-foreground">
-                          {service.title}
-                        </h3>
-                        <p className="text-body text-muted-foreground leading-relaxed mb-6 flex-grow">
-                          {service.description}
-                        </p>
-                        <Button variant="default" size="sm" className="self-start group/btn btn-primary" asChild>
-                          <Link to={links[index]}>
-                            Mehr erfahren
-                            <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </motion.div>;
-            })}
             </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {[
+                { phase: "Studio", title: "Strategie & Beratung", description: "Unsere Strategy Leads und Coaches entwickeln maßgeschneiderte Markenstrategien.", team: "Strategy Leads, Brand Coaches" },
+                { phase: "Media", title: "Content & Kreation", description: "Unsere Content-Teams kreieren Inhalte – kreativ, datenbasiert und KI-gestützt.", team: "Creative Directors, Content Specialists" },
+                { phase: "Lab", title: "Technologie & Innovation", description: "Unsere Entwickler und Tech-Experten bringen Ihre Visionen zum Leben.", team: "Lead Developers, Tech Innovators" }
+              ].map((item, index) => (
+                <motion.div 
+                  key={item.phase} 
+                  initial={{ opacity: 0, y: 30 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.6, delay: index * 0.1 }} 
+                  className="group hover-lift"
+                >
+                  <Card className="card-modern h-full bg-card/80 backdrop-blur-sm border-border/50 hover:bg-card transition-all duration-300">
+                    <CardContent className="p-8 text-center">
+                      <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-body text-muted-foreground mb-6 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </ScrollAnimation>
 
+        {/* Network Stats Section */}
+        <section className="section-padding bg-gradient-subtle">
+          <div className="container-xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              className="text-center mb-16"
+            >
+              <h2 className="text-display font-bold mb-6 bg-gradient-accent bg-clip-text text-slate-50">
+                Unser Netzwerk
+              </h2>
+              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                Ein starkes Team aus Experten, Coaches und Partnern – 
+                für jede Herausforderung die richtige Expertise.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
+              {[
+                { icon: Users, label: "Coaches", value: "10+", color: "text-blue-600" },
+                { icon: Code, label: "Entwickler", value: "2", color: "text-purple-600" },
+                { icon: Palette, label: "Creative Agencies", value: "3", color: "text-pink-600" },
+                { icon: Globe, label: "Länder", value: "4", color: "text-green-600" },
+                { icon: Briefcase, label: "Freelancer", value: "15+", color: "text-orange-600" }
+              ].map((stat, index) => (
+                <motion.div 
+                  key={stat.label} 
+                  initial={{ opacity: 0, scale: 0.9 }} 
+                  whileInView={{ opacity: 1, scale: 1 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.4, delay: index * 0.05 }} 
+                  className="group hover-lift"
+                >
+                  <Card className="card-modern text-center h-full">
+                    <CardContent className="p-6">
+                      <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-primary p-3 group-hover:scale-110 transition-transform duration-300">
+                        <stat.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="text-h2 font-semibold text-foreground mb-1">{stat.value}</div>
+                      <div className="text-body-sm text-muted-foreground font-medium">{stat.label}</div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Founders Section */}
+        <section className="section-padding bg-surface">
+          <div className="container-xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              className="text-center mb-16"
+            >
+              <h2 className="text-display font-bold mb-6">
+                <span className="bg-gradient-primary bg-clip-text text-slate-50">Die Gründer</span>
+              </h2>
+              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+              {[
+                { name: "Sebastian Pachón", role: "Founder & Creative-Tech Partner", image: "/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png", expertise: ["Strategie", "Technologie"] },
+                { name: "Wenjamin Zabezhanskiy", role: "Operations & Innovation Partner", image: "/assets/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png", expertise: ["Kreation", "Support"] }
+              ].map((founder, index) => (
+                <motion.div 
+                  key={founder.name} 
+                  initial={{ opacity: 0, y: 30 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.6, delay: index * 0.1 }} 
+                  className="group hover-lift"
+                >
+                  <Card className="card-modern h-full">
+                    <div className="p-6 sm:p-8 flex flex-col h-full">
+                      <div className="flex-shrink-0 mb-6">
+                        <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden border-4 border-border/20 shadow-lg group-hover:border-primary/30 transition-colors duration-300">
+                          <img 
+                            src={founder.image} 
+                            alt={`${founder.name} - ${founder.role}`} 
+                            className="w-full h-full object-cover" 
+                            width={128}
+                            height={128}
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div className="text-center flex-grow flex flex-col justify-between">
+                        <div>
+                          <h3 className="text-h3 font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                            {founder.name}
+                          </h3>
+                          <p className="text-primary font-medium mb-6">{founder.role}</p>
+                        </div>
+                        
+                        <div className="flex justify-center gap-2 sm:gap-3 flex-wrap">
+                          {founder.expertise.map((skill, skillIndex) => (
+                            <span key={skillIndex} className="px-3 py-2 sm:px-4 bg-white/10 backdrop-blur-sm text-foreground rounded-xl text-sm font-medium border border-white/20 shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-200 hover:shadow-xl">
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Contact Section */}
         <ScrollAnimation animation="scaleIn" threshold={0.1}>
-          <section id="contact-section" className="relative -mt-24 pt-32 pb-20 bg-gradient-to-br from-surface via-background to-surface overflow-hidden">
+          <section id="contact-section" className="relative pt-20 pb-20 bg-gradient-to-br from-surface via-background to-surface overflow-hidden">
             {/* Modern floating elements */}
             <motion.div className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl" animate={{
             scale: [1, 1.5, 1],
@@ -493,172 +579,6 @@ const Index = () => {
             </div>
           </section>
         </ScrollAnimation>
-
-        {/* Process Connection */}
-        <section className="section-padding bg-surface-elevated">
-          <div className="container-xl">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              className="text-center mb-16"
-            >
-              <h2 className="text-display font-bold mb-6 text-foreground">
-                Know-how trifft Prozess
-              </h2>
-              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Unser Team bringt sein Fachwissen gezielt in jede Phase ein – 
-                von der Strategie bis zur Technologie-Umsetzung.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {[
-                { phase: "Studio", title: "Strategie & Beratung", description: "Unsere Strategy Leads und Coaches entwickeln maßgeschneiderte Markenstrategien.", team: "Strategy Leads, Brand Coaches" },
-                { phase: "Media", title: "Content & Kreation", description: "Unsere Content-Teams kreieren Inhalte – kreativ, datenbasiert und KI-gestützt.", team: "Creative Directors, Content Specialists" },
-                { phase: "Lab", title: "Technologie & Innovation", description: "Unsere Entwickler und Tech-Experten bringen Ihre Visionen zum Leben.", team: "Lead Developers, Tech Innovators" }
-              ].map((item, index) => (
-                <motion.div 
-                  key={item.phase} 
-                  initial={{ opacity: 0, y: 30 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  viewport={{ once: true }} 
-                  transition={{ duration: 0.6, delay: index * 0.1 }} 
-                  className="group hover-lift"
-                >
-                  <Card className="card-modern h-full bg-card/80 backdrop-blur-sm border-border/50 hover:bg-card transition-all duration-300">
-                    <CardContent className="p-8 text-center">
-                      <h3 className="text-h3 font-semibold mb-4 text-foreground group-hover:text-primary transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-body text-muted-foreground mb-6 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Network Stats Section */}
-        <section className="section-padding bg-gradient-subtle">
-          <div className="container-xl">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              className="text-center mb-16"
-            >
-              <h2 className="text-display font-bold mb-6 bg-gradient-accent bg-clip-text text-slate-50">
-                Unser Netzwerk
-              </h2>
-              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Ein starkes Team aus Experten, Coaches und Partnern – 
-                für jede Herausforderung die richtige Expertise.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
-              {[
-                { icon: Users, label: "Coaches", value: "10+", color: "text-blue-600" },
-                { icon: Code, label: "Entwickler", value: "2", color: "text-purple-600" },
-                { icon: Palette, label: "Creative Agencies", value: "3", color: "text-pink-600" },
-                { icon: Globe, label: "Länder", value: "4", color: "text-green-600" },
-                { icon: Briefcase, label: "Freelancer", value: "15+", color: "text-orange-600" }
-              ].map((stat, index) => (
-                <motion.div 
-                  key={stat.label} 
-                  initial={{ opacity: 0, scale: 0.9 }} 
-                  whileInView={{ opacity: 1, scale: 1 }} 
-                  viewport={{ once: true }} 
-                  transition={{ duration: 0.4, delay: index * 0.05 }} 
-                  className="group hover-lift"
-                >
-                  <Card className="card-modern text-center h-full">
-                    <CardContent className="p-6">
-                      <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-primary p-3 group-hover:scale-110 transition-transform duration-300">
-                        <stat.icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div className="text-h2 font-semibold text-foreground mb-1">{stat.value}</div>
-                      <div className="text-body-sm text-muted-foreground font-medium">{stat.label}</div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Founders Section */}
-        <section className="section-padding bg-surface">
-          <div className="container-xl">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              className="text-center mb-16"
-            >
-              <h2 className="text-display font-bold mb-6">
-                <span className="bg-gradient-primary bg-clip-text text-slate-50">Die Gründer</span>
-              </h2>
-              <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-              {[
-                { name: "Sebastian Pachón", role: "Founder & Creative-Tech Partner", image: "/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png", expertise: ["Strategie", "Technologie"] },
-                { name: "Wenjamin Zabezhanskiy", role: "Operations & Innovation Partner", image: "/assets/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png", expertise: ["Kreation", "Support"] }
-              ].map((founder, index) => (
-                <motion.div 
-                  key={founder.name} 
-                  initial={{ opacity: 0, y: 30 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  viewport={{ once: true }} 
-                  transition={{ duration: 0.6, delay: index * 0.1 }} 
-                  className="group hover-lift"
-                >
-                  <Card className="card-modern h-full">
-                    <div className="p-6 sm:p-8 flex flex-col h-full">
-                      <div className="flex-shrink-0 mb-6">
-                        <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden border-4 border-border/20 shadow-lg group-hover:border-primary/30 transition-colors duration-300">
-                          <img 
-                            src={founder.image} 
-                            alt={`${founder.name} - ${founder.role}`} 
-                            className="w-full h-full object-cover" 
-                            width={128}
-                            height={128}
-                            loading="lazy"
-                          />
-                        </div>
-                      </div>
-                      
-                      <div className="text-center flex-grow flex flex-col justify-between">
-                        <div>
-                          <h3 className="text-h3 font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
-                            {founder.name}
-                          </h3>
-                          <p className="text-primary font-medium mb-6">{founder.role}</p>
-                        </div>
-                        
-                        <div className="flex justify-center gap-2 sm:gap-3 flex-wrap">
-                          {founder.expertise.map((skill, skillIndex) => (
-                            <span key={skillIndex} className="px-3 py-2 sm:px-4 bg-white/10 backdrop-blur-sm text-foreground rounded-xl text-sm font-medium border border-white/20 shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-200 hover:shadow-xl">
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Footer */}
         <footer className="bg-surface-elevated/80 border-t border-border py-12 sm:py-16">
