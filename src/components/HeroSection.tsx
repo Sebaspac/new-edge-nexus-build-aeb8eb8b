@@ -28,7 +28,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
   return (
     <section ref={containerRef} className="hero-section relative">
       {/* Simplified animated background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-surface-elevated">
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-slate-900 to-purple-950/60">
         {/* Reduced number of floating orbs for better performance */}
         <motion.div 
           className="absolute top-1/4 left-1/4 w-80 h-80 bg-primary/15 rounded-full blur-3xl"
@@ -81,10 +81,10 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             <span className="block bg-gradient-primary bg-clip-text text-transparent">
               BRAND
             </span>
-            <span className="block text-foreground">
+            <span className="block text-white">
               INTELLIGENCE
             </span>
-            <span className="block text-display-lg text-muted-foreground">
+            <span className="block text-display-lg text-gray-300">
               FOR THE DIGITAL AGE
             </span>
           </motion.h1>
@@ -94,7 +94,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-body-xl max-w-3xl mx-auto mb-12 leading-relaxed text-base text-slate-50"
+            className="text-body-xl max-w-3xl mx-auto mb-12 leading-relaxed text-base text-white"
           >
             {t('home.hero.description')} <br />
           </motion.p>
@@ -133,7 +133,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
         <motion.div 
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center gap-2 text-muted-foreground cursor-pointer hover-scale"
+          className="flex flex-col items-center gap-2 text-gray-300 cursor-pointer hover-scale"
           onClick={scrollToNext}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
