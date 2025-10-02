@@ -279,7 +279,7 @@ const Lab = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-12"
+              className="text-left mb-12"
             >
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-black">
                 Meet Our Agents
