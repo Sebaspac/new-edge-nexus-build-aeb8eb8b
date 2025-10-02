@@ -129,6 +129,26 @@ const Lab = () => {
           </div>
         </section>
 
+        {/* Title Section */}
+        <section className="py-12 sm:py-16 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center max-w-4xl mx-auto"
+            >
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                TECH INNOVATION LAB
+              </h2>
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+                entwickelt, automatisiert und skaliert Technologielösungen. Von KI-Integration bis zur vollständigen Webentwicklung.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Services Sections */}
         {labServices.map((service, index) => {
           const Icon = service.icon;
