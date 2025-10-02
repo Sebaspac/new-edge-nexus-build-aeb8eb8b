@@ -47,9 +47,10 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white"
             >
-              <span className="block">BRAND INTELLIGENCE</span>
+              <span className="block">BRAND</span>
+              <span className="block">INTELLIGENCE</span>
               <span className="block italic font-black" style={{ background: 'linear-gradient(to right, #8b5cf6, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                meets Automation
+                FOR THE DIGITAL AGE
               </span>
             </motion.h1>
             <motion.p 
@@ -58,8 +59,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed"
             >
-              Wir vereinen strategisches Marketing mit modernster Automatisierung – 
-              für Unternehmen, die ihre Marke intelligent aufbauen und ihre Prozesse transformieren wollen.
+              Wir helfen Marken, sichtbar zu werden, Prozesse zu automatisieren – und den Wandel durch Innovation aktiv zu gestalten.
             </motion.p>
           </div>
         </div>
