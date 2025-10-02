@@ -289,10 +289,10 @@ const Lab = () => {
               </p>
             </motion.div>
 
-            {/* Two-Column Layout: List Left, Content Right */}
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-              {/* Left: Agents List */}
-              <div className="space-y-2">
+            {/* Two-Column Layout: Accordion Left, Video Right */}
+            <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-start">
+              {/* Left: Accordion List */}
+              <div className="space-y-1">
                 {[
                   {
                     name: "Riley",
@@ -327,89 +327,81 @@ const Lab = () => {
                     video: "/assets/cora-agent-video.mp4"
                   }
                 ].map((agent, index) => {
-                  const Icon = agent.icon;
-                  const isActive = selectedAgent === agent.name;
+                  const isOpen = selectedAgent === agent.name;
 
                   return (
-                    <motion.button
+                    <motion.div
                       key={agent.name}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      onClick={() => setSelectedAgent(agent.name)}
-                      className={`w-full p-6 rounded-2xl border-2 transition-all text-left ${
-                        isActive
-                          ? 'bg-white border-gray-300 shadow-lg'
-                          : 'bg-white/50 border-gray-200 hover:bg-white/80 hover:border-gray-300'
-                      }`}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      className="border-b border-gray-200 last:border-b-0"
                     >
-                      <div className="flex items-center gap-4">
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${agent.gradient} flex-shrink-0`}>
-                          <Icon className="w-6 h-6 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className={`text-lg sm:text-xl font-black transition-colors ${
-                            isActive ? 'text-black' : 'text-gray-700'
-                          }`}>
-                            {agent.name}
-                          </h3>
-                          <p className="text-sm text-gray-600">{agent.subtitle}</p>
-                        </div>
-                        <motion.div
-                          animate={{ rotate: isActive ? 90 : 0 }}
+                      {/* Accordion Header */}
+                      <button
+                        onClick={() => setSelectedAgent(isOpen ? "" : agent.name)}
+                        className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity"
+                      >
+                        <h3 className="text-xl sm:text-2xl font-bold text-black">
+                          {agent.name} y {agent.subtitle}
+                        </h3>
+                        <motion.svg
+                          animate={{ rotate: isOpen ? 180 : 0 }}
                           transition={{ duration: 0.3 }}
+                          className="w-5 h-5 text-gray-500 flex-shrink-0 ml-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
                         >
-                          <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </motion.div>
-                      </div>
-                    </motion.button>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </motion.svg>
+                      </button>
+
+                      {/* Accordion Content */}
+                      <motion.div
+                        initial={false}
+                        animate={{
+                          height: isOpen ? "auto" : 0,
+                          opacity: isOpen ? 1 : 0
+                        }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-6 pr-8">
+                          <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                            {agent.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                    </motion.div>
                   );
                 })}
               </div>
 
-              {/* Right: Dynamic Content */}
-              <div className="lg:sticky lg:top-24 space-y-6">
+              {/* Right: Sticky Video */}
+              <div className="lg:sticky lg:top-24">
                 {(() => {
                   const agents = [
                     {
                       name: "Riley",
-                      subtitle: "Wissensagent",
-                      icon: Lightbulb,
-                      gradient: "from-purple-500 to-blue-500",
-                      description: "Riley nutzt Retrieval-Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten.",
                       video: "/assets/products-hero-video.mp4"
                     },
                     {
                       name: "Liam",
-                      subtitle: "Lead-Gen-Agent",
-                      icon: Bot,
-                      gradient: "from-purple-500 to-pink-500",
-                      description: "Liam automatisiert Ihre Lead-Generierung. Er kombiniert Chatbots, Segmentierung, Predictive Lead Scoring und automatisierte E-Mail-Kampagnen. Dadurch identifiziert und pflegt er wertvolle Kontakte, während Ihr Vertrieb sich auf Abschlüsse konzentriert.",
                       video: "/assets/liam-video.mp4"
                     },
                     {
                       name: "Vera",
-                      subtitle: "Voice-Agent",
-                      icon: Phone,
-                      gradient: "from-green-500 to-emerald-500",
-                      description: "Vera ist Ihre smarte Telefon-Assistentin. Sie nimmt Anrufe rund um die Uhr entgegen, automatisiert Routinegespräche, beantwortet Fragen und leitet komplexe Anliegen an Ihr Team weiter. Voice-AI-Lösungen können hohe Anrufvolumina bewältigen.",
                       video: "/assets/vera-agent-video.mp4"
                     },
                     {
                       name: "Cora",
-                      subtitle: "Content-Agent",
-                      icon: FileText,
-                      gradient: "from-amber-500 to-orange-500",
-                      description: "Cora erstellt und optimiert Inhalte für Blogs, Social Media und E-Mail-Newsletter. AI-Content-Agenten sparen Zeit, verbessern die Qualität und sorgen für konsistente Texte. Cora analysiert Keyword-Trends und generiert SEO-optimierte Texte.",
                       video: "/assets/cora-agent-video.mp4"
                     }
                   ];
-                  
+
                   const currentAgent = agents.find(a => a.name === selectedAgent) || agents[0];
-                  const Icon = currentAgent.icon;
 
                   return (
                     <motion.div
@@ -417,46 +409,18 @@ const Lab = () => {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4 }}
-                      className="space-y-6"
+                      className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-100"
                     >
-                      {/* Video */}
-                      <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
-                        <video 
-                          key={currentAgent.video}
-                          autoPlay 
-                          loop 
-                          muted 
-                          playsInline
-                          className="absolute inset-0 w-full h-full object-cover"
-                        >
-                          <source src={currentAgent.video} type="video/mp4" />
-                        </video>
-                      </div>
-
-                      {/* Description Card */}
-                      <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-200">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className={`w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-br ${currentAgent.gradient}`}>
-                            <Icon className="w-7 h-7 text-white" />
-                          </div>
-                          <div>
-                            <h3 className="text-2xl sm:text-3xl font-black text-black">{currentAgent.name}</h3>
-                            <p className="text-sm text-gray-600">{currentAgent.subtitle}</p>
-                          </div>
-                        </div>
-                        
-                        <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
-                          {currentAgent.description}
-                        </p>
-
-                        <Button
-                          size="lg"
-                          className={`w-full bg-gradient-to-r ${currentAgent.gradient} hover:opacity-90 text-white font-bold shadow-lg`}
-                          onClick={() => navigate('/products')}
-                        >
-                          Mehr über {currentAgent.name} erfahren
-                        </Button>
-                      </div>
+                      <video
+                        key={currentAgent.video}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover"
+                      >
+                        <source src={currentAgent.video} type="video/mp4" />
+                      </video>
                     </motion.div>
                   );
                 })()}
