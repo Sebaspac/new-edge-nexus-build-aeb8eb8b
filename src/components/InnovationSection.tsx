@@ -1,30 +1,86 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import { Lightbulb, Zap, Brain } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
-import { ScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useState } from "react";
 
 export const InnovationSection = () => {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
+  };
+
   return (
-    <ScrollAnimation 
-      animation="fadeUp" 
-      className="innovation-section relative -mt-32 pt-40 pb-20 bg-gradient-subtle overflow-hidden"
+    <section 
+      className="innovation-section relative -mt-32 pt-40 pb-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden"
+      onMouseMove={handleMouseMove}
     >
-      {/* Simplified background elements for better performance */}
-      <motion.div 
-        className="absolute top-10 left-10 w-20 h-20 bg-primary/8 rounded-full blur-xl"
-        animate={{ y: [0, -15, 0], scale: [1, 1.05, 1] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div 
-        className="absolute bottom-20 right-20 w-24 h-24 bg-accent/8 rounded-full blur-xl"
-        animate={{ y: [0, 10, 0], scale: [1, 0.95, 1] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      />
+      {/* Animated network background */}
+      <div className="absolute inset-0 opacity-30">
+        <svg className="w-full h-full">
+          <defs>
+            <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="hsl(var(--secondary))" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.3" />
+            </linearGradient>
+          </defs>
+          {/* Animated connection lines */}
+          <motion.path
+            d="M 100 100 Q 400 200 700 100"
+            stroke="url(#line-gradient)"
+            strokeWidth="2"
+            fill="none"
+            initial={{ pathLength: 0, opacity: 0 }}
+            whileInView={{ pathLength: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+          />
+          <motion.path
+            d="M 700 100 Q 900 300 1200 200"
+            stroke="url(#line-gradient)"
+            strokeWidth="2"
+            fill="none"
+            initial={{ pathLength: 0, opacity: 0 }}
+            whileInView={{ pathLength: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 2, delay: 0.5, ease: "easeInOut" }}
+          />
+        </svg>
+      </div>
+
+      {/* Floating particles that react to mouse */}
+      {[...Array(15)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 rounded-full bg-gradient-to-r from-primary/40 to-secondary/40 blur-sm"
+          style={{
+            left: `${(i * 7 + 10) % 90}%`,
+            top: `${(i * 11 + 15) % 80}%`,
+          }}
+          animate={{
+            y: [0, -30, 0],
+            x: [0, Math.sin(i) * 20, 0],
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.8, 0.3],
+          }}
+          transition={{
+            duration: 3 + i * 0.2,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: i * 0.1,
+          }}
+        />
+      ))}
       
-      <div className="container-xl relative">
-        {/* Main Content Grid */}
+      <div className="container-xl relative z-10">
+        {/* Main Interactive Grid */}
         <motion.div 
-          className="grid lg:grid-cols-2 gap-16 items-stretch mb-24 relative z-10"
+          className="grid lg:grid-cols-2 gap-12 items-stretch mb-24 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -34,149 +90,394 @@ export const InnovationSection = () => {
               opacity: 1,
               transition: {
                 staggerChildren: 0.2,
-                delayChildren: 0.1
+                delayChildren: 0.2
               }
             }
           }}
         >
-          {/* Left: Core Philosophy */}
+          {/* Animated connecting line between cards */}
+          <motion.div
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/3 h-1 hidden lg:block"
+            initial={{ scaleX: 0, opacity: 0 }}
+            whileInView={{ scaleX: 1, opacity: 0.3 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+          >
+            <div className="w-full h-full bg-gradient-to-r from-primary via-secondary to-accent" />
+            {/* Animated pulse along the line */}
+            <motion.div
+              className="absolute top-0 left-0 w-8 h-1 bg-white shadow-lg shadow-primary/50"
+              animate={{
+                x: ["0%", "300%"],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          </motion.div>
+
+          {/* Card 1: Innovation */}
           <motion.div 
             variants={{
-              hidden: { opacity: 0, x: -30 },
+              hidden: { opacity: 0, x: -80, rotateY: -30, scale: 0.8 },
               visible: {
                 opacity: 1,
                 x: 0,
-                transition: { duration: 0.6, ease: "easeOut" }
+                rotateY: 0,
+                scale: 1,
+                transition: { 
+                  duration: 0.8, 
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  type: "spring",
+                  stiffness: 80
+                }
               }
             }}
-            className="space-y-6"
+            whileHover={{
+              scale: 1.03,
+              y: -10,
+              rotateY: 5,
+              transition: { duration: 0.4, type: "spring", stiffness: 200 }
+            }}
+            onHoverStart={() => setHoveredCard(1)}
+            onHoverEnd={() => setHoveredCard(null)}
+            className="perspective-1000 relative"
           >
-            <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-background via-surface to-surface-elevated border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+            {/* Glow effect when hovered */}
+            <motion.div
+              className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-2xl"
+              animate={{
+                opacity: hoveredCard === 1 ? 0.8 : 0,
+                scale: hoveredCard === 1 ? 1.05 : 1,
+              }}
+              transition={{ duration: 0.3 }}
+            />
+            
+            <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-white to-gray-50 border-2 border-primary/20 shadow-2xl hover:shadow-primary/20 hover:border-primary/40 transition-all duration-500">
+              {/* Animated gradient overlay */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                animate={{
+                  backgroundPosition: hoveredCard === 1 ? ["0% 0%", "100% 100%"] : "0% 0%",
+                }}
+                transition={{ duration: 3, repeat: hoveredCard === 1 ? Infinity : 0 }}
+              />
               
-              <CardContent className="relative p-10 h-full flex">
+              <CardContent className="relative p-10 h-full flex gap-6">
                 <div className="flex-1 flex flex-col">
                   <motion.div 
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary via-primary to-primary/80 shadow-lg shadow-primary/20 mb-8"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
+                    className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-secondary shadow-xl shadow-primary/30 mb-8 relative"
+                    whileHover={{ 
+                      scale: 1.2, 
+                      rotate: 360,
+                      transition: { duration: 0.6, type: "spring" }
+                    }}
+                    animate={{
+                      boxShadow: hoveredCard === 1 
+                        ? "0 20px 40px rgba(147, 51, 234, 0.4)" 
+                        : "0 10px 20px rgba(147, 51, 234, 0.2)",
+                    }}
                   >
-                    <Lightbulb className="w-8 h-8 text-white drop-shadow-sm" />
+                    {/* Animated ring around icon */}
+                    <motion.div
+                      className="absolute inset-0 rounded-3xl border-2 border-primary/50"
+                      animate={{
+                        scale: hoveredCard === 1 ? [1, 1.3, 1] : 1,
+                        opacity: hoveredCard === 1 ? [1, 0, 1] : 0,
+                      }}
+                      transition={{ duration: 2, repeat: hoveredCard === 1 ? Infinity : 0 }}
+                    />
+                    <Lightbulb className="w-10 h-10 text-white drop-shadow-lg relative z-10" />
                   </motion.div>
                   
-                  <h3 className="text-2xl font-bold mb-6 text-primary leading-tight">
+                  <motion.h3 
+                    className="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight"
+                    animate={{ scale: hoveredCard === 1 ? 1.05 : 1 }}
+                  >
                     Innovation als Prozess
-                  </h3>
+                  </motion.h3>
                   <p className="text-base text-muted-foreground leading-relaxed flex-grow">
                     Für uns ist Innovation kein einzelnes Feature – sie ist ein kontinuierlicher Prozess. 
                     Wir schaffen den Zugang zu echter Innovation für KMU, Selbständige und Marken im Wandel.
                   </p>
                 </div>
                 
-                {/* Team Collaboration Image */}
-                <div className="w-32 h-32 ml-8 flex-shrink-0 rounded-xl overflow-hidden border border-primary/20">
+                <motion.div 
+                  className="w-36 h-36 flex-shrink-0 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-xl relative"
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: [0, -3, 3, 0],
+                    transition: { duration: 0.5 }
+                  }}
+                  animate={{
+                    borderColor: hoveredCard === 1 ? "hsl(var(--primary))" : "hsl(var(--primary) / 0.3)",
+                  }}
+                >
+                  {/* Animated overlay on image */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent"
+                    animate={{
+                      opacity: hoveredCard === 1 ? 0.6 : 0,
+                    }}
+                    transition={{ duration: 0.3 }}
+                  />
                   <img 
                     src="/assets/804d1765-b7c9-45f5-93a3-dddb443996f4.png" 
-                    alt="Team collaboration - people working together on innovative solutions" 
+                    alt="Team collaboration" 
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                </div>
-                
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
+                </motion.div>
               </CardContent>
+              
+              {/* Bottom accent line */}
+              <motion.div 
+                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent"
+                animate={{
+                  scaleX: hoveredCard === 1 ? 1 : 0,
+                  opacity: hoveredCard === 1 ? 1 : 0,
+                }}
+                transition={{ duration: 0.3 }}
+              />
             </Card>
           </motion.div>
 
-          {/* Right: Approach */}
+          {/* Card 2: Transformation */}
           <motion.div 
             variants={{
-              hidden: { opacity: 0, x: 30 },
+              hidden: { opacity: 0, x: 80, rotateY: 30, scale: 0.8 },
               visible: {
                 opacity: 1,
                 x: 0,
-                transition: { duration: 0.6, ease: "easeOut" }
+                rotateY: 0,
+                scale: 1,
+                transition: { 
+                  duration: 0.8, 
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  type: "spring",
+                  stiffness: 80
+                }
               }
             }}
-            className="space-y-6"
+            whileHover={{
+              scale: 1.03,
+              y: -10,
+              rotateY: -5,
+              transition: { duration: 0.4, type: "spring", stiffness: 200 }
+            }}
+            onHoverStart={() => setHoveredCard(2)}
+            onHoverEnd={() => setHoveredCard(null)}
+            className="perspective-1000 relative"
           >
-            <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-surface via-surface-elevated to-background border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/3 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+            {/* Glow effect when hovered */}
+            <motion.div
+              className="absolute -inset-4 bg-gradient-to-r from-accent/20 to-primary/20 rounded-3xl blur-2xl"
+              animate={{
+                opacity: hoveredCard === 2 ? 0.8 : 0,
+                scale: hoveredCard === 2 ? 1.05 : 1,
+              }}
+              transition={{ duration: 0.3 }}
+            />
+            
+            <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-white to-gray-50 border-2 border-accent/20 shadow-2xl hover:shadow-accent/20 hover:border-accent/40 transition-all duration-500">
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                animate={{
+                  backgroundPosition: hoveredCard === 2 ? ["0% 0%", "100% 100%"] : "0% 0%",
+                }}
+                transition={{ duration: 3, repeat: hoveredCard === 2 ? Infinity : 0 }}
+              />
               
-              <CardContent className="relative p-10 h-full flex">
+              <CardContent className="relative p-10 h-full flex gap-6">
                 <div className="flex-1 flex flex-col">
                   <motion.div 
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent via-accent to-accent/80 shadow-lg shadow-accent/20 mb-8"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
+                    className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-accent to-primary shadow-xl shadow-accent/30 mb-8 relative"
+                    whileHover={{ 
+                      scale: 1.2, 
+                      rotate: -360,
+                      transition: { duration: 0.6, type: "spring" }
+                    }}
+                    animate={{
+                      boxShadow: hoveredCard === 2 
+                        ? "0 20px 40px rgba(234, 179, 8, 0.4)" 
+                        : "0 10px 20px rgba(234, 179, 8, 0.2)",
+                    }}
                   >
-                    <Zap className="w-8 h-8 text-white drop-shadow-sm" />
+                    <motion.div
+                      className="absolute inset-0 rounded-3xl border-2 border-accent/50"
+                      animate={{
+                        scale: hoveredCard === 2 ? [1, 1.3, 1] : 1,
+                        opacity: hoveredCard === 2 ? [1, 0, 1] : 0,
+                      }}
+                      transition={{ duration: 2, repeat: hoveredCard === 2 ? Infinity : 0 }}
+                    />
+                    <Zap className="w-10 h-10 text-white drop-shadow-lg relative z-10" />
                   </motion.div>
                   
-                  <h3 className="text-2xl font-bold mb-6 text-accent leading-tight">
+                  <motion.h3 
+                    className="text-2xl font-bold mb-6 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent leading-tight"
+                    animate={{ scale: hoveredCard === 2 ? 1.05 : 1 }}
+                  >
                     Ganzheitliche Transformation
-                  </h3>
+                  </motion.h3>
                   <p className="text-base text-muted-foreground leading-relaxed flex-grow">
                     Unser Fokus liegt nicht nur auf Automatisierung oder Chatbots, sondern auf ganzheitlicher, 
                     kreativer Transformation: Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools.
                   </p>
                 </div>
                 
-                {/* Business Analytics Image */}
-                <div className="w-32 h-32 ml-8 flex-shrink-0 rounded-xl overflow-hidden border border-accent/20">
+                <motion.div 
+                  className="w-36 h-36 flex-shrink-0 rounded-2xl overflow-hidden border-2 border-accent/30 shadow-xl relative"
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: [0, 3, -3, 0],
+                    transition: { duration: 0.5 }
+                  }}
+                  animate={{
+                    borderColor: hoveredCard === 2 ? "hsl(var(--accent))" : "hsl(var(--accent) / 0.3)",
+                  }}
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-accent/30 to-transparent"
+                    animate={{
+                      opacity: hoveredCard === 2 ? 0.6 : 0,
+                    }}
+                    transition={{ duration: 0.3 }}
+                  />
                   <img 
                     src="/assets/72768da6-5ac5-423e-a9df-579dd83dc1aa.png" 
-                    alt="Business analytics and data visualization - comprehensive transformation approach" 
+                    alt="Business transformation" 
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                </div>
-                
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/15 to-transparent" />
+                </motion.div>
               </CardContent>
+              
+              <motion.div 
+                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent"
+                animate={{
+                  scaleX: hoveredCard === 2 ? 1 : 0,
+                  opacity: hoveredCard === 2 ? 1 : 0,
+                }}
+                transition={{ duration: 0.3 }}
+              />
             </Card>
           </motion.div>
         </motion.div>
 
-        {/* Vision Statement */}
-        <ScrollAnimation animation="fadeUp" delay={0.3} className="text-center mb-20 relative z-10">
+        {/* Vision Statement - Interactive Center Piece */}
+        <motion.div
+          initial={{ opacity: 0, y: 80, scale: 0.8 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-center mb-20 relative z-10"
+        >
           <motion.div 
-            className="max-w-5xl mx-auto"
-            whileHover={{ scale: 1.01 }}
-            transition={{ duration: 0.2 }}
+            className="max-w-5xl mx-auto relative"
+            whileHover={{ scale: 1.02 }}
+            onHoverStart={() => setHoveredCard(3)}
+            onHoverEnd={() => setHoveredCard(null)}
           >
-            <Card className="relative overflow-hidden bg-gradient-to-br from-background via-surface to-surface-elevated border-0 shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-accent/3" />
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
+            {/* Pulsing glow effect */}
+            <motion.div
+              className="absolute -inset-6 bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 rounded-3xl blur-3xl"
+              animate={{
+                opacity: hoveredCard === 3 ? 1 : 0.3,
+                scale: hoveredCard === 3 ? [1, 1.1, 1] : 1,
+              }}
+              transition={{ 
+                opacity: { duration: 0.3 },
+                scale: { duration: 2, repeat: hoveredCard === 3 ? Infinity : 0 }
+              }}
+            />
+            
+            <Card className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white border-2 border-primary/20 shadow-2xl hover:border-primary/40 transition-all duration-500">
+              {/* Animated gradient mesh background */}
+              <motion.div 
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `
+                    radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, hsl(var(--secondary) / 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 20%, hsl(var(--accent) / 0.1) 0%, transparent 50%)
+                  `,
+                }}
+                animate={{
+                  opacity: hoveredCard === 3 ? 1 : 0.5,
+                }}
+              />
               
-              <CardContent className="relative p-12 text-center">
+              <CardContent className="relative p-16 text-center">
                 <motion.div 
-                  className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary via-primary to-secondary mb-10 shadow-lg shadow-primary/15"
-                  animate={{ rotate: [0, 3, -3, 0], scale: [1, 1.02, 1] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  whileHover={{ scale: 1.05, rotate: 5 }}
+                  className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-gradient-to-br from-primary via-secondary to-accent mb-12 shadow-2xl relative"
+                  animate={{ 
+                    rotate: [0, 5, -5, 0],
+                    scale: hoveredCard === 3 ? [1, 1.1, 1] : 1,
+                  }}
+                  transition={{ 
+                    rotate: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                    scale: { duration: 1.5, repeat: hoveredCard === 3 ? Infinity : 0 }
+                  }}
+                  whileHover={{ scale: 1.15, rotate: 10 }}
                 >
-                  <Brain className="w-10 h-10 text-white drop-shadow-sm" />
+                  {/* Multiple animated rings */}
+                  {[...Array(3)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute inset-0 rounded-3xl border-2 border-primary/30"
+                      animate={{
+                        scale: hoveredCard === 3 ? [1, 1.5 + i * 0.2, 1] : 1,
+                        opacity: hoveredCard === 3 ? [0.5, 0, 0.5] : 0,
+                      }}
+                      transition={{ 
+                        duration: 2, 
+                        repeat: hoveredCard === 3 ? Infinity : 0,
+                        delay: i * 0.3
+                      }}
+                    />
+                  ))}
+                  <Brain className="w-12 h-12 text-white drop-shadow-xl relative z-10" />
                 </motion.div>
                 
-                <h3 className="text-4xl font-bold mb-8 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight">
+                <motion.h3 
+                  className="text-5xl font-black mb-8 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight"
+                  animate={{
+                    scale: hoveredCard === 3 ? [1, 1.05, 1] : 1,
+                  }}
+                  transition={{ duration: 2, repeat: hoveredCard === 3 ? Infinity : 0 }}
+                >
                   Kreatives Headquarter<br />für Innovation
-                </h3>
+                </motion.h3>
                 
-                <div className="space-y-4 max-w-2xl mx-auto">
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                <motion.div 
+                  className="space-y-4 max-w-2xl mx-auto"
+                  animate={{
+                    y: hoveredCard === 3 ? [0, -5, 0] : 0,
+                  }}
+                  transition={{ duration: 2, repeat: hoveredCard === 3 ? Infinity : 0 }}
+                >
+                  <p className="text-xl text-muted-foreground leading-relaxed font-medium">
                     Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.
                   </p>
-                </div>
+                </motion.div>
                 
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+                {/* Animated bottom accent */}
+                <motion.div 
+                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-transparent via-primary to-transparent"
+                  animate={{
+                    width: hoveredCard === 3 ? "80%" : "40%",
+                    opacity: hoveredCard === 3 ? 1 : 0.3,
+                  }}
+                  transition={{ duration: 0.5 }}
+                />
               </CardContent>
             </Card>
           </motion.div>
-        </ScrollAnimation>
+        </motion.div>
       </div>
-    </ScrollAnimation>
+    </section>
   );
 };
