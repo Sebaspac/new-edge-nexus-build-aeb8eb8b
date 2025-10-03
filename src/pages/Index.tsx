@@ -305,7 +305,7 @@ const Index = () => {
             </motion.div>
             
             {/* Grid with enhanced stagger animation */}
-            <motion.div className="grid md:grid-cols-2 gap-4 items-stretch max-w-5xl mx-auto" initial="hidden" whileInView="visible" viewport={{
+            <motion.div className="grid md:grid-cols-2 gap-3 md:gap-4 items-stretch max-w-5xl mx-auto" initial="hidden" whileInView="visible" viewport={{
             once: true,
             margin: "-80px"
           }} variants={{
@@ -372,20 +372,20 @@ const Index = () => {
                 }
               }
             }} className="h-full">
-                  <motion.div className={`bg-gradient-to-br ${point.gradient} backdrop-blur-sm p-6 rounded-2xl border ${point.border} shadow-lg h-full flex flex-col`} whileHover={{
+                  <motion.div className={`bg-gradient-to-br ${point.gradient} backdrop-blur-sm p-3 md:p-6 rounded-xl md:rounded-2xl border ${point.border} shadow-lg h-full flex flex-col`} whileHover={{
                 scale: 1.02,
                 y: -5,
                 boxShadow: `0 15px 30px -10px ${point.shadow}`
               }} transition={{
                 duration: 0.2
               }}>
-                    <div className={`w-12 h-12 bg-gradient-to-br ${point.iconBg} rounded-xl flex items-center justify-center mb-4`}>
-                      <point.icon className="w-6 h-6 text-white" />
+                    <div className={`w-8 h-8 md:w-12 md:h-12 bg-gradient-to-br ${point.iconBg} rounded-lg md:rounded-xl flex items-center justify-center mb-2 md:mb-4`}>
+                      <point.icon className="w-4 h-4 md:w-6 md:h-6 text-white" />
                     </div>
-                    <h3 className="text-[28px] sm:text-[30px] mb-2 text-foreground leading-[1.3] lg:text-lg font-semibold">
+                    <h3 className="text-base sm:text-lg md:text-[28px] mb-1 md:mb-2 text-foreground leading-[1.3] lg:text-lg font-semibold">
                       {point.title}
                     </h3>
-                    <p className="text-base text-muted-foreground leading-[1.5]">
+                    <p className="text-sm md:text-base text-muted-foreground leading-[1.4] md:leading-[1.5]">
                       {point.description}
                     </p>
                   </motion.div>
