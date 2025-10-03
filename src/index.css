@@ -107,13 +107,39 @@
     /* Mobile typography adjustments */
     .text-display-xl { font-size: clamp(2.5rem, 8vw, 4rem); }
     .text-h1 { font-size: clamp(1.5rem, 6vw, 2.5rem); }
+    .text-h2 { font-size: clamp(1.25rem, 5vw, 2rem); }
+    .text-h3 { font-size: clamp(1.125rem, 4vw, 1.5rem); }
     
     /* Prevent horizontal overflow */
     body { overflow-x: hidden; }
     * { max-width: 100%; }
     
     /* Mobile grid improvements */
-    .grid { gap: 1rem; }
+    .grid { gap: 0.75rem; }
+    
+    /* Mobile card adjustments */
+    .card-modern {
+      padding: 1rem;
+      border-radius: var(--radius);
+    }
+    
+    /* Smaller interactive modules on mobile */
+    .hover-lift { transform: none; }
+    .hover-lift:active { transform: translateY(-2px) scale(1.01); }
+    
+    /* Reduced motion on mobile for better performance */
+    .animate-float, .animate-rotate, .animate-parallax {
+      animation: none;
+    }
+    
+    /* Better mobile navigation */
+    nav { padding: 0.75rem 0; }
+    
+    /* Touch-friendly buttons */
+    .btn-primary, .btn-secondary, .btn-ghost {
+      padding: 0.875rem 1.5rem;
+      font-size: 0.9375rem;
+    }
   }
   
   /* Tablet optimizations */

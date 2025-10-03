@@ -128,7 +128,7 @@ export const MobileNavigation = ({
             {/* Mobile Menu Button */}
             <motion.button whileTap={{
             scale: 0.95
-          }} onClick={() => setIsOpen(!isOpen)} className={`md:hidden p-2 ${textColor} z-50 relative`} aria-label="Toggle menu">
+          }} onClick={() => setIsOpen(!isOpen)} className={`md:hidden p-3 ${textColor} z-50 relative min-h-[48px] min-w-[48px] flex items-center justify-center`} aria-label="Toggle menu">
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>
           </div>
@@ -158,10 +158,10 @@ export const MobileNavigation = ({
           type: "spring",
           damping: 25,
           stiffness: 200
-        }} className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] ${bgColor} backdrop-blur-lg z-50 md:hidden shadow-2xl`}>
-              <div className="flex flex-col h-full pt-20 pb-6">
+        }} className={`fixed top-0 right-0 h-full w-72 max-w-[80vw] ${bgColor} backdrop-blur-lg z-50 md:hidden shadow-2xl`}>
+              <div className="flex flex-col h-full pt-16 pb-4">
                 {/* Mobile Menu Items */}
-                <div className="flex-1 px-6 space-y-1 overflow-y-auto">
+                <div className="flex-1 px-4 space-y-0.5 overflow-y-auto">
                   <motion.div initial={{
                 opacity: 0,
                 x: 50
@@ -171,7 +171,7 @@ export const MobileNavigation = ({
               }} transition={{
                 delay: 0.1
               }}>
-                    <Link to="/" onClick={handleLinkClick} className={`block py-4 px-4 text-lg font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                    <Link to="/" onClick={handleLinkClick} className={`block py-3 px-3 text-base font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[48px] flex items-center`}>
                       Home
                     </Link>
                   </motion.div>
@@ -186,11 +186,11 @@ export const MobileNavigation = ({
               }} transition={{
                 delay: 0.12
               }}>
-                    <div className={`block py-4 px-4 text-lg font-medium ${textColor}`}>
+                    <div className={`block py-2 px-3 text-sm font-semibold ${textColor} uppercase tracking-wide`}>
                       Services
                     </div>
                   </motion.div>
-                  <div className="pl-4 space-y-1">
+                  <div className="pl-3 space-y-0.5">
                     <motion.div initial={{
                   opacity: 0,
                   x: 50
@@ -200,7 +200,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.15
                 }}>
-                      <Link to="/studio" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 rounded-lg transition-colors`}>
+                      <Link to="/studio" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
                         Studio
                       </Link>
                     </motion.div>
@@ -213,7 +213,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.18
                 }}>
-                      <Link to="/media" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-blue-500/10 rounded-lg transition-colors`}>
+                      <Link to="/media" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-blue-500/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
                         Media
                       </Link>
                     </motion.div>
@@ -226,7 +226,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.21
                 }}>
-                      <Link to="/lab" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-yellow-500/10 rounded-lg transition-colors`}>
+                      <Link to="/lab" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-yellow-500/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
                         Lab
                       </Link>
                     </motion.div>
@@ -255,11 +255,11 @@ export const MobileNavigation = ({
               }} transition={{
                 delay: 0.27
               }}>
-                    <div className={`block py-4 px-4 text-lg font-medium ${textColor}`}>
+                    <div className={`block py-2 px-3 text-sm font-semibold ${textColor} uppercase tracking-wide`}>
                       Company
                     </div>
                   </motion.div>
-                  <div className="pl-4 space-y-1">
+                  <div className="pl-3 space-y-0.5">
                     <motion.div initial={{
                   opacity: 0,
                   x: 50
@@ -269,7 +269,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.30
                 }}>
-                      <Link to="/case-studies" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                      <Link to="/case-studies" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
                         Case Studies
                       </Link>
                     </motion.div>
@@ -282,7 +282,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.33
                 }}>
-                      <Link to="/careers" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                      <Link to="/careers" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
                         Careers
                       </Link>
                     </motion.div>
@@ -295,7 +295,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.36
                 }}>
-                      <Link to="/about" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                      <Link to="/about" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
                         About & Crew
                       </Link>
                     </motion.div>
@@ -311,11 +311,11 @@ export const MobileNavigation = ({
               }} transition={{
                 delay: 0.39
               }}>
-                    <div className={`block py-4 px-4 text-lg font-medium ${textColor}`}>
+                    <div className={`block py-2 px-3 text-sm font-semibold ${textColor} uppercase tracking-wide`}>
                       Content
                     </div>
                   </motion.div>
-                  <div className="pl-4 space-y-1">
+                  <div className="pl-3 space-y-0.5">
                     <motion.div initial={{
                   opacity: 0,
                   x: 50
@@ -325,7 +325,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.42
                 }}>
-                      <Link to="/resources" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                      <Link to="/resources" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
                         Ressourcen
                       </Link>
                     </motion.div>
@@ -338,7 +338,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.45
                 }}>
-                      <Link to="/blog" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                      <Link to="/blog" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
                         Blog
                       </Link>
                     </motion.div>
@@ -351,7 +351,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.48
                 }}>
-                      <Link to="/news" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors`}>
+                      <Link to="/news" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
                         News & Press
                       </Link>
                     </motion.div>
@@ -367,8 +367,8 @@ export const MobileNavigation = ({
               y: 0
             }} transition={{
               delay: 0.35
-            }} className="px-6 pt-6 border-t border-transparent">
-                  <Button onClick={handleContactClick} className={`w-full ${isDark ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700' : 'bg-black hover:bg-gray-800'} text-white py-4 text-lg font-medium`}>
+            }} className="px-4 pt-4 border-t border-border/30 mt-4">
+                  <Button onClick={handleContactClick} className={`w-full ${isDark ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700' : 'bg-black hover:bg-gray-800'} text-white py-3 text-base font-medium min-h-[48px]`}>
                     Kontakt aufnehmen
                   </Button>
                 </motion.div>
