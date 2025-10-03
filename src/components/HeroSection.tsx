@@ -30,10 +30,9 @@ export const HeroSection = ({
     }
   };
   return <section className="relative w-full mt-20">
-      <div className="w-full relative" style={{
-      paddingTop: '56.25%', // 16:9 aspect ratio
-      position: 'relative'
-    }}>
+      <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video" style={{
+        position: 'relative'
+      }}>
         <div className="absolute inset-0 overflow-hidden" style={{
         background: 'linear-gradient(to bottom right, rgba(139, 92, 246, 0.3), rgba(168, 85, 247, 0.2), rgba(192, 132, 252, 0.1))'
       }}>

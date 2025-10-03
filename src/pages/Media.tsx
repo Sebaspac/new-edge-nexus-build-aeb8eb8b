@@ -82,9 +82,7 @@ const Media = () => {
 
         {/* Hero Section */}
         <section className="relative w-full mt-20">
-          <div className="w-full relative" style={{
-          paddingTop: '56.25%',
-          // 16:9 aspect ratio
+          <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video" style={{
           position: 'relative'
         }}>
             <div className="absolute inset-0 overflow-hidden" style={{
