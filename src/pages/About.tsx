@@ -68,6 +68,71 @@ const About = () => {
           </div>
         </section>
 
+        {/* Intro Section */}
+        <section className="relative py-12 sm:py-16 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={{ once: true, margin: "-80px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.1
+                  }
+                }
+              }}
+              className="max-w-4xl"
+            >
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, y: 40, scale: 0.95 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    transition: {
+                      duration: 0.7,
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }
+                  }
+                }}
+                className="mb-6"
+              >
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
+                  UNSER{" "}
+                  <motion.span 
+                    className="inline-block bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent"
+                    whileInView={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 1, delay: 0.3 }}
+                  >
+                    TEAM
+                  </motion.span>
+                </h2>
+                <motion.p 
+                  className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: {
+                        duration: 0.6,
+                        delay: 0.2
+                      }
+                    }
+                  }}
+                >
+                  Gemeinsam schaffen wir digitale Lösungen, die begeistern. Lernen Sie die Menschen kennen, die hinter NEW EDGE stehen – von Strategie über Kreation bis hin zu Technologie.
+                </motion.p>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Know-how trifft Prozess Section */}
         <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-purple-50/20 to-white overflow-hidden">
           {/* Enhanced Parallax background orbs */}
