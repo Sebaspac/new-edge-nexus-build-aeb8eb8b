@@ -63,21 +63,85 @@ const Impressum = () => {
           delay: 0.4,
           duration: 0.6
         }}>
-            
-          </motion.div>
+            <Card className="bg-gray-900/50 border border-purple-500/20 backdrop-blur-lg mb-8">
+              <CardContent className="p-8">
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 flex items-center text-white">
+                  <MapPin className="w-8 h-8 mr-3 text-purple-400" />
+                  Impressum – New Edge
+                </h2>
 
-          {/* Rechtliche Hinweise */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          delay: 0.5,
-          duration: 0.6
-        }}>
-            
+                <div className="space-y-8 text-gray-300">
+                  {/* Section: Angaben gemäß § 5 TMG */}
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-4">Angaben gemäß § 5 TMG</h3>
+                    <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
+                      <p className="font-semibold text-white">New Edge – Creative Tech Studio</p>
+                      <p>Inhaber: Juan Sebastián Pachón Araque</p>
+                      <p>Pachemstraße 9</p>
+                      <p>81673 München</p>
+                      <p>Deutschland</p>
+                      <p className="mt-2">📧 E-Mail: <a href="mailto:info@newedgebrand.com" className="text-purple-400 hover:text-purple-300">info@newedgebrand.com</a></p>
+                    </div>
+                  </div>
+
+                  {/* Section: Geltungsbereich */}
+                  <div className="border-t border-gray-700 pt-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">Geltungsbereich</h3>
+                    <p className="mb-3">Dieses Impressum gilt ebenfalls für folgende Online-Präsenzen:</p>
+                    <ul className="list-disc list-inside space-y-2">
+                      <li>
+                        <a href="https://www.linkedin.com/company/newedgebrand" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           className="text-purple-400 hover:text-purple-300">
+                          LinkedIn
+                        </a>
+                      </li>
+                    </ul>
+                    <p className="text-sm text-gray-400 mt-3">(weitere Social-Media-Profile können ergänzt werden, z. B. Instagram, Facebook, X, TikTok, etc.)</p>
+                  </div>
+
+                  {/* Section: Haftungsbeschränkung */}
+                  <div className="border-t border-gray-700 pt-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">Haftungsbeschränkung</h3>
+                    <p className="mb-4">
+                      Die Inhalte dieser Webseite wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernimmt der Anbieter jedoch keine Gewähr.
+                    </p>
+                    <p className="mb-4">
+                      Als Diensteanbieter ist der Anbieter dieser Seiten gemäß § 7 Abs. 1 TMG für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG ist der Anbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+                    </p>
+                    <p>
+                      Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden diese Inhalte umgehend entfernt.
+                    </p>
+                  </div>
+
+                  {/* Section: Externe Links */}
+                  <div className="border-t border-gray-700 pt-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">Externe Links</h3>
+                    <p className="mb-4">
+                      Diese Webseite enthält Verknüpfungen zu externen Webseiten Dritter („externe Links"). Auf deren Inhalte hat der Anbieter keinen Einfluss und übernimmt hierfür keine Gewähr. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.
+                    </p>
+                    <p>
+                      Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar. Bei Bekanntwerden von Rechtsverletzungen werden solche Links umgehend entfernt.
+                    </p>
+                  </div>
+
+                  {/* Section: Urheberrecht */}
+                  <div className="border-t border-gray-700 pt-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">Urheberrecht / Leistungsschutzrecht</h3>
+                    <p className="mb-4">
+                      Die auf dieser Webseite veröffentlichten Inhalte und Werke unterliegen dem deutschen Urheberrecht. Jede Art der Vervielfältigung, Bearbeitung, Verbreitung oder Verwertung außerhalb der Grenzen des Urheberrechts bedarf der vorherigen schriftlichen Zustimmung des jeweiligen Rechteinhabers.
+                    </p>
+                    <p className="mb-4">
+                      Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+                    </p>
+                    <p>
+                      Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir solche Inhalte umgehend entfernt.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </motion.div>
 
           {/* Datenschutzerklärung */}
@@ -88,7 +152,7 @@ const Impressum = () => {
           opacity: 1,
           y: 0
         }} transition={{
-          delay: 0.6,
+          delay: 0.5,
           duration: 0.6
         }}>
             <Card className="bg-gray-900/50 border border-purple-500/20 backdrop-blur-lg">
