@@ -414,7 +414,7 @@ const Services = () => {
                             <Target className="w-8 h-8 text-white" />
                           </motion.div>
                           <h4 className="mb-4 text-center text-foreground text-lg font-semibold">STRATEGIE</h4>
-                          <p className="text-muted-foreground text-center leading-relaxed">
+                          <p className="text-muted-foreground text-center leading-relaxed text-base">
                             Das Fundament für Ihren Erfolg. Wir entwickeln eine klare Roadmap und visuelle Identität.
                           </p>
                         </motion.div>
@@ -679,7 +679,7 @@ const Services = () => {
           duration: 0.8
         }} className="text-left mb-20">
             <h2 className="text-h1 text-foreground mb-6 font-bold text-4xl">Das Ergebnis</h2>
-            <p className="text-body-xl text-muted-foreground max-w-4xl">
+            <p className="text-body-xl text-muted-foreground max-w-4xl text-xl">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
             </p>
           </motion.div>
@@ -719,7 +719,7 @@ const Services = () => {
                   {item.number}
                 </div>
                 <h3 className="text-h3 text-foreground mb-4 text-lg font-semibold">{item.title}</h3>
-                <p className="text-body text-muted-foreground leading-relaxed">{item.description}</p>
+                <p className="text-body text-muted-foreground leading-relaxed text-base">{item.description}</p>
               </motion.div>)}
           </div>
         </div>
@@ -740,7 +740,7 @@ const Services = () => {
           duration: 0.8
         }} className="text-left mb-20">
             <h2 className="text-h1 text-foreground mb-6 font-bold text-4xl">Warum New Edge?</h2>
-            <p className="text-body-xl text-muted-foreground max-w-4xl">
+            <p className="text-body-xl text-muted-foreground max-w-4xl text-xl">
               Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.
             </p>
           </motion.div>
@@ -850,7 +850,7 @@ const Services = () => {
           }} className="text-2xl sm:text-3xl mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 font-bold lg:text-4xl">
               Für wen wir arbeiten & warum
             </motion.h2>
-            <motion.p className="text-sm sm:text-base text-gray-600 max-w-3xl leading-[1.6]" initial={{
+            <motion.p initial={{
             opacity: 0,
             y: 20
           }} whileInView={{
@@ -861,7 +861,7 @@ const Services = () => {
           }} transition={{
             delay: 0.4,
             duration: 0.6
-          }}>
+          }} className="text-sm text-gray-600 max-w-3xl leading-[1.6] sm:text-xl">
               Spezialisiert auf mittelständische KMUs, die Vorreiter werden wollen
             </motion.p>
           </motion.div>
@@ -1038,7 +1038,7 @@ const Services = () => {
                       </h3>
                     </div>
                     
-                    <p className="text-sm sm:text-body-sm text-muted-foreground leading-relaxed mb-6 sm:mb-8 flex-grow mt-4 sm:mt-8">
+                    <p className="sm:text-body-sm text-muted-foreground leading-relaxed mb-6 sm:mb-8 flex-grow mt-4 sm:mt-8 text-base">
                       Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
                     </p>
                     
@@ -1082,7 +1082,7 @@ const Services = () => {
                       </h3>
                     </div>
                     
-                    <p className="text-sm sm:text-body-sm text-muted-foreground leading-relaxed mb-6 sm:mb-8 flex-grow mt-4 sm:mt-8">
+                    <p className="sm:text-body-sm text-muted-foreground leading-relaxed mb-6 sm:mb-8 flex-grow mt-4 sm:mt-8 text-base">
                       Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
                     </p>
                     
@@ -1126,7 +1126,7 @@ const Services = () => {
                       </h3>
                     </div>
                     
-                    <p className="text-sm sm:text-body-sm text-muted-foreground leading-relaxed mb-6 sm:mb-8 flex-grow mt-4 sm:mt-8">
+                    <p className="sm:text-body-sm text-muted-foreground leading-relaxed mb-6 sm:mb-8 flex-grow mt-4 sm:mt-8 text-base">
                       Tech-Innovation und Automatisierung. Von MVP bis zur finalen technischen Umsetzung.
                     </p>
                     
