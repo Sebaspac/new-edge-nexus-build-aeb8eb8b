@@ -102,12 +102,9 @@ const Studio = () => {
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text'
                 }}>STUDIO</span><br />
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-normal">DESIGN EXCELLENCE</span>
+                  
                 </h1>
-                <p className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed">
-                  STUDIO liefert das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant. 
-                  Für eine reibungslose Umsetzung in MEDIA & LAB.
-                </p>
+                
               </div>
             </div>
           </div>
