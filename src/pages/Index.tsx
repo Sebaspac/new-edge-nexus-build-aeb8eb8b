@@ -300,7 +300,7 @@ const Index = () => {
               duration: 0.7
             }} whileHover={{
               scale: 1.03
-            }} className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-4 bg-gradient-primary bg-clip-text leading-[1.25] text-gray-950">
+            }} className="text-[42px] sm:text-[44px] lg:text-[48px] mb-4 bg-gradient-primary bg-clip-text leading-[1.25] text-gray-950 font-bold">
                 Für wen wir arbeiten & warum
               </motion.h2>
               <motion.p className="text-base text-gray-600 max-w-3xl leading-[1.5]" initial={{
@@ -481,7 +481,7 @@ const Index = () => {
             duration: 0.9,
             ease: [0.25, 0.46, 0.45, 0.94]
           }}>
-              <motion.h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-4 text-black leading-[1.25]" initial={{
+              <motion.h2 initial={{
               opacity: 0,
               y: 30
             }} whileInView={{
@@ -494,7 +494,7 @@ const Index = () => {
               duration: 0.7
             }} whileHover={{
               scale: 1.03
-            }}>
+            }} className="text-[42px] sm:text-[44px] lg:text-[48px] mb-4 text-black leading-[1.25] font-bold">
                 Unsere innovative Herangehensweise
               </motion.h2>
             </motion.div>
@@ -582,7 +582,7 @@ const Index = () => {
                 }}>
                       <point.icon className="w-6 h-6 text-white" />
                     </motion.div>
-                    <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-2 text-foreground leading-[1.3]">
+                    <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] mb-2 text-foreground leading-[1.3] font-medium">
                       {point.title}
                     </h3>
                     <p className="text-base text-muted-foreground leading-[1.5]">
@@ -630,7 +630,7 @@ const Index = () => {
           }} transition={{
             duration: 0.8
           }}>
-              <motion.h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold text-foreground mb-6 leading-[1.25]" initial={{
+              <motion.h2 initial={{
               opacity: 0,
               y: 30
             }} whileInView={{
@@ -641,7 +641,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }}>
+            }} className="text-[42px] sm:text-[44px] lg:text-[48px] text-foreground mb-6 leading-[1.25] font-bold">
                 Unsere Kompetenzbereiche
               </motion.h2>
               <motion.p className="text-base text-muted-foreground max-w-3xl leading-[1.5]" initial={{
