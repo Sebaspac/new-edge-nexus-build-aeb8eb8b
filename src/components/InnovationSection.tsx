@@ -178,11 +178,9 @@ export const InnovationSection = () => {
                     <Lightbulb className="w-6 h-6 text-white drop-shadow-lg relative z-10" />
                   </motion.div>
                   
-                  <motion.h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight" animate={{
-                  scale: hoveredCard === 1 ? 1.05 : 1
-                }}>
+                  <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight">
                     Innovation als Prozess
-                  </motion.h3>
+                  </h3>
                   <p className="text-muted-foreground leading-relaxed flex-grow text-base">
                     Für uns ist Innovation kein einzelnes Feature – sie ist ein kontinuierlicher Prozess. 
                     Wir schaffen den Zugang zu echter Innovation für KMU, Selbständige und Marken im Wandel.
@@ -270,11 +268,9 @@ export const InnovationSection = () => {
                     <Zap className="w-6 h-6 text-white drop-shadow-lg relative z-10" />
                   </motion.div>
                   
-                  <motion.h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight" animate={{
-                  scale: hoveredCard === 2 ? 1.05 : 1
-                }}>
+                  <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight">
                     Ganzheitliche Transformation
-                  </motion.h3>
+                  </h3>
                   <p className="text-muted-foreground leading-relaxed flex-grow text-base">
                     Unser Fokus liegt nicht nur auf Automatisierung oder Chatbots, sondern auf ganzheitlicher, 
                     kreativer Transformation: Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools.
