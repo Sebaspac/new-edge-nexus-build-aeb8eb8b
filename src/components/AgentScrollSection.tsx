@@ -1,6 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { motion } from "framer-motion";
 
 interface AgentScrollSectionProps {
   children: React.ReactNode;
@@ -15,31 +13,46 @@ export const AgentScrollSection = ({
   gradient,
   imagePosition = "right",
 }: AgentScrollSectionProps) => {
-  const isMobile = useIsMobile();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isReady, setIsReady] = useState(false);
-  
-  // Wait for container to be mounted before initializing scroll
-  useEffect(() => {
-    if (containerRef.current) {
-      setIsReady(true);
-    }
-  }, []);
+  return (
+    <>
+      {/* Mobile/Tablet: Stack Layout - Image first, then text */}
+      <div className="lg:hidden space-y-6 pb-12">
+        {/* Image First */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <div
+            className={`w-full h-64 sm:h-80 ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
+          >
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+          </div>
+        </motion.div>
 
-  const { scrollYProgress } = useScroll({
-    target: isReady ? containerRef : undefined,
-    offset: ["start end", "end start"]
-  });
+        {/* Text Content Below */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {children}
+        </motion.div>
+      </div>
 
-  // On mobile: Image fades out and text fades in as you scroll
-  const imageOpacity = useTransform(scrollYProgress, [0.2, 0.5], [1, 0]);
-  const imageScale = useTransform(scrollYProgress, [0.2, 0.5], [1, 0.9]);
-  const textOpacity = useTransform(scrollYProgress, [0.3, 0.6], [0, 1]);
-  const textY = useTransform(scrollYProgress, [0.3, 0.6], [50, 0]);
-
-  if (!isMobile) {
-    // Desktop: Normal grid layout
-    return (
+      {/* Desktop: Grid Layout */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -54,7 +67,7 @@ export const AgentScrollSection = ({
             },
           },
         }}
-        className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16"
+        className="hidden lg:grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16"
       >
         {imagePosition === "left" && (
           <motion.div
@@ -124,47 +137,6 @@ export const AgentScrollSection = ({
           </motion.div>
         )}
       </motion.div>
-    );
-  }
-
-  // Mobile: Scroll-based animation
-  return (
-    <div ref={containerRef} className="relative min-h-[150vh] pb-12">
-      {/* Image - Fixed, fades out on scroll */}
-      <motion.div
-        style={{
-          opacity: imageOpacity,
-          scale: imageScale,
-        }}
-        className="sticky top-20 mb-8 z-10"
-      >
-        <div
-          className={`w-full h-72 ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden mx-auto`}
-        >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-        </div>
-      </motion.div>
-
-      {/* Text Content - Fades in on scroll */}
-      <motion.div
-        style={{
-          opacity: textOpacity,
-          y: textY,
-        }}
-        className="relative z-20 bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-xl"
-      >
-        {children}
-      </motion.div>
-    </div>
+    </>
   );
 };
