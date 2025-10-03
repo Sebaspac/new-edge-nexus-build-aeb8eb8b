@@ -5,7 +5,6 @@ import { Menu, X, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { OptimizedLogo } from "@/components/OptimizedLogo";
-import { ContactFormModal } from "@/components/ContactFormModal";
 interface MobileNavigationProps {
   onContactClick: () => void;
   logoSrc?: string;
@@ -17,7 +16,6 @@ export const MobileNavigation = ({
   theme = 'light'
 }: MobileNavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const location = useLocation();
   const {
     language,
@@ -33,18 +31,22 @@ export const MobileNavigation = ({
   };
   const handleContactClick = () => {
     setIsOpen(false);
-    setIsContactModalOpen(true);
+    // Quick scroll to contact form
+    const contactSection = document.querySelector('#contact-section') || document.querySelector('[id*="contact"]') || document.querySelector('form');
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else {
+      // Fallback: scroll to bottom if no contact section found
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
   };
   return <>
-      <ContactFormModal 
-        isOpen={isContactModalOpen}
-        onClose={() => setIsContactModalOpen(false)}
-        accentColor="#000"
-        gradientFrom="#000"
-        gradientTo="#333"
-        theme="studio"
-      />
-      
       {/* Desktop Navigation */}
       <nav className={`fixed top-0 w-full z-50 ${bgColor} backdrop-blur-lg`}>
         <div className="container mx-auto px-4 sm:px-6 py-4">
@@ -64,7 +66,7 @@ export const MobileNavigation = ({
             </Link>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+            <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
               
               
               {/* Services Dropdown */}
@@ -94,13 +96,7 @@ export const MobileNavigation = ({
                   Company
                 </button>
                 <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-lg z-50 border ${borderColor}`}>
-                  <div className="py-2">
-                    
-                    <Link to="/careers" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
-                      Careers
-                    </Link>
-                    <Link to="/about" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>About us</Link>
-                  </div>
+                  
                 </div>
               </div>
 
@@ -126,7 +122,7 @@ export const MobileNavigation = ({
             {/* Mobile Menu Button */}
             <motion.button whileTap={{
             scale: 0.95
-          }} onClick={() => setIsOpen(!isOpen)} className={`lg:hidden p-3 ${textColor} z-50 relative min-h-[48px] min-w-[48px] flex items-center justify-center`} aria-label="Toggle menu">
+          }} onClick={() => setIsOpen(!isOpen)} className={`md:hidden p-3 ${textColor} z-50 relative min-h-[48px] min-w-[48px] flex items-center justify-center`} aria-label="Toggle menu">
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>
           </div>
@@ -143,7 +139,7 @@ export const MobileNavigation = ({
           opacity: 1
         }} exit={{
           opacity: 0
-        }} onClick={() => setIsOpen(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden" />
+        }} onClick={() => setIsOpen(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden" />
 
             {/* Mobile Menu */}
             <motion.div initial={{
@@ -156,7 +152,7 @@ export const MobileNavigation = ({
           type: "spring",
           damping: 25,
           stiffness: 200
-        }} className={`fixed top-0 right-0 h-full w-72 max-w-[80vw] ${bgColor} backdrop-blur-lg z-50 lg:hidden shadow-2xl`}>
+        }} className={`fixed top-0 right-0 h-full w-72 max-w-[80vw] ${bgColor} backdrop-blur-lg z-50 md:hidden shadow-2xl`}>
               <div className="flex flex-col h-full pt-16 pb-4">
                 {/* Mobile Menu Items */}
                 <div className="flex-1 px-4 space-y-0.5 overflow-y-auto">
