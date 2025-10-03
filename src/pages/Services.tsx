@@ -1078,7 +1078,7 @@ const Services = () => {
                       <h3 className="sm:text-h3 mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase font-bold text-lg">
                         <span dangerouslySetInnerHTML={{
                         __html: "New Edge Studio"
-                      }} className="text-lg font-bold" />
+                      }} className="font-bold text-2xl" />
                       </h3>
                     </div>
                     
@@ -1122,7 +1122,7 @@ const Services = () => {
                       <h3 className="text-lg sm:text-h3 mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase font-bold">
                         <span dangerouslySetInnerHTML={{
                         __html: "New Edge Media"
-                      }} className="font-bold text-lg" />
+                      }} className="font-bold text-2xl" />
                       </h3>
                     </div>
                     
@@ -1166,7 +1166,7 @@ const Services = () => {
                       <h3 className="text-lg sm:text-h3 mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase font-bold">
                         <span dangerouslySetInnerHTML={{
                         __html: "New Edge Lab"
-                      }} className="font-bold text-lg" />
+                      }} className="font-bold text-2xl" />
                       </h3>
                     </div>
                     
