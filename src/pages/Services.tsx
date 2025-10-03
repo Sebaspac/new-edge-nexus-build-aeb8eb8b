@@ -1075,10 +1075,10 @@ const Services = () => {
                       <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-secondary to-accent p-3 sm:p-4 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                         <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
-                      <h3 className="text-lg sm:text-h3 mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase font-extrabold">
+                      <h3 className="sm:text-h3 mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase font-bold text-lg">
                         <span dangerouslySetInnerHTML={{
                         __html: "New Edge Studio"
-                      }} className="font-semibold text-2xl" />
+                      }} className="text-lg font-bold" />
                       </h3>
                     </div>
                     
@@ -1119,10 +1119,10 @@ const Services = () => {
                       <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-3 sm:p-4 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                         <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
-                      <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase">
+                      <h3 className="text-lg sm:text-h3 mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase font-bold">
                         <span dangerouslySetInnerHTML={{
                         __html: "New Edge Media"
-                      }} className="text-2xl font-bold" />
+                      }} className="font-bold text-lg" />
                       </h3>
                     </div>
                     
@@ -1163,10 +1163,10 @@ const Services = () => {
                       <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-accent to-primary p-3 sm:p-4 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                         <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
-                      <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase">
+                      <h3 className="text-lg sm:text-h3 mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase font-bold">
                         <span dangerouslySetInnerHTML={{
                         __html: "New Edge Lab"
-                      }} className="text-xl font-bold" />
+                      }} className="font-bold text-lg" />
                       </h3>
                     </div>
                     
