@@ -196,116 +196,21 @@ const Services = () => {
         }} />)}
         </div>
         
-        <motion.div style={{
-        y: y1,
-        opacity
-      }} className="text-center relative z-10">
-          <motion.div initial={{
-          opacity: 0,
-          scale: 0.8,
-          rotateX: -20
-        }} animate={{
-          opacity: 1,
-          scale: 1,
-          rotateX: 0
-        }} transition={{
-          duration: 1.2,
-          ease: "easeOut"
-        }} className="mb-12">
-            {/* Complex text animations */}
-            <motion.div initial={{
-            opacity: 0,
-            y: -50,
-            rotateY: -45
-          }} animate={{
-            opacity: 1,
-            y: 0,
-            rotateY: 0
-          }} transition={{
-            delay: 0.3,
-            duration: 1,
-            ease: "easeOut"
-          }} className="inline-block text-transparent bg-gradient-primary bg-clip-text text-display-xl font-black tracking-tight mb-4 perspective-1000">
-              <motion.span className="text-white">
-                THE
-              </motion.span>
-            </motion.div>
-            <br />
-            <motion.div initial={{
-            opacity: 0,
-            rotateX: -90,
-            scale: 0.5
-          }} animate={{
-            opacity: 1,
-            rotateX: 0,
-            scale: 1
-          }} transition={{
-            delay: 0.7,
-            duration: 1.2,
-            ease: "backOut"
-          }} className="text-display-xl font-black text-foreground italic mb-4 transform-gpu">
-              <motion.span className="text-transparent bg-gradient-primary bg-clip-text" animate={{
-              rotateZ: [0, 2, -2, 0],
-              scale: [1, 1.02, 1],
-              textShadow: ["0 0 20px rgba(var(--primary-rgb), 0.5)", "0 0 40px rgba(var(--primary-rgb), 0.8)", "0 0 20px rgba(var(--primary-rgb), 0.5)"]
-            }} transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}>
-                JOURNEY
-              </motion.span>
-            </motion.div>
-            <motion.div initial={{
-            opacity: 0,
-            y: 50,
-            scale: 0.8
-          }} animate={{
-            opacity: 1,
-            y: 0,
-            scale: 1
-          }} transition={{
-            delay: 1.2,
-            duration: 1,
-            ease: "easeOut"
-          }} className="text-body-xl text-muted-foreground font-light">
-              
-            </motion.div>
-          </motion.div>
-          
+        {/* Text Content - Bottom Left */}
+        <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl z-10">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white"
+          >
+            THE<br />
+            JOURNEY
+          </motion.h1>
+        </div>
 
-          {/* Parallax text content */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          delay: 1.8,
-          duration: 1
-        }} className="text-body-lg text-muted-foreground mb-6 max-w-4xl mx-auto font-light leading-relaxed">
-            
-            
-          </motion.div>
-          
-          <motion.p initial={{
-          opacity: 0,
-          scale: 0.9
-        }} animate={{
-          opacity: 1,
-          scale: 1
-        }} transition={{
-          delay: 2.5,
-          duration: 0.8
-        }} className="text-body-lg mb-12 max-w-4xl mx-auto font-light leading-relaxed">
-            <span className="bg-gradient-primary bg-clip-text text-transparent font-medium text-h2">
-              
-            </span>
-          </motion.p>
-
-          {/* Enhanced scroll indicator with complex animations */}
-          <motion.div initial={{
+        {/* Enhanced scroll indicator with complex animations */}
+        <motion.div initial={{
           opacity: 0,
           y: 20
         }} animate={{
@@ -320,38 +225,37 @@ const Services = () => {
             behavior: 'smooth'
           });
         }}>
-            <motion.div whileHover={{
+          <motion.div whileHover={{
             scale: 1.3,
             rotate: 5
           }} whileTap={{
             scale: 0.8
           }} className="relative">
-              {/* Pulsing ring */}
-              <motion.div className="absolute inset-0 w-16 h-16 -m-4 rounded-full border-2 border-primary/50" animate={{
+            {/* Pulsing ring */}
+            <motion.div className="absolute inset-0 w-16 h-16 -m-4 rounded-full border-2 border-primary/50" animate={{
               scale: [1, 1.5, 1],
               opacity: [0.5, 0, 0.5]
             }} transition={{
               duration: 2,
               repeat: Infinity
             }} />
-              {/* Main arrow with glow effect */}
-              <motion.div animate={{
+            {/* Main arrow with glow effect */}
+            <motion.div animate={{
               y: [0, 8, 0]
             }} transition={{
               duration: 2,
               repeat: Infinity,
               ease: "easeInOut"
             }} className="relative">
-                <motion.div className="absolute inset-0 blur-sm" animate={{
+              <motion.div className="absolute inset-0 blur-sm" animate={{
                 boxShadow: ["0 0 20px rgba(var(--primary-rgb), 0.8)", "0 0 40px rgba(var(--primary-rgb), 1)", "0 0 20px rgba(var(--primary-rgb), 0.8)"]
               }} transition={{
                 duration: 1.5,
                 repeat: Infinity
               }}>
-                  <ArrowDown className="w-8 h-8 text-primary" />
-                </motion.div>
-                <ArrowDown className="w-8 h-8 text-primary relative z-10" />
+                <ArrowDown className="w-8 h-8 text-primary" />
               </motion.div>
+              <ArrowDown className="w-8 h-8 text-primary relative z-10" />
             </motion.div>
           </motion.div>
         </motion.div>
