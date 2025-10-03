@@ -441,7 +441,7 @@ const Index = () => {
             </motion.div>
 
             {/* Service Cards Grid */}
-            <motion.div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto" initial="hidden" whileInView="visible" viewport={{
+            <motion.div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 max-w-7xl mx-auto" initial="hidden" whileInView="visible" viewport={{
             once: true,
             margin: "-100px"
           }} variants={{
@@ -479,33 +479,33 @@ const Index = () => {
               }
             }}>
                   <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
-                    <CardContent className="p-8">
+                    <CardContent className="p-4 md:p-8">
                       {/* Icon with gradient background */}
-                      <motion.div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg`} whileHover={{
+                      <motion.div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-3 md:mb-6 shadow-lg`} whileHover={{
                     scale: 1.1,
                     rotate: [0, -5, 5, 0],
                     transition: {
                       duration: 0.5
                     }
                   }}>
-                        <service.icon className="w-8 h-8 text-white" />
+                        <service.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                       </motion.div>
 
                       {/* Title */}
-                      <h3 className="text-[28px] sm:text-[30px] text-foreground mb-4 leading-[1.3] lg:text-2xl font-bold">
+                      <h3 className="text-lg sm:text-xl md:text-[28px] lg:text-2xl text-foreground mb-2 md:mb-4 leading-[1.3] font-bold">
                         {service.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-base text-muted-foreground mb-6 leading-[1.5]">
+                      <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-3 md:mb-6 leading-[1.5]">
                         {service.description}
                       </p>
 
                       {/* Button */}
-                      <Button variant="default" className="bg-primary hover:bg-primary/90 text-white group" asChild>
+                      <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-white group text-xs md:text-sm w-full md:w-auto" asChild>
                         <Link to={`/${service.title.toLowerCase().split(' ')[0]}`}>
                           Mehr erfahren
-                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                          <ArrowRight className="w-3 h-3 md:w-4 md:h-4 ml-1 md:ml-2 group-hover:translate-x-1 transition-transform" />
                         </Link>
                       </Button>
                     </CardContent>
