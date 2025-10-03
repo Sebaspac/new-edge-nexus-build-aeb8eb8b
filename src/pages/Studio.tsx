@@ -181,8 +181,10 @@ const Studio = () => {
         {studioServices.map((service, index) => {
         const Icon = service.icon;
         const isEven = index % 2 === 0;
-        // Use brandstory video for "Brand Story" section (index 1)
-        const videoSrc = index === 1 ? "/assets/brandstory-video.mp4" : "/assets/studio-service-video.mp4";
+        // Use specific videos for each section
+        let videoSrc = "/assets/studio-service-video.mp4";
+        if (index === 1) videoSrc = "/assets/brandstory-video.mp4"; // Brand Story
+        if (index === 2) videoSrc = "/assets/template-video.mp4"; // Template-Rahmen
         return <section key={index} className="py-12 sm:py-16" style={{
           background: index % 2 === 0 ? 'linear-gradient(to bottom right, white, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08))' : 'linear-gradient(to bottom right, white, rgba(168, 85, 247, 0.08), rgba(99, 102, 241, 0.08))'
         }}>
