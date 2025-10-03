@@ -74,6 +74,93 @@ const Products = () => {
           </div>
         </section>
 
+        {/* Intro Section */}
+        <section className="relative py-12 sm:py-16 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={{
+                once: true,
+                margin: "-80px"
+              }} 
+              variants={{
+                hidden: {
+                  opacity: 0
+                },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.1
+                  }
+                }
+              }} 
+              className="max-w-4xl"
+            >
+              <motion.div 
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: 40,
+                    scale: 0.95
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    transition: {
+                      duration: 0.7,
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }
+                  }
+                }} 
+                className="mb-6"
+              >
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
+                  INTELLIGENTE{" "}
+                  <motion.span 
+                    className="inline-block bg-clip-text text-transparent" 
+                    style={{
+                      background: 'linear-gradient(to right, #9F91F8, #4F97F0)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent'
+                    }} 
+                    whileInView={{
+                      scale: [1, 1.05, 1]
+                    }} 
+                    transition={{
+                      duration: 1,
+                      delay: 0.3
+                    }}
+                  >
+                    KI-AGENTEN
+                  </motion.span>
+                </h2>
+                <motion.p 
+                  className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl" 
+                  variants={{
+                    hidden: {
+                      opacity: 0,
+                      y: 20
+                    },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: {
+                        duration: 0.6,
+                        delay: 0.2
+                      }
+                    }
+                  }}
+                >
+                  Unsere spezialisierten KI-Agenten automatisieren Ihre Prozesse, verbessern Effizienz und steigern Produktivität. Von Wissensmanagement bis Content-Erstellung – maßgeschneiderte Lösungen für Ihr Business.
+                </motion.p>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Riley - Wissensagent */}
         <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-purple-50/30 to-blue-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
