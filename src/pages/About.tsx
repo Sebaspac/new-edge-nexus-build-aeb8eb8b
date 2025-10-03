@@ -206,7 +206,7 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
             }} className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-10 text-black leading-[1.2] text-left">
                 Know-how trifft Prozess
               </motion.h2>
-              <motion.p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-[1.9] tracking-wide" initial={{
+              <motion.p className="text-lg sm:text-xl text-gray-600 max-w-3xl leading-[1.9] tracking-wide" initial={{
               opacity: 0,
               y: 20
             }} whileInView={{
