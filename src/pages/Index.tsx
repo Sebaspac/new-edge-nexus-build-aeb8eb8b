@@ -195,7 +195,7 @@ const Index = () => {
                     delay: 0.2
                   }
                 }
-              }} className="text-gray-600 mt-4 leading-[1.5] max-w-3xl text-xl">
+              }} className="text-gray-600 mt-4 leading-[1.5] max-w-3xl text-base">
                   Wir helfen Marken, sichtbar zu werden, Prozesse zu automatisieren – und den Wandel durch Innovation aktiv zu gestalten.
                 </motion.p>
               </motion.div>
@@ -255,16 +255,13 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }} className="text-gray-600 max-w-3xl leading-[1.5] text-xl">
+            }} className="text-gray-600 max-w-3xl leading-[1.5] text-base">
                 Spezialisiert auf mittelständische KMUs, die Vorreiter werden wollen
               </motion.p>
             </motion.div>
 
             {/* Two-Column Layout with Mobile Scroll Effect */}
-            <ProblemSolutionSection 
-              openAccordionIndex={openAccordionIndex}
-              setOpenAccordionIndex={setOpenAccordionIndex}
-            />
+            <ProblemSolutionSection openAccordionIndex={openAccordionIndex} setOpenAccordionIndex={setOpenAccordionIndex} />
           </div>
         </section>
 
