@@ -96,7 +96,7 @@ const About = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
+                <h2 className="text-2xl sm:text-3xl mb-3 leading-[1.2] text-black font-extrabold lg:text-5xl">
                   UNSER{" "}
                   <motion.span className="inline-block bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent" whileInView={{
                   scale: [1, 1.05, 1]
@@ -107,7 +107,7 @@ const About = () => {
                     TEAM
                   </motion.span>
                 </h2>
-                <motion.p className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl" variants={{
+                <motion.p variants={{
                 hidden: {
                   opacity: 0,
                   y: 20
@@ -120,7 +120,7 @@ const About = () => {
                     delay: 0.2
                   }
                 }
-              }}>Gemeinsam schaffen wir digitale Lösungen, die begeistern. 
+              }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">Gemeinsam schaffen wir digitale Lösungen, die begeistern. 
 Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Vision – von Strategie über Kreation bis hin zu Technologie.</motion.p>
               </motion.div>
             </motion.div>
@@ -197,7 +197,7 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
               duration: 0.7
             }} whileHover={{
               scale: 1.03
-            }} className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-10 text-black leading-[1.2] text-left">
+            }} className="text-3xl sm:text-4xl lg:text-5xl mb-10 text-black leading-[1.2] text-left font-bold xl:text-4xl">
                 Know-how trifft Prozess
               </motion.h2>
               <motion.p className="text-lg sm:text-xl text-gray-600 max-w-3xl leading-[1.9] tracking-wide" initial={{
@@ -275,12 +275,12 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
               }
             }} className="group perspective-1000">
                   <div className="bg-white/90 backdrop-blur-md p-10 rounded-2xl shadow-2xl border border-gray-100 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] hover:border-primary/40 transition-all duration-500 h-full">
-                    <motion.h3 className="text-2xl sm:text-3xl font-black mb-8 text-black group-hover:text-primary transition-colors leading-tight" whileHover={{
+                    <motion.h3 whileHover={{
                   scale: 1.05
-                }}>
+                }} className="text-2xl mb-8 text-black group-hover:text-primary transition-colors leading-tight sm:text-lg font-semibold">
                       {item.title}
                     </motion.h3>
-                    <p className="text-base sm:text-lg text-gray-700 leading-[1.9] tracking-wide mb-8">
+                    <p className="text-base text-gray-700 leading-[1.9] tracking-wide mb-8 sm:text-lg">
                       {item.description}
                     </p>
                     <motion.p className="text-sm sm:text-base text-gray-500 font-bold" initial={{
@@ -344,7 +344,7 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
               scale: 1.05
             }} transition={{
               duration: 0.3
-            }} className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent text-left lg:text-5xl">
+            }} className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-primary bg-clip-text text-left text-slate-950 lg:text-4xl">
                 Unser Netzwerk
               </motion.h2>
               <motion.p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed" initial={{
@@ -503,7 +503,7 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
               delay: 0.2,
               duration: 0.7
             }} className="text-3xl sm:text-4xl font-bold mb-6 text-left lg:text-5xl">
-                <span className="bg-gradient-primary bg-clip-text text-transparent">Die Gründer</span>
+                <span className="bg-gradient-primary bg-clip-text text-slate-950">Die Gründer</span>
               </motion.h2>
               <motion.p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed" initial={{
               opacity: 0,
