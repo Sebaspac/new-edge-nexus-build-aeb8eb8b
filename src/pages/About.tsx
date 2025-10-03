@@ -345,7 +345,7 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
           }} transition={{
             duration: 0.8,
             ease: [0.25, 0.46, 0.45, 0.94]
-          }} className="text-center mb-20">
+          }} className="text-left mb-20">
               <motion.h2 whileHover={{
               scale: 1.05
             }} transition={{
@@ -353,7 +353,7 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
             }} className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent text-left lg:text-5xl">
                 Unser Netzwerk
               </motion.h2>
-              <motion.p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" initial={{
+              <motion.p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed" initial={{
               opacity: 0
             }} whileInView={{
               opacity: 1
@@ -496,7 +496,7 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
           }} transition={{
             duration: 0.8,
             ease: [0.25, 0.46, 0.45, 0.94]
-          }} className="text-center mb-20">
+          }} className="text-left mb-20">
               <motion.h2 initial={{
               opacity: 0,
               rotateX: -20
@@ -511,7 +511,7 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
             }} className="text-3xl sm:text-4xl font-bold mb-6 text-left lg:text-5xl">
                 <span className="bg-gradient-primary bg-clip-text text-transparent">Die Gründer</span>
               </motion.h2>
-              <motion.p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" initial={{
+              <motion.p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed" initial={{
               opacity: 0,
               y: 20
             }} whileInView={{
