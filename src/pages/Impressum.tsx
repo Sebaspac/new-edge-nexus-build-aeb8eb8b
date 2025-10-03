@@ -47,7 +47,7 @@ const Impressum = () => {
           delay: 0.2,
           duration: 0.6
         }} className="text-4xl md:text-6xl font-black mb-16 text-center">
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-400 to-purple-200 bg-clip-text text-transparent">
               Impressum & Datenschutz
             </span>
           </motion.h1>
@@ -241,8 +241,8 @@ const Impressum = () => {
                     <p className="mb-4">
                       Weitere Informationen hierzu finden Sie in den Datenschutzbestimmungen von Meta: <a href="https://www.facebook.com/about/privacy" className="text-purple-400 hover:text-purple-300 underline" target="_blank" rel="noopener noreferrer">https://www.facebook.com/about/privacy</a>
                     </p>
-                    <div className="bg-yellow-900/20 border border-yellow-500/30 p-4 rounded-lg">
-                      <p className="font-semibold text-yellow-300 mb-2">Widerspruchsmöglichkeit:</p>
+                    <div className="bg-purple-900/20 border border-purple-500/30 p-4 rounded-lg">
+                      <p className="font-semibold text-purple-300 mb-2">Widerspruchsmöglichkeit:</p>
                       <p>
                         Sie können der Erfassung durch das Meta Pixel jederzeit widersprechen – z. B. über die Cookie-Einstellungen auf unserer Website oder direkt bei Meta.
                       </p>
@@ -299,8 +299,8 @@ const Impressum = () => {
                       </ul>
                     </div>
 
-                    <div className="bg-green-900/20 border border-green-500/30 p-4 rounded-lg mb-4">
-                      <h4 className="text-lg font-semibold text-green-300 mb-2">IP-Anonymisierung:</h4>
+                    <div className="bg-purple-900/20 border border-purple-500/30 p-4 rounded-lg mb-4">
+                      <h4 className="text-lg font-semibold text-purple-300 mb-2">IP-Anonymisierung:</h4>
                       <p className="mb-2">
                         Wir haben Google Analytics so konfiguriert, dass Ihre IP-Adresse innerhalb der EU oder des EWR gekürzt wird, bevor sie an Google weitergeleitet wird.
                       </p>
@@ -327,8 +327,8 @@ const Impressum = () => {
                       </ul>
                     </div>
 
-                    <div className="bg-blue-900/20 border border-blue-500/30 p-4 rounded-lg">
-                      <h4 className="text-lg font-semibold text-blue-300 mb-2">Ihre Kontrolle:</h4>
+                    <div className="bg-purple-900/20 border border-purple-500/30 p-4 rounded-lg">
+                      <h4 className="text-lg font-semibold text-purple-300 mb-2">Ihre Kontrolle:</h4>
                       <p>
                         Über unsere Cookie-Einstellungen können Sie individuell festlegen, welche Cookies Sie zulassen möchten.
                       </p>
