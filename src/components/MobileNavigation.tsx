@@ -104,20 +104,6 @@ export const MobileNavigation = ({
                 </div>
               </div>
 
-              {/* Content Dropdown */}
-              <div className="relative group">
-                <button className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
-                  Content
-                </button>
-                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-lg z-50 border ${borderColor}`}>
-                  <div className="py-2">
-                    
-                    <Link to="/blog" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>Blog &amp; news</Link>
-                    
-                  </div>
-                </div>
-              </div>
-
               <Button onClick={onContactClick} className={`${isDark ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700' : 'bg-black hover:bg-gray-800'} text-white transition-all duration-300 hover:scale-105`} size="sm">
                 Kontakt
               </Button>
@@ -293,57 +279,6 @@ export const MobileNavigation = ({
                     </motion.div>
                   </div>
 
-                  {/* Content Section */}
-                  <motion.div initial={{
-                opacity: 0,
-                x: 50
-              }} animate={{
-                opacity: 1,
-                x: 0
-              }} transition={{
-                delay: 0.39
-              }}>
-                    <div className={`block py-2 px-3 text-sm font-semibold ${textColor} uppercase tracking-wide`}>
-                      Content
-                    </div>
-                  </motion.div>
-                  <div className="pl-3 space-y-0.5">
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.42
-                }}>
-                      
-                    </motion.div>
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.45
-                }}>
-                      <Link to="/blog" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
-                        Blog
-                      </Link>
-                    </motion.div>
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.48
-                }}>
-                      
-                    </motion.div>
-                  </div>
                 </div>
 
                 {/* Mobile Contact Button */}
