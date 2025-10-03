@@ -372,54 +372,19 @@ export const InnovationSection = () => {
             }} />
               
               <CardContent className="relative p-6 text-left">
-                <motion.div className="flex items-center justify-start w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-secondary to-accent mb-4 shadow-soft relative" animate={{
-                rotate: [0, 5, -5, 0],
-                scale: hoveredCard === 3 ? [1, 1.1, 1] : 1
-              }} transition={{
-                rotate: {
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                },
-                scale: {
-                  duration: 1.5,
-                  repeat: hoveredCard === 3 ? Infinity : 0
-                }
-              }} whileHover={{
-                scale: 1.15,
-                rotate: 10
-              }}>
-                  {/* Multiple animated rings */}
-                  {[...Array(3)].map((_, i) => <motion.div key={i} className="absolute inset-0 rounded-3xl border-2 border-primary/30" animate={{
-                  scale: hoveredCard === 3 ? [1, 1.5 + i * 0.2, 1] : 1,
-                  opacity: hoveredCard === 3 ? [0.5, 0, 0.5] : 0
-                }} transition={{
-                  duration: 2,
-                  repeat: hoveredCard === 3 ? Infinity : 0,
-                  delay: i * 0.3
-                }} />)}
-                  <Brain className="w-6 h-6 text-white drop-shadow-xl relative z-10" />
-                </motion.div>
+                <div className="flex items-center justify-start w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-secondary to-accent mb-4 shadow-soft">
+                  <Brain className="w-6 h-6 text-white drop-shadow-xl" />
+                </div>
                 
-                <motion.h3 animate={{
-                scale: hoveredCard === 3 ? [1, 1.05, 1] : 1
-              }} transition={{
-                duration: 2,
-                repeat: hoveredCard === 3 ? Infinity : 0
-              }} className="text-xl mb-3 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight font-semibold sm:text-lg">
+                <h3 className="text-xl mb-3 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight font-semibold sm:text-lg">
                   Kreatives Headquarter<br />für Innovation
-                </motion.h3>
+                </h3>
                 
-                <motion.div className="space-y-3 max-w-2xl" animate={{
-                y: hoveredCard === 3 ? [0, -5, 0] : 0
-              }} transition={{
-                duration: 2,
-                repeat: hoveredCard === 3 ? Infinity : 0
-              }}>
+                <div className="space-y-3 max-w-2xl">
                   <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.
                   </p>
-                </motion.div>
+                </div>
                 
                 {/* Animated bottom accent */}
                 <motion.div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" animate={{
