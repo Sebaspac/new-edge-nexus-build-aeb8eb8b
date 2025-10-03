@@ -1174,7 +1174,7 @@ const Services = () => {
                     Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
                   </p>
                 </div>
-                <Button onClick={() => setIsContactSheetOpen(true)} className="w-full bg-purple-600 hover:bg-purple-700 text-white text-[10px] sm:text-sm md:text-base py-1 sm:py-2 mt-auto">
+                <Button onClick={() => setIsContactSheetOpen(true)} className="w-full bg-white border border-primary text-primary hover:bg-primary hover:text-white text-[10px] sm:text-sm md:text-base py-1 sm:py-2 mt-auto transition-all duration-300">
                   Contact Support
                 </Button>
               </CardContent>
