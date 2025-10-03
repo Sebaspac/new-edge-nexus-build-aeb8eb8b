@@ -938,7 +938,7 @@ const Services = () => {
                 delay: index * 0.05
               }} className="border-b border-border last:border-b-0">
                     {/* Accordion Header */}
-                    <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity text-lg font-semibold">
+                    <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity text-lg font-semibold text-slate-950">
                       <h3 className="text-xl sm:text-2xl font-bold text-foreground">
                         {item.title}
                       </h3>
