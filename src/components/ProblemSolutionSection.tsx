@@ -64,7 +64,7 @@ export const ProblemSolutionSection = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="relative z-20 min-h-[60vh] space-y-1"
+          className="relative z-20 space-y-1"
         >
           {accordionItems.map((item, index) => {
             const isOpen = openAccordionIndex === index;
