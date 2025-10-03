@@ -191,7 +191,7 @@ const About = () => {
             duration: 0.9,
             ease: [0.25, 0.46, 0.45, 0.94]
           }} className="text-center mb-24">
-              <motion.h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-10 text-black leading-[1.2]" initial={{
+              <motion.h2 initial={{
               opacity: 0,
               rotateX: -20
             }} whileInView={{
@@ -204,7 +204,7 @@ const About = () => {
               duration: 0.7
             }} whileHover={{
               scale: 1.03
-            }}>
+            }} className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-10 text-black leading-[1.2] text-left">
                 Know-how trifft Prozess
               </motion.h2>
               <motion.p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-[1.9] tracking-wide" initial={{
@@ -347,11 +347,11 @@ const About = () => {
             duration: 0.8,
             ease: [0.25, 0.46, 0.45, 0.94]
           }} className="text-center mb-20">
-              <motion.h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent" whileHover={{
+              <motion.h2 whileHover={{
               scale: 1.05
             }} transition={{
               duration: 0.3
-            }}>
+            }} className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent text-left lg:text-5xl">
                 Unser Netzwerk
               </motion.h2>
               <motion.p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" initial={{
@@ -498,7 +498,7 @@ const About = () => {
             duration: 0.8,
             ease: [0.25, 0.46, 0.45, 0.94]
           }} className="text-center mb-20">
-              <motion.h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6" initial={{
+              <motion.h2 initial={{
               opacity: 0,
               rotateX: -20
             }} whileInView={{
@@ -509,7 +509,7 @@ const About = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }}>
+            }} className="text-3xl sm:text-4xl font-bold mb-6 text-left lg:text-5xl">
                 <span className="bg-gradient-primary bg-clip-text text-transparent">Die Gründer</span>
               </motion.h2>
               <motion.p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" initial={{
