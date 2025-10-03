@@ -150,7 +150,7 @@ const Lab = () => {
               }
             }} className="mb-6">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
-                  FROM VISION{" "}
+                  TECH{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: 'linear-gradient(to right, #fde047, #fbbf24)',
                   WebkitBackgroundClip: 'text',
@@ -161,7 +161,7 @@ const Lab = () => {
                   duration: 1,
                   delay: 0.3
                 }}>
-                    TO REALITY
+                    INNOVATION
                   </motion.span>
                 </h2>
                 <motion.p className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl" variants={{
@@ -178,7 +178,7 @@ const Lab = () => {
                   }
                 }
               }}>
-                  Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden. Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.
+                  LAB entwickelt, automatisiert und skaliert Technologielösungen. Von KI-Integration bis zur vollständigen Webentwicklung.
                 </motion.p>
               </motion.div>
             </motion.div>
