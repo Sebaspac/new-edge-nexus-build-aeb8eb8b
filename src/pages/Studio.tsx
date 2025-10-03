@@ -344,9 +344,7 @@ const Studio = () => {
             </p>
             <Button id="projekt-besprechen-btn" size="lg" className="bg-white hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
             color: '#6366f1'
-          }} onClick={() => setIsModalOpen(true)}>
-              Design-Projekt starten
-            </Button>
+          }} onClick={() => setIsModalOpen(true)}>Loslegen!</Button>
           </div>
         </section>
       </div>
