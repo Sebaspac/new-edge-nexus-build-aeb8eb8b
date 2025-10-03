@@ -378,9 +378,9 @@ const Services = () => {
             duration: 0.8,
             delay: 0.3
           }} className="mt-20">
-              <div className="max-w-4xl">
+              <div className="max-w-4xl mx-auto">
                 {/* Journey Header */}
-                <div className="text-left mb-16">
+                <div className="text-center mb-16">
                   <motion.h3 className="text-4xl sm:text-5xl font-bold text-foreground mb-6" initial={{
                   opacity: 0,
                   scale: 0.8
@@ -395,7 +395,7 @@ const Services = () => {
                 }}>
                     Unsere Journey
                   </motion.h3>
-                  <motion.p className="text-xl text-muted-foreground max-w-2xl" initial={{
+                  <motion.p className="text-xl text-muted-foreground max-w-2xl mx-auto" initial={{
                   opacity: 0,
                   y: 20
                 }} whileInView={{
