@@ -300,7 +300,7 @@ const Index = () => {
               duration: 0.7
             }} whileHover={{
               scale: 1.03
-            }} className="text-[42px] sm:text-[44px] lg:text-[48px] mb-4 bg-gradient-primary bg-clip-text leading-[1.25] text-gray-950 font-bold">
+            }} className="text-[42px] sm:text-[44px] mb-4 bg-gradient-primary bg-clip-text leading-[1.25] text-gray-950 font-bold lg:text-4xl">
                 Für wen wir arbeiten & warum
               </motion.h2>
               <motion.p className="text-base text-gray-600 max-w-3xl leading-[1.5]" initial={{
@@ -494,7 +494,7 @@ const Index = () => {
               duration: 0.7
             }} whileHover={{
               scale: 1.03
-            }} className="text-[42px] sm:text-[44px] lg:text-[48px] mb-4 text-black leading-[1.25] font-bold">
+            }} className="text-[42px] sm:text-[44px] mb-4 text-black leading-[1.25] font-bold lg:text-4xl">
                 Unsere innovative Herangehensweise
               </motion.h2>
             </motion.div>
@@ -641,7 +641,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-[42px] sm:text-[44px] lg:text-[48px] text-foreground mb-6 leading-[1.25] font-bold">
+            }} className="text-[42px] sm:text-[44px] text-foreground mb-6 leading-[1.25] font-bold lg:text-4xl">
                 Unsere Kompetenzbereiche
               </motion.h2>
               <motion.p className="text-base text-muted-foreground max-w-3xl leading-[1.5]" initial={{
