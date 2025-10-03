@@ -218,7 +218,7 @@ const Index = () => {
                   </motion.span>
                   {" "}Ihrer Branche
                 </h2>
-                <motion.p className="text-base text-gray-600 mt-4 leading-[1.5] max-w-3xl" variants={{
+                <motion.p variants={{
                 hidden: {
                   opacity: 0,
                   y: 20
@@ -231,7 +231,7 @@ const Index = () => {
                     delay: 0.2
                   }
                 }
-              }}>
+              }} className="text-gray-600 mt-4 leading-[1.5] max-w-3xl text-xl">
                   Wir helfen Marken, sichtbar zu werden, Prozesse zu automatisieren – und den Wandel durch Innovation aktiv zu gestalten.
                 </motion.p>
               </motion.div>
@@ -303,7 +303,7 @@ const Index = () => {
             }} className="text-[42px] sm:text-[44px] mb-4 bg-gradient-primary bg-clip-text leading-[1.25] text-gray-950 font-bold lg:text-4xl">
                 Für wen wir arbeiten & warum
               </motion.h2>
-              <motion.p className="text-base text-gray-600 max-w-3xl leading-[1.5]" initial={{
+              <motion.p initial={{
               opacity: 0,
               y: 20
             }} whileInView={{
@@ -314,7 +314,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }}>
+            }} className="text-gray-600 max-w-3xl leading-[1.5] text-xl">
                 Spezialisiert auf mittelständische KMUs, die Vorreiter werden wollen
               </motion.p>
             </motion.div>
@@ -712,7 +712,7 @@ const Index = () => {
                       </motion.div>
 
                       {/* Title */}
-                      <h3 className="text-[28px] sm:text-[30px] text-foreground mb-4 leading-[1.3] font-semibold lg:text-2xl">
+                      <h3 className="text-[28px] sm:text-[30px] text-foreground mb-4 leading-[1.3] lg:text-2xl font-bold">
                         {service.title}
                       </h3>
 

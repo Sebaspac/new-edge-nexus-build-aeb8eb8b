@@ -183,7 +183,7 @@ export const InnovationSection = () => {
                 }}>
                     Innovation als Prozess
                   </motion.h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed flex-grow">
+                  <p className="text-muted-foreground leading-relaxed flex-grow text-base">
                     Für uns ist Innovation kein einzelnes Feature – sie ist ein kontinuierlicher Prozess. 
                     Wir schaffen den Zugang zu echter Innovation für KMU, Selbständige und Marken im Wandel.
                   </p>
@@ -291,7 +291,7 @@ export const InnovationSection = () => {
                 }}>
                     Ganzheitliche Transformation
                   </motion.h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed flex-grow">
+                  <p className="text-muted-foreground leading-relaxed flex-grow text-base">
                     Unser Fokus liegt nicht nur auf Automatisierung oder Chatbots, sondern auf ganzheitlicher, 
                     kreativer Transformation: Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools.
                   </p>
@@ -381,7 +381,7 @@ export const InnovationSection = () => {
                 </h3>
                 
                 <div className="space-y-3 max-w-2xl">
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed sm:text-base">
                     Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.
                   </p>
                 </div>
