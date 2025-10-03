@@ -26,12 +26,10 @@ const Products = () => {
   const scrollToContact = () => {
     setIsContactSheetOpen(true);
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-
     const data = {
       name: formData.get('name')?.toString() || '',
       email: formData.get('email')?.toString() || '',
@@ -40,7 +38,6 @@ const Products = () => {
       telefon: formData.get('telefon')?.toString() || '',
       nachricht: formData.get('nachricht')?.toString() || ''
     };
-
     try {
       const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
         method: 'POST',
@@ -49,7 +46,6 @@ const Products = () => {
         },
         body: JSON.stringify(data)
       });
-
       if (response.ok) {
         toast({
           title: "Wir designen für dich",
@@ -87,7 +83,8 @@ const Products = () => {
         {/* Hero Section */}
         <section className="relative w-full mt-20">
           <div className="w-full relative" style={{
-          paddingTop: '56.25%', // 16:9 aspect ratio
+          paddingTop: '56.25%',
+          // 16:9 aspect ratio
           position: 'relative'
         }}>
             {/* 16:9 Aspect Ratio Background */}
@@ -108,18 +105,24 @@ const Products = () => {
               </div>
 
               {/* Scroll Indicator */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 0.5 }}
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-              >
-                <motion.div
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="flex flex-col items-center gap-2 cursor-pointer"
-                  onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
-                >
+              <motion.div initial={{
+              opacity: 0
+            }} animate={{
+              opacity: 1
+            }} transition={{
+              delay: 1,
+              duration: 0.5
+            }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+                <motion.div animate={{
+                y: [0, 10, 0]
+              }} transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }} className="flex flex-col items-center gap-2 cursor-pointer" onClick={() => window.scrollBy({
+                top: window.innerHeight,
+                behavior: 'smooth'
+              })}>
                   <span className="text-white text-sm font-medium">Scroll</span>
                   <ChevronDown className="w-6 h-6 text-white" />
                 </motion.div>
@@ -177,7 +180,7 @@ const Products = () => {
                     KI-AGENTEN
                   </motion.span>
                 </h2>
-                <motion.p className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl" variants={{
+                <motion.p variants={{
                 hidden: {
                   opacity: 0,
                   y: 20
@@ -190,7 +193,7 @@ const Products = () => {
                     delay: 0.2
                   }
                 }
-              }}>
+              }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">
                   Unsere spezialisierten KI-Agenten automatisieren Ihre Prozesse, verbessern Effizienz und steigern Produktivität. Von Wissensmanagement bis Content-Erstellung – maßgeschneiderte Lösungen für Ihr Business.
                 </motion.p>
               </motion.div>
@@ -201,11 +204,7 @@ const Products = () => {
         {/* Riley - Wissensagent */}
         <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-purple-50/30 to-blue-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <AgentScrollSection
-              videoSrc="/assets/products-hero-video.mp4"
-              gradient="bg-gradient-to-br from-purple-500 via-blue-500 to-purple-600"
-              imagePosition="right"
-            >
+            <AgentScrollSection videoSrc="/assets/products-hero-video.mp4" gradient="bg-gradient-to-br from-purple-500 via-blue-500 to-purple-600" imagePosition="right">
               <div className="space-y-6">
                 <motion.div variants={{
                 hidden: {
@@ -388,11 +387,7 @@ const Products = () => {
         {/* Liam - Lead-Gen-Agent */}
         <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <AgentScrollSection
-              videoSrc="/assets/liam-video.mp4"
-              gradient="bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600"
-              imagePosition="left"
-            >
+            <AgentScrollSection videoSrc="/assets/liam-video.mp4" gradient="bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600" imagePosition="left">
               <div className="space-y-6">
                 <motion.div variants={{
                 hidden: {
@@ -575,11 +570,7 @@ const Products = () => {
         {/* Vera - Voice-Agent */}
         <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-green-50/30 to-emerald-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <AgentScrollSection
-              videoSrc="/assets/vera-agent-video.mp4"
-              gradient="bg-gradient-to-br from-green-500 via-emerald-500 to-green-600"
-              imagePosition="right"
-            >
+            <AgentScrollSection videoSrc="/assets/vera-agent-video.mp4" gradient="bg-gradient-to-br from-green-500 via-emerald-500 to-green-600" imagePosition="right">
               <div className="space-y-6">
                 <motion.div variants={{
                 hidden: {
@@ -762,11 +753,7 @@ const Products = () => {
         {/* Cora - Content-Agent */}
         <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <AgentScrollSection
-              videoSrc="/assets/cora-agent-video.mp4"
-              gradient="bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600"
-              imagePosition="left"
-            >
+            <AgentScrollSection videoSrc="/assets/cora-agent-video.mp4" gradient="bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600" imagePosition="left">
               <div className="space-y-6">
                 <motion.div variants={{
                 hidden: {
