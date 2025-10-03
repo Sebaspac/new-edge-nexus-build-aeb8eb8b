@@ -331,11 +331,11 @@ const Services = () => {
           }} transition={{
             duration: 0.8,
             delay: 0.3
-          }} className="mt-20">
+          }} className="mt-8 sm:mt-20">
               <div className="max-w-4xl mx-auto">
                 {/* Journey Header */}
                 <div className="text-center mb-16">
-                  <motion.h3 className="text-4xl sm:text-5xl font-bold text-foreground mb-6" initial={{
+                  <motion.h3 className="text-5xl sm:text-5xl font-bold text-foreground mb-6" initial={{
                   opacity: 0,
                   scale: 0.8
                 }} whileInView={{
