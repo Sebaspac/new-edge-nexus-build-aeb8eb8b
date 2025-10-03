@@ -10,10 +10,15 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 md:gap-12">
           {/* Logo & Slogan - Links */}
           <div className="md:max-w-xs">
-            <Link to="/" className="flex items-center space-x-2 md:space-x-3">
+            <a 
+              href="https://www.linkedin.com/company/new-edge-brand/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 md:space-x-3"
+            >
               <OptimizedLogo className="h-6 md:h-8 w-6 md:w-8" width={32} height={32} />
               <span className="text-base md:text-xl font-bold">New Edge</span>
-            </Link>
+            </a>
             <p className="text-xs md:text-sm text-gray-400 mt-2">
               Design Brands. Drive Innovation.
             </p>
