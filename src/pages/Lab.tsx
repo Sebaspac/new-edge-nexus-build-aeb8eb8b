@@ -6,6 +6,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { motion } from "framer-motion";
 import { ContactFormModal } from "@/components/ContactFormModal";
+import { ServiceScrollSection } from "@/components/ServiceScrollSection";
 const Lab = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
@@ -188,58 +189,12 @@ const Lab = () => {
           background: index % 2 === 0 ? 'linear-gradient(to bottom right, white, rgba(253, 224, 71, 0.1), rgba(251, 191, 36, 0.1))' : 'linear-gradient(to bottom right, white, rgba(251, 191, 36, 0.1), rgba(253, 224, 71, 0.1))'
         }}>
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <motion.div initial="hidden" whileInView="visible" viewport={{
-              once: true,
-              margin: "-100px"
-            }} variants={{
-              hidden: {
-                opacity: 0
-              },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.15,
-                  delayChildren: 0.1
-                }
-              }
-            }} className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start">
-                  {/* Image - alternating left/right */}
-                  <motion.div variants={{
-                hidden: {
-                  opacity: 0,
-                  scale: 0.8
-                },
-                visible: {
-                  opacity: 1,
-                  scale: 1,
-                  transition: {
-                    duration: 0.8
-                  }
-                }
-              }} className={`hidden lg:block sticky top-24 ${isEven ? 'order-2' : 'order-1'}`}>
-                    <motion.div whileHover={{
-                  scale: 1.05,
-                  rotate: isEven ? 2 : -2
-                }} transition={{
-                  type: "spring",
-                  stiffness: 300
-                }} className={`w-full h-96 bg-gradient-to-br ${service.gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                      <motion.div animate={{
-                    scale: [1, 1.1, 1],
-                    rotate: [0, 5, -5, 0]
-                  }} transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}>
-                        <Icon className="w-40 h-40 text-white drop-shadow-2xl" />
-                      </motion.div>
-                    </motion.div>
-                  </motion.div>
-
-                  {/* Content - alternating right/left */}
-                  <div className={`space-y-6 ${isEven ? 'order-1' : 'order-2'}`}>
+                <ServiceScrollSection
+                  gradient={service.gradient}
+                  icon={Icon}
+                  imagePosition={isEven ? "right" : "left"}
+                >
+                  <div className="space-y-6">
                     <motion.div variants={{
                   hidden: {
                     opacity: 0,
@@ -335,7 +290,7 @@ const Lab = () => {
                       </motion.div>
                     </motion.div>
                   </div>
-                </motion.div>
+                </ServiceScrollSection>
               </div>
             </section>;
       })}
