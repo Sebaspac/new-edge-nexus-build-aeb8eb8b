@@ -362,7 +362,7 @@ const Services = () => {
         
         <motion.div style={{
         y: y2
-      }} className="container-xl relative z-10">
+      }} className="container-xl relative z-10 mx-auto">
           <div className="max-w-6xl mx-auto px-4">
             {/* Simplified Journey Visualization */}
             <motion.div initial={{
