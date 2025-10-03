@@ -717,7 +717,7 @@ const Services = () => {
             y: -5,
             boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)",
             transition: { duration: 0.3, ease: "easeOut" }
-          }} className={`${item.bgColor} rounded-3xl p-4 md:p-8 border border-border/50 backdrop-blur-sm transition-all duration-300 flex flex-row md:flex-col items-start md:items-stretch gap-3 md:gap-0 cursor-pointer`}>
+          }} className={`rounded-3xl p-4 md:p-8 border border-border/50 backdrop-blur-sm transition-all duration-300 flex flex-row md:flex-col items-start md:items-stretch gap-3 md:gap-0 cursor-pointer`}>
                 <motion.div whileHover={{
                   rotate: [0, -10, 10, 0],
                   scale: 1.1
