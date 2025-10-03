@@ -34,51 +34,37 @@ const About = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Hero Section */}
-        <section className="relative w-full pt-32 pb-16 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
-          <motion.div 
-            className="absolute top-20 right-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl"
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            animate={{ 
-              y: [0, -20, 0],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ 
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          <motion.div 
-            className="absolute bottom-10 left-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            animate={{ 
-              x: [0, 20, 0],
-              rotate: [0, 180, 360]
-            }}
-            transition={{ 
-              duration: 15,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          />
-
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-            >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-black leading-[1.2]">
-                About & Crew
-              </h1>
-              <p className="text-lg text-gray-700 max-w-3xl leading-[1.6]">
-                Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Vision.
-              </p>
-            </motion.div>
+        <section className="relative w-full" style={{ marginTop: '80px' }}>
+          <div className="w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
+            {/* 16:9 Aspect Ratio Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
+              {/* Background Video */}
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                preload="auto"
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source src="/assets/hero-video.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              
+              {/* Text Content - Bottom Left */}
+              <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight">
+                  <span className="text-white">ABOUT &</span><br />
+                  <span className="italic font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">CREW</span>
+                </h1>
+                <p className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed mb-2">
+                  Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Vision.
+                </p>
+                <p className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed">
+                  Gemeinsam schaffen wir digitale Lösungen, die begeistern.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
