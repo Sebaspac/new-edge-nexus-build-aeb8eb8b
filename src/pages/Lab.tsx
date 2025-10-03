@@ -146,7 +146,7 @@ const Lab = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-3 leading-[1.25] text-black">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
                   TECH{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: 'linear-gradient(to right, #fde047, #fbbf24)',
@@ -161,7 +161,7 @@ const Lab = () => {
                     INNOVATION
                   </motion.span>
                 </h2>
-                <motion.p className="text-base text-gray-600 mt-4 leading-[1.5] max-w-3xl" variants={{
+                <motion.p className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl" variants={{
                 hidden: {
                   opacity: 0,
                   y: 20
@@ -261,7 +261,7 @@ const Lab = () => {
                   }} className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}>
                         <Icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold text-black leading-[1.25]">{service.title}</h2>
+                      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">{service.title}</h2>
                     </motion.div>
                     
                     <motion.div variants={{
@@ -277,7 +277,7 @@ const Lab = () => {
                     }
                   }
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30">
-                      <p className="text-base text-gray-700 leading-[1.5]">
+                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                         {service.description}
                       </p>
                     </motion.div>
@@ -295,8 +295,8 @@ const Lab = () => {
                     }
                   }
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30">
-                      <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-4 text-black leading-[1.3]">Unsere Leistungen</h3>
-                      <ul className="text-base text-gray-700 leading-[1.5] space-y-3">
+                      <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Unsere Leistungen</h3>
+                      <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                         {service.details.map((detail, idx) => <motion.li key={idx} variants={{
                       hidden: {
                         opacity: 0,
@@ -356,10 +356,10 @@ const Lab = () => {
           }} transition={{
             duration: 0.6
           }} className="text-left mb-12">
-              <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-2 text-black leading-[1.25]">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-2 text-black">
                 Meet Our Agents
               </h2>
-              <p className="text-base max-w-3xl text-gray-700 leading-[1.5]">
+              <p className="text-base sm:text-lg lg:text-xl max-w-3xl text-gray-700 leading-relaxed">
                 Unsere spezialisierten KI-Agenten arbeiten für Ihren Erfolg
               </p>
             </motion.div>
