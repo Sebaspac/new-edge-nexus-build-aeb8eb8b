@@ -207,7 +207,11 @@ const Services = () => {
         }} transition={{
           duration: 0.8,
           ease: "easeOut"
-        }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+        }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight bg-clip-text text-transparent" style={{
+          background: 'linear-gradient(to right, #8B5CF6, #EC4899)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent'
+        }}>
             THE<br />
             JOURNEY
           </motion.h1>
