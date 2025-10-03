@@ -1052,24 +1052,21 @@ const Services = () => {
                 title: "New Edge Studio",
                 description: "Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.",
                 gradient: "from-secondary to-accent",
-                link: "/studio",
-                buttonText: "Strategie entwickeln"
+                link: "/studio"
               },
               {
                 icon: Brain,
                 title: "New Edge Media",
                 description: "Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.",
                 gradient: "from-primary to-secondary",
-                link: "/media",
-                buttonText: "Content erstellen"
+                link: "/media"
               },
               {
                 icon: Zap,
                 title: "New Edge Lab",
                 description: "Tech-Innovation und Automatisierung. Von MVP bis zur finalen technischen Umsetzung.",
                 gradient: "from-accent to-primary",
-                link: "/lab",
-                buttonText: "Automatisieren"
+                link: "/lab"
               }
             ].map((service, index) => (
               <motion.div key={index} variants={{
@@ -1121,7 +1118,7 @@ const Services = () => {
                       {/* Button */}
                       <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-white group text-sm md:text-base md:mt-auto" asChild>
                         <Link to={service.link}>
-                          {service.buttonText}
+                          Mehr erfahren
                           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </Link>
                       </Button>
