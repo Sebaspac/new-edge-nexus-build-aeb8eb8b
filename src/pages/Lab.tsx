@@ -230,7 +230,7 @@ const Lab = () => {
                   }} className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}>
                         <Icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">{service.title}</h2>
+                      <h2 className="text-[36px] sm:text-[48px] md:text-[52px] font-black text-black lg:text-4xl">{service.title}</h2>
                     </motion.div>
                     
                     <motion.div variants={{
@@ -245,7 +245,13 @@ const Lab = () => {
                       duration: 0.5
                     }
                   }
-                }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30 hover:shadow-2xl hover:border-[#fde047]/50">
+                }} whileHover={{
+                  scale: 1.02,
+                  y: -5
+                }} transition={{
+                  type: "spring",
+                  stiffness: 300
+                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30 hover:shadow-2xl hover:border-[#fde047]/50">
                       <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                         {service.description}
                       </p>
@@ -263,7 +269,13 @@ const Lab = () => {
                       duration: 0.5
                     }
                   }
-                }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30 hover:shadow-2xl hover:border-[#fde047]/50">
+                }} whileHover={{
+                  scale: 1.02,
+                  y: -5
+                }} transition={{
+                  type: "spring",
+                  stiffness: 300
+                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30 hover:shadow-2xl hover:border-[#fde047]/50">
                       <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Unsere Leistungen</h3>
                       <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                         {service.details.map((detail, idx) => <motion.li key={idx} variants={{
