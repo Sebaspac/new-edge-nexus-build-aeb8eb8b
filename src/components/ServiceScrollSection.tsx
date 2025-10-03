@@ -34,7 +34,7 @@ export const ServiceScrollSection = ({
   return (
     <>
       {/* Mobile/Tablet: Stack Layout with Scroll Effect */}
-      <div ref={sectionRef} className="lg:hidden space-y-6 pb-12 relative">
+      <div ref={sectionRef} className="lg:hidden space-y-4 pb-6 relative">
         {/* Image with Scroll Effect */}
         <motion.div
           style={{
@@ -76,7 +76,7 @@ export const ServiceScrollSection = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="relative z-20 min-h-screen"
+          className="relative z-20"
         >
           {children}
         </motion.div>
