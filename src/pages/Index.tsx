@@ -195,9 +195,7 @@ const Index = () => {
                     delay: 0.2
                   }
                 }
-              }} className="text-gray-600 mt-4 leading-[1.5] max-w-3xl text-base lg:text-xl">
-                  Wir helfen Marken, sichtbar zu werden, Prozesse zu automatisieren – und den Wandel durch Innovation aktiv zu gestalten.
-                </motion.p>
+              }} className="text-gray-600 mt-4 leading-[1.5] max-w-3xl text-base lg:text-xl">Wir helfen Marken, sichtbar zu werden, Prozesse zu automatisieren – und den Wandel durch Innovation aktiv zu gestalten.</motion.p>
               </motion.div>
               
               
@@ -553,7 +551,7 @@ const Index = () => {
                     <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-lg md:text-[28px] lg:text-[32px] font-medium mb-1 sm:mb-2 text-foreground leading-[1.3]">Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.</h3>
+                    <h3 className="text-sm sm:text-lg md:text-[28px] lg:text-[32px] font-medium mb-1 sm:mb-2 text-foreground leading-[1.3]">Contact Team</h3>
                     <p className="text-[10px] sm:text-sm md:text-base text-muted-foreground mb-2 sm:mb-3 md:mb-4 leading-[1.5]">
                       Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
                     </p>
