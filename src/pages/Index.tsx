@@ -140,39 +140,6 @@ const Index = () => {
 
         {/* Info Section */}
         <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
-          {/* Parallax Floating Elements */}
-          <motion.div className="absolute top-20 right-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl" initial={{
-          opacity: 0,
-          scale: 0
-        }} whileInView={{
-          opacity: 1,
-          scale: 1
-        }} viewport={{
-          once: true
-        }} animate={{
-          y: [0, -20, 0],
-          scale: [1, 1.1, 1]
-        }} transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
-          <motion.div className="absolute bottom-10 left-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl" initial={{
-          opacity: 0,
-          x: -50
-        }} whileInView={{
-          opacity: 1,
-          x: 0
-        }} viewport={{
-          once: true
-        }} animate={{
-          x: [0, 20, 0],
-          rotate: [0, 180, 360]
-        }} transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "linear"
-        }} />
 
           <div className="container-xl relative z-10">
             <motion.div initial="hidden" whileInView="visible" viewport={{
@@ -208,14 +175,9 @@ const Index = () => {
             }} className="mb-6">
                 <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] mb-3 leading-[1.2] text-black font-extrabold">
                   Wir bringen Ihr Unternehmen{" "}
-                  <motion.span className="bg-gradient-primary bg-clip-text text-transparent inline-block" whileInView={{
-                  scale: [1, 1.05, 1]
-                }} transition={{
-                  duration: 1,
-                  delay: 0.3
-                }}>
+                  <span className="bg-gradient-primary bg-clip-text text-transparent inline-block">
                     an die Spitze
-                  </motion.span>
+                  </span>
                   {" "}Ihrer Branche
                 </h2>
                 <motion.p variants={{
@@ -248,27 +210,6 @@ const Index = () => {
 
         {/* Problem-Lösung Sektion - Neu aus Briefing */}
         <section className="relative py-8 sm:py-12 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
-          {/* Enhanced Animated background with multiple layers */}
-          <motion.div className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
-          scale: [1, 1.3, 1],
-          x: [0, 60, 0],
-          y: [0, -40, 0],
-          rotate: [0, 90, 0]
-        }} transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
-          <motion.div className="absolute bottom-20 left-20 w-64 h-64 bg-secondary/5 rounded-full blur-2xl" animate={{
-          scale: [1.2, 1, 1.2],
-          x: [0, -30, 0],
-          y: [0, 40, 0]
-        }} transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
-        }} />
 
           <div className="container-xl relative z-10">
             {/* Header with enhanced animations */}
@@ -289,17 +230,15 @@ const Index = () => {
           }} className="text-left mb-12">
               <motion.h2 initial={{
               opacity: 0,
-              rotateX: -20
+              y: 20
             }} whileInView={{
               opacity: 1,
-              rotateX: 0
+              y: 0
             }} viewport={{
               once: true
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} whileHover={{
-              scale: 1.03
             }} className="text-[42px] sm:text-[44px] mb-4 bg-gradient-primary bg-clip-text leading-[1.25] text-gray-950 font-bold lg:text-4xl">
                 Für wen wir arbeiten & warum
               </motion.h2>
@@ -390,34 +329,10 @@ const Index = () => {
                 once: true
               }} transition={{
                 duration: 0.6
-              }} className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                  <motion.div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent" animate={{
-                  backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"]
-                }} transition={{
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "linear"
-                }} style={{
-                  backgroundSize: "200% 200%"
-                }} />
-                  <motion.div className="absolute inset-0 flex items-center justify-center" animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 5, -5, 0]
-                }} transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}>
-                    <motion.div className="w-64 h-64 bg-white/20 backdrop-blur-sm rounded-3xl" animate={{
-                    rotateY: [0, 360]
-                  }} transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }} style={{
-                    transformStyle: "preserve-3d"
-                  }} />
-                  </motion.div>
+              }} className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary via-secondary to-accent">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-64 h-64 bg-white/20 backdrop-blur-sm rounded-3xl" />
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </motion.div>
               </div>
@@ -427,42 +342,6 @@ const Index = () => {
 
         {/* Impact Points Section with Modern Animations */}
         <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-blue-50/20 to-white overflow-hidden">
-          {/* Enhanced Parallax Floating Elements */}
-          <motion.div className="absolute top-40 right-10 w-28 h-28 bg-accent/10 rounded-full blur-xl" initial={{
-          opacity: 0,
-          scale: 0
-        }} whileInView={{
-          opacity: 1,
-          scale: 1
-        }} viewport={{
-          once: true
-        }} animate={{
-          x: [0, 40, 0],
-          y: [0, -30, 0],
-          scale: [1, 1.4, 1],
-          rotate: [0, 180, 360]
-        }} transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
-          <motion.div className="absolute bottom-20 left-20 w-40 h-40 bg-primary/5 rounded-full blur-2xl" initial={{
-          opacity: 0,
-          rotate: -180
-        }} whileInView={{
-          opacity: 1,
-          rotate: 0
-        }} viewport={{
-          once: true
-        }} animate={{
-          rotate: [0, 360],
-          scale: [1, 0.8, 1],
-          x: [0, -20, 0]
-        }} transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "linear"
-        }} />
           
           <div className="container-xl relative z-10">
             {/* Section Title with enhanced scale animation */}
@@ -492,8 +371,6 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} whileHover={{
-              scale: 1.03
             }} className="text-[42px] sm:text-[44px] mb-4 text-black leading-[1.25] font-bold lg:text-4xl">
                 Unsere innovative Herangehensweise
               </motion.h2>
@@ -574,14 +451,9 @@ const Index = () => {
               }} transition={{
                 duration: 0.2
               }}>
-                    <motion.div className={`w-12 h-12 bg-gradient-to-br ${point.iconBg} rounded-xl flex items-center justify-center mb-4`} whileHover={{
-                  rotate: 180,
-                  scale: 1.05
-                }} transition={{
-                  duration: 0.4
-                }}>
+                    <div className={`w-12 h-12 bg-gradient-to-br ${point.iconBg} rounded-xl flex items-center justify-center mb-4`}>
                       <point.icon className="w-6 h-6 text-white" />
-                    </motion.div>
+                    </div>
                     <h3 className="text-[28px] sm:text-[30px] mb-2 text-foreground leading-[1.3] lg:text-lg font-semibold">
                       {point.title}
                     </h3>
@@ -596,26 +468,6 @@ const Index = () => {
 
         {/* Unsere Kompetenzbereiche - Light Section */}
         <section className="relative py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-white overflow-hidden">
-          {/* Animated background elements */}
-          <motion.div className="absolute top-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
-          scale: [1, 1.2, 1],
-          x: [0, 50, 0],
-          y: [0, -30, 0]
-        }} transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
-          <motion.div className="absolute bottom-20 left-10 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" animate={{
-          scale: [1.2, 1, 1.2],
-          x: [0, -30, 0],
-          y: [0, 40, 0]
-        }} transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
-        }} />
 
           <div className="container-xl relative z-10">
             {/* Header */}
