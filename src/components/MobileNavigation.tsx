@@ -171,9 +171,7 @@ export const MobileNavigation = ({
               }} transition={{
                 delay: 0.1
               }}>
-                    <Link to="/" onClick={handleLinkClick} className={`block py-3 px-3 text-base font-medium ${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[48px] flex items-center`}>
-                      Home
-                    </Link>
+                    
                   </motion.div>
 
                   {/* Services Section */}
