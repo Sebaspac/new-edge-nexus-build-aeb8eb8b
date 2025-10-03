@@ -264,9 +264,9 @@ export const InnovationSection = () => {
               repeat: hoveredCard === 2 ? Infinity : 0
             }} />
               
-              <CardContent className="relative p-6 h-full flex gap-4">
+              <CardContent className="relative p-6 h-full flex gap-3">
                 <div className="flex-1 flex flex-col">
-                  <motion.div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary shadow-soft mb-4 relative" whileHover={{
+                  <motion.div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary shadow-soft mb-3 relative" whileHover={{
                   scale: 1.2,
                   rotate: -360,
                   transition: {
@@ -286,12 +286,12 @@ export const InnovationSection = () => {
                     <Zap className="w-6 h-6 text-white drop-shadow-lg relative z-10" />
                   </motion.div>
                   
-                  <motion.h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent leading-tight" animate={{
+                  <motion.h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent leading-tight" animate={{
                   scale: hoveredCard === 2 ? 1.05 : 1
                 }}>
                     Ganzheitliche Transformation
                   </motion.h3>
-                  <p className="text-base text-foreground/80 leading-[1.7] flex-grow">
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-grow">
                     Unser Fokus liegt nicht nur auf Automatisierung oder Chatbots, sondern auf ganzheitlicher, 
                     kreativer Transformation: Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools.
                   </p>
