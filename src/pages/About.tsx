@@ -126,9 +126,8 @@ const About = () => {
                     delay: 0.2
                   }
                 }
-              }}>
-                  Gemeinsam schaffen wir digitale Lösungen, die begeistern. Lernen Sie die Menschen kennen, die hinter NEW EDGE stehen – von Strategie über Kreation bis hin zu Technologie.
-                </motion.p>
+              }}>Gemeinsam schaffen wir digitale Lösungen, die begeistern. 
+Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Vision – von Strategie über Kreation bis hin zu Technologie.</motion.p>
               </motion.div>
             </motion.div>
           </div>
