@@ -341,12 +341,12 @@ export const InnovationSection = () => {
                   <Brain className="w-6 h-6 text-white drop-shadow-xl" />
                 </div>
                 
-                <h3 className="text-xl mb-3 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight font-semibold sm:text-lg">
+                <h3 className="mb-3 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight font-semibold sm:text-lg text-xl">
                   Kreatives Headquarter<br />für Innovation
                 </h3>
                 
                 <div className="space-y-3 max-w-2xl mx-auto">
-                  <p className="text-sm text-muted-foreground leading-relaxed sm:text-base">
+                  <p className="text-muted-foreground leading-relaxed sm:text-base text-base">
                     Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.
                   </p>
                 </div>
