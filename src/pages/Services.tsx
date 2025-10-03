@@ -358,7 +358,7 @@ const Services = () => {
                 }} transition={{
                   delay: 0.2,
                   duration: 0.6
-                }} className="text-xl text-muted-foreground max-w-2xl mx-auto text-left">
+                }} className="text-base lg:text-xl text-muted-foreground max-w-2xl mx-auto text-left">
                     Von der Vision zur Realität - erleben Sie jeden Schritt unserer digitalen Transformation
                   </motion.p>
                 </div>
@@ -677,7 +677,7 @@ const Services = () => {
           duration: 0.8
         }} className="text-left mb-20">
             <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] text-foreground mb-6 font-bold">Das Ergebnis</h2>
-            <p className="text-body-xl text-muted-foreground max-w-4xl text-xl">
+            <p className="text-muted-foreground max-w-4xl text-base lg:text-xl">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
             </p>
           </motion.div>
@@ -738,7 +738,7 @@ const Services = () => {
           duration: 0.8
         }} className="text-left mb-20">
             <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] text-foreground mb-6 font-bold">Warum New Edge?</h2>
-            <p className="text-body-xl text-muted-foreground max-w-4xl text-xl">
+            <p className="text-muted-foreground max-w-4xl text-base lg:text-xl">
               Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.
             </p>
           </motion.div>
@@ -859,7 +859,7 @@ const Services = () => {
           }} transition={{
             delay: 0.4,
             duration: 0.6
-          }} className="text-sm text-gray-600 max-w-3xl leading-[1.6] sm:text-xl">
+          }} className="text-base text-gray-600 max-w-3xl leading-[1.6] lg:text-xl">
               Spezialisiert auf mittelständische KMUs, die Vorreiter werden wollen
             </motion.p>
           </motion.div>

@@ -223,7 +223,7 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
             }} className="text-3xl sm:text-4xl lg:text-5xl mb-10 text-black leading-[1.2] text-left font-bold xl:text-4xl">
                 Know-how trifft Prozess
               </motion.h2>
-              <motion.p className="text-lg sm:text-xl text-gray-600 max-w-3xl leading-[1.9] tracking-wide" initial={{
+              <motion.p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl leading-[1.9] tracking-wide" initial={{
               opacity: 0,
               y: 20
             }} whileInView={{
@@ -370,7 +370,7 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
             }} className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-primary bg-clip-text text-left text-slate-950 lg:text-4xl">
                 Unser Netzwerk
               </motion.h2>
-              <motion.p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed" initial={{
+              <motion.p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed" initial={{
               opacity: 0
             }} whileInView={{
               opacity: 1
@@ -528,7 +528,7 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
             }} className="text-3xl sm:text-4xl font-bold mb-6 text-left lg:text-5xl">
                 <span className="bg-gradient-primary bg-clip-text text-slate-950 text-4xl font-bold">Die Gründer</span>
               </motion.h2>
-              <motion.p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed" initial={{
+              <motion.p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed" initial={{
               opacity: 0,
               y: 20
             }} whileInView={{
