@@ -47,19 +47,22 @@ const Lab = () => {
     description: "Optimierung und Automatisierung operativer Aufgaben durch künstliche Intelligenz.",
     details: ["Workflow-Analyse und Optimierung", "Automatisierte Entscheidungsprozesse", "Intelligente Datenverarbeitung", "Zeit- und Kostenersparnis maximieren"],
     icon: Cpu,
-    gradient: "from-[#fde047] to-[#fbbf24]"
+    gradient: "from-[#fde047] to-[#fbbf24]",
+    video: "/assets/lab-ki-automation-video.mp4"
   }, {
     title: "Webentwicklung",
     description: "CMS, Landingpages, Funnels - maßgeschneiderte Weblösungen für Ihren Erfolg.",
     details: ["Content Management Systeme", "Conversion-optimierte Landingpages", "Sales Funnel Entwicklung", "Responsive und performant"],
     icon: Globe,
-    gradient: "from-[#fbbf24] to-[#fde047]"
+    gradient: "from-[#fbbf24] to-[#fde047]",
+    video: "/assets/lab-section-video.mp4"
   }, {
     title: "Tracking- & Analyse-Setups",
     description: "GA4, Tag Manager, Pixel, Dashboards - umfassende Datenanalyse und Reporting.",
     details: ["Google Analytics 4 Setup", "Tag Manager Konfiguration", "Custom Dashboard Entwicklung", "Datengetriebene Entscheidungen"],
     icon: BarChart3,
-    gradient: "from-[#fde047] to-[#fbbf24]"
+    gradient: "from-[#fde047] to-[#fbbf24]",
+    video: "/assets/lab-section-video.mp4"
   }];
   return <>
       <Helmet>
@@ -202,7 +205,7 @@ const Lab = () => {
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 <ServiceScrollSection
                   gradient={service.gradient}
-                  videoSrc="/assets/lab-section-video.mp4"
+                  videoSrc={service.video}
                   imagePosition={isEven ? "right" : "left"}
                 >
                   <div className="space-y-6">
