@@ -66,7 +66,7 @@ export const MobileNavigation = ({
             </Link>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
               
               
               {/* Services Dropdown */}
@@ -128,7 +128,7 @@ export const MobileNavigation = ({
             {/* Mobile Menu Button */}
             <motion.button whileTap={{
             scale: 0.95
-          }} onClick={() => setIsOpen(!isOpen)} className={`md:hidden p-3 ${textColor} z-50 relative min-h-[48px] min-w-[48px] flex items-center justify-center`} aria-label="Toggle menu">
+          }} onClick={() => setIsOpen(!isOpen)} className={`lg:hidden p-3 ${textColor} z-50 relative min-h-[48px] min-w-[48px] flex items-center justify-center`} aria-label="Toggle menu">
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>
           </div>
@@ -145,7 +145,7 @@ export const MobileNavigation = ({
           opacity: 1
         }} exit={{
           opacity: 0
-        }} onClick={() => setIsOpen(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden" />
+        }} onClick={() => setIsOpen(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden" />
 
             {/* Mobile Menu */}
             <motion.div initial={{
@@ -158,7 +158,7 @@ export const MobileNavigation = ({
           type: "spring",
           damping: 25,
           stiffness: 200
-        }} className={`fixed top-0 right-0 h-full w-72 max-w-[80vw] ${bgColor} backdrop-blur-lg z-50 md:hidden shadow-2xl`}>
+        }} className={`fixed top-0 right-0 h-full w-72 max-w-[80vw] ${bgColor} backdrop-blur-lg z-50 lg:hidden shadow-2xl`}>
               <div className="flex flex-col h-full pt-16 pb-4">
                 {/* Mobile Menu Items */}
                 <div className="flex-1 px-4 space-y-0.5 overflow-y-auto">
