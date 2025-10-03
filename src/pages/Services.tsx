@@ -208,7 +208,7 @@ const Services = () => {
           duration: 0.8,
           ease: "easeOut"
         }} className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight bg-clip-text text-transparent" style={{
-          background: 'linear-gradient(to right, #8B5CF6, #EC4899)',
+          background: 'linear-gradient(to right, #8B5CF6, #A855F7)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent'
         }}>
