@@ -1095,7 +1095,7 @@ const Services = () => {
               }
             }}>
                 <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
-                  <CardContent className="p-4 md:p-8 flex flex-row md:flex-col items-start md:items-stretch gap-4 md:gap-0">
+                  <CardContent className="p-4 md:p-8 flex flex-row md:flex-col items-start md:items-stretch gap-4 md:gap-0 h-full">
                     {/* Icon with gradient background */}
                     <motion.div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center md:mb-6 shadow-lg flex-shrink-0`} whileHover={{
                     scale: 1.1,
@@ -1107,19 +1107,19 @@ const Services = () => {
                       <service.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
                     </motion.div>
 
-                    <div className="flex-1 md:flex-none">
+                    <div className="flex-1 md:flex md:flex-col md:h-full">
                       {/* Title */}
                       <h3 className="text-base sm:text-lg md:text-[28px] lg:text-2xl text-foreground mb-2 md:mb-4 leading-[1.3] font-bold">
                         {service.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-6 leading-[1.5]">
+                      <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-6 leading-[1.5] md:flex-grow">
                         {service.description}
                       </p>
 
                       {/* Button */}
-                      <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-white group text-sm md:text-base" asChild>
+                      <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-white group text-sm md:text-base md:mt-auto" asChild>
                         <Link to={service.link}>
                           {service.buttonText}
                           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
