@@ -712,7 +712,7 @@ const Index = () => {
                       </motion.div>
 
                       {/* Title */}
-                      <h3 className="text-[28px] sm:text-[30px] text-foreground mb-4 leading-[1.3] lg:text-lg font-semibold">
+                      <h3 className="text-[28px] sm:text-[30px] text-foreground mb-4 leading-[1.3] font-semibold lg:text-2xl">
                         {service.title}
                       </h3>
 
