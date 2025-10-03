@@ -181,13 +181,15 @@ const Studio = () => {
         {studioServices.map((service, index) => {
         const Icon = service.icon;
         const isEven = index % 2 === 0;
+        // Use brandstory video for "Brand Story" section (index 1)
+        const videoSrc = index === 1 ? "/assets/brandstory-video.mp4" : "/assets/studio-service-video.mp4";
         return <section key={index} className="py-12 sm:py-16" style={{
           background: index % 2 === 0 ? 'linear-gradient(to bottom right, white, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08))' : 'linear-gradient(to bottom right, white, rgba(168, 85, 247, 0.08), rgba(99, 102, 241, 0.08))'
         }}>
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 <ServiceScrollSection
                   gradient={service.gradient}
-                  videoSrc="/assets/studio-service-video.mp4"
+                  videoSrc={videoSrc}
                   imagePosition={isEven ? "right" : "left"}
                 >
                   <div className="space-y-6">
