@@ -54,7 +54,7 @@ export const HeroSection = ({
           }} transition={{
             delay: 0.2,
             duration: 0.6
-          }} className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+          }} className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
               <span className="block">BRAND</span>
               <span className="block">INTELLIGENCE</span>
               <span className="block italic font-black" style={{

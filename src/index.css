@@ -104,11 +104,18 @@
     .container-xl { padding: 0 1rem; }
     .section-padding { padding: 2rem 0; }
     
-    /* Mobile typography adjustments */
-    .text-display-xl { font-size: clamp(2.5rem, 8vw, 4rem); }
-    .text-h1 { font-size: clamp(1.5rem, 6vw, 2.5rem); }
-    .text-h2 { font-size: clamp(1.25rem, 5vw, 2rem); }
-    .text-h3 { font-size: clamp(1.125rem, 4vw, 1.5rem); }
+    /* Mobile typography adjustments - smaller for better UX */
+    .text-display-xl { font-size: clamp(2rem, 7vw, 3rem); }
+    .text-h1 { font-size: clamp(1.25rem, 5vw, 2rem); }
+    .text-h2 { font-size: clamp(1.125rem, 4vw, 1.5rem); }
+    .text-h3 { font-size: clamp(1rem, 3.5vw, 1.25rem); }
+    .text-body-xl { font-size: clamp(1rem, 2vw, 1.125rem); }
+    .text-body-lg { font-size: clamp(0.9375rem, 1.5vw, 1.0625rem); }
+    
+    /* Hero-specific mobile typography */
+    h1 { font-size: clamp(1.75rem, 6vw, 2.25rem) !important; }
+    h2 { font-size: clamp(1.125rem, 4vw, 1.5rem) !important; }
+    h3 { font-size: clamp(1rem, 3.5vw, 1.25rem) !important; }
     
     /* Prevent horizontal overflow */
     body { overflow-x: hidden; }
