@@ -189,7 +189,7 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
           }} transition={{
             duration: 0.9,
             ease: [0.25, 0.46, 0.45, 0.94]
-          }} className="text-center mb-24">
+          }} className="text-left mb-24">
               <motion.h2 initial={{
               opacity: 0,
               rotateX: -20
