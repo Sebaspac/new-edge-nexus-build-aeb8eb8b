@@ -712,12 +712,14 @@ const Services = () => {
           }} transition={{
             duration: 0.6,
             delay: index * 0.1
-          }} className={`${item.bgColor} rounded-3xl p-8 border border-border/50 backdrop-blur-sm hover:scale-105 transition-all duration-300`}>
-                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} text-white font-bold text-2xl mb-6`}>
+          }} className={`${item.bgColor} rounded-3xl p-4 md:p-8 border border-border/50 backdrop-blur-sm hover:scale-105 transition-all duration-300 flex flex-row md:flex-col items-start md:items-stretch gap-3 md:gap-0`}>
+                <div className={`flex-shrink-0 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${item.gradient} text-white font-bold text-xl md:text-2xl md:mb-6`}>
                   {item.number}
                 </div>
-                <h3 className="text-h3 text-foreground mb-4 text-lg font-semibold">{item.title}</h3>
-                <p className="text-body text-muted-foreground leading-relaxed text-base">{item.description}</p>
+                <div className="flex-1 md:flex-none">
+                  <h3 className="text-foreground mb-2 md:mb-4 text-base md:text-lg font-semibold">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm md:text-base">{item.description}</p>
+                </div>
               </motion.div>)}
           </div>
         </div>
