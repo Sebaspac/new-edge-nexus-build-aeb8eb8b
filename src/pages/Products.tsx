@@ -86,12 +86,12 @@ const Products = () => {
 
         {/* Hero Section */}
         <section className="relative w-full mt-20">
-          <div className="w-full relative min-h-[100vh] sm:min-h-0" style={{
-          paddingTop: '0',
+          <div className="w-full relative" style={{
+          paddingTop: '56.25%', // 16:9 aspect ratio
           position: 'relative'
         }}>
             {/* 16:9 Aspect Ratio Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden sm:relative sm:pt-[56.25%]">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
               {/* Background Video */}
               <video autoPlay loop muted playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover">
                 <source src="/assets/hero-video.mp4" type="video/mp4" />

@@ -95,298 +95,182 @@ const Services = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* Hero Section */}
-      <section className="hero-section relative px-4 sm:px-6 lg:px-8 overflow-hidden h-screen flex items-center justify-center">
-        {/* Space-like background with stars and floating elements */}
-        <div className="absolute inset-0 z-0">
-          {/* Deep space gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-slate-900 to-purple-950/60"></div>
-          
-          {/* Starfield */}
-          {[...Array(150)].map((_, i) => <motion.div key={i} className="absolute w-1 h-1 bg-white rounded-full" style={{
-          top: `${Math.random() * 100}%`,
-          left: `${Math.random() * 100}%`,
-          opacity: Math.random() * 0.8 + 0.2
-        }} animate={{
-          opacity: [0.2, 1, 0.2],
-          scale: [0.5, 1.2, 0.5]
-        }} transition={{
-          duration: 2 + Math.random() * 4,
-          repeat: Infinity,
-          delay: Math.random() * 5,
-          ease: "easeInOut"
-        }} />)}
-          
-          {/* Large twinkling stars */}
-          {[...Array(20)].map((_, i) => <motion.div key={`star-${i}`} className="absolute w-2 h-2 bg-white rounded-full opacity-70" style={{
-          top: `${Math.random() * 100}%`,
-          left: `${Math.random() * 100}%`,
-          filter: 'blur(0.5px)'
-        }} animate={{
-          opacity: [0.3, 1, 0.3],
-          scale: [0.8, 1.5, 0.8]
-        }} transition={{
-          duration: 3 + Math.random() * 3,
-          repeat: Infinity,
-          delay: Math.random() * 4,
-          ease: "easeInOut"
-        }} />)}
-          
-          {/* Beautiful floating geometric elements - more transparent */}
-          <motion.div className="absolute top-[15%] left-[8%] w-20 h-32 rounded-2xl opacity-20" style={{
-          background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
-          boxShadow: '0 0 15px rgba(139, 92, 246, 0.2)'
-        }} animate={{
-          y: [0, -30, 0],
-          x: [0, 20, 0],
-          rotate: [0, 15, 0],
-          scale: [1, 1.1, 1]
-        }} transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
-          
-          <motion.div className="absolute top-[55%] right-[12%] w-24 h-24 rounded-xl opacity-25" style={{
-          background: 'linear-gradient(45deg, #06B6D4, #3B82F6)',
-          boxShadow: '0 0 15px rgba(6, 182, 212, 0.2)'
-        }} animate={{
-          y: [0, 25, 0],
-          x: [0, -15, 0],
-          rotate: [0, -20, 0],
-          scale: [1, 1.15, 1]
-        }} transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2
-        }} />
-          
-          <motion.div className="absolute bottom-[25%] left-[25%] w-16 h-28 rounded-lg opacity-30" style={{
-          background: 'linear-gradient(225deg, #F59E0B, #EF4444)',
-          boxShadow: '0 0 12px rgba(245, 158, 11, 0.2)'
-        }} animate={{
-          y: [0, -20, 0],
-          x: [0, 25, 0],
-          rotate: [0, 25, 0],
-          scale: [1, 1.2, 1]
-        }} transition={{
-          duration: 14,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 4
-        }} />
-          
-          <motion.div className="absolute top-[35%] right-[30%] w-18 h-18 rounded-full opacity-25" style={{
-          background: 'linear-gradient(90deg, #10B981, #059669)',
-          boxShadow: '0 0 10px rgba(16, 185, 129, 0.3)'
-        }} animate={{
-          y: [0, 35, 0],
-          x: [0, -30, 0],
-          scale: [1, 1.3, 1]
-        }} transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
-        }} />
-          
-          {/* Floating crystal-like elements */}
-          <motion.div className="absolute top-[70%] left-[60%] w-12 h-20 opacity-25" style={{
-          background: 'linear-gradient(180deg, #A855F7, #7C3AED)',
-          clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
-          boxShadow: '0 0 10px rgba(168, 85, 247, 0.2)'
-        }} animate={{
-          y: [0, -40, 0],
-          rotate: [0, 180, 360],
-          scale: [1, 1.1, 1]
-        }} transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 3
-        }} />
-          
-          {/* Nebula-like glow effects */}
-          <motion.div className="absolute top-[20%] right-[20%] w-40 h-40 rounded-full opacity-20" style={{
-          background: 'radial-gradient(circle, #8B5CF6, transparent)',
-          filter: 'blur(30px)'
-        }} animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.1, 0.3, 0.1]
-        }} transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
-          
-          <motion.div className="absolute bottom-[30%] right-[40%] w-32 h-32 rounded-full opacity-15" style={{
-          background: 'radial-gradient(circle, #06B6D4, transparent)',
-          filter: 'blur(25px)'
-        }} animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.1, 0.25, 0.1]
-        }} transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 5
-        }} />
-          
-          {/* Shooting stars */}
-          {[...Array(3)].map((_, i) => <motion.div key={`shooting-star-${i}`} className="absolute w-1 h-1 bg-white rounded-full" style={{
-          top: `${20 + i * 25}%`,
-          left: '-5%'
-        }} animate={{
-          x: ['0vw', '110vw'],
-          opacity: [0, 1, 1, 0]
-        }} transition={{
-          duration: 3,
-          repeat: Infinity,
-          delay: i * 8 + Math.random() * 5,
-          ease: "easeOut"
-        }} />)}
-        </div>
-        
-        {/* Text Content - Bottom Left */}
-        <div className="absolute bottom-0 left-0 p-6 pb-20 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl z-10">
-          <motion.h1 initial={{
-          opacity: 0,
-          y: 30
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.8,
-          ease: "easeOut"
-        }} className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight">
-            <span className="text-white">THE</span><br />
-            <span className="bg-clip-text text-transparent" style={{
-              background: 'linear-gradient(to right, #8B5CF6, #A855F7)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}>JOURNEY</span>
-          </motion.h1>
-        </div>
-
-        {/* Enhanced scroll indicator with complex animations */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        delay: 3,
-        duration: 0.8
-      }} className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer z-20" onClick={() => {
-        const nextSection = document.querySelector('.services-overview');
-        nextSection?.scrollIntoView({
-          behavior: 'smooth'
-        });
-      }}>
-          <motion.div whileHover={{
-          scale: 1.3,
-          rotate: 5
-        }} whileTap={{
-          scale: 0.8
-        }} className="relative">
-            {/* Pulsing ring */}
-            <motion.div className="absolute inset-0 w-16 h-16 -m-4 rounded-full border-2 border-primary/50" animate={{
-            scale: [1, 1.5, 1],
-            opacity: [0.5, 0, 0.5]
+      <section className="relative w-full mt-20">
+        <div className="w-full relative" style={{
+          paddingTop: '56.25%', // 16:9 aspect ratio
+          position: 'relative'
+        }}>
+          {/* Space-like background with stars and floating elements */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            {/* Deep space gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black via-slate-900 to-purple-950/60"></div>
+            
+            {/* Starfield */}
+            {[...Array(150)].map((_, i) => <motion.div key={i} className="absolute w-1 h-1 bg-white rounded-full" style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            opacity: Math.random() * 0.8 + 0.2
+          }} animate={{
+            opacity: [0.2, 1, 0.2],
+            scale: [0.5, 1.2, 0.5]
           }} transition={{
-            duration: 2,
-            repeat: Infinity
-          }} />
-            {/* Main arrow with glow effect */}
-            <motion.div animate={{
-            y: [0, 8, 0]
+            duration: 2 + Math.random() * 4,
+            repeat: Infinity,
+            delay: Math.random() * 5,
+            ease: "easeInOut"
+          }} />)}
+            
+            {/* Large twinkling stars */}
+            {[...Array(20)].map((_, i) => <motion.div key={`star-${i}`} className="absolute w-2 h-2 bg-white rounded-full opacity-70" style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            filter: 'blur(0.5px)'
+          }} animate={{
+            opacity: [0.3, 1, 0.3],
+            scale: [0.8, 1.5, 0.8]
           }} transition={{
-            duration: 2,
+            duration: 3 + Math.random() * 3,
+            repeat: Infinity,
+            delay: Math.random() * 4,
+            ease: "easeInOut"
+          }} />)}
+            
+            {/* Beautiful floating geometric elements - more transparent */}
+            <motion.div className="absolute top-[15%] left-[8%] w-20 h-32 rounded-2xl opacity-20" style={{
+            background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
+            boxShadow: '0 0 15px rgba(139, 92, 246, 0.2)'
+          }} animate={{
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+            rotate: [0, 15, 0],
+            scale: [1, 1.1, 1]
+          }} transition={{
+            duration: 12,
             repeat: Infinity,
             ease: "easeInOut"
-          }} className="relative">
-              <motion.div className="absolute inset-0 blur-sm" animate={{
-              boxShadow: ["0 0 20px rgba(var(--primary-rgb), 0.8)", "0 0 40px rgba(var(--primary-rgb), 1)", "0 0 20px rgba(var(--primary-rgb), 0.8)"]
-            }} transition={{
-              duration: 1.5,
-              repeat: Infinity
-            }}>
-                <ArrowDown className="w-8 h-8 text-primary" />
-              </motion.div>
-              <ArrowDown className="w-8 h-8 text-primary relative z-10" />
-            </motion.div>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* FROM VISION TO REALITY Section */}
-      <section className="relative py-12 sm:py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{
-          once: true,
-          margin: "-80px"
-        }} variants={{
-          hidden: {
-            opacity: 0
-          },
-          visible: {
+          }} />
+            
+            <motion.div className="absolute top-[55%] right-[12%] w-24 h-24 rounded-xl opacity-25" style={{
+            background: 'linear-gradient(45deg, #06B6D4, #3B82F6)',
+            boxShadow: '0 0 15px rgba(6, 182, 212, 0.2)'
+          }} animate={{
+            y: [0, 25, 0],
+            x: [0, -15, 0],
+            rotate: [0, -20, 0],
+            scale: [1, 1.15, 1]
+          }} transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }} />
+            
+            <motion.div className="absolute bottom-[25%] left-[25%] w-16 h-28 rounded-lg opacity-30" style={{
+            background: 'linear-gradient(225deg, #F59E0B, #EF4444)',
+            boxShadow: '0 0 12px rgba(245, 158, 11, 0.2)'
+          }} animate={{
+            y: [0, -20, 0],
+            x: [0, 25, 0],
+            rotate: [0, 25, 0],
+            scale: [1, 1.2, 1]
+          }} transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 4
+          }} />
+            
+            <motion.div className="absolute top-[35%] right-[30%] w-18 h-18 rounded-full opacity-25" style={{
+            background: 'linear-gradient(90deg, #10B981, #059669)',
+            boxShadow: '0 0 10px rgba(16, 185, 129, 0.3)'
+          }} animate={{
+            y: [0, 35, 0],
+            x: [0, -30, 0],
+            scale: [1, 1.3, 1]
+          }} transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }} />
+            
+            {/* Floating crystal-like elements */}
+            <motion.div className="absolute top-[70%] left-[60%] w-12 h-20 opacity-25" style={{
+            background: 'linear-gradient(180deg, #A855F7, #7C3AED)',
+            clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+            boxShadow: '0 0 10px rgba(168, 85, 247, 0.2)'
+          }} animate={{
+            y: [0, -40, 0],
+            rotate: [0, 180, 360],
+            scale: [1, 1.1, 1]
+          }} transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3
+          }} />
+            
+            {/* Nebula-like glow effects */}
+            <motion.div className="absolute top-[20%] right-[20%] w-40 h-40 rounded-full opacity-20" style={{
+            background: 'radial-gradient(circle, #8B5CF6, transparent)',
+            filter: 'blur(30px)'
+          }} animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.1, 0.3, 0.1]
+          }} transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} />
+            
+            <motion.div className="absolute bottom-[30%] right-[40%] w-32 h-32 rounded-full opacity-15" style={{
+            background: 'radial-gradient(circle, #06B6D4, transparent)',
+            filter: 'blur(25px)'
+          }} animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.1, 0.25, 0.1]
+          }} transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 5
+          }} />
+            
+            {/* Shooting stars */}
+            {[...Array(3)].map((_, i) => <motion.div key={`shooting-star-${i}`} className="absolute w-1 h-1 bg-white rounded-full" style={{
+            top: `${20 + i * 25}%`,
+            left: '-5%'
+          }} animate={{
+            x: ['0vw', '110vw'],
+            opacity: [0, 1, 1, 0]
+          }} transition={{
+            duration: 3,
+            repeat: Infinity,
+            delay: i * 8 + Math.random() * 5,
+            ease: "easeOut"
+          }} />)}
+          </div>
+          
+          {/* Text Content - Bottom Left */}
+          <div className="absolute bottom-0 left-0 p-6 pb-10 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl z-10">
+            <motion.h1 initial={{
+            opacity: 0,
+            y: 30
+          }} animate={{
             opacity: 1,
-            transition: {
-              staggerChildren: 0.2,
-              delayChildren: 0.1
-            }
-          }
-        }} className="max-w-4xl">
-            <motion.div variants={{
-            hidden: {
-              opacity: 0,
-              y: 40,
-              scale: 0.95
-            },
-            visible: {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              transition: {
-                duration: 0.7,
-                ease: [0.25, 0.46, 0.45, 0.94]
-              }
-            }
-          }} className="mb-6">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
-                FROM VISION{" "}
-                <motion.span className="inline-block bg-clip-text text-transparent" style={{
-                background: 'linear-gradient(to right, #8B5CF6, #EC4899)',
+            y: 0
+          }} transition={{
+            duration: 0.8,
+            ease: "easeOut"
+          }} className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight">
+              <span className="text-white">THE</span><br />
+              <span className="bg-clip-text text-transparent" style={{
+                background: 'linear-gradient(to right, #8B5CF6, #A855F7)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent'
-              }} whileInView={{
-                scale: [1, 1.05, 1]
-              }} transition={{
-                duration: 1,
-                delay: 0.3
-              }}>
-                  TO REALITY
-                </motion.span>
-              </h2>
-              <motion.p className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl" variants={{
-              hidden: {
-                opacity: 0,
-                y: 20
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 0.6,
-                  delay: 0.2
-                }
-              }
-            }}>
-                Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden. Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.
-              </motion.p>
-            </motion.div>
-          </motion.div>
+              }}>JOURNEY</span>
+            </motion.h1>
+          </div>
         </div>
       </section>
 
