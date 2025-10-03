@@ -46,12 +46,10 @@ const Services = () => {
   const scrollToContact = () => {
     setIsContactSheetOpen(true);
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-
     const data = {
       name: formData.get('name')?.toString() || '',
       email: formData.get('email')?.toString() || '',
@@ -60,7 +58,6 @@ const Services = () => {
       telefon: formData.get('telefon')?.toString() || '',
       nachricht: formData.get('nachricht')?.toString() || ''
     };
-
     try {
       const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
         method: 'POST',
@@ -69,7 +66,6 @@ const Services = () => {
         },
         body: JSON.stringify(data)
       });
-
       if (response.ok) {
         toast({
           title: "Wir designen für dich",
@@ -97,9 +93,10 @@ const Services = () => {
       {/* Hero Section */}
       <section className="relative w-full mt-20">
         <div className="w-full relative" style={{
-          paddingTop: '56.25%', // 16:9 aspect ratio
-          position: 'relative'
-        }}>
+        paddingTop: '56.25%',
+        // 16:9 aspect ratio
+        position: 'relative'
+      }}>
           {/* Space-like background with stars and floating elements */}
           <div className="absolute inset-0 z-0 overflow-hidden">
             {/* Deep space gradient background */}
@@ -265,26 +262,32 @@ const Services = () => {
           }} className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight">
               <span className="text-white">THE</span><br />
               <span className="bg-clip-text text-transparent" style={{
-                background: 'linear-gradient(to right, #8B5CF6, #A855F7)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent'
-              }}>JOURNEY</span>
+              background: 'linear-gradient(to right, #8B5CF6, #A855F7)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}>JOURNEY</span>
             </motion.h1>
           </div>
 
           {/* Scroll Indicator */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="flex flex-col items-center gap-2 cursor-pointer"
-              onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
-            >
+          <motion.div initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          delay: 1,
+          duration: 0.5
+        }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+            <motion.div animate={{
+            y: [0, 10, 0]
+          }} transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} className="flex flex-col items-center gap-2 cursor-pointer" onClick={() => window.scrollBy({
+            top: window.innerHeight,
+            behavior: 'smooth'
+          })}>
               <span className="text-white text-sm font-medium">Scroll</span>
               <ChevronDown className="w-6 h-6 text-white" />
             </motion.div>
@@ -675,7 +678,7 @@ const Services = () => {
         }} transition={{
           duration: 0.8
         }} className="text-left mb-20">
-            <h2 className="text-h1 text-foreground mb-6 text-5xl font-bold">Das Ergebnis</h2>
+            <h2 className="text-h1 text-foreground mb-6 font-bold text-4xl">Das Ergebnis</h2>
             <p className="text-body-xl text-muted-foreground max-w-4xl">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
             </p>
@@ -736,7 +739,7 @@ const Services = () => {
         }} transition={{
           duration: 0.8
         }} className="text-left mb-20">
-            <h2 className="text-h1 text-foreground mb-6 text-5xl font-bold">Warum New Edge?</h2>
+            <h2 className="text-h1 text-foreground mb-6 font-bold text-4xl">Warum New Edge?</h2>
             <p className="text-body-xl text-muted-foreground max-w-4xl">
               Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.
             </p>
@@ -844,7 +847,7 @@ const Services = () => {
             duration: 0.7
           }} whileHover={{
             scale: 1.03
-          }} className="text-2xl sm:text-3xl mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 font-bold lg:text-5xl">
+          }} className="text-2xl sm:text-3xl mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 font-bold lg:text-4xl">
               Für wen wir arbeiten & warum
             </motion.h2>
             <motion.p className="text-sm sm:text-base text-gray-600 max-w-3xl leading-[1.6]" initial={{
@@ -985,7 +988,7 @@ const Services = () => {
           duration: 0.8
         }} className="text-left mb-20">
             
-            <h2 className="text-h1 font-bold text-foreground mb-6 text-5xl">Ihr Weg zum Erfolg</h2>
+            <h2 className="text-h1 font-bold text-foreground mb-6 text-4xl">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
           <div className="max-w-6xl mx-auto px-4">
