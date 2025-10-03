@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface AgentScrollSectionProps {
@@ -17,9 +17,17 @@ export const AgentScrollSection = ({
 }: AgentScrollSectionProps) => {
   const isMobile = useIsMobile();
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isReady, setIsReady] = useState(false);
   
+  // Wait for container to be mounted before initializing scroll
+  useEffect(() => {
+    if (containerRef.current) {
+      setIsReady(true);
+    }
+  }, []);
+
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: isReady ? containerRef : undefined,
     offset: ["start end", "end start"]
   });
 
