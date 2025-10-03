@@ -175,7 +175,7 @@ const Index = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] mb-3 leading-[1.2] text-black font-extrabold">
+                <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-3 leading-[1.2] text-black font-extrabold">
                   Wir bringen Ihr Unternehmen{" "}
                   <span className="bg-gradient-primary bg-clip-text text-transparent inline-block">
                     an die Spitze
@@ -241,7 +241,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-[42px] sm:text-[44px] mb-4 bg-gradient-primary bg-clip-text leading-[1.25] text-gray-950 font-bold lg:text-4xl">
+            }} className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-4 bg-gradient-primary bg-clip-text leading-[1.25] text-gray-950 font-bold">
                 Für wen wir arbeiten & warum
               </motion.h2>
               <motion.p initial={{
@@ -299,7 +299,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-[42px] sm:text-[44px] mb-4 text-black leading-[1.25] font-bold lg:text-4xl">
+            }} className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-4 text-black leading-[1.25] font-bold">
                 Unsere innovative Herangehensweise
               </motion.h2>
             </motion.div>
@@ -421,7 +421,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-[42px] sm:text-[44px] text-foreground mb-6 leading-[1.25] font-bold lg:text-4xl">
+            }} className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] text-foreground mb-6 leading-[1.25] font-bold">
                 Unsere Kompetenzbereiche
               </motion.h2>
               <motion.p className="text-base text-muted-foreground max-w-3xl leading-[1.5]" initial={{
@@ -521,7 +521,7 @@ const Index = () => {
         <section id="contact-section" className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10">
           <div className="container-xl">
             <div className="text-center mb-16">
-              <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-4 text-foreground leading-[1.25]">
+              <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-semibold mb-4 text-foreground leading-[1.25]">
                 Get in touch
               </h2>
               <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-[1.5]">

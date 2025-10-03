@@ -170,7 +170,7 @@ const Media = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
+                <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black mb-3 leading-[1.2] text-black">
                   CONTENT{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: 'linear-gradient(to right, #3b82f6, #06b6d4)',
@@ -235,7 +235,7 @@ const Media = () => {
                   }} className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}>
                         <Icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">{service.title}</h2>
+                      <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">{service.title}</h2>
                     </motion.div>
                     
                     <motion.div variants={{
@@ -321,7 +321,7 @@ const Media = () => {
         background: 'linear-gradient(to right, #3b82f6, #0ea5e9, #06b6d4)'
       }}>
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Bereit für den nächsten Schritt?</h2>
+            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold mb-4 sm:mb-6">Bereit für den nächsten Schritt?</h2>
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
               Lassen Sie uns gemeinsam Ihre Content-Strategie revolutionieren und nachhaltige Reichweite aufbauen.
             </p>

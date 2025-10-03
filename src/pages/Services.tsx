@@ -676,7 +676,7 @@ const Services = () => {
         }} transition={{
           duration: 0.8
         }} className="text-left mb-20">
-            <h2 className="text-h1 text-foreground mb-6 font-bold text-4xl">Das Ergebnis</h2>
+            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] text-foreground mb-6 font-bold">Das Ergebnis</h2>
             <p className="text-body-xl text-muted-foreground max-w-4xl text-xl">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
             </p>
@@ -737,7 +737,7 @@ const Services = () => {
         }} transition={{
           duration: 0.8
         }} className="text-left mb-20">
-            <h2 className="text-h1 text-foreground mb-6 font-bold text-4xl">Warum New Edge?</h2>
+            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] text-foreground mb-6 font-bold">Warum New Edge?</h2>
             <p className="text-body-xl text-muted-foreground max-w-4xl text-xl">
               Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.
             </p>
@@ -986,7 +986,7 @@ const Services = () => {
           duration: 0.8
         }} className="text-left mb-20">
             
-            <h2 className="text-h1 font-bold text-foreground mb-6 text-4xl">Ihr Weg zum Erfolg</h2>
+            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold text-foreground mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
           <div className="max-w-6xl mx-auto px-4">
@@ -1152,7 +1152,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-4 text-foreground leading-[1.25]">
+            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-semibold mb-4 text-foreground leading-[1.25]">
               Get in touch
             </h2>
             <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-[1.5]">

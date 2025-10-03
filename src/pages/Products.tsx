@@ -164,7 +164,7 @@ const Products = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
+                <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black mb-3 leading-[1.2] text-black">
                   INTELLIGENTE{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: 'linear-gradient(to right, #9F91F8, #4F97F0)',
@@ -226,7 +226,7 @@ const Products = () => {
                 }}>
                     <Lightbulb className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">Riley – Ihr Wissensagent</h2>
+                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Riley – Ihr Wissensagent</h2>
                 </motion.div>
                 
                 <motion.div variants={{
@@ -409,7 +409,7 @@ const Products = () => {
                 }}>
                     <Bot className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">Liam – Ihr Lead‑Gen‑Agent</h2>
+                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Liam – Ihr Lead‑Gen‑Agent</h2>
                 </motion.div>
                 
                 <motion.div variants={{
@@ -592,7 +592,7 @@ const Products = () => {
                 }}>
                     <Phone className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">Vera – Ihr Voice‑Agent</h2>
+                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Vera – Ihr Voice‑Agent</h2>
                 </motion.div>
                 
                 <motion.div variants={{
@@ -775,7 +775,7 @@ const Products = () => {
                 }}>
                     <FileText className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">Cora – Ihr Content‑Agent</h2>
+                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Cora – Ihr Content‑Agent</h2>
                 </motion.div>
                 
                 <motion.div variants={{
@@ -972,7 +972,7 @@ const Products = () => {
                 }}>
                     <Bot className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">Agent Hub – Ihre Komplettlösung</h2>
+                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Agent Hub – Ihre Komplettlösung</h2>
                 </motion.div>
                 
                 <motion.div variants={{
@@ -1272,7 +1272,7 @@ const Products = () => {
         <section className="py-12 sm:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-black">
+              <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold mb-6 text-black">
                 Bereit für KI-gestützte Innovation?
               </h2>
               <p className="text-base sm:text-lg lg:text-xl mb-12 max-w-3xl mx-auto leading-relaxed text-gray-700">

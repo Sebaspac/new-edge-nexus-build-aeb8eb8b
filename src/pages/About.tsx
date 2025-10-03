@@ -119,7 +119,7 @@ const About = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-2xl sm:text-3xl mb-3 leading-[1.2] text-black font-extrabold lg:text-5xl">
+                <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-3 leading-[1.2] text-black font-extrabold">
                   UNSER{" "}
                   <motion.span className="inline-block bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent" whileInView={{
                   scale: [1, 1.05, 1]

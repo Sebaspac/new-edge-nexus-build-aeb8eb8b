@@ -165,7 +165,7 @@ const Lab = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
+                <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black mb-3 leading-[1.2] text-black">
                   TECH{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: 'linear-gradient(to right, #fde047, #fbbf24)',
@@ -230,7 +230,7 @@ const Lab = () => {
                   }} className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}>
                         <Icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">{service.title}</h2>
+                      <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">{service.title}</h2>
                     </motion.div>
                     
                     <motion.div variants={{
@@ -325,7 +325,7 @@ const Lab = () => {
           }} transition={{
             duration: 0.6
           }} className="text-left mb-12">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-2 text-black">
+              <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black mb-2 text-black">
                 Meet Our Agents
               </h2>
               <p className="text-base sm:text-lg lg:text-xl max-w-3xl text-gray-700 leading-relaxed">
@@ -469,7 +469,7 @@ const Lab = () => {
         background: 'linear-gradient(to right, #fde047, #fbbf24, #fde047)'
       }}>
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Let´s innovate the edge</h2>
+            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold mb-4 sm:mb-6">Let´s innovate the edge</h2>
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-900">
               Gemeinsam entwickeln wir innovative Technologielösungen, die Ihr Unternehmen voranbringen.
             </p>
