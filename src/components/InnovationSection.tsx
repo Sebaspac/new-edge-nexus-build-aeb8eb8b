@@ -372,7 +372,7 @@ export const InnovationSection = () => {
             }} />
               
               <CardContent className="relative p-6 text-left">
-                <div className="flex items-center justify-start w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-secondary to-accent mb-4 shadow-soft">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-secondary to-accent mb-4 shadow-soft">
                   <Brain className="w-6 h-6 text-white drop-shadow-xl" />
                 </div>
                 
