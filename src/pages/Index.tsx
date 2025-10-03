@@ -466,7 +466,7 @@ const Index = () => {
           
           <div className="container-xl relative z-10">
             {/* Section Title with enhanced scale animation */}
-            <motion.div className="text-center mb-12" initial={{
+            <motion.div className="text-left mb-12" initial={{
             opacity: 0,
             scale: 0.8,
             y: 60
@@ -599,7 +599,7 @@ const Index = () => {
 
           <div className="container-xl relative z-10">
             {/* Header */}
-            <motion.div className="text-center mb-16" initial={{
+            <motion.div className="text-left mb-16" initial={{
             opacity: 0,
             y: 40
           }} whileInView={{
@@ -624,7 +624,7 @@ const Index = () => {
             }}>
                 Unsere Kompetenzbereiche
               </motion.h2>
-              <motion.p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed" initial={{
+              <motion.p className="text-lg text-muted-foreground max-w-3xl leading-relaxed" initial={{
               opacity: 0,
               y: 20
             }} whileInView={{

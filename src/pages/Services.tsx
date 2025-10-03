@@ -492,9 +492,9 @@ const Services = () => {
             duration: 0.8,
             delay: 0.3
           }} className="mt-20">
-              <div className="max-w-4xl mx-auto">
+              <div className="max-w-4xl">
                 {/* Journey Header */}
-                <div className="text-center mb-16">
+                <div className="text-left mb-16">
                   <motion.h3 className="text-4xl sm:text-5xl font-bold text-foreground mb-6" initial={{
                   opacity: 0,
                   scale: 0.8
@@ -509,7 +509,7 @@ const Services = () => {
                 }}>
                     Unsere Journey
                   </motion.h3>
-                  <motion.p className="text-xl text-muted-foreground max-w-2xl mx-auto" initial={{
+                  <motion.p className="text-xl text-muted-foreground max-w-2xl" initial={{
                   opacity: 0,
                   y: 20
                 }} whileInView={{
@@ -837,9 +837,9 @@ const Services = () => {
           once: true
         }} transition={{
           duration: 0.8
-        }} className="text-center mb-20">
+        }} className="text-left mb-20">
             <h2 className="text-h1 font-bold text-foreground mb-6">Das Ergebnis</h2>
-            <p className="text-body-xl text-muted-foreground max-w-4xl mx-auto">
+            <p className="text-body-xl text-muted-foreground max-w-4xl">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
             </p>
           </motion.div>
@@ -898,9 +898,9 @@ const Services = () => {
           once: true
         }} transition={{
           duration: 0.8
-        }} className="text-center mb-20">
+        }} className="text-left mb-20">
             <h2 className="text-h1 font-bold text-foreground mb-6">Warum New Edge?</h2>
-            <p className="text-body-xl text-muted-foreground max-w-4xl mx-auto">
+            <p className="text-body-xl text-muted-foreground max-w-4xl">
               Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.
             </p>
           </motion.div>
@@ -1167,7 +1167,7 @@ const Services = () => {
           margin: "-100px"
         }} transition={{
           duration: 0.8
-        }} className="text-center mb-20">
+        }} className="text-left mb-20">
             <motion.div initial={{
             opacity: 0,
             scale: 0.9
