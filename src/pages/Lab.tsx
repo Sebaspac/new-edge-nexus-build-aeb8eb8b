@@ -104,7 +104,7 @@ const Lab = () => {
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text'
                 }}>LAB</span><br />
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-normal">TECH INNOVATION</span>
+                  
                 </h1>
                 <p className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed">
                   LAB entwickelt, automatisiert und skaliert Technologielösungen. 
