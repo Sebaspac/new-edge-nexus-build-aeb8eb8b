@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Linkedin } from "lucide-react";
 import { OptimizedLogo } from "./OptimizedLogo";
 
 export const Footer = () => {
@@ -85,6 +86,18 @@ export const Footer = () => {
           <p className="text-xs md:text-sm text-gray-400">
             © {new Date().getFullYear()} New Edge. All rights reserved.
           </p>
+          
+          {/* LinkedIn Icon in der Mitte */}
+          <a 
+            href="https://www.linkedin.com/company/new-edge-nexus" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white transition-colors"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="w-5 h-5 md:w-6 md:h-6" />
+          </a>
+          
           <div className="flex space-x-4 md:space-x-6">
             <Link to="/impressum" className="text-xs md:text-sm text-gray-400 hover:text-white transition-colors">
               Impressum
