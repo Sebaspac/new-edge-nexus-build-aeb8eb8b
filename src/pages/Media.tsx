@@ -83,7 +83,8 @@ const Media = () => {
         {/* Hero Section */}
         <section className="relative w-full mt-20">
           <div className="w-full relative" style={{
-          paddingTop: '56.25%', // 16:9 aspect ratio
+          paddingTop: '56.25%',
+          // 16:9 aspect ratio
           position: 'relative'
         }}>
             <div className="absolute inset-0 overflow-hidden" style={{
@@ -110,18 +111,24 @@ const Media = () => {
               </div>
 
               {/* Scroll Indicator */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 0.5 }}
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-              >
-                <motion.div
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="flex flex-col items-center gap-2 cursor-pointer"
-                  onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
-                >
+              <motion.div initial={{
+              opacity: 0
+            }} animate={{
+              opacity: 1
+            }} transition={{
+              delay: 1,
+              duration: 0.5
+            }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+                <motion.div animate={{
+                y: [0, 10, 0]
+              }} transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }} className="flex flex-col items-center gap-2 cursor-pointer" onClick={() => window.scrollBy({
+                top: window.innerHeight,
+                behavior: 'smooth'
+              })}>
                   <span className="text-white text-sm font-medium">Scroll</span>
                   <ChevronDown className="w-6 h-6 text-white" />
                 </motion.div>
@@ -179,7 +186,7 @@ const Media = () => {
                     REVOLUTION
                   </motion.span>
                 </h2>
-                <motion.p className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl" variants={{
+                <motion.p variants={{
                 hidden: {
                   opacity: 0,
                   y: 20
@@ -192,7 +199,7 @@ const Media = () => {
                     delay: 0.2
                   }
                 }
-              }}>
+              }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">
                   MEDIA produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird. Ab Strategie bis zur viralen Umsetzung.
                 </motion.p>
               </motion.div>
@@ -208,11 +215,7 @@ const Media = () => {
           background: index % 2 === 0 ? 'linear-gradient(to bottom right, white, rgba(59, 130, 246, 0.08), rgba(6, 182, 212, 0.08))' : 'linear-gradient(to bottom right, white, rgba(6, 182, 212, 0.08), rgba(59, 130, 246, 0.08))'
         }}>
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <ServiceScrollSection
-                  gradient={service.gradient}
-                  videoSrc="/assets/media-section-video.mp4"
-                  imagePosition={isEven ? "right" : "left"}
-                >
+                <ServiceScrollSection gradient={service.gradient} videoSrc="/assets/media-section-video.mp4" imagePosition={isEven ? "right" : "left"}>
                   <div className="space-y-6">
                     <motion.div variants={{
                   hidden: {
