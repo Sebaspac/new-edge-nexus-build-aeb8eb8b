@@ -261,10 +261,7 @@ const Index = () => {
             </motion.div>
 
             {/* Two-Column Layout with Mobile Scroll Effect */}
-            <ProblemSolutionSection 
-              openAccordionIndex={openAccordionIndex}
-              setOpenAccordionIndex={setOpenAccordionIndex}
-            />
+            <ProblemSolutionSection openAccordionIndex={openAccordionIndex} setOpenAccordionIndex={setOpenAccordionIndex} />
           </div>
         </section>
 
@@ -529,43 +526,44 @@ const Index = () => {
               </p>
             </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
-            {/* Talk to Sales */}
-            <Card className="card-modern text-center p-3 sm:p-6 md:p-8 hover:shadow-xl transition-all flex flex-col">
-              <CardContent className="space-y-3 sm:space-y-4 md:space-y-6 p-0 flex flex-col h-full">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
-                </div>
-                <div className="flex-grow">
-                  <h3 className="text-sm sm:text-lg md:text-[28px] lg:text-[32px] font-medium mb-1 sm:mb-2 text-foreground leading-[1.3]">Talk to Sales</h3>
-                  <p className="text-[10px] sm:text-sm md:text-base text-muted-foreground mb-2 sm:mb-3 md:mb-4 leading-[1.5]">
-                    Interested in our services? Just pick up the phone to chat with a member of our sales team.
-                  </p>
-                </div>
-                <a href="tel:+4915750998236" className="text-primary font-semibold text-xs sm:text-base md:text-lg hover:underline mt-auto">
-                  +49 157 5099 8236
-                </a>
-              </CardContent>
-            </Card>
+            <div className="grid grid-cols-2 gap-3 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
+              {/* Talk to Sales */}
+              <Card className="card-modern text-center p-3 sm:p-6 md:p-8 hover:shadow-xl transition-all">
+                <CardContent className="space-y-3 sm:space-y-4 md:space-y-6 p-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm sm:text-lg md:text-[28px] lg:text-[32px] font-medium mb-1 sm:mb-2 text-foreground leading-[1.3]">Talk to Sales</h3>
+                    <p className="text-[10px] sm:text-sm md:text-base text-muted-foreground mb-2 sm:mb-3 md:mb-4 leading-[1.5]">
+                      Interested in our services? Just pick up the phone to chat with a member of our sales team.
+                    </p>
+                    <a href="tel:+4915750998236" className="text-primary font-semibold text-xs sm:text-base md:text-lg hover:underline">
+                      +49 157 5099 8236
+                    </a>
+                  </div>
+                  
+                </CardContent>
+              </Card>
 
-            {/* Contact Support */}
-            <Card className="card-modern text-center p-3 sm:p-6 md:p-8 hover:shadow-xl transition-all flex flex-col">
-              <CardContent className="space-y-3 sm:space-y-4 md:space-y-6 p-0 flex flex-col h-full">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-                  <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
-                </div>
-                <div className="flex-grow">
-                  <h3 className="text-sm sm:text-lg md:text-[28px] lg:text-[32px] font-medium mb-1 sm:mb-2 text-foreground leading-[1.3]">Contact Team</h3>
-                  <p className="text-[10px] sm:text-sm md:text-base text-muted-foreground mb-2 sm:mb-3 md:mb-4 leading-[1.5]">
-                    Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
-                  </p>
-                </div>
-                <Button onClick={() => setIsContactSheetOpen(true)} className="w-full bg-purple-600 hover:bg-purple-700 text-white text-[10px] sm:text-sm md:text-base py-1 sm:py-2 mt-auto">
-                  Contact Support
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+              {/* Contact Support */}
+              <Card className="card-modern text-center p-3 sm:p-6 md:p-8 hover:shadow-xl transition-all">
+                <CardContent className="space-y-3 sm:space-y-4 md:space-y-6 p-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                    <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm sm:text-lg md:text-[28px] lg:text-[32px] font-medium mb-1 sm:mb-2 text-foreground leading-[1.3]">Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.</h3>
+                    <p className="text-[10px] sm:text-sm md:text-base text-muted-foreground mb-2 sm:mb-3 md:mb-4 leading-[1.5]">
+                      Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
+                    </p>
+                  </div>
+                  <Button onClick={() => setIsContactSheetOpen(true)} className="w-full btn-primary text-slate-50 text-[10px] sm:text-sm md:text-base py-1 sm:py-2">
+                    Contact Support
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </section>
 
