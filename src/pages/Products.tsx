@@ -105,7 +105,7 @@ const Products = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
+                <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-3 leading-[1.25] text-black">
                   INTELLIGENTE{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: 'linear-gradient(to right, #9F91F8, #4F97F0)',
@@ -120,7 +120,7 @@ const Products = () => {
                     KI-AGENTEN
                   </motion.span>
                 </h2>
-                <motion.p className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl" variants={{
+                <motion.p className="text-base text-gray-600 mt-4 leading-[1.5] max-w-3xl" variants={{
                 hidden: {
                   opacity: 0,
                   y: 20
@@ -181,7 +181,7 @@ const Products = () => {
                 }}>
                     <Lightbulb className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">Riley – Ihr Wissensagent</h2>
+                  <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold text-black leading-[1.25]">Riley – Ihr Wissensagent</h2>
                 </motion.div>
                 
                 <motion.div variants={{
@@ -197,8 +197,8 @@ const Products = () => {
                   }
                 }
               }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100">
-                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Was macht Riley?</h3>
-                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-4 text-black bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent leading-[1.3]">Was macht Riley?</h3>
+                  <p className="text-base text-gray-700 leading-[1.5]">
                     Riley nutzt Retrieval‑Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten. Der Einsatz von RAG verringert Halluzinationen und schafft mehr Vertrauen in die Ergebnisse.
                   </p>
                 </motion.div>
@@ -216,8 +216,8 @@ const Products = () => {
                   }
                 }
               }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100">
-                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Riley</h3>
-                  <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
+                  <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-4 text-black leading-[1.3]">So funktioniert Riley</h3>
+                  <ol className="text-base text-gray-700 leading-[1.5] space-y-3">
                     <motion.li variants={{
                     hidden: {
                       opacity: 0,
@@ -286,8 +286,8 @@ const Products = () => {
                   }
                 }
               }} className="bg-gradient-to-br from-purple-600 to-blue-600 p-6 rounded-2xl shadow-xl text-white">
-                  <h3 className="text-xl sm:text-2xl font-black mb-4">Ihre Vorteile mit Riley</h3>
-                  <ul className="text-sm sm:text-base leading-relaxed space-y-2">
+                  <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-4 leading-[1.3]">Ihre Vorteile mit Riley</h3>
+                  <ul className="text-base leading-[1.5] space-y-2">
                     <li className="flex items-start gap-2">
                       <span className="text-2xl">✓</span>
                       <span>Verlässliche und aktuelle Informationen anstelle von Halluzinationen</span>
@@ -320,8 +320,8 @@ const Products = () => {
                   }
                 }
               }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100">
-                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Riley in der Praxis</h3>
-                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
+                  <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-4 text-black leading-[1.3]">Riley in der Praxis</h3>
+                  <p className="text-base text-gray-700 leading-[1.5] mb-6">
                     Ein neuer Mitarbeiter stellt im internen Chat Fragen zum Onboarding. Riley greift auf Handbücher und FAQs zu, liefert sofort die korrekte Antwort und verkürzt so die Einarbeitungszeit.
                   </p>
 

@@ -144,7 +144,7 @@ const Studio = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
+                <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-3 leading-[1.25] text-black">
                   DESIGN{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: 'linear-gradient(to right, #6366f1, #a855f7)',
@@ -159,7 +159,7 @@ const Studio = () => {
                     EXCELLENCE
                   </motion.span>
                 </h2>
-                <motion.p className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl" variants={{
+                <motion.p className="text-base text-gray-600 mt-4 leading-[1.5] max-w-3xl" variants={{
                 hidden: {
                   opacity: 0,
                   y: 20
@@ -250,7 +250,7 @@ const Studio = () => {
                   }} className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}>
                         <Icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black">{service.title}</h2>
+                      <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold text-black leading-[1.25]">{service.title}</h2>
                     </motion.div>
                     
                     <motion.div variants={{
@@ -266,7 +266,7 @@ const Studio = () => {
                     }
                   }
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
-                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                      <p className="text-base text-gray-700 leading-[1.5]">
                         {service.description}
                       </p>
                     </motion.div>
@@ -284,8 +284,8 @@ const Studio = () => {
                     }
                   }
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
-                      <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Unsere Leistungen</h3>
-                      <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
+                      <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-4 text-black leading-[1.3]">Unsere Leistungen</h3>
+                      <ul className="text-base text-gray-700 leading-[1.5] space-y-3">
                         {service.details.map((detail, idx) => <motion.li key={idx} variants={{
                       hidden: {
                         opacity: 0,
@@ -336,8 +336,8 @@ const Studio = () => {
         background: 'linear-gradient(to right, #6366f1, #8b5cf6, #a855f7)'
       }}>
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Let´s design the edge</h2>
-            <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
+            <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-4 sm:mb-6 leading-[1.25]">Let´s design the edge</h2>
+            <p className="text-base mb-8 sm:mb-12 max-w-3xl mx-auto leading-[1.5] px-4">
               Gemeinsam entwickeln wir ein Design, das Ihre Vision zum Leben erweckt und Ihre Zielgruppe begeistert.
             </p>
             <Button id="projekt-besprechen-btn" size="lg" className="bg-white hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
