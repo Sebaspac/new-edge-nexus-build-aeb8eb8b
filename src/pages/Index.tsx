@@ -348,7 +348,7 @@ const Index = () => {
                 }} className="border-b border-border last:border-b-0">
                       {/* Accordion Header */}
                       <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity">
-                        <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium text-foreground leading-[1.3]">
+                        <h3 className="text-[28px] sm:text-[30px] text-foreground leading-[1.3] lg:text-lg font-semibold">
                           {item.title}
                         </h3>
                         <motion.svg animate={{
@@ -582,7 +582,7 @@ const Index = () => {
                 }}>
                       <point.icon className="w-6 h-6 text-white" />
                     </motion.div>
-                    <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] mb-2 text-foreground leading-[1.3] font-medium">
+                    <h3 className="text-[28px] sm:text-[30px] mb-2 text-foreground leading-[1.3] lg:text-lg font-semibold">
                       {point.title}
                     </h3>
                     <p className="text-base text-muted-foreground leading-[1.5]">
@@ -712,7 +712,7 @@ const Index = () => {
                       </motion.div>
 
                       {/* Title */}
-                      <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium text-foreground mb-4 leading-[1.3]">
+                      <h3 className="text-[28px] sm:text-[30px] text-foreground mb-4 leading-[1.3] lg:text-lg font-semibold">
                         {service.title}
                       </h3>
 
