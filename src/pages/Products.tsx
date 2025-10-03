@@ -43,15 +43,13 @@ const Products = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Hero Section */}
-        <section className="relative w-full" style={{
-        marginTop: '80px'
-      }}>
-          <div className="w-full" style={{
-          paddingTop: '56.25%',
+        <section className="relative w-full mt-20">
+          <div className="w-full relative min-h-[100vh] sm:min-h-0" style={{
+          paddingTop: '0',
           position: 'relative'
         }}>
             {/* 16:9 Aspect Ratio Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden sm:relative sm:pt-[56.25%]">
               {/* Background Video */}
               <video autoPlay loop muted playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover">
                 <source src="/assets/hero-video.mp4" type="video/mp4" />
@@ -59,8 +57,8 @@ const Products = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               
               {/* Text Content - Bottom Left */}
-              <div className="absolute bottom-0 left-0 p-6 pb-16 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+              <div className="absolute bottom-0 left-0 p-6 pb-20 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
+                <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
                   UNSERE<br />
                   KI-AGENTEN<br />
                   

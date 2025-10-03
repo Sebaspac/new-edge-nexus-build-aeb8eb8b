@@ -197,7 +197,7 @@ const Services = () => {
         </div>
         
         {/* Text Content - Bottom Left */}
-        <div className="absolute bottom-0 left-0 p-6 pb-16 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl z-10">
+        <div className="absolute bottom-0 left-0 p-6 pb-20 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl z-10">
           <motion.h1 initial={{
           opacity: 0,
           y: 30
@@ -207,7 +207,7 @@ const Services = () => {
         }} transition={{
           duration: 0.8,
           ease: "easeOut"
-        }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight bg-clip-text text-transparent" style={{
+        }} className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight bg-clip-text text-transparent" style={{
           background: 'linear-gradient(to right, #8B5CF6, #EC4899)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent'

@@ -78,14 +78,12 @@ const Lab = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Hero Section */}
-        <section className="relative w-full" style={{
-        marginTop: '80px'
-      }}>
-          <div className="w-full" style={{
-          paddingTop: '56.25%',
+        <section className="relative w-full mt-20">
+          <div className="w-full relative min-h-[100vh] sm:min-h-0" style={{
+          paddingTop: '0',
           position: 'relative'
         }}>
-            <div className="absolute inset-0 overflow-hidden" style={{
+            <div className="absolute inset-0 overflow-hidden sm:relative sm:pt-[56.25%]" style={{
             background: 'linear-gradient(to bottom right, rgba(253, 224, 71, 0.3), rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.1))'
           }}>
               <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
@@ -95,8 +93,8 @@ const Lab = () => {
               background: 'linear-gradient(to top, rgba(251, 146, 60, 0.4), rgba(251, 191, 36, 0.2), transparent)'
             }} />
               
-              <div className="absolute bottom-0 left-0 p-6 pb-16 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+              <div className="absolute bottom-0 left-0 p-6 pb-20 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
+                <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
                   NEW EDGE<br />
                   <span className="italic font-black" style={{
                   background: 'linear-gradient(to right, #fde047, #fbbf24)',

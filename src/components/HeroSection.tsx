@@ -29,14 +29,12 @@ export const HeroSection = ({
       });
     }
   };
-  return <section className="relative w-full" style={{
-    marginTop: '80px'
-  }}>
-      <div className="w-full" style={{
-      paddingTop: '56.25%',
+  return <section className="relative w-full mt-20">
+      <div className="w-full relative min-h-[100vh] sm:min-h-0" style={{
+      paddingTop: '0',
       position: 'relative'
     }}>
-        <div className="absolute inset-0 overflow-hidden" style={{
+        <div className="absolute inset-0 overflow-hidden sm:relative sm:pt-[56.25%]" style={{
         background: 'linear-gradient(to bottom right, rgba(139, 92, 246, 0.3), rgba(168, 85, 247, 0.2), rgba(192, 132, 252, 0.1))'
       }}>
           <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
@@ -46,7 +44,7 @@ export const HeroSection = ({
           background: 'linear-gradient(to top, rgba(139, 92, 246, 0.6), rgba(139, 92, 246, 0.2), transparent)'
         }} />
           
-          <div className="absolute bottom-0 left-0 p-6 pb-16 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
+          <div className="absolute bottom-0 left-0 p-6 pb-20 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
             <motion.h1 initial={{
             opacity: 0,
             y: 30
@@ -56,7 +54,7 @@ export const HeroSection = ({
           }} transition={{
             delay: 0.2,
             duration: 0.6
-          }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+          }} className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
               <span className="block">BRAND</span>
               <span className="block">INTELLIGENCE</span>
               <span className="block italic font-black" style={{
