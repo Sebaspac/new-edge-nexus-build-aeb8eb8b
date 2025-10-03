@@ -5,6 +5,7 @@ import { Menu, X, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { OptimizedLogo } from "@/components/OptimizedLogo";
+import { ContactFormModal } from "@/components/ContactFormModal";
 interface MobileNavigationProps {
   onContactClick: () => void;
   logoSrc?: string;
@@ -16,6 +17,7 @@ export const MobileNavigation = ({
   theme = 'light'
 }: MobileNavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const location = useLocation();
   const {
     language,
@@ -31,22 +33,18 @@ export const MobileNavigation = ({
   };
   const handleContactClick = () => {
     setIsOpen(false);
-    // Quick scroll to contact form
-    const contactSection = document.querySelector('#contact-section') || document.querySelector('[id*="contact"]') || document.querySelector('form');
-    if (contactSection) {
-      contactSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    } else {
-      // Fallback: scroll to bottom if no contact section found
-      window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: 'smooth'
-      });
-    }
+    setIsContactModalOpen(true);
   };
   return <>
+      <ContactFormModal 
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+        accentColor="#000"
+        gradientFrom="#000"
+        gradientTo="#333"
+        theme="studio"
+      />
+      
       {/* Desktop Navigation */}
       <nav className={`fixed top-0 w-full z-50 ${bgColor} backdrop-blur-lg`}>
         <div className="container mx-auto px-4 sm:px-6 py-4">
