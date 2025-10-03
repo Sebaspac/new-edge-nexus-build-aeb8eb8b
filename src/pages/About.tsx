@@ -57,12 +57,8 @@ const About = () => {
                   <span className="text-white">DESIGN BRANDS.</span><br />
                   <span className="italic font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">DRIVE INNOVATION.</span>
                 </h1>
-                <p className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed mb-2">
-                  Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Vision.
-                </p>
-                <p className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed">
-                  Gemeinsam schaffen wir digitale Lösungen, die begeistern.
-                </p>
+                
+                
               </div>
             </div>
           </div>
