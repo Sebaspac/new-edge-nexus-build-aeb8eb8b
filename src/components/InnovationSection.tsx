@@ -189,23 +189,7 @@ export const InnovationSection = () => {
                   </p>
                 </div>
                 
-                <motion.div className="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden border border-primary/20 shadow-soft relative" whileHover={{
-                scale: 1.1,
-                rotate: [0, -3, 3, 0],
-                transition: {
-                  duration: 0.5
-                }
-              }} animate={{
-                borderColor: hoveredCard === 1 ? "hsl(var(--primary))" : "hsl(var(--primary) / 0.3)"
-              }}>
-                  {/* Animated overlay on image */}
-                  <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent" animate={{
-                  opacity: hoveredCard === 1 ? 0.6 : 0
-                }} transition={{
-                  duration: 0.3
-                }} />
-                  <img src="/assets/804d1765-b7c9-45f5-93a3-dddb443996f4.png" alt="Team collaboration" className="w-full h-full object-cover" loading="lazy" />
-                </motion.div>
+                
               </CardContent>
               
               {/* Bottom accent line */}
@@ -297,22 +281,7 @@ export const InnovationSection = () => {
                   </p>
                 </div>
                 
-                <motion.div className="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden border border-accent/20 shadow-soft relative" whileHover={{
-                scale: 1.1,
-                rotate: [0, 3, -3, 0],
-                transition: {
-                  duration: 0.5
-                }
-              }} animate={{
-                borderColor: hoveredCard === 2 ? "hsl(var(--accent))" : "hsl(var(--accent) / 0.3)"
-              }}>
-                  <motion.div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-transparent" animate={{
-                  opacity: hoveredCard === 2 ? 0.6 : 0
-                }} transition={{
-                  duration: 0.3
-                }} />
-                  <img src="/assets/72768da6-5ac5-423e-a9df-579dd83dc1aa.png" alt="Business transformation" className="w-full h-full object-cover" loading="lazy" />
-                </motion.div>
+                
               </CardContent>
               
               <motion.div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent" animate={{
