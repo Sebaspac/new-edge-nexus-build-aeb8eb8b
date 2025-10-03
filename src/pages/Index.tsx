@@ -206,7 +206,7 @@ const Index = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
+                <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-3 leading-[1.2] text-black">
                   Wir bringen Ihr Unternehmen{" "}
                   <motion.span className="bg-gradient-primary bg-clip-text text-transparent inline-block" whileInView={{
                   scale: [1, 1.05, 1]
@@ -218,7 +218,7 @@ const Index = () => {
                   </motion.span>
                   {" "}Ihrer Branche
                 </h2>
-                <motion.p className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl" variants={{
+                <motion.p className="text-base text-gray-600 mt-4 leading-[1.5] max-w-3xl" variants={{
                 hidden: {
                   opacity: 0,
                   y: 20
@@ -300,10 +300,10 @@ const Index = () => {
               duration: 0.7
             }} whileHover={{
               scale: 1.03
-            }} className="text-2xl sm:text-3xl font-black mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 lg:text-4xl">
+            }} className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-4 bg-gradient-primary bg-clip-text leading-[1.25] text-gray-950">
                 Für wen wir arbeiten & warum
               </motion.h2>
-              <motion.p className="text-sm sm:text-base text-gray-600 max-w-3xl leading-[1.6]" initial={{
+              <motion.p className="text-base text-gray-600 max-w-3xl leading-[1.5]" initial={{
               opacity: 0,
               y: 20
             }} whileInView={{
@@ -348,7 +348,7 @@ const Index = () => {
                 }} className="border-b border-border last:border-b-0">
                       {/* Accordion Header */}
                       <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity">
-                        <h3 className="text-xl sm:text-2xl font-bold text-foreground">
+                        <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium text-foreground leading-[1.3]">
                           {item.title}
                         </h3>
                         <motion.svg animate={{
@@ -369,7 +369,7 @@ const Index = () => {
                     ease: "easeInOut"
                   }} className="overflow-hidden">
                         <div className="pb-6 pr-8">
-                          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                          <p className="text-base text-muted-foreground leading-[1.5]">
                             {item.content}
                           </p>
                         </div>
@@ -481,7 +481,7 @@ const Index = () => {
             duration: 0.9,
             ease: [0.25, 0.46, 0.45, 0.94]
           }}>
-              <motion.h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-4 text-black leading-[1.2]" initial={{
+              <motion.h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-4 text-black leading-[1.25]" initial={{
               opacity: 0,
               y: 30
             }} whileInView={{
@@ -589,10 +589,10 @@ const Index = () => {
                     >
                       <point.icon className="w-6 h-6 text-white" />
                     </motion.div>
-                    <h3 className="text-lg font-semibold mb-2 text-foreground">
+                    <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-2 text-foreground leading-[1.3]">
                       {point.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-base text-muted-foreground leading-[1.5]">
                       {point.description}
                     </p>
                   </motion.div>
@@ -637,7 +637,7 @@ const Index = () => {
           }} transition={{
             duration: 0.8
           }}>
-              <motion.h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-6 leading-[1.2]" initial={{
+              <motion.h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold text-foreground mb-6 leading-[1.25]" initial={{
               opacity: 0,
               y: 30
             }} whileInView={{
@@ -651,7 +651,7 @@ const Index = () => {
             }}>
                 Unsere Kompetenzbereiche
               </motion.h2>
-              <motion.p className="text-lg text-muted-foreground max-w-3xl leading-relaxed" initial={{
+              <motion.p className="text-base text-muted-foreground max-w-3xl leading-[1.5]" initial={{
               opacity: 0,
               y: 20
             }} whileInView={{
@@ -719,12 +719,12 @@ const Index = () => {
                       </motion.div>
 
                       {/* Title */}
-                      <h3 className="text-2xl font-black text-foreground mb-4 leading-tight">
+                      <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium text-foreground mb-4 leading-[1.3]">
                         {service.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                      <p className="text-base text-muted-foreground mb-6 leading-[1.5]">
                         {service.description}
                       </p>
 
@@ -746,10 +746,10 @@ const Index = () => {
         <section id="contact-section" className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10">
           <div className="container-xl">
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+              <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-4 text-foreground leading-[1.25]">
                 Get in touch
               </h2>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-[1.5]">
                 Want to get in touch? We'd love to hear from you. Here's how you can reach us.
               </p>
             </div>
@@ -762,8 +762,8 @@ const Index = () => {
                     <Phone className="w-8 h-8 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-foreground">Talk to Sales</h3>
-                    <p className="text-muted-foreground mb-4 text-sm">
+                    <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-2 text-foreground leading-[1.3]">Talk to Sales</h3>
+                    <p className="text-base text-muted-foreground mb-4 leading-[1.5]">
                       Interested in our services? Just pick up the phone to chat with a member of our sales team.
                     </p>
                     <a href="tel:+4915750998236" className="text-primary font-semibold text-lg hover:underline">
@@ -781,8 +781,8 @@ const Index = () => {
                     <MessageSquare className="w-8 h-8 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-foreground">Contact Customer Support</h3>
-                    <p className="text-muted-foreground mb-4 text-sm">
+                    <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-2 text-foreground leading-[1.3]">Contact Customer Support</h3>
+                    <p className="text-base text-muted-foreground mb-4 leading-[1.5]">
                       Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
                     </p>
                   </div>
