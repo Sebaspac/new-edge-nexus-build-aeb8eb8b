@@ -231,15 +231,15 @@ export const InnovationSection = () => {
           }
         }} onHoverStart={() => setHoveredCard(2)} onHoverEnd={() => setHoveredCard(null)} className="perspective-1000 relative">
             {/* Glow effect when hovered */}
-            <motion.div className="absolute -inset-4 bg-gradient-to-r from-accent/20 to-primary/20 rounded-3xl blur-2xl" animate={{
+            <motion.div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-2xl" animate={{
             opacity: hoveredCard === 2 ? 0.8 : 0,
             scale: hoveredCard === 2 ? 1.05 : 1
           }} transition={{
             duration: 0.3
           }} />
             
-            <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-yellow-50/80 to-yellow-50/50 border border-border/50 shadow-soft hover:shadow-md hover:border-accent/20 transition-all duration-500">
-              <motion.div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" animate={{
+            <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-purple-50/80 to-purple-50/50 border border-border/50 shadow-soft hover:shadow-md hover:border-primary/20 transition-all duration-500">
+              <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" animate={{
               backgroundPosition: hoveredCard === 2 ? ["0% 0%", "100% 100%"] : "0% 0%"
             }} transition={{
               duration: 3,
@@ -248,7 +248,7 @@ export const InnovationSection = () => {
               
               <CardContent className="relative p-6 h-full flex gap-3">
                 <div className="flex-1 flex flex-col">
-                  <motion.div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary shadow-soft mb-3 relative" whileHover={{
+                  <motion.div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary shadow-soft mb-3 relative" whileHover={{
                   scale: 1.2,
                   rotate: -360,
                   transition: {
@@ -256,9 +256,9 @@ export const InnovationSection = () => {
                     type: "spring"
                   }
                 }} animate={{
-                  boxShadow: hoveredCard === 2 ? "0 20px 40px rgba(234, 179, 8, 0.4)" : "0 10px 20px rgba(234, 179, 8, 0.2)"
+                  boxShadow: hoveredCard === 2 ? "0 20px 40px rgba(147, 51, 234, 0.4)" : "0 10px 20px rgba(147, 51, 234, 0.2)"
                 }}>
-                    <motion.div className="absolute inset-0 rounded-3xl border-2 border-accent/50" animate={{
+                    <motion.div className="absolute inset-0 rounded-3xl border-2 border-primary/50" animate={{
                     scale: hoveredCard === 2 ? [1, 1.3, 1] : 1,
                     opacity: hoveredCard === 2 ? [1, 0, 1] : 0
                   }} transition={{
@@ -277,7 +277,7 @@ export const InnovationSection = () => {
                 
               </CardContent>
               
-              <motion.div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent" animate={{
+              <motion.div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" animate={{
               scaleX: hoveredCard === 2 ? 1 : 0,
               opacity: hoveredCard === 2 ? 1 : 0
             }} transition={{
