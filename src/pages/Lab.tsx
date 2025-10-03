@@ -191,7 +191,7 @@ const Lab = () => {
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 <ServiceScrollSection
                   gradient={service.gradient}
-                  icon={Icon}
+                  videoSrc="/assets/lab-section-video.mp4"
                   imagePosition={isEven ? "right" : "left"}
                 >
                   <div className="space-y-6">
