@@ -500,7 +500,7 @@ const Index = () => {
             </motion.div>
             
             {/* Grid with enhanced stagger animation */}
-            <motion.div className="grid md:grid-cols-2 gap-8 items-stretch max-w-6xl mx-auto" initial="hidden" whileInView="visible" viewport={{
+            <motion.div className="grid md:grid-cols-2 gap-4 items-stretch max-w-5xl mx-auto" initial="hidden" whileInView="visible" viewport={{
             once: true,
             margin: "-80px"
           }} variants={{
@@ -510,8 +510,8 @@ const Index = () => {
             visible: {
               opacity: 1,
               transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.2
+                staggerChildren: 0.1,
+                delayChildren: 0.1
               }
             }
           }}>
@@ -519,80 +519,80 @@ const Index = () => {
               number: "01",
               title: "Automatisierung mit Impact",
               description: "Wir automatisieren repetitive Aufgaben, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.",
-              gradient: "from-purple-100 to-purple-50",
-              border: "border-purple-300",
+              gradient: "from-purple-50/80 to-purple-50/50",
+              border: "border-purple-200/60",
               iconBg: "from-purple-500 to-purple-600",
-              shadow: "rgba(139, 92, 246, 0.3)",
+              shadow: "rgba(139, 92, 246, 0.15)",
               icon: Zap
             }, {
               number: "02",
               title: "Marketing & Technologie vereint",
               description: "Interdisziplinäres Team aus Strategen, Creatives und Entwicklern; alles aus einer Hand.",
-              gradient: "from-blue-100 to-blue-50",
-              border: "border-blue-300",
+              gradient: "from-blue-50/80 to-blue-50/50",
+              border: "border-blue-200/60",
               iconBg: "from-blue-500 to-blue-600",
-              shadow: "rgba(59, 130, 246, 0.3)",
+              shadow: "rgba(59, 130, 246, 0.15)",
               icon: Brain
             }, {
               number: "03",
               title: "Zugänglichkeit statt Komplexität",
               description: "Transparente Prozesse und verständliche Lösungen statt Technik Buzzwords.",
-              gradient: "from-cyan-100 to-cyan-50",
-              border: "border-cyan-300",
+              gradient: "from-cyan-50/80 to-cyan-50/50",
+              border: "border-cyan-200/60",
               iconBg: "from-cyan-500 to-cyan-600",
-              shadow: "rgba(6, 182, 212, 0.3)",
+              shadow: "rgba(6, 182, 212, 0.15)",
               icon: Eye
             }, {
               number: "04",
               title: "Individuell & skalierbar",
               description: "Maßgeschneiderte Setups ohne Abo Modelle – Sie bezahlen nur, was Sie nutzen.",
-              gradient: "from-pink-100 to-pink-50",
-              border: "border-pink-300",
+              gradient: "from-pink-50/80 to-pink-50/50",
+              border: "border-pink-200/60",
               iconBg: "from-pink-500 to-pink-600",
-              shadow: "rgba(236, 72, 153, 0.3)",
+              shadow: "rgba(236, 72, 153, 0.15)",
               icon: Star
             }].map((point, index) => <motion.div key={index} variants={{
               hidden: {
                 opacity: 0,
-                y: 60,
-                scale: 0.9
+                y: 30,
+                scale: 0.95
               },
               visible: {
                 opacity: 1,
                 y: 0,
                 scale: 1,
                 transition: {
-                  duration: 0.6,
+                  duration: 0.4,
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }
               }
             }} className="h-full">
-                  <motion.div className={`bg-gradient-to-br ${point.gradient} backdrop-blur-xl p-8 rounded-3xl border ${point.border} shadow-2xl h-full flex flex-col`}
+                  <motion.div className={`bg-gradient-to-br ${point.gradient} backdrop-blur-sm p-6 rounded-2xl border ${point.border} shadow-lg h-full flex flex-col`}
                     whileHover={{
-                      scale: 1.03,
-                      y: -10,
-                      boxShadow: `0 25px 50px -12px ${point.shadow}`
+                      scale: 1.02,
+                      y: -5,
+                      boxShadow: `0 15px 30px -10px ${point.shadow}`
                     }}
                     transition={{
-                      duration: 0.3
+                      duration: 0.2
                     }}
                   >
                     <motion.div 
-                      className={`w-16 h-16 bg-gradient-to-br ${point.iconBg} rounded-2xl flex items-center justify-center mb-6 mx-auto`}
+                      className={`w-12 h-12 bg-gradient-to-br ${point.iconBg} rounded-xl flex items-center justify-center mb-4`}
                       whileHover={{
-                        rotate: 360,
-                        scale: 1.1
+                        rotate: 180,
+                        scale: 1.05
                       }}
                       transition={{
-                        duration: 0.6
+                        duration: 0.4
                       }}
                     >
-                      <point.icon className="w-8 h-8 text-white" />
+                      <point.icon className="w-6 h-6 text-white" />
                     </motion.div>
-                    <h3 className="text-2xl font-bold mb-4 text-center text-foreground">
+                    <h3 className="text-lg font-semibold mb-2 text-foreground">
                       {point.title}
                     </h3>
-                    <p className="text-muted-foreground text-center leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {point.description}
                     </p>
                   </motion.div>
