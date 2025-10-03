@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { motion } from "framer-motion";
+import { AgentScrollSection } from "@/components/AgentScrollSection";
 const Products = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
@@ -142,21 +143,11 @@ const Products = () => {
         {/* Riley - Wissensagent */}
         <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-purple-50/30 to-blue-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <motion.div initial="hidden" whileInView="visible" viewport={{
-            once: true,
-            margin: "-100px"
-          }} variants={{
-            hidden: {
-              opacity: 0
-            },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.1
-              }
-            }
-          }} className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16">
+            <AgentScrollSection
+              videoSrc="/assets/products-hero-video.mp4"
+              gradient="bg-gradient-to-br from-purple-500 via-blue-500 to-purple-600"
+              imagePosition="right"
+            >
               <div className="space-y-6">
                 <motion.div variants={{
                 hidden: {
@@ -332,85 +323,19 @@ const Products = () => {
                   </motion.div>
                 </motion.div>
               </div>
-              
-              <motion.div variants={{
-              hidden: {
-                opacity: 0,
-                scale: 0.8
-              },
-              visible: {
-                opacity: 1,
-                scale: 1,
-                transition: {
-                  duration: 0.8
-                }
-              }
-            }} className="hidden lg:block sticky top-24">
-                <motion.div whileHover={{
-                scale: 1.05,
-                rotate: 2
-              }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="w-full h-96 bg-gradient-to-br from-purple-500 via-blue-500 to-purple-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden">
-                  <video autoPlay loop muted playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover">
-                    <source src="/assets/products-hero-video.mp4" type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
+            </AgentScrollSection>
           </div>
         </section>
 
         {/* Liam - Lead-Gen-Agent */}
         <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <motion.div initial="hidden" whileInView="visible" viewport={{
-            once: true,
-            margin: "-100px"
-          }} variants={{
-            hidden: {
-              opacity: 0
-            },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.1
-              }
-            }
-          }} className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16">
-              {/* Image Left */}
-              <motion.div variants={{
-              hidden: {
-                opacity: 0,
-                scale: 0.8
-              },
-              visible: {
-                opacity: 1,
-                scale: 1,
-                transition: {
-                  duration: 0.8
-                }
-              }
-            }} className="hidden lg:block sticky top-24 order-2 lg:order-1">
-                <motion.div whileHover={{
-                scale: 1.05,
-                rotate: -2
-              }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="w-full h-96 bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden">
-                  <video autoPlay loop muted playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover">
-                    <source src="/assets/liam-video.mp4" type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                </motion.div>
-              </motion.div>
-
-              {/* Text Right */}
-              <div className="space-y-6 order-1 lg:order-2">
+            <AgentScrollSection
+              videoSrc="/assets/liam-video.mp4"
+              gradient="bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600"
+              imagePosition="left"
+            >
+              <div className="space-y-6">
                 <motion.div variants={{
                 hidden: {
                   opacity: 0,
@@ -585,28 +510,18 @@ const Products = () => {
                   </motion.div>
                 </motion.div>
               </div>
-            </motion.div>
+            </AgentScrollSection>
           </div>
         </section>
 
         {/* Vera - Voice-Agent */}
         <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-green-50/30 to-emerald-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <motion.div initial="hidden" whileInView="visible" viewport={{
-            once: true,
-            margin: "-100px"
-          }} variants={{
-            hidden: {
-              opacity: 0
-            },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.1
-              }
-            }
-          }} className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16">
+            <AgentScrollSection
+              videoSrc="/assets/vera-agent-video.mp4"
+              gradient="bg-gradient-to-br from-green-500 via-emerald-500 to-green-600"
+              imagePosition="right"
+            >
               <div className="space-y-6">
                 <motion.div variants={{
                 hidden: {
@@ -782,85 +697,19 @@ const Products = () => {
                   </motion.div>
                 </motion.div>
               </div>
-              
-              <motion.div variants={{
-              hidden: {
-                opacity: 0,
-                scale: 0.8
-              },
-              visible: {
-                opacity: 1,
-                scale: 1,
-                transition: {
-                  duration: 0.8
-                }
-              }
-            }} className="hidden lg:block sticky top-24">
-                <motion.div whileHover={{
-                scale: 1.05,
-                rotate: 2
-              }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="w-full h-96 bg-gradient-to-br from-green-500 via-emerald-500 to-green-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden">
-                  <video autoPlay loop muted playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover">
-                    <source src="/assets/vera-agent-video.mp4" type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
+            </AgentScrollSection>
           </div>
         </section>
 
         {/* Cora - Content-Agent */}
         <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <motion.div initial="hidden" whileInView="visible" viewport={{
-            once: true,
-            margin: "-100px"
-          }} variants={{
-            hidden: {
-              opacity: 0
-            },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.1
-              }
-            }
-          }} className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16">
-              {/* Image Left */}
-              <motion.div variants={{
-              hidden: {
-                opacity: 0,
-                scale: 0.8
-              },
-              visible: {
-                opacity: 1,
-                scale: 1,
-                transition: {
-                  duration: 0.8
-                }
-              }
-            }} className="hidden lg:block sticky top-24 order-2 lg:order-1">
-                <motion.div whileHover={{
-                scale: 1.05,
-                rotate: -2
-              }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="w-full h-96 bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden">
-                  <video autoPlay loop muted playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover">
-                    <source src="/assets/cora-agent-video.mp4" type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                </motion.div>
-              </motion.div>
-
-              {/* Text Right */}
-              <div className="space-y-6 order-1 lg:order-2">
+            <AgentScrollSection
+              videoSrc="/assets/cora-agent-video.mp4"
+              gradient="bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600"
+              imagePosition="left"
+            >
+              <div className="space-y-6">
                 <motion.div variants={{
                 hidden: {
                   opacity: 0,
@@ -1035,7 +884,7 @@ const Products = () => {
                   </motion.div>
                 </motion.div>
               </div>
-            </motion.div>
+            </AgentScrollSection>
           </div>
         </section>
 
