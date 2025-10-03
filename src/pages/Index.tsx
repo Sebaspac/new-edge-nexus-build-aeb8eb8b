@@ -774,7 +774,7 @@ const Index = () => {
                     <MessageSquare className="w-8 h-8 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-2 text-foreground leading-[1.3]">Contact Customer Support</h3>
+                    <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-2 text-foreground leading-[1.3]">Contact Team</h3>
                     <p className="text-base text-muted-foreground mb-4 leading-[1.5]">
                       Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
                     </p>
