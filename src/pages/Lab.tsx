@@ -55,17 +55,11 @@ const Lab = () => {
     icon: Globe,
     gradient: "from-[#fbbf24] to-[#fde047]"
   }, {
-    title: "KI-Agenten-Integration",
-    description: "Text, Mail, CRM - intelligente Agenten für automatisierte Kommunikation und Verwaltung.",
-    details: ["Chatbot-Entwicklung und Integration", "E-Mail-Automatisierung mit KI", "CRM-Integration und -Optimierung", "24/7 automatisierter Kundenservice"],
-    icon: Bot,
-    gradient: "from-[#fde047] to-[#fbbf24]"
-  }, {
     title: "Tracking- & Analyse-Setups",
     description: "GA4, Tag Manager, Pixel, Dashboards - umfassende Datenanalyse und Reporting.",
     details: ["Google Analytics 4 Setup", "Tag Manager Konfiguration", "Custom Dashboard Entwicklung", "Datengetriebene Entscheidungen"],
     icon: BarChart3,
-    gradient: "from-[#fbbf24] to-[#fde047]"
+    gradient: "from-[#fde047] to-[#fbbf24]"
   }];
   return <>
       <Helmet>
