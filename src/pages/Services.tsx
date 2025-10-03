@@ -1145,51 +1145,81 @@ const Services = () => {
       {/* Contact Section */}
       <section id="contact-section" className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10">
         <div className="container-xl">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-4 text-foreground leading-[1.25]">
               Get in touch
             </h2>
             <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-[1.5]">
               Want to get in touch? We'd love to hear from you. Here's how you can reach us.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Talk to Sales */}
-            <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
-              <CardContent className="space-y-6 p-0">
-                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-                  <Phone className="w-8 h-8 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-2 text-foreground leading-[1.3]">Talk to Sales</h3>
-                  <p className="text-base text-muted-foreground mb-4 leading-[1.5]">
-                    Interested in our services? Just pick up the phone to chat with a member of our sales team.
-                  </p>
-                  <a href="tel:+4915750998236" className="text-primary font-semibold text-lg hover:underline">
-                    +49 157 5099 8236
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                whileHover={{ y: -5, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
+                  <CardContent className="space-y-6 p-0">
+                    <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                      <Phone className="w-8 h-8 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-2 text-foreground leading-[1.3]">Talk to Sales</h3>
+                      <p className="text-base text-muted-foreground mb-4 leading-[1.5]">
+                        Interested in our services? Just pick up the phone to chat with a member of our sales team.
+                      </p>
+                      <a href="tel:+4915750998236" className="text-primary font-semibold text-lg hover:underline">
+                        +49 157 5099 8236
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </motion.div>
 
             {/* Contact Support */}
-            <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
-              <CardContent className="space-y-6 p-0">
-                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-                  <MessageSquare className="w-8 h-8 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-2 text-foreground leading-[1.3]">Contact Team</h3>
-                  <p className="text-base text-muted-foreground mb-4 leading-[1.5]">
-                    Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
-                  </p>
-                </div>
-                <Button onClick={() => setIsContactSheetOpen(true)} className="w-full btn-primary text-slate-50">
-                  Contact Support
-                </Button>
-              </CardContent>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <motion.div
+                whileHover={{ y: -5, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
+                  <CardContent className="space-y-6 p-0">
+                    <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                      <MessageSquare className="w-8 h-8 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-2 text-foreground leading-[1.3]">Contact Team</h3>
+                      <p className="text-base text-muted-foreground mb-4 leading-[1.5]">
+                        Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
+                      </p>
+                    </div>
+                    <Button onClick={() => setIsContactSheetOpen(true)} className="w-full btn-primary text-slate-50">
+                      Contact Support
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
