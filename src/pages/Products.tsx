@@ -328,9 +328,7 @@ const Products = () => {
                 }} whileTap={{
                   scale: 0.98
                 }}>
-                    <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={scrollToContact}>
-                      Jetzt mit Riley starten
-                    </Button>
+                    <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={scrollToContact}>Riley ausprobieren</Button>
                   </motion.div>
                 </motion.div>
               </div>
@@ -583,9 +581,7 @@ const Products = () => {
                 }} whileTap={{
                   scale: 0.98
                 }}>
-                    <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={scrollToContact}>
-                      Mehr qualifizierte Leads – Liam jetzt testen
-                    </Button>
+                    <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={scrollToContact}>Liam testen</Button>
                   </motion.div>
                 </motion.div>
               </div>
@@ -782,9 +778,7 @@ const Products = () => {
                 }} whileTap={{
                   scale: 0.98
                 }}>
-                    <Button size="lg" className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={scrollToContact}>
-                      Vera live erleben – jetzt Termin buchen
-                    </Button>
+                    <Button size="lg" className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={scrollToContact}>Vera live erleben</Button>
                   </motion.div>
                 </motion.div>
               </div>
@@ -1037,9 +1031,7 @@ const Products = () => {
                 }} whileTap={{
                   scale: 0.98
                 }}>
-                    <Button size="lg" className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={scrollToContact}>
-                      Entdecken Sie, wie Cora Ihr Content‑Marketing transformiert
-                    </Button>
+                    <Button size="lg" className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={scrollToContact}>Cora testen</Button>
                   </motion.div>
                 </motion.div>
               </div>
