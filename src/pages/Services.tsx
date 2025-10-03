@@ -198,12 +198,16 @@ const Services = () => {
         
         {/* Text Content - Bottom Left */}
         <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl z-10">
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white"
-          >
+          <motion.h1 initial={{
+          opacity: 0,
+          y: 30
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8,
+          ease: "easeOut"
+        }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
             THE<br />
             JOURNEY
           </motion.h1>
@@ -211,48 +215,48 @@ const Services = () => {
 
         {/* Enhanced scroll indicator with complex animations */}
         <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          delay: 3,
-          duration: 0.8
-        }} className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer z-20" onClick={() => {
-          const nextSection = document.querySelector('.services-overview');
-          nextSection?.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }}>
+        opacity: 0,
+        y: 20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        delay: 3,
+        duration: 0.8
+      }} className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer z-20" onClick={() => {
+        const nextSection = document.querySelector('.services-overview');
+        nextSection?.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }}>
           <motion.div whileHover={{
-            scale: 1.3,
-            rotate: 5
-          }} whileTap={{
-            scale: 0.8
-          }} className="relative">
+          scale: 1.3,
+          rotate: 5
+        }} whileTap={{
+          scale: 0.8
+        }} className="relative">
             {/* Pulsing ring */}
             <motion.div className="absolute inset-0 w-16 h-16 -m-4 rounded-full border-2 border-primary/50" animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.5, 0, 0.5]
-            }} transition={{
-              duration: 2,
-              repeat: Infinity
-            }} />
+            scale: [1, 1.5, 1],
+            opacity: [0.5, 0, 0.5]
+          }} transition={{
+            duration: 2,
+            repeat: Infinity
+          }} />
             {/* Main arrow with glow effect */}
             <motion.div animate={{
-              y: [0, 8, 0]
-            }} transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }} className="relative">
+            y: [0, 8, 0]
+          }} transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} className="relative">
               <motion.div className="absolute inset-0 blur-sm" animate={{
-                boxShadow: ["0 0 20px rgba(var(--primary-rgb), 0.8)", "0 0 40px rgba(var(--primary-rgb), 1)", "0 0 20px rgba(var(--primary-rgb), 0.8)"]
-              }} transition={{
-                duration: 1.5,
-                repeat: Infinity
-              }}>
+              boxShadow: ["0 0 20px rgba(var(--primary-rgb), 0.8)", "0 0 40px rgba(var(--primary-rgb), 1)", "0 0 20px rgba(var(--primary-rgb), 0.8)"]
+            }} transition={{
+              duration: 1.5,
+              repeat: Infinity
+            }}>
                 <ArrowDown className="w-8 h-8 text-primary" />
               </motion.div>
               <ArrowDown className="w-8 h-8 text-primary relative z-10" />
@@ -1025,20 +1029,7 @@ const Services = () => {
         }} transition={{
           duration: 0.8
         }} className="text-left mb-20">
-            <motion.div initial={{
-            opacity: 0,
-            scale: 0.9
-          }} whileInView={{
-            opacity: 1,
-            scale: 1
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.2,
-            duration: 0.6
-          }} className="inline-block bg-gradient-primary text-white px-8 py-4 rounded-full text-xl font-semibold mb-12 shadow-elegant">
-              {t('services.keyActivities')}
-            </motion.div>
+            
             <h2 className="text-h1 font-bold text-foreground mb-6">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
@@ -1095,7 +1086,7 @@ const Services = () => {
                     
                     <Button className="btn-primary w-full h-12 sm:h-14 text-sm sm:text-base px-4 mt-auto" asChild>
                       <Link to="/studio" className="flex items-center justify-center gap-2">
-                        <span className="truncate">Strategie entwickeln</span>
+                        <span className="truncate text-base text-slate-50 font-normal">Strategie entwickeln</span>
                         <ArrowRight className="w-4 h-4 shrink-0" />
                       </Link>
                     </Button>
@@ -1139,7 +1130,7 @@ const Services = () => {
                     
                     <Button className="btn-primary w-full h-12 sm:h-14 text-sm sm:text-base px-4 mt-auto" asChild>
                       <Link to="/media" className="flex items-center justify-center gap-2">
-                        <span className="truncate">Content erstellen</span>
+                        <span className="truncate text-base text-slate-50 font-normal">Content erstellen</span>
                         <ArrowRight className="w-4 h-4 shrink-0" />
                       </Link>
                     </Button>
@@ -1183,7 +1174,7 @@ const Services = () => {
                     
                     <Button className="btn-primary w-full h-12 sm:h-14 text-sm sm:text-base px-4 mt-auto" asChild>
                       <Link to="/lab" className="flex items-center justify-center gap-2">
-                        <span className="truncate">Automatisieren</span>
+                        <span className="truncate font-normal text-slate-50">Automatisieren</span>
                         <ArrowRight className="w-4 h-4 shrink-0" />
                       </Link>
                     </Button>
