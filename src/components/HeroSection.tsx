@@ -57,7 +57,7 @@ export const HeroSection = ({
           }} className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
               <span className="block">BRAND</span>
               <span className="block">INTELLIGENCE</span>
-              <span className="block italic font-black" style={{
+              <span className="inline-block italic font-black whitespace-nowrap" style={{
               background: 'linear-gradient(to right, #8b5cf6, #a855f7)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
