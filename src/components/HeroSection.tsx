@@ -67,34 +67,28 @@ export const HeroSection = ({
             </motion.h1>
             
           </div>
+
+          {/* Scroll Indicator */}
+          <motion.div initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          delay: 1,
+          duration: 0.5
+        }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+            <motion.div animate={{
+            y: [0, 10, 0]
+          }} transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} className="flex flex-col items-center gap-2 cursor-pointer" onClick={scrollToNext}>
+              <span className="text-white text-sm font-medium">Scroll</span>
+              <ChevronDown className="w-6 h-6 text-white" />
+            </motion.div>
+          </motion.div>
         </div>
       </div>
-
-      {/* CTA Buttons - Below Video */}
-      
-
-      {/* Scroll Indicator */}
-      <motion.div initial={{
-      opacity: 0
-    }} animate={{
-      opacity: 1
-    }} transition={{
-      delay: 0.8,
-      duration: 0.4
-    }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-        <motion.div animate={{
-        y: [0, 8, 0]
-      }} transition={{
-        duration: 2,
-        repeat: Infinity
-      }} className="flex flex-col items-center gap-2 text-gray-300 cursor-pointer hover-scale" onClick={scrollToNext} whileHover={{
-        scale: 1.05
-      }} whileTap={{
-        scale: 0.95
-      }}>
-          <span className="text-body-sm">Scroll to explore</span>
-          <ChevronDown className="w-5 h-5" />
-        </motion.div>
-      </motion.div>
     </section>;
 };
