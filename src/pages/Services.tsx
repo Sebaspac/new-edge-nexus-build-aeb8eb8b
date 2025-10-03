@@ -457,7 +457,7 @@ const Services = () => {
                         }}>
                             <Target className="w-8 h-8 text-white" />
                           </motion.div>
-                          <h4 className="text-2xl font-bold mb-4 text-center text-foreground">STRATEGIE</h4>
+                          <h4 className="mb-4 text-center text-foreground text-lg font-semibold">STRATEGIE</h4>
                           <p className="text-muted-foreground text-center leading-relaxed">
                             Das Fundament für Ihren Erfolg. Wir entwickeln eine klare Roadmap und visuelle Identität.
                           </p>
@@ -560,7 +560,7 @@ const Services = () => {
                         }}>
                             <Brain className="w-8 h-8 text-white" />
                           </motion.div>
-                          <h4 className="text-2xl font-bold mb-4 text-center text-foreground">UMSETZUNG</h4>
+                          <h4 className="mb-4 text-center text-foreground text-lg font-semibold">UMSETZUNG</h4>
                           <p className="text-muted-foreground text-center leading-relaxed">
                             Content-Produktion und Reichweite-Aufbau. Ihre Botschaft erreicht die richtige Zielgruppe.
                           </p>
@@ -594,7 +594,7 @@ const Services = () => {
                         }}>
                             <Zap className="w-8 h-8 text-white" />
                           </motion.div>
-                          <h4 className="text-2xl font-bold mb-4 text-center text-foreground">INNOVATION</h4>
+                          <h4 className="mb-4 text-center text-foreground text-lg font-semibold">INNOVATION</h4>
                           <p className="text-muted-foreground text-center leading-relaxed">
                             Technische Implementierung und Automation für nachhaltigen, messbaren Erfolg.
                           </p>
@@ -722,7 +722,7 @@ const Services = () => {
         }} transition={{
           duration: 0.8
         }} className="text-left mb-20">
-            <h2 className="text-h1 font-bold text-foreground mb-6">Das Ergebnis</h2>
+            <h2 className="text-h1 text-foreground mb-6 text-4xl font-semibold">Das Ergebnis</h2>
             <p className="text-body-xl text-muted-foreground max-w-4xl">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
             </p>
@@ -762,7 +762,7 @@ const Services = () => {
                 <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} text-white font-bold text-2xl mb-6`}>
                   {item.number}
                 </div>
-                <h3 className="text-h3 font-semibold text-foreground mb-4">{item.title}</h3>
+                <h3 className="text-h3 text-foreground mb-4 text-lg font-semibold">{item.title}</h3>
                 <p className="text-body text-muted-foreground leading-relaxed">{item.description}</p>
               </motion.div>)}
           </div>
@@ -783,7 +783,7 @@ const Services = () => {
         }} transition={{
           duration: 0.8
         }} className="text-left mb-20">
-            <h2 className="text-h1 font-bold text-foreground mb-6">Warum New Edge?</h2>
+            <h2 className="text-h1 text-foreground mb-6 text-4xl font-semibold">Warum New Edge?</h2>
             <p className="text-body-xl text-muted-foreground max-w-4xl">
               Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.
             </p>
@@ -891,7 +891,7 @@ const Services = () => {
             duration: 0.7
           }} whileHover={{
             scale: 1.03
-          }} className="text-2xl sm:text-3xl font-black mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 lg:text-4xl">
+          }} className="text-2xl sm:text-3xl mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 font-semibold lg:text-4xl">
               Für wen wir arbeiten & warum
             </motion.h2>
             <motion.p className="text-sm sm:text-base text-gray-600 max-w-3xl leading-[1.6]" initial={{
@@ -938,7 +938,7 @@ const Services = () => {
                 delay: index * 0.05
               }} className="border-b border-border last:border-b-0">
                     {/* Accordion Header */}
-                    <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity">
+                    <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity text-lg font-semibold">
                       <h3 className="text-xl sm:text-2xl font-bold text-foreground">
                         {item.title}
                       </h3>
@@ -1075,10 +1075,10 @@ const Services = () => {
                       <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-secondary to-accent p-3 sm:p-4 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                         <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
-                      <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase">
+                      <h3 className="text-lg sm:text-h3 mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase font-extrabold">
                         <span dangerouslySetInnerHTML={{
                         __html: "new edge<br />studio"
-                      }} />
+                      }} className="font-semibold text-2xl" />
                       </h3>
                     </div>
                     
@@ -1122,7 +1122,7 @@ const Services = () => {
                       <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase">
                         <span dangerouslySetInnerHTML={{
                         __html: "new edge<br />media"
-                      }} />
+                      }} className="text-2xl font-bold" />
                       </h3>
                     </div>
                     
@@ -1166,7 +1166,7 @@ const Services = () => {
                       <h3 className="text-lg sm:text-h3 font-semibold mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase">
                         <span dangerouslySetInnerHTML={{
                         __html: "new edge<br />lab"
-                      }} />
+                      }} className="text-xl font-bold" />
                       </h3>
                     </div>
                     
