@@ -323,121 +323,100 @@ const Index = () => {
             <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
               {/* Left: Accordion List */}
               <div className="space-y-1">
-                {[
-                  {
-                    title: "Ihre Herausforderung",
-                    content: "Manuelle, zeitraubende Prozesse im Tagesgeschäft rauben Ihnen wertvolle Zeit. Keine Ressourcen für Digitalisierung und Innovation. Fachkräftemangel und steigende Kosten belasten Ihr Unternehmen. Während Wettbewerber fortschreiten, bleiben Sie zurück. Klassische Agenturen liefern keine echte Innovation."
-                  },
-                  {
-                    title: "Unsere Lösung",
-                    content: "KI-gestützte Automatisierung Ihrer Prozesse gibt Ihnen 30% mehr Zeit für Ihr Kerngeschäft zurück. Messbare Effizienzsteigerung & ROI durch intelligente Systeme. Sie werden Vorreiter Ihrer Branche mit unserer hybriden Expertise: Marketing + Technologie + Automatisierung aus einer Hand."
-                  },
-                  {
-                    title: "Konkret für Sie",
-                    content: "Für mittelständische Produktions- oder Dienstleistungsunternehmen (50-300 Mitarbeiter), die ihre Prozesse manuell betreiben und unter Fachkräftemangel leiden, implementiert New Edge KI-gestützte Automatisierungen und vernetzt sie mit passenden Agenturen. Dadurch gewinnen sie 30% mehr Zeit für ihr Kerngeschäft, senken Fehlerquoten, stärken ihre Marke und werden als innovative Vorreiter in ihrer Branche wahrgenommen."
-                  }
-                ].map((item, index) => {
-                  const isOpen = openAccordionIndex === index;
-
-                  return (
-                    <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: index * 0.05 }}
-                      className="border-b border-border last:border-b-0"
-                    >
+                {[{
+                title: "Ihre Herausforderung",
+                content: "Manuelle, zeitraubende Prozesse im Tagesgeschäft rauben Ihnen wertvolle Zeit. Keine Ressourcen für Digitalisierung und Innovation. Fachkräftemangel und steigende Kosten belasten Ihr Unternehmen. Während Wettbewerber fortschreiten, bleiben Sie zurück. Klassische Agenturen liefern keine echte Innovation."
+              }, {
+                title: "Unsere Lösung",
+                content: "KI-gestützte Automatisierung Ihrer Prozesse gibt Ihnen 30% mehr Zeit für Ihr Kerngeschäft zurück. Messbare Effizienzsteigerung & ROI durch intelligente Systeme. Sie werden Vorreiter Ihrer Branche mit unserer hybriden Expertise: Marketing + Technologie + Automatisierung aus einer Hand."
+              }, {
+                title: "Konkret für Sie",
+                content: "Für mittelständische Produktions- oder Dienstleistungsunternehmen (50-300 Mitarbeiter), die ihre Prozesse manuell betreiben und unter Fachkräftemangel leiden, implementiert New Edge KI-gestützte Automatisierungen und vernetzt sie mit passenden Agenturen. Dadurch gewinnen sie 30% mehr Zeit für ihr Kerngeschäft, senken Fehlerquoten, stärken ihre Marke und werden als innovative Vorreiter in ihrer Branche wahrgenommen."
+              }].map((item, index) => {
+                const isOpen = openAccordionIndex === index;
+                return <motion.div key={item.title} initial={{
+                  opacity: 0,
+                  y: 10
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  duration: 0.3,
+                  delay: index * 0.05
+                }} className="border-b border-border last:border-b-0">
                       {/* Accordion Header */}
-                      <button
-                        onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)}
-                        className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity"
-                      >
+                      <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity">
                         <h3 className="text-xl sm:text-2xl font-bold text-foreground">
                           {item.title}
                         </h3>
-                        <motion.svg
-                          animate={{ rotate: isOpen ? 180 : 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="w-5 h-5 text-muted-foreground flex-shrink-0 ml-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
+                        <motion.svg animate={{
+                      rotate: isOpen ? 180 : 0
+                    }} transition={{
+                      duration: 0.3
+                    }} className="w-5 h-5 text-muted-foreground flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </motion.svg>
                       </button>
 
                       {/* Accordion Content */}
-                      <motion.div
-                        initial={false}
-                        animate={{
-                          height: isOpen ? "auto" : 0,
-                          opacity: isOpen ? 1 : 0
-                        }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="overflow-hidden"
-                      >
+                      <motion.div initial={false} animate={{
+                    height: isOpen ? "auto" : 0,
+                    opacity: isOpen ? 1 : 0
+                  }} transition={{
+                    duration: 0.3,
+                    ease: "easeInOut"
+                  }} className="overflow-hidden">
                         <div className="pb-6 pr-8">
                           <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                             {item.content}
                           </p>
                         </div>
                       </motion.div>
-                    </motion.div>
-                  );
-                })}
+                    </motion.div>;
+              })}
               </div>
 
               {/* Right: Animated Visual */}
               <div className="lg:sticky lg:top-24">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl"
-                >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent"
-                    animate={{
-                      backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-                    }}
-                    transition={{
-                      duration: 10,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                    style={{
-                      backgroundSize: "200% 200%"
-                    }}
-                  />
-                  <motion.div
-                    className="absolute inset-0 flex items-center justify-center"
-                    animate={{
-                      scale: [1, 1.1, 1],
-                      rotate: [0, 5, -5, 0]
-                    }}
-                    transition={{
-                      duration: 8,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <motion.div
-                      className="w-64 h-64 bg-white/20 backdrop-blur-sm rounded-3xl"
-                      animate={{
-                        rotateY: [0, 360],
-                      }}
-                      transition={{
-                        duration: 15,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }}
-                      style={{
-                        transformStyle: "preserve-3d",
-                      }}
-                    />
+                <motion.div initial={{
+                opacity: 0,
+                scale: 0.95
+              }} whileInView={{
+                opacity: 1,
+                scale: 1
+              }} viewport={{
+                once: true
+              }} transition={{
+                duration: 0.6
+              }} className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                  <motion.div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent" animate={{
+                  backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"]
+                }} transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  ease: "linear"
+                }} style={{
+                  backgroundSize: "200% 200%"
+                }} />
+                  <motion.div className="absolute inset-0 flex items-center justify-center" animate={{
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 5, -5, 0]
+                }} transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}>
+                    <motion.div className="w-64 h-64 bg-white/20 backdrop-blur-sm rounded-3xl" animate={{
+                    rotateY: [0, 360]
+                  }} transition={{
+                    duration: 15,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }} style={{
+                    transformStyle: "preserve-3d"
+                  }} />
                   </motion.div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </motion.div>
@@ -581,19 +560,12 @@ const Index = () => {
             }} className="group h-full">
                   <div className="bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:border-primary/30 transition-all duration-500 h-full">
                     <div className="flex items-start gap-3 mb-3">
-                      <motion.div whileHover={{
-                    scale: 1.2,
-                    rotate: 360
-                  }} transition={{
-                    duration: 0.6,
-                    type: "spring"
-                  }} className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center text-white font-black text-sm shadow-lg">
-                      </motion.div>
+                      
                       <h3 className="text-base sm:text-lg font-black text-black group-hover:text-primary transition-colors flex-1 leading-tight">
                         {point.title}
                       </h3>
                     </div>
-                    <p className="text-sm text-gray-700 leading-[1.6] pl-[3.25rem]">
+                    <p className="text-sm text-gray-700 leading-[1.6] pl-[3.25rem] text-left">
                       {point.description}
                     </p>
                   </div>
