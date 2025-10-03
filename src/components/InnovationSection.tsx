@@ -271,10 +271,7 @@ export const InnovationSection = () => {
                   <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight">
                     Ganzheitliche Transformation
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed flex-grow text-base">
-                    Unser Fokus liegt nicht nur auf Automatisierung oder Chatbots, sondern auf ganzheitlicher, 
-                    kreativer Transformation: Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools.
-                  </p>
+                  <p className="text-muted-foreground leading-relaxed flex-grow text-base">Unser Fokus liegt nicht nur auf Automatisierung oder Chatbots, sondern auf ganzheitlicher, kreativer Transformation: Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools.</p>
                 </div>
                 
                 
