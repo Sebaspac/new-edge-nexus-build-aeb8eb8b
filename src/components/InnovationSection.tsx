@@ -286,7 +286,7 @@ export const InnovationSection = () => {
                     <Zap className="w-6 h-6 text-white drop-shadow-lg relative z-10" />
                   </motion.div>
                   
-                  <motion.h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent leading-tight" animate={{
+                  <motion.h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight" animate={{
                   scale: hoveredCard === 2 ? 1.05 : 1
                 }}>
                     Ganzheitliche Transformation
