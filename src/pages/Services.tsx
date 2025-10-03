@@ -1,9 +1,14 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowDown, ChevronDown, Sparkles, Brain, Zap, Star, Target, Eye } from "lucide-react";
+import { ArrowRight, ArrowDown, ChevronDown, Sparkles, Brain, Zap, Star, Target, Eye, Phone, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { toast } from "@/hooks/use-toast";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -16,6 +21,7 @@ const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [openAccordionIndex, setOpenAccordionIndex] = useState(-1);
+  const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const {
     scrollY
   } = useScroll();
@@ -38,7 +44,52 @@ const Services = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const scrollToContact = () => {
-    window.location.href = '/#contact-section';
+    setIsContactSheetOpen(true);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    const data = {
+      name: formData.get('name')?.toString() || '',
+      email: formData.get('email')?.toString() || '',
+      position: formData.get('position')?.toString() || '',
+      firma: formData.get('firma')?.toString() || '',
+      telefon: formData.get('telefon')?.toString() || '',
+      nachricht: formData.get('nachricht')?.toString() || ''
+    };
+
+    try {
+      const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Wir designen für dich",
+          description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
+          duration: 5000
+        });
+        form.reset();
+        setIsContactSheetOpen(false);
+      } else {
+        throw new Error(`Server responded with ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Fehler",
+        description: "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
+        variant: "destructive",
+        duration: 5000
+      });
+    }
   };
   return <div ref={containerRef} className="min-h-screen bg-background overflow-hidden">
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
@@ -1188,38 +1239,105 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-white overflow-hidden">
-        <motion.div className="container-narrow text-center relative z-10" initial={{
-        opacity: 0,
-        y: 30
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true
-      }} transition={{
-        duration: 0.8
-      }}>
-          <h2 className="text-h1 font-bold mb-6 text-foreground">
-            Bereit für Ihre Reise?
-          </h2>
-          <p className="text-body-xl mb-12 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
-            Lassen Sie uns gemeinsam Ihre Vision Schritt für Schritt zur Realität werden.
-          </p>
-          <motion.div whileHover={{
-          scale: 1.05
-        }} whileTap={{
-          scale: 0.95
-        }}>
-            <Button size="lg" className="btn-primary px-12 py-4 text-lg" asChild>
-              <Link to="/#contact-section">
-                Projekt starten
-              </Link>
-            </Button>
-          </motion.div>
-        </motion.div>
+      {/* Contact Section */}
+      <section id="contact-section" className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10">
+        <div className="container-xl">
+          <div className="text-center mb-16">
+            <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-4 text-foreground leading-[1.25]">
+              Get in touch
+            </h2>
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-[1.5]">
+              Want to get in touch? We'd love to hear from you. Here's how you can reach us.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Talk to Sales */}
+            <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
+              <CardContent className="space-y-6 p-0">
+                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                  <Phone className="w-8 h-8 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-2 text-foreground leading-[1.3]">Talk to Sales</h3>
+                  <p className="text-base text-muted-foreground mb-4 leading-[1.5]">
+                    Interested in our services? Just pick up the phone to chat with a member of our sales team.
+                  </p>
+                  <a href="tel:+4915750998236" className="text-primary font-semibold text-lg hover:underline">
+                    +49 157 5099 8236
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Contact Support */}
+            <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
+              <CardContent className="space-y-6 p-0">
+                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                  <MessageSquare className="w-8 h-8 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-2 text-foreground leading-[1.3]">Contact Team</h3>
+                  <p className="text-base text-muted-foreground mb-4 leading-[1.5]">
+                    Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
+                  </p>
+                </div>
+                <Button onClick={() => setIsContactSheetOpen(true)} className="w-full btn-primary text-slate-50">
+                  Contact Support
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </section>
+
+      {/* Contact Form Sheet */}
+      <Sheet open={isContactSheetOpen} onOpenChange={setIsContactSheetOpen}>
+        <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
+          <SheetHeader className="mb-6">
+            <SheetTitle className="text-2xl font-bold">Projekt besprechen</SheetTitle>
+            <SheetDescription>
+              Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen.
+            </SheetDescription>
+          </SheetHeader>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-2">
+              <Label htmlFor="name">Name *</Label>
+              <Input id="name" name="name" required placeholder="Ihr Name" />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="email">E-Mail *</Label>
+              <Input id="email" name="email" type="email" required placeholder="ihre@email.de" />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="position">Position</Label>
+              <Input id="position" name="position" placeholder="Ihre Position" />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="firma">Firma</Label>
+              <Input id="firma" name="firma" placeholder="Ihre Firma" />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="telefon">Telefon</Label>
+              <Input id="telefon" name="telefon" type="tel" placeholder="+49 123 456789" />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="nachricht">Nachricht *</Label>
+              <Textarea id="nachricht" name="nachricht" required placeholder="Erzählen Sie uns von Ihrem Projekt..." className="min-h-[120px]" />
+            </div>
+
+            <Button type="submit" className="w-full btn-primary text-slate-50">
+              Absenden
+            </Button>
+          </form>
+        </SheetContent>
+      </Sheet>
 
       {/* Footer */}
       <footer className="bg-white border-t border-border py-12 sm:py-16">
