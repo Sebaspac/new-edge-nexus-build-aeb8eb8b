@@ -3,6 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { Bot, Phone, FileText, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { toast } from "@/hooks/use-toast";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { motion } from "framer-motion";
@@ -10,6 +15,7 @@ import { AgentScrollSection } from "@/components/AgentScrollSection";
 const Products = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
+  const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -18,17 +24,52 @@ const Products = () => {
     setIsVisible(true);
   }, []);
   const scrollToContact = () => {
-    navigate('/', {
-      replace: true
-    });
-    setTimeout(() => {
-      const contactSection = document.getElementById('contact-section');
-      if (contactSection) {
-        contactSection.scrollIntoView({
-          behavior: 'smooth'
+    setIsContactSheetOpen(true);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    const data = {
+      name: formData.get('name')?.toString() || '',
+      email: formData.get('email')?.toString() || '',
+      position: formData.get('position')?.toString() || '',
+      firma: formData.get('firma')?.toString() || '',
+      telefon: formData.get('telefon')?.toString() || '',
+      nachricht: formData.get('nachricht')?.toString() || ''
+    };
+
+    try {
+      const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Wir designen für dich",
+          description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
+          duration: 5000
         });
+        form.reset();
+        setIsContactSheetOpen(false);
+      } else {
+        throw new Error(`Server responded with ${response.status}`);
       }
-    }, 100);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Fehler",
+        description: "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
+        variant: "destructive",
+        duration: 5000
+      });
+    }
   };
   return <>
       <Helmet>
@@ -1240,6 +1281,54 @@ const Products = () => {
             </div>
           </div>
         </section>
+
+        {/* Contact Form Sheet */}
+        <Sheet open={isContactSheetOpen} onOpenChange={setIsContactSheetOpen}>
+          <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
+            <SheetHeader className="mb-6">
+              <SheetTitle className="text-2xl font-bold">Projekt besprechen</SheetTitle>
+              <SheetDescription>
+                Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen.
+              </SheetDescription>
+            </SheetHeader>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="name">Name *</Label>
+                <Input id="name" name="name" required placeholder="Ihr Name" />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="email">E-Mail *</Label>
+                <Input id="email" name="email" type="email" required placeholder="ihre@email.de" />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="position">Position</Label>
+                <Input id="position" name="position" placeholder="Ihre Position" />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="firma">Firma</Label>
+                <Input id="firma" name="firma" placeholder="Ihre Firma" />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="telefon">Telefon</Label>
+                <Input id="telefon" name="telefon" type="tel" placeholder="+49 123 456789" />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="nachricht">Nachricht *</Label>
+                <Textarea id="nachricht" name="nachricht" required placeholder="Erzählen Sie uns von Ihrem Projekt..." className="min-h-[120px]" />
+              </div>
+
+              <Button type="submit" className="w-full btn-primary text-slate-50">
+                Absenden
+              </Button>
+            </form>
+          </SheetContent>
+        </Sheet>
       </div>
     </>;
 };
