@@ -77,10 +77,10 @@ export const InnovationSection = () => {
         />
       ))}
       
-      <div className="container-xl relative z-10">
+      <div className="max-w-5xl mx-auto px-4 relative z-10">
         {/* Main Interactive Grid */}
         <motion.div 
-          className="grid lg:grid-cols-2 gap-6 items-stretch mb-12 relative"
+          className="grid lg:grid-cols-2 gap-4 items-stretch mb-8 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -155,7 +155,7 @@ export const InnovationSection = () => {
               transition={{ duration: 0.3 }}
             />
             
-            <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-white to-gray-50 border-2 border-primary/20 shadow-2xl hover:shadow-primary/20 hover:border-primary/40 transition-all duration-500">
+            <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-purple-50/80 to-purple-50/50 border border-border/50 shadow-soft hover:shadow-md hover:border-primary/20 transition-all duration-500">
               {/* Animated gradient overlay */}
               <motion.div 
                 className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -165,10 +165,10 @@ export const InnovationSection = () => {
                 transition={{ duration: 3, repeat: hoveredCard === 1 ? Infinity : 0 }}
               />
               
-              <CardContent className="relative p-6 h-full flex gap-4">
+              <CardContent className="relative p-6 h-full flex gap-3">
                 <div className="flex-1 flex flex-col">
                   <motion.div 
-                    className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary shadow-xl shadow-primary/30 mb-4 relative"
+                    className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary shadow-soft mb-3 relative"
                     whileHover={{ 
                       scale: 1.2, 
                       rotate: 360,
@@ -189,23 +189,23 @@ export const InnovationSection = () => {
                       }}
                       transition={{ duration: 2, repeat: hoveredCard === 1 ? Infinity : 0 }}
                     />
-                    <Lightbulb className="w-7 h-7 text-white drop-shadow-lg relative z-10" />
+                    <Lightbulb className="w-6 h-6 text-white drop-shadow-lg relative z-10" />
                   </motion.div>
                   
                   <motion.h3 
-                    className="text-lg sm:text-xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight"
+                    className="text-lg font-semibold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight"
                     animate={{ scale: hoveredCard === 1 ? 1.05 : 1 }}
                   >
                     Innovation als Prozess
                   </motion.h3>
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed flex-grow">
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-grow">
                     Für uns ist Innovation kein einzelnes Feature – sie ist ein kontinuierlicher Prozess. 
                     Wir schaffen den Zugang zu echter Innovation für KMU, Selbständige und Marken im Wandel.
                   </p>
                 </div>
                 
                 <motion.div 
-                  className="w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden border-2 border-primary/30 shadow-xl relative"
+                  className="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden border border-primary/20 shadow-soft relative"
                   whileHover={{ 
                     scale: 1.1,
                     rotate: [0, -3, 3, 0],
@@ -281,7 +281,7 @@ export const InnovationSection = () => {
               transition={{ duration: 0.3 }}
             />
             
-            <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-white to-gray-50 border-2 border-accent/20 shadow-2xl hover:shadow-accent/20 hover:border-accent/40 transition-all duration-500">
+            <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-yellow-50/80 to-yellow-50/50 border border-border/50 shadow-soft hover:shadow-md hover:border-accent/20 transition-all duration-500">
               <motion.div 
                 className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 animate={{
@@ -290,10 +290,10 @@ export const InnovationSection = () => {
                 transition={{ duration: 3, repeat: hoveredCard === 2 ? Infinity : 0 }}
               />
               
-              <CardContent className="relative p-6 h-full flex gap-4">
+              <CardContent className="relative p-6 h-full flex gap-3">
                 <div className="flex-1 flex flex-col">
                   <motion.div 
-                    className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-primary shadow-xl shadow-accent/30 mb-4 relative"
+                    className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary shadow-soft mb-3 relative"
                     whileHover={{ 
                       scale: 1.2, 
                       rotate: -360,
@@ -313,23 +313,23 @@ export const InnovationSection = () => {
                       }}
                       transition={{ duration: 2, repeat: hoveredCard === 2 ? Infinity : 0 }}
                     />
-                    <Zap className="w-7 h-7 text-white drop-shadow-lg relative z-10" />
+                    <Zap className="w-6 h-6 text-white drop-shadow-lg relative z-10" />
                   </motion.div>
                   
                   <motion.h3 
-                    className="text-lg sm:text-xl font-bold mb-3 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent leading-tight"
+                    className="text-lg font-semibold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent leading-tight"
                     animate={{ scale: hoveredCard === 2 ? 1.05 : 1 }}
                   >
                     Ganzheitliche Transformation
                   </motion.h3>
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed flex-grow">
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-grow">
                     Unser Fokus liegt nicht nur auf Automatisierung oder Chatbots, sondern auf ganzheitlicher, 
                     kreativer Transformation: Von Markenentwicklung über Medienproduktion bis hin zu Prototypen und KI-gestützten Tools.
                   </p>
                 </div>
                 
                 <motion.div 
-                  className="w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden border-2 border-accent/30 shadow-xl relative"
+                  className="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden border border-accent/20 shadow-soft relative"
                   whileHover={{ 
                     scale: 1.1,
                     rotate: [0, 3, -3, 0],
@@ -373,10 +373,10 @@ export const InnovationSection = () => {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mb-12 relative z-10"
+          className="mb-8 relative z-10"
         >
           <motion.div 
-            className="max-w-5xl mx-auto relative"
+            className="relative"
             whileHover={{ scale: 1.02 }}
             onHoverStart={() => setHoveredCard(3)}
             onHoverEnd={() => setHoveredCard(null)}
@@ -394,7 +394,7 @@ export const InnovationSection = () => {
               }}
             />
             
-            <Card className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white border-2 border-primary/20 shadow-2xl hover:border-primary/40 transition-all duration-500">
+            <Card className="relative overflow-hidden bg-gradient-to-br from-blue-50/80 to-blue-50/50 border border-border/50 shadow-soft hover:border-secondary/20 transition-all duration-500">
               {/* Animated gradient mesh background */}
               <motion.div 
                 className="absolute inset-0"
@@ -410,9 +410,9 @@ export const InnovationSection = () => {
                 }}
               />
               
-              <CardContent className="relative p-8 text-left">
+              <CardContent className="relative p-6 text-left">
                 <motion.div 
-                  className="flex items-center justify-start w-16 h-16 rounded-2xl bg-gradient-to-br from-primary via-secondary to-accent mb-6 shadow-2xl relative"
+                  className="flex items-center justify-start w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-secondary to-accent mb-4 shadow-soft relative"
                   animate={{ 
                     rotate: [0, 5, -5, 0],
                     scale: hoveredCard === 3 ? [1, 1.1, 1] : 1,
@@ -439,11 +439,11 @@ export const InnovationSection = () => {
                       }}
                     />
                   ))}
-                  <Brain className="w-8 h-8 text-white drop-shadow-xl relative z-10" />
+                  <Brain className="w-6 h-6 text-white drop-shadow-xl relative z-10" />
                 </motion.div>
                 
                 <motion.h3 
-                  className="text-2xl sm:text-3xl lg:text-4xl font-black mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight"
+                  className="text-xl sm:text-2xl font-bold mb-3 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight"
                   animate={{
                     scale: hoveredCard === 3 ? [1, 1.05, 1] : 1,
                   }}
@@ -453,13 +453,13 @@ export const InnovationSection = () => {
                 </motion.h3>
                 
                 <motion.div 
-                  className="space-y-4 max-w-2xl"
+                  className="space-y-3 max-w-2xl"
                   animate={{
                     y: hoveredCard === 3 ? [0, -5, 0] : 0,
                   }}
                   transition={{ duration: 2, repeat: hoveredCard === 3 ? Infinity : 0 }}
                 >
-                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-medium">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.
                   </p>
                 </motion.div>
