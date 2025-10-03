@@ -93,8 +93,8 @@ const Services = () => {
       {/* Hero Section */}
       <section className="relative w-full">
           <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video" style={{
-          position: 'relative'
-        }}>
+        position: 'relative'
+      }}>
           {/* Space-like background with stars and floating elements */}
           <div className="absolute inset-0 z-0 overflow-hidden">
             {/* Deep space gradient background */}
@@ -335,7 +335,7 @@ const Services = () => {
               <div className="max-w-4xl mx-auto">
                 {/* Journey Header */}
                 <div className="text-center mb-16">
-                  <motion.h3 className="text-5xl sm:text-5xl font-bold text-foreground mb-6" initial={{
+                  <motion.h3 initial={{
                   opacity: 0,
                   scale: 0.8
                 }} whileInView={{
@@ -346,7 +346,7 @@ const Services = () => {
                 }} transition={{
                   duration: 0.8,
                   ease: "easeOut"
-                }}>Unsere Reise</motion.h3>
+                }} className="sm:text-5xl font-bold text-foreground mb-6 text-5xl">Unsere Reise</motion.h3>
                   <motion.p initial={{
                   opacity: 0,
                   y: 20
@@ -1145,13 +1145,17 @@ const Services = () => {
       {/* Contact Section */}
       <section id="contact-section" className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10">
         <div className="container-xl">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div className="text-center mb-16" initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6
+        }}>
             <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-semibold mb-4 text-foreground leading-[1.25]">
               Get in touch
             </h2>
@@ -1162,16 +1166,23 @@ const Services = () => {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Talk to Sales */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <motion.div
-                whileHover={{ y: -5, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
+            <motion.div initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6
+          }}>
+              <motion.div whileHover={{
+              y: -5,
+              scale: 1.02
+            }} transition={{
+              duration: 0.3
+            }}>
                 <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
                   <CardContent className="space-y-6 p-0">
                     <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
@@ -1192,16 +1203,24 @@ const Services = () => {
             </motion.div>
 
             {/* Contact Support */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <motion.div
-                whileHover={{ y: -5, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
+            <motion.div initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6,
+            delay: 0.1
+          }}>
+              <motion.div whileHover={{
+              y: -5,
+              scale: 1.02
+            }} transition={{
+              duration: 0.3
+            }}>
                 <Card className="card-modern text-center p-8 hover:shadow-xl transition-all">
                   <CardContent className="space-y-6 p-0">
                     <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
