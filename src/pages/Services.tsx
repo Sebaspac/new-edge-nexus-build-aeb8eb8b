@@ -682,7 +682,7 @@ const Services = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto px-4 sm:px-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 max-w-5xl mx-auto px-2 sm:px-4 lg:px-0">
             {[{
             number: "01",
             title: "Klare Strategie",
