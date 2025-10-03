@@ -97,6 +97,54 @@ const Impressum = () => {
             </Card>
           </motion.div>
 
+          {/* Rechtliche Hinweise */}
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          delay: 0.5,
+          duration: 0.6
+        }}>
+            <Card className="bg-gray-900/50 border border-purple-500/20 backdrop-blur-lg mb-12">
+              <CardContent className="p-8">
+                <div className="space-y-8 text-gray-300">
+                  {/* Haftungsbeschränkung */}
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-4">Haftungsbeschränkung</h3>
+                    <p className="mb-4">
+                      Die Inhalte des Internetauftritts wurden mit größtmöglicher Sorgfalt und nach bestem Gewissen erstellt. Dennoch übernimmt der Anbieter dieser Webseite keine Gewähr für die Aktualität, Vollständigkeit und Richtigkeit der bereitgestellten Seiten und Inhalte.
+                    </p>
+                    <p>
+                      Als Diensteanbieter ist der Anbieter dieser Webseite gemäß § 7 Abs. 1 TMG für eigene Inhalte und bereitgestellte Informationen auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich; nach den §§ 8 bis 10 TMG jedoch nicht verpflichtet, die übermittelten oder gespeicherten fremden Informationen zu überwachen. Eine Entfernung oder Sperrung dieser Inhalte erfolgt umgehend ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung. Eine Haftung ist erst ab dem Zeitpunkt der Kenntniserlangung möglich.
+                    </p>
+                  </div>
+
+                  {/* Externe Links */}
+                  <div className="border-t border-gray-700 pt-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">Externe Links</h3>
+                    <p className="mb-4">
+                      Die Webseite enthält sog. „externe Links" (Verlinkungen) zu anderen Webseiten, auf deren Inhalt der Anbieter der Webseite keinen Einfluss hat. Aus diesem Grund kann der Anbieter für diese Inhalte auch keine Gewähr übernehmen.
+                    </p>
+                    <p>
+                      Für die Inhalte und Richtigkeit der bereitgestellten Informationen ist der jeweilige Anbieter der verlinkten Webseite verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar. Bei Bekanntwerden einer solchen Rechtsverletzung wird der Link umgehend entfernen.
+                    </p>
+                  </div>
+
+                  {/* Urheberrecht */}
+                  <div className="border-t border-gray-700 pt-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">Urheberrecht/Leistungsschutzrecht</h3>
+                    <p>
+                      Die auf dieser Webseite veröffentlichten Inhalte, Werke und bereitgestellten Informationen unterliegen dem deutschen Urheberrecht und Leistungsschutzrecht. Jede Art der Vervielfältigung, Bearbeitung, Verbreitung, Einspeicherung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedarf der vorherigen schriftlichen Zustimmung des jeweiligen Rechteinhabers. Das unerlaubte Kopieren/Speichern der bereitgestellten Informationen auf diesen Webseiten ist nicht gestattet und strafbar.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+
           {/* Datenschutzerklärung */}
           <motion.div initial={{
           opacity: 0,
