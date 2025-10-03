@@ -626,7 +626,7 @@ const Index = () => {
                 </div>
               </div>
 
-              <Button type="submit" size="lg" className="w-full btn-primary text-slate-50">
+              <Button type="submit" size="lg" className="w-full btn-primary text-white">
                 Nachricht senden
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
