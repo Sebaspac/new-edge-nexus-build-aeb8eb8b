@@ -561,9 +561,9 @@ const Index = () => {
                       Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
                     </p>
                   </div>
-                  <Button onClick={() => setIsContactSheetOpen(true)} className="w-full btn-primary text-slate-50 text-[10px] sm:text-sm md:text-base py-1 sm:py-2">
-                    Contact Support
-                  </Button>
+                <Button onClick={() => setIsContactSheetOpen(true)} className="w-full bg-purple-600 hover:bg-purple-700 text-white text-[10px] sm:text-sm md:text-base py-1 sm:py-2">
+                  Contact Support
+                </Button>
                 </CardContent>
               </Card>
             </div>
