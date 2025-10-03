@@ -239,9 +239,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.24
                 }}>
-                      <Link to="/products" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-green-500/10 rounded-lg transition-colors`}>
-                        Produkte
-                      </Link>
+                      <Link to="/products" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-green-500/10 rounded-lg transition-colors`}>Agenten</Link>
                     </motion.div>
                   </div>
 
@@ -269,9 +267,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.30
                 }}>
-                      <Link to="/case-studies" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
-                        Case Studies
-                      </Link>
+                      
                     </motion.div>
                     <motion.div initial={{
                   opacity: 0,
@@ -325,9 +321,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.42
                 }}>
-                      <Link to="/resources" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
-                        Ressourcen
-                      </Link>
+                      
                     </motion.div>
                     <motion.div initial={{
                   opacity: 0,
@@ -351,9 +345,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.48
                 }}>
-                      <Link to="/news" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
-                        News & Press
-                      </Link>
+                      
                     </motion.div>
                   </div>
                 </div>
