@@ -46,7 +46,7 @@ export const HeroSection = ({
           background: 'linear-gradient(to top, rgba(139, 92, 246, 0.6), rgba(139, 92, 246, 0.2), transparent)'
         }} />
           
-          <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl">
+          <div className="absolute bottom-0 left-0 p-6 pb-16 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
             <motion.h1 initial={{
             opacity: 0,
             y: 30

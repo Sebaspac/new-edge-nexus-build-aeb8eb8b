@@ -197,7 +197,7 @@ const Services = () => {
         </div>
         
         {/* Text Content - Bottom Left */}
-        <div className="absolute bottom-0 left-0 p-8 sm:p-12 lg:p-16 max-w-4xl z-10">
+        <div className="absolute bottom-0 left-0 p-6 pb-16 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl z-10">
           <motion.h1 initial={{
           opacity: 0,
           y: 30
