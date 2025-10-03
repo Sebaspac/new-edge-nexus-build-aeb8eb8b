@@ -503,7 +503,7 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
               delay: 0.2,
               duration: 0.7
             }} className="text-3xl sm:text-4xl font-bold mb-6 text-left lg:text-5xl">
-                <span className="bg-gradient-primary bg-clip-text text-slate-950">Die Gründer</span>
+                <span className="bg-gradient-primary bg-clip-text text-slate-950 text-4xl font-bold">Die Gründer</span>
               </motion.h2>
               <motion.p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed" initial={{
               opacity: 0,
