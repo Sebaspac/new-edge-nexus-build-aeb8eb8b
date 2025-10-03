@@ -162,14 +162,14 @@ const Studio = () => {
                 className="mb-6"
               >
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
-                  FROM VISION{" "}
+                  DESIGN{" "}
                   <motion.span
                     className="inline-block bg-clip-text text-transparent"
                     style={{ background: 'linear-gradient(to right, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
                     whileInView={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 1, delay: 0.3 }}
                   >
-                    TO REALITY
+                    EXCELLENCE
                   </motion.span>
                 </h2>
                 <motion.p
@@ -186,7 +186,7 @@ const Studio = () => {
                     }
                   }}
                 >
-                  Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden. Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.
+                  USTUDIO liefert das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.
                 </motion.p>
               </motion.div>
             </motion.div>
