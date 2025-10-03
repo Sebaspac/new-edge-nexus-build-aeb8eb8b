@@ -166,14 +166,14 @@ const Media = () => {
                 className="mb-6"
               >
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-[1.2] text-black">
-                  FROM VISION{" "}
+                  CONTENT{" "}
                   <motion.span
                     className="inline-block bg-clip-text text-transparent"
                     style={{ background: 'linear-gradient(to right, #3b82f6, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
                     whileInView={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 1, delay: 0.3 }}
                   >
-                    TO REALITY
+                    REVOLUTION
                   </motion.span>
                 </h2>
                 <motion.p
@@ -190,7 +190,7 @@ const Media = () => {
                     }
                   }}
                 >
-                  Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden. Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.
+                  MEDIA produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird. Ab Strategie bis zur viralen Umsetzung.
                 </motion.p>
               </motion.div>
             </motion.div>
