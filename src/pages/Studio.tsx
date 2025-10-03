@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from "framer-motion";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { ServiceScrollSection } from "@/components/ServiceScrollSection";
+import { Footer } from "@/components/Footer";
 const Studio = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
@@ -77,7 +78,7 @@ const Studio = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Hero Section */}
-        <section className="relative w-full mt-20">
+        <section className="relative w-full pt-20">
           <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video" style={{
           position: 'relative'
         }}>
@@ -328,6 +329,8 @@ const Studio = () => {
           }} onClick={() => setIsModalOpen(true)}>Loslegen!</Button>
           </div>
         </section>
+
+        <Footer />
       </div>
 
       <ContactFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} accentColor="#6366f1" gradientFrom="#6366f1" gradientTo="#a855f7" theme="studio" />

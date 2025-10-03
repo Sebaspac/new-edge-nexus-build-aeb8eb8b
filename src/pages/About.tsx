@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Code, Palette, Globe, Briefcase, ChevronDown } from "lucide-react";
+import { Footer } from "@/components/Footer";
 const About = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -36,7 +37,7 @@ const About = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Hero Section */}
-        <section className="relative w-full mt-20">
+        <section className="relative w-full pt-20">
           <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video" style={{
           position: 'relative'
         }}>
@@ -661,6 +662,8 @@ Lernen Sie unser Team kennen und erfahren Sie mehr über unsere Mission und Visi
             </motion.div>
           </div>
         </section>
+
+        <Footer />
       </div>
     </>;
 };

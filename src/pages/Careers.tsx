@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
+import { Footer } from "@/components/Footer";
 
 const Careers = () => {
   const navigate = useNavigate();
@@ -40,6 +41,8 @@ const Careers = () => {
             </p>
           </div>
         </section>
+
+        <Footer />
       </div>
     </>
   );

@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Users, Code, Palette, Globe, Briefcase, ArrowRight, Play, Apple, Star, ChevronDown } from "lucide-react";
 import { MobileNavigation } from "@/components/MobileNavigation";
+import { Footer } from "@/components/Footer";
 
 const Team = () => {
   const { t } = useLanguage();
@@ -242,6 +243,8 @@ const Team = () => {
             </div>
           </div>
         </footer>
+
+        <Footer />
       </div>
     </>
   );

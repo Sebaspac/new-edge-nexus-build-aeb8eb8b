@@ -12,6 +12,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { motion } from "framer-motion";
 import { AgentScrollSection } from "@/components/AgentScrollSection";
+import { Footer } from "@/components/Footer";
 const Products = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
@@ -81,7 +82,7 @@ const Products = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Hero Section */}
-        <section className="relative w-full mt-20">
+        <section className="relative w-full pt-20">
           <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video" style={{
           position: 'relative'
         }}>
@@ -1331,6 +1332,8 @@ const Products = () => {
             </form>
           </SheetContent>
         </Sheet>
+
+        <Footer />
       </div>
     </>;
 };

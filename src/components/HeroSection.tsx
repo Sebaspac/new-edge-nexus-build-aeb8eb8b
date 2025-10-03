@@ -29,7 +29,7 @@ export const HeroSection = ({
       });
     }
   };
-  return <section className="relative w-full mt-20">
+  return <section className="relative w-full pt-20">
       <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video" style={{
         position: 'relative'
       }}>
