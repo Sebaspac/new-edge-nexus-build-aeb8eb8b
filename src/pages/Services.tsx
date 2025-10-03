@@ -910,8 +910,8 @@ const Services = () => {
             </motion.p>
           </motion.div>
 
-          {/* Two-Column Layout: Accordion Left, Animation Right */}
-          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
+            {/* Two-Column Layout: Accordion Left, Animation Right */}
+            <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
             {/* Left: Accordion List */}
             <div className="space-y-1">
               {[{
@@ -969,8 +969,8 @@ const Services = () => {
             })}
             </div>
 
-            {/* Right: Animated Visual */}
-            <div className="lg:sticky lg:top-24">
+              {/* Right: Animated Visual */}
+              <div>
               <motion.div initial={{
               opacity: 0,
               scale: 0.95
