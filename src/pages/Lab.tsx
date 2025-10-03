@@ -78,7 +78,8 @@ const Lab = () => {
         {/* Hero Section */}
         <section className="relative w-full mt-20">
           <div className="w-full relative" style={{
-          paddingTop: '56.25%', // 16:9 aspect ratio
+          paddingTop: '56.25%',
+          // 16:9 aspect ratio
           position: 'relative'
         }}>
             <div className="absolute inset-0 overflow-hidden" style={{
@@ -105,18 +106,24 @@ const Lab = () => {
               </div>
 
               {/* Scroll Indicator */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 0.5 }}
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-              >
-                <motion.div
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="flex flex-col items-center gap-2 cursor-pointer"
-                  onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
-                >
+              <motion.div initial={{
+              opacity: 0
+            }} animate={{
+              opacity: 1
+            }} transition={{
+              delay: 1,
+              duration: 0.5
+            }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+                <motion.div animate={{
+                y: [0, 10, 0]
+              }} transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }} className="flex flex-col items-center gap-2 cursor-pointer" onClick={() => window.scrollBy({
+                top: window.innerHeight,
+                behavior: 'smooth'
+              })}>
                   <span className="text-white text-sm font-medium">Scroll</span>
                   <ChevronDown className="w-6 h-6 text-white" />
                 </motion.div>
@@ -174,7 +181,7 @@ const Lab = () => {
                     INNOVATION
                   </motion.span>
                 </h2>
-                <motion.p className="text-sm sm:text-base text-gray-600 mt-4 leading-[1.6] max-w-3xl" variants={{
+                <motion.p variants={{
                 hidden: {
                   opacity: 0,
                   y: 20
@@ -187,7 +194,7 @@ const Lab = () => {
                     delay: 0.2
                   }
                 }
-              }}>
+              }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">
                   LAB entwickelt, automatisiert und skaliert Technologielösungen. Von KI-Integration bis zur vollständigen Webentwicklung.
                 </motion.p>
               </motion.div>
@@ -203,11 +210,7 @@ const Lab = () => {
           background: index % 2 === 0 ? 'linear-gradient(to bottom right, white, rgba(253, 224, 71, 0.1), rgba(251, 191, 36, 0.1))' : 'linear-gradient(to bottom right, white, rgba(251, 191, 36, 0.1), rgba(253, 224, 71, 0.1))'
         }}>
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <ServiceScrollSection
-                  gradient={service.gradient}
-                  videoSrc={service.video}
-                  imagePosition={isEven ? "right" : "left"}
-                >
+                <ServiceScrollSection gradient={service.gradient} videoSrc={service.video} imagePosition={isEven ? "right" : "left"}>
                   <div className="space-y-6">
                     <motion.div variants={{
                   hidden: {
