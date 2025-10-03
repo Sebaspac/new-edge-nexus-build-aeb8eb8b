@@ -4,7 +4,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from "@/components/ui/card";
-import { Users, Code, Palette, Globe, Briefcase } from "lucide-react";
+import { Users, Code, Palette, Globe, Briefcase, ChevronDown } from "lucide-react";
 const About = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -37,12 +37,11 @@ const About = () => {
 
         {/* Hero Section */}
         <section className="relative w-full mt-20">
-          <div className="w-full relative min-h-[100vh] sm:min-h-0" style={{
-          paddingTop: '0',
+          <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video" style={{
           position: 'relative'
         }}>
             {/* 16:9 Aspect Ratio Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden sm:relative sm:pt-[56.25%]">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
               {/* Background Video */}
               <video autoPlay loop muted playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover">
                 <source src="/assets/hero-video.mp4" type="video/mp4" />
@@ -56,8 +55,31 @@ const About = () => {
                   <span className="italic font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">DRIVE INNOVATION.</span>
                 </h1>
                 
-                
-              </div>
+              
+              {/* Scroll Indicator */}
+              <motion.div initial={{
+              opacity: 0
+            }} animate={{
+              opacity: 1
+            }} transition={{
+              delay: 1,
+              duration: 0.5
+            }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+                <motion.div animate={{
+                y: [0, 10, 0]
+              }} transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }} className="flex flex-col items-center gap-2 cursor-pointer" onClick={() => window.scrollBy({
+                top: window.innerHeight,
+                behavior: 'smooth'
+              })}>
+                  <span className="text-white text-sm font-medium">Scroll</span>
+                  <ChevronDown className="w-6 h-6 text-white" />
+                </motion.div>
+              </motion.div>
+            </div>
             </div>
           </div>
         </section>
