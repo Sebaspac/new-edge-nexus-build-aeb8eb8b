@@ -406,7 +406,7 @@ export const InnovationSection = () => {
               }} transition={{
                 duration: 2,
                 repeat: hoveredCard === 3 ? Infinity : 0
-              }} className="text-xl sm:text-2xl mb-3 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight font-semibold">
+              }} className="text-xl mb-3 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight font-semibold sm:text-lg">
                   Kreatives Headquarter<br />für Innovation
                 </motion.h3>
                 
