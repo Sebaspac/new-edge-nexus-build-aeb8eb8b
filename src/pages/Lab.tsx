@@ -333,9 +333,7 @@ const Lab = () => {
                   }} whileTap={{
                     scale: 0.98
                   }}>
-                        <Button size="lg" className={`w-full bg-gradient-to-r ${service.gradient} hover:opacity-90 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300`} onClick={scrollToProjectButton}>
-                          Jetzt starten
-                        </Button>
+                        
                       </motion.div>
                     </motion.div>
                   </div>
