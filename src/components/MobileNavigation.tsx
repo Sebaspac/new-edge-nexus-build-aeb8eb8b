@@ -184,9 +184,9 @@ export const MobileNavigation = ({
               }} transition={{
                 delay: 0.12
               }}>
-                    <div className={`block py-2 px-3 text-sm font-semibold ${textColor} uppercase tracking-wide`}>
+                    <Link to="/services" onClick={handleLinkClick} className={`block py-2 px-3 text-sm font-semibold ${textColor} uppercase tracking-wide hover:opacity-70 transition-opacity`}>
                       Services
-                    </div>
+                    </Link>
                   </motion.div>
                   <div className="pl-3 space-y-0.5">
                     <motion.div initial={{
