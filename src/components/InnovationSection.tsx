@@ -371,8 +371,8 @@ export const InnovationSection = () => {
               opacity: hoveredCard === 3 ? 1 : 0.5
             }} />
               
-              <CardContent className="relative p-6 text-left">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-secondary to-accent mb-4 shadow-soft">
+              <CardContent className="relative p-6 text-center">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-secondary to-accent mb-4 shadow-soft mx-auto">
                   <Brain className="w-6 h-6 text-white drop-shadow-xl" />
                 </div>
                 
@@ -380,7 +380,7 @@ export const InnovationSection = () => {
                   Kreatives Headquarter<br />für Innovation
                 </h3>
                 
-                <div className="space-y-3 max-w-2xl">
+                <div className="space-y-3 max-w-2xl mx-auto">
                   <p className="text-sm text-muted-foreground leading-relaxed sm:text-base">
                     Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.
                   </p>
