@@ -986,174 +986,151 @@ const Services = () => {
       </section>
 
       {/* Service Cards Section */}
-      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-white overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-white overflow-hidden">
         <div className="container-xl relative z-10">
-          <motion.div initial={{
+          {/* Header */}
+          <motion.div className="text-left mb-16" initial={{
           opacity: 0,
-          y: 30
+          y: 40
         }} whileInView={{
           opacity: 1,
           y: 0
         }} viewport={{
-          once: true,
-          margin: "-100px"
+          once: true
         }} transition={{
           duration: 0.8
-        }} className="text-left mb-20">
-            
-            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold text-foreground mb-6">Ihr Weg zum Erfolg</h2>
+        }}>
+            <motion.h2 initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.2,
+            duration: 0.7
+          }} className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] text-foreground mb-6 leading-[1.25] font-bold">
+              Unsere Kompetenzbereiche
+            </motion.h2>
+            <motion.p className="text-base text-muted-foreground max-w-3xl leading-[1.5]" initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.4,
+            duration: 0.6
+          }}>
+              Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
+            </motion.p>
           </motion.div>
 
-          <div className="max-w-6xl mx-auto px-4">
-            <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch" initial="hidden" whileInView="visible" viewport={{
-            once: true,
-            margin: "-50px"
-          }} variants={{
-            hidden: {
-              opacity: 0
-            },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.1
-              }
+          {/* Service Cards Grid */}
+          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto" initial="hidden" whileInView="visible" viewport={{
+          once: true,
+          margin: "-100px"
+        }} variants={{
+          hidden: {
+            opacity: 0
+          },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.2,
+              delayChildren: 0.3
             }
-          }}>
-               
-              {/* Studio Card */}
-              <motion.div variants={{
+          }
+        }}>
+            {[
+              {
+                icon: Sparkles,
+                title: "New Edge Studio",
+                description: "Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.",
+                gradient: "from-secondary to-accent",
+                link: "/studio",
+                buttonText: "Strategie entwickeln"
+              },
+              {
+                icon: Brain,
+                title: "New Edge Media",
+                description: "Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.",
+                gradient: "from-primary to-secondary",
+                link: "/media",
+                buttonText: "Content erstellen"
+              },
+              {
+                icon: Zap,
+                title: "New Edge Lab",
+                description: "Tech-Innovation und Automatisierung. Von MVP bis zur finalen technischen Umsetzung.",
+                gradient: "from-accent to-primary",
+                link: "/lab",
+                buttonText: "Automatisieren"
+              }
+            ].map((service, index) => (
+              <motion.div key={index} variants={{
               hidden: {
                 opacity: 0,
-                y: 40,
-                scale: 0.95
+                y: 60,
+                scale: 0.9
               },
               visible: {
                 opacity: 1,
                 y: 0,
                 scale: 1,
                 transition: {
-                  duration: 0.6,
-                  ease: "easeOut"
+                  duration: 0.7,
+                  ease: [0.25, 0.46, 0.45, 0.94]
                 }
               }
-            }} className="group hover-lift">
-                <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
-                  <CardContent className="p-6 sm:p-8 flex flex-col h-full">
-                    <div className="min-h-[120px] sm:h-32 flex flex-col">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-secondary to-accent p-3 sm:p-4 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                        <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                      </div>
-                      <h3 className="sm:text-h3 mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase font-bold text-lg">
-                        <span dangerouslySetInnerHTML={{
-                        __html: "New Edge Studio"
-                      }} className="font-bold text-2xl" />
-                      </h3>
-                    </div>
-                    
-                    <p className="sm:text-body-sm text-muted-foreground leading-relaxed mb-6 sm:mb-8 flex-grow mt-4 sm:mt-8 text-base">
-                      Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.
-                    </p>
-                    
-                    <Button className="btn-primary w-full h-12 sm:h-14 text-sm sm:text-base px-4 mt-auto" asChild>
-                      <Link to="/studio" className="flex items-center justify-center gap-2">
-                        <span className="truncate text-base text-slate-50 font-normal">Strategie entwickeln</span>
-                        <ArrowRight className="w-4 h-4 shrink-0" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
+            }} whileHover={{
+              scale: 1.05,
+              y: -10,
+              transition: {
+                duration: 0.3
+              }
+            }}>
+                <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
+                  <CardContent className="p-4 md:p-8 flex flex-row md:flex-col items-start md:items-stretch gap-4 md:gap-0">
+                    {/* Icon with gradient background */}
+                    <motion.div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center md:mb-6 shadow-lg flex-shrink-0`} whileHover={{
+                    scale: 1.1,
+                    rotate: [0, -5, 5, 0],
+                    transition: {
+                      duration: 0.5
+                    }
+                  }}>
+                      <service.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
+                    </motion.div>
 
-              {/* Media Card */}
-              <motion.div variants={{
-              hidden: {
-                opacity: 0,
-                y: 40,
-                scale: 0.95
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                transition: {
-                  duration: 0.6,
-                  ease: "easeOut"
-                }
-              }
-            }} className="group hover-lift">
-                <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
-                  <CardContent className="p-6 sm:p-8 flex flex-col h-full">
-                    <div className="min-h-[120px] sm:h-32 flex flex-col">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-primary to-secondary p-3 sm:p-4 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                        <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                      </div>
-                      <h3 className="text-lg sm:text-h3 mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase font-bold">
-                        <span dangerouslySetInnerHTML={{
-                        __html: "New Edge Media"
-                      }} className="font-bold text-2xl" />
+                    <div className="flex-1 md:flex-none">
+                      {/* Title */}
+                      <h3 className="text-base sm:text-lg md:text-[28px] lg:text-2xl text-foreground mb-2 md:mb-4 leading-[1.3] font-bold">
+                        {service.title}
                       </h3>
-                    </div>
-                    
-                    <p className="sm:text-body-sm text-muted-foreground leading-relaxed mb-6 sm:mb-8 flex-grow mt-4 sm:mt-8 text-base">
-                      Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.
-                    </p>
-                    
-                    <Button className="btn-primary w-full h-12 sm:h-14 text-sm sm:text-base px-4 mt-auto" asChild>
-                      <Link to="/media" className="flex items-center justify-center gap-2">
-                        <span className="truncate text-base text-slate-50 font-normal">Content erstellen</span>
-                        <ArrowRight className="w-4 h-4 shrink-0" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
 
-              {/* Lab Card */}
-              <motion.div variants={{
-              hidden: {
-                opacity: 0,
-                y: 40,
-                scale: 0.95
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                transition: {
-                  duration: 0.6,
-                  ease: "easeOut"
-                }
-              }
-            }} className="group hover-lift">
-                <Card className="card-modern h-full transition-all duration-300 hover:shadow-glow border-border/50 bg-card/80 backdrop-blur-sm">
-                  <CardContent className="p-6 sm:p-8 flex flex-col h-full">
-                    <div className="min-h-[120px] sm:h-32 flex flex-col">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-accent to-primary p-3 sm:p-4 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                        <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                      </div>
-                      <h3 className="text-lg sm:text-h3 mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase font-bold">
-                        <span dangerouslySetInnerHTML={{
-                        __html: "New Edge Lab"
-                      }} className="font-bold text-2xl" />
-                      </h3>
+                      {/* Description */}
+                      <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-6 leading-[1.5]">
+                        {service.description}
+                      </p>
+
+                      {/* Button */}
+                      <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-white group text-sm md:text-base" asChild>
+                        <Link to={service.link}>
+                          {service.buttonText}
+                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                      </Button>
                     </div>
-                    
-                    <p className="sm:text-body-sm text-muted-foreground leading-relaxed mb-6 sm:mb-8 flex-grow mt-4 sm:mt-8 text-base">
-                      Tech-Innovation und Automatisierung. Von MVP bis zur finalen technischen Umsetzung.
-                    </p>
-                    
-                    <Button className="btn-primary w-full h-12 sm:h-14 text-sm sm:text-base px-4 mt-auto" asChild>
-                      <Link to="/lab" className="flex items-center justify-center gap-2">
-                        <span className="truncate font-normal text-slate-50">Automatisieren</span>
-                        <ArrowRight className="w-4 h-4 shrink-0" />
-                      </Link>
-                    </Button>
                   </CardContent>
                 </Card>
               </motion.div>
-            </motion.div>
-          </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
