@@ -106,10 +106,7 @@ const Lab = () => {
                 }}>LAB</span><br />
                   
                 </h1>
-                <p className="text-sm sm:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed">
-                  LAB entwickelt, automatisiert und skaliert Technologielösungen. 
-                  Von KI-Integration bis zur vollständigen Webentwicklung.
-                </p>
+                
               </div>
             </div>
           </div>
