@@ -722,7 +722,7 @@ const Services = () => {
         }} transition={{
           duration: 0.8
         }} className="text-left mb-20">
-            <h2 className="text-h1 text-foreground mb-6 text-4xl font-semibold">Das Ergebnis</h2>
+            <h2 className="text-h1 text-foreground mb-6 text-5xl font-bold">Das Ergebnis</h2>
             <p className="text-body-xl text-muted-foreground max-w-4xl">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
             </p>
@@ -783,7 +783,7 @@ const Services = () => {
         }} transition={{
           duration: 0.8
         }} className="text-left mb-20">
-            <h2 className="text-h1 text-foreground mb-6 text-4xl font-semibold">Warum New Edge?</h2>
+            <h2 className="text-h1 text-foreground mb-6 text-5xl font-bold">Warum New Edge?</h2>
             <p className="text-body-xl text-muted-foreground max-w-4xl">
               Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.
             </p>
@@ -891,7 +891,7 @@ const Services = () => {
             duration: 0.7
           }} whileHover={{
             scale: 1.03
-          }} className="text-2xl sm:text-3xl mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 font-semibold lg:text-4xl">
+          }} className="text-2xl sm:text-3xl mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 font-bold lg:text-5xl">
               Für wen wir arbeiten & warum
             </motion.h2>
             <motion.p className="text-sm sm:text-base text-gray-600 max-w-3xl leading-[1.6]" initial={{
@@ -1032,7 +1032,7 @@ const Services = () => {
           duration: 0.8
         }} className="text-left mb-20">
             
-            <h2 className="text-h1 font-bold text-foreground mb-6">Ihr Weg zum Erfolg</h2>
+            <h2 className="text-h1 font-bold text-foreground mb-6 text-5xl">Ihr Weg zum Erfolg</h2>
           </motion.div>
 
           <div className="max-w-6xl mx-auto px-4">
