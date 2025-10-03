@@ -1077,7 +1077,7 @@ const Services = () => {
                       </div>
                       <h3 className="text-lg sm:text-h3 mb-6 sm:mb-12 text-foreground group-hover:text-primary transition-colors leading-tight uppercase font-extrabold">
                         <span dangerouslySetInnerHTML={{
-                        __html: "new edge<br />studio"
+                        __html: "New Edge Studio"
                       }} className="font-semibold text-2xl" />
                       </h3>
                     </div>
