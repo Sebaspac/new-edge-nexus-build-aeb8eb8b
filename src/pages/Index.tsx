@@ -206,7 +206,7 @@ const Index = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] font-semibold mb-3 leading-[1.2] text-black">
+                <h2 className="text-[42px] sm:text-[44px] lg:text-[48px] mb-3 leading-[1.2] text-black font-extrabold">
                   Wir bringen Ihr Unternehmen{" "}
                   <motion.span className="bg-gradient-primary bg-clip-text text-transparent inline-block" whileInView={{
                   scale: [1, 1.05, 1]
@@ -567,26 +567,19 @@ const Index = () => {
                 }
               }
             }} className="h-full">
-                  <motion.div className={`bg-gradient-to-br ${point.gradient} backdrop-blur-sm p-6 rounded-2xl border ${point.border} shadow-lg h-full flex flex-col`}
-                    whileHover={{
-                      scale: 1.02,
-                      y: -5,
-                      boxShadow: `0 15px 30px -10px ${point.shadow}`
-                    }}
-                    transition={{
-                      duration: 0.2
-                    }}
-                  >
-                    <motion.div 
-                      className={`w-12 h-12 bg-gradient-to-br ${point.iconBg} rounded-xl flex items-center justify-center mb-4`}
-                      whileHover={{
-                        rotate: 180,
-                        scale: 1.05
-                      }}
-                      transition={{
-                        duration: 0.4
-                      }}
-                    >
+                  <motion.div className={`bg-gradient-to-br ${point.gradient} backdrop-blur-sm p-6 rounded-2xl border ${point.border} shadow-lg h-full flex flex-col`} whileHover={{
+                scale: 1.02,
+                y: -5,
+                boxShadow: `0 15px 30px -10px ${point.shadow}`
+              }} transition={{
+                duration: 0.2
+              }}>
+                    <motion.div className={`w-12 h-12 bg-gradient-to-br ${point.iconBg} rounded-xl flex items-center justify-center mb-4`} whileHover={{
+                  rotate: 180,
+                  scale: 1.05
+                }} transition={{
+                  duration: 0.4
+                }}>
                       <point.icon className="w-6 h-6 text-white" />
                     </motion.div>
                     <h3 className="text-[28px] sm:text-[30px] lg:text-[32px] font-medium mb-2 text-foreground leading-[1.3]">
