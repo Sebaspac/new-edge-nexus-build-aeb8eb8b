@@ -98,7 +98,7 @@ export const Footer = () => {
           
           {/* LinkedIn Icon in der Mitte */}
           <a 
-            href="https://www.linkedin.com/company/new-edge-nexus" 
+            href="https://www.linkedin.com/company/new-edge-brand/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white transition-colors"
