@@ -19,15 +19,15 @@ export const ServiceScrollSection = ({
 }: ServiceScrollSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   
-  // Scroll-based animations for mobile
+  // Scroll-based animations for mobile - Optimized
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"]
   });
 
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 0.5, 0]);
-  const imageScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
-  const imageY = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.4], [1, 0.9]);
+  const imageY = useTransform(scrollYProgress, [0, 0.4], [0, -30]);
 
   const isEven = imagePosition === "right";
 
@@ -103,19 +103,17 @@ export const ServiceScrollSection = ({
         {!isEven && (
           <motion.div
             variants={{
-              hidden: { opacity: 0, scale: 0.8 },
+              hidden: { opacity: 0, scale: 0.95 },
               visible: {
                 opacity: 1,
                 scale: 1,
-                transition: { duration: 0.8 },
+                transition: { duration: 0.6 },
               },
             }}
             className="sticky top-24 order-2 lg:order-1"
           >
-            <motion.div
-              whileHover={{ scale: 1.05, rotate: -2 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
+            <div
+              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden transition-transform duration-300 hover:scale-105`}
             >
               {videoSrc ? (
                 <>
@@ -134,22 +132,10 @@ export const ServiceScrollSection = ({
               ) : Icon ? (
                 <>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.1, 1],
-                      rotate: [0, 5, -5, 0]
-                    }}
-                    transition={{
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <Icon className="w-40 h-40 text-white drop-shadow-2xl" />
-                  </motion.div>
+                  <Icon className="w-40 h-40 text-white drop-shadow-2xl" />
                 </>
               ) : null}
-            </motion.div>
+            </div>
           </motion.div>
         )}
 
@@ -162,19 +148,17 @@ export const ServiceScrollSection = ({
         {isEven && (
           <motion.div
             variants={{
-              hidden: { opacity: 0, scale: 0.8 },
+              hidden: { opacity: 0, scale: 0.95 },
               visible: {
                 opacity: 1,
                 scale: 1,
-                transition: { duration: 0.8 },
+                transition: { duration: 0.6 },
               },
             }}
             className="sticky top-24"
           >
-            <motion.div
-              whileHover={{ scale: 1.05, rotate: 2 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
+            <div
+              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden transition-transform duration-300 hover:scale-105`}
             >
               {videoSrc ? (
                 <>
@@ -193,22 +177,10 @@ export const ServiceScrollSection = ({
               ) : Icon ? (
                 <>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.1, 1],
-                      rotate: [0, 5, -5, 0]
-                    }}
-                    transition={{
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <Icon className="w-40 h-40 text-white drop-shadow-2xl" />
-                  </motion.div>
+                  <Icon className="w-40 h-40 text-white drop-shadow-2xl" />
                 </>
               ) : null}
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </motion.div>
