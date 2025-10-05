@@ -22,15 +22,7 @@ const Services = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [openAccordionIndex, setOpenAccordionIndex] = useState(-1);
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
-  const {
-    scrollY
-  } = useScroll();
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // Simplified parallax effects
-  const y1 = useTransform(scrollY, [0, 1000], [0, -50]);
-  const y2 = useTransform(scrollY, [0, 1000], [0, -100]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0.8]);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -243,30 +235,9 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services Overview Section with Subtle Overlap Effect */}
+      {/* Services Overview Section */}
       <section className="services-overview relative py-12 sm:py-16 bg-white overflow-hidden">
-        {/* Simple floating elements */}
-        <motion.div className="absolute top-20 left-10 w-24 h-24 bg-primary/5 rounded-full blur-xl" animate={{
-        y: [0, -15, 0],
-        opacity: [0.3, 0.6, 0.3]
-      }} transition={{
-        duration: 6,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }} />
-        <motion.div className="absolute bottom-10 right-10 w-32 h-32 bg-secondary/5 rounded-full blur-xl" animate={{
-        y: [0, 10, 0],
-        opacity: [0.4, 0.2, 0.4]
-      }} transition={{
-        duration: 8,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: 3
-      }} />
-        
-        <motion.div style={{
-        y: y2
-      }} className="container-xl relative z-10 mx-auto">
+        <div className="container-xl relative z-10 mx-auto">
           <div className="max-w-6xl mx-auto px-4">
             {/* Simplified Journey Visualization */}
             <motion.div initial={{
@@ -345,57 +316,32 @@ const Services = () => {
                     duration: 0.8,
                     ease: "easeOut"
                   }}>
-                      <div className="flex-1 max-w-md mr-8">
-                        <motion.div className="bg-gradient-to-br from-purple-100 to-purple-50 backdrop-blur-xl p-8 rounded-3xl border border-purple-300 shadow-2xl" whileHover={{
-                        scale: 1.05,
-                        y: -10,
-                        boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.3)"
-                      }} transition={{
-                        duration: 0.3
-                      }}>
-                          <motion.div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 mx-auto" whileHover={{
-                          rotate: 360,
-                          scale: 1.1
-                        }} transition={{
-                          duration: 0.6
-                        }}>
+                       <div className="flex-1 max-w-md mr-8">
+                        <div className="bg-gradient-to-br from-purple-100 to-purple-50 backdrop-blur-xl p-8 rounded-3xl border border-purple-300 shadow-2xl transition-transform hover:scale-105">
+                          <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                             <Target className="w-8 h-8 text-white" />
-                          </motion.div>
+                          </div>
                           <h4 className="mb-4 text-center text-foreground text-lg font-semibold">STRATEGIE</h4>
                           <p className="text-muted-foreground text-center leading-relaxed text-base">
                             Das Fundament für Ihren Erfolg. Wir entwickeln eine klare Roadmap und visuelle Identität.
                           </p>
-                        </motion.div>
+                        </div>
                       </div>
                       
                 {/* Central Journey Node */}
                 <motion.div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full border-2 sm:border-4 border-white shadow-2xl flex items-center justify-center relative z-20 mx-auto lg:mx-0 aspect-square" initial={{
                       scale: 0,
-                      rotate: -180
+                      opacity: 0
                     }} whileInView={{
                       scale: 1,
-                      rotate: 0
+                      opacity: 1
                     }} viewport={{
                       once: true
                     }} transition={{
-                      delay: 0.7,
-                      duration: 0.6,
-                      type: "spring",
-                      stiffness: 200
-                    }} whileHover={{
-                      scale: 1.1,
-                      boxShadow: "0 0 30px rgba(139, 92, 246, 0.6)"
+                      delay: 0.5,
+                      duration: 0.5
                     }}>
                   <span className="text-white font-bold text-lg sm:text-2xl">1</span>
-                  
-                  {/* Pulsing Ring */}
-                  <motion.div className="absolute inset-0 rounded-full border-2 border-purple-400 aspect-square" animate={{
-                        scale: [1, 1.5, 1],
-                        opacity: [1, 0, 1]
-                      }} transition={{
-                        duration: 2,
-                        repeat: Infinity
-                      }} />
                 </motion.div>
                 
                 <div className="hidden lg:block flex-1 max-w-md ml-8 opacity-30">
@@ -420,55 +366,29 @@ const Services = () => {
                       {/* Central Journey Node */}
                       <motion.div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full border-2 sm:border-4 border-white shadow-2xl flex items-center justify-center relative z-20 mx-auto lg:mx-0 aspect-square" initial={{
                       scale: 0,
-                      rotate: 180
+                      opacity: 0
                     }} whileInView={{
                       scale: 1,
-                      rotate: 0
+                      opacity: 1
                     }} viewport={{
                       once: true
                     }} transition={{
-                      delay: 0.9,
-                      duration: 0.6,
-                      type: "spring",
-                      stiffness: 200
-                    }} whileHover={{
-                      scale: 1.2,
-                      boxShadow: "0 0 30px rgba(59, 130, 246, 0.6)"
+                      delay: 0.6,
+                      duration: 0.5
                     }}>
                         <span className="text-white font-bold text-lg sm:text-2xl">2</span>
-                        
-                        {/* Pulsing Ring */}
-                        <motion.div className="absolute inset-0 rounded-full border-2 border-blue-400 aspect-square" animate={{
-                        scale: [1, 1.5, 1],
-                        opacity: [1, 0, 1]
-                      }} transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: 0.5
-                      }} />
                       </motion.div>
                       
                       <div className="flex-1 max-w-md ml-8">
-                        <motion.div className="bg-gradient-to-br from-blue-100 to-blue-50 backdrop-blur-xl p-8 rounded-3xl border border-blue-300 shadow-2xl" whileHover={{
-                        scale: 1.05,
-                        y: -10,
-                        boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.3)"
-                      }} transition={{
-                        duration: 0.3
-                      }}>
-                          <motion.div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto" whileHover={{
-                          rotate: 360,
-                          scale: 1.1
-                        }} transition={{
-                          duration: 0.6
-                        }}>
+                        <div className="bg-gradient-to-br from-blue-100 to-blue-50 backdrop-blur-xl p-8 rounded-3xl border border-blue-300 shadow-2xl transition-transform hover:scale-105">
+                          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                             <Brain className="w-8 h-8 text-white" />
-                          </motion.div>
+                          </div>
                           <h4 className="mb-4 text-center text-foreground text-lg font-semibold">UMSETZUNG</h4>
                           <p className="text-muted-foreground text-center leading-relaxed">
                             Content-Produktion und Reichweite-Aufbau. Ihre Botschaft erreicht die richtige Zielgruppe.
                           </p>
-                        </motion.div>
+                        </div>
                       </div>
                     </motion.div>
 
@@ -483,57 +403,31 @@ const Services = () => {
                     ease: "easeOut"
                   }}>
                       <div className="flex-1 max-w-md mr-8">
-                        <motion.div className="bg-gradient-to-br from-yellow-100 to-yellow-50 backdrop-blur-xl p-8 rounded-3xl border border-yellow-300 shadow-2xl" whileHover={{
-                        scale: 1.05,
-                        y: -10,
-                        boxShadow: "0 25px 50px -12px rgba(245, 158, 11, 0.3)"
-                      }} transition={{
-                        duration: 0.3
-                      }}>
-                          <motion.div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-6 mx-auto" whileHover={{
-                          rotate: 360,
-                          scale: 1.1
-                        }} transition={{
-                          duration: 0.6
-                        }}>
+                        <div className="bg-gradient-to-br from-yellow-100 to-yellow-50 backdrop-blur-xl p-8 rounded-3xl border border-yellow-300 shadow-2xl transition-transform hover:scale-105">
+                          <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                             <Zap className="w-8 h-8 text-white" />
-                          </motion.div>
+                          </div>
                           <h4 className="mb-4 text-center text-foreground text-lg font-semibold">INNOVATION</h4>
                           <p className="text-muted-foreground text-center leading-relaxed">
                             Technische Implementierung und Automation für nachhaltigen, messbaren Erfolg.
                           </p>
-                        </motion.div>
+                        </div>
                       </div>
                       
                       {/* Central Journey Node */}
                       <motion.div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full border-2 sm:border-4 border-white shadow-2xl flex items-center justify-center relative z-20 mx-auto lg:mx-0 aspect-square" initial={{
                       scale: 0,
-                      rotate: -180
+                      opacity: 0
                     }} whileInView={{
                       scale: 1,
-                      rotate: 0
+                      opacity: 1
                     }} viewport={{
                       once: true
                     }} transition={{
-                      delay: 1.1,
-                      duration: 0.6,
-                      type: "spring",
-                      stiffness: 200
-                    }} whileHover={{
-                      scale: 1.2,
-                      boxShadow: "0 0 30px rgba(245, 158, 11, 0.6)"
+                      delay: 0.7,
+                      duration: 0.5
                     }}>
                         <span className="text-white font-bold text-lg sm:text-2xl">3</span>
-                        
-                        {/* Pulsing Ring */}
-                        <motion.div className="absolute inset-0 rounded-full border-2 border-yellow-400 aspect-square" animate={{
-                        scale: [1, 1.5, 1],
-                        opacity: [1, 0, 1]
-                      }} transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: 1
-                      }} />
                       </motion.div>
                       
                       <div className="flex-1 max-w-md ml-8 opacity-30">
@@ -605,11 +499,11 @@ const Services = () => {
                       
                     </motion.div>
                   </div>
-                </div>
+                 </div>
               </div>
             </motion.div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Das Ergebnis Section */}
