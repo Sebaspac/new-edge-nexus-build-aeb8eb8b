@@ -227,69 +227,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* 1️⃣ Intro Section - The Headquarters of Innovation */}
-        <section id="intro" className="relative section-padding bg-background">
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-            scale: [1, 1.2, 1]
-          }} transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} />
-            <motion.div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" animate={{
-            x: [0, -50, 0],
-            y: [0, 30, 0],
-            scale: [1.2, 1, 1.2]
-          }} transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} />
-            
-            {/* Animated connection lines */}
-            <svg className="absolute inset-0 w-full h-full opacity-20">
-              <motion.line x1="20%" y1="30%" x2="50%" y2="50%" stroke="url(#gradient1)" strokeWidth="2" initial={{
-              pathLength: 0
-            }} animate={{
-              pathLength: 1
-            }} transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }} />
-              <motion.line x1="80%" y1="30%" x2="50%" y2="50%" stroke="url(#gradient1)" strokeWidth="2" initial={{
-              pathLength: 0
-            }} animate={{
-              pathLength: 1
-            }} transition={{
-              duration: 2,
-              delay: 0.5,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }} />
-              <motion.line x1="50%" y1="70%" x2="50%" y2="50%" stroke="url(#gradient1)" strokeWidth="2" initial={{
-              pathLength: 0
-            }} animate={{
-              pathLength: 1
-            }} transition={{
-              duration: 2,
-              delay: 1,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }} />
-              <defs>
-                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="hsl(var(--primary))" />
-                  <stop offset="100%" stopColor="hsl(var(--secondary))" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-        </section>
-
         {/* 2️⃣ Mission & Vision */}
         <section id="mission" className="relative section-padding bg-surface">
           <div className="container-xl">
@@ -381,6 +318,69 @@ const About = () => {
                 </div>
               </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* 1️⃣ Intro Section - The Headquarters of Innovation */}
+        <section id="intro" className="relative section-padding bg-background">
+          <div className="absolute inset-0 overflow-hidden">
+            <motion.div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
+            x: [0, 50, 0],
+            y: [0, -30, 0],
+            scale: [1, 1.2, 1]
+          }} transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} />
+            <motion.div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" animate={{
+            x: [0, -50, 0],
+            y: [0, 30, 0],
+            scale: [1.2, 1, 1.2]
+          }} transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} />
+            
+            {/* Animated connection lines */}
+            <svg className="absolute inset-0 w-full h-full opacity-20">
+              <motion.line x1="20%" y1="30%" x2="50%" y2="50%" stroke="url(#gradient1)" strokeWidth="2" initial={{
+              pathLength: 0
+            }} animate={{
+              pathLength: 1
+            }} transition={{
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "reverse"
+            }} />
+              <motion.line x1="80%" y1="30%" x2="50%" y2="50%" stroke="url(#gradient1)" strokeWidth="2" initial={{
+              pathLength: 0
+            }} animate={{
+              pathLength: 1
+            }} transition={{
+              duration: 2,
+              delay: 0.5,
+              repeat: Infinity,
+              repeatType: "reverse"
+            }} />
+              <motion.line x1="50%" y1="70%" x2="50%" y2="50%" stroke="url(#gradient1)" strokeWidth="2" initial={{
+              pathLength: 0
+            }} animate={{
+              pathLength: 1
+            }} transition={{
+              duration: 2,
+              delay: 1,
+              repeat: Infinity,
+              repeatType: "reverse"
+            }} />
+              <defs>
+                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="hsl(var(--primary))" />
+                  <stop offset="100%" stopColor="hsl(var(--secondary))" />
+                </linearGradient>
+              </defs>
+            </svg>
           </div>
         </section>
 
