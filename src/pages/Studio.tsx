@@ -42,9 +42,9 @@ const Studio = () => {
     }
   };
   const studioServices = [{
-    title: "Brand Story",
-    description: "Authentische Markenstories mit klaren Werten und einzigartiger Tonalität.",
-    details: ["Storytelling-Konzept entwickeln", "Tone of Voice definieren", "Emotionale Kundenbindung schaffen", "Konsistente Markennarrative"],
+    title: "Brand Strategy & Story",
+    description: "Wir verbinden datenbasierte Markenstrategie mit emotionalem Storytelling. So entstehen Marken, die klar positioniert sind – und wirklich berühren.",
+    details: ["Zielgruppen- und Wettbewerbsanalyse", "Brand Positioning & Messaging", "Markenwerte und Vision definieren", "Strategische Roadmap entwickeln", "Storytelling-Konzept & Tonalität definieren", "Emotionale Kundenbindung & konsistente Narrative schaffen"],
     icon: Sparkles,
     gradient: "from-[#a855f7] to-[#6366f1]"
   }, {
@@ -62,7 +62,7 @@ const Studio = () => {
   }];
   return <>
       <Helmet>
-        <title>NEW EDGE STUDIO - Design Excellence | Brand Story & Templates</title>
+        <title>NEW EDGE STUDIO - Design Excellence | Brand Strategy & Story</title>
         <meta name="description" content="NEW EDGE STUDIO liefert das strategische Fundament: Markenidentität, Brand Story, Template-Design und Nutzerführung für Ihre digitale Präsenz." />
         <meta name="keywords" content="Design Studio, Markenidentität, Brand Story, UI/UX Design, Template Design, Funnel Design" />
         <link rel="canonical" href="https://new-edge.de/studio" />
