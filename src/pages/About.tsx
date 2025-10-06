@@ -468,32 +468,30 @@ const About = () => {
 
                 {/* Connection Lines */}
                 <svg className="absolute inset-0 w-full h-full">
-                  <motion.line x1="50%" y1="50%" x2="15%" y2="25%" stroke="url(#lineGradient)" strokeWidth="2" initial={{
-                  pathLength: 0
-                }} whileInView={{
-                  pathLength: 1
-                }} transition={{
-                  duration: 1.5,
-                  ease: "easeInOut"
-                }} />
-                  <motion.line x1="50%" y1="50%" x2="85%" y2="25%" stroke="url(#lineGradient)" strokeWidth="2" initial={{
-                  pathLength: 0
-                }} whileInView={{
-                  pathLength: 1
-                }} transition={{
-                  duration: 1.5,
-                  delay: 0.3,
-                  ease: "easeInOut"
-                }} />
-                  <motion.line x1="50%" y1="50%" x2="50%" y2="85%" stroke="url(#lineGradient)" strokeWidth="2" initial={{
-                  pathLength: 0
-                }} whileInView={{
-                  pathLength: 1
-                }} transition={{
-                  duration: 1.5,
-                  delay: 0.6,
-                  ease: "easeInOut"
-                }} />
+                  <motion.line 
+                    x1="50%" 
+                    y1="50%" 
+                    x2={useTransform(studioX, (x) => `calc(50% + ${x}px)`)}
+                    y2={useTransform(studioY, (y) => `calc(50% + ${y}px)`)}
+                    stroke="url(#lineGradient)" 
+                    strokeWidth="2"
+                  />
+                  <motion.line 
+                    x1="50%" 
+                    y1="50%" 
+                    x2={useTransform(mediaX, (x) => `calc(50% + ${x}px)`)}
+                    y2={useTransform(mediaY, (y) => `calc(50% + ${y}px)`)}
+                    stroke="url(#lineGradient)" 
+                    strokeWidth="2"
+                  />
+                  <motion.line 
+                    x1="50%" 
+                    y1="50%" 
+                    x2={useTransform(labX, (x) => `calc(50% + ${x}px)`)}
+                    y2={useTransform(labY, (y) => `calc(50% + ${y}px)`)}
+                    stroke="url(#lineGradient)" 
+                    strokeWidth="2"
+                  />
                   <defs>
                     <linearGradient id="lineGradient">
                       <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
