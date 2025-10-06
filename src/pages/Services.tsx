@@ -201,11 +201,30 @@ const Services = () => {
             ease: "easeOut"
           }} className="text-center mb-6">
               <span className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black block mb-2">THE</span>
-              <span className="italic bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black block" style={{
-              background: 'linear-gradient(to right, #8B5CF6, #3B82F6)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}>JOURNEY</span>
+              <motion.span 
+                className="italic bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black block" 
+                style={{
+                  background: 'linear-gradient(135deg, #A78BFA, #818CF8, #60A5FA)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundSize: '200% 200%'
+                }}
+                whileInView={{
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+                }}
+                viewport={{ once: false }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  textShadow: "0 0 20px rgba(167, 139, 250, 0.5)"
+                }}
+              >
+                JOURNEY
+              </motion.span>
             </motion.h1>
             
             <motion.p initial={{
