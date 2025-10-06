@@ -798,7 +798,7 @@ const About = () => {
                   Ökosystem
                 </span>
               </h2>
-              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto text-left">
                 New Edge wurde gegründet, weil wir gesehen haben, dass Kreativität und Technologie 
                 im Mittelstand oft getrennt voneinander existieren.
               </p>
