@@ -301,7 +301,7 @@ const About = () => {
           }} transition={{
             duration: 0.8
           }} className="max-w-4xl mx-auto text-center">
-              <motion.h2 className="text-display mb-8 text-foreground" initial={{
+              <motion.h2 initial={{
               opacity: 0,
               scale: 0.9
             }} whileInView={{
@@ -309,7 +309,7 @@ const About = () => {
               scale: 1
             }} viewport={{
               once: true
-            }}>
+            }} className="text-display mb-8 text-foreground text-6xl">
                 Das Headquarter für{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Innovation
@@ -367,7 +367,7 @@ const About = () => {
             }} transition={{
               duration: 0.8
             }} className="text-center lg:text-left">
-                <h2 className="text-h1 mb-8 text-foreground">
+                <h2 className="text-h1 mb-8 text-foreground text-5xl">
                   Unser Auftrag für den{" "}
                   <span className="bg-gradient-primary bg-clip-text text-transparent">
                     Mittelstand
@@ -460,7 +460,7 @@ const About = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-16">
-              <h2 className="text-display mb-6 text-foreground text-center lg:text-left">
+              <h2 className="text-display mb-6 text-foreground lg:text-left text-5xl text-left">
                 Wie New Edge{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   funktioniert
@@ -781,7 +781,7 @@ const About = () => {
             }} transition={{
               duration: 0.8
             }} className="order-1 lg:order-2">
-                <h2 className="text-h1 mb-8 text-foreground">
+                <h2 className="text-h1 mb-8 text-foreground text-5xl">
                   Warum New Edge kein gewöhnliches{" "}
                   <span className="bg-gradient-primary bg-clip-text text-transparent">
                     Studio ist
@@ -834,7 +834,7 @@ const About = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-20">
-              <h2 className="text-display mb-6 text-foreground text-center lg:text-left">
+              <h2 className="text-display mb-6 text-foreground lg:text-left text-5xl text-left">
                 Von der Idee zum{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Ökosystem
@@ -955,7 +955,7 @@ const About = () => {
           }} transition={{
             duration: 0.9
           }} className="text-center lg:text-left mb-24">
-              <h2 className="text-h1 mb-10 text-foreground leading-[1.2] text-center lg:text-left font-bold">
+              <h2 className="text-h1 mb-10 text-foreground leading-[1.2] lg:text-left font-bold text-5xl text-left">
                 Team & Netzwerk
               </h2>
               <p className="text-body-lg text-muted-foreground max-w-3xl leading-[1.9]">
