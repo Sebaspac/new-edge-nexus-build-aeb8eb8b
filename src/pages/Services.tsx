@@ -864,19 +864,19 @@ const Services = () => {
             icon: Lightbulb,
             title: "New Edge Studio",
             description: "Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.",
-            gradient: "from-secondary to-accent",
+            gradient: "from-purple-500 to-purple-700",
             link: "/studio"
           }, {
             icon: Palette,
             title: "New Edge Media",
             description: "Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.",
-            gradient: "from-primary to-secondary",
+            gradient: "from-blue-500 to-blue-700",
             link: "/media"
           }, {
             icon: Zap,
             title: "New Edge Lab",
             description: "Tech-Innovation und Automatisierung. Von MVP bis zur finalen technischen Umsetzung.",
-            gradient: "from-accent to-primary",
+            gradient: "from-yellow-500 to-yellow-600",
             link: "/lab"
           }].map((service, index) => <motion.div key={index} variants={{
             hidden: {
