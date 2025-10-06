@@ -36,6 +36,7 @@ const About = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState({ studio: 0, media: 0, lab: 0 });
   const videoRef = useRef<HTMLVideoElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [isVideoReady, setIsVideoReady] = useState(false);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -43,9 +44,23 @@ const About = () => {
     });
   }, []);
 
-  // Video cycling logic
+  // Video cycling logic with smooth transitions
   useEffect(() => {
-    if (hoveredModule) {
+    if (hoveredModule && videoRef.current) {
+      const video = videoRef.current;
+      
+      // Preload and play current video
+      video.load();
+      const playPromise = video.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          setIsVideoReady(true);
+        }).catch(() => {
+          setIsVideoReady(false);
+        });
+      }
+      
       // Start cycling videos every 3 seconds
       intervalRef.current = setInterval(() => {
         setCurrentVideoIndex(prev => {
@@ -55,7 +70,7 @@ const About = () => {
         });
       }, 3000);
     } else {
-      // Clear interval when not hovering
+      setIsVideoReady(false);
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
@@ -68,6 +83,15 @@ const About = () => {
       }
     };
   }, [hoveredModule]);
+
+  // Handle video source changes smoothly
+  useEffect(() => {
+    if (hoveredModule && videoRef.current && isVideoReady) {
+      const video = videoRef.current;
+      video.load();
+      video.play().catch(() => {});
+    }
+  }, [currentVideoIndex, hoveredModule, isVideoReady]);
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -570,11 +594,11 @@ const About = () => {
                   <div className="relative w-[400px] aspect-video rounded-xl overflow-hidden border border-primary/30 backdrop-blur-xl bg-background/10 shadow-[0_0_40px_rgba(168,85,247,0.3)]">
                     <video
                       ref={videoRef}
-                      key={`${hoveredModule}-${currentVideoIndex[hoveredModule]}`}
                       autoPlay
                       muted
                       playsInline
-                      className="w-full h-full object-cover rounded-xl"
+                      preload="auto"
+                      className="w-full h-full object-cover rounded-xl transition-opacity duration-200"
                       src={moduleVideos[hoveredModule][currentVideoIndex[hoveredModule]]}
                     />
                     <div className="absolute inset-0 rounded-xl ring-1 ring-white/10" />
