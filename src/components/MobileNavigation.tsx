@@ -36,14 +36,7 @@ export const MobileNavigation = ({
     setIsContactModalOpen(true);
   };
   return <>
-      <ContactFormModal 
-        isOpen={isContactModalOpen}
-        onClose={() => setIsContactModalOpen(false)}
-        accentColor="#000"
-        gradientFrom="#000"
-        gradientTo="#333"
-        theme="studio"
-      />
+      <ContactFormModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} accentColor="#000" gradientFrom="#000" gradientTo="#333" theme="studio" />
       
       {/* Desktop Navigation */}
       <nav className={`fixed top-0 w-full z-50 ${bgColor} backdrop-blur-lg`}>
@@ -245,9 +238,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.30
                 }}>
-                      <Link to="/about" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>
-                        About & Crew
-                      </Link>
+                      <Link to="/about" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>About us</Link>
                     </motion.div>
                   </div>
 
