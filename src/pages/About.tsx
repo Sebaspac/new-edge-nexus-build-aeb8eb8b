@@ -546,29 +546,29 @@ const About = () => {
                     </div>
                   </motion.div>
                 </motion.div>
+
+                {/* Floating Video Preview - Now inside aspect-square container */}
+                <AnimatePresence>
+                  {hoveredModule && <motion.div initial={{
+                  opacity: 0,
+                  scale: 0.9
+                }} animate={{
+                  opacity: 1,
+                  scale: 1
+                }} exit={{
+                  opacity: 0,
+                  scale: 0.9
+                }} transition={{
+                  duration: 0.3
+                }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                      <div className="relative w-60 h-60 rounded-full overflow-hidden border-2 border-primary/50 backdrop-blur-xl bg-background/20 shadow-[0_0_60px_rgba(168,85,247,0.6)]">
+                        <video ref={videoRef} autoPlay muted playsInline preload="auto" className="w-full h-full object-cover transition-opacity duration-200" src={moduleVideos[hoveredModule][currentVideoIndex[hoveredModule]]} />
+                        <div className="absolute inset-0 rounded-full ring-2 ring-white/20" />
+                      </div>
+                    </motion.div>}
+                </AnimatePresence>
               </div>
             </motion.div>
-
-            {/* Floating Video Preview */}
-            <AnimatePresence>
-              {hoveredModule && <motion.div initial={{
-              opacity: 0,
-              scale: 0.9
-            }} animate={{
-              opacity: 1,
-              scale: 1
-            }} exit={{
-              opacity: 0,
-              scale: 0.9
-            }} transition={{
-              duration: 0.3
-            }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none">
-                  <div className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-primary/50 backdrop-blur-xl bg-background/20 shadow-[0_0_60px_rgba(168,85,247,0.6)]">
-                    <video ref={videoRef} autoPlay muted playsInline preload="auto" className="w-full h-full object-cover transition-opacity duration-200" src={moduleVideos[hoveredModule][currentVideoIndex[hoveredModule]]} />
-                    <div className="absolute inset-0 rounded-full ring-2 ring-white/20" />
-                  </div>
-                </motion.div>}
-            </AnimatePresence>
 
             {/* Unit Descriptions */}
             <motion.div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" initial="hidden" whileInView="visible" viewport={{
