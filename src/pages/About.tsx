@@ -156,8 +156,9 @@ const About = () => {
               
               <div className="absolute bottom-0 left-0 p-6 pb-20 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
                 <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight">
-                  <span className="text-white">THE HEADQUARTERS</span><br />
-                  <span className="italic font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">OF INNOVATION.</span>
+                  <span className="text-white">DESIGN BRANDS.
+                </span><br />
+                  <span className="italic font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">DRIVE INNOVATION.</span>
                 </h1>
               </div>
               
