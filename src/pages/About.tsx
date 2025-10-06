@@ -357,7 +357,7 @@ const About = () => {
           }} transition={{
             duration: 0.8
           }} className="relative max-w-5xl mx-auto mb-12 sm:mb-16 md:mb-20">
-              <div className="relative aspect-square max-w-md sm:max-w-lg md:max-w-2xl mx-auto">
+              <div className="relative aspect-square max-w-[280px] sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto">
                 {/* Central Hub */}
                 <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full bg-gradient-primary flex items-center justify-center shadow-2xl z-10" animate={{
                 boxShadow: ['0 0 40px rgba(168, 85, 247, 0.4)', '0 0 80px rgba(168, 85, 247, 0.6)', '0 0 40px rgba(168, 85, 247, 0.4)']
