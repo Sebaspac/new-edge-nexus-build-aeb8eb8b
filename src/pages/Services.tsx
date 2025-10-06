@@ -297,21 +297,8 @@ const Services = () => {
                 }} transition={{
                   duration: 0.8,
                   ease: "easeOut"
-                }} className="font-bold text-foreground mb-6 text-5xl sm:text-5xl">Unsere Reise</motion.h3>
-                  <motion.p initial={{
-                  opacity: 0,
-                  y: 20
-                }} whileInView={{
-                  opacity: 1,
-                  y: 0
-                }} viewport={{
-                  once: true
-                }} transition={{
-                  delay: 0.2,
-                  duration: 0.6
-                }} className="text-base lg:text-xl text-muted-foreground max-w-2xl mx-auto text-left">
-                    Von der Vision zur Realität - erleben Sie jeden Schritt unserer digitalen Transformation
-                  </motion.p>
+                }} className="font-bold text-foreground mb-6 text-5xl text-center sm:text-6xl">Unsere Reise</motion.h3>
+                  
                 </div>
 
                 {/* Animated Journey Path */}
