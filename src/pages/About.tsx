@@ -1197,80 +1197,87 @@ const About = () => {
         
 
         {/* 8️⃣ Gründer & Leadership */}
-        <section className="relative section-padding bg-surface">
-          <div className="container-xl">
-            <motion.div initial={{
-            opacity: 0,
-            y: 60
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center mb-16">
-              <h2 className="text-display mb-6 text-foreground text-center lg:text-left">
-                Die{" "}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">
-                  Gründer
-                </span>
+        <section className="relative section-padding bg-[#0a0a0a] overflow-hidden">
+          {/* Subtle background effects */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+          
+          <div className="container-xl relative z-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 60 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              className="text-center mb-16"
+            >
+              <h2 className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-4 text-white font-bold leading-[1.2]">
+                Die Gründer
               </h2>
+              <p className="text-base lg:text-xl text-gray-400 max-w-3xl mx-auto leading-[1.5]">
+                Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.
+              </p>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {[{
-              name: "Sebastian Pachón",
-              role: "Founder & Creative-Tech Partner",
-              description: "Verbindet technisches Verständnis mit kreativer Vision.",
-              image: "/assets/8b2fd89c-8469-4c89-bbba-463d2c352273.png"
-            }, {
-              name: "Wenjamin Zabezhanskiy",
-              role: "Operations & Innovation Partner",
-              description: "Denkt in Systemen und Prozessen, entwickelt Strukturen, die Skalierung ermöglichen.",
-              image: "/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png"
-            }].map((founder, i) => <motion.div key={founder.name} initial={{
-              opacity: 0,
-              y: 60
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: i * 0.2
-            }}>
-                  <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500">
-                    <div className="aspect-square overflow-hidden">
-                      <motion.img src={founder.image} alt={founder.name} className="w-full h-full object-cover" whileHover={{
-                    scale: 1.05
-                  }} transition={{
-                    duration: 0.6
-                  }} />
-                    </div>
-                    <CardContent className="p-8">
-                      <h3 className="text-h2 mb-2 text-foreground">{founder.name}</h3>
-                      <div className="text-body font-semibold text-primary mb-4">{founder.role}</div>
-                      <p className="text-body text-muted-foreground leading-relaxed">
-                        {founder.description}
-                      </p>
+                name: "Sebastian Pachón",
+                role: "Founder & Creative-Tech Partner",
+                tags: ["Strategie", "Technologie"],
+                image: "/assets/8b2fd89c-8469-4c89-bbba-463d2c352273.png"
+              }, {
+                name: "Wenjamin Zabezhanskiy",
+                role: "Operations & Innovation Partner",
+                tags: ["Kreation", "Support"],
+                image: "/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png"
+              }].map((founder, i) => (
+                <motion.div 
+                  key={founder.name} 
+                  initial={{ opacity: 0, y: 60 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  viewport={{ once: true }} 
+                  transition={{ delay: i * 0.2 }}
+                  className="group"
+                >
+                  <Card className="bg-[#1a1a1a] border-gray-800 hover:border-primary/50 transition-all duration-500 overflow-hidden">
+                    <CardContent className="p-8 flex flex-col items-center text-center">
+                      {/* Profile Image with Gradient Border */}
+                      <div className="relative mb-6">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-secondary to-primary animate-gradient blur-sm" />
+                        <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-[#1a1a1a]">
+                          <motion.img 
+                            src={founder.image} 
+                            alt={founder.name} 
+                            className="w-full h-full object-cover"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.6 }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Name */}
+                      <h3 className="text-2xl font-bold text-white mb-2">
+                        {founder.name}
+                      </h3>
+
+                      {/* Role with gradient */}
+                      <div className="text-base font-semibold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-6">
+                        {founder.role}
+                      </div>
+
+                      {/* Tags */}
+                      <div className="flex gap-2 flex-wrap justify-center">
+                        {founder.tags.map((tag) => (
+                          <span 
+                            key={tag}
+                            className="px-4 py-1.5 bg-gray-800 text-gray-300 rounded-full text-sm border border-gray-700 hover:border-primary/50 transition-colors"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </CardContent>
                   </Card>
-                </motion.div>)}
+                </motion.div>
+              ))}
             </div>
-
-            <motion.div className="text-center mt-12" initial={{
-            opacity: 0
-          }} whileInView={{
-            opacity: 1
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.4
-          }}>
-              <Button size="lg" onClick={() => scrollToContact(false)} className="group">
-                Mit uns sprechen
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </motion.div>
           </div>
         </section>
 
