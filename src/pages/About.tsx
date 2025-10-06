@@ -497,18 +497,36 @@ const About = () => {
                   onMouseEnter={() => setHoveredModule('studio')}
                   onMouseLeave={() => setHoveredModule(null)}
                 >
-                  <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-primary/10 via-background to-background backdrop-blur-sm border border-primary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-primary/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] group overflow-hidden">
+                  <motion.div 
+                    className="relative w-full h-full rounded-3xl bg-gradient-to-br from-primary/10 via-background to-background backdrop-blur-sm border border-primary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-primary/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] group overflow-hidden"
+                    animate={{ rotate: 360 }}
+                    transition={{ 
+                      duration: 20, 
+                      repeat: Infinity, 
+                      ease: "linear" 
+                    }}
+                  >
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <motion.div 
-                      className="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-2.5 mb-3 shadow-lg"
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
+                      className="relative z-10"
+                      animate={{ rotate: -360 }}
+                      transition={{ 
+                        duration: 20, 
+                        repeat: Infinity, 
+                        ease: "linear" 
+                      }}
                     >
-                      <Lightbulb className="w-full h-full text-white" />
+                      <motion.div 
+                        className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-2.5 mb-3 shadow-lg mx-auto"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Lightbulb className="w-full h-full text-white" />
+                      </motion.div>
+                      <div className="font-bold text-lg mb-1 text-foreground group-hover:text-primary transition-colors">STUDIO</div>
+                      <div className="text-xs text-muted-foreground">Die strategische Quelle</div>
                     </motion.div>
-                    <div className="relative z-10 font-bold text-lg mb-1 text-foreground group-hover:text-primary transition-colors">STUDIO</div>
-                    <div className="relative z-10 text-xs text-muted-foreground">Die strategische Quelle</div>
-                  </div>
+                  </motion.div>
                 </motion.div>
 
                 {/* Media Node */}
@@ -531,18 +549,36 @@ const About = () => {
                   onMouseEnter={() => setHoveredModule('media')}
                   onMouseLeave={() => setHoveredModule(null)}
                 >
-                  <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-secondary/10 via-background to-background backdrop-blur-sm border border-secondary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-secondary/60 hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] group overflow-hidden">
+                  <motion.div 
+                    className="relative w-full h-full rounded-3xl bg-gradient-to-br from-secondary/10 via-background to-background backdrop-blur-sm border border-secondary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-secondary/60 hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] group overflow-hidden"
+                    animate={{ rotate: 360 }}
+                    transition={{ 
+                      duration: 20, 
+                      repeat: Infinity, 
+                      ease: "linear" 
+                    }}
+                  >
                     <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <motion.div 
-                      className="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-secondary to-secondary/70 p-2.5 mb-3 shadow-lg"
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
+                      className="relative z-10"
+                      animate={{ rotate: -360 }}
+                      transition={{ 
+                        duration: 20, 
+                        repeat: Infinity, 
+                        ease: "linear" 
+                      }}
                     >
-                      <Palette className="w-full h-full text-white" />
+                      <motion.div 
+                        className="w-12 h-12 rounded-2xl bg-gradient-to-br from-secondary to-secondary/70 p-2.5 mb-3 shadow-lg mx-auto"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Palette className="w-full h-full text-white" />
+                      </motion.div>
+                      <div className="font-bold text-lg mb-1 text-foreground group-hover:text-secondary transition-colors">MEDIA</div>
+                      <div className="text-xs text-muted-foreground">Die kreative Energie</div>
                     </motion.div>
-                    <div className="relative z-10 font-bold text-lg mb-1 text-foreground group-hover:text-secondary transition-colors">MEDIA</div>
-                    <div className="relative z-10 text-xs text-muted-foreground">Die kreative Energie</div>
-                  </div>
+                  </motion.div>
                 </motion.div>
 
                 {/* Lab Node */}
@@ -565,18 +601,36 @@ const About = () => {
                   onMouseEnter={() => setHoveredModule('lab')}
                   onMouseLeave={() => setHoveredModule(null)}
                 >
-                  <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-accent/10 via-background to-background backdrop-blur-sm border border-accent/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(14,165,233,0.3)] group overflow-hidden">
+                  <motion.div 
+                    className="relative w-full h-full rounded-3xl bg-gradient-to-br from-accent/10 via-background to-background backdrop-blur-sm border border-accent/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(14,165,233,0.3)] group overflow-hidden"
+                    animate={{ rotate: 360 }}
+                    transition={{ 
+                      duration: 20, 
+                      repeat: Infinity, 
+                      ease: "linear" 
+                    }}
+                  >
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <motion.div 
-                      className="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-accent to-accent/70 p-2.5 mb-3 shadow-lg"
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
+                      className="relative z-10"
+                      animate={{ rotate: -360 }}
+                      transition={{ 
+                        duration: 20, 
+                        repeat: Infinity, 
+                        ease: "linear" 
+                      }}
                     >
-                      <Zap className="w-full h-full text-white" />
+                      <motion.div 
+                        className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent to-accent/70 p-2.5 mb-3 shadow-lg mx-auto"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Zap className="w-full h-full text-white" />
+                      </motion.div>
+                      <div className="font-bold text-lg mb-1 text-foreground group-hover:text-accent transition-colors">LAB</div>
+                      <div className="text-xs text-muted-foreground">Der Automatisierungs-Motor</div>
                     </motion.div>
-                    <div className="relative z-10 font-bold text-lg mb-1 text-foreground group-hover:text-accent transition-colors">LAB</div>
-                    <div className="relative z-10 text-xs text-muted-foreground">Der Automatisierungs-Motor</div>
-                  </div>
+                  </motion.div>
                 </motion.div>
               </div>
             </motion.div>
