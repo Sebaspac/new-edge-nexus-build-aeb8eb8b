@@ -188,8 +188,8 @@ const Services = () => {
           }} />)}
           </div>
           
-          {/* Text Content - Centered */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10">
+          {/* Text Content - Lower Center */}
+          <div className="absolute inset-x-0 bottom-0 pb-24 sm:pb-32 flex flex-col items-center justify-end p-6 z-10">
             <motion.h1 initial={{
             opacity: 0,
             y: 30
