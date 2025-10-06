@@ -894,7 +894,7 @@ const About = () => {
             once: true
           }} transition={{
             duration: 0.9
-          }} className="text-center lg:text-left mb-24">
+          }} className="text-center lg:text-left mb-12">
               <h2 className="text-h1 mb-10 text-foreground leading-[1.2] lg:text-left font-bold text-5xl text-left">
                 Team & Netzwerk
               </h2>
@@ -905,7 +905,108 @@ const About = () => {
               </p>
             </motion.div>
 
-            <motion.div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-20" initial="hidden" whileInView="visible" viewport={{
+            {/* Network Stats - Pyramid Top (5 cards) */}
+            <motion.div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto mb-8" initial="hidden" whileInView="visible" viewport={{
+            once: true
+          }} variants={{
+            hidden: {
+              opacity: 0
+            },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+              }
+            }
+          }}>
+              {[{
+              icon: Users,
+              label: "Coaches",
+              value: "10+",
+              color: "from-blue-600 to-blue-800",
+              category: "strategy" as const
+            }, {
+              icon: Code,
+              label: "Entwickler",
+              value: "2",
+              color: "from-purple-600 to-purple-800",
+              category: "tech" as const
+            }, {
+              icon: Palette,
+              label: "Creative Agencies",
+              value: "3",
+              color: "from-pink-600 to-pink-800",
+              category: "creative" as const
+            }, {
+              icon: Globe,
+              label: "Länder",
+              value: "4",
+              color: "from-green-600 to-green-800",
+              category: null
+            }, {
+              icon: Briefcase,
+              label: "Freelancer",
+              value: "15+",
+              color: "from-orange-600 to-orange-800",
+              category: null
+            }].map((stat, index) => {
+              const isHighlighted = hoveredTeamCard && stat.category === hoveredTeamCard;
+              const isDimmed = hoveredTeamCard && stat.category !== hoveredTeamCard && stat.category !== null;
+              return <motion.div key={stat.label} variants={{
+                hidden: {
+                  opacity: 0,
+                  scale: 0.5,
+                  y: 50
+                },
+                visible: {
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.6,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }
+                }
+              }} whileHover={{
+                scale: 1.15,
+                y: -10
+              }} animate={{
+                scale: isHighlighted ? 1.1 : isDimmed ? 0.95 : 1,
+                opacity: isDimmed ? 0.4 : 1
+              }} className="group">
+                  <Card className={`h-full bg-white border-border backdrop-blur-sm transition-all duration-500 ${isHighlighted ? 'border-primary shadow-[0_0_30px_rgba(139,92,246,0.5)] shadow-primary/50' : 'hover:border-primary/50 hover:shadow-xl'}`}>
+                    <CardContent className="p-4 md:p-6 flex flex-col items-center text-center h-full relative overflow-hidden">
+                      <motion.div className={`absolute inset-0 bg-gradient-to-br ${stat.color} transition-opacity duration-500`} animate={{
+                      opacity: isHighlighted ? 0.15 : 0
+                    }} />
+                      <motion.div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                      
+                      <motion.div className={`w-12 h-12 md:w-14 md:h-14 mb-3 md:mb-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${stat.color} p-2.5 md:p-3 shadow-lg relative z-10`} whileHover={{
+                      rotate: 360,
+                      scale: 1.2
+                    }} transition={{
+                      duration: 0.6,
+                      type: "spring"
+                    }}>
+                        <stat.icon className="w-full h-full text-white" />
+                      </motion.div>
+                      
+                      <motion.div className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-1 relative z-10" whileHover={{
+                      scale: 1.1
+                    }}>
+                        {stat.value}
+                      </motion.div>
+                      
+                      <div className="text-xs md:text-sm text-muted-foreground relative z-10">{stat.label}</div>
+                    </CardContent>
+                  </Card>
+                </motion.div>;
+            })}
+            </motion.div>
+
+            {/* Team Cards - Pyramid Base (3 cards) */}
+            <motion.div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto" initial="hidden" whileInView="visible" viewport={{
             once: true
           }} variants={{
             hidden: {
@@ -1025,106 +1126,6 @@ const About = () => {
                     </CardContent>
                   </Card>
                 </motion.div>)}
-            </motion.div>
-
-            {/* Network Stats */}
-            <motion.div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto" initial="hidden" whileInView="visible" viewport={{
-            once: true
-          }} variants={{
-            hidden: {
-              opacity: 0
-            },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2
-              }
-            }
-          }}>
-              {[{
-              icon: Users,
-              label: "Coaches",
-              value: "10+",
-              color: "from-blue-600 to-blue-800",
-              category: "strategy" as const
-            }, {
-              icon: Code,
-              label: "Entwickler",
-              value: "2",
-              color: "from-purple-600 to-purple-800",
-              category: "tech" as const
-            }, {
-              icon: Palette,
-              label: "Creative Agencies",
-              value: "3",
-              color: "from-pink-600 to-pink-800",
-              category: "creative" as const
-            }, {
-              icon: Globe,
-              label: "Länder",
-              value: "4",
-              color: "from-green-600 to-green-800",
-              category: null
-            }, {
-              icon: Briefcase,
-              label: "Freelancer",
-              value: "15+",
-              color: "from-orange-600 to-orange-800",
-              category: null
-            }].map((stat, index) => {
-              const isHighlighted = hoveredTeamCard && stat.category === hoveredTeamCard;
-              const isDimmed = hoveredTeamCard && stat.category !== hoveredTeamCard && stat.category !== null;
-              return <motion.div key={stat.label} variants={{
-                hidden: {
-                  opacity: 0,
-                  scale: 0.5,
-                  y: 50
-                },
-                visible: {
-                  opacity: 1,
-                  scale: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.6,
-                    ease: [0.25, 0.46, 0.45, 0.94]
-                  }
-                }
-              }} whileHover={{
-                scale: 1.15,
-                y: -10
-              }} animate={{
-                scale: isHighlighted ? 1.1 : isDimmed ? 0.95 : 1,
-                opacity: isDimmed ? 0.4 : 1
-              }} className="group">
-                  <Card className={`h-full bg-white border-border backdrop-blur-sm transition-all duration-500 ${isHighlighted ? 'border-primary shadow-[0_0_30px_rgba(139,92,246,0.5)] shadow-primary/50' : 'hover:border-primary/50 hover:shadow-xl'}`}>
-                    <CardContent className="p-4 md:p-6 flex flex-col items-center text-center h-full relative overflow-hidden">
-                      <motion.div className={`absolute inset-0 bg-gradient-to-br ${stat.color} transition-opacity duration-500`} animate={{
-                      opacity: isHighlighted ? 0.15 : 0
-                    }} />
-                      <motion.div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                      
-                      <motion.div className={`w-12 h-12 md:w-14 md:h-14 mb-3 md:mb-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${stat.color} p-2.5 md:p-3 shadow-lg relative z-10`} whileHover={{
-                      rotate: 360,
-                      scale: 1.2
-                    }} transition={{
-                      duration: 0.6,
-                      type: "spring"
-                    }}>
-                        <stat.icon className="w-full h-full text-white" />
-                      </motion.div>
-                      
-                      <motion.div className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-1 relative z-10" whileHover={{
-                      scale: 1.1
-                    }}>
-                        {stat.value}
-                      </motion.div>
-                      
-                      <div className="text-xs md:text-sm text-muted-foreground relative z-10">{stat.label}</div>
-                    </CardContent>
-                  </Card>
-                </motion.div>;
-            })}
             </motion.div>
           </div>
         </section>
