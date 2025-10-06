@@ -25,6 +25,7 @@ const About = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [isVideoReady, setIsVideoReady] = useState(false);
+  const [videoPosition, setVideoPosition] = useState<{x: number, y: number} | null>(null);
 
   // Orbital rotation setup
   const orbitalRadius = typeof window !== 'undefined' && window.innerWidth < 768 ? 180 : 280;
@@ -468,7 +469,13 @@ const About = () => {
                 once: true
               }} transition={{
                 delay: 0.5
-              }} onMouseEnter={() => setHoveredModule('studio')} onMouseLeave={() => setHoveredModule(null)}>
+              }} onMouseEnter={() => {
+                setHoveredModule('studio');
+                setVideoPosition({ x: studioX.get(), y: studioY.get() });
+              }} onMouseLeave={() => {
+                setHoveredModule(null);
+                setVideoPosition(null);
+              }}>
                   <motion.div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-primary/10 via-background to-background backdrop-blur-sm border border-primary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-primary/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative z-10">
@@ -499,7 +506,13 @@ const About = () => {
                 once: true
               }} transition={{
                 delay: 0.7
-              }} onMouseEnter={() => setHoveredModule('media')} onMouseLeave={() => setHoveredModule(null)}>
+              }} onMouseEnter={() => {
+                setHoveredModule('media');
+                setVideoPosition({ x: mediaX.get(), y: mediaY.get() });
+              }} onMouseLeave={() => {
+                setHoveredModule(null);
+                setVideoPosition(null);
+              }}>
                   <motion.div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-secondary/10 via-background to-background backdrop-blur-sm border border-secondary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-secondary/60 hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative z-10">
@@ -530,7 +543,13 @@ const About = () => {
                 once: true
               }} transition={{
                 delay: 0.9
-              }} onMouseEnter={() => setHoveredModule('lab')} onMouseLeave={() => setHoveredModule(null)}>
+              }} onMouseEnter={() => {
+                setHoveredModule('lab');
+                setVideoPosition({ x: labX.get(), y: labY.get() });
+              }} onMouseLeave={() => {
+                setHoveredModule(null);
+                setVideoPosition(null);
+              }}>
                   <motion.div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-accent/10 via-background to-background backdrop-blur-sm border border-accent/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(14,165,233,0.3)] group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative z-10">
@@ -549,7 +568,7 @@ const About = () => {
 
                 {/* Floating Video Preview - Now inside aspect-square container */}
                 <AnimatePresence>
-                  {hoveredModule && <motion.div initial={{
+                  {hoveredModule && videoPosition && <motion.div initial={{
                   opacity: 0,
                   scale: 0.9
                 }} animate={{
@@ -560,7 +579,12 @@ const About = () => {
                   scale: 0.9
                 }} transition={{
                   duration: 0.3
-                }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                }} className="absolute left-1/2 top-1/2 z-20 pointer-events-none" style={{
+                  x: videoPosition.x,
+                  y: videoPosition.y,
+                  translateX: "-50%",
+                  translateY: "-50%"
+                }}>
                       <div className="relative w-60 h-60 rounded-full overflow-hidden border-2 border-primary/50 backdrop-blur-xl bg-background/20 shadow-[0_0_60px_rgba(168,85,247,0.6)]">
                         <video ref={videoRef} autoPlay muted playsInline preload="auto" className="w-full h-full object-cover transition-opacity duration-200" src={moduleVideos[hoveredModule][currentVideoIndex[hoveredModule]]} />
                         <div className="absolute inset-0 rounded-full ring-2 ring-white/20" />
