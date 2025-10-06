@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Users, Code, Palette, Globe, Briefcase, ChevronDown, ArrowRight, Sparkles, Zap, Heart, Target, Network, Building2, Lightbulb, Rocket, ShieldCheck, TrendingUp, Handshake } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import newEdgeHubLogo from "@/assets/new-edge-hub-logo.png";
 const About = () => {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('intro');
@@ -359,7 +360,7 @@ const About = () => {
                 repeat: Infinity
               }}>
                   <div className="text-center text-white">
-                    <Building2 className="w-12 h-12 mx-auto mb-2" />
+                    <img src={newEdgeHubLogo} alt="NEW EDGE" className="w-20 h-20 mx-auto mb-2" />
                     <div className="font-bold text-lg">NEW EDGE</div>
                     <div className="text-xs opacity-80">HQ</div>
                   </div>
