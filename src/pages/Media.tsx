@@ -47,14 +47,14 @@ const Media = () => {
     details: ["Video- und Foto-Content-Produktion", "Motion Graphics und Animationen", "Creative Assets für alle Plattformen", "Content-Strategie und Konzeption"],
     icon: Settings,
     gradient: "from-[#3b82f6] to-[#06b6d4]",
-    video: "/assets/media-content-video.mp4"
+    video: "/assets/media-section-video.mp4"
   }, {
     title: "Social Media Management",
     description: "Community- und Content-Management für starke Markenbindung auf allen Kanälen.",
     details: ["Community Management und Engagement", "Content-Planung und Publishing", "Performance-Analyse und Reporting", "Influencer-Kooperationen"],
     icon: Eye,
     gradient: "from-[#06b6d4] to-[#3b82f6]",
-    video: "/assets/media-section-video.mp4"
+    video: "/assets/media-content-video.mp4"
   }, {
     title: "Launchkampagnen & Performance-Marketing",
     description: "Erfolgreiche Produktlaunches und datengetriebenes Performance-Marketing.",
