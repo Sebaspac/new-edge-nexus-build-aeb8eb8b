@@ -236,7 +236,7 @@ const About = () => {
             }} transition={{
               duration: 0.8
             }} className="text-center lg:text-left">
-                <h2 className="text-3xl sm:text-4xl mb-4 sm:mb-6 md:mb-8 text-foreground font-bold md:text-5xl">
+                <h2 className="text-3xl sm:text-4xl mb-4 sm:mb-6 md:mb-8 text-foreground font-bold md:text-5xl text-left">
                   Unser Auftrag für den{" "}
                   <span className="bg-gradient-primary bg-clip-text text-transparent">
                     Mittelstand
