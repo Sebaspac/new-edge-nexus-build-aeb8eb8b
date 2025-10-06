@@ -563,9 +563,9 @@ const About = () => {
             }} transition={{
               duration: 0.3
             }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none">
-                  <div className="relative w-[400px] aspect-video rounded-xl overflow-hidden border border-primary/30 backdrop-blur-xl bg-background/10 shadow-[0_0_40px_rgba(168,85,247,0.3)]">
-                    <video ref={videoRef} autoPlay muted playsInline preload="auto" className="w-full h-full object-cover rounded-xl transition-opacity duration-200" src={moduleVideos[hoveredModule][currentVideoIndex[hoveredModule]]} />
-                    <div className="absolute inset-0 rounded-xl ring-1 ring-white/10" />
+                  <div className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-primary/50 backdrop-blur-xl bg-background/20 shadow-[0_0_60px_rgba(168,85,247,0.6)]">
+                    <video ref={videoRef} autoPlay muted playsInline preload="auto" className="w-full h-full object-cover transition-opacity duration-200" src={moduleVideos[hoveredModule][currentVideoIndex[hoveredModule]]} />
+                    <div className="absolute inset-0 rounded-full ring-2 ring-white/20" />
                   </div>
                 </motion.div>}
             </AnimatePresence>
