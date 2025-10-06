@@ -7,6 +7,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Users, Code, Palette, Globe, Briefcase, ChevronDown, ArrowRight, Sparkles, Zap, Heart, Target, Network, Building2, Lightbulb, Rocket, ShieldCheck, TrendingUp, Handshake } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { toast } from "@/hooks/use-toast";
 import newEdgeHubLogo from "@/assets/new-edge-hub-logo.png";
 const moduleVideos = {
   studio: ['/assets/studio-hero-video.mp4', '/assets/studio-service-video.mp4', '/assets/brandstory-video.mp4'],
@@ -30,6 +35,8 @@ const About = () => {
     x: number;
     y: number;
   } | null>(null);
+  const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
+  const [isPartnerRequest, setIsPartnerRequest] = useState(false);
 
   // Orbital rotation setup
   const orbitalRadius = typeof window !== 'undefined' && window.innerWidth < 768 ? 180 : 280;
@@ -115,18 +122,56 @@ const About = () => {
       });
     }
   };
-  const scrollToContact = () => {
-    navigate('/', {
-      replace: true
-    });
-    setTimeout(() => {
-      const contactSection = document.getElementById('contact-section');
-      if (contactSection) {
-        contactSection.scrollIntoView({
-          behavior: 'smooth'
+  const scrollToContact = (asPartner: boolean = false) => {
+    setIsPartnerRequest(asPartner);
+    setIsContactSheetOpen(true);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    const data = {
+      name: formData.get('name')?.toString() || '',
+      email: formData.get('email')?.toString() || '',
+      position: formData.get('position')?.toString() || '',
+      firma: formData.get('firma')?.toString() || '',
+      telefon: formData.get('telefon')?.toString() || '',
+      nachricht: formData.get('nachricht')?.toString() || '',
+      source: 'ABOUT'
+    };
+
+    try {
+      const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Wir designen für dich",
+          description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
+          duration: 5000
         });
+        form.reset();
+        setIsContactSheetOpen(false);
+        setIsPartnerRequest(false);
+      } else {
+        throw new Error(`Server responded with ${response.status}`);
       }
-    }, 100);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Fehler",
+        description: "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
+        variant: "destructive",
+        duration: 5000
+      });
+    }
   };
   return <>
       <Helmet>
@@ -135,7 +180,7 @@ const About = () => {
       </Helmet>
 
       <div className="min-h-screen bg-background">
-        <MobileNavigation onContactClick={scrollToContact} theme="dark" />
+        <MobileNavigation onContactClick={() => scrollToContact(false)} theme="dark" />
 
         {/* Sticky Navigation */}
         <motion.nav initial={{
@@ -1221,7 +1266,7 @@ const About = () => {
           }} transition={{
             delay: 0.4
           }}>
-              <Button size="lg" onClick={scrollToContact} className="group">
+              <Button size="lg" onClick={() => scrollToContact(false)} className="group">
                 Mit uns sprechen
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -1272,17 +1317,106 @@ const About = () => {
                 transition={{ delay: 0.6, duration: 0.6 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
               >
-                <Button size="lg" onClick={scrollToContact} className="group">
+                <Button size="lg" onClick={() => scrollToContact(false)} className="group">
                   Kontakt aufnehmen
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button size="lg" variant="outline" onClick={scrollToContact} className="border-2">
+                <Button size="lg" variant="outline" onClick={() => scrollToContact(true)} className="border-2">
                   Partner werden
                 </Button>
               </motion.div>
             </motion.div>
           </div>
         </section>
+
+        {/* Contact Form Sheet */}
+        <Sheet open={isContactSheetOpen} onOpenChange={(open) => {
+          setIsContactSheetOpen(open);
+          if (!open) setIsPartnerRequest(false);
+        }}>
+          <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
+            <SheetHeader className="mb-6">
+              <SheetTitle className="text-2xl font-bold">
+                {isPartnerRequest ? "Partner werden" : "Projekt besprechen"}
+              </SheetTitle>
+              <SheetDescription>
+                {isPartnerRequest 
+                  ? "Werden Sie Teil unseres Netzwerks - wir freuen uns auf die Zusammenarbeit."
+                  : "Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen."
+                }
+              </SheetDescription>
+            </SheetHeader>
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="space-y-5">
+                {[{
+                  id: "name",
+                  label: "Name *",
+                  type: "text",
+                  placeholder: "Ihr Name",
+                  required: true
+                }, {
+                  id: "email",
+                  label: "E-Mail *",
+                  type: "email",
+                  placeholder: "ihre@email.com",
+                  required: true
+                }, {
+                  id: "position",
+                  label: "Position *",
+                  type: "text",
+                  placeholder: "Ihre Position",
+                  required: true
+                }, {
+                  id: "firma",
+                  label: "Firma *",
+                  type: "text",
+                  placeholder: "Ihr Unternehmen",
+                  required: true
+                }, {
+                  id: "telefon",
+                  label: "Telefon",
+                  type: "tel",
+                  placeholder: "Ihre Telefonnummer",
+                  required: false
+                }].map(field => (
+                  <div key={field.id} className="space-y-2">
+                    <Label htmlFor={field.id} className="text-foreground font-medium">
+                      {field.label}
+                    </Label>
+                    <Input 
+                      id={field.id} 
+                      name={field.id} 
+                      type={field.type} 
+                      placeholder={field.placeholder} 
+                      required={field.required} 
+                      className="bg-background/50 border-border focus:border-primary transition-colors" 
+                    />
+                  </div>
+                ))}
+                
+                <div className="space-y-2">
+                  <Label htmlFor="nachricht" className="text-foreground font-medium">
+                    Nachricht *
+                  </Label>
+                  <Textarea 
+                    id="nachricht" 
+                    name="nachricht" 
+                    placeholder={isPartnerRequest ? "Erzählen Sie uns über Ihr Unternehmen und warum Sie Partner werden möchten..." : "Erzählen Sie uns von Ihrem Projekt..."} 
+                    defaultValue={isPartnerRequest ? "Wir möchten ein Partner von New Edge werden.\n\n" : ""}
+                    required 
+                    className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none" 
+                  />
+                </div>
+              </div>
+
+              <Button type="submit" size="lg" className="w-full btn-primary text-slate-50">
+                Nachricht senden
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </form>
+          </SheetContent>
+        </Sheet>
 
         <Footer />
       </div>
