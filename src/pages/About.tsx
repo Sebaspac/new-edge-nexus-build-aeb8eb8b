@@ -655,7 +655,7 @@ const About = () => {
             }} transition={{
               duration: 0.8
             }} className="order-1 lg:order-2">
-                <h2 className="text-3xl sm:text-4xl mb-4 sm:mb-6 md:mb-8 text-foreground font-bold md:text-5xl">
+                <h2 className="sm:text-4xl mb-4 sm:mb-6 md:mb-8 text-foreground font-bold md:text-5xl text-5xl">
                   Warum New Edge kein gewöhnliches{" "}
                   <span className="bg-gradient-primary bg-clip-text text-transparent">
                     Studio ist
