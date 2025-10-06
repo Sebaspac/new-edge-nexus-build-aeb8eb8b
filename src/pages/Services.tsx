@@ -560,8 +560,8 @@ const Services = () => {
             number: "03",
             title: "Intelligente Umsetzung",
             description: "Technische Exzellenz und Automatisierung für nachhaltigen Erfolg.",
-            gradient: "from-yellow-500 to-yellow-600",
-            bgColor: "bg-yellow-500/10"
+            gradient: "from-yellow-400 to-yellow-500",
+            bgColor: "bg-yellow-400/10"
           }].map((item, index) => <motion.div key={item.number} initial={{
             opacity: 0,
             y: 40
