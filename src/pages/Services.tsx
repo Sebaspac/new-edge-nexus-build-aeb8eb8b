@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowDown, ChevronDown, Sparkles, Brain, Zap, Star, Target, Eye, Phone, MessageSquare } from "lucide-react";
+import { ArrowRight, ArrowDown, ChevronDown, Lightbulb, Palette, Zap, Star, Target, Eye, Phone, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
@@ -412,7 +412,7 @@ const Services = () => {
                       <div className="flex-1 max-w-md ml-8">
                         <div className="bg-gradient-to-br from-blue-100 to-blue-50 backdrop-blur-xl p-8 rounded-3xl border border-blue-300 shadow-2xl transition-transform hover:scale-105">
                           <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                            <Brain className="w-8 h-8 text-white" />
+                            <Palette className="w-8 h-8 text-white" />
                           </div>
                           <h4 className="mb-4 text-center text-foreground text-lg font-semibold">UMSETZUNG</h4>
                           <p className="text-muted-foreground text-center leading-relaxed">
@@ -493,7 +493,7 @@ const Services = () => {
                         duration: 0.3
                       }
                     }}>
-                        <Sparkles className="w-16 h-16 text-white" />
+                        <Lightbulb className="w-16 h-16 text-white" />
                         
                         {/* Success Particles */}
                         {[...Array(8)].map((_, i) => <motion.div key={i} className="absolute w-2 h-2 bg-yellow-400 rounded-full" style={{
@@ -861,13 +861,13 @@ const Services = () => {
           }
         }}>
             {[{
-            icon: Sparkles,
+            icon: Lightbulb,
             title: "New Edge Studio",
             description: "Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.",
             gradient: "from-secondary to-accent",
             link: "/studio"
           }, {
-            icon: Brain,
+            icon: Palette,
             title: "New Edge Media",
             description: "Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.",
             gradient: "from-primary to-secondary",
