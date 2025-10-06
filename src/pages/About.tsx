@@ -126,12 +126,10 @@ const About = () => {
     setIsPartnerRequest(asPartner);
     setIsContactSheetOpen(true);
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-
     const data = {
       name: formData.get('name')?.toString() || '',
       email: formData.get('email')?.toString() || '',
@@ -141,7 +139,6 @@ const About = () => {
       nachricht: formData.get('nachricht')?.toString() || '',
       source: 'ABOUT'
     };
-
     try {
       const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
         method: 'POST',
@@ -150,7 +147,6 @@ const About = () => {
         },
         body: JSON.stringify(data)
       });
-
       if (response.ok) {
         toast({
           title: "Wir designen für dich",
@@ -1202,13 +1198,16 @@ const About = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3" />
           
           <div className="container-xl relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 60 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              className="text-center mb-16"
-            >
-              <h2 className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-4 text-foreground font-bold leading-[1.2]">
+            <motion.div initial={{
+            opacity: 0,
+            y: 60
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} className="text-center mb-16">
+              <h2 className="text-[42px] sm:text-[48px] md:text-[52px] mb-4 text-foreground font-bold leading-[1.2] text-left lg:text-5xl">
                 Die Gründer
               </h2>
               <p className="text-base lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-[1.5]">
@@ -1218,37 +1217,37 @@ const About = () => {
 
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {[{
-                name: "Sebastian Pachón",
-                role: "Founder & Creative-Tech Partner",
-                tags: ["Strategie", "Technologie"],
-                image: "/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png"
-              }, {
-                name: "Wenjamin Zabezhanskiy",
-                role: "Operations & Innovation Partner",
-                tags: ["Kreation", "Support"],
-                image: "/assets/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png"
-              }].map((founder, i) => (
-                <motion.div 
-                  key={founder.name} 
-                  initial={{ opacity: 0, y: 60 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  viewport={{ once: true }} 
-                  transition={{ delay: i * 0.2 }}
-                  className="group"
-                >
+              name: "Sebastian Pachón",
+              role: "Founder & Creative-Tech Partner",
+              tags: ["Strategie", "Technologie"],
+              image: "/assets/8b2fd89c-8469-4c89-bbba-463d2c352273.png"
+            }, {
+              name: "Wenjamin Zabezhanskiy",
+              role: "Operations & Innovation Partner",
+              tags: ["Kreation", "Support"],
+              image: "/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png"
+            }].map((founder, i) => <motion.div key={founder.name} initial={{
+              opacity: 0,
+              y: 60
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: i * 0.2
+            }} className="group">
                   <Card className="bg-white border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all duration-500 overflow-hidden shadow-lg">
                     <CardContent className="p-8 flex flex-col items-center text-center">
                       {/* Profile Image with Gradient Border */}
                       <div className="relative mb-6">
                         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-secondary to-primary animate-gradient blur-sm" />
                         <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                          <motion.img 
-                            src={founder.image} 
-                            alt={founder.name} 
-                            className="w-full h-full object-cover"
-                            whileHover={{ scale: 1.1 }}
-                            transition={{ duration: 0.6 }}
-                          />
+                          <motion.img src={founder.image} alt={founder.name} className="w-full h-full object-cover" whileHover={{
+                        scale: 1.1
+                      }} transition={{
+                        duration: 0.6
+                      }} />
                         </div>
                       </div>
 
@@ -1264,19 +1263,13 @@ const About = () => {
 
                       {/* Tags */}
                       <div className="flex gap-2 flex-wrap justify-center">
-                        {founder.tags.map((tag) => (
-                          <span 
-                            key={tag}
-                            className="px-4 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm border border-gray-200 hover:border-primary/50 hover:bg-gray-50 transition-colors"
-                          >
+                        {founder.tags.map(tag => <span key={tag} className="px-4 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm border border-gray-200 hover:border-primary/50 hover:bg-gray-50 transition-colors">
                             {tag}
-                          </span>
-                        ))}
+                          </span>)}
                       </div>
                     </CardContent>
                   </Card>
-                </motion.div>
-              ))}
+                </motion.div>)}
             </div>
           </div>
         </section>
@@ -1284,46 +1277,69 @@ const About = () => {
         {/* 9️⃣ Zukunft & Einladung */}
         <section id="kontakt" className="relative py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-white overflow-hidden">
           <div className="container-xl relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 50, scale: 0.9 }} 
-              whileInView={{ opacity: 1, y: 0, scale: 1 }} 
-              viewport={{ once: true, margin: "-80px" }} 
-              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="text-center max-w-4xl mx-auto"
-            >
-              <motion.h2 
-                initial={{ opacity: 0, y: 30 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                viewport={{ once: true }} 
-                transition={{ delay: 0.2, duration: 0.7 }}
-                className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-6 leading-[1.25] text-black font-bold"
-              >
+            <motion.div initial={{
+            opacity: 0,
+            y: 50,
+            scale: 0.9
+          }} whileInView={{
+            opacity: 1,
+            y: 0,
+            scale: 1
+          }} viewport={{
+            once: true,
+            margin: "-80px"
+          }} transition={{
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }} className="text-center max-w-4xl mx-auto">
+              <motion.h2 initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.2,
+              duration: 0.7
+            }} className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-6 leading-[1.25] text-black font-bold">
                 Join the{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Movement
                 </span>
               </motion.h2>
               
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                viewport={{ once: true }} 
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-base lg:text-xl text-gray-600 mb-10 leading-[1.5] max-w-3xl mx-auto"
-              >
+              <motion.p initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.4,
+              duration: 0.6
+            }} className="text-base lg:text-xl text-gray-600 mb-10 leading-[1.5] max-w-3xl mx-auto">
                 New Edge ist das Headquarter für Innovation.
                 Hier entsteht die Zukunft von Marken, Agenturen und Prozessen.
                 <br />
                 <strong className="text-black">Sind Sie bereit, Teil davon zu werden?</strong>
               </motion.p>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                viewport={{ once: true }} 
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="flex flex-col sm:flex-row items-center justify-center gap-4"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.6,
+              duration: 0.6
+            }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button size="lg" onClick={() => scrollToContact(false)} className="group">
                   Kontakt aufnehmen
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -1337,83 +1353,64 @@ const About = () => {
         </section>
 
         {/* Contact Form Sheet */}
-        <Sheet open={isContactSheetOpen} onOpenChange={(open) => {
-          setIsContactSheetOpen(open);
-          if (!open) setIsPartnerRequest(false);
-        }}>
+        <Sheet open={isContactSheetOpen} onOpenChange={open => {
+        setIsContactSheetOpen(open);
+        if (!open) setIsPartnerRequest(false);
+      }}>
           <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
             <SheetHeader className="mb-6">
               <SheetTitle className="text-2xl font-bold">
                 {isPartnerRequest ? "Partner werden" : "Projekt besprechen"}
               </SheetTitle>
               <SheetDescription>
-                {isPartnerRequest 
-                  ? "Werden Sie Teil unseres Netzwerks - wir freuen uns auf die Zusammenarbeit."
-                  : "Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen."
-                }
+                {isPartnerRequest ? "Werden Sie Teil unseres Netzwerks - wir freuen uns auf die Zusammenarbeit." : "Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen."}
               </SheetDescription>
             </SheetHeader>
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-5">
                 {[{
-                  id: "name",
-                  label: "Name *",
-                  type: "text",
-                  placeholder: "Ihr Name",
-                  required: true
-                }, {
-                  id: "email",
-                  label: "E-Mail *",
-                  type: "email",
-                  placeholder: "ihre@email.com",
-                  required: true
-                }, {
-                  id: "position",
-                  label: "Position *",
-                  type: "text",
-                  placeholder: "Ihre Position",
-                  required: true
-                }, {
-                  id: "firma",
-                  label: "Firma *",
-                  type: "text",
-                  placeholder: "Ihr Unternehmen",
-                  required: true
-                }, {
-                  id: "telefon",
-                  label: "Telefon",
-                  type: "tel",
-                  placeholder: "Ihre Telefonnummer",
-                  required: false
-                }].map(field => (
-                  <div key={field.id} className="space-y-2">
+                id: "name",
+                label: "Name *",
+                type: "text",
+                placeholder: "Ihr Name",
+                required: true
+              }, {
+                id: "email",
+                label: "E-Mail *",
+                type: "email",
+                placeholder: "ihre@email.com",
+                required: true
+              }, {
+                id: "position",
+                label: "Position *",
+                type: "text",
+                placeholder: "Ihre Position",
+                required: true
+              }, {
+                id: "firma",
+                label: "Firma *",
+                type: "text",
+                placeholder: "Ihr Unternehmen",
+                required: true
+              }, {
+                id: "telefon",
+                label: "Telefon",
+                type: "tel",
+                placeholder: "Ihre Telefonnummer",
+                required: false
+              }].map(field => <div key={field.id} className="space-y-2">
                     <Label htmlFor={field.id} className="text-foreground font-medium">
                       {field.label}
                     </Label>
-                    <Input 
-                      id={field.id} 
-                      name={field.id} 
-                      type={field.type} 
-                      placeholder={field.placeholder} 
-                      required={field.required} 
-                      className="bg-background/50 border-border focus:border-primary transition-colors" 
-                    />
-                  </div>
-                ))}
+                    <Input id={field.id} name={field.id} type={field.type} placeholder={field.placeholder} required={field.required} className="bg-background/50 border-border focus:border-primary transition-colors" />
+                  </div>)}
                 
                 <div className="space-y-2">
                   <Label htmlFor="nachricht" className="text-foreground font-medium">
                     Nachricht *
                   </Label>
-                  <Textarea 
-                    id="nachricht" 
-                    name="nachricht" 
-                    placeholder={isPartnerRequest ? "Erzählen Sie uns über Ihr Unternehmen und warum Sie Partner werden möchten..." : "Erzählen Sie uns von Ihrem Projekt..."} 
-                    defaultValue={isPartnerRequest ? "Wir möchten ein Partner von New Edge werden.\n\n" : ""}
-                    required 
-                    className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none" 
-                  />
+                  <Textarea id="nachricht" name="nachricht" placeholder={isPartnerRequest ? "Erzählen Sie uns über Ihr Unternehmen und warum Sie Partner werden möchten..." : "Erzählen Sie uns von Ihrem Projekt..."} defaultValue={isPartnerRequest ? "Wir möchten ein Partner von New Edge werden.\n\n" : ""} required className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none" />
                 </div>
               </div>
 
