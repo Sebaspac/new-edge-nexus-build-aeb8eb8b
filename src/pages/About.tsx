@@ -361,8 +361,8 @@ const About = () => {
               }}>
                   <div className="text-center text-white">
                     <img src={newEdgeHubLogo} alt="NEW EDGE" className="w-20 h-20 mx-auto mb-2" />
-                    <div className="font-bold text-lg">NEW EDGE</div>
-                    <div className="text-xs opacity-80">HQ</div>
+                    
+                    
                   </div>
                 </motion.div>
 
