@@ -47,7 +47,7 @@ const Media = () => {
     details: ["Video- und Foto-Content-Produktion", "Motion Graphics und Animationen", "Creative Assets für alle Plattformen", "Content-Strategie und Konzeption"],
     icon: Settings,
     gradient: "from-[#3b82f6] to-[#06b6d4]",
-    video: "/assets/media-section-video.mp4"
+    video: "/assets/media-launch-video.mp4"
   }, {
     title: "Social Media Management",
     description: "Community- und Content-Management für starke Markenbindung auf allen Kanälen.",
@@ -61,7 +61,7 @@ const Media = () => {
     details: ["Launch-Strategien entwickeln", "Paid Advertising Kampagnen", "Conversion-Optimierung", "A/B-Testing und Analytics"],
     icon: TrendingUp,
     gradient: "from-[#3b82f6] to-[#06b6d4]",
-    video: "/assets/media-launch-video.mp4"
+    video: "/assets/media-section-video.mp4"
   }, {
     title: "Content-Marketing & Copywriting",
     description: "Gestaltung relevanter Inhalte und klarer Botschaften für mehr Sichtbarkeit und Markenwirkung.",
