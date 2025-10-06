@@ -188,8 +188,8 @@ const Services = () => {
           }} />)}
           </div>
           
-          {/* Text Content - Bottom Left */}
-          <div className="absolute bottom-0 left-0 p-6 pb-10 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl z-10">
+          {/* Text Content - Centered */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10">
             <motion.h1 initial={{
             opacity: 0,
             y: 30
@@ -199,14 +199,44 @@ const Services = () => {
           }} transition={{
             duration: 0.8,
             ease: "easeOut"
-          }} className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight">
-              <span className="text-white">THE</span><br />
-              <span className="bg-clip-text text-transparent" style={{
-              background: 'linear-gradient(to right, #8B5CF6, #A855F7)',
+          }} className="text-center mb-6">
+              <span className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black block mb-2">THE</span>
+              <span className="italic bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black block" style={{
+              background: 'linear-gradient(to right, #8B5CF6, #3B82F6)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
             }}>JOURNEY</span>
             </motion.h1>
+            
+            <motion.p initial={{
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.8,
+            delay: 0.2,
+            ease: "easeOut"
+          }} className="text-gray-400 text-sm sm:text-base md:text-lg font-medium tracking-wider uppercase mb-8 text-center">
+              From Vision to Reality
+            </motion.p>
+            
+            <motion.p initial={{
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.8,
+            delay: 0.4,
+            ease: "easeOut"
+          }} className="text-white text-sm sm:text-base md:text-lg max-w-3xl text-center leading-relaxed px-4">
+              Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden.
+              <br />
+              Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.
+            </motion.p>
           </div>
 
           {/* Scroll Indicator */}
