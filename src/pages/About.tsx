@@ -1230,75 +1230,53 @@ const About = () => {
         </section>
 
         {/* 9️⃣ Zukunft & Einladung */}
-        <section id="kontakt" className="relative section-padding bg-background overflow-hidden">
-          <div className="absolute inset-0">
-            <motion.div className="absolute inset-0 bg-gradient-primary opacity-10" animate={{
-            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-          }} transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }} style={{
-            backgroundSize: '200% 200%'
-          }} />
-          </div>
-
+        <section id="kontakt" className="relative py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-white overflow-hidden">
           <div className="container-xl relative z-10">
-            <motion.div initial={{
-            opacity: 0,
-            y: 60
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center max-w-4xl mx-auto">
-              <motion.h2 className="text-display mb-8 text-foreground" initial={{
-              opacity: 0,
-              scale: 0.9
-            }} whileInView={{
-              opacity: 1,
-              scale: 1
-            }} viewport={{
-              once: true
-            }}>
+            <motion.div 
+              initial={{ opacity: 0, y: 50, scale: 0.9 }} 
+              whileInView={{ opacity: 1, y: 0, scale: 1 }} 
+              viewport={{ once: true, margin: "-80px" }} 
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="text-center max-w-4xl mx-auto"
+            >
+              <motion.h2 
+                initial={{ opacity: 0, y: 30 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ delay: 0.2, duration: 0.7 }}
+                className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-6 leading-[1.25] text-black font-bold"
+              >
                 Join the{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Movement
                 </span>
               </motion.h2>
               
-              <motion.p className="text-body-xl text-muted-foreground mb-12 leading-relaxed" initial={{
-              opacity: 0
-            }} whileInView={{
-              opacity: 1
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.2
-            }}>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="text-base lg:text-xl text-gray-600 mb-10 leading-[1.5] max-w-3xl mx-auto"
+              >
                 New Edge ist das Headquarter für Innovation.
                 Hier entsteht die Zukunft von Marken, Agenturen und Prozessen.
                 <br />
-                <strong className="text-foreground">Sind Sie bereit, Teil davon zu werden?</strong>
+                <strong className="text-black">Sind Sie bereit, Teil davon zu werden?</strong>
               </motion.p>
 
-              <motion.div className="flex flex-col sm:flex-row items-center justify-center gap-4" initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.4
-            }}>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-4"
+              >
                 <Button size="lg" onClick={scrollToContact} className="group">
                   Kontakt aufnehmen
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button size="lg" variant="outline" onClick={scrollToContact}>
+                <Button size="lg" variant="outline" onClick={scrollToContact} className="border-2">
                   Partner werden
                 </Button>
               </motion.div>
