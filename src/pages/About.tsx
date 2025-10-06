@@ -324,67 +324,7 @@ const About = () => {
         {/* 1️⃣ Intro Section - The Headquarters of Innovation */}
         
 
-        <div className="container-xl relative z-10">
-            <motion.div initial={{
-          opacity: 0,
-          y: 60
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="max-w-4xl text-left">
-              <motion.h2 initial={{
-            opacity: 0,
-            scale: 0.9
-          }} whileInView={{
-            opacity: 1,
-            scale: 1
-          }} viewport={{
-            once: true
-          }} className="text-display mb-8 text-foreground text-5xl">
-                Das Headquarter für{" "}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">
-                  Innovation
-                </span>
-              </motion.h2>
-              
-              <motion.p initial={{
-            opacity: 0
-          }} whileInView={{
-            opacity: 1
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.2
-          }} className="text-body-xl text-muted-foreground mb-12 leading-relaxed text-xl">
-                Wir sind kein gewöhnliches Studio – wir sind das kreative, technologische und strategische 
-                Zentrum für den digitalen Wandel im Mittelstand.
-              </motion.p>
-
-              <motion.div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full mx-auto" initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.4
-          }}>
-                <Button size="lg" onClick={() => scrollToSection('mission')} className="group">
-                  Unsere Philosophie
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button size="lg" variant="outline" onClick={() => scrollToSection('netzwerk')}>
-                  Das Netzwerk entdecken
-                </Button>
-              </motion.div>
-            </motion.div>
-          </div>
+        
 
         {/* 3️⃣ Unser Modell - Wie New Edge funktioniert */}
         <section id="modell" className="relative section-padding bg-background overflow-hidden">
