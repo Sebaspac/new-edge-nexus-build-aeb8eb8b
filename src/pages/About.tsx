@@ -832,7 +832,7 @@ const About = () => {
               <h2 className="text-3xl sm:text-4xl md:text-5xl mb-6 sm:mb-8 md:mb-10 text-foreground leading-[1.2] lg:text-left font-bold text-left">
                 Team & Netzwerk
               </h2>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-[1.7] sm:leading-[1.8] md:leading-[1.9]">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-[1.7] sm:leading-[1.8] md:leading-[1.9] text-left">
                 Unser Team vereint Fachwissen aus Strategie, Design, Technologie und Unternehmertum. 
                 Gemeinsam mit Coaches, Entwickler:innen und Partner-Agenturen bilden wir ein Ökosystem, 
                 das für jede Herausforderung die passende Lösung findet.
