@@ -414,10 +414,17 @@ const About = () => {
               }} transition={{
                 delay: 0.5
               }}>
-                  <div className="w-full h-full rounded-2xl bg-card border-2 border-primary/30 shadow-lg p-6 flex flex-col items-center justify-center text-center transition-transform hover:scale-105">
-                    <Lightbulb className="w-10 h-10 text-primary mb-3" />
-                    <div className="font-bold text-lg mb-1">STUDIO</div>
-                    <div className="text-xs text-muted-foreground">Die strategische Quelle</div>
+                  <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-primary/10 via-background to-background backdrop-blur-sm border border-primary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-primary/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] group overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <motion.div 
+                      className="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-2.5 mb-3 shadow-lg"
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <Lightbulb className="w-full h-full text-white" />
+                    </motion.div>
+                    <div className="relative z-10 font-bold text-lg mb-1 text-foreground group-hover:text-primary transition-colors">STUDIO</div>
+                    <div className="relative z-10 text-xs text-muted-foreground">Die strategische Quelle</div>
                   </div>
                 </motion.div>
 
@@ -433,10 +440,17 @@ const About = () => {
               }} transition={{
                 delay: 0.7
               }}>
-                  <div className="w-full h-full rounded-2xl bg-card border-2 border-secondary/30 shadow-lg p-6 flex flex-col items-center justify-center text-center transition-transform hover:scale-105">
-                    <Palette className="w-10 h-10 text-secondary mb-3" />
-                    <div className="font-bold text-lg mb-1">MEDIA</div>
-                    <div className="text-xs text-muted-foreground">Die kreative Energie</div>
+                  <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-secondary/10 via-background to-background backdrop-blur-sm border border-secondary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-secondary/60 hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] group overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <motion.div 
+                      className="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-secondary to-secondary/70 p-2.5 mb-3 shadow-lg"
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <Palette className="w-full h-full text-white" />
+                    </motion.div>
+                    <div className="relative z-10 font-bold text-lg mb-1 text-foreground group-hover:text-secondary transition-colors">MEDIA</div>
+                    <div className="relative z-10 text-xs text-muted-foreground">Die kreative Energie</div>
                   </div>
                 </motion.div>
 
@@ -452,10 +466,17 @@ const About = () => {
               }} transition={{
                 delay: 0.9
               }}>
-                  <div className="w-full h-full rounded-2xl bg-card border-2 border-accent/30 shadow-lg p-6 flex flex-col items-center justify-center text-center transition-transform hover:scale-105">
-                    <Zap className="w-10 h-10 text-accent mb-3" />
-                    <div className="font-bold text-lg mb-1">LAB</div>
-                    <div className="text-xs text-muted-foreground">Der Automatisierungs-Motor</div>
+                  <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-accent/10 via-background to-background backdrop-blur-sm border border-accent/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(14,165,233,0.3)] group overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <motion.div 
+                      className="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-accent to-accent/70 p-2.5 mb-3 shadow-lg"
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <Zap className="w-full h-full text-white" />
+                    </motion.div>
+                    <div className="relative z-10 font-bold text-lg mb-1 text-foreground group-hover:text-accent transition-colors">LAB</div>
+                    <div className="relative z-10 text-xs text-muted-foreground">Der Automatisierungs-Motor</div>
                   </div>
                 </motion.div>
               </div>
