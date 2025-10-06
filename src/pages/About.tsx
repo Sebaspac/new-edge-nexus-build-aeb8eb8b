@@ -323,7 +323,7 @@ const About = () => {
               once: true
             }} transition={{
               duration: 0.8
-            }}>
+            }} className="text-center lg:text-left">
                 <h2 className="text-h1 mb-8 text-foreground">
                   Unser Auftrag für den{" "}
                   <span className="bg-gradient-primary bg-clip-text text-transparent">
@@ -417,13 +417,13 @@ const About = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-16">
-              <h2 className="text-display mb-6 text-foreground text-left">
+              <h2 className="text-display mb-6 text-foreground text-center lg:text-left">
                 Wie New Edge{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   funktioniert
                 </span>
               </h2>
-              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto text-left">
+              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto text-center lg:text-left">
                 Studio · Media · Lab – drei Einheiten, ein Headquarter.
               </p>
             </motion.div>
@@ -791,7 +791,7 @@ const About = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-20">
-              <h2 className="text-display mb-6 text-foreground text-left">
+              <h2 className="text-display mb-6 text-foreground text-center lg:text-left">
                 Von der Idee zum{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Ökosystem
@@ -911,8 +911,8 @@ const About = () => {
             once: true
           }} transition={{
             duration: 0.9
-          }} className="text-left mb-24">
-              <h2 className="text-h1 mb-10 text-foreground leading-[1.2] text-left font-bold">
+          }} className="text-center lg:text-left mb-24">
+              <h2 className="text-h1 mb-10 text-foreground leading-[1.2] text-center lg:text-left font-bold">
                 Team & Netzwerk
               </h2>
               <p className="text-body-lg text-muted-foreground max-w-3xl leading-[1.9]">
@@ -1081,7 +1081,7 @@ const About = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-16">
-              <h2 className="text-display mb-6 text-foreground text-left">
+              <h2 className="text-display mb-6 text-foreground text-center lg:text-left">
                 Was uns{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   antreibt
@@ -1166,7 +1166,7 @@ const About = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-16">
-              <h2 className="text-display mb-6 text-foreground text-left">
+              <h2 className="text-display mb-6 text-foreground text-center lg:text-left">
                 Die{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Gründer
