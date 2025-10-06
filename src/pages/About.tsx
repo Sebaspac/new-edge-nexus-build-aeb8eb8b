@@ -1151,7 +1151,7 @@ const About = () => {
               <h2 className="text-[42px] sm:text-[48px] md:text-[52px] mb-4 text-foreground font-bold leading-[1.2] text-left lg:text-5xl">
                 Die Gründer
               </h2>
-              <p className="text-base lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-[1.5]">
+              <p className="text-base lg:text-xl text-muted-foreground max-w-3xl leading-[1.5] text-left">
                 Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.
               </p>
             </motion.div>
