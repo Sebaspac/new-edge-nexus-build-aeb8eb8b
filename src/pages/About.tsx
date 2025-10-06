@@ -268,7 +268,7 @@ const About = () => {
             }} viewport={{
               once: true
             }}>
-                The Headquarters of{" "}
+                Das Headquarter für{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Innovation
                 </span>
