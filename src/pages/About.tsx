@@ -1220,12 +1220,12 @@ const About = () => {
               name: "Sebastian Pachón",
               role: "Founder & Creative-Tech Partner",
               tags: ["Strategie", "Technologie"],
-              image: "/assets/8b2fd89c-8469-4c89-bbba-463d2c352273.png"
+              image: "/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png"
             }, {
               name: "Wenjamin Zabezhanskiy",
               role: "Operations & Innovation Partner",
               tags: ["Kreation", "Support"],
-              image: "/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png"
+              image: "/assets/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png"
             }].map((founder, i) => <motion.div key={founder.name} initial={{
               opacity: 0,
               y: 60
