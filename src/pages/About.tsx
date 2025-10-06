@@ -560,12 +560,7 @@ const About = () => {
                   scale: 0.9
                 }} transition={{
                   duration: 0.3
-                }} className="absolute z-20 pointer-events-none" style={{
-                  x: hoveredModule === 'studio' ? studioX : hoveredModule === 'media' ? mediaX : labX,
-                  y: hoveredModule === 'studio' ? studioY : hoveredModule === 'media' ? mediaY : labY,
-                  translateX: "-50%",
-                  translateY: "-50%"
-                }}>
+                }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
                       <div className="relative w-60 h-60 rounded-full overflow-hidden border-2 border-primary/50 backdrop-blur-xl bg-background/20 shadow-[0_0_60px_rgba(168,85,247,0.6)]">
                         <video ref={videoRef} autoPlay muted playsInline preload="auto" className="w-full h-full object-cover transition-opacity duration-200" src={moduleVideos[hoveredModule][currentVideoIndex[hoveredModule]]} />
                         <div className="absolute inset-0 rounded-full ring-2 ring-white/20" />
