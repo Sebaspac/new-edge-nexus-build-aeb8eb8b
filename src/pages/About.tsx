@@ -200,7 +200,7 @@ const About = () => {
                 <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight">
                   <span className="text-white">DESIGN BRANDS.
                 </span><br />
-                  <span className="italic font-black text-primary">DRIVE INNOVATION.</span>
+                  <span className="italic font-black bg-gradient-primary bg-clip-text text-transparent">DRIVE INNOVATION.</span>
                 </h1>
               </div>
               
