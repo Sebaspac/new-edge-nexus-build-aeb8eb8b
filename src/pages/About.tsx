@@ -959,11 +959,7 @@ const About = () => {
               team: "Lead Developers, Tech Innovators",
               icon: Zap,
               gradient: "from-blue-600 via-cyan-600 to-blue-600"
-            }].map((item, index) => <motion.div 
-                key={item.title}
-                onMouseEnter={() => setHoveredTeamCard(item.id)}
-                onMouseLeave={() => setHoveredTeamCard(null)}
-                variants={{
+            }].map((item, index) => <motion.div key={item.title} onMouseEnter={() => setHoveredTeamCard(item.id)} onMouseLeave={() => setHoveredTeamCard(null)} variants={{
               hidden: {
                 opacity: 0,
                 y: 80,
@@ -981,68 +977,49 @@ const About = () => {
             }} className="group relative">
                   <Card className="h-full bg-gradient-to-br from-background via-surface to-background border-border/50 hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 overflow-hidden">
                     {/* Animated gradient background */}
-                    <motion.div 
-                      className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                      animate={{
-                        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-                      }}
-                      transition={{
-                        duration: 10,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }}
-                      style={{ backgroundSize: '200% 200%' }}
-                    />
+                    <motion.div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} animate={{
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+                }} transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  ease: "linear"
+                }} style={{
+                  backgroundSize: '200% 200%'
+                }} />
                     
                     {/* Floating particles effect */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      {[...Array(3)].map((_, i) => (
-                        <motion.div
-                          key={i}
-                          className={`absolute w-2 h-2 rounded-full bg-gradient-to-r ${item.gradient}`}
-                          style={{
-                            left: `${20 + i * 30}%`,
-                            top: `${30 + i * 20}%`
-                          }}
-                          animate={{
-                            y: [-20, -40, -20],
-                            opacity: [0, 1, 0],
-                            scale: [0, 1, 0]
-                          }}
-                          transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            delay: i * 0.4,
-                            ease: "easeInOut"
-                          }}
-                        />
-                      ))}
+                      {[...Array(3)].map((_, i) => <motion.div key={i} className={`absolute w-2 h-2 rounded-full bg-gradient-to-r ${item.gradient}`} style={{
+                    left: `${20 + i * 30}%`,
+                    top: `${30 + i * 20}%`
+                  }} animate={{
+                    y: [-20, -40, -20],
+                    opacity: [0, 1, 0],
+                    scale: [0, 1, 0]
+                  }} transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: i * 0.4,
+                    ease: "easeInOut"
+                  }} />)}
                     </div>
 
                     <CardContent className="p-6 md:p-10 flex flex-col h-full relative z-10">
                       {/* Animated Icon */}
-                      <motion.div 
-                        className={`w-16 h-16 md:w-20 md:h-20 mb-6 rounded-2xl bg-gradient-to-br ${item.gradient} p-4 shadow-lg relative overflow-hidden`}
-                        whileHover={{
-                          scale: 1.1,
-                          rotate: [0, -10, 10, -10, 0]
-                        }}
-                        transition={{
-                          duration: 0.6
-                        }}
-                      >
-                        <motion.div
-                          className="absolute inset-0 bg-white/20"
-                          animate={{
-                            x: ['-100%', '200%']
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            repeatDelay: 1,
-                            ease: "easeInOut"
-                          }}
-                        />
+                      <motion.div className={`w-16 h-16 md:w-20 md:h-20 mb-6 rounded-2xl bg-gradient-to-br ${item.gradient} p-4 shadow-lg relative overflow-hidden`} whileHover={{
+                    scale: 1.1,
+                    rotate: [0, -10, 10, -10, 0]
+                  }} transition={{
+                    duration: 0.6
+                  }}>
+                        <motion.div className="absolute inset-0 bg-white/20" animate={{
+                      x: ['-100%', '200%']
+                    }} transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatDelay: 1,
+                      ease: "easeInOut"
+                    }} />
                         <item.icon className="w-full h-full text-white relative z-10" />
                       </motion.div>
 
@@ -1117,155 +1094,62 @@ const About = () => {
             }].map((stat, index) => {
               const isHighlighted = hoveredTeamCard && stat.category === hoveredTeamCard;
               const isDimmed = hoveredTeamCard && stat.category !== hoveredTeamCard && stat.category !== null;
-              
               return <motion.div key={stat.label} variants={{
-              hidden: {
-                opacity: 0,
-                scale: 0.5,
-                y: 50
-              },
-              visible: {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                transition: {
-                  duration: 0.6,
-                  ease: [0.25, 0.46, 0.45, 0.94]
+                hidden: {
+                  opacity: 0,
+                  scale: 0.5,
+                  y: 50
+                },
+                visible: {
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.6,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }
                 }
-              }
-            }} 
-            whileHover={{
-              scale: 1.15,
-              y: -10
-            }} 
-            animate={{
-              scale: isHighlighted ? 1.1 : isDimmed ? 0.95 : 1,
-              opacity: isDimmed ? 0.4 : 1
-            }}
-            className="group">
-                  <Card className={`h-full bg-white border-border backdrop-blur-sm transition-all duration-500 ${
-                    isHighlighted 
-                      ? 'border-primary shadow-[0_0_30px_rgba(139,92,246,0.5)] shadow-primary/50' 
-                      : 'hover:border-primary/50 hover:shadow-xl'
-                  }`}>
+              }} whileHover={{
+                scale: 1.15,
+                y: -10
+              }} animate={{
+                scale: isHighlighted ? 1.1 : isDimmed ? 0.95 : 1,
+                opacity: isDimmed ? 0.4 : 1
+              }} className="group">
+                  <Card className={`h-full bg-white border-border backdrop-blur-sm transition-all duration-500 ${isHighlighted ? 'border-primary shadow-[0_0_30px_rgba(139,92,246,0.5)] shadow-primary/50' : 'hover:border-primary/50 hover:shadow-xl'}`}>
                     <CardContent className="p-4 md:p-6 flex flex-col items-center text-center h-full relative overflow-hidden">
-                      <motion.div 
-                        className={`absolute inset-0 bg-gradient-to-br ${stat.color} transition-opacity duration-500`}
-                        animate={{
-                          opacity: isHighlighted ? 0.15 : 0
-                        }}
-                      />
+                      <motion.div className={`absolute inset-0 bg-gradient-to-br ${stat.color} transition-opacity duration-500`} animate={{
+                      opacity: isHighlighted ? 0.15 : 0
+                    }} />
                       <motion.div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                       
                       <motion.div className={`w-12 h-12 md:w-14 md:h-14 mb-3 md:mb-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${stat.color} p-2.5 md:p-3 shadow-lg relative z-10`} whileHover={{
-                    rotate: 360,
-                    scale: 1.2
-                  }} transition={{
-                    duration: 0.6,
-                    type: "spring"
-                  }}>
+                      rotate: 360,
+                      scale: 1.2
+                    }} transition={{
+                      duration: 0.6,
+                      type: "spring"
+                    }}>
                         <stat.icon className="w-full h-full text-white" />
                       </motion.div>
                       
                       <motion.div className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-1 relative z-10" whileHover={{
-                    scale: 1.1
-                  }}>
+                      scale: 1.1
+                    }}>
                         {stat.value}
                       </motion.div>
                       
                       <div className="text-xs md:text-sm text-muted-foreground relative z-10">{stat.label}</div>
                     </CardContent>
                   </Card>
-                </motion.div>
-              })}
+                </motion.div>;
+            })}
             </motion.div>
           </div>
         </section>
 
         {/* 7️⃣ Werte & Kultur */}
-        <section id="werte" className="relative section-padding bg-background">
-          <div className="container-xl">
-            <motion.div initial={{
-            opacity: 0,
-            y: 60
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center mb-16">
-              <h2 className="text-display mb-6 text-foreground text-center lg:text-left">
-                Was uns{" "}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">
-                  antreibt
-                </span>
-              </h2>
-              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto">
-                Partnerschaftlich. Innovativ. Transparent. Menschlich.
-              </p>
-            </motion.div>
-
-            <motion.div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto" initial="hidden" whileInView="visible" viewport={{
-            once: true
-          }} variants={{
-            hidden: {
-              opacity: 0
-            },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.15
-              }
-            }
-          }}>
-              {[{
-              icon: Handshake,
-              title: "Partnerschaftlich",
-              description: "Wir glauben an echte Zusammenarbeit auf Augenhöhe – mit Agenturen und Unternehmen."
-            }, {
-              icon: Rocket,
-              title: "Innovativ",
-              description: "Wir bringen neue Ideen, moderne Technologie und kreative Lösungen zusammen."
-            }, {
-              icon: ShieldCheck,
-              title: "Transparent",
-              description: "Offene Kommunikation und klare Prozesse sind die Basis unserer Arbeit."
-            }, {
-              icon: Heart,
-              title: "Menschlich",
-              description: "Technologie ist wichtig – aber am Ende geht es immer um Menschen und ihre Ziele."
-            }].map((value, i) => <motion.div key={value.title} variants={{
-              hidden: {
-                opacity: 0,
-                y: 40,
-                scale: 0.9
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-                scale: 1
-              }
-            }}>
-                  <Card className="h-full hover:shadow-xl transition-all duration-300 hover:border-primary/30 group">
-                    <CardContent className="p-8 text-center">
-                      <motion.div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-primary p-4 shadow-lg" whileHover={{
-                    rotate: 360,
-                    scale: 1.1
-                  }} transition={{
-                    duration: 0.6
-                  }}>
-                        <value.icon className="w-full h-full text-white" />
-                      </motion.div>
-                      <h3 className="text-h3 mb-4 group-hover:text-primary transition-colors">{value.title}</h3>
-                      <p className="text-body text-muted-foreground leading-relaxed">
-                        {value.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>)}
-            </motion.div>
-          </div>
-        </section>
+        
 
         {/* 8️⃣ Gründer & Leadership */}
         <section className="relative section-padding bg-surface">
