@@ -633,12 +633,20 @@ const About = () => {
                 y: 0
               }
             }} className="group">
-                  <Card className="h-full hover:shadow-xl transition-all duration-300 hover:border-primary/30">
-                    <CardContent className="p-8">
-                      <unit.icon className="w-12 h-12 mb-6 text-primary group-hover:scale-110 transition-transform" />
-                      <h3 className="text-h3 mb-4">{unit.title}</h3>
-                      <p className="text-body text-muted-foreground mb-6">{unit.description}</p>
-                      <Button variant="ghost" onClick={() => window.location.href = unit.link} className="group/btn">
+                  <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
+                    <CardContent className="p-4 md:p-8 flex flex-col h-full">
+                      <motion.div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${unit.title === 'STUDIO' ? 'from-primary to-primary/70' : unit.title === 'MEDIA' ? 'from-secondary to-secondary/70' : 'from-accent to-accent/70'} flex items-center justify-center mb-4 md:mb-6 shadow-lg`} whileHover={{
+                        scale: 1.1,
+                        rotate: [0, -5, 5, 0],
+                        transition: { duration: 0.5 }
+                      }}>
+                        <unit.icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
+                      </motion.div>
+                      <div className="flex-grow">
+                        <h3 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4 text-foreground">{unit.title}</h3>
+                        <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 leading-relaxed">{unit.description}</p>
+                      </div>
+                      <Button variant="ghost" onClick={() => window.location.href = unit.link} className="group/btn w-full md:w-auto">
                         {unit.title} ansehen
                         <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                       </Button>
