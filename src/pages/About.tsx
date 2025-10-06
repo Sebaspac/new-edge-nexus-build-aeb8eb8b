@@ -249,7 +249,7 @@ const About = () => {
                       <Target className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                       Mission
                     </h3>
-                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
+                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed text-left">
                       Wir bringen Innovation dorthin, wo sie am meisten gebraucht wird – in den Mittelstand.
                       Dafür automatisieren wir Prozesse, verbinden Agenturen mit Unternehmen und machen 
                       Kreativität skalierbar.
@@ -261,7 +261,7 @@ const About = () => {
                       <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
                       Vision
                     </h3>
-                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
+                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed text-left">
                       Ein Ökosystem, in dem Marken, Agenturen und Technologien nahtlos zusammenarbeiten – 
                       und der Mittelstand zum Motor echter Innovation wird.
                     </p>
