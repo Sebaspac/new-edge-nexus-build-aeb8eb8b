@@ -435,7 +435,7 @@ const About = () => {
             once: true
           }} transition={{
             duration: 0.8
-          }} className="max-w-5xl mx-auto mb-20">
+          }} className="relative max-w-5xl mx-auto mb-20">
               <div className="relative aspect-square max-w-2xl mx-auto">
                 {/* Central Hub */}
                 <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-gradient-primary flex items-center justify-center shadow-2xl z-10" animate={{
@@ -562,7 +562,7 @@ const About = () => {
               scale: 0.9
             }} transition={{
               duration: 0.3
-            }} className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none">
+            }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none">
                   <div className="relative w-[400px] aspect-video rounded-xl overflow-hidden border border-primary/30 backdrop-blur-xl bg-background/10 shadow-[0_0_40px_rgba(168,85,247,0.3)]">
                     <video ref={videoRef} autoPlay muted playsInline preload="auto" className="w-full h-full object-cover rounded-xl transition-opacity duration-200" src={moduleVideos[hoveredModule][currentVideoIndex[hoveredModule]]} />
                     <div className="absolute inset-0 rounded-xl ring-1 ring-white/10" />
