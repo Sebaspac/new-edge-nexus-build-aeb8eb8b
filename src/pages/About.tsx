@@ -255,7 +255,7 @@ const About = () => {
                       <Target className="w-6 h-6 text-primary" />
                       Mission
                     </h3>
-                    <p className="text-body-lg text-muted-foreground leading-relaxed">
+                    <p className="text-body-lg text-muted-foreground leading-relaxed text-lg">
                       Wir bringen Innovation dorthin, wo sie am meisten gebraucht wird – in den Mittelstand.
                       Dafür automatisieren wir Prozesse, verbinden Agenturen mit Unternehmen und machen 
                       Kreativität skalierbar.
@@ -267,7 +267,7 @@ const About = () => {
                       <Sparkles className="w-6 h-6 text-secondary" />
                       Vision
                     </h3>
-                    <p className="text-body-lg text-muted-foreground leading-relaxed">
+                    <p className="text-body-lg text-muted-foreground leading-relaxed text-lg">
                       Ein Ökosystem, in dem Marken, Agenturen und Technologien nahtlos zusammenarbeiten – 
                       und der Mittelstand zum Motor echter Innovation wird.
                     </p>
@@ -344,14 +344,14 @@ const About = () => {
             scale: 1
           }} viewport={{
             once: true
-          }} className="text-display mb-8 text-foreground text-6xl">
+          }} className="text-display mb-8 text-foreground text-5xl">
                 Das Headquarter für{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Innovation
                 </span>
               </motion.h2>
               
-              <motion.p className="text-body-xl text-muted-foreground mb-12 leading-relaxed" initial={{
+              <motion.p initial={{
             opacity: 0
           }} whileInView={{
             opacity: 1
@@ -359,7 +359,7 @@ const About = () => {
             once: true
           }} transition={{
             delay: 0.2
-          }}>
+          }} className="text-body-xl text-muted-foreground mb-12 leading-relaxed text-xl">
                 Wir sind kein gewöhnliches Studio – wir sind das kreative, technologische und strategische 
                 Zentrum für den digitalen Wandel im Mittelstand.
               </motion.p>
@@ -406,7 +406,7 @@ const About = () => {
                   funktioniert
                 </span>
               </h2>
-              <p className="text-body-xl text-muted-foreground max-w-3xl text-left">
+              <p className="text-body-xl text-muted-foreground max-w-3xl text-left text-xl">
                 Studio · Media · Lab – drei Einheiten, ein Headquarter.
               </p>
             </motion.div>
@@ -640,7 +640,7 @@ const About = () => {
                         <unit.icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
                       </motion.div>
                       <div className="flex-grow">
-                        <h3 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4 text-foreground">{unit.title}</h3>
+                        <h3 className="text-lg mb-3 md:mb-4 text-foreground font-bold md:text-2xl">{unit.title}</h3>
                         <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 leading-relaxed">{unit.description}</p>
                       </div>
                       <Button variant="ghost" onClick={() => window.location.href = unit.link} className="group/btn w-full md:w-auto">
@@ -780,7 +780,7 @@ const About = () => {
                   Ökosystem
                 </span>
               </h2>
-              <p className="text-body-xl text-muted-foreground max-w-3xl text-left">
+              <p className="text-body-xl text-muted-foreground max-w-3xl text-left text-xl">
                 New Edge wurde gegründet, weil wir gesehen haben, dass Kreativität und Technologie 
                 im Mittelstand oft getrennt voneinander existieren.
               </p>
@@ -898,7 +898,7 @@ const About = () => {
               <h2 className="text-h1 mb-10 text-foreground leading-[1.2] lg:text-left font-bold text-5xl text-left">
                 Team & Netzwerk
               </h2>
-              <p className="text-body-lg text-muted-foreground max-w-3xl leading-[1.9]">
+              <p className="text-body-lg text-muted-foreground max-w-3xl leading-[1.9] text-xl">
                 Unser Team vereint Fachwissen aus Strategie, Design, Technologie und Unternehmertum. 
                 Gemeinsam mit Coaches, Entwickler:innen und Partner-Agenturen bilden wir ein Ökosystem, 
                 das für jede Herausforderung die passende Lösung findet.
