@@ -42,12 +42,6 @@ const Studio = () => {
     }
   };
   const studioServices = [{
-    title: "Strategie & Markenidentität",
-    description: "Strategische Markenpositionierung und Zielgruppenanalyse für eine klare Ausrichtung.",
-    details: ["Zielgruppen- und Wettbewerbsanalyse", "Brand Positioning und Messaging", "Markenwerte und Vision definieren", "Strategische Roadmap entwickeln"],
-    icon: Palette,
-    gradient: "from-[#6366f1] to-[#a855f7]"
-  }, {
     title: "Brand Story",
     description: "Authentische Markenstories mit klaren Werten und einzigartiger Tonalität.",
     details: ["Storytelling-Konzept entwickeln", "Tone of Voice definieren", "Emotionale Kundenbindung schaffen", "Konsistente Markennarrative"],
@@ -68,7 +62,7 @@ const Studio = () => {
   }];
   return <>
       <Helmet>
-        <title>NEW EDGE STUDIO - Design Excellence | Strategie & Markenidentität</title>
+        <title>NEW EDGE STUDIO - Design Excellence | Brand Story & Templates</title>
         <meta name="description" content="NEW EDGE STUDIO liefert das strategische Fundament: Markenidentität, Brand Story, Template-Design und Nutzerführung für Ihre digitale Präsenz." />
         <meta name="keywords" content="Design Studio, Markenidentität, Brand Story, UI/UX Design, Template Design, Funnel Design" />
         <link rel="canonical" href="https://new-edge.de/studio" />
@@ -206,9 +200,9 @@ const Studio = () => {
         const isEven = index % 2 === 0;
         // Use specific videos for each section
         let videoSrc = "/assets/studio-service-video.mp4";
-        if (index === 1) videoSrc = "/assets/brandstory-video.mp4"; // Brand Story
-        if (index === 2) videoSrc = "/assets/template-video.mp4"; // Template-Rahmen
-        if (index === 3) videoSrc = "/assets/wireframes-video.mp4"; // Nutzerführung & Wireframes
+        if (index === 0) videoSrc = "/assets/brandstory-video.mp4"; // Brand Story
+        if (index === 1) videoSrc = "/assets/template-video.mp4"; // Template-Rahmen
+        if (index === 2) videoSrc = "/assets/wireframes-video.mp4"; // Nutzerführung & Wireframes
         return <section key={index} className="py-12 sm:py-16" style={{
           background: index % 2 === 0 ? 'linear-gradient(to bottom right, white, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08))' : 'linear-gradient(to bottom right, white, rgba(168, 85, 247, 0.08), rgba(99, 102, 241, 0.08))'
         }}>
