@@ -8,32 +8,20 @@ import { Users, Code, Palette, Globe, Briefcase, ChevronDown, ArrowRight, Sparkl
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import newEdgeHubLogo from "@/assets/new-edge-hub-logo.png";
-
 const moduleVideos = {
-  studio: [
-    '/assets/studio-hero-video.mp4',
-    '/assets/studio-service-video.mp4',
-    '/assets/brandstory-video.mp4'
-  ],
-  media: [
-    '/assets/media-hero-video.mp4',
-    '/assets/media-section-video.mp4',
-    '/assets/template-video.mp4'
-  ],
-  lab: [
-    '/assets/lab-hero-video.mp4',
-    '/assets/lab-section-video.mp4',
-    '/assets/lab-ki-automation-video.mp4',
-    '/assets/wireframes-video.mp4',
-    '/assets/liam-video.mp4'
-  ]
+  studio: ['/assets/studio-hero-video.mp4', '/assets/studio-service-video.mp4', '/assets/brandstory-video.mp4'],
+  media: ['/assets/media-hero-video.mp4', '/assets/media-section-video.mp4', '/assets/template-video.mp4'],
+  lab: ['/assets/lab-hero-video.mp4', '/assets/lab-section-video.mp4', '/assets/lab-ki-automation-video.mp4', '/assets/wireframes-video.mp4', '/assets/liam-video.mp4']
 };
-
 const About = () => {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('intro');
   const [hoveredModule, setHoveredModule] = useState<'studio' | 'media' | 'lab' | null>(null);
-  const [currentVideoIndex, setCurrentVideoIndex] = useState({ studio: 0, media: 0, lab: 0 });
+  const [currentVideoIndex, setCurrentVideoIndex] = useState({
+    studio: 0,
+    media: 0,
+    lab: 0
+  });
   const videoRef = useRef<HTMLVideoElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [isVideoReady, setIsVideoReady] = useState(false);
@@ -41,15 +29,12 @@ const About = () => {
   // Orbital rotation setup
   const orbitalRadius = typeof window !== 'undefined' && window.innerWidth < 768 ? 180 : 280;
   const orbitalAngle = useMotionValue(0);
-
-  const studioX = useTransform(orbitalAngle, (a) => Math.cos((a - 90) * Math.PI / 180) * orbitalRadius);
-  const studioY = useTransform(orbitalAngle, (a) => Math.sin((a - 90) * Math.PI / 180) * orbitalRadius);
-
-  const mediaX = useTransform(orbitalAngle, (a) => Math.cos((a + 30) * Math.PI / 180) * orbitalRadius);
-  const mediaY = useTransform(orbitalAngle, (a) => Math.sin((a + 30) * Math.PI / 180) * orbitalRadius);
-
-  const labX = useTransform(orbitalAngle, (a) => Math.cos((a + 150) * Math.PI / 180) * orbitalRadius);
-  const labY = useTransform(orbitalAngle, (a) => Math.sin((a + 150) * Math.PI / 180) * orbitalRadius);
+  const studioX = useTransform(orbitalAngle, a => Math.cos((a - 90) * Math.PI / 180) * orbitalRadius);
+  const studioY = useTransform(orbitalAngle, a => Math.sin((a - 90) * Math.PI / 180) * orbitalRadius);
+  const mediaX = useTransform(orbitalAngle, a => Math.cos((a + 30) * Math.PI / 180) * orbitalRadius);
+  const mediaY = useTransform(orbitalAngle, a => Math.sin((a + 30) * Math.PI / 180) * orbitalRadius);
+  const labX = useTransform(orbitalAngle, a => Math.cos((a + 150) * Math.PI / 180) * orbitalRadius);
+  const labY = useTransform(orbitalAngle, a => Math.sin((a + 150) * Math.PI / 180) * orbitalRadius);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -65,7 +50,6 @@ const About = () => {
       ease: "linear",
       repeatType: "loop"
     });
-    
     return () => controls.stop();
   }, [orbitalAngle]);
 
@@ -73,11 +57,10 @@ const About = () => {
   useEffect(() => {
     if (hoveredModule && videoRef.current) {
       const video = videoRef.current;
-      
+
       // Preload and play current video
       video.load();
       const playPromise = video.play();
-      
       if (playPromise !== undefined) {
         playPromise.then(() => {
           setIsVideoReady(true);
@@ -85,13 +68,16 @@ const About = () => {
           setIsVideoReady(false);
         });
       }
-      
+
       // Start cycling videos every 3 seconds
       intervalRef.current = setInterval(() => {
         setCurrentVideoIndex(prev => {
           const videos = moduleVideos[hoveredModule];
           const nextIndex = (prev[hoveredModule] + 1) % videos.length;
-          return { ...prev, [hoveredModule]: nextIndex };
+          return {
+            ...prev,
+            [hoveredModule]: nextIndex
+          };
         });
       }, 3000);
     } else {
@@ -101,7 +87,6 @@ const About = () => {
         intervalRef.current = null;
       }
     }
-
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -467,65 +452,31 @@ const About = () => {
                 </motion.div>
 
                 {/* Connection Lines */}
-                <svg className="absolute inset-0 w-full h-full">
-                  <motion.line 
-                    x1="50%" 
-                    y1="50%" 
-                    x2={useTransform(studioX, (x) => `calc(50% + ${x}px)`)}
-                    y2={useTransform(studioY, (y) => `calc(50% + ${y}px)`)}
-                    stroke="url(#lineGradient)" 
-                    strokeWidth="2"
-                  />
-                  <motion.line 
-                    x1="50%" 
-                    y1="50%" 
-                    x2={useTransform(mediaX, (x) => `calc(50% + ${x}px)`)}
-                    y2={useTransform(mediaY, (y) => `calc(50% + ${y}px)`)}
-                    stroke="url(#lineGradient)" 
-                    strokeWidth="2"
-                  />
-                  <motion.line 
-                    x1="50%" 
-                    y1="50%" 
-                    x2={useTransform(labX, (x) => `calc(50% + ${x}px)`)}
-                    y2={useTransform(labY, (y) => `calc(50% + ${y}px)`)}
-                    stroke="url(#lineGradient)" 
-                    strokeWidth="2"
-                  />
-                  <defs>
-                    <linearGradient id="lineGradient">
-                      <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="hsl(var(--secondary))" stopOpacity="0.8" />
-                    </linearGradient>
-                  </defs>
-                </svg>
+                
 
                 {/* Studio Node */}
-                <motion.div 
-                  className="absolute left-1/2 top-1/2 w-40 h-40" 
-                  style={{ 
-                    x: studioX, 
-                    y: studioY,
-                    translateX: "-50%",
-                    translateY: "-50%"
-                  }}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5 }}
-                  onMouseEnter={() => setHoveredModule('studio')}
-                  onMouseLeave={() => setHoveredModule(null)}
-                >
-                  <motion.div 
-                    className="relative w-full h-full rounded-3xl bg-gradient-to-br from-primary/10 via-background to-background backdrop-blur-sm border border-primary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-primary/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] group overflow-hidden"
-                  >
+                <motion.div className="absolute left-1/2 top-1/2 w-40 h-40" style={{
+                x: studioX,
+                y: studioY,
+                translateX: "-50%",
+                translateY: "-50%"
+              }} initial={{
+                opacity: 0
+              }} whileInView={{
+                opacity: 1
+              }} viewport={{
+                once: true
+              }} transition={{
+                delay: 0.5
+              }} onMouseEnter={() => setHoveredModule('studio')} onMouseLeave={() => setHoveredModule(null)}>
+                  <motion.div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-primary/10 via-background to-background backdrop-blur-sm border border-primary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-primary/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative z-10">
-                      <motion.div 
-                        className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-2.5 mb-3 shadow-lg mx-auto"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
-                      >
+                      <motion.div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-2.5 mb-3 shadow-lg mx-auto" whileHover={{
+                      scale: 1.1
+                    }} transition={{
+                      duration: 0.3
+                    }}>
                         <Lightbulb className="w-full h-full text-white" />
                       </motion.div>
                       <div className="font-bold text-lg mb-1 text-foreground group-hover:text-primary transition-colors">STUDIO</div>
@@ -535,31 +486,28 @@ const About = () => {
                 </motion.div>
 
                 {/* Media Node */}
-                <motion.div 
-                  className="absolute left-1/2 top-1/2 w-40 h-40" 
-                  style={{ 
-                    x: mediaX, 
-                    y: mediaY,
-                    translateX: "-50%",
-                    translateY: "-50%"
-                  }}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.7 }}
-                  onMouseEnter={() => setHoveredModule('media')}
-                  onMouseLeave={() => setHoveredModule(null)}
-                >
-                  <motion.div 
-                    className="relative w-full h-full rounded-3xl bg-gradient-to-br from-secondary/10 via-background to-background backdrop-blur-sm border border-secondary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-secondary/60 hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] group overflow-hidden"
-                  >
+                <motion.div className="absolute left-1/2 top-1/2 w-40 h-40" style={{
+                x: mediaX,
+                y: mediaY,
+                translateX: "-50%",
+                translateY: "-50%"
+              }} initial={{
+                opacity: 0
+              }} whileInView={{
+                opacity: 1
+              }} viewport={{
+                once: true
+              }} transition={{
+                delay: 0.7
+              }} onMouseEnter={() => setHoveredModule('media')} onMouseLeave={() => setHoveredModule(null)}>
+                  <motion.div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-secondary/10 via-background to-background backdrop-blur-sm border border-secondary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-secondary/60 hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative z-10">
-                      <motion.div 
-                        className="w-12 h-12 rounded-2xl bg-gradient-to-br from-secondary to-secondary/70 p-2.5 mb-3 shadow-lg mx-auto"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
-                      >
+                      <motion.div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-secondary to-secondary/70 p-2.5 mb-3 shadow-lg mx-auto" whileHover={{
+                      scale: 1.1
+                    }} transition={{
+                      duration: 0.3
+                    }}>
                         <Palette className="w-full h-full text-white" />
                       </motion.div>
                       <div className="font-bold text-lg mb-1 text-foreground group-hover:text-secondary transition-colors">MEDIA</div>
@@ -569,31 +517,28 @@ const About = () => {
                 </motion.div>
 
                 {/* Lab Node */}
-                <motion.div 
-                  className="absolute left-1/2 top-1/2 w-40 h-40" 
-                  style={{ 
-                    x: labX, 
-                    y: labY,
-                    translateX: "-50%",
-                    translateY: "-50%"
-                  }}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.9 }}
-                  onMouseEnter={() => setHoveredModule('lab')}
-                  onMouseLeave={() => setHoveredModule(null)}
-                >
-                  <motion.div 
-                    className="relative w-full h-full rounded-3xl bg-gradient-to-br from-accent/10 via-background to-background backdrop-blur-sm border border-accent/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(14,165,233,0.3)] group overflow-hidden"
-                  >
+                <motion.div className="absolute left-1/2 top-1/2 w-40 h-40" style={{
+                x: labX,
+                y: labY,
+                translateX: "-50%",
+                translateY: "-50%"
+              }} initial={{
+                opacity: 0
+              }} whileInView={{
+                opacity: 1
+              }} viewport={{
+                once: true
+              }} transition={{
+                delay: 0.9
+              }} onMouseEnter={() => setHoveredModule('lab')} onMouseLeave={() => setHoveredModule(null)}>
+                  <motion.div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-accent/10 via-background to-background backdrop-blur-sm border border-accent/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(14,165,233,0.3)] group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative z-10">
-                      <motion.div 
-                        className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent to-accent/70 p-2.5 mb-3 shadow-lg mx-auto"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
-                      >
+                      <motion.div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent to-accent/70 p-2.5 mb-3 shadow-lg mx-auto" whileHover={{
+                      scale: 1.1
+                    }} transition={{
+                      duration: 0.3
+                    }}>
                         <Zap className="w-full h-full text-white" />
                       </motion.div>
                       <div className="font-bold text-lg mb-1 text-foreground group-hover:text-accent transition-colors">LAB</div>
@@ -606,28 +551,23 @@ const About = () => {
 
             {/* Floating Video Preview */}
             <AnimatePresence>
-              {hoveredModule && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                  className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none"
-                >
+              {hoveredModule && <motion.div initial={{
+              opacity: 0,
+              scale: 0.9
+            }} animate={{
+              opacity: 1,
+              scale: 1
+            }} exit={{
+              opacity: 0,
+              scale: 0.9
+            }} transition={{
+              duration: 0.3
+            }} className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none">
                   <div className="relative w-[400px] aspect-video rounded-xl overflow-hidden border border-primary/30 backdrop-blur-xl bg-background/10 shadow-[0_0_40px_rgba(168,85,247,0.3)]">
-                    <video
-                      ref={videoRef}
-                      autoPlay
-                      muted
-                      playsInline
-                      preload="auto"
-                      className="w-full h-full object-cover rounded-xl transition-opacity duration-200"
-                      src={moduleVideos[hoveredModule][currentVideoIndex[hoveredModule]]}
-                    />
+                    <video ref={videoRef} autoPlay muted playsInline preload="auto" className="w-full h-full object-cover rounded-xl transition-opacity duration-200" src={moduleVideos[hoveredModule][currentVideoIndex[hoveredModule]]} />
                     <div className="absolute inset-0 rounded-xl ring-1 ring-white/10" />
                   </div>
-                </motion.div>
-              )}
+                </motion.div>}
             </AnimatePresence>
 
             {/* Unit Descriptions */}
