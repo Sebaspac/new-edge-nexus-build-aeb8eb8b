@@ -236,7 +236,7 @@ const About = () => {
             }} transition={{
               duration: 0.8
             }} className="text-center lg:text-left">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 md:mb-8 text-foreground">
+                <h2 className="text-3xl sm:text-4xl mb-4 sm:mb-6 md:mb-8 text-foreground font-bold md:text-5xl">
                   Unser Auftrag für den{" "}
                   <span className="bg-gradient-primary bg-clip-text text-transparent">
                     Mittelstand
@@ -334,7 +334,7 @@ const About = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-8 sm:mb-12 md:mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 text-foreground lg:text-left text-left">
+              <h2 className="text-3xl sm:text-4xl mb-4 sm:mb-6 text-foreground lg:text-left text-left font-bold md:text-5xl">
                 Wie New Edge{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   funktioniert
@@ -655,7 +655,7 @@ const About = () => {
             }} transition={{
               duration: 0.8
             }} className="order-1 lg:order-2">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 md:mb-8 text-foreground">
+                <h2 className="text-3xl sm:text-4xl mb-4 sm:mb-6 md:mb-8 text-foreground font-bold md:text-5xl">
                   Warum New Edge kein gewöhnliches{" "}
                   <span className="bg-gradient-primary bg-clip-text text-transparent">
                     Studio ist
@@ -708,7 +708,7 @@ const About = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-12 sm:mb-16 md:mb-20">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 text-foreground lg:text-left text-left">
+              <h2 className="text-3xl sm:text-4xl mb-4 sm:mb-6 text-foreground lg:text-left text-left font-bold md:text-5xl">
                 Von der Idee zum{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Ökosystem
@@ -1111,7 +1111,7 @@ const About = () => {
               once: true
             }} transition={{
               delay: i * 0.2
-              }} className="group">
+            }} className="group">
                   <Card className="bg-white border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all duration-500 overflow-hidden shadow-lg">
                     <CardContent className="p-4 sm:p-6 md:p-8 flex flex-col items-center text-center">
                       {/* Profile Image with Gradient Border */}
