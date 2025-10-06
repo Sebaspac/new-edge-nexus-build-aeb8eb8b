@@ -322,89 +322,29 @@ const About = () => {
         </section>
 
         {/* 1️⃣ Intro Section - The Headquarters of Innovation */}
-        <section id="intro" className="relative section-padding pb-0 bg-background">
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-            scale: [1, 1.2, 1]
-          }} transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} />
-            <motion.div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" animate={{
-            x: [0, -50, 0],
-            y: [0, 30, 0],
-            scale: [1.2, 1, 1.2]
-          }} transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} />
-            
-            {/* Animated connection lines */}
-            <svg className="absolute inset-0 w-full h-full opacity-20">
-              <motion.line x1="20%" y1="30%" x2="50%" y2="50%" stroke="url(#gradient1)" strokeWidth="2" initial={{
-              pathLength: 0
-            }} animate={{
-              pathLength: 1
-            }} transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }} />
-              <motion.line x1="80%" y1="30%" x2="50%" y2="50%" stroke="url(#gradient1)" strokeWidth="2" initial={{
-              pathLength: 0
-            }} animate={{
-              pathLength: 1
-            }} transition={{
-              duration: 2,
-              delay: 0.5,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }} />
-              <motion.line x1="50%" y1="70%" x2="50%" y2="50%" stroke="url(#gradient1)" strokeWidth="2" initial={{
-              pathLength: 0
-            }} animate={{
-              pathLength: 1
-            }} transition={{
-              duration: 2,
-              delay: 1,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }} />
-              <defs>
-                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="hsl(var(--primary))" />
-                  <stop offset="100%" stopColor="hsl(var(--secondary))" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-        </section>
+        
 
         <div className="container-xl relative z-10">
             <motion.div initial={{
+          opacity: 0,
+          y: 60
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="max-w-4xl mx-auto text-center">
+              <motion.h2 initial={{
             opacity: 0,
-            y: 60
+            scale: 0.9
           }} whileInView={{
             opacity: 1,
-            y: 0
+            scale: 1
           }} viewport={{
             once: true
-          }} transition={{
-            duration: 0.8
-          }} className="max-w-4xl mx-auto text-center">
-              <motion.h2 initial={{
-              opacity: 0,
-              scale: 0.9
-            }} whileInView={{
-              opacity: 1,
-              scale: 1
-            }} viewport={{
-              once: true
-            }} className="text-display mb-8 text-foreground text-6xl">
+          }} className="text-display mb-8 text-foreground text-6xl">
                 Das Headquarter für{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Innovation
@@ -412,29 +352,29 @@ const About = () => {
               </motion.h2>
               
               <motion.p className="text-body-xl text-muted-foreground mb-12 leading-relaxed" initial={{
-              opacity: 0
-            }} whileInView={{
-              opacity: 1
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.2
-            }}>
+            opacity: 0
+          }} whileInView={{
+            opacity: 1
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.2
+          }}>
                 Wir sind kein gewöhnliches Studio – wir sind das kreative, technologische und strategische 
                 Zentrum für den digitalen Wandel im Mittelstand.
               </motion.p>
 
               <motion.div className="flex flex-col sm:flex-row items-center justify-center gap-4" initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.4
-            }}>
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.4
+          }}>
                 <Button size="lg" onClick={() => scrollToSection('mission')} className="group">
                   Unsere Philosophie
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
