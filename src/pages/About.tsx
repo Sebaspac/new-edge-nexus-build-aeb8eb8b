@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform, animate } from 'framer-motion';
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Code, Palette, Globe, Briefcase, ChevronDown, ArrowRight, Sparkles, Zap, Heart, Target, Network, Building2, Lightbulb, Rocket, ShieldCheck, TrendingUp, Handshake } from "lucide-react";
 import { Footer } from "@/components/Footer";
@@ -37,12 +37,37 @@ const About = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [isVideoReady, setIsVideoReady] = useState(false);
+
+  // Orbital rotation setup
+  const orbitalRadius = typeof window !== 'undefined' && window.innerWidth < 768 ? 180 : 280;
+  const orbitalAngle = useMotionValue(0);
+
+  const studioX = useTransform(orbitalAngle, (a) => Math.cos((a - 90) * Math.PI / 180) * orbitalRadius);
+  const studioY = useTransform(orbitalAngle, (a) => Math.sin((a - 90) * Math.PI / 180) * orbitalRadius);
+
+  const mediaX = useTransform(orbitalAngle, (a) => Math.cos((a + 30) * Math.PI / 180) * orbitalRadius);
+  const mediaY = useTransform(orbitalAngle, (a) => Math.sin((a + 30) * Math.PI / 180) * orbitalRadius);
+
+  const labX = useTransform(orbitalAngle, (a) => Math.cos((a + 150) * Math.PI / 180) * orbitalRadius);
+  const labY = useTransform(orbitalAngle, (a) => Math.sin((a + 150) * Math.PI / 180) * orbitalRadius);
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   }, []);
+
+  // Start orbital rotation animation
+  useEffect(() => {
+    const controls = animate(orbitalAngle, 360, {
+      duration: 20,
+      repeat: Infinity,
+      ease: "linear",
+      repeatType: "loop"
+    });
+    
+    return () => controls.stop();
+  }, [orbitalAngle]);
 
   // Video cycling logic with smooth transitions
   useEffect(() => {
@@ -479,43 +504,25 @@ const About = () => {
 
                 {/* Studio Node */}
                 <motion.div 
-                  className="absolute top-[15%] left-[5%] w-40 h-40" 
-                  initial={{
-                    opacity: 0,
-                    x: -50
-                  }} 
-                  whileInView={{
-                    opacity: 1,
-                    x: 0
-                  }} 
-                  viewport={{
-                    once: true
-                  }} 
-                  transition={{
-                    delay: 0.5
+                  className="absolute left-1/2 top-1/2 w-40 h-40" 
+                  style={{ 
+                    x: studioX, 
+                    y: studioY,
+                    translateX: "-50%",
+                    translateY: "-50%"
                   }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
                   onMouseEnter={() => setHoveredModule('studio')}
                   onMouseLeave={() => setHoveredModule(null)}
                 >
                   <motion.div 
                     className="relative w-full h-full rounded-3xl bg-gradient-to-br from-primary/10 via-background to-background backdrop-blur-sm border border-primary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-primary/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] group overflow-hidden"
-                    animate={{ rotate: 360 }}
-                    transition={{ 
-                      duration: 20, 
-                      repeat: Infinity, 
-                      ease: "linear" 
-                    }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <motion.div 
-                      className="relative z-10"
-                      animate={{ rotate: -360 }}
-                      transition={{ 
-                        duration: 20, 
-                        repeat: Infinity, 
-                        ease: "linear" 
-                      }}
-                    >
+                    <div className="relative z-10">
                       <motion.div 
                         className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-2.5 mb-3 shadow-lg mx-auto"
                         whileHover={{ scale: 1.1 }}
@@ -525,49 +532,31 @@ const About = () => {
                       </motion.div>
                       <div className="font-bold text-lg mb-1 text-foreground group-hover:text-primary transition-colors">STUDIO</div>
                       <div className="text-xs text-muted-foreground">Die strategische Quelle</div>
-                    </motion.div>
+                    </div>
                   </motion.div>
                 </motion.div>
 
                 {/* Media Node */}
                 <motion.div 
-                  className="absolute top-[15%] right-[5%] w-40 h-40" 
-                  initial={{
-                    opacity: 0,
-                    x: 50
-                  }} 
-                  whileInView={{
-                    opacity: 1,
-                    x: 0
-                  }} 
-                  viewport={{
-                    once: true
-                  }} 
-                  transition={{
-                    delay: 0.7
+                  className="absolute left-1/2 top-1/2 w-40 h-40" 
+                  style={{ 
+                    x: mediaX, 
+                    y: mediaY,
+                    translateX: "-50%",
+                    translateY: "-50%"
                   }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.7 }}
                   onMouseEnter={() => setHoveredModule('media')}
                   onMouseLeave={() => setHoveredModule(null)}
                 >
                   <motion.div 
                     className="relative w-full h-full rounded-3xl bg-gradient-to-br from-secondary/10 via-background to-background backdrop-blur-sm border border-secondary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-secondary/60 hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] group overflow-hidden"
-                    animate={{ rotate: 360 }}
-                    transition={{ 
-                      duration: 20, 
-                      repeat: Infinity, 
-                      ease: "linear" 
-                    }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <motion.div 
-                      className="relative z-10"
-                      animate={{ rotate: -360 }}
-                      transition={{ 
-                        duration: 20, 
-                        repeat: Infinity, 
-                        ease: "linear" 
-                      }}
-                    >
+                    <div className="relative z-10">
                       <motion.div 
                         className="w-12 h-12 rounded-2xl bg-gradient-to-br from-secondary to-secondary/70 p-2.5 mb-3 shadow-lg mx-auto"
                         whileHover={{ scale: 1.1 }}
@@ -577,49 +566,31 @@ const About = () => {
                       </motion.div>
                       <div className="font-bold text-lg mb-1 text-foreground group-hover:text-secondary transition-colors">MEDIA</div>
                       <div className="text-xs text-muted-foreground">Die kreative Energie</div>
-                    </motion.div>
+                    </div>
                   </motion.div>
                 </motion.div>
 
                 {/* Lab Node */}
                 <motion.div 
-                  className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-40 h-40" 
-                  initial={{
-                    opacity: 0,
-                    y: 50
-                  }} 
-                  whileInView={{
-                    opacity: 1,
-                    y: 0
-                  }} 
-                  viewport={{
-                    once: true
-                  }} 
-                  transition={{
-                    delay: 0.9
+                  className="absolute left-1/2 top-1/2 w-40 h-40" 
+                  style={{ 
+                    x: labX, 
+                    y: labY,
+                    translateX: "-50%",
+                    translateY: "-50%"
                   }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.9 }}
                   onMouseEnter={() => setHoveredModule('lab')}
                   onMouseLeave={() => setHoveredModule(null)}
                 >
                   <motion.div 
                     className="relative w-full h-full rounded-3xl bg-gradient-to-br from-accent/10 via-background to-background backdrop-blur-sm border border-accent/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(14,165,233,0.3)] group overflow-hidden"
-                    animate={{ rotate: 360 }}
-                    transition={{ 
-                      duration: 20, 
-                      repeat: Infinity, 
-                      ease: "linear" 
-                    }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <motion.div 
-                      className="relative z-10"
-                      animate={{ rotate: -360 }}
-                      transition={{ 
-                        duration: 20, 
-                        repeat: Infinity, 
-                        ease: "linear" 
-                      }}
-                    >
+                    <div className="relative z-10">
                       <motion.div 
                         className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent to-accent/70 p-2.5 mb-3 shadow-lg mx-auto"
                         whileHover={{ scale: 1.1 }}
@@ -629,7 +600,7 @@ const About = () => {
                       </motion.div>
                       <div className="font-bold text-lg mb-1 text-foreground group-hover:text-accent transition-colors">LAB</div>
                       <div className="text-xs text-muted-foreground">Der Automatisierungs-Motor</div>
-                    </motion.div>
+                    </div>
                   </motion.div>
                 </motion.div>
               </div>
