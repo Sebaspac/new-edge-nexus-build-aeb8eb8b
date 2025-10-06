@@ -25,7 +25,10 @@ const About = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [isVideoReady, setIsVideoReady] = useState(false);
-  const [videoPosition, setVideoPosition] = useState<{x: number, y: number} | null>(null);
+  const [videoPosition, setVideoPosition] = useState<{
+    x: number;
+    y: number;
+  } | null>(null);
 
   // Orbital rotation setup
   const orbitalRadius = typeof window !== 'undefined' && window.innerWidth < 768 ? 180 : 280;
@@ -414,13 +417,13 @@ const About = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-16">
-              <h2 className="text-display mb-6 text-foreground">
+              <h2 className="text-display mb-6 text-foreground text-left">
                 Wie New Edge{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   funktioniert
                 </span>
               </h2>
-              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto text-left">
                 Studio · Media · Lab – drei Einheiten, ein Headquarter.
               </p>
             </motion.div>
@@ -471,7 +474,10 @@ const About = () => {
                 delay: 0.5
               }} onMouseEnter={() => {
                 setHoveredModule('studio');
-                setVideoPosition({ x: studioX.get(), y: studioY.get() });
+                setVideoPosition({
+                  x: studioX.get(),
+                  y: studioY.get()
+                });
               }} onMouseLeave={() => {
                 setHoveredModule(null);
                 setVideoPosition(null);
@@ -508,7 +514,10 @@ const About = () => {
                 delay: 0.7
               }} onMouseEnter={() => {
                 setHoveredModule('media');
-                setVideoPosition({ x: mediaX.get(), y: mediaY.get() });
+                setVideoPosition({
+                  x: mediaX.get(),
+                  y: mediaY.get()
+                });
               }} onMouseLeave={() => {
                 setHoveredModule(null);
                 setVideoPosition(null);
@@ -545,7 +554,10 @@ const About = () => {
                 delay: 0.9
               }} onMouseEnter={() => {
                 setHoveredModule('lab');
-                setVideoPosition({ x: labX.get(), y: labY.get() });
+                setVideoPosition({
+                  x: labX.get(),
+                  y: labY.get()
+                });
               }} onMouseLeave={() => {
                 setHoveredModule(null);
                 setVideoPosition(null);
@@ -636,10 +648,12 @@ const About = () => {
                   <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
                     <CardContent className="p-4 md:p-8 flex flex-col h-full">
                       <motion.div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${unit.title === 'STUDIO' ? 'from-primary to-primary/70' : unit.title === 'MEDIA' ? 'from-secondary to-secondary/70' : 'from-accent to-accent/70'} flex items-center justify-center mb-4 md:mb-6 shadow-lg`} whileHover={{
-                        scale: 1.1,
-                        rotate: [0, -5, 5, 0],
-                        transition: { duration: 0.5 }
-                      }}>
+                    scale: 1.1,
+                    rotate: [0, -5, 5, 0],
+                    transition: {
+                      duration: 0.5
+                    }
+                  }}>
                         <unit.icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
                       </motion.div>
                       <div className="flex-grow">
@@ -777,7 +791,7 @@ const About = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-20">
-              <h2 className="text-display mb-6 text-foreground">
+              <h2 className="text-display mb-6 text-foreground text-left">
                 Von der Idee zum{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Ökosystem
@@ -1032,18 +1046,18 @@ const About = () => {
                       <motion.div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                       
                       <motion.div className={`w-12 h-12 md:w-14 md:h-14 mb-3 md:mb-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${stat.color} p-2.5 md:p-3 shadow-lg relative z-10`} whileHover={{
-                        rotate: 360,
-                        scale: 1.2
-                      }} transition={{
-                        duration: 0.6,
-                        type: "spring"
-                      }}>
+                    rotate: 360,
+                    scale: 1.2
+                  }} transition={{
+                    duration: 0.6,
+                    type: "spring"
+                  }}>
                         <stat.icon className="w-full h-full text-white" />
                       </motion.div>
                       
                       <motion.div className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-1 relative z-10" whileHover={{
-                        scale: 1.1
-                      }}>
+                    scale: 1.1
+                  }}>
                         {stat.value}
                       </motion.div>
                       
@@ -1067,7 +1081,7 @@ const About = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-16">
-              <h2 className="text-display mb-6 text-foreground">
+              <h2 className="text-display mb-6 text-foreground text-left">
                 Was uns{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   antreibt
@@ -1152,7 +1166,7 @@ const About = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-16">
-              <h2 className="text-display mb-6 text-foreground">
+              <h2 className="text-display mb-6 text-foreground text-left">
                 Die{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Gründer
