@@ -950,17 +950,21 @@ const About = () => {
                 }
               }
             }} className="group">
-                  <div className="bg-card backdrop-blur-md p-10 rounded-2xl shadow-2xl border border-border hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] hover:border-primary/40 transition-all duration-500 h-full">
-                    <h3 className="text-2xl mb-8 text-foreground group-hover:text-primary transition-colors leading-tight font-semibold">
-                      {item.title}
-                    </h3>
-                    <p className="text-base text-muted-foreground leading-[1.9] tracking-wide mb-8">
-                      {item.description}
-                    </p>
-                    <p className="text-sm text-muted-foreground font-bold">
-                      {item.team}
-                    </p>
-                  </div>
+                  <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
+                    <CardContent className="p-6 md:p-10 flex flex-col h-full">
+                      <div className="flex-grow">
+                        <h3 className="text-xl md:text-2xl mb-6 md:mb-8 text-foreground group-hover:text-primary transition-colors leading-tight font-semibold">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 md:mb-8">
+                          {item.description}
+                        </p>
+                      </div>
+                      <p className="text-sm text-muted-foreground font-semibold mt-auto">
+                        {item.team}
+                      </p>
+                    </CardContent>
+                  </Card>
                 </motion.div>)}
             </motion.div>
 
@@ -1023,27 +1027,27 @@ const About = () => {
               scale: 1.15,
               y: -10
             }} className="group">
-                  <Card className="bg-card border-2 border-border shadow-lg hover:shadow-2xl hover:border-primary/30 transition-all duration-500 h-full">
-                    <CardContent className="p-6 text-center relative overflow-hidden">
+                  <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
+                    <CardContent className="p-4 md:p-6 flex flex-col items-center text-center h-full relative overflow-hidden">
                       <motion.div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                       
-                      <motion.div className={`w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${stat.color} p-3 shadow-lg relative z-10`} whileHover={{
-                    rotate: 360,
-                    scale: 1.2
-                  }} transition={{
-                    duration: 0.6,
-                    type: "spring"
-                  }}>
+                      <motion.div className={`w-12 h-12 md:w-14 md:h-14 mb-3 md:mb-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${stat.color} p-2.5 md:p-3 shadow-lg relative z-10`} whileHover={{
+                        rotate: 360,
+                        scale: 1.2
+                      }} transition={{
+                        duration: 0.6,
+                        type: "spring"
+                      }}>
                         <stat.icon className="w-full h-full text-white" />
                       </motion.div>
                       
-                      <motion.div className="text-2xl sm:text-3xl font-bold text-foreground mb-1 relative z-10" whileHover={{
-                    scale: 1.1
-                  }}>
+                      <motion.div className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-1 relative z-10" whileHover={{
+                        scale: 1.1
+                      }}>
                         {stat.value}
                       </motion.div>
                       
-                      <div className="text-sm text-muted-foreground relative z-10">{stat.label}</div>
+                      <div className="text-xs md:text-sm text-muted-foreground relative z-10">{stat.label}</div>
                     </CardContent>
                   </Card>
                 </motion.div>)}
