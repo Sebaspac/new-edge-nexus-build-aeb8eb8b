@@ -18,7 +18,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "
 import { toast } from "@/hooks/use-toast";
 import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, Zap, Brain, Target, Rocket, Star, Users, Code, Palette, Globe, Briefcase, Phone, MessageSquare, Eye } from "lucide-react";
+import { ArrowRight, Lightbulb, Zap, Palette, Target, Rocket, Star, Users, Code, Globe, Briefcase, Phone, MessageSquare, Eye } from "lucide-react";
 const Index = () => {
   const {
     t
@@ -89,20 +89,20 @@ const Index = () => {
     }
   }, []);
   const services = [{
-    icon: Sparkles,
+    icon: Lightbulb,
     title: "Studio Design",
     description: "Visuelles Storytelling und Brand-Design, das im Gedächtnis bleibt.",
-    gradient: "from-secondary to-accent"
+    gradient: "from-primary to-primary/70"
   }, {
-    icon: Brain,
+    icon: Palette,
     title: "Media Intelligence",
     description: "KI-gestützte Inhaltsstrategien, die Ihre Zielgruppe erreichen und konvertieren.",
-    gradient: "from-primary to-secondary"
+    gradient: "from-secondary to-secondary/70"
   }, {
     icon: Zap,
     title: "Lab Automation",
     description: "Intelligente Systeme und Workflows für maximale Effizienz.",
-    gradient: "from-accent to-primary"
+    gradient: "from-accent to-accent/70"
   }];
   const stats = [{
     number: "30%",
@@ -334,7 +334,7 @@ const Index = () => {
               border: "border-blue-200/60",
               iconBg: "from-blue-500 to-blue-600",
               shadow: "rgba(59, 130, 246, 0.15)",
-              icon: Brain
+              icon: Palette
             }, {
               number: "03",
               title: "Zugänglichkeit statt Komplexität",
