@@ -46,25 +46,29 @@ const Media = () => {
     description: "Strategische Content-Produktion für maximale Wirkung auf allen Kanälen.",
     details: ["Video- und Foto-Content-Produktion", "Motion Graphics und Animationen", "Creative Assets für alle Plattformen", "Content-Strategie und Konzeption"],
     icon: Settings,
-    gradient: "from-[#3b82f6] to-[#06b6d4]"
+    gradient: "from-[#3b82f6] to-[#06b6d4]",
+    video: "/assets/media-section-video.mp4"
   }, {
     title: "Social Media Management",
     description: "Community- und Content-Management für starke Markenbindung auf allen Kanälen.",
     details: ["Community Management und Engagement", "Content-Planung und Publishing", "Performance-Analyse und Reporting", "Influencer-Kooperationen"],
     icon: Eye,
-    gradient: "from-[#06b6d4] to-[#3b82f6]"
+    gradient: "from-[#06b6d4] to-[#3b82f6]",
+    video: "/assets/media-section-video.mp4"
   }, {
     title: "Launchkampagnen & Performance-Marketing",
     description: "Erfolgreiche Produktlaunches und datengetriebenes Performance-Marketing.",
     details: ["Launch-Strategien entwickeln", "Paid Advertising Kampagnen", "Conversion-Optimierung", "A/B-Testing und Analytics"],
     icon: TrendingUp,
-    gradient: "from-[#3b82f6] to-[#06b6d4]"
+    gradient: "from-[#3b82f6] to-[#06b6d4]",
+    video: "/assets/media-section-video.mp4"
   }, {
     title: "Content-Marketing & Copywriting",
     description: "Gestaltung relevanter Inhalte und klarer Botschaften für mehr Sichtbarkeit und Markenwirkung.",
     details: ["SEO-optimierte Texte erstellen", "Storytelling und Narratives", "Blog- und Artikel-Content", "E-Mail-Marketing-Texte"],
     icon: Search,
-    gradient: "from-[#06b6d4] to-[#3b82f6]"
+    gradient: "from-[#06b6d4] to-[#3b82f6]",
+    video: "/assets/media-new-video.mp4"
   }];
   return <>
       <Helmet>
@@ -214,7 +218,7 @@ const Media = () => {
           background: index % 2 === 0 ? 'linear-gradient(to bottom right, white, rgba(59, 130, 246, 0.08), rgba(6, 182, 212, 0.08))' : 'linear-gradient(to bottom right, white, rgba(6, 182, 212, 0.08), rgba(59, 130, 246, 0.08))'
         }}>
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <ServiceScrollSection gradient={service.gradient} videoSrc="/assets/media-section-video.mp4" imagePosition={isEven ? "right" : "left"}>
+                <ServiceScrollSection gradient={service.gradient} videoSrc={service.video} imagePosition={isEven ? "right" : "left"}>
                   <div className="space-y-6">
                     <motion.div variants={{
                   hidden: {
