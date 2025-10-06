@@ -613,7 +613,9 @@ const Services = () => {
       </section>
 
       {/* Warum New Edge Section */}
-      
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-white overflow-hidden">
+        
+      </section>
 
       {/* Erfolg Erreicht Section */}
       
