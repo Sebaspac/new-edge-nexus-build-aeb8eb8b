@@ -245,7 +245,7 @@ const About = () => {
                 
                 <div className="space-y-4 sm:space-y-6 md:space-y-8">
                   <div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl mb-2 sm:mb-3 md:mb-4 text-foreground flex items-center gap-2 sm:gap-3">
+                    <h3 className="text-lg sm:text-xl mb-2 sm:mb-3 md:mb-4 text-foreground flex items-center gap-2 sm:gap-3 font-semibold md:text-2xl">
                       <Target className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                       Mission
                     </h3>
@@ -257,7 +257,7 @@ const About = () => {
                   </div>
                   
                   <div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl mb-2 sm:mb-3 md:mb-4 text-foreground flex items-center gap-2 sm:gap-3">
+                    <h3 className="text-lg sm:text-xl mb-2 sm:mb-3 md:mb-4 text-foreground flex items-center gap-2 sm:gap-3 font-semibold md:text-2xl">
                       <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
                       Vision
                     </h3>
