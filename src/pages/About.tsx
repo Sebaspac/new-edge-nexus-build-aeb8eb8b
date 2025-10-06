@@ -222,9 +222,9 @@ const About = () => {
         </section>
 
         {/* 2️⃣ Mission & Vision */}
-        <section id="mission" className="relative section-padding bg-surface">
+        <section id="mission" className="relative py-12 sm:py-16 md:section-padding bg-surface">
           <div className="container-xl">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
               <motion.div initial={{
               opacity: 0,
               x: -60
@@ -236,20 +236,20 @@ const About = () => {
             }} transition={{
               duration: 0.8
             }} className="text-center lg:text-left">
-                <h2 className="text-h1 mb-8 text-foreground text-5xl">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 md:mb-8 text-foreground">
                   Unser Auftrag für den{" "}
                   <span className="bg-gradient-primary bg-clip-text text-transparent">
                     Mittelstand
                   </span>
                 </h2>
                 
-                <div className="space-y-8">
+                <div className="space-y-4 sm:space-y-6 md:space-y-8">
                   <div>
-                    <h3 className="text-h3 mb-4 text-foreground flex items-center gap-3">
-                      <Target className="w-6 h-6 text-primary" />
+                    <h3 className="text-lg sm:text-xl md:text-2xl mb-2 sm:mb-3 md:mb-4 text-foreground flex items-center gap-2 sm:gap-3">
+                      <Target className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                       Mission
                     </h3>
-                    <p className="text-body-lg text-muted-foreground leading-relaxed text-lg">
+                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
                       Wir bringen Innovation dorthin, wo sie am meisten gebraucht wird – in den Mittelstand.
                       Dafür automatisieren wir Prozesse, verbinden Agenturen mit Unternehmen und machen 
                       Kreativität skalierbar.
@@ -257,11 +257,11 @@ const About = () => {
                   </div>
                   
                   <div>
-                    <h3 className="text-h3 mb-4 text-foreground flex items-center gap-3">
-                      <Sparkles className="w-6 h-6 text-secondary" />
+                    <h3 className="text-lg sm:text-xl md:text-2xl mb-2 sm:mb-3 md:mb-4 text-foreground flex items-center gap-2 sm:gap-3">
+                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
                       Vision
                     </h3>
-                    <p className="text-body-lg text-muted-foreground leading-relaxed text-lg">
+                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
                       Ein Ökosystem, in dem Marken, Agenturen und Technologien nahtlos zusammenarbeiten – 
                       und der Mittelstand zum Motor echter Innovation wird.
                     </p>
@@ -524,7 +524,7 @@ const About = () => {
             </motion.div>
 
             {/* Unit Descriptions */}
-            <motion.div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" initial="hidden" whileInView="visible" viewport={{
+            <motion.div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto" initial="hidden" whileInView="visible" viewport={{
             once: true
           }} variants={{
             hidden: {
@@ -589,9 +589,9 @@ const About = () => {
         </section>
 
         {/* 4️⃣ Warum New Edge kein gewöhnliches Studio ist */}
-        <section className="relative section-padding bg-surface">
+        <section className="relative py-12 sm:py-16 md:section-padding bg-surface">
           <div className="container-xl">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
               <motion.div initial={{
               opacity: 0,
               scale: 0.9
@@ -609,8 +609,8 @@ const About = () => {
                   duration: 8,
                   repeat: Infinity
                 }} />
-                  <div className="relative bg-card rounded-3xl p-8 shadow-2xl border border-border">
-                    <div className="grid grid-cols-2 gap-4">
+                  <div className="relative bg-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl border border-border">
+                    <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4">
                       {[{
                       icon: Network,
                       label: "Netzwerk"
@@ -655,14 +655,14 @@ const About = () => {
             }} transition={{
               duration: 0.8
             }} className="order-1 lg:order-2">
-                <h2 className="text-h1 mb-8 text-foreground text-5xl">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 md:mb-8 text-foreground">
                   Warum New Edge kein gewöhnliches{" "}
                   <span className="bg-gradient-primary bg-clip-text text-transparent">
                     Studio ist
                   </span>
                 </h2>
                 
-                <div className="space-y-6 text-body-lg text-muted-foreground leading-relaxed">
+                <div className="space-y-3 sm:space-y-4 md:space-y-6 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
                   <p>
                     Wir verstehen uns nicht als klassische Agentur – sondern als <strong className="text-foreground">Innovationspartner</strong>, 
                     der andere Agenturen und Unternehmen smarter macht.
@@ -697,7 +697,7 @@ const About = () => {
         </section>
 
         {/* 5️⃣ Unsere Geschichte */}
-        <section id="geschichte" className="relative section-padding bg-background">
+        <section id="geschichte" className="relative py-12 sm:py-16 md:section-padding bg-background">
           <div className="container-xl">
             <motion.div initial={{
             opacity: 0,
@@ -707,14 +707,14 @@ const About = () => {
             y: 0
           }} viewport={{
             once: true
-          }} className="text-center mb-20">
-              <h2 className="text-display mb-6 text-foreground lg:text-left text-5xl text-left">
+          }} className="text-center mb-12 sm:mb-16 md:mb-20">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 text-foreground lg:text-left text-left">
                 Von der Idee zum{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Ökosystem
                 </span>
               </h2>
-              <p className="text-body-xl text-muted-foreground max-w-3xl text-left text-xl">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl text-left">
                 New Edge wurde gegründet, weil wir gesehen haben, dass Kreativität und Technologie 
                 im Mittelstand oft getrennt voneinander existieren.
               </p>
@@ -740,7 +740,7 @@ const About = () => {
               year: "Zukunft",
               title: "Skalierung & Impact",
               description: "Der Mittelstand wird zum Motor echter Innovation durch unser Netzwerk."
-            }].map((milestone, i) => <motion.div key={milestone.year} className={`relative grid grid-cols-2 gap-8 mb-16`} initial={{
+            }].map((milestone, i) => <motion.div key={milestone.year} className={`relative grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16`} initial={{
               opacity: 0,
               x: i % 2 === 0 ? -60 : 60
             }} whileInView={{
@@ -752,19 +752,19 @@ const About = () => {
               delay: i * 0.2
             }}>
                   {i % 2 === 0 ? <>
-                      <div className="text-right pr-8">
+                      <div className="text-right pr-2 sm:pr-4 md:pr-8">
                         <Card className="inline-block text-left hover:shadow-xl transition-all">
-                          <CardContent className="p-6">
-                            <div className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
+                          <CardContent className="p-3 sm:p-4 md:p-6">
+                            <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-1 sm:mb-2">
                               {milestone.year}
                             </div>
-                            <h3 className="text-h3 mb-3">{milestone.title}</h3>
-                            <p className="text-body text-muted-foreground">{milestone.description}</p>
+                            <h3 className="text-base sm:text-lg md:text-xl mb-2 sm:mb-3 font-bold">{milestone.title}</h3>
+                            <p className="text-xs sm:text-sm md:text-base text-muted-foreground">{milestone.description}</p>
                           </CardContent>
                         </Card>
                       </div>
                       <div className="relative flex items-center">
-                        <motion.div className="absolute left-0 w-4 h-4 rounded-full bg-primary border-4 border-background shadow-lg" whileInView={{
+                        <motion.div className="absolute left-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-primary border-2 sm:border-4 border-background shadow-lg" whileInView={{
                     scale: [0, 1.2, 1]
                   }} transition={{
                     duration: 0.5
@@ -772,20 +772,20 @@ const About = () => {
                       </div>
                     </> : <>
                       <div className="relative flex items-center justify-end">
-                        <motion.div className="absolute right-0 w-4 h-4 rounded-full bg-secondary border-4 border-background shadow-lg" whileInView={{
+                        <motion.div className="absolute right-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-secondary border-2 sm:border-4 border-background shadow-lg" whileInView={{
                     scale: [0, 1.2, 1]
                   }} transition={{
                     duration: 0.5
                   }} />
                       </div>
-                      <div className="pl-8">
+                      <div className="pl-2 sm:pl-4 md:pl-8">
                         <Card className="hover:shadow-xl transition-all">
-                          <CardContent className="p-6">
-                            <div className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
+                          <CardContent className="p-3 sm:p-4 md:p-6">
+                            <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-1 sm:mb-2">
                               {milestone.year}
                             </div>
-                            <h3 className="text-h3 mb-3">{milestone.title}</h3>
-                            <p className="text-body text-muted-foreground">{milestone.description}</p>
+                            <h3 className="text-base sm:text-lg md:text-xl mb-2 sm:mb-3 font-bold">{milestone.title}</h3>
+                            <p className="text-xs sm:text-sm md:text-base text-muted-foreground">{milestone.description}</p>
                           </CardContent>
                         </Card>
                       </div>
@@ -796,7 +796,7 @@ const About = () => {
         </section>
 
         {/* 6️⃣ Team & Netzwerk */}
-        <section id="netzwerk" className="relative section-padding bg-surface overflow-hidden">
+        <section id="netzwerk" className="relative py-12 sm:py-16 md:section-padding bg-surface overflow-hidden">
           <motion.div className="absolute top-10 left-10 w-52 h-52 bg-primary/5 rounded-full blur-3xl" animate={{
           x: [0, 40, 0],
           y: [0, -30, 0],
@@ -828,11 +828,11 @@ const About = () => {
             once: true
           }} transition={{
             duration: 0.9
-          }} className="text-center lg:text-left mb-12">
-              <h2 className="text-h1 mb-10 text-foreground leading-[1.2] lg:text-left font-bold text-5xl text-left">
+          }} className="text-center lg:text-left mb-8 sm:mb-10 md:mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl mb-6 sm:mb-8 md:mb-10 text-foreground leading-[1.2] lg:text-left font-bold text-left">
                 Team & Netzwerk
               </h2>
-              <p className="text-body-lg text-muted-foreground max-w-3xl leading-[1.9] text-xl">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-[1.7] sm:leading-[1.8] md:leading-[1.9]">
                 Unser Team vereint Fachwissen aus Strategie, Design, Technologie und Unternehmertum. 
                 Gemeinsam mit Coaches, Entwickler:innen und Partner-Agenturen bilden wir ein Ökosystem, 
                 das für jede Herausforderung die passende Lösung findet.
@@ -840,7 +840,7 @@ const About = () => {
             </motion.div>
 
             {/* Network Stats - Pyramid Top (5 cards) */}
-            <motion.div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto mb-8" initial="hidden" whileInView="visible" viewport={{
+            <motion.div className="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto mb-4 sm:mb-6 md:mb-8" initial="hidden" whileInView="visible" viewport={{
             once: true
           }} variants={{
             hidden: {
@@ -940,7 +940,7 @@ const About = () => {
             </motion.div>
 
             {/* Team Cards - Pyramid Base (3 cards) */}
-            <motion.div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto" initial="hidden" whileInView="visible" viewport={{
+            <motion.div className="grid md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-5xl mx-auto" initial="hidden" whileInView="visible" viewport={{
             once: true
           }} variants={{
             hidden: {
@@ -1068,7 +1068,7 @@ const About = () => {
         
 
         {/* 8️⃣ Gründer & Leadership */}
-        <section className="relative section-padding bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
+        <section className="relative py-12 sm:py-16 md:section-padding bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
           {/* Subtle background effects */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3" />
           
@@ -1081,16 +1081,16 @@ const About = () => {
             y: 0
           }} viewport={{
             once: true
-          }} className="text-center mb-16">
-              <h2 className="text-[42px] sm:text-[48px] md:text-[52px] mb-4 text-foreground font-bold leading-[1.2] text-left lg:text-5xl">
+          }} className="text-center mb-8 sm:mb-12 md:mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4 text-foreground font-bold leading-[1.2] text-left">
                 Die Gründer
               </h2>
-              <p className="text-base lg:text-xl text-muted-foreground max-w-3xl leading-[1.5] text-left">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-[1.5] text-left">
                 Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
               {[{
               name: "Sebastian Pachón",
               role: "Founder & Creative-Tech Partner",
@@ -1111,13 +1111,13 @@ const About = () => {
               once: true
             }} transition={{
               delay: i * 0.2
-            }} className="group">
+              }} className="group">
                   <Card className="bg-white border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all duration-500 overflow-hidden shadow-lg">
-                    <CardContent className="p-8 flex flex-col items-center text-center">
+                    <CardContent className="p-4 sm:p-6 md:p-8 flex flex-col items-center text-center">
                       {/* Profile Image with Gradient Border */}
-                      <div className="relative mb-6">
+                      <div className="relative mb-4 sm:mb-5 md:mb-6">
                         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-secondary to-primary animate-gradient blur-sm" />
-                        <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                        <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 sm:border-3 md:border-4 border-white shadow-lg">
                           <motion.img src={founder.image} alt={founder.name} className="w-full h-full object-cover" whileHover={{
                         scale: 1.1
                       }} transition={{
@@ -1127,18 +1127,18 @@ const About = () => {
                       </div>
 
                       {/* Name */}
-                      <h3 className="text-2xl font-bold text-foreground mb-2">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-1 sm:mb-2">
                         {founder.name}
                       </h3>
 
                       {/* Role with gradient */}
-                      <div className="text-base font-semibold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-6">
+                      <div className="text-sm sm:text-base font-semibold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-4 sm:mb-5 md:mb-6">
                         {founder.role}
                       </div>
 
                       {/* Tags */}
-                      <div className="flex gap-2 flex-wrap justify-center">
-                        {founder.tags.map(tag => <span key={tag} className="px-4 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm border border-gray-200 hover:border-primary/50 hover:bg-gray-50 transition-colors">
+                      <div className="flex gap-1.5 sm:gap-2 flex-wrap justify-center">
+                        {founder.tags.map(tag => <span key={tag} className="px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm border border-gray-200 hover:border-primary/50 hover:bg-gray-50 transition-colors">
                             {tag}
                           </span>)}
                       </div>
@@ -1178,7 +1178,7 @@ const About = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-6 leading-[1.25] text-black font-bold">
+            }} className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-bold">
                 Join the{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Movement
