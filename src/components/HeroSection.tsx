@@ -31,8 +31,8 @@ export const HeroSection = ({
   };
   return <section className="relative w-full">
       <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video" style={{
-        position: 'relative'
-      }}>
+      position: 'relative'
+    }}>
         <div className="absolute inset-0 overflow-hidden" style={{
         background: 'linear-gradient(to bottom right, rgba(139, 92, 246, 0.3), rgba(168, 85, 247, 0.2), rgba(192, 132, 252, 0.1))'
       }}>
@@ -44,27 +44,7 @@ export const HeroSection = ({
         }} />
           
           <div className="absolute bottom-0 left-0 p-6 pb-20 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
-            <motion.h1 initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.2,
-            duration: 0.6
-          }} className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
-              <span className="block">BRAND</span>
-              <span className="block">INTELLIGENCE</span>
-              <span className="inline-block italic font-black whitespace-nowrap" style={{
-              background: 'linear-gradient(to right, #8b5cf6, #a855f7)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>
-                FOR THE DIGITAL AGE
-              </span>
-            </motion.h1>
+            
             
           </div>
 
