@@ -321,7 +321,7 @@ const About = () => {
         
 
         {/* 3️⃣ Unser Modell - Wie New Edge funktioniert */}
-        <section id="modell" className="relative section-padding bg-background overflow-hidden">
+        <section id="modell" className="relative py-12 sm:py-16 md:section-padding bg-background overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
           
           <div className="container-xl relative z-10">
@@ -333,14 +333,14 @@ const About = () => {
             y: 0
           }} viewport={{
             once: true
-          }} className="text-center mb-16">
-              <h2 className="text-display mb-6 text-foreground lg:text-left text-5xl text-left">
+          }} className="text-center mb-8 sm:mb-12 md:mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 text-foreground lg:text-left text-left">
                 Wie New Edge{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   funktioniert
                 </span>
               </h2>
-              <p className="text-body-xl text-muted-foreground max-w-3xl text-left text-xl">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl text-left">
                 Studio · Media · Lab – drei Einheiten, ein Headquarter.
               </p>
             </motion.div>
@@ -356,17 +356,17 @@ const About = () => {
             once: true
           }} transition={{
             duration: 0.8
-          }} className="relative max-w-5xl mx-auto mb-20">
-              <div className="relative aspect-square max-w-2xl mx-auto">
+          }} className="relative max-w-5xl mx-auto mb-12 sm:mb-16 md:mb-20">
+              <div className="relative aspect-square max-w-md sm:max-w-lg md:max-w-2xl mx-auto">
                 {/* Central Hub */}
-                <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-gradient-primary flex items-center justify-center shadow-2xl z-10" animate={{
+                <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full bg-gradient-primary flex items-center justify-center shadow-2xl z-10" animate={{
                 boxShadow: ['0 0 40px rgba(168, 85, 247, 0.4)', '0 0 80px rgba(168, 85, 247, 0.6)', '0 0 40px rgba(168, 85, 247, 0.4)']
               }} transition={{
                 duration: 3,
                 repeat: Infinity
               }}>
                   <div className="text-center text-white">
-                    <img src={newEdgeHubLogo} alt="NEW EDGE" className="w-20 h-20 mx-auto mb-2" />
+                    <img src={newEdgeHubLogo} alt="NEW EDGE" className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 mx-auto mb-2" />
                     
                     
                   </div>
@@ -376,7 +376,7 @@ const About = () => {
                 
 
                 {/* Studio Node */}
-                <motion.div className="absolute left-1/2 top-1/2 w-40 h-40" style={{
+                <motion.div className="absolute left-1/2 top-1/2 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40" style={{
                 x: studioX,
                 y: studioY,
                 translateX: "-50%",
@@ -399,24 +399,24 @@ const About = () => {
                 setHoveredModule(null);
                 setVideoPosition(null);
               }}>
-                  <motion.div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-primary/10 via-background to-background backdrop-blur-sm border border-primary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-primary/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] group overflow-hidden">
+                  <motion.div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-gradient-to-br from-primary/10 via-background to-background backdrop-blur-sm border border-primary/40 shadow-2xl p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-primary/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative z-10">
-                      <motion.div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-2.5 mb-3 shadow-lg mx-auto" whileHover={{
+                      <motion.div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-1.5 sm:p-2 md:p-2.5 mb-2 sm:mb-2.5 md:mb-3 shadow-lg mx-auto" whileHover={{
                       scale: 1.1
                     }} transition={{
                       duration: 0.3
                     }}>
                         <Lightbulb className="w-full h-full text-white" />
                       </motion.div>
-                      <div className="font-bold text-lg mb-1 text-foreground group-hover:text-primary transition-colors">STUDIO</div>
-                      <div className="text-xs text-muted-foreground">Die strategische Quelle</div>
+                      <div className="font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1 text-foreground group-hover:text-primary transition-colors">STUDIO</div>
+                      <div className="text-[10px] sm:text-xs text-muted-foreground">Die strategische Quelle</div>
                     </div>
                   </motion.div>
                 </motion.div>
 
                 {/* Media Node */}
-                <motion.div className="absolute left-1/2 top-1/2 w-40 h-40" style={{
+                <motion.div className="absolute left-1/2 top-1/2 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40" style={{
                 x: mediaX,
                 y: mediaY,
                 translateX: "-50%",
@@ -439,24 +439,24 @@ const About = () => {
                 setHoveredModule(null);
                 setVideoPosition(null);
               }}>
-                  <motion.div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-secondary/10 via-background to-background backdrop-blur-sm border border-secondary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-secondary/60 hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] group overflow-hidden">
+                  <motion.div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-gradient-to-br from-secondary/10 via-background to-background backdrop-blur-sm border border-secondary/40 shadow-2xl p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-secondary/60 hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative z-10">
-                      <motion.div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-secondary to-secondary/70 p-2.5 mb-3 shadow-lg mx-auto" whileHover={{
+                      <motion.div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-secondary to-secondary/70 p-1.5 sm:p-2 md:p-2.5 mb-2 sm:mb-2.5 md:mb-3 shadow-lg mx-auto" whileHover={{
                       scale: 1.1
                     }} transition={{
                       duration: 0.3
                     }}>
                         <Palette className="w-full h-full text-white" />
                       </motion.div>
-                      <div className="font-bold text-lg mb-1 text-foreground group-hover:text-secondary transition-colors">MEDIA</div>
-                      <div className="text-xs text-muted-foreground">Die kreative Energie</div>
+                      <div className="font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1 text-foreground group-hover:text-secondary transition-colors">MEDIA</div>
+                      <div className="text-[10px] sm:text-xs text-muted-foreground">Die kreative Energie</div>
                     </div>
                   </motion.div>
                 </motion.div>
 
                 {/* Lab Node */}
-                <motion.div className="absolute left-1/2 top-1/2 w-40 h-40" style={{
+                <motion.div className="absolute left-1/2 top-1/2 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40" style={{
                 x: labX,
                 y: labY,
                 translateX: "-50%",
@@ -479,18 +479,18 @@ const About = () => {
                 setHoveredModule(null);
                 setVideoPosition(null);
               }}>
-                  <motion.div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-accent/10 via-background to-background backdrop-blur-sm border border-accent/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(14,165,233,0.3)] group overflow-hidden">
+                  <motion.div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-gradient-to-br from-accent/10 via-background to-background backdrop-blur-sm border border-accent/40 shadow-2xl p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(14,165,233,0.3)] group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative z-10">
-                      <motion.div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent to-accent/70 p-2.5 mb-3 shadow-lg mx-auto" whileHover={{
+                      <motion.div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-accent to-accent/70 p-1.5 sm:p-2 md:p-2.5 mb-2 sm:mb-2.5 md:mb-3 shadow-lg mx-auto" whileHover={{
                       scale: 1.1
                     }} transition={{
                       duration: 0.3
                     }}>
                         <Zap className="w-full h-full text-white" />
                       </motion.div>
-                      <div className="font-bold text-lg mb-1 text-foreground group-hover:text-accent transition-colors">LAB</div>
-                      <div className="text-xs text-muted-foreground">Der Automatisierungs-Motor</div>
+                      <div className="font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1 text-foreground group-hover:text-accent transition-colors">LAB</div>
+                      <div className="text-[10px] sm:text-xs text-muted-foreground">Der Automatisierungs-Motor</div>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -514,7 +514,7 @@ const About = () => {
                   translateX: "-50%",
                   translateY: "-50%"
                 }}>
-                      <div className="relative w-60 h-60 rounded-full overflow-hidden border-2 border-primary/50 backdrop-blur-xl bg-background/20 shadow-[0_0_60px_rgba(168,85,247,0.6)]">
+                      <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60 rounded-full overflow-hidden border-2 border-primary/50 backdrop-blur-xl bg-background/20 shadow-[0_0_60px_rgba(168,85,247,0.6)]">
                         <video ref={videoRef} autoPlay muted playsInline preload="auto" className="w-full h-full object-cover transition-opacity duration-200" src={moduleVideos[hoveredModule][currentVideoIndex[hoveredModule]]} />
                         <div className="absolute inset-0 rounded-full ring-2 ring-white/20" />
                       </div>
