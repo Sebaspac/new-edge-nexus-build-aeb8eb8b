@@ -63,7 +63,7 @@ const Lab = () => {
     details: ["Google Analytics 4 Setup", "Tag Manager Konfiguration", "Custom Dashboard Entwicklung", "Datengetriebene Entscheidungen"],
     icon: BarChart3,
     gradient: "from-[#fde047] to-[#fbbf24]",
-    video: "/assets/lab-section-video.mp4"
+    video: "/assets/lab-new-video.mp4"
   }];
   return <>
       <Helmet>
