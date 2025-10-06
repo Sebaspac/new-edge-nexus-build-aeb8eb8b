@@ -297,7 +297,7 @@ const Services = () => {
                 }} transition={{
                   duration: 0.8,
                   ease: "easeOut"
-                }} className="sm:text-5xl font-bold text-foreground mb-6 text-5xl">Unsere Reise</motion.h3>
+                }} className="font-bold text-foreground mb-6 text-5xl sm:text-5xl">Unsere Reise</motion.h3>
                   <motion.p initial={{
                   opacity: 0,
                   y: 20
@@ -550,7 +550,7 @@ const Services = () => {
         }} transition={{
           duration: 0.8
         }} className="text-left mb-20">
-            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] text-foreground mb-6 font-bold">Das Ergebnis</h2>
+            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] text-foreground mb-6 font-bold lg:text-5xl">Das Ergebnis</h2>
             <p className="text-muted-foreground max-w-4xl text-base lg:text-xl">
               Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
             </p>
@@ -674,7 +674,7 @@ const Services = () => {
             duration: 0.7
           }} whileHover={{
             scale: 1.03
-          }} className="text-2xl sm:text-3xl mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 font-bold lg:text-4xl">
+          }} className="text-2xl sm:text-3xl mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 font-bold lg:text-5xl">
               Für wen wir arbeiten & warum
             </motion.h2>
             <motion.p initial={{
@@ -828,7 +828,7 @@ const Services = () => {
           }} className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] text-foreground mb-6 leading-[1.25] font-bold">
               Unsere Kompetenzbereiche
             </motion.h2>
-            <motion.p className="text-base text-muted-foreground max-w-3xl leading-[1.5]" initial={{
+            <motion.p initial={{
             opacity: 0,
             y: 20
           }} whileInView={{
@@ -839,7 +839,7 @@ const Services = () => {
           }} transition={{
             delay: 0.4,
             duration: 0.6
-          }}>
+          }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">
               Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
             </motion.p>
           </motion.div>
