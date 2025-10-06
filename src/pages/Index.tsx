@@ -421,7 +421,7 @@ const Index = () => {
             }} className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] text-foreground mb-6 leading-[1.25] font-bold">
                 Unsere Kompetenzbereiche
               </motion.h2>
-              <motion.p className="text-base text-muted-foreground max-w-3xl leading-[1.5]" initial={{
+              <motion.p initial={{
               opacity: 0,
               y: 20
             }} whileInView={{
@@ -432,7 +432,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }}>
+            }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">
                 Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
               </motion.p>
             </motion.div>
