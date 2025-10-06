@@ -1197,9 +1197,9 @@ const About = () => {
         
 
         {/* 8️⃣ Gründer & Leadership */}
-        <section className="relative section-padding bg-[#0a0a0a] overflow-hidden">
+        <section className="relative section-padding bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
           {/* Subtle background effects */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3" />
           
           <div className="container-xl relative z-10">
             <motion.div 
@@ -1208,10 +1208,10 @@ const About = () => {
               viewport={{ once: true }} 
               className="text-center mb-16"
             >
-              <h2 className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-4 text-white font-bold leading-[1.2]">
+              <h2 className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-4 text-foreground font-bold leading-[1.2]">
                 Die Gründer
               </h2>
-              <p className="text-base lg:text-xl text-gray-400 max-w-3xl mx-auto leading-[1.5]">
+              <p className="text-base lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-[1.5]">
                 Expertise aus Strategie und Technologie – vereint für Ihren Erfolg.
               </p>
             </motion.div>
@@ -1236,12 +1236,12 @@ const About = () => {
                   transition={{ delay: i * 0.2 }}
                   className="group"
                 >
-                  <Card className="bg-[#1a1a1a] border-gray-800 hover:border-primary/50 transition-all duration-500 overflow-hidden">
+                  <Card className="bg-white border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all duration-500 overflow-hidden shadow-lg">
                     <CardContent className="p-8 flex flex-col items-center text-center">
                       {/* Profile Image with Gradient Border */}
                       <div className="relative mb-6">
                         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-secondary to-primary animate-gradient blur-sm" />
-                        <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-[#1a1a1a]">
+                        <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
                           <motion.img 
                             src={founder.image} 
                             alt={founder.name} 
@@ -1253,7 +1253,7 @@ const About = () => {
                       </div>
 
                       {/* Name */}
-                      <h3 className="text-2xl font-bold text-white mb-2">
+                      <h3 className="text-2xl font-bold text-foreground mb-2">
                         {founder.name}
                       </h3>
 
@@ -1267,7 +1267,7 @@ const About = () => {
                         {founder.tags.map((tag) => (
                           <span 
                             key={tag}
-                            className="px-4 py-1.5 bg-gray-800 text-gray-300 rounded-full text-sm border border-gray-700 hover:border-primary/50 transition-colors"
+                            className="px-4 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm border border-gray-200 hover:border-primary/50 hover:bg-gray-50 transition-colors"
                           >
                             {tag}
                           </span>
