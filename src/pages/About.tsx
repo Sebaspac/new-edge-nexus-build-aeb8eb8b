@@ -364,7 +364,7 @@ const About = () => {
                 Zentrum für den digitalen Wandel im Mittelstand.
               </motion.p>
 
-              <motion.div className="flex flex-col sm:flex-row items-center justify-center gap-4" initial={{
+              <motion.div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full" initial={{
             opacity: 0,
             y: 20
           }} whileInView={{
