@@ -335,7 +335,7 @@ const About = () => {
           once: true
         }} transition={{
           duration: 0.8
-        }} className="max-w-4xl mx-auto text-center">
+        }} className="max-w-4xl mx-auto text-left">
               <motion.h2 initial={{
             opacity: 0,
             scale: 0.9
