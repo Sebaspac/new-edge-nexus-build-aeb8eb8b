@@ -965,7 +965,7 @@ const About = () => {
               </p>
             </motion.div>
 
-            <motion.div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20" initial="hidden" whileInView="visible" viewport={{
+            <motion.div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-20" initial="hidden" whileInView="visible" viewport={{
             once: true
           }} variants={{
             hidden: {
@@ -1045,9 +1045,9 @@ const About = () => {
                   }} />)}
                     </div>
 
-                    <CardContent className="p-6 md:p-10 flex flex-col h-full relative z-10">
+                    <CardContent className="p-5 md:p-7 flex flex-col h-full relative z-10">
                       {/* Animated Icon */}
-                      <motion.div className={`w-16 h-16 md:w-20 md:h-20 mb-6 rounded-2xl bg-gradient-to-br ${item.gradient} p-4 shadow-lg relative overflow-hidden`} whileHover={{
+                      <motion.div className={`w-12 h-12 md:w-16 md:h-16 mb-5 rounded-2xl bg-gradient-to-br ${item.gradient} p-3 shadow-lg relative overflow-hidden`} whileHover={{
                     scale: 1.1,
                     rotate: [0, -10, 10, -10, 0]
                   }} transition={{
@@ -1065,10 +1065,10 @@ const About = () => {
                       </motion.div>
 
                       <div className="flex-grow">
-                        <h3 className="text-xl md:text-2xl mb-4 md:mb-6 text-foreground group-hover:bg-gradient-to-r group-hover:from-primary group-hover:via-secondary group-hover:to-primary group-hover:bg-clip-text group-hover:text-transparent transition-all duration-500 leading-tight font-bold">
+                        <h3 className="text-lg md:text-xl mb-3 md:mb-4 text-foreground group-hover:bg-gradient-to-r group-hover:from-primary group-hover:via-secondary group-hover:to-primary group-hover:bg-clip-text group-hover:text-transparent transition-all duration-500 leading-tight font-bold">
                           {item.title}
                         </h3>
-                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 md:mb-8">
+                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-5 md:mb-6">
                           {item.description}
                         </p>
                       </div>
