@@ -322,7 +322,7 @@ const About = () => {
         </section>
 
         {/* 1️⃣ Intro Section - The Headquarters of Innovation */}
-        <section id="intro" className="relative section-padding bg-background">
+        <section id="intro" className="relative section-padding pb-0 bg-background">
           <div className="absolute inset-0 overflow-hidden">
             <motion.div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
             x: [0, 50, 0],
