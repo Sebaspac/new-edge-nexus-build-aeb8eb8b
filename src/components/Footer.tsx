@@ -18,7 +18,7 @@ export const Footer = () => {
           </div>
 
           {/* Navigation Columns - Rechts */}
-          <div className="grid grid-cols-3 gap-6 md:gap-8 lg:gap-12 flex-1 md:justify-self-end">
+          <div className="grid grid-cols-2 gap-6 md:gap-8 lg:gap-12 flex-1 md:justify-self-end">
             {/* Services */}
             <div className="space-y-2 md:space-y-4 col-start-1">
               <h3 className="text-xs md:text-sm font-semibold uppercase tracking-wider text-gray-400">
@@ -49,7 +49,7 @@ export const Footer = () => {
             </div>
 
             {/* Company */}
-            <div className="space-y-2 md:space-y-4 col-start-3">
+            <div className="space-y-2 md:space-y-4 col-start-2">
               <h3 className="text-xs md:text-sm font-semibold uppercase tracking-wider text-gray-400">
                 Company
               </h3>
