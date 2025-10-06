@@ -1,22 +1,73 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Code, Palette, Globe, Briefcase, ChevronDown, ArrowRight, Sparkles, Zap, Heart, Target, Network, Building2, Lightbulb, Rocket, ShieldCheck, TrendingUp, Handshake } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import newEdgeHubLogo from "@/assets/new-edge-hub-logo.png";
+
+const moduleVideos = {
+  studio: [
+    '/assets/studio-hero-video.mp4',
+    '/assets/studio-service-video.mp4',
+    '/assets/brandstory-video.mp4'
+  ],
+  media: [
+    '/assets/media-hero-video.mp4',
+    '/assets/media-section-video.mp4',
+    '/assets/template-video.mp4'
+  ],
+  lab: [
+    '/assets/lab-hero-video.mp4',
+    '/assets/lab-section-video.mp4',
+    '/assets/lab-ki-automation-video.mp4',
+    '/assets/wireframes-video.mp4',
+    '/assets/liam-video.mp4'
+  ]
+};
+
 const About = () => {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('intro');
+  const [hoveredModule, setHoveredModule] = useState<'studio' | 'media' | 'lab' | null>(null);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState({ studio: 0, media: 0, lab: 0 });
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   }, []);
+
+  // Video cycling logic
+  useEffect(() => {
+    if (hoveredModule) {
+      // Start cycling videos every 3 seconds
+      intervalRef.current = setInterval(() => {
+        setCurrentVideoIndex(prev => {
+          const videos = moduleVideos[hoveredModule];
+          const nextIndex = (prev[hoveredModule] + 1) % videos.length;
+          return { ...prev, [hoveredModule]: nextIndex };
+        });
+      }, 3000);
+    } else {
+      // Clear interval when not hovering
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [hoveredModule]);
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -403,17 +454,25 @@ const About = () => {
                 </svg>
 
                 {/* Studio Node */}
-                <motion.div className="absolute top-[15%] left-[5%] w-40 h-40" initial={{
-                opacity: 0,
-                x: -50
-              }} whileInView={{
-                opacity: 1,
-                x: 0
-              }} viewport={{
-                once: true
-              }} transition={{
-                delay: 0.5
-              }}>
+                <motion.div 
+                  className="absolute top-[15%] left-[5%] w-40 h-40" 
+                  initial={{
+                    opacity: 0,
+                    x: -50
+                  }} 
+                  whileInView={{
+                    opacity: 1,
+                    x: 0
+                  }} 
+                  viewport={{
+                    once: true
+                  }} 
+                  transition={{
+                    delay: 0.5
+                  }}
+                  onMouseEnter={() => setHoveredModule('studio')}
+                  onMouseLeave={() => setHoveredModule(null)}
+                >
                   <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-primary/10 via-background to-background backdrop-blur-sm border border-primary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-primary/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <motion.div 
@@ -429,17 +488,25 @@ const About = () => {
                 </motion.div>
 
                 {/* Media Node */}
-                <motion.div className="absolute top-[15%] right-[5%] w-40 h-40" initial={{
-                opacity: 0,
-                x: 50
-              }} whileInView={{
-                opacity: 1,
-                x: 0
-              }} viewport={{
-                once: true
-              }} transition={{
-                delay: 0.7
-              }}>
+                <motion.div 
+                  className="absolute top-[15%] right-[5%] w-40 h-40" 
+                  initial={{
+                    opacity: 0,
+                    x: 50
+                  }} 
+                  whileInView={{
+                    opacity: 1,
+                    x: 0
+                  }} 
+                  viewport={{
+                    once: true
+                  }} 
+                  transition={{
+                    delay: 0.7
+                  }}
+                  onMouseEnter={() => setHoveredModule('media')}
+                  onMouseLeave={() => setHoveredModule(null)}
+                >
                   <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-secondary/10 via-background to-background backdrop-blur-sm border border-secondary/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-secondary/60 hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <motion.div 
@@ -455,17 +522,25 @@ const About = () => {
                 </motion.div>
 
                 {/* Lab Node */}
-                <motion.div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-40 h-40" initial={{
-                opacity: 0,
-                y: 50
-              }} whileInView={{
-                opacity: 1,
-                y: 0
-              }} viewport={{
-                once: true
-              }} transition={{
-                delay: 0.9
-              }}>
+                <motion.div 
+                  className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-40 h-40" 
+                  initial={{
+                    opacity: 0,
+                    y: 50
+                  }} 
+                  whileInView={{
+                    opacity: 1,
+                    y: 0
+                  }} 
+                  viewport={{
+                    once: true
+                  }} 
+                  transition={{
+                    delay: 0.9
+                  }}
+                  onMouseEnter={() => setHoveredModule('lab')}
+                  onMouseLeave={() => setHoveredModule(null)}
+                >
                   <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-accent/10 via-background to-background backdrop-blur-sm border border-accent/40 shadow-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(14,165,233,0.3)] group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <motion.div 
@@ -481,6 +556,32 @@ const About = () => {
                 </motion.div>
               </div>
             </motion.div>
+
+            {/* Floating Video Preview */}
+            <AnimatePresence>
+              {hoveredModule && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none"
+                >
+                  <div className="relative w-[400px] aspect-video rounded-xl overflow-hidden border border-primary/30 backdrop-blur-xl bg-background/10 shadow-[0_0_40px_rgba(168,85,247,0.3)]">
+                    <video
+                      ref={videoRef}
+                      key={`${hoveredModule}-${currentVideoIndex[hoveredModule]}`}
+                      autoPlay
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover rounded-xl"
+                      src={moduleVideos[hoveredModule][currentVideoIndex[hoveredModule]]}
+                    />
+                    <div className="absolute inset-0 rounded-xl ring-1 ring-white/10" />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* Unit Descriptions */}
             <motion.div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" initial="hidden" whileInView="visible" viewport={{
