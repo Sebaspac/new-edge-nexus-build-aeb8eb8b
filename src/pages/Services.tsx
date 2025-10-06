@@ -201,28 +201,23 @@ const Services = () => {
             ease: "easeOut"
           }} className="text-center mb-6">
               <span className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black block mb-2">THE</span>
-              <motion.span 
-                className="italic bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black block" 
-                style={{
-                  background: 'linear-gradient(135deg, #A78BFA, #818CF8, #60A5FA)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundSize: '200% 200%'
-                }}
-                whileInView={{
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-                }}
-                viewport={{ once: false }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  textShadow: "0 0 20px rgba(167, 139, 250, 0.5)"
-                }}
-              >
+              <motion.span className="italic bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black block" style={{
+              background: 'linear-gradient(135deg, #A78BFA, #818CF8, #60A5FA)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundSize: '200% 200%'
+            }} whileInView={{
+              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+            }} viewport={{
+              once: false
+            }} transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }} whileHover={{
+              scale: 1.05,
+              textShadow: "0 0 20px rgba(167, 139, 250, 0.5)"
+            }}>
                 JOURNEY
               </motion.span>
             </motion.h1>
@@ -241,21 +236,7 @@ const Services = () => {
               From Vision to Reality
             </motion.p>
             
-            <motion.p initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.8,
-            delay: 0.4,
-            ease: "easeOut"
-          }} className="text-white text-sm sm:text-base md:text-lg max-w-3xl text-center leading-relaxed px-4">
-              Umfassende digitale Lösungen, die Strategie, Design und Technologie nahtlos verbinden.
-              <br />
-              Wir entwickeln maßgeschneiderte Ansätze für Ihre einzigartigen Herausforderungen.
-            </motion.p>
+            
           </div>
 
           {/* Scroll Indicator */}
@@ -633,67 +614,7 @@ const Services = () => {
 
       {/* Warum New Edge Section */}
       <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-white overflow-hidden">
-        <div className="container-xl relative z-10">
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="text-left mb-20">
-            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] text-foreground mb-6 font-bold">Warum New Edge?</h2>
-            <p className="text-muted-foreground max-w-4xl text-base lg:text-xl">
-              Drei spezialisierte Labels, ein nahtloser Prozess, maximaler Erfolg für Ihr Projekt.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto px-4 sm:px-0">
-            {[{
-            icon: Star,
-            title: "Expertise",
-            description: "Spezialisierte Teams für jeden Bereich",
-            gradient: "from-purple-600 to-purple-800"
-          }, {
-            icon: Zap,
-            title: "Effizienz",
-            description: "Optimierte Prozesse und kurze Wege",
-            gradient: "from-blue-600 to-blue-800"
-          }, {
-            icon: Target,
-            title: "Zielgerichtet",
-            description: "Fokus auf messbare Ergebnisse",
-            gradient: "from-yellow-500 to-yellow-600"
-          }, {
-            icon: ArrowRight,
-            title: "Kontinuität",
-            description: "Nahtlose Übergänge zwischen den Phasen",
-            gradient: "from-green-600 to-green-800"
-          }].map((item, index) => <motion.div key={item.title} initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.6,
-            delay: index * 0.1
-          }} className="text-center group">
-                <div className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-soft`}>
-                  <item.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-h4 font-semibold text-foreground mb-4 group-hover:text-primary transition-colors">
-                  {item.title}
-                </h3>
-                
-              </motion.div>)}
-          </div>
-        </div>
+        
       </section>
 
       {/* Erfolg Erreicht Section */}
@@ -939,61 +860,56 @@ const Services = () => {
             }
           }
         }}>
-            {[
-              {
-                icon: Sparkles,
-                title: "New Edge Studio",
-                description: "Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.",
-                gradient: "from-secondary to-accent",
-                link: "/studio"
-              },
-              {
-                icon: Brain,
-                title: "New Edge Media",
-                description: "Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.",
-                gradient: "from-primary to-secondary",
-                link: "/media"
-              },
-              {
-                icon: Zap,
-                title: "New Edge Lab",
-                description: "Tech-Innovation und Automatisierung. Von MVP bis zur finalen technischen Umsetzung.",
-                gradient: "from-accent to-primary",
-                link: "/lab"
-              }
-            ].map((service, index) => (
-              <motion.div key={index} variants={{
-              hidden: {
-                opacity: 0,
-                y: 60,
-                scale: 0.9
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                transition: {
-                  duration: 0.7,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }
-              }
-            }} whileHover={{
-              scale: 1.05,
-              y: -10,
+            {[{
+            icon: Sparkles,
+            title: "New Edge Studio",
+            description: "Hier beginnt alles. Wir entwickeln die visuelle Identität, Strategie und das Fundament für Ihr Projekt.",
+            gradient: "from-secondary to-accent",
+            link: "/studio"
+          }, {
+            icon: Brain,
+            title: "New Edge Media",
+            description: "Content-Produktion und Reichweite. Hier wird alles produziert, veröffentlicht und gesteuert.",
+            gradient: "from-primary to-secondary",
+            link: "/media"
+          }, {
+            icon: Zap,
+            title: "New Edge Lab",
+            description: "Tech-Innovation und Automatisierung. Von MVP bis zur finalen technischen Umsetzung.",
+            gradient: "from-accent to-primary",
+            link: "/lab"
+          }].map((service, index) => <motion.div key={index} variants={{
+            hidden: {
+              opacity: 0,
+              y: 60,
+              scale: 0.9
+            },
+            visible: {
+              opacity: 1,
+              y: 0,
+              scale: 1,
               transition: {
-                duration: 0.3
+                duration: 0.7,
+                ease: [0.25, 0.46, 0.45, 0.94]
               }
-            }}>
+            }
+          }} whileHover={{
+            scale: 1.05,
+            y: -10,
+            transition: {
+              duration: 0.3
+            }
+          }}>
                 <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
                   <CardContent className="p-4 md:p-8 flex flex-row md:flex-col items-start md:items-stretch gap-4 md:gap-0 h-full">
                     {/* Icon with gradient background */}
                     <motion.div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center md:mb-6 shadow-lg flex-shrink-0`} whileHover={{
-                    scale: 1.1,
-                    rotate: [0, -5, 5, 0],
-                    transition: {
-                      duration: 0.5
-                    }
-                  }}>
+                  scale: 1.1,
+                  rotate: [0, -5, 5, 0],
+                  transition: {
+                    duration: 0.5
+                  }
+                }}>
                       <service.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
                     </motion.div>
 
@@ -1018,8 +934,7 @@ const Services = () => {
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </motion.div>
         </div>
       </section>
