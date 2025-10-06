@@ -940,15 +940,21 @@ const About = () => {
               {[{
               title: "Strategy & Brand Coaching",
               description: "Unsere Strategy Leads und Coaches entwickeln maßgeschneiderte Markenstrategien.",
-              team: "Strategy Leads, Brand Coaches"
+              team: "Strategy Leads, Brand Coaches",
+              icon: Target,
+              gradient: "from-purple-600 via-pink-600 to-purple-600"
             }, {
               title: "Creative & Content",
               description: "Unsere Content-Teams kreieren Inhalte – kreativ, datenbasiert und KI-gestützt.",
-              team: "Creative Directors, Content Specialists"
+              team: "Creative Directors, Content Specialists",
+              icon: Sparkles,
+              gradient: "from-pink-600 via-rose-600 to-pink-600"
             }, {
               title: "Tech & Automation",
               description: "Unsere Entwickler und Tech-Experten bringen Ihre Visionen zum Leben.",
-              team: "Lead Developers, Tech Innovators"
+              team: "Lead Developers, Tech Innovators",
+              icon: Zap,
+              gradient: "from-blue-600 via-cyan-600 to-blue-600"
             }].map((item, index) => <motion.div key={item.title} variants={{
               hidden: {
                 opacity: 0,
@@ -964,20 +970,92 @@ const About = () => {
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }
               }
-            }} className="group">
-                  <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
-                    <CardContent className="p-6 md:p-10 flex flex-col h-full">
+            }} className="group relative">
+                  <Card className="h-full bg-gradient-to-br from-background via-surface to-background border-border/50 hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 overflow-hidden">
+                    {/* Animated gradient background */}
+                    <motion.div 
+                      className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                      animate={{
+                        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+                      }}
+                      transition={{
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "linear"
+                      }}
+                      style={{ backgroundSize: '200% 200%' }}
+                    />
+                    
+                    {/* Floating particles effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      {[...Array(3)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className={`absolute w-2 h-2 rounded-full bg-gradient-to-r ${item.gradient}`}
+                          style={{
+                            left: `${20 + i * 30}%`,
+                            top: `${30 + i * 20}%`
+                          }}
+                          animate={{
+                            y: [-20, -40, -20],
+                            opacity: [0, 1, 0],
+                            scale: [0, 1, 0]
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            delay: i * 0.4,
+                            ease: "easeInOut"
+                          }}
+                        />
+                      ))}
+                    </div>
+
+                    <CardContent className="p-6 md:p-10 flex flex-col h-full relative z-10">
+                      {/* Animated Icon */}
+                      <motion.div 
+                        className={`w-16 h-16 md:w-20 md:h-20 mb-6 rounded-2xl bg-gradient-to-br ${item.gradient} p-4 shadow-lg relative overflow-hidden`}
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: [0, -10, 10, -10, 0]
+                        }}
+                        transition={{
+                          duration: 0.6
+                        }}
+                      >
+                        <motion.div
+                          className="absolute inset-0 bg-white/20"
+                          animate={{
+                            x: ['-100%', '200%']
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            repeatDelay: 1,
+                            ease: "easeInOut"
+                          }}
+                        />
+                        <item.icon className="w-full h-full text-white relative z-10" />
+                      </motion.div>
+
                       <div className="flex-grow">
-                        <h3 className="text-xl md:text-2xl mb-6 md:mb-8 text-foreground group-hover:text-primary transition-colors leading-tight font-semibold">
+                        <h3 className="text-xl md:text-2xl mb-4 md:mb-6 text-foreground group-hover:bg-gradient-to-r group-hover:from-primary group-hover:via-secondary group-hover:to-primary group-hover:bg-clip-text group-hover:text-transparent transition-all duration-500 leading-tight font-bold">
                           {item.title}
                         </h3>
                         <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 md:mb-8">
                           {item.description}
                         </p>
                       </div>
-                      <p className="text-sm text-muted-foreground font-semibold mt-auto">
-                        {item.team}
-                      </p>
+                      
+                      {/* Team badge with gradient border */}
+                      <div className="relative mt-auto">
+                        <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} rounded-full opacity-20 group-hover:opacity-40 transition-opacity blur-sm`} />
+                        <div className="relative bg-surface/80 backdrop-blur-sm border border-border/50 rounded-full px-4 py-2">
+                          <p className="text-xs md:text-sm text-foreground font-semibold text-center">
+                            {item.team}
+                          </p>
+                        </div>
+                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>)}
