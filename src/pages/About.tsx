@@ -424,7 +424,7 @@ const About = () => {
                   funktioniert
                 </span>
               </h2>
-              <p className="text-body-xl text-muted-foreground max-w-3xl mx-auto text-center lg:text-left">
+              <p className="text-body-xl text-muted-foreground max-w-3xl text-left">
                 Studio · Media · Lab – drei Einheiten, ein Headquarter.
               </p>
             </motion.div>
