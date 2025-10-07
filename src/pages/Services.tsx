@@ -661,9 +661,7 @@ const Services = () => {
             duration: 0.7
           }} whileHover={{
             scale: 1.03
-          }} className="text-2xl sm:text-3xl mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 font-bold lg:text-5xl">
-              Für wen wir arbeiten & warum
-            </motion.h2>
+          }} className="text-2xl sm:text-3xl mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 font-bold lg:text-5xl">Die Vorteile im Detail</motion.h2>
             <motion.p initial={{
             opacity: 0,
             y: 20
@@ -675,9 +673,7 @@ const Services = () => {
           }} transition={{
             delay: 0.4,
             duration: 0.6
-          }} className="text-base text-gray-600 max-w-3xl leading-[1.6] lg:text-xl">
-              Spezialisiert auf mittelständische KMUs, die Vorreiter werden wollen
-            </motion.p>
+          }} className="text-base text-gray-600 max-w-3xl leading-[1.6] lg:text-xl">Strategie, Media &amp; Automation verzahnt – Wirkung statt Aufwand.</motion.p>
           </motion.div>
 
             {/* Two-Column Layout: Accordion Left, Animation Right */}
@@ -912,7 +908,7 @@ const Services = () => {
                       </p>
 
                       {/* Button */}
-                      <Button variant="default" size="sm" className="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground group text-sm md:text-base md:mt-auto transition-all duration-300" asChild>
+                      <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-white group text-sm md:text-base md:mt-auto" asChild>
                         <Link to={service.link}>
                           Mehr erfahren
                           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
