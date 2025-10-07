@@ -507,7 +507,7 @@ const Index = () => {
                   setContactFormType('kmu');
                   setIsContactSheetOpen(true);
                 }}
-                className="min-h-12 px-8 bg-secondary hover:bg-secondary/90 text-secondary-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="min-h-12 px-8 bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 <Briefcase className="mr-2 h-5 w-5" />
                 Anfrage als KMU
