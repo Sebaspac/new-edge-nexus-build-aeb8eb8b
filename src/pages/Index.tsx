@@ -283,103 +283,145 @@ const Index = () => {
 
             {/* Toggle Tabs */}
             <Tabs defaultValue="kmu" className="w-full">
-              <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
-                <TabsTrigger value="kmu">KMU</TabsTrigger>
-                <TabsTrigger value="agenturen">Agenturen</TabsTrigger>
+              <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-12 p-1.5 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 backdrop-blur-sm rounded-2xl border border-primary/20 shadow-lg h-14">
+                <TabsTrigger 
+                  value="kmu" 
+                  className="text-base font-bold data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white data-[state=active]:shadow-xl rounded-xl transition-all duration-300 data-[state=active]:scale-105"
+                >
+                  🏢 KMU
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="agenturen"
+                  className="text-base font-bold data-[state=active]:bg-gradient-to-r data-[state=active]:from-pink-500 data-[state=active]:to-purple-600 data-[state=active]:text-white data-[state=active]:shadow-xl rounded-xl transition-all duration-300 data-[state=active]:scale-105"
+                >
+                  🎨 Agenturen
+                </TabsTrigger>
               </TabsList>
 
               {/* KMU Content */}
-              <TabsContent value="kmu" className="space-y-6">
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                  <div className="bg-gradient-to-br from-blue-50/80 to-purple-50/80 rounded-2xl p-6 md:p-8 border border-blue-200/60 max-w-4xl mx-auto">
-                    <h3 className="text-base sm:text-lg font-semibold mb-4 text-foreground">
-                      Für Unternehmen, die Vorreiter werden wollen
-                    </h3>
-                    <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
-                      Sie profitieren von einem Netzwerk aus führenden Agenturen und Automatisierungsexperten – koordiniert über New Edge. Wir machen komplexe Marketing- und Kreativprozesse einfach, effizient und messbar.
-                    </p>
+              <TabsContent value="kmu" className="space-y-8">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20, scale: 0.95 }} 
+                  animate={{ opacity: 1, y: 0, scale: 1 }} 
+                  transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="max-w-6xl mx-auto"
+                >
+                  <div className="relative bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-600/5 rounded-3xl p-8 md:p-12 border border-blue-400/30 backdrop-blur-xl shadow-2xl overflow-hidden">
+                    {/* Animated Background Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-transparent animate-pulse opacity-50" />
                     
-                    <Accordion type="single" collapsible className="space-y-2">
-                      {[
-                        {
-                          title: "Best-Match-Partner",
-                          description: "Wir verbinden Sie mit genau den Agenturen, die zu Ihrem Ziel passen."
-                        },
-                        {
-                          title: "Automatisierte Abläufe",
-                          description: "Vom Briefing bis zum Reporting läuft alles effizient über unsere Systeme."
-                        },
-                        {
-                          title: "Ganzheitliche Projekte",
-                          description: "Strategie, Branding, Media und Automation – alles perfekt verzahnt."
-                        },
-                        {
-                          title: "Transparente Ergebnisse",
-                          description: "KPIs und Dashboards zeigen, was Ihre Investition wirklich bringt."
-                        },
-                        {
-                          title: "Exklusiver Zugang",
-                          description: "Teil eines Netzwerks, das Innovation und messbare Wirkung vereint."
-                        }
-                      ].map((item, index) => (
-                        <AccordionItem key={index} value={`kmu-${index}`} className="bg-white/50 border border-border rounded-lg px-4">
-                          <AccordionTrigger className="text-sm font-medium hover:no-underline">
-                            {item.title}
-                          </AccordionTrigger>
-                          <AccordionContent className="text-sm text-muted-foreground">
-                            {item.description}
-                          </AccordionContent>
-                        </AccordionItem>
-                      ))}
-                    </Accordion>
+                    <div className="relative z-10">
+                      <motion.h3 
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="text-2xl md:text-3xl font-extrabold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                      >
+                        Für Unternehmen, die Vorreiter werden wollen
+                      </motion.h3>
+                      <motion.p 
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="text-base text-gray-700 mb-8 leading-relaxed font-medium"
+                      >
+                        Sie profitieren von einem Netzwerk aus führenden Agenturen und Automatisierungsexperten – koordiniert über New Edge. Wir machen komplexe Marketing- und Kreativprozesse einfach, effizient und messbar.
+                      </motion.p>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        {[
+                          { title: "Best-Match-Partner", description: "Wir verbinden Sie mit genau den Agenturen, die zu Ihrem Ziel passen.", icon: "🎯", gradient: "from-blue-500 to-cyan-500" },
+                          { title: "Automatisierte Abläufe", description: "Vom Briefing bis zum Reporting läuft alles effizient über unsere Systeme.", icon: "⚡", gradient: "from-purple-500 to-blue-500" },
+                          { title: "Ganzheitliche Projekte", description: "Strategie, Branding, Media und Automation – alles perfekt verzahnt.", icon: "🔗", gradient: "from-cyan-500 to-blue-500" },
+                          { title: "Transparente Ergebnisse", description: "KPIs und Dashboards zeigen, was Ihre Investition wirklich bringt.", icon: "📊", gradient: "from-blue-600 to-purple-500" },
+                          { title: "Exklusiver Zugang", description: "Teil eines Netzwerks, das Innovation und messbare Wirkung vereint.", icon: "✨", gradient: "from-purple-600 to-pink-500" }
+                        ].map((item, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 + index * 0.1 }}
+                            whileHover={{ scale: 1.05, y: -5 }}
+                            className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-blue-200/50 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden"
+                          >
+                            <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                            <div className="relative z-10">
+                              <div className="text-3xl mb-3">{item.icon}</div>
+                              <h4 className="text-base font-bold mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">
+                                {item.title}
+                              </h4>
+                              <p className="text-sm text-gray-600 leading-relaxed">
+                                {item.description}
+                              </p>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               </TabsContent>
 
               {/* Agenturen Content */}
-              <TabsContent value="agenturen" className="space-y-6">
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                  <div className="bg-gradient-to-br from-pink-50/80 to-purple-50/80 rounded-2xl p-6 md:p-8 border border-pink-200/60 max-w-4xl mx-auto">
-                    <h3 className="text-base sm:text-lg font-semibold mb-4 text-foreground">
-                      Für Agenturen, die Wachstum automatisieren wollen
-                    </h3>
-                    <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
-                      Als zertifizierter Partner werden Sie Teil unseres exklusiven Netzwerks. Wir vermitteln Kunden, integrieren Automatisierung und schaffen skalierbare Workflows für nachhaltiges Wachstum.
-                    </p>
+              <TabsContent value="agenturen" className="space-y-8">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20, scale: 0.95 }} 
+                  animate={{ opacity: 1, y: 0, scale: 1 }} 
+                  transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="max-w-6xl mx-auto"
+                >
+                  <div className="relative bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-pink-600/5 rounded-3xl p-8 md:p-12 border border-pink-400/30 backdrop-blur-xl shadow-2xl overflow-hidden">
+                    {/* Animated Background Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 via-purple-500/5 to-transparent animate-pulse opacity-50" />
                     
-                    <Accordion type="single" collapsible className="space-y-2">
-                      {[
-                        {
-                          title: "Kontinuierliche Leads",
-                          description: "Wir vermitteln passende Kundenprojekte aus dem Mittelstand."
-                        },
-                        {
-                          title: "Automatisierte Prozesse",
-                          description: "Standardisierte Übergaben, Reports und Abläufe – ohne Mehraufwand."
-                        },
-                        {
-                          title: "White-Label-Tools",
-                          description: "Nutzen Sie unsere Automatisierungen unter Ihrem eigenen Branding."
-                        },
-                        {
-                          title: "Umsatz & Upselling",
-                          description: "Erweitern Sie Ihr Angebot durch intelligente Zusatzservices."
-                        },
-                        {
-                          title: "Exklusive Community",
-                          description: "Zugang zu Insights, Beta-Tools und gemeinsamer Innovationsentwicklung."
-                        }
-                      ].map((item, index) => (
-                        <AccordionItem key={index} value={`agentur-${index}`} className="bg-white/50 border border-border rounded-lg px-4">
-                          <AccordionTrigger className="text-sm font-medium hover:no-underline">
-                            {item.title}
-                          </AccordionTrigger>
-                          <AccordionContent className="text-sm text-muted-foreground">
-                            {item.description}
-                          </AccordionContent>
-                        </AccordionItem>
-                      ))}
-                    </Accordion>
+                    <div className="relative z-10">
+                      <motion.h3 
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="text-2xl md:text-3xl font-extrabold mb-4 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent"
+                      >
+                        Für Agenturen, die Wachstum automatisieren wollen
+                      </motion.h3>
+                      <motion.p 
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="text-base text-gray-700 mb-8 leading-relaxed font-medium"
+                      >
+                        Als zertifizierter Partner werden Sie Teil unseres exklusiven Netzwerks. Wir vermitteln Kunden, integrieren Automatisierung und schaffen skalierbare Workflows für nachhaltiges Wachstum.
+                      </motion.p>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        {[
+                          { title: "Kontinuierliche Leads", description: "Wir vermitteln passende Kundenprojekte aus dem Mittelstand.", icon: "🚀", gradient: "from-pink-500 to-rose-500" },
+                          { title: "Automatisierte Prozesse", description: "Standardisierte Übergaben, Reports und Abläufe – ohne Mehraufwand.", icon: "⚙️", gradient: "from-purple-500 to-pink-500" },
+                          { title: "White-Label-Tools", description: "Nutzen Sie unsere Automatisierungen unter Ihrem eigenen Branding.", icon: "🏷️", gradient: "from-rose-500 to-pink-500" },
+                          { title: "Umsatz & Upselling", description: "Erweitern Sie Ihr Angebot durch intelligente Zusatzservices.", icon: "💰", gradient: "from-pink-600 to-purple-500" },
+                          { title: "Exklusive Community", description: "Zugang zu Insights, Beta-Tools und gemeinsamer Innovationsentwicklung.", icon: "🌐", gradient: "from-purple-600 to-indigo-500" }
+                        ].map((item, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 + index * 0.1 }}
+                            whileHover={{ scale: 1.05, y: -5 }}
+                            className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-pink-200/50 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden"
+                          >
+                            <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                            <div className="relative z-10">
+                              <div className="text-3xl mb-3">{item.icon}</div>
+                              <h4 className="text-base font-bold mb-2 text-gray-900 group-hover:text-pink-600 transition-colors">
+                                {item.title}
+                              </h4>
+                              <p className="text-sm text-gray-600 leading-relaxed">
+                                {item.description}
+                              </p>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               </TabsContent>
