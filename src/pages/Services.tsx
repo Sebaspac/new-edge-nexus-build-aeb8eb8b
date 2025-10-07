@@ -1010,9 +1010,10 @@ const Services = () => {
                 asChild
                 className="group bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
               >
-                <a href="tel:+4915750998236">
+                <a href="tel:+4915750998236" className="relative">
                   <Phone className="mr-2 w-4 h-4" />
-                  Talk to Sales
+                  <span className="group-hover:hidden">Talk to Sales</span>
+                  <span className="hidden group-hover:inline">+49 157 5099 8236</span>
                 </a>
               </Button>
               <Button 
