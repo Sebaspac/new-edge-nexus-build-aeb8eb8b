@@ -808,9 +808,7 @@ const Services = () => {
           }} transition={{
             delay: 0.2,
             duration: 0.7
-          }} className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] text-foreground mb-6 leading-[1.25] font-bold">
-              Unsere Kompetenzbereiche
-            </motion.h2>
+          }} className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] text-foreground mb-6 leading-[1.25] font-bold">Unsere Services</motion.h2>
             <motion.p initial={{
             opacity: 0,
             y: 20
