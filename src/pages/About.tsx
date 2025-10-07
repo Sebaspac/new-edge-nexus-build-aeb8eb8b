@@ -661,8 +661,8 @@ const About = () => {
                 <div className="space-y-3 sm:space-y-4 md:space-y-6 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
                   <p>
                     Wir verstehen uns nicht als klassische Agentur – sondern als{" "}
-                    <strong className="text-foreground">Innovationspartner</strong>, der andere Agenturen und
-                    Unternehmen smarter macht.
+                    <strong className="text-foreground">Innovationspartner und Connector</strong>, der Unternehmen und
+                    Agenturen smarter vernetzt, Prozesse automatisiert und kreative Wirkung messbar macht.
                   </p>
                   
                   <p>
