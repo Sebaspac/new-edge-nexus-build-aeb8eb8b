@@ -83,7 +83,7 @@ export const ProblemSolutionSection = ({
               ease: "easeInOut"
             }} className="overflow-hidden">
                   <div className="pt-3">
-                    <p className="text-sm lg:text-base text-muted-foreground leading-relaxed text-left">
+                    <p className="text-sm text-muted-foreground leading-relaxed text-left lg:text-base">
                       {item.content}
                     </p>
                   </div>
