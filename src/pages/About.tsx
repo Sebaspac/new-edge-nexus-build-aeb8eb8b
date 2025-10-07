@@ -4,6 +4,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence, useMotionValue, useTransform, animate } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Users,
   Code,
@@ -927,10 +928,16 @@ const About = () => {
               <h2 className="text-3xl sm:text-4xl mb-4 sm:mb-6 text-foreground lg:text-left text-left font-bold md:text-5xl">
                 Von der Idee zum <span className="bg-gradient-primary bg-clip-text text-transparent">Ökosystem</span>
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl text-left">
-                New Edge wurde gegründet, weil wir gesehen haben, dass Kreativität und Technologie im Mittelstand oft
-                getrennt voneinander existieren.
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl text-left mb-6">
+                Seit August 2025: Mit modernster KI & Automation haben wir unsere komplette Agentur und ein kuratiertes Partner-Netzwerk aufgebaut – schnell, skalierbar, messbar.
               </p>
+              <div className="flex flex-wrap gap-2 justify-start">
+                <Badge variant="outline" className="text-xs sm:text-sm">Geprüfte Partner</Badge>
+                <Badge variant="outline" className="text-xs sm:text-sm">Matching-Engine</Badge>
+                <Badge variant="outline" className="text-xs sm:text-sm">Automation-Module</Badge>
+                <Badge variant="outline" className="text-xs sm:text-sm">SLAs</Badge>
+                <Badge variant="outline" className="text-xs sm:text-sm">DSGVO</Badge>
+              </div>
             </motion.div>
 
             {/* Timeline */}
@@ -939,25 +946,28 @@ const About = () => {
 
               {[
                 {
-                  year: "2023",
-                  title: "Die Gründung",
-                  description: "New Edge startet mit der Vision, Innovation in den Mittelstand zu bringen.",
+                  year: "08/2025",
+                  title: "Start mit Tech-Vorsprung",
+                  subtitle: "Launch",
+                  description: "Go-Live von New Edge als Innovationspartner & Connector für KMU und Agenturen.",
                 },
                 {
-                  year: "2024",
-                  title: "Wachstum & Expansion",
-                  description: "Aufbau des Netzwerks: Studio, Media und Lab nehmen Form an.",
+                  year: "09–10/2025",
+                  title: "Aufbauen. Testen. Liefern.",
+                  subtitle: "Build & Proof",
+                  description: "Onboarding geprüfter Partner-Agenturen, erste vernetzte Projekte mit KMU (White-Label & Co-Delivery).",
                 },
                 {
-                  year: "2025",
-                  title: "Das Ökosystem",
-                  description:
-                    "New Edge wird zum Headquarter of Innovation – Agenturen und Unternehmen arbeiten nahtlos zusammen.",
+                  year: "11–12/2025",
+                  title: "Bausteine statt Einzelprojekte",
+                  subtitle: "Scale",
+                  description: "Wiederverwendbare Automations-Module (CRM, Content-Ops, Ads), standardisierte SLAs und Trainingspfade.",
                 },
                 {
-                  year: "Zukunft",
-                  title: "Skalierung & Impact",
-                  description: "Der Mittelstand wird zum Motor echter Innovation durch unser Netzwerk.",
+                  year: "2026+",
+                  title: "Tiefe Integration, mehr Branchen",
+                  subtitle: "Expansion & Impact",
+                  description: "Das Netzwerk wächst, Integrationen werden tiefer, Go-Lives noch schneller.",
                 },
               ].map((milestone, i) => (
                 <motion.div
@@ -983,8 +993,8 @@ const About = () => {
                       <div className="text-right pr-2 sm:pr-4 md:pr-8">
                         <Card className="inline-block text-left hover:shadow-xl transition-all">
                           <CardContent className="p-3 sm:p-4 md:p-6">
-                            <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-1 sm:mb-2">
-                              {milestone.year}
+                            <div className="text-lg sm:text-xl font-semibold text-primary mb-1">
+                              {milestone.year} — {milestone.subtitle}
                             </div>
                             <h3 className="text-base sm:text-lg md:text-xl mb-2 sm:mb-3 font-bold">
                               {milestone.title}
@@ -1023,8 +1033,8 @@ const About = () => {
                       <div className="pl-2 sm:pl-4 md:pl-8">
                         <Card className="hover:shadow-xl transition-all">
                           <CardContent className="p-3 sm:p-4 md:p-6">
-                            <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-1 sm:mb-2">
-                              {milestone.year}
+                            <div className="text-lg sm:text-xl font-semibold text-secondary mb-1">
+                              {milestone.year} — {milestone.subtitle}
                             </div>
                             <h3 className="text-base sm:text-lg md:text-xl mb-2 sm:mb-3 font-bold">
                               {milestone.title}
@@ -1040,6 +1050,39 @@ const About = () => {
                 </motion.div>
               ))}
             </div>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center mt-12 sm:mt-16"
+            >
+              <Button
+                size="lg"
+                onClick={() => {
+                  setIsPartnerRequest(false);
+                  setIsContactSheetOpen(true);
+                }}
+                className="group"
+              >
+                Agentur-Match anfragen
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => {
+                  setIsPartnerRequest(false);
+                  setIsContactSheetOpen(true);
+                }}
+                className="group"
+              >
+                Projekt starten
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </motion.div>
           </div>
         </section>
 
