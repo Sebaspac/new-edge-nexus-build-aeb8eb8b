@@ -78,9 +78,7 @@ export const ContactFormModal = ({
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text'
-          }}>
-              Projekt besprechen
-            </span>
+          }} className="text-3xl font-semibold">Get in touch!</span>
           </DialogTitle>
           <p className="text-muted-foreground text-left">
             Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen.
