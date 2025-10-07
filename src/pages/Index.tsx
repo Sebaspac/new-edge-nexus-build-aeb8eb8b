@@ -15,6 +15,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { toast } from "@/hooks/use-toast";
 import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
@@ -258,6 +260,130 @@ const Index = () => {
 
             {/* Two-Column Layout with Mobile Scroll Effect */}
             <ProblemSolutionSection openAccordionIndex={openAccordionIndex} setOpenAccordionIndex={setOpenAccordionIndex} />
+          </div>
+        </section>
+
+        {/* Gemeinsam Zukunft gestalten Section */}
+        <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
+          <div className="container-xl relative z-10">
+            {/* Header */}
+            <motion.div className="text-left mb-12" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+              <motion.div className="mb-2">
+                <span className="inline-block px-3 py-1 text-xs font-semibold bg-primary/10 text-primary rounded-full">
+                  Exklusives Partnernetzwerk
+                </span>
+              </motion.div>
+              <motion.h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-foreground leading-[1.25]">
+                Gemeinsam Zukunft gestalten – vernetzt. automatisiert. wirkungsvoll.
+              </motion.h2>
+              <motion.p className="text-sm sm:text-base text-muted-foreground max-w-3xl leading-relaxed">
+                New Edge verbindet Unternehmen und Agenturen in einem exklusiven Netzwerk, um kreative Exzellenz und intelligente Automatisierung zu vereinen – für mehr Wirkung, weniger Aufwand und messbares Wachstum.
+              </motion.p>
+            </motion.div>
+
+            {/* Toggle Tabs */}
+            <Tabs defaultValue="kmu" className="w-full">
+              <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
+                <TabsTrigger value="kmu">KMU</TabsTrigger>
+                <TabsTrigger value="agenturen">Agenturen</TabsTrigger>
+              </TabsList>
+
+              {/* KMU Content */}
+              <TabsContent value="kmu" className="space-y-6">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+                  <div className="bg-gradient-to-br from-blue-50/80 to-purple-50/80 rounded-2xl p-6 md:p-8 border border-blue-200/60 max-w-4xl mx-auto">
+                    <h3 className="text-base sm:text-lg font-semibold mb-4 text-foreground">
+                      Für Unternehmen, die Vorreiter werden wollen
+                    </h3>
+                    <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
+                      Sie profitieren von einem Netzwerk aus führenden Agenturen und Automatisierungsexperten – koordiniert über New Edge. Wir machen komplexe Marketing- und Kreativprozesse einfach, effizient und messbar.
+                    </p>
+                    
+                    <Accordion type="single" collapsible className="space-y-2">
+                      {[
+                        {
+                          title: "Best-Match-Partner",
+                          description: "Wir verbinden Sie mit genau den Agenturen, die zu Ihrem Ziel passen."
+                        },
+                        {
+                          title: "Automatisierte Abläufe",
+                          description: "Vom Briefing bis zum Reporting läuft alles effizient über unsere Systeme."
+                        },
+                        {
+                          title: "Ganzheitliche Projekte",
+                          description: "Strategie, Branding, Media und Automation – alles perfekt verzahnt."
+                        },
+                        {
+                          title: "Transparente Ergebnisse",
+                          description: "KPIs und Dashboards zeigen, was Ihre Investition wirklich bringt."
+                        },
+                        {
+                          title: "Exklusiver Zugang",
+                          description: "Teil eines Netzwerks, das Innovation und messbare Wirkung vereint."
+                        }
+                      ].map((item, index) => (
+                        <AccordionItem key={index} value={`kmu-${index}`} className="bg-white/50 border border-border rounded-lg px-4">
+                          <AccordionTrigger className="text-sm font-medium hover:no-underline">
+                            {item.title}
+                          </AccordionTrigger>
+                          <AccordionContent className="text-sm text-muted-foreground">
+                            {item.description}
+                          </AccordionContent>
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </div>
+                </motion.div>
+              </TabsContent>
+
+              {/* Agenturen Content */}
+              <TabsContent value="agenturen" className="space-y-6">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+                  <div className="bg-gradient-to-br from-pink-50/80 to-purple-50/80 rounded-2xl p-6 md:p-8 border border-pink-200/60 max-w-4xl mx-auto">
+                    <h3 className="text-base sm:text-lg font-semibold mb-4 text-foreground">
+                      Für Agenturen, die Wachstum automatisieren wollen
+                    </h3>
+                    <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
+                      Als zertifizierter Partner werden Sie Teil unseres exklusiven Netzwerks. Wir vermitteln Kunden, integrieren Automatisierung und schaffen skalierbare Workflows für nachhaltiges Wachstum.
+                    </p>
+                    
+                    <Accordion type="single" collapsible className="space-y-2">
+                      {[
+                        {
+                          title: "Kontinuierliche Leads",
+                          description: "Wir vermitteln passende Kundenprojekte aus dem Mittelstand."
+                        },
+                        {
+                          title: "Automatisierte Prozesse",
+                          description: "Standardisierte Übergaben, Reports und Abläufe – ohne Mehraufwand."
+                        },
+                        {
+                          title: "White-Label-Tools",
+                          description: "Nutzen Sie unsere Automatisierungen unter Ihrem eigenen Branding."
+                        },
+                        {
+                          title: "Umsatz & Upselling",
+                          description: "Erweitern Sie Ihr Angebot durch intelligente Zusatzservices."
+                        },
+                        {
+                          title: "Exklusive Community",
+                          description: "Zugang zu Insights, Beta-Tools und gemeinsamer Innovationsentwicklung."
+                        }
+                      ].map((item, index) => (
+                        <AccordionItem key={index} value={`agentur-${index}`} className="bg-white/50 border border-border rounded-lg px-4">
+                          <AccordionTrigger className="text-sm font-medium hover:no-underline">
+                            {item.title}
+                          </AccordionTrigger>
+                          <AccordionContent className="text-sm text-muted-foreground">
+                            {item.description}
+                          </AccordionContent>
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </div>
+                </motion.div>
+              </TabsContent>
+            </Tabs>
           </div>
         </section>
 
