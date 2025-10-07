@@ -353,7 +353,7 @@ const Index = () => {
                       x: 0
                     }} transition={{
                       delay: 0.3
-                    }} className="text-gray-700 mb-8 leading-relaxed text-lg font-normal">
+                    }} className="mb-8 leading-relaxed text-lg text-gray-500 font-normal">
                         New Edge ist Ihr Partner für intelligente Automatisierung – und Ihr Zugang zu den besten
                         Kreativagenturen
                       </motion.p>
@@ -443,7 +443,7 @@ const Index = () => {
                       x: 0
                     }} transition={{
                       delay: 0.3
-                    }} className="text-base text-gray-700 mb-8 leading-relaxed font-medium">
+                    }} className="text-base mb-8 leading-relaxed text-gray-500 font-normal">
                         Als zertifizierter Partner werden Sie Teil unseres exklusiven Netzwerks. Wir vermitteln Kunden,
                         integrieren Automatisierung und schaffen skalierbare Workflows für nachhaltiges Wachstum.
                       </motion.p>
