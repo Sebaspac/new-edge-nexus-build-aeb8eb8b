@@ -33,138 +33,87 @@ export const ProblemSolutionSection = ({
     title: "Transparenz",
     content: "Echtzeit-Dashboards zeigen KPIs für schnelle Entscheidungen."
   }];
-  return <>
-      {/* Mobile/Tablet: Stack Layout with Scroll Effect */}
-      <div ref={sectionRef} className="lg:hidden space-y-6 relative max-w-6xl mx-auto">
-        {/* Visual with Scroll Effect - shown first */}
-        <motion.div style={{
-        opacity: visualOpacity,
-        scale: visualScale,
-        y: visualY
-      }} className="sticky top-20 z-10">
-          <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary via-secondary to-accent">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-64 h-64 bg-white/20 backdrop-blur-sm rounded-3xl" />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-          </div>
-        </motion.div>
-
-        {/* Accordion Content Below - appears as visual fades */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 30
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true,
-        margin: "-100px"
-      }} transition={{
-        duration: 0.6,
-        delay: 0.3
-      }} className="relative z-20 space-y-1">
-          {accordionItems.map((item, index) => {
+  return (
+    <div className="max-w-4xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="space-y-4"
+      >
+        {accordionItems.map((item, index) => {
           const isOpen = openAccordionIndex === index;
-          return <motion.div key={item.title} initial={{
-            opacity: 0,
-            y: 10
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.3,
-            delay: index * 0.05
-          }} className="border-b border-border last:border-b-0">
-                {/* Accordion Header */}
-                <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity">
-                  <h3 className="text-[28px] sm:text-[30px] text-foreground leading-[1.3] font-semibold">
+          return (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="group"
+            >
+              <button
+                onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)}
+                className={`
+                  w-full p-6 lg:p-8 rounded-2xl
+                  border-2 transition-all duration-300
+                  ${isOpen 
+                    ? 'border-primary bg-primary/5 shadow-lg' 
+                    : 'border-border bg-card hover:border-primary/50 hover:bg-card/80'
+                  }
+                `}
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <h3 className={`
+                    text-left text-2xl lg:text-3xl font-bold
+                    transition-colors duration-300
+                    ${isOpen ? 'text-primary' : 'text-foreground'}
+                  `}>
                     {item.title}
                   </h3>
-                  <motion.svg animate={{
-                rotate: isOpen ? 180 : 0
-              }} transition={{
-                duration: 0.3
-              }} className="w-5 h-5 text-muted-foreground flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </motion.svg>
-                </button>
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className={`
+                      flex-shrink-0 w-8 h-8 rounded-full 
+                      flex items-center justify-center
+                      transition-colors duration-300
+                      ${isOpen 
+                        ? 'bg-primary text-primary-foreground' 
+                        : 'bg-muted text-muted-foreground group-hover:bg-primary/10'
+                      }
+                    `}
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </motion.div>
+                </div>
 
-                {/* Accordion Content */}
-                <motion.div initial={false} animate={{
-              height: isOpen ? "auto" : 0,
-              opacity: isOpen ? 1 : 0
-            }} transition={{
-              duration: 0.3,
-              ease: "easeInOut"
-            }} className="overflow-hidden">
-                  <div className="pb-6 pr-8">
-                    <p className="text-base text-muted-foreground leading-[1.5]">
+                <motion.div
+                  initial={false}
+                  animate={{
+                    height: isOpen ? "auto" : 0,
+                    opacity: isOpen ? 1 : 0
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    ease: "easeInOut"
+                  }}
+                  className="overflow-hidden"
+                >
+                  <div className="pt-4">
+                    <p className="text-lg text-muted-foreground leading-relaxed">
                       {item.content}
                     </p>
                   </div>
                 </motion.div>
-              </motion.div>;
+              </button>
+            </motion.div>
+          );
         })}
-        </motion.div>
-      </div>
-
-      {/* Desktop: Grid Layout */}
-      <div className="hidden lg:grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
-        {/* Left: Accordion List */}
-        <div className="space-y-1">
-          {accordionItems.map((item, index) => {
-          const isOpen = openAccordionIndex === index;
-          return <motion.div key={item.title} initial={{
-            opacity: 0,
-            y: 10
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.3,
-            delay: index * 0.05
-          }} className="border-b border-border last:border-b-0">
-                {/* Accordion Header */}
-                <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity">
-                  <h3 className="text-foreground leading-[1.3] text-xl font-bold">
-                    {item.title}
-                  </h3>
-                  <motion.svg animate={{
-                rotate: isOpen ? 180 : 0
-              }} transition={{
-                duration: 0.3
-              }} className="w-5 h-5 text-muted-foreground flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </motion.svg>
-                </button>
-
-                {/* Accordion Content */}
-                <motion.div initial={false} animate={{
-              height: isOpen ? "auto" : 0,
-              opacity: isOpen ? 1 : 0
-            }} transition={{
-              duration: 0.3,
-              ease: "easeInOut"
-            }} className="overflow-hidden">
-                  <div className="pb-6 pr-8">
-                    <p className="text-base text-muted-foreground leading-[1.5]">
-                      {item.content}
-                    </p>
-                  </div>
-                </motion.div>
-              </motion.div>;
-        })}
-        </div>
-
-        {/* Right: Animated Visual */}
-        <div className="lg:sticky lg:top-24">
-          
-        </div>
-      </div>
-    </>;
+      </motion.div>
+    </div>
+  );
 };
