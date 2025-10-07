@@ -435,35 +435,29 @@ const Index = () => {
                       <div className="grid md:grid-cols-2 gap-4">
                         {[
                           {
-                            title: "Best-Match-Partner",
-                            description: "Wir verbinden Sie mit genau den Agenturen, die zu Ihrem Ziel passen.",
-                            icon: "🎯",
+                            title: "Automatisierung mit Impact",
+                            description: "Wir automatisieren Ihre Workflows end-to-end – für mehr Effizienz, Tempo und geringere Kosten.",
+                            icon: "⚡",
                             gradient: "from-blue-500 to-cyan-500",
                           },
                           {
                             title: "Kreative Exzellenz auf Abruf",
                             description:
                               "Über unser Partnernetzwerk erhalten Sie Zugang zu Top-Agenturen für Branding, Design und Media.",
-                            icon: "⚡",
+                            icon: "🎨",
                             gradient: "from-purple-500 to-blue-500",
                           },
                           {
                             title: "Ganzheitliche Projekte",
-                            description: "Strategie, Branding, Media und Automation – alles perfekt verzahnt.",
+                            description: "New Edge koordiniert Prozesse und Partner zentral – ein Ansprechpartner, klare Ergebnisse.",
                             icon: "🔗",
                             gradient: "from-cyan-500 to-blue-500",
                           },
                           {
-                            title: "Transparente Ergebnisse",
-                            description: "KPIs und Dashboards zeigen, was Ihre Investition wirklich bringt.",
+                            title: "Beobachtbares Wachstum",
+                            description: "Alle KPIs in Echtzeit: Fortschritt, Performance und ROI jederzeit nachvollziehbar.",
                             icon: "📊",
                             gradient: "from-blue-600 to-purple-500",
-                          },
-                          {
-                            title: "Exklusiver Zugang",
-                            description: "Teil eines Netzwerks, das Innovation und messbare Wirkung vereint.",
-                            icon: "✨",
-                            gradient: "from-purple-600 to-pink-500",
                           },
                         ].map((item, index) => (
                           <motion.div
