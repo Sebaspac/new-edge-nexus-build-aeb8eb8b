@@ -195,7 +195,10 @@ const Products = () => {
                   }
                 }
               }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">
-                  Unsere spezialisierten KI-Agenten automatisieren Ihre Prozesse, verbessern Effizienz und steigern Produktivität. Von Wissensmanagement bis Content-Erstellung – maßgeschneiderte Lösungen für Ihr Business. Schreiben Sie uns und testen Sie unsere Agenten 48 Stunden lang kostenlos.
+                  Unsere spezialisierten KI-Agenten automatisieren Ihre Prozesse, verbessern Effizienz und steigern Produktivität. Von Wissensmanagement bis Content-Erstellung – maßgeschneiderte Lösungen für Ihr Business.
+                </motion.p>
+                <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="text-sm text-gray-600 mt-6 leading-[1.6] max-w-3xl sm:text-xl font-medium">
+                  Schreiben Sie uns und testen Sie unsere Agenten 48 Stunden lang kostenlos.
                 </motion.p>
               </motion.div>
             </motion.div>
