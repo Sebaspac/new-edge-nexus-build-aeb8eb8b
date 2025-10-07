@@ -686,7 +686,7 @@ const About = () => {
               }} transition={{
                 delay: 0.4
               }}>
-                  <Button size="lg" onClick={() => scrollToSection('kontakt')} className="group">
+                  <Button size="lg" onClick={() => scrollToSection('kontakt')} className="group bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
                     Mit uns sprechen
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
