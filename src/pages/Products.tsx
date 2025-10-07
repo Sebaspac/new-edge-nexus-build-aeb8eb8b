@@ -195,7 +195,7 @@ const Products = () => {
                   }
                 }
               }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">
-                  Unsere spezialisierten KI-Agenten automatisieren Ihre Prozesse, verbessern Effizienz und steigern Produktivität. Von Wissensmanagement bis Content-Erstellung – maßgeschneiderte Lösungen für Ihr Business.
+                  Unsere spezialisierten KI-Agenten automatisieren Ihre Prozesse, verbessern Effizienz und steigern Produktivität. Von Wissensmanagement bis Content-Erstellung – maßgeschneiderte Lösungen für Ihr Business. Schreiben Sie uns und testen Sie unsere Agenten 48 Stunden lang kostenlos.
                 </motion.p>
               </motion.div>
             </motion.div>
