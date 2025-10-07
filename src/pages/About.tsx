@@ -664,11 +664,7 @@ const About = () => {
                     <strong className="text-foreground">Innovationspartner</strong>, der andere Agenturen und
                     Unternehmen smarter macht.
                   </p>
-                  <p>
-                    Wir <strong className="text-foreground">automatisieren Agenturen</strong>, damit sie ihre Kund:innen
-                    effizienter betreuen können, und begleiten externe Unternehmen direkt – vom Friseur bis zum
-                    Tech-Startup.
-                  </p>
+                  
                   <p>
                     New Edge ist das <strong className="text-foreground">Headquarter of Innovation</strong> – ein
                     übergeordnetes Netzwerkzentrum, das Agenturen und Unternehmen im Mittelstand miteinander verbindet.
