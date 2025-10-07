@@ -288,11 +288,11 @@ const Index = () => {
 
             {/* Toggle Tabs */}
             <Tabs defaultValue="kmu" className="w-full">
-              <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-12 p-1.5 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 backdrop-blur-sm rounded-2xl border border-primary/20 shadow-lg h-14">
-                <TabsTrigger value="kmu" className="text-base font-bold data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white data-[state=active]:shadow-xl rounded-xl transition-all duration-300 data-[state=active]:scale-105">
+              <TabsList className="inline-flex mx-auto grid-cols-2 mb-8 p-0.5 bg-muted/50 rounded-full border border-border/50 h-9 w-auto">
+                <TabsTrigger value="kmu" className="text-sm font-medium data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm rounded-full transition-all duration-200 px-6">
                   KMU
                 </TabsTrigger>
-                <TabsTrigger value="agenturen" className="text-base font-bold data-[state=active]:bg-gradient-to-r data-[state=active]:from-pink-500 data-[state=active]:to-purple-600 data-[state=active]:text-white data-[state=active]:shadow-xl rounded-xl transition-all duration-300 data-[state=active]:scale-105">
+                <TabsTrigger value="agenturen" className="text-sm font-medium data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm rounded-full transition-all duration-200 px-6">
                   Agenturen
                 </TabsTrigger>
               </TabsList>
