@@ -288,14 +288,16 @@ const Index = () => {
 
             {/* Toggle Tabs */}
             <Tabs defaultValue="kmu" className="w-full">
-              <TabsList className="inline-flex mx-auto grid-cols-2 mb-8 p-0.5 bg-muted/50 rounded-full border border-border/50 h-9 w-auto">
-                <TabsTrigger value="kmu" className="text-sm font-medium data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm rounded-full transition-all duration-200 px-6">
-                  KMU
-                </TabsTrigger>
-                <TabsTrigger value="agenturen" className="text-sm font-medium data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm rounded-full transition-all duration-200 px-6">
-                  Agenturen
-                </TabsTrigger>
-              </TabsList>
+              <div className="flex justify-center mb-8">
+                <TabsList className="inline-flex p-0.5 bg-muted/50 rounded-full border border-border/50 h-9">
+                  <TabsTrigger value="kmu" className="text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-full transition-all duration-200 px-6">
+                    KMU
+                  </TabsTrigger>
+                  <TabsTrigger value="agenturen" className="text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-full transition-all duration-200 px-6">
+                    Agenturen
+                  </TabsTrigger>
+                </TabsList>
+              </div>
 
               {/* KMU Content */}
               <TabsContent value="kmu" className="space-y-8">
