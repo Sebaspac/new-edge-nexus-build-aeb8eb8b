@@ -23,13 +23,13 @@ export const ProblemSolutionSection = ({
     content: "Echtzeit-Dashboards zeigen KPIs für schnelle Entscheidungen."
   }];
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-3xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="space-y-4"
+        className="space-y-2"
       >
         {accordionItems.map((item, index) => {
           const isOpen = openAccordionIndex === index;
@@ -45,7 +45,7 @@ export const ProblemSolutionSection = ({
               <button
                 onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)}
                 className={`
-                  w-full p-6 lg:p-8 rounded-2xl
+                  w-full p-4 lg:p-5 rounded-xl
                   border-2 transition-all duration-300
                   ${isOpen 
                     ? 'border-primary bg-primary/5 shadow-lg' 
@@ -53,9 +53,9 @@ export const ProblemSolutionSection = ({
                   }
                 `}
               >
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center justify-between gap-3">
                   <h3 className={`
-                    text-left text-2xl lg:text-3xl font-bold
+                    text-left text-lg lg:text-xl font-bold
                     transition-colors duration-300
                     ${isOpen ? 'text-primary' : 'text-foreground'}
                   `}>
@@ -65,7 +65,7 @@ export const ProblemSolutionSection = ({
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                     className={`
-                      flex-shrink-0 w-8 h-8 rounded-full 
+                      flex-shrink-0 w-7 h-7 rounded-full 
                       flex items-center justify-center
                       transition-colors duration-300
                       ${isOpen 
@@ -74,7 +74,7 @@ export const ProblemSolutionSection = ({
                       }
                     `}
                   >
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </motion.div>
@@ -92,8 +92,8 @@ export const ProblemSolutionSection = ({
                   }}
                   className="overflow-hidden"
                 >
-                  <div className="pt-4">
-                    <p className="text-lg text-muted-foreground leading-relaxed">
+                  <div className="pt-3">
+                    <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">
                       {item.content}
                     </p>
                   </div>
