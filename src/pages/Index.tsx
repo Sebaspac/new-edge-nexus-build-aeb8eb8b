@@ -507,7 +507,7 @@ const Index = () => {
                   setContactFormType('kmu');
                   setIsContactSheetOpen(true);
                 }}
-                className="min-h-12 px-8 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="min-h-12 px-8 bg-secondary hover:bg-secondary/90 text-secondary-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 <Briefcase className="mr-2 h-5 w-5" />
                 Anfrage als KMU
@@ -515,12 +515,11 @@ const Index = () => {
               
               <Button
                 size="lg"
-                variant="outline"
                 onClick={() => {
                   setContactFormType('agentur');
                   setIsContactSheetOpen(true);
                 }}
-                className="min-h-12 px-8 border-2 border-pink-500 text-pink-600 hover:bg-gradient-to-r hover:from-pink-500 hover:to-rose-500 hover:text-white hover:border-transparent shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="min-h-12 px-8 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 <Users className="mr-2 h-5 w-5" />
                 Anfrage als Agentur
