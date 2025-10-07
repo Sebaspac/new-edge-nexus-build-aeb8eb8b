@@ -648,9 +648,7 @@ const Index = () => {
         <section id="contact-section" className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10">
           <div className="container-xl">
             <div className="text-center mb-16">
-              <h2 className="text-[42px] sm:text-[48px] md:text-[52px] mb-4 text-foreground leading-[1.25] font-bold lg:text-6xl">
-                Get in touch
-              </h2>
+              <h2 className="text-[42px] sm:text-[48px] md:text-[52px] mb-4 text-foreground leading-[1.25] font-bold lg:text-6xl">Jetzt Kontakt aufnehemen</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto leading-[1.5] text-xl">
                 Want to get in touch? We'd love to hear from you. Here's how you can reach us.
               </p>
