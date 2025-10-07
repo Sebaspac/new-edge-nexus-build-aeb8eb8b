@@ -1215,7 +1215,7 @@ const About = () => {
               delay: 0.6,
               duration: 0.6
             }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" onClick={() => scrollToContact(false)} className="group">
+                <Button size="lg" onClick={() => scrollToContact(false)} className="group bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
                   Kontakt aufnehmen
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
