@@ -17,6 +17,7 @@ const Products = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
+  const [selectedAgent, setSelectedAgent] = useState("");
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -24,7 +25,8 @@ const Products = () => {
     });
     setIsVisible(true);
   }, []);
-  const scrollToContact = () => {
+  const scrollToContact = (agentName: string = "") => {
+    setSelectedAgent(agentName);
     setIsContactSheetOpen(true);
   };
   const handleSubmit = async (e: React.FormEvent) => {
@@ -375,7 +377,7 @@ const Products = () => {
                 }} whileTap={{
                   scale: 0.98
                 }}>
-                    <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={scrollToContact}>Riley ausprobieren</Button>
+                    <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={() => scrollToContact("Riley")}>Riley ausprobieren</Button>
                   </motion.div>
                 </motion.div>
               </div>
@@ -558,7 +560,7 @@ const Products = () => {
                 }} whileTap={{
                   scale: 0.98
                 }}>
-                    <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={scrollToContact}>Liam testen</Button>
+                    <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={() => scrollToContact("Liam")}>Liam testen</Button>
                   </motion.div>
                 </motion.div>
               </div>
@@ -741,7 +743,7 @@ const Products = () => {
                 }} whileTap={{
                   scale: 0.98
                 }}>
-                    <Button size="lg" className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={scrollToContact}>Vera live erleben</Button>
+                    <Button size="lg" className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={() => scrollToContact("Vera")}>Vera live erleben</Button>
                   </motion.div>
                 </motion.div>
               </div>
@@ -924,7 +926,7 @@ const Products = () => {
                 }} whileTap={{
                   scale: 0.98
                 }}>
-                    <Button size="lg" className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={scrollToContact}>Cora testen</Button>
+                    <Button size="lg" className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={() => scrollToContact("Cora")}>Cora testen</Button>
                   </motion.div>
                 </motion.div>
               </div>
@@ -1278,7 +1280,7 @@ const Products = () => {
               <p className="text-base sm:text-lg lg:text-xl mb-12 max-w-3xl mx-auto leading-relaxed text-gray-700">
                 Entdecken Sie, wie unsere KI-Agenten Ihr Business revolutionieren können.
               </p>
-              <Button size="lg" className="bg-black hover:bg-gray-800 text-white text-base sm:text-lg px-12 py-4 rounded-full font-medium transition-all duration-300" onClick={scrollToContact}>
+              <Button size="lg" className="bg-black hover:bg-gray-800 text-white text-base sm:text-lg px-12 py-4 rounded-full font-medium transition-all duration-300" onClick={() => scrollToContact("Agent Hub")}>
                 KONTAKT AUFNEHMEN
               </Button>
             </div>
@@ -1323,7 +1325,14 @@ const Products = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="nachricht">Nachricht *</Label>
-                <Textarea id="nachricht" name="nachricht" required placeholder="Erzählen Sie uns von Ihrem Projekt..." className="min-h-[120px]" />
+                <Textarea 
+                  id="nachricht" 
+                  name="nachricht" 
+                  required 
+                  placeholder="Erzählen Sie uns von Ihrem Projekt..." 
+                  className="min-h-[120px]"
+                  defaultValue={selectedAgent ? `Ich interessiere mich für ${selectedAgent} und möchte mehr über die Möglichkeiten erfahren.` : ""}
+                />
               </div>
 
               <Button type="submit" className="w-full btn-primary text-slate-50">
