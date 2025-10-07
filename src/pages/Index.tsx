@@ -241,9 +241,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-4 bg-gradient-primary bg-clip-text leading-[1.25] text-gray-950 font-bold">
-                Für wen wir arbeiten & warum
-              </motion.h2>
+            }} className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-4 bg-gradient-primary bg-clip-text leading-[1.25] text-gray-950 font-bold">Ihr Gewinn mit New Edge</motion.h2>
               <motion.p initial={{
               opacity: 0,
               y: 20
