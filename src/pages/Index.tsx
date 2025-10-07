@@ -279,9 +279,7 @@ const Index = () => {
             duration: 0.8
           }}>
               <motion.div className="mb-2">
-                <span className="inline-block px-3 py-1 text-xs font-semibold bg-primary/10 text-primary rounded-full">
-                  Exklusives Partnernetzwerk
-                </span>
+                
               </motion.div>
               <motion.h2 className="text-2xl sm:text-3xl font-bold mb-4 text-foreground leading-[1.25] md:text-5xl">
                 Gemeinsam Zukunft gestalten – vernetzt. automatisiert. wirkungsvoll.
