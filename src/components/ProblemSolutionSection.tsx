@@ -163,22 +163,7 @@ export const ProblemSolutionSection = ({
 
         {/* Right: Animated Visual */}
         <div className="lg:sticky lg:top-24">
-          <motion.div initial={{
-          opacity: 0,
-          scale: 0.95
-        }} whileInView={{
-          opacity: 1,
-          scale: 1
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6
-        }} className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary via-secondary to-accent">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-64 h-64 bg-white/20 backdrop-blur-sm rounded-3xl" />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-          </motion.div>
+          
         </div>
       </div>
     </>;
