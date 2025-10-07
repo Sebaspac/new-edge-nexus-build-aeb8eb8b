@@ -432,30 +432,21 @@ const Index = () => {
 
                       <div className="grid md:grid-cols-2 gap-4">
                         {[{
-                        title: "Kontinuierliche Leads",
-                        description: "Wir vermitteln passende Kundenprojekte aus dem Mittelstand.",
-                        icon: "🚀",
+                        title: "Automatisierung für Ihr Agenturbusiness",
+                        description: "Wir optimieren Ihre Abläufe – von Briefings bis Reporting – für maximale Effizienz.",
                         gradient: "from-pink-500 to-rose-500"
                       }, {
-                        title: "Automatisierte Prozesse",
-                        description: "Standardisierte Übergaben, Reports und Abläufe – ohne Mehraufwand.",
-                        icon: "⚙️",
+                        title: "Gemeinsame Kundenbetreuung",
+                        description: "Sie arbeiten mit uns an Projekten unserer Kunden – wir bündeln Know-how & Wirkung.",
                         gradient: "from-purple-500 to-pink-500"
                       }, {
-                        title: "White-Label-Tools",
-                        description: "Nutzen Sie unsere Automatisierungen unter Ihrem eigenen Branding.",
-                        icon: "🏷️",
+                        title: "Qualifizierte Kundenleads",
+                        description: "New Edge vermittelt passende Mittelstandsprojekte an ausgewählte Partneragenturen.",
                         gradient: "from-rose-500 to-pink-500"
                       }, {
-                        title: "Umsatz & Upselling",
-                        description: "Erweitern Sie Ihr Angebot durch intelligente Zusatzservices.",
-                        icon: "💰",
+                        title: "Eigene Automationslösungen vermarkten",
+                        description: "Unsere Technologie läuft im Hintergrund – Sie treten als Anbieter smarter Automatisierung auf.",
                         gradient: "from-pink-600 to-purple-500"
-                      }, {
-                        title: "Exklusive Community",
-                        description: "Zugang zu Insights, Beta-Tools und gemeinsamer Innovationsentwicklung.",
-                        icon: "🌐",
-                        gradient: "from-purple-600 to-indigo-500"
                       }].map((item, index) => <motion.div key={index} initial={{
                         opacity: 0,
                         y: 20
