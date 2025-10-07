@@ -577,7 +577,7 @@ const About = () => {
                         <h3 className="text-lg mb-3 md:mb-4 text-foreground font-bold md:text-2xl">{unit.title}</h3>
                         <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 leading-relaxed">{unit.description}</p>
                       </div>
-                      <Button variant="ghost" onClick={() => window.location.href = unit.link} className="group/btn w-full md:w-auto">
+                      <Button variant="default" onClick={() => window.location.href = unit.link} className="group/btn w-full md:w-auto bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
                         {unit.title} ansehen
                         <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                       </Button>
