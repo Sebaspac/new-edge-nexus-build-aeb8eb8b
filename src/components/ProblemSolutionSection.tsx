@@ -1,25 +1,14 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+
 interface ProblemSolutionSectionProps {
   openAccordionIndex: number;
   setOpenAccordionIndex: (index: number) => void;
 }
+
 export const ProblemSolutionSection = ({
   openAccordionIndex,
   setOpenAccordionIndex
 }: ProblemSolutionSectionProps) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  // Scroll-based animations for mobile
-  const {
-    scrollYProgress
-  } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"]
-  });
-  const visualOpacity = useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 0.5, 0]);
-  const visualScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
-  const visualY = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
   const accordionItems = [{
     title: "30 % mehr Zeit",
     content: "Routinearbeit fällt weg – Sie gewinnen bis zu 30 % Fokuszeit zurück."
