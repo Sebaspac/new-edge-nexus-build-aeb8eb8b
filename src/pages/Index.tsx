@@ -636,7 +636,7 @@ const Index = () => {
                         </p>
 
                         {/* Button */}
-                        <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-white group text-sm md:text-base md:mt-auto" asChild>
+                        <Button variant="default" size="sm" className="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground group text-sm md:text-base md:mt-auto transition-all duration-300" asChild>
                           <Link to={`/${service.title.toLowerCase().split(" ")[0]}`}>
                             Mehr erfahren
                             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
