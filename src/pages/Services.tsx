@@ -924,54 +924,108 @@ const Services = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact-section" className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10">
-        <div className="container-xl">
-          <div className="text-center mb-16">
-            <h2 className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-semibold mb-4 text-foreground leading-[1.25]">
-              Get in touch
-            </h2>
-            <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-[1.5]">
-              Want to get in touch? We'd love to hear from you. Here's how you can reach us.
-            </p>
-          </div>
+      <section id="contact-section" className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
+        <div className="container-xl relative z-10">
+          <motion.div
+            className="text-center"
+            initial={{
+              opacity: 0,
+              y: 50,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.8,
+            }}
+          >
+            <motion.h2
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                delay: 0.2,
+                duration: 0.7,
+              }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-bold"
+            >
+              Jetzt Kontakt aufnehmen <span className="bg-gradient-primary bg-clip-text text-transparent"></span>
+            </motion.h2>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
-            {/* Talk to Sales */}
-            <Card className="card-modern text-center p-3 sm:p-6 md:p-8 hover:shadow-xl transition-all flex flex-col">
-              <CardContent className="space-y-3 sm:space-y-4 md:space-y-6 p-0 flex flex-col h-full">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
-                </div>
-                <div className="flex-grow">
-                  <h3 className="text-sm sm:text-lg md:text-[28px] lg:text-[32px] font-medium mb-1 sm:mb-2 text-foreground leading-[1.3]">Talk to Sales</h3>
-                  <p className="text-[10px] sm:text-sm md:text-base text-muted-foreground mb-2 sm:mb-3 md:mb-4 leading-[1.5]">
-                    Interested in our services? Just pick up the phone to chat with a member of our sales team.
-                  </p>
-                </div>
-                <a href="tel:+4915750998236" className="text-primary font-semibold text-xs sm:text-base md:text-lg hover:underline mt-auto">
-                  +49 157 5099 8236
+            <motion.p
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                delay: 0.4,
+                duration: 0.6,
+              }}
+              className="text-base lg:text-xl text-gray-600 mb-10 leading-[1.5] max-w-3xl mx-auto"
+            >
+              New Edge ist das Headquarter für Innovation. Hier entsteht die Zukunft von Marken, Agenturen und
+              Prozessen.
+              <br />
+            </motion.p>
+
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                delay: 0.6,
+                duration: 0.6,
+              }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
+              <Button
+                size="lg"
+                asChild
+                className="group bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                <a href="tel:+4915750998236">
+                  <Phone className="mr-2 w-4 h-4" />
+                  Talk to Sales
                 </a>
-              </CardContent>
-            </Card>
-
-            {/* Contact Support */}
-            <Card className="card-modern text-center p-3 sm:p-6 md:p-8 hover:shadow-xl transition-all flex flex-col">
-              <CardContent className="space-y-3 sm:space-y-4 md:space-y-6 p-0 flex flex-col h-full">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-                  <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
-                </div>
-                <div className="flex-grow">
-                  <h3 className="text-sm sm:text-lg md:text-[28px] lg:text-[32px] font-medium mb-1 sm:mb-2 text-foreground leading-[1.3]">Contact Team</h3>
-                  <p className="text-[10px] sm:text-sm md:text-base text-muted-foreground mb-2 sm:mb-3 md:mb-4 leading-[1.5]">
-                    Sometimes you need a little help from your friends. Or a support rep. Don't worry... we're here for you.
-                  </p>
-                </div>
-                <Button onClick={() => setIsContactSheetOpen(true)} className="w-full bg-white border border-primary text-primary hover:bg-primary hover:text-white text-[10px] sm:text-sm md:text-base py-1 sm:py-2 mt-auto transition-all duration-300">
-                  Contact Support
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                onClick={() => setIsContactSheetOpen(true)} 
+                className="border-2"
+              >
+                Kontakt aufnehmen
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
