@@ -253,9 +253,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }} className="text-gray-600 max-w-3xl leading-[1.5] text-base lg:text-xl">
-                Spezialisiert auf mittelständische KMUs, die Vorreiter werden wollen
-              </motion.p>
+            }} className="text-gray-600 max-w-3xl leading-[1.5] text-base lg:text-xl">Wir machen Effizienz spürbar: automatisierte Abläufe, klare Daten und kreative Systeme, die Wachstum messbar machen – damit Ihr Unternehmen schneller, profitabler und innovativer arbeitet.</motion.p>
             </motion.div>
 
             {/* Two-Column Layout with Mobile Scroll Effect */}
