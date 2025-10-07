@@ -435,15 +435,15 @@ const Index = () => {
                       <div className="grid md:grid-cols-2 gap-4">
                         {[
                           {
-                            title: "Automatisierung mit Impact",
-                            description:
-                              "Wir automatisieren Ihre Workflows end-to-end – für mehr Effizienz, Tempo und geringere Kosten.",
+                            title: "Best-Match-Partner",
+                            description: "Wir verbinden Sie mit genau den Agenturen, die zu Ihrem Ziel passen.",
                             icon: "🎯",
                             gradient: "from-blue-500 to-cyan-500",
                           },
                           {
-                            title: "Automatisierte Abläufe",
-                            description: "Vom Briefing bis zum Reporting läuft alles effizient über unsere Systeme.",
+                            title: "Kreative Exzellenz auf Abruf",
+                            description:
+                              "Über unser Partnernetzwerk erhalten Sie Zugang zu Top-Agenturen für Branding, Design und Media.",
                             icon: "⚡",
                             gradient: "from-purple-500 to-blue-500",
                           },
