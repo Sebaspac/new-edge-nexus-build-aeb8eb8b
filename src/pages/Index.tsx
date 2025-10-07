@@ -18,7 +18,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { toast } from "@/hooks/use-toast";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Lightbulb, Zap, Palette, Target, Rocket, Star, Users, Code, Globe, Briefcase, Phone, MessageSquare, Eye } from "lucide-react";
 const Index = () => {
@@ -26,7 +26,24 @@ const Index = () => {
     t
   } = useLanguage();
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
+  const [contactFormType, setContactFormType] = useState<'kmu' | 'agentur' | null>(null);
   const [openAccordionIndex, setOpenAccordionIndex] = useState(0);
+
+  // Auto-focus und Reset-Logik für Kontaktformular
+  useEffect(() => {
+    if (isContactSheetOpen) {
+      setTimeout(() => {
+        document.getElementById('name')?.focus();
+      }, 300);
+    }
+  }, [isContactSheetOpen]);
+
+  const handleSheetClose = (open: boolean) => {
+    setIsContactSheetOpen(open);
+    if (!open) {
+      setContactFormType(null);
+    }
+  };
 
   // ✅ KORRIGIERTE handleSubmit Funktion - alle 6 Felder werden korrekt übertragen
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
@@ -475,6 +492,40 @@ const Index = () => {
                 </motion.div>
               </TabsContent>
             </Tabs>
+
+            {/* CTA-Buttons für KMU und Agenturen */}
+            <motion.div 
+              className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+            >
+              <Button
+                size="lg"
+                onClick={() => {
+                  setContactFormType('kmu');
+                  setIsContactSheetOpen(true);
+                }}
+                className="min-h-12 px-8 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              >
+                <Briefcase className="mr-2 h-5 w-5" />
+                Anfrage als KMU
+              </Button>
+              
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => {
+                  setContactFormType('agentur');
+                  setIsContactSheetOpen(true);
+                }}
+                className="min-h-12 px-8 border-2 border-pink-500 text-pink-600 hover:bg-gradient-to-r hover:from-pink-500 hover:to-rose-500 hover:text-white hover:border-transparent shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              >
+                <Users className="mr-2 h-5 w-5" />
+                Anfrage als Agentur
+              </Button>
+            </motion.div>
           </div>
         </section>
 
@@ -658,10 +709,16 @@ const Index = () => {
         </section>
 
         {/* Contact Form Sheet */}
-        <Sheet open={isContactSheetOpen} onOpenChange={setIsContactSheetOpen}>
-          <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
+        <Sheet open={isContactSheetOpen} onOpenChange={handleSheetClose}>
+          <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto backdrop-blur-sm">
             <SheetHeader className="mb-6">
-              <SheetTitle className="text-2xl font-bold">Projekt besprechen</SheetTitle>
+              <SheetTitle className="text-2xl font-bold">
+                {contactFormType === 'kmu' 
+                  ? 'Anfrage von Unternehmen (KMU)' 
+                  : contactFormType === 'agentur' 
+                  ? 'Anfrage von Agenturpartner' 
+                  : 'Projekt besprechen'}
+              </SheetTitle>
               <SheetDescription>
                 Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen.
               </SheetDescription>
@@ -710,7 +767,20 @@ const Index = () => {
                   <Label htmlFor="nachricht" className="text-foreground font-medium">
                     Nachricht *
                   </Label>
-                  <Textarea id="nachricht" name="nachricht" placeholder="Erzählen Sie uns von Ihrem Projekt..." required className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none" />
+                  <Textarea 
+                    id="nachricht" 
+                    name="nachricht" 
+                    placeholder="Erzählen Sie uns von Ihrem Projekt..." 
+                    defaultValue={
+                      contactFormType === 'kmu' 
+                        ? 'Ich interessiere mich für Automatisierungslösungen mit New Edge.' 
+                        : contactFormType === 'agentur' 
+                        ? 'Wir möchten Partner von New Edge werden und gemeinsam Projekte automatisieren.' 
+                        : ''
+                    }
+                    required 
+                    className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none" 
+                  />
                 </div>
               </div>
 
