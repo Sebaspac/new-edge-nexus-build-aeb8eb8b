@@ -516,7 +516,7 @@ const Index = () => {
               <Button size="lg" onClick={() => {
               setContactFormType('agentur');
               setIsContactSheetOpen(true);
-            }} className="min-h-12 px-8 bg-primary text-primary-foreground border-2 border-primary hover:bg-white hover:text-primary shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+            }} className="min-h-12 px-8 bg-yellow-400 text-gray-900 border-2 border-yellow-400 hover:bg-yellow-500 hover:text-gray-900 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
                 <Users className="mr-2 h-5 w-5" />
                 Anfrage als Agentur
               </Button>
