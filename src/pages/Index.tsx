@@ -338,28 +338,28 @@ const Index = () => {
                       
                       <div className="grid md:grid-cols-2 gap-4">
                         {[{
-                        title: "Automatisierung mit Impact",
-                        description: "Wir automatisieren Ihre Workflows end-to-end – für mehr Effizienz, Tempo und geringere Kosten.",
+                        title: "Best-Match-Partner",
+                        description: "Wir verbinden Sie mit genau den Agenturen, die zu Ihrem Ziel passen.",
                         icon: "🎯",
                         gradient: "from-blue-500 to-cyan-500"
                       }, {
-                        title: "Kreative Exzellenz auf Abruf",
-                        description: "Über unser Partnernetzwerk erhalten Sie Zugang zu Top-Agenturen für Branding, Design und Media.",
+                        title: "Automatisierte Abläufe",
+                        description: "Vom Briefing bis zum Reporting läuft alles effizient über unsere Systeme.",
                         icon: "⚡",
                         gradient: "from-purple-500 to-blue-500"
                       }, {
                         title: "Ganzheitliche Projekte",
-                        description: "New Edge koordiniert Prozesse und Partner zentral – ein Ansprechpartner, klare Ergebnisse."
+                        description: "Strategie, Branding, Media und Automation – alles perfekt verzahnt.",
                         icon: "🔗",
                         gradient: "from-cyan-500 to-blue-500"
                       }, {
-                        title: "Beobachtbares Wachstum",
-                        description: "Alle KPIs in Echtzeit: Fortschritt, Performance und ROI jederzeit nachvollziehbar – alles in einem Dashboard.",
+                        title: "Transparente Ergebnisse",
+                        description: "KPIs und Dashboards zeigen, was Ihre Investition wirklich bringt.",
                         icon: "📊",
                         gradient: "from-blue-600 to-purple-500"
                       }, {
-                        title: "Exklusiver Innovationsvorsprung",
-                        description: "Als Teil des New-Edge-Netzwerks profitieren Sie von Technologien und Partnern, die den Markt bewegen.",
+                        title: "Exklusiver Zugang",
+                        description: "Teil eines Netzwerks, das Innovation und messbare Wirkung vereint.",
                         icon: "✨",
                         gradient: "from-purple-600 to-pink-500"
                       }].map((item, index) => <motion.div key={index} initial={{
