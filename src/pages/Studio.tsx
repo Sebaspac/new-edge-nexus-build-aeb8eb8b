@@ -326,7 +326,7 @@ const Studio = () => {
         background: 'linear-gradient(to right, #6366f1, #8b5cf6, #a855f7)'
       }}>
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold mb-4 sm:mb-6">Let´s design the edge</h2>
+            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold mb-4 sm:mb-6">Bereit für den nächsten Schritt?</h2>
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
               Gemeinsam entwickeln wir ein Design, das Ihre Vision zum Leben erweckt und Ihre Zielgruppe begeistert.
             </p>
