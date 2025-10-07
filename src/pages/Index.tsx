@@ -432,7 +432,7 @@ const Index = () => {
                       x: 0
                     }} transition={{
                       delay: 0.2
-                    }} className="text-2xl mb-4 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-slate-950 md:text-3xl font-semibold">
+                    }} className="text-2xl mb-4 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-slate-950 font-semibold md:text-4xl">
                         Für Agenturen, die Wachstum automatisieren wollen
                       </motion.h3>
                       <motion.p initial={{
