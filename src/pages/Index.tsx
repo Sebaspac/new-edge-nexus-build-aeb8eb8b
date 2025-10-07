@@ -334,9 +334,7 @@ const Index = () => {
                       x: 0
                     }} transition={{
                       delay: 0.3
-                    }} className="text-gray-700 mb-8 leading-relaxed text-lg font-normal">
-                        Sie profitieren von einem Netzwerk aus führenden Agenturen und Automatisierungsexperten – koordiniert über New Edge. Wir machen komplexe Marketing- und Kreativprozesse einfach, effizient und messbar.
-                      </motion.p>
+                    }} className="text-gray-700 mb-8 leading-relaxed text-lg font-normal">New Edge ist Ihr Partner für intelligente Automatisierung – und Ihr Zugang zu den besten Kreativagenturen</motion.p>
                       
                       <div className="grid md:grid-cols-2 gap-4">
                         {[{
