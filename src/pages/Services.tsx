@@ -681,14 +681,17 @@ const Services = () => {
             {/* Left: Accordion List */}
             <div className="space-y-1">
               {[{
-              title: "Ihre Herausforderung",
-              content: "Manuelle, zeitraubende Prozesse im Tagesgeschäft rauben Ihnen wertvolle Zeit. Keine Ressourcen für Digitalisierung und Innovation. Fachkräftemangel und steigende Kosten belasten Ihr Unternehmen. Während Wettbewerber fortschreiten, bleiben Sie zurück. Klassische Agenturen liefern keine echte Innovation."
+              title: "Skalierbare Automatisierung",
+              content: "Automationen modular starten – bei Wachstum einfach erweitern und optimieren."
             }, {
-              title: "Unsere Lösung",
-              content: "KI-gestützte Automatisierung Ihrer Prozesse gibt Ihnen 30% mehr Zeit für Ihr Kerngeschäft zurück. Messbare Effizienzsteigerung & ROI durch intelligente Systeme. Sie werden Vorreiter Ihrer Branche mit unserer hybriden Expertise: Marketing + Technologie + Automatisierung aus einer Hand."
+              title: "Markenstärke durch Kreativität",
+              content: "Vernetzte Agenturpartner sorgen für Design, Content & Strategie mit messbarer Wirkung."
             }, {
-              title: "Konkret für Sie",
-              content: "Für mittelständische Produktions- oder Dienstleistungsunternehmen (50-300 Mitarbeiter), die ihre Prozesse manuell betreiben und unter Fachkräftemangel leiden, implementiert New Edge KI-gestützte Automatisierungen und vernetzt sie mit passenden Agenturen. Dadurch gewinnen sie 30% mehr Zeit für ihr Kerngeschäft, senken Fehlerquoten, stärken ihre Marke und werden als innovative Vorreiter in ihrer Branche wahrgenommen."
+              title: "Team-Entlastung & Fokus",
+              content: "Routineaufgaben laufen automatisch – Ihr Team konzentriert sich auf Wachstum."
+            }, {
+              title: "Sicher & transparent",
+              content: "DSGVO-konforme Setups mit klaren Rollen und Echtzeit-Dashboards für volle Kontrolle."
             }].map((item, index) => {
               const isOpen = openAccordionIndex === index;
               return <motion.div key={item.title} initial={{
