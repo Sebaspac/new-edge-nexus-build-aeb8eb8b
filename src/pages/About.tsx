@@ -1072,7 +1072,7 @@ const About = () => {
                 }}
                 className="group"
               >
-                Agentur-Match anfragen
+                Kontakt aufnehmen
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
@@ -1084,7 +1084,7 @@ const About = () => {
                 }}
                 className="group"
               >
-                Projekt starten
+                Partner werden
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>
