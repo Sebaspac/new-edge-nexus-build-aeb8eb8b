@@ -353,7 +353,7 @@ const Index = () => {
                       x: 0
                     }} transition={{
                       delay: 0.3
-                    }} className="mb-8 leading-relaxed text-lg text-gray-500 font-normal">
+                    }} className="text-gray-700 mb-8 leading-relaxed text-lg font-normal">
                         New Edge ist Ihr Partner für intelligente Automatisierung – und Ihr Zugang zu den besten
                         Kreativagenturen
                       </motion.p>
@@ -432,7 +432,7 @@ const Index = () => {
                       x: 0
                     }} transition={{
                       delay: 0.2
-                    }} className="text-2xl mb-4 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-slate-950 font-semibold md:text-4xl">
+                    }} className="text-2xl mb-4 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-slate-950 md:text-3xl font-semibold">
                         Für Agenturen, die Wachstum automatisieren wollen
                       </motion.h3>
                       <motion.p initial={{
@@ -443,7 +443,7 @@ const Index = () => {
                       x: 0
                     }} transition={{
                       delay: 0.3
-                    }} className="text-base mb-8 leading-relaxed text-gray-500 font-normal">
+                    }} className="text-base text-gray-700 mb-8 leading-relaxed font-medium">
                         Als zertifizierter Partner werden Sie Teil unseres exklusiven Netzwerks. Wir vermitteln Kunden,
                         integrieren Automatisierung und schaffen skalierbare Workflows für nachhaltiges Wachstum.
                       </motion.p>
@@ -564,9 +564,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">
-                Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.
-              </motion.p>
+            }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt erfolgreich zu  positionieren.</motion.p>
             </motion.div>
 
             {/* Service Cards Grid */}
