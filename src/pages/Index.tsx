@@ -435,15 +435,15 @@ const Index = () => {
                       <div className="grid md:grid-cols-2 gap-4">
                         {[{
                         title: "Automatisierung für Ihr Agenturbusiness",
-                        description: "Wir optimieren Ihre Abläufe – von Briefings bis Reporting – für maximale Effizienz.",
+                        description: "Agenturprozesse kennen wir aus erster Hand. Wir optimieren Ihre Abläufe – von Briefings bis Reporting – für maximale Effizienz.",
                         gradient: "from-pink-500 to-rose-500"
                       }, {
                         title: "Gemeinsame Kundenbetreuung",
-                        description: "Sie arbeiten mit uns an Projekten unserer Kunden – wir bündeln Know-how & Wirkung.",
+                        description: "Partneragenturen arbeiten mit uns an Projekten unserer Kunden",
                         gradient: "from-purple-500 to-pink-500"
                       }, {
-                        title: "Qualifizierte Kundenleads",
-                        description: "New Edge vermittelt passende Mittelstandsprojekte an ausgewählte Partneragenturen.",
+                        title: "Beobachtbares Wachstum",
+                        description: "Alle KPIs in Echtzeit: Fortschritt, Performance und ROI jederzeit nachvollziehbar.",
                         gradient: "from-rose-500 to-pink-500"
                       }, {
                         title: "Eigene Automationslösungen vermarkten",
