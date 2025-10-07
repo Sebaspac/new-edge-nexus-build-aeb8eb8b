@@ -37,7 +37,6 @@ const Index = () => {
       }, 300);
     }
   }, [isContactSheetOpen]);
-
   const handleSheetClose = (open: boolean) => {
     setIsContactSheetOpen(open);
     if (!open) {
@@ -494,33 +493,30 @@ const Index = () => {
             </Tabs>
 
             {/* CTA-Buttons für KMU und Agenturen */}
-            <motion.div 
-              className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-            >
-              <Button
-                size="lg"
-                onClick={() => {
-                  setContactFormType('kmu');
-                  setIsContactSheetOpen(true);
-                }}
-                className="min-h-12 px-8 bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-              >
+            <motion.div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12" initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.6,
+            duration: 0.6
+          }}>
+              <Button size="lg" onClick={() => {
+              setContactFormType('kmu');
+              setIsContactSheetOpen(true);
+            }} className="min-h-12 px-8 bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
                 <Briefcase className="mr-2 h-5 w-5" />
                 Anfrage als KMU
               </Button>
               
-              <Button
-                size="lg"
-                onClick={() => {
-                  setContactFormType('agentur');
-                  setIsContactSheetOpen(true);
-                }}
-                className="min-h-12 px-8 bg-primary text-primary-foreground border-2 border-primary hover:bg-white hover:text-primary shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-              >
+              <Button size="lg" onClick={() => {
+              setContactFormType('agentur');
+              setIsContactSheetOpen(true);
+            }} className="min-h-12 px-8 bg-primary text-primary-foreground border-2 border-primary hover:bg-white hover:text-primary shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
                 <Users className="mr-2 h-5 w-5" />
                 Anfrage als Agentur
               </Button>
@@ -556,7 +552,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] font-bold lg:text-6xl">UNSERE SERVICES</motion.h2>
+            }} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] font-bold lg:text-6xl">Unsere Services</motion.h2>
               <motion.p initial={{
               opacity: 0,
               y: 20
@@ -712,11 +708,7 @@ const Index = () => {
           <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto backdrop-blur-sm">
             <SheetHeader className="mb-6">
               <SheetTitle className="text-2xl font-bold">
-                {contactFormType === 'kmu' 
-                  ? 'Anfrage von Unternehmen (KMU)' 
-                  : contactFormType === 'agentur' 
-                  ? 'Anfrage von Agenturpartner' 
-                  : 'Projekt besprechen'}
+                {contactFormType === 'kmu' ? 'Anfrage von Unternehmen (KMU)' : contactFormType === 'agentur' ? 'Anfrage von Agenturpartner' : 'Projekt besprechen'}
               </SheetTitle>
               <SheetDescription>
                 Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen.
@@ -766,20 +758,7 @@ const Index = () => {
                   <Label htmlFor="nachricht" className="text-foreground font-medium">
                     Nachricht *
                   </Label>
-                  <Textarea 
-                    id="nachricht" 
-                    name="nachricht" 
-                    placeholder="Erzählen Sie uns von Ihrem Projekt..." 
-                    defaultValue={
-                      contactFormType === 'kmu' 
-                        ? 'Ich interessiere mich für Automatisierungslösungen mit New Edge.' 
-                        : contactFormType === 'agentur' 
-                        ? 'Wir möchten Partner von New Edge werden und gemeinsam Projekte automatisieren.' 
-                        : ''
-                    }
-                    required 
-                    className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none" 
-                  />
+                  <Textarea id="nachricht" name="nachricht" placeholder="Erzählen Sie uns von Ihrem Projekt..." defaultValue={contactFormType === 'kmu' ? 'Ich interessiere mich für Automatisierungslösungen mit New Edge.' : contactFormType === 'agentur' ? 'Wir möchten Partner von New Edge werden und gemeinsam Projekte automatisieren.' : ''} required className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none" />
                 </div>
               </div>
 
