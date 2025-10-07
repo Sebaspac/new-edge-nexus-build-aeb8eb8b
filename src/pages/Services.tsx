@@ -906,7 +906,7 @@ const Services = () => {
                       </p>
 
                       {/* Button */}
-                      <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-white group text-sm md:text-base md:mt-auto" asChild>
+                      <Button size="sm" className="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground group text-sm md:text-base md:mt-auto" asChild>
                         <Link to={service.link}>
                           Mehr erfahren
                           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
