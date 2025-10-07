@@ -706,9 +706,7 @@ const About = () => {
               <h2 className="text-3xl sm:text-4xl mb-4 sm:mb-6 text-foreground lg:text-left text-left font-bold md:text-5xl">
                 Von der Idee zum <span className="bg-gradient-primary bg-clip-text text-transparent">Ökosystem</span>
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl text-left mb-6">
-                Seit August 2025: Mit modernster KI & Automation haben wir unsere komplette Agentur und ein kuratiertes Partner-Netzwerk aufgebaut – schnell, skalierbar, messbar.
-              </p>
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl text-left mb-6">Seit August 2025 liefert New Edge als Innovationspartner & Connector – aufgebaut mit modernster KI & Automation.</p>
               
             </motion.div>
 
