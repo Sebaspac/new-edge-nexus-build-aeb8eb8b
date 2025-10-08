@@ -46,7 +46,7 @@ const Lab = () => {
   const labServices = [{
     title: "KI-gestützte Prozessautomatisierung",
     description: "Optimierung und Automatisierung operativer Aufgaben durch künstliche Intelligenz.",
-    details: ["Workflow-Analyse und Optimierung", "Automatisierte Entscheidungsprozesse", "Intelligente Datenverarbeitung", "Zeit- und Kostenersparnis maximieren"],
+    details: ["Workflow-Analyse und Optimierung", "Automatisierte Entscheidungsprozesse", "Intelligente Datenverarbeitung", "Chatbot Integration mit LLM", "Zeit- und Kostenersparnis maximieren"],
     icon: Cpu,
     gradient: "from-[#fde047] to-[#fbbf24]",
     video: "/assets/lab-ki-automation-video.mp4"
