@@ -285,7 +285,7 @@ const Media = () => {
                   }} className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}>
                         <Icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      <h2 className="text-[36px] sm:text-[48px] md:text-[52px] font-black text-black lg:text-5xl">{service.title}</h2>
+                      <h2 className="text-[36px] sm:text-[48px] md:text-[52px] font-black text-black lg:text-4xl">{service.title}</h2>
                     </motion.div>
                     
                     <motion.div variants={{
