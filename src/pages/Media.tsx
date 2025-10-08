@@ -42,30 +42,98 @@ const Media = () => {
     }
   };
   const mediaServices = [{
-    title: "Content-Produktion & Creative Asset",
-    description: "Strategische Content-Produktion für maximale Wirkung auf allen Kanälen.",
-    details: ["Video- und Foto-Content-Produktion", "Motion Graphics und Animationen", "Creative Assets für alle Plattformen", "Content-Strategie und Konzeption"],
+    title: "Content-Produktion & Creative Assets",
+    description: "Wir produzieren markenorientierten Content mit spezialisierten Partnern – emotional, messbar und auf jede Plattform abgestimmt.",
+    details: [
+      {
+        title: "Video- & Foto-Produktion",
+        description: "Entwicklung und Umsetzung visueller Kampagneninhalte mit Storyline, Stil und markenkonformem Schnitt."
+      },
+      {
+        title: "Motion Graphics & Animationen",
+        description: "Bewegtbild-Designs für Social, Ads und Produkt-Launches mit maximaler Wiedererkennbarkeit."
+      },
+      {
+        title: "Creative Assets für alle Plattformen",
+        description: "Formatübergreifende Adaptionen für Social, Web und Performance-Marketing."
+      },
+      {
+        title: "Content-Strategie & Konzeption",
+        description: "Leitidee, Themenstruktur und visuelle Guidelines für konsistente Markenkommunikation."
+      }
+    ],
     icon: Settings,
     gradient: "from-[#3b82f6] to-[#06b6d4]",
     video: "/assets/media-launch-video.mp4"
   }, {
     title: "Social Media Management",
-    description: "Community- und Content-Management für starke Markenbindung auf allen Kanälen.",
-    details: ["Community Management und Engagement", "Content-Planung und Publishing", "Performance-Analyse und Reporting", "Influencer-Kooperationen"],
+    description: "Gemeinsam mit erfahrenen Social- und Influencer-Agenturen entwickeln wir Strategien, die Communities aufbauen und Marken sichtbar machen.",
+    details: [
+      {
+        title: "Community Management & Engagement",
+        description: "Betreuung, Moderation und Dialogaufbau für aktive, markentreue Communities."
+      },
+      {
+        title: "Content-Planung & Publishing",
+        description: "Redaktionslogik, Posting-Timing und Workflow-Koordination für effiziente Ausspielung."
+      },
+      {
+        title: "Performance-Analyse & Reporting",
+        description: "Monitoring von Reichweite, Engagement und Wachstumskennzahlen."
+      },
+      {
+        title: "Influencer- & Creator-Kooperationen",
+        description: "Auswahl, Briefing und Management authentischer Markenbotschafter:innen."
+      }
+    ],
     icon: Eye,
     gradient: "from-[#06b6d4] to-[#3b82f6]",
     video: "/assets/media-content-video.mp4"
   }, {
-    title: "Launchkampagnen & Performance-Marketing",
-    description: "Erfolgreiche Produktlaunches und datengetriebenes Performance-Marketing.",
-    details: ["Launch-Strategien entwickeln", "Paid Advertising Kampagnen", "Conversion-Optimierung", "A/B-Testing und Analytics"],
+    title: "Launch-Kampagnen & Performance-Marketing",
+    description: "In Zusammenarbeit mit Performance-Agenturen gestalten wir datengetriebene Kampagnen, die Reichweite in Ergebnisse verwandeln.",
+    details: [
+      {
+        title: "Launch-Strategien entwickeln",
+        description: "Definition von Positionierung, Timing und Kommunikationszielen für Produkteinführungen."
+      },
+      {
+        title: "Paid Advertising & Campaign Management",
+        description: "Steuerung und Optimierung plattformübergreifender Werbekampagnen."
+      },
+      {
+        title: "Conversion-Optimierung",
+        description: "Analyse und Testing von Creatives, Landing Pages und Funnels zur Steigerung der Abschlussrate."
+      },
+      {
+        title: "A/B-Testing & Analytics",
+        description: "Kontinuierliche Datenauswertung und KPI-Optimierung für skalierbare Performance."
+      }
+    ],
     icon: TrendingUp,
     gradient: "from-[#3b82f6] to-[#06b6d4]",
     video: "/assets/media-section-video.mp4"
   }, {
     title: "Content-Marketing & Copywriting",
-    description: "Gestaltung relevanter Inhalte und klarer Botschaften für mehr Sichtbarkeit und Markenwirkung.",
-    details: ["SEO-optimierte Texte erstellen", "Storytelling und Narratives", "Blog- und Artikel-Content", "E-Mail-Marketing-Texte"],
+    description: "Mit erfahrenen Copy- und SEO-Partnern schaffen wir Texte und Storys, die Markenstimme, Sichtbarkeit und Wirkung vereinen.",
+    details: [
+      {
+        title: "SEO-optimierte Texte & Landingpages",
+        description: "Keyword-orientierte Inhalte, die Performance und Lesbarkeit vereinen."
+      },
+      {
+        title: "Storytelling & Marken-Narrative",
+        description: "Entwicklung einer unverwechselbaren Sprachidentität für Kampagnen und Markenauftritte."
+      },
+      {
+        title: "Blog- & Artikel-Content",
+        description: "Redaktionelle Formate zur Steigerung von Reichweite, Expertise und Markenautorität."
+      },
+      {
+        title: "E-Mail- & Funnel-Texte",
+        description: "Automatisierte Textstrecken zur Leadgewinnung und Kundenbindung."
+      }
+    ],
     icon: Search,
     gradient: "from-[#06b6d4] to-[#3b82f6]",
     video: "/assets/media-new-video.mp4"
@@ -286,7 +354,7 @@ const Media = () => {
                   stiffness: 300
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#3b82f6]/20 hover:shadow-2xl hover:border-[#3b82f6]/40">
                       <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Unsere Leistungen</h3>
-                      <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
+                      <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-4">
                         {service.details.map((detail, idx) => <motion.li key={idx} variants={{
                       hidden: {
                         opacity: 0,
@@ -300,7 +368,10 @@ const Media = () => {
                             <span className={`flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r ${service.gradient} text-white flex items-center justify-center text-sm font-bold`}>
                               {idx + 1}
                             </span>
-                            <span>{detail}</span>
+                            <div className="flex-1">
+                              <div className="font-bold text-black mb-1">{detail.title}</div>
+                              <div className="text-gray-600">{detail.description}</div>
+                            </div>
                           </motion.li>)}
                       </ul>
                     </motion.div>
