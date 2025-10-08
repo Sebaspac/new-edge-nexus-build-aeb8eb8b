@@ -331,7 +331,7 @@ const Media = () => {
                   type: "spring",
                   stiffness: 300
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#3b82f6]/20 hover:shadow-2xl hover:border-[#3b82f6]/40">
-                      <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Unsere Leistungen</h3>
+                      <h3 className="text-xl mb-4 text-black sm:text-2xl font-bold">Unsere Leistungen</h3>
                       <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-4">
                         {service.details.map((detail, idx) => <motion.li key={idx} variants={{
                       hidden: {
