@@ -257,7 +257,7 @@ So entsteht ein Markenfundament, das sowohl emotional Ã¼berzeugt als auch geschÃ
                   }} className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}>
                         <Icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      <h2 className="text-[36px] sm:text-[48px] md:text-[52px] font-black text-black lg:text-5xl">{service.title}</h2>
+                      <h2 className="text-[36px] sm:text-[48px] md:text-[52px] font-black text-black lg:text-4xl">{service.title}</h2>
                     </motion.div>
                     
                     <motion.div variants={{
@@ -303,7 +303,7 @@ So entsteht ein Markenfundament, das sowohl emotional Ã¼berzeugt als auch geschÃ
                   type: "spring",
                   stiffness: 300
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20 hover:shadow-2xl hover:border-[#6366f1]/40">
-                      <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Unsere Leistungen</h3>
+                      <h3 className="text-xl mb-4 text-black sm:text-2xl font-bold">Unsere Leistungen</h3>
                       <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-4">
                         {service.details.map((detail, idx) => <motion.li key={idx} variants={{
                       hidden: {
