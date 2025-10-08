@@ -62,10 +62,22 @@ const Lab = () => {
       description:
         "Wir entwickeln performante, KI-fähige Webplattformen mit integrierter Funnel-Logik, Tracking-Setups und Schnittstellen zu Ihren Prozessen.",
       details: [
-        "Content Management Systeme",
-        "Conversion-optimierte Landingpages",
-        "Sales Funnel Entwicklung",
-        "Responsive und performant",
+        {
+          title: "Headless & CMS-Systeme",
+          description: "Flexible, wartungsarme Systeme mit API-Anbindung und modularer Struktur."
+        },
+        {
+          title: "Conversion-optimierte Landingpages",
+          description: "UX-Design, Copy und Struktur, die Nutzer gezielt durch den Funnel führen."
+        },
+        {
+          title: "Sales- & Lead-Funnel-Entwicklung",
+          description: "Automatisierte Funnel-Logik mit CRM- und Tracking-Integration."
+        },
+        {
+          title: "Performance-Optimierung & Skalierbarkeit",
+          description: "Schnelle Ladezeiten, sauberer Code und zukunftssichere Architektur."
+        }
       ],
       icon: Globe,
       gradient: "from-[#fbbf24] to-[#fde047]",
@@ -399,7 +411,12 @@ const Lab = () => {
                             >
                               {idx + 1}
                             </span>
-                            <span>{detail}</span>
+                            <div className="flex-1">
+                              <span className="font-bold text-black">{typeof detail === 'string' ? detail : detail.title}</span>
+                              {typeof detail === 'object' && detail.description && (
+                                <p className="mt-1 text-gray-600">{detail.description}</p>
+                              )}
+                            </div>
                           </motion.li>
                         ))}
                       </ul>
