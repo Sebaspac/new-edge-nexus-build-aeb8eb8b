@@ -42,21 +42,60 @@ const Studio = () => {
     }
   };
   const studioServices = [{
-    title: "Brand Strategy & Story",
-    description: "Wir verbinden datenbasierte Markenstrategie mit emotionalem Storytelling. So entstehen Marken, die klar positioniert sind – und wirklich berühren.",
-    details: ["Zielgruppen- und Wettbewerbsanalyse", "Brand Positioning & Messaging", "Markenwerte und Vision definieren", "Strategische Roadmap entwickeln", "Storytelling-Konzept & Tonalität definieren", "Emotionale Kundenbindung & konsistente Narrative schaffen"],
+    title: "Brand Foundation & Insights",
+    description: "Wir analysieren Zielgruppen, Märkte und Wettbewerb, um Chancen und Differenzierungspotenziale sichtbar zu machen. Das Ergebnis ist ein klares Verständnis darüber, wo deine Marke steht – und wie sie sich wirkungsvoll positionieren kann.",
+    details: [
+      {
+        title: "Zielgruppenanalyse",
+        description: "Erforschung von Bedürfnissen, Pain Points und Entscheidungsfaktoren."
+      },
+      {
+        title: "Wettbewerbsanalyse",
+        description: "Identifikation von Stärken, Schwächen und Chancen im Marktumfeld."
+      },
+      {
+        title: "Markenpotenzial-Bewertung",
+        description: "Ableitung konkreter Differenzierungs- und Wachstumsfelder."
+      }
+    ],
     icon: Sparkles,
     gradient: "from-[#a855f7] to-[#6366f1]"
   }, {
-    title: "Template-Rahmen für Social Media & Print",
-    description: "Einheitliche Vorlagen und digitale Struktur mit Funnel-Logik.",
-    details: ["Social Media Templates gestalten", "Print-Designvorlagen erstellen", "Brand Guidelines dokumentieren", "Digitale Asset-Bibliothek aufbauen"],
+    title: "Brand Identity & Positioning",
+    description: "Gemeinsam definieren wir den Kern deiner Marke: Werte, Vision und Nutzenversprechen. Daraus entsteht eine klare, emotionale und strategisch fundierte Markenidentität, die Orientierung und Vertrauen schafft.",
+    details: [
+      {
+        title: "Markenwerte & Vision",
+        description: "Definition von Haltung, Zweck und emotionaler Leitidee."
+      },
+      {
+        title: "Positionierung & Nutzenversprechen",
+        description: "Entwicklung eines präzisen Kernstatements, das deine Marke differenziert."
+      },
+      {
+        title: "Brand Framework",
+        description: "Dokumentation der zentralen Markenelemente für Strategie, Design und Kommunikation."
+      }
+    ],
     icon: Package,
     gradient: "from-[#a855f7] to-[#6366f1]"
   }, {
-    title: "Nutzerführung & Funnel-Wireframes",
-    description: "Conversion-Ziele und strategischer Seitenaufbau für maximale Effektivität.",
-    details: ["User Journey Mapping", "Conversion-optimierte Wireframes", "Information Architecture", "Funnel-Strategien entwickeln"],
+    title: "Storytelling & Brand Roadmap",
+    description: "Wir übersetzen Strategie in Sprache, Narrative und konkrete Handlungsschritte. So entsteht ein konsistentes Markenbild – mit einer klaren Story, messbaren Zielen und einem umsetzbaren Jahresplan.",
+    details: [
+      {
+        title: "Brand Story & Messaging",
+        description: "Entwicklung einer authentischen Markenstory und sprachlicher Leitlinien."
+      },
+      {
+        title: "Voice & Tone Guidelines",
+        description: "Festlegung der Tonalität für alle Kanäle und Formate."
+      },
+      {
+        title: "Strategische Roadmap",
+        description: "Prioritäten, Milestones und KPIs als klarer Fahrplan für Markenführung."
+      }
+    ],
     icon: Grid3x3,
     gradient: "from-[#6366f1] to-[#a855f7]"
   }];
@@ -275,7 +314,7 @@ const Studio = () => {
                   stiffness: 300
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20 hover:shadow-2xl hover:border-[#6366f1]/40">
                       <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Unsere Leistungen</h3>
-                      <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
+                      <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-4">
                         {service.details.map((detail, idx) => <motion.li key={idx} variants={{
                       hidden: {
                         opacity: 0,
@@ -289,7 +328,10 @@ const Studio = () => {
                             <span className={`flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r ${service.gradient} text-white flex items-center justify-center text-sm font-bold`}>
                               {idx + 1}
                             </span>
-                            <span>{detail}</span>
+                            <div className="flex-1">
+                              <div className="font-bold text-black mb-1">{detail.title}</div>
+                              <div className="text-gray-600">{detail.description}</div>
+                            </div>
                           </motion.li>)}
                       </ul>
                     </motion.div>
