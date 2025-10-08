@@ -44,58 +44,46 @@ const Studio = () => {
   const studioServices = [{
     title: "Brand Foundation & Insights",
     description: "Wir analysieren Zielgruppen, Märkte und Wettbewerb, um Chancen und Differenzierungspotenziale sichtbar zu machen. Das Ergebnis ist ein klares Verständnis darüber, wo deine Marke steht – und wie sie sich wirkungsvoll positionieren kann.",
-    details: [
-      {
-        title: "Zielgruppenanalyse",
-        description: "Erforschung von Bedürfnissen, Pain Points und Entscheidungsfaktoren."
-      },
-      {
-        title: "Wettbewerbsanalyse",
-        description: "Identifikation von Stärken, Schwächen und Chancen im Marktumfeld."
-      },
-      {
-        title: "Markenpotenzial-Bewertung",
-        description: "Ableitung konkreter Differenzierungs- und Wachstumsfelder."
-      }
-    ],
+    details: [{
+      title: "Zielgruppenanalyse",
+      description: "Erforschung von Bedürfnissen, Pain Points und Entscheidungsfaktoren."
+    }, {
+      title: "Wettbewerbsanalyse",
+      description: "Identifikation von Stärken, Schwächen und Chancen im Marktumfeld."
+    }, {
+      title: "Markenpotenzial-Bewertung",
+      description: "Ableitung konkreter Differenzierungs- und Wachstumsfelder."
+    }],
     icon: Sparkles,
     gradient: "from-[#a855f7] to-[#6366f1]"
   }, {
     title: "Brand Identity & Positioning",
     description: "Gemeinsam definieren wir den Kern deiner Marke: Werte, Vision und Nutzenversprechen. Daraus entsteht eine klare, emotionale und strategisch fundierte Markenidentität, die Orientierung und Vertrauen schafft.",
-    details: [
-      {
-        title: "Markenwerte & Vision",
-        description: "Definition von Haltung, Zweck und emotionaler Leitidee."
-      },
-      {
-        title: "Positionierung & Nutzenversprechen",
-        description: "Entwicklung eines präzisen Kernstatements, das deine Marke differenziert."
-      },
-      {
-        title: "Brand Framework",
-        description: "Dokumentation der zentralen Markenelemente für Strategie, Design und Kommunikation."
-      }
-    ],
+    details: [{
+      title: "Markenwerte & Vision",
+      description: "Definition von Haltung, Zweck und emotionaler Leitidee."
+    }, {
+      title: "Positionierung & Nutzenversprechen",
+      description: "Entwicklung eines präzisen Kernstatements, das deine Marke differenziert."
+    }, {
+      title: "Brand Framework",
+      description: "Dokumentation der zentralen Markenelemente für Strategie, Design und Kommunikation."
+    }],
     icon: Package,
     gradient: "from-[#a855f7] to-[#6366f1]"
   }, {
     title: "Storytelling & Brand Roadmap",
     description: "Wir übersetzen Strategie in Sprache, Narrative und konkrete Handlungsschritte. So entsteht ein konsistentes Markenbild – mit einer klaren Story, messbaren Zielen und einem umsetzbaren Jahresplan.",
-    details: [
-      {
-        title: "Brand Story & Messaging",
-        description: "Entwicklung einer authentischen Markenstory und sprachlicher Leitlinien."
-      },
-      {
-        title: "Voice & Tone Guidelines",
-        description: "Festlegung der Tonalität für alle Kanäle und Formate."
-      },
-      {
-        title: "Strategische Roadmap",
-        description: "Prioritäten, Milestones und KPIs als klarer Fahrplan für Markenführung."
-      }
-    ],
+    details: [{
+      title: "Brand Story & Messaging",
+      description: "Entwicklung einer authentischen Markenstory und sprachlicher Leitlinien."
+    }, {
+      title: "Voice & Tone Guidelines",
+      description: "Festlegung der Tonalität für alle Kanäle und Formate."
+    }, {
+      title: "Strategische Roadmap",
+      description: "Prioritäten, Milestones und KPIs als klarer Fahrplan für Markenführung."
+    }],
     icon: Grid3x3,
     gradient: "from-[#6366f1] to-[#a855f7]"
   }];
@@ -227,7 +215,9 @@ const Studio = () => {
                     delay: 0.2
                   }
                 }
-              }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">STUDIO liefert das Fundament: Alles wird strategisch vorbereitet, durchdacht und geplant.</motion.p>
+              }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">STUDIO bildet das Fundament jeder Zusammenarbeit.
+Hier entwickeln wir Markenstrategien, Positionierungen und Identitäten – in enger Abstimmung mit ausgewählten Branding- und Research-Partnern, gesteuert durch das New Edge Team.
+So entsteht ein Markenfundament, das sowohl emotional überzeugt als auch geschäftlich trägt.</motion.p>
               </motion.div>
             </motion.div>
           </div>
