@@ -959,9 +959,10 @@ const About = () => {
                 },
                 {
                   year: "2026+",
-                  title: "Erste SaaS-Anwendung gehen Live",
+                  title: "Von Prozessen zu Produkten",
                   subtitle: "Expansion & Impact",
-                  description: "Wir produktisieren bewährte Workflows zu SaaS-Modulen für KMU.",
+                  description:
+                    "Wir übersetzen Erfahrung in Technologie – und gestalten daraus smarte Module, die Unternehmen messbar effizienter machen.",
                 },
               ].map((milestone, i) => (
                 <motion.div
