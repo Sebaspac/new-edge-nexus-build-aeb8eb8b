@@ -949,12 +949,11 @@ const About = () => {
                   year: "09–10/2025",
                   title: "Aufbauen. Testen. Liefern.",
                   subtitle: "Build & Proof",
-                  description:
-                    "Onboarding geprüfter Partner-Agenturen, erste vernetzte Projekte mit KMU (White-Label & Co-Delivery).",
+                  description: "Onboarding geprüfter Partner-Agenturen, erste vernetzte Projekte mit KMU.",
                 },
                 {
                   year: "11–12/2025",
-                  title: "Netzwerkerweiterung",
+                  title: "Partner- & Netzwerkerweiterung",
                   subtitle: "Scale",
                   description: "Neue spezialisierte Agenturen und Branchen. Mehr parallele Projekte.",
                 },
