@@ -955,7 +955,8 @@ const About = () => {
                   year: "11–12/2025",
                   title: "Partner- & Netzwerkerweiterung",
                   subtitle: "Scale",
-                  description: "Neue spezialisierte Agenturen und Branchen. Mehr parallele Projekte.",
+                  description:
+                    "Neue Partnerschaften, neue Branchen, neue Perspektiven – wir verbinden kreative Expertise mit systemischer Präzision.",
                 },
                 {
                   year: "2026+",
