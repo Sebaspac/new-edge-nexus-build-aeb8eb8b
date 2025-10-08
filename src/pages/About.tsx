@@ -949,7 +949,8 @@ const About = () => {
                   year: "09–10/2025",
                   title: "Aufbauen. Testen. Liefern.",
                   subtitle: "Build & Proof",
-                  description: "Onboarding geprüfter Partner-Agenturen, erste vernetzte Projekte mit KMU.",
+                  description:
+                    "Aufbau und Onboarding geprüfter Partner-Agenturen – mit ersten vernetzten Projekten für KMU aus unterschiedlichen Branchen.",
                 },
                 {
                   year: "11–12/2025",
