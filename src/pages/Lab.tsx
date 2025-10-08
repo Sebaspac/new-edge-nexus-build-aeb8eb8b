@@ -98,12 +98,24 @@ const Lab = () => {
     },
     {
       title: "Tracking- & Analyse-Setups",
-      description: "GA4, Tag Manager, Pixel, Dashboards - umfassende Datenanalyse und Reporting.",
+      description: "Wir verbinden Tracking, Analyse und KI, um Entscheidungsprozesse datenbasiert zu steuern. Statt isolierte Dashboards einzurichten, entwickeln wir ein System, das Erkenntnisse automatisch generiert und Handlungsempfehlungen liefert.",
       details: [
-        "Google Analytics 4 Setup",
-        "Tag Manager Konfiguration",
-        "Custom Dashboard Entwicklung",
-        "Datengetriebene Entscheidungen",
+        {
+          title: "Data-Audit & Systemintegration",
+          description: "Analyse bestehender Tracking-Setups und Entwicklung einer integrierten Datenarchitektur (GA4, Tag Manager, CRM, AI-Schnittstellen)."
+        },
+        {
+          title: "Custom Dashboard & Insight Design",
+          description: "Entwicklung intelligenter Dashboards mit KPI-Struktur, Forecasting und Performance Alerts."
+        },
+        {
+          title: "Automatisierte Reporting-Flows",
+          description: "Einrichtung von Report-Automationen und Alert-Systemen zur Echtzeitbewertung von Kampagnen und Funnels."
+        },
+        {
+          title: "KI-basierte Analyse & Handlungsempfehlungen",
+          description: "Nutzung von Machine-Learning-Modellen und Agenten, um Muster zu erkennen, Trends vorherzusagen und Optimierungen vorzuschlagen."
+        }
       ],
       icon: BarChart3,
       gradient: "from-[#fde047] to-[#fbbf24]",
