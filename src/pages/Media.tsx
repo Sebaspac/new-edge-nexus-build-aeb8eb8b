@@ -44,96 +44,76 @@ const Media = () => {
   const mediaServices = [{
     title: "Content-Produktion & Creative Assets",
     description: "Wir produzieren markenorientierten Content mit spezialisierten Partnern – emotional, messbar und auf jede Plattform abgestimmt.",
-    details: [
-      {
-        title: "Video- & Foto-Produktion",
-        description: "Entwicklung und Umsetzung visueller Kampagneninhalte mit Storyline, Stil und markenkonformem Schnitt."
-      },
-      {
-        title: "Motion Graphics & Animationen",
-        description: "Bewegtbild-Designs für Social, Ads und Produkt-Launches mit maximaler Wiedererkennbarkeit."
-      },
-      {
-        title: "Creative Assets für alle Plattformen",
-        description: "Formatübergreifende Adaptionen für Social, Web und Performance-Marketing."
-      },
-      {
-        title: "Content-Strategie & Konzeption",
-        description: "Leitidee, Themenstruktur und visuelle Guidelines für konsistente Markenkommunikation."
-      }
-    ],
+    details: [{
+      title: "Video- & Foto-Produktion",
+      description: "Entwicklung und Umsetzung visueller Kampagneninhalte mit Storyline, Stil und markenkonformem Schnitt."
+    }, {
+      title: "Motion Graphics & Animationen",
+      description: "Bewegtbild-Designs für Social, Ads und Produkt-Launches mit maximaler Wiedererkennbarkeit."
+    }, {
+      title: "Creative Assets für alle Plattformen",
+      description: "Formatübergreifende Adaptionen für Social, Web und Performance-Marketing."
+    }, {
+      title: "Content-Strategie & Konzeption",
+      description: "Leitidee, Themenstruktur und visuelle Guidelines für konsistente Markenkommunikation."
+    }],
     icon: Settings,
     gradient: "from-[#3b82f6] to-[#06b6d4]",
     video: "/assets/media-launch-video.mp4"
   }, {
     title: "Social Media Management",
     description: "Gemeinsam mit erfahrenen Social- und Influencer-Agenturen entwickeln wir Strategien, die Communities aufbauen und Marken sichtbar machen.",
-    details: [
-      {
-        title: "Community Management & Engagement",
-        description: "Betreuung, Moderation und Dialogaufbau für aktive, markentreue Communities."
-      },
-      {
-        title: "Content-Planung & Publishing",
-        description: "Redaktionslogik, Posting-Timing und Workflow-Koordination für effiziente Ausspielung."
-      },
-      {
-        title: "Performance-Analyse & Reporting",
-        description: "Monitoring von Reichweite, Engagement und Wachstumskennzahlen."
-      },
-      {
-        title: "Influencer- & Creator-Kooperationen",
-        description: "Auswahl, Briefing und Management authentischer Markenbotschafter:innen."
-      }
-    ],
+    details: [{
+      title: "Community Management & Engagement",
+      description: "Betreuung, Moderation und Dialogaufbau für aktive, markentreue Communities."
+    }, {
+      title: "Content-Planung & Publishing",
+      description: "Redaktionslogik, Posting-Timing und Workflow-Koordination für effiziente Ausspielung."
+    }, {
+      title: "Performance-Analyse & Reporting",
+      description: "Monitoring von Reichweite, Engagement und Wachstumskennzahlen."
+    }, {
+      title: "Influencer- & Creator-Kooperationen",
+      description: "Auswahl, Briefing und Management authentischer Markenbotschafter:innen."
+    }],
     icon: Eye,
     gradient: "from-[#06b6d4] to-[#3b82f6]",
     video: "/assets/media-content-video.mp4"
   }, {
     title: "Launch-Kampagnen & Performance-Marketing",
     description: "In Zusammenarbeit mit Performance-Agenturen gestalten wir datengetriebene Kampagnen, die Reichweite in Ergebnisse verwandeln.",
-    details: [
-      {
-        title: "Launch-Strategien entwickeln",
-        description: "Definition von Positionierung, Timing und Kommunikationszielen für Produkteinführungen."
-      },
-      {
-        title: "Paid Advertising & Campaign Management",
-        description: "Steuerung und Optimierung plattformübergreifender Werbekampagnen."
-      },
-      {
-        title: "Conversion-Optimierung",
-        description: "Analyse und Testing von Creatives, Landing Pages und Funnels zur Steigerung der Abschlussrate."
-      },
-      {
-        title: "A/B-Testing & Analytics",
-        description: "Kontinuierliche Datenauswertung und KPI-Optimierung für skalierbare Performance."
-      }
-    ],
+    details: [{
+      title: "Launch-Strategien entwickeln",
+      description: "Definition von Positionierung, Timing und Kommunikationszielen für Produkteinführungen."
+    }, {
+      title: "Paid Advertising & Campaign Management",
+      description: "Steuerung und Optimierung plattformübergreifender Werbekampagnen."
+    }, {
+      title: "Conversion-Optimierung",
+      description: "Analyse und Testing von Creatives, Landing Pages und Funnels zur Steigerung der Abschlussrate."
+    }, {
+      title: "A/B-Testing & Analytics",
+      description: "Kontinuierliche Datenauswertung und KPI-Optimierung für skalierbare Performance."
+    }],
     icon: TrendingUp,
     gradient: "from-[#3b82f6] to-[#06b6d4]",
     video: "/assets/media-section-video.mp4"
   }, {
     title: "Content-Marketing & Copywriting",
     description: "Mit erfahrenen Copy- und SEO-Partnern schaffen wir Texte und Storys, die Markenstimme, Sichtbarkeit und Wirkung vereinen.",
-    details: [
-      {
-        title: "SEO-optimierte Texte & Landingpages",
-        description: "Keyword-orientierte Inhalte, die Performance und Lesbarkeit vereinen."
-      },
-      {
-        title: "Storytelling & Marken-Narrative",
-        description: "Entwicklung einer unverwechselbaren Sprachidentität für Kampagnen und Markenauftritte."
-      },
-      {
-        title: "Blog- & Artikel-Content",
-        description: "Redaktionelle Formate zur Steigerung von Reichweite, Expertise und Markenautorität."
-      },
-      {
-        title: "E-Mail- & Funnel-Texte",
-        description: "Automatisierte Textstrecken zur Leadgewinnung und Kundenbindung."
-      }
-    ],
+    details: [{
+      title: "SEO-optimierte Texte & Landingpages",
+      description: "Keyword-orientierte Inhalte, die Performance und Lesbarkeit vereinen."
+    }, {
+      title: "Storytelling & Marken-Narrative",
+      description: "Entwicklung einer unverwechselbaren Sprachidentität für Kampagnen und Markenauftritte."
+    }, {
+      title: "Blog- & Artikel-Content",
+      description: "Redaktionelle Formate zur Steigerung von Reichweite, Expertise und Markenautorität."
+    }, {
+      title: "E-Mail- & Funnel-Texte",
+      description: "Automatisierte Textstrecken zur Leadgewinnung und Kundenbindung."
+    }],
     icon: Search,
     gradient: "from-[#06b6d4] to-[#3b82f6]",
     video: "/assets/media-new-video.mp4"
@@ -270,9 +250,7 @@ const Media = () => {
                     delay: 0.2
                   }
                 }
-              }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">
-                  MEDIA produziert, veröffentlicht und steuert alles, was nach außen sichtbar wird. Ab Strategie bis zur viralen Umsetzung.
-                </motion.p>
+              }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">MEDIA ist die kreative Kraft im Netzwerk. Gemeinsam mit spezialisierten Agenturen, Studios und Produzent:innen gestalten wir Content, Kampagnen und visuelle Erlebnisse.</motion.p>
               </motion.div>
             </motion.div>
           </div>
