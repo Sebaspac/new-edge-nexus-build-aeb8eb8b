@@ -49,9 +49,22 @@ const Lab = () => {
       description:
         "Wir analysieren bestehende Abläufe, bewerten manuelle Routinen und identifizieren, welche Prozesse sich durch künstliche Intelligenz optimieren oder automatisieren lassen.",
       details: [
-        "Workflow-Analyse und Optimierung",
-        "Automatisierungs-Audit & Strategische Roadmap",
-        "Chatbot- und LLM-Integration",
+        {
+          title: "Workflow-Analyse & Prozess-Mapping",
+          description: "Erfassen, dokumentieren und bewerten bestehender Abläufe nach Aufwand, Risiko und Automatisierungspotenzial."
+        },
+        {
+          title: "Automatisierungs-Audit & Strategische Roadmap",
+          description: "Durchführung eines Audits zur Identifikation und Priorisierung von Automatisierungschancen – inklusive Machbarkeitsbewertung, Effizienz-Ranking und Handlungsempfehlungen."
+        },
+        {
+          title: "Intelligente Datenverarbeitung & Decision-Flows",
+          description: "Erkennen und strukturieren von Prozessen, die von KI-gestützten Analysen, Empfehlungen oder Entscheidungslogiken profitieren."
+        },
+        {
+          title: "Chatbot- und LLM-Integration",
+          description: "Bewertung möglicher Einsatzszenarien für konversationsbasierte Assistenten, Support-Bots oder interne Wissenssysteme."
+        }
       ],
       icon: Cpu,
       gradient: "from-[#fde047] to-[#fbbf24]",
