@@ -956,13 +956,13 @@ const About = () => {
                   year: "11–12/2025",
                   title: "Netzwerkerweiterung",
                   subtitle: "Scale",
-                  description: "Neue spezialisierte Agenturen und Branchen.Mehr parallele Projekte",
+                  description: "Neue spezialisierte Agenturen und Branchen. Mehr parallele Projekte.",
                 },
                 {
                   year: "2026+",
                   title: "Erste SaaS-Anwendung gehen Live",
                   subtitle: "Expansion & Impact",
-                  description: "Wir productisieren bewährte Workflows zu SaaS-Modulen für KMU",
+                  description: "Wir produktisieren bewährte Workflows zu SaaS-Modulen für KMU.",
                 },
               ].map((milestone, i) => (
                 <motion.div
