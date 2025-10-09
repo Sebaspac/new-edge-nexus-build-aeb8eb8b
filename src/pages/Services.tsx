@@ -676,112 +676,92 @@ const Services = () => {
           }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">Strategie, Media &amp; Automation verzahnt – Wirkung statt Aufwand.</motion.p>
           </motion.div>
 
-            {/* Two-Column Layout: Accordion Left, Animation Right */}
-            <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
-            {/* Left: Accordion List */}
-            <div className="space-y-1">
-              {[{
-              title: "Skalierbare Automatisierung",
-              content: "Automationen modular starten – bei Wachstum einfach erweitern und optimieren."
-            }, {
-              title: "Markenstärke durch Kreativität",
-              content: "Vernetzte Agenturpartner sorgen für Design, Content & Strategie mit messbarer Wirkung."
-            }, {
-              title: "Team-Entlastung & Fokus",
-              content: "Routineaufgaben laufen automatisch – Ihr Team konzentriert sich auf Wachstum."
-            }, {
-              title: "Sicher & transparent",
-              content: "DSGVO-konforme Setups mit klaren Rollen und Echtzeit-Dashboards für volle Kontrolle."
-            }].map((item, index) => {
-              const isOpen = openAccordionIndex === index;
-              return <motion.div key={item.title} initial={{
+            {/* Accordion Section */}
+            <div className="max-w-3xl mx-auto">
+              <motion.div initial={{
                 opacity: 0,
-                y: 10
+                y: 20
               }} whileInView={{
                 opacity: 1,
                 y: 0
               }} viewport={{
                 once: true
               }} transition={{
-                duration: 0.3,
-                delay: index * 0.05
-              }} className="border-b border-border last:border-b-0">
-                    {/* Accordion Header */}
-                  <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity text-lg font-semibold">
-                      <h3 className="text-xl sm:text-2xl font-bold text-foreground">
-                        {item.title}
-                      </h3>
-                      <motion.svg animate={{
-                    rotate: isOpen ? 180 : 0
+                duration: 0.6
+              }} className="space-y-2">
+                {[{
+                  title: "Skalierbare Automatisierung",
+                  content: "Automationen modular starten – bei Wachstum einfach erweitern und optimieren."
+                }, {
+                  title: "Markenstärke durch Kreativität",
+                  content: "Vernetzte Agenturpartner sorgen für Design, Content & Strategie mit messbarer Wirkung."
+                }, {
+                  title: "Team-Entlastung & Fokus",
+                  content: "Routineaufgaben laufen automatisch – Ihr Team konzentriert sich auf Wachstum."
+                }, {
+                  title: "Sicher & transparent",
+                  content: "DSGVO-konforme Setups mit klaren Rollen und Echtzeit-Dashboards für volle Kontrolle."
+                }].map((item, index) => {
+                  const isOpen = openAccordionIndex === index;
+                  return <motion.div key={item.title} initial={{
+                    opacity: 0,
+                    y: 20
+                  }} whileInView={{
+                    opacity: 1,
+                    y: 0
+                  }} viewport={{
+                    once: true
                   }} transition={{
-                    duration: 0.3
-                  }} className="w-5 h-5 text-muted-foreground flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </motion.svg>
-                    </button>
-
-                    {/* Accordion Content */}
-                    <motion.div initial={false} animate={{
-                  height: isOpen ? "auto" : 0,
-                  opacity: isOpen ? 1 : 0
-                }} transition={{
-                  duration: 0.3,
-                  ease: "easeInOut"
-                }} className="overflow-hidden">
-                      <div className="pb-6 pr-8">
-                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                          {item.content}
-                        </p>
+                    duration: 0.4,
+                    delay: index * 0.1
+                  }} className="group">
+                    <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className={`
+                      w-full p-4 lg:p-5 rounded-xl
+                      border-2 transition-all duration-300
+                      ${isOpen ? 'border-primary bg-primary/5 shadow-lg' : 'border-border bg-card hover:border-primary/50 hover:bg-card/80'}
+                    `}>
+                      <div className="flex items-center justify-between gap-3">
+                        <h3 className={`
+                          text-left text-lg lg:text-xl font-bold
+                          transition-colors duration-300
+                          ${isOpen ? 'text-primary' : 'text-foreground'}
+                        `}>
+                          {item.title}
+                        </h3>
+                        <motion.div animate={{
+                          rotate: isOpen ? 180 : 0
+                        }} transition={{
+                          duration: 0.3
+                        }} className={`
+                          flex-shrink-0 w-7 h-7 rounded-full 
+                          flex items-center justify-center
+                          transition-colors duration-300
+                          ${isOpen ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground group-hover:bg-primary/10'}
+                        `}>
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </motion.div>
                       </div>
-                    </motion.div>
-                  </motion.div>;
-            })}
-            </div>
 
-              {/* Right: Animated Visual */}
-              <div>
-              <motion.div initial={{
-              opacity: 0,
-              scale: 0.95
-            }} whileInView={{
-              opacity: 1,
-              scale: 1
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6
-            }} className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                <motion.div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent" animate={{
-                backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"]
-              }} transition={{
-                duration: 10,
-                repeat: Infinity,
-                ease: "linear"
-              }} style={{
-                backgroundSize: "200% 200%"
-              }} />
-                <motion.div className="absolute inset-0 flex items-center justify-center" animate={{
-                scale: [1, 1.1, 1],
-                rotate: [0, 5, -5, 0]
-              }} transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}>
-                  <motion.div className="w-64 h-64 bg-white/20 backdrop-blur-sm rounded-3xl" animate={{
-                  rotateY: [0, 360]
-                }} transition={{
-                  duration: 15,
-                  repeat: Infinity,
-                  ease: "linear"
-                }} style={{
-                  transformStyle: "preserve-3d"
-                }} />
-                </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                      <motion.div initial={false} animate={{
+                        height: isOpen ? "auto" : 0,
+                        opacity: isOpen ? 1 : 0
+                      }} transition={{
+                        duration: 0.3,
+                        ease: "easeInOut"
+                      }} className="overflow-hidden">
+                        <div className="pt-3">
+                          <p className="text-sm text-muted-foreground leading-relaxed text-left lg:text-base">
+                            {item.content}
+                          </p>
+                        </div>
+                      </motion.div>
+                    </button>
+                  </motion.div>;
+                })}
               </motion.div>
             </div>
-          </div>
         </div>
       </section>
 
