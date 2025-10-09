@@ -197,7 +197,15 @@ const Products = () => {
               }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">
                   Unsere spezialisierten KI-Agenten automatisieren Ihre Prozesse, verbessern Effizienz und steigern Produktivität. Von Wissensmanagement bis Content-Erstellung – maßgeschneiderte Lösungen für Ihr Business.
                 </motion.p>
-                <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="text-sm text-gray-600 mt-6 leading-[1.6] max-w-3xl sm:text-xl font-medium">
+                <motion.p initial={{
+                opacity: 0,
+                y: 20
+              }} animate={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                delay: 0.6
+              }} className="text-sm mt-6 leading-[1.6] max-w-3xl text-gray-600 font-medium sm:text-xl">
                   Schreiben Sie uns und testen Sie unsere Agenten 48 Stunden lang kostenlos.
                 </motion.p>
               </motion.div>
@@ -246,7 +254,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Was macht Riley?</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                     Riley nutzt Retrieval‑Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten. Der Einsatz von RAG verringert Halluzinationen und schafft mehr Vertrauen in die Ergebnisse.
@@ -265,7 +279,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Riley</h3>
                   <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                     <motion.li variants={{
@@ -369,7 +389,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Riley in der Praxis</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
                     Ein neuer Mitarbeiter stellt im internen Chat Fragen zum Onboarding. Riley greift auf Handbücher und FAQs zu, liefert sofort die korrekte Antwort und verkürzt so die Einarbeitungszeit.
@@ -429,7 +455,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Was macht Liam?</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                     Liam automatisiert Ihre Lead‑Generierung. Er kombiniert Chatbots, Segmentierung, Predictive Lead Scoring und automatisierte E‑Mail‑Kampagnen. Dadurch identifiziert und pflegt er wertvolle Kontakte, während Ihr Vertrieb sich auf Abschlüsse konzentriert. KI‑gestützte Lead‑Generierung steigert Effizienz, verbessert die Lead‑Qualität und ermöglicht hyperpersonalisierte Ansprache.
@@ -448,7 +480,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Liam</h3>
                   <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                     <motion.li variants={{
@@ -552,7 +590,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Liam in der Praxis</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
                     Ein E‑Commerce‑Shop integriert Liam in sein Kontaktformular. Der Chatbot beantwortet Produktfragen, erfasst Kontaktdaten und bewertet die Kaufbereitschaft. Täglich erhält das Vertriebsteam eine Liste neuer, qualifizierter Leads inklusive Kaufwahrscheinlichkeit.
@@ -612,7 +656,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100 hover:shadow-2xl hover:border-green-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100 hover:shadow-2xl hover:border-green-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">Was macht Vera?</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                     Vera ist Ihre smarte Telefon‑Assistentin. Sie nimmt Anrufe rund um die Uhr entgegen, automatisiert Routinegespräche, beantwortet Fragen und leitet komplexe Anliegen an Ihr Team weiter. Voice‑AI‑Lösungen können hohe Anrufvolumina bewältigen, Wartezeiten verkürzen und 24/7‑Service ermöglichen.
@@ -631,7 +681,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100 hover:shadow-2xl hover:border-green-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100 hover:shadow-2xl hover:border-green-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Vera</h3>
                   <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                     <motion.li variants={{
@@ -735,7 +791,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100 hover:shadow-2xl hover:border-green-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100 hover:shadow-2xl hover:border-green-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Vera in der Praxis</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
                     Ein Service‑Center setzt Vera ein, damit Kunden jederzeit Bestellungen aufgeben oder Termine verschieben können. Standardfragen beantwortet die KI sofort, während Mitarbeitende sich auf individuelle Beratung konzentrieren.
@@ -795,7 +857,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-amber-100 hover:shadow-2xl hover:border-amber-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-amber-100 hover:shadow-2xl hover:border-amber-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Was macht Cora?</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                     Cora erstellt und optimiert Inhalte für Blogs, Social Media und E‑Mail‑Newsletter. AI‑Content‑Agenten sparen Zeit, verbessern die Qualität und sorgen für konsistente Texte. Cora analysiert Keyword‑Trends, generiert SEO‑optimierte Texte und passt Inhalte an Ihre Zielgruppen an.
@@ -814,7 +882,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-amber-100 hover:shadow-2xl hover:border-amber-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-amber-100 hover:shadow-2xl hover:border-amber-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Cora</h3>
                   <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                     <motion.li variants={{
@@ -918,7 +992,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-amber-100 hover:shadow-2xl hover:border-amber-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-amber-100 hover:shadow-2xl hover:border-amber-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Cora in der Praxis</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
                     Eine Marketing‑Abteilung nutzt Cora, um wöchentlich Blogartikel und Social‑Media‑Posts zu erstellen. Die KI passt jeden Beitrag an die jeweilige Plattform an, verbessert die Sichtbarkeit und steigert das Engagement – was wiederum zu mehr Leads führt.
@@ -992,7 +1072,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-indigo-100 hover:shadow-2xl hover:border-indigo-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-indigo-100 hover:shadow-2xl hover:border-indigo-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Was ist der Agent Hub?</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                     Der Agent Hub ist Ihre zentrale Plattform mit 8+ spezialisierten KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr. Mit einem einmaligen Zugang erhalten Sie lebenslangen Zugriff auf alle Agenten – ohne monatliche Abonnementkosten.
@@ -1011,7 +1097,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-indigo-100 hover:shadow-2xl hover:border-indigo-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-indigo-100 hover:shadow-2xl hover:border-indigo-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert der Agent Hub</h3>
                   <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                     <motion.li variants={{
@@ -1119,7 +1211,13 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} whileHover={{ scale: 1.02, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-indigo-100 hover:shadow-2xl hover:border-indigo-200">
+              }} whileHover={{
+                scale: 1.02,
+                y: -5
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-indigo-100 hover:shadow-2xl hover:border-indigo-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Agent Hub in der Praxis</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
                     Ein Startup nutzt den Agent Hub für seine gesamte Content-Produktion: Cody erstellt Werbetexte, Dimarko plant Social-Media-Kampagnen und Inti unterstützt bei der Mitarbeitersuche. Alle Bereiche werden mit einem Tool abgedeckt – effizient und kostenoptimiert.
@@ -1328,14 +1426,7 @@ const Products = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="nachricht">Nachricht *</Label>
-                <Textarea 
-                  id="nachricht" 
-                  name="nachricht" 
-                  required 
-                  placeholder="Erzählen Sie uns von Ihrem Projekt..." 
-                  className="min-h-[120px]"
-                  defaultValue={selectedAgent ? `Ich interessiere mich für ${selectedAgent} und möchte mehr über die Möglichkeiten erfahren.` : ""}
-                />
+                <Textarea id="nachricht" name="nachricht" required placeholder="Erzählen Sie uns von Ihrem Projekt..." className="min-h-[120px]" defaultValue={selectedAgent ? `Ich interessiere mich für ${selectedAgent} und möchte mehr über die Möglichkeiten erfahren.` : ""} />
               </div>
 
               <Button type="submit" className="w-full btn-primary text-slate-50">
