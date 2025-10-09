@@ -608,7 +608,7 @@ const Services = () => {
       
 
       {/* Problem-Lösung Section */}
-      <section className="relative py-8 sm:py-12 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-white overflow-hidden">
         {/* Enhanced Animated background with multiple layers */}
         <motion.div className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
         scale: [1, 1.3, 1],
@@ -659,9 +659,9 @@ const Services = () => {
           }} transition={{
             delay: 0.2,
             duration: 0.7
-          }} whileHover={{
-            scale: 1.03
-          }} className="text-2xl sm:text-3xl mb-4 bg-gradient-primary bg-clip-text leading-[1.2] text-gray-950 font-bold lg:text-5xl">Die Vorteile im Detail</motion.h2>
+        }} whileHover={{
+          scale: 1.03
+        }} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] font-bold lg:text-6xl">Die Vorteile im Detail</motion.h2>
             <motion.p initial={{
             opacity: 0,
             y: 20
@@ -673,7 +673,7 @@ const Services = () => {
           }} transition={{
             delay: 0.4,
             duration: 0.6
-          }} className="text-base text-gray-600 max-w-3xl leading-[1.6] lg:text-xl">Strategie, Media &amp; Automation verzahnt – Wirkung statt Aufwand.</motion.p>
+          }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">Strategie, Media &amp; Automation verzahnt – Wirkung statt Aufwand.</motion.p>
           </motion.div>
 
             {/* Two-Column Layout: Accordion Left, Animation Right */}
@@ -707,7 +707,7 @@ const Services = () => {
                 delay: index * 0.05
               }} className="border-b border-border last:border-b-0">
                     {/* Accordion Header */}
-                    <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity text-lg font-semibold text-slate-950">
+                  <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity text-lg font-semibold">
                       <h3 className="text-xl sm:text-2xl font-bold text-foreground">
                         {item.title}
                       </h3>
