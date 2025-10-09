@@ -20,7 +20,7 @@ const Services = () => {
   } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [openAccordionIndex, setOpenAccordionIndex] = useState(-1);
+  const [openAccordionIndex, setOpenAccordionIndex] = useState(0);
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
