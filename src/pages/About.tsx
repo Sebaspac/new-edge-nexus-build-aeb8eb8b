@@ -672,7 +672,7 @@ const About = () => {
                   </p>
 
                   <p>
-                    New Edge ist das <strong className="text-foreground">Headquarter of Innovation</strong> – ein
+                    New Edge ist das  – ein
                     übergeordnetes Netzwerkzentrum, das Agenturen und Unternehmen im Mittelstand miteinander verbindet.
                   </p>
                 </div>
