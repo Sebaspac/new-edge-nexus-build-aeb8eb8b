@@ -801,7 +801,7 @@ const Services = () => {
           }} transition={{
             delay: 0.2,
             duration: 0.7
-          }} className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-bold">
+          }} className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-medium lg:text-5xl">
               Jetzt Kontakt aufnehmen <span className="bg-gradient-primary bg-clip-text text-transparent"></span>
             </motion.h2>
 
