@@ -204,7 +204,7 @@ const Lab = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black mb-3 leading-[1.2] text-black">
+                <h2 className="text-h1 mb-3 text-black">
                   TECH{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: "linear-gradient(to right, #fde047, #fbbf24)",
@@ -232,7 +232,7 @@ const Lab = () => {
                     delay: 0.2
                   }
                 }
-              }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">LAB ist die technologische Einheit von New Edge – entwickelt, geführt und gesteuert direkt durch unser Team. Hier entstehen KI-gestützte Systeme, automatisierte Prozesse und datengetriebene Infrastrukturen, die Projekte effizienter, präziser und skalierbarer machen.</motion.p>
+              }} className="text-body-lg text-gray-600 mt-4 max-w-3xl">LAB ist die technologische Einheit von New Edge – entwickelt, geführt und gesteuert direkt durch unser Team. Hier entstehen KI-gestützte Systeme, automatisierte Prozesse und datengetriebene Infrastrukturen, die Projekte effizienter, präziser und skalierbarer machen.</motion.p>
               </motion.div>
             </motion.div>
           </div>
@@ -267,7 +267,7 @@ const Lab = () => {
                   }} className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}>
                         <Icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      <h2 className="text-[36px] sm:text-[48px] md:text-[52px] font-black text-black lg:text-4xl">
+                      <h2 className="text-h1 text-black">
                         {service.title}
                       </h2>
                     </motion.div>
@@ -375,7 +375,7 @@ const Lab = () => {
           }} transition={{
             duration: 0.6
           }} className="text-left mb-12">
-              <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black mb-2 text-black">
+              <h2 className="text-h1 mb-2 text-black">
                 Meet Our Agents
               </h2>
               <p className="text-base sm:text-lg lg:text-xl max-w-3xl text-gray-700 leading-relaxed">

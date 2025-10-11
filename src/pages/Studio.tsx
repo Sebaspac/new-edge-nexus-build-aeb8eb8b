@@ -187,7 +187,7 @@ const Studio = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black mb-3 leading-[1.2] text-black">
+                <h2 className="text-h1 mb-3 text-black">
                   DESIGN{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: 'linear-gradient(to right, #6366f1, #a855f7)',
@@ -215,7 +215,7 @@ const Studio = () => {
                     delay: 0.2
                   }
                 }
-              }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">STUDIO bildet das Fundament jeder Zusammenarbeit.
+              }} className="text-body-lg text-gray-600 mt-4 max-w-3xl">STUDIO bildet das Fundament jeder Zusammenarbeit.
 Hier entwickeln wir Markenstrategien, Positionierungen und Identitäten – in enger Abstimmung mit ausgewählten Branding- und Research-Partnern, gesteuert durch das New Edge Team.
 So entsteht ein Markenfundament, das sowohl emotional überzeugt als auch geschäftlich trägt.</motion.p>
               </motion.div>
@@ -257,7 +257,7 @@ So entsteht ein Markenfundament, das sowohl emotional überzeugt als auch gesch�
                   }} className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}>
                         <Icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      <h2 className="text-[36px] sm:text-[48px] md:text-[52px] font-black text-black lg:text-4xl">{service.title}</h2>
+                      <h2 className="text-h1 text-black">{service.title}</h2>
                     </motion.div>
                     
                     <motion.div variants={{
@@ -358,7 +358,7 @@ So entsteht ein Markenfundament, das sowohl emotional überzeugt als auch gesch�
         background: 'linear-gradient(to right, #6366f1, #8b5cf6, #a855f7)'
       }}>
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold mb-4 sm:mb-6">Bereit für den nächsten Schritt?</h2>
+            <h2 className="text-h1 mb-4 sm:mb-6">Bereit für den nächsten Schritt?</h2>
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
               Gemeinsam entwickeln wir ein Design, das Ihre Vision zum Leben erweckt und Ihre Zielgruppe begeistert.
             </p>

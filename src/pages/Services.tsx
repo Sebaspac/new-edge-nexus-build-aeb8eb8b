@@ -297,7 +297,7 @@ const Services = () => {
                 }} transition={{
                   duration: 0.8,
                   ease: "easeOut"
-                }} className="font-bold text-foreground mb-6 text-5xl text-center sm:text-6xl">Unsere Reise</motion.h3>
+                }} className="text-display text-foreground mb-6 text-center">Unsere Reise</motion.h3>
                   
                 </div>
 
@@ -338,7 +338,7 @@ const Services = () => {
                           <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                             <Target className="w-8 h-8 text-white" />
                           </div>
-                          <h4 className="mb-4 text-center text-foreground text-lg font-semibold">STRATEGIE</h4>
+                          <h4 className="text-h3 mb-4 text-center text-foreground">STRATEGIE</h4>
                           <p className="text-muted-foreground text-center leading-relaxed text-base">
                             Das Fundament für Ihren Erfolg. Wir entwickeln eine klare Roadmap und visuelle Identität.
                           </p>
@@ -401,7 +401,7 @@ const Services = () => {
                           <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                             <Palette className="w-8 h-8 text-white" />
                           </div>
-                          <h4 className="mb-4 text-center text-foreground text-lg font-semibold">UMSETZUNG</h4>
+                          <h4 className="text-h3 mb-4 text-center text-foreground">UMSETZUNG</h4>
                           <p className="text-muted-foreground text-center leading-relaxed">
                             Content-Produktion und Reichweite-Aufbau. Ihre Botschaft erreicht die richtige Zielgruppe.
                           </p>

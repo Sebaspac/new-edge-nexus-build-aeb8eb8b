@@ -233,7 +233,7 @@ const Index = () => {
                 }}
                 className="mb-6"
               >
-                <h2 className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] mb-3 leading-[1.2] text-black font-extrabold">
+                <h2 className="text-h1 mb-3 text-black">
                   Wir bringen Ihr Unternehmen{" "}
                   <span className="bg-gradient-primary bg-clip-text text-transparent inline-block">an die Spitze</span>{" "}
                   Ihrer Branche
@@ -253,7 +253,7 @@ const Index = () => {
                       },
                     },
                   }}
-                  className="text-gray-600 mt-4 leading-[1.5] max-w-3xl text-base lg:text-xl"
+                  className="text-body-lg text-gray-600 mt-4 max-w-3xl"
                 >
                   Wir helfen Marken, sichtbar zu werden, Prozesse zu automatisieren – und den Wandel durch Innovation
                   aktiv zu gestalten
@@ -307,7 +307,7 @@ const Index = () => {
                   delay: 0.2,
                   duration: 0.7,
                 }}
-                className="text-[42px] sm:text-[48px] md:text-[52px] mb-4 bg-gradient-primary bg-clip-text leading-[1.25] text-gray-950 font-bold lg:text-5xl"
+                className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950"
               >
                 Ihr Gewinn mit New Edge
               </motion.h2>
@@ -327,7 +327,7 @@ const Index = () => {
                   delay: 0.4,
                   duration: 0.6,
                 }}
-                className="text-gray-600 max-w-3xl leading-[1.5] text-base lg:text-xl"
+                className="text-body-lg text-gray-600 max-w-3xl"
               >
                 Wir machen Effizienz spürbar: automatisierte Abläufe, klare Daten und kreative Systeme, die Wachstum
                 messbar machen – damit Ihr Unternehmen schneller, profitabler und innovativer arbeitet
@@ -364,10 +364,10 @@ const Index = () => {
               }}
             >
               <motion.div className="mb-2"></motion.div>
-              <motion.h2 className="text-2xl sm:text-3xl font-bold mb-4 text-foreground leading-[1.25] md:text-5xl">
+              <motion.h2 className="text-h2 mb-4 text-foreground">
                 Gemeinsam Zukunft gestalten – vernetzt. automatisiert. wirkungsvoll.
               </motion.h2>
-              <motion.p className="text-sm text-muted-foreground max-w-3xl leading-relaxed sm:text-xl">
+              <motion.p className="text-body-lg text-muted-foreground max-w-3xl">
                 New Edge verbindet Unternehmen und Agenturen in einem exklusiven Netzwerk, um kreative Exzellenz und
                 intelligente Automatisierung zu vereinen – für mehr Wirkung, weniger Aufwand und messbares Wachstum
               </motion.p>
@@ -428,7 +428,7 @@ const Index = () => {
                         transition={{
                           delay: 0.2,
                         }}
-                        className="text-2xl mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-slate-950 md:text-4xl font-semibold"
+                        className="text-h2 mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-slate-950"
                       >
                         Für Unternehmen, die Vorreiter werden wollen
                       </motion.h3>
