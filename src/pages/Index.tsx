@@ -236,7 +236,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950 text-5xl font-semibold">
+            }} className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950 text-3xl sm:text-4xl md:text-5xl font-semibold">
                 Ihr Gewinn mit New Edge
               </motion.h2>
               
@@ -263,10 +263,10 @@ const Index = () => {
             duration: 0.8
           }}>
               <motion.div className="mb-2"></motion.div>
-              <motion.h2 className="text-h2 mb-4 text-foreground text-5xl">
+              <motion.h2 className="text-h2 mb-4 text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                 Gemeinsam Zukunft gestalten – vernetzt. automatisiert. wirkungsvoll.
               </motion.h2>
-              <motion.p className="text-body-lg text-muted-foreground max-w-3xl text-xl font-normal">
+              <motion.p className="text-body-lg text-muted-foreground max-w-3xl text-base sm:text-lg md:text-xl font-normal">
                 New Edge verbindet Unternehmen und Agenturen in einem exklusiven Netzwerk, um kreative Exzellenz und
                 intelligente Automatisierung zu vereinen – für mehr Wirkung, weniger Aufwand und messbares Wachstum
               </motion.p>
@@ -297,7 +297,7 @@ const Index = () => {
                 duration: 0.8,
                 ease: [0.25, 0.1, 0.25, 1]
               }} className="max-w-6xl mx-auto">
-                  <div className="bg-white rounded-[32px] p-12 md:p-16 shadow-[0_2px_16px_rgba(0,0,0,0.06)]">
+                  <div className="bg-white rounded-2xl sm:rounded-[32px] p-6 sm:p-10 md:p-12 lg:p-16 shadow-[0_2px_16px_rgba(0,0,0,0.06)]">
                     <div className="max-w-3xl">
                       <motion.h3 initial={{
                       opacity: 0,
@@ -308,7 +308,7 @@ const Index = () => {
                     }} transition={{
                       delay: 0.2,
                       duration: 0.6
-                    }} className="text-5xl font-semibold mb-6 text-gray-900 tracking-tight leading-[1.1] md:text-4xl">
+                    }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 sm:mb-6 text-gray-900 tracking-tight leading-[1.1]">
                         Für Unternehmen, die Vorreiter werden wollen
                       </motion.h3>
                       <motion.p initial={{
@@ -320,7 +320,7 @@ const Index = () => {
                     }} transition={{
                       delay: 0.3,
                       duration: 0.6
-                    }} className="text-xl text-gray-600 mb-16 leading-relaxed font-normal md:text-xl">
+                    }} className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 sm:mb-12 md:mb-16 leading-relaxed font-normal">
                         New Edge ist Ihr Partner für intelligente Automatisierung – und Ihr Zugang zu den besten
                         Kreativagenturen
                       </motion.p>
@@ -352,14 +352,14 @@ const Index = () => {
                     }} transition={{
                       delay: 0.4 + index * 0.1,
                       duration: 0.6
-                    }} className="group bg-gray-50 rounded-3xl p-8 transition-all duration-300 hover:bg-gray-100">
-                          <div className="mb-4">
+                    }} className="group bg-gray-50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 transition-all duration-300 hover:bg-gray-100">
+                          <div className="mb-3 sm:mb-4">
                             
                           </div>
-                          <h4 className="text-xl font-semibold mb-3 text-gray-900">
+                          <h4 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900">
                             {item.title}
                           </h4>
-                          <p className="text-gray-600 leading-relaxed text-base">{item.description}</p>
+                          <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{item.description}</p>
                         </motion.div>)}
                     </div>
                   </div>
@@ -378,7 +378,7 @@ const Index = () => {
                 duration: 0.8,
                 ease: [0.25, 0.1, 0.25, 1]
               }} className="max-w-6xl mx-auto">
-                  <div className="bg-white rounded-[32px] p-12 md:p-16 shadow-[0_2px_16px_rgba(0,0,0,0.06)]">
+                  <div className="bg-white rounded-2xl sm:rounded-[32px] p-6 sm:p-10 md:p-12 lg:p-16 shadow-[0_2px_16px_rgba(0,0,0,0.06)]">
                     <div className="max-w-3xl">
                       <motion.h3 initial={{
                       opacity: 0,
@@ -389,7 +389,7 @@ const Index = () => {
                     }} transition={{
                       delay: 0.2,
                       duration: 0.6
-                    }} className="text-5xl md:text-6xl font-semibold mb-6 text-gray-900 tracking-tight leading-[1.1]">
+                    }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 sm:mb-6 text-gray-900 tracking-tight leading-[1.1]">
                         Für Agenturen, die Wachstum automatisieren wollen
                       </motion.h3>
                       <motion.p initial={{
@@ -401,7 +401,7 @@ const Index = () => {
                     }} transition={{
                       delay: 0.3,
                       duration: 0.6
-                    }} className="text-xl md:text-2xl text-gray-600 mb-16 leading-relaxed font-normal">
+                    }} className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 sm:mb-12 md:mb-16 leading-relaxed font-normal">
                         Als zertifizierter Partner werden Sie Teil unseres exklusiven Netzwerks. Wir vermitteln Kunden,
                         integrieren Automatisierung und schaffen skalierbare Workflows für nachhaltiges Wachstum.
                       </motion.p>
@@ -429,11 +429,11 @@ const Index = () => {
                     }} transition={{
                       delay: 0.4 + index * 0.1,
                       duration: 0.6
-                    }} className="group bg-gray-50 rounded-3xl p-8 transition-all duration-300 hover:bg-gray-100">
-                          <h4 className="text-xl font-semibold mb-3 text-gray-900">
+                    }} className="group bg-gray-50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 transition-all duration-300 hover:bg-gray-100">
+                          <h4 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900">
                             {item.title}
                           </h4>
-                          <p className="text-base text-gray-600 leading-relaxed">{item.description}</p>
+                          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{item.description}</p>
                         </motion.div>)}
                     </div>
                   </div>
@@ -501,7 +501,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] lg:text-5xl font-semibold">
+            }} className="text-3xl sm:text-4xl md:text-5xl text-foreground mb-4 sm:mb-6 leading-[1.25] font-semibold">
                 Unsere Services
               </motion.h2>
               <motion.p initial={{
@@ -515,7 +515,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">
+            }} className="text-muted-foreground max-w-3xl leading-[1.5] text-base sm:text-lg md:text-xl">
                 Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt erfolgreich zu positionieren
               </motion.p>
             </motion.div>
@@ -622,7 +622,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-semibold lg:text-5xl">
+            }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-semibold px-4">
                 Jetzt Kontakt aufnehmen <span className="bg-gradient-primary bg-clip-text text-transparent"></span>
               </motion.h2>
 
@@ -637,7 +637,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }} className="text-base lg:text-xl text-gray-600 mb-10 leading-[1.5] max-w-3xl mx-auto">
+            }} className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 mb-8 sm:mb-10 leading-[1.5] max-w-3xl mx-auto px-4">
                 New Edge ist das Headquarter für Innovation. Hier entsteht die Zukunft von Marken, Agenturen und
                 Prozessen
                 <br />
