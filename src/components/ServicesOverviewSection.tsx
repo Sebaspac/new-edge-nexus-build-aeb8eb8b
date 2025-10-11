@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { TextStaggerHover, TextStaggerHoverActive, TextStaggerHoverHidden } from "@/components/ui/text-stagger-hover";
 
 export const ServicesOverviewSection = () => {
   const services = [
@@ -34,7 +35,7 @@ export const ServicesOverviewSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col items-end space-y-1"
+            className="flex flex-col items-end space-y-3"
           >
             {services.map((service, index) => (
               <motion.div
@@ -49,9 +50,20 @@ export const ServicesOverviewSection = () => {
                   to={service.path}
                   className="group flex items-center justify-end gap-3 text-right py-3 px-6 rounded-lg transition-all duration-200 hover:bg-primary/5"
                 >
-                  <span className="text-2xl lg:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-200">
-                    {service.title}
-                  </span>
+                  <TextStaggerHover as="span">
+                    <TextStaggerHoverActive
+                      animation="right"
+                      className="text-2xl lg:text-3xl font-bold text-foreground"
+                    >
+                      {service.title}
+                    </TextStaggerHoverActive>
+                    <TextStaggerHoverHidden
+                      animation="left"
+                      className="text-2xl lg:text-3xl font-bold text-primary"
+                    >
+                      {service.title}
+                    </TextStaggerHoverHidden>
+                  </TextStaggerHover>
                   <ArrowRight className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-all duration-200 group-hover:translate-x-1" />
                 </Link>
               </motion.div>
