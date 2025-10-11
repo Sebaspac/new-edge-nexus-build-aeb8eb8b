@@ -682,7 +682,7 @@ const Services = () => {
             }} className="space-y-4">
               {/* Top Row: Two Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Card 1 */}
+                {/* Card 1 - Klare Strategie */}
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }} 
                   whileInView={{ opacity: 1, y: 0 }} 
@@ -694,18 +694,18 @@ const Services = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative p-10">
                     <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10">
-                      <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500" />
+                      <span className="text-2xl font-bold bg-gradient-to-br from-blue-500 to-purple-500 bg-clip-text text-transparent">01</span>
                     </div>
                     <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight">
-                      Messbare Resultate
+                      Klare Strategie
                     </h3>
                     <p className="text-base text-gray-600 leading-relaxed">
-                      Klare KPIs und transparente Dashboards zeigen Ihnen jederzeit den ROI Ihrer Investition
+                      Eine durchdachte Roadmap und visuelle Identität als solides Fundament.
                     </p>
                   </div>
                 </motion.div>
 
-                {/* Card 2 */}
+                {/* Card 2 - Überzeugende Inhalte */}
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }} 
                   whileInView={{ opacity: 1, y: 0 }} 
@@ -717,19 +717,19 @@ const Services = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-pink-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative p-10">
                     <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10">
-                      <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500" />
+                      <span className="text-2xl font-bold bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">02</span>
                     </div>
                     <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight">
-                      Schnelle Umsetzung
+                      Überzeugende Inhalte
                     </h3>
                     <p className="text-base text-gray-600 leading-relaxed">
-                      Von der Idee zur Lösung in Rekordzeit – agil und effizient für maximale Wirkung
+                      Content, der Ihre Zielgruppe erreicht und nachhaltig begeistert.
                     </p>
                   </div>
                 </motion.div>
               </div>
 
-              {/* Bottom Row: Single Wide Card */}
+              {/* Bottom Row: Single Wide Card - Intelligente Umsetzung */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} 
                 whileInView={{ opacity: 1, y: 0 }} 
@@ -741,13 +741,13 @@ const Services = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative p-10">
                   <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10">
-                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500" />
+                    <span className="text-2xl font-bold bg-gradient-to-br from-cyan-500 to-blue-500 bg-clip-text text-transparent">03</span>
                   </div>
                   <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight">
-                    Zukunftssichere Technologie
+                    Intelligente Umsetzung
                   </h3>
                   <p className="text-base text-gray-600 leading-relaxed">
-                    Moderne, skalierbare Lösungen, die mit Ihrem Unternehmen wachsen und sich anpassen
+                    Technische Exzellenz und Automatisierung für nachhaltigen Erfolg.
                   </p>
                 </div>
               </motion.div>
