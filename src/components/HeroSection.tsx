@@ -40,7 +40,7 @@ export const HeroSection = ({
         
         {/* Left Side - CTA Content */}
         <div className="relative flex items-end z-20">
-          <div className="w-full px-6 pb-24 md:pb-28 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl lg:mt-auto lg:mb-auto">
+          <div className="w-full px-6 pb-16 md:pb-20 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl lg:mt-auto lg:mb-auto">
             <motion.div initial={{
               opacity: 0,
               y: 20
