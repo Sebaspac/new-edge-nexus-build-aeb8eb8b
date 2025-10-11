@@ -37,7 +37,7 @@ export const ServicesOverviewSection = () => {
         }} transition={{
           duration: 0.6
         }}>
-            <h2 className="text-h1 mb-6 text-black">
+            <h2 className="text-h1 mb-10 text-black">
               Wir bringen Ihr Unternehmen{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent inline-block">an die Spitze</span>{" "}
               Ihrer Branche
