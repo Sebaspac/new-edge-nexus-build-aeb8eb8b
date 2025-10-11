@@ -218,7 +218,7 @@ const Studio = () => {
                     delay: 0.2
                   }
                 }
-              }} className="text-body-lg text-gray-600 mt-4 max-w-3xl">STUDIO bildet das Fundament jeder Zusammenarbeit. Hier entwickeln wir Markenstrategien, Positionierungen und Identitäten – in enger Abstimmung mit ausgewählten Branding- und Research-Partnern, gesteuert durch das New Edge Team. </motion.p>
+              }} className="text-body-lg text-gray-600 mt-4 max-w-3xl text-xl">STUDIO bildet das Fundament jeder Zusammenarbeit. Hier entwickeln wir Markenstrategien, Positionierungen und Identitäten – in enger Abstimmung mit ausgewählten Branding- und Research-Partnern, gesteuert durch das New Edge Team. </motion.p>
               </motion.div>
             </motion.div>
           </div>
