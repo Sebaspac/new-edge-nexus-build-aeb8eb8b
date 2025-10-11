@@ -635,7 +635,7 @@ const Index = () => {
 
                       <div className="flex-1 md:flex md:flex-col md:h-full">
                         {/* Title */}
-                        <h3 className="text-h3 text-foreground mb-2 md:mb-4 leading-[1.3] text-xl font-semibold">
+                        <h3 className="text-h3 text-foreground mb-2 md:mb-4 leading-[1.3] text-2xl font-medium">
                           {service.title}
                         </h3>
 
