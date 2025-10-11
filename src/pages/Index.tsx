@@ -330,23 +330,22 @@ const Index = () => {
                     <div className="md:hidden">
                       <Accordion type="single" collapsible className="space-y-3">
                         {[{
-                          title: "Automatisierung mit Impact",
-                          description: "Wir automatisieren Ihre Workflows end-to-end – für mehr Effizienz, Tempo und geringere Kosten.",
-                          icon: "⚡"
-                        }, {
-                          title: "Kreative Exzellenz auf Abruf",
-                          description: "Über unser Partnernetzwerk erhalten Sie Zugang zu Top-Agenturen für Branding, Design und Media.",
-                          icon: "🎨"
-                        }, {
-                          title: "Ganzheitliche Projekte",
-                          description: "New Edge koordiniert Prozesse und Partner zentral – ein Ansprechpartner, klare Ergebnisse.",
-                          icon: "🔗"
-                        }, {
-                          title: "Beobachtbares Wachstum",
-                          description: "Alle KPIs in Echtzeit: Fortschritt, Performance und ROI jederzeit nachvollziehbar.",
-                          icon: "📊"
-                        }].map((item, index) => (
-                          <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-2xl border-none">
+                        title: "Automatisierung mit Impact",
+                        description: "Wir automatisieren Ihre Workflows end-to-end – für mehr Effizienz, Tempo und geringere Kosten.",
+                        icon: "⚡"
+                      }, {
+                        title: "Kreative Exzellenz auf Abruf",
+                        description: "Über unser Partnernetzwerk erhalten Sie Zugang zu Top-Agenturen für Branding, Design und Media.",
+                        icon: "🎨"
+                      }, {
+                        title: "Ganzheitliche Projekte",
+                        description: "New Edge koordiniert Prozesse und Partner zentral – ein Ansprechpartner, klare Ergebnisse.",
+                        icon: "🔗"
+                      }, {
+                        title: "Beobachtbares Wachstum",
+                        description: "Alle KPIs in Echtzeit: Fortschritt, Performance und ROI jederzeit nachvollziehbar.",
+                        icon: "📊"
+                      }].map((item, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-2xl border-none">
                             <AccordionTrigger className="px-5 py-4 hover:no-underline">
                               <h4 className="text-h3 font-bold text-gray-900 text-left">
                                 {item.title}
@@ -355,8 +354,7 @@ const Index = () => {
                             <AccordionContent className="px-5 pb-4">
                               <p className="text-body-sm text-gray-600 leading-relaxed">{item.description}</p>
                             </AccordionContent>
-                          </AccordionItem>
-                        ))}
+                          </AccordionItem>)}
                       </Accordion>
                     </div>
 
@@ -391,7 +389,7 @@ const Index = () => {
                           <div className="mb-3 sm:mb-4">
                             
                           </div>
-                          <h4 className="text-h3 font-bold mb-2 sm:mb-3 text-gray-900">
+                          <h4 className="text-h3 mb-2 sm:mb-3 text-gray-900 font-medium">
                             {item.title}
                           </h4>
                           <p className="text-body text-gray-600 leading-relaxed">{item.description}</p>
@@ -446,19 +444,18 @@ const Index = () => {
                     <div className="md:hidden">
                       <Accordion type="single" collapsible className="space-y-3">
                         {[{
-                          title: "Automatisierung für Ihr Agenturbusiness",
-                          description: "Agenturprozesse kennen wir aus erster Hand. Wir optimieren Ihre Abläufe – von Briefings bis Reporting – für maximale Effizienz."
-                        }, {
-                          title: "Gemeinsame Kundenbetreuung",
-                          description: "Partneragenturen arbeiten mit uns an Projekten unserer Kunden"
-                        }, {
-                          title: "Beobachtbares Wachstum",
-                          description: "Alle KPIs in Echtzeit: Fortschritt, Performance und ROI jederzeit nachvollziehbar."
-                        }, {
-                          title: "Eigene Automationslösungen vermarkten",
-                          description: "Unsere Technologie läuft im Hintergrund – Sie treten als Anbieter smarter Automatisierung auf."
-                        }].map((item, index) => (
-                          <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-2xl border-none">
+                        title: "Automatisierung für Ihr Agenturbusiness",
+                        description: "Agenturprozesse kennen wir aus erster Hand. Wir optimieren Ihre Abläufe – von Briefings bis Reporting – für maximale Effizienz."
+                      }, {
+                        title: "Gemeinsame Kundenbetreuung",
+                        description: "Partneragenturen arbeiten mit uns an Projekten unserer Kunden"
+                      }, {
+                        title: "Beobachtbares Wachstum",
+                        description: "Alle KPIs in Echtzeit: Fortschritt, Performance und ROI jederzeit nachvollziehbar."
+                      }, {
+                        title: "Eigene Automationslösungen vermarkten",
+                        description: "Unsere Technologie läuft im Hintergrund – Sie treten als Anbieter smarter Automatisierung auf."
+                      }].map((item, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-2xl border-none">
                             <AccordionTrigger className="px-5 py-4 hover:no-underline">
                               <h4 className="text-h3 font-bold text-gray-900 text-left">
                                 {item.title}
@@ -467,8 +464,7 @@ const Index = () => {
                             <AccordionContent className="px-5 pb-4">
                               <p className="text-body-sm text-gray-600 leading-relaxed">{item.description}</p>
                             </AccordionContent>
-                          </AccordionItem>
-                        ))}
+                          </AccordionItem>)}
                       </Accordion>
                     </div>
 
