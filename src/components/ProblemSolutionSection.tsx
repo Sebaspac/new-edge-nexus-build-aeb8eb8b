@@ -18,17 +18,9 @@ export const ProblemSolutionSection = ({
     content: "Fehler und Doppelarbeit sinken, Prozesse laufen günstiger.",
     icon: TrendingDown
   }, {
-    title: "Mehr Umsatz",
-    content: "Bessere Leads, höhere Conversion – spürbar mehr Umsatz.",
-    icon: TrendingUp
-  }, {
     title: "Transparenz",
     content: "Echtzeit-Dashboards zeigen KPIs für schnelle Entscheidungen.",
     icon: BarChart3
-  }, {
-    title: "Bereit für Innovation",
-    content: "Nutzen Sie modernste Technologien und bleiben Sie der Konkurrenz voraus.",
-    icon: Sparkles
   }, {
     title: "Schnelle Umsetzung",
     content: "Von der Idee zur Lösung in Rekordzeit – agil und effizient.",
