@@ -57,9 +57,7 @@ export const HeroSection = ({
                 Lead Tomorrow.
               </h1>
               
-              <p className="text-body-lg text-neutral-300 max-w-xl">
-                Von der ersten Beratung bis zur vollständigen Implementierung – New Edge ist Ihr strategischer Partner für den erfolgreichen Einsatz von Künstlicher Intelligenz.
-              </p>
+              <p className="text-body-lg text-neutral-300 max-w-xl">Von der ersten Beratung bis zur vollständigen Implementierung – New Edge ist die Creative-Tech-Agentur, die Strategie, Kreation und Automatisierung verbindet</p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button size="lg" onClick={onContactClick} className="group">
