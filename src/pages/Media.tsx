@@ -13,7 +13,10 @@ const Media = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { container: heroContainer, style: heroStyle } = useHeroScrollAnimation();
+  const {
+    container: heroContainer,
+    style: heroStyle
+  } = useHeroScrollAnimation();
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -141,15 +144,7 @@ const Media = () => {
             <div className="absolute inset-0 overflow-hidden" style={{
             background: 'linear-gradient(to bottom right, rgba(59, 130, 246, 0.3), rgba(6, 182, 212, 0.2), rgba(6, 182, 212, 0.1))'
           }}>
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline 
-                preload="metadata"
-                className="absolute inset-0 w-full h-full object-cover"
-                aria-label="Media hero background video"
-              >
+              <video autoPlay loop muted playsInline preload="metadata" className="absolute inset-0 w-full h-full object-cover" aria-label="Media hero background video">
                 <source src="/assets/media-hero-video.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0" style={{
@@ -230,7 +225,7 @@ const Media = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-h1 mb-3 text-black">
+                <h2 className="text-h1 mb-3 text-black text-5xl font-extrabold">
                   CONTENT{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: 'linear-gradient(to right, #3b82f6, #06b6d4)',
@@ -287,12 +282,7 @@ const Media = () => {
                     }
                   }
                 }} className="flex items-center gap-4 mb-8">
-                      <motion.div whileHover={{
-                    scale: 1.1,
-                    rotate: 5
-                  }} className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}>
-                        <Icon className="w-8 h-8 text-white" />
-                      </motion.div>
+                      
                       <h2 className="text-h1 text-black">{service.title}</h2>
                     </motion.div>
                     
@@ -315,7 +305,7 @@ const Media = () => {
                   type: "spring",
                   stiffness: 300
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#3b82f6]/20 hover:shadow-xl hover:border-[#3b82f6]/30 transition-all duration-200">
-                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                      <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
                         {service.description}
                       </p>
                     </motion.div>
