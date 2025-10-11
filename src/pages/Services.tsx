@@ -580,92 +580,179 @@ const Services = () => {
           }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">Strategie, Media &amp; Automation verzahnt – Wirkung statt Aufwand.</motion.p>
           </motion.div>
 
-            {/* Accordion Section */}
-            <div className="max-w-3xl mx-auto">
-              <motion.div initial={{
-                opacity: 0,
-                y: 20
-              }} whileInView={{
-                opacity: 1,
-                y: 0
-              }} viewport={{
-                once: true
-              }} transition={{
-                duration: 0.6
-              }} className="space-y-2">
-                {[{
-                  title: "Skalierbare Automatisierung",
-                  content: "Automationen modular starten – bei Wachstum einfach erweitern und optimieren."
-                }, {
-                  title: "Markenstärke durch Kreativität",
-                  content: "Vernetzte Agenturpartner sorgen für Design, Content & Strategie mit messbarer Wirkung."
-                }, {
-                  title: "Team-Entlastung & Fokus",
-                  content: "Routineaufgaben laufen automatisch – Ihr Team konzentriert sich auf Wachstum."
-                }, {
-                  title: "Sicher & transparent",
-                  content: "DSGVO-konforme Setups mit klaren Rollen und Echtzeit-Dashboards für volle Kontrolle."
-                }].map((item, index) => {
-                  const isOpen = openAccordionIndex === index;
-                  return <motion.div key={item.title} initial={{
-                    opacity: 0,
-                    y: 20
-                  }} whileInView={{
-                    opacity: 1,
-                    y: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    duration: 0.4,
-                    delay: index * 0.1
-                  }} className="group">
-                    <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className={`
-                      w-full p-4 lg:p-5 rounded-xl
-                      border-2 transition-all duration-300
-                      ${isOpen ? 'border-primary bg-primary/5 shadow-lg' : 'border-border bg-card hover:border-primary/50 hover:bg-card/80'}
-                    `}>
-                      <div className="flex items-center justify-between gap-3">
-                        <h3 className={`
-                          text-left text-lg lg:text-xl font-bold
-                          transition-colors duration-300
-                          ${isOpen ? 'text-primary' : 'text-foreground'}
-                        `}>
-                          {item.title}
-                        </h3>
-                        <motion.div animate={{
-                          rotate: isOpen ? 180 : 0
-                        }} transition={{
-                          duration: 0.3
-                        }} className={`
-                          flex-shrink-0 w-7 h-7 rounded-full 
-                          flex items-center justify-center
-                          transition-colors duration-300
-                          ${isOpen ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground group-hover:bg-primary/10'}
-                        `}>
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </motion.div>
-                      </div>
-
-                      <motion.div initial={false} animate={{
-                        height: isOpen ? "auto" : 0,
-                        opacity: isOpen ? 1 : 0
+          {/* Two-Column Layout: Accordion Left, Apple Cards Right */}
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-center">
+            {/* Left side: Accordion */}
+            <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6
+            }} className="space-y-2">
+              {[{
+                title: "Skalierbare Automatisierung",
+                content: "Automationen modular starten – bei Wachstum einfach erweitern und optimieren."
+              }, {
+                title: "Markenstärke durch Kreativität",
+                content: "Vernetzte Agenturpartner sorgen für Design, Content & Strategie mit messbarer Wirkung."
+              }, {
+                title: "Team-Entlastung & Fokus",
+                content: "Routineaufgaben laufen automatisch – Ihr Team konzentriert sich auf Wachstum."
+              }, {
+                title: "Sicher & transparent",
+                content: "DSGVO-konforme Setups mit klaren Rollen und Echtzeit-Dashboards für volle Kontrolle."
+              }].map((item, index) => {
+                const isOpen = openAccordionIndex === index;
+                return <motion.div key={item.title} initial={{
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  duration: 0.4,
+                  delay: index * 0.1
+                }} className="group">
+                  <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className={`
+                    w-full p-4 lg:p-5 rounded-xl
+                    border-2 transition-all duration-300
+                    ${isOpen ? 'border-primary bg-primary/5 shadow-lg' : 'border-border bg-card hover:border-primary/50 hover:bg-card/80'}
+                  `}>
+                    <div className="flex items-center justify-between gap-3">
+                      <h3 className={`
+                        text-left text-lg lg:text-xl font-bold
+                        transition-colors duration-300
+                        ${isOpen ? 'text-primary' : 'text-foreground'}
+                      `}>
+                        {item.title}
+                      </h3>
+                      <motion.div animate={{
+                        rotate: isOpen ? 180 : 0
                       }} transition={{
-                        duration: 0.3,
-                        ease: "easeInOut"
-                      }} className="overflow-hidden">
-                        <div className="pt-3">
-                          <p className="text-sm text-muted-foreground leading-relaxed text-left lg:text-base">
-                            {item.content}
-                          </p>
-                        </div>
+                        duration: 0.3
+                      }} className={`
+                        flex-shrink-0 w-7 h-7 rounded-full 
+                        flex items-center justify-center
+                        transition-colors duration-300
+                        ${isOpen ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground group-hover:bg-primary/10'}
+                      `}>
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
                       </motion.div>
-                    </button>
-                  </motion.div>;
-                })}
+                    </div>
+
+                    <motion.div initial={false} animate={{
+                      height: isOpen ? "auto" : 0,
+                      opacity: isOpen ? 1 : 0
+                    }} transition={{
+                      duration: 0.3,
+                      ease: "easeInOut"
+                    }} className="overflow-hidden">
+                      <div className="pt-3">
+                        <p className="text-sm text-muted-foreground leading-relaxed text-left lg:text-base">
+                          {item.content}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </button>
+                </motion.div>;
+              })}
+            </motion.div>
+
+            {/* Right side: Apple-Style Cards */}
+            <motion.div initial={{
+              opacity: 0,
+              x: 20
+            }} whileInView={{
+              opacity: 1,
+              x: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6,
+              delay: 0.2
+            }} className="space-y-4">
+              {/* Top Row: Two Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Card 1 */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
+                  className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="relative p-10">
+                    <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10">
+                      <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500" />
+                    </div>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight">
+                      Messbare Resultate
+                    </h3>
+                    <p className="text-base text-gray-600 leading-relaxed">
+                      Klare KPIs und transparente Dashboards zeigen Ihnen jederzeit den ROI Ihrer Investition
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Card 2 */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
+                  className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-pink-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="relative p-10">
+                    <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10">
+                      <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500" />
+                    </div>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight">
+                      Schnelle Umsetzung
+                    </h3>
+                    <p className="text-base text-gray-600 leading-relaxed">
+                      Von der Idee zur Lösung in Rekordzeit – agil und effizient für maximale Wirkung
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Bottom Row: Single Wide Card */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ duration: 0.6, delay: 0.4 }}
+                whileHover={{ y: -4, transition: { duration: 0.3 } }}
+                className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative p-10">
+                  <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10">
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500" />
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight">
+                    Zukunftssichere Technologie
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    Moderne, skalierbare Lösungen, die mit Ihrem Unternehmen wachsen und sich anpassen
+                  </p>
+                </div>
               </motion.div>
-            </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
