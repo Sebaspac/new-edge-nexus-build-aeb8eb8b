@@ -22,7 +22,7 @@ export const ServicesOverviewSection = () => {
     title: "KI-gestützte Marketing & Automation",
     path: "/media"
   }];
-  return <section className="relative py-12 lg:py-16 bg-background">
+  return <section className="relative pt-20 pb-12 lg:py-16 bg-background">
       <div className="container-xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left side: Text */}
