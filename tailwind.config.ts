@@ -70,6 +70,18 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				'red-800': 'var(--ds-red-800)',
+				'red-900': 'var(--ds-red-900)',
+				'amber-800': 'var(--ds-amber-800)',
+				'amber-850': 'var(--ds-amber-850)',
+				'gray-100': 'var(--ds-gray-100)',
+				'gray-400': 'var(--ds-gray-400)',
+				'gray-700': 'var(--ds-gray-700)',
+				'gray-1000': 'var(--ds-gray-1000)',
+				'gray-1000-h': 'var(--ds-gray-1000-h)',
+				'gray-alpha-200': 'var(--ds-gray-alpha-200)',
+				'gray-alpha-400': 'var(--ds-gray-alpha-400)',
+				'background-100': 'var(--ds-background-100)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -82,7 +94,9 @@ export default {
 				'soft': 'var(--shadow-soft)',
 				'strong': 'var(--shadow-strong)',
 				'glow': 'var(--shadow-glow)',
-				'accent': 'var(--shadow-accent)'
+				'accent': 'var(--shadow-accent)',
+				'focus-ring': 'var(--ds-focus-ring)',
+				'border-small': 'var(--ds-shadow-border-small)'
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
@@ -158,6 +172,10 @@ export default {
 				'spotlight': {
 					'0%': { opacity: '0', transform: 'translate(-72%, -62%) scale(0.5)' },
 					'100%': { opacity: '1', transform: 'translate(-50%,-40%) scale(1)' }
+				},
+				'fade-spin': {
+					'0%, 39%, 100%': { opacity: '0.25' },
+					'40%': { opacity: '1' }
 				}
 			},
 			animation: {
@@ -174,7 +192,8 @@ export default {
 				'gradient': 'gradient-flow 8s ease-in-out infinite',
 				'shimmer': 'shimmer-effect 3s ease-in-out infinite',
 				'parallax': 'parallax-float 8s ease-in-out infinite',
-				'spotlight': 'spotlight 2s ease 0.75s 1 forwards'
+				'spotlight': 'spotlight 2s ease 0.75s 1 forwards',
+				'fade-spin': 'fade-spin 1s linear infinite'
 			},
 			transitionTimingFunction: {
 				'ease-out': 'var(--ease-out)',
