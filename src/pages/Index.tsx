@@ -422,7 +422,7 @@ const Index = () => {
                     }} transition={{
                       delay: 0.2,
                       duration: 0.6
-                    }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 sm:mb-6 text-gray-900 tracking-tight leading-[1.1]">
+                    }} className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-gray-900 tracking-tight leading-[1.1] font-medium lg:text-4xl">
                         Für Agenturen, die Wachstum automatisieren wollen
                       </motion.h3>
                       <motion.p initial={{
