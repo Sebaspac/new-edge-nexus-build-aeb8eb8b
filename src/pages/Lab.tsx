@@ -235,7 +235,7 @@ const Lab = () => {
                     delay: 0.2
                   }
                 }
-              }} className="text-body-lg text-gray-600 mt-4 max-w-3xl">LAB ist die technologische Einheit von New Edge – entwickelt, geführt und gesteuert direkt durch unser Team. Hier entstehen KI-gestützte Systeme, automatisierte Prozesse und datengetriebene Infrastrukturen, die Projekte effizienter, präziser und skalierbarer machen.</motion.p>
+              }} className="text-body-lg text-gray-600 mt-4 max-w-3xl text-xl">LAB ist die technologische Einheit von New Edge – entwickelt, geführt und gesteuert direkt durch unser Team. Hier entstehen KI-gestützte Systeme, automatisierte Prozesse und datengetriebene Infrastrukturen, die Projekte effizienter, präziser und skalierbarer machen.</motion.p>
               </motion.div>
             </motion.div>
           </div>
