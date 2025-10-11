@@ -266,7 +266,7 @@ const Index = () => {
               <motion.h2 className="text-h1 mb-4 text-foreground text-4xl font-semibold">
                 Gemeinsam Zukunft gestalten – vernetzt. automatisiert. wirkungsvoll.
               </motion.h2>
-              <motion.p className="text-body-lg text-muted-foreground max-w-3xl font-normal">
+              <motion.p className="text-body-lg text-muted-foreground max-w-3xl font-normal text-xl">
                 New Edge verbindet Unternehmen und Agenturen in einem exklusiven Netzwerk, um kreative Exzellenz und
                 intelligente Automatisierung zu vereinen – für mehr Wirkung, weniger Aufwand und messbares Wachstum
               </motion.p>
@@ -320,7 +320,7 @@ const Index = () => {
                     }} transition={{
                       delay: 0.3,
                       duration: 0.6
-                    }} className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 sm:mb-12 md:mb-16 leading-relaxed font-normal">
+                    }} className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12 md:mb-16 leading-relaxed font-normal md:text-lg">
                         New Edge ist Ihr Partner für intelligente Automatisierung – und Ihr Zugang zu den besten
                         Kreativagenturen
                       </motion.p>
@@ -577,7 +577,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }} className="text-body-lg text-muted-foreground max-w-3xl leading-[1.5]">
+            }} className="text-body-lg text-muted-foreground max-w-3xl leading-[1.5] text-xl">
                 Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt erfolgreich zu positionieren
               </motion.p>
             </motion.div>
