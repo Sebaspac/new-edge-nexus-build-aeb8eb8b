@@ -149,71 +149,78 @@ export const ProblemSolutionSection = ({
             
           </div>
 
-          {/* Feature Cards Grid */}
-          <div className="space-y-6">
+          {/* Apple-Style Feature Cards */}
+          <div className="space-y-4">
             {/* Top Row: Two Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Card 1: Innovation als Prozess */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.4,
-              delay: 0.3
-            }} className="p-8 rounded-3xl bg-gradient-to-br from-primary/5 to-transparent border border-primary/10 hover:border-primary/30 transition-all duration-300 backdrop-blur-sm">
-                
-                <h3 className="text-xl font-bold mb-3 text-primary">Innovation als Prozess</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Statt einmaliger Projekte bauen wir Ihnen einen nachhaltigen Ablauf weniger Aufwand, schnellere Umsetzung, planbare Skalierung
-                </p>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ duration: 0.6, delay: 0.2 }}
+                whileHover={{ y: -4, transition: { duration: 0.3 } }}
+                className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative p-10">
+                  <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10">
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500" />
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight">
+                    Innovation als Prozess
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    Statt einmaliger Projekte bauen wir Ihnen einen nachhaltigen Ablauf — weniger Aufwand, schnellere Umsetzung, planbare Skalierung
+                  </p>
+                </div>
               </motion.div>
 
               {/* Card 2: Ganzheitliche Transformation */}
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.4,
-              delay: 0.4
-            }} className="p-8 rounded-3xl bg-gradient-to-br from-primary/5 to-transparent border border-primary/10 hover:border-primary/30 transition-all duration-300 backdrop-blur-sm">
-                
-                <h3 className="text-xl font-bold mb-3 text-primary">Ganzheitliche Transformation</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Keine Insellösungen mehr. Wir verbinden Marke, Content und KI-Automatisierung zu einem durchgängigen System
-                </p>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ duration: 0.6, delay: 0.3 }}
+                whileHover={{ y: -4, transition: { duration: 0.3 } }}
+                className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-pink-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative p-10">
+                  <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10">
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500" />
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight">
+                    Ganzheitliche Transformation
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    Keine Insellösungen mehr. Wir verbinden Marke, Content und KI-Automatisierung zu einem durchgängigen System
+                  </p>
+                </div>
               </motion.div>
             </div>
 
             {/* Bottom Row: Single Wide Card */}
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.4,
-            delay: 0.5
-          }} className="p-8 rounded-3xl bg-gradient-to-br from-primary/5 to-transparent border border-primary/10 hover:border-primary/30 transition-all duration-300 backdrop-blur-sm max-w-4xl">
-              
-              <h3 className="text-xl font-bold mb-3 text-primary">
-                Kreatives Headquarter<br />für Innovation
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden
-              </p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ y: -4, transition: { duration: 0.3 } }}
+              className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative p-10">
+                <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10">
+                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500" />
+                </div>
+                <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight">
+                  Kreatives Headquarter für Innovation
+                </h3>
+                <p className="text-base text-gray-600 leading-relaxed">
+                  Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden
+                </p>
+              </div>
             </motion.div>
           </div>
         </motion.div>
