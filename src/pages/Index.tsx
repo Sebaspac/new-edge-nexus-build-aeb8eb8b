@@ -289,87 +289,78 @@ const Index = () => {
               <TabsContent value="kmu" className="space-y-8">
                 <motion.div initial={{
                 opacity: 0,
-                y: 20,
-                scale: 0.95
+                y: 20
               }} animate={{
                 opacity: 1,
-                y: 0,
-                scale: 1
+                y: 0
               }} transition={{
-                duration: 0.6,
-                ease: [0.25, 0.46, 0.45, 0.94]
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1]
               }} className="max-w-6xl mx-auto">
-                  <div className="relative bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-600/5 rounded-3xl p-8 md:p-12 border border-blue-400/30 backdrop-blur-xl shadow-2xl overflow-hidden">
-                    {/* Animated Background Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-transparent animate-pulse opacity-50" />
-
-                    <div className="relative z-10">
+                  <div className="bg-white rounded-[32px] p-12 md:p-16 shadow-[0_2px_16px_rgba(0,0,0,0.06)]">
+                    <div className="max-w-3xl">
                       <motion.h3 initial={{
                       opacity: 0,
-                      x: -20
+                      y: 10
                     }} animate={{
                       opacity: 1,
-                      x: 0
+                      y: 0
                     }} transition={{
-                      delay: 0.2
-                    }} className="text-h2 mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-slate-950">
+                      delay: 0.2,
+                      duration: 0.6
+                    }} className="text-5xl md:text-6xl font-semibold mb-6 text-gray-900 tracking-tight leading-[1.1]">
                         Für Unternehmen, die Vorreiter werden wollen
                       </motion.h3>
                       <motion.p initial={{
                       opacity: 0,
-                      x: -20
+                      y: 10
                     }} animate={{
                       opacity: 1,
-                      x: 0
+                      y: 0
                     }} transition={{
-                      delay: 0.3
-                    }} className="text-gray-700 mb-8 leading-relaxed text-lg font-normal">
+                      delay: 0.3,
+                      duration: 0.6
+                    }} className="text-xl md:text-2xl text-gray-600 mb-16 leading-relaxed font-normal">
                         New Edge ist Ihr Partner für intelligente Automatisierung – und Ihr Zugang zu den besten
                         Kreativagenturen
                       </motion.p>
+                    </div>
 
-                      <div className="grid md:grid-cols-2 gap-4">
-                        {[{
-                        title: "Automatisierung mit Impact",
-                        description: "Wir automatisieren Ihre Workflows end-to-end – für mehr Effizienz, Tempo und geringere Kosten.",
-                        icon: "⚡",
-                        gradient: "from-blue-500 to-cyan-500"
-                      }, {
-                        title: "Kreative Exzellenz auf Abruf",
-                        description: "Über unser Partnernetzwerk erhalten Sie Zugang zu Top-Agenturen für Branding, Design und Media.",
-                        icon: "🎨",
-                        gradient: "from-purple-500 to-blue-500"
-                      }, {
-                        title: "Ganzheitliche Projekte",
-                        description: "New Edge koordiniert Prozesse und Partner zentral – ein Ansprechpartner, klare Ergebnisse.",
-                        icon: "🔗",
-                        gradient: "from-cyan-500 to-blue-500"
-                      }, {
-                        title: "Beobachtbares Wachstum",
-                        description: "Alle KPIs in Echtzeit: Fortschritt, Performance und ROI jederzeit nachvollziehbar.",
-                        icon: "📊",
-                        gradient: "from-blue-600 to-purple-500"
-                      }].map((item, index) => <motion.div key={index} initial={{
-                        opacity: 0,
-                        y: 20
-                      }} animate={{
-                        opacity: 1,
-                        y: 0
-                      }} transition={{
-                        delay: 0.4 + index * 0.1
-                      }} whileHover={{
-                        scale: 1.02,
-                        y: -2
-                      }} className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-blue-200/50 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer overflow-hidden">
-                            <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-200`} />
-                            <div className="relative z-10">
-                              <h4 className="text-base font-bold mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">
-                                {item.title}
-                              </h4>
-                              <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
-                            </div>
-                          </motion.div>)}
-                      </div>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {[{
+                      title: "Automatisierung mit Impact",
+                      description: "Wir automatisieren Ihre Workflows end-to-end – für mehr Effizienz, Tempo und geringere Kosten.",
+                      icon: "⚡"
+                    }, {
+                      title: "Kreative Exzellenz auf Abruf",
+                      description: "Über unser Partnernetzwerk erhalten Sie Zugang zu Top-Agenturen für Branding, Design und Media.",
+                      icon: "🎨"
+                    }, {
+                      title: "Ganzheitliche Projekte",
+                      description: "New Edge koordiniert Prozesse und Partner zentral – ein Ansprechpartner, klare Ergebnisse.",
+                      icon: "🔗"
+                    }, {
+                      title: "Beobachtbares Wachstum",
+                      description: "Alle KPIs in Echtzeit: Fortschritt, Performance und ROI jederzeit nachvollziehbar.",
+                      icon: "📊"
+                    }].map((item, index) => <motion.div key={index} initial={{
+                      opacity: 0,
+                      y: 20
+                    }} animate={{
+                      opacity: 1,
+                      y: 0
+                    }} transition={{
+                      delay: 0.4 + index * 0.1,
+                      duration: 0.6
+                    }} className="group bg-gray-50 rounded-3xl p-8 transition-all duration-300 hover:bg-gray-100">
+                          <div className="mb-4">
+                            <span className="text-4xl">{item.icon}</span>
+                          </div>
+                          <h4 className="text-xl font-semibold mb-3 text-gray-900">
+                            {item.title}
+                          </h4>
+                          <p className="text-base text-gray-600 leading-relaxed">{item.description}</p>
+                        </motion.div>)}
                     </div>
                   </div>
                 </motion.div>
@@ -379,83 +370,71 @@ const Index = () => {
               <TabsContent value="agenturen" className="space-y-8">
                 <motion.div initial={{
                 opacity: 0,
-                y: 20,
-                scale: 0.95
+                y: 20
               }} animate={{
                 opacity: 1,
-                y: 0,
-                scale: 1
+                y: 0
               }} transition={{
-                duration: 0.6,
-                ease: [0.25, 0.46, 0.45, 0.94]
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1]
               }} className="max-w-6xl mx-auto">
-                  <div className="relative bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-pink-600/5 rounded-3xl p-8 md:p-12 border border-pink-400/30 backdrop-blur-xl shadow-2xl overflow-hidden">
-                    {/* Animated Background Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 via-purple-500/5 to-transparent animate-pulse opacity-50" />
-
-                    <div className="relative z-10">
+                  <div className="bg-white rounded-[32px] p-12 md:p-16 shadow-[0_2px_16px_rgba(0,0,0,0.06)]">
+                    <div className="max-w-3xl">
                       <motion.h3 initial={{
                       opacity: 0,
-                      x: -20
+                      y: 10
                     }} animate={{
                       opacity: 1,
-                      x: 0
+                      y: 0
                     }} transition={{
-                      delay: 0.2
-                    }} className="text-2xl mb-4 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-slate-950 md:text-3xl font-semibold">
+                      delay: 0.2,
+                      duration: 0.6
+                    }} className="text-5xl md:text-6xl font-semibold mb-6 text-gray-900 tracking-tight leading-[1.1]">
                         Für Agenturen, die Wachstum automatisieren wollen
                       </motion.h3>
                       <motion.p initial={{
                       opacity: 0,
-                      x: -20
+                      y: 10
                     }} animate={{
                       opacity: 1,
-                      x: 0
+                      y: 0
                     }} transition={{
-                      delay: 0.3
-                    }} className="text-base text-gray-700 mb-8 leading-relaxed font-medium">
+                      delay: 0.3,
+                      duration: 0.6
+                    }} className="text-xl md:text-2xl text-gray-600 mb-16 leading-relaxed font-normal">
                         Als zertifizierter Partner werden Sie Teil unseres exklusiven Netzwerks. Wir vermitteln Kunden,
                         integrieren Automatisierung und schaffen skalierbare Workflows für nachhaltiges Wachstum.
                       </motion.p>
+                    </div>
 
-                      <div className="grid md:grid-cols-2 gap-4">
-                        {[{
-                        title: "Automatisierung für Ihr Agenturbusiness",
-                        description: "Agenturprozesse kennen wir aus erster Hand. Wir optimieren Ihre Abläufe – von Briefings bis Reporting – für maximale Effizienz.",
-                        gradient: "from-pink-500 to-rose-500"
-                      }, {
-                        title: "Gemeinsame Kundenbetreuung",
-                        description: "Partneragenturen arbeiten mit uns an Projekten unserer Kunden",
-                        gradient: "from-purple-500 to-pink-500"
-                      }, {
-                        title: "Beobachtbares Wachstum",
-                        description: "Alle KPIs in Echtzeit: Fortschritt, Performance und ROI jederzeit nachvollziehbar.",
-                        gradient: "from-rose-500 to-pink-500"
-                      }, {
-                        title: "Eigene Automationslösungen vermarkten",
-                        description: "Unsere Technologie läuft im Hintergrund – Sie treten als Anbieter smarter Automatisierung auf.",
-                        gradient: "from-pink-600 to-purple-500"
-                      }].map((item, index) => <motion.div key={index} initial={{
-                        opacity: 0,
-                        y: 20
-                      }} animate={{
-                        opacity: 1,
-                        y: 0
-                      }} transition={{
-                        delay: 0.4 + index * 0.1
-                      }} whileHover={{
-                        scale: 1.02,
-                        y: -2
-                      }} className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-pink-200/50 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer overflow-hidden">
-                            <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-200`} />
-                            <div className="relative z-10">
-                              <h4 className="text-base font-bold mb-2 text-gray-900 group-hover:text-pink-600 transition-colors">
-                                {item.title}
-                              </h4>
-                              <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
-                            </div>
-                          </motion.div>)}
-                      </div>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {[{
+                      title: "Automatisierung für Ihr Agenturbusiness",
+                      description: "Agenturprozesse kennen wir aus erster Hand. Wir optimieren Ihre Abläufe – von Briefings bis Reporting – für maximale Effizienz."
+                    }, {
+                      title: "Gemeinsame Kundenbetreuung",
+                      description: "Partneragenturen arbeiten mit uns an Projekten unserer Kunden"
+                    }, {
+                      title: "Beobachtbares Wachstum",
+                      description: "Alle KPIs in Echtzeit: Fortschritt, Performance und ROI jederzeit nachvollziehbar."
+                    }, {
+                      title: "Eigene Automationslösungen vermarkten",
+                      description: "Unsere Technologie läuft im Hintergrund – Sie treten als Anbieter smarter Automatisierung auf."
+                    }].map((item, index) => <motion.div key={index} initial={{
+                      opacity: 0,
+                      y: 20
+                    }} animate={{
+                      opacity: 1,
+                      y: 0
+                    }} transition={{
+                      delay: 0.4 + index * 0.1,
+                      duration: 0.6
+                    }} className="group bg-gray-50 rounded-3xl p-8 transition-all duration-300 hover:bg-gray-100">
+                          <h4 className="text-xl font-semibold mb-3 text-gray-900">
+                            {item.title}
+                          </h4>
+                          <p className="text-base text-gray-600 leading-relaxed">{item.description}</p>
+                        </motion.div>)}
                     </div>
                   </div>
                 </motion.div>
