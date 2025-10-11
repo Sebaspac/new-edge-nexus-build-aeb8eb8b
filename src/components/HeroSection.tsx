@@ -1,9 +1,10 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { SplineScene } from "./ui/splite";
+import { Spotlight } from "./ui/spotlight";
 interface HeroSectionProps {
   onContactClick: () => void;
 }
@@ -13,14 +14,7 @@ export const HeroSection = ({
   const {
     t
   } = useLanguage();
-  const {
-    scrollY
-  } = useScroll();
-  const containerRef = useRef<HTMLDivElement>(null);
 
-  // Optimized parallax transforms - reduced complexity
-  const heroY = useTransform(scrollY, [0, 800], [0, -100]);
-  const heroOpacity = useTransform(scrollY, [0, 400], [1, 0]);
   const scrollToNext = () => {
     const nextSection = document.querySelector('.innovation-section');
     if (nextSection) {
@@ -37,10 +31,15 @@ export const HeroSection = ({
     >
       Skip to main content
     </a>
-    <section className="relative w-full min-h-screen" id="hero">
-      <div className="w-full h-screen grid lg:grid-cols-2">
+    <section className="relative w-full min-h-screen bg-background" id="hero">
+      <div className="w-full h-screen grid lg:grid-cols-2 relative overflow-hidden">
+        <Spotlight
+          className="-top-40 left-0 md:left-60 md:-top-20"
+          fill="hsl(var(--primary))"
+        />
+        
         {/* Left Side - CTA Content */}
-        <div className="relative flex items-end lg:items-center bg-background/95 backdrop-blur-sm">
+        <div className="relative flex items-end lg:items-center z-10 bg-gradient-to-br from-background via-background/95 to-background/90">
           <div className="w-full px-6 pb-24 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -52,7 +51,7 @@ export const HeroSection = ({
                 <span className="text-sm font-medium text-primary">KI Beratung</span>
               </div>
               
-              <h1 className="text-display-xl lg:text-[64px] xl:text-[72px] leading-tight">
+              <h1 className="text-display-xl lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70">
                 Innovate Today,<br />
                 Lead Tomorrow.
               </h1>
@@ -82,20 +81,12 @@ export const HeroSection = ({
           </div>
         </div>
 
-        {/* Right Side - Video */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-primary/30 via-purple-500/20 to-pink-500/10">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            preload="metadata"
-            className="absolute inset-0 w-full h-full object-cover"
-            aria-label="Hero background video showing New Edge brand visual"
-          >
-            <source src="/assets/hero-video.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+        {/* Right Side - 3D Spline Scene */}
+        <div className="relative overflow-hidden">
+          <SplineScene 
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            className="w-full h-full"
+          />
         </div>
 
         {/* Scroll Indicator */}
@@ -103,7 +94,7 @@ export const HeroSection = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
         >
           <motion.div 
             animate={{ y: [0, 10, 0] }}

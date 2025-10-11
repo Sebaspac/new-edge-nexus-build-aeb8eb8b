@@ -154,6 +154,10 @@ export default {
 					'0%': { transform: 'scale(1) rotate(0deg)' },
 					'50%': { transform: 'scale(1.05) rotate(2deg)' },
 					'100%': { transform: 'scale(1.1) rotate(0deg)' }
+				},
+				'spotlight': {
+					'0%': { opacity: '0', transform: 'translate(-72%, -62%) scale(0.5)' },
+					'100%': { opacity: '1', transform: 'translate(-50%,-40%) scale(1)' }
 				}
 			},
 			animation: {
@@ -169,7 +173,8 @@ export default {
 				'glow': 'glow-pulse-modern 3s ease-in-out infinite',
 				'gradient': 'gradient-flow 8s ease-in-out infinite',
 				'shimmer': 'shimmer-effect 3s ease-in-out infinite',
-				'parallax': 'parallax-float 8s ease-in-out infinite'
+				'parallax': 'parallax-float 8s ease-in-out infinite',
+				'spotlight': 'spotlight 2s ease 0.75s 1 forwards'
 			},
 			transitionTimingFunction: {
 				'ease-out': 'var(--ease-out)',
