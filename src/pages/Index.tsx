@@ -191,7 +191,10 @@ const Index = () => {
         <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
 
         {/* Info Section */}
-        <section id="main-content" className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
+        <section
+          id="main-content"
+          className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden"
+        >
           <div className="container-xl relative z-10">
             <motion.div
               initial="hidden"
@@ -666,7 +669,7 @@ const Index = () => {
                 className="min-h-12 px-8 bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 <Briefcase className="mr-2 h-5 w-5" />
-                Anfrage als KMU
+                Anfrage
               </Button>
 
               <Button
