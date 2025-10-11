@@ -210,10 +210,7 @@ const Index = () => {
                     delay: 0.2
                   }
                 }
-              }} className="text-gray-600 mt-4 leading-[1.5] max-w-3xl text-base lg:text-xl">
-                  Wir helfen Marken, sichtbar zu werden, Prozesse zu automatisieren – und den Wandel durch Innovation
-                  aktiv zu gestalten.
-                </motion.p>
+              }} className="text-gray-600 mt-4 leading-[1.5] max-w-3xl text-base lg:text-xl">Wir helfen Marken, sichtbar zu werden, Prozesse zu automatisieren – und den Wandel durch Innovation aktiv zu gestalten</motion.p>
               </motion.div>
             </motion.div>
           </div>
@@ -266,10 +263,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }} className="text-gray-600 max-w-3xl leading-[1.5] text-base lg:text-xl">
-                Wir machen Effizienz spürbar: automatisierte Abläufe, klare Daten und kreative Systeme, die Wachstum
-                messbar machen – damit Ihr Unternehmen schneller, profitabler und innovativer arbeitet.
-              </motion.p>
+            }} className="text-gray-600 max-w-3xl leading-[1.5] text-base lg:text-xl">Wir machen Effizienz spürbar: automatisierte Abläufe, klare Daten und kreative Systeme, die Wachstum messbar machen – damit Ihr Unternehmen schneller, profitabler und innovativer arbeitet</motion.p>
             </motion.div>
 
             {/* Two-Column Layout with Mobile Scroll Effect */}
@@ -296,10 +290,7 @@ const Index = () => {
               <motion.h2 className="text-2xl sm:text-3xl font-bold mb-4 text-foreground leading-[1.25] md:text-5xl">
                 Gemeinsam Zukunft gestalten – vernetzt. automatisiert. wirkungsvoll.
               </motion.h2>
-              <motion.p className="text-sm text-muted-foreground max-w-3xl leading-relaxed sm:text-xl">
-                New Edge verbindet Unternehmen und Agenturen in einem exklusiven Netzwerk, um kreative Exzellenz und
-                intelligente Automatisierung zu vereinen – für mehr Wirkung, weniger Aufwand und messbares Wachstum.
-              </motion.p>
+              <motion.p className="text-sm text-muted-foreground max-w-3xl leading-relaxed sm:text-xl">New Edge verbindet Unternehmen und Agenturen in einem exklusiven Netzwerk, um kreative Exzellenz und intelligente Automatisierung zu vereinen – für mehr Wirkung, weniger Aufwand und messbares Wachstum</motion.p>
             </motion.div>
 
             {/* Toggle Tabs */}
@@ -564,7 +555,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt erfolgreich zu  positionieren.</motion.p>
+            }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt erfolgreich zu positionieren</motion.p>
             </motion.div>
 
             {/* Service Cards Grid */}
@@ -647,102 +638,69 @@ const Index = () => {
         {/* Contact Section */}
         <section id="contact-section" className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
           <div className="container-xl relative z-10">
-            <motion.div
-              className="text-center"
-              initial={{
-                opacity: 0,
-                y: 50,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: 0.8,
-              }}
-            >
-              <motion.h2
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  delay: 0.2,
-                  duration: 0.7,
-                }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-bold"
-              >
+            <motion.div className="text-center" initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.8
+          }}>
+              <motion.h2 initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.2,
+              duration: 0.7
+            }} className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-bold">
                 Jetzt Kontakt aufnehmen <span className="bg-gradient-primary bg-clip-text text-transparent"></span>
               </motion.h2>
 
-              <motion.p
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  delay: 0.4,
-                  duration: 0.6,
-                }}
-                className="text-base lg:text-xl text-gray-600 mb-10 leading-[1.5] max-w-3xl mx-auto"
-              >
+              <motion.p initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.4,
+              duration: 0.6
+            }} className="text-base lg:text-xl text-gray-600 mb-10 leading-[1.5] max-w-3xl mx-auto">
                 New Edge ist das Headquarter für Innovation. Hier entsteht die Zukunft von Marken, Agenturen und
                 Prozessen.
                 <br />
               </motion.p>
 
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  delay: 0.6,
-                  duration: 0.6,
-                }}
-                className="flex flex-col sm:flex-row items-center justify-center gap-4"
-              >
-                <Button
-                  size="lg"
-                  onClick={() => setIsContactSheetOpen(true)}
-                  className="group bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                >
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.6,
+              duration: 0.6
+            }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="group bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
                   Kontakt aufnehmen
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  onClick={() => {
-                    setContactFormType('agentur');
-                    setIsContactSheetOpen(true);
-                  }} 
-                  className="border-2"
-                >
+                <Button size="lg" variant="outline" onClick={() => {
+                setContactFormType('agentur');
+                setIsContactSheetOpen(true);
+              }} className="border-2">
                   Partner werden
                 </Button>
               </motion.div>

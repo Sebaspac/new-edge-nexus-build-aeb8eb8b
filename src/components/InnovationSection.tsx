@@ -181,7 +181,7 @@ export const InnovationSection = () => {
                   <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight">
                     Innovation als Prozess
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed flex-grow text-base">Statt einmaliger Projekte bauen wir Ihnen einen nachhaltigen Ablauf weniger Aufwand, schnellere Umsetzung, planbare Skalierung.</p>
+                  <p className="text-muted-foreground leading-relaxed flex-grow text-base">Statt einmaliger Projekte bauen wir Ihnen einen nachhaltigen Ablauf weniger Aufwand, schnellere Umsetzung, planbare Skalierung</p>
                 </div>
                 
                 
@@ -268,8 +268,7 @@ export const InnovationSection = () => {
                   <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight">
                     Ganzheitliche Transformation
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed flex-grow text-base">Keine Insellösungen mehr. Wir verbinden Marke, Content und KI-Automatisierung zu einem durchgängigen System.
-                </p>
+                  <p className="text-muted-foreground leading-relaxed flex-grow text-base">Keine Insellösungen mehr. Wir verbinden Marke, Content und KI-Automatisierung zu einem durchgängigen System</p>
                 </div>
                 
                 
@@ -341,9 +340,7 @@ export const InnovationSection = () => {
                 </h3>
                 
                 <div className="space-y-3 max-w-2xl mx-auto">
-                  <p className="text-muted-foreground leading-relaxed sm:text-base text-base">
-                    Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden.
-                  </p>
+                  <p className="text-muted-foreground leading-relaxed sm:text-base text-base">Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden</p>
                 </div>
                 
                 {/* Animated bottom accent */}
