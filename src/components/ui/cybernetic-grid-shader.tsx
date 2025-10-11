@@ -112,7 +112,7 @@ const CyberneticGridShader = () => {
       const rect = container.getBoundingClientRect();
       uniforms.iMouse.value.set(
         e.clientX - rect.left,
-        e.clientY - rect.top
+        container.clientHeight - (e.clientY - rect.top)
       );
     };
     window.addEventListener('mousemove', onMouseMove);
