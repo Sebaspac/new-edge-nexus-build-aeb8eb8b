@@ -15,7 +15,10 @@ const Lab = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openAgent, setOpenAgent] = useState<string | null>(null);
   const [selectedAgent, setSelectedAgent] = useState<string>("Riley");
-  const { container: heroContainer, style: heroStyle } = useHeroScrollAnimation();
+  const {
+    container: heroContainer,
+    style: heroStyle
+  } = useHeroScrollAnimation();
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -120,15 +123,7 @@ const Lab = () => {
             <div className="absolute inset-0 overflow-hidden" style={{
             background: "linear-gradient(to bottom right, rgba(253, 224, 71, 0.3), rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.1))"
           }}>
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline 
-                preload="metadata"
-                className="absolute inset-0 w-full h-full object-cover"
-                aria-label="Lab hero background video"
-              >
+              <video autoPlay loop muted playsInline preload="metadata" className="absolute inset-0 w-full h-full object-cover" aria-label="Lab hero background video">
                 <source src="/assets/lab-hero-video.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0" style={{
@@ -212,7 +207,7 @@ const Lab = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-h1 mb-3 text-black">
+                <h2 className="text-h1 mb-3 text-black text-5xl font-extrabold">
                   TECH{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: "linear-gradient(to right, #fde047, #fbbf24)",
@@ -269,12 +264,7 @@ const Lab = () => {
                     }
                   }
                 }} className="flex items-center gap-4 mb-8">
-                      <motion.div whileHover={{
-                    scale: 1.1,
-                    rotate: 5
-                  }} className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}>
-                        <Icon className="w-8 h-8 text-white" />
-                      </motion.div>
+                      
                       <h2 className="text-h1 text-black">
                         {service.title}
                       </h2>
@@ -299,7 +289,7 @@ const Lab = () => {
                   type: "spring",
                   stiffness: 300
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30 hover:shadow-xl hover:border-[#fde047]/40 transition-all duration-200">
-                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{service.description}</p>
+                      <p className="text-sm leading-relaxed text-gray-600 sm:text-base">{service.description}</p>
                     </motion.div>
 
                     <motion.div variants={{
