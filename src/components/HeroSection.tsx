@@ -15,9 +15,10 @@ export const HeroSection = ({
   const {
     t
   } = useLanguage();
-  
-  const { container, style } = useHeroScrollAnimation();
-
+  const {
+    container,
+    style
+  } = useHeroScrollAnimation();
   const scrollToNext = () => {
     const nextSection = document.querySelector('.innovation-section');
     if (nextSection) {
@@ -28,10 +29,7 @@ export const HeroSection = ({
   };
   return <>
     {/* Skip Link for Keyboard Navigation */}
-    <a 
-      href="#main-content" 
-      className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"
-    >
+    <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md">
       Skip to main content
     </a>
     <section ref={container} className="relative w-full min-h-screen bg-slate-900" id="hero">
@@ -43,15 +41,16 @@ export const HeroSection = ({
         {/* Left Side - CTA Content */}
         <div className="relative flex items-end lg:items-center z-20">
           <div className="w-full px-6 pb-24 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-                <span className="text-sm font-medium text-primary">KI Beratung</span>
-              </div>
+            <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.8
+            }} className="space-y-6">
+              
               
               <h1 className="text-display-xl lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                 Innovate Today,<br />
@@ -63,19 +62,11 @@ export const HeroSection = ({
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button 
-                  size="lg" 
-                  onClick={onContactClick}
-                  className="group"
-                >
+                <Button size="lg" onClick={onContactClick} className="group">
                   Kontakt
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  asChild
-                >
+                <Button size="lg" variant="outline" asChild>
                   <Link to="/about">Über Uns</Link>
                 </Button>
               </div>
@@ -85,29 +76,25 @@ export const HeroSection = ({
 
         {/* Right Side - 3D Spline Scene */}
         <div className="relative overflow-hidden z-20">
-          <SplineScene 
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-            className="w-full h-full"
-          />
+          <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
-        >
-          <motion.div 
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-2 cursor-pointer" 
-            onClick={scrollToNext} 
-            role="button" 
-            aria-label="Scroll to next section" 
-            tabIndex={0} 
-            onKeyDown={(e) => e.key === 'Enter' && scrollToNext()}
-          >
+        <motion.div initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          delay: 1,
+          duration: 0.5
+        }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+          <motion.div animate={{
+            y: [0, 10, 0]
+          }} transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} className="flex flex-col items-center gap-2 cursor-pointer" onClick={scrollToNext} role="button" aria-label="Scroll to next section" tabIndex={0} onKeyDown={e => e.key === 'Enter' && scrollToNext()}>
             <span className="text-white text-sm font-medium">Scroll</span>
             <ChevronDown className="w-6 h-6 text-white" aria-hidden="true" />
           </motion.div>
