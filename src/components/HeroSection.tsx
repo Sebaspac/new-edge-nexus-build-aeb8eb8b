@@ -40,7 +40,7 @@ export const HeroSection = ({
         
         {/* Left Side - CTA Content */}
         <div className="relative flex items-end lg:items-center z-20">
-          <div className="w-full px-6 pb-24 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl">
+          <div className="w-full px-6 pb-32 md:pb-36 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl">
             <motion.div initial={{
               opacity: 0,
               y: 20
@@ -49,7 +49,7 @@ export const HeroSection = ({
               y: 0
             }} transition={{
               duration: 0.8
-            }} className="space-y-6">
+            }} className="space-y-4 md:space-y-6">
               
               
               <h1 className="text-display-xl lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
