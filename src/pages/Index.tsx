@@ -669,7 +669,7 @@ const Index = () => {
                 className="min-h-12 px-8 bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 <Briefcase className="mr-2 h-5 w-5" />
-                Anfrage
+                Kontakt aufnehmen
               </Button>
 
               <Button
@@ -681,7 +681,7 @@ const Index = () => {
                 className="min-h-12 px-8 bg-white border-2 border-yellow-400 text-gray-900 hover:bg-yellow-400 hover:text-gray-900 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 <Users className="mr-2 h-5 w-5" />
-                Anfrage als Agentur
+                Agentur-Match anfragen
               </Button>
             </motion.div>
           </div>
