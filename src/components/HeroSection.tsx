@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { SplineScene } from "./ui/splite";
 import { Spotlight } from "./ui/spotlight";
 import { InteractiveSpotlight } from "./ui/interactive-spotlight";
+import { Boxes } from "./ui/background-boxes";
 interface HeroSectionProps {
   onContactClick: () => void;
 }
@@ -32,16 +33,20 @@ export const HeroSection = ({
     >
       Skip to main content
     </a>
-    <section className="relative w-full min-h-screen bg-black" id="hero">
-      <div className="w-full h-screen grid lg:grid-cols-2 relative overflow-hidden bg-black">
+    <section className="relative w-full min-h-screen bg-slate-900" id="hero">
+      <div className="w-full h-screen grid lg:grid-cols-2 relative overflow-hidden bg-slate-900">
+        <div className="absolute inset-0 w-full h-full bg-slate-900 z-10 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+        
+        <Boxes />
+        
         <Spotlight
-          className="-top-40 left-0 md:left-60 md:-top-20"
+          className="-top-40 left-0 md:left-60 md:-top-20 z-30"
           fill="white"
         />
         <InteractiveSpotlight size={400} />
         
         {/* Left Side - CTA Content */}
-        <div className="relative flex items-end lg:items-center z-10 bg-black/90 backdrop-blur-sm">
+        <div className="relative flex items-end lg:items-center z-20 bg-slate-900/60 backdrop-blur-sm">
           <div className="w-full px-6 pb-24 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -84,7 +89,7 @@ export const HeroSection = ({
         </div>
 
         {/* Right Side - 3D Spline Scene */}
-        <div className="relative overflow-hidden bg-black">
+        <div className="relative overflow-hidden bg-slate-900/50 z-20">
           <SplineScene 
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full"
@@ -96,7 +101,7 @@ export const HeroSection = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
         >
           <motion.div 
             animate={{ y: [0, 10, 0] }}
