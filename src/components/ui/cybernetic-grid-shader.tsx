@@ -99,9 +99,9 @@ const CyberneticGridShader = () => {
 
     // 4) Resize handler
     const onResize = () => {
-      const width  = container.clientWidth;
-      const height = container.clientHeight;
-      renderer.setSize(width, height);
+      const width  = window.innerWidth;
+      const height = window.innerHeight;
+      renderer.setSize(container.clientWidth, container.clientHeight);
       uniforms.iResolution.value.set(width, height);
     };
     window.addEventListener('resize', onResize);
@@ -109,16 +109,9 @@ const CyberneticGridShader = () => {
 
     // 5) Mouse handler
     const onMouseMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
+      const mouseX = e.clientX;
+      const mouseY = window.innerHeight - e.clientY;
       
-      console.log('Mouse DOM:', { mouseX, mouseY });
-      console.log('Container size:', { width: container.clientWidth, height: container.clientHeight });
-      console.log('Mouse event:', { clientX: e.clientX, clientY: e.clientY });
-      console.log('Rect:', rect);
-      
-      // Pass coordinates as-is (no inversion needed)
       uniforms.iMouse.value.set(mouseX, mouseY);
     };
     window.addEventListener('mousemove', onMouseMove);
