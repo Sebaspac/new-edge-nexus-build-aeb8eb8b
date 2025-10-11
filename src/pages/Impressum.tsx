@@ -75,10 +75,10 @@ const Impressum = () => {
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-4">Angaben gemäß § 5 TMG</h3>
                     <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
-                      <p className="font-semibold text-white">New Edge – Creative Tech Studio</p>
+                      <p className="font-semibold text-white">New Edge – Creative Tech Agentur</p>
                       <p>Inhaber: Juan Sebastián Pachón Araque</p>
-                      <p>Pachemstraße 9</p>
-                      <p>81673 München</p>
+                      
+                      
                       <p>Deutschland</p>
                       <p className="mt-2">📧 E-Mail: <a href="mailto:info@newedgebrand.com" className="text-purple-400 hover:text-purple-300">info@newedgebrand.com</a></p>
                     </div>
@@ -90,10 +90,7 @@ const Impressum = () => {
                     <p className="mb-3">Dieses Impressum gilt ebenfalls für folgende Online-Präsenzen:</p>
                     <ul className="list-disc list-inside space-y-2">
                       <li>
-                        <a href="https://www.linkedin.com/company/newedgebrand" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           className="text-purple-400 hover:text-purple-300">
+                        <a href="https://www.linkedin.com/company/newedgebrand" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300">
                           LinkedIn
                         </a>
                       </li>
