@@ -35,7 +35,7 @@ export const ServicesOverviewSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col items-end space-y-3"
+            className="flex flex-col items-end space-y-4 lg:space-y-6"
           >
             {services.map((service, index) => (
               <motion.div
@@ -48,23 +48,23 @@ export const ServicesOverviewSection = () => {
               >
                 <Link
                   to={service.path}
-                  className="group flex items-center justify-end gap-3 text-right py-3 px-6 rounded-lg transition-all duration-200 hover:bg-primary/5"
+                  className="group flex items-center justify-end gap-4 text-right py-4 px-6 rounded-lg transition-all duration-200 hover:bg-primary/5"
                 >
                   <TextStaggerHover as="span">
                     <TextStaggerHoverActive
                       animation="right"
-                      className="text-2xl lg:text-3xl font-bold text-foreground"
+                      className="text-5xl lg:text-7xl xl:text-8xl font-epilogue font-light tracking-tight text-foreground"
                     >
                       {service.title}
                     </TextStaggerHoverActive>
                     <TextStaggerHoverHidden
                       animation="left"
-                      className="text-2xl lg:text-3xl font-bold text-primary"
+                      className="text-5xl lg:text-7xl xl:text-8xl font-epilogue font-light tracking-tight text-primary"
                     >
                       {service.title}
                     </TextStaggerHoverHidden>
                   </TextStaggerHover>
-                  <ArrowRight className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-all duration-200 group-hover:translate-x-1" />
+                  <ArrowRight className="w-8 h-8 lg:w-10 lg:h-10 text-muted-foreground group-hover:text-primary transition-all duration-200 group-hover:translate-x-1" />
                 </Link>
               </motion.div>
             ))}
