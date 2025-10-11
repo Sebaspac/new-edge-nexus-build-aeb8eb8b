@@ -33,7 +33,7 @@ function DisplayCard({
         <span className="relative inline-block rounded-full bg-primary/20 p-2 ring-2 ring-primary/30">
           {icon}
         </span>
-        <p className={cn("text-lg font-bold", titleClassName)}>{title}</p>
+        <p className="text-lg font-bold text-foreground">{title}</p>
       </div>
       <p className="whitespace-nowrap text-lg font-medium text-foreground">{description}</p>
       <p className="text-muted-foreground font-medium">{date}</p>
