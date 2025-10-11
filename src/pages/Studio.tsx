@@ -13,7 +13,10 @@ const Studio = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { container: heroContainer, style: heroStyle } = useHeroScrollAnimation();
+  const {
+    container: heroContainer,
+    style: heroStyle
+  } = useHeroScrollAnimation();
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -106,15 +109,7 @@ const Studio = () => {
             <div className="absolute inset-0 overflow-hidden" style={{
             background: 'linear-gradient(to bottom right, rgba(99, 102, 241, 0.3), rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.1))'
           }}>
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline 
-                preload="metadata"
-                className="absolute inset-0 w-full h-full object-cover"
-                aria-label="Studio hero background video"
-              >
+              <video autoPlay loop muted playsInline preload="metadata" className="absolute inset-0 w-full h-full object-cover" aria-label="Studio hero background video">
                 <source src="/assets/studio-hero-background.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0" style={{
@@ -195,7 +190,7 @@ const Studio = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-h1 mb-3 text-black">
+                <h2 className="text-h1 mb-3 text-black text-5xl font-extrabold">
                   DESIGN{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: 'linear-gradient(to right, #6366f1, #a855f7)',
@@ -259,13 +254,8 @@ So entsteht ein Markenfundament, das sowohl emotional Ã¼berzeugt als auch geschÃ
                     }
                   }
                 }} className="flex items-center gap-4 mb-8">
-                      <motion.div whileHover={{
-                    scale: 1.1,
-                    rotate: 5
-                  }} className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl bg-gradient-to-br ${service.gradient}`}>
-                        <Icon className="w-8 h-8 text-white" />
-                      </motion.div>
-                      <h2 className="text-h1 text-black">{service.title}</h2>
+                      
+                      <h2 className="text-h1 text-black font-semibold text-5xl">{service.title}</h2>
                     </motion.div>
                     
                     <motion.div variants={{
@@ -287,7 +277,7 @@ So entsteht ein Markenfundament, das sowohl emotional Ã¼berzeugt als auch geschÃ
                   type: "spring",
                   stiffness: 300
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20 hover:shadow-xl hover:border-[#6366f1]/30 transition-all duration-200">
-                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                      <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
                         {service.description}
                       </p>
                     </motion.div>
