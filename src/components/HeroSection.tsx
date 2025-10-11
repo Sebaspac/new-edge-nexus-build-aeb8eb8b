@@ -49,7 +49,7 @@ export const HeroSection = ({
               y: 0
             }} transition={{
               duration: 0.8
-            }} className="space-y-4 md:space-y-6">
+            }} className="hidden lg:block space-y-4 md:space-y-6">
               
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
