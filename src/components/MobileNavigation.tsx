@@ -210,7 +210,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.24
                 }}>
-                      <Link to="/products" onClick={handleLinkClick} className={`block py-3 px-4 ${textColorSecondary} hover:${textColor} hover:bg-green-500/10 rounded-lg transition-colors`}>Agenten</Link>
+                      <Link to="/products" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-green-500/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>Agenten</Link>
                     </motion.div>
                   </div>
 
