@@ -16,6 +16,21 @@ export const ServicesOverviewSection = () => {
   return (
     <section className="relative py-16 lg:py-24 bg-background">
       <div className="container-xl">
+        {/* Headline */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 lg:mb-16"
+        >
+          <h2 className="text-h1 mb-3 text-black">
+            Wir bringen Ihr Unternehmen{" "}
+            <span className="bg-gradient-primary bg-clip-text text-transparent inline-block">an die Spitze</span>{" "}
+            Ihrer Branche
+          </h2>
+        </motion.div>
+
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left side: Text */}
           <motion.div
