@@ -52,7 +52,7 @@ export const ProblemSolutionSection = ({
     className: "[grid-area:stack] translate-x-32 translate-y-20 hover:translate-y-10"
   }];
   return <div className="max-w-7xl mx-auto">
-      <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-center">
         {/* Left side: Accordion */}
         <motion.div initial={{
         opacity: 0,
