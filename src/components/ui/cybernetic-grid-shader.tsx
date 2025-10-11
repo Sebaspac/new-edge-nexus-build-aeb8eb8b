@@ -36,45 +36,48 @@ const CyberneticGridShader = () => {
       }
 
       void main() {
-        // Korrekte Normalisierung für präzises Cursor-Tracking
+        // Normalisiere UV auf [0,1]
         vec2 uv = gl_FragCoord.xy / iResolution.xy;
+        
+        // Normalisiere Mouse auf [0,1] 
         vec2 mouse = iMouse / iResolution.xy;
         
-        // Zentriere um (0,0) für symmetrische Effekte
-        uv = (uv - 0.5) * 2.0;
-        mouse = (mouse - 0.5) * 2.0;
-
-        float t         = iTime * 0.2;
+        // Für Grid-Effekt: zentriere UV
+        vec2 centeredUV = (uv - 0.5) * 2.0;
+        
+        float t = iTime * 0.2;
+        
+        // Berechne Distanz in [0,1] Koordinaten (für präzises Cursor-Tracking)
         float mouseDist = length(uv - mouse);
-
-        // warp effect around mouse
+        
+        // warp effect around mouse (mit centeredUV für Grid)
         float warp = sin(mouseDist * 20.0 - t * 4.0) * 0.1;
-        warp *= smoothstep(0.4, 0.0, mouseDist);
-        uv += warp;
-
+        warp *= smoothstep(0.2, 0.0, mouseDist);  // In [0,1] Koordinaten
+        vec2 warpedUV = centeredUV + warp;
+        
         // grid lines
-        vec2 gridUv = abs(fract(uv * 10.0) - 0.5);
-        float line  = pow(1.0 - min(gridUv.x, gridUv.y), 50.0);
-
+        vec2 gridUv = abs(fract(warpedUV * 10.0) - 0.5);
+        float line = pow(1.0 - min(gridUv.x, gridUv.y), 50.0);
+        
         // base grid color pulsing
         vec3 gridColor = vec3(0.1, 0.5, 1.0);
-        vec3 color     = gridColor
-                       * line
-                       * (0.5 + sin(t * 2.0) * 0.2);
-
+        vec3 color = gridColor * line * (0.5 + sin(t * 2.0) * 0.2);
+        
         // energetic pulses along grid
-        float energy = sin(uv.x * 20.0 + t * 5.0)
-                     * sin(uv.y * 20.0 + t * 3.0);
+        float energy = sin(warpedUV.x * 20.0 + t * 5.0)
+                     * sin(warpedUV.y * 20.0 + t * 3.0);
         energy = smoothstep(0.8, 1.0, energy);
         color += vec3(1.0, 0.2, 0.8) * energy * line;
-
-        // glow around mouse
-        float glow = smoothstep(0.1, 0.0, mouseDist);
-        color += vec3(1.0) * glow * 0.5;
-
+        
+        // KORRIGIERT: glow around mouse mit [0,1] Koordinaten
+        // Für Full-HD (1920x1080): 100px Radius = 0.052 in normalisierten Koordinaten
+        float glowRadius = 100.0 / iResolution.y;  // 100px in normalisiert
+        float glow = smoothstep(glowRadius * 1.5, 0.0, mouseDist);
+        color += vec3(1.0) * glow * 1.0;  // Erhöhe Intensität von 0.5 auf 1.0
+        
         // subtle noise
-        color += random(uv + t * 0.1) * 0.05;
-
+        color += random(centeredUV + t * 0.1) * 0.05;
+        
         gl_FragColor = vec4(color, 1.0);
       }
     `;
@@ -112,7 +115,7 @@ const CyberneticGridShader = () => {
     // 5) Mouse handler
     const onMouseMove = (e: MouseEvent) => {
       const mouseX = e.clientX;
-      const mouseY = window.innerHeight - e.clientY;
+      const mouseY = e.clientY;  // OHNE Invertierung
       
       uniforms.iMouse.value.set(mouseX, mouseY);
     };
