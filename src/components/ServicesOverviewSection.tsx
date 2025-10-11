@@ -39,6 +39,11 @@ export const ServicesOverviewSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
+            <h2 className="text-h1 mb-6 text-black">
+              Wir bringen Ihr Unternehmen{" "}
+              <span className="bg-gradient-primary bg-clip-text text-transparent inline-block">an die Spitze</span>{" "}
+              Ihrer Branche
+            </h2>
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
               Unser Team aus branchenführenden Experten verbindet theoretisches Wissen mit praktischer Erfahrung, um maßgeschneiderte KI-Lösungen zu entwickeln, die auf die spezifischen Bedürfnisse und Herausforderungen Ihres Unternehmens zugeschnitten sind.
             </p>
