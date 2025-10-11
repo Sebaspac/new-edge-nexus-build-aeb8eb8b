@@ -52,12 +52,12 @@ export const HeroSection = ({
             }} className="hidden lg:block space-y-4 md:space-y-6">
               
               
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+              <h1 className="text-h1 lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                 Innovate Today,<br />
                 Lead Tomorrow.
               </h1>
               
-              <p className="text-sm sm:text-base md:text-lg lg:text-body-lg text-neutral-300 max-w-xl">
+              <p className="text-body-lg text-neutral-300 max-w-xl">
                 Von der ersten Beratung bis zur vollständigen Implementierung – New Edge ist Ihr strategischer Partner für den erfolgreichen Einsatz von Künstlicher Intelligenz.
               </p>
               

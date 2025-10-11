@@ -152,7 +152,7 @@ const Media = () => {
             }} />
               
               <div className="absolute bottom-0 left-0 p-6 pb-20 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
-                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+                <h1 className="text-h1 lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
                   NEW EDGE<br />
                   <span className="italic font-black" style={{
                   background: 'linear-gradient(to right, #3b82f6, #06b6d4)',
@@ -225,7 +225,7 @@ const Media = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-h1 mb-3 text-black text-5xl font-extrabold">
+                <h2 className="text-h1 font-extrabold text-black">
                   CONTENT{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: 'linear-gradient(to right, #3b82f6, #06b6d4)',
@@ -283,7 +283,7 @@ const Media = () => {
                   }
                 }} className="flex items-center gap-4 mb-8">
                       
-                      <h2 className="text-h1 text-black">{service.title}</h2>
+                      <h2 className="text-h2 font-bold text-black">{service.title}</h2>
                     </motion.div>
                     
                     <motion.div variants={{
@@ -329,7 +329,7 @@ const Media = () => {
                   type: "spring",
                   stiffness: 300
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#3b82f6]/20 hover:shadow-xl hover:border-[#3b82f6]/30 transition-all duration-200">
-                      <h3 className="text-xl mb-4 text-black sm:text-2xl font-bold">Unsere Leistungen</h3>
+                      <h3 className="text-h3 font-bold mb-4 text-black">Unsere Leistungen</h3>
                       <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-4">
                         {service.details.map((detail, idx) => <motion.li key={idx} variants={{
                       hidden: {

@@ -236,7 +236,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950 text-3xl sm:text-4xl md:text-5xl font-semibold">
+            }} className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950 font-semibold">
                 Ihr Gewinn mit New Edge
               </motion.h2>
               
@@ -263,10 +263,10 @@ const Index = () => {
             duration: 0.8
           }}>
               <motion.div className="mb-2"></motion.div>
-              <motion.h2 className="text-h2 mb-4 text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+              <motion.h2 className="text-h1 mb-4 text-foreground">
                 Gemeinsam Zukunft gestalten – vernetzt. automatisiert. wirkungsvoll.
               </motion.h2>
-              <motion.p className="text-body-lg text-muted-foreground max-w-3xl text-base sm:text-lg md:text-xl font-normal">
+              <motion.p className="text-body-lg text-muted-foreground max-w-3xl font-normal">
                 New Edge verbindet Unternehmen und Agenturen in einem exklusiven Netzwerk, um kreative Exzellenz und
                 intelligente Automatisierung zu vereinen – für mehr Wirkung, weniger Aufwand und messbares Wachstum
               </motion.p>
@@ -348,12 +348,12 @@ const Index = () => {
                         }].map((item, index) => (
                           <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-2xl border-none">
                             <AccordionTrigger className="px-5 py-4 hover:no-underline">
-                              <h4 className="text-lg font-semibold text-gray-900 text-left">
+                              <h4 className="text-h3 font-bold text-gray-900 text-left">
                                 {item.title}
                               </h4>
                             </AccordionTrigger>
                             <AccordionContent className="px-5 pb-4">
-                              <p className="text-gray-600 leading-relaxed text-sm">{item.description}</p>
+                              <p className="text-body-sm text-gray-600 leading-relaxed">{item.description}</p>
                             </AccordionContent>
                           </AccordionItem>
                         ))}
@@ -391,10 +391,10 @@ const Index = () => {
                           <div className="mb-3 sm:mb-4">
                             
                           </div>
-                          <h4 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900">
+                          <h4 className="text-h3 font-bold mb-2 sm:mb-3 text-gray-900">
                             {item.title}
                           </h4>
-                          <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{item.description}</p>
+                          <p className="text-body text-gray-600 leading-relaxed">{item.description}</p>
                         </motion.div>)}
                     </div>
                   </div>
@@ -460,12 +460,12 @@ const Index = () => {
                         }].map((item, index) => (
                           <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-2xl border-none">
                             <AccordionTrigger className="px-5 py-4 hover:no-underline">
-                              <h4 className="text-lg font-semibold text-gray-900 text-left">
+                              <h4 className="text-h3 font-bold text-gray-900 text-left">
                                 {item.title}
                               </h4>
                             </AccordionTrigger>
                             <AccordionContent className="px-5 pb-4">
-                              <p className="text-gray-600 leading-relaxed text-sm">{item.description}</p>
+                              <p className="text-body-sm text-gray-600 leading-relaxed">{item.description}</p>
                             </AccordionContent>
                           </AccordionItem>
                         ))}
@@ -496,10 +496,10 @@ const Index = () => {
                       delay: 0.4 + index * 0.1,
                       duration: 0.6
                     }} className="group bg-gray-50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 transition-all duration-300 hover:bg-gray-100">
-                          <h4 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900">
+                          <h4 className="text-h3 font-bold mb-2 sm:mb-3 text-gray-900">
                             {item.title}
                           </h4>
-                          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{item.description}</p>
+                          <p className="text-body text-gray-600 leading-relaxed">{item.description}</p>
                         </motion.div>)}
                     </div>
                   </div>
@@ -567,7 +567,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-3xl sm:text-4xl md:text-5xl text-foreground mb-4 sm:mb-6 leading-[1.25] font-semibold">
+            }} className="text-h1 text-foreground mb-4 sm:mb-6 leading-[1.25] font-semibold">
                 Unsere Services
               </motion.h2>
               <motion.p initial={{
@@ -581,7 +581,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }} className="text-muted-foreground max-w-3xl leading-[1.5] text-base sm:text-lg md:text-xl">
+            }} className="text-body-lg text-muted-foreground max-w-3xl leading-[1.5]">
                 Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt erfolgreich zu positionieren
               </motion.p>
             </motion.div>
@@ -639,12 +639,12 @@ const Index = () => {
 
                       <div className="flex-1 md:flex md:flex-col md:h-full">
                         {/* Title */}
-                        <h3 className="text-base sm:text-lg md:text-[28px] text-foreground mb-2 md:mb-4 leading-[1.3] font-semibold lg:text-2xl">
+                        <h3 className="text-h3 text-foreground mb-2 md:mb-4 leading-[1.3] font-bold">
                           {service.title}
                         </h3>
 
                         {/* Description */}
-                        <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-6 leading-[1.5] md:flex-grow">
+                        <p className="text-body text-muted-foreground mb-3 md:mb-6 leading-[1.5] md:flex-grow">
                           {service.description}
                         </p>
 

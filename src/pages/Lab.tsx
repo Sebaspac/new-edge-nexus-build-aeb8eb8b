@@ -131,7 +131,7 @@ const Lab = () => {
             }} />
 
               <div className="absolute bottom-0 left-0 p-6 pb-20 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
-                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+                <h1 className="text-h1 lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
                   NEW EDGE
                   <br />
                   <span className="italic font-black" style={{
@@ -207,7 +207,7 @@ const Lab = () => {
                 }
               }
             }} className="mb-6">
-                <h2 className="text-h1 mb-3 text-black text-5xl font-extrabold">
+                <h2 className="text-h1 font-extrabold text-black">
                   TECH{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: "linear-gradient(to right, #fde047, #fbbf24)",
@@ -265,7 +265,7 @@ const Lab = () => {
                   }
                 }} className="flex items-center gap-4 mb-8">
                       
-                      <h2 className="text-h1 text-black">
+                      <h2 className="text-h2 font-bold text-black">
                         {service.title}
                       </h2>
                     </motion.div>
@@ -311,7 +311,7 @@ const Lab = () => {
                   type: "spring",
                   stiffness: 300
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30 hover:shadow-xl hover:border-[#fde047]/40 transition-all duration-200">
-                      <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Unsere Leistungen</h3>
+                      <h3 className="text-h3 font-black mb-4 text-black">Unsere Leistungen</h3>
                       <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                         {service.details.map((detail, idx) => <motion.li key={idx} variants={{
                       hidden: {
@@ -373,7 +373,7 @@ const Lab = () => {
           }} transition={{
             duration: 0.6
           }} className="text-left mb-12">
-              <h2 className="text-h1 mb-2 text-black">
+              <h2 className="text-h1 font-bold mb-2 text-black">
                 Meet Our Agents
               </h2>
               <p className="text-base sm:text-lg lg:text-xl max-w-3xl text-gray-700 leading-relaxed">

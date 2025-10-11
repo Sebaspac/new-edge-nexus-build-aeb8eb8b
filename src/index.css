@@ -123,18 +123,24 @@
     .container-xl { padding: 0 1rem; }
     .section-padding { padding: 2rem 0; }
     
-    /* Mobile typography adjustments - smaller for better UX */
-    .text-display-xl { font-size: clamp(2rem, 7vw, 3rem); }
-    .text-h1 { font-size: clamp(1.25rem, 5vw, 2rem); }
-    .text-h2 { font-size: clamp(1.125rem, 4vw, 1.5rem); }
-    .text-h3 { font-size: clamp(1rem, 3.5vw, 1.25rem); }
-    .text-body-xl { font-size: clamp(1rem, 2vw, 1.125rem); }
-    .text-body-lg { font-size: clamp(0.9375rem, 1.5vw, 1.0625rem); }
+    /* Display sizes for hero sections */
+    .text-display-xl { font-size: clamp(2.5rem, 8vw, 3.5rem); }
+    .text-display-lg { font-size: clamp(2.25rem, 7vw, 3rem); }
+    .text-display { font-size: clamp(2rem, 6vw, 2.5rem); }
     
-    /* Hero-specific mobile typography */
-    h1 { font-size: clamp(1.75rem, 6vw, 2.25rem) !important; }
-    h2 { font-size: clamp(1.125rem, 4vw, 1.5rem) !important; }
-    h3 { font-size: clamp(1rem, 3.5vw, 1.25rem) !important; }
+    /* Heading hierarchy - significantly larger on mobile */
+    .text-h1 { font-size: clamp(1.75rem, 5.5vw, 2.25rem); }
+    .text-h2 { font-size: clamp(1.5rem, 4.5vw, 1.875rem); }
+    .text-h3 { font-size: clamp(1.25rem, 3.5vw, 1.5rem); }
+    
+    /* Body text - smaller for better contrast */
+    .text-body-xl { font-size: clamp(1rem, 2vw, 1.125rem); }
+    .text-body-lg { font-size: clamp(0.9375rem, 1.5vw, 1rem); }
+    .text-body { font-size: 0.9375rem; }
+    .text-body-sm { font-size: 0.875rem; }
+    
+    /* Allow CSS classes to control sizing */
+    h1, h2, h3 { font-size: inherit; line-height: inherit; }
     
     /* Prevent horizontal overflow */
     body { overflow-x: hidden; }
