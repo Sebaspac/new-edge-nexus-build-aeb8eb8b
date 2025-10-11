@@ -9,8 +9,8 @@ export const ServicesOverviewSection = () => {
     { title: "AI Agents für Unternehmen", path: "/lab" },
     { title: "Voice AI Agents", path: "/lab" },
     { title: "Smart KI-Automation", path: "/lab" },
-    { title: "KI-gestützte Marketing & Automation", path: "/media" },
     { title: "Conversational AI & Chatbots", path: "/lab" },
+    { title: "KI-gestützte Marketing & Automation", path: "/media" },
   ];
 
   return (
