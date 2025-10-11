@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SplineScene } from "./ui/splite";
-import { Spotlight } from "./ui/spotlight";
-import { InteractiveSpotlight } from "./ui/interactive-spotlight";
-import { Boxes } from "./ui/background-boxes";
+import CyberneticGridShader from "./ui/cybernetic-grid-shader";
 interface HeroSectionProps {
   onContactClick: () => void;
 }
@@ -35,18 +33,12 @@ export const HeroSection = ({
     </a>
     <section className="relative w-full min-h-screen bg-slate-900" id="hero">
       <div className="w-full h-screen grid lg:grid-cols-2 relative overflow-hidden bg-slate-900">
-        <div className="absolute inset-0 w-full h-full bg-slate-900 z-10 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+        <CyberneticGridShader />
         
-        <Boxes />
-        
-        <Spotlight
-          className="-top-40 left-0 md:left-60 md:-top-20 z-30"
-          fill="white"
-        />
-        <InteractiveSpotlight size={400} />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/80 z-10 pointer-events-none" />
         
         {/* Left Side - CTA Content */}
-        <div className="relative flex items-end lg:items-center z-20 bg-slate-900/60 backdrop-blur-sm">
+        <div className="relative flex items-end lg:items-center z-20">
           <div className="w-full px-6 pb-24 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -89,7 +81,7 @@ export const HeroSection = ({
         </div>
 
         {/* Right Side - 3D Spline Scene */}
-        <div className="relative overflow-hidden bg-slate-900/50 z-20">
+        <div className="relative overflow-hidden z-20">
           <SplineScene 
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full"
