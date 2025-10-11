@@ -14,7 +14,7 @@ export const ServicesOverviewSection = () => {
   ];
 
   return (
-    <section className="relative py-16 lg:py-24 bg-background">
+    <section className="relative py-12 lg:py-16 bg-background">
       <div className="container-xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left side: Text */}
