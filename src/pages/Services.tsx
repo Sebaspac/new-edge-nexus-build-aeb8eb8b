@@ -13,6 +13,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Footer } from "@/components/Footer";
+import CyberneticGridShader from "@/components/ui/cybernetic-grid-shader";
 const Services = () => {
   console.log('Services component loaded successfully');
   const {
@@ -87,109 +88,12 @@ const Services = () => {
           <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video" style={{
         position: 'relative'
       }}>
-          {/* Space-like background with stars and floating elements */}
-          <div className="absolute inset-0 z-0 overflow-hidden">
-            {/* Deep space gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black via-slate-900 to-purple-950/60"></div>
-            
-            {/* Starfield - Reduced to 40 for performance */}
-            {[...Array(40)].map((_, i) => <motion.div key={i} className="absolute w-1 h-1 bg-white rounded-full" style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            opacity: Math.random() * 0.8 + 0.2
-          }} animate={{
-            opacity: [0.2, 1, 0.2],
-            scale: [0.5, 1.2, 0.5]
-          }} transition={{
-            duration: 2 + Math.random() * 4,
-            repeat: Infinity,
-            delay: Math.random() * 5,
-            ease: "easeInOut"
-          }} />)}
-            
-            {/* Large twinkling stars - Reduced to 8 for performance */}
-            {[...Array(8)].map((_, i) => <motion.div key={`star-${i}`} className="absolute w-2 h-2 bg-white rounded-full opacity-70" style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            filter: 'blur(0.5px)'
-          }} animate={{
-            opacity: [0.3, 1, 0.3],
-            scale: [0.8, 1.5, 0.8]
-          }} transition={{
-            duration: 3 + Math.random() * 3,
-            repeat: Infinity,
-            delay: Math.random() * 4,
-            ease: "easeInOut"
-          }} />)}
-            
-            {/* Beautiful floating geometric elements - Reduced to 3 for performance */}
-            <motion.div className="absolute top-[15%] left-[8%] w-20 h-32 rounded-2xl opacity-20" style={{
-            background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
-            boxShadow: '0 0 15px rgba(139, 92, 246, 0.2)'
-          }} animate={{
-            y: [0, -30, 0],
-            x: [0, 20, 0],
-            rotate: [0, 15, 0],
-            scale: [1, 1.1, 1]
-          }} transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} />
-            
-            <motion.div className="absolute top-[55%] right-[12%] w-24 h-24 rounded-xl opacity-25" style={{
-            background: 'linear-gradient(45deg, #06B6D4, #3B82F6)',
-            boxShadow: '0 0 15px rgba(6, 182, 212, 0.2)'
-          }} animate={{
-            y: [0, 25, 0],
-            x: [0, -15, 0],
-            rotate: [0, -20, 0],
-            scale: [1, 1.15, 1]
-          }} transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }} />
-            
-            <motion.div className="absolute bottom-[25%] left-[25%] w-16 h-28 rounded-lg opacity-30" style={{
-            background: 'linear-gradient(225deg, #F59E0B, #EF4444)',
-            boxShadow: '0 0 12px rgba(245, 158, 11, 0.2)'
-          }} animate={{
-            y: [0, -20, 0],
-            x: [0, 25, 0],
-            rotate: [0, 25, 0],
-            scale: [1, 1.2, 1]
-          }} transition={{
-            duration: 14,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 4
-          }} />
-            
-            {/* Nebula-like glow effects - Simplified with CSS animation */}
-            <div className="absolute top-[20%] right-[20%] w-40 h-40 rounded-full opacity-20 animate-pulse" style={{
-            background: 'radial-gradient(circle, #8B5CF6, transparent)',
-            filter: 'blur(30px)'
-          }} />
-            
-            {/* Shooting stars - Reduced to 2 for performance */}
-            {[...Array(2)].map((_, i) => <motion.div key={`shooting-star-${i}`} className="absolute w-1 h-1 bg-white rounded-full" style={{
-            top: `${20 + i * 30}%`,
-            left: '-5%'
-          }} animate={{
-            x: ['0vw', '110vw'],
-            opacity: [0, 1, 1, 0]
-          }} transition={{
-            duration: 3,
-            repeat: Infinity,
-            delay: i * 10 + Math.random() * 5,
-            ease: "easeOut"
-          }} />)}
-          </div>
+          <CyberneticGridShader />
+          
+          <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/80 z-10 pointer-events-none" />
           
           {/* Text Content - Lower Center */}
-          <div className="absolute inset-x-0 bottom-0 pb-24 sm:pb-32 flex flex-col items-center justify-end p-6 z-10">
+          <div className="absolute inset-x-0 bottom-0 pb-24 sm:pb-32 flex flex-col items-center justify-end p-6 z-20">
             <motion.h1 initial={{
             opacity: 0,
             y: 30
@@ -247,7 +151,7 @@ const Services = () => {
         }} transition={{
           delay: 1,
           duration: 0.5
-        }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+        }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
             <motion.div animate={{
             y: [0, 10, 0]
           }} transition={{
