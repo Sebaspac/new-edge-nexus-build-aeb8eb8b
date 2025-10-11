@@ -25,7 +25,10 @@ const Services = () => {
   const [openAccordionIndex, setOpenAccordionIndex] = useState(0);
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { container: heroContainer, style: heroStyle } = useHeroScrollAnimation();
+  const {
+    container: heroContainer,
+    style: heroStyle
+  } = useHeroScrollAnimation();
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -428,85 +431,10 @@ const Services = () => {
       </section>
 
       {/* Das Ergebnis Section */}
-      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-white overflow-hidden">
-        <div className="container-xl relative z-10">
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="text-left mb-20">
-            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] text-foreground mb-6 font-bold lg:text-5xl">Das Ergebnis</h2>
-            <p className="text-muted-foreground max-w-4xl text-base lg:text-xl">
-              Eine nahtlose Reise von der ersten Idee bis zur finalen Umsetzung - strukturiert, effizient und erfolgreich.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 max-w-5xl mx-auto px-2 sm:px-4 lg:px-0">
-            {[{
-            number: "01",
-            title: "Klare Strategie",
-            description: "Eine durchdachte Roadmap und visuelle Identität als solides Fundament.",
-            gradient: "from-purple-600 to-purple-800",
-            bgColor: "bg-purple-600/10"
-          }, {
-            number: "02",
-            title: "Überzeugende Inhalte",
-            description: "Content, der Ihre Zielgruppe erreicht und nachhaltig begeistert.",
-            gradient: "from-blue-600 to-blue-800",
-            bgColor: "bg-blue-600/10"
-          }, {
-            number: "03",
-            title: "Intelligente Umsetzung",
-            description: "Technische Exzellenz und Automatisierung für nachhaltigen Erfolg.",
-            gradient: "from-yellow-400 to-yellow-500",
-            bgColor: "bg-yellow-400/10"
-          }].map((item, index) => <motion.div key={item.number} initial={{
-            opacity: 0,
-            y: 40
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.6,
-            delay: index * 0.1
-          }} whileHover={{
-            scale: 1.03,
-            y: -5,
-            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)",
-            transition: {
-              duration: 0.3,
-              ease: "easeOut"
-            }
-          }} className={`rounded-3xl p-4 md:p-8 border border-border/50 backdrop-blur-sm transition-all duration-300 flex flex-row md:flex-col items-start md:items-stretch gap-3 md:gap-0 cursor-pointer`}>
-                <motion.div whileHover={{
-              rotate: [0, -10, 10, 0],
-              scale: 1.1
-            }} transition={{
-              duration: 0.5
-            }} className={`flex-shrink-0 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${item.gradient} text-white font-bold text-xl md:text-2xl md:mb-6 shadow-lg`}>
-                  {item.number}
-                </motion.div>
-                <div className="flex-1 md:flex-none">
-                  <h3 className="text-foreground mb-2 md:mb-4 text-base md:text-lg font-semibold">{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm md:text-base">{item.description}</p>
-                </div>
-              </motion.div>)}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Warum New Edge Section */}
-      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-white overflow-hidden">
-        
-      </section>
+      
 
       {/* Erfolg Erreicht Section */}
       
@@ -563,9 +491,9 @@ const Services = () => {
           }} transition={{
             delay: 0.2,
             duration: 0.7
-        }} whileHover={{
-          scale: 1.03
-        }} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] font-bold lg:text-6xl">Die Vorteile im Detail</motion.h2>
+          }} whileHover={{
+            scale: 1.03
+          }} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] font-bold lg:text-6xl">Die Vorteile im Detail</motion.h2>
             <motion.p initial={{
             opacity: 0,
             y: 20
@@ -584,42 +512,42 @@ const Services = () => {
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-center">
             {/* Left side: Accordion */}
             <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6
-            }} className="space-y-2">
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6
+          }} className="space-y-2">
               {[{
-                title: "Skalierbare Automatisierung",
-                content: "Automationen modular starten – bei Wachstum einfach erweitern und optimieren."
-              }, {
-                title: "Markenstärke durch Kreativität",
-                content: "Vernetzte Agenturpartner sorgen für Design, Content & Strategie mit messbarer Wirkung."
-              }, {
-                title: "Team-Entlastung & Fokus",
-                content: "Routineaufgaben laufen automatisch – Ihr Team konzentriert sich auf Wachstum."
-              }, {
-                title: "Sicher & transparent",
-                content: "DSGVO-konforme Setups mit klaren Rollen und Echtzeit-Dashboards für volle Kontrolle."
-              }].map((item, index) => {
-                const isOpen = openAccordionIndex === index;
-                return <motion.div key={item.title} initial={{
-                  opacity: 0,
-                  y: 20
-                }} whileInView={{
-                  opacity: 1,
-                  y: 0
-                }} viewport={{
-                  once: true
-                }} transition={{
-                  duration: 0.4,
-                  delay: index * 0.1
-                }} className="group">
+              title: "Skalierbare Automatisierung",
+              content: "Automationen modular starten – bei Wachstum einfach erweitern und optimieren."
+            }, {
+              title: "Markenstärke durch Kreativität",
+              content: "Vernetzte Agenturpartner sorgen für Design, Content & Strategie mit messbarer Wirkung."
+            }, {
+              title: "Team-Entlastung & Fokus",
+              content: "Routineaufgaben laufen automatisch – Ihr Team konzentriert sich auf Wachstum."
+            }, {
+              title: "Sicher & transparent",
+              content: "DSGVO-konforme Setups mit klaren Rollen und Echtzeit-Dashboards für volle Kontrolle."
+            }].map((item, index) => {
+              const isOpen = openAccordionIndex === index;
+              return <motion.div key={item.title} initial={{
+                opacity: 0,
+                y: 20
+              }} whileInView={{
+                opacity: 1,
+                y: 0
+              }} viewport={{
+                once: true
+              }} transition={{
+                duration: 0.4,
+                delay: index * 0.1
+              }} className="group">
                   <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className={`
                     w-full p-4 lg:p-5 rounded-xl
                     border-2 transition-all duration-300
@@ -634,10 +562,10 @@ const Services = () => {
                         {item.title}
                       </h3>
                       <motion.div animate={{
-                        rotate: isOpen ? 180 : 0
-                      }} transition={{
-                        duration: 0.3
-                      }} className={`
+                      rotate: isOpen ? 180 : 0
+                    }} transition={{
+                      duration: 0.3
+                    }} className={`
                         flex-shrink-0 w-7 h-7 rounded-full 
                         flex items-center justify-center
                         transition-colors duration-300
@@ -650,12 +578,12 @@ const Services = () => {
                     </div>
 
                     <motion.div initial={false} animate={{
-                      height: isOpen ? "auto" : 0,
-                      opacity: isOpen ? 1 : 0
-                    }} transition={{
-                      duration: 0.3,
-                      ease: "easeInOut"
-                    }} className="overflow-hidden">
+                    height: isOpen ? "auto" : 0,
+                    opacity: isOpen ? 1 : 0
+                  }} transition={{
+                    duration: 0.3,
+                    ease: "easeInOut"
+                  }} className="overflow-hidden">
                       <div className="pt-3">
                         <p className="text-sm text-muted-foreground leading-relaxed text-left lg:text-base">
                           {item.content}
@@ -664,33 +592,42 @@ const Services = () => {
                     </motion.div>
                   </button>
                 </motion.div>;
-              })}
+            })}
             </motion.div>
 
             {/* Right side: Apple-Style Cards */}
             <motion.div initial={{
-              opacity: 0,
-              x: 20
-            }} whileInView={{
-              opacity: 1,
-              x: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: 0.2
-            }} className="space-y-4">
+            opacity: 0,
+            x: 20
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6,
+            delay: 0.2
+          }} className="space-y-4">
               {/* Top Row: Two Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Card 1 - Klare Strategie */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  viewport={{ once: true }} 
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                  className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500"
-                >
+                <motion.div initial={{
+                opacity: 0,
+                y: 20
+              }} whileInView={{
+                opacity: 1,
+                y: 0
+              }} viewport={{
+                once: true
+              }} transition={{
+                duration: 0.6,
+                delay: 0.2
+              }} whileHover={{
+                y: -4,
+                transition: {
+                  duration: 0.3
+                }
+              }} className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative p-10">
                     <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10">
@@ -706,14 +643,23 @@ const Services = () => {
                 </motion.div>
 
                 {/* Card 2 - Überzeugende Inhalte */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  viewport={{ once: true }} 
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                  className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500"
-                >
+                <motion.div initial={{
+                opacity: 0,
+                y: 20
+              }} whileInView={{
+                opacity: 1,
+                y: 0
+              }} viewport={{
+                once: true
+              }} transition={{
+                duration: 0.6,
+                delay: 0.3
+              }} whileHover={{
+                y: -4,
+                transition: {
+                  duration: 0.3
+                }
+              }} className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500">
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-pink-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative p-10">
                     <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10">
@@ -730,14 +676,23 @@ const Services = () => {
               </div>
 
               {/* Bottom Row: Single Wide Card - Intelligente Umsetzung */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                viewport={{ once: true }} 
-                transition={{ duration: 0.6, delay: 0.4 }}
-                whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6,
+              delay: 0.4
+            }} whileHover={{
+              y: -4,
+              transition: {
+                duration: 0.3
+              }
+            }} className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative p-10">
                   <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10">
@@ -896,102 +851,69 @@ const Services = () => {
       {/* Contact Section */}
       <section id="contact-section" className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
         <div className="container-xl relative z-10">
-          <motion.div
-            className="text-center"
-            initial={{
-              opacity: 0,
-              y: 50,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.8,
-            }}
-          >
-            <motion.h2
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                delay: 0.2,
-                duration: 0.7,
-              }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-bold"
-            >
+          <motion.div className="text-center" initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }}>
+            <motion.h2 initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.2,
+            duration: 0.7
+          }} className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-bold">
               Jetzt Kontakt aufnehmen <span className="bg-gradient-primary bg-clip-text text-transparent"></span>
             </motion.h2>
 
-            <motion.p
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                delay: 0.4,
-                duration: 0.6,
-              }}
-              className="text-base lg:text-xl text-gray-600 mb-10 leading-[1.5] max-w-3xl mx-auto"
-            >
+            <motion.p initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.4,
+            duration: 0.6
+          }} className="text-base lg:text-xl text-gray-600 mb-10 leading-[1.5] max-w-3xl mx-auto">
               New Edge ist das Headquarter für Innovation. Hier entsteht die Zukunft von Marken, Agenturen und
               Prozessen.
               <br />
             </motion.p>
 
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                delay: 0.6,
-                duration: 0.6,
-              }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              <Button
-                size="lg"
-                asChild
-                className="group bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.6,
+            duration: 0.6
+          }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button size="lg" asChild className="group bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
                 <a href="tel:+4915750998236" className="relative">
                   <Phone className="mr-2 w-4 h-4" />
                   <span className="group-hover:hidden">Talk to Sales</span>
                   <span className="hidden group-hover:inline">+49 157 5099 8236</span>
                 </a>
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                onClick={() => setIsContactSheetOpen(true)} 
-                className="border-2"
-              >
+              <Button size="lg" variant="outline" onClick={() => setIsContactSheetOpen(true)} className="border-2">
                 Kontakt aufnehmen
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
