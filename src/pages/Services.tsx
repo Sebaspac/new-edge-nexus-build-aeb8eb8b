@@ -617,7 +617,7 @@ const Services = () => {
                   date: "Solides Fundament",
                   iconClassName: "text-primary",
                   titleClassName: "text-primary",
-                  className: "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-primary/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 grayscale-[30%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 shadow-lg hover:shadow-2xl border-primary/30",
+                  className: "[grid-area:stack] hover:-translate-y-24 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-primary/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 grayscale-[30%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 shadow-lg hover:shadow-2xl border-primary/30",
                 },
                 {
                   icon: <Palette className="size-5 text-accent" />,
@@ -626,7 +626,7 @@ const Services = () => {
                   date: "Zielgruppen erreichen",
                   iconClassName: "text-accent",
                   titleClassName: "text-accent",
-                  className: "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-accent/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 grayscale-[30%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 shadow-lg hover:shadow-2xl border-accent/30",
+                  className: "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-14 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-accent/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 grayscale-[30%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 shadow-lg hover:shadow-2xl border-accent/30",
                 },
                 {
                   icon: <Zap className="size-5 text-secondary" />,
@@ -635,7 +635,7 @@ const Services = () => {
                   date: "Nachhaltiger Erfolg",
                   iconClassName: "text-secondary",
                   titleClassName: "text-secondary",
-                  className: "[grid-area:stack] translate-x-32 translate-y-20 hover:translate-y-10 shadow-lg hover:shadow-2xl border-secondary/30",
+                  className: "[grid-area:stack] translate-x-32 translate-y-20 hover:-translate-y-4 shadow-lg hover:shadow-2xl border-secondary/30",
                 },
               ]} />
             </motion.div>
