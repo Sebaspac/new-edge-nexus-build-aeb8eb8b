@@ -80,9 +80,7 @@ export const ContactFormModal = ({
             backgroundClip: 'text'
           }} className="text-3xl font-semibold">Get in touch!</span>
           </DialogTitle>
-          <p className="text-muted-foreground text-left">
-            Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen.
-          </p>
+          <p className="text-muted-foreground text-left">Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen</p>
         </DialogHeader>
 
         <motion.form onSubmit={handleSubmit} className="space-y-6 mt-6" initial="hidden" animate="visible" variants={{
