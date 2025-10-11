@@ -236,7 +236,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950">
+            }} className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950 text-5xl font-semibold">
                 Ihr Gewinn mit New Edge
               </motion.h2>
               
@@ -263,10 +263,10 @@ const Index = () => {
             duration: 0.8
           }}>
               <motion.div className="mb-2"></motion.div>
-              <motion.h2 className="text-h2 mb-4 text-foreground">
+              <motion.h2 className="text-h2 mb-4 text-foreground text-5xl">
                 Gemeinsam Zukunft gestalten – vernetzt. automatisiert. wirkungsvoll.
               </motion.h2>
-              <motion.p className="text-body-lg text-muted-foreground max-w-3xl">
+              <motion.p className="text-body-lg text-muted-foreground max-w-3xl text-xl font-normal">
                 New Edge verbindet Unternehmen und Agenturen in einem exklusiven Netzwerk, um kreative Exzellenz und
                 intelligente Automatisierung zu vereinen – für mehr Wirkung, weniger Aufwand und messbares Wachstum
               </motion.p>
@@ -308,7 +308,7 @@ const Index = () => {
                     }} transition={{
                       delay: 0.2,
                       duration: 0.6
-                    }} className="text-5xl md:text-6xl font-semibold mb-6 text-gray-900 tracking-tight leading-[1.1]">
+                    }} className="text-5xl font-semibold mb-6 text-gray-900 tracking-tight leading-[1.1] md:text-4xl">
                         Für Unternehmen, die Vorreiter werden wollen
                       </motion.h3>
                       <motion.p initial={{
@@ -320,7 +320,7 @@ const Index = () => {
                     }} transition={{
                       delay: 0.3,
                       duration: 0.6
-                    }} className="text-xl md:text-2xl text-gray-600 mb-16 leading-relaxed font-normal">
+                    }} className="text-xl text-gray-600 mb-16 leading-relaxed font-normal md:text-xl">
                         New Edge ist Ihr Partner für intelligente Automatisierung – und Ihr Zugang zu den besten
                         Kreativagenturen
                       </motion.p>
@@ -354,12 +354,12 @@ const Index = () => {
                       duration: 0.6
                     }} className="group bg-gray-50 rounded-3xl p-8 transition-all duration-300 hover:bg-gray-100">
                           <div className="mb-4">
-                            <span className="text-4xl">{item.icon}</span>
+                            
                           </div>
                           <h4 className="text-xl font-semibold mb-3 text-gray-900">
                             {item.title}
                           </h4>
-                          <p className="text-base text-gray-600 leading-relaxed">{item.description}</p>
+                          <p className="text-gray-600 leading-relaxed text-base">{item.description}</p>
                         </motion.div>)}
                     </div>
                   </div>
@@ -501,7 +501,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] font-bold lg:text-6xl">
+            }} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] lg:text-5xl font-semibold">
                 Unsere Services
               </motion.h2>
               <motion.p initial={{
@@ -573,7 +573,7 @@ const Index = () => {
 
                       <div className="flex-1 md:flex md:flex-col md:h-full">
                         {/* Title */}
-                        <h3 className="text-base sm:text-lg md:text-[28px] lg:text-2xl text-foreground mb-2 md:mb-4 leading-[1.3] font-bold">
+                        <h3 className="text-base sm:text-lg md:text-[28px] text-foreground mb-2 md:mb-4 leading-[1.3] font-semibold lg:text-2xl">
                           {service.title}
                         </h3>
 
@@ -622,7 +622,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-bold">
+            }} className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-semibold lg:text-5xl">
                 Jetzt Kontakt aufnehmen <span className="bg-gradient-primary bg-clip-text text-transparent"></span>
               </motion.h2>
 
