@@ -39,8 +39,8 @@ export const HeroSection = ({
         <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/80 z-10 pointer-events-none" />
         
         {/* Left Side - CTA Content */}
-        <div className="relative flex items-end lg:items-center z-20">
-          <div className="w-full px-6 pb-32 md:pb-36 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl">
+        <div className="relative flex items-end z-20">
+          <div className="w-full px-6 pb-20 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl lg:mt-auto lg:mb-auto">
             <motion.div initial={{
               opacity: 0,
               y: 20
@@ -52,12 +52,12 @@ export const HeroSection = ({
             }} className="space-y-4 md:space-y-6">
               
               
-              <h1 className="text-display-xl lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                 Innovate Today,<br />
                 Lead Tomorrow.
               </h1>
               
-              <p className="text-body-lg text-neutral-300 max-w-xl">
+              <p className="text-sm sm:text-base md:text-lg lg:text-body-lg text-neutral-300 max-w-xl">
                 Von der ersten Beratung bis zur vollständigen Implementierung – New Edge ist Ihr strategischer Partner für den erfolgreichen Einsatz von Künstlicher Intelligenz.
               </p>
               
