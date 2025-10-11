@@ -160,7 +160,10 @@ export const ProblemSolutionSection = ({
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <GlassCard />
+                <GlassCard 
+                  title="Innovation als Prozess"
+                  description="Statt einmaliger Projekte bauen wir Ihnen einen nachhaltigen Ablauf — weniger Aufwand, schnellere Umsetzung, planbare Skalierung"
+                />
               </motion.div>
               
               <motion.div
@@ -169,7 +172,10 @@ export const ProblemSolutionSection = ({
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <GlassCard />
+                <GlassCard 
+                  title="Ganzheitliche Transformation"
+                  description="Keine Insellösungen mehr. Wir verbinden Marke, Content und KI-Automatisierung zu einem durchgängigen System"
+                />
               </motion.div>
               
               <motion.div
@@ -178,7 +184,10 @@ export const ProblemSolutionSection = ({
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <GlassCard />
+                <GlassCard 
+                  title="Kreatives Innovations-Hauptquartier"
+                  description="Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden"
+                />
               </motion.div>
             </div>
           </div>

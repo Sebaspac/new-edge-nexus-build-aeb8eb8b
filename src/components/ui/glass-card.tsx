@@ -5,9 +5,14 @@ const ULogo = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w
     <path d="M75.207,20.857a1.561,1.561,0,0,1-1.483,1.628h-2.98a1.561,1.561,0,0,1-1.483-1.628V1.628A1.561,1.561,0,0,1,70.743,0h2.98a1.561,1.561,0,0,1,1.483,1.628Z" transform="translate(-45.91 0)" />
     <path d="M0,80.018A1.561,1.561,0,0,1,1.483,78.39h26.7a1.561,1.561,0,0,1,1.483,1.628v2.006a1.561,1.561,0,0,1-1.483,1.628H1.483A1.561,1.561,0,0,1,0,82.025Z" transform="translate(0 -51.963)" />
   </svg>;
-export interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {}
+export interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
+  title?: string;
+  description?: string;
+}
 const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(({
   className,
+  title = "Monochrome",
+  description = "Create, share, and use beautiful custom elements made with CSS.",
   ...props
 }, ref) => {
   return <div ref={ref} className={`group h-[300px] w-[290px] [perspective:1000px] ${className}`} {...props}>
@@ -16,10 +21,10 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(({
           <div className="absolute [transform:translate3d(0,0,26px)]">
             <div className="px-7 pt-[100px] pb-0">
               <span className="block text-xl font-black text-white">
-                Monochrome
+                {title}
               </span>
               <span className="mt-5 block text-[15px] text-zinc-300">
-                Create, share, and use beautiful custom elements made with CSS.
+                {description}
               </span>
             </div>
           </div>
