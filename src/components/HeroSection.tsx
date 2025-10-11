@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SplineScene } from "./ui/splite";
 import { Spotlight } from "./ui/spotlight";
+import { InteractiveSpotlight } from "./ui/interactive-spotlight";
 interface HeroSectionProps {
   onContactClick: () => void;
 }
@@ -31,15 +32,16 @@ export const HeroSection = ({
     >
       Skip to main content
     </a>
-    <section className="relative w-full min-h-screen bg-background" id="hero">
-      <div className="w-full h-screen grid lg:grid-cols-2 relative overflow-hidden">
+    <section className="relative w-full min-h-screen bg-black" id="hero">
+      <div className="w-full h-screen grid lg:grid-cols-2 relative overflow-hidden bg-black">
         <Spotlight
           className="-top-40 left-0 md:left-60 md:-top-20"
-          fill="hsl(var(--primary))"
+          fill="white"
         />
+        <InteractiveSpotlight size={400} />
         
         {/* Left Side - CTA Content */}
-        <div className="relative flex items-end lg:items-center z-10 bg-gradient-to-br from-background via-background/95 to-background/90">
+        <div className="relative flex items-end lg:items-center z-10 bg-black/90 backdrop-blur-sm">
           <div className="w-full px-6 pb-24 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -51,12 +53,12 @@ export const HeroSection = ({
                 <span className="text-sm font-medium text-primary">KI Beratung</span>
               </div>
               
-              <h1 className="text-display-xl lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70">
+              <h1 className="text-display-xl lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                 Innovate Today,<br />
                 Lead Tomorrow.
               </h1>
               
-              <p className="text-body-lg text-muted-foreground max-w-xl">
+              <p className="text-body-lg text-neutral-300 max-w-xl">
                 Von der ersten Beratung bis zur vollständigen Implementierung – New Edge ist Ihr strategischer Partner für den erfolgreichen Einsatz von Künstlicher Intelligenz.
               </p>
               
@@ -82,7 +84,7 @@ export const HeroSection = ({
         </div>
 
         {/* Right Side - 3D Spline Scene */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden bg-black">
           <SplineScene 
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full"
@@ -106,8 +108,8 @@ export const HeroSection = ({
             tabIndex={0} 
             onKeyDown={(e) => e.key === 'Enter' && scrollToNext()}
           >
-            <span className="text-foreground text-sm font-medium">Scroll</span>
-            <ChevronDown className="w-6 h-6 text-foreground" aria-hidden="true" />
+            <span className="text-white text-sm font-medium">Scroll</span>
+            <ChevronDown className="w-6 h-6 text-white" aria-hidden="true" />
           </motion.div>
         </motion.div>
       </div>
