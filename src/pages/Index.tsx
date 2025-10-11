@@ -236,7 +236,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950 font-semibold">
+            }} className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950 font-semibold text-4xl">
                 Ihr Gewinn mit New Edge
               </motion.h2>
               
@@ -263,7 +263,7 @@ const Index = () => {
             duration: 0.8
           }}>
               <motion.div className="mb-2"></motion.div>
-              <motion.h2 className="text-h1 mb-4 text-foreground">
+              <motion.h2 className="text-h1 mb-4 text-foreground text-4xl font-semibold">
                 Gemeinsam Zukunft gestalten – vernetzt. automatisiert. wirkungsvoll.
               </motion.h2>
               <motion.p className="text-body-lg text-muted-foreground max-w-3xl font-normal">
@@ -308,7 +308,7 @@ const Index = () => {
                     }} transition={{
                       delay: 0.2,
                       duration: 0.6
-                    }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 sm:mb-6 text-gray-900 tracking-tight leading-[1.1]">
+                    }} className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-gray-900 tracking-tight leading-[1.1] font-medium lg:text-4xl">
                         Für Unternehmen, die Vorreiter werden wollen
                       </motion.h3>
                       <motion.p initial={{
@@ -389,7 +389,7 @@ const Index = () => {
                           <div className="mb-3 sm:mb-4">
                             
                           </div>
-                          <h4 className="text-h3 mb-2 sm:mb-3 text-gray-900 font-medium">
+                          <h4 className="text-h3 mb-2 sm:mb-3 text-gray-900 font-medium text-2xl">
                             {item.title}
                           </h4>
                           <p className="text-body text-gray-600 leading-relaxed">{item.description}</p>
@@ -563,7 +563,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-h1 text-foreground mb-4 sm:mb-6 leading-[1.25] font-semibold">
+            }} className="text-h1 text-foreground mb-4 sm:mb-6 leading-[1.25] font-semibold text-4xl">
                 Unsere Services
               </motion.h2>
               <motion.p initial={{
