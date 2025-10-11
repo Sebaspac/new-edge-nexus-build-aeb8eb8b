@@ -10,8 +10,8 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
   return (
     <Suspense 
       fallback={
-        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-purple-500/10">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+        <div className="w-full h-full flex items-center justify-center">
+          <span className="loader"></span>
         </div>
       }
     >
