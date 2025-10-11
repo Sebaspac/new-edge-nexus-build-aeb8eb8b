@@ -53,18 +53,18 @@ export const ServicesOverviewSection = () => {
                   <TextStaggerHover as="span">
                     <TextStaggerHoverActive
                       animation="right"
-                      className="text-5xl lg:text-7xl xl:text-8xl font-epilogue font-light tracking-tight text-foreground"
+                      className="text-3xl lg:text-4xl xl:text-5xl font-epilogue font-light tracking-tight text-foreground"
                     >
                       {service.title}
                     </TextStaggerHoverActive>
                     <TextStaggerHoverHidden
                       animation="left"
-                      className="text-5xl lg:text-7xl xl:text-8xl font-epilogue font-light tracking-tight text-primary"
+                      className="text-3xl lg:text-4xl xl:text-5xl font-epilogue font-light tracking-tight text-primary"
                     >
                       {service.title}
                     </TextStaggerHoverHidden>
                   </TextStaggerHover>
-                  <ArrowRight className="w-8 h-8 lg:w-10 lg:h-10 text-muted-foreground group-hover:text-primary transition-all duration-200 group-hover:translate-x-1" />
+                  <ArrowRight className="w-6 h-6 lg:w-7 lg:h-7 text-muted-foreground group-hover:text-primary transition-all duration-200 group-hover:translate-x-1" />
                 </Link>
               </motion.div>
             ))}
