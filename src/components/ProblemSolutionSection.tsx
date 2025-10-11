@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Clock, TrendingDown, TrendingUp, BarChart3, Sparkles, Zap } from "lucide-react";
+import DisplayCards from "@/components/ui/display-cards";
 
 interface ProblemSolutionSectionProps {
   openAccordionIndex: number;
@@ -36,28 +37,34 @@ export const ProblemSolutionSection = ({
     icon: Zap
   }];
 
-  const cardData = [
+  const displayCardsData = [
     {
-      title: "Automatisierung & Effizienz",
-      value: "+30%",
-      description: "Routineaufgaben werden automatisiert – Ihre Teams gewinnen wertvolle Zeit für strategische Projekte. KI-gestützte Workflows optimieren jeden Prozess.",
-      gradient: "from-primary/20 to-primary/5",
-      icon: Clock
+      icon: <Clock className="size-4 text-primary" />,
+      title: "Zeit sparen",
+      description: "+30% mehr Fokuszeit",
+      date: "Automatisierung & Effizienz",
+      iconClassName: "text-primary",
+      titleClassName: "text-primary",
+      className: "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
     },
     {
-      title: "Kostenoptimierung",
-      value: "-40%",
-      description: "Reduzieren Sie Betriebskosten durch intelligente Prozessautomatisierung. Weniger Fehler, keine Doppelarbeit, maximale Effizienz in jedem Workflow.",
-      gradient: "from-accent/20 to-accent/5",
-      icon: TrendingDown
+      icon: <TrendingDown className="size-4 text-accent" />,
+      title: "Kosten senken",
+      description: "-40% Betriebskosten",
+      date: "Intelligente Prozesse",
+      iconClassName: "text-accent",
+      titleClassName: "text-accent",
+      className: "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
     },
     {
-      title: "Umsatzsteigerung",
-      value: "+50%",
-      description: "Verbesserte Lead-Qualität und höhere Conversion-Raten durch datengetriebene Insights. KI-Tools identifizieren die besten Chancen für Ihr Wachstum.",
-      gradient: "from-secondary/20 to-secondary/5",
-      icon: TrendingUp
-    }
+      icon: <TrendingUp className="size-4 text-secondary" />,
+      title: "Umsatz steigern",
+      description: "+50% mehr Conversion",
+      date: "Datengetriebene Insights",
+      iconClassName: "text-secondary",
+      titleClassName: "text-secondary",
+      className: "[grid-area:stack] translate-x-32 translate-y-20 hover:translate-y-10",
+    },
   ];
 
   return (
@@ -142,63 +149,15 @@ export const ProblemSolutionSection = ({
           })}
         </motion.div>
 
-        {/* Right side: 3-Card Visualization */}
+        {/* Right side: Display Cards */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="hidden md:flex flex-col gap-4"
+          className="hidden md:flex items-center justify-center min-h-[500px]"
         >
-          {cardData.map((card, index) => {
-            const Icon = card.icon;
-            
-            return (
-              <motion.div
-                key={card.title}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ 
-                  opacity: 1, 
-                  x: 0
-                }}
-                viewport={{ once: true }}
-                transition={{ 
-                  duration: 0.5, 
-                  delay: 0.3 + index * 0.15
-                }}
-                whileHover={{ 
-                  scale: 1.01,
-                  x: 4
-                }}
-                className="cursor-pointer"
-              >
-                <div className={`
-                  p-6 lg:p-8 rounded-2xl
-                  bg-gradient-to-br ${card.gradient}
-                  border-2 border-border
-                  backdrop-blur-sm
-                  shadow-lg
-                  hover:shadow-xl
-                  transition-shadow duration-200
-                `}>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-xl bg-primary/10">
-                      <Icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h4 className="text-lg font-bold text-foreground">
-                      {card.title}
-                    </h4>
-                  </div>
-                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">
-                    {card.value}
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {card.description}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+          <DisplayCards cards={displayCardsData} />
         </motion.div>
       </div>
     </div>
