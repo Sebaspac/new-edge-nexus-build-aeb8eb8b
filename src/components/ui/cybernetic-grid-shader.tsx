@@ -36,11 +36,13 @@ const CyberneticGridShader = () => {
       }
 
       void main() {
-        // normalize coords around center
-        vec2 uv    = (gl_FragCoord.xy - 0.5 * iResolution.xy)
-                     / iResolution.y;
-        vec2 mouse = (iMouse - 0.5 * iResolution.xy)
-                     / iResolution.y;
+        // Korrekte Normalisierung für präzises Cursor-Tracking
+        vec2 uv = gl_FragCoord.xy / iResolution.xy;
+        vec2 mouse = iMouse / iResolution.xy;
+        
+        // Zentriere um (0,0) für symmetrische Effekte
+        uv = (uv - 0.5) * 2.0;
+        mouse = (mouse - 0.5) * 2.0;
 
         float t         = iTime * 0.2;
         float mouseDist = length(uv - mouse);
