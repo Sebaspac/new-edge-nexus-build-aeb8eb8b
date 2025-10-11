@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { HeroSection } from "../components/HeroSection";
+import { ServicesOverviewSection } from "../components/ServicesOverviewSection";
 import { InnovationSection } from "../components/InnovationSection";
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { FastLoadWrapper } from "../components/FastLoadWrapper";
@@ -189,6 +190,9 @@ const Index = () => {
 
         {/* Hero Section */}
         <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
+
+        {/* Services Overview Section */}
+        <ServicesOverviewSection />
 
         {/* Info Section */}
         <section
