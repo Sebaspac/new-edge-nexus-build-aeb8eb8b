@@ -38,20 +38,23 @@ export const ProblemSolutionSection = ({
 
   const cardData = [
     {
-      title: "Zeit sparen",
+      title: "Automatisierung & Effizienz",
       value: "+30%",
+      description: "Routineaufgaben werden automatisiert – Ihre Teams gewinnen wertvolle Zeit für strategische Projekte. KI-gestützte Workflows optimieren jeden Prozess.",
       gradient: "from-primary/20 to-primary/5",
       icon: Clock
     },
     {
-      title: "Kosten reduzieren",
+      title: "Kostenoptimierung",
       value: "-40%",
+      description: "Reduzieren Sie Betriebskosten durch intelligente Prozessautomatisierung. Weniger Fehler, keine Doppelarbeit, maximale Effizienz in jedem Workflow.",
       gradient: "from-accent/20 to-accent/5",
       icon: TrendingDown
     },
     {
-      title: "Umsatz steigern",
+      title: "Umsatzsteigerung",
       value: "+50%",
+      description: "Verbesserte Lead-Qualität und höhere Conversion-Raten durch datengetriebene Insights. KI-Tools identifizieren die besten Chancen für Ihr Wachstum.",
       gradient: "from-secondary/20 to-secondary/5",
       icon: TrendingUp
     }
@@ -186,9 +189,12 @@ export const ProblemSolutionSection = ({
                       {card.title}
                     </h4>
                   </div>
-                  <div className="text-4xl lg:text-5xl font-bold text-primary">
+                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">
                     {card.value}
                   </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {card.description}
+                  </p>
                 </div>
               </motion.div>
             );
