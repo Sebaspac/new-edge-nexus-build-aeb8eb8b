@@ -494,7 +494,7 @@ const Services = () => {
             duration: 0.7
           }} whileHover={{
             scale: 1.03
-          }} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] font-bold lg:text-6xl">Die Vorteile im Detail</motion.h2>
+          }} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] lg:text-4xl font-semibold">Die Vorteile im Detail</motion.h2>
             <motion.p initial={{
             opacity: 0,
             y: 20
@@ -609,35 +609,31 @@ const Services = () => {
             duration: 0.6,
             delay: 0.2
           }} className="flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 lg:p-12">
-              <DisplayCards cards={[
-                {
-                  icon: <Star className="size-5 text-primary" />,
-                  title: "01 Klare Strategie",
-                  description: "Durchdachte Roadmap",
-                  date: "Solides Fundament",
-                  iconClassName: "text-primary",
-                  titleClassName: "text-primary",
-                  className: "[grid-area:stack] hover:-translate-y-24 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-primary/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 grayscale-[30%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 shadow-lg hover:shadow-2xl border-primary/30",
-                },
-                {
-                  icon: <Palette className="size-5 text-accent" />,
-                  title: "02 Überzeugende Inhalte",
-                  description: "Content der begeistert",
-                  date: "Zielgruppen erreichen",
-                  iconClassName: "text-accent",
-                  titleClassName: "text-accent",
-                  className: "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-14 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-accent/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 grayscale-[30%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 shadow-lg hover:shadow-2xl border-accent/30",
-                },
-                {
-                  icon: <Zap className="size-5 text-secondary" />,
-                  title: "03 Intelligente Umsetzung",
-                  description: "Technische Exzellenz",
-                  date: "Nachhaltiger Erfolg",
-                  iconClassName: "text-secondary",
-                  titleClassName: "text-secondary",
-                  className: "[grid-area:stack] translate-x-32 translate-y-20 hover:-translate-y-4 shadow-lg hover:shadow-2xl border-secondary/30",
-                },
-              ]} />
+              <DisplayCards cards={[{
+              icon: <Star className="size-5 text-primary" />,
+              title: "01 Klare Strategie",
+              description: "Durchdachte Roadmap",
+              date: "Solides Fundament",
+              iconClassName: "text-primary",
+              titleClassName: "text-primary",
+              className: "[grid-area:stack] hover:-translate-y-24 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-primary/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 grayscale-[30%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 shadow-lg hover:shadow-2xl border-primary/30"
+            }, {
+              icon: <Palette className="size-5 text-accent" />,
+              title: "02 Überzeugende Inhalte",
+              description: "Content der begeistert",
+              date: "Zielgruppen erreichen",
+              iconClassName: "text-accent",
+              titleClassName: "text-accent",
+              className: "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-14 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-accent/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 grayscale-[30%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 shadow-lg hover:shadow-2xl border-accent/30"
+            }, {
+              icon: <Zap className="size-5 text-secondary" />,
+              title: "03 Intelligente Umsetzung",
+              description: "Technische Exzellenz",
+              date: "Nachhaltiger Erfolg",
+              iconClassName: "text-secondary",
+              titleClassName: "text-secondary",
+              className: "[grid-area:stack] translate-x-32 translate-y-20 hover:-translate-y-4 shadow-lg hover:shadow-2xl border-secondary/30"
+            }]} />
             </motion.div>
           </div>
         </div>
@@ -669,7 +665,7 @@ const Services = () => {
           }} transition={{
             delay: 0.2,
             duration: 0.7
-          }} className="text-[42px] sm:text-[48px] md:text-[52px] lg:text-[56px] text-foreground mb-6 leading-[1.25] font-bold">Unsere Services</motion.h2>
+          }} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] font-semibold lg:text-4xl">Unsere Services</motion.h2>
             <motion.p initial={{
             opacity: 0,
             y: 20
@@ -756,7 +752,7 @@ const Services = () => {
 
                     <div className="flex-1 md:flex md:flex-col md:h-full">
                       {/* Title */}
-                      <h3 className="text-base sm:text-lg md:text-[28px] lg:text-2xl text-foreground mb-2 md:mb-4 leading-[1.3] font-bold">
+                      <h3 className="text-base sm:text-lg md:text-[28px] text-foreground mb-2 md:mb-4 leading-[1.3] font-semibold lg:text-2xl">
                         {service.title}
                       </h3>
 
