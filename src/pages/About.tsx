@@ -499,16 +499,16 @@ const About = () => {
                     setVideoPosition(null);
                   }}
                 >
-                  <motion.div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-gradient-to-br from-primary/10 via-background to-background backdrop-blur-sm border border-primary/40 shadow-2xl p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-primary/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] group overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <motion.div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-gradient-to-br from-primary/10 via-background to-background backdrop-blur-sm border border-primary/40 shadow-lg p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center text-center transition-all duration-200 hover:scale-[1.02] hover:border-primary/50 group overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                     <div className="relative z-10">
                       <motion.div
                         className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary to-primary/70 p-1.5 sm:p-2 md:p-2.5 mb-2 sm:mb-2.5 md:mb-3 shadow-lg mx-auto"
                         whileHover={{
-                          scale: 1.1,
+                          scale: 1.05,
                         }}
                         transition={{
-                          duration: 0.3,
+                          duration: 0.2,
                         }}
                       >
                         <Lightbulb className="w-full h-full text-white" />
@@ -554,16 +554,16 @@ const About = () => {
                     setVideoPosition(null);
                   }}
                 >
-                  <motion.div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-gradient-to-br from-secondary/10 via-background to-background backdrop-blur-sm border border-secondary/40 shadow-2xl p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-secondary/60 hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] group overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <motion.div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-gradient-to-br from-secondary/10 via-background to-background backdrop-blur-sm border border-secondary/40 shadow-lg p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center text-center transition-all duration-200 hover:scale-[1.02] hover:border-secondary/50 group overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                     <div className="relative z-10">
                       <motion.div
                         className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-secondary to-secondary/70 p-1.5 sm:p-2 md:p-2.5 mb-2 sm:mb-2.5 md:mb-3 shadow-lg mx-auto"
                         whileHover={{
-                          scale: 1.1,
+                          scale: 1.05,
                         }}
                         transition={{
-                          duration: 0.3,
+                          duration: 0.2,
                         }}
                       >
                         <Palette className="w-full h-full text-white" />
@@ -609,16 +609,16 @@ const About = () => {
                     setVideoPosition(null);
                   }}
                 >
-                  <motion.div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-gradient-to-br from-accent/10 via-background to-background backdrop-blur-sm border border-accent/40 shadow-2xl p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(14,165,233,0.3)] group overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <motion.div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-gradient-to-br from-accent/10 via-background to-background backdrop-blur-sm border border-accent/40 shadow-lg p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center text-center transition-all duration-200 hover:scale-[1.02] hover:border-accent/50 group overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                     <div className="relative z-10">
                       <motion.div
                         className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-accent to-accent/70 p-1.5 sm:p-2 md:p-2.5 mb-2 sm:mb-2.5 md:mb-3 shadow-lg mx-auto"
                         whileHover={{
-                          scale: 1.1,
+                          scale: 1.05,
                         }}
                         transition={{
-                          duration: 0.3,
+                          duration: 0.2,
                         }}
                       >
                         <Zap className="w-full h-full text-white" />

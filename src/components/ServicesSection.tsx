@@ -44,9 +44,9 @@ export const ServicesSection = ({
           duration: 0.6,
           delay: index * 0.1
         }}>
-              <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in group h-full">
+              <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] animate-fade-in group h-full">
                 <CardContent className="p-5 text-center h-full flex flex-col">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300" style={{
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-all duration-200" style={{
                 backgroundColor: `${accentColor}20`
               }}>
                     <service.icon className="w-6 h-6" style={{

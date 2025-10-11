@@ -113,7 +113,7 @@ export const ServiceScrollSection = ({
             className="sticky top-24 order-2 lg:order-1"
           >
             <div
-              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden transition-transform duration-300 hover:scale-105`}
+              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200 hover:scale-[1.02]`}
             >
               {videoSrc ? (
                 <>
@@ -158,7 +158,7 @@ export const ServiceScrollSection = ({
             className="sticky top-24"
           >
             <div
-              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden transition-transform duration-300 hover:scale-105`}
+              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200 hover:scale-[1.02]`}
             >
               {videoSrc ? (
                 <>

@@ -498,13 +498,13 @@ const Index = () => {
                               delay: 0.4 + index * 0.1,
                             }}
                             whileHover={{
-                              scale: 1.05,
-                              y: -5,
+                              scale: 1.02,
+                              y: -2,
                             }}
-                            className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-blue-200/50 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden"
+                            className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-blue-200/50 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer overflow-hidden"
                           >
                             <div
-                              className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                              className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-200`}
                             />
                             <div className="relative z-10">
                               <h4 className="text-base font-bold mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">
@@ -618,13 +618,13 @@ const Index = () => {
                               delay: 0.4 + index * 0.1,
                             }}
                             whileHover={{
-                              scale: 1.05,
-                              y: -5,
+                              scale: 1.02,
+                              y: -2,
                             }}
-                            className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-pink-200/50 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden"
+                            className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-pink-200/50 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer overflow-hidden"
                           >
                             <div
-                              className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                              className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-200`}
                             />
                             <div className="relative z-10">
                               <h4 className="text-base font-bold mb-2 text-gray-900 group-hover:text-pink-600 transition-colors">
@@ -666,7 +666,7 @@ const Index = () => {
                   setContactFormType("kmu");
                   setIsContactSheetOpen(true);
                 }}
-                className="min-h-12 px-8 bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="min-h-12 px-8 bg-white border-2 border-primary text-primary hover:bg-primary/5 hover:text-primary shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200"
               >
                 <Briefcase className="mr-2 h-5 w-5" />
                 Kontakt aufnehmen
@@ -678,7 +678,7 @@ const Index = () => {
                   setContactFormType("agentur");
                   setIsContactSheetOpen(true);
                 }}
-                className="min-h-12 px-8 bg-white border-2 border-yellow-400 text-gray-900 hover:bg-yellow-400 hover:text-gray-900 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="min-h-12 px-8 bg-white border-2 border-yellow-400 text-gray-900 hover:bg-yellow-400/10 hover:text-gray-900 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200"
               >
                 <Users className="mr-2 h-5 w-5" />
                 Agentur-Match anfragen

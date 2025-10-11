@@ -238,7 +238,7 @@ const Services = () => {
                     ease: "easeOut"
                   }}>
                        <div className="flex-1 max-w-md mr-8">
-                        <div className="bg-gradient-to-br from-purple-100 to-purple-50 backdrop-blur-xl p-8 rounded-3xl border border-purple-300 shadow-2xl transition-transform hover:scale-105">
+                        <div className="bg-gradient-to-br from-purple-100 to-purple-50 backdrop-blur-xl p-8 rounded-3xl border border-purple-300 shadow-lg transition-transform hover:scale-[1.02] duration-200">
                           <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                             <Target className="w-8 h-8 text-white" />
                           </div>
@@ -301,7 +301,7 @@ const Services = () => {
                       </motion.div>
                       
                       <div className="flex-1 max-w-md ml-8">
-                        <div className="bg-gradient-to-br from-blue-100 to-blue-50 backdrop-blur-xl p-8 rounded-3xl border border-blue-300 shadow-2xl transition-transform hover:scale-105">
+                        <div className="bg-gradient-to-br from-blue-100 to-blue-50 backdrop-blur-xl p-8 rounded-3xl border border-blue-300 shadow-lg transition-transform hover:scale-[1.02] duration-200">
                           <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                             <Palette className="w-8 h-8 text-white" />
                           </div>
@@ -324,7 +324,7 @@ const Services = () => {
                     ease: "easeOut"
                   }}>
                       <div className="flex-1 max-w-md mr-8">
-                        <div className="bg-gradient-to-br from-yellow-100 to-yellow-50 backdrop-blur-xl p-8 rounded-3xl border border-yellow-300 shadow-2xl transition-transform hover:scale-105">
+                        <div className="bg-gradient-to-br from-yellow-100 to-yellow-50 backdrop-blur-xl p-8 rounded-3xl border border-yellow-300 shadow-lg transition-transform hover:scale-[1.02] duration-200">
                           <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                             <Zap className="w-8 h-8 text-white" />
                           </div>
@@ -762,18 +762,17 @@ const Services = () => {
               }
             }
           }} whileHover={{
-            scale: 1.05,
-            y: -10,
+            scale: 1.02,
+            y: -4,
             transition: {
-              duration: 0.3
+              duration: 0.2
             }
           }}>
-                <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
+                <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-200 hover:shadow-lg">
                   <CardContent className="p-4 md:p-8 flex flex-row md:flex-col items-start md:items-stretch gap-4 md:gap-0 h-full">
                     {/* Icon with gradient background */}
                     <motion.div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center md:mb-6 shadow-lg flex-shrink-0`} whileHover={{
-                  scale: 1.1,
-                  rotate: [0, -5, 5, 0],
+                  scale: 1.05,
                   transition: {
                     duration: 0.5
                   }
@@ -981,10 +980,10 @@ const Services = () => {
     }} onClick={() => window.scrollTo({
       top: 0,
       behavior: 'smooth'
-    })} className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 bg-gradient-primary text-white p-3 sm:p-4 rounded-full shadow-elegant hover:shadow-glow transition-all duration-300 hover-lift min-h-[48px] min-w-[48px]" whileHover={{
-      scale: 1.1
+    })} className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 bg-gradient-primary text-white p-3 sm:p-4 rounded-full shadow-elegant hover:shadow-glow transition-all duration-200 hover-lift min-h-[48px] min-w-[48px]" whileHover={{
+      scale: 1.05
     }} whileTap={{
-      scale: 0.9
+      scale: 0.95
     }}>
           <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 transform -rotate-90" />
         </motion.button>}

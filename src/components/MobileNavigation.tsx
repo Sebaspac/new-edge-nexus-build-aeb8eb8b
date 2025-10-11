@@ -93,7 +93,7 @@ export const MobileNavigation = ({
                 </div>
               </div>
 
-              <Button onClick={onContactClick} className={`${isDark ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700' : 'bg-black hover:bg-gray-800'} text-white transition-all duration-300 hover:scale-105`} size="sm">
+              <Button onClick={onContactClick} className={`${isDark ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700' : 'bg-black hover:bg-gray-800'} text-white transition-all duration-200 hover:scale-[1.02]`} size="sm">
                 Kontakt
               </Button>
             </div>

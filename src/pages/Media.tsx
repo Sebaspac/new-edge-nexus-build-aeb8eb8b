@@ -314,7 +314,7 @@ const Media = () => {
                 }} transition={{
                   type: "spring",
                   stiffness: 300
-                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#3b82f6]/20 hover:shadow-2xl hover:border-[#3b82f6]/40">
+                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#3b82f6]/20 hover:shadow-xl hover:border-[#3b82f6]/30 transition-all duration-200">
                       <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                         {service.description}
                       </p>
@@ -338,7 +338,7 @@ const Media = () => {
                 }} transition={{
                   type: "spring",
                   stiffness: 300
-                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#3b82f6]/20 hover:shadow-2xl hover:border-[#3b82f6]/40">
+                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#3b82f6]/20 hover:shadow-xl hover:border-[#3b82f6]/30 transition-all duration-200">
                       <h3 className="text-xl mb-4 text-black sm:text-2xl font-bold">Unsere Leistungen</h3>
                       <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-4">
                         {service.details.map((detail, idx) => <motion.li key={idx} variants={{
@@ -398,7 +398,7 @@ const Media = () => {
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
               Lassen Sie uns gemeinsam Ihre Content-Strategie revolutionieren und nachhaltige Reichweite aufbauen.
             </p>
-            <Button id="projekt-besprechen-btn" size="lg" className="bg-white hover:bg-gray-100 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" style={{
+            <Button id="projekt-besprechen-btn" size="lg" className="bg-white hover:bg-gray-50 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-[1.02] transition-all duration-200" style={{
             color: '#3b82f6'
           }} onClick={() => setIsModalOpen(true)}>
               Projekt starten

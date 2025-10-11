@@ -88,7 +88,7 @@ export const ProblemSolutionSection = ({
                   onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)}
                   className={`
                     w-full p-4 lg:p-5 rounded-xl
-                    border-2 transition-all duration-300
+                    border-2 transition-all duration-200
                     ${isOpen ? 'border-primary bg-primary/5 shadow-lg' : 'border-border bg-card hover:border-primary/50 hover:bg-card/80'}
                   `}
                 >
@@ -98,7 +98,7 @@ export const ProblemSolutionSection = ({
                       <h3
                         className={`
                           text-left text-lg lg:text-xl font-bold
-                          transition-colors duration-300
+                          transition-colors duration-200
                           ${isOpen ? 'text-primary' : 'text-foreground'}
                         `}
                       >
@@ -107,11 +107,11 @@ export const ProblemSolutionSection = ({
                     </div>
                     <motion.div
                       animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.2 }}
                       className={`
                         flex-shrink-0 w-7 h-7 rounded-full 
                         flex items-center justify-center
-                        transition-colors duration-300
+                        transition-colors duration-200
                         ${isOpen ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground group-hover:bg-primary/10'}
                       `}
                     >
@@ -127,7 +127,7 @@ export const ProblemSolutionSection = ({
                       height: isOpen ? "auto" : 0,
                       opacity: isOpen ? 1 : 0
                     }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
                     <div className="pt-3">
@@ -167,8 +167,8 @@ export const ProblemSolutionSection = ({
                   delay: 0.3 + index * 0.15
                 }}
                 whileHover={{ 
-                  scale: 1.02,
-                  x: 10
+                  scale: 1.01,
+                  x: 4
                 }}
                 className="cursor-pointer"
               >
@@ -179,7 +179,7 @@ export const ProblemSolutionSection = ({
                   backdrop-blur-sm
                   shadow-lg
                   hover:shadow-xl
-                  transition-shadow
+                  transition-shadow duration-200
                 `}>
                   <div className="flex items-center gap-4 mb-4">
                     <div className="p-3 rounded-xl bg-primary/10">

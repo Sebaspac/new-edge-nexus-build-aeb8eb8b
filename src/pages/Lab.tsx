@@ -298,7 +298,7 @@ const Lab = () => {
                 }} transition={{
                   type: "spring",
                   stiffness: 300
-                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30 hover:shadow-2xl hover:border-[#fde047]/50">
+                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30 hover:shadow-xl hover:border-[#fde047]/40 transition-all duration-200">
                       <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{service.description}</p>
                     </motion.div>
 
@@ -320,7 +320,7 @@ const Lab = () => {
                 }} transition={{
                   type: "spring",
                   stiffness: 300
-                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30 hover:shadow-2xl hover:border-[#fde047]/50">
+                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30 hover:shadow-xl hover:border-[#fde047]/40 transition-all duration-200">
                       <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Unsere Leistungen</h3>
                       <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                         {service.details.map((detail, idx) => <motion.li key={idx} variants={{
@@ -513,7 +513,7 @@ const Lab = () => {
             duration: 0.5,
             delay: 0.5
           }} className="text-center mt-12">
-              <Button size="lg" className="bg-white border-2 border-[#fde047] text-black px-12 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300 hover:bg-[#fde047] hover:scale-105" onClick={() => navigate("/products")}>
+              <Button size="lg" className="bg-white border-2 border-[#fde047] text-black px-12 py-6 rounded-xl font-bold text-lg shadow-lg transition-all duration-200 hover:bg-[#fde047]/10 hover:scale-[1.02]" onClick={() => navigate("/products")}>
                 Alle Agenten entdecken
               </Button>
             </motion.div>
@@ -531,7 +531,7 @@ const Lab = () => {
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-900">
               Gemeinsam entwickeln wir innovative Technologielösungen, die Ihr Unternehmen voranbringen.
             </p>
-            <Button id="projekt-besprechen-btn" size="lg" className="bg-black text-white hover:bg-gray-800 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-105 transition-all duration-300 hover:shadow-lg" onClick={() => setIsModalOpen(true)}>
+            <Button id="projekt-besprechen-btn" size="lg" className="bg-black text-white hover:bg-gray-900 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-[1.02] transition-all duration-200" onClick={() => setIsModalOpen(true)}>
               Loslegen!
             </Button>
           </div>
