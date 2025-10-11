@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence, useMotionValue, useTransform, animate } from "framer-motion";
+import { useHeroScrollAnimation } from "@/hooks/useHeroScrollAnimation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -63,6 +64,7 @@ const About = () => {
   } | null>(null);
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const [isPartnerRequest, setIsPartnerRequest] = useState(false);
+  const { container: heroContainer, style: heroStyle } = useHeroScrollAnimation();
 
   // Orbital rotation setup
   const orbitalRadius = typeof window !== "undefined" && window.innerWidth < 768 ? 180 : 280;
@@ -213,8 +215,8 @@ const About = () => {
         {/* Sticky Navigation */}
 
         {/* Hero Section */}
-        <section className="relative w-full mt-16">
-          <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video">
+        <section ref={heroContainer} className="relative w-full mt-16">
+          <motion.div style={heroStyle} className="w-full relative h-[75vh] lg:h-auto lg:aspect-video">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
               <video
                 autoPlay
@@ -268,7 +270,7 @@ const About = () => {
                 </motion.div>
               </motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* 2️⃣ Mission & Vision */}

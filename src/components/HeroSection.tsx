@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SplineScene } from "./ui/splite";
 import CyberneticGridShader from "./ui/cybernetic-grid-shader";
+import { useHeroScrollAnimation } from "@/hooks/useHeroScrollAnimation";
 interface HeroSectionProps {
   onContactClick: () => void;
 }
@@ -14,6 +15,8 @@ export const HeroSection = ({
   const {
     t
   } = useLanguage();
+  
+  const { container, style } = useHeroScrollAnimation();
 
   const scrollToNext = () => {
     const nextSection = document.querySelector('.innovation-section');
@@ -31,8 +34,8 @@ export const HeroSection = ({
     >
       Skip to main content
     </a>
-    <section className="relative w-full min-h-screen bg-slate-900" id="hero">
-      <div className="w-full h-screen grid lg:grid-cols-2 relative overflow-hidden bg-slate-900">
+    <section ref={container} className="relative w-full min-h-screen bg-slate-900" id="hero">
+      <motion.div style={style} className="w-full h-screen grid lg:grid-cols-2 relative overflow-hidden bg-slate-900">
         <CyberneticGridShader />
         
         <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/80 z-10 pointer-events-none" />
@@ -109,7 +112,7 @@ export const HeroSection = ({
             <ChevronDown className="w-6 h-6 text-white" aria-hidden="true" />
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   </>;
 };

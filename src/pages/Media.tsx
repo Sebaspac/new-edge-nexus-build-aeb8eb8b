@@ -8,10 +8,12 @@ import { motion } from "framer-motion";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { ServiceScrollSection } from "@/components/ServiceScrollSection";
 import { Footer } from "@/components/Footer";
+import { useHeroScrollAnimation } from "@/hooks/useHeroScrollAnimation";
 const Media = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { container: heroContainer, style: heroStyle } = useHeroScrollAnimation();
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -134,10 +136,8 @@ const Media = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Hero Section */}
-        <section className="relative w-full">
-          <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video" style={{
-          position: 'relative'
-        }}>
+        <section ref={heroContainer} className="relative w-full">
+          <motion.div style={heroStyle} className="w-full relative h-[75vh] lg:h-auto lg:aspect-video">
             <div className="absolute inset-0 overflow-hidden" style={{
             background: 'linear-gradient(to bottom right, rgba(59, 130, 246, 0.3), rgba(6, 182, 212, 0.2), rgba(6, 182, 212, 0.1))'
           }}>
@@ -193,7 +193,7 @@ const Media = () => {
                 </motion.div>
               </motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* FROM VISION TO REALITY Section */}

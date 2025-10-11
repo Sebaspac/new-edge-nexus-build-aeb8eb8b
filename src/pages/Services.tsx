@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useHeroScrollAnimation } from "@/hooks/useHeroScrollAnimation";
 import { ArrowRight, ArrowDown, ChevronDown, Lightbulb, Palette, Zap, Star, Target, Eye, Phone, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -24,6 +25,7 @@ const Services = () => {
   const [openAccordionIndex, setOpenAccordionIndex] = useState(0);
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { container: heroContainer, style: heroStyle } = useHeroScrollAnimation();
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -84,10 +86,8 @@ const Services = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* Hero Section */}
-      <section className="relative w-full">
-          <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video" style={{
-        position: 'relative'
-      }}>
+      <section ref={heroContainer} className="relative w-full">
+          <motion.div style={heroStyle} className="w-full relative h-[75vh] lg:h-auto lg:aspect-video">
           <CyberneticGridShader />
           
           <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/80 z-10 pointer-events-none" />
@@ -166,7 +166,7 @@ const Services = () => {
               <ChevronDown className="w-6 h-6 text-white" />
             </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Services Overview Section */}
