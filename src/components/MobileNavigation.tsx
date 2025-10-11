@@ -65,7 +65,7 @@ export const MobileNavigation = ({
                 <Link to="/services" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
                   Services
                 </Link>
-                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-lg z-50 border ${borderColor}`}>
+                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-50 border ${borderColor}`}>
                   <div className="py-2">
                     <Link to="/studio" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
                       Studio
@@ -86,7 +86,7 @@ export const MobileNavigation = ({
                 <button className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
                   Company
                 </button>
-                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-lg z-50 border ${borderColor}`}>
+                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-50 border ${borderColor}`}>
                   <div className="py-2">
                     <Link to="/about" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>About us</Link>
                   </div>

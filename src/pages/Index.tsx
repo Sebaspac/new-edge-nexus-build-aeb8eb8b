@@ -191,7 +191,7 @@ const Index = () => {
         <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
 
         {/* Info Section */}
-        <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
+        <section id="main-content" className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
           <div className="container-xl relative z-10">
             <motion.div
               initial="hidden"

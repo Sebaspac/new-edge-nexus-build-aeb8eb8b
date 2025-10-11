@@ -24,24 +24,24 @@ export const Footer = () => {
               <h3 className="text-xs md:text-sm font-semibold uppercase tracking-wider text-gray-400">
                 Services
               </h3>
-              <ul className="space-y-1 md:space-y-2">
+              <ul className="space-y-2 md:space-y-2">
                 <li>
-                  <Link to="/studio" className="text-xs md:text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to="/studio" className="text-sm md:text-sm text-gray-300 hover:text-white transition-colors inline-block py-1">
                     Studio
                   </Link>
                 </li>
                 <li>
-                  <Link to="/media" className="text-xs md:text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to="/media" className="text-sm md:text-sm text-gray-300 hover:text-white transition-colors inline-block py-1">
                     Media
                   </Link>
                 </li>
                 <li>
-                  <Link to="/lab" className="text-xs md:text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to="/lab" className="text-sm md:text-sm text-gray-300 hover:text-white transition-colors inline-block py-1">
                     Lab
                   </Link>
                 </li>
                 <li>
-                  <Link to="/products" className="text-xs md:text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to="/products" className="text-sm md:text-sm text-gray-300 hover:text-white transition-colors inline-block py-1">
                     Agenten
                   </Link>
                 </li>
@@ -53,12 +53,12 @@ export const Footer = () => {
               <h3 className="text-xs md:text-sm font-semibold uppercase tracking-wider text-gray-400">
                 Company
               </h3>
-              <ul className="space-y-1 md:space-y-2">
+              <ul className="space-y-2 md:space-y-2">
                 <li>
                   
                 </li>
                 <li>
-                  <Link to="/about" className="text-xs md:text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to="/about" className="text-sm md:text-sm text-gray-300 hover:text-white transition-colors inline-block py-1">
                     About us
                   </Link>
                 </li>
@@ -82,7 +82,7 @@ export const Footer = () => {
           </a>
           
           <div className="flex space-x-4 md:space-x-6">
-            <Link to="/impressum" className="text-xs md:text-sm text-gray-400 hover:text-white transition-colors">
+            <Link to="/impressum" className="text-sm md:text-sm text-gray-400 hover:text-white transition-colors inline-block py-1">
               Impressum
             </Link>
           </div>

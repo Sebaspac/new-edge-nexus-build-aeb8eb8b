@@ -120,7 +120,15 @@ const Lab = () => {
             <div className="absolute inset-0 overflow-hidden" style={{
             background: "linear-gradient(to bottom right, rgba(253, 224, 71, 0.3), rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.1))"
           }}>
-              <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                preload="metadata"
+                className="absolute inset-0 w-full h-full object-cover"
+                aria-label="Lab hero background video"
+              >
                 <source src="/assets/lab-hero-video.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0" style={{
