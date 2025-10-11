@@ -145,68 +145,54 @@ export const ProblemSolutionSection = ({
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative hidden md:flex items-center justify-center min-h-[500px]"
+          className="hidden md:flex flex-col gap-4"
         >
-          <div className="relative w-full max-w-md">
-            {cardData.map((card, index) => {
-              const Icon = card.icon;
-              const rotations = ['-6deg', '0deg', '6deg'];
-              const offsets = ['0px', '20px', '40px'];
-              
-              return (
-                <motion.div
-                  key={card.title}
-                  initial={{ opacity: 0, y: 50, rotate: 0 }}
-                  whileInView={{ 
-                    opacity: 1, 
-                    y: 0,
-                    rotate: rotations[index]
-                  }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: 0.3 + index * 0.15,
-                    type: "spring",
-                    stiffness: 100
-                  }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    rotate: '0deg',
-                    y: -10,
-                    zIndex: 10
-                  }}
-                  style={{
-                    position: index === 0 ? 'relative' : 'absolute',
-                    top: index === 0 ? '0' : offsets[index],
-                    left: '0',
-                    right: '0',
-                    zIndex: 3 - index
-                  }}
-                  className="cursor-pointer"
-                >
-                  <div className={`
-                    p-6 lg:p-8 rounded-2xl
-                    bg-gradient-to-br ${card.gradient}
-                    border-2 border-border
-                    backdrop-blur-sm
-                    shadow-xl
-                  `}>
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="p-3 rounded-xl bg-primary/10">
-                        <Icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <h4 className="text-lg font-bold text-foreground">
-                        {card.title}
-                      </h4>
+          {cardData.map((card, index) => {
+            const Icon = card.icon;
+            
+            return (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ 
+                  opacity: 1, 
+                  x: 0
+                }}
+                viewport={{ once: true }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: 0.3 + index * 0.15
+                }}
+                whileHover={{ 
+                  scale: 1.02,
+                  x: 10
+                }}
+                className="cursor-pointer"
+              >
+                <div className={`
+                  p-6 lg:p-8 rounded-2xl
+                  bg-gradient-to-br ${card.gradient}
+                  border-2 border-border
+                  backdrop-blur-sm
+                  shadow-lg
+                  hover:shadow-xl
+                  transition-shadow
+                `}>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-3 rounded-xl bg-primary/10">
+                      <Icon className="w-6 h-6 text-primary" />
                     </div>
-                    <div className="text-4xl lg:text-5xl font-bold text-primary">
-                      {card.value}
-                    </div>
+                    <h4 className="text-lg font-bold text-foreground">
+                      {card.title}
+                    </h4>
                   </div>
-                </motion.div>
-              );
-            })}
-          </div>
+                  <div className="text-4xl lg:text-5xl font-bold text-primary">
+                    {card.value}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </div>
