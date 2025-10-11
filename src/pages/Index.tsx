@@ -8,6 +8,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import { Footer } from "@/components/Footer";
 import { ProblemSolutionSection } from "@/components/ProblemSolutionSection";
+import { AccordionFeatureSection } from "@/components/ui/accordion-feature-section";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -344,6 +345,9 @@ const Index = () => {
             />
           </div>
         </section>
+
+        {/* Accordion Feature Section */}
+        <AccordionFeatureSection />
 
         {/* Gemeinsam Zukunft gestalten Section */}
         <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
