@@ -1174,10 +1174,9 @@ function SplashCursor({
     document.body.addEventListener(
       "mousemove",
       function handleFirstMouseMove(e) {
-        const rect = canvas.getBoundingClientRect();
         let pointer = pointers[0];
-        let posX = scaleByPixelRatio(e.clientX - rect.left);
-        let posY = scaleByPixelRatio(e.clientY - rect.top);
+        let posX = scaleByPixelRatio(e.clientX);
+        let posY = scaleByPixelRatio(e.clientY);
         let color = generateColor();
         updateFrame(); // start animation loop
         updatePointerMoveData(pointer, posX, posY, color);
@@ -1186,10 +1185,9 @@ function SplashCursor({
     );
 
     window.addEventListener("mousemove", (e) => {
-      const rect = canvas.getBoundingClientRect();
       let pointer = pointers[0];
-      let posX = scaleByPixelRatio(e.clientX - rect.left);
-      let posY = scaleByPixelRatio(e.clientY - rect.top);
+      let posX = scaleByPixelRatio(e.clientX);
+      let posY = scaleByPixelRatio(e.clientY);
       let color = pointer.color;
       updatePointerMoveData(pointer, posX, posY, color);
     });
@@ -1197,12 +1195,11 @@ function SplashCursor({
     document.body.addEventListener(
       "touchstart",
       function handleFirstTouchStart(e) {
-        const rect = canvas.getBoundingClientRect();
         const touches = e.targetTouches;
         let pointer = pointers[0];
         for (let i = 0; i < touches.length; i++) {
-          let posX = scaleByPixelRatio(touches[i].clientX - rect.left);
-          let posY = scaleByPixelRatio(touches[i].clientY - rect.top);
+          let posX = scaleByPixelRatio(touches[i].clientX);
+          let posY = scaleByPixelRatio(touches[i].clientY);
           updateFrame(); // start animation loop
           updatePointerDownData(pointer, touches[i].identifier, posX, posY);
         }
@@ -1211,12 +1208,11 @@ function SplashCursor({
     );
 
     window.addEventListener("touchstart", (e) => {
-      const rect = canvas.getBoundingClientRect();
       const touches = e.targetTouches;
       let pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
-        let posX = scaleByPixelRatio(touches[i].clientX - rect.left);
-        let posY = scaleByPixelRatio(touches[i].clientY - rect.top);
+        let posX = scaleByPixelRatio(touches[i].clientX);
+        let posY = scaleByPixelRatio(touches[i].clientY);
         updatePointerDownData(pointer, touches[i].identifier, posX, posY);
       }
     });
@@ -1224,12 +1220,11 @@ function SplashCursor({
     window.addEventListener(
       "touchmove",
       (e) => {
-        const rect = canvas.getBoundingClientRect();
         const touches = e.targetTouches;
         let pointer = pointers[0];
         for (let i = 0; i < touches.length; i++) {
-          let posX = scaleByPixelRatio(touches[i].clientX - rect.left);
-          let posY = scaleByPixelRatio(touches[i].clientY - rect.top);
+          let posX = scaleByPixelRatio(touches[i].clientX);
+          let posY = scaleByPixelRatio(touches[i].clientY);
           updatePointerMoveData(pointer, posX, posY, pointer.color);
         }
       },

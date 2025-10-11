@@ -101,8 +101,8 @@ const CyberneticGridShader = () => {
 
     // 4) Resize handler
     const onResize = () => {
-      const width  = container.clientWidth;
-      const height = container.clientHeight;
+      const width  = window.innerWidth;
+      const height = window.innerHeight;
       renderer.setSize(width, height);
       uniforms.iResolution.value.set(width, height);
     };
@@ -111,9 +111,8 @@ const CyberneticGridShader = () => {
 
     // 5) Mouse handler
     const onMouseMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = rect.height - (e.clientY - rect.top);
+      const mouseX = e.clientX;
+      const mouseY = window.innerHeight - e.clientY;
       
       uniforms.iMouse.value.set(mouseX, mouseY);
     };
