@@ -171,56 +171,59 @@ export const ProblemSolutionSection = ({
           </div>
 
           {/* Feature Cards Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Card 1: Innovation als Prozess */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                <Sparkles className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-primary">Innovation als Prozess</h3>
-              <p className="text-sm text-muted-foreground">
-                Statt einmaliger Projekte bauen wir Ihnen einen nachhaltigen Ablauf weniger Aufwand, schnellere Umsetzung, planbare Skalierung
-              </p>
-            </motion.div>
+          <div className="space-y-6">
+            {/* Top Row: Two Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Card 1: Innovation als Prozess */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+                className="p-8 rounded-3xl bg-gradient-to-br from-primary/5 to-transparent border border-primary/10 hover:border-primary/30 transition-all duration-300 backdrop-blur-sm"
+              >
+                <div className="w-14 h-14 rounded-full bg-primary/15 flex items-center justify-center mb-4">
+                  <Sparkles className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-primary">Innovation als Prozess</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Statt einmaliger Projekte bauen wir Ihnen einen nachhaltigen Ablauf weniger Aufwand, schnellere Umsetzung, planbare Skalierung
+                </p>
+              </motion.div>
 
-            {/* Card 2: Ganzheitliche Transformation */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.4 }}
-              className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                <Zap className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-primary">Ganzheitliche Transformation</h3>
-              <p className="text-sm text-muted-foreground">
-                Keine Insellösungen mehr. Wir verbinden Marke, Content und KI-Automatisierung zu einem durchgängigen System
-              </p>
-            </motion.div>
+              {/* Card 2: Ganzheitliche Transformation */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+                className="p-8 rounded-3xl bg-gradient-to-br from-primary/5 to-transparent border border-primary/10 hover:border-primary/30 transition-all duration-300 backdrop-blur-sm"
+              >
+                <div className="w-14 h-14 rounded-full bg-primary/15 flex items-center justify-center mb-4">
+                  <Zap className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-primary">Ganzheitliche Transformation</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Keine Insellösungen mehr. Wir verbinden Marke, Content und KI-Automatisierung zu einem durchgängigen System
+                </p>
+              </motion.div>
+            </div>
 
-            {/* Card 3: Kreatives Headquarter */}
+            {/* Bottom Row: Single Wide Card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.5 }}
-              className="lg:col-span-2 p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all duration-300"
+              className="p-8 rounded-3xl bg-gradient-to-br from-primary/5 to-transparent border border-primary/10 hover:border-primary/30 transition-all duration-300 backdrop-blur-sm max-w-4xl"
             >
-              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                <BarChart3 className="w-6 h-6 text-primary" />
+              <div className="w-14 h-14 rounded-full bg-primary/15 flex items-center justify-center mb-4">
+                <BarChart3 className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-primary">
+              <h3 className="text-xl font-bold mb-3 text-primary">
                 Kreatives Headquarter<br />für Innovation
               </h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden
               </p>
             </motion.div>
