@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SplineScene } from "./ui/splite";
 import CyberneticGridShader from "./ui/cybernetic-grid-shader";
+import { SplashCursor } from "./ui/splash-cursor";
 import { useHeroScrollAnimation } from "@/hooks/useHeroScrollAnimation";
 interface HeroSectionProps {
   onContactClick: () => void;
@@ -33,6 +34,7 @@ export const HeroSection = ({
       Skip to main content
     </a>
     <section ref={container} className="relative w-full min-h-screen bg-slate-900" id="hero">
+      <SplashCursor />
       <motion.div style={style} className="w-full h-screen grid lg:grid-cols-2 relative overflow-hidden bg-slate-900">
         <CyberneticGridShader />
         
