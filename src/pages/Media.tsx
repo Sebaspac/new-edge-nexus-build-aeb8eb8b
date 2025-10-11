@@ -253,7 +253,7 @@ const Media = () => {
                     delay: 0.2
                   }
                 }
-              }} className="text-body-lg text-gray-600 mt-4 max-w-3xl">MEDIA ist die kreative Kraft im Netzwerk. Gemeinsam mit spezialisierten Agenturen, Studios und Produzent:innen gestalten wir Content, Kampagnen und visuelle Erlebnisse.</motion.p>
+              }} className="text-body-lg text-gray-600 mt-4 max-w-3xl text-xl">MEDIA ist die kreative Kraft im Netzwerk. Gemeinsam mit spezialisierten Agenturen, Studios und Produzent:innen gestalten wir Content, Kampagnen und visuelle Erlebnisse.</motion.p>
               </motion.div>
             </motion.div>
           </div>
