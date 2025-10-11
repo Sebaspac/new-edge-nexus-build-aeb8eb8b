@@ -194,7 +194,7 @@ const Products = () => {
                     delay: 0.2
                   }
                 }
-              }} className="text-sm text-gray-600 mt-4 leading-[1.6] max-w-3xl sm:text-xl">
+              }} className="text-sm mt-4 leading-[1.6] max-w-3xl text-gray-700 sm:text-xl">
                   Unsere spezialisierten KI-Agenten automatisieren Ihre Prozesse, verbessern Effizienz und steigern Produktivität. Von Wissensmanagement bis Content-Erstellung – maßgeschneiderte Lösungen für Ihr Business.
                 </motion.p>
                 <motion.p initial={{
@@ -262,7 +262,7 @@ const Products = () => {
                 stiffness: 300
               }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Was macht Riley?</h3>
-                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  <p className="text-sm sm:text-base leading-relaxed text-gray-700">
                     Riley nutzt Retrieval‑Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten. Der Einsatz von RAG verringert Halluzinationen und schafft mehr Vertrauen in die Ergebnisse.
                   </p>
                 </motion.div>
