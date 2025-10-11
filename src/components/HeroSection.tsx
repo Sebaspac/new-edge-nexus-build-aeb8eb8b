@@ -37,13 +37,53 @@ export const HeroSection = ({
     >
       Skip to main content
     </a>
-    <section className="relative w-full" id="hero">
-      <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video" style={{
-      position: 'relative'
-    }}>
-        <div className="absolute inset-0 overflow-hidden" style={{
-        background: 'linear-gradient(to bottom right, rgba(139, 92, 246, 0.3), rgba(168, 85, 247, 0.2), rgba(192, 132, 252, 0.1))'
-      }}>
+    <section className="relative w-full min-h-screen" id="hero">
+      <div className="w-full h-screen grid lg:grid-cols-2">
+        {/* Left Side - CTA Content */}
+        <div className="relative flex items-end lg:items-center bg-background/95 backdrop-blur-sm">
+          <div className="w-full px-6 pb-24 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6"
+            >
+              <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+                <span className="text-sm font-medium text-primary">KI Beratung</span>
+              </div>
+              
+              <h1 className="text-display-xl lg:text-[64px] xl:text-[72px] leading-tight">
+                Innovate Today,<br />
+                Lead Tomorrow.
+              </h1>
+              
+              <p className="text-body-lg text-muted-foreground max-w-xl">
+                Von der ersten Beratung bis zur vollständigen Implementierung – New Edge ist Ihr strategischer Partner für den erfolgreichen Einsatz von Künstlicher Intelligenz.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Button 
+                  size="lg" 
+                  onClick={onContactClick}
+                  className="group"
+                >
+                  Kontakt
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  asChild
+                >
+                  <Link to="/about">Über Uns</Link>
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Right Side - Video */}
+        <div className="relative overflow-hidden bg-gradient-to-br from-primary/30 via-purple-500/20 to-pink-500/10">
           <video 
             autoPlay 
             loop 
@@ -55,36 +95,30 @@ export const HeroSection = ({
           >
             <source src="/assets/hero-video.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0" style={{
-          background: 'linear-gradient(to top, rgba(139, 92, 246, 0.6), rgba(139, 92, 246, 0.2), transparent)'
-        }} />
-          
-          <div className="absolute bottom-0 left-0 p-6 pb-20 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
-            
-            
-          </div>
-
-          {/* Scroll Indicator */}
-          <motion.div initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          delay: 1,
-          duration: 0.5
-        }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-            <motion.div animate={{
-            y: [0, 10, 0]
-          }} transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} className="flex flex-col items-center gap-2 cursor-pointer" onClick={scrollToNext} role="button" aria-label="Scroll to next section" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && scrollToNext()}>
-              <span className="text-white text-sm font-medium">Scroll</span>
-              <ChevronDown className="w-6 h-6 text-white" aria-hidden="true" />
-            </motion.div>
-          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        >
+          <motion.div 
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-2 cursor-pointer" 
+            onClick={scrollToNext} 
+            role="button" 
+            aria-label="Scroll to next section" 
+            tabIndex={0} 
+            onKeyDown={(e) => e.key === 'Enter' && scrollToNext()}
+          >
+            <span className="text-foreground text-sm font-medium">Scroll</span>
+            <ChevronDown className="w-6 h-6 text-foreground" aria-hidden="true" />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   </>;
