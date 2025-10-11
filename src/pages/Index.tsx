@@ -22,6 +22,7 @@ import { toast } from "@/hooks/use-toast";
 import { useCallback, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Lightbulb, Zap, Palette, Target, Rocket, Star, Users, Code, Globe, Briefcase, Phone, MessageSquare, Eye } from "lucide-react";
+import { useHeroScrollAnimation } from "@/hooks/useHeroScrollAnimation";
 const Index = () => {
   const {
     t
@@ -29,6 +30,9 @@ const Index = () => {
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const [contactFormType, setContactFormType] = useState<"kmu" | "agentur" | null>(null);
   const [openAccordionIndex, setOpenAccordionIndex] = useState(0);
+  
+  // Scroll animation for problem-solution section
+  const { container: problemSolutionRef, style: problemSolutionStyle } = useHeroScrollAnimation();
 
   // Auto-focus und Reset-Logik für Kontaktformular
   useEffect(() => {
@@ -207,8 +211,8 @@ const Index = () => {
         <InnovationSection />
 
         {/* Problem-Lösung Sektion - Neu aus Briefing */}
-        <section className="relative py-8 sm:py-12 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
-          <div className="container-xl relative z-10">
+        <section ref={problemSolutionRef} className="relative py-8 sm:py-12 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+          <motion.div style={problemSolutionStyle} className="container-xl relative z-10">
             {/* Header with enhanced animations */}
             <motion.div initial={{
             opacity: 0,
@@ -244,7 +248,7 @@ const Index = () => {
 
             {/* Two-Column Layout with Mobile Scroll Effect */}
             <ProblemSolutionSection openAccordionIndex={openAccordionIndex} setOpenAccordionIndex={setOpenAccordionIndex} />
-          </div>
+          </motion.div>
         </section>
 
         {/* Gemeinsam Zukunft gestalten Section */}
