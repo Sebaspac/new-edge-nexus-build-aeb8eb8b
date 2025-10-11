@@ -110,10 +110,16 @@ const CyberneticGridShader = () => {
     // 5) Mouse handler
     const onMouseMove = (e: MouseEvent) => {
       const rect = container.getBoundingClientRect();
-      uniforms.iMouse.value.set(
-        e.clientX - rect.left,
-        container.clientHeight - (e.clientY - rect.top)
-      );
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      
+      console.log('Mouse DOM:', { mouseX, mouseY });
+      console.log('Container size:', { width: container.clientWidth, height: container.clientHeight });
+      console.log('Mouse event:', { clientX: e.clientX, clientY: e.clientY });
+      console.log('Rect:', rect);
+      
+      // Pass coordinates as-is (no inversion needed)
+      uniforms.iMouse.value.set(mouseX, mouseY);
     };
     window.addEventListener('mousemove', onMouseMove);
 
