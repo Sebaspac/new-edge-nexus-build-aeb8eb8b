@@ -154,19 +154,26 @@ export const ProblemSolutionSection = ({
             {/* Top Row: Two Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Card 1: Innovation als Prozess */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                viewport={{ once: true }} 
-                transition={{ duration: 0.6, delay: 0.2 }}
-                whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6,
+              delay: 0.2
+            }} whileHover={{
+              y: -4,
+              transition: {
+                duration: 0.3
+              }
+            }} className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative p-10">
-                  <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10">
-                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500" />
-                  </div>
+                  
                   <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight">
                     Innovation als Prozess
                   </h3>
@@ -177,19 +184,26 @@ export const ProblemSolutionSection = ({
               </motion.div>
 
               {/* Card 2: Ganzheitliche Transformation */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                viewport={{ once: true }} 
-                transition={{ duration: 0.6, delay: 0.3 }}
-                whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6,
+              delay: 0.3
+            }} whileHover={{
+              y: -4,
+              transition: {
+                duration: 0.3
+              }
+            }} className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-pink-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative p-10">
-                  <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10">
-                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500" />
-                  </div>
+                  
                   <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight">
                     Ganzheitliche Transformation
                   </h3>
@@ -201,19 +215,26 @@ export const ProblemSolutionSection = ({
             </div>
 
             {/* Bottom Row: Single Wide Card */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.6, delay: 0.4 }}
-              whileHover={{ y: -4, transition: { duration: 0.3 } }}
-              className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6,
+            delay: 0.4
+          }} whileHover={{
+            y: -4,
+            transition: {
+              duration: 0.3
+            }
+          }} className="group relative overflow-hidden rounded-[28px] bg-white/80 backdrop-blur-xl border border-gray-200/50 shadow-sm hover:shadow-xl transition-all duration-500">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative p-10">
-                <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10">
-                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500" />
-                </div>
+                
                 <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight">
                   Kreatives Headquarter für Innovation
                 </h3>
