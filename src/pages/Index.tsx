@@ -239,21 +239,7 @@ const Index = () => {
             }} className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950">
                 Ihr Gewinn mit New Edge
               </motion.h2>
-              <motion.p initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.4,
-              duration: 0.6
-            }} className="text-body-lg text-gray-600 max-w-3xl">
-                Wir machen Effizienz spürbar: automatisierte Abläufe, klare Daten und kreative Systeme, die Wachstum
-                messbar machen – damit Ihr Unternehmen schneller, profitabler und innovativer arbeitet
-              </motion.p>
+              
             </motion.div>
 
             {/* Two-Column Layout with Mobile Scroll Effect */}
