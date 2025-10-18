@@ -10,22 +10,22 @@ export const ProblemSolutionSection = ({ openAccordionIndex, setOpenAccordionInd
   const accordionItems = [
     {
       title: "30 % mehr Zeit",
-      content: "Routinearbeit fällt weg – Sie gewinnen bis zu 30 % Fokuszeit zurück",
+      content: "Routinearbeit fällt weg – Sie gewinnen bis zu 30 % Fokuszeit zurück.",
       icon: Clock,
     },
     {
       title: "Kosten senken",
-      content: "Fehler und Doppelarbeit sinken, Prozesse laufen günstiger",
+      content: "Fehler und Doppelarbeit sinken, Prozesse laufen günstiger.",
       icon: TrendingDown,
     },
     {
       title: "Transparenz",
-      content: "Echtzeit-Dashboards zeigen KPIs für schnelle Entscheidungen",
+      content: "Echtzeit-Dashboards zeigen KPIs für schnelle Entscheidungen.",
       icon: BarChart3,
     },
     {
       title: "Schnelle Umsetzung",
-      content: "Von der Idee zur Lösung in Rekordzeit – agil und effizient",
+      content: "Von der Idee zur Lösung in Rekordzeit – agil und effizient.",
       icon: Zap,
     },
   ];
