@@ -673,9 +673,7 @@ const Services = () => {
           }} transition={{
             delay: 0.4,
             duration: 0.6
-          }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">
-              Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren
-            </motion.p>
+          }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt positionieren.</motion.p>
           </motion.div>
 
           {/* Service Cards Grid */}
