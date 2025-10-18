@@ -117,6 +117,7 @@
     button, a[role="button"] {
       min-height: 48px;
       min-width: 48px;
+      touch-action: manipulation; /* Eliminate tap delay */
     }
     
     /* Improved mobile spacing */
@@ -663,5 +664,70 @@ picture {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* ⚡ PERFORMANCE OPTIMIZATIONS */
+
+/* Hardware acceleration for animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* will-change optimization - only for actively animating elements */
+.animating {
+  will-change: transform, opacity;
+}
+
+.animating-complete {
+  will-change: auto;
+}
+
+/* Scroll performance */
+.scroll-optimized {
+  will-change: scroll-position;
+  transform: translateZ(0);
+}
+
+/* Video performance */
+video {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduce motion for accessibility and performance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  /* Disable expensive animations on mobile */
+  .animate-float,
+  .animate-rotate,
+  .animate-parallax,
+  .animate-orbit {
+    animation: none;
+  }
+  
+  /* Simplify hover effects to active states */
+  .hover-lift,
+  .hover-magnetic,
+  .hover-glow {
+    transition-duration: 0.15s;
+  }
+  
+  /* Remove will-change on mobile to save memory */
+  * {
+    will-change: auto !important;
+  }
 }
 

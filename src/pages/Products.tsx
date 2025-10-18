@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Bot, Phone, FileText, Lightbulb, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,10 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { motion } from "framer-motion";
 import { AgentScrollSection } from "@/components/AgentScrollSection";
-import { Footer } from "@/components/Footer";
+import { LazyVideo } from "@/components/LazyVideo";
+
+// Lazy load Footer for better initial performance
+const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const Products = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
@@ -25,11 +28,12 @@ const Products = () => {
     });
     setIsVisible(true);
   }, []);
-  const scrollToContact = (agentName: string = "") => {
+  const scrollToContact = useCallback((agentName: string = "") => {
     setSelectedAgent(agentName);
     setIsContactSheetOpen(true);
-  };
-  const handleSubmit = async (e: React.FormEvent) => {
+  }, []);
+
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
@@ -69,7 +73,7 @@ const Products = () => {
         duration: 5000
       });
     }
-  };
+  }, []);
   return <>
       <Helmet>
         <title>NEW EDGE Produkte - KI-Agenten für Ihr Business</title>
@@ -78,6 +82,9 @@ const Products = () => {
         <link rel="canonical" href="https://new-edge.de/products" />
         <link rel="preload" href="/assets/agents-hero-video.mp4" as="video" type="video/mp4" />
         <link rel="preload" href="/assets/products-hero-video.mp4" as="video" type="video/mp4" />
+        {/* Resource hints for n8n webhook */}
+        <link rel="preconnect" href="https://n8n-pro-oh9w.onrender.com" />
+        <link rel="dns-prefetch" href="https://n8n-pro-oh9w.onrender.com" />
       </Helmet>
 
       <div className="min-h-screen bg-white">
@@ -145,8 +152,8 @@ const Products = () => {
             visible: {
               opacity: 1,
               transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.1
+                staggerChildren: 0.1,
+                delayChildren: 0.05
               }
             }
           }} className="max-w-4xl">
@@ -1436,7 +1443,9 @@ const Products = () => {
           </SheetContent>
         </Sheet>
 
-        <Footer />
+        <Suspense fallback={<div className="h-64" />}>
+          <Footer />
+        </Suspense>
       </div>
     </>;
 };
