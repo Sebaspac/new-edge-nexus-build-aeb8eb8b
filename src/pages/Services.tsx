@@ -616,29 +616,29 @@ const Services = () => {
             delay: 0.2
           }} className="flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 lg:p-12">
               <DisplayCards cards={[{
-              icon: <Star className="size-5 text-primary" />,
+              icon: <Star className="size-5 text-purple-500" />,
               title: "01 Klare Strategie",
               description: "Durchdachte Roadmap",
               date: "Solides Fundament",
-              iconClassName: "text-primary",
-              titleClassName: "text-primary",
-              className: "[grid-area:stack] hover:-translate-y-24 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-primary/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 grayscale-[30%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 shadow-lg hover:shadow-2xl border-primary/30"
+              iconClassName: "text-purple-500",
+              titleClassName: "text-purple-500",
+              className: "[grid-area:stack] hover:-translate-y-24 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-purple-500/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 grayscale-[30%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 shadow-lg hover:shadow-2xl border-purple-500/30"
             }, {
-              icon: <Palette className="size-5 text-accent" />,
+              icon: <Palette className="size-5 text-blue-500" />,
               title: "02 Überzeugende Inhalte",
               description: "Content der begeistert",
               date: "Zielgruppen erreichen",
-              iconClassName: "text-accent",
-              titleClassName: "text-accent",
-              className: "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-14 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-accent/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 grayscale-[30%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 shadow-lg hover:shadow-2xl border-accent/30"
+              iconClassName: "text-blue-500",
+              titleClassName: "text-blue-500",
+              className: "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-14 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-blue-500/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 grayscale-[30%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 shadow-lg hover:shadow-2xl border-blue-500/30"
             }, {
-              icon: <Zap className="size-5 text-secondary" />,
+              icon: <Zap className="size-5 text-yellow-500" />,
               title: "03 Intelligente Umsetzung",
               description: "Technische Exzellenz",
               date: "Nachhaltiger Erfolg",
-              iconClassName: "text-secondary",
-              titleClassName: "text-secondary",
-              className: "[grid-area:stack] translate-x-32 translate-y-20 hover:-translate-y-4 shadow-lg hover:shadow-2xl border-secondary/30"
+              iconClassName: "text-yellow-500",
+              titleClassName: "text-yellow-500",
+              className: "[grid-area:stack] translate-x-32 translate-y-20 hover:-translate-y-4 shadow-lg hover:shadow-2xl border-yellow-500/30"
             }]} />
             </motion.div>
           </div>
