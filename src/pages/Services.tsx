@@ -16,6 +16,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Footer } from "@/components/Footer";
 import CyberneticGridShader from "@/components/ui/cybernetic-grid-shader";
 import DisplayCards from "@/components/ui/display-cards";
+import { SplashCursor } from "@/components/ui/splash-cursor";
 const Services = () => {
   console.log("Services component loaded successfully");
   const {
@@ -91,6 +92,7 @@ const Services = () => {
 
       {/* Hero Section */}
       <section ref={heroContainer} className="relative w-full">
+        <SplashCursor />
         <motion.div style={heroStyle} className="w-full relative h-[75vh] lg:h-auto lg:aspect-video">
           <CyberneticGridShader />
 
