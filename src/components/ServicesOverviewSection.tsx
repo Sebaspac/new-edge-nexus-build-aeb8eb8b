@@ -42,9 +42,7 @@ export const ServicesOverviewSection = () => {
               <span className="bg-gradient-primary bg-clip-text text-transparent inline-block">an die Spitze</span>{" "}
               Ihrer Branche
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed font-normal lg:text-xl">
-              Unser Team aus branchenführenden Experten verbindet theoretisches Wissen mit praktischer Erfahrung, um maßgeschneiderte KI-Lösungen zu entwickeln, die auf die spezifischen Bedürfnisse und Herausforderungen Ihres Unternehmens zugeschnitten sind.
-            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed font-normal lg:text-xl">Unser Creative-Tech-Team vereint Strategie-Know-how und Praxiserfahrung, um maßgeschneiderte KI- und Automationslösungen, die auf die spezifischen Bedürfnisse und Herausforderungen Ihres Unternehmens zugeschnitten sind.</p>
           </motion.div>
 
           {/* Right side: Services List */}
