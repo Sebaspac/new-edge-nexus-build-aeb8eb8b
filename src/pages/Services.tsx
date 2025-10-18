@@ -500,7 +500,19 @@ const Services = () => {
           }} transition={{
             delay: 0.4,
             duration: 0.6
-          }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">Wir arbeiten partnerfähig mit Ihren Teams und bestehenden Agenturen: New Edge orchestriert Kreativ-Spezialist:innen und liefert die Automations-Ebene.    Ein Prozess, ein Dashboard, ein System.</motion.p>
+          }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl mb-4">Wir arbeiten partnerfähig mit Ihren Teams und bestehenden Agenturen: New Edge orchestriert Kreativ-Spezialist:innen und liefert die Automations-Ebene.</motion.p>
+            <motion.p initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.5,
+            duration: 0.6
+          }} className="text-muted-foreground max-w-3xl leading-[1.5] text-xl">Ein Prozess, ein Dashboard, ein System.</motion.p>
           </motion.div>
 
           {/* Two-Column Layout: Accordion Left, Apple Cards Right */}
