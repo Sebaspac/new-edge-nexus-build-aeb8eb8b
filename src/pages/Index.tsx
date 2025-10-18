@@ -225,10 +225,7 @@ const Index = () => {
               <motion.h2 className="text-h1 mb-4 text-foreground text-4xl font-semibold">
                 Gemeinsam Zukunft gestalten – vernetzt. automatisiert. wirkungsvoll.
               </motion.h2>
-              <motion.p className="text-body-lg text-muted-foreground max-w-3xl font-normal text-xl">
-                New Edge verbindet Unternehmen und Agenturen in einem exklusiven Netzwerk, um kreative Exzellenz und
-                intelligente Automatisierung zu vereinen – für mehr Wirkung, weniger Aufwand und messbares Wachstum
-              </motion.p>
+              <motion.p className="text-body-lg text-muted-foreground max-w-3xl font-normal text-xl">New Edge verbindet Unternehmen und Agenturen in einem exklusiven Netzwerk, um kreative Exzellenz und intelligente Automatisierung zu vereinen – für mehr Wirkung, weniger Aufwand und messbares Wachstum.</motion.p>
             </motion.div>
 
             {/* Toggle Tabs */}
@@ -279,10 +276,7 @@ const Index = () => {
                     }} transition={{
                       delay: 0.3,
                       duration: 0.6
-                    }} className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12 md:mb-16 leading-relaxed font-normal md:text-lg">
-                        New Edge ist Ihr Partner für intelligente Automatisierung – und Ihr Zugang zu den besten
-                        Kreativagenturen
-                      </motion.p>
+                    }} className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12 md:mb-16 leading-relaxed font-normal md:text-lg">New Edge ist Ihr Partner für intelligente Automatisierung – und Ihr Zugang zu den besten Kreativagenturen.</motion.p>
                     </div>
 
                     {/* Mobile: Accordion */}
@@ -528,13 +522,18 @@ const Index = () => {
                 Ihr Gewinn mit New Edge
               </motion.h2>
               
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.7 }}
-                className="text-lg text-muted-foreground leading-relaxed font-normal lg:text-xl max-w-3xl mt-6"
-              >
+              <motion.p initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.3,
+              duration: 0.7
+            }} className="text-lg text-muted-foreground leading-relaxed font-normal lg:text-xl max-w-3xl mt-6">
                 Gemeinsam mit Ihrem Team und bestehenden Agenturpartnern entwickeln wir KI-gestützte Automationslösungen, die Marke, Content und Prozesse nahtlos verbinden
               </motion.p>
             </motion.div>
