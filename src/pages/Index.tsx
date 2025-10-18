@@ -206,56 +206,6 @@ const Index = () => {
         {/* Innovation Section */}
         <InnovationSection />
 
-        {/* Problem-Lösung Sektion - Neu aus Briefing */}
-        <section className="relative py-8 sm:py-12 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
-          <div className="container-xl relative z-10">
-            {/* Header with enhanced animations */}
-            <motion.div initial={{
-            opacity: 0,
-            y: 50,
-            scale: 0.9
-          }} whileInView={{
-            opacity: 1,
-            y: 0,
-            scale: 1
-          }} viewport={{
-            once: true,
-            margin: "-80px"
-          }} transition={{
-            duration: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94]
-          }} className="text-left mb-12">
-              <motion.h2 initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.2,
-              duration: 0.7
-            }} className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950 font-semibold text-4xl">
-                Ihr Gewinn mit New Edge
-              </motion.h2>
-              
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.7 }}
-                className="text-lg text-muted-foreground leading-relaxed font-normal lg:text-xl max-w-3xl mt-6"
-              >
-                Gemeinsam mit Ihrem Team und bestehenden Agenturpartnern entwickeln wir KI-gestützte Automationslösungen, die Marke, Content und Prozesse nahtlos verbinden
-              </motion.p>
-            </motion.div>
-
-            {/* Two-Column Layout with Mobile Scroll Effect */}
-            <ProblemSolutionSection openAccordionIndex={openAccordionIndex} setOpenAccordionIndex={setOpenAccordionIndex} />
-          </div>
-        </section>
-
         {/* Gemeinsam Zukunft gestalten Section */}
         <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
           <div className="container-xl relative z-10">
@@ -541,6 +491,56 @@ const Index = () => {
                 Agentur-Match anfragen
               </Button>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Problem-Lösung Sektion - Neu aus Briefing */}
+        <section className="relative py-8 sm:py-12 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+          <div className="container-xl relative z-10">
+            {/* Header with enhanced animations */}
+            <motion.div initial={{
+            opacity: 0,
+            y: 50,
+            scale: 0.9
+          }} whileInView={{
+            opacity: 1,
+            y: 0,
+            scale: 1
+          }} viewport={{
+            once: true,
+            margin: "-80px"
+          }} transition={{
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }} className="text-left mb-12">
+              <motion.h2 initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.2,
+              duration: 0.7
+            }} className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950 font-semibold text-4xl">
+                Ihr Gewinn mit New Edge
+              </motion.h2>
+              
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.7 }}
+                className="text-lg text-muted-foreground leading-relaxed font-normal lg:text-xl max-w-3xl mt-6"
+              >
+                Gemeinsam mit Ihrem Team und bestehenden Agenturpartnern entwickeln wir KI-gestützte Automationslösungen, die Marke, Content und Prozesse nahtlos verbinden
+              </motion.p>
+            </motion.div>
+
+            {/* Two-Column Layout with Mobile Scroll Effect */}
+            <ProblemSolutionSection openAccordionIndex={openAccordionIndex} setOpenAccordionIndex={setOpenAccordionIndex} />
           </div>
         </section>
 
