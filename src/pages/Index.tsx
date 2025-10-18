@@ -7,7 +7,7 @@ import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { FastLoadWrapper } from "../components/FastLoadWrapper";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
-import { Footer } from "@/components/Footer";
+import { lazy, Suspense, useCallback, useState, useEffect } from "react";
 import { ProblemSolutionSection } from "@/components/ProblemSolutionSection";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -19,8 +19,10 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { toast } from "@/hooks/use-toast";
-import { useCallback, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
+// Lazy load Footer
+const Footer = lazy(() => import("@/components/Footer").then(module => ({ default: module.Footer })));
 import {
   ArrowRight,
   Lightbulb,
@@ -1092,7 +1094,9 @@ const Index = () => {
         </Sheet>
 
         {/* Footer */}
-        <Footer />
+        <Suspense fallback={<div className="min-h-[400px]" />}>
+          <Footer />
+        </Suspense>
 
         {/* Cookie Consent */}
         <CookieConsent />

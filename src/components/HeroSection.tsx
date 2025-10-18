@@ -3,7 +3,7 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { SplineScene } from "./ui/splite";
+import { LazySplineScene } from "./LazySplineScene";
 import CyberneticGridShader from "./ui/cybernetic-grid-shader";
 import { SplashCursor } from "./ui/splash-cursor";
 import { useHeroScrollAnimation } from "@/hooks/useHeroScrollAnimation";
@@ -76,7 +76,12 @@ export const HeroSection = ({
 
         {/* Right Side - 3D Spline Scene */}
         <div className="relative overflow-hidden z-20">
-          <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
+          <LazySplineScene 
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" 
+            className="w-full h-full"
+            threshold={0.1}
+            rootMargin="100px"
+          />
         </div>
 
         {/* Scroll Indicator */}
