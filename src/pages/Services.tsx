@@ -602,7 +602,7 @@ const Services = () => {
           }} transition={{
             duration: 0.6,
             delay: 0.2
-          }} className="flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 lg:p-12">
+          }} className="flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 lg:p-12 border-2 border-primary/20 shadow-lg">
               <DisplayCards cards={[{
               icon: <Star className="size-5 text-primary" />,
               title: "01 Klare Strategie",
