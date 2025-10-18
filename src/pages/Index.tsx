@@ -946,7 +946,7 @@ const Index = () => {
                 className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 mb-8 sm:mb-10 leading-[1.5] max-w-3xl mx-auto px-4"
               >
                 New Edge ist das Headquarter für Innovation. Hier entsteht die Zukunft von Marken, Agenturen und
-                Prozessen
+                Prozessen.
                 <br />
               </motion.p>
 
