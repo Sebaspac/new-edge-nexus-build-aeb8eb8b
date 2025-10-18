@@ -247,9 +247,7 @@ const Services = () => {
                             <Target className="w-8 h-8 text-white" />
                           </div>
                           <h4 className="text-h3 mb-4 text-center text-foreground">STRATEGIE</h4>
-                          <p className="text-muted-foreground text-center leading-relaxed text-base">
-                            Das Fundament für Ihren Erfolg. Wir entwickeln eine klare Roadmap und visuelle Identität
-                          </p>
+                          <p className="text-muted-foreground text-center leading-relaxed text-base">Das Fundament für Ihren Erfolg. Wir entwickeln eine klare Roadmap und visuelle Identität.</p>
                         </div>
                       </div>
 
@@ -310,9 +308,7 @@ const Services = () => {
                             <Palette className="w-8 h-8 text-white" />
                           </div>
                           <h4 className="text-h3 mb-4 text-center text-foreground">UMSETZUNG</h4>
-                          <p className="text-muted-foreground text-center leading-relaxed">
-                            Content-Produktion und Reichweite-Aufbau. Ihre Botschaft erreicht die richtige Zielgruppe
-                          </p>
+                          <p className="text-muted-foreground text-center leading-relaxed">Content-Produktion und Reichweite-Aufbau. Ihre Botschaft erreicht die richtige Zielgruppe.</p>
                         </div>
                       </div>
                     </motion.div>
@@ -333,9 +329,7 @@ const Services = () => {
                             <Zap className="w-8 h-8 text-white" />
                           </div>
                           <h4 className="mb-4 text-center text-foreground text-lg font-semibold">INNOVATION</h4>
-                          <p className="text-muted-foreground text-center leading-relaxed">
-                            Technische Implementierung und Automation für nachhaltigen, messbaren Erfolg
-                          </p>
+                          <p className="text-muted-foreground text-center leading-relaxed">Technische Implementierung und Automation für nachhaltigen, messbaren Erfolg.</p>
                         </div>
                       </div>
 
