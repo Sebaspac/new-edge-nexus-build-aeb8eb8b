@@ -125,21 +125,19 @@ const Index = () => {
       icon: Lightbulb,
       title: "New Edge Studio",
       description:
-        "Das Studio ist die kreative Basis Ihrer Marke. Wir schärfen Positionierung, Tonalität und Erscheinungsbild und übersetzen sie in starke Geschichten, Kampagnen und Designsysteme.",
+        "Kreative Basis Ihrer Marke: Positionierung, Tonalität, Erscheinungsbild – übersetzt in Kampagnen & Designsysteme.",
       gradient: "from-primary to-primary/70",
     },
     {
       icon: Palette,
       title: "New Edge Media",
-      description:
-        "Media produziert und steuert Inhalte entlang des gesamten Funnels – von Social bis Website, von Paid bis Owned. Wir kombinieren Redaktion, Kreation und Kanal-Management zu einer schlanken Content-Factory mit klaren KPIs.",
+      description: "Content für den ganzen Funnel – Social bis Website, Paid & Owned – mit klaren KPIs.",
       gradient: "from-secondary to-secondary/70",
     },
     {
       icon: Zap,
       title: "New Edge Lab",
-      description:
-        "Das Lab implementiert die Systeme hinter Ihrer Marken- und Contentarbeit: Automations-Workflows, Integrationen, AI- & Voice-Agents sowie Dashboards.",
+      description: "Automationsmotor: Workflows, Integrationen, KI-Agenten & Dashboards.",
       gradient: "from-accent to-accent/70",
     },
   ];
