@@ -326,8 +326,8 @@ const Services = () => {
                     ease: "easeOut"
                   }}>
                       <div className="flex-1 max-w-md mr-8">
-                        <div className="bg-gradient-to-br from-yellow-100 to-yellow-50 backdrop-blur-xl p-8 rounded-3xl border border-yellow-300 shadow-lg transition-transform hover:scale-[1.02] duration-200">
-                          <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                        <div className="bg-gradient-to-br from-yellow-50 to-white backdrop-blur-xl p-8 rounded-3xl border border-yellow-200 shadow-lg transition-transform hover:scale-[1.02] duration-200">
+                          <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                             <Zap className="w-8 h-8 text-white" />
                           </div>
                           <h4 className="mb-4 text-center text-foreground text-lg font-semibold">INNOVATION</h4>
