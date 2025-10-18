@@ -327,7 +327,7 @@ const Lab = () => {
                               {idx + 1}
                             </span>
                             <div className="flex-1">
-                              <span className="font-bold text-black">{typeof detail === 'string' ? detail : detail.title}</span>
+                              <span className="font-semibold text-black">{typeof detail === 'string' ? detail : detail.title}</span>
                               {typeof detail === 'object' && detail.description && <p className="mt-1 text-gray-600">{detail.description}</p>}
                             </div>
                           </motion.li>)}

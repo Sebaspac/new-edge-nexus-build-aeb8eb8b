@@ -345,7 +345,7 @@ const Media = () => {
                               {idx + 1}
                             </span>
                             <div className="flex-1">
-                              <div className="font-bold text-black mb-1">{detail.title}</div>
+                              <div className="font-semibold text-black mb-1">{detail.title}</div>
                               <div className="text-gray-600">{detail.description}</div>
                             </div>
                           </motion.li>)}
