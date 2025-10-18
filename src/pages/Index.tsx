@@ -240,6 +240,15 @@ const Index = () => {
                 Ihr Gewinn mit New Edge
               </motion.h2>
               
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.7 }}
+                className="text-lg text-muted-foreground leading-relaxed font-normal lg:text-xl max-w-3xl mt-6"
+              >
+                Gemeinsam mit Ihrem Team und bestehenden Agenturpartnern entwickeln wir KI-gestützte Automationslösungen, die Marke, Content und Prozesse nahtlos verbinden
+              </motion.p>
             </motion.div>
 
             {/* Two-Column Layout with Mobile Scroll Effect */}
