@@ -29,6 +29,13 @@ export const PAGE_VIDEOS = {
     '/assets/lab-section-video.mp4',
     '/assets/lab-new-video.mp4',
   ],
+  products: [
+    '/assets/agents-hero-video.mp4',
+    '/assets/products-hero-video.mp4',
+    '/assets/liam-video.mp4',
+    '/assets/vera-agent-video.mp4',
+    '/assets/cora-agent-video.mp4',
+  ],
 };
 
 /**

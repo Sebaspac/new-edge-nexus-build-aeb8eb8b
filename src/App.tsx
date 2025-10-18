@@ -14,7 +14,7 @@ import Services from "./pages/Services";
 import Media from "./pages/Media";
 import Studio from "./pages/Studio";
 import Lab from "./pages/Lab";
-import Products from "./pages/Products";
+import OptimizedProducts from "./components/OptimizedProducts";
 import Team from "./pages/Team";
 import Impressum from "./pages/Impressum";
 import NotFound from "./pages/NotFound";
@@ -47,7 +47,7 @@ const App = () => {
                 <Route path="/media" element={<Media />} />
                 <Route path="/studio" element={<Studio />} />
                 <Route path="/lab" element={<Lab />} />
-                <Route path="/products" element={<Products />} />
+                <Route path="/products" element={<OptimizedProducts />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/careers" element={<Careers />} />

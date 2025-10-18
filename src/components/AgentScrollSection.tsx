@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, memo } from "react";
 
 interface AgentScrollSectionProps {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ interface AgentScrollSectionProps {
   imagePosition?: "left" | "right";
 }
 
-export const AgentScrollSection = ({
+const AgentScrollSectionComponent = ({
   children,
   videoSrc,
   gradient,
@@ -156,3 +156,5 @@ export const AgentScrollSection = ({
     </>
   );
 };
+
+export const AgentScrollSection = memo(AgentScrollSectionComponent);
