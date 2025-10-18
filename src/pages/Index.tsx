@@ -585,9 +585,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }} className="text-body-lg text-muted-foreground max-w-3xl leading-[1.5] text-xl">
-                Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt erfolgreich zu positionieren
-              </motion.p>
+            }} className="text-body-lg text-muted-foreground max-w-3xl leading-[1.5] text-xl">Drei Bereiche, eine Vision: Ihre Marke erfolgreich in der digitalen Welt erfolgreich zu positionieren.</motion.p>
             </motion.div>
 
             {/* Service Cards Grid */}
