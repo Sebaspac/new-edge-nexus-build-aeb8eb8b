@@ -1018,7 +1018,7 @@ const Products = () => {
         </section>
 
         {/* Agent Hub */}
-        <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/30">
+        <section className="hidden py-12 sm:py-16 bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div initial="hidden" whileInView="visible" viewport={{
             once: true,
