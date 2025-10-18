@@ -1,5 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, memo } from "react";
+import { LazyVideo } from "@/components/LazyVideo";
+import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
 
 interface AgentScrollSectionProps {
   children: React.ReactNode;
@@ -15,6 +17,7 @@ const AgentScrollSectionComponent = ({
   imagePosition = "right",
 }: AgentScrollSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { shouldAnimate, whileHover } = useOptimizedAnimation();
   
   // Scroll-based animations for mobile
   const { scrollYProgress } = useScroll({
@@ -42,16 +45,15 @@ const AgentScrollSectionComponent = ({
           <div
             className={`w-full h-64 sm:h-80 ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
           >
-            <video
+            <LazyVideo
+              src={videoSrc}
+              className="absolute inset-0 w-full h-full object-cover"
               autoPlay
               loop
               muted
               playsInline
-              preload="auto"
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src={videoSrc} type="video/mp4" />
-            </video>
+              preload="none"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
           </div>
         </motion.div>
@@ -98,20 +100,19 @@ const AgentScrollSectionComponent = ({
             className="sticky top-24 order-2 lg:order-1"
           >
             <motion.div
-              whileHover={{ scale: 1.05, rotate: -2 }}
+              whileHover={shouldAnimate ? { scale: 1.05, rotate: -2 } : undefined}
               transition={{ type: "spring", stiffness: 300 }}
               className={`w-full h-96 ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
             >
-              <video
+              <LazyVideo
+                src={videoSrc}
+                className="absolute inset-0 w-full h-full object-cover"
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload="auto"
-                className="absolute inset-0 w-full h-full object-cover"
-              >
-                <source src={videoSrc} type="video/mp4" />
-              </video>
+                preload="none"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </motion.div>
           </motion.div>
@@ -134,20 +135,19 @@ const AgentScrollSectionComponent = ({
             className="sticky top-24"
           >
             <motion.div
-              whileHover={{ scale: 1.05, rotate: 2 }}
+              whileHover={shouldAnimate ? { scale: 1.05, rotate: 2 } : undefined}
               transition={{ type: "spring", stiffness: 300 }}
               className={`w-full h-96 ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
             >
-              <video
+              <LazyVideo
+                src={videoSrc}
+                className="absolute inset-0 w-full h-full object-cover"
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload="auto"
-                className="absolute inset-0 w-full h-full object-cover"
-              >
-                <source src={videoSrc} type="video/mp4" />
-              </video>
+                preload="none"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </motion.div>
           </motion.div>

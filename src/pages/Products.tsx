@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense, useCallback } from "react";
+import { useEffect, useState, lazy, Suspense, useCallback, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Bot, Phone, FileText, Lightbulb, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,14 +13,38 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from "framer-motion";
 import { AgentScrollSection } from "@/components/AgentScrollSection";
 import { LazyVideo } from "@/components/LazyVideo";
+import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
 
 // Lazy load Footer for better initial performance
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
+// Memoized Detail Card Component
+const DetailCard = memo(({ title, children, gradient, hover = true }: { 
+  title: string; 
+  children: React.ReactNode; 
+  gradient?: string;
+  hover?: boolean;
+}) => (
+  <motion.div
+    variants={{
+      hidden: { opacity: 0, y: 20 },
+      visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    }}
+    whileHover={hover ? { scale: 1.02, y: -5 } : undefined}
+    transition={{ type: "spring", stiffness: 300 }}
+    className={`${gradient || 'bg-white/80 backdrop-blur-sm border border-purple-100 hover:shadow-2xl hover:border-purple-200'} p-6 rounded-2xl shadow-lg`}
+  >
+    <h3 className={`text-xl sm:text-2xl font-black mb-4 ${gradient ? 'text-white' : 'text-black'}`}>{title}</h3>
+    {children}
+  </motion.div>
+));
+
 const Products = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const [selectedAgent, setSelectedAgent] = useState("");
+  const { shouldAnimate, whileHover } = useOptimizedAnimation();
+  
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -97,10 +121,16 @@ const Products = () => {
         }}>
             {/* 16:9 Aspect Ratio Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
-              {/* Background Video */}
-              <video autoPlay loop muted playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover">
-                <source src="/assets/agents-hero-video.mp4" type="video/mp4" />
-              </video>
+            {/* Background Video */}
+              <LazyVideo
+                src="/assets/agents-hero-video.mp4"
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="none"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               
               {/* Text Content - Bottom Left */}
@@ -238,10 +268,10 @@ const Products = () => {
                   }
                 }
               }} className="flex items-center gap-4 mb-8">
-                  <motion.div whileHover={{
+                  <motion.div whileHover={shouldAnimate ? {
                   scale: 1.1,
                   rotate: 5
-                }} className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl" style={{
+                } : undefined} className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl" style={{
                   background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
                 }}>
                     <Lightbulb className="w-8 h-8 text-white" />
@@ -249,30 +279,11 @@ const Products = () => {
                   <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Riley – Ihr Wissensagent</h2>
                 </motion.div>
                 
-                <motion.div variants={{
-                hidden: {
-                  opacity: 0,
-                  y: 20
-                },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.5
-                  }
-                }
-              }} whileHover={{
-                scale: 1.02,
-                y: -5
-              }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
-                  <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Was macht Riley?</h3>
+                <DetailCard title="Was macht Riley?">
                   <p className="text-sm leading-relaxed text-gray-700 sm:text-base">
                     Riley nutzt Retrieval‑Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten. Der Einsatz von RAG verringert Halluzinationen und schafft mehr Vertrauen in die Ergebnisse.
                   </p>
-                </motion.div>
+                </DetailCard>
 
                 <motion.div variants={{
                 hidden: {
@@ -1395,15 +1406,16 @@ const Products = () => {
           </div>
         </section>
 
-        {/* Contact Form Sheet */}
-        <Sheet open={isContactSheetOpen} onOpenChange={setIsContactSheetOpen}>
-          <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
-            <SheetHeader className="mb-6">
-              <SheetTitle className="text-2xl font-bold">Projekt besprechen</SheetTitle>
-              <SheetDescription>
-                Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen.
-              </SheetDescription>
-            </SheetHeader>
+        {/* Contact Form Sheet - Only render when open */}
+        {isContactSheetOpen && (
+          <Sheet open={true} onOpenChange={setIsContactSheetOpen}>
+            <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
+              <SheetHeader className="mb-6">
+                <SheetTitle className="text-2xl font-bold">Projekt besprechen</SheetTitle>
+                <SheetDescription>
+                  Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen.
+                </SheetDescription>
+              </SheetHeader>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
@@ -1442,6 +1454,7 @@ const Products = () => {
             </form>
           </SheetContent>
         </Sheet>
+        )}
 
         <Suspense fallback={<div className="h-64" />}>
           <Footer />
