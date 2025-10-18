@@ -533,9 +533,7 @@ const Index = () => {
             }} transition={{
               delay: 0.3,
               duration: 0.7
-            }} className="text-lg text-muted-foreground leading-relaxed font-normal lg:text-xl max-w-3xl mt-6">
-                Gemeinsam mit Ihrem Team und bestehenden Agenturpartnern entwickeln wir KI-gestützte Automationslösungen, die Marke, Content und Prozesse nahtlos verbinden
-              </motion.p>
+            }} className="text-lg text-muted-foreground leading-relaxed font-normal lg:text-xl max-w-3xl mt-6">Gemeinsam mit Ihrem Team und bestehenden Agenturpartnern entwickeln wir KI-gestützte Automationslösungen, die Marke, Content und Prozesse nahtlos verbinden.</motion.p>
             </motion.div>
 
             {/* Two-Column Layout with Mobile Scroll Effect */}
