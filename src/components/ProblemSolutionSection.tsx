@@ -203,7 +203,7 @@ export const ProblemSolutionSection = ({ openAccordionIndex, setOpenAccordionInd
               >
                 <GlassCard
                   title="Innovation als Prozess"
-                  description="Statt einmaliger Projekte bauen wir Ihnen einen nachhaltigen Ablauf — weniger Aufwand, schnellere Umsetzung, planbare Skalierung"
+                  description="Statt einmaliger Projekte bauen wir Ihnen einen nachhaltigen Ablauf — weniger Aufwand, schnellere Umsetzung, planbare Skalierung."
                 />
               </motion.div>
 
@@ -215,7 +215,7 @@ export const ProblemSolutionSection = ({ openAccordionIndex, setOpenAccordionInd
               >
                 <GlassCard
                   title="Ganzheitliche Transformation"
-                  description="Keine Insellösungen mehr. Wir verbinden Marke, Content und KI-Automatisierung zu einem durchgängigen System"
+                  description="Keine Insellösungen mehr. Wir verbinden Marke, Content und KI-Automatisierung zu einem durchgängigen System."
                 />
               </motion.div>
 
@@ -227,7 +227,7 @@ export const ProblemSolutionSection = ({ openAccordionIndex, setOpenAccordionInd
               >
                 <GlassCard
                   title="Kreatives Innovations-Hauptquartier"
-                  description="Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden"
+                  description="Nicht als klassische Agentur, sondern als Ort, an dem Ideen, Technologien und Design zu echter Zukunftskraft werden."
                 />
               </motion.div>
             </div>
