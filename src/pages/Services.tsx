@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useHeroScrollAnimation } from "@/hooks/useHeroScrollAnimation";
@@ -13,10 +13,11 @@ import { toast } from "@/hooks/use-toast";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Footer } from "@/components/Footer";
 import CyberneticGridShader from "@/components/ui/cybernetic-grid-shader";
 import DisplayCards from "@/components/ui/display-cards";
 import { SplashCursor } from "@/components/ui/splash-cursor";
+
+const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const Services = () => {
   console.log("Services component loaded successfully");
   const {
@@ -942,7 +943,9 @@ const Services = () => {
         </motion.button>}
 
       {/* Footer */}
-      <Footer />
+      <Suspense fallback={<div className="h-64" />}>
+        <Footer />
+      </Suspense>
     </div>;
 };
 export default Services;

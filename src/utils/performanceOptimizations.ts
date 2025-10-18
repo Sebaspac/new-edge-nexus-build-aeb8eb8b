@@ -186,6 +186,40 @@ export const HEADER_VIDEOS = [
 ];
 
 /**
+ * Service page videos - lazy loaded when sections scroll into view
+ */
+export const SERVICE_PAGE_VIDEOS = [
+  // Studio page
+  '/assets/studio-hero-background.mp4',
+  '/assets/studio-service-video.mp4',
+  '/assets/brandstory-video.mp4',
+  '/assets/template-video.mp4',
+  '/assets/wireframes-video.mp4',
+  
+  // Media page
+  '/assets/media-hero-video.mp4',
+  '/assets/media-content-video.mp4',
+  '/assets/media-launch-video.mp4',
+  '/assets/media-new-video.mp4',
+  '/assets/media-section-video.mp4',
+  
+  // Lab page
+  '/assets/lab-hero-video.mp4',
+  '/assets/lab-ki-automation-video.mp4',
+  '/assets/lab-new-video.mp4',
+  '/assets/lab-section-video.mp4',
+  
+  // Agent videos
+  '/assets/cora-agent-video.mp4',
+  '/assets/vera-agent-video.mp4',
+  '/assets/liam-video.mp4',
+  
+  // Products page
+  '/assets/products-hero-video.mp4',
+  '/assets/agents-hero-video.mp4',
+];
+
+/**
  * Images that load on scroll - all other website images
  */
 export const LAZY_LOAD_IMAGES = [
@@ -233,6 +267,7 @@ export function addResourceHints(): void {
   const preconnectUrls = [
     'https://fonts.googleapis.com',
     'https://fonts.gstatic.com',
+    'https://n8n-pro-oh9w.onrender.com', // Contact form endpoint
   ];
   
   preconnectUrls.forEach(url => {

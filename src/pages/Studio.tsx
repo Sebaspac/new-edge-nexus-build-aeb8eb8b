@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sparkles, Palette, Monitor, Package, Grid3x3, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,8 +7,9 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from "framer-motion";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { ServiceScrollSection } from "@/components/ServiceScrollSection";
-import { Footer } from "@/components/Footer";
 import { useHeroScrollAnimation } from "@/hooks/useHeroScrollAnimation";
+
+const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const Studio = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
@@ -364,7 +365,9 @@ const Studio = () => {
           </div>
         </section>
 
-        <Footer />
+        <Suspense fallback={<div className="h-64" />}>
+          <Footer />
+        </Suspense>
       </div>
 
       <ContactFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} accentColor="#6366f1" gradientFrom="#6366f1" gradientTo="#a855f7" theme="studio" />

@@ -710,6 +710,12 @@ video {
 
 /* Mobile performance optimizations */
 @media (max-width: 768px) {
+  /* Touch action optimization */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  
   /* Disable expensive animations on mobile */
   .animate-float,
   .animate-rotate,
@@ -726,8 +732,32 @@ video {
   }
   
   /* Remove will-change on mobile to save memory */
-  * {
+  motion-div,
+  .animate,
+  [data-framer-motion] {
     will-change: auto !important;
+  }
+  
+  /* Optimize video playback on mobile */
+  video {
+    object-fit: cover;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  /* Fast tap response */
+  button,
+  a,
+  [role="button"] {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* Optimize scrolling performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto !important;
   }
 }
 

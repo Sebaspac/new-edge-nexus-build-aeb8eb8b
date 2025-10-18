@@ -75,34 +75,33 @@ const AgentScrollSectionComponent = ({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        variants={{
-          hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.1,
-              delayChildren: 0.05,
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: shouldAnimate ? 0.08 : 0,
+                delayChildren: shouldAnimate ? 0.05 : 0,
+              },
             },
-          },
-        }}
+          }}
         className="hidden lg:grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start pb-12 sm:pb-16"
       >
         {imagePosition === "left" && (
           <motion.div
             variants={{
-              hidden: { opacity: 0, scale: 0.8 },
+              hidden: { opacity: 0, scale: 0.95 },
               visible: {
                 opacity: 1,
                 scale: 1,
-                transition: { duration: 0.8 },
+                transition: { duration: shouldAnimate ? 0.6 : 0 },
               },
             }}
             className="sticky top-24 order-2 lg:order-1"
           >
             <motion.div
-              whileHover={shouldAnimate ? { scale: 1.05, rotate: -2 } : undefined}
-              transition={{ type: "spring", stiffness: 300 }}
-              className={`w-full h-96 ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
+              {...(shouldAnimate && whileHover)}
+              className={`w-full h-96 ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200`}
             >
               <LazyVideo
                 src={videoSrc}
@@ -125,19 +124,18 @@ const AgentScrollSectionComponent = ({
         {imagePosition === "right" && (
           <motion.div
             variants={{
-              hidden: { opacity: 0, scale: 0.8 },
+              hidden: { opacity: 0, scale: 0.95 },
               visible: {
                 opacity: 1,
                 scale: 1,
-                transition: { duration: 0.8 },
+                transition: { duration: shouldAnimate ? 0.6 : 0 },
               },
             }}
             className="sticky top-24"
           >
             <motion.div
-              whileHover={shouldAnimate ? { scale: 1.05, rotate: 2 } : undefined}
-              transition={{ type: "spring", stiffness: 300 }}
-              className={`w-full h-96 ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
+              {...(shouldAnimate && whileHover)}
+              className={`w-full h-96 ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200`}
             >
               <LazyVideo
                 src={videoSrc}

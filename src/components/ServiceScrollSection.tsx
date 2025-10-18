@@ -1,6 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { LucideIcon } from "lucide-react";
+import { LazyVideo } from "./LazyVideo";
+import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
 
 interface ServiceScrollSectionProps {
   children: React.ReactNode;
@@ -18,6 +20,7 @@ export const ServiceScrollSection = ({
   icon: Icon,
 }: ServiceScrollSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { shouldAnimate, whileHover } = useOptimizedAnimation();
   
   // Scroll-based animations for mobile - Optimized
   const { scrollYProgress } = useScroll({
@@ -49,16 +52,15 @@ export const ServiceScrollSection = ({
           >
             {videoSrc ? (
               <>
-                <video
+                <LazyVideo
+                  src={videoSrc}
                   autoPlay
                   loop
                   muted
                   playsInline
-                  preload="auto"
+                  preload="none"
                   className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src={videoSrc} type="video/mp4" />
-                </video>
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </>
             ) : Icon ? (
@@ -102,31 +104,31 @@ export const ServiceScrollSection = ({
         {/* Image Left */}
         {!isEven && (
           <motion.div
-            variants={{
-              hidden: { opacity: 0, scale: 0.95 },
-              visible: {
-                opacity: 1,
-                scale: 1,
-                transition: { duration: 0.6 },
-              },
-            }}
+          variants={{
+            hidden: { opacity: 0, scale: 0.95 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              transition: { duration: shouldAnimate ? 0.6 : 0 },
+            },
+          }}
             className="sticky top-24 order-2 lg:order-1"
           >
-            <div
-              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200 hover:scale-[1.02]`}
+            <motion.div
+              {...(shouldAnimate && whileHover)}
+              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200`}
             >
               {videoSrc ? (
                 <>
-                  <video
+                  <LazyVideo
+                    src={videoSrc}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    preload="auto"
+                    preload="none"
                     className="w-full h-full object-cover rounded-2xl"
-                  >
-                    <source src={videoSrc} type="video/mp4" />
-                  </video>
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </>
               ) : Icon ? (
@@ -135,7 +137,7 @@ export const ServiceScrollSection = ({
                   <Icon className="w-40 h-40 text-white drop-shadow-2xl" />
                 </>
               ) : null}
-            </div>
+            </motion.div>
           </motion.div>
         )}
 
@@ -152,26 +154,26 @@ export const ServiceScrollSection = ({
               visible: {
                 opacity: 1,
                 scale: 1,
-                transition: { duration: 0.6 },
+                transition: { duration: shouldAnimate ? 0.6 : 0 },
               },
             }}
             className="sticky top-24"
           >
-            <div
-              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200 hover:scale-[1.02]`}
+            <motion.div
+              {...(shouldAnimate && whileHover)}
+              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200`}
             >
               {videoSrc ? (
                 <>
-                  <video
+                  <LazyVideo
+                    src={videoSrc}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    preload="auto"
+                    preload="none"
                     className="w-full h-full object-cover rounded-2xl"
-                  >
-                    <source src={videoSrc} type="video/mp4" />
-                  </video>
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </>
               ) : Icon ? (
@@ -180,7 +182,7 @@ export const ServiceScrollSection = ({
                   <Icon className="w-40 h-40 text-white drop-shadow-2xl" />
                 </>
               ) : null}
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </motion.div>
