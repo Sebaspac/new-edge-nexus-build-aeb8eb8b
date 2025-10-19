@@ -30,7 +30,7 @@ export const ServiceScrollSection = ({
 
   const imageOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
   const imageScale = useTransform(scrollYProgress, [0, 0.4], [1, 0.9]);
-  const imageY = useTransform(scrollYProgress, [0, 0.4], [0, -30]);
+  const imageY = useTransform(scrollYProgress, [0, 0.4], [0, -15]);
 
   const isEven = imagePosition === "right";
 

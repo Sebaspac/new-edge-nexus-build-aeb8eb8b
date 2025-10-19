@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { LucideIcon } from "lucide-react";
+import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
 interface Service {
   title: string;
   description: string;
@@ -20,6 +21,8 @@ export const ServicesSection = ({
   accentColor,
   bgColor = "bg-white"
 }: ServicesSectionProps) => {
+  const { shouldAnimate } = useOptimizedAnimation();
+  
   return <section className={`py-8 sm:py-16 ${bgColor}`}>
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
@@ -41,12 +44,12 @@ export const ServicesSection = ({
         }} viewport={{
           once: true
         }} transition={{
-          duration: 0.6,
-          delay: index * 0.1
+          duration: shouldAnimate ? 0.6 : 0,
+          delay: shouldAnimate ? index * 0.05 : 0
         }}>
-              <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] animate-fade-in group h-full">
+              <Card className="bg-white border-0 shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-[1.02] animate-fade-in group h-full">
                 <CardContent className="p-5 text-center h-full flex flex-col">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-all duration-200" style={{
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" style={{
                 backgroundColor: `${accentColor}20`
               }}>
                     <service.icon className="w-6 h-6" style={{

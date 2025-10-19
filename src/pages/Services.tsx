@@ -2,6 +2,7 @@ import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useHeroScrollAnimation } from "@/hooks/useHeroScrollAnimation";
+import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
 import { ArrowRight, ArrowDown, ChevronDown, Lightbulb, Palette, Zap, Star, Target, Eye, Phone, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -32,6 +33,7 @@ const Services = () => {
     container: heroContainer,
     style: heroStyle
   } = useHeroScrollAnimation();
+  const { shouldAnimate, whileHover } = useOptimizedAnimation();
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -117,20 +119,13 @@ const Services = () => {
               <motion.span className="italic bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black block" style={{
               background: "linear-gradient(135deg, #A78BFA, #818CF8, #60A5FA)",
               WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundSize: "200% 200%"
-            }} whileInView={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-            }} viewport={{
-              once: false
-            }} transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }} whileHover={{
-              scale: 1.05,
-              textShadow: "0 0 20px rgba(167, 139, 250, 0.5)"
-            }}>
+              WebkitTextFillColor: "transparent"
+            }} {...(shouldAnimate && {
+              whileHover: {
+                scale: 1.05,
+                textShadow: "0 0 20px rgba(167, 139, 250, 0.5)"
+              }
+            })}>
                 JOURNEY
               </motion.span>
             </motion.h1>
@@ -235,13 +230,13 @@ const Services = () => {
                   {/* Journey Steps */}
                   <div className="space-y-24 relative z-10">
                     {/* Step 1: Strategy */}
-                    <motion.div className="flex items-center" whileInView={{
+                    <motion.div className="flex items-center" whileInView={shouldAnimate ? {
                     x: [100, 0],
                     opacity: [0, 1]
-                  }} viewport={{
+                  } : { opacity: 1 }} viewport={{
                     once: true
                   }} transition={{
-                    duration: 0.8,
+                    duration: shouldAnimate ? 0.8 : 0,
                     ease: "easeOut"
                   }}>
                       <div className="flex-1 max-w-md mr-8">
@@ -278,13 +273,13 @@ const Services = () => {
                     </motion.div>
 
                     {/* Step 2: Implementation */}
-                    <motion.div className="flex items-center" whileInView={{
+                    <motion.div className="flex items-center" whileInView={shouldAnimate ? {
                     x: [-100, 0],
                     opacity: [0, 1]
-                  }} viewport={{
+                  } : { opacity: 1 }} viewport={{
                     once: true
                   }} transition={{
-                    duration: 0.8,
+                    duration: shouldAnimate ? 0.8 : 0,
                     ease: "easeOut"
                   }}>
                       <div className="flex-1 max-w-md mr-8 opacity-30">
@@ -321,13 +316,13 @@ const Services = () => {
                     </motion.div>
 
                     {/* Step 3: Innovation */}
-                    <motion.div className="flex items-center" whileInView={{
+                    <motion.div className="flex items-center" whileInView={shouldAnimate ? {
                     x: [100, 0],
                     opacity: [0, 1]
-                  }} viewport={{
+                  } : { opacity: 1 }} viewport={{
                     once: true
                   }} transition={{
-                    duration: 0.8,
+                    duration: shouldAnimate ? 0.8 : 0,
                     ease: "easeOut"
                   }}>
                       <div className="flex-1 max-w-md mr-8">
@@ -377,39 +372,16 @@ const Services = () => {
                     duration: 0.8,
                     type: "spring"
                   }}>
-                      <motion.div className="w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full border-8 border-white shadow-2xl flex items-center justify-center mx-auto mb-8 relative" animate={{
-                      boxShadow: ["0 0 20px rgba(16, 185, 129, 0.3)", "0 0 40px rgba(16, 185, 129, 0.6)", "0 0 20px rgba(16, 185, 129, 0.3)"]
-                    }} transition={{
-                      boxShadow: {
-                        duration: 3,
-                        repeat: Infinity
-                      }
-                    }} whileHover={{
-                      scale: 1.1,
-                      boxShadow: "0 0 50px rgba(16, 185, 129, 0.8)",
-                      transition: {
-                        duration: 0.3
-                      }
-                    }}>
+                      <motion.div className="w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full border-8 border-white shadow-2xl flex items-center justify-center mx-auto mb-8 relative" {...(shouldAnimate && {
+                        whileHover: {
+                          scale: 1.1,
+                          boxShadow: "0 0 50px rgba(16, 185, 129, 0.8)",
+                          transition: {
+                            duration: 0.3
+                          }
+                        }
+                      })}>
                         <Lightbulb className="w-16 h-16 text-white" />
-
-                        {/* Success Particles */}
-                        {[...Array(8)].map((_, i) => <motion.div key={i} className="absolute w-2 h-2 bg-yellow-400 rounded-full" style={{
-                        top: "50%",
-                        left: "50%",
-                        originX: 0.5,
-                        originY: 0.5
-                      }} animate={{
-                        x: [0, Math.cos(i * 45 * Math.PI / 180) * 60],
-                        y: [0, Math.sin(i * 45 * Math.PI / 180) * 60],
-                        opacity: [1, 0],
-                        scale: [0, 1, 0]
-                      }} transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: i * 0.2,
-                        ease: "easeOut"
-                      }} />)}
                       </motion.div>
 
                       <motion.h4 initial={{
@@ -441,27 +413,9 @@ const Services = () => {
 
       {/* Problem-Lösung Section */}
       <section className="relative py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-white overflow-hidden">
-        {/* Enhanced Animated background with multiple layers */}
-        <motion.div className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" animate={{
-        scale: [1, 1.3, 1],
-        x: [0, 60, 0],
-        y: [0, -40, 0],
-        rotate: [0, 90, 0]
-      }} transition={{
-        duration: 12,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }} />
-        <motion.div className="absolute bottom-20 left-20 w-64 h-64 bg-secondary/5 rounded-full blur-2xl" animate={{
-        scale: [1.2, 1, 1.2],
-        x: [0, -30, 0],
-        y: [0, 40, 0]
-      }} transition={{
-        duration: 10,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: 1
-      }} />
+        {/* Static background decorations */}
+        <div className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-64 h-64 bg-secondary/5 rounded-full blur-2xl" />
 
         <div className="container-xl relative z-10">
           {/* Header with enhanced animations */}
@@ -491,9 +445,7 @@ const Services = () => {
           }} transition={{
             delay: 0.2,
             duration: 0.7
-          }} whileHover={{
-            scale: 1.03
-          }} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] lg:text-4xl font-semibold">
+          }} {...(shouldAnimate && whileHover)} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] lg:text-4xl font-semibold">
               Die Vorteile im Detail
             </motion.h2>
             <motion.p initial={{
@@ -565,7 +517,7 @@ const Services = () => {
                 once: true
               }} transition={{
                 duration: 0.4,
-                delay: index * 0.1
+                delay: shouldAnimate ? index * 0.05 : 0
               }} className="group">
                     <button onClick={() => setOpenAccordionIndex(isOpen ? -1 : index)} className={`
                     w-full p-4 lg:p-5 rounded-xl
@@ -713,8 +665,8 @@ const Services = () => {
           visible: {
             opacity: 1,
             transition: {
-              staggerChildren: 0.2,
-              delayChildren: 0.3
+              staggerChildren: shouldAnimate ? 0.08 : 0,
+              delayChildren: shouldAnimate ? 0.1 : 0
             }
           }
         }}>
@@ -751,24 +703,21 @@ const Services = () => {
                 ease: [0.25, 0.46, 0.45, 0.94]
               }
             }
-          }} whileHover={{
-            scale: 1.02,
-            y: -4,
-            transition: {
-              duration: 0.2
+          }} {...(shouldAnimate && {
+            whileHover: {
+              scale: 1.02,
+              y: -4,
+              transition: {
+                duration: 0.2
+              }
             }
-          }}>
+          })}>
                 <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-200 hover:shadow-lg">
                   <CardContent className="p-4 md:p-8 flex flex-row md:flex-col items-start md:items-stretch gap-4 md:gap-0 h-full">
                     {/* Icon with gradient background */}
-                    <motion.div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center md:mb-6 shadow-lg flex-shrink-0`} whileHover={{
-                  scale: 1.05,
-                  transition: {
-                    duration: 0.5
-                  }
-                }}>
+                    <div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center md:mb-6 shadow-lg flex-shrink-0 transition-transform duration-200 hover:scale-105`}>
                       <service.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
-                    </motion.div>
+                    </div>
 
                     <div className="flex-1 md:flex md:flex-col md:h-full">
                       {/* Title */}
