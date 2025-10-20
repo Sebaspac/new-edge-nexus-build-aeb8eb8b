@@ -17,8 +17,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import CyberneticGridShader from "@/components/ui/cybernetic-grid-shader";
 import DisplayCards from "@/components/ui/display-cards";
 import { SplashCursor } from "@/components/ui/splash-cursor";
-
-const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
+const Footer = lazy(() => import("@/components/Footer").then(m => ({
+  default: m.Footer
+})));
 const Services = () => {
   console.log("Services component loaded successfully");
   const {
@@ -33,7 +34,10 @@ const Services = () => {
     container: heroContainer,
     style: heroStyle
   } = useHeroScrollAnimation();
-  const { shouldAnimate, whileHover } = useOptimizedAnimation();
+  const {
+    shouldAnimate,
+    whileHover
+  } = useOptimizedAnimation();
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -120,12 +124,12 @@ const Services = () => {
               background: "linear-gradient(135deg, #A78BFA, #818CF8, #60A5FA)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent"
-            }} {...(shouldAnimate && {
+            }} {...shouldAnimate && {
               whileHover: {
                 scale: 1.05,
                 textShadow: "0 0 20px rgba(167, 139, 250, 0.5)"
               }
-            })}>
+            }}>
                 JOURNEY
               </motion.span>
             </motion.h1>
@@ -233,7 +237,9 @@ const Services = () => {
                     <motion.div className="flex items-center" whileInView={shouldAnimate ? {
                     x: [100, 0],
                     opacity: [0, 1]
-                  } : { opacity: 1 }} viewport={{
+                  } : {
+                    opacity: 1
+                  }} viewport={{
                     once: true
                   }} transition={{
                     duration: shouldAnimate ? 0.8 : 0,
@@ -244,7 +250,7 @@ const Services = () => {
                           <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                             <Target className="w-8 h-8 text-white" />
                           </div>
-                          <h4 className="text-h3 mb-4 text-center text-foreground">STRATEGIE</h4>
+                          <h4 className="text-h3 mb-4 text-center text-foreground text-lg">STRATEGIE</h4>
                           <p className="text-muted-foreground text-center leading-relaxed text-base">
                             Das Fundament für Ihren Erfolg. Wir entwickeln eine klare Roadmap und visuelle Identität.
                           </p>
@@ -276,7 +282,9 @@ const Services = () => {
                     <motion.div className="flex items-center" whileInView={shouldAnimate ? {
                     x: [-100, 0],
                     opacity: [0, 1]
-                  } : { opacity: 1 }} viewport={{
+                  } : {
+                    opacity: 1
+                  }} viewport={{
                     once: true
                   }} transition={{
                     duration: shouldAnimate ? 0.8 : 0,
@@ -307,7 +315,7 @@ const Services = () => {
                           <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                             <Palette className="w-8 h-8 text-white" />
                           </div>
-                          <h4 className="text-h3 mb-4 text-center text-foreground">UMSETZUNG</h4>
+                          <h4 className="text-h3 mb-4 text-center text-foreground text-lg">UMSETZUNG</h4>
                           <p className="text-muted-foreground text-center leading-relaxed">
                             Content-Produktion und Reichweite-Aufbau. Ihre Botschaft erreicht die richtige Zielgruppe.
                           </p>
@@ -319,7 +327,9 @@ const Services = () => {
                     <motion.div className="flex items-center" whileInView={shouldAnimate ? {
                     x: [100, 0],
                     opacity: [0, 1]
-                  } : { opacity: 1 }} viewport={{
+                  } : {
+                    opacity: 1
+                  }} viewport={{
                     once: true
                   }} transition={{
                     duration: shouldAnimate ? 0.8 : 0,
@@ -372,15 +382,15 @@ const Services = () => {
                     duration: 0.8,
                     type: "spring"
                   }}>
-                      <motion.div className="w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full border-8 border-white shadow-2xl flex items-center justify-center mx-auto mb-8 relative" {...(shouldAnimate && {
-                        whileHover: {
-                          scale: 1.1,
-                          boxShadow: "0 0 50px rgba(16, 185, 129, 0.8)",
-                          transition: {
-                            duration: 0.3
-                          }
+                      <motion.div className="w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full border-8 border-white shadow-2xl flex items-center justify-center mx-auto mb-8 relative" {...shouldAnimate && {
+                      whileHover: {
+                        scale: 1.1,
+                        boxShadow: "0 0 50px rgba(16, 185, 129, 0.8)",
+                        transition: {
+                          duration: 0.3
                         }
-                      })}>
+                      }
+                    }}>
                         <Lightbulb className="w-16 h-16 text-white" />
                       </motion.div>
 
@@ -445,7 +455,7 @@ const Services = () => {
           }} transition={{
             delay: 0.2,
             duration: 0.7
-          }} {...(shouldAnimate && whileHover)} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] lg:text-4xl font-semibold">
+          }} {...shouldAnimate && whileHover} className="text-[42px] sm:text-[48px] md:text-[52px] text-foreground mb-6 leading-[1.25] lg:text-4xl font-semibold">
               Die Vorteile im Detail
             </motion.h2>
             <motion.p initial={{
@@ -703,7 +713,7 @@ const Services = () => {
                 ease: [0.25, 0.46, 0.45, 0.94]
               }
             }
-          }} {...(shouldAnimate && {
+          }} {...shouldAnimate && {
             whileHover: {
               scale: 1.02,
               y: -4,
@@ -711,7 +721,7 @@ const Services = () => {
                 duration: 0.2
               }
             }
-          })}>
+          }}>
                 <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-200 hover:shadow-lg">
                   <CardContent className="p-4 md:p-8 flex flex-row md:flex-col items-start md:items-stretch gap-4 md:gap-0 h-full">
                     {/* Icon with gradient background */}
