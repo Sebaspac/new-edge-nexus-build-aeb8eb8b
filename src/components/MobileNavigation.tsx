@@ -39,7 +39,7 @@ export const MobileNavigation = ({
       <ContactFormModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} accentColor="#000" gradientFrom="#000" gradientTo="#333" theme="studio" />
       
       {/* Desktop Navigation */}
-      <nav className={`fixed top-0 w-full z-50 ${bgColor} backdrop-blur-lg`}>
+      <nav className={`fixed top-0 w-full z-50 ${bgColor} backdrop-blur-lg pointer-events-auto`}>
         <div className="container mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -65,7 +65,7 @@ export const MobileNavigation = ({
                 <Link to="/services" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
                   Services
                 </Link>
-                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-50 border ${borderColor}`}>
+                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-[60] border ${borderColor}`}>
                   <div className="py-2">
                     <Link to="/studio" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
                       Studio
@@ -86,7 +86,7 @@ export const MobileNavigation = ({
                 <button className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
                   Company
                 </button>
-                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-50 border ${borderColor}`}>
+                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-[60] border ${borderColor}`}>
                   <div className="py-2">
                     <Link to="/about" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>About us</Link>
                   </div>
@@ -131,7 +131,7 @@ export const MobileNavigation = ({
           type: "spring",
           damping: 25,
           stiffness: 200
-        }} className={`fixed top-0 right-0 h-full w-72 max-w-[80vw] ${bgColor} backdrop-blur-lg z-50 lg:hidden shadow-2xl`}>
+        }} className={`fixed top-0 right-0 h-full w-72 max-w-[80vw] ${bgColor} backdrop-blur-lg z-[60] lg:hidden shadow-2xl`}>
               <div className="flex flex-col h-full pt-16 pb-4">
                 {/* Mobile Menu Items */}
                 <div className="flex-1 px-4 space-y-0.5 overflow-y-auto">

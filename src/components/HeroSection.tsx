@@ -34,8 +34,10 @@ export const HeroSection = ({
       Skip to main content
     </a>
     <section ref={container} className="relative w-full min-h-screen bg-slate-900" id="hero">
-      <SplashCursor />
-      <motion.div style={style} className="w-full h-screen grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden bg-slate-900">
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <SplashCursor />
+      </div>
+      <motion.div style={style} className="w-full h-screen grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden bg-slate-900 pointer-events-auto">
         <CyberneticGridShader />
         
         <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/80 z-10 pointer-events-none" />
