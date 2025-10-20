@@ -54,7 +54,7 @@ export const HeroSection = ({
             }} className="block space-y-4 md:space-y-6 lg:space-y-4">
               
               
-              <h1 className="text-3xl sm:text-4xl lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                 Innovate Today,<br />
                 Lead Tomorrow.
               </h1>
