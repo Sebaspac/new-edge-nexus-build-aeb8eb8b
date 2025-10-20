@@ -35,14 +35,14 @@ export const HeroSection = ({
     </a>
     <section ref={container} className="relative w-full min-h-screen bg-slate-900" id="hero">
       <SplashCursor />
-      <motion.div style={style} className="w-full h-screen grid lg:grid-cols-2 relative overflow-hidden bg-slate-900">
+      <motion.div style={style} className="w-full h-screen grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden bg-slate-900">
         <CyberneticGridShader />
         
         <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/80 z-10 pointer-events-none" />
         
         {/* Left Side - CTA Content */}
-        <div className="relative flex items-end z-20">
-          <div className="w-full px-6 pb-16 md:pb-20 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl lg:mt-auto lg:mb-auto">
+        <div className="relative flex items-end lg:items-center z-20">
+          <div className="w-full px-6 pb-12 md:pb-16 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl lg:mt-auto lg:mb-auto text-center lg:text-left">
             <motion.div initial={{
               opacity: 0,
               y: 20
@@ -51,17 +51,17 @@ export const HeroSection = ({
               y: 0
             }} transition={{
               duration: 0.8
-            }} className="hidden lg:block space-y-4 md:space-y-6">
+            }} className="block space-y-4 md:space-y-6 lg:space-y-4">
               
               
-              <h1 className="text-h1 lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+              <h1 className="text-3xl sm:text-4xl lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                 Innovate Today,<br />
                 Lead Tomorrow.
               </h1>
               
-              <p className="text-body-lg text-neutral-300 max-w-xl">Von der ersten Beratung bis zur vollständigen Implementierung – New Edge ist die Creative-Tech-Agentur, die Strategie, Kreation und Automatisierung verbindet.</p>
+              <p className="text-sm sm:text-base lg:text-lg text-neutral-300 max-w-xl mx-auto lg:mx-0">Von der ersten Beratung bis zur vollständigen Implementierung – New Edge ist die Creative-Tech-Agentur, die Strategie, Kreation und Automatisierung verbindet.</p>
               
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-3 pt-6 justify-center lg:justify-start">
                 <Button size="lg" onClick={onContactClick} className="group">
                   Kontakt
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -75,7 +75,7 @@ export const HeroSection = ({
         </div>
 
         {/* Right Side - 3D Spline Scene */}
-        <div className="relative overflow-hidden z-20">
+        <div className="absolute inset-0 lg:relative overflow-hidden z-10 lg:z-20">
           <LazySplineScene 
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" 
             className="w-full h-full"
@@ -92,7 +92,7 @@ export const HeroSection = ({
         }} transition={{
           delay: 1,
           duration: 0.5
-        }} className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+        }} className="absolute bottom-20 sm:bottom-24 md:bottom-8 left-1/2 transform -translate-x-1/2 z-30">
           <motion.div animate={{
             y: [0, 10, 0]
           }} transition={{
