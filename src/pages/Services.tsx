@@ -403,9 +403,7 @@ const Services = () => {
                     }} transition={{
                       delay: 1.5,
                       duration: 0.6
-                    }} className="text-3xl mb-4 text-foreground font-extrabold">
-                        ERFOLG ERREICHT
-                      </motion.h4>
+                    }} className="text-3xl mb-4 text-foreground font-extrabold">SKALIERUNG</motion.h4>
                     </motion.div>
                   </div>
                 </div>
