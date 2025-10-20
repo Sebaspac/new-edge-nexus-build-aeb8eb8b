@@ -203,7 +203,7 @@ export const ProblemSolutionSection = ({ openAccordionIndex, setOpenAccordionInd
               >
                 <GlassCard
                   title="Innovation als Prozess"
-                  description="Statt einmaliger Projekte bauen wir Ihnen einen nachhaltigen Ablauf — weniger Aufwand, schnellere Umsetzung, planbare Skalierung."
+                  description="Statt einmaliger Projekte bauen wir Ihnen einen nachhaltigen Ablauf."
                 />
               </motion.div>
 
