@@ -115,17 +115,20 @@ const Index = () => {
     icon: Lightbulb,
     title: "New Edge Studio",
     description: "Kreative Basis Ihrer Marke: Positionierung, Tonalität, Branding – übersetzt in Kampagnen & Designsysteme.",
-    gradient: "from-primary to-primary/70"
+    gradient: "from-primary to-primary/70",
+    link: "/studio"
   }, {
     icon: Palette,
     title: "New Edge Media",
     description: "Content für den ganzen Funnel: Social bis Website, Paid & Owned – mit klaren KPIs.",
-    gradient: "from-secondary to-secondary/70"
+    gradient: "from-secondary to-secondary/70",
+    link: "/media"
   }, {
     icon: Zap,
     title: "New Edge Lab",
     description: "Automationsmotor: Workflows, Integrationen, KI-Agenten & Dashboards.",
-    gradient: "from-accent to-accent/70"
+    gradient: "from-accent to-accent/70",
+    link: "/lab"
   }];
   const stats = [{
     number: "30%",
@@ -650,7 +653,7 @@ const Index = () => {
 
                         {/* Button */}
                         <Button variant="default" size="sm" className="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground group text-sm md:text-base md:mt-auto transition-all duration-300" asChild>
-                          <Link to={`/${service.title.toLowerCase().split(" ")[0]}`}>
+                          <Link to={service.link}>
                             Mehr erfahren
                             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                           </Link>
