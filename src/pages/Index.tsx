@@ -518,7 +518,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950 text-4xl font-medium">Vorteile eines Innovationshubs</motion.h2>
+            }} className="text-h1 mb-4 bg-gradient-primary bg-clip-text text-gray-950 text-4xl font-light">Vorteile eines Innovationshubs</motion.h2>
 
               <motion.p initial={{
               opacity: 0,
