@@ -671,10 +671,7 @@ const About = () => {
                     Agenturen smarter vernetzt, Prozesse automatisiert und kreative Wirkung messbar macht.
                   </p>
 
-                  <p>
-                    New Edge istein übergeordnetes Netzwerkzentrum, das Agenturen und Unternehmen im Mittelstand
-                    miteinander verbindet.
-                  </p>
+                  <p>New Edge ist ein übergeordnetes Netzwerkzentrum, das Agenturen und Unternehmen im Mittelstand miteinander verbindet.</p>
                 </div>
 
                 <motion.div className="mt-8" initial={{
