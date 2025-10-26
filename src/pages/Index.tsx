@@ -177,13 +177,17 @@ const Index = () => {
         <section className="relative py-24 md:py-32 lg:py-40 bg-white overflow-hidden" id="main-content">
           <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10">
             {/* Header */}
-            <motion.div 
-              className="text-center mb-16" 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.8 }}
-            >
+            <motion.div className="text-center mb-16" initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.8
+          }}>
               <motion.h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
                 Gemeinsam Zukunft gestalten – vernetzt. automatisiert. wirkungsvoll.
               </motion.h2>
@@ -197,16 +201,10 @@ const Index = () => {
             <Tabs defaultValue="kmu" className="w-full">
               <div className="flex justify-center mb-12">
                 <TabsList className="inline-flex p-1 bg-slate-100 rounded-2xl border-none h-12">
-                  <TabsTrigger 
-                    value="kmu" 
-                    className="data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-xl px-8 text-base font-medium transition-all duration-200"
-                  >
+                  <TabsTrigger value="kmu" className="data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-xl px-8 text-base font-medium transition-all duration-200">
                     Für KMU
                   </TabsTrigger>
-                  <TabsTrigger 
-                    value="agenturen" 
-                    className="data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-xl px-8 text-base font-medium transition-all duration-200"
-                  >
+                  <TabsTrigger value="agenturen" className="data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-xl px-8 text-base font-medium transition-all duration-200">
                     Für Agenturen
                   </TabsTrigger>
                 </TabsList>
@@ -214,12 +212,15 @@ const Index = () => {
 
               {/* KMU Content */}
               <TabsContent value="kmu" className="space-y-8">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  animate={{ opacity: 1, y: 0 }} 
-                  transition={{ duration: 0.6 }} 
-                  className="max-w-6xl mx-auto"
-                >
+                <motion.div initial={{
+                opacity: 0,
+                y: 20
+              }} animate={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                duration: 0.6
+              }} className="max-w-6xl mx-auto">
                   <div className="bg-slate-50 rounded-3xl p-8 md:p-12">
                     <div className="mb-10">
                       <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -232,52 +233,45 @@ const Index = () => {
 
                     {/* Feature Grid */}
                     <div className="grid md:grid-cols-3 gap-8">
-                      {[
-                        {
-                          icon: Zap,
-                          title: "Automatisierung mit Impact",
-                          description: "Wir automatisieren Ihre Workflows end-to-end – für mehr Effizienz, Tempo und geringere Kosten."
-                        },
-                        {
-                          icon: Palette,
-                          title: "Kreative Exzellenz auf Abruf",
-                          description: "Über unser Partnernetzwerk erhalten Sie Zugang zu Top-Agenturen für Branding, Design und Media."
-                        },
-                        {
-                          icon: Target,
-                          title: "Ganzheitliche Projekte",
-                          description: "New Edge koordiniert Prozesse und Partner zentral – ein Ansprechpartner, klare Ergebnisse."
-                        }
-                      ].map((feature, index) => {
-                        const Icon = feature.icon;
-                        return (
-                          <motion.div
-                            key={feature.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 + index * 0.1, duration: 0.4 }}
-                            className="text-center space-y-4"
-                          >
+                      {[{
+                      icon: Zap,
+                      title: "Automatisierung mit Impact",
+                      description: "Wir automatisieren Ihre Workflows end-to-end – für mehr Effizienz, Tempo und geringere Kosten."
+                    }, {
+                      icon: Palette,
+                      title: "Kreative Exzellenz auf Abruf",
+                      description: "Über unser Partnernetzwerk erhalten Sie Zugang zu Top-Agenturen für Branding, Design und Media."
+                    }, {
+                      icon: Target,
+                      title: "Ganzheitliche Projekte",
+                      description: "New Edge koordiniert Prozesse und Partner zentral – ein Ansprechpartner, klare Ergebnisse."
+                    }].map((feature, index) => {
+                      const Icon = feature.icon;
+                      return <motion.div key={feature.title} initial={{
+                        opacity: 0,
+                        y: 20
+                      }} animate={{
+                        opacity: 1,
+                        y: 0
+                      }} transition={{
+                        delay: 0.2 + index * 0.1,
+                        duration: 0.4
+                      }} className="text-center space-y-4">
                             <div className="w-20 h-20 mx-auto rounded-full bg-slate-100 flex items-center justify-center">
                               <Icon className="w-10 h-10 text-primary" />
                             </div>
                             <h4 className="text-xl font-bold text-slate-900">{feature.title}</h4>
                             <p className="text-slate-600 leading-relaxed">{feature.description}</p>
-                          </motion.div>
-                        );
-                      })}
+                          </motion.div>;
+                    })}
                     </div>
 
                     {/* CTA */}
                     <div className="mt-10 text-center">
-                      <Button 
-                        size="lg" 
-                        onClick={() => {
-                          setContactFormType("kmu");
-                          setIsContactSheetOpen(true);
-                        }}
-                        className="bg-slate-900 hover:bg-slate-800 text-white px-10 py-6 text-lg rounded-full shadow-lg"
-                      >
+                      <Button size="lg" onClick={() => {
+                      setContactFormType("kmu");
+                      setIsContactSheetOpen(true);
+                    }} className="bg-slate-900 hover:bg-slate-800 text-white px-10 py-6 text-lg rounded-full shadow-lg">
                         Jetzt Projekt starten
                         <ArrowRight className="ml-2" />
                       </Button>
@@ -288,12 +282,15 @@ const Index = () => {
 
               {/* Agenturen Content */}
               <TabsContent value="agenturen" className="space-y-8">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  animate={{ opacity: 1, y: 0 }} 
-                  transition={{ duration: 0.6 }} 
-                  className="max-w-6xl mx-auto"
-                >
+                <motion.div initial={{
+                opacity: 0,
+                y: 20
+              }} animate={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                duration: 0.6
+              }} className="max-w-6xl mx-auto">
                   <div className="bg-slate-50 rounded-3xl p-8 md:p-12">
                     <div className="mb-10">
                       <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -400,13 +397,17 @@ const Index = () => {
         <section className="relative py-24 md:py-32 lg:py-40 bg-slate-50 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10">
             {/* Header with enhanced animations */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.6 }} 
-              className="text-center mb-16"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6
+          }} className="text-center mb-16">
               <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
                 Vorteile eines Innovationshubs
               </h3>
@@ -549,51 +550,56 @@ const Index = () => {
         {/* Contact Section - Final CTA */}
         <section className="py-24 md:py-32 bg-slate-900">
           <div className="max-w-4xl mx-auto text-center px-6 md:px-8">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-5xl md:text-6xl font-bold text-white mb-6"
-            >
+            <motion.h2 initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6
+          }} className="text-5xl md:text-6xl font-bold text-white mb-6">
               Bereit für den nächsten Schritt?
             </motion.h2>
 
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-slate-300 mb-10 leading-relaxed"
-            >
+            <motion.p initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6,
+            delay: 0.2
+          }} className="text-xl text-slate-300 mb-10 leading-relaxed">
               Lassen Sie uns gemeinsam Ihre digitale Zukunft gestalten.
             </motion.p>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Button 
-                size="lg" 
-                onClick={() => setIsContactSheetOpen(true)}
-                className="bg-white text-slate-900 hover:bg-slate-100 px-10 py-6 text-lg rounded-full shadow-xl"
-              >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6,
+            delay: 0.4
+          }} className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="bg-white text-slate-900 hover:bg-slate-100 px-10 py-6 text-lg rounded-full shadow-xl">
                 Projekt starten
                 <ArrowRight className="ml-2" />
               </Button>
 
-              <Button 
-                size="lg" 
-                variant="outline" 
-                onClick={() => {
-                  setContactFormType("agentur");
-                  setIsContactSheetOpen(true);
-                }}
-                className="border-2 border-slate-700 text-white hover:bg-slate-800 px-10 py-6 text-lg rounded-full"
-              >
+              <Button size="lg" variant="outline" onClick={() => {
+              setContactFormType("agentur");
+              setIsContactSheetOpen(true);
+            }} className="border-2 border-slate-700 px-10 py-6 text-lg rounded-full text-slate-900 bg-slate-50">
                 <Phone className="mr-2" />
                 Termin vereinbaren
               </Button>
