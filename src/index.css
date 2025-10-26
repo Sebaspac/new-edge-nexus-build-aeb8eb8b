@@ -1,9 +1,10 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ⚡ FONT LOADING OPTIMIZATION - Prevent FOIT (Flash of Invisible Text) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @font-face {
   font-family: 'Inter Variable';
   font-style: normal;
@@ -101,6 +102,20 @@
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* 🎨 SCROLL TABS COLORS */
+    --gray-700: #424242;
+    --gray-500: #737373;
+    --gray-800: #292929;
+    --gray-900: #141414;
+    --gray-400: #a3a3a3;
+    --gray-100: #f5f5f5;
+    --green: #61ffc9;
+    --dark-green: #25fabe;
+    
+    /* 📐 BORDER RADIUS */
+    --border-radius--medium: 1.25rem;
+    --border-radius--xlarge: 2rem;
   }
 }
 
@@ -778,5 +793,102 @@ video {
     -webkit-overflow-scrolling: touch;
     scroll-behavior: auto !important;
   }
+}
+
+/* 🎯 SCROLL TABS SYSTEM */
+
+/* Tab Content Transitions */
+.tabs_let-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.tabs_let-content.is-1 {
+  opacity: 1;
+}
+
+/* Video/Image Transitions */
+.tabs_video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius--medium);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tabs_video.is-1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll-Tabs Heights */
+.tabs_height {
+  height: 550vh; /* 5 Tabs × 110vh */
+}
+
+@media (max-width: 576px) {
+  .tabs_height {
+    height: 600vh;
+  }
+}
+
+/* Circle Button Hover Effect */
+.button-circlee {
+  transform: translate3d(0px, 0%, 0px);
+  will-change: transform, width, background-color;
+}
+
+/* Typography Classes for ScrollTabs */
+.heading-style-h3 {
+  letter-spacing: -0.02em;
+  font-size: 2.8125rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.heading-style-h4 {
+  letter-spacing: -0.02em;
+  font-size: 2.125rem;
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+@media (max-width: 576px) {
+  .heading-style-h4 {
+    margin: 0;
+    font-size: 20px;
+  }
+}
+
+.text-size-medium {
+  font-size: 1.125rem;
+}
+
+.text-size-small {
+  font-size: 1rem;
+}
+
+@media (max-width: 576px) {
+  .text-size-small {
+    font-size: 0.875rem;
+  }
+}
+
+.text-color-gray100 {
+  color: var(--gray-100);
+}
+
+.text-color-gray400 {
+  color: var(--gray-400);
 }
 

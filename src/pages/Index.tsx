@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { HeroSection } from "../components/HeroSection";
 import { ServicesOverviewSection } from "../components/ServicesOverviewSection";
 import { InnovationSection } from "../components/InnovationSection";
+import { ScrollTabsSection } from "../components/ScrollTabsSection";
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { FastLoadWrapper } from "../components/FastLoadWrapper";
 import { MobileNavigation } from "@/components/MobileNavigation";
@@ -165,6 +166,9 @@ const Index = () => {
 
         {/* Hero Section */}
         <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
+
+        {/* Scroll Tabs Section */}
+        <ScrollTabsSection onContactClick={() => setIsContactSheetOpen(true)} />
 
         {/* Services Overview Section */}
         <ServicesOverviewSection />
