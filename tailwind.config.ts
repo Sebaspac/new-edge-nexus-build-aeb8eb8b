@@ -25,11 +25,10 @@ export default {
 			}
 		},
 		extend: {
-		fontFamily: {
-			'sans': ['Inter Variable', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-			'epilogue': ['Epilogue', 'Inter', 'sans-serif'],
-			'poppins': ['Poppins', 'sans-serif'],
-		},
+			fontFamily: {
+				'sans': ['Inter Variable', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+				'epilogue': ['Epilogue', 'Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

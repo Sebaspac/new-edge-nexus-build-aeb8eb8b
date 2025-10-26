@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { HeroSection } from "../components/HeroSection";
 import { ServicesOverviewSection } from "../components/ServicesOverviewSection";
 import { InnovationSection } from "../components/InnovationSection";
-import { ScrollTabsSection } from "../components/ScrollTabsSection";
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { FastLoadWrapper } from "../components/FastLoadWrapper";
 import { MobileNavigation } from "@/components/MobileNavigation";
@@ -167,23 +166,57 @@ const Index = () => {
         {/* Hero Section */}
         <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
 
-        {/* Scroll Tabs Section */}
-        <ScrollTabsSection onContactClick={() => setIsContactSheetOpen(true)} />
-
         {/* Services Overview Section */}
         <ServicesOverviewSection />
 
+        {/* Info Section */}
+        <section id="main-content" className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
+          <div className="container-xl relative z-10">
+            <motion.div initial="hidden" whileInView="visible" viewport={{
+            once: true,
+            margin: "-80px"
+          }} variants={{
+            hidden: {
+              opacity: 0
+            },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.1
+              }
+            }
+          }} className="max-w-5xl space-y-4">
+              <motion.div variants={{
+              hidden: {
+                opacity: 0,
+                y: 40,
+                scale: 0.95
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.7,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }
+              }
+            }} className="mb-6"></motion.div>
+            </motion.div>
+          </div>
+        </section>
 
         {/* Innovation Section */}
         <InnovationSection />
 
         {/* Gemeinsam Zukunft gestalten Section */}
-        <section className="relative py-24 md:py-32 lg:py-40 bg-white overflow-hidden" id="main-content">
-          <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10">
+        <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
+          <div className="container-xl relative z-10">
             {/* Header */}
-            <motion.div className="text-center mb-16" initial={{
+            <motion.div className="text-left mb-12" initial={{
             opacity: 0,
-            y: 20
+            y: 40
           }} whileInView={{
             opacity: 1,
             y: 0
@@ -192,10 +225,11 @@ const Index = () => {
           }} transition={{
             duration: 0.8
           }}>
-              <motion.h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
+              <motion.div className="mb-2"></motion.div>
+              <motion.h2 className="text-h1 mb-4 text-foreground text-4xl font-semibold">
                 Gemeinsam Zukunft gestalten – vernetzt. automatisiert. wirkungsvoll.
               </motion.h2>
-              <motion.p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              <motion.p className="text-body-lg text-muted-foreground max-w-3xl font-normal text-xl">
                 New Edge verbindet Unternehmen und Agenturen in einem exklusiven Netzwerk, um kreative Exzellenz und
                 intelligente Automatisierung zu vereinen.
               </motion.p>
@@ -203,13 +237,13 @@ const Index = () => {
 
             {/* Toggle Tabs */}
             <Tabs defaultValue="kmu" className="w-full">
-              <div className="flex justify-center mb-12">
-                <TabsList className="inline-flex p-1 bg-slate-100 rounded-2xl border-none h-12">
-                  <TabsTrigger value="kmu" className="data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-xl px-8 text-base font-medium transition-all duration-200">
-                    Für KMU
+              <div className="flex justify-center mb-8">
+                <TabsList className="inline-flex p-0.5 bg-muted/50 rounded-full border border-border/50 h-9">
+                  <TabsTrigger value="kmu" className="text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-full transition-all duration-200 px-6">
+                    KMU
                   </TabsTrigger>
-                  <TabsTrigger value="agenturen" className="data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-xl px-8 text-base font-medium transition-all duration-200">
-                    Für Agenturen
+                  <TabsTrigger value="agenturen" className="text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-full transition-all duration-200 px-6">
+                    Agenturen
                   </TabsTrigger>
                 </TabsList>
               </div>
@@ -223,62 +257,100 @@ const Index = () => {
                 opacity: 1,
                 y: 0
               }} transition={{
-                duration: 0.6
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1]
               }} className="max-w-6xl mx-auto">
-                  <div className="bg-slate-50 rounded-3xl p-8 md:p-12">
-                    <div className="mb-10">
-                      <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                  <div className="bg-white rounded-2xl sm:rounded-[32px] p-6 sm:p-10 md:p-12 lg:p-16 shadow-[0_2px_16px_rgba(0,0,0,0.06)]">
+                    <div className="max-w-3xl">
+                      <motion.h3 initial={{
+                      opacity: 0,
+                      y: 10
+                    }} animate={{
+                      opacity: 1,
+                      y: 0
+                    }} transition={{
+                      delay: 0.2,
+                      duration: 0.6
+                    }} className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-gray-900 tracking-tight leading-[1.1] font-medium lg:text-3xl">
                         Für Unternehmen, die zukunftsorientiert denken
-                      </h3>
-                      <p className="text-lg text-slate-600 leading-relaxed">
-                        New Edge ist Ihr Partner für intelligente Automatisierung – und Ihr Zugang zu den besten Kreativagenturen.
-                      </p>
+                      </motion.h3>
+                      <motion.p initial={{
+                      opacity: 0,
+                      y: 10
+                    }} animate={{
+                      opacity: 1,
+                      y: 0
+                    }} transition={{
+                      delay: 0.3,
+                      duration: 0.6
+                    }} className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12 md:mb-16 leading-relaxed font-normal md:text-lg">
+                        New Edge ist Ihr Partner für intelligente Automatisierung – und Ihr Zugang zu den besten
+                        Kreativagenturen.
+                      </motion.p>
                     </div>
 
-                    {/* Feature Grid */}
-                    <div className="grid md:grid-cols-3 gap-8">
+                    {/* Mobile: Accordion */}
+                    <div className="md:hidden">
+                      <Accordion type="single" collapsible className="space-y-3">
+                        {[{
+                        title: "Automatisierung mit Impact",
+                        description: "Wir automatisieren Ihre Workflows end-to-end – für mehr Effizienz, Tempo und geringere Kosten.",
+                        icon: "⚡"
+                      }, {
+                        title: "Kreative Exzellenz auf Abruf",
+                        description: "Über unser Partnernetzwerk erhalten Sie Zugang zu Top-Agenturen für Branding, Design und Media.",
+                        icon: "🎨"
+                      }, {
+                        title: "Ganzheitliche Projekte",
+                        description: "New Edge koordiniert Prozesse und Partner zentral – ein Ansprechpartner, klare Ergebnisse.",
+                        icon: "🔗"
+                      }, {
+                        title: "Beobachtbares Wachstum",
+                        description: "Alle KPIs in Echtzeit: Fortschritt, Performance und ROI jederzeit nachvollziehbar.",
+                        icon: "📊"
+                      }].map((item, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-2xl border-none">
+                            <AccordionTrigger className="px-5 py-4 hover:no-underline">
+                              <h4 className="text-h3 font-bold text-gray-900 text-left">{item.title}</h4>
+                            </AccordionTrigger>
+                            <AccordionContent className="px-5 pb-4">
+                              <p className="text-body-sm text-gray-600 leading-relaxed">{item.description}</p>
+                            </AccordionContent>
+                          </AccordionItem>)}
+                      </Accordion>
+                    </div>
+
+                    {/* Desktop: Grid */}
+                    <div className="hidden md:grid md:grid-cols-2 gap-6">
                       {[{
-                      icon: Zap,
                       title: "Automatisierung mit Impact",
-                      description: "Wir automatisieren Ihre Workflows end-to-end – für mehr Effizienz, Tempo und geringere Kosten."
+                      description: "Wir automatisieren Ihre Workflows end-to-end – für mehr Effizienz, Tempo und geringere Kosten.",
+                      icon: "⚡"
                     }, {
-                      icon: Palette,
                       title: "Kreative Exzellenz auf Abruf",
-                      description: "Über unser Partnernetzwerk erhalten Sie Zugang zu Top-Agenturen für Branding, Design und Media."
+                      description: "Über unser Partnernetzwerk erhalten Sie Zugang zu Top-Agenturen für Branding, Design und Media.",
+                      icon: "🎨"
                     }, {
-                      icon: Target,
                       title: "Ganzheitliche Projekte",
-                      description: "New Edge koordiniert Prozesse und Partner zentral – ein Ansprechpartner, klare Ergebnisse."
-                    }].map((feature, index) => {
-                      const Icon = feature.icon;
-                      return <motion.div key={feature.title} initial={{
-                        opacity: 0,
-                        y: 20
-                      }} animate={{
-                        opacity: 1,
-                        y: 0
-                      }} transition={{
-                        delay: 0.2 + index * 0.1,
-                        duration: 0.4
-                      }} className="text-center space-y-4">
-                            <div className="w-20 h-20 mx-auto rounded-full bg-slate-100 flex items-center justify-center">
-                              <Icon className="w-10 h-10 text-primary" />
-                            </div>
-                            <h4 className="text-xl font-bold text-slate-900">{feature.title}</h4>
-                            <p className="text-slate-600 leading-relaxed">{feature.description}</p>
-                          </motion.div>;
-                    })}
-                    </div>
-
-                    {/* CTA */}
-                    <div className="mt-10 text-center">
-                      <Button size="lg" onClick={() => {
-                      setContactFormType("kmu");
-                      setIsContactSheetOpen(true);
-                    }} className="bg-slate-900 hover:bg-slate-800 text-white px-10 py-6 text-lg rounded-full shadow-lg">
-                        Jetzt Projekt starten
-                        <ArrowRight className="ml-2" />
-                      </Button>
+                      description: "New Edge koordiniert Prozesse und Partner zentral – ein Ansprechpartner, klare Ergebnisse.",
+                      icon: "🔗"
+                    }, {
+                      title: "Beobachtbares Wachstum",
+                      description: "Alle KPIs in Echtzeit: Fortschritt, Performance und ROI jederzeit nachvollziehbar.",
+                      icon: "📊"
+                    }].map((item, index) => <motion.div key={index} initial={{
+                      opacity: 0,
+                      y: 20
+                    }} animate={{
+                      opacity: 1,
+                      y: 0
+                    }} transition={{
+                      delay: 0.4 + index * 0.1,
+                      duration: 0.6
+                    }} className="group bg-gray-50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 transition-all duration-300 hover:bg-gray-100">
+                          <div className="mb-3 sm:mb-4"></div>
+                          <h4 className="text-h3 mb-2 sm:mb-3 text-gray-900 font-medium text-2xl">{item.title}</h4>
+                          <p className="text-body text-gray-600 leading-relaxed">{item.description}</p>
+                        </motion.div>)}
                     </div>
                   </div>
                 </motion.div>
@@ -293,17 +365,36 @@ const Index = () => {
                 opacity: 1,
                 y: 0
               }} transition={{
-                duration: 0.6
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1]
               }} className="max-w-6xl mx-auto">
-                  <div className="bg-slate-50 rounded-3xl p-8 md:p-12">
-                    <div className="mb-10">
-                      <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                  <div className="bg-white rounded-2xl sm:rounded-[32px] p-6 sm:p-10 md:p-12 lg:p-16 shadow-[0_2px_16px_rgba(0,0,0,0.06)]">
+                    <div className="max-w-3xl">
+                      <motion.h3 initial={{
+                      opacity: 0,
+                      y: 10
+                    }} animate={{
+                      opacity: 1,
+                      y: 0
+                    }} transition={{
+                      delay: 0.2,
+                      duration: 0.6
+                    }} className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-gray-900 tracking-tight leading-[1.1] font-medium lg:text-3xl">
                         Für Agenturen, die Wachstum automatisieren wollen
-                      </h3>
-                      <p className="text-lg text-slate-600 leading-relaxed">
+                      </motion.h3>
+                      <motion.p initial={{
+                      opacity: 0,
+                      y: 10
+                    }} animate={{
+                      opacity: 1,
+                      y: 0
+                    }} transition={{
+                      delay: 0.3,
+                      duration: 0.6
+                    }} className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 sm:mb-12 md:mb-16 leading-relaxed font-normal">
                         Als zertifizierter Partner werden Sie Teil unseres exklusiven Netzwerks. Wir vermitteln Kunden,
                         integrieren Automatisierung und schaffen skalierbare Workflows für nachhaltiges Wachstum.
-                      </p>
+                      </motion.p>
                     </div>
 
                     {/* Mobile: Accordion */}
@@ -398,31 +489,58 @@ const Index = () => {
         </section>
 
         {/* Problem-Lösung Sektion - Neu aus Briefing */}
-        <section className="relative py-24 md:py-32 lg:py-40 bg-slate-50 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10">
+        <section className="relative py-8 sm:py-12 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+          <div className="container-xl relative z-10">
             {/* Header with enhanced animations */}
             <motion.div initial={{
             opacity: 0,
-            y: 20
+            y: 50,
+            scale: 0.9
           }} whileInView={{
             opacity: 1,
-            y: 0
+            y: 0,
+            scale: 1
           }} viewport={{
-            once: true
+            once: true,
+            margin: "-80px"
           }} transition={{
-            duration: 0.6
-          }} className="text-center mb-16">
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
-                Vorteile eines Innovationshubs
-              </h3>
-              <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }} className="text-left mb-12">
+              <motion.h3 initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.1,
+              duration: 0.7
+            }} className="mb-3 text-4xl text-slate-900 font-medium">Vorteile eines Innovationshubs</motion.h3>
+
+              
+
+              <motion.p initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.3,
+              duration: 0.7
+            }} className="text-lg text-muted-foreground leading-relaxed font-normal lg:text-xl max-w-3xl mt-6">
                 Gemeinsam mit Ihrem Team und bestehenden Agenturpartnern entwickeln wir kreative und KI-gestützte
                 Automationslösungen, die Marke, Content und Prozesse nahtlos verbinden.
-              </p>
+              </motion.p>
             </motion.div>
 
             {/* Two-Column Layout with Mobile Scroll Effect */}
-            <ProblemSolutionSection />
+            <ProblemSolutionSection openAccordionIndex={openAccordionIndex} setOpenAccordionIndex={setOpenAccordionIndex} />
           </div>
         </section>
 
@@ -551,62 +669,74 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        {/* Contact Section - Final CTA */}
-        <section className="py-24 md:py-32 bg-slate-900">
-          <div className="max-w-4xl mx-auto text-center px-6 md:px-8">
-            <motion.h2 initial={{
+        <section id="contact-section" className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
+          <div className="container-xl relative z-10">
+            <motion.div className="text-center" initial={{
             opacity: 0,
-            y: 20
+            y: 50
           }} whileInView={{
             opacity: 1,
             y: 0
           }} viewport={{
             once: true
           }} transition={{
-            duration: 0.6
-          }} className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Bereit für den nächsten Schritt?
-            </motion.h2>
+            duration: 0.8
+          }}>
+              <motion.h2 initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.2,
+              duration: 0.7
+            }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-semibold px-4">
+                Jetzt Kontakt aufnehmen <span className="bg-gradient-primary bg-clip-text text-transparent"></span>
+              </motion.h2>
 
-            <motion.p initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.6,
-            delay: 0.2
-          }} className="text-xl text-slate-300 mb-10 leading-relaxed">
-              Lassen Sie uns gemeinsam Ihre digitale Zukunft gestalten.
-            </motion.p>
+              <motion.p initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.4,
+              duration: 0.6
+            }} className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 mb-8 sm:mb-10 leading-[1.5] max-w-3xl mx-auto px-4">
+                New Edge ist das Headquarter für Innovation. Hier entsteht die Zukunft von Marken, Agenturen und
+                Prozessen.
+                <br />
+              </motion.p>
 
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.6,
-            delay: 0.4
-          }} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="bg-white text-slate-900 hover:bg-slate-100 px-10 py-6 text-lg rounded-full shadow-xl">
-                Projekt starten
-                <ArrowRight className="ml-2" />
-              </Button>
-
-              <Button size="lg" variant="outline" onClick={() => {
-              setContactFormType("agentur");
-              setIsContactSheetOpen(true);
-            }} className="border-2 border-slate-700 px-10 py-6 text-lg rounded-full text-slate-900 bg-slate-50">
-                <Phone className="mr-2" />
-                Termin vereinbaren
-              </Button>
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.6,
+              duration: 0.6
+            }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="group bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                  Kontakt aufnehmen
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button size="lg" variant="outline" onClick={() => {
+                setContactFormType("agentur");
+                setIsContactSheetOpen(true);
+              }} className="border-2">
+                  Partner werden
+                </Button>
+              </motion.div>
             </motion.div>
           </div>
         </section>

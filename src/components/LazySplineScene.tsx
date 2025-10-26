@@ -12,7 +12,6 @@ interface LazySplineSceneProps {
  * Lazy-loaded Spline Scene Component
  * Loads the heavy 3D scene only when it enters the viewport
  * Shows a lightweight placeholder until then
- * Includes robot head rotation on scroll
  */
 export const LazySplineScene = ({
   scene,
@@ -21,7 +20,6 @@ export const LazySplineScene = ({
   rootMargin = '50px'
 }: LazySplineSceneProps) => {
   const [shouldLoad, setShouldLoad] = useState(false);
-  const [splineApp, setSplineApp] = useState<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,63 +46,10 @@ export const LazySplineScene = ({
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
 
-  // Robot head rotation on scroll
-  useEffect(() => {
-    if (!splineApp) return;
-    
-    console.log('✅ LazySplineScene: Spline app loaded, setting up scroll listener');
-    
-    let lastUpdate = 0;
-    
-    const handleScroll = () => {
-      const now = performance.now();
-      if (now - lastUpdate < 16) return; // Throttle to 60fps
-      lastUpdate = now;
-      
-      if (!splineApp) return; // Additional safety check
-      
-      try {
-        const scrollY = window.scrollY;
-        const maxScroll = 500; // Max scroll distance for animation
-        const scrollProgress = Math.min(scrollY / maxScroll, 1);
-        
-        // Try to find the robot head object (common names in Spline)
-        const possibleNames = ['Robot_Head', 'Head', 'Robot', 'RobotHead'];
-        
-        for (const name of possibleNames) {
-          try {
-            const robot = splineApp.findObjectByName(name);
-            if (robot && robot.rotation) { // Check if rotation exists
-              // Rotate head down (X-rotation: 0° → -30° = -0.52 radians)
-              robot.rotation.x = scrollProgress * -0.52;
-              break;
-            }
-          } catch (e) {
-            // Object not found, try next name
-            continue;
-          }
-        }
-      } catch (error) {
-        console.error('❌ Spline rotation error:', error);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [splineApp]);
-
-  const handleSplineLoad = (app: any) => {
-    setSplineApp(app);
-  };
-
   return (
     <div ref={containerRef} className={`relative ${className}`}>
       {shouldLoad ? (
-        <SplineScene 
-          scene={scene} 
-          className="w-full h-full"
-          onLoad={handleSplineLoad}
-        />
+        <SplineScene scene={scene} className="w-full h-full" />
       ) : (
         // Lightweight placeholder with gradient
         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
