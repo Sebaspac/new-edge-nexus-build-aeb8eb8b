@@ -52,6 +52,8 @@ export const LazySplineScene = ({
   useEffect(() => {
     if (!splineApp) return;
     
+    console.log('✅ LazySplineScene: Spline app loaded, setting up scroll listener');
+    
     let lastUpdate = 0;
     
     const handleScroll = () => {
@@ -59,25 +61,31 @@ export const LazySplineScene = ({
       if (now - lastUpdate < 16) return; // Throttle to 60fps
       lastUpdate = now;
       
-      const scrollY = window.scrollY;
-      const maxScroll = 500; // Max scroll distance for animation
-      const scrollProgress = Math.min(scrollY / maxScroll, 1);
+      if (!splineApp) return; // Additional safety check
       
-      // Try to find the robot head object (common names in Spline)
-      const possibleNames = ['Robot_Head', 'Head', 'Robot', 'RobotHead'];
-      
-      for (const name of possibleNames) {
-        try {
-          const robot = splineApp.findObjectByName(name);
-          if (robot) {
-            // Rotate head down (X-rotation: 0° → -30° = -0.52 radians)
-            robot.rotation.x = scrollProgress * -0.52;
-            break;
+      try {
+        const scrollY = window.scrollY;
+        const maxScroll = 500; // Max scroll distance for animation
+        const scrollProgress = Math.min(scrollY / maxScroll, 1);
+        
+        // Try to find the robot head object (common names in Spline)
+        const possibleNames = ['Robot_Head', 'Head', 'Robot', 'RobotHead'];
+        
+        for (const name of possibleNames) {
+          try {
+            const robot = splineApp.findObjectByName(name);
+            if (robot && robot.rotation) { // Check if rotation exists
+              // Rotate head down (X-rotation: 0° → -30° = -0.52 radians)
+              robot.rotation.x = scrollProgress * -0.52;
+              break;
+            }
+          } catch (e) {
+            // Object not found, try next name
+            continue;
           }
-        } catch (e) {
-          // Object not found, try next name
-          continue;
         }
+      } catch (error) {
+        console.error('❌ Spline rotation error:', error);
       }
     };
     

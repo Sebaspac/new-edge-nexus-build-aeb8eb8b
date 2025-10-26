@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useScrollTabDetection } from "@/hooks/useScrollTabDetection";
 import { CircleButton } from "./ui/CircleButton";
 
@@ -6,7 +7,33 @@ interface ScrollTabsSectionProps {
 }
 
 export const ScrollTabsSection = ({ onContactClick }: ScrollTabsSectionProps) => {
+  const [isReady, setIsReady] = useState(false);
   const { activeTab } = useScrollTabDetection();
+
+  useEffect(() => {
+    console.log('✅ ScrollTabsSection: Component mounting');
+    // Delay rendering by 100ms to prevent initial render issues
+    const timer = setTimeout(() => {
+      setIsReady(true);
+      console.log('✅ ScrollTabsSection: Ready to render');
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    console.log('✅ ScrollTabsSection: Active tab changed to', activeTab);
+  }, [activeTab]);
+
+  if (!isReady) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <div className="text-center space-y-4">
+          <div className="w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto" />
+          <p className="text-sm text-neutral-400">Wird geladen...</p>
+        </div>
+      </div>
+    );
+  }
 
   const tabs = [
     {
