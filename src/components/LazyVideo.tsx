@@ -33,7 +33,7 @@ export const LazyVideo = ({
         }
       },
       { 
-        rootMargin: '300px', // Load 300px before entering viewport
+        rootMargin: '100px', // Load 100px before entering viewport
         threshold: 0.01
       }
     );

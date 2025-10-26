@@ -1,10 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const CyberneticGridShader = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
+    // Disable on mobile for performance
+    if (isMobile) return;
     const container = containerRef.current;
     if (!container) return;
 
@@ -140,7 +144,7 @@ const CyberneticGridShader = () => {
       geometry.dispose();
       renderer.dispose();
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div

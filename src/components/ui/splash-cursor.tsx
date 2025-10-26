@@ -1163,14 +1163,11 @@ function SplashCursor({
       return hash;
     }
 
-    // Helper function to check if event is over navigation
-    function isOverNavigation(x, y) {
-      const element = document.elementFromPoint(x, y);
-      return element?.closest('nav') !== null;
-    }
+    // Throttle variables for performance
+    let lastMouseMove = 0;
+    const THROTTLE_MS = 16; // 60fps max
 
     window.addEventListener("mousedown", (e) => {
-      if (isOverNavigation(e.clientX, e.clientY)) return;
       let pointer = pointers[0];
       let posX = scaleByPixelRatio(e.clientX);
       let posY = scaleByPixelRatio(e.clientY);
@@ -1181,7 +1178,6 @@ function SplashCursor({
     document.body.addEventListener(
       "mousemove",
       function handleFirstMouseMove(e) {
-        if (isOverNavigation(e.clientX, e.clientY)) return;
         let pointer = pointers[0];
         let posX = scaleByPixelRatio(e.clientX);
         let posY = scaleByPixelRatio(e.clientY);
@@ -1193,7 +1189,11 @@ function SplashCursor({
     );
 
     window.addEventListener("mousemove", (e) => {
-      if (isOverNavigation(e.clientX, e.clientY)) return;
+      // Throttle to 60fps max for performance
+      const now = performance.now();
+      if (now - lastMouseMove < THROTTLE_MS) return;
+      lastMouseMove = now;
+
       let pointer = pointers[0];
       let posX = scaleByPixelRatio(e.clientX);
       let posY = scaleByPixelRatio(e.clientY);
@@ -1205,7 +1205,6 @@ function SplashCursor({
       "touchstart",
       function handleFirstTouchStart(e) {
         const touches = e.targetTouches;
-        if (touches.length > 0 && isOverNavigation(touches[0].clientX, touches[0].clientY)) return;
         let pointer = pointers[0];
         for (let i = 0; i < touches.length; i++) {
           let posX = scaleByPixelRatio(touches[i].clientX);
@@ -1219,7 +1218,6 @@ function SplashCursor({
 
     window.addEventListener("touchstart", (e) => {
       const touches = e.targetTouches;
-      if (touches.length > 0 && isOverNavigation(touches[0].clientX, touches[0].clientY)) return;
       let pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
         let posX = scaleByPixelRatio(touches[i].clientX);
@@ -1232,7 +1230,6 @@ function SplashCursor({
       "touchmove",
       (e) => {
         const touches = e.targetTouches;
-        if (touches.length > 0 && isOverNavigation(touches[0].clientX, touches[0].clientY)) return;
         let pointer = pointers[0];
         for (let i = 0; i < touches.length; i++) {
           let posX = scaleByPixelRatio(touches[i].clientX);
@@ -1272,7 +1269,7 @@ function SplashCursor({
 
   return (
     <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none">
-      <canvas ref={canvasRef} id="fluid" className="w-full h-full" />
+      <canvas ref={canvasRef} id="fluid" className="w-full h-full pointer-events-auto" />
     </div>
   );
 }

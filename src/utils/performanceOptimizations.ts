@@ -158,9 +158,11 @@ export function getOptimizedAnimationDuration(baseDuration: number = 0.3): numbe
     return 0.01; // Nearly instant for accessibility
   }
   
-  // Adjust based on device performance
-  const isLowEndDevice = navigator.hardwareConcurrency <= 2;
-  return isLowEndDevice ? baseDuration * 0.7 : baseDuration;
+  // Adjust based on device performance - more aggressive
+  const cores = navigator.hardwareConcurrency || 4;
+  if (cores < 4) return baseDuration * 0.5; // 50% faster on low-end devices
+  if (cores < 6) return baseDuration * 0.7; // 30% faster on mid-range devices
+  return baseDuration;
 }
 
 /**

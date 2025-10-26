@@ -16,8 +16,8 @@ interface LazySplineSceneProps {
 export const LazySplineScene = ({
   scene,
   className = '',
-  threshold = 0.1,
-  rootMargin = '100px'
+  threshold = 0.25,
+  rootMargin = '50px'
 }: LazySplineSceneProps) => {
   const [shouldLoad, setShouldLoad] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);

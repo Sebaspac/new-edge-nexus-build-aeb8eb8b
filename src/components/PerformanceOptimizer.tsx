@@ -21,26 +21,6 @@ export const PerformanceOptimizer: React.FC<PerformanceOptimizerProps> = ({ chil
     const isLowEndDevice = navigator.hardwareConcurrency <= 2;
     root.style.setProperty('--performance-mode', isLowEndDevice ? 'low' : 'high');
     
-    // Add will-change for better performance
-    const addWillChange = () => {
-      const animatedElements = document.querySelectorAll('[class*="animate-"], [class*="transition-"]');
-      animatedElements.forEach((el) => {
-        if (el instanceof HTMLElement) {
-          el.style.willChange = 'transform, opacity';
-        }
-      });
-    };
-    
-    // Remove will-change after animations complete
-    const removeWillChange = () => {
-      const animatedElements = document.querySelectorAll('[style*="will-change"]');
-      animatedElements.forEach((el) => {
-        if (el instanceof HTMLElement) {
-          el.style.willChange = 'auto';
-        }
-      });
-    };
-    
     // Optimize scroll performance
     const optimizeScroll = () => {
       const scrollElements = document.querySelectorAll('[class*="overflow-"], [class*="scroll-"]');
@@ -53,13 +33,7 @@ export const PerformanceOptimizer: React.FC<PerformanceOptimizerProps> = ({ chil
     };
     
     // Run optimizations
-    addWillChange();
     optimizeScroll();
-    
-    // Cleanup function
-    return () => {
-      removeWillChange();
-    };
   }, []);
   
   useEffect(() => {

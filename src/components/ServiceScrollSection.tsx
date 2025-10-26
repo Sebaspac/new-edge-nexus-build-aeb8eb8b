@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { LucideIcon } from "lucide-react";
 import { LazyVideo } from "./LazyVideo";
 import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ServiceScrollSectionProps {
   children: React.ReactNode;
@@ -21,16 +22,17 @@ export const ServiceScrollSection = ({
 }: ServiceScrollSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { shouldAnimate, whileHover } = useOptimizedAnimation();
+  const isMobile = useIsMobile();
   
-  // Scroll-based animations for mobile - Optimized
+  // Scroll-based animations - disabled on mobile for performance
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"]
   });
 
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
-  const imageScale = useTransform(scrollYProgress, [0, 0.4], [1, 0.9]);
-  const imageY = useTransform(scrollYProgress, [0, 0.4], [0, -15]);
+  const imageOpacity = isMobile ? 1 : useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+  const imageScale = isMobile ? 1 : useTransform(scrollYProgress, [0, 0.4], [1, 0.9]);
+  const imageY = isMobile ? 0 : useTransform(scrollYProgress, [0, 0.4], [0, -15]);
 
   const isEven = imagePosition === "right";
 

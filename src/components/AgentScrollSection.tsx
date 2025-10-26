@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, memo } from "react";
 import { LazyVideo } from "@/components/LazyVideo";
 import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface AgentScrollSectionProps {
   children: React.ReactNode;
@@ -18,16 +19,17 @@ const AgentScrollSectionComponent = ({
 }: AgentScrollSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { shouldAnimate, whileHover } = useOptimizedAnimation();
+  const isMobile = useIsMobile();
   
-  // Scroll-based animations for mobile
+  // Scroll-based animations - disabled on mobile for performance
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"]
   });
 
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 0.5, 0]);
-  const imageScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
-  const imageY = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+  const imageOpacity = isMobile ? 1 : useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 0.5, 0]);
+  const imageScale = isMobile ? 1 : useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
+  const imageY = isMobile ? 0 : useTransform(scrollYProgress, [0, 0.5], [0, -50]);
 
   return (
     <>
@@ -80,8 +82,8 @@ const AgentScrollSectionComponent = ({
             visible: {
               opacity: 1,
               transition: {
-                staggerChildren: shouldAnimate ? 0.08 : 0,
-                delayChildren: shouldAnimate ? 0.05 : 0,
+                staggerChildren: shouldAnimate ? 0.05 : 0,
+                delayChildren: shouldAnimate ? 0.03 : 0,
               },
             },
           }}

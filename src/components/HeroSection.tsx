@@ -79,8 +79,8 @@ export const HeroSection = ({
           <LazySplineScene 
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" 
             className="w-full h-full"
-            threshold={0.1}
-            rootMargin="100px"
+            threshold={0.25}
+            rootMargin="50px"
           />
         </div>
 
