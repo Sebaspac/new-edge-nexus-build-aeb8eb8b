@@ -5,7 +5,7 @@ import { TextStaggerHover, TextStaggerHoverActive, TextStaggerHoverHidden } from
 export const ServicesOverviewSection = () => {
   const services = [
     {
-      title: "KI Beratung",
+      title: "AI Consultancy & Workshops",
       path: "/services",
     },
     {
@@ -13,15 +13,15 @@ export const ServicesOverviewSection = () => {
       path: "/lab",
     },
     {
-      title: "Voice AI Agents",
-      path: "/lab",
+      title: "Markenaufbau",
+      path: "/studio",
     },
     {
-      title: "Smart KI-Automation",
-      path: "/lab",
+      title: "Viral strategy",
+      path: "/media",
     },
     {
-      title: "Conversational AI & Chatbots",
+      title: "Web- & Prototyp Design",
       path: "/lab",
     },
     {
