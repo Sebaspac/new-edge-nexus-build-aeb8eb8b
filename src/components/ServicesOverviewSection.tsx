@@ -70,17 +70,17 @@ export const ServicesOverviewSection = () => {
             duration: 0.4,
             delay: 0.3 + index * 0.1
           }} className="w-full lg:w-auto">
-                <Link to={service.path} className="group flex items-center justify-end gap-4 text-right py-4 px-6 rounded-lg transition-all duration-200 hover:bg-primary/5">
-                  <TextStaggerHover as="span">
-                    <TextStaggerHoverActive animation="right" className="text-3xl lg:text-4xl xl:text-5xl font-epilogue font-light tracking-tight text-foreground">
-                      {service.title}
-                    </TextStaggerHoverActive>
-                    <TextStaggerHoverHidden animation="left" className="text-3xl lg:text-4xl xl:text-5xl font-epilogue font-light tracking-tight text-primary">
-                      {service.title}
-                    </TextStaggerHoverHidden>
-                  </TextStaggerHover>
-                  <ArrowRight className="w-6 h-6 lg:w-7 lg:h-7 text-muted-foreground group-hover:text-primary transition-all duration-200 group-hover:translate-x-1" />
-                </Link>
+              <Link to={service.path} className="group flex items-center justify-start lg:justify-end gap-3 lg:gap-4 text-left lg:text-right py-3 px-4 lg:py-4 lg:px-6 rounded-lg transition-all duration-200 hover:bg-primary/5">
+                <ArrowRight className="w-5 h-5 lg:w-7 lg:h-7 text-muted-foreground group-hover:text-primary transition-all duration-200 group-hover:translate-x-1 lg:order-2" />
+                <TextStaggerHover as="span" className="flex-1">
+                  <TextStaggerHoverActive animation="right" className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-epilogue font-light tracking-tight text-foreground">
+                    {service.title}
+                  </TextStaggerHoverActive>
+                  <TextStaggerHoverHidden animation="left" className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-epilogue font-light tracking-tight text-primary">
+                    {service.title}
+                  </TextStaggerHoverHidden>
+                </TextStaggerHover>
+              </Link>
               </motion.div>)}
           </motion.div>
         </div>
