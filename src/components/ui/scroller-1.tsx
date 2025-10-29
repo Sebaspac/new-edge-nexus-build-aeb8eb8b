@@ -199,6 +199,7 @@ export const Scroller = ({
         {items.map((child, index) => (
           <div
             key={index}
+            // @ts-ignore
             ref={(el) => (itemsRef.current[index] = el)}
           >
             {child}
@@ -230,19 +231,19 @@ export const Scroller = ({
         </div>
       )}
       <div className={clsx(
-        "absolute left-0 right-0 w-full h-10 bg-gradient-to-b from-background to-background/0 duration-300",
+        "absolute left-0 right-0 w-full h-10 bg-gradient-to-b from-white dark:from-black/75 to-white/0 duration-300",
         showTopOverlay ? (withButtons ? "top-10" : "top-0") : "-top-10"
       )} />
       <div className={clsx(
-        "absolute left-0 right-0 w-full h-10 bg-gradient-to-t from-background to-background/0 duration-300",
+        "absolute left-0 right-0 w-full h-10 bg-gradient-to-t from-white dark:from-black/75 to-white/0 duration-300",
         showBottomOverlay ? "bottom-0" : "-bottom-10"
       )} />
       <div className={clsx(
-        "absolute top-0 bottom-0 w-10 h-full bg-gradient-to-r from-background to-background/0 duration-300",
+        "absolute top-0 bottom-0 w-10 h-full bg-gradient-to-r from-white dark:from-black/75 to-white/0 duration-300",
         showLeftOverlay ? "left-0" : "-left-10"
       )} />
       <div className={clsx(
-        "absolute top-0 bottom-0 w-10 h-full bg-gradient-to-l from-background to-background/0 duration-300",
+        "absolute top-0 bottom-0 w-10 h-full bg-gradient-to-l from-white dark:from-black/75 to-white/0 duration-300",
         showRightOverlay ? "right-0" : "-right-10"
       )} />
     </div>
