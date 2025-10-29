@@ -76,12 +76,7 @@ export const HeroSection = ({
 
         {/* Right Side - 3D Spline Scene */}
         <div className="absolute inset-0 lg:relative overflow-hidden z-10 lg:z-20">
-          <LazySplineScene 
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" 
-            className="w-full h-full"
-            threshold={0.25}
-            rootMargin="50px"
-          />
+          <LazySplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" threshold={0.25} rootMargin="50px" />
         </div>
 
         {/* Scroll Indicator */}
@@ -93,16 +88,7 @@ export const HeroSection = ({
           delay: 1,
           duration: 0.5
         }} className="absolute bottom-20 sm:bottom-24 md:bottom-8 left-1/2 transform -translate-x-1/2 z-30">
-          <motion.div animate={{
-            y: [0, 10, 0]
-          }} transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} className="flex flex-col items-center gap-2 cursor-pointer" onClick={scrollToNext} role="button" aria-label="Scroll to next section" tabIndex={0} onKeyDown={e => e.key === 'Enter' && scrollToNext()}>
-            <span className="text-white text-sm font-medium">Scroll</span>
-            <ChevronDown className="w-6 h-6 text-white" aria-hidden="true" />
-          </motion.div>
+          
         </motion.div>
       </motion.div>
     </section>
