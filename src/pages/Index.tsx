@@ -348,7 +348,7 @@ const Index = () => {
                       duration: 0.6
                     }} className="group bg-gray-50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 transition-all duration-300 hover:bg-gray-100">
                           <div className="mb-3 sm:mb-4"></div>
-                          <h4 className="text-h3 mb-2 sm:mb-3 text-gray-900 font-medium text-2xl">{item.title}</h4>
+                          <h4 className="text-h3 mb-2 sm:mb-3 text-gray-900 font-medium text-xl">{item.title}</h4>
                           <p className="text-body text-gray-600 leading-relaxed">{item.description}</p>
                         </motion.div>)}
                     </div>
@@ -447,7 +447,7 @@ const Index = () => {
                       delay: 0.4 + index * 0.1,
                       duration: 0.6
                     }} className="group bg-gray-50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 transition-all duration-300 hover:bg-gray-100">
-                          <h4 className="text-h3 mb-2 sm:mb-3 text-gray-900 font-medium text-2xl">{item.title}</h4>
+                          <h4 className="text-h3 mb-2 sm:mb-3 text-gray-900 font-medium text-xl">{item.title}</h4>
                           <p className="text-body text-gray-600 leading-relaxed">{item.description}</p>
                         </motion.div>)}
                     </div>
