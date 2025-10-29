@@ -271,7 +271,7 @@ const Index = () => {
                     }} transition={{
                       delay: 0.2,
                       duration: 0.6
-                    }} className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-gray-900 tracking-tight leading-[1.1] font-medium lg:text-3xl">
+                    }} className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-gray-900 tracking-tight leading-[1.1] font-medium lg:text-2xl">
                         Für Unternehmen, die zukunftsorientiert denken
                       </motion.h3>
                       <motion.p initial={{
@@ -379,7 +379,7 @@ const Index = () => {
                     }} transition={{
                       delay: 0.2,
                       duration: 0.6
-                    }} className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-gray-900 tracking-tight leading-[1.1] font-medium lg:text-3xl">
+                    }} className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-gray-900 tracking-tight leading-[1.1] font-medium lg:text-2xl">
                         Für Agenturen, die Wachstum automatisieren wollen
                       </motion.h3>
                       <motion.p initial={{
@@ -391,7 +391,7 @@ const Index = () => {
                     }} transition={{
                       delay: 0.3,
                       duration: 0.6
-                    }} className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 sm:mb-12 md:mb-16 leading-relaxed font-normal">
+                    }} className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12 md:mb-16 leading-relaxed font-normal md:text-lg">
                         Als zertifizierter Partner werden Sie Teil unseres exklusiven Netzwerks. Wir vermitteln Kunden,
                         integrieren Automatisierung und schaffen skalierbare Workflows für nachhaltiges Wachstum.
                       </motion.p>
