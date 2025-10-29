@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useHeroScrollAnimation } from "@/hooks/useHeroScrollAnimation";
 import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
 import { ArrowRight, ArrowDown, ChevronDown, Lightbulb, Palette, Zap, Star, Target, Eye, Phone, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -30,10 +29,6 @@ const Services = () => {
   const [openAccordionIndex, setOpenAccordionIndex] = useState(0);
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const {
-    container: heroContainer,
-    style: heroStyle
-  } = useHeroScrollAnimation();
   const {
     shouldAnimate,
     whileHover
@@ -98,9 +93,9 @@ const Services = () => {
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
       {/* Hero Section */}
-      <section ref={heroContainer} className="relative w-full">
+      <section className="relative w-full">
         <SplashCursor />
-        <motion.div style={heroStyle} className="w-full relative h-[75vh] lg:h-auto lg:aspect-video">
+        <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video">
           <CyberneticGridShader />
 
           <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/80 z-10 pointer-events-none" />
@@ -149,7 +144,7 @@ const Services = () => {
             </motion.p>
           </div>
 
-        </motion.div>
+        </div>
       </section>
 
       {/* Services Overview Section */}
