@@ -13,11 +13,11 @@ export const ServicesOverviewSection = () => {
       path: "/products",
     },
     {
-      title: "Strategie & Markenentwicklung",
+      title: "Markenstrategie",
       path: "/studio",
     },
     {
-      title: "Content & Kampagnenmanagement",
+      title: "Kampagnenmanagement",
       path: "/media",
     },
     {
