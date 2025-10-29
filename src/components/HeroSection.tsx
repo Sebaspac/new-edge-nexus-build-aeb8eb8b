@@ -79,17 +79,6 @@ export const HeroSection = ({
           <LazySplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" threshold={0.25} rootMargin="50px" />
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          delay: 1,
-          duration: 0.5
-        }} className="absolute bottom-20 sm:bottom-24 md:bottom-8 left-1/2 transform -translate-x-1/2 z-30">
-          
-        </motion.div>
       </motion.div>
     </section>
   </>;
