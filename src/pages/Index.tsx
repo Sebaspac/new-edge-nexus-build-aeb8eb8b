@@ -170,45 +170,10 @@ const Index = () => {
         <ServicesOverviewSection />
 
         {/* Info Section */}
-        <section id="main-content" className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
-          <div className="container-xl relative z-10">
-            <motion.div initial="hidden" whileInView="visible" viewport={{
-            once: true,
-            margin: "-80px"
-          }} variants={{
-            hidden: {
-              opacity: 0
-            },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.1
-              }
-            }
-          }} className="max-w-5xl space-y-4">
-              <motion.div variants={{
-              hidden: {
-                opacity: 0,
-                y: 40,
-                scale: 0.95
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                transition: {
-                  duration: 0.7,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }
-              }
-            }} className="mb-6"></motion.div>
-            </motion.div>
-          </div>
-        </section>
+        
 
         {/* Innovation Section */}
-        <InnovationSection />
+        
 
         {/* Gemeinsam Zukunft gestalten Section */}
         <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
