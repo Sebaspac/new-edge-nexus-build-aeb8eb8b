@@ -10,7 +10,7 @@ export const ServicesOverviewSection = () => {
     },
     {
       title: "AI Agents für Unternehmen",
-      path: "/lab",
+      path: "/products",
     },
     {
       title: "Markenaufbau",
@@ -22,7 +22,7 @@ export const ServicesOverviewSection = () => {
     },
     {
       title: "Web- & Prototyp Design",
-      path: "lab",
+      path: "/lab",
     },
     {
       title: "KI-gestütztes Marketing & Automation",
