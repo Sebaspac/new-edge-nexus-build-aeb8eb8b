@@ -7,7 +7,6 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { ServiceScrollSection } from "@/components/ServiceScrollSection";
-import { useHeroScrollAnimation } from "@/hooks/useHeroScrollAnimation";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const Lab = () => {
@@ -16,10 +15,6 @@ const Lab = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openAgent, setOpenAgent] = useState<string | null>(null);
   const [selectedAgent, setSelectedAgent] = useState<string>("Riley");
-  const {
-    container: heroContainer,
-    style: heroStyle
-  } = useHeroScrollAnimation();
   useEffect(() => {
     window.scrollTo({
       top: 0,
