@@ -22,7 +22,7 @@ export const ServicesOverviewSection = () => {
     },
     {
       title: "Web- & Prototyp Design",
-      path: "/Lab",
+      path: "/lab",
     },
     {
       title: "KI-gestütztes Marketing & Automation",
