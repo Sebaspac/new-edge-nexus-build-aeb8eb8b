@@ -619,12 +619,16 @@ const Index = () => {
                         </p>
 
                         {/* Button */}
-                        <Button variant="default" size="sm" className="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground group text-sm md:text-base md:mt-auto transition-all duration-300" asChild>
-                          <Link to={service.link}>
+                        <Link to={service.link} className="inline-block w-full md:w-auto">
+                          <Button 
+                            variant="default" 
+                            size="sm" 
+                            className="w-full md:w-auto bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground group text-sm md:text-base md:mt-auto transition-all duration-300"
+                          >
                             Mehr erfahren
                             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                          </Link>
-                        </Button>
+                          </Button>
+                        </Link>
                       </div>
                     </CardContent>
                   </Card>
