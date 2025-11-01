@@ -12,9 +12,9 @@ import { LoadingScreen } from "@/components/LoadingScreen";
 // Lazy load all pages for route-based code splitting
 const Index = lazy(() => import("./pages/Index"));
 const Services = lazy(() => import("./pages/Services"));
-const Media = lazy(() => import("./pages/Media"));
-const Studio = lazy(() => import("./pages/Studio"));
-const Lab = lazy(() => import("./pages/Lab"));
+const OptimizedMedia = lazy(() => import("./components/OptimizedMedia"));
+const OptimizedStudio = lazy(() => import("./components/OptimizedStudio"));
+const OptimizedLab = lazy(() => import("./components/OptimizedLab"));
 const OptimizedProducts = lazy(() => import("./components/OptimizedProducts"));
 const Team = lazy(() => import("./pages/Team"));
 const Impressum = lazy(() => import("./pages/Impressum"));
@@ -53,9 +53,9 @@ const App = () => {
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/services" element={<Services />} />
-                  <Route path="/media" element={<Media />} />
-                  <Route path="/studio" element={<Studio />} />
-                  <Route path="/lab" element={<Lab />} />
+                  <Route path="/media" element={<OptimizedMedia />} />
+                  <Route path="/studio" element={<OptimizedStudio />} />
+                  <Route path="/lab" element={<OptimizedLab />} />
                   <Route path="/products" element={<OptimizedProducts />} />
                   <Route path="/team" element={<Team />} />
                   <Route path="/case-studies" element={<CaseStudies />} />
