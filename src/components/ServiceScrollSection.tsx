@@ -30,9 +30,15 @@ export const ServiceScrollSection = ({
     offset: ["start start", "end start"]
   });
 
-  const imageOpacity = isMobile ? 1 : useTransform(scrollYProgress, [0, 0.4], [1, 0]);
-  const imageScale = isMobile ? 1 : useTransform(scrollYProgress, [0, 0.4], [1, 0.9]);
-  const imageY = isMobile ? 0 : useTransform(scrollYProgress, [0, 0.4], [0, -15]);
+  // Always call hooks, then conditionally use the values
+  const imageOpacityTransform = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+  const imageScaleTransform = useTransform(scrollYProgress, [0, 0.4], [1, 0.9]);
+  const imageYTransform = useTransform(scrollYProgress, [0, 0.4], [0, -15]);
+  
+  // Use static values on mobile, animated values on desktop
+  const imageOpacity = isMobile ? 1 : imageOpacityTransform;
+  const imageScale = isMobile ? 1 : imageScaleTransform;
+  const imageY = isMobile ? 0 : imageYTransform;
 
   const isEven = imagePosition === "right";
 

@@ -9,6 +9,17 @@ export interface VideoPreloadProgress {
   progress: number;
 }
 
+// Constants
+const PRELOAD_TIMEOUT = 5000; // 5 seconds max wait time
+const MOBILE_BREAKPOINT = 768;
+
+/**
+ * Check if device is mobile
+ */
+function isMobileDevice(): boolean {
+  return window.innerWidth < MOBILE_BREAKPOINT;
+}
+
 export const PAGE_VIDEOS = {
   studio: [
     '/assets/studio-hero-background.mp4',
@@ -62,22 +73,34 @@ function preloadSingleVideo(url: string): Promise<void> {
 }
 
 /**
- * Preload all videos for a page with progress tracking
+ * Preload all videos for a page with progress tracking and timeout
  */
 export async function preloadPageVideos(
   page: keyof typeof PAGE_VIDEOS,
   onProgress?: (progress: VideoPreloadProgress) => void
 ): Promise<void> {
-  const videos = PAGE_VIDEOS[page];
+  const allVideos = PAGE_VIDEOS[page];
+  const isMobile = isMobileDevice();
+  
+  // On mobile, only preload the first (hero) video
+  const videos = isMobile ? [allVideos[0]] : allVideos;
   const total = videos.length;
   let loaded = 0;
 
-  console.log(`🎥 Starting preload of ${total} videos for ${page} page`);
+  console.log(`🎥 Starting preload of ${total} videos for ${page} page ${isMobile ? '(mobile - hero only)' : '(desktop - all)'}`);
   
   const startTime = performance.now();
 
-  // Load videos in parallel
-  await Promise.all(
+  // Create a timeout promise
+  const timeoutPromise = new Promise<void>((resolve) => {
+    setTimeout(() => {
+      console.log(`⏱️ Preload timeout reached for ${page} page`);
+      resolve();
+    }, PRELOAD_TIMEOUT);
+  });
+
+  // Load videos in parallel with timeout
+  const loadPromise = Promise.all(
     videos.map(async (videoUrl) => {
       await preloadSingleVideo(videoUrl);
       loaded++;
@@ -92,10 +115,13 @@ export async function preloadPageVideos(
     })
   );
 
+  // Race between loading and timeout
+  await Promise.race([loadPromise, timeoutPromise]);
+
   const endTime = performance.now();
   const duration = ((endTime - startTime) / 1000).toFixed(2);
   
-  console.log(`✅ All ${page} videos preloaded in ${duration}s`);
+  console.log(`✅ ${page} videos preload completed in ${duration}s (${loaded}/${total} loaded)`);
 }
 
 /**
