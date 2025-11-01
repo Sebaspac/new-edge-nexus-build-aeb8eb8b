@@ -1,8 +1,6 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { preloadPageVideos, VideoPreloadProgress } from '@/utils/videoPreloader';
-
-// Lazy load the Studio page
-const StudioContent = lazy(() => import('../pages/Studio'));
+import Studio from '../pages/Studio';
 
 const OptimizedStudio = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,15 +34,7 @@ const OptimizedStudio = () => {
     );
   }
 
-  return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
-      </div>
-    }>
-      <StudioContent />
-    </Suspense>
-  );
+  return <Studio />;
 };
 
 export default OptimizedStudio;

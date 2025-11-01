@@ -1,8 +1,6 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { preloadPageVideos, VideoPreloadProgress } from '@/utils/videoPreloader';
-
-// Lazy load the Media page
-const MediaContent = lazy(() => import('../pages/Media'));
+import Media from '../pages/Media';
 
 const OptimizedMedia = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,15 +34,7 @@ const OptimizedMedia = () => {
     );
   }
 
-  return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-      </div>
-    }>
-      <MediaContent />
-    </Suspense>
-  );
+  return <Media />;
 };
 
 export default OptimizedMedia;

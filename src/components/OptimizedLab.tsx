@@ -1,8 +1,6 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { preloadPageVideos, VideoPreloadProgress } from '@/utils/videoPreloader';
-
-// Lazy load the Lab page
-const LabContent = lazy(() => import('../pages/Lab'));
+import Lab from '../pages/Lab';
 
 const OptimizedLab = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,15 +34,7 @@ const OptimizedLab = () => {
     );
   }
 
-  return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600"></div>
-      </div>
-    }>
-      <LabContent />
-    </Suspense>
-  );
+  return <Lab />;
 };
 
 export default OptimizedLab;
