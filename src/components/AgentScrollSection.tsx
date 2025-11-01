@@ -27,9 +27,15 @@ const AgentScrollSectionComponent = ({
     offset: ["start start", "end start"]
   });
 
-  const imageOpacity = isMobile ? 1 : useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 0.5, 0]);
-  const imageScale = isMobile ? 1 : useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
-  const imageY = isMobile ? 0 : useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+  // Always call hooks unconditionally (React Rules of Hooks)
+  const imageOpacityTransform = useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 0.5, 0]);
+  const imageScaleTransform = useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
+  const imageYTransform = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+
+  // Conditionally apply transforms based on device type
+  const imageOpacity = isMobile ? 1 : imageOpacityTransform;
+  const imageScale = isMobile ? 1 : imageScaleTransform;
+  const imageY = isMobile ? 0 : imageYTransform;
 
   return (
     <>
