@@ -9,22 +9,24 @@ import { HelmetProvider } from 'react-helmet-async';
 import { useEffect, lazy, Suspense } from "react";
 import { LoadingScreen } from "@/components/LoadingScreen";
 
-// Lazy load all pages for route-based code splitting
-const Index = lazy(() => import("./pages/Index"));
-const Services = lazy(() => import("./pages/Services"));
-const OptimizedMedia = lazy(() => import("./components/OptimizedMedia"));
-const OptimizedStudio = lazy(() => import("./components/OptimizedStudio"));
-const OptimizedLab = lazy(() => import("./components/OptimizedLab"));
-const OptimizedProducts = lazy(() => import("./components/OptimizedProducts"));
-const Team = lazy(() => import("./pages/Team"));
+// Eager load main pages for better performance
+import Index from "./pages/Index";
+import Services from "./pages/Services";
+import OptimizedMedia from "./components/OptimizedMedia";
+import OptimizedStudio from "./components/OptimizedStudio";
+import OptimizedLab from "./components/OptimizedLab";
+import OptimizedProducts from "./components/OptimizedProducts";
+import Team from "./pages/Team";
+import CaseStudies from "./pages/CaseStudies";
+import Careers from "./pages/Careers";
+import About from "./pages/About";
+import Resources from "./pages/Resources";
+import Blog from "./pages/Blog";
+import News from "./pages/News";
+
+// Only lazy load rarely visited pages
 const Impressum = lazy(() => import("./pages/Impressum"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const CaseStudies = lazy(() => import("./pages/CaseStudies"));
-const Careers = lazy(() => import("./pages/Careers"));
-const About = lazy(() => import("./pages/About"));
-const Resources = lazy(() => import("./pages/Resources"));
-const Blog = lazy(() => import("./pages/Blog"));
-const News = lazy(() => import("./pages/News"));
 
 const queryClient = new QueryClient({
   defaultOptions: {

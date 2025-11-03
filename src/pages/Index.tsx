@@ -4,7 +4,6 @@ import { HeroSection } from "../components/HeroSection";
 import { ServicesOverviewSection } from "../components/ServicesOverviewSection";
 import { InnovationSection } from "../components/InnovationSection";
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
-import { FastLoadWrapper } from "../components/FastLoadWrapper";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import { lazy, Suspense, useCallback, useState, useEffect } from "react";
@@ -147,7 +146,7 @@ const Index = () => {
     label: "Kundenzufriedenheit",
     icon: Star
   }];
-  return <FastLoadWrapper>
+  return <>
       <Helmet>
         <title>New Edge - Ihr Unternehmen an die Spitze bringen | Innovations- und KI Agentur für KMUs</title>
         <meta name="description" content="New Edge ist eine KI- & Automationsagentur für KMU. Wir verbinden Markenstrategie und Content mit maßgeschneiderten KI-Agenten und Integrationen." />
@@ -785,6 +784,6 @@ const Index = () => {
         {/* Cookie Consent */}
         <CookieConsent />
       </div>
-    </FastLoadWrapper>;
+    </>;
 };
 export default Index;

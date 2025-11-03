@@ -19,7 +19,7 @@ export const LazyVideo = ({
   loop = true,
   muted = true,
   playsInline = true,
-  preload = 'metadata'
+  preload = 'none'
 }: LazyVideoProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -33,8 +33,8 @@ export const LazyVideo = ({
         }
       },
       { 
-        rootMargin: '100px', // Load 100px before entering viewport
-        threshold: 0.01
+        rootMargin: '200px', // Load 200px before entering viewport
+        threshold: 0.5
       }
     );
 

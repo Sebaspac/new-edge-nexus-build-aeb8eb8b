@@ -9,13 +9,14 @@ export const LoadingScreen = ({ progress }: LoadingScreenProps) => {
   return (
     <motion.div 
       className="fixed inset-0 z-50 bg-background flex items-center justify-center"
+      initial={{ opacity: 1 }}
       exit={{ 
         opacity: 0, 
         scale: 0.95,
         filter: "blur(10px)"
       }}
       transition={{ 
-        duration: 0.8, 
+        duration: 0.3, 
         ease: [0.4, 0, 0.2, 1]
       }}
     >
@@ -30,7 +31,7 @@ export const LoadingScreen = ({ progress }: LoadingScreenProps) => {
           scale: 1,
         }}
         transition={{ 
-          duration: 0.6,
+          duration: 0.3,
           ease: [0.4, 0, 0.2, 1]
         }}
       />
