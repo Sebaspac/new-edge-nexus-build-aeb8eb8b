@@ -11,7 +11,6 @@ import { LoadingScreen } from "@/components/LoadingScreen";
 
 // Eager load main pages for better performance
 import Index from "./pages/Index";
-import Services from "./pages/Services";
 import OptimizedMedia from "./components/OptimizedMedia";
 import OptimizedStudio from "./components/OptimizedStudio";
 import OptimizedLab from "./components/OptimizedLab";
@@ -54,7 +53,6 @@ const App = () => {
               <Suspense fallback={<LoadingScreen progress={100} />}>
                 <Routes>
                   <Route path="/" element={<Index />} />
-                  <Route path="/services" element={<Services />} />
                   <Route path="/media" element={<OptimizedMedia />} />
                   <Route path="/studio" element={<OptimizedStudio />} />
                   <Route path="/lab" element={<OptimizedLab />} />
