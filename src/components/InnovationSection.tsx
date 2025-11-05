@@ -11,7 +11,7 @@ export const InnovationSection = () => {
     mouseX.set(e.clientX - rect.left);
     mouseY.set(e.clientY - rect.top);
   };
-  return <section className="innovation-section relative -mt-32 pt-24 pb-12 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden" onMouseMove={handleMouseMove}>
+  return <section className="innovation-section relative pt-20 pb-16 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden" onMouseMove={handleMouseMove}>
       {/* Animated network background */}
       <div className="absolute inset-0 opacity-30">
         <svg className="w-full h-full">
@@ -207,7 +207,12 @@ export const InnovationSection = () => {
           }
         }} onHoverStart={() => setHoveredCard(2)} onHoverEnd={() => setHoveredCard(null)} className="perspective-1000 relative">
             {/* Glow effect when hovered */}
-            
+            <motion.div className="absolute -inset-4 bg-gradient-to-r from-secondary/20 to-accent/20 rounded-3xl blur-2xl" animate={{
+            opacity: hoveredCard === 2 ? 0.8 : 0,
+            scale: hoveredCard === 2 ? 1.05 : 1
+          }} transition={{
+            duration: 0.3
+          }} />
             
             <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-purple-50/80 to-purple-50/50 border border-border/50 shadow-soft hover:shadow-md hover:border-primary/20 transition-all duration-500">
               <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" animate={{
