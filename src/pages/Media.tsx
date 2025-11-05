@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from "framer-motion";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { ServiceScrollSection } from "@/components/ServiceScrollSection";
+import { LazyVideo } from "@/components/LazyVideo";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const Media = () => {
@@ -140,9 +141,15 @@ const Media = () => {
             <div className="absolute inset-0 overflow-hidden" style={{
             background: 'linear-gradient(to bottom right, rgba(59, 130, 246, 0.3), rgba(6, 182, 212, 0.2), rgba(6, 182, 212, 0.1))'
           }}>
-              <video autoPlay loop muted playsInline preload="metadata" className="absolute inset-0 w-full h-full object-cover" aria-label="Media hero background video">
-                <source src="/assets/media-hero-video.mp4" type="video/mp4" />
-              </video>
+              <LazyVideo
+                src="/assets/media-hero-video.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="none"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
               <div className="absolute inset-0" style={{
               background: 'linear-gradient(to top, rgba(59, 130, 246, 0.6), rgba(59, 130, 246, 0.2), transparent)'
             }} />

@@ -155,7 +155,16 @@ export const InnovationSection = () => {
               repeat: hoveredCard === 1 ? Infinity : 0
             }} />
               
-              
+              <CardContent className="p-8 relative z-10">
+                <Lightbulb className="w-12 h-12 mb-4 text-primary" />
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                  Innovation vorantreiben
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Wir kombinieren kreative Strategien mit modernster KI-Technologie, 
+                  um Ihr Unternehmen zukunftssicher zu machen.
+                </p>
+              </CardContent>
               
               {/* Bottom accent line */}
               <motion.div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" animate={{
@@ -208,7 +217,16 @@ export const InnovationSection = () => {
               repeat: hoveredCard === 2 ? Infinity : 0
             }} />
               
-              
+              <CardContent className="p-8 relative z-10">
+                <Zap className="w-12 h-12 mb-4 text-primary" />
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                  Prozesse automatisieren
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Durch intelligente Automatisierung schaffen wir mehr Zeit für 
+                  das Wesentliche – Ihr Kerngeschäft.
+                </p>
+              </CardContent>
               
               <motion.div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" animate={{
               scaleX: hoveredCard === 2 ? 1 : 0,
@@ -237,7 +255,18 @@ export const InnovationSection = () => {
         delay: 0.4,
         ease: [0.25, 0.46, 0.45, 0.94]
       }} className="mb-8 relative z-10">
-          
+          <Card className="bg-gradient-to-br from-white to-primary/5 border-primary/20 shadow-lg hover:shadow-xl transition-all duration-500">
+            <CardContent className="p-10 text-center">
+              <Brain className="w-16 h-16 mx-auto mb-6 text-primary" />
+              <h3 className="text-3xl font-bold mb-4 text-gray-900">
+                Ihre Vision. Unsere Mission.
+              </h3>
+              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                New Edge verbindet kreative Exzellenz mit technischer Innovation, 
+                um Unternehmen zu transformieren und nachhaltig erfolgreich zu machen.
+              </p>
+            </CardContent>
+          </Card>
         </motion.div>
       </div>
     </section>;

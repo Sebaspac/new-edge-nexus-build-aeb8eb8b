@@ -168,24 +168,13 @@ export function getOptimizedAnimationDuration(baseDuration: number = 0.3): numbe
 /**
  * Team images, partners and quotes - preloaded before page shows
  */
+// Only preload critical above-the-fold images (reduced from 5 to 2)
 export const ABOVE_THE_FOLD_IMAGES = [
-  '/assets/93b90410-bdbd-4098-938c-5ff9f158253c.png', // Mobile nav logo (always visible)
-  '/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png', // Sebastian Pachón - founder
-  '/assets/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png', // Wenjamin Zabezhanskiy - founder  
-  '/assets/072b3572-872a-4a44-b919-80bad436c002.png', // Team background
-  '/assets/db231edd-d76b-46cd-ad70-02ac9544d6ff.png', // Wenjamin portrait - quote section
+  '/assets/93b90410-bdbd-4098-938c-5ff9f158253c.png', // Mobile nav logo
+  '/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png', // Hero image
 ];
 
-/**
- * Critical header videos - preloaded before page shows
- */
-export const HEADER_VIDEOS = [
-  '/assets/hero-video.mp4', // Index page hero
-  '/assets/studio-hero-video.mp4', // Studio page hero
-  '/assets/media-hero-video.mp4', // Media page hero
-  '/assets/lab-hero-video.mp4', // Lab page hero
-  '/assets/products-hero-video.mp4', // Products page hero
-];
+// REMOVED: No video preloading - all videos load on-demand via LazyVideo
 
 /**
  * Service page videos - lazy loaded when sections scroll into view
@@ -265,11 +254,10 @@ export function createPerformanceObserver(): PerformanceObserver | null {
 export function addResourceHints(): void {
   const head = document.head;
   
-  // Preconnect to external domains
+  // Only preconnect to critical font domains
   const preconnectUrls = [
     'https://fonts.googleapis.com',
     'https://fonts.gstatic.com',
-    'https://n8n-pro-oh9w.onrender.com', // Contact form endpoint
   ];
   
   preconnectUrls.forEach(url => {
@@ -297,7 +285,9 @@ export function addResourceHints(): void {
  * Preload only above-the-fold images to prevent console warnings
  */
 export async function preloadCriticalImages(): Promise<void> {
-  console.time('🖼️ Preloading critical images');
+  if (process.env.NODE_ENV === 'development') {
+    console.time('🖼️ Preloading critical images');
+  }
   
   try {
     await Promise.race([
@@ -305,35 +295,25 @@ export async function preloadCriticalImages(): Promise<void> {
       new Promise(resolve => setTimeout(resolve, 800)) // Timeout for slow connections
     ]);
     
-    console.timeEnd('🖼️ Preloading critical images');
+    if (process.env.NODE_ENV === 'development') {
+      console.timeEnd('🖼️ Preloading critical images');
+    }
   } catch (error) {
-    console.warn('Critical image preloading failed:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('Critical image preloading failed:', error);
+    }
   }
 }
 
-/**
- * Preload all header videos to prevent loading delays
- */
-export async function preloadCriticalVideos(): Promise<void> {
-  console.time('🎥 Preloading header videos');
-  
-  try {
-    await Promise.race([
-      preloadVideos(HEADER_VIDEOS),
-      new Promise(resolve => setTimeout(resolve, 2000)) // Timeout for slow connections
-    ]);
-    
-    console.timeEnd('🎥 Preloading header videos');
-  } catch (error) {
-    console.warn('Critical video preloading failed:', error);
-  }
-}
+// REMOVED: Video preloading function - all videos now use lazy loading
 
 /**
  * Initialize all performance optimizations with comprehensive image and video preloading
  */
 export async function initializePerformanceOptimizations(): Promise<void> {
-  console.time('⚡ Performance optimizations');
+  if (process.env.NODE_ENV === 'development') {
+    console.time('⚡ Performance optimizations');
+  }
   
   // Add resource hints immediately
   addResourceHints();
@@ -353,11 +333,10 @@ export async function initializePerformanceOptimizations(): Promise<void> {
     document.documentElement.style.setProperty('--duration-slow', '0.15s');
   }
   
-  // Preload critical resources in parallel
-  await Promise.all([
-    preloadCriticalImages(),
-    preloadCriticalVideos()
-  ]);
+  // Preload only critical images (no videos)
+  await preloadCriticalImages();
   
-  console.timeEnd('⚡ Performance optimizations');
+  if (process.env.NODE_ENV === 'development') {
+    console.timeEnd('⚡ Performance optimizations');
+  }
 }
