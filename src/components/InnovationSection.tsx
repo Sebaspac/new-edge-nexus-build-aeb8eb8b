@@ -11,7 +11,7 @@ export const InnovationSection = () => {
     mouseX.set(e.clientX - rect.left);
     mouseY.set(e.clientY - rect.top);
   };
-  return <section className="innovation-section relative pt-20 pb-16 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden" onMouseMove={handleMouseMove}>
+  return <section className="innovation-section relative -mt-32 pt-24 pb-12 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden" onMouseMove={handleMouseMove}>
       {/* Animated network background */}
       <div className="absolute inset-0 opacity-30">
         <svg className="w-full h-full">
@@ -155,16 +155,7 @@ export const InnovationSection = () => {
               repeat: hoveredCard === 1 ? Infinity : 0
             }} />
               
-              <CardContent className="p-8 relative z-10">
-                <Lightbulb className="w-12 h-12 mb-4 text-primary" />
-                <h3 className="text-2xl font-bold mb-3 text-gray-900">
-                  Innovation vorantreiben
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Wir kombinieren kreative Strategien mit modernster KI-Technologie, 
-                  um Ihr Unternehmen zukunftssicher zu machen.
-                </p>
-              </CardContent>
+              
               
               {/* Bottom accent line */}
               <motion.div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" animate={{
@@ -207,12 +198,7 @@ export const InnovationSection = () => {
           }
         }} onHoverStart={() => setHoveredCard(2)} onHoverEnd={() => setHoveredCard(null)} className="perspective-1000 relative">
             {/* Glow effect when hovered */}
-            <motion.div className="absolute -inset-4 bg-gradient-to-r from-secondary/20 to-accent/20 rounded-3xl blur-2xl" animate={{
-            opacity: hoveredCard === 2 ? 0.8 : 0,
-            scale: hoveredCard === 2 ? 1.05 : 1
-          }} transition={{
-            duration: 0.3
-          }} />
+            
             
             <Card className="group relative overflow-hidden h-full bg-gradient-to-br from-purple-50/80 to-purple-50/50 border border-border/50 shadow-soft hover:shadow-md hover:border-primary/20 transition-all duration-500">
               <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" animate={{
@@ -222,16 +208,7 @@ export const InnovationSection = () => {
               repeat: hoveredCard === 2 ? Infinity : 0
             }} />
               
-              <CardContent className="p-8 relative z-10">
-                <Zap className="w-12 h-12 mb-4 text-primary" />
-                <h3 className="text-2xl font-bold mb-3 text-gray-900">
-                  Prozesse automatisieren
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Durch intelligente Automatisierung schaffen wir mehr Zeit für 
-                  das Wesentliche – Ihr Kerngeschäft.
-                </p>
-              </CardContent>
+              
               
               <motion.div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" animate={{
               scaleX: hoveredCard === 2 ? 1 : 0,
@@ -260,18 +237,7 @@ export const InnovationSection = () => {
         delay: 0.4,
         ease: [0.25, 0.46, 0.45, 0.94]
       }} className="mb-8 relative z-10">
-          <Card className="bg-gradient-to-br from-white to-primary/5 border-primary/20 shadow-lg hover:shadow-xl transition-all duration-500">
-            <CardContent className="p-10 text-center">
-              <Brain className="w-16 h-16 mx-auto mb-6 text-primary" />
-              <h3 className="text-3xl font-bold mb-4 text-gray-900">
-                Ihre Vision. Unsere Mission.
-              </h3>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                New Edge verbindet kreative Exzellenz mit technischer Innovation, 
-                um Unternehmen zu transformieren und nachhaltig erfolgreich zu machen.
-              </p>
-            </CardContent>
-          </Card>
+          
         </motion.div>
       </div>
     </section>;

@@ -20,49 +20,8 @@
     </script>
 
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index,follow" />
-    
-    <!-- Critical inline CSS for instant rendering -->
-    <style>
-      /* Prevent FOUC and layout shift */
-      body { 
-        margin: 0; 
-        padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      #root { 
-        min-height: 100vh; 
-        display: flex;
-        flex-direction: column;
-      }
-      /* Prevent layout shift for hero sections */
-      .hero-section { 
-        min-height: 100vh; 
-        position: relative;
-      }
-      /* Loading state */
-      .loading-spinner {
-        width: 48px;
-        height: 48px;
-        border: 4px solid rgba(255,255,255,0.1);
-        border-top-color: #8b5cf6;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-      @keyframes spin {
-        to { transform: rotate(360deg); }
-      }
-      @keyframes shimmer {
-        0% { transform: translateX(-100%); }
-        100% { transform: translateX(100%); }
-      }
-      .animate-shimmer {
-        animation: shimmer 2s infinite;
-      }
-    </style>
 
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="XtuEeSbCDu8Kudt1pr8BEw0Lixm1iuaGkC-hcpwlSiA" />
@@ -90,29 +49,29 @@
     <!-- Favicon & Fonts -->
     <link rel="icon" href="/lovable-uploads/954e86a5-f49d-4abb-baf0-c57e233bbae5.png" type="image/png" />
     
-    <!-- Performance optimizations with preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Performance optimizations -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Preload Critical Fonts with font-display: swap -->
+    <!-- Preload Critical Fonts for faster FCP -->
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXMDLiDJXVigHPVA.woff2" as="font" type="font/woff2" crossorigin />
     
-    <!-- Load Fonts asynchronously with media print trick -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'" />
+    <!-- Load Fonts with font-display: swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Critical Image Preloads -->
+    <link rel="preload" href="/lovable-uploads/7081eb62-a5ae-4260-97c8-e5b31dc0040e.png" as="image" fetchpriority="high" />
+    <link rel="preload" href="/lovable-uploads/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png" as="image" />
+    <link rel="preload" href="/lovable-uploads/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png" as="image" />
+    <link rel="preload" href="/lovable-uploads/db231edd-d76b-46cd-ad70-02ac9544d6ff.png" as="image" />
+    
+    <!-- Font Preloading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" /></noscript>
-    
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&display=swap" /></noscript>
-    
-    <!-- Critical Above-the-Fold Images Only (reduced from 5 to 3) -->
-    <link rel="preload" href="/assets/93b90410-bdbd-4098-938c-5ff9f158253c.png" as="image" fetchpriority="high" />
-    <link rel="preload" href="/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png" as="image" />
-    <link rel="preload" href="/assets/06cbcdbb-3730-466c-b8c1-cf54d42fc7c1.png" as="image" />
   </head>
 
   <body>

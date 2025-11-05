@@ -168,8 +168,11 @@ const Index = () => {
         {/* Services Overview Section */}
         <ServicesOverviewSection />
 
+        {/* Info Section */}
+        
+
         {/* Innovation Section */}
-        <InnovationSection />
+        
 
         {/* Gemeinsam Zukunft gestalten Section */}
         <section className="relative py-8 sm:py-12 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
