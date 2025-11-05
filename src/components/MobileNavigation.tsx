@@ -60,19 +60,26 @@ export const MobileNavigation = ({
             <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
               
               
-              {/* Services Links */}
-              <Link to="/studio" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
-                Studio
-              </Link>
-              <Link to="/media" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
-                Media
-              </Link>
-              <Link to="/lab" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
-                Lab
-              </Link>
-              <Link to="/products" className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
-                Agent Hub
-              </Link>
+              {/* Services Dropdown */}
+              <div className="relative group">
+                <button className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium cursor-default`}>
+                  Services
+                </button>
+                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-[60] border ${borderColor}`}>
+                  <div className="py-2">
+                    <Link to="/studio" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                      Studio
+                    </Link>
+                    <Link to="/media" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-blue-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                      Media
+                    </Link>
+                    <Link to="/lab" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-yellow-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                      Lab
+                    </Link>
+                    <Link to="/products" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-green-500/20' : 'hover:bg-gray-50'} transition-colors`}>Agent Hub</Link>
+                  </div>
+                </div>
+              </div>
 
               {/* Company Dropdown */}
               <div className="relative group">
