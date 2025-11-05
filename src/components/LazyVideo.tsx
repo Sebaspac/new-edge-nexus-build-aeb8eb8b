@@ -25,6 +25,9 @@ export const LazyVideo = ({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+    
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -33,8 +36,9 @@ export const LazyVideo = ({
         }
       },
       { 
-        rootMargin: '200px', // Load 200px before entering viewport
-        threshold: 0.5
+        // Adaptive loading based on device
+        rootMargin: isMobile ? '150px' : isTablet ? '250px' : '400px',
+        threshold: isMobile ? 0.1 : 0.05
       }
     );
 
