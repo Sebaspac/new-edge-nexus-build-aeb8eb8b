@@ -49,7 +49,8 @@ const Careers = () => {
                   <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/80">Join Our Team</span>
                 </div>
                 <h1 className="text-3xl sm:text-h1 lg:text-6xl xl:text-7xl font-black mb-2 sm:mb-4 lg:mb-6 leading-tight text-white">
-CAREERS<br />
+NEW EDGE
+                <br />
                   <span className="italic font-black" style={{
                   background: 'linear-gradient(to right, #6b7280, #9ca3af)',
                   WebkitBackgroundClip: 'text',
