@@ -242,38 +242,27 @@ const CaseStudyAlbaNova = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
         {/* Hero Section */}
-        <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Animated Background */}
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-          </div>
-
+        <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black">
           <div className="container mx-auto px-6 relative z-10">
             <AnimatedSection className="text-center max-w-5xl mx-auto">
-              <div className="mb-6">
-                <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/80 text-sm font-semibold border border-white/20">
-                  Case Study
+              <div className="mb-8">
+                <span className="text-purple-400 text-sm font-bold tracking-widest uppercase">
+                  AlbaNova Consulting Case Study
                 </span>
               </div>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight">
-                AlbaNova Consulting
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight">
+                Integration neu<br />gedacht.
               </h1>
-              <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
-                Wie wir eine traditionelle Unternehmensberatung in einen digitalen Vorreiter verwandelt haben
+              <p className="text-xl md:text-2xl text-gray-400 mb-12 leading-relaxed max-w-3xl mx-auto">
+                Wie wir für AlbaNova Consulting eine komplette Marken- und<br />
+                Digitalstrategie entwickelten, um Migration in eine Chance zu verwandeln.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex justify-center">
                 <button
                   onClick={scrollToContact}
-                  className="px-8 py-4 bg-white text-black font-bold rounded-full text-lg hover:scale-105 transition-transform duration-300"
+                  className="px-10 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-full text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50"
                 >
-                  Ähnliches Projekt starten
-                </button>
-                <button
-                  onClick={() => document.getElementById('results')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full text-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
-                >
-                  Ergebnisse ansehen
+                  Jetzt Kontakt aufnehmen
                 </button>
               </div>
             </AnimatedSection>
