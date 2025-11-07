@@ -210,7 +210,7 @@ const CaseStudyAlbaNova = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
         {/* Hero Section */}
-        <section className="relative w-full min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-black py-20">
+        <section className="relative w-full min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden bg-black py-12 md:py-16">
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <AnimatedSection className="text-center max-w-5xl mx-auto">
               <div className="mb-6 md:mb-8">
@@ -232,7 +232,7 @@ const CaseStudyAlbaNova = () => {
         </section>
 
         {/* Project Overview & Challenge Section */}
-        <section className="py-12 md:py-20 lg:py-32 relative bg-black">
+        <section className="py-8 md:py-12 lg:py-16 relative bg-black">
           <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection>
               {/* Project Overview */}
@@ -296,7 +296,7 @@ const CaseStudyAlbaNova = () => {
         
 
         {/* Orbital Timeline Section */}
-        <section className="py-12 md:py-20 lg:py-32 bg-black">
+        <section className="py-8 md:py-12 lg:py-16 bg-black">
           <div className="container mx-auto px-4 md:px-6 mb-8 md:mb-12">
             <AnimatedSection>
               <div className="text-center max-w-4xl mx-auto">
@@ -318,7 +318,7 @@ const CaseStudyAlbaNova = () => {
         </section>
 
         {/* Phases Section */}
-        <section className="py-12 md:py-20 lg:py-32 bg-black">
+        <section className="py-8 md:py-12 lg:py-16 bg-black">
           <div className="container mx-auto px-4 md:px-6">
             {/* Section Header */}
             <AnimatedSection>
@@ -439,7 +439,7 @@ const CaseStudyAlbaNova = () => {
         </section>
 
         {/* Testimonial Section */}
-        <section className="py-12 md:py-20 lg:py-32">
+        <section className="py-8 md:py-12 lg:py-16">
           <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection>
               <div className="max-w-4xl mx-auto text-center">
@@ -464,7 +464,7 @@ const CaseStudyAlbaNova = () => {
         
 
         {/* CTA Section */}
-        <section className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-gray-900 to-black">
+        <section className="py-8 md:py-12 lg:py-16 bg-gradient-to-b from-gray-900 to-black">
           <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection className="text-center max-w-4xl mx-auto">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 md:mb-6">
