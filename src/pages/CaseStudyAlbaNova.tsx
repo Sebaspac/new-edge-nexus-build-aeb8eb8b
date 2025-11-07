@@ -416,30 +416,83 @@ const CaseStudyAlbaNova = () => {
         </section>
 
         {/* Results Section */}
-        <section id="results" className="py-20 md:py-32 bg-gradient-to-b from-gray-900 to-black">
-          <div className="container mx-auto px-6">
+        <section id="results" className="py-20 md:py-32 bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/10 rounded-full blur-3xl" />
+          
+          <div className="container mx-auto px-6 relative z-10">
             <AnimatedSection>
-              <div className="text-center mb-16">
-                <div className="mb-4">
-                  <span className="text-purple-400 font-bold text-sm tracking-wider">ERGEBNISSE</span>
+              <div className="text-center mb-20">
+                <div className="mb-6 inline-block">
+                  <span className="px-6 py-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-400/30 rounded-full text-purple-300 font-bold text-sm tracking-widest uppercase backdrop-blur-sm">
+                    ERGEBNISSE
+                  </span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Der Impact unserer Arbeit</h2>
-                <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">
+                  Der Impact unserer Arbeit
+                </h2>
+                <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
                   Innerhalb von 6 Monaten nach dem Launch konnten wir messbare Erfolge erzielen
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                 {results.map((result, index) => {
                 const Icon = result.icon;
-                return <div key={index} className="text-center bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:scale-105 transition-transform duration-300">
-                      <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center">
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                      <div className="text-5xl font-black text-white mb-3">{result.metric}</div>
-                      <div className="text-gray-300 font-semibold">{result.label}</div>
-                    </div>;
+                return <div 
+                  key={index} 
+                  className="group relative text-center"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
+                  
+                  {/* Card */}
+                  <div className="relative bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:border-purple-400/40 transition-all duration-500 hover:translate-y-[-8px] h-full flex flex-col">
+                    {/* Icon Container */}
+                    <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-purple-500 via-purple-600 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:shadow-purple-500/50 group-hover:scale-110 transition-all duration-500 relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl" />
+                      <Icon className="w-10 h-10 text-white relative z-10" strokeWidth={2.5} />
+                    </div>
+                    
+                    {/* Metric */}
+                    <div className="text-6xl md:text-7xl font-black mb-4 bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-500">
+                      {result.metric}
+                    </div>
+                    
+                    {/* Label */}
+                    <div className="text-gray-300 font-bold text-base md:text-lg group-hover:text-purple-200 transition-colors duration-300 mt-auto">
+                      {result.label}
+                    </div>
+                    
+                    {/* Accent Line */}
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-transparent via-purple-400 to-transparent group-hover:w-full transition-all duration-500 rounded-full" />
+                  </div>
+                </div>;
               })}
+              </div>
+
+              {/* Additional Stats Bar */}
+              <div className="mt-16 pt-12 border-t border-white/10">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                  <div className="text-center">
+                    <div className="text-3xl md:text-4xl font-black text-purple-300 mb-2">11 Wochen</div>
+                    <div className="text-sm text-gray-400 font-semibold">Projektdauer</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl md:text-4xl font-black text-purple-300 mb-2">3 Sprachen</div>
+                    <div className="text-sm text-gray-400 font-semibold">Mehrsprachig</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl md:text-4xl font-black text-purple-300 mb-2">100%</div>
+                    <div className="text-sm text-gray-400 font-semibold">Responsive</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl md:text-4xl font-black text-purple-300 mb-2">A+</div>
+                    <div className="text-sm text-gray-400 font-semibold">Performance Score</div>
+                  </div>
+                </div>
               </div>
             </AnimatedSection>
           </div>
