@@ -3,12 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { Footer } from "@/components/Footer";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Careers = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -149,10 +144,7 @@ const Careers = () => {
                         <li>Remote-first Setup, kurze Entscheidungswege, ehrliches Feedback & Mentoring</li>
                       </ul>
                     </div>
-                    <a 
-                      href="mailto:info@newedgebrand.com?subject=Bewerbung: Praktikum Marketing & Projektmanagement"
-                      className="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-4"
-                    >
+                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Praktikum Marketing & Projektmanagement" className="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-4">
                       Jetzt bewerben
                     </a>
                   </AccordionContent>
@@ -199,10 +191,7 @@ const Careers = () => {
                         <li>Remote-first, faire Vergütung, Zugang zu modernsten KI-Stacks & Partnernetzwerk</li>
                       </ul>
                     </div>
-                    <a 
-                      href="mailto:info@newedgebrand.com?subject=Bewerbung: DevOps Engineer"
-                      className="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-4"
-                    >
+                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: DevOps Engineer" className="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-4">
                       Jetzt bewerben
                     </a>
                   </AccordionContent>
@@ -232,7 +221,7 @@ const Careers = () => {
                       <h4 className="font-semibold text-black mb-2">Deine Aufgaben</h4>
                       <ul className="list-disc list-inside space-y-1">
                         <li>Entwicklung Full-Funnel-Content (Awareness → Conversion) inkl. KI-gestützter Produktion & Distribution</li>
-                        <li>Bau von Automation-Prototypen (Bots, CRM-Flows, Reporting-Dashboards) mit klaren KPIs</li>
+                        
                         <li>Saubere Handover-Docs, Versionierung, realistische Angebote & Timings</li>
                       </ul>
                     </div>
@@ -249,10 +238,7 @@ const Careers = () => {
                         <li>Zugriff auf Lab-Piloten/Beta-Tools, wiederkehrende Projekte im Partner-Netzwerk, transparente Zusammenarbeit</li>
                       </ul>
                     </div>
-                    <a 
-                      href="mailto:info@newedgebrand.com?subject=Bewerbung: Freelancer-Pool Media & Lab"
-                      className="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-4"
-                    >
+                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Freelancer-Pool Media & Lab" className="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-4">
                       Jetzt bewerben
                     </a>
                   </AccordionContent>
@@ -293,10 +279,7 @@ const Careers = () => {
                         <li>Mentoring, klare Roadmaps, Zugang zu unserem Lab & echten Produktions-Stacks; flexible Zeiten</li>
                       </ul>
                     </div>
-                    <a 
-                      href="mailto:info@newedgebrand.com?subject=Bewerbung: Werkstudent:in DevOps & Full-Stack"
-                      className="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-4"
-                    >
+                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Werkstudent:in DevOps & Full-Stack" className="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-4">
                       Jetzt bewerben
                     </a>
                   </AccordionContent>
@@ -319,10 +302,7 @@ const Careers = () => {
               Senden Sie uns Ihre Initiativbewerbung! Wir sind immer auf der Suche nach 
               talentierten Menschen, die unser Team bereichern möchten.
             </p>
-            <a 
-              href="mailto:info@newedgebrand.com?subject=Initiativbewerbung"
-              className="inline-block px-8 py-4 bg-primary text-white font-bold rounded-full hover:scale-105 transition-transform duration-300"
-            >
+            <a href="mailto:info@newedgebrand.com?subject=Initiativbewerbung" className="inline-block px-8 py-4 bg-primary text-white font-bold rounded-full hover:scale-105 transition-transform duration-300">
               Initiativbewerbung senden
             </a>
           </div>
