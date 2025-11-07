@@ -437,7 +437,7 @@ const CaseStudyAlbaNova = () => {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
                 {results.map((result, index) => {
                 const Icon = result.icon;
                 return <div 
@@ -446,28 +446,28 @@ const CaseStudyAlbaNova = () => {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {/* Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
                   
                   {/* Card */}
-                  <div className="relative bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:border-purple-400/40 transition-all duration-500 hover:translate-y-[-8px] h-full flex flex-col">
+                  <div className="relative bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-2xl p-5 hover:border-purple-400/40 transition-all duration-500 hover:translate-y-[-4px] h-full flex flex-col">
                     {/* Icon Container */}
-                    <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-purple-500 via-purple-600 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:shadow-purple-500/50 group-hover:scale-110 transition-all duration-500 relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl" />
-                      <Icon className="w-10 h-10 text-white relative z-10" strokeWidth={2.5} />
+                    <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-br from-purple-500 via-purple-600 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:shadow-purple-500/50 group-hover:scale-110 transition-all duration-500 relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl" />
+                      <Icon className="w-6 h-6 text-white relative z-10" strokeWidth={2.5} />
                     </div>
                     
                     {/* Metric */}
-                    <div className="text-6xl md:text-7xl font-black mb-4 bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-500">
+                    <div className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-500">
                       {result.metric}
                     </div>
                     
                     {/* Label */}
-                    <div className="text-gray-300 font-bold text-base md:text-lg group-hover:text-purple-200 transition-colors duration-300 mt-auto">
+                    <div className="text-gray-300 font-semibold text-sm group-hover:text-purple-200 transition-colors duration-300 mt-auto">
                       {result.label}
                     </div>
                     
                     {/* Accent Line */}
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-transparent via-purple-400 to-transparent group-hover:w-full transition-all duration-500 rounded-full" />
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent group-hover:w-full transition-all duration-500 rounded-full" />
                   </div>
                 </div>;
               })}
