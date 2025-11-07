@@ -101,9 +101,7 @@ const Careers = () => {
             <h2 className="text-3xl md:text-4xl font-black mb-6 text-center text-black">
               Offene Positionen
             </h2>
-            <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Bei Interesse sende uns eine E-Mail mit deiner aussagekräftigen Bewerbung (Lebenslauf + kurzes Anschreiben) an die im Impressum/auf unserer Website genannte Kontaktadresse – alternativ gern über das Kontaktformular.
-            </p>
+            <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">Bei Interesse sende uns eine E-Mail mit deiner aussagekräftigen Bewerbung (Lebenslauf + kurzes Anschreiben) an info@newedgebrand.com</p>
             <div className="space-y-6 max-w-4xl mx-auto">
               {[{
               title: "Senior AI Engineer",
