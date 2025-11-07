@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { Footer } from "@/components/Footer";
-import { ShieldCheck, Globe, TrendingUp, Filter, Heart, ArrowRight, CheckCircle, Target, BarChart3, Palette, BookOpen, PenTool, Monitor, Languages } from "lucide-react";
+import { ShieldCheck, Globe, TrendingUp, Filter, Heart, ArrowRight, CheckCircle, Target, BarChart3, Palette, BookOpen, PenTool, Monitor, Languages, Calendar, Code, FileText, User, Clock } from "lucide-react";
+import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -139,6 +140,97 @@ const CaseStudyAlbaNova = () => {
     "Analytics & Tracking Setup"
   ];
 
+  const orbitalTimelineData = [
+    {
+      id: 1,
+      title: "Kick-off",
+      date: "Week 1",
+      content: "Stakeholder-Interviews und Definition der Projektziele. Festlegung der strategischen Ausrichtung.",
+      category: "Planning",
+      icon: Calendar,
+      relatedIds: [2],
+      status: "completed" as const,
+      energy: 100,
+    },
+    {
+      id: 2,
+      title: "Research",
+      date: "Week 2",
+      content: "Marktanalyse, Wettbewerbsanalyse und Zielgruppenforschung für die neue Brand Identity.",
+      category: "Research",
+      icon: FileText,
+      relatedIds: [1, 3],
+      status: "completed" as const,
+      energy: 95,
+    },
+    {
+      id: 3,
+      title: "Strategie",
+      date: "Week 3",
+      content: "Brand Positioning Workshop und Entwicklung des Messaging Frameworks.",
+      category: "Strategy",
+      icon: Target,
+      relatedIds: [2, 4],
+      status: "completed" as const,
+      energy: 90,
+    },
+    {
+      id: 4,
+      title: "Design",
+      date: "Week 4-6",
+      content: "UI/UX Design, Corporate Identity und Gestaltung des Design Systems.",
+      category: "Design",
+      icon: Palette,
+      relatedIds: [3, 5],
+      status: "completed" as const,
+      energy: 85,
+    },
+    {
+      id: 5,
+      title: "Development",
+      date: "Week 7-9",
+      content: "Frontend & Backend Development mit React, Performance-Optimierung und SEO-Integration.",
+      category: "Development",
+      icon: Code,
+      relatedIds: [4, 6],
+      status: "completed" as const,
+      energy: 80,
+    },
+    {
+      id: 6,
+      title: "Content",
+      date: "Week 8-9",
+      content: "Content Creation, Copywriting und Übersetzung in Deutsche und Spanische Sprache.",
+      category: "Content",
+      icon: BookOpen,
+      relatedIds: [5, 7],
+      status: "completed" as const,
+      energy: 75,
+    },
+    {
+      id: 7,
+      title: "Testing",
+      date: "Week 10",
+      content: "QA Testing, User Testing und Bug Fixes vor dem Launch.",
+      category: "Testing",
+      icon: User,
+      relatedIds: [6, 8],
+      status: "completed" as const,
+      energy: 70,
+    },
+    {
+      id: 8,
+      title: "Launch",
+      date: "Week 11",
+      content: "Finale Deployment, Go-Live und Monitoring der Performance.",
+      category: "Launch",
+      icon: Clock,
+      relatedIds: [7],
+      status: "completed" as const,
+      energy: 100,
+    }
+  ];
+
   return (
     <>
       <Helmet>
@@ -234,6 +326,26 @@ const CaseStudyAlbaNova = () => {
               </div>
             </AnimatedSection>
           </div>
+        </section>
+
+        {/* Orbital Timeline Section */}
+        <section className="py-20 md:py-32 bg-black">
+          <div className="container mx-auto px-6 mb-12">
+            <AnimatedSection>
+              <div className="text-center max-w-4xl mx-auto">
+                <div className="mb-4">
+                  <span className="text-purple-400 font-bold text-sm tracking-wider">PROJEKT TIMELINE</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                  Von der Vision zur Realität
+                </h2>
+                <p className="text-xl text-gray-300">
+                  Interaktive Timeline: Klicken Sie auf die Knoten, um Details zu den einzelnen Projektphasen zu sehen
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+          <RadialOrbitalTimeline timelineData={orbitalTimelineData} />
         </section>
 
         {/* Phases Section */}
