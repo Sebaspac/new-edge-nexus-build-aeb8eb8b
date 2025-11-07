@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { Footer } from "@/components/Footer";
 import { ShieldCheck, Globe, TrendingUp, Filter, Heart, ArrowRight, CheckCircle, Target, BarChart3, Palette, BookOpen, PenTool, Monitor, Languages, Calendar, Code, FileText, User, Clock } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+import albanovaWebsite from "@/assets/albanova-website.png";
 interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
@@ -383,15 +384,36 @@ const CaseStudyAlbaNova = () => {
                           rel="noopener noreferrer"
                           className="block group"
                         >
-                          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20 cursor-pointer transition-transform hover:scale-[1.02]">
-                            {/* Placeholder for image - using gradient background */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="text-white/30 text-6xl font-black">
-                                {phase.number}
+                          {/* Laptop Mockup */}
+                          <div className="relative perspective-1000">
+                            {/* Laptop Screen */}
+                            <div className="relative bg-gray-800 rounded-t-2xl border-4 border-gray-700 shadow-2xl transition-transform group-hover:scale-[1.02]">
+                              {/* Screen Bezel */}
+                              <div className="bg-black p-3 rounded-t-xl">
+                                {/* Website Screenshot */}
+                                <div className="relative aspect-[16/10] rounded-lg overflow-hidden shadow-inner">
+                                  <img 
+                                    src={albanovaWebsite} 
+                                    alt="AlbaNova Consulting Website" 
+                                    className="w-full h-full object-cover object-top"
+                                  />
+                                  {/* Screen Glare Effect */}
+                                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
+                                </div>
                               </div>
                             </div>
+                            
+                            {/* Laptop Base */}
+                            <div className="relative h-3 bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-xl shadow-lg">
+                              {/* Notch */}
+                              <div className="absolute left-1/2 -translate-x-1/2 top-0 w-16 h-1 bg-gray-600 rounded-b" />
+                            </div>
+                            
+                            {/* Shadow */}
+                            <div className="absolute -bottom-2 left-0 right-0 h-8 bg-gradient-to-b from-purple-500/20 to-transparent blur-xl" />
                           </div>
-                          <p className="text-center text-sm text-purple-400 mt-3 group-hover:text-purple-300 transition-colors">
+                          
+                          <p className="text-center text-sm text-purple-400 mt-6 group-hover:text-purple-300 transition-colors">
                             Klicke aufs Bild →
                           </p>
                         </a>
