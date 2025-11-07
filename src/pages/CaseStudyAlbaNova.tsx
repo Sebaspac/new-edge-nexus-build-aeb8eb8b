@@ -236,38 +236,6 @@ const CaseStudyAlbaNova = () => {
           </div>
         </section>
 
-        {/* Results Section */}
-        <section id="results" className="py-20 md:py-32">
-          <div className="container mx-auto px-6">
-            <AnimatedSection>
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Die Ergebnisse</h2>
-                <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                  Innerhalb von 6 Monaten nach dem Launch konnten wir messbare Erfolge erzielen
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                {results.map((result, index) => {
-                  const Icon = result.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="text-center bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:scale-105 transition-transform duration-300"
-                    >
-                      <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center">
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                      <div className="text-5xl font-black text-white mb-3">{result.metric}</div>
-                      <div className="text-gray-300 font-semibold">{result.label}</div>
-                    </div>
-                  );
-                })}
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
-
         {/* Phases Section */}
         <section className="py-20 md:py-32">
           <div className="container mx-auto px-6">
@@ -349,6 +317,41 @@ const CaseStudyAlbaNova = () => {
                     <div className="text-gray-400">CEO, AlbaNova Consulting</div>
                   </div>
                 </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Results Section */}
+        <section id="results" className="py-20 md:py-32 bg-gradient-to-b from-gray-900 to-black">
+          <div className="container mx-auto px-6">
+            <AnimatedSection>
+              <div className="text-center mb-16">
+                <div className="mb-4">
+                  <span className="text-purple-400 font-bold text-sm tracking-wider">ERGEBNISSE</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Der Impact unserer Arbeit</h2>
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                  Innerhalb von 6 Monaten nach dem Launch konnten wir messbare Erfolge erzielen
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                {results.map((result, index) => {
+                  const Icon = result.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="text-center bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:scale-105 transition-transform duration-300"
+                    >
+                      <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center">
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="text-5xl font-black text-white mb-3">{result.metric}</div>
+                      <div className="text-gray-300 font-semibold">{result.label}</div>
+                    </div>
+                  );
+                })}
               </div>
             </AnimatedSection>
           </div>
