@@ -32,13 +32,35 @@ const Careers = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Hero Section */}
-        <section className="relative w-full pt-32 pb-20 bg-gradient-to-b from-white to-gray-50">
+        <section className="relative w-full">
+          <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video">
+            <div className="absolute inset-0 overflow-hidden" style={{
+              background: 'linear-gradient(to bottom right, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.6), rgba(80, 80, 80, 0.4))'
+            }}>
+              <div className="absolute inset-0" style={{
+                background: 'linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2), transparent)'
+              }} />
+              
+              <div className="absolute bottom-0 left-0 p-6 pb-8 sm:pb-12 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
+                <h1 className="text-h1 lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+                  NEW EDGE<br />
+                  <span className="italic font-black" style={{
+                    background: 'linear-gradient(to right, #ffffff, #d1d5db)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text'
+                  }}>KARRIERE</span><br />
+                </h1>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Intro Section */}
+        <section className="relative py-12 sm:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="max-w-4xl">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 text-black">
-                Karriere bei NEW EDGE
-              </h1>
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+              <p className="text-xl text-gray-600 leading-relaxed">
                 Werden Sie Teil unseres innovativen Teams und gestalten Sie die Zukunft der 
                 KI-gestützten digitalen Transformation. Bei uns arbeiten Sie an spannenden 
                 Projekten mit modernsten Technologien.
