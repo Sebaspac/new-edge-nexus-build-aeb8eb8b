@@ -310,18 +310,21 @@ const Careers = () => {
         
 
         {/* CTA */}
-        <section className="relative w-full py-20 bg-gradient-to-br from-black via-gray-900 to-black">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center text-white">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+        <section className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-black">
               Finden Sie Ihre Traumposition nicht?
             </h2>
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               Senden Sie uns Ihre Initiativbewerbung! Wir sind immer auf der Suche nach 
               talentierten Menschen, die unser Team bereichern möchten.
             </p>
-            <button onClick={scrollToContact} className="px-8 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform duration-300">
+            <a 
+              href="mailto:info@newedgebrand.com?subject=Initiativbewerbung"
+              className="inline-block px-8 py-4 bg-primary text-white font-bold rounded-full hover:scale-105 transition-transform duration-300"
+            >
               Initiativbewerbung senden
-            </button>
+            </a>
           </div>
         </section>
 
