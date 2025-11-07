@@ -396,8 +396,7 @@ const CaseStudyAlbaNova = () => {
             {/* Mobile: Horizontal Scroll */}
             <div className="md:hidden">
               <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
-                {phases.map((phase, phaseIndex) => (
-                  <div key={phaseIndex} className="min-w-[85vw] snap-center">
+                {phases.map((phase, phaseIndex) => <div key={phaseIndex} className="min-w-[85vw] snap-center">
                     <AnimatedSection>
                       <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
                         <div className="mb-3">
@@ -414,9 +413,8 @@ const CaseStudyAlbaNova = () => {
                         
                         <div className="space-y-4">
                           {phase.features.map((feature, featureIndex) => {
-                            const Icon = feature.icon;
-                            return (
-                              <div key={featureIndex} className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+                        const Icon = feature.icon;
+                        return <div key={featureIndex} className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
                                 <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
                                   <Icon className="w-5 h-5 text-white" />
                                 </div>
@@ -428,19 +426,15 @@ const CaseStudyAlbaNova = () => {
                                     {feature.description}
                                   </p>
                                 </div>
-                              </div>
-                            );
-                          })}
+                              </div>;
+                      })}
                         </div>
                       </div>
                     </AnimatedSection>
-                  </div>
-                ))}
+                  </div>)}
               </div>
               <div className="flex justify-center gap-2 mt-4">
-                {phases.map((_, index) => (
-                  <div key={index} className="w-2 h-2 rounded-full bg-white/20" />
-                ))}
+                {phases.map((_, index) => <div key={index} className="w-2 h-2 rounded-full bg-white/20" />)}
               </div>
             </div>
           </div>
@@ -471,7 +465,7 @@ const CaseStudyAlbaNova = () => {
         {/* Results Section */}
         <section id="results" className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden">
           {/* Background Effects */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
+          
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/10 rounded-full blur-3xl" />
           
           <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -494,11 +488,9 @@ const CaseStudyAlbaNova = () => {
               <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
                 {results.map((result, index) => {
                 const Icon = result.icon;
-                return <div 
-                  key={index} 
-                  className="group relative text-center"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
+                return <div key={index} className="group relative text-center" style={{
+                  animationDelay: `${index * 100}ms`
+                }}>
                   {/* Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
                   
@@ -531,12 +523,8 @@ const CaseStudyAlbaNova = () => {
               <div className="md:hidden">
                 <div className="flex gap-4 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
                   {results.map((result, index) => {
-                    const Icon = result.icon;
-                    return (
-                      <div 
-                        key={index} 
-                        className="min-w-[70vw] snap-center group relative text-center"
-                      >
+                  const Icon = result.icon;
+                  return <div key={index} className="min-w-[70vw] snap-center group relative text-center">
                         {/* Glow Effect */}
                         <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-2xl blur-lg group-active:blur-xl transition-all duration-500 opacity-0 group-active:opacity-100" />
                         
@@ -558,14 +546,11 @@ const CaseStudyAlbaNova = () => {
                             {result.label}
                           </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      </div>;
+                })}
                 </div>
                 <div className="flex justify-center gap-2 mt-4">
-                  {results.map((_, index) => (
-                    <div key={index} className="w-2 h-2 rounded-full bg-white/20" />
-                  ))}
+                  {results.map((_, index) => <div key={index} className="w-2 h-2 rounded-full bg-white/20" />)}
                 </div>
               </div>
 
