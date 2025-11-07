@@ -145,9 +145,8 @@ const UseCases = () => {
         <section className="relative py-8 sm:py-12 lg:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="max-w-4xl">
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">New Edge ist eine Creative-Tech-Agentur an der Schnittstelle von Kreativ-Studio und Technologie-Unternehmen. In drei Units – Studio (Branding & Design), Media (KI-gestützte Content- & Medienproduktion) und Lab (Automation, Prototyping, eigene Tools) – liefern wir End-to-End-Lösungen für Marken im DACH-Mittelstand. 
-Entdecken Sie, wie Strategie, Content & Automatisierung in einem System vereint werden – mit klaren KPIs & Dashboard-Transparenz.
-            </p>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">New Edge ist eine Creative-Tech-Agentur an der Schnittstelle von Kreativ-Studio und Technologie-Unternehmen. In drei Units – Studio (Branding & Design), Media (KI-gestützte Content- & Medienproduktion) und Lab (Automation, Prototyping, eigene Tools) – liefern wir End-to-End-Lösungen für Marken im DACH-Mittelstand.</p>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mt-4">Entdecken Sie, wie Strategie, Content & Automatisierung in einem System vereint werden – mit klaren KPIs & Dashboard-Transparenz.</p>
             </div>
           </div>
         </section>
