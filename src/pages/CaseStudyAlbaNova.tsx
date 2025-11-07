@@ -5,234 +5,202 @@ import { Helmet } from 'react-helmet-async';
 import { Footer } from "@/components/Footer";
 import { ShieldCheck, Globe, TrendingUp, Filter, Heart, ArrowRight, CheckCircle, Target, BarChart3, Palette, BookOpen, PenTool, Monitor, Languages, Calendar, Code, FileText, User, Clock } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
-
 interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
 }
-
-const AnimatedSection = ({ children, className = "" }: AnimatedSectionProps) => {
+const AnimatedSection = ({
+  children,
+  className = ""
+}: AnimatedSectionProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    }, {
+      threshold: 0.1
+    });
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
-
-  return (
-    <div
-      ref={sectionRef}
-      className={`transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      } ${className}`}
-    >
+  return <div ref={sectionRef} className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} ${className}`}>
       {children}
-    </div>
-  );
+    </div>;
 };
-
 const CaseStudyAlbaNova = () => {
   const navigate = useNavigate();
-
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }, []);
-
   const scrollToContact = () => {
-    navigate('/', { replace: true });
+    navigate('/', {
+      replace: true
+    });
     setTimeout(() => {
       const contactSection = document.getElementById('contact-section');
       if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
+        contactSection.scrollIntoView({
+          behavior: 'smooth'
+        });
       }
     }, 100);
   };
-
-  const phases = [
-    {
-      number: "PHASE 1",
-      title: "Strategie & Konzeption",
-      description: "Den Grundstein für den Erfolg legen. In dieser initialen Phase definieren wir die strategische Ausrichtung und schaffen eine klare Vision für die Marke.",
-      features: [
-        {
-          icon: Target,
-          title: "Markenstrategie & Vision",
-          description: "In Workshops schufen wir eine klare Markenidentität, Mission und Vision als Fundament."
-        },
-        {
-          icon: BarChart3,
-          title: "Marketing & Social Media",
-          description: "Entwicklung einer kanalübergreifenden Strategie, um Zielgruppen gezielt anzusprechen."
-        }
-      ]
-    },
-    {
-      number: "PHASE 2",
-      title: "Kreation & Content",
-      description: "Die Marke zum Leben erwecken. Wir gestalten ein einzigartiges visuelles Erscheinungsbild und erstellen Inhalte, die emotional ansprechen und überzeugen.",
-      features: [
-        {
-          icon: Palette,
-          title: "Branding & Webdesign",
-          description: "Gestaltung eines modernen, seriösen und einladenden Designs."
-        },
-        {
-          icon: BookOpen,
-          title: "Storytelling & Texte",
-          description: "Empathische und vertrauensbildende Texte, die Expertise vermitteln."
-        },
-        {
-          icon: PenTool,
-          title: "Content-Planung",
-          description: "Ein detaillierter Redaktionsplan für Blogs, Social Media und Newsletter."
-        }
-      ]
-    },
-    {
-      number: "PHASE 3",
-      title: "Technische Umsetzung & Launch",
-      description: "Die Vision wird Realität. Wir entwickeln eine performante, nutzerfreundliche Website und sorgen für eine reibungslose internationale Präsenz.",
-      features: [
-        {
-          icon: Monitor,
-          title: "Webentwicklung & Funnel",
-          description: "Responsive Umsetzung mit klarer Funnel-Logik zur Lead-Generierung."
-        },
-        {
-          icon: Languages,
-          title: "Mehrsprachigkeit",
-          description: "Native Übersetzung und Lokalisierung ins Deutsche und Spanische."
-        }
-      ]
-    }
-  ];
-
-  const results = [
-    { metric: "+250%", label: "Mehr Website-Traffic", icon: TrendingUp },
-    { metric: "+180%", label: "Höhere Conversion Rate", icon: Filter },
-    { metric: "+320%", label: "Mehr qualifizierte Leads", icon: Globe },
-    { metric: "95%", label: "Kundenzufriedenheit", icon: Heart }
-  ];
-
-  const services = [
-    "Brand Strategy & Positioning",
-    "Corporate Identity Design",
-    "Website Konzeption & Development",
-    "Content Strategy & Creation",
-    "SEO & Performance Optimization",
-    "Analytics & Tracking Setup"
-  ];
-
-  const orbitalTimelineData = [
-    {
-      id: 1,
-      title: "Kick-off",
-      date: "Week 1",
-      content: "Stakeholder-Interviews und Definition der Projektziele. Festlegung der strategischen Ausrichtung.",
-      category: "Planning",
-      icon: Calendar,
-      relatedIds: [2],
-      status: "completed" as const,
-      energy: 100,
-    },
-    {
-      id: 2,
-      title: "Research",
-      date: "Week 2",
-      content: "Marktanalyse, Wettbewerbsanalyse und Zielgruppenforschung für die neue Brand Identity.",
-      category: "Research",
-      icon: FileText,
-      relatedIds: [1, 3],
-      status: "completed" as const,
-      energy: 95,
-    },
-    {
-      id: 3,
-      title: "Strategie",
-      date: "Week 3",
-      content: "Brand Positioning Workshop und Entwicklung des Messaging Frameworks.",
-      category: "Strategy",
+  const phases = [{
+    number: "PHASE 1",
+    title: "Strategie & Konzeption",
+    description: "Den Grundstein für den Erfolg legen. In dieser initialen Phase definieren wir die strategische Ausrichtung und schaffen eine klare Vision für die Marke.",
+    features: [{
       icon: Target,
-      relatedIds: [2, 4],
-      status: "completed" as const,
-      energy: 90,
-    },
-    {
-      id: 4,
-      title: "Design",
-      date: "Week 4-6",
-      content: "UI/UX Design, Corporate Identity und Gestaltung des Design Systems.",
-      category: "Design",
+      title: "Markenstrategie & Vision",
+      description: "In Workshops schufen wir eine klare Markenidentität, Mission und Vision als Fundament."
+    }, {
+      icon: BarChart3,
+      title: "Marketing & Social Media",
+      description: "Entwicklung einer kanalübergreifenden Strategie, um Zielgruppen gezielt anzusprechen."
+    }]
+  }, {
+    number: "PHASE 2",
+    title: "Kreation & Content",
+    description: "Die Marke zum Leben erwecken. Wir gestalten ein einzigartiges visuelles Erscheinungsbild und erstellen Inhalte, die emotional ansprechen und überzeugen.",
+    features: [{
       icon: Palette,
-      relatedIds: [3, 5],
-      status: "completed" as const,
-      energy: 85,
-    },
-    {
-      id: 5,
-      title: "Development",
-      date: "Week 7-9",
-      content: "Frontend & Backend Development mit React, Performance-Optimierung und SEO-Integration.",
-      category: "Development",
-      icon: Code,
-      relatedIds: [4, 6],
-      status: "completed" as const,
-      energy: 80,
-    },
-    {
-      id: 6,
-      title: "Content",
-      date: "Week 8-9",
-      content: "Content Creation, Copywriting und Übersetzung in Deutsche und Spanische Sprache.",
-      category: "Content",
+      title: "Branding & Webdesign",
+      description: "Gestaltung eines modernen, seriösen und einladenden Designs."
+    }, {
       icon: BookOpen,
-      relatedIds: [5, 7],
-      status: "completed" as const,
-      energy: 75,
-    },
-    {
-      id: 7,
-      title: "Testing",
-      date: "Week 10",
-      content: "QA Testing, User Testing und Bug Fixes vor dem Launch.",
-      category: "Testing",
-      icon: User,
-      relatedIds: [6, 8],
-      status: "completed" as const,
-      energy: 70,
-    },
-    {
-      id: 8,
-      title: "Launch",
-      date: "Week 11",
-      content: "Finale Deployment, Go-Live und Monitoring der Performance.",
-      category: "Launch",
-      icon: Clock,
-      relatedIds: [7],
-      status: "completed" as const,
-      energy: 100,
-    }
-  ];
-
-  return (
-    <>
+      title: "Storytelling & Texte",
+      description: "Empathische und vertrauensbildende Texte, die Expertise vermitteln."
+    }, {
+      icon: PenTool,
+      title: "Content-Planung",
+      description: "Ein detaillierter Redaktionsplan für Blogs, Social Media und Newsletter."
+    }]
+  }, {
+    number: "PHASE 3",
+    title: "Technische Umsetzung & Launch",
+    description: "Die Vision wird Realität. Wir entwickeln eine performante, nutzerfreundliche Website und sorgen für eine reibungslose internationale Präsenz.",
+    features: [{
+      icon: Monitor,
+      title: "Webentwicklung & Funnel",
+      description: "Responsive Umsetzung mit klarer Funnel-Logik zur Lead-Generierung."
+    }, {
+      icon: Languages,
+      title: "Mehrsprachigkeit",
+      description: "Native Übersetzung und Lokalisierung ins Deutsche und Spanische."
+    }]
+  }];
+  const results = [{
+    metric: "+250%",
+    label: "Mehr Website-Traffic",
+    icon: TrendingUp
+  }, {
+    metric: "+180%",
+    label: "Höhere Conversion Rate",
+    icon: Filter
+  }, {
+    metric: "+320%",
+    label: "Mehr qualifizierte Leads",
+    icon: Globe
+  }, {
+    metric: "95%",
+    label: "Kundenzufriedenheit",
+    icon: Heart
+  }];
+  const services = ["Brand Strategy & Positioning", "Corporate Identity Design", "Website Konzeption & Development", "Content Strategy & Creation", "SEO & Performance Optimization", "Analytics & Tracking Setup"];
+  const orbitalTimelineData = [{
+    id: 1,
+    title: "Kick-off",
+    date: "Week 1",
+    content: "Stakeholder-Interviews und Definition der Projektziele. Festlegung der strategischen Ausrichtung.",
+    category: "Planning",
+    icon: Calendar,
+    relatedIds: [2],
+    status: "completed" as const,
+    energy: 100
+  }, {
+    id: 2,
+    title: "Research",
+    date: "Week 2",
+    content: "Marktanalyse, Wettbewerbsanalyse und Zielgruppenforschung für die neue Brand Identity.",
+    category: "Research",
+    icon: FileText,
+    relatedIds: [1, 3],
+    status: "completed" as const,
+    energy: 95
+  }, {
+    id: 3,
+    title: "Strategie",
+    date: "Week 3",
+    content: "Brand Positioning Workshop und Entwicklung des Messaging Frameworks.",
+    category: "Strategy",
+    icon: Target,
+    relatedIds: [2, 4],
+    status: "completed" as const,
+    energy: 90
+  }, {
+    id: 4,
+    title: "Design",
+    date: "Week 4-6",
+    content: "UI/UX Design, Corporate Identity und Gestaltung des Design Systems.",
+    category: "Design",
+    icon: Palette,
+    relatedIds: [3, 5],
+    status: "completed" as const,
+    energy: 85
+  }, {
+    id: 5,
+    title: "Development",
+    date: "Week 7-9",
+    content: "Frontend & Backend Development mit React, Performance-Optimierung und SEO-Integration.",
+    category: "Development",
+    icon: Code,
+    relatedIds: [4, 6],
+    status: "completed" as const,
+    energy: 80
+  }, {
+    id: 6,
+    title: "Content",
+    date: "Week 8-9",
+    content: "Content Creation, Copywriting und Übersetzung in Deutsche und Spanische Sprache.",
+    category: "Content",
+    icon: BookOpen,
+    relatedIds: [5, 7],
+    status: "completed" as const,
+    energy: 75
+  }, {
+    id: 7,
+    title: "Testing",
+    date: "Week 10",
+    content: "QA Testing, User Testing und Bug Fixes vor dem Launch.",
+    category: "Testing",
+    icon: User,
+    relatedIds: [6, 8],
+    status: "completed" as const,
+    energy: 70
+  }, {
+    id: 8,
+    title: "Launch",
+    date: "Week 11",
+    content: "Finale Deployment, Go-Live und Monitoring der Performance.",
+    category: "Launch",
+    icon: Clock,
+    relatedIds: [7],
+    status: "completed" as const,
+    energy: 100
+  }];
+  return <>
       <Helmet>
         <title>AlbaNova Case Study - NEW EDGE</title>
         <meta name="description" content="Wie wir AlbaNova Consulting mit einer neuen digitalen Brand Identity zum Erfolg verholfen haben." />
@@ -258,10 +226,7 @@ const CaseStudyAlbaNova = () => {
                 Digitalstrategie entwickelten, um Migration in eine Chance zu verwandeln.
               </p>
               <div className="flex justify-center">
-                <button
-                  onClick={scrollToContact}
-                  className="px-10 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-full text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50"
-                >
+                <button onClick={scrollToContact} className="px-10 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-full text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50">
                   Jetzt Kontakt aufnehmen
                 </button>
               </div>
@@ -331,33 +296,7 @@ const CaseStudyAlbaNova = () => {
         </section>
 
         {/* Solution Section */}
-        <section className="py-20 md:py-32 bg-gradient-to-b from-gray-900 to-black">
-          <div className="container mx-auto px-6">
-            <AnimatedSection>
-              <div className="max-w-4xl mx-auto mb-16">
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Unsere Lösung</h2>
-                <p className="text-xl text-gray-300 leading-relaxed">
-                  Wir entwickelten eine ganzheitliche digitale Transformation-Strategie, die Brand Identity, 
-                  User Experience und technische Excellence vereint.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
-                  >
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                      <p className="text-white font-semibold text-lg">{service}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
+        
 
         {/* Orbital Timeline Section */}
         <section className="py-20 md:py-32 bg-black">
@@ -365,7 +304,7 @@ const CaseStudyAlbaNova = () => {
             <AnimatedSection>
               <div className="text-center max-w-4xl mx-auto">
                 <div className="mb-4">
-                  <span className="text-purple-400 font-bold text-sm tracking-wider">PROJEKT TIMELINE</span>
+                  <span className="text-purple-400 font-bold text-sm tracking-wider">​UNSERE LEISTUNGEN</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
                   Von der Vision zur Realität
@@ -401,8 +340,7 @@ const CaseStudyAlbaNova = () => {
             </AnimatedSection>
 
             <div className="space-y-32">
-              {phases.map((phase, phaseIndex) => (
-                <AnimatedSection key={phaseIndex}>
+              {phases.map((phase, phaseIndex) => <AnimatedSection key={phaseIndex}>
                   <div className={`grid lg:grid-cols-2 gap-12 items-center ${phaseIndex % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                     {/* Content Side */}
                     <div className={phaseIndex % 2 === 1 ? 'lg:order-2' : ''}>
@@ -420,12 +358,8 @@ const CaseStudyAlbaNova = () => {
 
                       <div className="space-y-6">
                         {phase.features.map((feature, featureIndex) => {
-                          const Icon = feature.icon;
-                          return (
-                            <div
-                              key={featureIndex}
-                              className="flex items-start gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
-                            >
+                      const Icon = feature.icon;
+                      return <div key={featureIndex} className="flex items-start gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
                               <div className="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
                                 <Icon className="w-6 h-6 text-white" />
                               </div>
@@ -437,9 +371,8 @@ const CaseStudyAlbaNova = () => {
                                   {feature.description}
                                 </p>
                               </div>
-                            </div>
-                          );
-                        })}
+                            </div>;
+                    })}
                       </div>
                     </div>
 
@@ -455,8 +388,7 @@ const CaseStudyAlbaNova = () => {
                       </div>
                     </div>
                   </div>
-                </AnimatedSection>
-              ))}
+                </AnimatedSection>)}
             </div>
           </div>
         </section>
@@ -499,20 +431,15 @@ const CaseStudyAlbaNova = () => {
 
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
                 {results.map((result, index) => {
-                  const Icon = result.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="text-center bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:scale-105 transition-transform duration-300"
-                    >
+                const Icon = result.icon;
+                return <div key={index} className="text-center bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:scale-105 transition-transform duration-300">
                       <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center">
                         <Icon className="w-8 h-8 text-white" />
                       </div>
                       <div className="text-5xl font-black text-white mb-3">{result.metric}</div>
                       <div className="text-gray-300 font-semibold">{result.label}</div>
-                    </div>
-                  );
-                })}
+                    </div>;
+              })}
               </div>
             </AnimatedSection>
           </div>
@@ -528,10 +455,7 @@ const CaseStudyAlbaNova = () => {
               <p className="text-xl text-gray-300 mb-10 leading-relaxed">
                 Lassen Sie uns gemeinsam eine Strategie entwickeln, die Ihre Vision Realität werden lässt.
               </p>
-              <button
-                onClick={scrollToContact}
-                className="px-10 py-5 bg-white text-black font-bold rounded-full text-lg hover:scale-105 transition-transform duration-300 inline-flex items-center gap-3"
-              >
+              <button onClick={scrollToContact} className="px-10 py-5 bg-white text-black font-bold rounded-full text-lg hover:scale-105 transition-transform duration-300 inline-flex items-center gap-3">
                 Projekt starten
                 <ArrowRight className="w-5 h-5" />
               </button>
@@ -541,8 +465,6 @@ const CaseStudyAlbaNova = () => {
 
         <Footer />
       </div>
-    </>
-  );
+    </>;
 };
-
 export default CaseStudyAlbaNova;
