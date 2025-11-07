@@ -376,14 +376,24 @@ const CaseStudyAlbaNova = () => {
 
                     {/* Image Side */}
                     <div className={phaseIndex % 2 === 1 ? 'lg:order-1' : ''}>
-                      <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
-                        {/* Placeholder for image - using gradient background */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="text-white/30 text-6xl font-black">
-                            {phase.number}
+                      <a 
+                        href="https://albanovaconsulting.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="block group"
+                      >
+                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20 cursor-pointer transition-transform hover:scale-[1.02]">
+                          {/* Placeholder for image - using gradient background */}
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="text-white/30 text-6xl font-black">
+                              {phase.number}
+                            </div>
                           </div>
                         </div>
-                      </div>
+                        <p className="text-center text-sm text-purple-400 mt-3 group-hover:text-purple-300 transition-colors">
+                          Klicke aufs Bild →
+                        </p>
+                      </a>
                     </div>
                   </div>
                  </AnimatedSection>)}
