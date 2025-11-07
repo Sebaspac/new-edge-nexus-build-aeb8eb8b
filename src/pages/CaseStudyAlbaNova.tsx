@@ -242,9 +242,7 @@ const CaseStudyAlbaNova = () => {
                     Projektüberblick
                   </span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 md:mb-8">
-                  Unser Kunde: AlbaNova Consulting
-                </h2>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 md:mb-8">Über AlbaNova Consulting</h2>
                 <p className="text-base md:text-lg lg:text-xl text-gray-400 leading-relaxed max-w-5xl mx-auto">
                   AlbaNova Consulting ist ein spezialisiertes Beratungsunternehmen, das Migrantinnen und Migranten 
                   sowie ihre Familien beim Ankommen in Deutschland begleitet. Gleichzeitig unterstützen sie 
