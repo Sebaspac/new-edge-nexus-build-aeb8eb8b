@@ -250,15 +250,15 @@ USE CASES
         {/* CTA Section */}
         <section className="relative w-full py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="bg-gradient-to-br from-black via-gray-900 to-black rounded-3xl p-12 md:p-16 text-center text-white">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+            <div className="bg-gradient-to-br from-primary/5 via-background to-primary/10 rounded-3xl p-12 md:p-16 text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-black">
                 Bereit für Ihre digitale Transformation?
               </h2>
-              <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
                 Lassen Sie uns gemeinsam herausfinden, welche KI-Lösung am besten zu Ihren 
                 individuellen Anforderungen passt.
               </p>
-              <button onClick={scrollToContact} className="px-8 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform duration-300">
+              <button onClick={scrollToContact} className="px-8 py-4 bg-primary text-white font-bold rounded-full hover:scale-105 transition-transform duration-300">
                 Kostenlose Beratung vereinbaren
               </button>
             </div>
