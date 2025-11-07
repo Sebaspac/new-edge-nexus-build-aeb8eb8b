@@ -44,7 +44,7 @@ const UseCases = () => {
   ];
 
   const allUseCases = [
-    // Studio Cases
+    // Studio Cases (2)
     {
       industry: "Beratung",
       icon: Briefcase,
@@ -52,15 +52,6 @@ const UseCases = () => {
       description: "Entwickeln Sie maßgeschneiderte KI-Strategien für Ihre Unternehmensberatung und optimieren Sie Entscheidungsprozesse.",
       metrics: ["50% schnellere Analysen", "35% bessere Insights", "60% höhere Effizienz"],
       color: "from-purple-600 to-purple-400",
-      services: ['studio']
-    },
-    {
-      industry: "Einzelhandel",
-      icon: Store,
-      title: "Retail Intelligence Platform",
-      description: "Optimieren Sie Ihr Geschäft mit KI-gestützter Bestandsverwaltung, Prognosen und personalisierten Kundenempfehlungen.",
-      metrics: ["40% weniger Überbestände", "55% bessere Prognosen", "30% höhere Marge"],
-      color: "from-pink-600 to-rose-400",
       services: ['studio']
     },
     {
@@ -72,34 +63,7 @@ const UseCases = () => {
       color: "from-purple-500 to-indigo-400",
       services: ['studio']
     },
-    {
-      industry: "Healthcare",
-      icon: Heart,
-      title: "Healthcare Workflow Automation",
-      description: "Automatisieren Sie Verwaltungsprozesse und verbessern Sie die Patientenbetreuung mit intelligenten Workflows.",
-      metrics: ["60% weniger Verwaltung", "40% mehr Patientenzeit", "80% höhere Zufriedenheit"],
-      color: "from-red-500 to-pink-400",
-      services: ['studio']
-    },
-    {
-      industry: "Customer Experience",
-      icon: Users,
-      title: "CX Intelligence Suite",
-      description: "Verstehen Sie Ihre Kunden besser durch KI-Analyse von Feedback, Verhalten und Präferenzen.",
-      metrics: ["85% Kundenzufriedenheit", "50% weniger Churn", "65% höheres Engagement"],
-      color: "from-indigo-600 to-purple-400",
-      services: ['studio']
-    },
-    // Media Cases
-    {
-      industry: "Beratung",
-      icon: Palette,
-      title: "Brand Strategy & Media Planning",
-      description: "Entwickeln Sie datengetriebene Medienstrategien und optimieren Sie Ihre Markenkommunikation mit KI-Insights.",
-      metrics: ["70% bessere Zielgruppenansprache", "45% höhere Kampagneneffizienz", "60% mehr Reichweite"],
-      color: "from-blue-600 to-cyan-400",
-      services: ['media']
-    },
+    // Media Cases (2)
     {
       industry: "Einzelhandel",
       icon: Film,
@@ -107,24 +71,6 @@ const UseCases = () => {
       description: "Erstellen Sie automatisch ansprechende Produktbilder und Videos für Ihre Marketing-Kampagnen.",
       metrics: ["80% schnellere Content-Produktion", "55% mehr Engagement", "40% höhere Verkäufe"],
       color: "from-cyan-600 to-teal-400",
-      services: ['media']
-    },
-    {
-      industry: "Commerce",
-      icon: Globe,
-      title: "Multi-Channel Content Automation",
-      description: "Generieren und verteilen Sie konsistenten Content über alle digitalen Kanäle automatisch.",
-      metrics: ["90% schnellere Veröffentlichung", "65% mehr Content", "50% niedrigere Kosten"],
-      color: "from-blue-500 to-indigo-400",
-      services: ['media']
-    },
-    {
-      industry: "Healthcare",
-      icon: Heart,
-      title: "Patient Education Content",
-      description: "Erstellen Sie verständliche, personalisierte Gesundheitsinformationen für Ihre Patienten automatisch.",
-      metrics: ["75% besseres Verständnis", "60% höhere Compliance", "85% Patientenzufriedenheit"],
-      color: "from-teal-500 to-cyan-400",
       services: ['media']
     },
     {
@@ -136,16 +82,7 @@ const UseCases = () => {
       color: "from-blue-600 to-purple-400",
       services: ['media']
     },
-    // Lab Cases
-    {
-      industry: "Beratung",
-      icon: Brain,
-      title: "Advanced Analytics Lab",
-      description: "Experimentieren Sie mit neuesten KI-Modellen für komplexe Geschäftsanalysen und Prognosen.",
-      metrics: ["95% Vorhersagegenauigkeit", "70% schnellere Erkenntnisse", "50% bessere Entscheidungen"],
-      color: "from-yellow-600 to-orange-400",
-      services: ['lab']
-    },
+    // Lab Case (1)
     {
       industry: "Einzelhandel",
       icon: Lightbulb,
@@ -153,33 +90,6 @@ const UseCases = () => {
       description: "Testen Sie innovative KI-Lösungen für Store-Automatisierung und Customer Journey Optimierung.",
       metrics: ["60% effizientere Stores", "45% bessere Customer Journey", "35% höhere Profitabilität"],
       color: "from-orange-600 to-amber-400",
-      services: ['lab']
-    },
-    {
-      industry: "Commerce",
-      icon: Zap,
-      title: "Commerce Experimentation Platform",
-      description: "Prototypen Sie neue KI-Features für Ihr Online-Geschäft in sicherer Testumgebung.",
-      metrics: ["80% schnellere Innovation", "90% weniger Risiko", "65% mehr erfolgreiche Features"],
-      color: "from-yellow-500 to-orange-400",
-      services: ['lab']
-    },
-    {
-      industry: "Healthcare",
-      icon: Brain,
-      title: "Medical AI Research",
-      description: "Erforschen Sie cutting-edge KI-Anwendungen für Diagnose und Behandlungsplanung.",
-      metrics: ["92% Diagnose-Genauigkeit", "50% schnellere Forschung", "70% mehr Durchbrüche"],
-      color: "from-orange-500 to-red-400",
-      services: ['lab']
-    },
-    {
-      industry: "Customer Experience",
-      icon: Lightbulb,
-      title: "CX Innovation Lab",
-      description: "Entwickeln Sie bahnbrechende KI-Lösungen für außergewöhnliche Kundenerlebnisse.",
-      metrics: ["95% Innovation Success Rate", "75% schnellere Time-to-Market", "60% höhere Adoption"],
-      color: "from-amber-600 to-yellow-400",
       services: ['lab']
     }
   ];
