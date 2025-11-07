@@ -125,21 +125,6 @@ const UseCases = () => {
                 transformieren und messbare Ergebnisse liefern.
               </p>
             </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-              {[
-                { value: "500+", label: "Erfolgreiche Projekte" },
-                { value: "98%", label: "Kundenzufriedenheit" },
-                { value: "45%", label: "Ø Effizienzsteigerung" },
-                { value: "24/7", label: "Support & Service" }
-              ].map((stat, index) => (
-                <div key={index} className="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
-                  <div className="text-3xl sm:text-4xl font-black text-black mb-2">{stat.value}</div>
-                  <div className="text-sm text-gray-600">{stat.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -254,6 +239,25 @@ const UseCases = () => {
                 })}
               </div>
             )}
+          </div>
+        </section>
+
+        {/* Stats */}
+        <section className="relative w-full py-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                { value: "500+", label: "Erfolgreiche Projekte" },
+                { value: "98%", label: "Kundenzufriedenheit" },
+                { value: "45%", label: "Ø Effizienzsteigerung" },
+                { value: "24/7", label: "Support & Service" }
+              ].map((stat, index) => (
+                <div key={index} className="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                  <div className="text-3xl sm:text-4xl font-black text-black mb-2">{stat.value}</div>
+                  <div className="text-sm text-gray-600">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
