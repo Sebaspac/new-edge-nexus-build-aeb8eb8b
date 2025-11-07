@@ -269,20 +269,62 @@ const CaseStudyAlbaNova = () => {
           </div>
         </section>
 
-        {/* Challenge Section */}
-        <section className="py-20 md:py-32 relative">
+        {/* Project Overview & Challenge Section */}
+        <section className="py-20 md:py-32 relative bg-black">
           <div className="container mx-auto px-6">
             <AnimatedSection>
-              <div className="max-w-4xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Die Herausforderung</h2>
-                <p className="text-xl text-gray-300 leading-relaxed mb-6">
-                  AlbaNova Consulting, eine etablierte Unternehmensberatung mit 25 Jahren Erfahrung, stand vor einer kritischen Herausforderung: 
-                  Ihre digitale Präsenz spiegelte nicht die Expertise und Innovation wider, für die sie bekannt waren.
+              {/* Project Overview */}
+              <div className="text-center mb-16">
+                <div className="mb-6">
+                  <span className="text-purple-400 font-bold text-sm tracking-widest uppercase">
+                    Projektüberblick
+                  </span>
+                </div>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
+                  Unser Kunde: AlbaNova Consulting
+                </h2>
+                <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-5xl mx-auto">
+                  AlbaNova Consulting ist ein spezialisiertes Beratungsunternehmen, das Migrantinnen und Migranten 
+                  sowie ihre Familien beim Ankommen in Deutschland begleitet. Gleichzeitig unterstützen sie 
+                  Organisationen bei Relocation- und Integrationsprozessen. Das Ziel: die Herausforderungen der 
+                  Migration in Chancen für persönliches und berufliches Wachstum verwandeln.
                 </p>
-                <p className="text-xl text-gray-300 leading-relaxed">
-                  Die veraltete Website führte zu sinkenden Lead-Zahlen und einer wachsenden Disconnect zwischen der Brand Identity 
-                  und der tatsächlichen Wahrnehmung im Markt.
-                </p>
+              </div>
+
+              {/* Challenge Section - Two Column Layout */}
+              <div className="grid lg:grid-cols-2 gap-12 items-center mt-20">
+                {/* Left: Image/Visual */}
+                <div className="relative">
+                  <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-purple-900/40 via-purple-700/30 to-blue-900/40 border border-purple-500/20 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="w-16 h-16 mx-auto mb-4 bg-purple-500/20 rounded-full flex items-center justify-center border border-purple-400/30">
+                        <svg className="w-8 h-8 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                      </div>
+                      <p className="text-sm text-purple-300/60 italic">Abstract representation of challenges</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right: Challenge Text */}
+                <div>
+                  <div className="mb-4">
+                    <span className="text-purple-400 font-bold text-sm tracking-widest uppercase">
+                      Ausgangssituation
+                    </span>
+                  </div>
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6">
+                    Die Herausforderungen
+                  </h3>
+                  <p className="text-lg text-gray-400 leading-relaxed">
+                    Beim Projektstart existierten weder eine konsistente Markenidentität noch eine 
+                    digitale Präsenz. Die hochspezialisierte Dienstleistung musste sowohl Unternehmen 
+                    als auch Expatriate- und multikulturelle Familien in zwei Sprachen ansprechen. Ein 
+                    klarer Marketingplan zur verständlichen und empathischen Kommunikation der 
+                    komplexen Leistungen fehlte.
+                  </p>
+                </div>
               </div>
             </AnimatedSection>
           </div>
