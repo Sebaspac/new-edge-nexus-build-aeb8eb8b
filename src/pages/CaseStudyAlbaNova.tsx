@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { Footer } from "@/components/Footer";
-import { ShieldCheck, Globe, TrendingUp, Filter, Heart, ArrowRight, CheckCircle } from "lucide-react";
+import { ShieldCheck, Globe, TrendingUp, Filter, Heart, ArrowRight, CheckCircle, Target, BarChart3, Palette, BookOpen, PenTool, Monitor, Languages } from "lucide-react";
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -64,12 +64,63 @@ const CaseStudyAlbaNova = () => {
     }, 100);
   };
 
-  const timelineData = [
-    { phase: "Kick-off & Research", duration: "Week 1-2", description: "Stakeholder-Interviews, Marktanalyse und Strategie-Workshop" },
-    { phase: "Konzeption", duration: "Week 3-4", description: "Brand Positioning, Messaging Framework und Design System" },
-    { phase: "Design & Entwicklung", duration: "Week 5-8", description: "UI/UX Design, Website Development und Content Creation" },
-    { phase: "Testing & Launch", duration: "Week 9-10", description: "QA Testing, Performance Optimization und erfolgreicher Go-Live" },
-    { phase: "Nachbetreuung", duration: "Week 11-12", description: "Analytics Setup, Team Training und kontinuierliche Optimierung" }
+  const phases = [
+    {
+      number: "PHASE 1",
+      title: "Strategie & Konzeption",
+      description: "Den Grundstein für den Erfolg legen. In dieser initialen Phase definieren wir die strategische Ausrichtung und schaffen eine klare Vision für die Marke.",
+      features: [
+        {
+          icon: Target,
+          title: "Markenstrategie & Vision",
+          description: "In Workshops schufen wir eine klare Markenidentität, Mission und Vision als Fundament."
+        },
+        {
+          icon: BarChart3,
+          title: "Marketing & Social Media",
+          description: "Entwicklung einer kanalübergreifenden Strategie, um Zielgruppen gezielt anzusprechen."
+        }
+      ]
+    },
+    {
+      number: "PHASE 2",
+      title: "Kreation & Content",
+      description: "Die Marke zum Leben erwecken. Wir gestalten ein einzigartiges visuelles Erscheinungsbild und erstellen Inhalte, die emotional ansprechen und überzeugen.",
+      features: [
+        {
+          icon: Palette,
+          title: "Branding & Webdesign",
+          description: "Gestaltung eines modernen, seriösen und einladenden Designs."
+        },
+        {
+          icon: BookOpen,
+          title: "Storytelling & Texte",
+          description: "Empathische und vertrauensbildende Texte, die Expertise vermitteln."
+        },
+        {
+          icon: PenTool,
+          title: "Content-Planung",
+          description: "Ein detaillierter Redaktionsplan für Blogs, Social Media und Newsletter."
+        }
+      ]
+    },
+    {
+      number: "PHASE 3",
+      title: "Technische Umsetzung & Launch",
+      description: "Die Vision wird Realität. Wir entwickeln eine performante, nutzerfreundliche Website und sorgen für eine reibungslose internationale Präsenz.",
+      features: [
+        {
+          icon: Monitor,
+          title: "Webentwicklung & Funnel",
+          description: "Responsive Umsetzung mit klarer Funnel-Logik zur Lead-Generierung."
+        },
+        {
+          icon: Languages,
+          title: "Mehrsprachigkeit",
+          description: "Native Übersetzung und Lokalisierung ins Deutsche und Spanische."
+        }
+      ]
+    }
   ];
 
   const results = [
@@ -217,35 +268,67 @@ const CaseStudyAlbaNova = () => {
           </div>
         </section>
 
-        {/* Timeline Section */}
-        <section className="py-20 md:py-32 bg-gradient-to-b from-black to-gray-900">
+        {/* Phases Section */}
+        <section className="py-20 md:py-32">
           <div className="container mx-auto px-6">
-            <AnimatedSection>
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Projekt Timeline</h2>
-                <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                  Von der ersten Idee bis zum erfolgreichen Launch in 12 Wochen
-                </p>
-              </div>
-
-              <div className="max-w-4xl mx-auto space-y-8">
-                {timelineData.map((item, index) => (
-                  <div
-                    key={index}
-                    className="relative pl-8 border-l-4 border-purple-500/30 hover:border-purple-500 transition-colors duration-300"
-                  >
-                    <div className="absolute -left-3 top-0 w-6 h-6 bg-purple-500 rounded-full border-4 border-black" />
-                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                        <h3 className="text-2xl font-bold text-white">{item.phase}</h3>
-                        <span className="text-sm text-gray-400 font-semibold">{item.duration}</span>
+            <div className="space-y-32">
+              {phases.map((phase, phaseIndex) => (
+                <AnimatedSection key={phaseIndex}>
+                  <div className={`grid lg:grid-cols-2 gap-12 items-center ${phaseIndex % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                    {/* Content Side */}
+                    <div className={phaseIndex % 2 === 1 ? 'lg:order-2' : ''}>
+                      <div className="mb-4">
+                        <span className="text-purple-400 font-bold text-sm tracking-wider">
+                          {phase.number}
+                        </span>
                       </div>
-                      <p className="text-gray-300">{item.description}</p>
+                      <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                        {phase.title}
+                      </h2>
+                      <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                        {phase.description}
+                      </p>
+
+                      <div className="space-y-6">
+                        {phase.features.map((feature, featureIndex) => {
+                          const Icon = feature.icon;
+                          return (
+                            <div
+                              key={featureIndex}
+                              className="flex items-start gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+                            >
+                              <div className="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+                                <Icon className="w-6 h-6 text-white" />
+                              </div>
+                              <div>
+                                <h3 className="text-white font-bold text-lg mb-2">
+                                  {feature.title}
+                                </h3>
+                                <p className="text-gray-400">
+                                  {feature.description}
+                                </p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Image Side */}
+                    <div className={phaseIndex % 2 === 1 ? 'lg:order-1' : ''}>
+                      <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
+                        {/* Placeholder for image - using gradient background */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-white/30 text-6xl font-black">
+                            {phase.number}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            </AnimatedSection>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
         </section>
 
