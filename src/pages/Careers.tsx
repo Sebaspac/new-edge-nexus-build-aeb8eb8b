@@ -154,26 +154,26 @@ NEW EDGE
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-2" className="bg-white rounded-2xl shadow-sm border border-gray-100 px-8">
-                  <AccordionTrigger className="hover:no-underline">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 w-full pr-4">
+                <AccordionItem value="item-2" className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 px-4 sm:px-8">
+                  <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-4 w-full pr-2 sm:pr-4">
                       <div className="text-left">
-                        <h3 className="text-2xl font-bold text-black mb-2">DevOps Engineer (m/w/d)</h3>
-                        <div className="flex flex-wrap gap-3 text-sm text-gray-600">
-                          <span>📍 Remote/München (Hybrid)</span>
-                          <span>💼 Fest oder Freelance</span>
+                        <h3 className="text-base sm:text-xl lg:text-2xl font-bold text-black mb-1 sm:mb-2 leading-tight">DevOps Engineer (m/w/d)</h3>
+                        <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-600">
+                          <span>📍 Remote/München</span>
+                          <span>💼 Fest/Freelance</span>
                         </div>
                       </div>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 pt-4 space-y-4">
+                  <AccordionContent className="text-gray-600 pt-3 sm:pt-4 space-y-3 sm:space-y-4 pb-4 sm:pb-6">
                     <div>
-                      <h4 className="font-semibold text-black mb-2">Mission</h4>
-                      <p>Baue mit uns die sichere, skalierbare Infrastruktur für das Lab (Automations, Chatbots, Microservices) und die Media-Pipelines.</p>
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Mission</h4>
+                      <p className="text-xs sm:text-sm">Baue mit uns die sichere, skalierbare Infrastruktur für das Lab (Automations, Chatbots, Microservices) und die Media-Pipelines.</p>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-black mb-2">Deine Aufgaben</h4>
-                      <ul className="list-disc list-inside space-y-1">
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Deine Aufgaben</h4>
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
                         <li>Cloud & IaC (AWS/GCP/Azure, Terraform/Pulumi), CI/CD (GitHub Actions), Container (Docker/K8s)</li>
                         <li>Observability (OpenTelemetry/Prometheus/Grafana), Secrets/Key-Mgmt, Cost-Control</li>
                         <li>Set-up von Data/ML-Workflows & API-Gateways (REST/Webhooks), Hardening & DSGVO-konforme Setups</li>
@@ -181,109 +181,108 @@ NEW EDGE
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-black mb-2">Dein Profil</h4>
-                      <ul className="list-disc list-inside space-y-1">
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Dein Profil</h4>
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
                         <li>3+ Jahre DevOps/SRE, Production-Erfahrung mit Cloud, CI/CD und Container-Orchestrierung</li>
                         <li>Scripting (Bash/Python/Node), GitOps-Mindset; Security- und Privacy-Awareness</li>
                         <li>Nice-to-have: Vektor-DBs/LLM-Ops, Supabase, n8n, Queueing (SQS/Cloud Tasks), CDN/Edge</li>
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-black mb-2">Wir bieten</h4>
-                      <ul className="list-disc list-inside space-y-1">
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Wir bieten</h4>
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
                         <li>Greenfield-Setups, viel Verantwortung, kurzer Weg von Prototyp zu Produktion (Studio/Media/Lab)</li>
                         <li>Remote-first, faire Vergütung, Zugang zu modernsten KI-Stacks & Partnernetzwerk</li>
                       </ul>
                     </div>
-                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: DevOps Engineer" className="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-4">
+                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: DevOps Engineer" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-2 sm:mt-4">
                       Jetzt bewerben
                     </a>
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-3" className="bg-white rounded-2xl shadow-sm border border-gray-100 px-8">
-                  <AccordionTrigger className="hover:no-underline">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 w-full pr-4">
+                <AccordionItem value="item-3" className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 px-4 sm:px-8">
+                  <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-4 w-full pr-2 sm:pr-4">
                       <div className="text-left">
-                        <h3 className="text-2xl font-bold text-black mb-2">Freelancer-Pool Media & Lab (m/w/d)</h3>
-                        <div className="flex flex-wrap gap-3 text-sm text-gray-600">
-                          <span>📍 Remote (EU/DACH-Zeitzone)</span>
+                        <h3 className="text-base sm:text-xl lg:text-2xl font-bold text-black mb-1 sm:mb-2 leading-tight">Freelancer-Pool Media & Lab (m/w/d)</h3>
+                        <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-600">
+                          <span>📍 Remote (DACH)</span>
                           <span>💼 Projektbasiert</span>
                         </div>
                       </div>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 pt-4 space-y-4">
+                  <AccordionContent className="text-gray-600 pt-3 sm:pt-4 space-y-3 sm:space-y-4 pb-4 sm:pb-6">
                     <div>
-                      <h4 className="font-semibold text-black mb-2">Gesuchte Profile</h4>
-                      <ul className="list-disc list-inside space-y-1">
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Gesuchte Profile</h4>
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
                         <li>Media: Videograf:in/Editor, Motion/3D, Social-Content-Producer (Shortform, Performance-Cuts), Audio/Podcast</li>
                         <li>Lab: Automation Builder/Prompt Engineer, Conversational-AI/Chatbot-Dev, Low-/No-Code-Prototyping (z. B. n8n)</li>
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-black mb-2">Deine Aufgaben</h4>
-                      <ul className="list-disc list-inside space-y-1">
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Deine Aufgaben</h4>
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
                         <li>Entwicklung Full-Funnel-Content (Awareness → Conversion) inkl. KI-gestützter Produktion & Distribution</li>
-                        
                         <li>Saubere Handover-Docs, Versionierung, realistische Angebote & Timings</li>
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-black mb-2">Dein Profil</h4>
-                      <ul className="list-disc list-inside space-y-1">
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Dein Profil</h4>
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
                         <li>Starkes Portfolio/GitHub, verlässlich, klar in Kommunikation & Angebot</li>
                         <li>Erfahrung mit Marken im B2B/DACH von Vorteil; DSGVO-Verständnis</li>
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-black mb-2">Wir bieten</h4>
-                      <ul className="list-disc list-inside space-y-1">
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Wir bieten</h4>
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
                         <li>Zugriff auf Lab-Piloten/Beta-Tools, wiederkehrende Projekte im Partner-Netzwerk, transparente Zusammenarbeit</li>
                       </ul>
                     </div>
-                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Freelancer-Pool Media & Lab" className="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-4">
+                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Freelancer-Pool Media & Lab" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-2 sm:mt-4">
                       Jetzt bewerben
                     </a>
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-4" className="bg-white rounded-2xl shadow-sm border border-gray-100 px-8">
-                  <AccordionTrigger className="hover:no-underline">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 w-full pr-4">
+                <AccordionItem value="item-4" className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 px-4 sm:px-8">
+                  <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-4 w-full pr-2 sm:pr-4">
                       <div className="text-left">
-                        <h3 className="text-2xl font-bold text-black mb-2">Werkstudent:in (m/w/d) – zwischen DevOps Engineer & Full-Stack</h3>
-                        <div className="flex flex-wrap gap-3 text-sm text-gray-600">
-                          <span>📍 Remote/München (Hybrid)</span>
+                        <h3 className="text-base sm:text-xl lg:text-2xl font-bold text-black mb-1 sm:mb-2 leading-tight">Werkstudent:in (m/w/d) – DevOps & Full-Stack</h3>
+                        <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-600">
+                          <span>📍 Remote/München</span>
                           <span>💼 12–20 h/Woche</span>
                         </div>
                       </div>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 pt-4 space-y-4">
+                  <AccordionContent className="text-gray-600 pt-3 sm:pt-4 space-y-3 sm:space-y-4 pb-4 sm:pb-6">
                     <div>
-                      <h4 className="font-semibold text-black mb-2">Deine Aufgaben</h4>
-                      <ul className="list-disc list-inside space-y-1">
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Deine Aufgaben</h4>
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
                         <li>Mitarbeit an CI/CD-Pipelines, Container-Builds, Environments & Monitoring</li>
                         <li>Full-Stack-Tasks (Next.js/React, Node/TypeScript, API-Integrationen) für interne Tools & Kunden-Dashboards</li>
                         <li>Skripte & Automations (n8n/Supabase), QA & Dokus; kleine Features eigenständig shippen</li>
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-black mb-2">Dein Profil</h4>
-                      <ul className="list-disc list-inside space-y-1">
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Dein Profil</h4>
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
                         <li>Immatrikuliert in (Wirtschafts-)Informatik o. ä.; solide JS/TS-Skills, Git, Basics in Cloud/Docker</li>
                         <li>Schnell lernend, neugierig auf KI-/Automation-Workflows; saubere, getestete Deliverables</li>
                         <li>Nice-to-have: Prisma, Tailwind, Postgres, Auth/OAuth, Vektor-DBs</li>
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-black mb-2">Wir bieten</h4>
-                      <ul className="list-disc list-inside space-y-1">
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Wir bieten</h4>
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
                         <li>Mentoring, klare Roadmaps, Zugang zu unserem Lab & echten Produktions-Stacks; flexible Zeiten</li>
                       </ul>
                     </div>
-                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Werkstudent:in DevOps & Full-Stack" className="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-4">
+                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Werkstudent:in DevOps & Full-Stack" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-2 sm:mt-4">
                       Jetzt bewerben
                     </a>
                   </AccordionContent>
