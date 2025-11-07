@@ -382,6 +382,24 @@ const CaseStudyAlbaNova = () => {
         {/* Phases Section */}
         <section className="py-20 md:py-32 bg-black">
           <div className="container mx-auto px-6">
+            {/* Section Header */}
+            <AnimatedSection>
+              <div className="text-center mb-20">
+                <div className="mb-6">
+                  <span className="text-purple-400 font-bold text-sm tracking-widest uppercase">
+                    Unser Prozess
+                  </span>
+                </div>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
+                  Die drei Phasen
+                </h2>
+                <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
+                  Von der Strategie über die Kreation bis zur technischen Umsetzung – 
+                  ein strukturierter Prozess für maximalen Erfolg.
+                </p>
+              </div>
+            </AnimatedSection>
+
             <div className="space-y-32">
               {phases.map((phase, phaseIndex) => (
                 <AnimatedSection key={phaseIndex}>
