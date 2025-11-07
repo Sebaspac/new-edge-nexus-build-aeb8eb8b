@@ -113,7 +113,7 @@ const UseCases = () => {
         {/* Hero Section */}
         <section className="relative w-full pt-32 pb-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="max-w-4xl mb-16">
+            <div className="max-w-4xl mb-8">
               <div className="inline-block mb-4">
                 <span className="text-sm font-bold uppercase tracking-wider text-gray-500">Unsere Lösungen</span>
               </div>
