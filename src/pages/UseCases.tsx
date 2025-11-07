@@ -113,11 +113,14 @@ const UseCases = () => {
         {/* Hero Section */}
         <section className="relative w-full pt-32 pb-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center max-w-4xl mx-auto mb-16">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-black via-gray-800 to-black bg-clip-text text-transparent">
+            <div className="max-w-4xl mb-16">
+              <div className="inline-block mb-4">
+                <span className="text-sm font-bold uppercase tracking-wider text-gray-500">Unsere Lösungen</span>
+              </div>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-black via-gray-800 to-black bg-clip-text text-transparent leading-tight">
                 Use Cases
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl">
                 Entdecken Sie, wie unsere KI-Lösungen Unternehmen in verschiedenen Branchen 
                 transformieren und messbare Ergebnisse liefern.
               </p>
