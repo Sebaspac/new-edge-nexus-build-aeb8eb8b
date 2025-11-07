@@ -194,58 +194,61 @@ const UseCases = () => {
               </div>
             ) : (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredUseCases.map((useCase, index) => (
-                  <div 
-                    key={index}
-                    className="group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                  >
-                    {/* Service Tags */}
-                    <div className="flex gap-2 mb-4">
-                      {useCase.services.map(service => (
-                        <span 
-                          key={service}
-                          className="px-3 py-1 text-xs font-bold rounded-full bg-gray-100 text-gray-700 uppercase"
-                        >
-                          {service}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${useCase.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                        <useCase.icon className="w-6 h-6 text-white" />
-                      </div>
-                      <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
-                        {useCase.industry}
-                      </span>
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold text-black mb-4">
-                      {useCase.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      {useCase.description}
-                    </p>
-                    
-                    <div className="space-y-2 mb-6">
-                      {useCase.metrics.map((metric, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-sm">
-                          <div className="w-1.5 h-1.5 rounded-full bg-black" />
-                          <span className="font-semibold text-black">{metric}</span>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <button 
-                      onClick={scrollToContact}
-                      className="flex items-center gap-2 text-black font-semibold group-hover:gap-3 transition-all duration-300"
+                {filteredUseCases.map((useCase, index) => {
+                  const IconComponent = useCase.icon;
+                  return (
+                    <div 
+                      key={index}
+                      className="group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                     >
-                      Mehr erfahren
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                ))}
+                      {/* Service Tags */}
+                      <div className="flex gap-2 mb-4">
+                        {useCase.services.map(service => (
+                          <span 
+                            key={service}
+                            className="px-3 py-1 text-xs font-bold rounded-full bg-gray-100 text-gray-700 uppercase"
+                          >
+                            {service}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${useCase.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                          <IconComponent className="w-6 h-6 text-white" />
+                        </div>
+                        <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                          {useCase.industry}
+                        </span>
+                      </div>
+                      
+                      <h3 className="text-2xl font-bold text-black mb-4">
+                        {useCase.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 mb-6 leading-relaxed">
+                        {useCase.description}
+                      </p>
+                      
+                      <div className="space-y-2 mb-6">
+                        {useCase.metrics.map((metric, idx) => (
+                          <div key={idx} className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 rounded-full bg-black" />
+                            <span className="font-semibold text-black">{metric}</span>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      <button 
+                        onClick={scrollToContact}
+                        className="flex items-center gap-2 text-black font-semibold group-hover:gap-3 transition-all duration-300"
+                      >
+                        Mehr erfahren
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  );
+                })}
               </div>
             )}
           </div>
