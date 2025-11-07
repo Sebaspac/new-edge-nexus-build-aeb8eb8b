@@ -109,16 +109,40 @@ const UseCases = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Hero Section */}
-        <section className="relative w-full pt-32 pb-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="max-w-4xl mb-8">
-              <div className="inline-block mb-4">
-                <span className="text-sm font-bold uppercase tracking-wider text-gray-500">Unsere Lösungen</span>
+        <section className="relative w-full">
+          <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video">
+            <div className="absolute inset-0 overflow-hidden" style={{
+              background: 'linear-gradient(to bottom right, rgba(107, 114, 128, 0.3), rgba(75, 85, 99, 0.2), rgba(55, 65, 81, 0.1))'
+            }}>
+              <div className="absolute inset-0" style={{
+                background: 'linear-gradient(to top, rgba(17, 24, 39, 0.6), rgba(31, 41, 55, 0.2), transparent)'
+              }} />
+              
+              <div className="absolute bottom-0 left-0 p-6 pb-8 sm:pb-12 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
+                <div className="inline-block mb-4">
+                  <span className="text-sm font-bold uppercase tracking-wider text-white/80">Unsere Lösungen</span>
+                </div>
+                <h1 className="text-h1 lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+                  NEW EDGE<br />
+                  <span className="italic font-black" style={{
+                    background: 'linear-gradient(to right, #6b7280, #9ca3af)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text'
+                  }}>USE CASES</span><br />
+                </h1>
               </div>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-black via-gray-800 to-black bg-clip-text text-transparent leading-tight">
-                Use Cases
-              </h1>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl">Entdecken Sie, wie Strategie, Content &amp; Automatisierung in einem System vereint werden – mit klaren KPIs &amp; Dashboard-Transparenz.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Intro Section */}
+        <section className="relative py-12 sm:py-16 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div className="max-w-4xl">
+              <p className="text-xl text-gray-600 leading-relaxed">
+                Entdecken Sie, wie Strategie, Content &amp; Automatisierung in einem System vereint werden – mit klaren KPIs &amp; Dashboard-Transparenz.
+              </p>
             </div>
           </div>
         </section>
