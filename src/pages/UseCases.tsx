@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { Footer } from "@/components/Footer";
@@ -238,14 +238,14 @@ const UseCases = () => {
                           </div>
                         ))}
                       </div>
-                      
-                      <button 
-                        onClick={scrollToContact}
-                        className="flex items-center gap-2 text-black font-semibold group-hover:gap-3 transition-all duration-300"
-                      >
-                        Mehr erfahren
-                        <ArrowRight className="w-4 h-4" />
-                      </button>
+                    
+                    <Link 
+                      to="/case-study/albanova"
+                      className="flex items-center gap-2 text-black font-semibold group-hover:gap-3 transition-all duration-300"
+                    >
+                      Mehr erfahren
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                     </div>
                   );
                 })}
