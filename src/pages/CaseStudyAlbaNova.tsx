@@ -380,7 +380,7 @@ const CaseStudyAlbaNova = () => {
         </section>
 
         {/* Phases Section */}
-        <section className="py-20 md:py-32">
+        <section className="py-20 md:py-32 bg-black">
           <div className="container mx-auto px-6">
             <div className="space-y-32">
               {phases.map((phase, phaseIndex) => (
