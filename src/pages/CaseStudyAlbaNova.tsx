@@ -210,23 +210,22 @@ const CaseStudyAlbaNova = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
         {/* Hero Section */}
-        <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black">
-          <div className="container mx-auto px-6 relative z-10">
+        <section className="relative w-full min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-black py-20">
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
             <AnimatedSection className="text-center max-w-5xl mx-auto">
-              <div className="mb-8">
-                <span className="text-purple-400 text-sm font-bold tracking-widest uppercase">
+              <div className="mb-6 md:mb-8">
+                <span className="text-purple-400 text-xs md:text-sm font-bold tracking-widest uppercase">
                   AlbaNova Consulting Case Study
                 </span>
               </div>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 md:mb-8 leading-tight">
                 Integration neu<br />gedacht.
               </h1>
-              <p className="text-xl md:text-2xl text-gray-400 mb-12 leading-relaxed max-w-3xl mx-auto">
-                Wie wir für AlbaNova Consulting eine komplette Marken- und<br />
-                Digitalstrategie entwickelten, um Migration in eine Chance zu verwandeln.
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 md:mb-12 leading-relaxed max-w-3xl mx-auto">
+                Wie wir für AlbaNova Consulting eine komplette Marken- und Digitalstrategie entwickelten, um Migration in eine Chance zu verwandeln.
               </p>
               <div className="flex justify-center">
-                <button onClick={scrollToContact} className="px-10 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-full text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50">
+                <button onClick={scrollToContact} className="px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-full text-base md:text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50 active:scale-95">
                   Jetzt Kontakt aufnehmen
                 </button>
               </div>
@@ -235,20 +234,20 @@ const CaseStudyAlbaNova = () => {
         </section>
 
         {/* Project Overview & Challenge Section */}
-        <section className="py-20 md:py-32 relative bg-black">
-          <div className="container mx-auto px-6">
+        <section className="py-12 md:py-20 lg:py-32 relative bg-black">
+          <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection>
               {/* Project Overview */}
-              <div className="text-center mb-16">
-                <div className="mb-6">
-                  <span className="text-purple-400 font-bold text-sm tracking-widest uppercase">
+              <div className="text-center mb-12 md:mb-16">
+                <div className="mb-4 md:mb-6">
+                  <span className="text-purple-400 font-bold text-xs md:text-sm tracking-widest uppercase">
                     Projektüberblick
                   </span>
                 </div>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 md:mb-8">
                   Unser Kunde: AlbaNova Consulting
                 </h2>
-                <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-5xl mx-auto">
+                <p className="text-base md:text-lg lg:text-xl text-gray-400 leading-relaxed max-w-5xl mx-auto">
                   AlbaNova Consulting ist ein spezialisiertes Beratungsunternehmen, das Migrantinnen und Migranten 
                   sowie ihre Familien beim Ankommen in Deutschland begleitet. Gleichzeitig unterstützen sie 
                   Organisationen bei Relocation- und Integrationsprozessen. Das Ziel: die Herausforderungen der 
@@ -257,7 +256,7 @@ const CaseStudyAlbaNova = () => {
               </div>
 
               {/* Challenge Section - Two Column Layout */}
-              <div className="grid lg:grid-cols-2 gap-12 items-center mt-20">
+              <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center mt-12 md:mt-20">
                 {/* Left: Image/Visual */}
                 <div className="relative">
                   <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-purple-900/40 via-purple-700/30 to-blue-900/40 border border-purple-500/20 flex items-center justify-center">
@@ -274,15 +273,15 @@ const CaseStudyAlbaNova = () => {
 
                 {/* Right: Challenge Text */}
                 <div>
-                  <div className="mb-4">
-                    <span className="text-purple-400 font-bold text-sm tracking-widest uppercase">
+                  <div className="mb-3 md:mb-4">
+                    <span className="text-purple-400 font-bold text-xs md:text-sm tracking-widest uppercase">
                       Ausgangssituation
                     </span>
                   </div>
-                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6">
                     Die Herausforderungen
                   </h3>
-                  <p className="text-lg text-gray-400 leading-relaxed">
+                  <p className="text-base md:text-lg text-gray-400 leading-relaxed">
                     Beim Projektstart existierten weder eine konsistente Markenidentität noch eine 
                     digitale Präsenz. Die hochspezialisierte Dienstleistung musste sowohl Unternehmen 
                     als auch Expatriate- und multikulturelle Familien in zwei Sprachen ansprechen. Ein 
@@ -299,75 +298,78 @@ const CaseStudyAlbaNova = () => {
         
 
         {/* Orbital Timeline Section */}
-        <section className="py-20 md:py-32 bg-black">
-          <div className="container mx-auto px-6 mb-12">
+        <section className="py-12 md:py-20 lg:py-32 bg-black">
+          <div className="container mx-auto px-4 md:px-6 mb-8 md:mb-12">
             <AnimatedSection>
               <div className="text-center max-w-4xl mx-auto">
-                <div className="mb-4">
-                  <span className="text-purple-400 font-bold text-sm tracking-wider">​UNSERE LEISTUNGEN</span>
+                <div className="mb-3 md:mb-4">
+                  <span className="text-purple-400 font-bold text-xs md:text-sm tracking-wider uppercase">​UNSERE LEISTUNGEN</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 md:mb-6">
                   Von der Vision zur Realität
                 </h2>
-                <p className="text-xl text-gray-300">
-                  Interaktive Timeline: Klicken Sie auf die Knoten, um Details zu den einzelnen Projektphasen zu sehen
+                <p className="text-base md:text-xl text-gray-300 px-4">
+                  Interaktive Timeline: Klicken Sie auf die Knoten, um Details zu sehen
                 </p>
               </div>
             </AnimatedSection>
           </div>
-          <RadialOrbitalTimeline timelineData={orbitalTimelineData} />
+          <div className="overflow-x-auto md:overflow-visible">
+            <RadialOrbitalTimeline timelineData={orbitalTimelineData} />
+          </div>
         </section>
 
         {/* Phases Section */}
-        <section className="py-20 md:py-32 bg-black">
-          <div className="container mx-auto px-6">
+        <section className="py-12 md:py-20 lg:py-32 bg-black">
+          <div className="container mx-auto px-4 md:px-6">
             {/* Section Header */}
             <AnimatedSection>
-              <div className="text-center mb-20">
-                <div className="mb-6">
-                  <span className="text-purple-400 font-bold text-sm tracking-widest uppercase">
+              <div className="text-center mb-12 md:mb-20">
+                <div className="mb-4 md:mb-6">
+                  <span className="text-purple-400 font-bold text-xs md:text-sm tracking-widest uppercase">
                     Unser Prozess
                   </span>
                 </div>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 md:mb-8">
                   Die drei Phasen
                 </h2>
-                <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
+                <p className="text-base md:text-lg lg:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
                   Von der Strategie über die Kreation bis zur technischen Umsetzung – 
                   ein strukturierter Prozess für maximalen Erfolg.
                 </p>
               </div>
             </AnimatedSection>
 
-            <div className="space-y-32">
+            {/* Desktop: Vertical Layout, Mobile: Horizontal Scroll */}
+            <div className="hidden md:block space-y-32">
               {phases.map((phase, phaseIndex) => <AnimatedSection key={phaseIndex}>
                   <div className={`grid lg:grid-cols-2 gap-12 items-center ${phaseIndex % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                    {/* Content Side */}
+                     {/* Content Side */}
                     <div className={phaseIndex % 2 === 1 ? 'lg:order-2' : ''}>
-                      <div className="mb-4">
-                        <span className="text-purple-400 font-bold text-sm tracking-wider">
+                      <div className="mb-3 md:mb-4">
+                        <span className="text-purple-400 font-bold text-xs md:text-sm tracking-wider">
                           {phase.number}
                         </span>
                       </div>
-                      <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                      <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6">
                         {phase.title}
                       </h2>
-                      <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                      <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
                         {phase.description}
                       </p>
 
-                      <div className="space-y-6">
+                      <div className="space-y-4 md:space-y-6">
                         {phase.features.map((feature, featureIndex) => {
                       const Icon = feature.icon;
-                      return <div key={featureIndex} className="flex items-start gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-                              <div className="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
-                                <Icon className="w-6 h-6 text-white" />
+                      return <div key={featureIndex} className="flex items-start gap-3 md:gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300 active:scale-95">
+                              <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg md:rounded-xl flex items-center justify-center">
+                                <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                               </div>
                               <div>
-                                <h3 className="text-white font-bold text-lg mb-2">
+                                <h3 className="text-white font-bold text-base md:text-lg mb-1 md:mb-2">
                                   {feature.title}
                                 </h3>
-                                <p className="text-gray-400">
+                                <p className="text-sm md:text-base text-gray-400">
                                   {feature.description}
                                 </p>
                               </div>
@@ -388,26 +390,77 @@ const CaseStudyAlbaNova = () => {
                       </div>
                     </div>
                   </div>
-                </AnimatedSection>)}
+                 </AnimatedSection>)}
+            </div>
+
+            {/* Mobile: Horizontal Scroll */}
+            <div className="md:hidden">
+              <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
+                {phases.map((phase, phaseIndex) => (
+                  <div key={phaseIndex} className="min-w-[85vw] snap-center">
+                    <AnimatedSection>
+                      <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                        <div className="mb-3">
+                          <span className="text-purple-400 font-bold text-xs tracking-wider">
+                            {phase.number}
+                          </span>
+                        </div>
+                        <h3 className="text-2xl font-black text-white mb-3">
+                          {phase.title}
+                        </h3>
+                        <p className="text-sm text-gray-300 mb-6 leading-relaxed">
+                          {phase.description}
+                        </p>
+                        
+                        <div className="space-y-4">
+                          {phase.features.map((feature, featureIndex) => {
+                            const Icon = feature.icon;
+                            return (
+                              <div key={featureIndex} className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+                                <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                                  <Icon className="w-5 h-5 text-white" />
+                                </div>
+                                <div>
+                                  <h4 className="text-white font-bold text-sm mb-1">
+                                    {feature.title}
+                                  </h4>
+                                  <p className="text-xs text-gray-400">
+                                    {feature.description}
+                                  </p>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </AnimatedSection>
+                  </div>
+                ))}
+              </div>
+              <div className="flex justify-center gap-2 mt-4">
+                {phases.map((_, index) => (
+                  <div key={index} className="w-2 h-2 rounded-full bg-white/20" />
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         {/* Testimonial Section */}
-        <section className="py-20 md:py-32">
-          <div className="container mx-auto px-6">
+        <section className="py-12 md:py-20 lg:py-32">
+          <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection>
               <div className="max-w-4xl mx-auto text-center">
-                <ShieldCheck className="w-16 h-16 text-purple-500 mx-auto mb-8" />
-                <blockquote className="text-2xl md:text-3xl font-semibold text-white leading-relaxed mb-8">
+                <ShieldCheck className="w-12 h-12 md:w-16 md:h-16 text-purple-500 mx-auto mb-6 md:mb-8" />
+                <blockquote className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white leading-relaxed mb-6 md:mb-8">
                   "NEW EDGE hat nicht nur unsere Website neu gestaltet – sie haben unsere gesamte digitale Identität transformiert. 
                   Die Ergebnisse sprechen für sich: Mehr Anfragen, bessere Leads und ein Team, das stolz auf unsere Online-Präsenz ist."
                 </blockquote>
-                <div className="flex items-center justify-center gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full" />
+                <div className="flex items-center justify-center gap-3 md:gap-4">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex-shrink-0" />
                   <div className="text-left">
-                    <div className="font-bold text-white text-lg">Dr. Maria Schmidt</div>
-                    <div className="text-gray-400">CEO, AlbaNova Consulting</div>
+                    <div className="font-bold text-white text-base md:text-lg">Dr. Maria Schmidt</div>
+                    <div className="text-sm md:text-base text-gray-400">CEO, AlbaNova Consulting</div>
                   </div>
                 </div>
               </div>
@@ -416,28 +469,29 @@ const CaseStudyAlbaNova = () => {
         </section>
 
         {/* Results Section */}
-        <section id="results" className="py-20 md:py-32 bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden">
+        <section id="results" className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden">
           {/* Background Effects */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/10 rounded-full blur-3xl" />
           
-          <div className="container mx-auto px-6 relative z-10">
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
             <AnimatedSection>
-              <div className="text-center mb-20">
-                <div className="mb-6 inline-block">
-                  <span className="px-6 py-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-400/30 rounded-full text-purple-300 font-bold text-sm tracking-widest uppercase backdrop-blur-sm">
+              <div className="text-center mb-12 md:mb-20">
+                <div className="mb-4 md:mb-6 inline-block">
+                  <span className="px-4 py-2 md:px-6 md:py-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-400/30 rounded-full text-purple-300 font-bold text-xs md:text-sm tracking-widest uppercase backdrop-blur-sm">
                     ERGEBNISSE
                   </span>
                 </div>
-                <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-6 md:mb-8 bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent px-4">
                   Der Impact unserer Arbeit
                 </h2>
-                <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                <p className="text-base md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-4">
                   Innerhalb von 6 Monaten nach dem Launch konnten wir messbare Erfolge erzielen
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+              {/* Desktop Grid */}
+              <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
                 {results.map((result, index) => {
                 const Icon = result.icon;
                 return <div 
@@ -473,9 +527,52 @@ const CaseStudyAlbaNova = () => {
               })}
               </div>
 
+              {/* Mobile Horizontal Scroll */}
+              <div className="md:hidden">
+                <div className="flex gap-4 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
+                  {results.map((result, index) => {
+                    const Icon = result.icon;
+                    return (
+                      <div 
+                        key={index} 
+                        className="min-w-[70vw] snap-center group relative text-center"
+                      >
+                        {/* Glow Effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-2xl blur-lg group-active:blur-xl transition-all duration-500 opacity-0 group-active:opacity-100" />
+                        
+                        {/* Card */}
+                        <div className="relative bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-2xl p-6 active:border-purple-400/40 transition-all duration-500 active:translate-y-[-4px] h-full flex flex-col">
+                          {/* Icon Container */}
+                          <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-br from-purple-500 via-purple-600 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/30">
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl" />
+                            <Icon className="w-6 h-6 text-white relative z-10" strokeWidth={2.5} />
+                          </div>
+                          
+                          {/* Metric */}
+                          <div className="text-5xl font-black mb-2 bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">
+                            {result.metric}
+                          </div>
+                          
+                          {/* Label */}
+                          <div className="text-gray-300 font-semibold text-sm mt-auto">
+                            {result.label}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="flex justify-center gap-2 mt-4">
+                  {results.map((_, index) => (
+                    <div key={index} className="w-2 h-2 rounded-full bg-white/20" />
+                  ))}
+                </div>
+              </div>
+
               {/* Additional Stats Bar */}
-              <div className="mt-16 pt-12 border-t border-white/10">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+              <div className="mt-12 md:mt-16 pt-8 md:pt-12 border-t border-white/10">
+                {/* Desktop Grid */}
+                <div className="hidden md:grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
                   <div className="text-center">
                     <div className="text-3xl md:text-4xl font-black text-purple-300 mb-2">11 Wochen</div>
                     <div className="text-sm text-gray-400 font-semibold">Projektdauer</div>
@@ -493,24 +590,46 @@ const CaseStudyAlbaNova = () => {
                     <div className="text-sm text-gray-400 font-semibold">Performance Score</div>
                   </div>
                 </div>
+
+                {/* Mobile Horizontal Scroll */}
+                <div className="md:hidden">
+                  <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
+                    <div className="text-center min-w-[40vw] snap-center">
+                      <div className="text-3xl font-black text-purple-300 mb-2">11 Wochen</div>
+                      <div className="text-xs text-gray-400 font-semibold">Projektdauer</div>
+                    </div>
+                    <div className="text-center min-w-[40vw] snap-center">
+                      <div className="text-3xl font-black text-purple-300 mb-2">3 Sprachen</div>
+                      <div className="text-xs text-gray-400 font-semibold">Mehrsprachig</div>
+                    </div>
+                    <div className="text-center min-w-[40vw] snap-center">
+                      <div className="text-3xl font-black text-purple-300 mb-2">100%</div>
+                      <div className="text-xs text-gray-400 font-semibold">Responsive</div>
+                    </div>
+                    <div className="text-center min-w-[40vw] snap-center">
+                      <div className="text-3xl font-black text-purple-300 mb-2">A+</div>
+                      <div className="text-xs text-gray-400 font-semibold">Performance Score</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </AnimatedSection>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 md:py-32 bg-gradient-to-b from-gray-900 to-black">
-          <div className="container mx-auto px-6">
+        <section className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-gray-900 to-black">
+          <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection className="text-center max-w-4xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 md:mb-6">
                 Bereit für Ihre digitale Transformation?
               </h2>
-              <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+              <p className="text-base md:text-xl text-gray-300 mb-8 md:mb-10 leading-relaxed px-4">
                 Lassen Sie uns gemeinsam eine Strategie entwickeln, die Ihre Vision Realität werden lässt.
               </p>
-              <button onClick={scrollToContact} className="px-10 py-5 bg-white text-black font-bold rounded-full text-lg hover:scale-105 transition-transform duration-300 inline-flex items-center gap-3">
+              <button onClick={scrollToContact} className="px-8 py-4 md:px-10 md:py-5 bg-white text-black font-bold rounded-full text-base md:text-lg hover:scale-105 active:scale-95 transition-transform duration-300 inline-flex items-center gap-3">
                 Projekt starten
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
               </button>
             </AnimatedSection>
           </div>
