@@ -31,14 +31,166 @@ const Careers = () => {
       <div className="min-h-screen bg-white">
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
-        <section className="relative w-full pt-32 pb-16">
+        {/* Hero Section */}
+        <section className="relative w-full pt-32 pb-20 bg-gradient-to-b from-white to-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-black">
-              Karriere
-            </h1>
-            <p className="text-lg text-gray-700 max-w-3xl">
-              Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der digitalen Innovation mit.
+            <div className="max-w-4xl">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 text-black">
+                Karriere bei NEW EDGE
+              </h1>
+              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                Werden Sie Teil unseres innovativen Teams und gestalten Sie die Zukunft der 
+                KI-gestützten digitalen Transformation. Bei uns arbeiten Sie an spannenden 
+                Projekten mit modernsten Technologien.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Values Section */}
+        <section className="relative w-full py-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <h2 className="text-3xl md:text-4xl font-black mb-12 text-center text-black">
+              Warum NEW EDGE?
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Innovation First",
+                  description: "Arbeiten Sie mit cutting-edge KI-Technologien und gestalten Sie die Zukunft aktiv mit."
+                },
+                {
+                  title: "Work-Life Balance",
+                  description: "Flexible Arbeitszeiten, Remote-Möglichkeiten und 30 Tage Urlaub für Ihre Erholung."
+                },
+                {
+                  title: "Weiterentwicklung",
+                  description: "Kontinuierliche Weiterbildung, Konferenz-Besuche und persönliches Entwicklungsbudget."
+                }
+              ].map((value, index) => (
+                <div key={index} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                  <h3 className="text-2xl font-bold text-black mb-4">{value.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Open Positions */}
+        <section className="relative w-full py-20 bg-gray-50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <h2 className="text-3xl md:text-4xl font-black mb-12 text-center text-black">
+              Offene Positionen
+            </h2>
+            <div className="space-y-6 max-w-4xl mx-auto">
+              {[
+                {
+                  title: "Senior AI Engineer",
+                  location: "Berlin / Remote",
+                  type: "Vollzeit",
+                  description: "Entwickeln Sie innovative KI-Lösungen und bringen Sie Machine Learning in die Produktion."
+                },
+                {
+                  title: "Full-Stack Developer",
+                  location: "München / Hybrid",
+                  type: "Vollzeit",
+                  description: "Bauen Sie moderne Web-Anwendungen mit React, Node.js und Cloud-Technologien."
+                },
+                {
+                  title: "UX/UI Designer",
+                  location: "Remote",
+                  type: "Vollzeit / Teilzeit",
+                  description: "Gestalten Sie intuitive Benutzeroberflächen für komplexe KI-Systeme."
+                },
+                {
+                  title: "Product Manager",
+                  location: "Berlin",
+                  type: "Vollzeit",
+                  description: "Leiten Sie die Entwicklung unserer KI-Produkte von der Konzeption bis zum Launch."
+                },
+                {
+                  title: "DevOps Engineer",
+                  location: "Remote",
+                  type: "Vollzeit",
+                  description: "Bauen Sie skalierbare Cloud-Infrastruktur und automatisieren Sie Deployment-Prozesse."
+                }
+              ].map((job, index) => (
+                <div 
+                  key={index}
+                  className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
+                >
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-black mb-2">{job.title}</h3>
+                      <div className="flex flex-wrap gap-3 text-sm text-gray-600">
+                        <span className="flex items-center gap-1">
+                          📍 {job.location}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          💼 {job.type}
+                        </span>
+                      </div>
+                    </div>
+                    <button
+                      onClick={scrollToContact}
+                      className="px-6 py-3 bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 whitespace-nowrap"
+                    >
+                      Jetzt bewerben
+                    </button>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">{job.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits */}
+        <section className="relative w-full py-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <h2 className="text-3xl md:text-4xl font-black mb-12 text-center text-black">
+              Unsere Benefits
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                { icon: "💰", label: "Wettbewerbsfähiges Gehalt" },
+                { icon: "🏖️", label: "30 Tage Urlaub" },
+                { icon: "🏠", label: "Remote Work" },
+                { icon: "📚", label: "Weiterbildungsbudget" },
+                { icon: "🏥", label: "Gesundheitsvorsorge" },
+                { icon: "🚴", label: "Sport & Fitness" },
+                { icon: "☕", label: "Team Events" },
+                { icon: "🚀", label: "Moderne Tools" }
+              ].map((benefit, index) => (
+                <div 
+                  key={index}
+                  className="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100"
+                >
+                  <div className="text-4xl mb-3">{benefit.icon}</div>
+                  <div className="text-sm font-semibold text-black">{benefit.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="relative w-full py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center text-white">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+              Finden Sie Ihre Traumposition nicht?
+            </h2>
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+              Senden Sie uns Ihre Initiativbewerbung! Wir sind immer auf der Suche nach 
+              talentierten Menschen, die unser Team bereichern möchten.
             </p>
+            <button
+              onClick={scrollToContact}
+              className="px-8 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform duration-300"
+            >
+              Initiativbewerbung senden
+            </button>
           </div>
         </section>
 

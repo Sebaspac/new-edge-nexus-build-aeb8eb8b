@@ -17,6 +17,7 @@ import OptimizedLab from "./components/OptimizedLab";
 import OptimizedProducts from "./components/OptimizedProducts";
 import Team from "./pages/Team";
 import CaseStudies from "./pages/CaseStudies";
+import UseCases from "./pages/UseCases";
 import Careers from "./pages/Careers";
 import About from "./pages/About";
 import Resources from "./pages/Resources";
@@ -57,10 +58,11 @@ const App = () => {
                   <Route path="/studio" element={<OptimizedStudio />} />
                   <Route path="/lab" element={<OptimizedLab />} />
                   <Route path="/products" element={<OptimizedProducts />} />
-                  <Route path="/team" element={<Team />} />
-                  <Route path="/case-studies" element={<CaseStudies />} />
-                  <Route path="/careers" element={<Careers />} />
-                  <Route path="/about" element={<About />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/use-cases" element={<UseCases />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/about" element={<About />} />
                   <Route path="/resources" element={<Resources />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/news" element={<News />} />

@@ -89,6 +89,8 @@ export const MobileNavigation = ({
                 <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-[60] border ${borderColor}`}>
                   <div className="py-2">
                     <Link to="/about" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>About us</Link>
+                    <Link to="/use-cases" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>Use Cases</Link>
+                    <Link to="/careers" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>Careers</Link>
                   </div>
                 </div>
               </div>
@@ -239,6 +241,28 @@ export const MobileNavigation = ({
                   delay: 0.30
                 }}>
                       <Link to="/about" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>About us</Link>
+                    </motion.div>
+                    <motion.div initial={{
+                  opacity: 0,
+                  x: 50
+                }} animate={{
+                  opacity: 1,
+                  x: 0
+                }} transition={{
+                  delay: 0.33
+                }}>
+                      <Link to="/use-cases" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>Use Cases</Link>
+                    </motion.div>
+                    <motion.div initial={{
+                  opacity: 0,
+                  x: 50
+                }} animate={{
+                  opacity: 1,
+                  x: 0
+                }} transition={{
+                  delay: 0.36
+                }}>
+                      <Link to="/careers" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>Careers</Link>
                     </motion.div>
                   </div>
 
