@@ -214,9 +214,7 @@ const CaseStudyAlbaNova = () => {
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <AnimatedSection className="text-center max-w-5xl mx-auto">
               <div className="mb-6 md:mb-8">
-                <span className="text-purple-400 text-xs md:text-sm font-bold tracking-widest uppercase">
-                  AlbaNova Consulting Case Study
-                </span>
+                <span className="text-purple-400 text-xs md:text-sm font-bold tracking-widest uppercase">AlbaNova Consulting X New edge</span>
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 md:mb-8 leading-tight">
                 Integration neu<br />gedacht.
