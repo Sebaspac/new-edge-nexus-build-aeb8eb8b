@@ -80,7 +80,7 @@ const UseCases = () => {
         "Als Lead-Agentur begleiteten wir AlbaNova von der ersten Idee bis zur zweisprachigen Marke – inklusive Konzept, Strategie, Social‑Plan, Branding, Storytelling, Webentwicklung und Funnel.",
       metrics: ["7 integrierte Leistungen", "2 Sprachen (DE/ES)", "360° Rundum‑Service"],
       color: "from-purple-600 to-purple-400",
-      services: ["studio"]["media"]["lab"],
+      services: ["studio", "media", "lab"],
     },
     {
       industry: "Commerce",
