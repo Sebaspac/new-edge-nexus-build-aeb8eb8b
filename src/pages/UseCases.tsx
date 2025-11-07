@@ -7,7 +7,7 @@ import { ArrowRight, Building2, ShoppingCart, Heart, Users, Briefcase, Store, Gl
 
 const UseCases = () => {
   const navigate = useNavigate();
-  const [activeService, setActiveService] = useState<'studio' | 'media' | 'lab'>('studio');
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -23,140 +23,172 @@ const UseCases = () => {
     }, 100);
   };
 
+  const toggleService = (serviceId: string) => {
+    setSelectedServices(prev => {
+      if (prev.includes(serviceId)) {
+        return prev.filter(id => id !== serviceId);
+      } else {
+        return [...prev, serviceId];
+      }
+    });
+  };
+
+  const showAllServices = () => {
+    setSelectedServices([]);
+  };
+
   const services = [
-    { id: 'studio' as const, name: 'Studio', color: 'from-purple-500 to-pink-500' },
-    { id: 'media' as const, name: 'Media', color: 'from-blue-500 to-cyan-500' },
-    { id: 'lab' as const, name: 'Lab', color: 'from-yellow-500 to-orange-500' }
+    { id: 'studio', name: 'Studio', color: 'from-purple-500 to-pink-500' },
+    { id: 'media', name: 'Media', color: 'from-blue-500 to-cyan-500' },
+    { id: 'lab', name: 'Lab', color: 'from-yellow-500 to-orange-500' }
   ];
 
-  const useCasesByService = {
-    studio: [
-      {
-        industry: "Beratung",
-        icon: Briefcase,
-        title: "Strategische KI-Beratung",
-        description: "Entwickeln Sie maßgeschneiderte KI-Strategien für Ihre Unternehmensberatung und optimieren Sie Entscheidungsprozesse.",
-        metrics: ["50% schnellere Analysen", "35% bessere Insights", "60% höhere Effizienz"],
-        color: "from-purple-600 to-purple-400"
-      },
-      {
-        industry: "Einzelhandel",
-        icon: Store,
-        title: "Retail Intelligence Platform",
-        description: "Optimieren Sie Ihr Geschäft mit KI-gestützter Bestandsverwaltung, Prognosen und personalisierten Kundenempfehlungen.",
-        metrics: ["40% weniger Überbestände", "55% bessere Prognosen", "30% höhere Marge"],
-        color: "from-pink-600 to-rose-400"
-      },
-      {
-        industry: "Commerce",
-        icon: ShoppingCart,
-        title: "E-Commerce Personalisierung",
-        description: "Steigern Sie Conversions mit KI-basierten Produktempfehlungen und dynamischen Preisstrategien.",
-        metrics: ["45% höhere Conversion", "35% größerer Warenkorb", "50% mehr Repeat-Käufer"],
-        color: "from-purple-500 to-indigo-400"
-      },
-      {
-        industry: "Healthcare",
-        icon: Heart,
-        title: "Healthcare Workflow Automation",
-        description: "Automatisieren Sie Verwaltungsprozesse und verbessern Sie die Patientenbetreuung mit intelligenten Workflows.",
-        metrics: ["60% weniger Verwaltung", "40% mehr Patientenzeit", "80% höhere Zufriedenheit"],
-        color: "from-red-500 to-pink-400"
-      },
-      {
-        industry: "Customer Experience",
-        icon: Users,
-        title: "CX Intelligence Suite",
-        description: "Verstehen Sie Ihre Kunden besser durch KI-Analyse von Feedback, Verhalten und Präferenzen.",
-        metrics: ["85% Kundenzufriedenheit", "50% weniger Churn", "65% höheres Engagement"],
-        color: "from-indigo-600 to-purple-400"
-      }
-    ],
-    media: [
-      {
-        industry: "Beratung",
-        icon: Palette,
-        title: "Brand Strategy & Media Planning",
-        description: "Entwickeln Sie datengetriebene Medienstrategien und optimieren Sie Ihre Markenkommunikation mit KI-Insights.",
-        metrics: ["70% bessere Zielgruppenansprache", "45% höhere Kampagneneffizienz", "60% mehr Reichweite"],
-        color: "from-blue-600 to-cyan-400"
-      },
-      {
-        industry: "Einzelhandel",
-        icon: Film,
-        title: "Visual Merchandising AI",
-        description: "Erstellen Sie automatisch ansprechende Produktbilder und Videos für Ihre Marketing-Kampagnen.",
-        metrics: ["80% schnellere Content-Produktion", "55% mehr Engagement", "40% höhere Verkäufe"],
-        color: "from-cyan-600 to-teal-400"
-      },
-      {
-        industry: "Commerce",
-        icon: Globe,
-        title: "Multi-Channel Content Automation",
-        description: "Generieren und verteilen Sie konsistenten Content über alle digitalen Kanäle automatisch.",
-        metrics: ["90% schnellere Veröffentlichung", "65% mehr Content", "50% niedrigere Kosten"],
-        color: "from-blue-500 to-indigo-400"
-      },
-      {
-        industry: "Healthcare",
-        icon: Heart,
-        title: "Patient Education Content",
-        description: "Erstellen Sie verständliche, personalisierte Gesundheitsinformationen für Ihre Patienten automatisch.",
-        metrics: ["75% besseres Verständnis", "60% höhere Compliance", "85% Patientenzufriedenheit"],
-        color: "from-teal-500 to-cyan-400"
-      },
-      {
-        industry: "Customer Experience",
-        icon: TrendingUp,
-        title: "Social Media Intelligence",
-        description: "Analysieren Sie Social Media Trends und erstellen Sie viralen Content mit KI-Unterstützung.",
-        metrics: ["200% mehr Engagement", "80% höhere Reichweite", "55% mehr Follower"],
-        color: "from-blue-600 to-purple-400"
-      }
-    ],
-    lab: [
-      {
-        industry: "Beratung",
-        icon: Brain,
-        title: "Advanced Analytics Lab",
-        description: "Experimentieren Sie mit neuesten KI-Modellen für komplexe Geschäftsanalysen und Prognosen.",
-        metrics: ["95% Vorhersagegenauigkeit", "70% schnellere Erkenntnisse", "50% bessere Entscheidungen"],
-        color: "from-yellow-600 to-orange-400"
-      },
-      {
-        industry: "Einzelhandel",
-        icon: Lightbulb,
-        title: "Retail Innovation Lab",
-        description: "Testen Sie innovative KI-Lösungen für Store-Automatisierung und Customer Journey Optimierung.",
-        metrics: ["60% effizientere Stores", "45% bessere Customer Journey", "35% höhere Profitabilität"],
-        color: "from-orange-600 to-amber-400"
-      },
-      {
-        industry: "Commerce",
-        icon: Zap,
-        title: "Commerce Experimentation Platform",
-        description: "Prototypen Sie neue KI-Features für Ihr Online-Geschäft in sicherer Testumgebung.",
-        metrics: ["80% schnellere Innovation", "90% weniger Risiko", "65% mehr erfolgreiche Features"],
-        color: "from-yellow-500 to-orange-400"
-      },
-      {
-        industry: "Healthcare",
-        icon: Brain,
-        title: "Medical AI Research",
-        description: "Erforschen Sie cutting-edge KI-Anwendungen für Diagnose und Behandlungsplanung.",
-        metrics: ["92% Diagnose-Genauigkeit", "50% schnellere Forschung", "70% mehr Durchbrüche"],
-        color: "from-orange-500 to-red-400"
-      },
-      {
-        industry: "Customer Experience",
-        icon: Lightbulb,
-        title: "CX Innovation Lab",
-        description: "Entwickeln Sie bahnbrechende KI-Lösungen für außergewöhnliche Kundenerlebnisse.",
-        metrics: ["95% Innovation Success Rate", "75% schnellere Time-to-Market", "60% höhere Adoption"],
-        color: "from-amber-600 to-yellow-400"
-      }
-    ]
-  };
+  const allUseCases = [
+    // Studio Cases
+    {
+      industry: "Beratung",
+      icon: Briefcase,
+      title: "Strategische KI-Beratung",
+      description: "Entwickeln Sie maßgeschneiderte KI-Strategien für Ihre Unternehmensberatung und optimieren Sie Entscheidungsprozesse.",
+      metrics: ["50% schnellere Analysen", "35% bessere Insights", "60% höhere Effizienz"],
+      color: "from-purple-600 to-purple-400",
+      services: ['studio']
+    },
+    {
+      industry: "Einzelhandel",
+      icon: Store,
+      title: "Retail Intelligence Platform",
+      description: "Optimieren Sie Ihr Geschäft mit KI-gestützter Bestandsverwaltung, Prognosen und personalisierten Kundenempfehlungen.",
+      metrics: ["40% weniger Überbestände", "55% bessere Prognosen", "30% höhere Marge"],
+      color: "from-pink-600 to-rose-400",
+      services: ['studio']
+    },
+    {
+      industry: "Commerce",
+      icon: ShoppingCart,
+      title: "E-Commerce Personalisierung",
+      description: "Steigern Sie Conversions mit KI-basierten Produktempfehlungen und dynamischen Preisstrategien.",
+      metrics: ["45% höhere Conversion", "35% größerer Warenkorb", "50% mehr Repeat-Käufer"],
+      color: "from-purple-500 to-indigo-400",
+      services: ['studio']
+    },
+    {
+      industry: "Healthcare",
+      icon: Heart,
+      title: "Healthcare Workflow Automation",
+      description: "Automatisieren Sie Verwaltungsprozesse und verbessern Sie die Patientenbetreuung mit intelligenten Workflows.",
+      metrics: ["60% weniger Verwaltung", "40% mehr Patientenzeit", "80% höhere Zufriedenheit"],
+      color: "from-red-500 to-pink-400",
+      services: ['studio']
+    },
+    {
+      industry: "Customer Experience",
+      icon: Users,
+      title: "CX Intelligence Suite",
+      description: "Verstehen Sie Ihre Kunden besser durch KI-Analyse von Feedback, Verhalten und Präferenzen.",
+      metrics: ["85% Kundenzufriedenheit", "50% weniger Churn", "65% höheres Engagement"],
+      color: "from-indigo-600 to-purple-400",
+      services: ['studio']
+    },
+    // Media Cases
+    {
+      industry: "Beratung",
+      icon: Palette,
+      title: "Brand Strategy & Media Planning",
+      description: "Entwickeln Sie datengetriebene Medienstrategien und optimieren Sie Ihre Markenkommunikation mit KI-Insights.",
+      metrics: ["70% bessere Zielgruppenansprache", "45% höhere Kampagneneffizienz", "60% mehr Reichweite"],
+      color: "from-blue-600 to-cyan-400",
+      services: ['media']
+    },
+    {
+      industry: "Einzelhandel",
+      icon: Film,
+      title: "Visual Merchandising AI",
+      description: "Erstellen Sie automatisch ansprechende Produktbilder und Videos für Ihre Marketing-Kampagnen.",
+      metrics: ["80% schnellere Content-Produktion", "55% mehr Engagement", "40% höhere Verkäufe"],
+      color: "from-cyan-600 to-teal-400",
+      services: ['media']
+    },
+    {
+      industry: "Commerce",
+      icon: Globe,
+      title: "Multi-Channel Content Automation",
+      description: "Generieren und verteilen Sie konsistenten Content über alle digitalen Kanäle automatisch.",
+      metrics: ["90% schnellere Veröffentlichung", "65% mehr Content", "50% niedrigere Kosten"],
+      color: "from-blue-500 to-indigo-400",
+      services: ['media']
+    },
+    {
+      industry: "Healthcare",
+      icon: Heart,
+      title: "Patient Education Content",
+      description: "Erstellen Sie verständliche, personalisierte Gesundheitsinformationen für Ihre Patienten automatisch.",
+      metrics: ["75% besseres Verständnis", "60% höhere Compliance", "85% Patientenzufriedenheit"],
+      color: "from-teal-500 to-cyan-400",
+      services: ['media']
+    },
+    {
+      industry: "Customer Experience",
+      icon: TrendingUp,
+      title: "Social Media Intelligence",
+      description: "Analysieren Sie Social Media Trends und erstellen Sie viralen Content mit KI-Unterstützung.",
+      metrics: ["200% mehr Engagement", "80% höhere Reichweite", "55% mehr Follower"],
+      color: "from-blue-600 to-purple-400",
+      services: ['media']
+    },
+    // Lab Cases
+    {
+      industry: "Beratung",
+      icon: Brain,
+      title: "Advanced Analytics Lab",
+      description: "Experimentieren Sie mit neuesten KI-Modellen für komplexe Geschäftsanalysen und Prognosen.",
+      metrics: ["95% Vorhersagegenauigkeit", "70% schnellere Erkenntnisse", "50% bessere Entscheidungen"],
+      color: "from-yellow-600 to-orange-400",
+      services: ['lab']
+    },
+    {
+      industry: "Einzelhandel",
+      icon: Lightbulb,
+      title: "Retail Innovation Lab",
+      description: "Testen Sie innovative KI-Lösungen für Store-Automatisierung und Customer Journey Optimierung.",
+      metrics: ["60% effizientere Stores", "45% bessere Customer Journey", "35% höhere Profitabilität"],
+      color: "from-orange-600 to-amber-400",
+      services: ['lab']
+    },
+    {
+      industry: "Commerce",
+      icon: Zap,
+      title: "Commerce Experimentation Platform",
+      description: "Prototypen Sie neue KI-Features für Ihr Online-Geschäft in sicherer Testumgebung.",
+      metrics: ["80% schnellere Innovation", "90% weniger Risiko", "65% mehr erfolgreiche Features"],
+      color: "from-yellow-500 to-orange-400",
+      services: ['lab']
+    },
+    {
+      industry: "Healthcare",
+      icon: Brain,
+      title: "Medical AI Research",
+      description: "Erforschen Sie cutting-edge KI-Anwendungen für Diagnose und Behandlungsplanung.",
+      metrics: ["92% Diagnose-Genauigkeit", "50% schnellere Forschung", "70% mehr Durchbrüche"],
+      color: "from-orange-500 to-red-400",
+      services: ['lab']
+    },
+    {
+      industry: "Customer Experience",
+      icon: Lightbulb,
+      title: "CX Innovation Lab",
+      description: "Entwickeln Sie bahnbrechende KI-Lösungen für außergewöhnliche Kundenerlebnisse.",
+      metrics: ["95% Innovation Success Rate", "75% schnellere Time-to-Market", "60% höhere Adoption"],
+      color: "from-amber-600 to-yellow-400",
+      services: ['lab']
+    }
+  ];
+
+  const filteredUseCases = selectedServices.length === 0
+    ? allUseCases
+    : allUseCases.filter(useCase => 
+        selectedServices.every(service => useCase.services.includes(service))
+      );
 
   return (
     <>
@@ -198,16 +230,29 @@ const UseCases = () => {
           </div>
         </section>
 
-        {/* Service Tabs */}
+        {/* Service Filter */}
         <section className="relative w-full pb-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="flex justify-center gap-4 mb-12">
+            <div className="flex justify-center gap-4 mb-12 flex-wrap">
+              {/* Alle Button */}
+              <button
+                onClick={showAllServices}
+                className={`px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 ${
+                  selectedServices.length === 0
+                    ? 'bg-gradient-to-r from-gray-700 to-gray-500 text-white shadow-lg scale-105'
+                    : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-gray-300'
+                }`}
+              >
+                Alle
+              </button>
+
+              {/* Service Filter Buttons */}
               {services.map((service) => (
                 <button
                   key={service.id}
-                  onClick={() => setActiveService(service.id)}
+                  onClick={() => toggleService(service.id)}
                   className={`px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 ${
-                    activeService === service.id
+                    selectedServices.includes(service.id)
                       ? `bg-gradient-to-r ${service.color} text-white shadow-lg scale-105`
                       : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-gray-300'
                   }`}
@@ -219,51 +264,80 @@ const UseCases = () => {
           </div>
         </section>
 
-        {/* Use Cases Grid by Service */}
+        {/* Use Cases Grid */}
         <section className="relative w-full pb-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {useCasesByService[activeService].map((useCase, index) => (
-                <div 
-                  key={index}
-                  className="group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            {filteredUseCases.length === 0 ? (
+              <div className="text-center py-20">
+                <p className="text-2xl font-bold text-gray-400 mb-4">
+                  Keine Use Cases gefunden
+                </p>
+                <p className="text-gray-500 mb-8">
+                  Probieren Sie eine andere Filterkombination
+                </p>
+                <button
+                  onClick={showAllServices}
+                  className="px-6 py-3 bg-black text-white rounded-full font-bold hover:scale-105 transition-transform duration-300"
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${useCase.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <useCase.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
-                      {useCase.industry}
-                    </span>
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-black mb-4">
-                    {useCase.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {useCase.description}
-                  </p>
-                  
-                  <div className="space-y-2 mb-6">
-                    {useCase.metrics.map((metric, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm">
-                        <div className="w-1.5 h-1.5 rounded-full bg-black" />
-                        <span className="font-semibold text-black">{metric}</span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <button 
-                    onClick={scrollToContact}
-                    className="flex items-center gap-2 text-black font-semibold group-hover:gap-3 transition-all duration-300"
+                  Alle anzeigen
+                </button>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredUseCases.map((useCase, index) => (
+                  <div 
+                    key={index}
+                    className="group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                   >
-                    Mehr erfahren
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              ))}
-            </div>
+                    {/* Service Tags */}
+                    <div className="flex gap-2 mb-4">
+                      {useCase.services.map(service => (
+                        <span 
+                          key={service}
+                          className="px-3 py-1 text-xs font-bold rounded-full bg-gray-100 text-gray-700 uppercase"
+                        >
+                          {service}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${useCase.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                        <useCase.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                        {useCase.industry}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold text-black mb-4">
+                      {useCase.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      {useCase.description}
+                    </p>
+                    
+                    <div className="space-y-2 mb-6">
+                      {useCase.metrics.map((metric, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-sm">
+                          <div className="w-1.5 h-1.5 rounded-full bg-black" />
+                          <span className="font-semibold text-black">{metric}</span>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <button 
+                      onClick={scrollToContact}
+                      className="flex items-center gap-2 text-black font-semibold group-hover:gap-3 transition-all duration-300"
+                    >
+                      Mehr erfahren
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 
