@@ -41,15 +41,7 @@ const Careers = () => {
             <div className="absolute inset-0 overflow-hidden" style={{
             background: 'linear-gradient(to bottom right, rgba(107, 114, 128, 0.3), rgba(75, 85, 99, 0.2), rgba(55, 65, 81, 0.1))'
           }}>
-              <LazyVideo
-                src="/assets/careers-hero-video.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="none"
-                className="absolute inset-0 w-full h-full object-cover scale-110"
-              />
+              <LazyVideo src="/assets/careers-hero-video.mp4" autoPlay loop muted playsInline preload="none" className="absolute inset-0 w-full h-full object-cover scale-110" />
               <div className="absolute inset-0" style={{
               background: 'linear-gradient(to top, rgba(17, 24, 39, 0.6), rgba(31, 41, 55, 0.2), transparent)'
             }} />
@@ -116,7 +108,7 @@ NEW EDGE
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 text-center text-black">
               Offene Positionen
             </h2>
-            <p className="text-center text-sm sm:text-base text-gray-600 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2">Bei Interesse sende uns eine E-Mail mit deiner aussagekräftigen Bewerbung (Lebenslauf + kurzes Anschreiben) an die im Impressum/auf unserer Website genannte Kontaktadresse – alternativ gern über das Kontaktformular.</p>
+            <p className="text-center text-sm sm:text-base text-gray-600 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2">Bei Interesse sende uns eine E-Mail mit deiner aussagekräftigen Bewerbung (Lebenslauf + kurzes Anschreiben) an info@newedgebrand.com - alternativ gern über den Button.</p>
             <div className="max-w-4xl mx-auto">
               <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
                 <AccordionItem value="item-1" className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 px-4 sm:px-8">
