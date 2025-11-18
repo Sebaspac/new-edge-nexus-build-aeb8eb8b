@@ -4,6 +4,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { Footer } from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { LazyVideo } from "@/components/LazyVideo";
 const Careers = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -40,6 +41,15 @@ const Careers = () => {
             <div className="absolute inset-0 overflow-hidden" style={{
             background: 'linear-gradient(to bottom right, rgba(107, 114, 128, 0.3), rgba(75, 85, 99, 0.2), rgba(55, 65, 81, 0.1))'
           }}>
+              <LazyVideo
+                src="/assets/careers-hero-video.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="none"
+                className="absolute inset-0 w-full h-full object-cover scale-110"
+              />
               <div className="absolute inset-0" style={{
               background: 'linear-gradient(to top, rgba(17, 24, 39, 0.6), rgba(31, 41, 55, 0.2), transparent)'
             }} />
