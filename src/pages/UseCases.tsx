@@ -122,7 +122,7 @@ const UseCases = () => {
                 muted
                 playsInline
                 preload="none"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover scale-110"
               />
               <div className="absolute inset-0" style={{
               background: "linear-gradient(to top, rgba(17, 24, 39, 0.6), rgba(31, 41, 55, 0.2), transparent)"
