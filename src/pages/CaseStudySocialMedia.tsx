@@ -408,7 +408,7 @@ const CaseStudySocialMedia = () => {
                 [PLACEHOLDER: Timeline Intro - 1-2 Sätze über den Projektverlauf]
               </p>
             </div>
-            <RadialOrbitalTimeline data={orbitalTimelineData} />
+            <RadialOrbitalTimeline timelineData={orbitalTimelineData} />
           </AnimatedSection>
         </div>
       </section>
