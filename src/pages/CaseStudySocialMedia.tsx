@@ -16,6 +16,13 @@ import {
   Hash,
   Share2,
   Heart,
+  Calendar,
+  Mail,
+  UserCheck,
+  Database,
+  Zap,
+  Phone,
+  Shield,
 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 
@@ -88,57 +95,82 @@ const CaseStudySocialMedia = () => {
   const phases = [
     {
       number: "PHASE 1",
-      title: "[PLACEHOLDER: Phase 1 Titel]",
-      description: "[PLACEHOLDER: Phase 1 Beschreibung - 2-3 Sätze über die erste Phase des Projekts]",
+      title: "Analyse & Strategie",
+      description: "Überprüfung der CRM-Datenqualität und Entwicklung eines intelligenten Lead-Scoring-Systems.",
       features: [
         {
+          icon: Database,
+          title: "CRM-Audit & Datenqualität prüfen",
+          description: "Analyse der bestehenden CRM-Daten und Identifikation von Optimierungspotenzialen.",
+        },
+        {
           icon: Target,
-          title: "[PLACEHOLDER: Feature 1 Titel]",
-          description: "[PLACEHOLDER: Feature 1 Beschreibung]",
+          title: "Lead-Scoring-Kriterien definieren",
+          description: "Entwicklung eines KI-basierten Scoring-Systems für automatische Priorisierung.",
         },
         {
           icon: BarChart3,
-          title: "[PLACEHOLDER: Feature 2 Titel]",
-          description: "[PLACEHOLDER: Feature 2 Beschreibung]",
+          title: "Sales-Prozess dokumentieren",
+          description: "Erfassung aller bestehenden Workflows und Touchpoints.",
+        },
+        {
+          icon: Users,
+          title: "Zielgruppen-Segmentierung",
+          description: "Präzise Analyse und Strukturierung der Lead-Kategorien.",
         },
       ],
     },
     {
       number: "PHASE 2",
-      title: "[PLACEHOLDER: Phase 2 Titel]",
-      description: "[PLACEHOLDER: Phase 2 Beschreibung - 2-3 Sätze über die zweite Phase des Projekts]",
+      title: "Automation & Content",
+      description: "Aufbau automatisierter Lead-Nurturing-Sequenzen und personalisierter Kommunikationsstrategien.",
       features: [
         {
           icon: Brain,
-          title: "[PLACEHOLDER: Feature 1 Titel]",
-          description: "[PLACEHOLDER: Feature 1 Beschreibung]",
+          title: "Lead-Scoring-Modell trainieren",
+          description: "KI-basierte Bewertung von Leads in Echtzeit für optimale Priorisierung.",
+        },
+        {
+          icon: Mail,
+          title: "E-Mail- & LinkedIn-Sequenzen erstellen",
+          description: "Personalisierte Kommunikationsstrategien für verschiedene Lead-Typen.",
         },
         {
           icon: MessageSquare,
-          title: "[PLACEHOLDER: Feature 2 Titel]",
-          description: "[PLACEHOLDER: Feature 2 Beschreibung]",
+          title: "Personalisierungs-Templates entwickeln",
+          description: "Dynamische Vorlagen für individuelle Ansprache.",
         },
         {
-          icon: Hash,
-          title: "[PLACEHOLDER: Feature 3 Titel]",
-          description: "[PLACEHOLDER: Feature 3 Beschreibung]",
+          icon: Phone,
+          title: "Voice-Agent Skripte (optional)",
+          description: "Automatisierte Telefon-Erstkontakte für schnellere Qualifizierung.",
         },
       ],
     },
     {
       number: "PHASE 3",
-      title: "[PLACEHOLDER: Phase 3 Titel]",
-      description: "[PLACEHOLDER: Phase 3 Beschreibung - 2-3 Sätze über die dritte Phase des Projekts]",
+      title: "Integration & Optimierung",
+      description: "Implementierung des Sales-Agents und Integration in bestehende CRM-Systeme.",
       features: [
         {
-          icon: Share2,
-          title: "[PLACEHOLDER: Feature 1 Titel]",
-          description: "[PLACEHOLDER: Feature 1 Beschreibung]",
+          icon: Zap,
+          title: "KI-Sales-Agent implementieren",
+          description: "Vollständige Automatisierung der Lead-Qualifizierung und -Ansprache.",
+        },
+        {
+          icon: Database,
+          title: "CRM-Integration & Automatisierung",
+          description: "Nahtlose Anbindung an bestehende Systeme.",
+        },
+        {
+          icon: Calendar,
+          title: "Kalender-Anbindung für Termine",
+          description: "Automatische Terminbuchung für qualifizierte Leads.",
         },
         {
           icon: TrendingUp,
-          title: "[PLACEHOLDER: Feature 2 Titel]",
-          description: "[PLACEHOLDER: Feature 2 Beschreibung]",
+          title: "Pipeline-Management automatisieren",
+          description: "Vertriebsschulung, Monitoring und kontinuierliche Optimierung.",
         },
       ],
     },
@@ -146,97 +178,97 @@ const CaseStudySocialMedia = () => {
 
   const results = [
     {
-      metric: "[PLACEHOLDER: Metrik 1]",
-      description: "[PLACEHOLDER: Beschreibung]",
+      metric: "Transformiert",
+      description: "Pipeline-Fokus auf hochrelevante Leads",
     },
     {
-      metric: "[PLACEHOLDER: Metrik 2]",
-      description: "[PLACEHOLDER: Beschreibung]",
+      metric: "Echtzeit",
+      description: "Automatisches Lead-Scoring",
     },
     {
-      metric: "[PLACEHOLDER: Metrik 3]",
-      description: "[PLACEHOLDER: Beschreibung]",
+      metric: "100%",
+      description: "Personalisierte Ansprache ohne manuellen Aufwand",
     },
     {
-      metric: "[PLACEHOLDER: Metrik 4]",
-      description: "[PLACEHOLDER: Beschreibung]",
+      metric: "Höher",
+      description: "Conversion-Rate durch bessere Qualifizierung",
     },
   ];
 
   const services = [
-    "[PLACEHOLDER: Service 1]",
-    "[PLACEHOLDER: Service 2]",
-    "[PLACEHOLDER: Service 3]",
-    "[PLACEHOLDER: Service 4]",
-    "[PLACEHOLDER: Service 5]",
-    "[PLACEHOLDER: Service 6]",
+    "KI-Sales-Agent mit Echtzeit-Lead-Scoring",
+    "Automatisierte, personalisierte E-Mail-/LinkedIn-Sequenzen",
+    "Warme Leads → automatische Terminbuchung im Kalender",
+    "Kalte Leads → Aufwärm-Sequenzen",
+    "Automatische CRM-Dokumentation & Pipeline-Bereinigung",
+    "Voice-Agent für Erstgespräche (optional)",
   ];
 
   const orbitalTimelineData = [
     {
       id: 1,
-      title: "[PLACEHOLDER: Meilenstein 1]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "CRM-Audit & Datenanalyse",
+      date: "Woche 1",
+      content: "Analyse der bestehenden CRM-Daten",
       category: "planning",
-      icon: Target,
+      icon: Database,
       status: "completed" as const,
       energy: 90,
-      relatedIds: [],
+      relatedIds: [2],
     },
     {
       id: 2,
-      title: "[PLACEHOLDER: Meilenstein 2]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Lead-Scoring-Modell entwickeln",
+      date: "Woche 2-4",
+      content: "KI-basiertes Scoring-System",
       category: "analysis",
-      icon: BarChart3,
-      relatedIds: [1],
+      icon: Brain,
+      relatedIds: [1, 3],
       status: "completed" as const,
       energy: 85,
     },
     {
       id: 3,
-      title: "[PLACEHOLDER: Meilenstein 3]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Messaging-Sequenzen erstellen",
+      date: "Woche 5-7",
+      content: "Personalisierte Kommunikationsstrategien",
       category: "design",
-      icon: MessageSquare,
-      relatedIds: [2],
+      icon: Mail,
+      relatedIds: [2, 4],
       status: "completed" as const,
       energy: 95,
     },
     {
       id: 4,
-      title: "[PLACEHOLDER: Meilenstein 4]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Agent-Logik implementieren",
+      date: "Woche 7",
+      content: "KI-Sales-Agent Entwicklung",
       category: "development",
-      icon: Hash,
-      relatedIds: [3],
+      icon: Zap,
+      relatedIds: [3, 5],
       status: "completed" as const,
       energy: 88,
     },
     {
       id: 5,
-      title: "[PLACEHOLDER: Meilenstein 5]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "CRM & Kalender Integration",
+      date: "Woche 8-10",
+      content: "System-Anbindungen",
       category: "testing",
-      icon: Users,
-      relatedIds: [4],
+      icon: Calendar,
+      relatedIds: [4, 6],
       status: "completed" as const,
       energy: 92,
     },
     {
       id: 6,
-      title: "[PLACEHOLDER: Meilenstein 6]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Testing & Launch",
+      date: "Woche 11-12",
+      content: "Pilotphase und Rollout",
       category: "launch",
       icon: TrendingUp,
       relatedIds: [5],
-      status: "in-progress" as const,
+      status: "completed" as const,
       energy: 100,
     },
   ];
@@ -244,10 +276,10 @@ const CaseStudySocialMedia = () => {
   return (
     <>
       <Helmet>
-        <title>Social Media Intelligence Case Study | New Edge</title>
+        <title>Sales-Agent Case Study - NEW EDGE</title>
         <meta
           name="description"
-          content="[PLACEHOLDER: Meta-Beschreibung für SEO - max 160 Zeichen]"
+          content="Wie ein KI-Sales-Agent Leads automatisch qualifiziert, personalisiert anspricht und den Vertrieb auf echte Chancen fokussiert."
         />
       </Helmet>
 
@@ -262,26 +294,26 @@ const CaseStudySocialMedia = () => {
           <div className="max-w-5xl mx-auto text-center">
             <AnimatedSection>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
-                <MessageSquare className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Fashion & Retail</span>
+                <Shield className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">B2B-Dienstleistung</span>
               </div>
               
               <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
-                Social Media Intelligence
+                Sales-Agent
               </h1>
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-                [PLACEHOLDER: Untertitel/Tagline - 1-2 Sätze die das Projekt beschreiben]
+                Vertrieb neu gedacht. Wie ein KI-Sales-Agent Leads automatisch qualifiziert, personalisiert anspricht und den Vertrieb auf echte Chancen fokussiert.
               </p>
 
               <div className="flex flex-wrap justify-center gap-8 mb-12">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Target className="w-6 h-6 text-primary" />
+                    <Shield className="w-6 h-6 text-primary" />
                   </div>
                   <div className="text-left">
                     <div className="text-sm text-muted-foreground">Branche</div>
-                    <div className="font-semibold">Fashion & Retail</div>
+                    <div className="font-semibold">B2B-Dienstleistung</div>
                   </div>
                 </div>
                 
@@ -291,20 +323,27 @@ const CaseStudySocialMedia = () => {
                   </div>
                   <div className="text-left">
                     <div className="text-sm text-muted-foreground">Services</div>
-                    <div className="font-semibold">Media + Lab</div>
+                    <div className="font-semibold">Lab + Studio</div>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <TrendingUp className="w-6 h-6 text-primary" />
+                    <Calendar className="w-6 h-6 text-primary" />
                   </div>
                   <div className="text-left">
                     <div className="text-sm text-muted-foreground">Timeline</div>
-                    <div className="font-semibold">[PLACEHOLDER: Timeline]</div>
+                    <div className="font-semibold">12 Wochen</div>
                   </div>
                 </div>
               </div>
+
+              <button
+                onClick={scrollToContact}
+                className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full hover:scale-105 transition-transform duration-300"
+              >
+                Jetzt Kontakt aufnehmen
+              </button>
             </AnimatedSection>
           </div>
         </div>
@@ -318,28 +357,28 @@ const CaseStudySocialMedia = () => {
               <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
                 <div>
                   <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                    Projekt Übersicht
+                    Über das Unternehmen
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6">
-                    [PLACEHOLDER: Projekt-Beschreibung Absatz 1 - Beschreibe das Projekt und den Kunden]
+                    Ein B2B-Dienstleister für IT-Sicherheitslösungen (ca. 35 Mitarbeiter) generiert viele Leads über Messen, Webinar-Formate und Partnerschaften. Das Problem: hohe Anzahl an Leads, aber wenig Zeit für strukturierte Bearbeitung.
                   </p>
                   <p className="text-lg text-muted-foreground">
-                    [PLACEHOLDER: Projekt-Beschreibung Absatz 2 - Erweitere die Projektbeschreibung]
+                    Ein großer Teil der Pipeline "versandete". Eingehende Leads wurden nicht priorisiert, Follow-ups erfolgten manuell und oft zu spät. Es fehlte ein klares Lead-Scoring-System.
                   </p>
                 </div>
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <MessageSquare className="w-24 h-24 text-primary/30" />
+                    <TrendingUp className="w-24 h-24 text-primary/30" />
                   </div>
                 </div>
               </div>
 
               <div className="grid md:grid-cols-4 gap-6">
                 {[
-                  { label: "[PLACEHOLDER: Fact 1 Label]", value: "[PLACEHOLDER: Wert]" },
-                  { label: "[PLACEHOLDER: Fact 2 Label]", value: "[PLACEHOLDER: Wert]" },
-                  { label: "[PLACEHOLDER: Fact 3 Label]", value: "[PLACEHOLDER: Wert]" },
-                  { label: "[PLACEHOLDER: Fact 4 Label]", value: "[PLACEHOLDER: Wert]" },
+                  { label: "Mitarbeiter", value: "35" },
+                  { label: "Branche", value: "IT-Sicherheit" },
+                  { label: "Lead-Quellen", value: "Messen & Webinare" },
+                  { label: "Projektzeitraum", value: "12 Wochen" },
                 ].map((fact, index) => (
                   <div
                     key={index}
@@ -367,31 +406,31 @@ const CaseStudySocialMedia = () => {
 
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground mb-6">
-                  [PLACEHOLDER: Herausforderung Absatz 1 - Beschreibe die Hauptprobleme und Herausforderungen]
+                  Eingehende Leads wurden nicht priorisiert, Follow-ups erfolgten manuell und oft zu spät. Kein klares Lead-Scoring-System führte zu ineffizienter Ressourcennutzung im Vertrieb.
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
-                  [PLACEHOLDER: Herausforderung Absatz 2 - Gehe tiefer auf spezifische Probleme ein]
+                  CRM-Daten waren unvollständig und unstrukturiert. Das Vertriebsteam verbrachte zu viel Zeit mit unqualifizierten Leads, während echte Chancen ungenutzt blieben. Keine automatisierten Lead-Nurturing-Sequenzen.
                 </p>
                 <p className="text-lg text-muted-foreground">
-                  [PLACEHOLDER: Herausforderung Absatz 3 - Erkläre die Ziele und gewünschten Ergebnisse]
+                  Das Ziel: Ein intelligentes System, das Leads automatisch qualifiziert, personalisiert anspricht und den Vertrieb auf hochrelevante Opportunities fokussiert.
                 </p>
               </div>
 
               <div className="grid md:grid-cols-3 gap-6 mt-12">
                 <div className="p-6 rounded-xl bg-card border border-border">
                   <Target className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-semibold mb-2">[PLACEHOLDER: Problem 1]</h3>
-                  <p className="text-sm text-muted-foreground">[PLACEHOLDER: Beschreibung]</p>
+                  <h3 className="font-semibold mb-2">Fehlende Priorisierung</h3>
+                  <p className="text-sm text-muted-foreground">Alle Leads wurden gleich behandelt</p>
                 </div>
                 <div className="p-6 rounded-xl bg-card border border-border">
                   <Users className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-semibold mb-2">[PLACEHOLDER: Problem 2]</h3>
-                  <p className="text-sm text-muted-foreground">[PLACEHOLDER: Beschreibung]</p>
+                  <h3 className="font-semibold mb-2">Zeitverlust</h3>
+                  <p className="text-sm text-muted-foreground">Manuelles Follow-up oft zu spät oder gar nicht</p>
                 </div>
                 <div className="p-6 rounded-xl bg-card border border-border">
-                  <MessageSquare className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-semibold mb-2">[PLACEHOLDER: Problem 3]</h3>
-                  <p className="text-sm text-muted-foreground">[PLACEHOLDER: Beschreibung]</p>
+                  <TrendingUp className="w-8 h-8 text-primary mb-4" />
+                  <h3 className="font-semibold mb-2">Ineffizienz</h3>
+                  <p className="text-sm text-muted-foreground">Vertrieb fokussiert sich auf falsche Leads</p>
                 </div>
               </div>
             </div>
@@ -406,7 +445,7 @@ const CaseStudySocialMedia = () => {
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">Projekt Timeline</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                [PLACEHOLDER: Timeline Intro - 1-2 Sätze über den Projektverlauf]
+                Von der CRM-Analyse bis zum intelligenten Sales-Agent – ein strukturierter 12-Wochen-Prozess
               </p>
             </div>
             <RadialOrbitalTimeline timelineData={orbitalTimelineData} />
@@ -419,9 +458,9 @@ const CaseStudySocialMedia = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Projekt Phasen</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Die drei Phasen</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                [PLACEHOLDER: Phasen Intro - 1-2 Sätze über den Projektablauf]
+                Von der Analyse über Automation bis zur vollständigen Integration – ein strukturierter Prozess für maximalen Erfolg
               </p>
             </div>
 
@@ -472,81 +511,84 @@ const CaseStudySocialMedia = () => {
         </div>
       </section>
 
+      {/* Services/Technologies Section */}
+      <section className="py-24 bg-gradient-to-b from-background to-background/50">
+        <div className="container mx-auto px-6 lg:px-12">
+          <AnimatedSection>
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">Services & Technologien</h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto" />
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {services.map((service, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all"
+                  >
+                    <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                    <span className="text-muted-foreground">{service}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Results Section */}
       <section className="py-24 bg-gradient-to-b from-background to-primary/5">
         <div className="container mx-auto px-6 lg:px-12">
           <AnimatedSection>
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">Ergebnisse & Impact</h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  [PLACEHOLDER: Results Intro - 1-2 Sätze über die erreichten Ergebnisse]
-                </p>
-              </div>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ergebnisse</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Messbare Erfolge durch intelligente Lead-Qualifizierung
+              </p>
+            </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {results.map((result, index) => (
-                  <div
-                    key={index}
-                    className="p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all text-center"
-                  >
-                    <div className="text-4xl md:text-5xl font-bold text-primary mb-3">
-                      {result.metric}
-                    </div>
-                    <div className="text-muted-foreground">{result.description}</div>
+            <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              {results.map((result, index) => (
+                <div
+                  key={index}
+                  className="text-center p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all"
+                >
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-4">
+                    {result.metric}
                   </div>
-                ))}
-              </div>
+                  <div className="text-muted-foreground">
+                    {result.description}
+                  </div>
+                </div>
+              ))}
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-24 bg-gradient-to-b from-primary/5 to-background">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">Eingesetzte Services</h2>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-4">
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className="p-4 rounded-lg bg-card border border-border hover:border-primary/50 transition-all text-center"
-                  >
-                    <CheckCircle className="w-6 h-6 text-primary mx-auto mb-2" />
-                    <span className="text-sm font-medium">{service}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Testimonial Section (Optional) */}
-      <section className="py-24 bg-gradient-to-b from-background to-background/50">
+      {/* Testimonial Section */}
+      <section className="py-24 bg-gradient-to-b from-background/50 to-background">
         <div className="container mx-auto px-6 lg:px-12">
           <AnimatedSection>
             <div className="max-w-4xl mx-auto text-center">
-              <div className="p-12 rounded-2xl bg-card border border-border">
-                <div className="text-6xl text-primary mb-6">"</div>
-                <blockquote className="text-2xl md:text-3xl font-medium mb-8">
-                  [PLACEHOLDER: Kundenzitat - Ein aussagekräftiges Zitat über die Zusammenarbeit und Ergebnisse]
-                </blockquote>
-                <div className="flex items-center justify-center gap-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Heart className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-semibold">[PLACEHOLDER: Name]</div>
-                    <div className="text-sm text-muted-foreground">
-                      [PLACEHOLDER: Position, Firma]
-                    </div>
-                  </div>
+              <div className="mb-8">
+                <svg className="w-16 h-16 text-primary/20 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+              </div>
+              
+              <blockquote className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+                "Der Agent hat unsere Pipeline transformiert. Wir sprechen nur noch mit hochrelevanten Leads."
+              </blockquote>
+              
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-primary" />
+                </div>
+                <div className="text-left">
+                  <div className="font-semibold">B2B-Dienstleister</div>
+                  <div className="text-sm text-muted-foreground">IT-Sicherheitslösungen, 35 Mitarbeiter</div>
                 </div>
               </div>
             </div>
@@ -555,21 +597,21 @@ const CaseStudySocialMedia = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-background/50 to-background">
+      <section className="py-24 bg-gradient-to-b from-background to-primary/5">
         <div className="container mx-auto px-6 lg:px-12">
           <AnimatedSection>
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Bereit für Ihr eigenes Projekt?
+                Bereit für intelligenten Vertrieb?
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Lassen Sie uns gemeinsam Ihre Vision verwirklichen
+                Lassen Sie uns gemeinsam Ihren Sales-Prozess automatisieren
               </p>
               <button
                 onClick={scrollToContact}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all"
+                className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full hover:scale-105 transition-transform duration-300 inline-flex items-center gap-2"
               >
-                Jetzt Beratungsgespräch buchen
+                Projekt starten
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>

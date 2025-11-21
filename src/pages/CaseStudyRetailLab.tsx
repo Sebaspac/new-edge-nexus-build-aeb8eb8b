@@ -16,6 +16,14 @@ import {
   Cpu,
   TrendingUp,
   FlaskConical,
+  Database,
+  Lock,
+  Search,
+  FileText,
+  Calendar,
+  Code,
+  Shield,
+  Users,
 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 
@@ -88,57 +96,82 @@ const CaseStudyRetailLab = () => {
   const phases = [
     {
       number: "PHASE 1",
-      title: "[PLACEHOLDER: Phase 1 Titel]",
-      description: "[PLACEHOLDER: Phase 1 Beschreibung - 2-3 Sätze über die erste Phase des Projekts]",
+      title: "Strategie & Konzeption",
+      description: "Den Grundstein für intelligente Wissensorganisation legen. Analyse der gesamten Dokumentenlandschaft und Entwicklung der Systemarchitektur.",
       features: [
         {
-          icon: Target,
-          title: "[PLACEHOLDER: Feature 1 Titel]",
-          description: "[PLACEHOLDER: Feature 1 Beschreibung]",
+          icon: Database,
+          title: "Vollständige Analyse der Dokumentenlandschaft",
+          description: "Erfassung aller Wissensquellen und Dokumententypen im Unternehmen.",
         },
         {
-          icon: BarChart3,
-          title: "[PLACEHOLDER: Feature 2 Titel]",
-          description: "[PLACEHOLDER: Feature 2 Beschreibung]",
+          icon: Target,
+          title: "Definition der Wissensdomänen",
+          description: "Strukturierung nach Produktion, Service und Vertrieb für optimale Suche.",
+        },
+        {
+          icon: Shield,
+          title: "Sicherheits- & Rollenmodell",
+          description: "Entwicklung eines Rechte-Management-Systems und Compliance-Check für sensible Daten.",
+        },
+        {
+          icon: Search,
+          title: "UX-Konzept für interne Wissenssuche",
+          description: "Benutzerfreundliche Oberfläche für schnellen Zugriff auf relevante Informationen.",
         },
       ],
     },
     {
       number: "PHASE 2",
-      title: "[PLACEHOLDER: Phase 2 Titel]",
-      description: "[PLACEHOLDER: Phase 2 Beschreibung - 2-3 Sätze über die zweite Phase des Projekts]",
+      title: "Kreation & Content",
+      description: "Aufbereitung und Optimierung der Wissensbasis. Transformation unstrukturierter Daten in intelligent durchsuchbare Informationen.",
       features: [
         {
+          icon: FileText,
+          title: "Datenaufbereitung & Chunking",
+          description: "Segmentierung großer Dokumente in suchbare Einheiten.",
+        },
+        {
           icon: Brain,
-          title: "[PLACEHOLDER: Feature 1 Titel]",
-          description: "[PLACEHOLDER: Feature 1 Beschreibung]",
+          title: "Embedding-Optimierung",
+          description: "Spezialisierung auf technische Fachtermini für präzise Suchergebnisse.",
         },
         {
           icon: Cpu,
-          title: "[PLACEHOLDER: Feature 2 Titel]",
-          description: "[PLACEHOLDER: Feature 2 Beschreibung]",
+          title: "Prompt-Logiken für unterschiedliche Rollen",
+          description: "Anpassung der KI-Antworten an spezifische Abteilungen und Nutzergruppen.",
         },
         {
-          icon: Zap,
-          title: "[PLACEHOLDER: Feature 3 Titel]",
-          description: "[PLACEHOLDER: Feature 3 Beschreibung]",
+          icon: CheckCircle,
+          title: "Knowledge Validation",
+          description: "Überprüfung durch interne Experten für höchste Qualität.",
         },
       ],
     },
     {
       number: "PHASE 3",
-      title: "[PLACEHOLDER: Phase 3 Titel]",
-      description: "[PLACEHOLDER: Phase 3 Beschreibung - 2-3 Sätze über die dritte Phase des Projekts]",
+      title: "Technische Umsetzung & Launch",
+      description: "Integration in die Unternehmensinfrastruktur. Implementierung des vollständigen RAG-Systems mit Sicherheits- und Compliance-Features.",
       features: [
         {
-          icon: Rocket,
-          title: "[PLACEHOLDER: Feature 1 Titel]",
-          description: "[PLACEHOLDER: Feature 1 Beschreibung]",
+          icon: Database,
+          title: "Implementierung der Vektordatenbank",
+          description: "Technische Basis für schnelle semantische Suche.",
         },
         {
-          icon: TrendingUp,
-          title: "[PLACEHOLDER: Feature 2 Titel]",
-          description: "[PLACEHOLDER: Feature 2 Beschreibung]",
+          icon: Code,
+          title: "API-Anbindungen an interne Tools",
+          description: "Integration mit bestehenden Systemen und Workflows.",
+        },
+        {
+          icon: Lock,
+          title: "Rechte-Management & SSO",
+          description: "Sichere Authentifizierung und rollenbasierte Zugriffssteuerung.",
+        },
+        {
+          icon: Rocket,
+          title: "Schulung & Laufende Optimierung",
+          description: "Team-Training und kontinuierliche Verbesserung des Systems.",
         },
       ],
     },
@@ -146,97 +179,97 @@ const CaseStudyRetailLab = () => {
 
   const results = [
     {
-      metric: "[PLACEHOLDER: Metrik 1]",
-      description: "[PLACEHOLDER: Beschreibung]",
+      metric: "4-6 Stunden",
+      description: "Täglich Zeitersparnis im Support",
     },
     {
-      metric: "[PLACEHOLDER: Metrik 2]",
-      description: "[PLACEHOLDER: Beschreibung]",
+      metric: "18.000+",
+      description: "Dokumente indexiert und durchsuchbar",
     },
     {
-      metric: "[PLACEHOLDER: Metrik 3]",
-      description: "[PLACEHOLDER: Beschreibung]",
+      metric: "< 1 Min",
+      description: "Durchschnittliche Suchzeit (vorher >20 Min)",
     },
     {
-      metric: "[PLACEHOLDER: Metrik 4]",
-      description: "[PLACEHOLDER: Beschreibung]",
+      metric: "100%",
+      description: "Demokratisiertes Wissen für alle Mitarbeiter",
     },
   ];
 
   const services = [
-    "[PLACEHOLDER: Service 1]",
-    "[PLACEHOLDER: Service 2]",
-    "[PLACEHOLDER: Service 3]",
-    "[PLACEHOLDER: Service 4]",
-    "[PLACEHOLDER: Service 5]",
-    "[PLACEHOLDER: Service 6]",
+    "Vollständiger RAG-Stack (Retrieval Augmented Generation)",
+    "Extraktion & Indexierung von PDFs, CAD-Daten, Word-Dateien & Datenbanken",
+    "Unternehmensinterner Chat-Agent inkl. Rollenrechten",
+    "Automatisierte Antwortgenerierung für Service & Produktion",
+    "Deep-Search-Funktionen (z. B. nach Bauteilen oder Servicecodes)",
+    "Protokollierung & Audit-Log für Compliance",
   ];
 
   const orbitalTimelineData = [
     {
       id: 1,
-      title: "[PLACEHOLDER: Meilenstein 1]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Data & System Audit",
+      date: "Woche 1-2",
+      content: "Vollständige Analyse der Dokumentenlandschaft und Systemarchitektur",
       category: "planning",
-      icon: Target,
+      icon: Database,
       status: "completed" as const,
       energy: 90,
-      relatedIds: [],
+      relatedIds: [2],
     },
     {
       id: 2,
-      title: "[PLACEHOLDER: Meilenstein 2]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Architektur & RAG-Konzept",
+      date: "Woche 3-5",
+      content: "Definition der Wissensdomänen und technisches Konzept",
       category: "analysis",
-      icon: BarChart3,
-      relatedIds: [1],
+      icon: Target,
+      relatedIds: [1, 3],
       status: "completed" as const,
       energy: 85,
     },
     {
       id: 3,
-      title: "[PLACEHOLDER: Meilenstein 3]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Datenreinigung, Embeddings, Vektordatenbank",
+      date: "Woche 5-8",
+      content: "Datenaufbereitung und Embedding-Optimierung",
       category: "design",
       icon: Brain,
-      relatedIds: [2],
+      relatedIds: [2, 4],
       status: "completed" as const,
       energy: 95,
     },
     {
       id: 4,
-      title: "[PLACEHOLDER: Meilenstein 4]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Agent-Logik & Chat-Oberfläche",
+      date: "Woche 8-10",
+      content: "Implementierung der KI-Logik und Benutzeroberfläche",
       category: "development",
       icon: Cpu,
-      relatedIds: [3],
+      relatedIds: [3, 5],
       status: "completed" as const,
       energy: 88,
     },
     {
       id: 5,
-      title: "[PLACEHOLDER: Meilenstein 5]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Testphase (Service/Produktion)",
+      date: "Woche 10-12",
+      content: "Testing mit Service- und Produktionsteams",
       category: "testing",
       icon: FlaskConical,
-      relatedIds: [4],
+      relatedIds: [4, 6],
       status: "completed" as const,
       energy: 92,
     },
     {
       id: 6,
-      title: "[PLACEHOLDER: Meilenstein 6]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Rollout & Schulung",
+      date: "Woche 13",
+      content: "Unternehmensweiter Launch und Team-Training",
       category: "launch",
       icon: Rocket,
       relatedIds: [5],
-      status: "in-progress" as const,
+      status: "completed" as const,
       energy: 100,
     },
   ];
@@ -244,10 +277,10 @@ const CaseStudyRetailLab = () => {
   return (
     <>
       <Helmet>
-        <title>Retail Innovation Lab Case Study | New Edge</title>
+        <title>RAG-Wissensagent Case Study - NEW EDGE</title>
         <meta
           name="description"
-          content="[PLACEHOLDER: Meta-Beschreibung für SEO - max 160 Zeichen]"
+          content="Wie wir für ein Maschinenbau-KMU einen unternehmensweiten RAG-Wissensagenten entwickelten, der 18.000+ Dokumente indexiert und Supportzeiten halbiert."
         />
       </Helmet>
 
@@ -262,16 +295,16 @@ const CaseStudyRetailLab = () => {
           <div className="max-w-5xl mx-auto text-center">
             <AnimatedSection>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
-                <FlaskConical className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Fashion & Retail</span>
+                <Brain className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">Maschinenbau</span>
               </div>
               
               <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
-                Retail Innovation Lab
+                RAG-Wissensagent
               </h1>
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-                [PLACEHOLDER: Untertitel/Tagline - 1-2 Sätze die das Projekt beschreiben]
+                Industriewissen. Sofort verfügbar. Wie wir für ein Maschinenbau-KMU einen unternehmensweiten RAG-Wissensagenten entwickelten, der 18.000+ Dokumente indexiert, Wissen demokratisiert und Supportzeiten halbiert.
               </p>
 
               <div className="flex flex-wrap justify-center gap-8 mb-12">
@@ -281,7 +314,7 @@ const CaseStudyRetailLab = () => {
                   </div>
                   <div className="text-left">
                     <div className="text-sm text-muted-foreground">Branche</div>
-                    <div className="font-semibold">Fashion & Retail</div>
+                    <div className="font-semibold">Maschinenbau</div>
                   </div>
                 </div>
                 
@@ -291,20 +324,27 @@ const CaseStudyRetailLab = () => {
                   </div>
                   <div className="text-left">
                     <div className="text-sm text-muted-foreground">Services</div>
-                    <div className="font-semibold">Lab + Media</div>
+                    <div className="font-semibold">Lab + Studio</div>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Rocket className="w-6 h-6 text-primary" />
+                    <Calendar className="w-6 h-6 text-primary" />
                   </div>
                   <div className="text-left">
                     <div className="text-sm text-muted-foreground">Timeline</div>
-                    <div className="font-semibold">[PLACEHOLDER: Timeline]</div>
+                    <div className="font-semibold">13 Wochen</div>
                   </div>
                 </div>
               </div>
+
+              <button
+                onClick={scrollToContact}
+                className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full hover:scale-105 transition-transform duration-300"
+              >
+                Jetzt Kontakt aufnehmen
+              </button>
             </AnimatedSection>
           </div>
         </div>
@@ -318,28 +358,28 @@ const CaseStudyRetailLab = () => {
               <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
                 <div>
                   <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                    Projekt Übersicht
+                    Über das Unternehmen
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6">
-                    [PLACEHOLDER: Projekt-Beschreibung Absatz 1 - Beschreibe das Projekt und den Kunden]
+                    Das Familienunternehmen (140 Mitarbeiter) produziert Präzisionsmaschinen für die Automobil- und Verpackungsindustrie. Über Jahrzehnte wuchs ein Wissensfundus aus Handbüchern, CAD-Daten, Serviceprotokollen, E-Mails und Excel-Archiven.
                   </p>
                   <p className="text-lg text-muted-foreground">
-                    [PLACEHOLDER: Projekt-Beschreibung Absatz 2 - Erweitere die Projektbeschreibung]
+                    Neue Mitarbeiter fanden sich kaum zurecht, Serviceanfragen waren schwer skalierbar. Das Wissen war fragmentiert und nur schwer zugänglich.
                   </p>
                 </div>
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <FlaskConical className="w-24 h-24 text-primary/30" />
+                    <Brain className="w-24 h-24 text-primary/30" />
                   </div>
                 </div>
               </div>
 
               <div className="grid md:grid-cols-4 gap-6">
                 {[
-                  { label: "[PLACEHOLDER: Fact 1 Label]", value: "[PLACEHOLDER: Wert]" },
-                  { label: "[PLACEHOLDER: Fact 2 Label]", value: "[PLACEHOLDER: Wert]" },
-                  { label: "[PLACEHOLDER: Fact 3 Label]", value: "[PLACEHOLDER: Wert]" },
-                  { label: "[PLACEHOLDER: Fact 4 Label]", value: "[PLACEHOLDER: Wert]" },
+                  { label: "Mitarbeiter", value: "140" },
+                  { label: "Dokumente indexiert", value: "18.000+" },
+                  { label: "Branchen", value: "Auto & Verpackung" },
+                  { label: "Projektzeitraum", value: "13 Wochen" },
                 ].map((fact, index) => (
                   <div
                     key={index}
@@ -367,31 +407,31 @@ const CaseStudyRetailLab = () => {
 
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground mb-6">
-                  [PLACEHOLDER: Herausforderung Absatz 1 - Beschreibe die Hauptprobleme und Herausforderungen]
+                  Wissensinseln, fehlende Dokumentenstruktur, Abhängigkeit von Experten, Suchzeiten über 20 Minuten pro Anfrage. Das Unternehmen stand vor der Herausforderung, jahrzehntelang gewachsenes Wissen systematisch zugänglich zu machen.
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
-                  [PLACEHOLDER: Herausforderung Absatz 2 - Gehe tiefer auf spezifische Probleme ein]
+                  Unterschiedliche Versionsstände von Dokumenten, keine intelligente Suche über technische Daten, und die Produktion stellte täglich wiederkehrende Fragen. Kritisches Wissen verschwand mit erfahrenen Mitarbeitern in den Ruhestand.
                 </p>
                 <p className="text-lg text-muted-foreground">
-                  [PLACEHOLDER: Herausforderung Absatz 3 - Erkläre die Ziele und gewünschten Ergebnisse]
+                  Der Onboarding-Prozess war fehleranfällig und zeitintensiv. Es fehlte eine zentrale, intelligente Wissensplattform, die allen Mitarbeitern sofortigen Zugang zu relevanten Informationen ermöglicht.
                 </p>
               </div>
 
               <div className="grid md:grid-cols-3 gap-6 mt-12">
                 <div className="p-6 rounded-xl bg-card border border-border">
-                  <Target className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-semibold mb-2">[PLACEHOLDER: Problem 1]</h3>
-                  <p className="text-sm text-muted-foreground">[PLACEHOLDER: Beschreibung]</p>
+                  <Database className="w-8 h-8 text-primary mb-4" />
+                  <h3 className="font-semibold mb-2">Wissensinseln</h3>
+                  <p className="text-sm text-muted-foreground">Keine zentrale Wissensquelle, fragmentierte Informationen</p>
                 </div>
                 <div className="p-6 rounded-xl bg-card border border-border">
-                  <Brain className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-semibold mb-2">[PLACEHOLDER: Problem 2]</h3>
-                  <p className="text-sm text-muted-foreground">[PLACEHOLDER: Beschreibung]</p>
+                  <Search className="w-8 h-8 text-primary mb-4" />
+                  <h3 className="font-semibold mb-2">Zeitverlust</h3>
+                  <p className="text-sm text-muted-foreground">Suchzeiten über 20 Minuten pro Anfrage</p>
                 </div>
                 <div className="p-6 rounded-xl bg-card border border-border">
-                  <Lightbulb className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-semibold mb-2">[PLACEHOLDER: Problem 3]</h3>
-                  <p className="text-sm text-muted-foreground">[PLACEHOLDER: Beschreibung]</p>
+                  <Users className="w-8 h-8 text-primary mb-4" />
+                  <h3 className="font-semibold mb-2">Expertenabhängigkeit</h3>
+                  <p className="text-sm text-muted-foreground">Kritisches Wissen nur bei einzelnen Personen</p>
                 </div>
               </div>
             </div>
@@ -406,7 +446,7 @@ const CaseStudyRetailLab = () => {
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">Projekt Timeline</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                [PLACEHOLDER: Timeline Intro - 1-2 Sätze über den Projektverlauf]
+                Von der ersten Analyse bis zum unternehmensweiten Rollout – ein strukturierter 13-Wochen-Prozess
               </p>
             </div>
             <RadialOrbitalTimeline timelineData={orbitalTimelineData} />
@@ -419,9 +459,9 @@ const CaseStudyRetailLab = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Projekt Phasen</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Die drei Phasen</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                [PLACEHOLDER: Phasen Intro - 1-2 Sätze über den Projektablauf]
+                Von der Strategie über die Datenaufbereitung bis zur technischen Umsetzung – ein strukturierter Prozess für maximalen Erfolg
               </p>
             </div>
 
@@ -472,81 +512,84 @@ const CaseStudyRetailLab = () => {
         </div>
       </section>
 
+      {/* Services/Technologies Section */}
+      <section className="py-24 bg-gradient-to-b from-background to-background/50">
+        <div className="container mx-auto px-6 lg:px-12">
+          <AnimatedSection>
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">Services & Technologien</h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto" />
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {services.map((service, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all"
+                  >
+                    <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                    <span className="text-muted-foreground">{service}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Results Section */}
       <section className="py-24 bg-gradient-to-b from-background to-primary/5">
         <div className="container mx-auto px-6 lg:px-12">
           <AnimatedSection>
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">Ergebnisse & Impact</h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  [PLACEHOLDER: Results Intro - 1-2 Sätze über die erreichten Ergebnisse]
-                </p>
-              </div>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ergebnisse</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Messbare Erfolge durch intelligente Wissensorganisation
+              </p>
+            </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {results.map((result, index) => (
-                  <div
-                    key={index}
-                    className="p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all text-center"
-                  >
-                    <div className="text-4xl md:text-5xl font-bold text-primary mb-3">
-                      {result.metric}
-                    </div>
-                    <div className="text-muted-foreground">{result.description}</div>
+            <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              {results.map((result, index) => (
+                <div
+                  key={index}
+                  className="text-center p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all"
+                >
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-4">
+                    {result.metric}
                   </div>
-                ))}
-              </div>
+                  <div className="text-muted-foreground">
+                    {result.description}
+                  </div>
+                </div>
+              ))}
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-24 bg-gradient-to-b from-primary/5 to-background">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">Eingesetzte Services</h2>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-4">
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className="p-4 rounded-lg bg-card border border-border hover:border-primary/50 transition-all text-center"
-                  >
-                    <CheckCircle className="w-6 h-6 text-primary mx-auto mb-2" />
-                    <span className="text-sm font-medium">{service}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Testimonial Section (Optional) */}
-      <section className="py-24 bg-gradient-to-b from-background to-background/50">
+      {/* Testimonial Section */}
+      <section className="py-24 bg-gradient-to-b from-background/50 to-background">
         <div className="container mx-auto px-6 lg:px-12">
           <AnimatedSection>
             <div className="max-w-4xl mx-auto text-center">
-              <div className="p-12 rounded-2xl bg-card border border-border">
-                <div className="text-6xl text-primary mb-6">"</div>
-                <blockquote className="text-2xl md:text-3xl font-medium mb-8">
-                  [PLACEHOLDER: Kundenzitat - Ein aussagekräftiges Zitat über die Zusammenarbeit und Ergebnisse]
-                </blockquote>
-                <div className="flex items-center justify-center gap-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Lightbulb className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-semibold">[PLACEHOLDER: Name]</div>
-                    <div className="text-sm text-muted-foreground">
-                      [PLACEHOLDER: Position, Firma]
-                    </div>
-                  </div>
+              <div className="mb-8">
+                <svg className="w-16 h-16 text-primary/20 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+              </div>
+              
+              <blockquote className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+                "Wir haben täglich 4–6 Stunden Zeitersparnis im Support. Das Wissen ist endlich demokratisiert."
+              </blockquote>
+              
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Brain className="w-6 h-6 text-primary" />
+                </div>
+                <div className="text-left">
+                  <div className="font-semibold">Maschinenbau-KMU</div>
+                  <div className="text-sm text-muted-foreground">140 Mitarbeiter</div>
                 </div>
               </div>
             </div>
@@ -555,21 +598,21 @@ const CaseStudyRetailLab = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-background/50 to-background">
+      <section className="py-24 bg-gradient-to-b from-background to-primary/5">
         <div className="container mx-auto px-6 lg:px-12">
           <AnimatedSection>
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Bereit für Ihr eigenes Projekt?
+                Bereit für Ihren eigenen Wissensagenten?
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Lassen Sie uns gemeinsam Ihre Vision verwirklichen
+                Lassen Sie uns gemeinsam Ihr Unternehmenswissen demokratisieren
               </p>
               <button
                 onClick={scrollToContact}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all"
+                className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full hover:scale-105 transition-transform duration-300 inline-flex items-center gap-2"
               >
-                Jetzt Beratungsgespräch buchen
+                Projekt starten
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>
