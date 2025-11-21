@@ -16,6 +16,12 @@ import {
   Brain,
   LineChart,
   ShoppingBag,
+  Calendar,
+  Palette,
+  FileText,
+  Database,
+  Megaphone,
+  BarChart,
 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 
@@ -88,57 +94,82 @@ const CaseStudyEcommerce = () => {
   const phases = [
     {
       number: "PHASE 1",
-      title: "[PLACEHOLDER: Phase 1 Titel]",
-      description: "[PLACEHOLDER: Phase 1 Beschreibung - 2-3 Sätze über die erste Phase des Projekts]",
+      title: "Strategie & Audit",
+      description: "Analyse der bestehenden Marketing-Prozesse und Entwicklung einer skalierbaren Content-Strategie.",
       features: [
         {
-          icon: Target,
-          title: "[PLACEHOLDER: Feature 1 Titel]",
-          description: "[PLACEHOLDER: Feature 1 Beschreibung]",
+          icon: BarChart3,
+          title: "CRM-Audit & Datenanalyse",
+          description: "Analyse bestehender Marketing-Daten und Identifikation von Optimierungspotenzialen.",
         },
         {
-          icon: BarChart3,
-          title: "[PLACEHOLDER: Feature 2 Titel]",
-          description: "[PLACEHOLDER: Feature 2 Beschreibung]",
+          icon: FileText,
+          title: "Marketing-Prozesse dokumentieren",
+          description: "Erfassung aller bestehenden Workflows und Kommunikationskanäle.",
+        },
+        {
+          icon: Target,
+          title: "Tone of Voice Definition",
+          description: "Entwicklung einer einheitlichen Markenkommunikation über alle Kanäle.",
+        },
+        {
+          icon: Users,
+          title: "Zielgruppen-Segmentierung",
+          description: "Präzise Analyse und Strukturierung der Kundengruppen für personalisierte Ansprache.",
         },
       ],
     },
     {
       number: "PHASE 2",
-      title: "[PLACEHOLDER: Phase 2 Titel]",
-      description: "[PLACEHOLDER: Phase 2 Beschreibung - 2-3 Sätze über die zweite Phase des Projekts]",
+      title: "Content & Automation",
+      description: "Aufbau der Content-Engine und Entwicklung wiederverwendbarer Marketing-Assets.",
       features: [
         {
+          icon: Palette,
+          title: "Design-System + TOV als Trainingsbasis",
+          description: "Erstellung eines konsistenten Design-Systems für alle Marketing-Materialien.",
+        },
+        {
+          icon: Database,
+          title: "Template-Bibliothek",
+          description: "Wiederverwendbare Kampagnenrouten & Templates für effiziente Content-Produktion.",
+        },
+        {
           icon: Brain,
-          title: "[PLACEHOLDER: Feature 1 Titel]",
-          description: "[PLACEHOLDER: Feature 1 Beschreibung]",
+          title: "Automated Content Engine",
+          description: "KI-generierte Visual & Copy Libraries für Posts, Ads und Newsletter.",
         },
         {
-          icon: Sparkles,
-          title: "[PLACEHOLDER: Feature 2 Titel]",
-          description: "[PLACEHOLDER: Feature 2 Beschreibung]",
-        },
-        {
-          icon: Zap,
-          title: "[PLACEHOLDER: Feature 3 Titel]",
-          description: "[PLACEHOLDER: Feature 3 Beschreibung]",
+          icon: Calendar,
+          title: "Redaktionsplan-Automation",
+          description: "Aufbau einer zentralen Content-Datenbank mit automatisierter Planung.",
         },
       ],
     },
     {
       number: "PHASE 3",
-      title: "[PLACEHOLDER: Phase 3 Titel]",
-      description: "[PLACEHOLDER: Phase 3 Beschreibung - 2-3 Sätze über die dritte Phase des Projekts]",
+      title: "Integration & Optimierung",
+      description: "Implementierung des Marketing-Agents und Integration in bestehende Systeme.",
       features: [
         {
-          icon: LineChart,
-          title: "[PLACEHOLDER: Feature 1 Titel]",
-          description: "[PLACEHOLDER: Feature 1 Beschreibung]",
+          icon: Zap,
+          title: "KI-Agent für Marketing-Automation",
+          description: "Vollständige Automatisierung von Content-Produktion und Kampagnensteuerung.",
         },
         {
-          icon: ShoppingBag,
-          title: "[PLACEHOLDER: Feature 2 Titel]",
-          description: "[PLACEHOLDER: Feature 2 Beschreibung]",
+          icon: Megaphone,
+          title: "Automatisiertes Posting & Kampagnensteuerung",
+          description: "Einbindung des Agents in CMS & Social Tools für nahtlose Workflows.",
+        },
+        {
+          icon: BarChart,
+          title: "Tracking-Dashboard als Echtzeit-Monitoring",
+          description: "Kontinuierliche Performance-Analyse und Optimierung.",
+        },
+        {
+          icon: TrendingUp,
+          title: "Launch & Kontinuierliche Optimierung",
+          description: "Launch-Kampagne für neue Brand Experience mit laufenden Verbesserungen.",
         },
       ],
     },
@@ -146,97 +177,97 @@ const CaseStudyEcommerce = () => {
 
   const results = [
     {
-      metric: "[PLACEHOLDER: Metrik 1]",
-      description: "[PLACEHOLDER: Beschreibung]",
+      metric: "70%",
+      description: "Reduzierte Time-to-Market",
     },
     {
-      metric: "[PLACEHOLDER: Metrik 2]",
-      description: "[PLACEHOLDER: Beschreibung]",
+      metric: "24/7",
+      description: "Automatisierte Content-Produktion",
     },
     {
-      metric: "[PLACEHOLDER: Metrik 3]",
-      description: "[PLACEHOLDER: Beschreibung]",
+      metric: "8",
+      description: "Standorte mit skalierbare Prozesse",
     },
     {
-      metric: "[PLACEHOLDER: Metrik 4]",
-      description: "[PLACEHOLDER: Beschreibung]",
+      metric: "100%",
+      description: "Konsistente Markenkommunikation",
     },
   ];
 
   const services = [
-    "[PLACEHOLDER: Service 1]",
-    "[PLACEHOLDER: Service 2]",
-    "[PLACEHOLDER: Service 3]",
-    "[PLACEHOLDER: Service 4]",
-    "[PLACEHOLDER: Service 5]",
-    "[PLACEHOLDER: Service 6]",
+    "KI-Agent für vollständige Marketing-Automation",
+    "Automated Content Engine (Posts, Ads, Newsletter, Landingpages)",
+    "Design-System + TOV (Tone of Voice) als Trainingsbasis des Agents",
+    "Redaktionsplan-Automation (Themen, Frequenz, Veröffentlichung)",
+    "Kampagnen-Setup, A/B-Tests, Reporting, Optimierung",
+    "KI-Analyse der Konkurrenzkommunikation",
   ];
 
   const orbitalTimelineData = [
     {
       id: 1,
-      title: "[PLACEHOLDER: Meilenstein 1]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "CRM-Audit & Datenanalyse",
+      date: "Woche 1",
+      content: "Analyse bestehender Marketing-Daten",
       category: "planning",
-      icon: Target,
+      icon: BarChart3,
       status: "completed" as const,
       energy: 90,
-      relatedIds: [],
+      relatedIds: [2],
     },
     {
       id: 2,
-      title: "[PLACEHOLDER: Meilenstein 2]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Lead-Scoring-Modell + Messaging Framework",
+      date: "Woche 2-4",
+      content: "Entwicklung der Marketing-Strategie",
       category: "analysis",
-      icon: BarChart3,
-      relatedIds: [1],
+      icon: Target,
+      relatedIds: [1, 3],
       status: "completed" as const,
       energy: 85,
     },
     {
       id: 3,
-      title: "[PLACEHOLDER: Meilenstein 3]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Asset-Produktion & Template-Bibliothek",
+      date: "Woche 5-7",
+      content: "Content-Erstellung und Design-System",
       category: "design",
-      icon: Sparkles,
-      relatedIds: [2],
+      icon: Palette,
+      relatedIds: [2, 4],
       status: "completed" as const,
       energy: 95,
     },
     {
       id: 4,
-      title: "[PLACEHOLDER: Meilenstein 4]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Aufbau der Agenten-Logik & Sequenzen",
+      date: "Woche 7",
+      content: "KI-Agent Implementierung",
       category: "development",
-      icon: ShoppingCart,
-      relatedIds: [3],
+      icon: Brain,
+      relatedIds: [3, 5],
       status: "completed" as const,
       energy: 88,
     },
     {
       id: 5,
-      title: "[PLACEHOLDER: Meilenstein 5]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Integration in Mail, CRM, Kalender",
+      date: "Woche 8-10",
+      content: "System-Integration",
       category: "testing",
-      icon: Users,
-      relatedIds: [4],
+      icon: ShoppingCart,
+      relatedIds: [4, 6],
       status: "completed" as const,
       energy: 92,
     },
     {
       id: 6,
-      title: "[PLACEHOLDER: Meilenstein 6]",
-      date: "[PLACEHOLDER: Datum]",
-      content: "[PLACEHOLDER: Beschreibung des Meilensteins]",
+      title: "Testing & Rollout",
+      date: "Woche 11-12",
+      content: "Launch und Optimierung",
       category: "launch",
       icon: TrendingUp,
       relatedIds: [5],
-      status: "in-progress" as const,
+      status: "completed" as const,
       energy: 100,
     },
   ];
@@ -244,10 +275,10 @@ const CaseStudyEcommerce = () => {
   return (
     <>
       <Helmet>
-        <title>E-Commerce Personalisierung Case Study | New Edge</title>
+        <title>Marketing-Agent Case Study - NEW EDGE</title>
         <meta
           name="description"
-          content="[PLACEHOLDER: Meta-Beschreibung für SEO - max 160 Zeichen]"
+          content="Wie ein KI-Marketing-Agent die gesamte Content-Produktion und Kampagnensteuerung automatisiert und die Time-to-Market um 70% reduzierte."
         />
       </Helmet>
 
@@ -262,26 +293,26 @@ const CaseStudyEcommerce = () => {
           <div className="max-w-5xl mx-auto text-center">
             <AnimatedSection>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
-                <ShoppingCart className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Fashion & Retail</span>
+                <Megaphone className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">Handel & E-Commerce</span>
               </div>
               
               <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
-                E-Commerce Personalisierung
+                Marketing-Agent
               </h1>
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-                [PLACEHOLDER: Untertitel/Tagline - 1-2 Sätze die das Projekt beschreiben]
+                Marketing, das 24/7 arbeitet. Wie ein KI-Marketing-Agent die gesamte Content-Produktion, Kampagnensteuerung & Analyse eines Händlers automatisiert und die Time-to-Market um 70% reduzierte.
               </p>
 
               <div className="flex flex-wrap justify-center gap-8 mb-12">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Target className="w-6 h-6 text-primary" />
+                    <ShoppingBag className="w-6 h-6 text-primary" />
                   </div>
                   <div className="text-left">
                     <div className="text-sm text-muted-foreground">Branche</div>
-                    <div className="font-semibold">Fashion & Retail</div>
+                    <div className="font-semibold">Handel & E-Commerce</div>
                   </div>
                 </div>
                 
@@ -297,14 +328,21 @@ const CaseStudyEcommerce = () => {
                 
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <TrendingUp className="w-6 h-6 text-primary" />
+                    <Calendar className="w-6 h-6 text-primary" />
                   </div>
                   <div className="text-left">
                     <div className="text-sm text-muted-foreground">Timeline</div>
-                    <div className="font-semibold">[PLACEHOLDER: Timeline]</div>
+                    <div className="font-semibold">12 Wochen</div>
                   </div>
                 </div>
               </div>
+
+              <button
+                onClick={scrollToContact}
+                className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full hover:scale-105 transition-transform duration-300"
+              >
+                Jetzt Kontakt aufnehmen
+              </button>
             </AnimatedSection>
           </div>
         </div>
@@ -318,28 +356,28 @@ const CaseStudyEcommerce = () => {
               <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
                 <div>
                   <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                    Projekt Übersicht
+                    Über das Unternehmen
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6">
-                    [PLACEHOLDER: Projekt-Beschreibung Absatz 1 - Beschreibe das Projekt und den Kunden]
+                    Das Handelsunternehmen betreibt 8 Standorte in Süddeutschland und einen stetig wachsenden Online-Shop. Trotz hoher Nachfrage fehlte es an Ressourcen für kontinuierliches Marketing.
                   </p>
                   <p className="text-lg text-muted-foreground">
-                    [PLACEHOLDER: Projekt-Beschreibung Absatz 2 - Erweitere die Projektbeschreibung]
+                    Kampagnen wurden spontan geplant, Content war inkonsistent, Reports unvollständig. Ein großer Teil der Marketing-Pipeline "versandete" aufgrund fehlender Automatisierung.
                   </p>
                 </div>
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <ShoppingCart className="w-24 h-24 text-primary/30" />
+                    <Megaphone className="w-24 h-24 text-primary/30" />
                   </div>
                 </div>
               </div>
 
               <div className="grid md:grid-cols-4 gap-6">
                 {[
-                  { label: "[PLACEHOLDER: Fact 1 Label]", value: "[PLACEHOLDER: Wert]" },
-                  { label: "[PLACEHOLDER: Fact 2 Label]", value: "[PLACEHOLDER: Wert]" },
-                  { label: "[PLACEHOLDER: Fact 3 Label]", value: "[PLACEHOLDER: Wert]" },
-                  { label: "[PLACEHOLDER: Fact 4 Label]", value: "[PLACEHOLDER: Wert]" },
+                  { label: "Standorte", value: "8" },
+                  { label: "Süddeutschland", value: "Region" },
+                  { label: "Online-Shop", value: "Wachsend" },
+                  { label: "Projektzeitraum", value: "12 Wochen" },
                 ].map((fact, index) => (
                   <div
                     key={index}
@@ -367,31 +405,31 @@ const CaseStudyEcommerce = () => {
 
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground mb-6">
-                  [PLACEHOLDER: Herausforderung Absatz 1 - Beschreibe die Hauptprobleme und Herausforderungen]
+                  Keine skalierbaren Marketingprozesse, fehlende Content-Bibliothek und kein datengetriebenes Vorgehen. Support, Social Media und Kampagnen liefen manuell, ohne klare Frequenz oder Strategie.
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
-                  [PLACEHOLDER: Herausforderung Absatz 2 - Gehe tiefer auf spezifische Probleme ein]
+                  Inhalte wurden jedes Mal neu erstellt statt wiederverwendet. Keine automatischen Performance-Optimierungen und hohe Abhängigkeit von externen Dienstleistern führten zu ineffizienten Prozessen.
                 </p>
                 <p className="text-lg text-muted-foreground">
-                  [PLACEHOLDER: Herausforderung Absatz 3 - Erkläre die Ziele und gewünschten Ergebnisse]
+                  Die Time-to-Market war 70% langsamer als bei Wettbewerbern. Es fehlte eine zentrale Marketing-Automation-Lösung für konsistente und skalierbare Markenkommunikation.
                 </p>
               </div>
 
               <div className="grid md:grid-cols-3 gap-6 mt-12">
                 <div className="p-6 rounded-xl bg-card border border-border">
-                  <Target className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-semibold mb-2">[PLACEHOLDER: Problem 1]</h3>
-                  <p className="text-sm text-muted-foreground">[PLACEHOLDER: Beschreibung]</p>
-                </div>
-                <div className="p-6 rounded-xl bg-card border border-border">
-                  <Users className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-semibold mb-2">[PLACEHOLDER: Problem 2]</h3>
-                  <p className="text-sm text-muted-foreground">[PLACEHOLDER: Beschreibung]</p>
-                </div>
-                <div className="p-6 rounded-xl bg-card border border-border">
                   <TrendingUp className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-semibold mb-2">[PLACEHOLDER: Problem 3]</h3>
-                  <p className="text-sm text-muted-foreground">[PLACEHOLDER: Beschreibung]</p>
+                  <h3 className="font-semibold mb-2">Fehlende Skalierbarkeit</h3>
+                  <p className="text-sm text-muted-foreground">Manueller Content-Prozess ohne Systematik</p>
+                </div>
+                <div className="p-6 rounded-xl bg-card border border-border">
+                  <FileText className="w-8 h-8 text-primary mb-4" />
+                  <h3 className="font-semibold mb-2">Inkonsistente Kommunikation</h3>
+                  <p className="text-sm text-muted-foreground">Keine einheitliche Tone of Voice</p>
+                </div>
+                <div className="p-6 rounded-xl bg-card border border-border">
+                  <BarChart className="w-8 h-8 text-primary mb-4" />
+                  <h3 className="font-semibold mb-2">Zeitverlust</h3>
+                  <p className="text-sm text-muted-foreground">70% langsamere Time-to-Market</p>
                 </div>
               </div>
             </div>
@@ -406,7 +444,7 @@ const CaseStudyEcommerce = () => {
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">Projekt Timeline</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                [PLACEHOLDER: Timeline Intro - 1-2 Sätze über den Projektverlauf]
+                Von der Strategie bis zur vollautomatisierten Marketing-Engine – ein strukturierter 12-Wochen-Prozess
               </p>
             </div>
             <RadialOrbitalTimeline timelineData={orbitalTimelineData} />
@@ -419,9 +457,9 @@ const CaseStudyEcommerce = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Projekt Phasen</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Die drei Phasen</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                [PLACEHOLDER: Phasen Intro - 1-2 Sätze über den Projektablauf]
+                Von der Strategie über Content-Automation bis zur vollständigen Integration – ein strukturierter Prozess für maximalen Erfolg
               </p>
             </div>
 
@@ -472,81 +510,84 @@ const CaseStudyEcommerce = () => {
         </div>
       </section>
 
+      {/* Services/Technologies Section */}
+      <section className="py-24 bg-gradient-to-b from-background to-background/50">
+        <div className="container mx-auto px-6 lg:px-12">
+          <AnimatedSection>
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">Services & Technologien</h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto" />
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {services.map((service, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all"
+                  >
+                    <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                    <span className="text-muted-foreground">{service}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Results Section */}
       <section className="py-24 bg-gradient-to-b from-background to-primary/5">
         <div className="container mx-auto px-6 lg:px-12">
           <AnimatedSection>
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">Ergebnisse & Impact</h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  [PLACEHOLDER: Results Intro - 1-2 Sätze über die erreichten Ergebnisse]
-                </p>
-              </div>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ergebnisse</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Messbare Erfolge durch intelligente Marketing-Automation
+              </p>
+            </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {results.map((result, index) => (
-                  <div
-                    key={index}
-                    className="p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all text-center"
-                  >
-                    <div className="text-4xl md:text-5xl font-bold text-primary mb-3">
-                      {result.metric}
-                    </div>
-                    <div className="text-muted-foreground">{result.description}</div>
+            <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              {results.map((result, index) => (
+                <div
+                  key={index}
+                  className="text-center p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all"
+                >
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-4">
+                    {result.metric}
                   </div>
-                ))}
-              </div>
+                  <div className="text-muted-foreground">
+                    {result.description}
+                  </div>
+                </div>
+              ))}
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-24 bg-gradient-to-b from-primary/5 to-background">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">Eingesetzte Services</h2>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-4">
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className="p-4 rounded-lg bg-card border border-border hover:border-primary/50 transition-all text-center"
-                  >
-                    <CheckCircle className="w-6 h-6 text-primary mx-auto mb-2" />
-                    <span className="text-sm font-medium">{service}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Testimonial Section (Optional) */}
-      <section className="py-24 bg-gradient-to-b from-background to-background/50">
+      {/* Testimonial Section */}
+      <section className="py-24 bg-gradient-to-b from-background/50 to-background">
         <div className="container mx-auto px-6 lg:px-12">
           <AnimatedSection>
             <div className="max-w-4xl mx-auto text-center">
-              <div className="p-12 rounded-2xl bg-card border border-border">
-                <div className="text-6xl text-primary mb-6">"</div>
-                <blockquote className="text-2xl md:text-3xl font-medium mb-8">
-                  [PLACEHOLDER: Kundenzitat - Ein aussagekräftiges Zitat über die Zusammenarbeit und Ergebnisse]
-                </blockquote>
-                <div className="flex items-center justify-center gap-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Users className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-semibold">[PLACEHOLDER: Name]</div>
-                    <div className="text-sm text-muted-foreground">
-                      [PLACEHOLDER: Position, Firma]
-                    </div>
-                  </div>
+              <div className="mb-8">
+                <svg className="w-16 h-16 text-primary/20 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+              </div>
+              
+              <blockquote className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+                "Unser Marketing arbeitet jetzt skalierbar und konsistent. Ergebnisse kommen schneller, günstiger und messbar besser."
+              </blockquote>
+              
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <ShoppingBag className="w-6 h-6 text-primary" />
+                </div>
+                <div className="text-left">
+                  <div className="font-semibold">Regionaler Händler</div>
+                  <div className="text-sm text-muted-foreground">8 Standorte in Süddeutschland</div>
                 </div>
               </div>
             </div>
@@ -555,21 +596,21 @@ const CaseStudyEcommerce = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-background/50 to-background">
+      <section className="py-24 bg-gradient-to-b from-background to-primary/5">
         <div className="container mx-auto px-6 lg:px-12">
           <AnimatedSection>
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Bereit für Ihr eigenes Projekt?
+                Bereit für skalierbares Marketing?
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Lassen Sie uns gemeinsam Ihre Vision verwirklichen
+                Lassen Sie uns gemeinsam Ihr Marketing automatisieren
               </p>
               <button
                 onClick={scrollToContact}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all"
+                className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full hover:scale-105 transition-transform duration-300 inline-flex items-center gap-2"
               >
-                Jetzt Beratungsgespräch buchen
+                Projekt starten
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>
