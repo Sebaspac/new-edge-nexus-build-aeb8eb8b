@@ -4,25 +4,18 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from "react-helmet-async";
 import { Footer } from "@/components/Footer";
 import {
-  MessageSquare,
-  TrendingUp,
-  Users,
-  BarChart3,
-  Target,
-  Sparkles,
-  ArrowRight,
-  CheckCircle,
-  Brain,
-  Hash,
-  Share2,
-  Heart,
-  Calendar,
-  Mail,
-  UserCheck,
-  Database,
-  Zap,
-  Phone,
   Shield,
+  Target,
+  Database,
+  Brain,
+  Mail,
+  Zap,
+  Calendar,
+  TrendingUp,
+  Phone,
+  BarChart3,
+  Users,
+  Quote,
 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 
@@ -108,16 +101,6 @@ const CaseStudySocialMedia = () => {
           title: "Lead-Scoring-Kriterien definieren",
           description: "Entwicklung eines KI-basierten Scoring-Systems für automatische Priorisierung.",
         },
-        {
-          icon: BarChart3,
-          title: "Sales-Prozess dokumentieren",
-          description: "Erfassung aller bestehenden Workflows und Touchpoints.",
-        },
-        {
-          icon: Users,
-          title: "Zielgruppen-Segmentierung",
-          description: "Präzise Analyse und Strukturierung der Lead-Kategorien.",
-        },
       ],
     },
     {
@@ -135,16 +118,6 @@ const CaseStudySocialMedia = () => {
           title: "E-Mail- & LinkedIn-Sequenzen erstellen",
           description: "Personalisierte Kommunikationsstrategien für verschiedene Lead-Typen.",
         },
-        {
-          icon: MessageSquare,
-          title: "Personalisierungs-Templates entwickeln",
-          description: "Dynamische Vorlagen für individuelle Ansprache.",
-        },
-        {
-          icon: Phone,
-          title: "Voice-Agent Skripte (optional)",
-          description: "Automatisierte Telefon-Erstkontakte für schnellere Qualifizierung.",
-        },
       ],
     },
     {
@@ -158,50 +131,12 @@ const CaseStudySocialMedia = () => {
           description: "Vollständige Automatisierung der Lead-Qualifizierung und -Ansprache.",
         },
         {
-          icon: Database,
-          title: "CRM-Integration & Automatisierung",
-          description: "Nahtlose Anbindung an bestehende Systeme.",
-        },
-        {
-          icon: Calendar,
-          title: "Kalender-Anbindung für Termine",
-          description: "Automatische Terminbuchung für qualifizierte Leads.",
-        },
-        {
           icon: TrendingUp,
           title: "Pipeline-Management automatisieren",
           description: "Vertriebsschulung, Monitoring und kontinuierliche Optimierung.",
         },
       ],
     },
-  ];
-
-  const results = [
-    {
-      metric: "Transformiert",
-      description: "Pipeline-Fokus auf hochrelevante Leads",
-    },
-    {
-      metric: "Echtzeit",
-      description: "Automatisches Lead-Scoring",
-    },
-    {
-      metric: "100%",
-      description: "Personalisierte Ansprache ohne manuellen Aufwand",
-    },
-    {
-      metric: "Höher",
-      description: "Conversion-Rate durch bessere Qualifizierung",
-    },
-  ];
-
-  const services = [
-    "KI-Sales-Agent mit Echtzeit-Lead-Scoring",
-    "Automatisierte, personalisierte E-Mail-/LinkedIn-Sequenzen",
-    "Warme Leads → automatische Terminbuchung im Kalender",
-    "Kalte Leads → Aufwärm-Sequenzen",
-    "Automatische CRM-Dokumentation & Pipeline-Bereinigung",
-    "Voice-Agent für Erstgespräche (optional)",
   ];
 
   const orbitalTimelineData = [
@@ -283,343 +218,272 @@ const CaseStudySocialMedia = () => {
         />
       </Helmet>
 
-      <MobileNavigation onContactClick={scrollToContact} />
+      <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
+        <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background/95 to-primary/5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(var(--primary-rgb),0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(var(--primary-rgb),0.05),transparent_50%)]" />
-        
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <AnimatedSection>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
-                <Shield className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">B2B-Dienstleistung</span>
+        {/* Hero Section */}
+        <section className="relative w-full min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-black py-20">
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <AnimatedSection className="text-center max-w-5xl mx-auto">
+              <div className="mb-6 md:mb-8">
+                <span className="text-purple-400 text-xs md:text-sm font-bold tracking-widest uppercase">
+                  B2B-Dienstleistung X New edge
+                </span>
               </div>
-              
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 md:mb-8 leading-tight">
                 Sales-Agent
               </h1>
-              
-              <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 md:mb-12 leading-relaxed max-w-3xl mx-auto">
                 Vertrieb neu gedacht. Wie ein KI-Sales-Agent Leads automatisch qualifiziert, personalisiert anspricht und den Vertrieb auf echte Chancen fokussiert.
               </p>
-
-              <div className="flex flex-wrap justify-center gap-8 mb-12">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-sm text-muted-foreground">Branche</div>
-                    <div className="font-semibold">B2B-Dienstleistung</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Sparkles className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-sm text-muted-foreground">Services</div>
-                    <div className="font-semibold">Lab + Studio</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Calendar className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-sm text-muted-foreground">Timeline</div>
-                    <div className="font-semibold">12 Wochen</div>
-                  </div>
-                </div>
+              <div className="flex justify-center">
+                <button
+                  onClick={scrollToContact}
+                  className="px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-full text-base md:text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50 active:scale-95"
+                >
+                  Jetzt Kontakt aufnehmen
+                </button>
               </div>
-
-              <button
-                onClick={scrollToContact}
-                className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full hover:scale-105 transition-transform duration-300"
-              >
-                Jetzt Kontakt aufnehmen
-              </button>
             </AnimatedSection>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Project Overview */}
-      <section className="py-24 bg-gradient-to-b from-background to-background/50">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="max-w-6xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        {/* Project Overview & Challenge Section */}
+        <section className="py-12 md:py-20 lg:py-32 relative bg-black">
+          <div className="container mx-auto px-4 md:px-6">
+            <AnimatedSection>
+              {/* Project Overview */}
+              <div className="text-center mb-12 md:mb-16">
+                <div className="mb-4 md:mb-6">
+                  <span className="text-purple-400 font-bold text-xs md:text-sm tracking-widest uppercase">
+                    Projektüberblick
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 md:mb-8">
+                  Über das Unternehmen
+                </h2>
+                <p className="text-base md:text-lg lg:text-xl text-gray-400 leading-relaxed max-w-5xl mx-auto">
+                  Ein B2B-Dienstleister für IT-Sicherheitslösungen (ca. 35 Mitarbeiter) generiert viele Leads über Messen, Webinar-Formate und Partnerschaften. Das Problem: hohe Anzahl an Leads, aber wenig Zeit für strukturierte Bearbeitung. Ein großer Teil der Pipeline "versandete". Eingehende Leads wurden nicht priorisiert, Follow-ups erfolgten manuell und oft zu spät. Es fehlte ein klares Lead-Scoring-System.
+                </p>
+              </div>
+
+              {/* Challenge Section - Two Column Layout */}
+              <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center mt-12 md:mt-20">
+                {/* Left: Image/Visual */}
+                <div className="relative">
+                  <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-purple-900/40 via-purple-700/30 to-blue-900/40 border border-purple-500/20 flex items-center justify-center">
+                    <TrendingUp className="w-32 h-32 text-purple-300/30" />
+                  </div>
+                </div>
+
+                {/* Right: Challenge Text */}
                 <div>
-                  <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                    Über das Unternehmen
-                  </h2>
-                  <p className="text-lg text-muted-foreground mb-6">
-                    Ein B2B-Dienstleister für IT-Sicherheitslösungen (ca. 35 Mitarbeiter) generiert viele Leads über Messen, Webinar-Formate und Partnerschaften. Das Problem: hohe Anzahl an Leads, aber wenig Zeit für strukturierte Bearbeitung.
-                  </p>
-                  <p className="text-lg text-muted-foreground">
-                    Ein großer Teil der Pipeline "versandete". Eingehende Leads wurden nicht priorisiert, Follow-ups erfolgten manuell und oft zu spät. Es fehlte ein klares Lead-Scoring-System.
-                  </p>
-                </div>
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <TrendingUp className="w-24 h-24 text-primary/30" />
+                  <div className="mb-3 md:mb-4">
+                    <span className="text-purple-400 font-bold text-xs md:text-sm tracking-widest uppercase">
+                      Ausgangssituation
+                    </span>
                   </div>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6">
+                    Die Herausforderung
+                  </h3>
+                  <p className="text-base md:text-lg text-gray-400 leading-relaxed">
+                    Eingehende Leads wurden nicht priorisiert, Follow-ups erfolgten manuell und oft zu spät. Kein klares Lead-Scoring-System führte zu ineffizienter Ressourcennutzung im Vertrieb. CRM-Daten waren unvollständig und unstrukturiert. Das Vertriebsteam verbrachte zu viel Zeit mit unqualifizierten Leads, während echte Chancen ungenutzt blieben. Keine automatisierten Lead-Nurturing-Sequenzen. Das Ziel: Ein intelligentes System, das Leads automatisch qualifiziert, personalisiert anspricht und den Vertrieb auf hochrelevante Opportunities fokussiert.
+                  </p>
                 </div>
               </div>
+            </AnimatedSection>
+          </div>
+        </section>
 
-              <div className="grid md:grid-cols-4 gap-6">
-                {[
-                  { label: "Mitarbeiter", value: "35" },
-                  { label: "Branche", value: "IT-Sicherheit" },
-                  { label: "Lead-Quellen", value: "Messen & Webinare" },
-                  { label: "Projektzeitraum", value: "12 Wochen" },
-                ].map((fact, index) => (
-                  <div
-                    key={index}
-                    className="p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all"
-                  >
-                    <div className="text-3xl font-bold text-primary mb-2">{fact.value}</div>
-                    <div className="text-sm text-muted-foreground">{fact.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Challenge Section */}
-      <section className="py-24 bg-gradient-to-b from-background/50 to-background">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">Die Herausforderung</h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto" />
-              </div>
-
-              <div className="prose prose-lg max-w-none">
-                <p className="text-lg text-muted-foreground mb-6">
-                  Eingehende Leads wurden nicht priorisiert, Follow-ups erfolgten manuell und oft zu spät. Kein klares Lead-Scoring-System führte zu ineffizienter Ressourcennutzung im Vertrieb.
-                </p>
-                <p className="text-lg text-muted-foreground mb-6">
-                  CRM-Daten waren unvollständig und unstrukturiert. Das Vertriebsteam verbrachte zu viel Zeit mit unqualifizierten Leads, während echte Chancen ungenutzt blieben. Keine automatisierten Lead-Nurturing-Sequenzen.
-                </p>
-                <p className="text-lg text-muted-foreground">
-                  Das Ziel: Ein intelligentes System, das Leads automatisch qualifiziert, personalisiert anspricht und den Vertrieb auf hochrelevante Opportunities fokussiert.
+        {/* Orbital Timeline Section */}
+        <section className="py-12 md:py-20 lg:py-32 bg-black">
+          <div className="container mx-auto px-4 md:px-6 mb-8 md:mb-12">
+            <AnimatedSection>
+              <div className="text-center max-w-4xl mx-auto">
+                <div className="mb-3 md:mb-4">
+                  <span className="text-purple-400 font-bold text-xs md:text-sm tracking-wider uppercase">
+                    UNSERE LEISTUNGEN
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 md:mb-6">
+                  Von der Vision zur Realität
+                </h2>
+                <p className="text-base md:text-xl text-gray-300 px-4">
+                  Interaktive Timeline: Klicken Sie auf die Knoten, um Details zu sehen
                 </p>
               </div>
-
-              <div className="grid md:grid-cols-3 gap-6 mt-12">
-                <div className="p-6 rounded-xl bg-card border border-border">
-                  <Target className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-semibold mb-2">Fehlende Priorisierung</h3>
-                  <p className="text-sm text-muted-foreground">Alle Leads wurden gleich behandelt</p>
-                </div>
-                <div className="p-6 rounded-xl bg-card border border-border">
-                  <Users className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-semibold mb-2">Zeitverlust</h3>
-                  <p className="text-sm text-muted-foreground">Manuelles Follow-up oft zu spät oder gar nicht</p>
-                </div>
-                <div className="p-6 rounded-xl bg-card border border-border">
-                  <TrendingUp className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-semibold mb-2">Ineffizienz</h3>
-                  <p className="text-sm text-muted-foreground">Vertrieb fokussiert sich auf falsche Leads</p>
-                </div>
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Orbital Timeline */}
-      <section className="py-24 bg-gradient-to-b from-background to-background/50">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Projekt Timeline</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Von der CRM-Analyse bis zum intelligenten Sales-Agent – ein strukturierter 12-Wochen-Prozess
-              </p>
-            </div>
+            </AnimatedSection>
+          </div>
+          <div className="overflow-x-auto md:overflow-visible">
             <RadialOrbitalTimeline timelineData={orbitalTimelineData} />
-          </AnimatedSection>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Phases Section */}
-      <section className="py-24 bg-gradient-to-b from-background/50 to-background">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Die drei Phasen</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Von der Analyse über Automation bis zur vollständigen Integration – ein strukturierter Prozess für maximalen Erfolg
-              </p>
-            </div>
+        {/* Phases Section */}
+        <section className="py-12 md:py-20 lg:py-32 bg-black">
+          <div className="container mx-auto px-4 md:px-6">
+            {/* Section Header */}
+            <AnimatedSection>
+              <div className="text-center mb-12 md:mb-20">
+                <div className="mb-4 md:mb-6">
+                  <span className="text-purple-400 font-bold text-xs md:text-sm tracking-widest uppercase">
+                    Unser Prozess
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 md:mb-8">
+                  Die drei Phasen
+                </h2>
+                <p className="text-base md:text-lg lg:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
+                  Von der Analyse über Automation bis zur vollständigen Integration – ein strukturierter Prozess für maximalen Erfolg.
+                </p>
+              </div>
+            </AnimatedSection>
 
-            <div className="space-y-16">
-              {phases.map((phase, index) => (
-                <div
-                  key={index}
-                  className="max-w-6xl mx-auto"
-                >
-                  <div className="grid lg:grid-cols-2 gap-12 items-start">
-                    <div className={index % 2 === 0 ? "lg:order-1" : "lg:order-2"}>
-                      <div className="sticky top-24">
-                        <div className="text-sm font-semibold text-primary mb-4">
+            {/* Desktop: Vertical Layout, Mobile: Horizontal Scroll */}
+            <div className="hidden md:block space-y-32">
+              {phases.map((phase, phaseIndex) => (
+                <AnimatedSection key={phaseIndex}>
+                  <div
+                    className={`grid lg:grid-cols-2 gap-12 items-center ${phaseIndex % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
+                  >
+                    {/* Content Side */}
+                    <div className={phaseIndex % 2 === 1 ? "lg:order-2" : ""}>
+                      <div className="mb-3 md:mb-4">
+                        <span className="text-purple-400 font-bold text-xs md:text-sm tracking-wider">
                           {phase.number}
-                        </div>
-                        <h3 className="text-3xl md:text-4xl font-bold mb-6">
-                          {phase.title}
-                        </h3>
-                        <p className="text-lg text-muted-foreground">
-                          {phase.description}
-                        </p>
+                        </span>
+                      </div>
+                      <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6">
+                        {phase.title}
+                      </h2>
+                      <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
+                        {phase.description}
+                      </p>
+
+                      <div className="space-y-4 md:space-y-6">
+                        {phase.features.map((feature, featureIndex) => {
+                          const Icon = feature.icon;
+                          return (
+                            <div
+                              key={featureIndex}
+                              className="flex items-start gap-3 md:gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300 active:scale-95"
+                            >
+                              <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg md:rounded-xl flex items-center justify-center">
+                                <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                              </div>
+                              <div>
+                                <h3 className="text-white font-bold text-base md:text-lg mb-1 md:mb-2">
+                                  {feature.title}
+                                </h3>
+                                <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                                  {feature.description}
+                                </p>
+                              </div>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
 
-                    <div className={index % 2 === 0 ? "lg:order-2" : "lg:order-1"}>
-                      <div className="space-y-6">
-                        {phase.features.map((feature, fIndex) => (
-                          <div
-                            key={fIndex}
-                            className="p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all"
-                          >
-                            <feature.icon className="w-8 h-8 text-primary mb-4" />
-                            <h4 className="text-xl font-semibold mb-2">
-                              {feature.title}
-                            </h4>
-                            <p className="text-muted-foreground">
-                              {feature.description}
-                            </p>
-                          </div>
-                        ))}
+                    {/* Image Side */}
+                    <div className={phaseIndex % 2 === 1 ? "lg:order-1" : ""}>
+                      <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-purple-900/40 via-purple-700/30 to-blue-900/40 border border-purple-500/20 flex items-center justify-center">
+                        <div className="text-purple-300/30">
+                          {phaseIndex === 0 && <Database className="w-32 h-32" />}
+                          {phaseIndex === 1 && <Brain className="w-32 h-32" />}
+                          {phaseIndex === 2 && <Zap className="w-32 h-32" />}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </AnimatedSection>
               ))}
             </div>
-          </AnimatedSection>
-        </div>
-      </section>
 
-      {/* Services/Technologies Section */}
-      <section className="py-24 bg-gradient-to-b from-background to-background/50">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">Services & Technologien</h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto" />
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                {services.map((service, index) => (
+            {/* Mobile: Horizontal Scroll Cards */}
+            <div className="md:hidden">
+              <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide">
+                {phases.map((phase, phaseIndex) => (
                   <div
-                    key={index}
-                    className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all"
+                    key={phaseIndex}
+                    className="flex-shrink-0 w-[85vw] snap-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-6"
                   >
-                    <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <span className="text-muted-foreground">{service}</span>
+                    <div className="mb-4">
+                      <span className="text-purple-400 font-bold text-xs tracking-wider">{phase.number}</span>
+                    </div>
+                    <h3 className="text-2xl font-black text-white mb-3">{phase.title}</h3>
+                    <p className="text-sm text-gray-300 mb-6 leading-relaxed">{phase.description}</p>
+
+                    <div className="space-y-4">
+                      {phase.features.map((feature, featureIndex) => {
+                        const Icon = feature.icon;
+                        return (
+                          <div key={featureIndex} className="flex items-start gap-3">
+                            <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                              <Icon className="w-5 h-5 text-white" />
+                            </div>
+                            <div>
+                              <h4 className="text-white font-bold text-sm mb-1">{feature.title}</h4>
+                              <p className="text-gray-400 text-xs leading-relaxed">{feature.description}</p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
-          </AnimatedSection>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Results Section */}
-      <section className="py-24 bg-gradient-to-b from-background to-primary/5">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ergebnisse</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Messbare Erfolge durch intelligente Lead-Qualifizierung
-              </p>
-            </div>
+        {/* Testimonial Section */}
+        <section className="py-12 md:py-20 lg:py-32 bg-black">
+          <div className="container mx-auto px-4 md:px-6">
+            <AnimatedSection>
+              <div className="max-w-4xl mx-auto text-center">
+                <Quote className="w-12 h-12 md:w-16 md:h-16 text-purple-400 mx-auto mb-6 md:mb-8" />
+                <blockquote className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-8 md:mb-12 leading-relaxed">
+                  "Der Sales-Agent hat unsere Pipeline transformiert. Unser Vertrieb fokussiert sich jetzt auf echte Chancen und die Conversion-Rate ist signifikant gestiegen."
+                </blockquote>
+                <div className="flex items-center justify-center gap-4">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
+                    <Shield className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-white font-bold text-base md:text-lg">Michael Weber</div>
+                    <div className="text-gray-400 text-sm md:text-base">Sales Director, IT-Sicherheitslösungen</div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-              {results.map((result, index) => (
-                <div
-                  key={index}
-                  className="text-center p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all"
+        {/* CTA Section */}
+        <section className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-gray-900 to-black">
+          <div className="container mx-auto px-4 md:px-6">
+            <AnimatedSection>
+              <div className="text-center max-w-4xl mx-auto">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 md:mb-8">
+                  Bereit für Ihr Projekt?
+                </h2>
+                <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-8 md:mb-12 leading-relaxed">
+                  Lassen Sie uns gemeinsam Ihre Vision zum Leben erwecken. Kontaktieren Sie uns für ein unverbindliches Erstgespräch.
+                </p>
+                <button
+                  onClick={scrollToContact}
+                  className="px-8 py-4 md:px-12 md:py-5 bg-white text-black font-bold rounded-full text-base md:text-lg hover:scale-105 transition-transform duration-300 shadow-2xl active:scale-95"
                 >
-                  <div className="text-4xl md:text-5xl font-bold text-primary mb-4">
-                    {result.metric}
-                  </div>
-                  <div className="text-muted-foreground">
-                    {result.description}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Testimonial Section */}
-      <section className="py-24 bg-gradient-to-b from-background/50 to-background">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="mb-8">
-                <svg className="w-16 h-16 text-primary/20 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
+                  Projekt starten
+                </button>
               </div>
-              
-              <blockquote className="text-2xl md:text-3xl font-bold text-foreground mb-8">
-                "Der Agent hat unsere Pipeline transformiert. Wir sprechen nur noch mit hochrelevanten Leads."
-              </blockquote>
-              
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <div className="font-semibold">B2B-Dienstleister</div>
-                  <div className="text-sm text-muted-foreground">IT-Sicherheitslösungen, 35 Mitarbeiter</div>
-                </div>
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+            </AnimatedSection>
+          </div>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-background to-primary/5">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Bereit für intelligenten Vertrieb?
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8">
-                Lassen Sie uns gemeinsam Ihren Sales-Prozess automatisieren
-              </p>
-              <button
-                onClick={scrollToContact}
-                className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full hover:scale-105 transition-transform duration-300 inline-flex items-center gap-2"
-              >
-                Projekt starten
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 };
