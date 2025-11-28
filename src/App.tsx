@@ -19,9 +19,6 @@ import Team from "./pages/Team";
 import CaseStudies from "./pages/CaseStudies";
 import UseCases from "./pages/UseCases";
 import CaseStudyAlbaNova from "./pages/CaseStudyAlbaNova";
-import CaseStudyEcommerce from "./pages/CaseStudyEcommerce";
-import CaseStudySocialMedia from "./pages/CaseStudySocialMedia";
-import CaseStudyRetailLab from "./pages/CaseStudyRetailLab";
 import Careers from "./pages/Careers";
 import About from "./pages/About";
 import Resources from "./pages/Resources";
@@ -65,9 +62,6 @@ const App = () => {
             <Route path="/team" element={<Team />} />
             <Route path="/use-cases" element={<UseCases />} />
             <Route path="/case-study/albanova" element={<CaseStudyAlbaNova />} />
-            <Route path="/case-study/retail-lab" element={<CaseStudyRetailLab />} />
-            <Route path="/case-study/ecommerce" element={<CaseStudyEcommerce />} />
-            <Route path="/case-study/social-media" element={<CaseStudySocialMedia />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/about" element={<About />} />
