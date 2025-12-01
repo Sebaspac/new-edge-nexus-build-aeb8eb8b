@@ -13,10 +13,6 @@ import {
   Brain,
   Target,
   ArrowRight,
-  Quote,
-  Settings,
-  BookOpen,
-  CheckCircle2,
 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 
@@ -85,6 +81,68 @@ const CaseStudyRetailLab = () => {
       }
     }, 100);
   };
+
+  const phases = [
+    {
+      number: "PHASE 1",
+      title: "Strategie & Konzeption",
+      description:
+        "Analyse der Datenlandschaft und Definition der Wissensarchitektur. Entwicklung eines maßgeschneiderten RAG-Frameworks.",
+      features: [
+        {
+          icon: Target,
+          title: "Datenquellen-Mapping",
+          description: "Identifikation und Strukturierung aller relevanten Wissensquellen im Unternehmen.",
+        },
+        {
+          icon: FileText,
+          title: "RAG-Architektur",
+          description: "Design eines skalierbaren Retrieval Augmented Generation Systems.",
+        },
+      ],
+    },
+    {
+      number: "PHASE 2",
+      title: "Kreation & Content",
+      description:
+        "Aufbereitung und Indexierung der Unternehmensdaten für optimale KI-Abfragen.",
+      features: [
+        {
+          icon: Database,
+          title: "Daten-Indexierung",
+          description: "Extraktion & Indexierung von PDFs, CAD-Daten, Word-Dateien & Datenbanken.",
+        },
+        {
+          icon: Brain,
+          title: "Prompt-Engineering",
+          description: "Entwicklung präziser Prompts für fachspezifische Antworten.",
+        },
+        {
+          icon: ShieldCheck,
+          title: "Compliance-Integration",
+          description: "Implementierung von Protokollierung & Audit-Logs.",
+        },
+      ],
+    },
+    {
+      number: "PHASE 3",
+      title: "Technische Umsetzung & Launch",
+      description:
+        "Entwicklung des Chat-Agents mit Rollenrechten und Integration in bestehende Systeme.",
+      features: [
+        {
+          icon: MessageSquare,
+          title: "Chat-Interface",
+          description: "Unternehmensinterner Chat-Agent mit intuitiver Benutzeroberfläche.",
+        },
+        {
+          icon: Search,
+          title: "Deep-Search-Funktionen",
+          description: "Erweiterte Suchfunktionen nach Bauteilen, Codes und technischen Daten.",
+        },
+      ],
+    },
+  ];
 
   const orbitalTimelineData = [
     {
@@ -155,303 +213,275 @@ const CaseStudyRetailLab = () => {
     },
   ];
 
-  const phases = [
-    {
-      number: "PHASE 1",
-      title: "Strategie & Konzeption",
-      description: "Fundament für ein zukunftssicheres Wissenssystem",
-      features: [
-        {
-          icon: Target,
-          title: "Dokumentenanalyse",
-          description: "Vollständige Analyse der Dokumentenlandschaft über alle Abteilungen hinweg",
-        },
-        {
-          icon: Brain,
-          title: "Wissensdomänen",
-          description: "Definition der Wissensdomänen für Produktion, Service und Vertrieb",
-        },
-        {
-          icon: ShieldCheck,
-          title: "Sicherheitskonzept",
-          description: "Entwicklung des Sicherheits- & Rollenmodells für sensible Unternehmensdaten",
-        },
-        {
-          icon: Settings,
-          title: "UX-Konzept",
-          description: "Gestaltung einer intuitiven Benutzeroberfläche für die Wissenssuche",
-        },
-      ],
-    },
-    {
-      number: "PHASE 2",
-      title: "Kreation & Content",
-      description: "Transformation von Daten in strukturiertes Wissen",
-      features: [
-        {
-          icon: FileText,
-          title: "Datenaufbereitung",
-          description: "Professionelle Datenaufbereitung und Chunking für optimale Verarbeitung",
-        },
-        {
-          icon: Brain,
-          title: "Embedding-Optimierung",
-          description: "Spezielle Optimierung für technische Fachtermini der Maschinenbaubranche",
-        },
-        {
-          icon: MessageSquare,
-          title: "Prompt-Logiken",
-          description: "Entwicklung rollenbezogener Prompt-Logiken für unterschiedliche Anwendungsfälle",
-        },
-        {
-          icon: CheckCircle2,
-          title: "Knowledge Validation",
-          description: "Validierung durch interne Experten für höchste Datenqualität",
-        },
-      ],
-    },
-    {
-      number: "PHASE 3",
-      title: "Technische Umsetzung & Launch",
-      description: "Live-Gang und kontinuierliche Optimierung",
-      features: [
-        {
-          icon: Database,
-          title: "Vektordatenbank",
-          description: "Implementation einer hochperformanten Vektordatenbank für schnelle Suchen",
-        },
-        {
-          icon: Zap,
-          title: "API-Anbindungen",
-          description: "Nahtlose Integration mit bestehenden internen Systemen und Tools",
-        },
-        {
-          icon: ShieldCheck,
-          title: "Rechte-Management",
-          description: "Implementierung von SSO und granularem Rechte-Management",
-        },
-        {
-          icon: BookOpen,
-          title: "Schulung & Support",
-          description: "Umfassende Schulung der Teams und laufende Optimierung des Systems",
-        },
-      ],
-    },
-  ];
-
   return (
     <>
       <Helmet>
-        <title>RAG-Wissensagent Case Study | Maschinenbau-KMU | New Edge</title>
+        <title>RAG-Wissensagent Case Study - NEW EDGE</title>
         <meta
           name="description"
-          content="Wie wir für ein Maschinenbau-KMU einen unternehmensweiten RAG-Wissensagenten entwickelten, der 18.000+ Dokumente indexiert und Supportzeiten halbiert."
+          content="Wie wir für einen KMU im produzierenden Gewerbe einen RAG-Wissensagenten entwickelt haben."
         />
       </Helmet>
 
-      <MobileNavigation onContactClick={scrollToContact} theme="dark" />
+      <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
+        <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(139,92,246,0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(139,92,246,0.05),transparent_50%)]" />
-        
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <AnimatedSection>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-8">
-                <Brain className="w-4 h-4 text-purple-400" />
-                <span className="text-sm font-medium text-purple-400">Maschinenbau-KMU X New Edge</span>
+        {/* Hero Section */}
+        <section className="relative w-full min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-black py-20">
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <AnimatedSection className="text-center max-w-5xl mx-auto">
+              <div className="mb-6 md:mb-8">
+                <span className="text-purple-400 text-xs md:text-sm font-bold tracking-widest uppercase">
+                  Fertigung KMU X New edge
+                </span>
               </div>
-              
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-                Industriewissen.<br />Sofort verfügbar.
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 md:mb-8 leading-tight">
+                Wissen wird
+                <br />
+                intelligent.
               </h1>
-              
-              <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed">
-                Wie wir für ein Maschinenbau-KMU einen unternehmensweiten RAG-Wissensagenten entwickelten, der 18.000+ Dokumente indexiert, Wissen entlastet und Supportzeiten halbiert.
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 md:mb-12 leading-relaxed max-w-3xl mx-auto">
+                Wie wir für einen KMU im produzierenden Gewerbe einen RAG-Wissensagenten entwickelt haben, der technisches 
+                Know-how instant verfügbar macht.
               </p>
+              <div className="flex justify-center">
+                <button
+                  onClick={scrollToContact}
+                  className="px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-full text-base md:text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50 active:scale-95"
+                >
+                  Jetzt Kontakt aufnehmen
+                </button>
+              </div>
             </AnimatedSection>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Project Overview + Challenge */}
-      <section className="py-24 bg-gradient-to-b from-black to-gray-900">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16">
-              <AnimatedSection>
-                <div>
-                  <h2 className="text-4xl font-bold mb-6 text-white">Projektüberblick</h2>
-                  <div className="space-y-4 text-gray-400 text-lg leading-relaxed">
-                    <p>
-                      Das Familienunternehmen (140 Mitarbeiter) produziert Präzisionsmaschinen für die Automobil- und Verpackungsindustrie. Über Jahrzehnte wuchs ein Wissensfundus aus Handbüchern, CAD-Daten, Serviceprotokollen, E-Mails und Excel-Archiven.
-                    </p>
-                  </div>
+        {/* Project Overview & Challenge Section */}
+        <section className="py-12 md:py-20 lg:py-32 relative bg-black">
+          <div className="container mx-auto px-4 md:px-6">
+            <AnimatedSection>
+              {/* Project Overview */}
+              <div className="text-center mb-12 md:mb-16">
+                <div className="mb-4 md:mb-6">
+                  <span className="text-purple-400 font-bold text-xs md:text-sm tracking-widest uppercase">
+                    Projektüberblick
+                  </span>
                 </div>
-              </AnimatedSection>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 md:mb-8">
+                  Der RAG-Wissensagent
+                </h2>
+                <p className="text-base md:text-lg lg:text-xl text-gray-400 leading-relaxed max-w-5xl mx-auto">
+                  Ein mittelständisches Produktionsunternehmen mit über 30 Jahren Erfahrung stand vor der Herausforderung, 
+                  sein umfangreiches technisches Wissen effizient zugänglich zu machen. Tausende PDF-Dokumente, CAD-Dateien 
+                  und Datenbank-Einträge sollten durch einen intelligenten KI-Agenten durchsuchbar werden.
+                </p>
+              </div>
 
-              <AnimatedSection>
-                <div>
-                  <h2 className="text-4xl font-bold mb-6 text-white">Herausforderungen</h2>
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <div className="w-2 h-2 rounded-full bg-purple-400" />
+              {/* Challenge Section - Two Column Layout */}
+              <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center mt-12 md:mt-20">
+                {/* Left: Image/Visual */}
+                <div className="relative">
+                  <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-purple-900/40 via-purple-700/30 to-blue-900/40 border border-purple-500/20 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="w-16 h-16 mx-auto mb-4 bg-purple-500/20 rounded-full flex items-center justify-center border border-purple-400/30">
+                        <Database className="w-8 h-8 text-purple-300" />
                       </div>
-                      <p className="text-gray-400">Wissensinseln, fehlende Dokumentenstruktur, Abhängigkeit von Experten</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <div className="w-2 h-2 rounded-full bg-purple-400" />
-                      </div>
-                      <p className="text-gray-400">Suchzeiten &gt; 20 Min pro Anfrage</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <div className="w-2 h-2 rounded-full bg-purple-400" />
-                      </div>
-                      <p className="text-gray-400">Keine intelligente Suche über technische Daten</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <div className="w-2 h-2 rounded-full bg-purple-400" />
-                      </div>
-                      <p className="text-gray-400">Unterschiedliche Versionsstände von Dokumenten</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <div className="w-2 h-2 rounded-full bg-purple-400" />
-                      </div>
-                      <p className="text-gray-400">Produktion stellten täglich wiederkehrende Fragen</p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <div className="w-2 h-2 rounded-full bg-purple-400" />
-                      </div>
-                      <p className="text-gray-400">Wissen verschwand mit erfahrenen Mitarbeitern</p>
+                      <p className="text-sm text-purple-300/60 italic">Abstract representation of data infrastructure</p>
                     </div>
                   </div>
                 </div>
-              </AnimatedSection>
-            </div>
+
+                {/* Right: Challenge Text */}
+                <div>
+                  <div className="mb-3 md:mb-4">
+                    <span className="text-purple-400 font-bold text-xs md:text-sm tracking-widest uppercase">
+                      Ausgangssituation
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6">
+                    Die Herausforderungen
+                  </h3>
+                  <p className="text-base md:text-lg text-gray-400 leading-relaxed">
+                    Das Unternehmen verfügte über jahrzehntelang aufgebautes Wissen in verschiedensten Formaten – von 
+                    technischen Zeichnungen über Wartungsprotokolle bis hin zu Produktionsanleitungen. Die manuelle Suche 
+                    nach spezifischen Informationen kostete täglich Stunden. Es fehlte eine zentrale, intelligente Lösung, 
+                    die dieses Wissen abteilungsübergreifend verfügbar macht.
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Services Timeline */}
-      <section className="py-24 bg-gradient-to-b from-gray-900 to-black">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Erbrachte Dienstleistungen</h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                Ein vollständiges RAG-System mit intelligenten Suchfunktionen und Compliance-Features
-              </p>
-            </div>
+        {/* Orbital Timeline Section */}
+        <section className="py-12 md:py-20 lg:py-32 bg-black">
+          <div className="container mx-auto px-4 md:px-6 mb-8 md:mb-12">
+            <AnimatedSection>
+              <div className="text-center max-w-4xl mx-auto">
+                <div className="mb-3 md:mb-4">
+                  <span className="text-purple-400 font-bold text-xs md:text-sm tracking-wider uppercase">
+                    ​UNSERE LEISTUNGEN
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 md:mb-6">
+                  Von der Vision zur Realität
+                </h2>
+                <p className="text-base md:text-xl text-gray-300 px-4">
+                  Interaktive Timeline: Klicken Sie auf die Knoten, um Details zu sehen
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+          <div className="overflow-x-auto md:overflow-visible">
             <RadialOrbitalTimeline timelineData={orbitalTimelineData} />
-          </AnimatedSection>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Phases Section */}
-      <section className="py-24 bg-gradient-to-b from-black to-gray-900">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Projekt Phasen</h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                Von der strategischen Planung bis zum erfolgreichen Launch
-              </p>
-            </div>
+        {/* Phases Section - EXACTLY like AlbaNova */}
+        <section className="py-12 md:py-20 lg:py-32 bg-black">
+          <div className="container mx-auto px-4 md:px-6">
+            <AnimatedSection>
+              <div className="text-center mb-12 md:mb-20">
+                <div className="mb-4 md:mb-6">
+                  <span className="text-purple-400 font-bold text-xs md:text-sm tracking-widest uppercase">
+                    Unser Prozess
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 md:mb-8">
+                  Die drei Phasen
+                </h2>
+                <p className="text-base md:text-lg lg:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
+                  Von der Strategie über die Kreation bis zur technischen Umsetzung – ein strukturierter Prozess für
+                  maximalen Erfolg.
+                </p>
+              </div>
+            </AnimatedSection>
 
-            <div className="space-y-24">
-              {phases.map((phase, index) => (
-                <div key={index} className="max-w-6xl mx-auto">
-                  <div className="grid lg:grid-cols-2 gap-12 items-start">
-                    <div className={index % 2 === 0 ? "lg:order-1" : "lg:order-2"}>
-                      <div className="sticky top-24">
-                        <div className="text-sm font-semibold text-purple-400 mb-4">
-                          {phase.number}
-                        </div>
-                        <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-                          {phase.title}
-                        </h3>
-                        <p className="text-lg text-gray-400">
-                          {phase.description}
-                        </p>
+            <div className="hidden md:block space-y-32">
+              {phases.map((phase, phaseIndex) => (
+                <AnimatedSection key={phaseIndex}>
+                  <div className={`grid lg:grid-cols-2 gap-12 items-center ${phaseIndex % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
+                    <div className={phaseIndex % 2 === 1 ? "lg:order-2" : ""}>
+                      <div className="mb-3 md:mb-4">
+                        <span className="text-purple-400 font-bold text-xs md:text-sm tracking-wider">{phase.number}</span>
+                      </div>
+                      <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6">{phase.title}</h2>
+                      <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">{phase.description}</p>
+                      <div className="space-y-4 md:space-y-6">
+                        {phase.features.map((feature, featureIndex) => {
+                          const Icon = feature.icon;
+                          return (
+                            <div key={featureIndex} className="flex items-start gap-3 md:gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300 active:scale-95">
+                              <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg md:rounded-xl flex items-center justify-center">
+                                <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                              </div>
+                              <div>
+                                <h3 className="text-white font-bold text-base md:text-lg mb-1 md:mb-2">{feature.title}</h3>
+                                <p className="text-sm md:text-base text-gray-400">{feature.description}</p>
+                              </div>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
-
-                    <div className={index % 2 === 0 ? "lg:order-2" : "lg:order-1"}>
-                      <div className="space-y-6">
-                        {phase.features.map((feature, fIndex) => (
-                          <div
-                            key={fIndex}
-                            className="p-6 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all"
-                          >
-                            <feature.icon className="w-8 h-8 text-purple-400 mb-4" />
-                            <h4 className="text-xl font-semibold mb-2 text-white">
-                              {feature.title}
-                            </h4>
-                            <p className="text-gray-400">
-                              {feature.description}
-                            </p>
-                          </div>
-                        ))}
+                    <div className={phaseIndex % 2 === 1 ? "lg:order-1" : ""}>
+                      <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-white/30 text-6xl font-black">{phase.number}</div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </AnimatedSection>
               ))}
             </div>
-          </AnimatedSection>
-        </div>
-      </section>
 
-      {/* Testimonial */}
-      <section className="py-24 bg-gradient-to-b from-gray-900 to-black">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="max-w-4xl mx-auto text-center">
-              <Quote className="w-16 h-16 text-purple-400 mx-auto mb-8 opacity-50" />
-              <blockquote className="text-2xl md:text-3xl font-light text-white mb-8 leading-relaxed">
-                "Wir haben täglich 4–6 Stunden Zeitersparnis im Support. Das Wissen ist endlich demokratisiert."
-              </blockquote>
-              <div className="text-gray-400">
-                <p className="font-semibold text-white">Projektleiter</p>
-                <p>Maschinenbau-KMU</p>
+            <div className="md:hidden">
+              <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
+                {phases.map((phase, phaseIndex) => (
+                  <div key={phaseIndex} className="min-w-[85vw] snap-center">
+                    <AnimatedSection>
+                      <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                        <div className="mb-3">
+                          <span className="text-purple-400 font-bold text-xs tracking-wider">{phase.number}</span>
+                        </div>
+                        <h3 className="text-2xl font-black text-white mb-3">{phase.title}</h3>
+                        <p className="text-sm text-gray-300 mb-6 leading-relaxed">{phase.description}</p>
+                        <div className="space-y-4">
+                          {phase.features.map((feature, featureIndex) => {
+                            const Icon = feature.icon;
+                            return (
+                              <div key={featureIndex} className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+                                <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                                  <Icon className="w-5 h-5 text-white" />
+                                </div>
+                                <div>
+                                  <h4 className="text-white font-bold text-sm mb-1">{feature.title}</h4>
+                                  <p className="text-xs text-gray-400">{feature.description}</p>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </AnimatedSection>
+                  </div>
+                ))}
+              </div>
+              <div className="flex justify-center gap-2 mt-4">
+                {phases.map((_, index) => (
+                  <div key={index} className="w-2 h-2 rounded-full bg-white/20" />
+                ))}
               </div>
             </div>
-          </AnimatedSection>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-black to-gray-900">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection>
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                Bereit für Ihr eigenes KI-Projekt?
+        {/* Testimonial Section */}
+        <section className="py-12 md:py-20 lg:py-32">
+          <div className="container mx-auto px-4 md:px-6">
+            <AnimatedSection>
+              <div className="max-w-4xl mx-auto text-center">
+                <Database className="w-12 h-12 md:w-16 md:h-16 text-purple-500 mx-auto mb-6 md:mb-8" />
+                <blockquote className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white leading-relaxed mb-6 md:mb-8">
+                  "Der RAG-Wissensagent hat unsere Arbeitsweise revolutioniert. Was früher Stunden dauerte, 
+                  finden wir jetzt in Sekunden. Die Investition hat sich bereits nach wenigen Monaten amortisiert."
+                </blockquote>
+                <div className="flex items-center justify-center gap-3 md:gap-4">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex-shrink-0" />
+                  <div className="text-left">
+                    <div className="font-bold text-white text-base md:text-lg">Thomas Müller</div>
+                    <div className="text-sm md:text-base text-gray-400">Geschäftsführer, Produktions-KMU</div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-gray-900 to-black">
+          <div className="container mx-auto px-4 md:px-6">
+            <AnimatedSection className="text-center max-w-4xl mx-auto">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 md:mb-6">
+                Bereit für Ihren eigenen KI-Agenten?
               </h2>
-              <p className="text-xl text-gray-400 mb-8">
-                Lassen Sie uns gemeinsam Ihre Wissensprozesse transformieren
+              <p className="text-base md:text-xl text-gray-300 mb-8 md:mb-10 leading-relaxed px-4">
+                Lassen Sie uns gemeinsam eine Strategie entwickeln, die Ihr Wissen intelligent zugänglich macht.
               </p>
               <button
                 onClick={scrollToContact}
-                className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all"
+                className="px-8 py-4 md:px-10 md:py-5 bg-white text-black font-bold rounded-full text-base md:text-lg hover:scale-105 active:scale-95 transition-transform duration-300 inline-flex items-center gap-3"
               >
                 Projekt starten
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
               </button>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+            </AnimatedSection>
+          </div>
+        </section>
 
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 };
