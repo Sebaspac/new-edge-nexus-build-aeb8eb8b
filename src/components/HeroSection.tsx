@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LazySplineScene } from "./LazySplineScene";
 import CyberneticGridShader from "./ui/cybernetic-grid-shader";
 import { SplashCursor } from "./ui/splash-cursor";
-import { InteractiveHoverButton } from "./ui/interactive-hover-button";
 interface HeroSectionProps {
   onContactClick: () => void;
 }
@@ -56,17 +57,13 @@ export const HeroSection = ({
               <p className="text-sm sm:text-base lg:text-lg text-neutral-300 max-w-xl mx-auto lg:mx-0">Von der ersten Beratung bis zur vollständigen Implementierung – New Edge ist die Creative-Tech-Agentur, die Strategie, Kreation und Automatisierung verbindet.</p>
               
               <div className="flex flex-col sm:flex-row gap-3 pt-6 justify-center lg:justify-start">
-                <InteractiveHoverButton 
-                  text="Kontakt" 
-                  onClick={onContactClick}
-                  className="w-auto px-6"
-                />
-                <Link to="/about">
-                  <InteractiveHoverButton 
-                    text="Über Uns"
-                    className="w-auto px-6"
-                  />
-                </Link>
+                <Button size="lg" onClick={onContactClick} className="group">
+                  Kontakt
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link to="/about">Über Uns</Link>
+                </Button>
               </div>
             </motion.div>
           </div>
