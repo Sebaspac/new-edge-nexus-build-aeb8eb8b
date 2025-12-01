@@ -7,6 +7,7 @@ import { PositionedForImpactSection } from "../components/PositionedForImpactSec
 import { CaseStudiesGrid } from "../components/CaseStudiesGrid";
 import { AgencyEdgeSection } from "../components/AgencyEdgeSection";
 import { InnovationSection } from "../components/InnovationSection";
+import { InteractiveCore } from "../components/InteractiveCore";
 import { TestimonialsSection } from "../components/TestimonialsSection";
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { MobileNavigation } from "@/components/MobileNavigation";
@@ -186,15 +187,10 @@ const Index = () => {
         <AgencyEdgeSection />
 
         {/* Innovation Section */}
-        
+        <InnovationSection />
 
-        {/* Gemeinsam Zukunft gestalten Section */}
-        
-
-        {/* Problem-Lösung Sektion - Neu aus Briefing */}
-        
-
-        {/* Impact Points Section with Modern Animations */}
+        {/* Interactive Core - Digital Methodology Reactor */}
+        <InteractiveCore />
 
         {/* Testimonials Section */}
         <TestimonialsSection />
