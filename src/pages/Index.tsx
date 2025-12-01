@@ -9,6 +9,7 @@ import { AgencyEdgeSection } from "../components/AgencyEdgeSection";
 import { InnovationSection } from "../components/InnovationSection";
 import { InteractiveCore } from "../components/InteractiveCore";
 import { TestimonialsSection } from "../components/TestimonialsSection";
+import { BlogGrid } from "@/components/BlogGrid";
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
@@ -312,6 +313,9 @@ const Index = () => {
 
         {/* Testimonials Section */}
         <TestimonialsSection />
+
+        {/* Blog Section */}
+        <BlogGrid />
 
         {/* Contact Section */}
         <section id="contact-section" className="relative py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
