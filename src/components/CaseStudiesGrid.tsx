@@ -88,7 +88,7 @@ export const CaseStudiesGrid = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Link to={caseStudy.route} className="block group">
-                <div className="relative overflow-hidden aspect-[4/5] bg-gray-100">
+                <div className="relative overflow-hidden aspect-square bg-gray-100">
                   {/* Image */}
                   <img 
                     src={caseStudy.image} 
