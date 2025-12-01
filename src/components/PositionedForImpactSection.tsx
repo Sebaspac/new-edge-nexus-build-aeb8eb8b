@@ -53,7 +53,7 @@ export const PositionedForImpactSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
+            <div className="relative rounded-2xl overflow-hidden aspect-[9/16]">
               <img
                 src={foundersImage}
                 alt="New Edge Founders"
