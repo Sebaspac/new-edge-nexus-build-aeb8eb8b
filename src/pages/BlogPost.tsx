@@ -100,26 +100,6 @@ const blogPostsData: Record<string, {
         }
       ]
     }
-  },
-  "social-media-trends": {
-    title: "Social Media Trends 2025",
-    category: "MARKETING",
-    date: "20. Oktober 2024",
-    author: "New Edge Team",
-    gradient: "from-green-600 to-emerald-600",
-    content: {
-      intro: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      sections: [
-        {
-          heading: "Die wichtigsten Trends für 2025",
-          text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          heading: "Wie Sie diese Trends nutzen können",
-          text: "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit."
-        }
-      ]
-    }
   }
 };
 
