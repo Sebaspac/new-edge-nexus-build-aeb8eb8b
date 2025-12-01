@@ -187,7 +187,7 @@ const Index = () => {
         <AgencyEdgeSection />
 
         {/* Innovation Section */}
-        <InnovationSection />
+        
 
         {/* Interactive Core - Digital Methodology Reactor */}
         <InteractiveCore />
