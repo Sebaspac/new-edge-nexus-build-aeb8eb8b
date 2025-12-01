@@ -1,393 +1,349 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Fingerprint, Cpu, Zap } from "lucide-react";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Fingerprint, Cpu, Zap } from 'lucide-react';
 
-type StateType = "studio" | "media" | "lab";
+type StateType = 'human' | 'machine' | 'fusion';
 
-interface State {
-  id: StateType;
+interface ContentState {
   title: string;
+  subtitle: string;
   description: string;
   tags: string[];
   color: string;
-  glowColor: string;
   icon: typeof Fingerprint;
 }
 
-const states: State[] = [
-  {
-    id: "studio",
-    title: "HUMAN INTUITION",
-    description: "Am Anfang steht nicht der Code, sondern der Charakter. Wir dechiffrieren Ihre Identität, Ihre Werte und Ihre Vision. Strategie ist zutiefst menschlich.",
-    tags: ["Brand Identity", "Storytelling", "Creative Direction"],
-    color: "59 130 246", // blue-500
-    glowColor: "147 197 253", // blue-300
-    icon: Fingerprint,
+const content: Record<StateType, ContentState> = {
+  human: {
+    title: 'HUMAN INTUITION',
+    subtitle: 'Strategie & Seele',
+    description: 'Markenpositionierung, kreative Konzeption und emotionale Storytelling-Strategien, die menschliche Verbindungen schaffen.',
+    tags: ['Strategie', 'Kreativität', 'Empathie'],
+    color: '#3b82f6',
+    icon: Fingerprint
   },
-  {
-    id: "media",
-    title: "ARTIFICIAL INTELLIGENCE",
-    description: "Wir bauen intelligente Systeme, die Ihre Reichweite potenzieren. Automatisierung, KI-Agenten und datengetriebene Entscheidungen schaffen den Raum für Wachstum.",
-    tags: ["Process Automation", "Generative AI", "Data Analytics"],
-    color: "236 72 153", // pink-500
-    glowColor: "249 168 212", // pink-300
-    icon: Cpu,
+  machine: {
+    title: 'ARTIFICIAL INTELLIGENCE',
+    subtitle: 'Skalierung & Automation',
+    description: 'KI-gestützte Content-Generierung, Prozessautomatisierung und datengetriebene Optimierung für maximale Effizienz.',
+    tags: ['Automation', 'Skalierung', 'Effizienz'],
+    color: '#ec4899',
+    icon: Cpu
   },
-  {
-    id: "lab",
-    title: "THE NEW EDGE",
-    description: "Hier entsteht der Wettbewerbsvorteil. Wenn menschliche Kreativität auf maschinelle Effizienz trifft, entstehen Marken, die nicht nur gesehen, sondern gefühlt und genutzt werden.",
-    tags: ["Market Dominance", "Hyper-Efficiency", "Next-Gen Experience"],
-    color: "168 85 247", // purple-500
-    glowColor: "216 180 254", // purple-300
-    icon: Zap,
-  },
-];
+  fusion: {
+    title: 'THE NEW EDGE',
+    subtitle: 'Die Fusion',
+    description: 'Die perfekte Symbiose aus menschlicher Intuition und künstlicher Intelligenz. Hier entsteht der unfaire Vorteil.',
+    tags: ['Innovation', 'Synergie', 'Zukunft'],
+    color: '#a855f7',
+    icon: Zap
+  }
+};
 
 export const InteractiveCore = () => {
-  const [activeState, setActiveState] = useState<StateType>("studio");
-  const currentState = states.find((s) => s.id === activeState) || states[0];
+  const [activeState, setActiveState] = useState<StateType>('human');
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    setProgress(0);
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        return prev + 2;
+      });
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [activeState]);
+
+  const states: Array<{ key: StateType; label: string; number: string }> = [
+    { key: 'human', label: 'Intuition', number: '01' },
+    { key: 'machine', label: 'Intelligence', number: '02' },
+    { key: 'fusion', label: 'Edge', number: '03' }
+  ];
+
+  const activeContent = content[activeState];
+  const Icon = activeContent.icon;
 
   return (
-    <section className="relative py-32 bg-black overflow-hidden">
-      {/* Noise texture overlay */}
-      <div className="absolute inset-0 opacity-[0.015] pointer-events-none">
-        <svg className="w-full h-full">
-          <filter id="noise">
-            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#noise)" />
-        </svg>
-      </div>
+    <section className="relative py-32 bg-edge-black overflow-hidden">
+      {/* Noise Texture Overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+        }}
+      />
 
       <div className="container-xl relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
         >
-          <div className="text-white/40 text-xs font-medium tracking-[0.3em] uppercase mb-6">
-            The Methodology
+          <div className="inline-block px-6 py-2 mb-6 rounded-full bg-edge-panel border border-white/10">
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-white/60">
+              Digitale Methodik
+            </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-            Wie wir arbeiten.
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 text-white">
+            Der Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">Reactor</span>
           </h2>
+          <p className="text-xl text-white/60 max-w-2xl mx-auto">
+            Unser Geheimnis: Die perfekte Fusion von menschlicher Kreativität und künstlicher Intelligenz
+          </p>
         </motion.div>
 
-        {/* Split Screen Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Left Column - Control Panel */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-4 space-y-8"
-          >
+        {/* Split Container */}
+        <div className="grid lg:grid-cols-[400px_1fr] gap-8 items-stretch">
+          {/* LEFT COLUMN - Control Panel */}
+          <div className="flex flex-col gap-4">
             {states.map((state, index) => {
-              const isActive = activeState === state.id;
-
+              const isActive = activeState === state.key;
+              
               return (
                 <motion.button
-                  key={state.id}
-                  onClick={() => setActiveState(state.id)}
-                  className={`
-                    relative w-full text-left transition-all duration-500 group
-                    ${isActive ? "" : ""}
-                  `}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  key={state.key}
+                  onClick={() => setActiveState(state.key)}
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className={`
+                    relative p-6 text-left rounded-xl transition-all duration-500
+                    border overflow-hidden group
+                    ${isActive 
+                      ? 'bg-edge-panel border-white/20 shadow-lg shadow-purple-500/20' 
+                      : 'bg-transparent border-white/10 hover:bg-edge-panel hover:border-white/20'
+                    }
+                  `}
                 >
-                  <div className="flex items-center gap-6">
-                    {/* Number + Arrow */}
-                    <div className="flex items-center gap-3">
-                      <span className="text-white/40 text-sm font-medium">
-                        0{index + 1}.
-                      </span>
-                      {isActive && (
-                        <motion.div
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            className="text-white"
-                          >
-                            <path
-                              d="M5 12h14m-7-7l7 7-7 7"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </motion.div>
-                      )}
-                    </div>
-
-                    {/* Title */}
-                    <div className="flex-1">
-                      <h3
-                        className={`text-xl font-medium tracking-wide transition-all duration-300 ${
-                          isActive ? "text-white" : "text-white/40 group-hover:text-white/60"
-                        }`}
-                      >
-                        {state.id === "studio" && "INTUITION"}
-                        {state.id === "media" && "INTELLIGENCE"}
-                        {state.id === "lab" && "THE EDGE"}
-                      </h3>
-                    </div>
+                  {/* Number Badge */}
+                  <div className={`
+                    absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center
+                    text-xs font-bold transition-all duration-500
+                    ${isActive 
+                      ? 'bg-white/10 text-white' 
+                      : 'bg-white/5 text-white/40'
+                    }
+                  `}>
+                    {state.number}
                   </div>
 
-                  {/* Progress bar */}
+                  {/* Label */}
+                  <div className="pr-12">
+                    <span className={`
+                      text-lg font-bold tracking-widest uppercase transition-all duration-500
+                      ${isActive ? 'text-white' : 'text-white/60'}
+                    `}>
+                      {state.label}
+                    </span>
+                  </div>
+
+                  {/* Progress Bar */}
                   {isActive && (
                     <motion.div
-                      className="mt-4 h-[2px] rounded-full"
-                      style={{
-                        background: `linear-gradient(90deg, rgb(${state.color}) 0%, transparent 100%)`,
-                      }}
-                      initial={{ scaleX: 0, originX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
+                      initial={{ width: '0%' }}
+                      animate={{ width: `${progress}%` }}
+                      transition={{ duration: 0.1 }}
                     />
+                  )}
+
+                  {/* Arrow Indicator */}
+                  {isActive && (
+                    <motion.div
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3"
+                    >
+                      <div className="w-2 h-2 bg-white rounded-full" />
+                    </motion.div>
                   )}
                 </motion.button>
               );
             })}
-          </motion.div>
+          </div>
 
-          {/* Right Column - Display Card */}
+          {/* RIGHT COLUMN - Display Card */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-8"
+            transition={{ duration: 0.8 }}
+            className="relative min-h-[600px] rounded-[3rem] overflow-hidden"
           >
-            <div className="relative h-full min-h-[700px] rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-white/[0.03] to-white/[0.01] backdrop-blur-3xl overflow-hidden shadow-2xl">
-              {/* System Status Badge */}
-              <div className="absolute top-8 right-8 z-20">
-                <div className="px-4 py-2 rounded-lg border border-white/10 bg-black/40 backdrop-blur-xl">
-                  <span className="text-white/60 text-xs font-mono tracking-wider uppercase">
-                    System Status: <span className="text-emerald-400">Online</span>
-                  </span>
-                </div>
-              </div>
-              {/* Animated Background */}
-              <div className="absolute inset-0">
-                <AnimatePresence mode="wait">
-                  {activeState === "studio" && (
-                    <motion.div
-                      key="studio-bg"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.6 }}
-                      className="absolute inset-0"
-                    >
-                      {/* Breathing circular pulses */}
-                      {[...Array(3)].map((_, i) => (
-                        <motion.div
-                          key={i}
-                          className="absolute rounded-full"
-                          style={{
-                            top: `${30 + i * 15}%`,
-                            left: `${20 + i * 20}%`,
-                            width: `${200 + i * 100}px`,
-                            height: `${200 + i * 100}px`,
-                            background: `radial-gradient(circle, rgba(${currentState.color}, ${0.1 - i * 0.02}) 0%, transparent 70%)`,
-                            filter: "blur(40px)",
-                          }}
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.3, 0.5, 0.3],
-                          }}
-                          transition={{
-                            duration: 4 + i,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                          }}
-                        />
-                      ))}
-                    </motion.div>
-                  )}
+            {/* Glass Card Base */}
+            <div className="absolute inset-0 bg-edge-panel backdrop-blur-3xl border border-white/10" />
 
-                  {activeState === "media" && (
-                    <motion.div
-                      key="media-bg"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.6 }}
-                      className="absolute inset-0"
-                    >
-                      {/* Technical grid */}
-                      <div className="absolute inset-0 opacity-20">
-                        <div
-                          className="w-full h-full"
-                          style={{
-                            backgroundImage: `
-                              linear-gradient(rgba(${currentState.color}, 0.3) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(${currentState.color}, 0.3) 1px, transparent 1px)
-                            `,
-                            backgroundSize: "50px 50px",
-                          }}
-                        />
-                      </div>
-                      {/* Glitchy blocks */}
-                      {[...Array(5)].map((_, i) => (
+            {/* Animated Background Ambience */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`bg-${activeState}`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.8 }}
+                className="absolute inset-0"
+              >
+                {/* Large Colored Blur Circle */}
+                <div
+                  className="absolute top-1/2 right-1/4 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] rounded-full blur-[120px] opacity-30"
+                  style={{ backgroundColor: activeContent.color }}
+                />
+
+                {/* Visual Abstract Layer - Right Side */}
+                <div className="absolute inset-0 translate-x-1/4">
+                  {activeState === 'human' && (
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                      {[...Array(4)].map((_, i) => (
                         <motion.div
                           key={i}
-                          className="absolute"
+                          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-500/20"
                           style={{
-                            top: `${i * 20}%`,
-                            left: `${i * 15}%`,
-                            width: `${80 + i * 20}px`,
-                            height: `${80 + i * 20}px`,
-                            background: `rgba(${currentState.color}, 0.15)`,
-                            filter: "blur(20px)",
+                            width: `${150 + i * 80}px`,
+                            height: `${150 + i * 80}px`,
                           }}
                           animate={{
-                            x: [0, 20, -10, 0],
-                            y: [0, -20, 10, 0],
-                            opacity: [0.2, 0.4, 0.3, 0.2],
+                            scale: [1, 1.1, 1],
+                            opacity: [0.3, 0.6, 0.3],
                           }}
                           transition={{
                             duration: 3 + i * 0.5,
                             repeat: Infinity,
-                            ease: "linear",
+                            ease: 'easeInOut',
                           }}
                         />
                       ))}
-                    </motion.div>
+                    </div>
                   )}
 
-                  {activeState === "lab" && (
-                    <motion.div
-                      key="lab-bg"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.6 }}
-                      className="absolute inset-0 flex items-center justify-center"
-                    >
-                      {/* Orbital reactor core */}
-                      <motion.div
-                        className="relative w-64 h-64"
-                        animate={{ rotate: 360 }}
-                        transition={{
-                          duration: 20,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                      >
-                        {[...Array(3)].map((_, i) => (
+                  {activeState === 'machine' && (
+                    <div className="absolute inset-0">
+                      <div className="grid grid-cols-8 grid-rows-8 w-full h-full gap-4 p-12">
+                        {[...Array(64)].map((_, i) => (
                           <motion.div
                             key={i}
-                            className="absolute inset-0 rounded-full border-2 opacity-30"
-                            style={{
-                              borderColor: `rgb(${currentState.color})`,
-                              transform: `scale(${1 + i * 0.4})`,
-                            }}
+                            className="bg-pink-500/10 border border-pink-500/20 rounded"
                             animate={{
-                              rotate: i % 2 === 0 ? -360 : 360,
-                              opacity: [0.3, 0.6, 0.3],
+                              opacity: [0.1, 0.6, 0.1],
                             }}
                             transition={{
-                              rotate: {
-                                duration: 10 + i * 2,
-                                repeat: Infinity,
-                                ease: "linear",
-                              },
-                              opacity: {
-                                duration: 3,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                              },
+                              duration: 2,
+                              repeat: Infinity,
+                              delay: i * 0.05,
                             }}
                           />
                         ))}
-                        <div
-                          className="absolute inset-0 rounded-full"
-                          style={{
-                            background: `radial-gradient(circle, rgba(${currentState.color}, 0.3) 0%, transparent 70%)`,
-                            filter: "blur(60px)",
-                          }}
-                        />
-                      </motion.div>
-                    </motion.div>
+                      </div>
+                    </div>
                   )}
-                </AnimatePresence>
-              </div>
 
-              {/* Content */}
-              <div className="relative z-10 h-full flex flex-col p-12 lg:p-16">
+                  {activeState === 'fusion' && (
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                      {[...Array(3)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute top-1/2 left-1/2"
+                          animate={{
+                            rotate: 360,
+                          }}
+                          transition={{
+                            duration: 8 - i * 2,
+                            repeat: Infinity,
+                            ease: 'linear',
+                          }}
+                        >
+                          <div
+                            className="w-32 h-32 rounded-full border-2 border-purple-500/30"
+                            style={{
+                              transform: `translate(-50%, -50%) translateX(${100 + i * 40}px)`,
+                            }}
+                          />
+                        </motion.div>
+                      ))}
+                      <div className="w-16 h-16 rounded-full bg-purple-500/20 backdrop-blur animate-pulse-slow" />
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Content */}
+            <div className="relative z-10 h-full p-12 flex flex-col">
+              {/* Top Row: Icon & Status */}
+              <div className="flex items-start justify-between mb-auto">
                 <AnimatePresence mode="wait">
                   <motion.div
-                    key={activeState}
+                    key={`icon-${activeState}`}
+                    initial={{ opacity: 0, scale: 0.8, rotate: -20 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, rotate: 20 }}
+                    transition={{ duration: 0.5 }}
+                    className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10"
+                    style={{ boxShadow: `0 0 40px ${activeContent.color}40` }}
+                  >
+                    <Icon className="w-12 h-12 text-white" />
+                  </motion.div>
+                </AnimatePresence>
+
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                    <span className="text-xs font-mono uppercase tracking-wider text-green-400">
+                      System Status: Online
+                    </span>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Main Content */}
+              <div className="space-y-6">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`content-${activeState}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5 }}
-                    className="flex flex-col h-full"
                   >
-                    {/* Icon */}
-                    <div
-                      className="w-20 h-20 rounded-2xl flex items-center justify-center mb-12 border border-white/10"
-                      style={{
-                        background: `rgba(${currentState.color}, 0.1)`,
-                      }}
-                    >
-                      <currentState.icon
-                        className="w-9 h-9"
-                        style={{ color: `rgb(${currentState.color})` }}
-                        strokeWidth={1.5}
-                      />
-                    </div>
-
-                    {/* Category Label */}
+                    {/* Title & Subtitle */}
                     <div className="mb-6">
-                      <span
-                        className="text-xs font-medium tracking-[0.2em] uppercase"
-                        style={{ color: `rgb(${currentState.color})` }}
-                      >
-                        {activeState === "studio" && "Die Seele der Marke"}
-                        {activeState === "media" && "Die Kraft der Skalierung"}
-                        {activeState === "lab" && "Symbiose für Marktführer"}
-                      </span>
+                      <h3 className="text-5xl font-black mb-3 text-white tracking-tight">
+                        {activeContent.title}
+                      </h3>
+                      <p className="text-xl text-white/50 font-light">
+                        {activeContent.subtitle}
+                      </p>
                     </div>
-
-                    {/* Title */}
-                    <h3 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
-                      {currentState.title}
-                    </h3>
 
                     {/* Description */}
-                    <p className="text-white/60 text-base lg:text-lg mb-auto leading-relaxed max-w-2xl">
-                      {currentState.description}
+                    <p className="text-lg text-white/70 leading-relaxed mb-8 max-w-xl">
+                      {activeContent.description}
                     </p>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mt-12">
-                      {currentState.tags.map((tag) => (
-                        <div key={tag} className="flex items-center gap-2">
-                          <div
-                            className="w-1.5 h-1.5 rounded-full"
-                            style={{ background: `rgb(${currentState.color})` }}
-                          />
-                          <span className="text-white/50 text-sm font-medium uppercase tracking-wider">
-                            {tag}
-                          </span>
-                        </div>
+                    <div className="flex flex-wrap gap-3">
+                      {activeContent.tags.map((tag, i) => (
+                        <motion.span
+                          key={tag}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.3 + i * 0.1 }}
+                          className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-white/80 backdrop-blur"
+                        >
+                          {tag}
+                        </motion.span>
                       ))}
                     </div>
                   </motion.div>
