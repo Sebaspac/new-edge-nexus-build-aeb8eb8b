@@ -13,6 +13,7 @@ import { BlogGrid } from "@/components/BlogGrid";
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
+import LogoCloud from "@/components/ui/logo-cloud";
 import { lazy, Suspense, useCallback, useState, useEffect } from "react";
 import { ProblemSolutionSection } from "@/components/ProblemSolutionSection";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -177,6 +178,9 @@ const Index = () => {
 
         {/* Methodology Grid Section */}
         <MethodologyGrid />
+
+        {/* Logo Cloud */}
+        <LogoCloud />
 
         {/* Positioned for Impact Section */}
         <PositionedForImpactSection />
