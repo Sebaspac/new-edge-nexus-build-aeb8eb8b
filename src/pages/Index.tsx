@@ -7,6 +7,7 @@ import { PositionedForImpactSection } from "../components/PositionedForImpactSec
 import { CaseStudiesGrid } from "../components/CaseStudiesGrid";
 import { AgencyEdgeSection } from "../components/AgencyEdgeSection";
 import { InnovationSection } from "../components/InnovationSection";
+import { TestimonialsSection } from "../components/TestimonialsSection";
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
@@ -194,6 +195,9 @@ const Index = () => {
         
 
         {/* Impact Points Section with Modern Animations */}
+
+        {/* Testimonials Section */}
+        <TestimonialsSection />
 
         {/* Unsere Kompetenzbereiche - Light Section */}
         <section className="relative py-24 bg-white overflow-hidden">
