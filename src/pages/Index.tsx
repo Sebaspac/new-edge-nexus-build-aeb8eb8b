@@ -5,6 +5,7 @@ import { ServicesOverviewSection } from "../components/ServicesOverviewSection";
 import { MethodologyGrid } from "../components/MethodologyGrid";
 import { PositionedForImpactSection } from "../components/PositionedForImpactSection";
 import { CaseStudiesGrid } from "../components/CaseStudiesGrid";
+import { AgencyEdgeSection } from "../components/AgencyEdgeSection";
 import { InnovationSection } from "../components/InnovationSection";
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { MobileNavigation } from "@/components/MobileNavigation";
@@ -179,6 +180,9 @@ const Index = () => {
 
         {/* Case Studies Grid */}
         <CaseStudiesGrid />
+
+        {/* Agency Edge Section */}
+        <AgencyEdgeSection />
 
         {/* Innovation Section */}
         <InnovationSection />
