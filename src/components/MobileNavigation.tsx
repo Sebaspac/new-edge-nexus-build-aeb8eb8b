@@ -47,20 +47,20 @@ export const MobileNavigation = ({
       <ContactFormModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} accentColor="#000" gradientFrom="#000" gradientTo="#333" theme="studio" />
       
       {/* Desktop Navigation */}
-      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[#1A1A1A] rounded-full backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-8' : 'py-5 px-10'}`}>
-        <div className="flex items-center justify-between gap-8">
-          {/* Logo + Text */}
-          <Link to="/" className="flex items-center gap-3">
+      <nav className={`fixed top-0 left-0 right-0 z-50 bg-[#1A1A1A]/95 backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out hidden lg:block ${isScrolled ? 'py-4' : 'py-6'}`}>
+        <div className="container mx-auto px-8 flex items-center justify-between gap-8">
+          {/* Logo - Links positioniert */}
+          <Link to="/" className="flex items-center">
             <motion.div whileHover={{
-            scale: 1.05
+            scale: 1.02
           }} whileTap={{
             scale: 0.98
-          }} className="flex items-center gap-3">
-              <OptimizedLogo className={`transition-all duration-500 ${isScrolled ? 'h-8 w-auto' : 'h-12 w-auto'}`} width={isScrolled ? 120 : 160} height={isScrolled ? 32 : 48} />
+          }} className="flex items-center">
+              <OptimizedLogo className={`transition-all duration-500 ${isScrolled ? 'h-10 w-auto' : 'h-14 w-auto'}`} width={isScrolled ? 180 : 220} height={isScrolled ? 40 : 56} />
             </motion.div>
           </Link>
 
-          {/* Navigation Links */}
+          {/* Navigation Links - Rechts positioniert */}
           <div className="flex items-center gap-8">
             {/* Services Dropdown */}
             <div className="relative group">
@@ -118,11 +118,11 @@ export const MobileNavigation = ({
           <div className="flex items-center justify-between">
             <Link to="/">
               <motion.div whileHover={{
-              scale: 1.05
+              scale: 1.02
             }} whileTap={{
               scale: 0.98
             }} className="flex items-center">
-                <OptimizedLogo className="h-10 w-auto" width={140} height={40} />
+                <OptimizedLogo className="h-12 w-auto" width={160} height={48} />
               </motion.div>
             </Link>
 
