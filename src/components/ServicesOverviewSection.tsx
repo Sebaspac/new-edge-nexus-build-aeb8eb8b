@@ -1,128 +1,61 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { TextStaggerHover, TextStaggerHoverActive, TextStaggerHoverHidden } from "@/components/ui/text-stagger-hover";
+
 export const ServicesOverviewSection = () => {
-  const services = [
-    {
-      title: "KI Beratung & Workshops",
-      path: "/services",
-    },
-    {
-      title: "KI Agenten für Unternehmen",
-      path: "/products",
-    },
-    {
-      title: "Markenstrategie",
-      path: "/studio",
-    },
-    {
-      title: "Kampagnenmanagement",
-      path: "/media",
-    },
-    {
-      title: "Web- & Prototyp Design",
-      path: "/lab",
-    },
-    {
-      title: "KI-gestütztes Marketing & Automation",
-      path: "/media",
-    },
-  ];
   return (
-    <section className="relative pt-20 pb-12 lg:py-16 bg-background">
+    <section className="relative py-24 bg-white">
       <div className="container-xl">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left side: Text */}
+        <div className="max-w-7xl mx-auto">
+          {/* Large headline with purple accent */}
           <motion.div
-            initial={{
-              opacity: 0,
-              x: -20,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.6,
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
           >
-            <h2 className="text-h1 mb-10 text-black">
-              Wir bringen Ihr Unternehmen{" "}
-              <span className="bg-gradient-primary bg-clip-text text-transparent inline-block">an die Spitze</span>{" "}
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-black leading-[1.1] mb-8">
+              Wir bringen Ihr <br />
+              Unternehmen{" "}
+              <span className="bg-gradient-to-r from-[#7C3AED] to-[#A78BFA] bg-clip-text text-transparent">
+                an die Spitze
+              </span>{" "}
+              <br />
               Ihrer Branche
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed font-normal lg:text-xl">
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl leading-relaxed font-normal">
               Unser Creative-Tech-Team vereint Strategie-Know-how und Praxiserfahrung, um maßgeschneiderte Kreativ- und
-              Automationslösungen, die auf die spezifischen Bedürfnisse und Herausforderungen Ihres Unternehmens
-              zugeschnitten sind.
+              Automationslösungen zu entwickeln, die auf die spezifischen Bedürfnisse Ihres Unternehmens zugeschnitten sind.
             </p>
           </motion.div>
 
-          {/* Right side: Services List */}
+          {/* Modern callout box */}
           <motion.div
-            initial={{
-              opacity: 0,
-              x: 20,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.6,
-              delay: 0.2,
-            }}
-            className="flex flex-col items-end space-y-4 lg:space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-gray-50 rounded-3xl p-8 md:p-12 border-l-4 border-[#7C3AED]"
           >
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.3 + index * 0.1,
-                }}
-                className="w-full lg:w-auto"
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div className="flex-1">
+                <h3 className="text-2xl md:text-3xl font-bold text-black mb-3">
+                  Bereit für die Zukunft?
+                </h3>
+                <p className="text-lg text-gray-600">
+                  Lassen Sie uns gemeinsam Ihre Vision in die Realität umsetzen.
+                </p>
+              </div>
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 bg-[#7C3AED] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#6D28D9] transition-colors"
               >
-                <Link
-                  to={service.path}
-                  className="group flex items-center justify-start lg:justify-end gap-3 lg:gap-4 text-left lg:text-right py-3 px-4 lg:py-4 lg:px-6 rounded-lg transition-all duration-200 hover:bg-primary/5"
-                >
-                  <ArrowRight className="w-5 h-5 lg:w-7 lg:h-7 text-muted-foreground group-hover:text-primary transition-all duration-200 group-hover:translate-x-1 lg:order-2" />
-                  <TextStaggerHover as="span" className="flex-1">
-                    <TextStaggerHoverActive
-                      animation="right"
-                      className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-epilogue font-light tracking-tight text-foreground"
-                    >
-                      {service.title}
-                    </TextStaggerHoverActive>
-                    <TextStaggerHoverHidden
-                      animation="left"
-                      className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-epilogue font-light tracking-tight text-primary"
-                    >
-                      {service.title}
-                    </TextStaggerHoverHidden>
-                  </TextStaggerHover>
-                </Link>
-              </motion.div>
-            ))}
+                Jetzt starten
+                <ArrowRight className="w-5 h-5" />
+              </motion.a>
+            </div>
           </motion.div>
         </div>
       </div>
