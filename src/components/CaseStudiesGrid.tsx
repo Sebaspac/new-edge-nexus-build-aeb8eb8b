@@ -78,7 +78,7 @@ export const CaseStudiesGrid = () => {
         </div>
 
         {/* Case Studies Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
           {caseStudies.map((caseStudy, index) => (
             <motion.div
               key={caseStudy.id}
@@ -88,7 +88,7 @@ export const CaseStudiesGrid = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Link to={caseStudy.route} className="block group">
-                <div className="relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-100">
+                <div className="relative overflow-hidden aspect-[4/5] bg-gray-100">
                   {/* Image */}
                   <img 
                     src={caseStudy.image} 
@@ -125,7 +125,7 @@ export const CaseStudiesGrid = () => {
                     
                     {/* Bottom: Category Tag */}
                     <div>
-                      <span className="inline-block border border-white/80 rounded-full px-4 py-1.5 text-xs font-bold text-white uppercase tracking-wider">
+                      <span className="inline-block border border-white/80 px-4 py-1.5 text-xs font-bold text-white uppercase tracking-wider">
                         {caseStudy.category}
                       </span>
                     </div>
