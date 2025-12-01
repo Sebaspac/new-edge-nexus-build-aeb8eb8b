@@ -27,6 +27,7 @@ import Careers from "./pages/Careers";
 import About from "./pages/About";
 import Resources from "./pages/Resources";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import News from "./pages/News";
 
 // Only lazy load rarely visited pages
@@ -73,9 +74,10 @@ const App = () => {
             <Route path="/careers" element={<Careers />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/about" element={<About />} />
-                  <Route path="/resources" element={<Resources />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/news" element={<News />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/news" element={<News />} />
                   <Route path="/impressum" element={<Impressum />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
