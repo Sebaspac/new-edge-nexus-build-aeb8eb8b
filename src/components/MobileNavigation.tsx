@@ -48,7 +48,7 @@ export const MobileNavigation = ({
       <ContactFormModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} accentColor="#000" gradientFrom="#000" gradientTo="#333" theme="studio" />
       
       {/* Desktop Navigation */}
-      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[#1A1A1A] rounded-full backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-8 max-w-4xl' : 'py-5 px-10 max-w-5xl'}`}>
+      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[#1A1A1A] rounded-full backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-8 max-w-6xl' : 'py-5 px-10 max-w-7xl'}`}>
         <div className="flex items-center justify-between gap-8">
           {/* Logo + Text */}
           <Link to="/" className="flex items-center gap-3">
