@@ -56,8 +56,7 @@ export const MobileNavigation = ({
           }} whileTap={{
             scale: 0.98
           }} className="flex items-center gap-3">
-              <OptimizedLogo className={`transition-all duration-500 ${isScrolled ? 'h-7 w-7' : 'h-10 w-10'}`} width={isScrolled ? 28 : 40} height={isScrolled ? 28 : 40} />
-              
+              <OptimizedLogo className={`transition-all duration-500 ${isScrolled ? 'h-8 w-auto' : 'h-12 w-auto'}`} width={isScrolled ? 120 : 160} height={isScrolled ? 32 : 48} />
             </motion.div>
           </Link>
 
@@ -123,10 +122,7 @@ export const MobileNavigation = ({
             }} whileTap={{
               scale: 0.98
             }} className="flex items-center">
-                <OptimizedLogo className="h-8 w-8 mr-3" width={32} height={32} />
-                <div className="text-2xl font-bold text-black">
-                  New Edge
-                </div>
+                <OptimizedLogo className="h-10 w-auto" width={140} height={40} />
               </motion.div>
             </Link>
 
