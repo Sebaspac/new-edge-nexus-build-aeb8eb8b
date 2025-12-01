@@ -192,9 +192,6 @@ const Index = () => {
         {/* Interactive Core - Digital Methodology Reactor */}
         <InteractiveCore />
 
-        {/* Testimonials Section */}
-        <TestimonialsSection />
-
         {/* Unsere Kompetenzbereiche - Light Section */}
         <section className="relative py-24 bg-white overflow-hidden">
           <div className="container-xl relative z-10">
@@ -312,6 +309,9 @@ const Index = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* Testimonials Section */}
+        <TestimonialsSection />
 
         {/* Contact Section */}
         <section id="contact-section" className="relative py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
