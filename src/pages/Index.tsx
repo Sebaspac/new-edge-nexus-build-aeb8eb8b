@@ -4,6 +4,7 @@ import { HeroSection } from "../components/HeroSection";
 import { ServicesOverviewSection } from "../components/ServicesOverviewSection";
 import { MethodologyGrid } from "../components/MethodologyGrid";
 import { PositionedForImpactSection } from "../components/PositionedForImpactSection";
+import { CaseStudiesGrid } from "../components/CaseStudiesGrid";
 import { InnovationSection } from "../components/InnovationSection";
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { MobileNavigation } from "@/components/MobileNavigation";
@@ -175,6 +176,9 @@ const Index = () => {
 
         {/* Positioned for Impact Section */}
         <PositionedForImpactSection />
+
+        {/* Case Studies Grid */}
+        <CaseStudiesGrid />
 
         {/* Innovation Section */}
         <InnovationSection />
