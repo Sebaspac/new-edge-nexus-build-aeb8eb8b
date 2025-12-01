@@ -17,27 +17,27 @@ interface State {
 const states: State[] = [
   {
     id: "studio",
-    title: "STUDIO — Strategie & Seele",
-    description: "Wir erschaffen Markenwelten, die berühren. Durch menschenzentriertes Design und strategische Tiefe entwickeln wir digitale Erlebnisse mit Purpose und Persönlichkeit.",
-    tags: ["Brand Strategy", "UX Design", "Creative Direction"],
+    title: "HUMAN INTUITION",
+    description: "Am Anfang steht nicht der Code, sondern der Charakter. Wir dechiffrieren Ihre Identität, Ihre Werte und Ihre Vision. Strategie ist zutiefst menschlich.",
+    tags: ["Brand Identity", "Storytelling", "Creative Direction"],
     color: "59 130 246", // blue-500
     glowColor: "147 197 253", // blue-300
     icon: Fingerprint,
   },
   {
     id: "media",
-    title: "MEDIA — Skalierung & Automatisierung",
-    description: "Performance meets Präzision. Mit KI-gestützten Kampagnen und datengetriebenen Insights schaffen wir messbare Ergebnisse und maximale Reichweite.",
-    tags: ["AI Marketing", "Automation", "Performance Analytics"],
+    title: "ARTIFICIAL INTELLIGENCE",
+    description: "Wir bauen intelligente Systeme, die Ihre Reichweite potenzieren. Automatisierung, KI-Agenten und datengetriebene Entscheidungen schaffen den Raum für Wachstum.",
+    tags: ["Process Automation", "Generative AI", "Data Analytics"],
     color: "236 72 153", // pink-500
     glowColor: "249 168 212", // pink-300
     icon: Cpu,
   },
   {
     id: "lab",
-    title: "LAB — Die Fusion",
-    description: "Hier verschmelzen Mensch und Maschine. Unser Innovation Lab verbindet kreative Exzellenz mit technologischer Power zu disruptiven Lösungen der Zukunft.",
-    tags: ["Innovation", "AI Integration", "Future Tech"],
+    title: "THE NEW EDGE",
+    description: "Hier entsteht der Wettbewerbsvorteil. Wenn menschliche Kreativität auf maschinelle Effizienz trifft, entstehen Marken, die nicht nur gesehen, sondern gefühlt und genutzt werden.",
+    tags: ["Market Dominance", "Hyper-Efficiency", "Next-Gen Experience"],
     color: "168 85 247", // purple-500
     glowColor: "216 180 254", // purple-300
     icon: Zap,
@@ -67,103 +67,102 @@ export const InteractiveCore = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="mb-16"
         >
-          <div className="inline-block px-6 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-6">
-            <span className="text-white/60 text-sm font-medium tracking-wider uppercase">
-              Digital Methodology Reactor
-            </span>
+          <div className="text-white/40 text-xs font-medium tracking-[0.3em] uppercase mb-6">
+            The Methodology
           </div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-            Human + AI = <span style={{ color: `rgb(${currentState.color})` }}>Edge</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+            Wie wir arbeiten.
           </h2>
-          <p className="text-white/60 text-xl max-w-3xl mx-auto">
-            Unser Framework verbindet kreative Intelligenz mit technologischer Präzision
-          </p>
         </motion.div>
 
         {/* Split Screen Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left Column - Control Panel */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-4"
+            className="lg:col-span-4 space-y-8"
           >
-            <div className="space-y-4">
-              {states.map((state, index) => {
-                const Icon = state.icon;
-                const isActive = activeState === state.id;
+            {states.map((state, index) => {
+              const isActive = activeState === state.id;
 
-                return (
-                  <motion.button
-                    key={state.id}
-                    onClick={() => setActiveState(state.id)}
-                    className={`
-                      relative w-full p-8 rounded-2xl text-left transition-all duration-500
-                      border backdrop-blur-xl
-                      ${
-                        isActive
-                          ? "border-white/20 bg-white/5"
-                          : "border-white/5 bg-white/[0.02] hover:border-white/10 hover:bg-white/[0.03]"
-                      }
-                    `}
-                    whileHover={{ scale: isActive ? 1 : 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  >
-                    {/* Glow effect */}
-                    {isActive && (
-                      <motion.div
-                        className="absolute inset-0 rounded-2xl"
-                        style={{
-                          boxShadow: `0 0 40px rgba(${state.glowColor}, 0.3), inset 0 0 40px rgba(${state.glowColor}, 0.1)`,
-                        }}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5 }}
-                      />
-                    )}
-
-                    <div className="relative z-10">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div
-                          className="w-12 h-12 rounded-xl flex items-center justify-center"
-                          style={{
-                            background: `rgba(${state.color}, ${isActive ? 0.2 : 0.1})`,
-                          }}
-                        >
-                          <Icon
-                            className="w-6 h-6"
-                            style={{ color: `rgb(${state.color})` }}
-                            strokeWidth={1.5}
-                          />
-                        </div>
-                        <h3 className="text-xl font-bold text-white">
-                          {state.id.toUpperCase()}
-                        </h3>
-                      </div>
-
-                      {/* Progress bar */}
-                      <div className="relative h-1 bg-white/5 rounded-full overflow-hidden">
+              return (
+                <motion.button
+                  key={state.id}
+                  onClick={() => setActiveState(state.id)}
+                  className={`
+                    relative w-full text-left transition-all duration-500 group
+                    ${isActive ? "" : ""}
+                  `}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                >
+                  <div className="flex items-center gap-6">
+                    {/* Number + Arrow */}
+                    <div className="flex items-center gap-3">
+                      <span className="text-white/40 text-sm font-medium">
+                        0{index + 1}.
+                      </span>
+                      {isActive && (
                         <motion.div
-                          className="absolute inset-y-0 left-0 rounded-full"
-                          style={{ background: `rgb(${state.color})` }}
-                          initial={{ width: "0%" }}
-                          animate={{ width: isActive ? "100%" : "0%" }}
-                          transition={{ duration: 0.8, ease: "easeInOut" }}
-                        />
-                      </div>
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            className="text-white"
+                          >
+                            <path
+                              d="M5 12h14m-7-7l7 7-7 7"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </motion.div>
+                      )}
                     </div>
-                  </motion.button>
-                );
-              })}
-            </div>
+
+                    {/* Title */}
+                    <div className="flex-1">
+                      <h3
+                        className={`text-xl font-medium tracking-wide transition-all duration-300 ${
+                          isActive ? "text-white" : "text-white/40 group-hover:text-white/60"
+                        }`}
+                      >
+                        {state.id === "studio" && "INTUITION"}
+                        {state.id === "media" && "INTELLIGENCE"}
+                        {state.id === "lab" && "THE EDGE"}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Progress bar */}
+                  {isActive && (
+                    <motion.div
+                      className="mt-4 h-[2px] rounded-full"
+                      style={{
+                        background: `linear-gradient(90deg, rgb(${state.color}) 0%, transparent 100%)`,
+                      }}
+                      initial={{ scaleX: 0, originX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                    />
+                  )}
+                </motion.button>
+              );
+            })}
           </motion.div>
 
           {/* Right Column - Display Card */}
@@ -174,7 +173,15 @@ export const InteractiveCore = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-8"
           >
-            <div className="relative h-full min-h-[600px] rounded-[3rem] border border-white/10 bg-white/[0.02] backdrop-blur-2xl overflow-hidden">
+            <div className="relative h-full min-h-[700px] rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-white/[0.03] to-white/[0.01] backdrop-blur-3xl overflow-hidden shadow-2xl">
+              {/* System Status Badge */}
+              <div className="absolute top-8 right-8 z-20">
+                <div className="px-4 py-2 rounded-lg border border-white/10 bg-black/40 backdrop-blur-xl">
+                  <span className="text-white/60 text-xs font-mono tracking-wider uppercase">
+                    System Status: <span className="text-emerald-400">Online</span>
+                  </span>
+                </div>
+              </div>
               {/* Animated Background */}
               <div className="absolute inset-0">
                 <AnimatePresence mode="wait">
@@ -323,7 +330,7 @@ export const InteractiveCore = () => {
               </div>
 
               {/* Content */}
-              <div className="relative z-10 h-full flex flex-col justify-between p-12 lg:p-16">
+              <div className="relative z-10 h-full flex flex-col p-12 lg:p-16">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeState}
@@ -331,46 +338,56 @@ export const InteractiveCore = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5 }}
+                    className="flex flex-col h-full"
                   >
                     {/* Icon */}
                     <div
-                      className="w-20 h-20 rounded-2xl flex items-center justify-center mb-8"
+                      className="w-20 h-20 rounded-2xl flex items-center justify-center mb-12 border border-white/10"
                       style={{
-                        background: `rgba(${currentState.color}, 0.15)`,
-                        boxShadow: `0 0 40px rgba(${currentState.glowColor}, 0.3)`,
+                        background: `rgba(${currentState.color}, 0.1)`,
                       }}
                     >
                       <currentState.icon
-                        className="w-10 h-10"
+                        className="w-9 h-9"
                         style={{ color: `rgb(${currentState.color})` }}
                         strokeWidth={1.5}
                       />
                     </div>
 
+                    {/* Category Label */}
+                    <div className="mb-6">
+                      <span
+                        className="text-xs font-medium tracking-[0.2em] uppercase"
+                        style={{ color: `rgb(${currentState.color})` }}
+                      >
+                        {activeState === "studio" && "Die Seele der Marke"}
+                        {activeState === "media" && "Die Kraft der Skalierung"}
+                        {activeState === "lab" && "Symbiose für Marktführer"}
+                      </span>
+                    </div>
+
                     {/* Title */}
-                    <h3 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                    <h3 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
                       {currentState.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-white/60 text-lg lg:text-xl mb-8 leading-relaxed max-w-2xl">
+                    <p className="text-white/60 text-base lg:text-lg mb-auto leading-relaxed max-w-2xl">
                       {currentState.description}
                     </p>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-2 mt-12">
                       {currentState.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm"
-                          style={{
-                            background: `rgba(${currentState.color}, 0.15)`,
-                            color: `rgb(${currentState.glowColor})`,
-                            border: `1px solid rgba(${currentState.color}, 0.3)`,
-                          }}
-                        >
-                          {tag}
-                        </span>
+                        <div key={tag} className="flex items-center gap-2">
+                          <div
+                            className="w-1.5 h-1.5 rounded-full"
+                            style={{ background: `rgb(${currentState.color})` }}
+                          />
+                          <span className="text-white/50 text-sm font-medium uppercase tracking-wider">
+                            {tag}
+                          </span>
+                        </div>
                       ))}
                     </div>
                   </motion.div>
