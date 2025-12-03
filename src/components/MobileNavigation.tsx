@@ -48,27 +48,27 @@ export const MobileNavigation = ({
       <ContactFormModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} accentColor="#000" gradientFrom="#000" gradientTo="#333" theme="studio" />
       
       {/* Desktop Navigation */}
-      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[#1A1A1A] rounded-full backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-8' : 'py-5 px-10'}`}>
-        <div className="flex items-center justify-between gap-8">
+      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[#1A1A1A] rounded-full backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-6' : 'py-4 px-8'}`} style={{ width: 'min(calc(100% - 320px), 1200px)' }}>
+        <div className="flex items-center justify-between w-full">
           {/* Logo + Text */}
           <Link to="/" className="flex items-center gap-3">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center gap-3">
               <OptimizedLogo 
-                className={`transition-all duration-500 ${isScrolled ? 'h-7 w-7' : 'h-10 w-10'}`} 
-                width={isScrolled ? 28 : 40} 
-                height={isScrolled ? 28 : 40} 
+                className={`transition-all duration-500 ${isScrolled ? 'h-7 w-7' : 'h-9 w-9'}`} 
+                width={isScrolled ? 28 : 36} 
+                height={isScrolled ? 28 : 36} 
               />
-              <div className={`font-bold text-white transition-all duration-500 ${isScrolled ? 'text-xl' : 'text-2xl'}`}>
+              <div className={`font-bold text-white transition-all duration-500 ${isScrolled ? 'text-lg' : 'text-xl'}`}>
                 New Edge
               </div>
             </motion.div>
           </Link>
 
           {/* Navigation Links */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6">
             {/* Services Dropdown */}
             <div className="relative group">
-              <button className="text-white hover:text-white/80 transition-all duration-300 font-medium">
+              <button className="text-white hover:text-white/80 transition-all duration-300 font-medium text-sm">
                 Services
               </button>
               <div className="absolute top-full left-0 mt-2 w-52 bg-[#1A1A1A] shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-[60] border border-white/10">
@@ -91,7 +91,7 @@ export const MobileNavigation = ({
 
             {/* Company Dropdown */}
             <div className="relative group">
-              <button className="text-white hover:text-white/80 transition-all duration-300 font-medium">
+              <button className="text-white hover:text-white/80 transition-all duration-300 font-medium text-sm">
                 Company
               </button>
               <div className="absolute top-full left-0 mt-2 w-52 bg-[#1A1A1A] shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-[60] border border-white/10">
@@ -111,7 +111,7 @@ export const MobileNavigation = ({
 
             <Button 
               onClick={onContactClick} 
-              className="bg-white text-black hover:bg-white/90 transition-all duration-200 hover:scale-[1.02] rounded-full font-medium" 
+              className="bg-white text-black hover:bg-white/90 transition-all duration-200 hover:scale-[1.02] rounded-full font-medium text-sm" 
               size="sm"
             >
               Kontakt
