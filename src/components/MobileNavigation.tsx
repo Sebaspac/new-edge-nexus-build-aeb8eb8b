@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Languages } from "lucide-react";
@@ -18,20 +18,11 @@ export const MobileNavigation = ({
 }: MobileNavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const {
     language,
     setLanguage
   } = useLanguage();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
   const isDark = theme === 'dark';
   const textColor = isDark ? 'text-white' : 'text-black';
   const textColorSecondary = isDark ? 'text-gray-300' : 'text-gray-600';
@@ -48,97 +39,69 @@ export const MobileNavigation = ({
       <ContactFormModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} accentColor="#000" gradientFrom="#000" gradientTo="#333" theme="studio" />
       
       {/* Desktop Navigation */}
-      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[#1A1A1A] rounded-full backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-8' : 'py-5 px-10'}`}>
-        <div className="flex items-center justify-between gap-8">
-          {/* Logo + Text */}
-          <Link to="/" className="flex items-center gap-3">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center gap-3">
-              <OptimizedLogo 
-                className={`transition-all duration-500 ${isScrolled ? 'h-7 w-7' : 'h-10 w-10'}`} 
-                width={isScrolled ? 28 : 40} 
-                height={isScrolled ? 28 : 40} 
-              />
-              <div className={`font-bold text-white transition-all duration-500 ${isScrolled ? 'text-xl' : 'text-2xl'}`}>
-                New Edge
-              </div>
-            </motion.div>
-          </Link>
-
-          {/* Navigation Links */}
-          <div className="flex items-center gap-8">
-            {/* Services Dropdown */}
-            <div className="relative group">
-              <button className="text-white hover:text-white/80 transition-all duration-300 font-medium">
-                Services
-              </button>
-              <div className="absolute top-full left-0 mt-2 w-52 bg-[#1A1A1A] shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-[60] border border-white/10">
-                <div className="py-2">
-                  <Link to="/studio" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
-                    Studio
-                  </Link>
-                  <Link to="/media" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
-                    Media
-                  </Link>
-                  <Link to="/lab" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
-                    Lab
-                  </Link>
-                  <Link to="/products" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
-                    Agent Hub
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Company Dropdown */}
-            <div className="relative group">
-              <button className="text-white hover:text-white/80 transition-all duration-300 font-medium">
-                Company
-              </button>
-              <div className="absolute top-full left-0 mt-2 w-52 bg-[#1A1A1A] shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-[60] border border-white/10">
-                <div className="py-2">
-                  <Link to="/about" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
-                    About us
-                  </Link>
-                  <Link to="/use-cases" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
-                    Use Cases
-                  </Link>
-                  <Link to="/careers" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
-                    Careers
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <Button 
-              onClick={onContactClick} 
-              className="bg-white text-black hover:bg-white/90 transition-all duration-200 hover:scale-[1.02] rounded-full font-medium" 
-              size="sm"
-            >
-              Kontakt
-            </Button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Navigation Header */}
-      <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-lg pointer-events-auto lg:hidden">
-        <div className="container mx-auto px-4 py-4">
+      <nav className={`fixed top-0 w-full z-50 ${bgColor} backdrop-blur-lg pointer-events-auto`}>
+        <div className="container mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
+            {/* Logo */}
             <Link to="/">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center">
-                <OptimizedLogo className="h-8 w-8 mr-3" width={32} height={32} />
-                <div className="text-2xl font-bold text-black">
+              <motion.div whileHover={{
+              scale: 1.05
+            }} whileTap={{
+              scale: 0.98
+            }} className="flex items-center z-50">
+                <OptimizedLogo className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3" width={32} height={32} />
+                <div className={`text-lg sm:text-2xl font-bold ${textColor}`}>
                   New Edge
                 </div>
               </motion.div>
             </Link>
 
-            <motion.button 
-              whileTap={{ scale: 0.95 }} 
-              onClick={() => setIsOpen(!isOpen)} 
-              className="p-3 text-black z-50 relative min-h-[48px] min-w-[48px] flex items-center justify-center" 
-              aria-label="Toggle menu"
-            >
+            {/* Desktop Menu */}
+            <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+              
+              
+              {/* Services Dropdown */}
+              <div className="relative group">
+                <button className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium cursor-default`}>
+                  Services
+                </button>
+                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-[60] border ${borderColor}`}>
+                  <div className="py-2">
+                    <Link to="/studio" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                      Studio
+                    </Link>
+                    <Link to="/media" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-blue-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                      Media
+                    </Link>
+                    <Link to="/lab" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-yellow-500/20' : 'hover:bg-gray-50'} transition-colors`}>
+                      Lab
+                    </Link>
+                    <Link to="/products" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-green-500/20' : 'hover:bg-gray-50'} transition-colors`}>Agent Hub</Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Company Dropdown */}
+              <div className="relative group">
+                <button className={`${textColorSecondary} hover:${textColor} transition-all duration-300 font-medium`}>
+                  Company
+                </button>
+                <div className={`absolute top-full left-0 mt-2 w-52 ${bgColor} shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-[60] border ${borderColor}`}>
+                  <div className="py-2">
+                    <Link to="/about" className={`block px-4 py-2 ${textColorSecondary} hover:${textColor} ${isDark ? 'hover:bg-purple-500/20' : 'hover:bg-gray-50'} transition-colors`}>About us</Link>
+                  </div>
+                </div>
+              </div>
+
+              <Button onClick={onContactClick} className={`${isDark ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700' : 'bg-black hover:bg-gray-800'} text-white transition-all duration-200 hover:scale-[1.02]`} size="sm">
+                Kontakt
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <motion.button whileTap={{
+            scale: 0.95
+          }} onClick={() => setIsOpen(!isOpen)} className={`lg:hidden p-3 ${textColor} z-50 relative min-h-[48px] min-w-[48px] flex items-center justify-center`} aria-label="Toggle menu">
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>
           </div>
@@ -276,28 +239,6 @@ export const MobileNavigation = ({
                   delay: 0.30
                 }}>
                       <Link to="/about" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>About us</Link>
-                    </motion.div>
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.33
-                }}>
-                      <Link to="/use-cases" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>Use Cases</Link>
-                    </motion.div>
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.36
-                }}>
-                      <Link to="/careers" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 rounded-lg transition-colors min-h-[44px] flex items-center`}>Careers</Link>
                     </motion.div>
                   </div>
 

@@ -978,7 +978,7 @@ const About = () => {
               name: "Sebastian Pachón",
               role: "Founder & Creative-Tech Partner",
               tags: ["Strategie", "Technologie"],
-              image: "/assets/sebastian-pachon.webp"
+              image: "/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png"
             }, {
               name: "Wenjamin Zabezhanskiy",
               role: "Operations & Innovation Partner",

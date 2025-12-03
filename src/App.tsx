@@ -17,17 +17,10 @@ import OptimizedLab from "./components/OptimizedLab";
 import OptimizedProducts from "./components/OptimizedProducts";
 import Team from "./pages/Team";
 import CaseStudies from "./pages/CaseStudies";
-import UseCases from "./pages/UseCases";
-import CaseStudyAlbaNova from "./pages/CaseStudyAlbaNova";
-import CaseStudyEcommerce from "./pages/CaseStudyEcommerce";
-import CaseStudyVisualMerchandising from "./pages/CaseStudyVisualMerchandising";
-import CaseStudySocialMedia from "./pages/CaseStudySocialMedia";
-import CaseStudyRetailLab from "./pages/CaseStudyRetailLab";
 import Careers from "./pages/Careers";
 import About from "./pages/About";
 import Resources from "./pages/Resources";
 import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
 import News from "./pages/News";
 
 // Only lazy load rarely visited pages
@@ -64,20 +57,13 @@ const App = () => {
                   <Route path="/studio" element={<OptimizedStudio />} />
                   <Route path="/lab" element={<OptimizedLab />} />
                   <Route path="/products" element={<OptimizedProducts />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/use-cases" element={<UseCases />} />
-            <Route path="/case-study/albanova" element={<CaseStudyAlbaNova />} />
-            <Route path="/case-study/ecommerce" element={<CaseStudyEcommerce />} />
-            <Route path="/case-study/visual-merchandising" element={<CaseStudyVisualMerchandising />} />
-            <Route path="/case-study/social-media" element={<CaseStudySocialMedia />} />
-            <Route path="/case-study/retail-lab" element={<CaseStudyRetailLab />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/news" element={<News />} />
+                  <Route path="/team" element={<Team />} />
+                  <Route path="/case-studies" element={<CaseStudies />} />
+                  <Route path="/careers" element={<Careers />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/resources" element={<Resources />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/news" element={<News />} />
                   <Route path="/impressum" element={<Impressum />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>

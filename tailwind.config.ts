@@ -37,9 +37,6 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				surface: 'hsl(var(--surface))',
 				'surface-elevated': 'hsl(var(--surface-elevated))',
-				'edge-black': '#0a0a0a',
-				'edge-purple': '#a855f7',
-				'edge-panel': 'rgba(255, 255, 255, 0.03)',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
@@ -180,10 +177,6 @@ export default {
 				'fade-spin': {
 					'0%, 39%, 100%': { opacity: '0.25' },
 					'40%': { opacity: '1' }
-				},
-				'pulse-slow': {
-					'0%, 100%': { opacity: '1', transform: 'scale(1)' },
-					'50%': { opacity: '0.8', transform: 'scale(1.05)' }
 				}
 			},
 			animation: {
@@ -201,8 +194,7 @@ export default {
 				'shimmer': 'shimmer-effect 3s ease-in-out infinite',
 				'parallax': 'parallax-float 8s ease-in-out infinite',
 				'spotlight': 'spotlight 2s ease 0.75s 1 forwards',
-				'fade-spin': 'fade-spin 1s linear infinite',
-				'pulse-slow': 'pulse-slow 4s ease-in-out infinite'
+				'fade-spin': 'fade-spin 1s linear infinite'
 			},
 			transitionTimingFunction: {
 				'ease-out': 'var(--ease-out)',
@@ -216,18 +208,5 @@ export default {
 			}
 		}
 	},
-	plugins: [
-		require("tailwindcss-animate"),
-		function({ addUtilities }: any) {
-			addUtilities({
-				'.scrollbar-hide': {
-					'-ms-overflow-style': 'none',
-					'scrollbar-width': 'none',
-					'&::-webkit-scrollbar': {
-						display: 'none'
-					}
-				}
-			});
-		}
-	],
+	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
