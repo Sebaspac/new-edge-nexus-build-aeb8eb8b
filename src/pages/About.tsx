@@ -803,7 +803,152 @@ const About = () => {
         </section>
 
         {/* 6️⃣ Team & Netzwerk */}
-        
+        <section id="netzwerk" className="relative py-12 sm:py-16 md:section-padding bg-surface overflow-hidden">
+          <motion.div className="absolute top-10 left-10 w-52 h-52 bg-primary/5 rounded-full blur-3xl" animate={{
+          x: [0, 40, 0],
+          y: [0, -30, 0],
+          scale: [1, 1.3, 1]
+        }} transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }} />
+          <motion.div className="absolute bottom-10 right-10 w-60 h-60 bg-secondary/5 rounded-full blur-3xl" animate={{
+          x: [0, -40, 0],
+          y: [0, 30, 0],
+          scale: [1.3, 1, 1.3]
+        }} transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }} />
+
+          <div className="container-xl relative z-10">
+            <motion.div initial={{
+            opacity: 0,
+            y: 60
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.9
+          }} className="text-center lg:text-left mb-8 sm:mb-10 md:mb-12">
+              <h2 className="text-3xl sm:text-4xl mb-6 sm:mb-8 md:mb-10 text-foreground leading-[1.2] lg:text-left text-left font-semibold md:text-5xl">
+                Team & Netzwerk
+              </h2>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-[1.7] sm:leading-[1.8] md:leading-[1.9] text-left">
+                Unser Team vereint Fachwissen aus Strategie, Design, Technologie und Unternehmertum. Gemeinsam mit
+                Coaches, Entwickler:innen und Partner-Agenturen bilden wir ein Ökosystem, das für jede Herausforderung
+                die passende Lösung findet.
+              </p>
+            </motion.div>
+
+            {/* Network Stats - Pyramid Top (5 cards) */}
+            <motion.div className="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto mb-4 sm:mb-6 md:mb-8" initial="hidden" whileInView="visible" viewport={{
+            once: true
+          }} variants={{
+            hidden: {
+              opacity: 0
+            },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+              }
+            }
+          }}>
+              {[{
+              icon: Users,
+              label: "Coaches",
+              value: "10+",
+              color: "from-blue-600 to-blue-800",
+              category: "strategy" as const
+            }, {
+              icon: Code,
+              label: "Entwickler",
+              value: "2",
+              color: "from-purple-600 to-purple-800",
+              category: "tech" as const
+            }, {
+              icon: Palette,
+              label: "Creative Agencies",
+              value: "3",
+              color: "from-pink-600 to-pink-800",
+              category: "creative" as const
+            }, {
+              icon: Globe,
+              label: "Länder",
+              value: "4",
+              color: "from-green-600 to-green-800",
+              category: null
+            }, {
+              icon: Briefcase,
+              label: "Freelancer",
+              value: "15+",
+              color: "from-orange-600 to-orange-800",
+              category: null
+            }].map((stat, index) => {
+              const isHighlighted = hoveredTeamCard && stat.category === hoveredTeamCard;
+              const isDimmed = hoveredTeamCard && stat.category !== hoveredTeamCard && stat.category !== null;
+              return <motion.div key={stat.label} variants={{
+                hidden: {
+                  opacity: 0,
+                  scale: 0.5,
+                  y: 50
+                },
+                visible: {
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.6,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }
+                }
+              }} whileHover={{
+                scale: 1.15,
+                y: -10
+              }} animate={{
+                scale: isHighlighted ? 1.1 : isDimmed ? 0.95 : 1,
+                opacity: isDimmed ? 0.4 : 1
+              }} className="group">
+                    <Card className={`h-full bg-white border-border backdrop-blur-sm transition-all duration-500 ${isHighlighted ? "border-primary shadow-[0_0_30px_rgba(139,92,246,0.5)] shadow-primary/50" : "hover:border-primary/50 hover:shadow-xl"}`}>
+                      <CardContent className="p-4 md:p-6 flex flex-col items-center text-center h-full relative overflow-hidden">
+                        <motion.div className={`absolute inset-0 bg-gradient-to-br ${stat.color} transition-opacity duration-500`} animate={{
+                      opacity: isHighlighted ? 0.15 : 0
+                    }} />
+                        <motion.div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+
+                        <motion.div className={`w-12 h-12 md:w-14 md:h-14 mb-3 md:mb-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${stat.color} p-2.5 md:p-3 shadow-lg relative z-10`} whileHover={{
+                      rotate: 360,
+                      scale: 1.2
+                    }} transition={{
+                      duration: 0.6,
+                      type: "spring"
+                    }}>
+                          <stat.icon className="w-full h-full text-white" />
+                        </motion.div>
+
+                        <motion.div className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-1 relative z-10" whileHover={{
+                      scale: 1.1
+                    }}>
+                          {stat.value}
+                        </motion.div>
+
+                        <div className="text-xs md:text-sm text-muted-foreground relative z-10">{stat.label}</div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>;
+            })}
+            </motion.div>
+
+            {/* Team Cards - Pyramid Base (3 cards) */}
+          </div>
+        </section>
 
         {/* 7️⃣ Werte & Kultur */}
 

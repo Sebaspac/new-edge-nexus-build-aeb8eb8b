@@ -24,6 +24,7 @@ export const MobileNavigation = ({
     language,
     setLanguage
   } = useLanguage();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -47,20 +48,23 @@ export const MobileNavigation = ({
       <ContactFormModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} accentColor="#000" gradientFrom="#000" gradientTo="#333" theme="studio" />
       
       {/* Desktop Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 bg-[#1A1A1A]/95 backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out hidden lg:block ${isScrolled ? 'py-4' : 'py-6'}`}>
-        <div className="container mx-auto px-8 flex items-center justify-between gap-8">
-          {/* Logo - Links positioniert */}
-          <Link to="/" className="flex items-center">
-            <motion.div whileHover={{
-            scale: 1.02
-          }} whileTap={{
-            scale: 0.98
-          }} className="flex items-center">
-              <OptimizedLogo className={`transition-all duration-500 ${isScrolled ? 'h-10 w-auto' : 'h-14 w-auto'}`} width={isScrolled ? 180 : 220} height={isScrolled ? 40 : 56} />
+      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[#1A1A1A] rounded-full backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-8' : 'py-5 px-10'}`}>
+        <div className="flex items-center justify-between gap-8">
+          {/* Logo + Text */}
+          <Link to="/" className="flex items-center gap-3">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center gap-3">
+              <OptimizedLogo 
+                className={`transition-all duration-500 ${isScrolled ? 'h-7 w-7' : 'h-10 w-10'}`} 
+                width={isScrolled ? 28 : 40} 
+                height={isScrolled ? 28 : 40} 
+              />
+              <div className={`font-bold text-white transition-all duration-500 ${isScrolled ? 'text-xl' : 'text-2xl'}`}>
+                New Edge
+              </div>
             </motion.div>
           </Link>
 
-          {/* Navigation Links - Rechts positioniert */}
+          {/* Navigation Links */}
           <div className="flex items-center gap-8">
             {/* Services Dropdown */}
             <div className="relative group">
@@ -105,7 +109,11 @@ export const MobileNavigation = ({
               </div>
             </div>
 
-            <Button onClick={onContactClick} className="bg-white text-black hover:bg-white/90 transition-all duration-200 hover:scale-[1.02] rounded-full font-medium" size="sm">
+            <Button 
+              onClick={onContactClick} 
+              className="bg-white text-black hover:bg-white/90 transition-all duration-200 hover:scale-[1.02] rounded-full font-medium" 
+              size="sm"
+            >
               Kontakt
             </Button>
           </div>
@@ -117,18 +125,20 @@ export const MobileNavigation = ({
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link to="/">
-              <motion.div whileHover={{
-              scale: 1.02
-            }} whileTap={{
-              scale: 0.98
-            }} className="flex items-center">
-                <OptimizedLogo className="h-12 w-auto" width={160} height={48} />
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center">
+                <OptimizedLogo className="h-8 w-8 mr-3" width={32} height={32} />
+                <div className="text-2xl font-bold text-black">
+                  New Edge
+                </div>
               </motion.div>
             </Link>
 
-            <motion.button whileTap={{
-            scale: 0.95
-          }} onClick={() => setIsOpen(!isOpen)} className="p-3 text-black z-50 relative min-h-[48px] min-w-[48px] flex items-center justify-center" aria-label="Toggle menu">
+            <motion.button 
+              whileTap={{ scale: 0.95 }} 
+              onClick={() => setIsOpen(!isOpen)} 
+              className="p-3 text-black z-50 relative min-h-[48px] min-w-[48px] flex items-center justify-center" 
+              aria-label="Toggle menu"
+            >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>
           </div>
