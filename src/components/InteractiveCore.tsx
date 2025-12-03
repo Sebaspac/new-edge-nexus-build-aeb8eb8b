@@ -69,15 +69,7 @@ export const InteractiveCore = () => {
   const Icon = activeContent.icon;
 
   return (
-    <section className="relative py-32 bg-edge-black overflow-hidden">
-      {/* Noise Texture Overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.015] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
-        }}
-      />
-
+    <section className="relative py-32 bg-white overflow-hidden">
       <div className="container-xl relative z-10">
         {/* Header */}
         <motion.div
@@ -87,15 +79,15 @@ export const InteractiveCore = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <div className="inline-block px-6 py-2 mb-6 rounded-full bg-edge-panel border border-white/10">
-            <span className="text-xs font-bold tracking-[0.3em] uppercase text-white/60">
+          <div className="inline-block px-6 py-2 mb-6 rounded-full bg-gray-100 border border-gray-200">
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-gray-500">
               Digitale Methodik
             </span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-bold mb-6 text-white">
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 text-black">
             Der Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">Reactor</span>
           </h2>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Unser Geheimnis: Die perfekte Fusion von menschlicher Kreativität und künstlicher Intelligenz
           </p>
         </motion.div>
@@ -119,8 +111,8 @@ export const InteractiveCore = () => {
                     relative p-6 text-left rounded-xl transition-all duration-500
                     border overflow-hidden group
                     ${isActive 
-                      ? 'bg-edge-panel border-white/20 shadow-lg shadow-purple-500/20' 
-                      : 'bg-transparent border-white/10 hover:bg-edge-panel hover:border-white/20'
+                      ? 'bg-gray-100 border-[#7C3AED] shadow-lg shadow-purple-500/10' 
+                      : 'bg-transparent border-gray-200 hover:bg-gray-50 hover:border-gray-300'
                     }
                   `}
                 >
@@ -129,8 +121,8 @@ export const InteractiveCore = () => {
                     absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center
                     text-xs font-bold transition-all duration-500
                     ${isActive 
-                      ? 'bg-white/10 text-white' 
-                      : 'bg-white/5 text-white/40'
+                      ? 'bg-[#7C3AED] text-white' 
+                      : 'bg-gray-100 text-gray-400'
                     }
                   `}>
                     {state.number}
@@ -140,7 +132,7 @@ export const InteractiveCore = () => {
                   <div className="pr-12">
                     <span className={`
                       text-lg font-bold tracking-widest uppercase transition-all duration-500
-                      ${isActive ? 'text-white' : 'text-white/60'}
+                      ${isActive ? 'text-black' : 'text-gray-500'}
                     `}>
                       {state.label}
                     </span>
@@ -163,7 +155,7 @@ export const InteractiveCore = () => {
                       animate={{ opacity: 1, x: 0 }}
                       className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3"
                     >
-                      <div className="w-2 h-2 bg-white rounded-full" />
+                      <div className="w-2 h-2 bg-[#7C3AED] rounded-full" />
                     </motion.div>
                   )}
                 </motion.button>
