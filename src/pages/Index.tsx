@@ -246,7 +246,7 @@ const Index = () => {
             </motion.div>
 
             {/* Service Cards Grid */}
-            <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto" initial="hidden" whileInView="visible" viewport={{
+            <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto" initial="hidden" whileInView="visible" viewport={{
             once: true,
             margin: "-100px"
           }} variants={{
@@ -256,8 +256,7 @@ const Index = () => {
             visible: {
               opacity: 1,
               transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.3
+                staggerChildren: 0.2
               }
             }
           }}>
@@ -268,46 +267,32 @@ const Index = () => {
               },
               visible: {
                 opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 0.6,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }
+                y: 0
               }
-            }} whileHover={{
-              y: -8
-            }}>
-                  <Card className="h-full group bg-white border-l-4 border-transparent hover:border-[#7C3AED] transition-all duration-300 hover:shadow-xl">
-                    <CardContent className="p-8 flex flex-col h-full">
-                      {/* Icon with circular background */}
-                      <motion.div className="w-14 h-14 rounded-full bg-[#7C3AED]/10 flex items-center justify-center mb-6 group-hover:bg-[#7C3AED] transition-colors duration-300" whileHover={{
+            }} className="group">
+                  <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
+                    <CardContent className="p-4 md:p-8 flex flex-col h-full">
+                      <motion.div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${index === 0 ? "from-primary to-primary/70" : index === 1 ? "from-secondary to-secondary/70" : "from-accent to-accent/70"} flex items-center justify-center mb-4 md:mb-6 shadow-lg`} whileHover={{
                     scale: 1.1,
+                    rotate: [0, -5, 5, 0],
                     transition: {
-                      duration: 0.3
+                      duration: 0.5
                     }
                   }}>
-                        <service.icon className="w-7 h-7 text-[#7C3AED] group-hover:text-white transition-colors duration-300" />
+                        <service.icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
                       </motion.div>
-
-                      <div className="flex-1 flex flex-col">
-                        {/* Title */}
-                        <h3 className="text-2xl text-black mb-4 font-bold">
-                          {service.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-lg text-gray-600 mb-6 leading-relaxed flex-grow">
+                      <div className="flex-grow">
+                        <h3 className="text-lg mb-3 md:mb-4 text-foreground font-semibold md:text-2xl">{service.title}</h3>
+                        <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 leading-relaxed">
                           {service.description}
                         </p>
-
-                        {/* Button */}
-                        <Link to={service.link} className="inline-block w-fit">
-                          <Button variant="ghost" className="text-[#7C3AED] hover:text-[#6D28D9] p-0 h-auto font-semibold group/btn">
-                            Mehr erfahren
-                            <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                          </Button>
-                        </Link>
                       </div>
+                      <Link to={service.link}>
+                        <Button variant="default" className="group/btn w-full md:w-auto bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                          Mehr erfahren
+                          <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                        </Button>
+                      </Link>
                     </CardContent>
                   </Card>
                 </motion.div>)}
