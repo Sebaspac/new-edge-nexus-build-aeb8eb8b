@@ -46,24 +46,43 @@ export const HeroSection = ({
               y: 0
             }} transition={{
               duration: 0.8
-            }} className="block space-y-4 md:space-y-6 lg:space-y-4">
+            }} className="block space-y-6 md:space-y-8 lg:space-y-6">
               
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-violet-500"></span>
+                <span className="text-xs font-medium tracking-widest text-white/80 uppercase">
+                  Innovationen & Automatisierung
+                </span>
+              </div>
               
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] xl:text-[72px] leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
-                Innovate Today,<br />
-                Lead Tomorrow.
+              {/* Headline */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.95] tracking-tight uppercase">
+                <span className="text-white">KI- & Marketing</span><br />
+                <span className="text-[#7C3AED]">Agentur</span><br />
+                <span className="text-white">für KMU.</span>
               </h1>
               
-              <p className="text-sm sm:text-base lg:text-lg text-neutral-300 max-w-xl mx-auto lg:mx-0">Von der ersten Beratung bis zur vollständigen Implementierung – New Edge ist die Creative-Tech-Agentur, die Strategie, Kreation und Automatisierung verbindet.</p>
+              {/* Description */}
+              <p className="text-base md:text-lg text-neutral-400 max-w-xl mx-auto lg:mx-0">
+                New Edge ist Ihre Innovationsagentur für den Mittelstand. Wir verbinden Strategie, Kreation und Prozessautomatisierung für messbares Wachstum.
+              </p>
               
-              <div className="flex flex-col sm:flex-row gap-3 pt-6 justify-center lg:justify-start">
-                <Button size="lg" onClick={onContactClick} className="group">
-                  Kontakt
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link to="/about">Über Uns</Link>
-                </Button>
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+                <button 
+                  onClick={onContactClick} 
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-colors group"
+                >
+                  Projekt Starten
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <Link 
+                  to="/about"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-semibold rounded-full border border-white/30 hover:bg-white/10 transition-colors"
+                >
+                  Über Uns
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -72,6 +91,12 @@ export const HeroSection = ({
         {/* Right Side - 3D Spline Scene */}
         <div className="absolute inset-0 lg:relative overflow-hidden z-10 lg:z-20">
           <LazySplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" threshold={0.25} rootMargin="50px" />
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30 hidden lg:flex">
+          <span className="text-xs font-medium tracking-widest text-white/50 uppercase">Scroll</span>
+          <ChevronDown className="w-5 h-5 text-white/50 animate-bounce" />
         </div>
 
       </div>
