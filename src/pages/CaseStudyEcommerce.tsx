@@ -20,6 +20,7 @@ import {
   Settings,
 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+import { RelatedCaseStudies } from "@/components/RelatedCaseStudies";
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -422,6 +423,9 @@ const CaseStudyEcommerce = () => {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Related Case Studies */}
+      <RelatedCaseStudies currentCaseId="ecommerce" />
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-b from-black to-gray-900">

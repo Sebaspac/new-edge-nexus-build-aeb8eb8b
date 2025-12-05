@@ -21,6 +21,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+import { RelatedCaseStudies } from "@/components/RelatedCaseStudies";
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -423,6 +424,9 @@ const CaseStudySocialMedia = () => {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Related Case Studies */}
+      <RelatedCaseStudies currentCaseId="social-media" />
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-b from-black to-gray-900">
