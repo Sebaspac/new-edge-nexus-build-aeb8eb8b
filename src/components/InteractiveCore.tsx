@@ -63,9 +63,9 @@ export const InteractiveCore = () => {
   }, [activeState]);
 
   const states: Array<{ key: StateType; label: string; number: string }> = [
-    { key: "human", label: "Intuition", number: "01" },
-    { key: "machine", label: "Intelligence", number: "02" },
-    { key: "fusion", label: "Edge", number: "03" },
+    { key: "human", label: "STUDIO", number: "01" },
+    { key: "machine", label: "MEDIA", number: "02" },
+    { key: "fusion", label: "LAB", number: "03" },
   ];
 
   const activeContent = content[activeState];
