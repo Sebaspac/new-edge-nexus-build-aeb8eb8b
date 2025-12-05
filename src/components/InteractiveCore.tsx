@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Fingerprint, Cpu, Zap } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Fingerprint, Cpu, Zap } from "lucide-react";
 
-type StateType = 'human' | 'machine' | 'fusion';
+type StateType = "human" | "machine" | "fusion";
 
 interface ContentState {
   title: string;
@@ -15,33 +15,36 @@ interface ContentState {
 
 const content: Record<StateType, ContentState> = {
   human: {
-    title: 'HUMAN INTUITION',
-    subtitle: 'Strategie & Seele',
-    description: 'Markenpositionierung, kreative Konzeption und emotionale Storytelling-Strategien, die menschliche Verbindungen schaffen.',
-    tags: ['Strategie', 'Kreativität', 'Empathie'],
-    color: '#3b82f6',
-    icon: Fingerprint
+    title: "STUDIO",
+    subtitle: "Strategie & Seele",
+    description:
+      "Markenpositionierung, kreative Konzeption und emotionale Storytelling-Strategien, die menschliche Verbindungen schaffen.",
+    tags: ["Strategie", "Kreativität", "Brand Identity"],
+    color: "#3b82f6",
+    icon: Fingerprint,
   },
   machine: {
-    title: 'ARTIFICIAL INTELLIGENCE',
-    subtitle: 'Skalierung & Automation',
-    description: 'KI-gestützte Content-Generierung, Prozessautomatisierung und datengetriebene Optimierung für maximale Effizienz.',
-    tags: ['Automation', 'Skalierung', 'Effizienz'],
-    color: '#ec4899',
-    icon: Cpu
+    title: "MEDIA",
+    subtitle: "Skalierung & Automation",
+    description:
+      "Wir machen kein „nice to have“-Storytelling. Wir machen Content, der auf Conversion zielt. Mit KI, KPIs und einer klaren Message – für jeden Funnel-Step.",
+    tags: ["Creative Assets", "S.M Management", "Performance-Marketing"],
+    color: "#ec4899",
+    icon: Cpu,
   },
   fusion: {
-    title: 'THE NEW EDGE',
-    subtitle: 'Die Fusion',
-    description: 'Die perfekte Symbiose aus menschlicher Intuition und künstlicher Intelligenz. Hier entsteht der unfaire Vorteil.',
-    tags: ['Innovation', 'Synergie', 'Zukunft'],
-    color: '#a855f7',
-    icon: Zap
-  }
+    title: "LAB",
+    subtitle: "Ihr KI-Turbo für echte Marktvorteile.",
+    description:
+      "Im Lab setzen wir KI und Softwareentwicklung so um, dass daraus echte, funktionierende Produkte entstehen – keine Konzeptfolien, keine Buzzwords.",
+    tags: ["Prozessautomatisierung", "Websysteme", "Prototypen"],
+    color: "#a855f7",
+    icon: Zap,
+  },
 };
 
 export const InteractiveCore = () => {
-  const [activeState, setActiveState] = useState<StateType>('human');
+  const [activeState, setActiveState] = useState<StateType>("human");
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -60,9 +63,9 @@ export const InteractiveCore = () => {
   }, [activeState]);
 
   const states: Array<{ key: StateType; label: string; number: string }> = [
-    { key: 'human', label: 'Intuition', number: '01' },
-    { key: 'machine', label: 'Intelligence', number: '02' },
-    { key: 'fusion', label: 'Edge', number: '03' }
+    { key: "human", label: "Intuition", number: "01" },
+    { key: "machine", label: "Intelligence", number: "02" },
+    { key: "fusion", label: "Edge", number: "03" },
   ];
 
   const activeContent = content[activeState];
@@ -80,12 +83,13 @@ export const InteractiveCore = () => {
           className="text-center mb-20"
         >
           <div className="inline-block px-6 py-2 mb-6 rounded-full bg-gray-100 border border-gray-200">
-            <span className="text-xs font-bold tracking-[0.3em] uppercase text-gray-500">
-              Digitale Methodik
-            </span>
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-gray-500">Digitale Methodik</span>
           </div>
           <h2 className="text-5xl md:text-7xl font-bold mb-6 text-black">
-            Der Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">Reactor</span>
+            Der Digital{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+              Reactor
+            </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Unser Geheimnis: Die perfekte Fusion von menschlicher Kreativität und künstlicher Intelligenz
@@ -98,7 +102,7 @@ export const InteractiveCore = () => {
           <div className="flex flex-col gap-4">
             {states.map((state, index) => {
               const isActive = activeState === state.key;
-              
+
               return (
                 <motion.button
                   key={state.key}
@@ -110,30 +114,32 @@ export const InteractiveCore = () => {
                   className={`
                     relative p-6 text-left rounded-xl transition-all duration-500
                     border overflow-hidden group
-                    ${isActive 
-                      ? 'bg-gray-100 border-[#7C3AED] shadow-lg shadow-purple-500/10' 
-                      : 'bg-transparent border-gray-200 hover:bg-gray-50 hover:border-gray-300'
+                    ${
+                      isActive
+                        ? "bg-gray-100 border-[#7C3AED] shadow-lg shadow-purple-500/10"
+                        : "bg-transparent border-gray-200 hover:bg-gray-50 hover:border-gray-300"
                     }
                   `}
                 >
                   {/* Number Badge */}
-                  <div className={`
+                  <div
+                    className={`
                     absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center
                     text-xs font-bold transition-all duration-500
-                    ${isActive 
-                      ? 'bg-[#7C3AED] text-white' 
-                      : 'bg-gray-100 text-gray-400'
-                    }
-                  `}>
+                    ${isActive ? "bg-[#7C3AED] text-white" : "bg-gray-100 text-gray-400"}
+                  `}
+                  >
                     {state.number}
                   </div>
 
                   {/* Label */}
                   <div className="pr-12">
-                    <span className={`
+                    <span
+                      className={`
                       text-lg font-bold tracking-widest uppercase transition-all duration-500
-                      ${isActive ? 'text-black' : 'text-gray-500'}
-                    `}>
+                      ${isActive ? "text-black" : "text-gray-500"}
+                    `}
+                    >
                       {state.label}
                     </span>
                   </div>
@@ -142,7 +148,7 @@ export const InteractiveCore = () => {
                   {isActive && (
                     <motion.div
                       className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
-                      initial={{ width: '0%' }}
+                      initial={{ width: "0%" }}
                       animate={{ width: `${progress}%` }}
                       transition={{ duration: 0.1 }}
                     />
@@ -192,7 +198,7 @@ export const InteractiveCore = () => {
 
                 {/* Visual Abstract Layer - Right Side */}
                 <div className="absolute inset-0 translate-x-1/4">
-                  {activeState === 'human' && (
+                  {activeState === "human" && (
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                       {[...Array(4)].map((_, i) => (
                         <motion.div
@@ -209,14 +215,14 @@ export const InteractiveCore = () => {
                           transition={{
                             duration: 3 + i * 0.5,
                             repeat: Infinity,
-                            ease: 'easeInOut',
+                            ease: "easeInOut",
                           }}
                         />
                       ))}
                     </div>
                   )}
 
-                  {activeState === 'machine' && (
+                  {activeState === "machine" && (
                     <div className="absolute inset-0">
                       <div className="grid grid-cols-8 grid-rows-8 w-full h-full gap-4 p-12">
                         {[...Array(64)].map((_, i) => (
@@ -237,7 +243,7 @@ export const InteractiveCore = () => {
                     </div>
                   )}
 
-                  {activeState === 'fusion' && (
+                  {activeState === "fusion" && (
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                       {[...Array(3)].map((_, i) => (
                         <motion.div
@@ -249,7 +255,7 @@ export const InteractiveCore = () => {
                           transition={{
                             duration: 8 - i * 2,
                             repeat: Infinity,
-                            ease: 'linear',
+                            ease: "linear",
                           }}
                         >
                           <div
@@ -314,15 +320,11 @@ export const InteractiveCore = () => {
                       <h3 className="text-5xl font-black mb-3 text-white tracking-tight drop-shadow-lg">
                         {activeContent.title}
                       </h3>
-                      <p className="text-xl text-white/70 font-light">
-                        {activeContent.subtitle}
-                      </p>
+                      <p className="text-xl text-white/70 font-light">{activeContent.subtitle}</p>
                     </div>
 
                     {/* Description */}
-                    <p className="text-lg text-white/90 leading-relaxed mb-8 max-w-xl">
-                      {activeContent.description}
-                    </p>
+                    <p className="text-lg text-white/90 leading-relaxed mb-8 max-w-xl">{activeContent.description}</p>
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-3">
