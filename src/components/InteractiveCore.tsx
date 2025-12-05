@@ -279,7 +279,7 @@ export const InteractiveCore = () => {
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                     <span className="text-xs font-mono uppercase tracking-wider text-green-300">
-                      System Status: Online
+                      System Status: loading
                     </span>
                   </div>
                 </motion.div>
