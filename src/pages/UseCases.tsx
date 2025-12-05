@@ -6,9 +6,12 @@ import { LazyVideo } from "@/components/LazyVideo";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 
+type CategoryFilter = 'all' | 'studio' | 'media' | 'lab';
+
 const UseCases = () => {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeFilter, setActiveFilter] = useState<CategoryFilter>('all');
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
     skipSnaps: false,
@@ -18,6 +21,7 @@ const UseCases = () => {
   const caseStudies = [
     {
       id: "albanova",
+      category: "studio" as const,
       tabTitle: "AlbaNova (Consulting)",
       label: "CASE STUDY",
       headline: "Integration neu gedacht.",
@@ -27,6 +31,7 @@ const UseCases = () => {
     },
     {
       id: "rag-wissensagent",
+      category: "lab" as const,
       tabTitle: "RAG-Wissensagent (Industry)",
       label: "CASE STUDY",
       headline: "Industriewissen. Sofort verfügbar.",
@@ -36,6 +41,7 @@ const UseCases = () => {
     },
     {
       id: "marketing-agent",
+      category: "media" as const,
       tabTitle: "Marketing-Agent (Retail)",
       label: "CASE STUDY",
       headline: "Marketing. Automatisiert.",
@@ -45,6 +51,7 @@ const UseCases = () => {
     },
     {
       id: "sales-agent",
+      category: "lab" as const,
       tabTitle: "Sales-Agent (B2B)",
       label: "CASE STUDY",
       headline: "Vertrieb. Intelligent.",
@@ -54,6 +61,7 @@ const UseCases = () => {
     },
     {
       id: "visual-merchandising",
+      category: "media" as const,
       tabTitle: "Visual Merchandising AI",
       label: "CASE STUDY",
       headline: "Visuals. Automatisiert.",
@@ -62,6 +70,11 @@ const UseCases = () => {
       route: "/case-study/visual-merchandising"
     }
   ];
+
+  // Filtered case studies based on active filter
+  const filteredCaseStudies = activeFilter === 'all' 
+    ? caseStudies 
+    : caseStudies.filter(cs => cs.category === activeFilter);
 
   const scrollToContact = () => {
     navigate("/", { replace: true });
@@ -90,6 +103,15 @@ const UseCases = () => {
     };
   }, [emblaApi, onSelect]);
 
+  // Re-init carousel when filter changes
+  useEffect(() => {
+    if (emblaApi) {
+      setActiveIndex(0);
+      emblaApi.scrollTo(0, true);
+      emblaApi.reInit();
+    }
+  }, [activeFilter, emblaApi]);
+
   const scrollTo = useCallback((index: number) => {
     if (emblaApi) emblaApi.scrollTo(index);
   }, [emblaApi]);
@@ -112,6 +134,13 @@ const UseCases = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [scrollPrev, scrollNext]);
 
+  const filterButtons: { key: CategoryFilter; label: string; color: string; activeColor: string }[] = [
+    { key: 'all', label: 'ALLE', color: 'text-white/60 hover:text-white', activeColor: 'text-white bg-white/20' },
+    { key: 'studio', label: 'STUDIO', color: 'text-purple-400/60 hover:text-purple-400', activeColor: 'text-purple-400 bg-purple-500/20' },
+    { key: 'media', label: 'MEDIA', color: 'text-blue-400/60 hover:text-blue-400', activeColor: 'text-blue-400 bg-blue-500/20' },
+    { key: 'lab', label: 'LAB', color: 'text-yellow-400/60 hover:text-yellow-400', activeColor: 'text-yellow-400 bg-yellow-500/20' },
+  ];
+
   return (
     <>
       <Helmet>
@@ -122,11 +151,31 @@ const UseCases = () => {
       <div className="min-h-screen bg-black">
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
-        {/* Horizontal Tab Navigation */}
-        <section className="sticky top-0 z-40 bg-black/95 backdrop-blur-sm border-b border-white/10">
+        {/* Category Filter + Tab Navigation */}
+        <section className="sticky top-20 z-30 bg-black/95 backdrop-blur-sm border-b border-white/10">
           <div className="container mx-auto px-4 py-4">
+            {/* Category Filter Buttons */}
+            <div className="flex gap-2 mb-4">
+              {filterButtons.map((filter) => (
+                <button
+                  key={filter.key}
+                  onClick={() => setActiveFilter(filter.key)}
+                  className={`
+                    px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-300
+                    ${activeFilter === filter.key 
+                      ? filter.activeColor 
+                      : filter.color
+                    }
+                  `}
+                >
+                  {filter.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Tab Navigation for filtered items */}
             <div className="flex gap-6 overflow-x-auto scrollbar-hide">
-              {caseStudies.map((caseStudy, index) => (
+              {filteredCaseStudies.map((caseStudy, index) => (
                 <button
                   key={caseStudy.id}
                   onClick={() => scrollTo(index)}
@@ -151,7 +200,7 @@ const UseCases = () => {
         {/* Carousel */}
         <div className="relative overflow-hidden" ref={emblaRef}>
           <div className="flex">
-            {caseStudies.map((caseStudy, index) => (
+            {filteredCaseStudies.map((caseStudy, index) => (
               <div key={caseStudy.id} className="flex-[0_0_100%] min-w-0">
                 <div className="relative w-full h-screen">
                   {/* Background Video */}
@@ -220,7 +269,7 @@ const UseCases = () => {
 
                   {/* Dots Indicator */}
                   <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-                    {caseStudies.map((_, idx) => (
+                    {filteredCaseStudies.map((_, idx) => (
                       <button
                         key={idx}
                         onClick={() => scrollTo(idx)}
