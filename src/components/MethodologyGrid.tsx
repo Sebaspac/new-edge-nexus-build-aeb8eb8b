@@ -40,7 +40,7 @@ export const MethodologyGrid = () => {
         }} className="space-y-8">
             {/* Eyebrow */}
             <span className="inline-block text-[#7C3AED] text-sm font-bold uppercase tracking-[0.2em]">
-              LEISTUNGEN
+              new edge 
             </span>
 
             {/* Main Headline */}
