@@ -59,7 +59,7 @@ export const RelatedCaseStudies = ({ currentCaseId }: RelatedCaseStudiesProps) =
   const relatedCases = allCaseStudies.filter(cs => cs.id !== currentCaseId);
 
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section className="relative py-24 bg-black overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="flex items-end justify-between mb-12">
@@ -69,7 +69,7 @@ export const RelatedCaseStudies = ({ currentCaseId }: RelatedCaseStudiesProps) =
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-black">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-white">
               Weitere Cases
               <br />
               <span className="text-[#7C3AED]">entdecken.</span>
@@ -85,7 +85,7 @@ export const RelatedCaseStudies = ({ currentCaseId }: RelatedCaseStudiesProps) =
           >
             <Link 
               to="/use-cases"
-              className="inline-flex items-center gap-2 text-lg font-bold text-black hover:text-[#7C3AED] transition-colors duration-300"
+              className="inline-flex items-center gap-2 text-lg font-bold text-white hover:text-[#7C3AED] transition-colors duration-300"
             >
               ALLE CASES
               <ArrowUpRight className="w-6 h-6" />
@@ -104,7 +104,7 @@ export const RelatedCaseStudies = ({ currentCaseId }: RelatedCaseStudiesProps) =
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Link to={caseStudy.route} className="block group">
-                <div className="relative overflow-hidden aspect-square bg-gray-100">
+                <div className="relative overflow-hidden aspect-square bg-gray-900">
                   {/* Image */}
                   <img 
                     src={caseStudy.image} 
@@ -113,7 +113,7 @@ export const RelatedCaseStudies = ({ currentCaseId }: RelatedCaseStudiesProps) =
                   />
                   
                   {/* Dark overlay on image */}
-                  <div className="absolute inset-0 bg-black/20" />
+                  <div className="absolute inset-0 bg-black/30" />
                   
                   {/* Normal State: + Icon */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
@@ -162,7 +162,7 @@ export const RelatedCaseStudies = ({ currentCaseId }: RelatedCaseStudiesProps) =
         >
           <Link 
             to="/use-cases"
-            className="inline-flex items-center gap-2 text-lg font-bold text-black hover:text-[#7C3AED] transition-colors duration-300"
+            className="inline-flex items-center gap-2 text-lg font-bold text-white hover:text-[#7C3AED] transition-colors duration-300"
           >
             ALLE CASES
             <ArrowUpRight className="w-6 h-6" />
