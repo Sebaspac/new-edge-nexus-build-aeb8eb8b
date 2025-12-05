@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import albanovaWebsite from "@/assets/albanova-website.png";
+import { RelatedCaseStudies } from "@/components/RelatedCaseStudies";
 interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
@@ -589,6 +590,9 @@ const CaseStudyAlbaNova = () => {
         </section>
 
         {/* Results Section */}
+
+        {/* Related Case Studies */}
+        <RelatedCaseStudies currentCaseId="albanova" />
 
         {/* CTA Section */}
         <section className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-gray-900 to-black">
