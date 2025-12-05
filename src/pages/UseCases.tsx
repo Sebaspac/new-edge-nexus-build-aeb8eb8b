@@ -134,11 +134,21 @@ const UseCases = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [scrollPrev, scrollNext]);
 
-  const filterButtons: { key: CategoryFilter; label: string; color: string; activeColor: string }[] = [
-    { key: 'all', label: 'ALLE', color: 'text-white/60 hover:text-white', activeColor: 'text-white bg-white/20' },
-    { key: 'studio', label: 'STUDIO', color: 'text-purple-400/60 hover:text-purple-400', activeColor: 'text-purple-400 bg-purple-500/20' },
-    { key: 'media', label: 'MEDIA', color: 'text-blue-400/60 hover:text-blue-400', activeColor: 'text-blue-400 bg-blue-500/20' },
-    { key: 'lab', label: 'LAB', color: 'text-yellow-400/60 hover:text-yellow-400', activeColor: 'text-yellow-400 bg-yellow-500/20' },
+  // Get accent color based on category
+  const getCategoryColor = (category: string) => {
+    switch (category) {
+      case 'studio': return { border: 'border-purple-500/50', text: 'text-purple-400', bg: 'bg-purple-500/10', underline: 'bg-purple-500' };
+      case 'media': return { border: 'border-blue-500/50', text: 'text-blue-400', bg: 'bg-blue-500/10', underline: 'bg-blue-500' };
+      case 'lab': return { border: 'border-amber-500/50', text: 'text-amber-400', bg: 'bg-amber-500/10', underline: 'bg-amber-500' };
+      default: return { border: 'border-white/30', text: 'text-white', bg: 'bg-white/10', underline: 'bg-white' };
+    }
+  };
+
+  const filterButtons: { key: CategoryFilter; label: string }[] = [
+    { key: 'all', label: 'Alle' },
+    { key: 'studio', label: 'Studio' },
+    { key: 'media', label: 'Media' },
+    { key: 'lab', label: 'Lab' },
   ];
 
   return (
@@ -151,51 +161,59 @@ const UseCases = () => {
       <div className="min-h-screen bg-black">
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
-        {/* Category Filter + Tab Navigation */}
-        <section className="sticky top-20 z-30 bg-black/95 backdrop-blur-sm border-b border-white/10">
-          <div className="container mx-auto px-4 py-4">
-            {/* Category Filter Buttons */}
-            <div className="flex gap-2 mb-4">
-              {filterButtons.map((filter) => (
-                <button
-                  key={filter.key}
-                  onClick={() => setActiveFilter(filter.key)}
-                  className={`
-                    px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-300
-                    ${activeFilter === filter.key 
-                      ? filter.activeColor 
-                      : filter.color
-                    }
-                  `}
-                >
-                  {filter.label}
-                </button>
-              ))}
-            </div>
+        {/* Floating Navigation Bar */}
+        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-30 w-auto max-w-[95vw]">
+          <div className="backdrop-blur-xl bg-black/60 border border-white/10 rounded-2xl px-2 py-2 shadow-2xl shadow-black/50">
+            {/* Filter + Tabs in one row */}
+            <div className="flex items-center gap-1">
+              {/* Category Filters */}
+              <div className="flex items-center gap-1 pr-3 border-r border-white/10">
+                {filterButtons.map((filter) => {
+                  const colors = getCategoryColor(filter.key);
+                  const isActive = activeFilter === filter.key;
+                  return (
+                    <button
+                      key={filter.key}
+                      onClick={() => setActiveFilter(filter.key)}
+                      className={`
+                        px-3 py-1.5 text-xs font-medium tracking-wide rounded-lg transition-all duration-300
+                        ${isActive 
+                          ? `${colors.bg} ${colors.text} ${colors.border} border` 
+                          : 'text-white/50 hover:text-white/80 hover:bg-white/5'
+                        }
+                      `}
+                    >
+                      {filter.label}
+                    </button>
+                  );
+                })}
+              </div>
 
-            {/* Tab Navigation for filtered items */}
-            <div className="flex gap-6 overflow-x-auto scrollbar-hide">
-              {filteredCaseStudies.map((caseStudy, index) => (
-                <button
-                  key={caseStudy.id}
-                  onClick={() => scrollTo(index)}
-                  className={`
-                    relative whitespace-nowrap px-4 py-2 text-sm font-bold transition-all duration-300
-                    ${activeIndex === index 
-                      ? 'text-purple-400' 
-                      : 'text-white/60 hover:text-white/80'
-                    }
-                  `}
-                >
-                  {caseStudy.tabTitle}
-                  {activeIndex === index && (
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-500" />
-                  )}
-                </button>
-              ))}
+              {/* Tab Navigation */}
+              <div className="flex items-center gap-1 pl-2 overflow-x-auto scrollbar-hide">
+                {filteredCaseStudies.map((caseStudy, index) => {
+                  const colors = getCategoryColor(caseStudy.category);
+                  const isActive = activeIndex === index;
+                  return (
+                    <button
+                      key={caseStudy.id}
+                      onClick={() => scrollTo(index)}
+                      className={`
+                        relative whitespace-nowrap px-3 py-1.5 text-xs font-medium rounded-lg transition-all duration-300
+                        ${isActive 
+                          ? `${colors.text} ${colors.bg}` 
+                          : 'text-white/40 hover:text-white/70 hover:bg-white/5'
+                        }
+                      `}
+                    >
+                      {caseStudy.tabTitle.split(' ')[0]}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </section>
+        </div>
 
         {/* Carousel */}
         <div className="relative overflow-hidden" ref={emblaRef}>
