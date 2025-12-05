@@ -16,7 +16,7 @@ interface ContentState {
 const content: Record<StateType, ContentState> = {
   human: {
     title: "STUDIO",
-    subtitle: "Branding, das skaliert – modular, maßgeschneidert, schnell.",
+    subtitle: "Branding, das skaliert – modular, maßgeschneidert, schnell",
     description:
       "Markenpositionierung, kreative Konzeption und emotionale Storytelling-Strategien, die menschliche Verbindungen schaffen.",
     tags: ["Strategie", "Kreativität", "Brand Identity"],
