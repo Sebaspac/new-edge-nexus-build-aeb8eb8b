@@ -16,7 +16,7 @@ interface ContentState {
 const content: Record<StateType, ContentState> = {
   human: {
     title: "STUDIO",
-    subtitle: "Strategie & Seele",
+    subtitle: "Branding, das skaliert – modular, maßgeschneidert, schnell.",
     description:
       "Markenpositionierung, kreative Konzeption und emotionale Storytelling-Strategien, die menschliche Verbindungen schaffen.",
     tags: ["Strategie", "Kreativität", "Brand Identity"],
@@ -25,7 +25,7 @@ const content: Record<StateType, ContentState> = {
   },
   machine: {
     title: "MEDIA",
-    subtitle: "Skalierung & Automation",
+    subtitle: "Kreativ gedacht, performance-gemessen",
     description:
       "Wir machen kein „nice to have“-Storytelling. Wir machen Content, der auf Conversion zielt. Mit KI, KPIs und einer klaren Message – für jeden Funnel-Step.",
     tags: ["Creative Assets", "S.M Management", "Performance-Marketing"],
@@ -34,7 +34,7 @@ const content: Record<StateType, ContentState> = {
   },
   fusion: {
     title: "LAB",
-    subtitle: "Ihr KI-Turbo für echte Marktvorteile.",
+    subtitle: "Innovation, die wirkt – mit KI-Speed",
     description:
       "Im Lab setzen wir KI und Softwareentwicklung so um, dass daraus echte, funktionierende Produkte entstehen – keine Konzeptfolien, keine Buzzwords.",
     tags: ["Prozessautomatisierung", "Websysteme", "Prototypen"],
