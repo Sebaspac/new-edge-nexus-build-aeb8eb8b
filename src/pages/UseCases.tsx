@@ -161,56 +161,55 @@ const UseCases = () => {
       <div className="min-h-screen bg-black">
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
-        {/* Floating Navigation Bar */}
-        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-30 w-auto max-w-[95vw]">
-          <div className="backdrop-blur-xl bg-black/60 border border-white/10 rounded-2xl px-2 py-2 shadow-2xl shadow-black/50">
-            {/* Filter + Tabs in one row */}
-            <div className="flex items-center gap-1">
-              {/* Category Filters */}
-              <div className="flex items-center gap-1 pr-3 border-r border-white/10">
-                {filterButtons.map((filter) => {
-                  const colors = getCategoryColor(filter.key);
-                  const isActive = activeFilter === filter.key;
-                  return (
-                    <button
-                      key={filter.key}
-                      onClick={() => setActiveFilter(filter.key)}
-                      className={`
-                        px-3 py-1.5 text-xs font-medium tracking-wide rounded-lg transition-all duration-300
-                        ${isActive 
-                          ? `${colors.bg} ${colors.text} ${colors.border} border` 
-                          : 'text-white/50 hover:text-white/80 hover:bg-white/5'
-                        }
-                      `}
-                    >
-                      {filter.label}
-                    </button>
-                  );
-                })}
-              </div>
+        {/* Floating Navigation Bar - Two Row Layout */}
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-30">
+          <div className="flex flex-col items-center gap-4">
+            {/* Row 1: Filter Buttons (Pill-Shape) */}
+            <div className="flex items-center justify-center gap-2">
+              {filterButtons.map((filter) => {
+                const isActive = activeFilter === filter.key;
+                return (
+                  <button
+                    key={filter.key}
+                    onClick={() => setActiveFilter(filter.key)}
+                    className={`
+                      px-5 py-2 rounded-full text-sm font-medium uppercase tracking-wider
+                      border backdrop-blur-md transition-all duration-300
+                      ${isActive 
+                        ? 'bg-purple-600 text-white border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.4)]' 
+                        : 'bg-transparent text-white/70 border-white/20 hover:text-white hover:bg-white/10 hover:border-white/40'
+                      }
+                    `}
+                  >
+                    {filter.label}
+                  </button>
+                );
+              })}
+            </div>
 
-              {/* Tab Navigation */}
-              <div className="flex items-center gap-1 pl-2 overflow-x-auto scrollbar-hide">
-                {filteredCaseStudies.map((caseStudy, index) => {
-                  const colors = getCategoryColor(caseStudy.category);
-                  const isActive = activeIndex === index;
-                  return (
-                    <button
-                      key={caseStudy.id}
-                      onClick={() => scrollTo(index)}
-                      className={`
-                        relative whitespace-nowrap px-3 py-1.5 text-xs font-medium rounded-lg transition-all duration-300
-                        ${isActive 
-                          ? `${colors.text} ${colors.bg}` 
-                          : 'text-white/40 hover:text-white/70 hover:bg-white/5'
-                        }
-                      `}
-                    >
-                      {caseStudy.tabTitle.split(' ')[0]}
-                    </button>
-                  );
-                })}
-              </div>
+            {/* Row 2: Case Study Titles */}
+            <div className="flex items-center justify-center gap-6 flex-wrap max-w-[90vw]">
+              {filteredCaseStudies.map((caseStudy, index) => {
+                const isActive = activeIndex === index;
+                return (
+                  <button
+                    key={caseStudy.id}
+                    onClick={() => scrollTo(index)}
+                    className={`
+                      text-sm font-medium transition-all duration-300 relative
+                      ${isActive 
+                        ? 'text-white' 
+                        : 'text-white/50 hover:text-white/80'
+                      }
+                    `}
+                  >
+                    {caseStudy.tabTitle}
+                    {isActive && (
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-500 rounded-full" />
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
