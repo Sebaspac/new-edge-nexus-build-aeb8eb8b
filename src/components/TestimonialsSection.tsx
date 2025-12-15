@@ -22,13 +22,13 @@ const testimonials = [
   },
   {
     text: "New Edge versteht die Realität von KMUs: wenig Zeit, begrenzte Ressourcen, hoher Druck. Die Lösungen sind praxisnah und so gebaut, dass jeder unseres Teams davon profitiert.",
-    image: "https://randomuser.me/api/portraits/men/4.jpg",
+    image: "https://randomuser.me/api/portraits/women/4.jpg",
     name: "Sabine Albrecht",
     role: "Leiterin Operations",
   },
   {
     text: "Mit New Edge haben wir zuerst klein gestartet - ein Reporting-Dashboard und ein paar automatisierte Workflows. Inzwischen laufen komplette Kampagnen automatisiert. Das Team denkt wie eine verlängerter Arm unseres eigenen Teams.",
-    image: "https://randomuser.me/api/portraits/women/5.jpg",
+    image: "https://randomuser.me/api/portraits/men/5.jpg",
     name: "Christian Vogt",
     role: "Geschäftsführer",
   },
