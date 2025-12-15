@@ -72,14 +72,14 @@ export const HeroSection = ({
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
                 <button 
                   onClick={onContactClick} 
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-colors group"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-semibold hover:bg-neutral-200 transition-colors group"
                 >
                   Projekt Starten
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <Link 
                   to="/about"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-semibold rounded-full border border-white/30 hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-semibold border border-white/30 hover:bg-white/10 transition-colors"
                 >
                   Über Uns
                 </Link>
