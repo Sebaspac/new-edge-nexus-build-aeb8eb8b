@@ -16,7 +16,7 @@ const content: Record<StateType, ContentState> = {
     subtitle: "Branding, das skaliert – modular, maßgeschneidert, schnell",
     description: "Markenpositionierung, kreative Konzeption und emotionale Storytelling-Strategien, die menschliche Verbindungen schaffen.",
     tags: ["Strategie", "Kreativität", "Brand Identity"],
-    color: "#3b82f6",
+    color: "#a855f7", // Lila/Purple
     icon: Fingerprint
   },
   machine: {
@@ -24,7 +24,7 @@ const content: Record<StateType, ContentState> = {
     subtitle: "Kreativ gedacht, performance-gemessen",
     description: "Wir machen kein „nice to have“-Storytelling. Wir machen Content, der auf Conversion zielt. Mit KI, KPIs und einer klaren Message – für jeden Funnel-Step.",
     tags: ["Creative Assets", "S.M Management", "Performance-Marketing"],
-    color: "#ec4899",
+    color: "#3b82f6", // Blau/Blue
     icon: Cpu
   },
   fusion: {
@@ -32,7 +32,7 @@ const content: Record<StateType, ContentState> = {
     subtitle: "Innovation, die wirkt – mit KI-Speed",
     description: "Im Lab setzen wir KI und Softwareentwicklung so um, dass daraus echte, funktionierende Produkte entstehen – keine Konzeptfolien, keine Buzzwords.",
     tags: ["Prozessautomatisierung", "Websysteme", "Prototypen"],
-    color: "#a855f7",
+    color: "#fbbf24", // Gelb/Yellow
     icon: Zap
   }
 };
@@ -90,7 +90,7 @@ export const InteractiveCore = () => {
           </div>
           <h2 className="text-5xl md:text-7xl font-bold mb-6 text-black">
             Der Digital{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-blue-500 to-yellow-400">
               Reactor
             </span>
           </h2>
@@ -141,7 +141,7 @@ export const InteractiveCore = () => {
                   </div>
 
                   {/* Progress Bar */}
-                  {isActive && <motion.div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" initial={{
+                  {isActive && <motion.div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-purple-500 via-blue-500 to-yellow-400" initial={{
                 width: "0%"
               }} animate={{
                 width: `${progress}%`
@@ -200,7 +200,7 @@ export const InteractiveCore = () => {
                 {/* Visual Abstract Layer - Right Side */}
                 <div className="absolute inset-0 translate-x-1/4">
                   {activeState === "human" && <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                      {[...Array(4)].map((_, i) => <motion.div key={i} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-400/30" style={{
+                      {[...Array(4)].map((_, i) => <motion.div key={i} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-purple-400/30" style={{
                     width: `${150 + i * 80}px`,
                     height: `${150 + i * 80}px`
                   }} animate={{
@@ -215,7 +215,7 @@ export const InteractiveCore = () => {
 
                   {activeState === "machine" && <div className="absolute inset-0">
                       <div className="grid grid-cols-8 grid-rows-8 w-full h-full gap-4 p-12">
-                        {[...Array(64)].map((_, i) => <motion.div key={i} className="bg-pink-500/15 border border-pink-400/25 rounded" animate={{
+                        {[...Array(64)].map((_, i) => <motion.div key={i} className="bg-blue-500/15 border border-blue-400/25 rounded" animate={{
                       opacity: [0.1, 0.6, 0.1]
                     }} transition={{
                       duration: 2,
@@ -233,11 +233,11 @@ export const InteractiveCore = () => {
                     repeat: Infinity,
                     ease: "linear"
                   }}>
-                          <div className="w-32 h-32 rounded-full border-2 border-purple-400/40" style={{
+                          <div className="w-32 h-32 rounded-full border-2 border-yellow-400/40" style={{
                       transform: `translate(-50%, -50%) translateX(${100 + i * 40}px)`
                     }} />
                         </motion.div>)}
-                      <div className="w-16 h-16 rounded-full bg-purple-500/30 backdrop-blur animate-pulse-slow" />
+                      <div className="w-16 h-16 rounded-full bg-yellow-500/30 backdrop-blur animate-pulse-slow" />
                     </div>}
                 </div>
               </motion.div>
