@@ -38,7 +38,7 @@ export const PositionedForImpactSection = () => {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="bg-black text-white px-8 py-4 rounded-full font-bold uppercase text-sm tracking-wider hover:bg-gray-900 transition-colors duration-300"
+                className="bg-black text-white px-8 py-4 font-bold uppercase text-sm tracking-wider hover:bg-gray-900 transition-colors duration-300"
               >
                 FINDE DEINE EDGE
               </motion.button>
@@ -53,7 +53,7 @@ export const PositionedForImpactSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden aspect-[16/9]">
+            <div className="relative overflow-hidden aspect-[16/9]">
               <img
                 src={foundersImage}
                 alt="New Edge Founders"
@@ -61,7 +61,7 @@ export const PositionedForImpactSection = () => {
               />
               
               {/* Caption Overlay */}
-              <div className="absolute bottom-8 right-8 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-lg">
+              <div className="absolute bottom-8 right-8 bg-white/90 backdrop-blur-sm px-6 py-3">
                 <p className="text-sm font-bold text-black uppercase tracking-wider">
                   New Edge Founders
                 </p>

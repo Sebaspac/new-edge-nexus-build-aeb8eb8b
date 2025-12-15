@@ -85,7 +85,7 @@ export const InteractiveCore = () => {
       }} transition={{
         duration: 0.8
       }} className="text-center mb-20">
-          <div className="inline-block px-6 py-2 mb-6 rounded-full bg-gray-100 border border-gray-200">
+          <div className="inline-block px-6 py-2 mb-6 bg-gray-100 border border-gray-200">
             <span className="text-xs font-bold tracking-[0.3em] uppercase text-gray-500">Digitale Methodik</span>
           </div>
           <h2 className="text-5xl md:text-7xl font-bold mb-6 text-black">
@@ -133,13 +133,13 @@ export const InteractiveCore = () => {
               duration: 0.6,
               delay: index * 0.1
             }} className={`
-                    relative p-6 text-left rounded-xl transition-all duration-500
+                    relative p-6 text-left transition-all duration-500
                     border overflow-hidden group
                     ${isActive ? activeClasses : `bg-transparent border-gray-200 ${hoverClasses}`}
                   `}>
                   {/* Number Badge */}
                   <div className={`
-                    absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center
+                    absolute top-4 right-4 w-10 h-10 flex items-center justify-center
                     text-xs font-bold transition-all duration-500
                     ${isActive ? badgeActiveClasses : "bg-gray-100 text-gray-400"}
                   `}>
@@ -173,7 +173,7 @@ export const InteractiveCore = () => {
                 opacity: 1,
                 x: 0
               }} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3">
-                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: stateColor }} />
+                      <div className="w-2 h-2" style={{ backgroundColor: stateColor }} />
                     </motion.div>}
                 </motion.button>;
           })}
@@ -190,7 +190,7 @@ export const InteractiveCore = () => {
           once: true
         }} transition={{
           duration: 0.8
-        }} className="relative min-h-[600px] rounded-[3rem] overflow-hidden shadow-2xl">
+        }} className="relative min-h-[600px] overflow-hidden shadow-2xl">
             {/* Glass Card Base - darker for better contrast */}
             <div className="absolute inset-0 bg-[#0a0a0f] border border-white/20" />
 
@@ -209,14 +209,14 @@ export const InteractiveCore = () => {
               duration: 0.8
             }} className="absolute inset-0">
                 {/* Large Colored Blur Circle - more vibrant */}
-                <div className="absolute top-1/2 right-1/4 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] rounded-full blur-[120px] opacity-40" style={{
+                <div className="absolute top-1/2 right-1/4 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] blur-[120px] opacity-40" style={{
                 backgroundColor: activeContent.color
               }} />
 
                 {/* Visual Abstract Layer - Right Side */}
                 <div className="absolute inset-0 translate-x-1/4">
                   {activeState === "human" && <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                      {[...Array(4)].map((_, i) => <motion.div key={i} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-purple-400/30" style={{
+                      {[...Array(4)].map((_, i) => <motion.div key={i} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-purple-400/30" style={{
                     width: `${150 + i * 80}px`,
                     height: `${150 + i * 80}px`
                   }} animate={{
@@ -231,7 +231,7 @@ export const InteractiveCore = () => {
 
                   {activeState === "machine" && <div className="absolute inset-0">
                       <div className="grid grid-cols-8 grid-rows-8 w-full h-full gap-4 p-12">
-                        {[...Array(64)].map((_, i) => <motion.div key={i} className="bg-blue-500/15 border border-blue-400/25 rounded" animate={{
+                        {[...Array(64)].map((_, i) => <motion.div key={i} className="bg-blue-500/15 border border-blue-400/25" animate={{
                       opacity: [0.1, 0.6, 0.1]
                     }} transition={{
                       duration: 2,
@@ -249,11 +249,11 @@ export const InteractiveCore = () => {
                     repeat: Infinity,
                     ease: "linear"
                   }}>
-                          <div className="w-32 h-32 rounded-full border-2 border-yellow-400/40" style={{
+                          <div className="w-32 h-32 border-2 border-yellow-400/40" style={{
                       transform: `translate(-50%, -50%) translateX(${100 + i * 40}px)`
                     }} />
                         </motion.div>)}
-                      <div className="w-16 h-16 rounded-full bg-yellow-500/30 backdrop-blur animate-pulse-slow" />
+                      <div className="w-16 h-16 bg-yellow-500/30 backdrop-blur animate-pulse-slow" />
                     </div>}
                 </div>
               </motion.div>
@@ -278,7 +278,7 @@ export const InteractiveCore = () => {
                   rotate: 20
                 }} transition={{
                   duration: 0.5
-                }} className="p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20" style={{
+                }} className="p-6 bg-white/10 backdrop-blur-xl border border-white/20" style={{
                   boxShadow: `0 0 40px ${activeContent.color}50`
                 }}>
                     <Icon className="w-12 h-12 text-white" />
@@ -291,9 +291,9 @@ export const InteractiveCore = () => {
               }} animate={{
                 opacity: 1,
                 y: 0
-              }} className="px-4 py-2 rounded-full bg-green-500/15 border border-green-400/40">
+              }} className="px-4 py-2 bg-green-500/15 border border-green-400/40">
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                    <div className="w-2 h-2 bg-green-400 animate-pulse" />
                     <span className="text-xs font-mono uppercase tracking-wider text-green-300">
                       System Status: loading
                     </span>
@@ -337,7 +337,7 @@ export const InteractiveCore = () => {
                       scale: 1
                     }} transition={{
                       delay: 0.3 + i * 0.1
-                    }} className="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-semibold text-white backdrop-blur">
+                    }} className="px-4 py-2 bg-white/10 border border-white/20 text-sm font-semibold text-white backdrop-blur">
                           {tag}
                         </motion.span>)}
                     </div>
