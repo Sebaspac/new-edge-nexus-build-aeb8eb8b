@@ -272,7 +272,7 @@ const Index = () => {
             }} className="group">
                   <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
                     <CardContent className="p-4 md:p-8 flex flex-col h-full">
-                      <motion.div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${index === 0 ? "from-primary to-primary/70" : index === 1 ? "from-secondary to-secondary/70" : "from-accent to-accent/70"} flex items-center justify-center mb-4 md:mb-6 shadow-lg`} whileHover={{
+                      <motion.div className={`w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br ${index === 0 ? "from-primary to-primary/70" : index === 1 ? "from-secondary to-secondary/70" : "from-accent to-accent/70"} flex items-center justify-center mb-4 md:mb-6 shadow-lg`} whileHover={{
                     scale: 1.1,
                     rotate: [0, -5, 5, 0],
                     transition: {
@@ -366,14 +366,14 @@ const Index = () => {
               delay: 0.6,
               duration: 0.6
             }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="group bg-white text-black hover:bg-gray-100 transition-all duration-300 text-lg px-8 py-6 rounded-full font-semibold">
+                <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="group bg-white text-black hover:bg-gray-100 transition-all duration-300 text-lg px-8 py-6 font-semibold">
                   Kontakt aufnehmen
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button size="lg" variant="outline" onClick={() => {
                 setContactFormType("agentur");
                 setIsContactSheetOpen(true);
-              }} className="border-2 border-black text-black hover:bg-black hover:text-white transition-all duration-300 text-lg px-8 py-6 rounded-full font-semibold">
+              }} className="border-2 border-black text-black hover:bg-black hover:text-white transition-all duration-300 text-lg px-8 py-6 font-semibold">
                   Partner werden
                 </Button>
               </motion.div>

@@ -67,9 +67,9 @@ export const MethodologyGrid = () => {
           }} transition={{
             delay: 0.3,
             duration: 0.6
-          }} className="relative bg-black text-white rounded-2xl p-8 overflow-hidden group cursor-pointer hover:scale-[1.02] transition-transform duration-300">
+          }} className="relative bg-black text-white p-8 overflow-hidden group cursor-pointer hover:scale-[1.02] transition-transform duration-300">
               {/* Purple Circle Decoration */}
-              <div className="absolute -right-12 -bottom-12 w-48 h-48 bg-[#7C3AED] rounded-full opacity-80 group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute -right-12 -bottom-12 w-48 h-48 bg-[#7C3AED] opacity-80 group-hover:scale-110 transition-transform duration-500" />
               
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold mb-2">Web-Check 2025</h3>

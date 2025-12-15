@@ -68,7 +68,7 @@ export const TestimonialsSection = () => {
           className="flex flex-col items-center justify-center max-w-[540px] mx-auto"
         >
           <div className="flex justify-center">
-            <div className="border border-[#7C3AED] text-[#7C3AED] py-1 px-4 rounded-lg text-sm font-medium tracking-wider uppercase">
+            <div className="border border-[#7C3AED] text-[#7C3AED] py-1 px-4 text-sm font-medium tracking-wider uppercase">
               Testimonials
             </div>
           </div>
