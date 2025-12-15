@@ -105,6 +105,22 @@ export const InteractiveCore = () => {
           <div className="flex flex-col gap-4">
             {states.map((state, index) => {
             const isActive = activeState === state.key;
+            const stateColor = content[state.key].color;
+            const hoverClasses = state.key === 'human' 
+              ? 'hover:bg-purple-50 hover:border-purple-300' 
+              : state.key === 'machine' 
+                ? 'hover:bg-blue-50 hover:border-blue-300' 
+                : 'hover:bg-yellow-50 hover:border-yellow-300';
+            const activeClasses = state.key === 'human'
+              ? 'bg-purple-50 border-purple-500 shadow-lg shadow-purple-500/10'
+              : state.key === 'machine'
+                ? 'bg-blue-50 border-blue-500 shadow-lg shadow-blue-500/10'
+                : 'bg-yellow-50 border-yellow-500 shadow-lg shadow-yellow-500/10';
+            const badgeActiveClasses = state.key === 'human'
+              ? 'bg-purple-500 text-white'
+              : state.key === 'machine'
+                ? 'bg-blue-500 text-white'
+                : 'bg-yellow-500 text-black';
             return <motion.button key={state.key} onClick={() => setActiveState(state.key)} initial={{
               opacity: 0,
               x: -40
@@ -119,13 +135,13 @@ export const InteractiveCore = () => {
             }} className={`
                     relative p-6 text-left rounded-xl transition-all duration-500
                     border overflow-hidden group
-                    ${isActive ? "bg-gray-100 border-[#7C3AED] shadow-lg shadow-purple-500/10" : "bg-transparent border-gray-200 hover:bg-gray-50 hover:border-gray-300"}
+                    ${isActive ? activeClasses : `bg-transparent border-gray-200 ${hoverClasses}`}
                   `}>
                   {/* Number Badge */}
                   <div className={`
                     absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center
                     text-xs font-bold transition-all duration-500
-                    ${isActive ? "bg-[#7C3AED] text-white" : "bg-gray-100 text-gray-400"}
+                    ${isActive ? badgeActiveClasses : "bg-gray-100 text-gray-400"}
                   `}>
                     {state.number}
                   </div>
@@ -141,13 +157,13 @@ export const InteractiveCore = () => {
                   </div>
 
                   {/* Progress Bar */}
-                  {isActive && <motion.div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-purple-500 via-blue-500 to-yellow-400" initial={{
-                width: "0%"
-              }} animate={{
-                width: `${progress}%`
-              }} transition={{
-                duration: 0.1
-              }} />}
+                  {isActive && <motion.div 
+                    className="absolute bottom-0 left-0 h-[2px]" 
+                    style={{ backgroundColor: stateColor }}
+                    initial={{ width: "0%" }} 
+                    animate={{ width: `${progress}%` }} 
+                    transition={{ duration: 0.1 }} 
+                  />}
 
                   {/* Arrow Indicator */}
                   {isActive && <motion.div initial={{
@@ -157,7 +173,7 @@ export const InteractiveCore = () => {
                 opacity: 1,
                 x: 0
               }} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3">
-                      <div className="w-2 h-2 bg-[#7C3AED] rounded-full" />
+                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: stateColor }} />
                     </motion.div>}
                 </motion.button>;
           })}
