@@ -9,7 +9,7 @@ const testimonials = [
     role: "Geschäftsführerin",
   },
   {
-    text: "Die Automatisierungslösungen von New Edge haben unsere Effizienz massiv gesteigert. Besonders das zentrale Dashboard gibt uns endlich einen klaren Blick auf Leads, Kampagnen und Auslastung. Ein Partner, den man ruhigen Gewissens weiterempfehlt.",
+    text: "Die Automatisierungslösungen von New Edge haben unsere Effizienz massiv gesteigert. Besonders das zentrale Dashboard gibt uns endlich einen klaren Blick auf unsere KPI´s.",
     image: "https://randomuser.me/api/portraits/men/2.jpg",
     name: "Dr. Tobias Werner",
     role: "CEO",
@@ -27,13 +27,13 @@ const testimonials = [
     role: "Leiterin Operations",
   },
   {
-    text: "Mit New Edge haben wir zuerst klein gestartet – ein Reporting-Dashboard und ein paar automatisierte Workflows. Inzwischen laufen komplette Kampagnen automatisiert über ihre KI-Agenten. Das Team denkt mit, testet und optimiert wie eine verlängerter Arm unseres eigenen Teams.",
+    text: "Mit New Edge haben wir zuerst klein gestartet - ein Reporting-Dashboard und ein paar automatisierte Workflows. Inzwischen laufen komplette Kampagnen automatisiert. Das Team denkt wie eine verlängerter Arm unseres eigenen Teams.",
     image: "https://randomuser.me/api/portraits/women/5.jpg",
     name: "Christian Vogt",
     role: "Geschäftsführer",
   },
   {
-    text: "Dank New Edge konnten wir auch ohne technisches Verständniss digitale Lösungen für unsere Kunden ",
+    text: "Dank New Edge konnten wir auch ohne technisches Verständnis schnell ein funktionierendes System umsetzen.",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
     name: "Lisa Wagner",
     role: "Brand Managerin",
@@ -49,12 +49,6 @@ const testimonials = [
     image: "https://randomuser.me/api/portraits/women/8.jpg",
     name: "Sophie Klein",
     role: "Operations Managerin",
-  },
-  {
-    text: "Die Kombination aus Creative Excellence und intelligenter Automatisierung ist einzigartig am Markt.",
-    image: "https://randomuser.me/api/portraits/men/9.jpg",
-    name: "Marco Fischer",
-    role: "Strategie-Berater",
   },
 ];
 
