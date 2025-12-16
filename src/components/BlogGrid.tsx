@@ -78,8 +78,8 @@ export const BlogGrid = () => {
         </div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
-          {blogPosts.map((post, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+          {blogPosts.slice(0, 2).map((post, index) => (
             <motion.div
               key={post.id}
               initial={{ opacity: 0, y: 30 }}
