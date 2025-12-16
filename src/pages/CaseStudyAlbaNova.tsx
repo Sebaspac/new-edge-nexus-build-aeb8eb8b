@@ -279,18 +279,18 @@ const CaseStudyAlbaNova = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
         {/* Hero Section */}
-        <section className="relative w-full min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-black py-20">
+        <section className="relative w-full min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden py-20">
           {/* Background Video */}
           <video
             autoPlay
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-40"
+            className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/assets/albanova-hero-video.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <AnimatedSection className="text-center max-w-5xl mx-auto">
               <div className="mb-6 md:mb-8">
