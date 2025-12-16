@@ -26,7 +26,7 @@ export const PositionedForImpactSection = () => {
               />
               
               {/* Caption Overlay */}
-              <div className="absolute bottom-4 left-4 bg-black px-4 py-2">
+              <div className="absolute bottom-0 left-0 bg-black px-4 py-2">
                 <p className="text-sm font-medium text-white">
                   Leadership Team | Strategy & Tech
                 </p>
