@@ -90,6 +90,7 @@ const CaseStudyAlbaNova = () => {
       title: "Strategie & Konzeption",
       description:
         "Den Grundstein für den Erfolg legen. In dieser initialen Phase definieren wir die strategische Ausrichtung und schaffen eine klare Vision für die Marke.",
+      image: "/assets/albanova-phase1-image.png",
       features: [
         {
           icon: Target,
@@ -514,6 +515,14 @@ const CaseStudyAlbaNova = () => {
                           >
                             <source src={phase.video} type="video/mp4" />
                           </video>
+                        </div>
+                      ) : 'image' in phase && phase.image ? (
+                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
+                          <img
+                            src={phase.image}
+                            alt={phase.title}
+                            className="w-full h-full object-cover"
+                          />
                         </div>
                       ) : (
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
