@@ -24,6 +24,7 @@ const blogPostsData: Record<string, {
     date: "15. November 2024",
     author: "New Edge Team",
     gradient: "from-purple-600 to-blue-600",
+    image: "/assets/blog-ki-tools.png",
     content: {
       intro: "KI-Tools sind in vielen Unternehmen bereits angekommen - oft als Insellösungen im Marketing, in der IT oder im Kundenservice. Gleichzeitig kämpfen Teams mit manuellen Prozessen, verstreuten Dateien und Informationssilos.\n\nRichtig eingesetzt, kann Künstliche Intelligenz weit mehr sein als 'das nächste Tool': Sie kann zu einem 'Company Brain' werden - einem zentralen, intelligenten System, das Wissen, Daten und Abläufe verbindet und Ihr Unternehmen spürbar entlastet.\n\nIn diesem Artikel erfahren Sie:\n• welche Kategorien von KI-Tools für Unternehmen wirklich relevant sind,\n• wie Sie daraus ein zusammenhängendes System - Ihr Company Brain - aufbauen,\n• und welche Rolle ein Setup wie das New Edge Studio · Media · Lab und unser AgentHub dabei spielen kann.",
       sections: [
