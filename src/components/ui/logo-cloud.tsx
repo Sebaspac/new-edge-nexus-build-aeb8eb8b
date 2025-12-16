@@ -39,12 +39,12 @@ export default function LogoCloud() {
             {logos.map((logo, index) => (
               <div 
                 key={index} 
-                className="flex items-center justify-center h-16 md:h-20 w-auto grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+                className="flex items-center justify-center h-20 md:h-28 w-auto grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-full w-auto object-contain max-w-[140px] md:max-w-[160px]"
+                  className="h-full w-auto object-contain max-w-[180px] md:max-w-[220px]"
                 />
               </div>
             ))}
@@ -55,12 +55,12 @@ export default function LogoCloud() {
             {logos.map((logo, index) => (
               <div 
                 key={`dup-${index}`} 
-                className="flex items-center justify-center h-16 md:h-20 w-auto grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+                className="flex items-center justify-center h-20 md:h-28 w-auto grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-full w-auto object-contain max-w-[140px] md:max-w-[160px]"
+                  className="h-full w-auto object-contain max-w-[180px] md:max-w-[220px]"
                 />
               </div>
             ))}
