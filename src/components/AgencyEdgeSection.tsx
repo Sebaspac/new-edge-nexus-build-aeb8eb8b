@@ -7,9 +7,9 @@ export const AgencyEdgeSection = () => {
     <section className="relative py-24 bg-white overflow-hidden">
       <div className="container-xl">
         {/* Label */}
-        <p className="text-[#7C3AED] text-sm font-medium tracking-[0.2em] uppercase mb-8">
-          AGENTUR MIT EDGE
-        </p>
+        <div className="inline-block px-4 py-1 mb-8 border border-[#7C3AED]">
+          <span className="text-sm font-medium tracking-wider uppercase text-[#7C3AED]">Agentur mit Edge</span>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Image */}
