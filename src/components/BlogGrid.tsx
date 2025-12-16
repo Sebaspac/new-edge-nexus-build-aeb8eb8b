@@ -6,7 +6,7 @@ const blogPosts = [
   {
     id: "automatisierung-2024",
     client: "NEW EDGE",
-    headline: "Die Zukunft der Automatisierung",
+    headline: "KI-Tools im Überblick: So wird Ihre KI zum 'Company Brain'",
     category: "KI & AUTOMATION",
     date: "15. Nov 2024",
     gradient: "from-purple-600 to-blue-600"
