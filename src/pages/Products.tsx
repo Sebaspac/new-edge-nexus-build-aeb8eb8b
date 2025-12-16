@@ -569,7 +569,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">4</span>
-                      <span><strong>Übergabe an den Vertrieb:</strong>Vorqualifizierte Informationen werden gespeichert und ans Team für Sales übergeben</span>
+                      <span><strong>Übergabe an den Vertrieb:</strong> Vorqualifizierte Informationen werden gespeichert und ans Team für Sales übergeben</span>
                     </motion.li>
                   </ol>
                 </motion.div>
