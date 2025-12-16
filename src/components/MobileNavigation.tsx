@@ -6,15 +6,31 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { OptimizedLogo } from "@/components/OptimizedLogo";
 import { ContactFormModal } from "@/components/ContactFormModal";
+type CategoryFilter = 'all' | 'studio' | 'media' | 'lab';
+
 interface MobileNavigationProps {
   onContactClick: () => void;
   logoSrc?: string;
   theme?: 'light' | 'dark';
+  showCaseFilter?: boolean;
+  activeFilter?: CategoryFilter;
+  onFilterChange?: (filter: CategoryFilter) => void;
 }
+
+const filterButtons: { key: CategoryFilter; label: string }[] = [
+  { key: 'all', label: 'Alle' },
+  { key: 'studio', label: 'Studio' },
+  { key: 'media', label: 'Media' },
+  { key: 'lab', label: 'Lab' },
+];
+
 export const MobileNavigation = ({
   onContactClick,
   logoSrc = "/assets/93b90410-bdbd-4098-938c-5ff9f158253c.png",
-  theme = 'light'
+  theme = 'light',
+  showCaseFilter = false,
+  activeFilter = 'all',
+  onFilterChange
 }: MobileNavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -108,6 +124,31 @@ export const MobileNavigation = ({
                 </div>
               </div>
             </div>
+
+            {/* Case Filter Buttons */}
+            {showCaseFilter && (
+              <div className="flex items-center gap-1 ml-2 pl-4 border-l border-white/20">
+                {filterButtons.map((filter) => {
+                  const isActive = activeFilter === filter.key;
+                  return (
+                    <button
+                      key={filter.key}
+                      onClick={() => onFilterChange?.(filter.key)}
+                      className={`
+                        px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider
+                        transition-all duration-300
+                        ${isActive 
+                          ? 'bg-purple-600 text-white' 
+                          : 'text-white/60 hover:text-white hover:bg-white/10'
+                        }
+                      `}
+                    >
+                      {filter.label}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
 
             <Button 
               onClick={onContactClick} 
