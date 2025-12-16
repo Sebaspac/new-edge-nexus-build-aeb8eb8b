@@ -12,6 +12,7 @@ const blogPostsData: Record<string, {
   date: string;
   author: string;
   gradient: string;
+  image?: string;
   content: {
     intro: string;
     sections: { heading: string; text: string }[];
@@ -75,6 +76,7 @@ const blogPostsData: Record<string, {
     date: "10. November 2024",
     author: "New Edge Team",
     gradient: "from-blue-600 to-cyan-600",
+    image: "/assets/blog-ki-fehler.jpg",
     content: {
       intro: "Künstliche Intelligenz verspricht Produktivitätssprünge, bessere Entscheidungen und neue Geschäftsmodelle. In der Praxis erleben viele Unternehmen jedoch etwas anderes: Pilotprojekte, die versanden, überforderte Teams, unklare Ziele und Tool-Wildwuchs.\n\nDie gute Nachricht: Die meisten Probleme entstehen nicht, weil 'KI nicht funktioniert', sondern weil Einführung und Rahmenbedingungen nicht sauber gestaltet sind.\n\nIn diesem Artikel lesen Sie:\n• welche 10 typischen Fehler Unternehmen bei der Einführung von KI machen,\n• und wie Sie diese vermeiden, um Schritt für Schritt eine belastbare KI-Infrastruktur - Ihr eigenes Company Brain - aufzubauen.",
       sections: [
@@ -300,15 +302,24 @@ const BlogPost = () => {
     <>
       <Helmet>
         <title>{post.title} - NEW EDGE</title>
-        <meta name="description" content={post.content.intro} />
+        <meta name="description" content={post.content.intro.substring(0, 160)} />
+        {post.image && <meta property="og:image" content={post.image} />}
+        {post.image && <meta name="twitter:image" content={post.image} />}
       </Helmet>
 
       <div className="min-h-screen bg-white">
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
-        {/* Hero Section with Gradient */}
-        <section className={`relative w-full min-h-[70vh] flex items-end bg-gradient-to-br ${post.gradient}`}>
-          <div className="absolute inset-0 bg-black/20" />
+        {/* Hero Section with Image or Gradient */}
+        <section className={`relative w-full min-h-[70vh] flex items-end ${!post.image ? `bg-gradient-to-br ${post.gradient}` : ''}`}>
+          {post.image ? (
+            <img 
+              src={post.image} 
+              alt={post.title}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : null}
+          <div className="absolute inset-0 bg-black/40" />
           
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl pb-16 pt-32 relative z-10">
             <Link
