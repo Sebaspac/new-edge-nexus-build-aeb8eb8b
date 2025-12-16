@@ -10,7 +10,7 @@ const blogPosts = [
     category: "KI & AUTOMATION",
     date: "15. Nov 2024",
     gradient: "from-purple-600 to-blue-600",
-    image: undefined as string | undefined
+    image: "/assets/blog-ki-tools.png"
   },
   {
     id: "markenaufbau-guide",
