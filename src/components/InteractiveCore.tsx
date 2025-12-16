@@ -97,7 +97,7 @@ export const InteractiveCore = () => {
               Reactor
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl">
+          <p className="text-xl text-gray-600 max-w-4xl">
             Wir verbinden Markenführung, Medienproduktion und Automatisierung zu messbaren Ergebnissen - umgesetzt im Headquarter-Modell mit kuratiertem Partnernetzwerk und Echtzeit-Dashboards.
           </p>
         </motion.div>
