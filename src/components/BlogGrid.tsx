@@ -9,7 +9,8 @@ const blogPosts = [
     headline: "KI-Tools im Überblick: So wird Ihre KI zum 'Company Brain'",
     category: "KI & AUTOMATION",
     date: "15. Nov 2024",
-    gradient: "from-purple-600 to-blue-600"
+    gradient: "from-purple-600 to-blue-600",
+    image: undefined as string | undefined
   },
   {
     id: "markenaufbau-guide",
@@ -17,7 +18,8 @@ const blogPosts = [
     headline: "Die 10 häufigsten Fehler bei der Einführung von KI",
     category: "KI & STRATEGIE",
     date: "10. Nov 2024",
-    gradient: "from-blue-600 to-cyan-600"
+    gradient: "from-blue-600 to-cyan-600",
+    image: "/assets/blog-ki-fehler.jpg"
   },
   {
     id: "ki-workflows",
@@ -25,7 +27,8 @@ const blogPosts = [
     headline: "KI-Workflows die Zeit sparen",
     category: "PRODUCTIVITY",
     date: "05. Nov 2024",
-    gradient: "from-cyan-600 to-teal-600"
+    gradient: "from-cyan-600 to-teal-600",
+    image: undefined as string | undefined
   },
   {
     id: "digitale-transformation",
@@ -33,7 +36,8 @@ const blogPosts = [
     headline: "Digitale Transformation richtig angehen",
     category: "STRATEGIE",
     date: "28. Okt 2024",
-    gradient: "from-teal-600 to-green-600"
+    gradient: "from-teal-600 to-green-600",
+    image: undefined as string | undefined
   }
 ];
 
@@ -85,8 +89,19 @@ export const BlogGrid = () => {
             >
               <Link to={`/blog/${post.id}`} className="block group">
                 <div className="relative overflow-hidden aspect-square bg-gray-100">
-                  {/* Gradient Background */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${post.gradient}`} />
+                  {/* Image or Gradient Background */}
+                  {post.image ? (
+                    <>
+                      <img 
+                        src={post.image} 
+                        alt={post.headline}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-black/20" />
+                    </>
+                  ) : (
+                    <div className={`absolute inset-0 bg-gradient-to-br ${post.gradient}`} />
+                  )}
                   
                   {/* Normal State: + Icon */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
