@@ -178,28 +178,28 @@ const Index = () => {
         
 
         {/* Methodology Grid Section */}
-        <MethodologyGrid />
+        <MethodologyGrid className="bg-surface" />
 
         {/* Logo Cloud */}
-        <LogoCloud />
+        <LogoCloud className="bg-surface" />
 
         {/* Positioned for Impact Section */}
-        <PositionedForImpactSection />
+        <PositionedForImpactSection className="bg-surface" />
 
         {/* Case Studies Grid */}
-        <CaseStudiesGrid />
+        <CaseStudiesGrid className="bg-surface" />
 
         {/* Agency Edge Section */}
-        <AgencyEdgeSection />
+        <AgencyEdgeSection className="bg-surface" />
 
         {/* Innovation Section */}
         
 
         {/* Interactive Core - Digital Methodology Reactor */}
-        <InteractiveCore />
+        <InteractiveCore className="bg-surface" />
 
         {/* Unsere Kompetenzbereiche - Light Section */}
-        <section className="relative py-24 bg-[#F8F8F8] overflow-hidden">
+        <section className="relative py-24 overflow-hidden bg-surface">
           <div className="container-xl relative z-10">
             {/* Header */}
             <motion.div className="text-center mb-16" initial={{
@@ -302,7 +302,7 @@ const Index = () => {
         </section>
 
         {/* Magic Text Section */}
-        <section className="relative py-32 md:py-48 bg-[#F8F8F8] overflow-hidden">
+        <section className="relative py-32 md:py-48 overflow-hidden bg-surface">
           <div className="container-xl relative z-10">
             <div className="max-w-5xl mx-auto text-center">
               <motion.span initial={{
@@ -345,10 +345,10 @@ const Index = () => {
         </section>
 
         {/* Testimonials Section */}
-        <TestimonialsSection />
+        <TestimonialsSection className="bg-surface" />
 
         {/* Blog Section */}
-        <BlogGrid />
+        <BlogGrid className="bg-surface" />
 
         {/* Contact Section */}
         <section id="contact-section" className="relative py-24 bg-gradient-to-br from-[#F5F5F5] to-[#F8F8F8] overflow-hidden">
