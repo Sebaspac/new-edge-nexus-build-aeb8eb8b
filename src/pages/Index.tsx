@@ -14,6 +14,7 @@ import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import LogoCloud from "@/components/ui/logo-cloud";
+import { MagicText } from "@/components/ui/magic-text";
 import { lazy, Suspense, useCallback, useState, useEffect } from "react";
 import { ProblemSolutionSection } from "@/components/ProblemSolutionSection";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -297,6 +298,40 @@ const Index = () => {
                   </Card>
                 </motion.div>)}
             </motion.div>
+          </div>
+        </section>
+
+        {/* Magic Text Section */}
+        <section className="relative py-32 md:py-48 bg-white overflow-hidden">
+          <div className="container-xl relative z-10">
+            <div className="max-w-5xl mx-auto text-center">
+              <motion.span 
+                className="inline-block text-[#22C55E] text-sm font-bold uppercase tracking-widest mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                HIER ENTSTEHT MAGIE
+              </motion.span>
+              
+              <MagicText text="Unsere kreativen Köpfe verschmelzen Expertise und Ideen zu beeindruckenden Ergebnissen." />
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="mt-12"
+              >
+                <Link to="/careers">
+                  <Button className="bg-black hover:bg-black/90 text-white px-8 py-6 text-lg rounded-full">
+                    Hier suchen wir aktuell Verstärkung
+                    <ArrowRight className="ml-2 w-5 h-5 -rotate-45" />
+                  </Button>
+                </Link>
+              </motion.div>
+            </div>
           </div>
         </section>
 
