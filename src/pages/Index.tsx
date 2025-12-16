@@ -184,7 +184,7 @@ const Index = () => {
 
         {/* Logo Cloud */}
         <div className="bg-surface">
-          <LogoCloud />
+          <LogoCloud className="bg-primary-foreground" />
         </div>
 
         {/* Positioned for Impact Section */}
