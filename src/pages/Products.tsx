@@ -16,35 +16,51 @@ import { LazyVideo } from "@/components/LazyVideo";
 import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
 
 // Lazy load Footer for better initial performance
-const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
+const Footer = lazy(() => import("@/components/Footer").then(m => ({
+  default: m.Footer
+})));
 // Memoized Detail Card Component
-const DetailCard = memo(({ title, children, gradient, hover = true }: { 
-  title: string; 
-  children: React.ReactNode; 
+const DetailCard = memo(({
+  title,
+  children,
+  gradient,
+  hover = true
+}: {
+  title: string;
+  children: React.ReactNode;
   gradient?: string;
   hover?: boolean;
-}) => (
-  <motion.div
-    variants={{
-      hidden: { opacity: 0, y: 20 },
-      visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-    }}
-    whileHover={hover ? { scale: 1.02, y: -5 } : undefined}
-    transition={{ type: "spring", stiffness: 300 }}
-    className={`${gradient || 'bg-white/80 backdrop-blur-sm border border-purple-100 hover:shadow-2xl hover:border-purple-200'} p-6 rounded-2xl shadow-lg`}
-  >
+}) => <motion.div variants={{
+  hidden: {
+    opacity: 0,
+    y: 20
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5
+    }
+  }
+}} whileHover={hover ? {
+  scale: 1.02,
+  y: -5
+} : undefined} transition={{
+  type: "spring",
+  stiffness: 300
+}} className={`${gradient || 'bg-white/80 backdrop-blur-sm border border-purple-100 hover:shadow-2xl hover:border-purple-200'} p-6 rounded-2xl shadow-lg`}>
     <h3 className={`text-xl sm:text-2xl font-black mb-4 ${gradient ? 'text-white' : 'text-black'}`}>{title}</h3>
     {children}
-  </motion.div>
-));
-
+  </motion.div>);
 const Products = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const [selectedAgent, setSelectedAgent] = useState("");
-  const { shouldAnimate, whileHover } = useOptimizedAnimation();
-  
+  const {
+    shouldAnimate,
+    whileHover
+  } = useOptimizedAnimation();
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -56,7 +72,6 @@ const Products = () => {
     setSelectedAgent(agentName);
     setIsContactSheetOpen(true);
   }, []);
-
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
@@ -122,15 +137,7 @@ const Products = () => {
             {/* 16:9 Aspect Ratio Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
             {/* Background Video */}
-              <LazyVideo
-                src="/assets/agents-hero-video.mp4"
-                className="absolute inset-0 w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="none"
-              />
+              <LazyVideo src="/assets/agents-hero-video.mp4" className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline preload="none" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               
               {/* Text Content - Bottom Left */}
@@ -281,7 +288,8 @@ const Products = () => {
                 
                 <DetailCard title="Was macht Riley?">
                   <p className="text-sm leading-relaxed text-gray-700 sm:text-base">
-                    Riley nutzt Retrieval‑Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten. Der Einsatz von RAG verringert Halluzinationen und schafft mehr Vertrauen in die Ergebnisse.
+                    Riley ist die Wissens-Engine Ihres Unternehmens. Mit Retrieval-Augmented Generation (RAG) liefert er präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis - mit Quellen und klarer Herleitung. So sinken Halluzinationen, und alle Teams (Sales, Support, Marketing) arbeiten mit derselben, geprüften Wahrheit.
+
                   </p>
                 </DetailCard>
 
@@ -317,7 +325,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">1</span>
-                      <span><strong>Daten sammeln & organisieren:</strong> Alle wichtigen Dokumente, FAQs und Anleitungen werden in einer zentralen Wissensbasis gespeichert.</span>
+                      <span><strong>Daten sammeln & organisieren:</strong>Wissen zentralisieren:</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -330,7 +338,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">2</span>
-                      <span><strong>Recherche & Analyse:</strong> Riley identifiziert die relevanten Abschnitte und bringt sie in den richtigen Kontext.</span>
+                      <span><strong>Recherche & Analyse:</strong>Retrieval & Kontext: </span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -343,7 +351,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">3</span>
-                      <span><strong>Generieren & Antworten:</strong> Das Sprachmodell erstellt daraus eine verständliche, hochwertige Antwort.</span>
+                      <span><strong>Generieren & Antworten:</strong>Antworten mit Beleg:</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -356,7 +364,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">4</span>
-                      <span><strong>Lernen & verbessern:</strong> Nutzerfeedback fließt in die Optimierung ein; so werden Antworten stetig präziser.</span>
+                      <span><strong>Lernen & verbessern:</strong>Qualitätsschleife:</span>
                     </motion.li>
                   </ol>
                 </motion.div>
@@ -378,19 +386,20 @@ const Products = () => {
                   <ul className="text-sm sm:text-base leading-relaxed space-y-2">
                     <li className="flex items-start gap-2">
                       <span className="text-2xl">✓</span>
-                      <span>Verlässliche und aktuelle Informationen anstelle von Halluzinationen</span>
+                      <span>Verlässliche, aktuelle Antworten statt Halluzinationen</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-2xl">✓</span>
-                      <span>Schneller Zugriff auf verborgenes Wissen und weniger Suchaufwand</span>
+                      <span>Einheitliche Aussagen über alle Kanäle & Teams hinweg</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-2xl">✓</span>
-                      <span>Maßgeschneiderte Antworten für Ihr Team und Ihre Kunden</span>
+                      <span>Schnellere interne Abläufe (Onboarding, Prozesse, Produktfragen)
+                    </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-2xl">✓</span>
-                      <span>Integration in bestehende Systeme wie Chat- oder CRM‑Tools</span>
+                      <span>Integration in Teams, Slack, WhatsApp/Telegram oder Custom Dashboard</span>
                     </li>
                   </ul>
                 </motion.div>
@@ -416,7 +425,8 @@ const Products = () => {
               }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Riley in der Praxis</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
-                    Ein neuer Mitarbeiter stellt im internen Chat Fragen zum Onboarding. Riley greift auf Handbücher und FAQs zu, liefert sofort die korrekte Antwort und verkürzt so die Einarbeitungszeit.
+                    Ein neuer Mitarbeiter fragt im internen Chat nach dem Onboarding-Prozess. Riley zieht die passenden Abschnitte aus Handbuch & FAQ, gibt eine klare Schritt-für-Schritt-Antwort und spart dem Team Zeit. Gleichzeitig entlastet Riley HR und Teamleads bei Skalierung: Wenn z. B. 150 Mitarbeitende regelmäßig Fragen zu Arbeitszeiten, Urlaubsregeln, internen Prozessen oder Preis-/Leistungsrichtlinien stellen, beantwortet Riley diese rund um die Uhr konsistent - inklusive Verweis auf die richtige Richtlinie - und reduziert Rückfragen, Tickets und Meeting-Zeit spürbar.
+
                   </p>
 
                   <motion.div whileHover={{
@@ -482,7 +492,8 @@ const Products = () => {
               }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Was macht Liam?</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                    Liam automatisiert Ihre Lead‑Generierung. Er kombiniert Chatbots, Segmentierung, Predictive Lead Scoring und automatisierte E‑Mail‑Kampagnen. Dadurch identifiziert und pflegt er wertvolle Kontakte, während Ihr Vertrieb sich auf Abschlüsse konzentriert. KI‑gestützte Lead‑Generierung steigert Effizienz, verbessert die Lead‑Qualität und ermöglicht hyperpersonalisierte Ansprache.
+                    Liam ist Ihr Pipeline-Motor: Er erfasst Leads, segmentiert sie, bewertet ihre Kaufbereitschaft (Predictive Scoring) und führt automatisierte Follow-ups aus. Zusätzlich kann Liam kalte Leads per Zielgruppen-Abfrage recherchieren und strukturierte Akquise-Listen erstellen - damit Ihr Vertrieb nur dort Zeit investiert, wo Abschlusswahrscheinlichkeit besteht.
+
                   </p>
                 </motion.div>
 
@@ -518,7 +529,8 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">1</span>
-                      <span><strong>Erkennen & Segmentieren:</strong> Liam analysiert Website‑Besucher und teilt sie in Zielgruppen ein.</span>
+                      <span><strong>Erkennen & Segmentieren:</strong>  Liam analysiert Website-Besucher und Anfragen und ordnet sie Zielgruppen zu. (IN GT4)
+                    </span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -531,7 +543,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">2</span>
-                      <span><strong>Interagieren & Qualifizieren:</strong> Ein Chatbot begrüßt Interessenten, beantwortet Fragen und erfasst Kontaktdaten samt Lead‑Score.</span>
+                      <span><strong>Interagieren & Qualifizieren:</strong> Er erfasst Kontaktdaten, klärt Bedarf und erstellt einen Lead-Score. (In Database) // CRM</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -544,7 +556,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">3</span>
-                      <span><strong>Nurturing & Personalisierung:</strong> Automatisierte E‑Mails und Nachrichten liefern passende Inhalte und pflegen den Kontakt.</span>
+                      <span><strong>Nurturing & Personalisierung:</strong> Automatisierte Sequenzen (z. B. sofort, 24h, 48h, Reminder vor Angeboten) halten den Kontakt warm.</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -557,7 +569,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">4</span>
-                      <span><strong>Übergabe an den Vertrieb:</strong> Heiß qualifizierte Leads werden mit Scoring und Empfehlungen an Ihr Team übergeben.</span>
+                      <span><strong>Übergabe an den Vertrieb:</strong>Recherche über den Lead:</span>
                     </motion.li>
                   </ol>
                 </motion.div>
@@ -579,19 +591,20 @@ const Products = () => {
                   <ul className="text-sm sm:text-base leading-relaxed space-y-2">
                     <li className="flex items-start gap-2">
                       <span className="text-2xl">✓</span>
-                      <span>Effizienz und Skalierbarkeit – Liam arbeitet 24/7 und verpasst keinen Besucher</span>
+                      <span>  24/7 Lead-Capture - kein Besucher geht verloren
+                    </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-2xl">✓</span>
-                      <span>Präzises Lead‑Scoring und gezielte Segmentierung für höhere Abschlussraten</span>
+                      <span>Besseres Scoring & Segmentierung für höhere Abschlussraten</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-2xl">✓</span>
-                      <span>Hyperpersonalisierte Ansprache und bessere Kundenbeziehungen</span>
+                      <span>Personalisierte Follow-ups mit minimalem Aufwand</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-2xl">✓</span>
-                      <span>Automatische Lead‑Pflege reduziert Ihren manuellen Aufwand</span>
+                      <span>Strukturierte Übergaben statt „kalter“ Kontaktlisten</span>
                     </li>
                   </ul>
                 </motion.div>
@@ -617,7 +630,7 @@ const Products = () => {
               }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Liam in der Praxis</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
-                    Ein E‑Commerce‑Shop integriert Liam in sein Kontaktformular. Der Chatbot beantwortet Produktfragen, erfasst Kontaktdaten und bewertet die Kaufbereitschaft. Täglich erhält das Vertriebsteam eine Liste neuer, qualifizierter Leads inklusive Kaufwahrscheinlichkeit.
+                    Ein E-Commerce-Shop integriert Liam in sein Formular und den Website-Chat. Liam beantwortet Fragen, sammelt Daten, score’t die Kaufbereitschaft und sendet automatische Follow-ups. Das Vertriebsteam erhält täglich eine Liste qualifizierter Leads - inklusive Kaufwahrscheinlichkeit und empfohlenem nächsten Schritt mit Kontext.
                   </p>
 
                   <motion.div whileHover={{
@@ -1407,8 +1420,7 @@ const Products = () => {
         </section>
 
         {/* Contact Form Sheet - Only render when open */}
-        {isContactSheetOpen && (
-          <Sheet open={true} onOpenChange={setIsContactSheetOpen}>
+        {isContactSheetOpen && <Sheet open={true} onOpenChange={setIsContactSheetOpen}>
             <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
               <SheetHeader className="mb-6">
                 <SheetTitle className="text-2xl font-bold">Projekt besprechen</SheetTitle>
@@ -1453,8 +1465,7 @@ const Products = () => {
               </Button>
             </form>
           </SheetContent>
-        </Sheet>
-        )}
+        </Sheet>}
 
         <Suspense fallback={<div className="h-64" />}>
           <Footer />
