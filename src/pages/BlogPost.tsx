@@ -131,6 +131,66 @@ const blogPostsData: Record<string, {
   }
 };
 
+// Helper function to render text with proper bullet points
+const renderTextWithBullets = (text: string) => {
+  // Split by double newlines to get paragraphs
+  const blocks = text.split('\n\n');
+  
+  return blocks.map((block, blockIndex) => {
+    // Check if block contains bullet points
+    if (block.includes('\n•') || block.startsWith('•')) {
+      const lines = block.split('\n');
+      const elements: JSX.Element[] = [];
+      let currentList: string[] = [];
+      let introText = '';
+      
+      lines.forEach((line, lineIndex) => {
+        if (line.startsWith('•')) {
+          currentList.push(line.substring(1).trim());
+        } else if (line.trim()) {
+          // If we have accumulated list items, render them first
+          if (currentList.length > 0) {
+            elements.push(
+              <ul key={`list-${blockIndex}-${lineIndex}`} className="list-disc list-inside my-4 space-y-2">
+                {currentList.map((item, i) => (
+                  <li key={i} className="text-lg text-gray-700">{item}</li>
+                ))}
+              </ul>
+            );
+            currentList = [];
+          }
+          introText = line;
+          elements.push(
+            <p key={`text-${blockIndex}-${lineIndex}`} className="text-lg text-gray-700 leading-relaxed mb-2">
+              {line}
+            </p>
+          );
+        }
+      });
+      
+      // Render any remaining list items
+      if (currentList.length > 0) {
+        elements.push(
+          <ul key={`list-${blockIndex}-final`} className="list-disc list-inside my-4 space-y-2">
+            {currentList.map((item, i) => (
+              <li key={i} className="text-lg text-gray-700">{item}</li>
+            ))}
+          </ul>
+        );
+      }
+      
+      return <div key={blockIndex}>{elements}</div>;
+    }
+    
+    // Regular paragraph without bullets
+    return (
+      <p key={blockIndex} className="text-lg text-gray-700 leading-relaxed mb-4">
+        {block}
+      </p>
+    );
+  });
+};
+
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -227,18 +287,18 @@ const BlogPost = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="prose prose-lg max-w-none"
             >
-              <p className="text-xl text-gray-700 leading-relaxed mb-12">
-                {post.content.intro}
-              </p>
+              <div className="text-xl text-gray-700 leading-relaxed mb-12">
+                {renderTextWithBullets(post.content.intro)}
+              </div>
 
               {post.content.sections.map((section, index) => (
                 <div key={index} className="mb-12">
                   <h2 className="text-3xl font-black mb-4 text-black">
                     {section.heading}
                   </h2>
-                  <p className="text-lg text-gray-700 leading-relaxed">
-                    {section.text}
-                  </p>
+                  <div className="text-lg text-gray-700 leading-relaxed">
+                    {renderTextWithBullets(section.text)}
+                  </div>
                 </div>
               ))}
 
