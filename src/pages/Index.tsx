@@ -351,7 +351,7 @@ const Index = () => {
         <BlogGrid className="bg-surface" />
 
         {/* Contact Section */}
-        <section id="contact-section" className="relative py-24 bg-gradient-to-br from-[#F5F5F5] to-[#F8F8F8] overflow-hidden">
+        <section id="contact-section" className="relative py-24 bg-gradient-to-br from-[#F5F5F5] to-[#F8F8F8] overflow-hidden bg-surface">
           <div className="container-xl relative z-10">
             <motion.div className="text-center max-w-4xl mx-auto" initial={{
             opacity: 0,
