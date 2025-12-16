@@ -325,7 +325,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">1</span>
-                      <span><strong>Daten sammeln & organisieren:</strong> Dokumente, Handbücher, FAQs, Policies und Produktinfos werden auf einer Wissensbasis organisiert - wir schaffen eine ganze Backend-Infrastruktur falls nicht vorhanden.
+                      <span className="text-accent-foreground"><strong>Daten sammeln & organisieren:</strong> Dokumente, Handbücher, FAQs, Policies und Produktinfos werden auf einer Wissensbasis organisiert - wir schaffen eine ganze Backend-Infrastruktur falls nicht vorhanden.
                     </span>
                     </motion.li>
                     <motion.li variants={{
@@ -339,7 +339,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">2</span>
-                      <span><strong>Recherche & Analyse:</strong>Riley findet die relevanten Passagen und setzt sie korrekt in Zusammenhang.</span>
+                      <span className="text-accent-foreground"><strong>Recherche & Analyse:</strong>Riley findet die relevanten Passagen und setzt sie korrekt in Zusammenhang.</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -352,7 +352,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">3</span>
-                      <span><strong>Generieren & Antworten:</strong> Riley formuliert verständliche Antworten - auf Wunsch inkl. Referenzen/Quellenstellen.</span>
+                      <span className="text-accent-foreground"><strong>Generieren & Antworten:</strong> Riley formuliert verständliche Antworten - auf Wunsch inkl. Referenzen/Quellenstellen.</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -365,7 +365,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">4</span>
-                      <span><strong>Lernen & verbessern:</strong>Feedback und neue Dokumente verbessern die Antworten kontinuierlich. </span>
+                      <span className="text-accent-foreground"><strong>Lernen & verbessern:</strong>Feedback und neue Dokumente verbessern die Antworten kontinuierlich. </span>
                     </motion.li>
                   </ol>
                 </motion.div>
@@ -530,7 +530,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">1</span>
-                      <span><strong>Erkennen & Segmentieren:</strong>  Liam analysiert Website-Besucher und Anfragen und ordnet sie Zielgruppen zu. (IN GT4)
+                      <span className="text-accent-foreground"><strong>Erkennen & Segmentieren:</strong>  Liam analysiert Website-Besucher und Anfragen und ordnet sie Zielgruppen zu. (IN GT4)
                     </span>
                     </motion.li>
                     <motion.li variants={{
@@ -544,7 +544,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">2</span>
-                      <span><strong>Interagieren & Qualifizieren:</strong> Er erfasst Kontaktdaten, klärt Bedarf und erstellt einen Lead-Score. (In Database) // CRM</span>
+                      <span className="text-accent-foreground"><strong>Interagieren & Qualifizieren:</strong> Er erfasst Kontaktdaten, klärt Bedarf und erstellt einen Lead-Score. (In Database) // CRM</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -557,7 +557,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">3</span>
-                      <span><strong>Nurturing & Personalisierung:</strong> Automatisierte Sequenzen (z. B. sofort, 24h, 48h, Reminder vor Angeboten) halten den Kontakt warm.</span>
+                      <span className="text-accent-foreground"><strong>Nurturing & Personalisierung:</strong> Automatisierte Sequenzen (z. B. sofort, 24h, 48h, Reminder vor Angeboten) halten den Kontakt warm.</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -570,7 +570,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">4</span>
-                      <span><strong>Übergabe an den Vertrieb:</strong> Vorqualifizierte Informationen werden gespeichert und ans Team für Sales übergeben</span>
+                      <span className="text-accent-foreground"><strong>Übergabe an den Vertrieb:</strong> Vorqualifizierte Informationen werden gespeichert und ans Team für Sales übergeben</span>
                     </motion.li>
                   </ol>
                 </motion.div>
@@ -733,7 +733,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">1</span>
-                      <span><strong>Anruf entgegennehmen:</strong> Vera nimmt jeden Anruf automatisch an und begrüßt den Kunden.</span>
+                      <span className="text-accent-foreground"><strong>Anruf entgegennehmen:</strong> Vera nimmt jeden Anruf automatisch an und begrüßt den Kunden.</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -746,7 +746,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">2</span>
-                      <span><strong>Anliegen verstehen:</strong> Dank natürlicher Spracherkennung erfasst sie Absicht und Kontext des Gesprächs.</span>
+                      <span className="text-accent-foreground"><strong>Anliegen verstehen:</strong> Dank natürlicher Spracherkennung erfasst sie Absicht und Kontext des Gesprächs.</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -759,7 +759,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">3</span>
-                      <span><strong>Automatisierte Antworten & Aktionen:</strong> Sie beantwortet Fragen, führt Bestellungen aus und erfasst Feedback.</span>
+                      <span className="text-accent-foreground"><strong>Automatisierte Antworten & Aktionen:</strong> Sie beantwortet Fragen, führt Bestellungen aus und erfasst Feedback.</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -772,7 +772,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">4</span>
-                      <span><strong>Weiterleiten & Protokollieren:</strong> Komplexere Fälle übergibt sie samt Gesprächsnotizen an Ihre Mitarbeitenden – jederzeit.</span>
+                      <span className="text-card-foreground"><strong>Weiterleiten & Protokollieren:</strong> Komplexere Fälle übergibt sie samt Gesprächsnotizen an Ihre Mitarbeitenden – jederzeit.</span>
                     </motion.li>
                   </ol>
                 </motion.div>
@@ -934,7 +934,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">1</span>
-                      <span><strong>Themen & Keywords recherchieren:</strong> Cora analysiert Branchentrends und Keywords für Ihre Zielgruppe.</span>
+                      <span className="text-accent-foreground"><strong>Themen & Keywords recherchieren:</strong> Cora analysiert Branchentrends und Keywords für Ihre Zielgruppe.</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -947,7 +947,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">2</span>
-                      <span><strong>Inhalte generieren:</strong> Die KI erstellt Blogposts, Social‑Media‑Beiträge und Newsletter‑Entwürfe.</span>
+                      <span className="text-accent-foreground"><strong>Inhalte generieren:</strong> Die KI erstellt Blogposts, Social‑Media‑Beiträge und Newsletter‑Entwürfe.</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -960,7 +960,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">3</span>
-                      <span><strong>Optimieren & Personalisieren:</strong> Grammatik und Stil werden verbessert; Texte werden für verschiedene Zielgruppen angepasst.</span>
+                      <span className="text-accent-foreground"><strong>Optimieren & Personalisieren:</strong> Grammatik und Stil werden verbessert; Texte werden für verschiedene Zielgruppen angepasst.</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -973,7 +973,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">4</span>
-                      <span><strong>Veröffentlichen & Lernen:</strong> Veröffentlichungen werden geplant; Engagement‑Daten fließen zurück in die Optimierung.</span>
+                      <span className="text-accent-foreground"><strong>Veröffentlichen & Lernen:</strong> Veröffentlichungen werden geplant; Engagement‑Daten fließen zurück in die Optimierung.</span>
                     </motion.li>
                   </ol>
                 </motion.div>
