@@ -26,8 +26,8 @@ export const PositionedForImpactSection = () => {
               />
               
               {/* Caption Overlay */}
-              <div className="absolute bottom-8 left-8 bg-white/90 backdrop-blur-sm px-6 py-3">
-                <p className="text-sm font-bold text-black uppercase tracking-wider">
+              <div className="absolute bottom-8 left-8 bg-black px-6 py-3">
+                <p className="text-sm font-bold text-white uppercase tracking-wider">
                   New Edge Founders
                 </p>
               </div>
