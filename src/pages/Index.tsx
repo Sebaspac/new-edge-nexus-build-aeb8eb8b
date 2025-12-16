@@ -211,7 +211,7 @@ const Index = () => {
         </div>
 
         {/* Unsere Kompetenzbereiche - Light Section */}
-        <section className="relative py-24 overflow-hidden bg-surface">
+        <section className="relative py-24 overflow-hidden bg-primary-foreground">
           <div className="container-xl relative z-10">
             {/* Header */}
             <motion.div className="text-center mb-16" initial={{
@@ -314,7 +314,7 @@ const Index = () => {
         </section>
 
         {/* Magic Text Section */}
-        <section className="relative py-32 md:py-48 overflow-hidden bg-surface">
+        <section className="relative py-32 md:py-48 overflow-hidden bg-primary-foreground">
           <div className="container-xl relative z-10">
             <div className="max-w-5xl mx-auto text-center">
               <motion.span initial={{
@@ -367,7 +367,7 @@ const Index = () => {
         </div>
 
         {/* Contact Section */}
-        <section id="contact-section" className="relative py-24 bg-surface overflow-hidden">
+        <section id="contact-section" className="relative py-24 overflow-hidden bg-primary-foreground">
           <div className="container-xl relative z-10">
             <motion.div className="text-center max-w-4xl mx-auto" initial={{
             opacity: 0,
