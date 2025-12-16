@@ -199,7 +199,7 @@ const Index = () => {
         <InteractiveCore />
 
         {/* Unsere Kompetenzbereiche - Light Section */}
-        <section className="relative py-24 bg-white overflow-hidden">
+        <section className="relative py-24 bg-[#F8F8F8] overflow-hidden">
           <div className="container-xl relative z-10">
             {/* Header */}
             <motion.div className="text-center mb-16" initial={{
@@ -302,7 +302,7 @@ const Index = () => {
         </section>
 
         {/* Magic Text Section */}
-        <section className="relative py-32 md:py-48 bg-white overflow-hidden">
+        <section className="relative py-32 md:py-48 bg-[#F8F8F8] overflow-hidden">
           <div className="container-xl relative z-10">
             <div className="max-w-5xl mx-auto text-center">
               <motion.span initial={{
@@ -351,7 +351,7 @@ const Index = () => {
         <BlogGrid />
 
         {/* Contact Section */}
-        <section id="contact-section" className="relative py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+        <section id="contact-section" className="relative py-24 bg-gradient-to-br from-[#F5F5F5] to-[#F8F8F8] overflow-hidden">
           <div className="container-xl relative z-10">
             <motion.div className="text-center max-w-4xl mx-auto" initial={{
             opacity: 0,
