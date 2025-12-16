@@ -75,16 +75,15 @@ export const MethodologyGrid = () => {
                 <h3 className="text-2xl font-bold mb-2">Web-Check 2025</h3>
                 <p className="text-gray-300 mb-6">Jetzt kostenlose Analyse sichern.</p>
                 
-                <Link to="/#contact-section" onClick={() => {
-                setTimeout(() => {
-                  document.querySelector('#contact-section')?.scrollIntoView({
-                    behavior: 'smooth'
-                  });
-                }, 100);
-              }} className="inline-flex items-center gap-2 text-[#7C3AED] font-bold uppercase text-sm tracking-wider group-hover:gap-4 transition-all duration-300">
+                <a 
+                  href="https://seo-audit-pro-1064008039464.us-west1.run.app" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[#7C3AED] font-bold uppercase text-sm tracking-wider group-hover:gap-4 transition-all duration-300"
+                >
                   ZUR ANMELDUNG
                   <ArrowUpRight className="w-5 h-5" />
-                </Link>
+                </a>
               </div>
             </motion.div>
           </motion.div>
