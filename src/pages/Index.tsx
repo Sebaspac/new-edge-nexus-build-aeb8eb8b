@@ -214,7 +214,7 @@ const Index = () => {
         <section className="relative py-24 overflow-hidden bg-primary-foreground">
           <div className="container-xl relative z-10">
             {/* Header */}
-            <motion.div className="text-center mb-16" initial={{
+            <motion.div className="text-left mb-16" initial={{
             opacity: 0,
             y: 40
           }} whileInView={{
