@@ -178,25 +178,37 @@ const Index = () => {
         
 
         {/* Methodology Grid Section */}
-        <MethodologyGrid className="bg-surface" />
+        <div className="bg-surface">
+          <MethodologyGrid />
+        </div>
 
         {/* Logo Cloud */}
-        <LogoCloud className="bg-surface" />
+        <div className="bg-surface">
+          <LogoCloud />
+        </div>
 
         {/* Positioned for Impact Section */}
-        <PositionedForImpactSection className="bg-surface" />
+        <div className="bg-surface">
+          <PositionedForImpactSection />
+        </div>
 
         {/* Case Studies Grid */}
-        <CaseStudiesGrid className="bg-surface" />
+        <div className="bg-surface">
+          <CaseStudiesGrid />
+        </div>
 
         {/* Agency Edge Section */}
-        <AgencyEdgeSection className="bg-surface" />
+        <div className="bg-surface">
+          <AgencyEdgeSection />
+        </div>
 
         {/* Innovation Section */}
         
 
         {/* Interactive Core - Digital Methodology Reactor */}
-        <InteractiveCore className="bg-surface" />
+        <div className="bg-surface">
+          <InteractiveCore />
+        </div>
 
         {/* Unsere Kompetenzbereiche - Light Section */}
         <section className="relative py-24 overflow-hidden bg-surface">
@@ -345,10 +357,14 @@ const Index = () => {
         </section>
 
         {/* Testimonials Section */}
-        <TestimonialsSection className="bg-surface" />
+        <div className="bg-surface">
+          <TestimonialsSection />
+        </div>
 
         {/* Blog Section */}
-        <BlogGrid className="bg-surface" />
+        <div className="bg-surface">
+          <BlogGrid />
+        </div>
 
         {/* Contact Section */}
         <section id="contact-section" className="relative py-24 bg-surface overflow-hidden">
