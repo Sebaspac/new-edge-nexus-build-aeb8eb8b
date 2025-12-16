@@ -283,7 +283,7 @@ const Products = () => {
                 }}>
                     <Lightbulb className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Riley – Ihr Wissensagent</h2>
+                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Riley Wissensagent</h2>
                 </motion.div>
                 
                 <DetailCard title="Was macht Riley?">
@@ -469,7 +469,7 @@ const Products = () => {
                 }}>
                     <Bot className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Liam – Ihr Lead‑Gen‑Agent</h2>
+                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Liam  Lead‑Gen‑Agent</h2>
                 </motion.div>
                 
                 <motion.div variants={{
@@ -673,7 +673,9 @@ const Products = () => {
                 }}>
                     <Phone className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Vera – Ihr Voice‑Agent</h2>
+                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Vera
+Ihr Costumer Support Agent
+                </h2>
                 </motion.div>
                 
                 <motion.div variants={{
@@ -874,7 +876,7 @@ const Products = () => {
                 }}>
                     <FileText className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Cora – Ihr Content‑Agent</h2>
+                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Cora Content‑Agent</h2>
                 </motion.div>
                 
                 <motion.div variants={{
