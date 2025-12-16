@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import foundersColorImage from "@/assets/founders-color.png";
-
 export const PositionedForImpactSection = () => {
   return <section className="relative py-32 bg-white overflow-hidden">
       <div className="container-xl">
@@ -19,16 +18,12 @@ export const PositionedForImpactSection = () => {
           duration: 0.8
         }} className="relative group cursor-pointer">
             <div className="relative overflow-hidden aspect-[4/3]">
-              <img 
-                alt="New Edge Founders" 
-                className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" 
-                src={foundersColorImage} 
-              />
+              <img alt="New Edge Founders" className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" src={foundersColorImage} />
               
               {/* Caption Overlay */}
               <div className="absolute bottom-0 left-0 bg-black px-4 py-2">
                 <p className="text-sm font-medium text-white">
-                  Leadership Team | Strategy & Tech
+                  New Edge Founders  
                 </p>
               </div>
             </div>
