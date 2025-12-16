@@ -18,25 +18,53 @@ const blogPostsData: Record<string, {
   };
 }> = {
   "automatisierung-2024": {
-    title: "Die Zukunft der Automatisierung",
+    title: "KI-Tools im Überblick für Unternehmen: So wird Ihre KI zum 'Company Brain'",
     category: "KI & AUTOMATION",
     date: "15. November 2024",
     author: "New Edge Team",
     gradient: "from-purple-600 to-blue-600",
     content: {
-      intro: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      intro: "KI-Tools sind in vielen Unternehmen bereits angekommen - oft als Insellösungen im Marketing, in der IT oder im Kundenservice. Gleichzeitig kämpfen Teams mit manuellen Prozessen, verstreuten Dateien und Informationssilos.\n\nRichtig eingesetzt, kann Künstliche Intelligenz weit mehr sein als 'das nächste Tool': Sie kann zu einem 'Company Brain' werden - einem zentralen, intelligenten System, das Wissen, Daten und Abläufe verbindet und Ihr Unternehmen spürbar entlastet.\n\nIn diesem Artikel erfahren Sie:\n• welche Kategorien von KI-Tools für Unternehmen wirklich relevant sind,\n• wie Sie daraus ein zusammenhängendes System - Ihr Company Brain - aufbauen,\n• und welche Rolle ein Setup wie das New Edge Studio · Media · Lab und unser AgentHub dabei spielen kann.",
       sections: [
         {
-          heading: "Automatisierung im digitalen Zeitalter",
-          text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+          heading: "Was wir unter einem 'Company Brain' verstehen",
+          text: "Ein Company Brain ist mehr als ein Chatbot oder ein einzelnes Automations-Tool. Es ist ein Zusammenspiel aus:\n• zentralisiertem Wissen (Dokumente, Prozesse, Best Practices),\n• klar definierten Workflows (z. B. von Leads, Support-Fällen, Projekten),\n• und spezialisierten KI-Agenten, die diese Informationen nutzen, um Aufgaben zu erledigen.\n\nStatt vieler unverbundener Tools erhalten Sie:\n• einen zentralen Zugangspunkt (z. B. in Form eines Chat- oder Web-Dashboards),\n• klare Zuständigkeiten: Welche KI macht was - und wo entscheidet weiterhin der Mensch,\n• ein System, das mit Ihrem Unternehmen wächst, statt ständig neu aufgebaut werden zu müssen.\n\nGenau in diese Richtung denken wir bei New Edge mit unserem AgentHub: einem zentralen Interface, über das Sie Ihre KI-Agenten, Automationen und Datenflüsse steuern - wie ein 'Bedienpult' Ihres Company Brain."
         },
         {
-          heading: "Die Rolle von künstlicher Intelligenz",
-          text: "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+          heading: "Was KI-Tools im Unternehmensalltag leisten können",
+          text: "KI-Tools sind Software-Lösungen, die Aufgaben übernehmen, die früher manuell oder gar nicht erledigt wurden. Typische Einsatzfelder:\n• Texte und Inhalte erstellen oder verbessern,\n• Informationen strukturieren, zusammenfassen und durchsuchbar machen,\n• Prozesse automatisiert anstoßen und Entscheidungen vorbereiten,\n• interne und externe Fragen in natürlicher Sprache beantworten.\n\nRichtig eingeführt, führt das zu:\n• weniger Routinearbeit und Copy-Paste,\n• schnelleren Reaktionszeiten,\n• besser dokumentiertem Wissen,\n• und mehr Raum für Strategie, Kundenkontakt und Kreativität.\n\nDamit aus vielen Einzeltools ein echtes Company Brain wird, lohnt sich der Blick auf die Kategorien von KI-Anwendungen."
         },
         {
-          heading: "Praktische Anwendungsfälle",
-          text: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam."
+          heading: "1. Text- und Content-KI",
+          text: "Diese Lösungen arbeiten mit Sprache und Text. Sie können:\n• Blogartikel, Social-Posts, Newsletter und Landingpages entwerfen,\n• E-Mails, Angebote oder Support-Antworten vorbereiten,\n• Meeting-Protokolle und lange Dokumente zusammenfassen,\n• Texte in andere Sprachen übertragen oder Tonalitäten anpassen.\n\nNutzen für Ihr Unternehmen:\n• Marketing und Sales starten nicht mehr bei Null, sondern mit starken Entwürfen.\n• Führungskräfte gewinnen Zeit, weil Zusammenfassungen und Drafts automatisch entstehen.\n• Wissenssilos schrumpfen, weil Inhalte leichter auffindbar werden.\n\nIm Studio von New Edge nutzen wir diese Tools, um Strategien, Botschaften und Markenstimmen zu schärfen - die KI dient dabei als Beschleuniger, nicht als Ersatz für Konzeptarbeit."
+        },
+        {
+          heading: "2. Bild-, Audio- und Video-KI",
+          text: "Hier geht es um visuelle und auditive Inhalte:\n• generierte Bilder für Kampagnen, Thumbnails und Mockups,\n• automatische Transkription von Meetings, Podcasts und Videos,\n• Untertitel, Snippets und Social-Clips aus langen Aufnahmen,\n• Audio-Reinigung und einfache Videoschnitte.\n\nNutzen:\n• Ihr Content-Team im Media-Bereich produziert mehr Formate mit weniger Reibungsverlust.\n• Wissen aus Calls und Meetings bleibt nicht im Kopf einzelner Personen, sondern wird als Text und Video nutzbar.\n• Onboarding, Schulungen und interne Kommunikation gewinnen an Qualität."
+        },
+        {
+          heading: "3. Automatisierungs- und Workflow-KI",
+          text: "Hier werden Tools und Datenquellen intelligent miteinander verbunden:\n• CRM, ERP, Support-Systeme, DMS, Shop, Newsletter-Tools,\n• interne Datenbanken und Cloud-Speicher.\n\nTypische Use Cases:\n• Leads aus Formularen automatisch ins CRM eintragen, qualifizieren und an Sales übergeben,\n• Rechnungen und Belege erkennen, prüfen und zur Freigabe weiterleiten,\n• Tickets und Anfragen automatisch klassifizieren, priorisieren und routen.\n\nNutzen:\n• Backoffice und Operations werden messbar entlastet.\n• Prozesslaufzeiten verkürzen sich, Fehler werden reduziert.\n• Teams können sich auf Ausnahmen und strategische Themen konzentrieren.\n\nDiese Ebene ist das Herzstück unseres Lab: Hier bauen wir Automationen, KI-Agenten und Integrationen - häufig orchestriert über unseren AgentHub und Tools wie n8n."
+        },
+        {
+          heading: "4. Analyse- und Entscheidungs-KI",
+          text: "Analyse-KI hilft, aus Daten klare Signale zu machen:\n• Kennzahlen aus verschiedenen Quellen zusammenführen,\n• Muster, Ausreißer und Trends erkennen,\n• Prognosen für Nachfrage, Auslastung oder Umsatz ableiten,\n• Handlungsempfehlungen vorschlagen.\n\nNutzen:\n• Entscheidungen basieren auf aktuellen, konsistenten Daten statt auf Bauchgefühl.\n• Führungsteams sehen frühzeitig Risiken und Chancen.\n• Tests und Experimente (z. B. Kampagnen, Preisstrategien) lassen sich schneller auswerten.\n\nIn vielen Projekten verbinden wir diese Ebene mit der Marken- und Contentarbeit aus Studio & Media, um nicht nur zu 'messen', sondern die Erkenntnisse direkt in Kommunikation, Kampagnen und Customer Journeys zurückzuspielen."
+        },
+        {
+          heading: "Konkrete KI-Tools - Typische Bausteine eines Company-Brain-Stacks",
+          text: "Welche Tools konkret passen, hängt von Ihrer IT-Landschaft und Ihren Anforderungen ab. Häufig sehen wir Kombinationen wie:\n• Text & Content: ChatGPT, Neuroflash oder ähnliche LLM-basierte Assistenten für Ideen, Drafts und Zusammenfassungen.\n• Bild, Audio, Video: DALL-E / Midjourney für Visuals, Descript und Whisper für Transkription und Bearbeitung.\n• Automatisierung & Agenten: n8n oder vergleichbare Workflow-Engines als technisches Rückgrat für KI-Agenten und Unternehmens-Automationen.\n• Daten & Dashboards: Power BI, Looker Studio oder individuelle Dashboards, die an Ihren AgentHub und Ihre Datenbanken angebunden sind.\n\nUnser Ansatz bei New Edge: Statt Ihnen eine lange Tool-Liste zu verkaufen, definieren wir erst Use Cases und Prozesse - und bauen dann aus ausgewählten Bausteinen einen klaren, wartbaren Stack."
+        },
+        {
+          heading: "Wie Sie die passenden KI-Tools auswählen - ohne im Tool-Zoo zu landen",
+          text: "Der wichtigste Grundsatz: Starten Sie nicht beim Tool, sondern beim Problem.\n\n1. Pain Points identifizieren\n• Wo gehen heute viele Stunden für wiederkehrende Tätigkeiten drauf?\n• Wo entstehen Wartezeiten oder Fehler, weil Daten und Informationen fehlen?\n\n2. Use Cases definieren\n• 'Wir möchten die Bearbeitungszeit von Support-Anfragen um 30 % senken.'\n• 'Wir möchten wöchentliche Performance-Reports automatisch erstellen lassen.'\n• 'Wir möchten internes Wissen für Mitarbeitende über einen Chat zugänglich machen.'\n\n3. Gezielt 1-2 Tools pro Use Case testen\n• Klein anfangen, klar messen, bewusst entscheiden: behalten, anpassen oder verwerfen.\n\n4. Integration & Datenschutz früh klären\n• Schnittstellen zu bestehenden Systemen, Datenflüsse, DSGVO-Konformität und Rollenrechte von Beginn an berücksichtigen.\n\nIm Idealfall entsteht daraus Schritt für Schritt ein zentrales Company Brain, statt einer Sammlung unverbundener Lösungen."
+        },
+        {
+          heading: "Wie New Edge Sie dabei unterstützt: Studio · Media · Lab & AgentHub",
+          text: "Unser Ansatz bei New Edge:\n• Studio - wir schärfen Positionierung, Story und Anwendungsfälle für KI: Welche Prozesse, welches Markenversprechen, welche Touchpoints?\n• Media - wir übersetzen das in Inhalte, Journeys und Kommunikation, die Ihre Teams und Kunden abholen.\n• Lab - wir bauen und verknüpfen Ihre KI-Agenten, Automationen, Dashboards und Workflows - häufig orchestriert über unseren AgentHub als sichtbares Interface Ihres Company Brain.\n\nDas Ergebnis: Keine losgelösten 'KI-Projekte', sondern ein durchdachtes Wachstums- und Effizienzsystem, das Strategie, Kommunikation und Technologie verbindet."
+        },
+        {
+          heading: "Fazit: Vom Tool-Stapel zum Company Brain",
+          text: "KI-Tools im Überblick zu kennen, ist hilfreich - doch der eigentliche Unterschied entsteht, wenn Sie:\n• klare Use Cases definieren,\n• eine passende Tool-Landschaft auswählen,\n• Prozesse und Menschen mitdenken,\n• und alles in einem zentralen System zusammenführen.\n\nGenau dort beginnt Ihr Company Brain: eine KI-gestützte Infrastruktur, die Wissen bündelt, Aufgaben übernimmt und Entscheidungen unterstützt.\n\nWenn Sie den Schritt vom Tool-Zoo zu einem klaren System gehen möchten, begleiten wir Sie mit Studio · Media · Lab und unserem AgentHub - von der ersten Idee bis zur skalierbaren, sicheren KI-Landschaft."
         }
       ]
     }
