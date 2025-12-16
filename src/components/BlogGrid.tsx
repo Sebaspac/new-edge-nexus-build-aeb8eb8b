@@ -14,8 +14,8 @@ const blogPosts = [
   {
     id: "markenaufbau-guide",
     client: "NEW EDGE",
-    headline: "Erfolgreicher Markenaufbau für KMUs",
-    category: "BRANDING",
+    headline: "Die 10 häufigsten Fehler bei der Einführung von KI",
+    category: "KI & STRATEGIE",
     date: "10. Nov 2024",
     gradient: "from-blue-600 to-cyan-600"
   },
