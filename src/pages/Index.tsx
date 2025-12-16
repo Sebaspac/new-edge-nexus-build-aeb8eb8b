@@ -253,7 +253,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }} className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            }} className="text-xl text-gray-600 max-w-3xl leading-relaxed">
                 Ihre Marke erfolgreich in der digitalen Welt positionieren
               </motion.p>
             </motion.div>
