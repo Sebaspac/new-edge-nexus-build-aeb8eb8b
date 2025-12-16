@@ -15,6 +15,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import LogoCloud from "@/components/ui/logo-cloud";
 import { MagicText } from "@/components/ui/magic-text";
+import { ContainerTextScroll } from "@/components/ui/container-text-scroll";
 import { lazy, Suspense, useCallback, useState, useEffect } from "react";
 import { ProblemSolutionSection } from "@/components/ProblemSolutionSection";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -314,46 +315,40 @@ const Index = () => {
         </section>
 
         {/* Magic Text Section */}
-        <section className="relative py-32 md:py-48 overflow-hidden bg-surface">
-          <div className="container-xl relative z-10">
-            <div className="max-w-5xl mx-auto text-center">
-              <motion.span initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6
-            }} className="inline-block text-sm font-bold uppercase tracking-widest mb-8 text-primary">
-                HIER ENTSTEHT MAGIE
-              </motion.span>
-              
-              <MagicText text="Unsere kreativen Köpfe verschmelzen Expertise und Ideen zu beeindruckenden Ergebnissen." />
-              
-              <motion.div initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.4,
-              duration: 0.6
-            }} className="mt-12">
-                <Link to="/careers">
-                  <Button className="bg-black hover:bg-primary text-white px-8 py-6 text-lg rounded-full transition-colors duration-300">
-                    Hier suchen wir aktuell Verstärkung
-                    <ArrowRight className="ml-2 w-5 h-5 -rotate-45" />
-                  </Button>
-                </Link>
-              </motion.div>
-            </div>
-          </div>
+        {/* Magic Text Scroll Section */}
+        <section className="relative overflow-hidden bg-surface">
+          <ContainerTextScroll
+            titleComponent={
+              <>
+                <span className="inline-block text-sm font-bold uppercase tracking-widest mb-8 text-primary">
+                  HIER ENTSTEHT MAGIE
+                </span>
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mt-4 leading-tight">
+                  Unsere kreativen Köpfe<br />
+                  <span className="text-primary">verschmelzen Expertise</span><br />
+                  und Ideen
+                </h2>
+                <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+                  zu beeindruckenden Ergebnissen.
+                </p>
+                <div className="mt-8">
+                  <Link to="/careers">
+                    <Button className="bg-black hover:bg-primary text-white px-8 py-6 text-lg rounded-full transition-colors duration-300">
+                      Hier suchen wir aktuell Verstärkung
+                      <ArrowRight className="ml-2 w-5 h-5 -rotate-45" />
+                    </Button>
+                  </Link>
+                </div>
+              </>
+            }
+          >
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&h=720&fit=crop"
+              alt="Team collaboration"
+              className="w-full h-full object-cover rounded-2xl"
+              draggable={false}
+            />
+          </ContainerTextScroll>
         </section>
 
         {/* Testimonials Section */}
