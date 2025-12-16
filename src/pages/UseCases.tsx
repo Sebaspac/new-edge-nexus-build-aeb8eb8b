@@ -144,12 +144,6 @@ const UseCases = () => {
     }
   };
 
-  const filterButtons: { key: CategoryFilter; label: string }[] = [
-    { key: 'all', label: 'Alle' },
-    { key: 'studio', label: 'Studio' },
-    { key: 'media', label: 'Media' },
-    { key: 'lab', label: 'Lab' },
-  ];
 
   return (
     <>
@@ -159,33 +153,16 @@ const UseCases = () => {
       </Helmet>
 
       <div className="min-h-screen bg-black">
-        <MobileNavigation onContactClick={scrollToContact} theme="dark" />
+        <MobileNavigation 
+          onContactClick={scrollToContact} 
+          theme="dark"
+          showCaseFilter={true}
+          activeFilter={activeFilter}
+          onFilterChange={setActiveFilter}
+        />
 
-        {/* Floating Navigation Bar - Two Row Layout */}
+        {/* Floating Navigation Bar - Case Study Titles Only */}
         <div className="fixed top-20 left-1/2 -translate-x-1/2 z-30">
-          <div className="flex flex-col items-center gap-4">
-            {/* Row 1: Filter Buttons (Pill-Shape) */}
-            <div className="flex items-center justify-center gap-2">
-              {filterButtons.map((filter) => {
-                const isActive = activeFilter === filter.key;
-                return (
-                  <button
-                    key={filter.key}
-                    onClick={() => setActiveFilter(filter.key)}
-                    className={`
-                      px-5 py-2 rounded-full text-sm font-medium uppercase tracking-wider
-                      border backdrop-blur-md transition-all duration-300
-                      ${isActive 
-                        ? 'bg-purple-600 text-white border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.4)]' 
-                        : 'bg-transparent text-white/70 border-white/20 hover:text-white hover:bg-white/10 hover:border-white/40'
-                      }
-                    `}
-                  >
-                    {filter.label}
-                  </button>
-                );
-              })}
-            </div>
 
             {/* Row 2: Case Study Titles */}
             <div className="flex items-center justify-center gap-6 flex-wrap max-w-[90vw]">
@@ -209,8 +186,7 @@ const UseCases = () => {
                     )}
                   </button>
                 );
-              })}
-            </div>
+            })}
           </div>
         </div>
 
