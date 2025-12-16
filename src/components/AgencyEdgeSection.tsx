@@ -51,15 +51,17 @@ export const AgencyEdgeSection = () => {
               Mit unserer "Edge Methodology" verbinden wir Purpose, Markencharakter und KI-gestützte User Experience zu digitalen Markenerlebnissen, die berühren, überzeugen und nachhaltig im Gedächtnis bleiben. Wir sind keine klassische Agentur. Wir sind Ihr Tech-Partner.
             </p>
 
-            <Link to="/about">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-black text-white px-8 py-4 font-bold uppercase text-sm tracking-wider hover:bg-gray-900 transition-colors duration-300"
-              >
-                ÜBER UNS
-              </motion.button>
-            </Link>
+            <div className="pt-8">
+              <Link to="/about">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-black text-white px-8 py-4 font-bold uppercase text-sm tracking-wider hover:bg-gray-900 transition-colors duration-300"
+                >
+                  ÜBER UNS
+                </motion.button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </div>
