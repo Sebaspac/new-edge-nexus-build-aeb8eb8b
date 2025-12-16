@@ -108,6 +108,7 @@ const CaseStudyAlbaNova = () => {
       title: "Kreation & Content",
       description:
         "Die Marke zum Leben erwecken. Wir gestalten ein einzigartiges visuelles Erscheinungsbild und erstellen Inhalte, die emotional ansprechen und überzeugen.",
+      video: "/assets/albanova-phase2-video.mp4",
       features: [
         {
           icon: Palette,
@@ -502,6 +503,18 @@ const CaseStudyAlbaNova = () => {
                             Klicke aufs Bild →
                           </p>
                         </a>
+                      ) : 'video' in phase && phase.video ? (
+                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
+                          <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover"
+                          >
+                            <source src={phase.video} type="video/mp4" />
+                          </video>
+                        </div>
                       ) : (
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
                           {/* Placeholder for image - using gradient background */}
