@@ -673,7 +673,7 @@ const Products = () => {
                 }}>
                     <Phone className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Vera
+                  <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-black text-black">Vera 
 Ihr Costumer Support Agent
                 </h2>
                 </motion.div>
