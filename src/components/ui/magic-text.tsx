@@ -21,7 +21,7 @@ const Word: React.FC<WordProps> = ({
       <span className="absolute opacity-20">{children}</span>
       <motion.span style={{
       opacity: opacity
-    }} className="text-primary">{children}</motion.span>
+    }} className="text-accent-foreground">{children}</motion.span>
     </span>;
 };
 export const MagicText: React.FC<MagicTextProps> = ({
