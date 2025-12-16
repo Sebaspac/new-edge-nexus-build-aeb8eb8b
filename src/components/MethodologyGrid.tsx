@@ -39,9 +39,9 @@ export const MethodologyGrid = () => {
           duration: 0.8
         }} className="space-y-8">
             {/* Eyebrow */}
-            <span className="inline-block text-[#7C3AED] text-sm font-bold uppercase tracking-[0.2em]">
-              new edge 
-            </span>
+            <div className="inline-block px-4 py-1 border border-[#7C3AED]">
+              <span className="text-sm font-medium tracking-wider uppercase text-[#7C3AED]">new edge</span>
+            </div>
 
             {/* Main Headline */}
             <h2 className="text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] text-black">
