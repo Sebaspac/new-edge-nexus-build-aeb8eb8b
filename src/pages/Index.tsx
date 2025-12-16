@@ -334,7 +334,7 @@ const Index = () => {
               duration: 0.6
             }} className="mt-12">
                 <Link to="/careers">
-                  <Button className="bg-black hover:bg-black/90 text-white px-8 py-6 text-lg rounded-full">
+                  <Button className="bg-black hover:bg-primary text-white px-8 py-6 text-lg rounded-full transition-colors duration-300">
                     Hier suchen wir aktuell Verstärkung
                     <ArrowRight className="ml-2 w-5 h-5 -rotate-45" />
                   </Button>
