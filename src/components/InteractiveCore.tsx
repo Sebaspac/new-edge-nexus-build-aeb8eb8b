@@ -87,7 +87,7 @@ export const InteractiveCore = () => {
         once: true
       }} transition={{
         duration: 0.8
-      }} className="text-center mb-20">
+      }} className="text-left mb-20">
           <div className="inline-block px-4 py-1 mb-6 border border-[#7C3AED]">
             <span className="text-sm font-medium tracking-wider uppercase text-[#7C3AED]">Digitale Methodik</span>
           </div>
@@ -97,7 +97,7 @@ export const InteractiveCore = () => {
               Reactor
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl">
             Wir verbinden Markenführung, Medienproduktion und Automatisierung zu messbaren Ergebnissen - umgesetzt im Headquarter-Modell mit kuratiertem Partnernetzwerk und Echtzeit-Dashboards.
           </p>
         </motion.div>
