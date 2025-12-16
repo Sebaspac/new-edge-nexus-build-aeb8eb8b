@@ -20,24 +20,51 @@ const logos = [
 
 export default function LogoCloud() {
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-16 md:py-24 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6">
         <p className="text-center text-muted-foreground font-medium mb-10 text-lg">
           Vertraut von führenden Unternehmen
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
-          {logos.map((logo, index) => (
-            <div 
-              key={index} 
-              className="flex items-center justify-center h-16 md:h-20 w-auto grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300"
-            >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className="h-full w-auto object-contain max-w-[140px] md:max-w-[160px]"
-              />
-            </div>
-          ))}
+      </div>
+      
+      <div className="relative">
+        {/* Gradient overlays for seamless fade */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        
+        {/* Marquee container */}
+        <div className="flex animate-marquee">
+          {/* First set of logos */}
+          <div className="flex items-center gap-16 px-8 shrink-0">
+            {logos.map((logo, index) => (
+              <div 
+                key={index} 
+                className="flex items-center justify-center h-16 md:h-20 w-auto grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-full w-auto object-contain max-w-[140px] md:max-w-[160px]"
+                />
+              </div>
+            ))}
+          </div>
+          
+          {/* Duplicate set for seamless loop */}
+          <div className="flex items-center gap-16 px-8 shrink-0">
+            {logos.map((logo, index) => (
+              <div 
+                key={`dup-${index}`} 
+                className="flex items-center justify-center h-16 md:h-20 w-auto grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-full w-auto object-contain max-w-[140px] md:max-w-[160px]"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

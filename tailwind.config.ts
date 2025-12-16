@@ -184,6 +184,10 @@ export default {
 				'pulse-slow': {
 					'0%, 100%': { opacity: '1', transform: 'scale(1)' },
 					'50%': { opacity: '0.8', transform: 'scale(1.05)' }
+				},
+				'marquee': {
+					'0%': { transform: 'translateX(0%)' },
+					'100%': { transform: 'translateX(-50%)' }
 				}
 			},
 			animation: {
@@ -202,7 +206,8 @@ export default {
 				'parallax': 'parallax-float 8s ease-in-out infinite',
 				'spotlight': 'spotlight 2s ease 0.75s 1 forwards',
 				'fade-spin': 'fade-spin 1s linear infinite',
-				'pulse-slow': 'pulse-slow 4s ease-in-out infinite'
+				'pulse-slow': 'pulse-slow 4s ease-in-out infinite',
+				'marquee': 'marquee 30s linear infinite'
 			},
 			transitionTimingFunction: {
 				'ease-out': 'var(--ease-out)',
