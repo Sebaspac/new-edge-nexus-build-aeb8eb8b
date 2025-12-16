@@ -27,6 +27,7 @@ export const PositionedForImpactSection = () => {
             </p>
 
             {/* CTA Button */}
+            <div className="pt-8">
             <Link
               to="/#contact-section"
               onClick={() => {
@@ -43,6 +44,7 @@ export const PositionedForImpactSection = () => {
                 FINDE DEINE EDGE
               </motion.button>
             </Link>
+            </div>
           </motion.div>
 
           {/* Right Column - Founders Image */}
