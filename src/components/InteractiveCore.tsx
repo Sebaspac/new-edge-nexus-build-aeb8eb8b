@@ -89,7 +89,7 @@ export const InteractiveCore = () => {
         duration: 0.8
       }} className="text-center mb-20">
           <div className="inline-block px-6 py-2 mb-6 bg-gray-100 border border-gray-200">
-            <span className="text-xs font-bold tracking-[0.3em] uppercase text-primary">Digitale Methodik</span>
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-muted-foreground">Digitale Methodik</span>
           </div>
           <h2 className="text-5xl md:text-7xl font-bold mb-6 text-black">
             Der Digital{" "}
