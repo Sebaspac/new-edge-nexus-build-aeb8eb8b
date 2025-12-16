@@ -65,7 +65,7 @@ export const MobileNavigation = ({
       
       {/* Desktop Navigation */}
       <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-6' : 'py-4 px-8'}`} style={{ width: 'min(calc(100% - 320px), 1200px)' }}>
-        <div className="flex items-center justify-between w-full">
+        <div className="flex items-center justify-between w-full relative">
           {/* Logo + Text */}
           <Link to="/" className="flex items-center gap-3">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center gap-3">
@@ -80,7 +80,32 @@ export const MobileNavigation = ({
             </motion.div>
           </Link>
 
-          {/* Navigation Links */}
+          {/* Center: Case Filter Buttons */}
+          {showCaseFilter && (
+            <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1">
+              {filterButtons.map((filter) => {
+                const isActive = activeFilter === filter.key;
+                return (
+                  <button
+                    key={filter.key}
+                    onClick={() => onFilterChange?.(filter.key)}
+                    className={`
+                      px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider
+                      transition-all duration-300
+                      ${isActive 
+                        ? 'bg-purple-600 text-white' 
+                        : 'text-white/60 hover:text-white hover:bg-white/10'
+                      }
+                    `}
+                  >
+                    {filter.label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Right: Navigation Links */}
           <div className="flex items-center gap-6">
             {/* Services Dropdown */}
             <div className="relative group">
@@ -125,30 +150,6 @@ export const MobileNavigation = ({
               </div>
             </div>
 
-            {/* Case Filter Buttons */}
-            {showCaseFilter && (
-              <div className="flex items-center gap-1 ml-2 pl-4 border-l border-white/20">
-                {filterButtons.map((filter) => {
-                  const isActive = activeFilter === filter.key;
-                  return (
-                    <button
-                      key={filter.key}
-                      onClick={() => onFilterChange?.(filter.key)}
-                      className={`
-                        px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider
-                        transition-all duration-300
-                        ${isActive 
-                          ? 'bg-purple-600 text-white' 
-                          : 'text-white/60 hover:text-white hover:bg-white/10'
-                        }
-                      `}
-                    >
-                      {filter.label}
-                    </button>
-                  );
-                })}
-              </div>
-            )}
 
             <Button 
               onClick={onContactClick} 
