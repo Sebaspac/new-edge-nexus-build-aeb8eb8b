@@ -16,7 +16,8 @@ const content: Record<StateType, ContentState> = {
     subtitle: "Branding, das skaliert – modular, maßgeschneidert, schnell",
     description: "Markenpositionierung, kreative Konzeption und emotionale Storytelling-Strategien, die menschliche Verbindungen schaffen.",
     tags: ["Strategie", "Kreativität", "Brand Identity"],
-    color: "#a855f7", // Lila/Purple
+    color: "#a855f7",
+    // Lila/Purple
     icon: Fingerprint
   },
   machine: {
@@ -24,7 +25,8 @@ const content: Record<StateType, ContentState> = {
     subtitle: "Kreativ gedacht, performance-gemessen",
     description: "Wir machen kein „nice to have“-Storytelling. Wir machen Content, der auf Conversion zielt. Mit KI, KPIs und einer klaren Message – für jeden Funnel-Step.",
     tags: ["Creative Assets", "S.M Management", "Performance-Marketing"],
-    color: "#3b82f6", // Blau/Blue
+    color: "#3b82f6",
+    // Blau/Blue
     icon: Cpu
   },
   fusion: {
@@ -32,7 +34,8 @@ const content: Record<StateType, ContentState> = {
     subtitle: "Innovation, die wirkt – mit KI-Speed",
     description: "Im Lab setzen wir KI und Softwareentwicklung so um, dass daraus echte, funktionierende Produkte entstehen – keine Konzeptfolien, keine Buzzwords.",
     tags: ["Prozessautomatisierung", "Websysteme", "Prototypen"],
-    color: "#fbbf24", // Gelb/Yellow
+    color: "#fbbf24",
+    // Gelb/Yellow
     icon: Zap
   }
 };
@@ -86,7 +89,7 @@ export const InteractiveCore = () => {
         duration: 0.8
       }} className="text-center mb-20">
           <div className="inline-block px-6 py-2 mb-6 bg-gray-100 border border-gray-200">
-            <span className="text-xs font-bold tracking-[0.3em] uppercase text-gray-500">Digitale Methodik</span>
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-primary">Digitale Methodik</span>
           </div>
           <h2 className="text-5xl md:text-7xl font-bold mb-6 text-black">
             Der Digital{" "}
@@ -106,21 +109,9 @@ export const InteractiveCore = () => {
             {states.map((state, index) => {
             const isActive = activeState === state.key;
             const stateColor = content[state.key].color;
-            const hoverClasses = state.key === 'human' 
-              ? 'hover:bg-purple-50 hover:border-purple-300' 
-              : state.key === 'machine' 
-                ? 'hover:bg-blue-50 hover:border-blue-300' 
-                : 'hover:bg-yellow-50 hover:border-yellow-300';
-            const activeClasses = state.key === 'human'
-              ? 'bg-purple-50 border-purple-500 shadow-lg shadow-purple-500/10'
-              : state.key === 'machine'
-                ? 'bg-blue-50 border-blue-500 shadow-lg shadow-blue-500/10'
-                : 'bg-yellow-50 border-yellow-500 shadow-lg shadow-yellow-500/10';
-            const badgeActiveClasses = state.key === 'human'
-              ? 'bg-purple-500 text-white'
-              : state.key === 'machine'
-                ? 'bg-blue-500 text-white'
-                : 'bg-yellow-500 text-black';
+            const hoverClasses = state.key === 'human' ? 'hover:bg-purple-50 hover:border-purple-300' : state.key === 'machine' ? 'hover:bg-blue-50 hover:border-blue-300' : 'hover:bg-yellow-50 hover:border-yellow-300';
+            const activeClasses = state.key === 'human' ? 'bg-purple-50 border-purple-500 shadow-lg shadow-purple-500/10' : state.key === 'machine' ? 'bg-blue-50 border-blue-500 shadow-lg shadow-blue-500/10' : 'bg-yellow-50 border-yellow-500 shadow-lg shadow-yellow-500/10';
+            const badgeActiveClasses = state.key === 'human' ? 'bg-purple-500 text-white' : state.key === 'machine' ? 'bg-blue-500 text-white' : 'bg-yellow-500 text-black';
             return <motion.button key={state.key} onClick={() => setActiveState(state.key)} initial={{
               opacity: 0,
               x: -40
@@ -157,13 +148,15 @@ export const InteractiveCore = () => {
                   </div>
 
                   {/* Progress Bar */}
-                  {isActive && <motion.div 
-                    className="absolute bottom-0 left-0 h-[2px]" 
-                    style={{ backgroundColor: stateColor }}
-                    initial={{ width: "0%" }} 
-                    animate={{ width: `${progress}%` }} 
-                    transition={{ duration: 0.1 }} 
-                  />}
+                  {isActive && <motion.div className="absolute bottom-0 left-0 h-[2px]" style={{
+                backgroundColor: stateColor
+              }} initial={{
+                width: "0%"
+              }} animate={{
+                width: `${progress}%`
+              }} transition={{
+                duration: 0.1
+              }} />}
 
                   {/* Arrow Indicator */}
                   {isActive && <motion.div initial={{
@@ -173,7 +166,9 @@ export const InteractiveCore = () => {
                 opacity: 1,
                 x: 0
               }} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3">
-                      <div className="w-2 h-2" style={{ backgroundColor: stateColor }} />
+                      <div className="w-2 h-2" style={{
+                  backgroundColor: stateColor
+                }} />
                     </motion.div>}
                 </motion.button>;
           })}
