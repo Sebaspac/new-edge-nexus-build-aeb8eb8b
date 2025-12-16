@@ -325,7 +325,8 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">1</span>
-                      <span><strong>Daten sammeln & organisieren:</strong>Wissen zentralisieren:</span>
+                      <span><strong>Daten sammeln & organisieren:</strong> Dokumente, Handbücher, FAQs, Policies und Produktinfos werden auf einer Wissensbasis organisiert - wir schaffen eine ganze Backend-Infrastruktur falls nicht vorhanden.
+                    </span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -338,7 +339,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">2</span>
-                      <span><strong>Recherche & Analyse:</strong>Retrieval & Kontext: </span>
+                      <span><strong>Recherche & Analyse:</strong>Riley findet die relevanten Passagen und setzt sie korrekt in Zusammenhang.</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -351,7 +352,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">3</span>
-                      <span><strong>Generieren & Antworten:</strong>Antworten mit Beleg:</span>
+                      <span><strong>Generieren & Antworten:</strong> Riley formuliert verständliche Antworten - auf Wunsch inkl. Referenzen/Quellenstellen.</span>
                     </motion.li>
                     <motion.li variants={{
                     hidden: {
@@ -364,7 +365,7 @@ const Products = () => {
                     }
                   }} className="flex gap-3">
                       <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">4</span>
-                      <span><strong>Lernen & verbessern:</strong>Qualitätsschleife:</span>
+                      <span><strong>Lernen & verbessern:</strong>Feedback und neue Dokumente verbessern die Antworten kontinuierlich. </span>
                     </motion.li>
                   </ol>
                 </motion.div>
