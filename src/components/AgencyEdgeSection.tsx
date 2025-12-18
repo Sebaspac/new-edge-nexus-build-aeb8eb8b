@@ -53,7 +53,7 @@ export const AgencyEdgeSection = () => {
               <img
                 src={teamImage}
                 alt="Team Präsentation"
-                className="w-full h-full object-cover grayscale"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
               />
               {/* Caption Overlay */}
               <div className="absolute bottom-0 left-0 bg-black/70 px-4 py-2">
