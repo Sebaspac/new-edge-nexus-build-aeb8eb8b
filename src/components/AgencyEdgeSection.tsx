@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import teamImage from "@/assets/team-presentation.png";
+import teamImageGray from "@/assets/team-presentation.png";
+import teamImageColor from "@/assets/team-presentation-color.png";
 
 export const AgencyEdgeSection = () => {
   return (
@@ -49,14 +50,19 @@ export const AgencyEdgeSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative overflow-hidden aspect-[4/3]">
+            <div className="relative overflow-hidden aspect-[4/3] group">
               <img
-                src={teamImage}
+                src={teamImageGray}
                 alt="Team Präsentation"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover absolute inset-0"
+              />
+              <img
+                src={teamImageColor}
+                alt="Team Präsentation"
+                className="w-full h-full object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               />
               {/* Caption Overlay */}
-              <div className="absolute bottom-0 left-0 bg-black/70 px-4 py-2">
+              <div className="absolute bottom-0 left-0 bg-black/70 px-4 py-2 z-10">
                 <p className="text-white text-sm">
                   Leadership Team | Strategy & Tech
                 </p>
