@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import foundersImage from "@/assets/founders-bw.jpg";
+import teamImage from "@/assets/team-presentation.png";
 
 export const AgencyEdgeSection = () => {
   return (
@@ -12,35 +12,12 @@ export const AgencyEdgeSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column - Image */}
+          {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="relative overflow-hidden aspect-[4/3]">
-              <img
-                src={foundersImage}
-                alt="Leadership Team"
-                className="w-full h-full object-cover grayscale"
-              />
-              {/* Caption Overlay */}
-              <div className="absolute bottom-0 left-0 bg-black/70 px-4 py-2">
-                <p className="text-white text-sm">
-                  Leadership Team | Strategy & Tech
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column - Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6"
           >
             <h2 className="text-4xl md:text-5xl font-bold leading-tight text-black">
@@ -61,6 +38,29 @@ export const AgencyEdgeSection = () => {
                   ÜBER UNS
                 </motion.button>
               </Link>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative overflow-hidden aspect-[4/3]">
+              <img
+                src={teamImage}
+                alt="Team Präsentation"
+                className="w-full h-full object-cover grayscale"
+              />
+              {/* Caption Overlay */}
+              <div className="absolute bottom-0 left-0 bg-black/70 px-4 py-2">
+                <p className="text-white text-sm">
+                  Leadership Team | Strategy & Tech
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
