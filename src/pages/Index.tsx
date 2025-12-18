@@ -301,7 +301,7 @@ const Index = () => {
                         </p>
                       </div>
                       <Link to={service.link}>
-                        <Button variant="default" className="group/btn w-full md:w-auto bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                        <Button variant="default" className="group/btn w-full md:w-auto bg-white border-2 hover:bg-primary transition-all duration-300 border-card-foreground text-card-foreground">
                           Mehr erfahren
                           <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                         </Button>
