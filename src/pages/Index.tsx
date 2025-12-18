@@ -284,7 +284,7 @@ const Index = () => {
               }
             }} className="group">
                   <Card className="h-full bg-white border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
-                    <CardContent className="p-4 md:p-8 flex flex-col h-full">
+                    <CardContent className="p-4 md:p-8 flex flex-col h-full border-muted-foreground">
                       <motion.div className={`w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br ${index === 0 ? "from-primary to-primary/70" : index === 1 ? "from-secondary to-secondary/70" : "from-accent to-accent/70"} flex items-center justify-center mb-4 md:mb-6 shadow-lg`} whileHover={{
                     scale: 1.1,
                     rotate: [0, -5, 5, 0],
@@ -301,7 +301,7 @@ const Index = () => {
                         </p>
                       </div>
                       <Link to={service.link}>
-                        <Button variant="default" className="group/btn w-full md:w-auto bg-white border-2 hover:bg-primary transition-all duration-300 border-card-foreground text-card-foreground">
+                        <Button variant="default" className="group/btn w-full md:w-auto bg-white hover:bg-primary transition-all duration-300 text-muted-foreground border border-muted-foreground">
                           Mehr erfahren
                           <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                         </Button>
