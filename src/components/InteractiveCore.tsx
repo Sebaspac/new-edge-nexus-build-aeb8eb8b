@@ -88,7 +88,7 @@ export const InteractiveCore = () => {
       }} transition={{
         duration: 0.8
       }} className="text-left mb-20">
-          <div className="inline-block px-4 py-1 mb-6 border border-[#7C3AED]">
+          <div className="mb-6">
             <span className="text-sm font-medium tracking-wider uppercase text-[#7C3AED]">Digitale Methodik</span>
           </div>
           <h2 className="text-5xl md:text-7xl font-bold mb-6 text-black">
