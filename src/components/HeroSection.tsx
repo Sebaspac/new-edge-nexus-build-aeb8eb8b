@@ -49,7 +49,7 @@ export const HeroSection = ({
             }} className="block space-y-6 md:space-y-8 lg:space-y-6">
               
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-2 border border-white/20 bg-white/5 backdrop-blur-sm">
                 <span className="w-2 h-2 rounded-full bg-violet-500"></span>
                 <span className="text-xs font-medium tracking-widest text-white/80 uppercase">
                   Innovationen & Automatisierung
