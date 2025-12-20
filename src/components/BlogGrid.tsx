@@ -22,20 +22,20 @@ const blogPosts = [
     image: "/assets/blog-ki-fehler.jpg"
   },
   {
-    id: "ki-workflows",
+    id: "ki-social-media-2025",
     client: "NEW EDGE",
-    headline: "KI-Workflows die Zeit sparen",
-    category: "PRODUCTIVITY",
-    date: "05. Nov 2024",
+    headline: "Künstliche Intelligenz im Social-Media-Marketing 2025: Qualität statt 'Slop'",
+    category: "KI & SOCIAL MEDIA",
+    date: "18. Dez 2024",
     gradient: "from-cyan-600 to-teal-600",
     image: undefined as string | undefined
   },
   {
-    id: "digitale-transformation",
+    id: "ki-agenten-2025",
     client: "NEW EDGE",
-    headline: "Digitale Transformation richtig angehen",
-    category: "STRATEGIE",
-    date: "28. Okt 2024",
+    headline: "2025: Das Jahr der KI-Agenten im Marketing",
+    category: "KI & MARKETING",
+    date: "20. Dez 2024",
     gradient: "from-teal-600 to-green-600",
     image: undefined as string | undefined
   }
