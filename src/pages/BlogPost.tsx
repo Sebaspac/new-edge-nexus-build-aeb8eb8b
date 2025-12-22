@@ -1,11 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { Footer } from "@/components/Footer";
-import { ArrowLeft, Calendar, User } from "lucide-react";
-import { motion } from "framer-motion";
-
+import { ArrowLeft, Calendar, User, ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 const blogPostsData: Record<string, {
   title: string;
   category: string;
@@ -397,6 +402,77 @@ const BlogPost = () => {
                   </div>
                 </div>
               ))}
+
+              {/* FAQ Accordion Section */}
+              <div className="mt-16">
+                <h3 className="text-2xl font-black mb-8 text-black">
+                  Häufig gestellte Fragen
+                </h3>
+                <Accordion type="single" collapsible className="w-full space-y-4">
+                  <AccordionItem value="item-1" className="border border-gray-200 rounded-lg px-6">
+                    <AccordionTrigger className="text-left font-semibold text-black hover:no-underline py-5">
+                      Wie funktioniert KI im Marketing?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-700 pb-5">
+                      KI wertet große Mengen Daten aus, erkennt Muster im Kundenverhalten und steuert Kampagnen in Echtzeit. Automatisierung übernimmt repetitive Marketingaufgaben wie Segmentierung, E-Mail-Kampagnen oder Anzeigen-Optimierung. Über Datenanalyse werden Personalisierung, höhere Conversion Rates und niedrigere Kosten erzielt, während Marketer sich auf kreative Marketingstrategien und Kundenbindung konzentrieren können.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-2" className="border border-gray-200 rounded-lg px-6">
+                    <AccordionTrigger className="text-left font-semibold text-black hover:no-underline py-5">
+                      Was sind Beispiele für generative KI?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-700 pb-5">
+                      Generative KI wird zur automatisierten Erstellung von Inhalten eingesetzt. Typische Beispiele sind Textgeneratoren für Blogartikel, E-Mails oder Social Media, Bild-KI für Anzeigenmotive oder Tools zur Erstellung von Landingpages und Produktbeschreibungen. Sie ermöglichen neue Wege in der Content-Erstellung und helfen Marketingmitarbeitenden, schneller, günstiger und personalisierter zu kommunizieren.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-3" className="border border-gray-200 rounded-lg px-6">
+                    <AccordionTrigger className="text-left font-semibold text-black hover:no-underline py-5">
+                      Welche 4 Arten der KI gibt es?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-700 pb-5">
+                      Man unterscheidet vier Arten von KI: Reaktive KI, die ohne Gedächtnis auf Eingaben reagiert (z. B. einfache Chatbots), KI mit begrenztem Gedächtnis, die aus Daten lernt und Vorhersagen trifft (z. B. in der Kampagnenoptimierung), Theory-of-Mind-KI, die zukünftige Systeme mit sozialem Verständnis beschreibt, und selbstbewusste KI, die als hypothetische, autonom agierende Form gilt. Im Marketing ist aktuell vor allem die zweite Art im Einsatz.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-4" className="border border-gray-200 rounded-lg px-6">
+                    <AccordionTrigger className="text-left font-semibold text-black hover:no-underline py-5">
+                      Was bedeutet Agentic AI im Marketing?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-700 pb-5">
+                      Der Begriff „Agentic AI" bezieht sich auf den Einsatz von KI-Agenten im Marketing. Damit können komplexe Marketing-Abläufe automatisiert und optimiert werden. Marketing-Budgets werden optimal eingesetzt und Mitarbeitende erhalten Unterstützung bei der Erstellung, Auswertung und Umsetzung von Kampagnen. Im Vergleich zum Einsatz einzelner KI-Tools, die nur Teilaufgaben übernehmen, hat Agentic AI den Anspruch, mehrere Prozessschritte selbstständig zu bearbeiten.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-5" className="border border-gray-200 rounded-lg px-6">
+                    <AccordionTrigger className="text-left font-semibold text-black hover:no-underline py-5">
+                      Was macht ein KI-Agent?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-700 pb-5">
+                      Ein KI-Agent ist ein autonomes System, das Aufgaben wie Analyse, Planung und Umsetzung verbindet. Im Marketing überwacht er Kampagnen, erstellt Texte und visualisiert Ergebnisse, entscheidet auf Basis von Daten über Budget-Shifts und lernt kontinuierlich, um Optimierungspotenziale aufzudecken – rund um die Uhr und ohne manuelles Eingreifen des Teams.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-6" className="border border-gray-200 rounded-lg px-6">
+                    <AccordionTrigger className="text-left font-semibold text-black hover:no-underline py-5">
+                      Welche Beispiele gibt es für KI-Agenten?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-700 pb-5">
+                      KI-Agenten im Marketing übernehmen Aufgaben entlang des gesamten Kampagnenprozesses. Beispiele sind Media-Buying-Agenten, die automatisch Anzeigenbudgets optimieren, E-Mail-Agenten, die personalisierte Inhalte erstellen und versenden, oder Chatbots, die Kundenfragen beantworten und Leads qualifizieren. Auch Content-Agenten, die Texte für Blogs, E-Mails oder Landingpages generieren, gehören dazu. Sie steigern Effizienz, senken Kosten und ermöglichen datenbasiertes Arbeiten in Echtzeit.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-7" className="border border-gray-200 rounded-lg px-6">
+                    <AccordionTrigger className="text-left font-semibold text-black hover:no-underline py-5">
+                      Welche Auswirkungen hat KI auf den Marketingberuf?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-700 pb-5">
+                      Routine wird automatisiert, doch Marketingfachleute werden zu Expert*innen für Strategie, Qualität und Lead-Generierung. KI liefert Überblick und datenbasierte Entscheidungen, während Menschen kreative Erlebnisse und einen ethischen Leitfaden sichern. Das verschiebt Skills hin zu Datenkompetenz, Prompt-Engineering und crossfunktionaler Zusammenarbeit – mit großen Chancen für Karriere und Unternehmenswachstum.
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
 
               {/* Call to Action */}
               <div className="mt-16 p-8 bg-gradient-to-br from-gray-50 to-purple-50 rounded-2xl">
