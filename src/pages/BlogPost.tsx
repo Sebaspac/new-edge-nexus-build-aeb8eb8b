@@ -199,6 +199,7 @@ const blogPostsData: Record<string, {
     date: "20. Dezember 2024",
     author: "New Edge Team",
     gradient: "from-teal-600 to-green-600",
+    image: "/assets/blog-ki-agenten-hero.jpg",
     content: {
       intro: "2025 wird zum Jahr der KI-Agenten: Self-Service, Personalisierung und Lead-Erkennung automatisieren Marketing - und veraendern die Rolle der Agenturen.\n\nKunden erwarten Relevanz in Echtzeit, Budgets muessen wirken, Teams bleiben schlank. Agentic AI verknuepft Daten, Inhalte und Ausspielung - kontinuierlich lernend. So entstehen skalierbare, individuelle Erlebnisse, ohne jedes Detail manuell zu steuern.",
       sections: [
