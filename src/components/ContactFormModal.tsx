@@ -44,16 +44,23 @@ export const ContactFormModal = ({
     };
 
     try {
-      await fetch('https://n8n-pro-oh9w.onrender.com/webhook-test/kontakt', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        mode: 'no-cors',
-        body: JSON.stringify(data)
-      });
-      
-      // With no-cors mode, we can't read the response, so we assume success
+      // Prefer sendBeacon to avoid CORS/preflight issues with external webhooks
+      const payload = JSON.stringify(data);
+      const beaconOk = navigator.sendBeacon(
+        'https://n8n-pro-oh9w.onrender.com/webhook-test/kontakt',
+        new Blob([payload], { type: 'text/plain;charset=UTF-8' })
+      );
+
+      if (!beaconOk) {
+        // Fallback: no-cors fetch with a "simple" request (no custom headers)
+        await fetch('https://n8n-pro-oh9w.onrender.com/webhook-test/kontakt', {
+          method: 'POST',
+          mode: 'no-cors',
+          body: payload,
+          keepalive: true
+        });
+      }
+
       toast({
         title: "Anfrage gesendet",
         description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
