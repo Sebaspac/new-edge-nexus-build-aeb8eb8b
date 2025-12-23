@@ -39,7 +39,7 @@ export const ContactFormModal = ({
       source: theme.toUpperCase() // Track which page the form was submitted from
     };
     try {
-      const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
+      const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook-test/kontakt', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
