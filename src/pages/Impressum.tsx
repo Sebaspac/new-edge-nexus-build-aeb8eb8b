@@ -76,7 +76,7 @@ const Impressum = () => {
                     <h3 className="text-xl font-semibold text-white mb-4">Angaben gemäß § 5 TMG</h3>
                     <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
                       <p className="font-semibold text-white">New Edge – Creative Tech Agentur</p>
-                      <p>Inhaber: WnjaminZababezhanskiy </p>
+                      <p>Inhaber: Wenjamin Zababezhanskiy </p>
                       
                       
                       <p>Deutschland</p>
