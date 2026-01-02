@@ -37,7 +37,7 @@ const blogPosts = [
     category: "KI & MARKETING",
     date: "20. Dez 2024",
     gradient: "from-teal-600 to-green-600",
-    image: undefined as string | undefined
+    image: "/assets/blog-ki-agenten-hero.jpg"
   }
 ];
 
