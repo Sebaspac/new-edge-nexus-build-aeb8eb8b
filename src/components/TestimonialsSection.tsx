@@ -59,20 +59,20 @@ export const TestimonialsSection = () => {
         ease: [0.16, 1, 0.3, 1]
       }} viewport={{
         once: true
-      }} className="flex flex-col items-center justify-center max-w-[540px] mx-auto px-4">
+      }} className="flex flex-col items-center justify-center max-w-[540px] mx-auto">
           <div className="flex justify-center">
             <div className="mb-0">
-              <span className="text-sm font-medium tracking-wider uppercase text-[#7C3AED]">Testimonials</span>
+              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#7C3AED]">Testimonials</span>
             </div>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mt-4 md:mt-6 text-center text-black">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight mt-3 sm:mt-4 md:mt-6 text-center text-black">
             Was unsere Kunden sagen
           </h2>
-          <p className="text-center mt-3 md:mt-5 text-gray-600 text-base md:text-lg">Erfahrungen echter Unternehmen mit New Edge.</p>
+          <p className="text-center mt-2 sm:mt-3 md:mt-5 text-gray-600 text-sm sm:text-base md:text-lg">Erfahrungen echter Unternehmen mit New Edge.</p>
         </motion.div>
 
-        <div className="flex justify-center gap-3 md:gap-6 mt-8 md:mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[500px] md:max-h-[740px] overflow-hidden">
+        <div className="flex justify-center gap-3 md:gap-6 mt-6 sm:mt-8 md:mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[400px] sm:max-h-[500px] md:max-h-[740px] overflow-hidden">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
           <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />

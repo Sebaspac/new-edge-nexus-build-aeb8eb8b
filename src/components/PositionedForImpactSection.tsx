@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import foundersColorImage from "@/assets/founders-color.png";
 export const PositionedForImpactSection = () => {
-  return <section className="relative py-32 bg-white overflow-hidden">
-      <div className="container-xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+  return <section className="relative py-12 md:py-20 lg:py-32 bg-white overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-24 items-center">
           {/* Left Column - Founders Image */}
           <motion.div initial={{
           opacity: 0,
@@ -16,13 +16,13 @@ export const PositionedForImpactSection = () => {
           once: true
         }} transition={{
           duration: 0.8
-        }} className="relative group cursor-pointer">
+        }} className="relative group cursor-pointer order-2 lg:order-1">
             <div className="relative overflow-hidden aspect-[4/3]">
               <img alt="New Edge Founders" className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" src={foundersColorImage} />
               
               {/* Caption Overlay */}
-              <div className="absolute bottom-0 left-0 bg-black px-4 py-2">
-                <p className="text-sm font-medium text-white">
+              <div className="absolute bottom-0 left-0 bg-black px-3 py-1.5 sm:px-4 sm:py-2">
+                <p className="text-xs sm:text-sm font-medium text-white">
                   New Edge Founders  
                 </p>
               </div>
@@ -41,20 +41,20 @@ export const PositionedForImpactSection = () => {
         }} transition={{
           duration: 0.8,
           delay: 0.2
-        }} className="space-y-8">
+        }} className="space-y-4 sm:space-y-6 md:space-y-8 order-1 lg:order-2">
             {/* Main Headline */}
-            <h2 className="text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] text-black">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-[0.95] text-black">
               Positioned for{" "}
               <span className="text-[#7C3AED]">Impact.</span>
             </h2>
 
             {/* Description */}
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
               Erfolg ist das Ergebnis einer klaren KI-Strategie und einer authentischen Markenidentität. Als Expert:innen für Automatisierung, Branding und Markeninteraktion unterstützen wir Unternehmen dabei, ihre unverwechselbare Position im Markt zu finden und durch Technologie zu festigen.
             </p>
 
             {/* CTA Button */}
-            <div className="pt-8">
+            <div className="pt-4 sm:pt-6 md:pt-8">
               <Link to="/#contact-section" onClick={() => {
               setTimeout(() => {
                 document.querySelector('#contact-section')?.scrollIntoView({
@@ -66,7 +66,7 @@ export const PositionedForImpactSection = () => {
                 scale: 1.02
               }} whileTap={{
                 scale: 0.98
-              }} className="relative px-8 py-4 font-bold uppercase text-sm tracking-wider bg-white/10 backdrop-blur-md border-2 border-black text-black shadow-[0_8px_32px_0_rgba(124,58,237,0.1)] hover:bg-black hover:text-white transition-all duration-500">
+              }} className="relative px-6 sm:px-8 py-3 sm:py-4 font-bold uppercase text-xs sm:text-sm tracking-wider bg-white/10 backdrop-blur-md border-2 border-black text-black shadow-[0_8px_32px_0_rgba(124,58,237,0.1)] hover:bg-black hover:text-white transition-all duration-500">
                   FINDE DEINE EDGE
                 </motion.button>
               </Link>
