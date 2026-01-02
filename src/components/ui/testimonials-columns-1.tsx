@@ -24,25 +24,25 @@ export const TestimonialsColumn = (props: {
           ease: "linear",
           repeatType: "loop",
         }}
-        className="flex flex-col gap-6 pb-6 bg-background"
+        className="flex flex-col gap-3 sm:gap-4 md:gap-6 pb-3 sm:pb-4 md:pb-6 bg-background"
       >
         {[
           ...new Array(2).fill(0).map((_, index) => (
             <React.Fragment key={index}>
               {props.testimonials.map(({ text, image, name, role }, i) => (
-                <div className="p-10 border shadow-lg shadow-primary/10 max-w-xs w-full" key={i}>
-                  <div>{text}</div>
-                  <div className="flex items-center gap-2 mt-5">
+                <div className="p-4 sm:p-6 md:p-10 border shadow-lg shadow-primary/10 max-w-[200px] sm:max-w-[260px] md:max-w-xs w-full" key={i}>
+                  <div className="text-xs sm:text-sm md:text-base leading-relaxed">{text}</div>
+                  <div className="flex items-center gap-2 mt-3 sm:mt-4 md:mt-5">
                     <img
                       width={40}
                       height={40}
                       src={image}
                       alt={name}
-                      className="h-10 w-10"
+                      className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10"
                     />
                     <div className="flex flex-col">
-                      <div className="font-medium tracking-tight leading-5">{name}</div>
-                      <div className="leading-5 opacity-60 tracking-tight">{role}</div>
+                      <div className="font-medium tracking-tight leading-4 sm:leading-5 text-xs sm:text-sm md:text-base">{name}</div>
+                      <div className="leading-4 sm:leading-5 opacity-60 tracking-tight text-[10px] sm:text-xs md:text-sm">{role}</div>
                     </div>
                   </div>
                 </div>
