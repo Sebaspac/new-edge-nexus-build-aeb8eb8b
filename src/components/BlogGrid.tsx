@@ -28,7 +28,7 @@ const blogPosts = [
     category: "KI & SOCIAL MEDIA",
     date: "18. Dez 2024",
     gradient: "from-cyan-600 to-teal-600",
-    image: undefined as string | undefined
+    image: "/assets/blog-ki-social-media.png"
   },
   {
     id: "ki-agenten-2025",

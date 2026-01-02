@@ -171,6 +171,7 @@ const blogPostsData: Record<string, {
     date: "18. Dezember 2024",
     author: "New Edge Team",
     gradient: "from-cyan-600 to-teal-600",
+    image: "/assets/blog-ki-social-media.png",
     content: {
       intro: "Content-Flut? Ja. Leads? Nicht automatisch. Generative KI beschleunigt Social Media - doch generischer 'Slop'-Content untergraebt Vertrauen und Performance. Die Loesung: KI als Beschleuniger mit redaktioneller Kontrolle, klarer Positionierung und messbarem Performance-Setup.\n\nKI skaliert Social Media - oder erzeugt 'Slop'. Dieser Beitrag zeigt, wie Sie mit Strategie, Editorial Oversight, Personalisierung und Performance-Setup Vertrauen sichern, Inhalte differenzieren und Conversions steigern.",
       sections: [
