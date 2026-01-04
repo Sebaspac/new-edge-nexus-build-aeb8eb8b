@@ -118,37 +118,47 @@ export const KnowledgeIngestion: React.FC = () => {
 
       {/* Animating documents */}
       <AnimatePresence>
-        {animatingDocs.map((doc) => (
-          <motion.div
-            key={doc.id}
-            initial={{
-              x: doc.startX,
-              y: doc.startY,
-              scale: 0.8,
-              opacity: 0,
-            }}
-            animate={{
-              x: [doc.startX, containerSize.width * 0.4, containerSize.width / 2],
-              y: [doc.startY, containerSize.height * 0.5, containerSize.height / 2],
-              scale: [0.8, 0.6, 0.2],
-              opacity: [0, 1, 1, 0],
-            }}
-            exit={{ opacity: 0 }}
-            transition={{
-              duration: 2,
-              times: [0, 0.5, 1],
-              ease: "easeInOut",
-            }}
-            className="absolute w-10 h-10 md:w-12 md:h-12 rounded-lg backdrop-blur-md border flex items-center justify-center text-white shadow-lg"
-            style={{
-              backgroundColor: `${doc.color}40`,
-              borderColor: `${doc.color}80`,
-              boxShadow: `0 0 20px ${doc.color}40`,
-            }}
-          >
-            {doc.icon}
-          </motion.div>
-        ))}
+        {animatingDocs.map((doc) => {
+          // Calculate percentage-based start positions
+          const startXPercent = (doc.startX / containerSize.width) * 100;
+          const startYPercent = (doc.startY / containerSize.height) * 100;
+          
+          return (
+            <motion.div
+              key={doc.id}
+              className="absolute w-10 h-10 md:w-12 md:h-12 rounded-lg backdrop-blur-md border flex items-center justify-center text-white shadow-lg"
+              initial={{
+                left: `${startXPercent}%`,
+                top: `${startYPercent}%`,
+                x: "-50%",
+                y: "-50%",
+                scale: 0.8,
+                opacity: 0,
+              }}
+              animate={{
+                left: [`${startXPercent}%`, "45%", "50%"],
+                top: [`${startYPercent}%`, "50%", "50%"],
+                x: "-50%",
+                y: "-50%",
+                scale: [0.8, 0.6, 0.2],
+                opacity: [0, 1, 1, 0],
+              }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: 2,
+                times: [0, 0.5, 1],
+                ease: "easeInOut",
+              }}
+              style={{
+                backgroundColor: `${doc.color}40`,
+                borderColor: `${doc.color}80`,
+                boxShadow: `0 0 20px ${doc.color}40`,
+              }}
+            >
+              {doc.icon}
+            </motion.div>
+          );
+        })}
       </AnimatePresence>
 
       {/* Central database icon */}
