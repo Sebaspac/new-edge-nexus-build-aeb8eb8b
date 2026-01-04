@@ -148,12 +148,12 @@ export const DataScanningAnimation: React.FC = () => {
       </AnimatePresence>
 
       {/* Central analysis hub */}
-      <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-        animate={isAnalyzing ? { scale: [1, 1.05, 1] } : {}}
-        transition={{ duration: 0.5, repeat: isAnalyzing ? Infinity : 0 }}
-      >
-        <div className="relative">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <motion.div
+          animate={isAnalyzing ? { scale: [1, 1.05, 1] } : {}}
+          transition={{ duration: 0.5, repeat: isAnalyzing ? Infinity : 0 }}
+        >
+          <div className="relative">
           {/* Rotating outer ring */}
           <motion.div
             className="absolute -inset-4 md:-inset-6 rounded-full border-2 border-dashed border-purple-400/40"
@@ -193,7 +193,8 @@ export const DataScanningAnimation: React.FC = () => {
             }}
           />
         </div>
-      </motion.div>
+        </motion.div>
+      </div>
 
       {/* Analysis metrics - left side */}
       <div className="absolute left-4 md:left-6 top-4 md:top-6 space-y-2 md:space-y-3">
