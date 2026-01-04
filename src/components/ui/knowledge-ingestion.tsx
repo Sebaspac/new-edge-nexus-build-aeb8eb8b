@@ -29,17 +29,33 @@ export const KnowledgeIngestion: React.FC = () => {
   const [animatingDocs, setAnimatingDocs] = useState<AnimatingDoc[]>([]);
   const [isGlowing, setIsGlowing] = useState(false);
   const [isBouncing, setIsBouncing] = useState(false);
+  const [containerSize, setContainerSize] = useState({ width: 400, height: 400 });
   const containerRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<number | null>(null);
+
+  // Update container size on mount and resize
+  useEffect(() => {
+    const updateSize = () => {
+      if (containerRef.current) {
+        setContainerSize({
+          width: containerRef.current.offsetWidth,
+          height: containerRef.current.offsetHeight
+        });
+      }
+    };
+    updateSize();
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
 
   useEffect(() => {
     const startAnimation = () => {
       const randomDoc = documentTypes[Math.floor(Math.random() * documentTypes.length)];
       const startPositions = [
-        { x: 20, y: 40 },
-        { x: 20, y: 100 },
-        { x: 20, y: 160 },
-        { x: 20, y: 220 },
+        { x: 60, y: containerSize.height * 0.15 },
+        { x: 60, y: containerSize.height * 0.35 },
+        { x: 60, y: containerSize.height * 0.55 },
+        { x: 60, y: containerSize.height * 0.75 },
       ];
       const randomPos = startPositions[Math.floor(Math.random() * startPositions.length)];
 
@@ -77,22 +93,22 @@ export const KnowledgeIngestion: React.FC = () => {
         clearInterval(intervalRef.current);
       }
     };
-  }, []);
+  }, [containerSize]);
 
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[280px] md:h-[350px] lg:h-[400px] bg-gradient-to-br from-purple-800/30 to-purple-900/30 rounded-3xl border border-purple-500/30 backdrop-blur-sm overflow-hidden"
+      className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] bg-gradient-to-br from-purple-800/30 to-purple-900/30 rounded-3xl border border-purple-500/30 backdrop-blur-sm overflow-hidden"
     >
       {/* Document source tiles */}
-      <div className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 flex flex-col gap-2 md:gap-3">
+      <div className="absolute left-6 md:left-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 md:gap-4">
         {documentTypes.map((doc, index) => (
           <motion.div
             key={doc.id}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 0.4, x: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-purple-800/40 backdrop-blur-md border border-purple-500/30 flex items-center justify-center text-purple-300"
+            className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-purple-800/40 backdrop-blur-md border border-purple-500/30 flex items-center justify-center text-purple-300"
             style={{ filter: "blur(1px)" }}
           >
             {doc.icon}
@@ -112,8 +128,8 @@ export const KnowledgeIngestion: React.FC = () => {
               opacity: 0,
             }}
             animate={{
-              x: [doc.startX, 120, 200],
-              y: [doc.startY, 140, 160],
+              x: [doc.startX, containerSize.width * 0.4, containerSize.width / 2],
+              y: [doc.startY, containerSize.height * 0.5, containerSize.height / 2],
               scale: [0.8, 0.6, 0.2],
               opacity: [0, 1, 1, 0],
             }}
@@ -123,7 +139,7 @@ export const KnowledgeIngestion: React.FC = () => {
               times: [0, 0.5, 1],
               ease: "easeInOut",
             }}
-            className="absolute w-8 h-8 md:w-10 md:h-10 rounded-lg backdrop-blur-md border flex items-center justify-center text-white shadow-lg"
+            className="absolute w-10 h-10 md:w-12 md:h-12 rounded-lg backdrop-blur-md border flex items-center justify-center text-white shadow-lg"
             style={{
               backgroundColor: `${doc.color}40`,
               borderColor: `${doc.color}80`,
@@ -171,8 +187,8 @@ export const KnowledgeIngestion: React.FC = () => {
               ease: "easeInOut",
             }}
           />
-          <div className="relative w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center shadow-2xl border-4 border-purple-400/50">
-            <Database className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-white" />
+          <div className="relative w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center shadow-2xl border-4 border-purple-400/50">
+            <Database className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
           </div>
           <motion.div
             className="absolute inset-0 rounded-full border-2 border-purple-400/30"
