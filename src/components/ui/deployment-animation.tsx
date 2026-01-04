@@ -188,65 +188,68 @@ export const DeploymentAnimation: React.FC = () => {
       ))}
 
       {/* Central hub */}
-      <motion.div
+      <div 
         className="absolute"
         style={{ left: `${centerX}%`, top: `${centerY}%`, transform: "translate(-50%, -50%)" }}
-        animate={deploymentPhase === 2 ? { scale: [1, 1.1, 1] } : {}}
-        transition={{ duration: 0.5 }}
       >
-        <div className="relative">
-          {/* Rotating ring */}
-          <motion.div
-            className="absolute -inset-4 md:-inset-6 rounded-full border-2 border-dashed border-purple-400/40"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-          />
+        <motion.div
+          animate={deploymentPhase === 2 ? { scale: [1, 1.1, 1] } : {}}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="relative">
+            {/* Rotating ring */}
+            <motion.div
+              className="absolute -inset-4 md:-inset-6 rounded-full border-2 border-dashed border-purple-400/40"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            />
 
-          {/* Glow effect */}
-          <motion.div
-            className="absolute inset-0 rounded-full"
-            animate={{
-              boxShadow:
+            {/* Glow effect */}
+            <motion.div
+              className="absolute inset-0 rounded-full"
+              animate={{
+                boxShadow:
+                  deploymentPhase === 2
+                    ? ["0 0 20px rgba(34, 211, 238, 0.3)", "0 0 50px rgba(34, 211, 238, 0.6)", "0 0 30px rgba(34, 211, 238, 0.4)"]
+                    : ["0 0 10px rgba(168, 85, 247, 0.3)", "0 0 25px rgba(168, 85, 247, 0.5)", "0 0 15px rgba(168, 85, 247, 0.3)"],
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+
+            {/* Main hub icon */}
+            <div
+              className={`relative w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full shadow-2xl border-4 transition-all duration-500 ${
                 deploymentPhase === 2
-                  ? ["0 0 20px rgba(34, 211, 238, 0.3)", "0 0 50px rgba(34, 211, 238, 0.6)", "0 0 30px rgba(34, 211, 238, 0.4)"]
-                  : ["0 0 10px rgba(168, 85, 247, 0.3)", "0 0 25px rgba(168, 85, 247, 0.5)", "0 0 15px rgba(168, 85, 247, 0.3)"],
-            }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-
-          {/* Main hub icon */}
-          <div
-            className={`relative w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full shadow-2xl border-4 transition-all duration-500 ${
-              deploymentPhase === 2
-                ? "bg-gradient-to-br from-green-500 to-cyan-600 border-green-400/50"
-                : "bg-gradient-to-br from-purple-600 to-purple-800 border-purple-400/50"
-            }`}
-          >
-            <div className="absolute inset-0 flex items-center justify-center">
-              {deploymentPhase === 2 ? (
-                <CheckCircle className="block w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
-              ) : (
-                <Cpu className="block w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
-              )}
+                  ? "bg-gradient-to-br from-green-500 to-cyan-600 border-green-400/50"
+                  : "bg-gradient-to-br from-purple-600 to-purple-800 border-purple-400/50"
+              }`}
+            >
+              <div className="absolute inset-0 flex items-center justify-center">
+                {deploymentPhase === 2 ? (
+                  <CheckCircle className="block w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
+                ) : (
+                  <Cpu className="block w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
+                )}
+              </div>
             </div>
-          </div>
 
-          {/* Pulsing ring */}
-          <motion.div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full border-2 border-purple-400/30"
-            animate={{
-              scale: [1, 1.4, 1],
-              opacity: [0.5, 0, 0.5],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            style={{ transformOrigin: "center center" }}
-          />
-        </div>
-      </motion.div>
+            {/* Pulsing ring */}
+            <motion.div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full border-2 border-purple-400/30"
+              animate={{
+                scale: [1, 1.4, 1],
+                opacity: [0.5, 0, 0.5],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              style={{ transformOrigin: "center center" }}
+            />
+          </div>
+        </motion.div>
+      </div>
 
       {/* Status indicators */}
       <div className="absolute top-4 md:top-6 left-4 md:left-6 space-y-2 md:space-y-3">

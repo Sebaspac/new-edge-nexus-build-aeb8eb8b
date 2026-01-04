@@ -162,22 +162,22 @@ export const KnowledgeIngestion: React.FC = () => {
       </AnimatePresence>
 
       {/* Central database icon */}
-      <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-        animate={
-          isBouncing
-            ? {
-                scale: [1, 1.1, 0.95, 1.05, 1],
-                y: [0, -8, 4, -2, 0],
-              }
-            : {}
-        }
-        transition={{
-          duration: 0.6,
-          ease: "easeInOut",
-        }}
-      >
-        <div className="relative">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <motion.div
+          animate={
+            isBouncing
+              ? {
+                  scale: [1, 1.1, 0.95, 1.05, 1],
+                  y: [0, -8, 4, -2, 0],
+                }
+              : {}
+          }
+          transition={{
+            duration: 0.6,
+            ease: "easeInOut",
+          }}
+        >
+          <div className="relative">
           <motion.div
             className="absolute inset-0 rounded-full"
             animate={
@@ -213,7 +213,8 @@ export const KnowledgeIngestion: React.FC = () => {
             }}
           />
         </div>
-      </motion.div>
+        </motion.div>
+      </div>
 
       {/* Status indicator */}
       <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 bg-purple-900/50 backdrop-blur-md rounded-lg px-3 py-1.5 md:px-4 md:py-2 border border-purple-500/30">
