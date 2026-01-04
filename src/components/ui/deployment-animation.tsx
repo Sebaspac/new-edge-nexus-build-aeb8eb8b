@@ -216,17 +216,19 @@ export const DeploymentAnimation: React.FC = () => {
 
           {/* Main hub icon */}
           <div
-            className={`relative w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full flex items-center justify-center shadow-2xl border-4 transition-all duration-500 ${
+            className={`relative w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full shadow-2xl border-4 transition-all duration-500 ${
               deploymentPhase === 2
                 ? "bg-gradient-to-br from-green-500 to-cyan-600 border-green-400/50"
                 : "bg-gradient-to-br from-purple-600 to-purple-800 border-purple-400/50"
             }`}
           >
-            {deploymentPhase === 2 ? (
-              <CheckCircle className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
-            ) : (
-              <Cpu className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
-            )}
+            <div className="absolute inset-0 flex items-center justify-center">
+              {deploymentPhase === 2 ? (
+                <CheckCircle className="block w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
+              ) : (
+                <Cpu className="block w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
+              )}
+            </div>
           </div>
 
           {/* Pulsing ring */}
