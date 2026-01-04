@@ -231,7 +231,7 @@ export const DeploymentAnimation: React.FC = () => {
 
           {/* Pulsing ring */}
           <motion.div
-            className="absolute inset-0 rounded-full border-2 border-purple-400/30"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full border-2 border-purple-400/30"
             animate={{
               scale: [1, 1.4, 1],
               opacity: [0.5, 0, 0.5],
@@ -241,6 +241,7 @@ export const DeploymentAnimation: React.FC = () => {
               repeat: Infinity,
               ease: "easeInOut",
             }}
+            style={{ transformOrigin: "center center" }}
           />
         </div>
       </motion.div>
