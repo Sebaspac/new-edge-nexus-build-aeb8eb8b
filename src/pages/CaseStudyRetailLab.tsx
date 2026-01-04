@@ -18,6 +18,7 @@ import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import { RelatedCaseStudies } from "@/components/RelatedCaseStudies";
 import { KnowledgeIngestion } from "@/components/ui/knowledge-ingestion";
 import { DataScanningAnimation } from "@/components/ui/data-scanning-animation";
+import { DeploymentAnimation } from "@/components/ui/deployment-animation";
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -392,6 +393,8 @@ const CaseStudyRetailLab = () => {
                         <DataScanningAnimation />
                       ) : phaseIndex === 1 ? (
                         <KnowledgeIngestion />
+                      ) : phaseIndex === 2 ? (
+                        <DeploymentAnimation />
                       ) : (
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
                           <div className="absolute inset-0 flex items-center justify-center">
