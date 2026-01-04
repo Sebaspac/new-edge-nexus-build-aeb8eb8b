@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import { RelatedCaseStudies } from "@/components/RelatedCaseStudies";
+import { KnowledgeIngestion } from "@/components/ui/knowledge-ingestion";
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -386,11 +387,15 @@ const CaseStudyRetailLab = () => {
                       </div>
                     </div>
                     <div className={phaseIndex % 2 === 1 ? "lg:order-1" : ""}>
-                      <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="text-white/30 text-6xl font-black">{phase.number}</div>
+                      {phaseIndex === 1 ? (
+                        <KnowledgeIngestion />
+                      ) : (
+                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="text-white/30 text-6xl font-black">{phase.number}</div>
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                   </div>
                 </AnimatedSection>
