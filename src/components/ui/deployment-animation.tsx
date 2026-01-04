@@ -24,14 +24,14 @@ export const DeploymentAnimation: React.FC = () => {
   const [deploymentPhase, setDeploymentPhase] = useState(0);
   const [trainedCount, setTrainedCount] = useState(0);
 
-  // Center position (percentage)
+  // Optical center position (percentage) - slightly higher to account for progress bar at bottom
   const centerX = 50;
-  const centerY = 50;
+  const centerY = 45;
 
   useEffect(() => {
     // Generate user nodes in a circle around the center
     const nodeCount = 8;
-    const radius = 35;
+    const radius = 32;
     const nodes: UserNode[] = Array.from({ length: nodeCount }, (_, i) => {
       const angle = (i / nodeCount) * 2 * Math.PI - Math.PI / 2;
       return {
