@@ -123,15 +123,23 @@ export const DeploymentAnimation: React.FC = () => {
             <motion.div
               key={`pulse-${nodeId}`}
               className="absolute w-2 h-2 rounded-full bg-cyan-400"
-              initial={{ left: `${centerX}%`, top: `${centerY}%`, opacity: 1, scale: 1 }}
+              initial={{ 
+                left: `${centerX}%`, 
+                top: `${centerY}%`, 
+                x: "-50%", 
+                y: "-50%", 
+                opacity: 1, 
+                scale: 1 
+              }}
               animate={{
                 left: [`${centerX}%`, `${node.x}%`],
                 top: [`${centerY}%`, `${node.y}%`],
+                x: "-50%",
+                y: "-50%",
                 opacity: [1, 0],
                 scale: [1, 0.5],
               }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              style={{ transform: "translate(-50%, -50%)" }}
             />
           );
         })}
