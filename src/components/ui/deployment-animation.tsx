@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Users, User, Zap, CheckCircle, ArrowRight, Cpu } from "lucide-react";
+import { Users, User, Zap, CheckCircle, MessageCircle } from "lucide-react";
 
 interface UserNode {
   id: string;
@@ -27,6 +27,21 @@ export const DeploymentAnimation: React.FC = () => {
   // Exact geometric center position (percentage)
   const centerX = 50;
   const centerY = 50;
+  
+  // Radius offsets for precise line connections (in percentage)
+  const hubRadius = 7; // Hub edge offset
+  const nodeRadius = 3; // User node edge offset
+
+  // Calculate edge-to-edge line coordinates
+  const getLineCoords = (nodeX: number, nodeY: number) => {
+    const angle = Math.atan2(nodeY - centerY, nodeX - centerX);
+    return {
+      x1: centerX + hubRadius * Math.cos(angle),
+      y1: centerY + hubRadius * Math.sin(angle),
+      x2: nodeX - nodeRadius * Math.cos(angle),
+      y2: nodeY - nodeRadius * Math.sin(angle),
+    };
+  };
 
   useEffect(() => {
     // Generate user nodes in a circle around the center
@@ -92,48 +107,52 @@ export const DeploymentAnimation: React.FC = () => {
         </svg>
       </div>
 
-      {/* Connection lines */}
+      {/* Connection lines - precise edge to edge */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none">
-        {userNodes.map((node) => (
-          <motion.line
-            key={`line-${node.id}`}
-            x1={`${centerX}%`}
-            y1={`${centerY}%`}
-            x2={`${node.x}%`}
-            y2={`${node.y}%`}
-            stroke={activeConnections.includes(node.id) ? "#22d3ee" : "rgba(168, 85, 247, 0.2)"}
-            strokeWidth={activeConnections.includes(node.id) ? 2 : 1}
-            strokeDasharray={activeConnections.includes(node.id) ? "0" : "4 4"}
-            initial={{ pathLength: 0, opacity: 0.3 }}
-            animate={{
-              pathLength: activeConnections.includes(node.id) ? 1 : 0.3,
-              opacity: activeConnections.includes(node.id) ? 1 : 0.3,
-            }}
-            transition={{ duration: 0.5 }}
-          />
-        ))}
+        {userNodes.map((node) => {
+          const coords = getLineCoords(node.x, node.y);
+          return (
+            <motion.line
+              key={`line-${node.id}`}
+              x1={`${coords.x1}%`}
+              y1={`${coords.y1}%`}
+              x2={`${coords.x2}%`}
+              y2={`${coords.y2}%`}
+              stroke={activeConnections.includes(node.id) ? "#22d3ee" : "rgba(168, 85, 247, 0.2)"}
+              strokeWidth={activeConnections.includes(node.id) ? 2 : 1}
+              strokeDasharray={activeConnections.includes(node.id) ? "0" : "4 4"}
+              initial={{ pathLength: 0, opacity: 0.3 }}
+              animate={{
+                pathLength: activeConnections.includes(node.id) ? 1 : 0.3,
+                opacity: activeConnections.includes(node.id) ? 1 : 0.3,
+              }}
+              transition={{ duration: 0.5 }}
+            />
+          );
+        })}
       </svg>
 
-      {/* Data pulse animations along connection lines */}
+      {/* Data pulse animations along connection lines - edge to edge */}
       <AnimatePresence>
         {activeConnections.map((nodeId) => {
           const node = userNodes.find((n) => n.id === nodeId);
           if (!node) return null;
+          const coords = getLineCoords(node.x, node.y);
           return (
             <motion.div
               key={`pulse-${nodeId}`}
               className="absolute w-2 h-2 rounded-full bg-cyan-400"
               initial={{ 
-                left: `${centerX}%`, 
-                top: `${centerY}%`, 
+                left: `${coords.x1}%`, 
+                top: `${coords.y1}%`, 
                 x: "-50%", 
                 y: "-50%", 
                 opacity: 1, 
                 scale: 1 
               }}
               animate={{
-                left: [`${centerX}%`, `${node.x}%`],
-                top: [`${centerY}%`, `${node.y}%`],
+                left: [`${coords.x1}%`, `${coords.x2}%`],
+                top: [`${coords.y1}%`, `${coords.y2}%`],
                 x: "-50%",
                 y: "-50%",
                 opacity: [1, 0],
@@ -228,7 +247,7 @@ export const DeploymentAnimation: React.FC = () => {
                 {deploymentPhase === 2 ? (
                   <CheckCircle className="block w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
                 ) : (
-                  <Cpu className="block w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
+                  <MessageCircle className="block w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
                 )}
               </div>
             </div>
