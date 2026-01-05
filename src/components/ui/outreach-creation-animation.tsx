@@ -55,7 +55,7 @@ export const OutreachCreationAnimation = () => {
   };
 
   return (
-    <div className="relative w-full h-full min-h-[350px] md:min-h-[400px] lg:min-h-[500px] bg-gradient-to-br from-purple-950/20 via-background to-blue-950/20 overflow-hidden">
+    <div className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] bg-gradient-to-br from-purple-950/40 via-gray-900 to-indigo-950/30 overflow-hidden rounded-3xl border border-purple-500/30 backdrop-blur-sm">
       {/* Grid pattern */}
       <div 
         className="absolute inset-0 opacity-20"
