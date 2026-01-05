@@ -62,6 +62,17 @@ export const SalesAgentDeployAnimation = () => {
     };
   };
 
+  // Calculate line end position at node edge (not center)
+  const getLineEndPosition = (index: number, total: number) => {
+    const angle = (index * (360 / total) - 90) * (Math.PI / 180);
+    const radius = 32;
+    const nodeRadius = 5; // Offset to stop at node edge
+    return {
+      x: 50 + (radius - nodeRadius) * Math.cos(angle),
+      y: 50 + (radius - nodeRadius) * Math.sin(angle),
+    };
+  };
+
   const getColorClasses = (color: string, connected: boolean) => {
     if (!connected) return 'border-gray-500/30 bg-gray-500/10 text-gray-400';
     switch (color) {
@@ -91,14 +102,14 @@ export const SalesAgentDeployAnimation = () => {
       {/* Connection lines */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none">
         {channels.map((channel, i) => {
-          const pos = getChannelPosition(i, channels.length);
+          const endPos = getLineEndPosition(i, channels.length);
           return (
             <motion.line
               key={channel.id}
               x1="50%"
               y1="50%"
-              x2={`${pos.x}%`}
-              y2={`${pos.y}%`}
+              x2={`${endPos.x}%`}
+              y2={`${endPos.y}%`}
               stroke={channel.connected ? "rgba(34, 197, 94, 0.5)" : "rgba(168, 85, 247, 0.2)"}
               strokeWidth="2"
               strokeDasharray={channel.connected ? "0" : "4 4"}
@@ -232,7 +243,7 @@ export const SalesAgentDeployAnimation = () => {
       </motion.div>
 
       {/* Progress bar */}
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 w-48 md:w-64">
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-48 md:w-64">
         <div className="h-1 bg-gray-700/50 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-gradient-to-r from-purple-500 to-green-500"
@@ -256,7 +267,7 @@ export const SalesAgentDeployAnimation = () => {
             animate={{ opacity: [1, 0.5, 1] }}
             transition={{ duration: 1, repeat: Infinity }}
           />
-          <span className="text-xs text-muted-foreground">Phase 3 • Technische Umsetzung</span>
+          <span className="text-xs text-gray-200">Phase 3 • Technische Umsetzung</span>
         </div>
       </motion.div>
     </div>

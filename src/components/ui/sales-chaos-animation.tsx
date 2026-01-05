@@ -230,7 +230,7 @@ export const SalesChaosAnimation = () => {
             animate={{ opacity: [1, 0.5, 1] }}
             transition={{ duration: 1, repeat: Infinity }}
           />
-          <span className="text-xs text-muted-foreground">Manueller Vertrieb • Kein System</span>
+          <span className="text-xs text-gray-200">Manueller Vertrieb • Kein System</span>
         </div>
       </motion.div>
     </div>

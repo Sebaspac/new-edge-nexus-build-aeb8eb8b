@@ -152,7 +152,7 @@ export const CRMAuditAnimation = () => {
             transition={{ delay: i * 0.3 + 1 }}
           >
             <div className={`w-2 h-2 rounded-full ${segment.color}`} />
-            <span className="text-xs text-muted-foreground">{segment.label}</span>
+            <span className="text-xs text-gray-200">{segment.label}</span>
             <motion.div
               className={`h-1.5 ${segment.color}/40 rounded-full`}
               initial={{ width: 0 }}
@@ -165,7 +165,7 @@ export const CRMAuditAnimation = () => {
 
       {/* Audit checklist */}
       <div className="absolute left-4 top-1/2 -translate-y-1/2 space-y-2">
-        <div className="text-xs text-blue-400 mb-2 flex items-center gap-2">
+        <div className="text-xs text-blue-300 mb-2 flex items-center gap-2">
           <Search className="w-3 h-3" />
           CRM-Audit
         </div>
@@ -188,7 +188,7 @@ export const CRMAuditAnimation = () => {
             >
               {item.checked && <CheckCircle2 className="w-3 h-3 text-green-400" />}
             </motion.div>
-            <span className={`text-xs ${item.checked ? 'text-foreground' : 'text-muted-foreground'}`}>
+            <span className={`text-xs ${item.checked ? 'text-white' : 'text-gray-300'}`}>
               {item.label}
             </span>
           </motion.div>
@@ -231,7 +231,7 @@ export const CRMAuditAnimation = () => {
             animate={{ opacity: [1, 0.5, 1] }}
             transition={{ duration: 1, repeat: Infinity }}
           />
-          <span className="text-xs text-muted-foreground">Phase 1 • Strategie & Konzeption</span>
+          <span className="text-xs text-gray-200">Phase 1 • Strategie & Konzeption</span>
         </div>
       </motion.div>
     </div>
