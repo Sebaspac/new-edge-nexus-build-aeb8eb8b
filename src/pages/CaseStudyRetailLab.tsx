@@ -19,6 +19,7 @@ import { RelatedCaseStudies } from "@/components/RelatedCaseStudies";
 import { KnowledgeIngestion } from "@/components/ui/knowledge-ingestion";
 import { DataScanningAnimation } from "@/components/ui/data-scanning-animation";
 import { DeploymentAnimation } from "@/components/ui/deployment-animation";
+import { ChallengesAnimation } from "@/components/ui/challenges-animation";
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -283,16 +284,9 @@ const CaseStudyRetailLab = () => {
 
               {/* Challenge Section - Two Column Layout */}
               <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center mt-12 md:mt-20">
-                {/* Left: Image/Visual */}
+                {/* Left: Challenges Animation */}
                 <div className="relative">
-                  <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-purple-900/40 via-purple-700/30 to-blue-900/40 border border-purple-500/20 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-purple-500/20 rounded-full flex items-center justify-center border border-purple-400/30">
-                        <Database className="w-8 h-8 text-purple-300" />
-                      </div>
-                      <p className="text-sm text-purple-300/60 italic">Abstract representation of data infrastructure</p>
-                    </div>
-                  </div>
+                  <ChallengesAnimation />
                 </div>
 
                 {/* Right: Challenge Text */}
