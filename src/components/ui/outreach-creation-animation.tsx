@@ -241,7 +241,7 @@ export const OutreachCreationAnimation = () => {
             animate={{ opacity: [1, 0.5, 1] }}
             transition={{ duration: 1, repeat: Infinity }}
           />
-          <span className="text-xs text-muted-foreground">Phase 2 • Kreation & Content</span>
+          <span className="text-xs text-gray-200">Phase 2 • Kreation & Content</span>
         </div>
       </motion.div>
     </div>
