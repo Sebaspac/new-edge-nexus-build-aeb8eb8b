@@ -18,6 +18,10 @@ import {
 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import { RelatedCaseStudies } from "@/components/RelatedCaseStudies";
+import { SalesChaosAnimation } from "@/components/ui/sales-chaos-animation";
+import { CRMAuditAnimation } from "@/components/ui/crm-audit-animation";
+import { OutreachCreationAnimation } from "@/components/ui/outreach-creation-animation";
+import { SalesAgentDeployAnimation } from "@/components/ui/sales-agent-deploy-animation";
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -286,13 +290,8 @@ const CaseStudySocialMedia = () => {
               <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center mt-12 md:mt-20">
                 {/* Left: Image/Visual */}
                 <div className="relative">
-                  <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-purple-900/40 via-purple-700/30 to-blue-900/40 border border-purple-500/20 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-purple-500/20 rounded-full flex items-center justify-center border border-purple-400/30">
-                        <Target className="w-8 h-8 text-purple-300" />
-                      </div>
-                      <p className="text-sm text-purple-300/60 italic">Intelligente Vertriebsautomation</p>
-                    </div>
+                  <div className="aspect-[4/3] rounded-3xl overflow-hidden border border-purple-500/20">
+                    <SalesChaosAnimation />
                   </div>
                 </div>
 
@@ -406,10 +405,10 @@ const CaseStudySocialMedia = () => {
 
                     {/* Image Side */}
                     <div className={phaseIndex % 2 === 1 ? "lg:order-1" : ""}>
-                      <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="text-white/30 text-6xl font-black">{phase.number}</div>
-                        </div>
+                      <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
+                        {phaseIndex === 0 && <CRMAuditAnimation />}
+                        {phaseIndex === 1 && <OutreachCreationAnimation />}
+                        {phaseIndex === 2 && <SalesAgentDeployAnimation />}
                       </div>
                     </div>
                   </div>
