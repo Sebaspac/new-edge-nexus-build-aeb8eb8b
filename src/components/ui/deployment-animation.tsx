@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Users, User, Zap, CheckCircle, MessageCircle } from "lucide-react";
+import { Users, User, Zap, CheckCircle, MessageCircle, MessageSquare } from "lucide-react";
 
 interface UserNode {
   id: string;
@@ -29,8 +29,10 @@ export const DeploymentAnimation: React.FC = () => {
   const centerY = 50;
   
   // Radius offsets for precise line connections (in percentage)
-  const hubRadius = 7; // Hub edge offset
-  const nodeRadius = 3; // User node edge offset
+  // Hub: w-20/24/28 → ~10-14% of container, use ~6% to hit edge
+  // Node: w-10/12 → ~5-6% of container, use ~2.5% to hit edge
+  const hubRadius = 6; // Hub edge offset
+  const nodeRadius = 2.5; // User node edge offset
 
   // Calculate edge-to-edge line coordinates
   const getLineCoords = (nodeX: number, nodeY: number) => {
@@ -132,7 +134,7 @@ export const DeploymentAnimation: React.FC = () => {
         })}
       </svg>
 
-      {/* Data pulse animations along connection lines - edge to edge */}
+      {/* Message icon animations flying along connection lines - edge to edge */}
       <AnimatePresence>
         {activeConnections.map((nodeId) => {
           const node = userNodes.find((n) => n.id === nodeId);
@@ -140,26 +142,28 @@ export const DeploymentAnimation: React.FC = () => {
           const coords = getLineCoords(node.x, node.y);
           return (
             <motion.div
-              key={`pulse-${nodeId}`}
-              className="absolute w-2 h-2 rounded-full bg-cyan-400"
+              key={`message-${nodeId}`}
+              className="absolute flex items-center justify-center"
               initial={{ 
                 left: `${coords.x1}%`, 
                 top: `${coords.y1}%`, 
                 x: "-50%", 
                 y: "-50%", 
                 opacity: 1, 
-                scale: 1 
+                scale: 0.8 
               }}
               animate={{
                 left: [`${coords.x1}%`, `${coords.x2}%`],
                 top: [`${coords.y1}%`, `${coords.y2}%`],
                 x: "-50%",
                 y: "-50%",
-                opacity: [1, 0],
-                scale: [1, 0.5],
+                opacity: [1, 1, 0],
+                scale: [0.8, 1, 0.6],
               }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-            />
+            >
+              <MessageSquare className="w-4 h-4 md:w-5 md:h-5 text-cyan-400 fill-cyan-400/30" />
+            </motion.div>
           );
         })}
       </AnimatePresence>
