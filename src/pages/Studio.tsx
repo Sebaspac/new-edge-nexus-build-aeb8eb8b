@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { ServiceScrollSection } from "@/components/ServiceScrollSection";
 import { LazyVideo } from "@/components/LazyVideo";
-import { AnimatedDeliverablesList } from "@/components/ui/animated-deliverables-list";
+
 import { BrandStrategyAnimation } from "@/components/ui/brand-strategy-animation";
 import { BrandIdentityAnimation } from "@/components/ui/brand-identity-animation";
 import albanovaImage from "@/assets/albanova-website.png";
@@ -190,7 +190,7 @@ const Studio = () => {
                   gradient={service.gradient} 
                   videoSrc={videoSrc} 
                   imagePosition={isEven ? "right" : "left"}
-                  customAnimation={index === 0 ? <BrandStrategyAnimation /> : <BrandIdentityAnimation />}
+                  animationBelow={index === 0 ? <BrandStrategyAnimation /> : <BrandIdentityAnimation />}
                 >
                   <div className="space-y-6">
                     <motion.div variants={{
@@ -262,7 +262,7 @@ const Studio = () => {
                       <p className="text-gray-600 leading-relaxed">{service.solution}</p>
                     </motion.div>
 
-                    {/* Deliverables */}
+                    {/* Deliverables - Lab Style */}
                     <motion.div variants={{
                       hidden: {
                         opacity: 0,
@@ -277,10 +277,27 @@ const Studio = () => {
                         }
                       }
                     }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
-                      <AnimatedDeliverablesList 
-                        items={service.deliverables} 
-                        gradient={service.gradient} 
-                      />
+                      <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Deliverables</h4>
+                      <div className="space-y-3">
+                        {service.deliverables.map((item, idx) => (
+                          <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: idx * 0.05 }}
+                            whileHover={{ x: 6 }}
+                            className="flex items-center gap-4 group cursor-default"
+                          >
+                            <span className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white text-sm font-bold shadow-md group-hover:scale-110 transition-transform duration-200`}>
+                              {idx + 1}
+                            </span>
+                            <span className="text-gray-700 group-hover:text-gray-900 transition-colors duration-200 font-medium">
+                              {item}
+                            </span>
+                          </motion.div>
+                        ))}
+                      </div>
                     </motion.div>
                   </div>
                 </ServiceScrollSection>
