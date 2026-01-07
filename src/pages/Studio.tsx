@@ -9,6 +9,8 @@ import { ContactFormModal } from "@/components/ContactFormModal";
 import { ServiceScrollSection } from "@/components/ServiceScrollSection";
 import { LazyVideo } from "@/components/LazyVideo";
 import { AnimatedDeliverablesList } from "@/components/ui/animated-deliverables-list";
+import { BrandStrategyAnimation } from "@/components/ui/brand-strategy-animation";
+import { BrandIdentityAnimation } from "@/components/ui/brand-identity-animation";
 import albanovaImage from "@/assets/albanova-website.png";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({
   default: m.Footer
@@ -184,96 +186,97 @@ const Studio = () => {
           background: index % 2 === 0 ? 'linear-gradient(to bottom right, white, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08))' : 'linear-gradient(to bottom right, white, rgba(168, 85, 247, 0.08), rgba(99, 102, 241, 0.08))'
         }}>
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <ServiceScrollSection gradient={service.gradient} videoSrc={videoSrc} imagePosition={isEven ? "right" : "left"}>
+                <ServiceScrollSection 
+                  gradient={service.gradient} 
+                  videoSrc={videoSrc} 
+                  imagePosition={isEven ? "right" : "left"}
+                  customAnimation={index === 0 ? <BrandStrategyAnimation /> : <BrandIdentityAnimation />}
+                >
                   <div className="space-y-6">
                     <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    x: isEven ? -30 : 30
-                  },
-                  visible: {
-                    opacity: 1,
-                    x: 0,
-                    transition: {
-                      duration: 0.6
-                    }
-                  }
-                }} className="flex items-center gap-4 mb-8">
+                      hidden: {
+                        opacity: 0,
+                        x: isEven ? -30 : 30
+                      },
+                      visible: {
+                        opacity: 1,
+                        x: 0,
+                        transition: {
+                          duration: 0.6
+                        }
+                      }
+                    }} className="flex items-center gap-4 mb-8">
                       <h2 className="text-h2 font-bold text-black">{service.title}</h2>
                     </motion.div>
 
                     {/* Outcome */}
                     <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 20
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.5
-                    }
-                  }
-                }} className="bg-gradient-to-r from-[#6366f1]/10 to-[#a855f7]/10 backdrop-blur-sm p-6 rounded-2xl border border-[#6366f1]/20">
-                      
+                      hidden: {
+                        opacity: 0,
+                        y: 20
+                      },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                          duration: 0.5
+                        }
+                      }
+                    }} className="bg-gradient-to-r from-[#6366f1]/10 to-[#a855f7]/10 backdrop-blur-sm p-6 rounded-2xl border border-[#6366f1]/20">
                       <p className="text-gray-700 leading-relaxed">{service.outcome}</p>
                     </motion.div>
 
                     {/* Problem */}
                     <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 20
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.5,
-                      delay: 0.1
-                    }
-                  }
-                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
-                      
+                      hidden: {
+                        opacity: 0,
+                        y: 20
+                      },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                          duration: 0.5,
+                          delay: 0.1
+                        }
+                      }
+                    }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
                       <p className="text-gray-600 leading-relaxed">{service.problem}</p>
                     </motion.div>
 
                     {/* Solution */}
                     <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 20
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.5,
-                      delay: 0.2
-                    }
-                  }
-                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
-                      
+                      hidden: {
+                        opacity: 0,
+                        y: 20
+                      },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                          duration: 0.5,
+                          delay: 0.2
+                        }
+                      }
+                    }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
                       <p className="text-gray-600 leading-relaxed">{service.solution}</p>
                     </motion.div>
 
                     {/* Deliverables */}
                     <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 20
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.5,
-                      delay: 0.3
-                    }
-                  }
-                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
-                      
+                      hidden: {
+                        opacity: 0,
+                        y: 20
+                      },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                          duration: 0.5,
+                          delay: 0.3
+                        }
+                      }
+                    }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
                       <AnimatedDeliverablesList 
                         items={service.deliverables} 
                         gradient={service.gradient} 

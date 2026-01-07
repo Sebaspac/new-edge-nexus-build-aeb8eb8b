@@ -11,6 +11,7 @@ interface ServiceScrollSectionProps {
   imagePosition?: "left" | "right";
   videoSrc?: string;
   icon?: LucideIcon;
+  customAnimation?: React.ReactNode;
 }
 
 export const ServiceScrollSection = ({
@@ -19,6 +20,7 @@ export const ServiceScrollSection = ({
   imagePosition = "right",
   videoSrc,
   icon: Icon,
+  customAnimation,
 }: ServiceScrollSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { shouldAnimate, whileHover } = useOptimizedAnimation();
@@ -56,9 +58,11 @@ export const ServiceScrollSection = ({
           className="sticky top-20 z-10"
         >
           <div
-            className={`w-full h-64 sm:h-80 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
+            className={`w-full ${customAnimation ? 'h-auto' : 'h-64 sm:h-80'} bg-gradient-to-br ${!customAnimation ? gradient : ''} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
           >
-            {videoSrc ? (
+            {customAnimation ? (
+              customAnimation
+            ) : videoSrc ? (
               <>
                 <LazyVideo
                   src={videoSrc}
@@ -124,9 +128,11 @@ export const ServiceScrollSection = ({
           >
             <motion.div
               {...(shouldAnimate && whileHover)}
-              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200`}
+              className={`w-full ${customAnimation ? 'h-auto' : 'h-96'} ${!customAnimation ? `bg-gradient-to-br ${gradient}` : ''} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200`}
             >
-              {videoSrc ? (
+              {customAnimation ? (
+                customAnimation
+              ) : videoSrc ? (
                 <>
                   <LazyVideo
                     src={videoSrc}
@@ -169,9 +175,11 @@ export const ServiceScrollSection = ({
           >
             <motion.div
               {...(shouldAnimate && whileHover)}
-              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200`}
+              className={`w-full ${customAnimation ? 'h-auto' : 'h-96'} ${!customAnimation ? `bg-gradient-to-br ${gradient}` : ''} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200`}
             >
-              {videoSrc ? (
+              {customAnimation ? (
+                customAnimation
+              ) : videoSrc ? (
                 <>
                   <LazyVideo
                     src={videoSrc}
