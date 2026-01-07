@@ -89,7 +89,7 @@ export const OutreachCreationAnimation = () => {
           >
             <div className="flex items-center gap-2">
               <template.Icon className={`w-4 h-4 ${colors.text}`} />
-              <span className="text-xs text-foreground">{template.label}</span>
+              <span className="text-xs text-gray-100">{template.label}</span>
               <AnimatePresence>
                 {isActive && (
                   <motion.div
@@ -174,7 +174,7 @@ export const OutreachCreationAnimation = () => {
                 className={`w-6 h-6 rounded-full border flex items-center justify-center text-xs ${
                   sequenceStep >= step 
                     ? 'border-purple-500 bg-purple-500/20 text-purple-300' 
-                    : 'border-gray-500/50 text-muted-foreground'
+                    : 'border-gray-500/50 text-gray-400'
                 }`}
                 animate={sequenceStep === step ? { scale: [1, 1.2, 1] } : {}}
                 transition={{ duration: 0.3 }}
@@ -194,7 +194,7 @@ export const OutreachCreationAnimation = () => {
 
       {/* LinkedIn integration badge */}
       <motion.div
-        className="absolute bottom-20 right-8 px-3 py-2 rounded-lg bg-blue-500/10 border border-blue-500/30"
+        className="absolute bottom-24 right-4 md:right-8 px-3 py-2 rounded-lg bg-blue-500/10 border border-blue-500/30"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2 }}
