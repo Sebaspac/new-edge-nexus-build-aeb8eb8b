@@ -290,9 +290,7 @@ const CaseStudySocialMedia = () => {
               <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center mt-12 md:mt-20">
                 {/* Left: Image/Visual */}
                 <div className="relative">
-                  <div className="aspect-[4/3] rounded-3xl overflow-hidden border border-purple-500/20">
-                    <SalesChaosAnimation />
-                  </div>
+                  <SalesChaosAnimation />
                 </div>
 
                 {/* Right: Challenge Text */}
@@ -405,11 +403,9 @@ const CaseStudySocialMedia = () => {
 
                     {/* Image Side */}
                     <div className={phaseIndex % 2 === 1 ? "lg:order-1" : ""}>
-                      <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
-                        {phaseIndex === 0 && <CRMAuditAnimation />}
-                        {phaseIndex === 1 && <OutreachCreationAnimation />}
-                        {phaseIndex === 2 && <SalesAgentDeployAnimation />}
-                      </div>
+                      {phaseIndex === 0 && <CRMAuditAnimation />}
+                      {phaseIndex === 1 && <OutreachCreationAnimation />}
+                      {phaseIndex === 2 && <SalesAgentDeployAnimation />}
                     </div>
                   </div>
                 </AnimatedSection>

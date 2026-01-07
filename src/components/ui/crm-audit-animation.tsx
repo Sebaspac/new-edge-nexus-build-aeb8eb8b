@@ -142,7 +142,7 @@ export const CRMAuditAnimation = () => {
       </div>
 
       {/* Lead segments visualization */}
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 space-y-2">
+      <div className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 space-y-2 max-w-[130px]">
         {segments.map((segment, i) => (
           <motion.div
             key={segment.id}
@@ -151,12 +151,12 @@ export const CRMAuditAnimation = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: i * 0.3 + 1 }}
           >
-            <div className={`w-2 h-2 rounded-full ${segment.color}`} />
+            <div className={`w-2 h-2 rounded-full flex-shrink-0 ${segment.color}`} />
             <span className="text-xs text-gray-200">{segment.label}</span>
             <motion.div
               className={`h-1.5 ${segment.color}/40 rounded-full`}
               initial={{ width: 0 }}
-              animate={{ width: segment.score * 0.5 }}
+              animate={{ width: segment.score * 0.4 }}
               transition={{ delay: i * 0.3 + 1.5, duration: 1 }}
             />
           </motion.div>
@@ -164,7 +164,7 @@ export const CRMAuditAnimation = () => {
       </div>
 
       {/* Audit checklist */}
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 space-y-2">
+      <div className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 space-y-2 max-w-[150px]">
         <div className="text-xs text-blue-300 mb-2 flex items-center gap-2">
           <Search className="w-3 h-3" />
           CRM-Audit

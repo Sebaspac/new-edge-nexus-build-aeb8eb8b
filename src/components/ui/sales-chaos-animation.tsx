@@ -18,12 +18,12 @@ export const SalesChaosAnimation = () => {
 
   useEffect(() => {
     const initialLeads: LeadCard[] = [
-      { id: 1, x: 15, y: 20, rotation: -15, delay: 0, status: 'unknown', label: 'Lead #127' },
-      { id: 2, x: 75, y: 15, rotation: 12, delay: 0.2, status: 'hot', label: 'Anfrage offen' },
-      { id: 3, x: 20, y: 70, rotation: -8, delay: 0.4, status: 'cold', label: '3 Wochen alt' },
-      { id: 4, x: 70, y: 65, rotation: 18, delay: 0.6, status: 'unknown', label: 'Kein Status' },
-      { id: 5, x: 45, y: 25, rotation: -5, delay: 0.8, status: 'hot', label: 'Follow-up?' },
-      { id: 6, x: 85, y: 45, rotation: 10, delay: 1, status: 'cold', label: 'Vergessen' },
+      { id: 1, x: 18, y: 22, rotation: -15, delay: 0, status: 'unknown', label: 'Lead #127' },
+      { id: 2, x: 72, y: 18, rotation: 12, delay: 0.2, status: 'hot', label: 'Anfrage offen' },
+      { id: 3, x: 22, y: 68, rotation: -8, delay: 0.4, status: 'cold', label: '3 Wochen alt' },
+      { id: 4, x: 68, y: 62, rotation: 18, delay: 0.6, status: 'unknown', label: 'Kein Status' },
+      { id: 5, x: 45, y: 28, rotation: -5, delay: 0.8, status: 'hot', label: 'Follow-up?' },
+      { id: 6, x: 78, y: 42, rotation: 10, delay: 1, status: 'cold', label: 'Vergessen' },
     ];
     setLeads(initialLeads);
 
@@ -79,7 +79,7 @@ export const SalesChaosAnimation = () => {
       {leads.map((lead) => (
         <motion.div
           key={lead.id}
-          className={`absolute w-24 md:w-28 p-2 rounded-lg border ${getStatusColor(lead.status)} backdrop-blur-sm`}
+          className={`absolute w-20 sm:w-24 md:w-28 p-2 rounded-lg border ${getStatusColor(lead.status)} backdrop-blur-sm -translate-x-1/2 -translate-y-1/2`}
           style={{ left: `${lead.x}%`, top: `${lead.y}%` }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{
@@ -96,10 +96,10 @@ export const SalesChaosAnimation = () => {
           }}
         >
           <div className="flex items-center gap-1 mb-1">
-            <User className="w-3 h-3 text-muted-foreground" />
+            <User className="w-3 h-3 text-gray-400" />
             {getStatusIcon(lead.status)}
           </div>
-          <p className="text-[10px] text-muted-foreground truncate">{lead.label}</p>
+          <p className="text-[10px] text-gray-300 truncate">{lead.label}</p>
         </motion.div>
       ))}
 
@@ -158,11 +158,11 @@ export const SalesChaosAnimation = () => {
         <div className="space-y-1">
           <div className="flex items-center gap-1">
             <XCircle className="w-3 h-3 text-red-400" />
-            <span className="text-[10px] text-muted-foreground">Daten unvollständig</span>
+            <span className="text-[10px] text-gray-300">Daten unvollständig</span>
           </div>
           <div className="flex items-center gap-1">
             <AlertTriangle className="w-3 h-3 text-orange-400" />
-            <span className="text-[10px] text-muted-foreground">8 Follow-ups offen</span>
+            <span className="text-[10px] text-gray-300">8 Follow-ups offen</span>
           </div>
         </div>
       </motion.div>
