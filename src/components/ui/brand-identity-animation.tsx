@@ -24,26 +24,26 @@ export const BrandIdentityAnimation = () => {
   ];
 
   useEffect(() => {
-    // Design elements animation
+    // Design elements animation - slower
     const elementsInterval = setInterval(() => {
       setActiveElements(prev => {
         if (prev.length >= 3) return [];
         return [...prev, prev.length];
       });
-    }, 1000);
+    }, 2200);
 
-    // Color rotation
+    // Color rotation - slower
     const colorInterval = setInterval(() => {
-      setColorRotation(prev => (prev + 30) % 360);
-    }, 100);
+      setColorRotation(prev => (prev + 15) % 360);
+    }, 150);
 
-    // Deliverables animation
+    // Deliverables animation - slower
     const deliverableInterval = setInterval(() => {
       setActiveDeliverables(prev => {
         if (prev.length >= 7) return [];
         return [...prev, prev.length];
       });
-    }, 600);
+    }, 1400);
 
     return () => {
       clearInterval(elementsInterval);
@@ -122,10 +122,10 @@ export const BrandIdentityAnimation = () => {
           }}
         />
         
-        {/* Inner Rings */}
+        {/* Inner Rings - slower */}
         <motion.div
           animate={{ rotate: -360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           className="absolute w-28 h-28 md:w-36 md:h-36 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
         >
           <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#a855f7]/30" />
@@ -133,16 +133,16 @@ export const BrandIdentityAnimation = () => {
 
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
           className="absolute w-20 h-20 md:w-28 md:h-28 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
         >
           <div className="absolute inset-0 rounded-full border border-[#6366f1]/40" />
         </motion.div>
 
-        {/* Center Palette Icon */}
+        {/* Center Palette Icon - slower pulse */}
         <motion.div
           animate={{ scale: [1, 1.08, 1] }}
-          transition={{ duration: 2.5, repeat: Infinity }}
+          transition={{ duration: 5, repeat: Infinity }}
           className="relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-[#a855f7] to-[#6366f1] flex items-center justify-center shadow-lg shadow-[#a855f7]/30"
         >
           <Palette className="w-8 h-8 md:w-10 md:h-10 text-white" />
@@ -160,7 +160,7 @@ export const BrandIdentityAnimation = () => {
           <div className="flex items-center gap-2">
             <motion.span 
               animate={{ opacity: [1, 0.5, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
+              transition={{ duration: 3, repeat: Infinity }}
               className="w-2 h-2 rounded-full bg-amber-500"
             />
             <span className="text-xs font-medium text-gray-700">Brand Book</span>
@@ -177,7 +177,7 @@ export const BrandIdentityAnimation = () => {
           <div className="flex items-center gap-2">
             <motion.span 
               animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              transition={{ duration: 4, repeat: Infinity }}
               className="w-2 h-2 rounded-full bg-green-500"
             />
             <span className="text-xs font-medium text-gray-700">Voice & Tone</span>
@@ -223,7 +223,7 @@ export const BrandIdentityAnimation = () => {
       >
         <motion.span 
           animate={{ opacity: [1, 0.5, 1] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+          transition={{ duration: 3, repeat: Infinity }}
           className="w-2 h-2 rounded-full bg-gradient-to-r from-[#a855f7] to-[#6366f1]"
         />
         <span className="text-xs font-medium text-gray-700">Designsystem wird aufgebaut</span>
