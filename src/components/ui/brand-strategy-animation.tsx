@@ -32,7 +32,7 @@ export const BrandStrategyAnimation = () => {
   ];
 
   useEffect(() => {
-    // Checklist animation
+    // Checklist animation - slower
     const checkInterval = setInterval(() => {
       setCurrentCheck(prev => {
         const next = (prev + 1) % 5;
@@ -48,15 +48,15 @@ export const BrandStrategyAnimation = () => {
         }
         return next;
       });
-    }, 1200);
+    }, 2500);
 
-    // Deliverables animation
+    // Deliverables animation - slower
     const deliverableInterval = setInterval(() => {
       setActiveDeliverables(prev => {
         if (prev.length >= 5) return [];
         return [...prev, prev.length];
       });
-    }, 800);
+    }, 1800);
 
     return () => {
       clearInterval(checkInterval);
@@ -94,10 +94,10 @@ export const BrandStrategyAnimation = () => {
 
       {/* Central Hub */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        {/* Rotating Rings */}
+        {/* Rotating Rings - slower */}
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           className="absolute inset-0 w-32 h-32 md:w-40 md:h-40 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
         >
           <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#6366f1]/30" />
@@ -105,27 +105,27 @@ export const BrandStrategyAnimation = () => {
         
         <motion.div
           animate={{ rotate: -360 }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
           className="absolute inset-0 w-24 h-24 md:w-32 md:h-32 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
         >
           <div className="absolute inset-0 rounded-full border border-[#a855f7]/40" />
         </motion.div>
 
-        {/* Center Target Icon */}
+        {/* Center Target Icon - slower pulse */}
         <motion.div
           animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          transition={{ duration: 4, repeat: Infinity }}
           className="relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-[#6366f1] to-[#a855f7] flex items-center justify-center shadow-lg shadow-[#6366f1]/30"
         >
           <Target className="w-8 h-8 md:w-10 md:h-10 text-white" />
         </motion.div>
 
-        {/* Orbiting Data Points */}
+        {/* Orbiting Data Points - slower */}
         {[0, 1, 2, 3].map((i) => (
           <motion.div
             key={i}
             animate={{ rotate: 360 }}
-            transition={{ duration: 8, repeat: Infinity, ease: "linear", delay: i * 2 }}
+            transition={{ duration: 16, repeat: Infinity, ease: "linear", delay: i * 4 }}
             className="absolute w-32 h-32 md:w-40 md:h-40 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
             style={{ transformOrigin: "center center" }}
           >
@@ -137,7 +137,7 @@ export const BrandStrategyAnimation = () => {
                 transform: 'translateX(-50%)' 
               }}
               animate={{ scale: [1, 1.3, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.3 }}
+              transition={{ duration: 3, repeat: Infinity, delay: i * 0.6 }}
             />
           </motion.div>
         ))}
@@ -214,7 +214,7 @@ export const BrandStrategyAnimation = () => {
       >
         <motion.span 
           animate={{ opacity: [1, 0.5, 1] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+          transition={{ duration: 3, repeat: Infinity }}
           className="w-2 h-2 rounded-full bg-gradient-to-r from-[#6366f1] to-[#a855f7]"
         />
         <span className="text-xs font-medium text-gray-700">Strategische Roadmap wird erstellt</span>
