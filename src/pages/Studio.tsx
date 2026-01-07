@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { ServiceScrollSection } from "@/components/ServiceScrollSection";
 import { LazyVideo } from "@/components/LazyVideo";
+import { AnimatedDeliverablesList } from "@/components/ui/animated-deliverables-list";
 import albanovaImage from "@/assets/albanova-website.png";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({
   default: m.Footer
@@ -273,12 +274,10 @@ const Studio = () => {
                   }
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
                       
-                      <ul className="space-y-2">
-                        {service.deliverables.map((item, idx) => <li key={idx} className="flex items-center gap-3 text-gray-700">
-                            <span className={`flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient}`} />
-                            {item}
-                          </li>)}
-                      </ul>
+                      <AnimatedDeliverablesList 
+                        items={service.deliverables} 
+                        gradient={service.gradient} 
+                      />
                     </motion.div>
                   </div>
                 </ServiceScrollSection>
