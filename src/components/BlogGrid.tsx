@@ -79,7 +79,7 @@ export const BlogGrid = () => {
             transition={{ duration: 0.6 }}
           >
             <Link to={`/blog/${latestPost.id}`} className="block group">
-              <div className="relative overflow-hidden aspect-[4/3] lg:aspect-[4/3] bg-gray-100 rounded-2xl">
+              <div className="relative overflow-hidden aspect-[4/3] lg:aspect-[4/3] bg-gray-100">
                 {latestPost.image ? (
                   <>
                     <img 
@@ -115,7 +115,7 @@ export const BlogGrid = () => {
           {/* Trending Articles (Right) */}
           <div className="flex flex-col">
             {/* Trending Header */}
-            <div className="flex items-center gap-3 mb-4 lg:mb-6 bg-gray-100 rounded-xl p-4">
+            <div className="flex items-center gap-3 mb-4 lg:mb-6 bg-gray-100 p-4">
               <div className="flex flex-col gap-0.5">
                 <div className="flex gap-0.5">
                   {[...Array(3)].map((_, i) => (
@@ -141,7 +141,7 @@ export const BlogGrid = () => {
                     className="group flex gap-4 py-4 first:pt-0 last:pb-0"
                   >
                     {/* Thumbnail */}
-                    <div className="flex-shrink-0 w-24 h-20 md:w-28 md:h-24 rounded-lg overflow-hidden bg-gray-100">
+                    <div className="flex-shrink-0 w-24 h-20 md:w-28 md:h-24 overflow-hidden bg-gray-100">
                       {post.image ? (
                         <img 
                           src={post.image} 
