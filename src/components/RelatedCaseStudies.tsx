@@ -109,7 +109,8 @@ export const RelatedCaseStudies = ({ currentCaseId }: RelatedCaseStudiesProps) =
                   <img 
                     src={caseStudy.image} 
                     alt={caseStudy.headline}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
                   />
                   
                   {/* Dark overlay on image */}

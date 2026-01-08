@@ -90,16 +90,13 @@ export const BlogGridHome = () => {
             >
               <Link to={`/blog/${post.id}`} className="block group">
                 <div className="relative overflow-hidden aspect-square bg-gray-900">
-                  {/* Image or Gradient Background */}
                   {post.image ? (
                     <>
                       <img 
                         src={post.image} 
                         alt={post.headline}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         loading="lazy"
-                        width={400}
-                        height={400}
                       />
                       <div className="absolute inset-0 bg-black/30" />
                     </>

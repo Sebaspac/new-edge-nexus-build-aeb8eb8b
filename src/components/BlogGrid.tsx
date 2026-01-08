@@ -80,13 +80,11 @@ export const BlogGrid = () => {
                     <img 
                       src={post.image} 
                       alt={post.headline}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
-                      width={400}
-                      height={400}
                     />
                   ) : (
-                    <div className={`w-full h-full bg-gradient-to-br ${post.gradient}`} />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${post.gradient}`} />
                   )}
                   
                   {/* Dark overlay */}
