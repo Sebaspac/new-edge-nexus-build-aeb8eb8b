@@ -82,6 +82,8 @@ export const BlogGrid = () => {
                       alt={post.headline}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
+                      width={400}
+                      height={400}
                     />
                   ) : (
                     <div className={`w-full h-full bg-gradient-to-br ${post.gradient}`} />
