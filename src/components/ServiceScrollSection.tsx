@@ -58,7 +58,7 @@ export const ServiceScrollSection = ({
           className="sticky top-20 z-10"
         >
           <div
-            className={`w-full h-64 sm:h-80 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
+            className={`w-full aspect-video sm:aspect-[4/3] bg-gradient-to-br ${gradient} rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
           >
             {videoSrc ? (
               <>
@@ -70,13 +70,14 @@ export const ServiceScrollSection = ({
                   playsInline
                   preload="none"
                   className="absolute inset-0 w-full h-full object-cover"
+                  aspectRatio="16/9"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </>
             ) : Icon ? (
               <>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                <Icon className="w-32 h-32 sm:w-40 sm:h-40 text-white drop-shadow-2xl relative z-10" />
+                <Icon className="w-24 h-24 sm:w-32 sm:h-32 text-white drop-shadow-2xl relative z-10" />
               </>
             ) : null}
           </div>
@@ -139,7 +140,7 @@ export const ServiceScrollSection = ({
           >
             <motion.div
               {...(shouldAnimate && whileHover)}
-              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200`}
+              className={`w-full aspect-video bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200`}
             >
               {videoSrc ? (
                 <>
@@ -151,6 +152,7 @@ export const ServiceScrollSection = ({
                     playsInline
                     preload="none"
                     className="w-full h-full object-cover rounded-2xl"
+                    aspectRatio="16/9"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </>
@@ -185,7 +187,7 @@ export const ServiceScrollSection = ({
           >
             <motion.div
               {...(shouldAnimate && whileHover)}
-              className={`w-full h-96 bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200`}
+              className={`w-full aspect-video bg-gradient-to-br ${gradient} rounded-3xl flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-200`}
             >
               {videoSrc ? (
                 <>
@@ -197,6 +199,7 @@ export const ServiceScrollSection = ({
                     playsInline
                     preload="none"
                     className="w-full h-full object-cover rounded-2xl"
+                    aspectRatio="16/9"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </>

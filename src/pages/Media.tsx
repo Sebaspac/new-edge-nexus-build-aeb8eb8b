@@ -135,14 +135,14 @@ const Media = () => {
         </section>
 
         {/* Claim Section */}
-        <section className="py-16 md:py-32 px-4 md:px-8 lg:px-16 bg-white">
+        <section className="section-py-md px-4 md:px-8 lg:px-16 bg-white">
           <div className="max-w-5xl mx-auto text-center">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
+              className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight"
             >
               Wir bauen{" "}
               <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
@@ -155,7 +155,7 @@ const Media = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-8 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto"
+              className="mt-8 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
             >
               Content-Produktion, Social Media und Performance Marketing aus einer Hand – für Marken, die wachsen wollen.
             </motion.p>
@@ -163,7 +163,7 @@ const Media = () => {
         </section>
 
         {/* Services Sections */}
-        <section className="py-16 md:py-24 px-4 md:px-8 lg:px-16 bg-gray-50">
+        <section className="section-py-md px-4 md:px-8 lg:px-16 bg-muted">
           <div className="max-w-7xl mx-auto space-y-24 md:space-y-40">
             {mediaServices.map((service, index) => (
               <ServiceScrollSection
@@ -261,20 +261,20 @@ const Media = () => {
         </section>
 
         {/* Media Cases Section */}
-        <section className="py-16 md:py-24 px-4 md:px-8 lg:px-16 bg-white">
+        <section className="section-py-md px-4 md:px-8 lg:px-16 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
               <div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
                   Media Cases
                 </h2>
-                <p className="mt-4 text-lg text-gray-600 max-w-xl">
+                <p className="mt-4 text-lg text-muted-foreground max-w-xl">
                   Ausgewählte Projekte aus Content, Social und Performance.
                 </p>
               </div>
               <Button
                 variant="outline"
-                className="self-start md:self-auto border-2 border-black hover:bg-black hover:text-white transition-all duration-300"
+                className="self-start md:self-auto border-2 border-foreground hover:bg-foreground hover:text-background transition-all duration-300"
                 onClick={() => navigate("/case-studies")}
               >
                 Alle Cases <ArrowRight className="ml-2 w-4 h-4" />
@@ -314,7 +314,7 @@ const Media = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 md:py-24 px-4 md:px-8 lg:px-16 bg-gradient-to-br from-blue-600 to-cyan-500">
+        <section className="section-py-md px-4 md:px-8 lg:px-16 bg-gradient-to-br from-blue-600 to-cyan-500">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -343,7 +343,8 @@ const Media = () => {
               <Button
                 size="lg"
                 onClick={() => setIsModalOpen(true)}
-                className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="bg-white text-blue-600 hover:bg-white/90 font-semibold px-8 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5"
+                style={{ borderRadius: 'var(--radius-lg)' }}
               >
                 Projekt starten <ArrowRight className="ml-2 w-5 h-5" />
               </Button>

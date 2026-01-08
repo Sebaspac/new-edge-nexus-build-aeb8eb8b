@@ -28,16 +28,16 @@ export const HeroSection = ({
     <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md">
       Skip to main content
     </a>
-    <section className="relative w-full min-h-screen bg-slate-900" id="hero">
+    <section className="relative w-full min-h-[100dvh] bg-slate-900" id="hero">
       <SplashCursor />
-      <div className="w-full h-screen grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden bg-slate-900 z-10">
+      <div className="w-full h-[100dvh] grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden bg-slate-900 z-10">
         <CyberneticGridShader />
         
         <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/80 z-10 pointer-events-none" />
         
         {/* Left Side - CTA Content */}
         <div className="relative flex items-end lg:items-center z-20">
-          <div className="w-full px-4 sm:px-6 pb-8 sm:pb-12 md:pb-16 lg:pb-0 lg:px-12 xl:px-16 max-w-2xl lg:mt-auto lg:mb-auto text-center lg:text-left">
+          <div className="w-full px-4 sm:px-6 pb-8 sm:pb-12 md:pb-16 lg:pb-0 lg:px-12 xl:px-16 max-w-[90vw] lg:max-w-2xl lg:mt-auto lg:mb-auto text-center lg:text-left">
             <motion.div initial={{
               opacity: 0,
               y: 20
@@ -72,14 +72,16 @@ export const HeroSection = ({
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center lg:justify-start">
                 <button 
                   onClick={onContactClick} 
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-semibold hover:bg-neutral-200 transition-colors group text-sm sm:text-base"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm sm:text-base w-full sm:w-auto hover:-translate-y-0.5"
+                  style={{ borderRadius: 'var(--radius)' }}
                 >
                   Projekt Starten
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <Link 
                   to="/about"
-                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-white font-semibold border border-white/30 hover:bg-white/10 transition-colors text-sm sm:text-base"
+                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-white font-semibold border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm sm:text-base w-full sm:w-auto"
+                  style={{ borderRadius: 'var(--radius)' }}
                 >
                   Über Uns
                 </Link>

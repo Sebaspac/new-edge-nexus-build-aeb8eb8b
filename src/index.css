@@ -105,6 +105,14 @@
 
     /* 📱 MOBILE OPTIMIZATIONS */
     --scroll-padding: 1rem;
+    
+    /* 📐 SECTION SPACING SYSTEM */
+    --section-py-sm: clamp(2rem, 5vw, 4rem);
+    --section-py-md: clamp(3rem, 8vw, 6rem);
+    --section-py-lg: clamp(4rem, 10vw, 8rem);
+    
+    /* 📏 CONTAINER FLUID PADDING */
+    --container-px: clamp(1rem, 4vw, 3rem);
   }
 
   .dark {
@@ -130,6 +138,12 @@
   * {
     @apply border-border;
   }
+  
+  /* 🛡️ OVERFLOW PROTECTION */
+  html {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
 
   body {
     @apply bg-background text-foreground;
@@ -139,6 +153,13 @@
     line-height: 1.6;
     letter-spacing: -0.01em;
     overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
+  /* 🖼️ MEDIA MAX-WIDTH PROTECTION */
+  img, video, iframe, embed, object, svg {
+    max-width: 100%;
+    height: auto;
   }
 
   /* 🎯 MODERN TYPOGRAPHY SCALE */
@@ -511,25 +532,78 @@
   z-index: 1;
 }
 
-/* 🔘 Modern Buttons */
+/* 🔘 Modern Buttons - Unified Styling */
 .btn-primary {
-  @apply px-8 py-4 bg-primary text-primary-foreground rounded-xl font-medium;
+  @apply px-8 py-4 bg-primary text-primary-foreground font-semibold;
   @apply transition-all duration-300 ease-out;
-  @apply hover:scale-105 hover:shadow-lg hover:bg-primary/90;
+  @apply hover:shadow-lg hover:bg-primary/90;
+  border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
 }
 
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
 .btn-secondary {
-  @apply px-8 py-4 bg-transparent border border-border text-foreground rounded-xl font-medium;
+  @apply px-8 py-4 bg-transparent border-2 border-foreground text-foreground font-semibold;
   @apply transition-all duration-300 ease-out;
-  @apply hover:bg-surface hover:scale-105;
-  backdrop-filter: blur(10px);
+  @apply hover:bg-foreground hover:text-background;
+  border-radius: var(--radius);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
 }
 
 .btn-ghost {
-  @apply px-6 py-3 bg-transparent text-muted-foreground rounded-lg font-medium;
+  @apply px-6 py-3 bg-transparent text-muted-foreground font-medium;
   @apply transition-all duration-300 ease-out;
-  @apply hover:text-foreground hover:bg-surface;
+  @apply hover:text-foreground;
+  border-radius: var(--radius);
+}
+
+.btn-ghost:hover {
+  background: hsl(var(--muted) / 0.5);
+}
+
+/* 🎬 SCROLL FADE-IN SYSTEM */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* GPU-accelerated animations */
+.animate-gpu {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.animate-gpu.complete {
+  will-change: auto;
+}
+
+/* Section spacing utilities */
+.section-py-sm { padding-block: var(--section-py-sm); }
+.section-py-md { padding-block: var(--section-py-md); }
+.section-py-lg { padding-block: var(--section-py-lg); }
+
+/* Container fluid */
+.container-fluid {
+  width: 100%;
+  max-width: 100%;
+  padding-inline: var(--container-px);
 }
 
 /* 🚀 PERFORMANCE & ACCESSIBILITY */
