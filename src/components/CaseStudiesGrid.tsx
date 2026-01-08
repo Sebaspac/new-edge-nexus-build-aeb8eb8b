@@ -77,46 +77,8 @@ export const CaseStudiesGrid = () => {
           </motion.div>
         </div>
 
-        {/* Case Studies - Horizontal Scroll on Mobile, Grid on Desktop */}
-        <div className="md:hidden flex gap-3 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }}>
-          {caseStudies.map((caseStudy, index) => (
-            <motion.div
-              key={caseStudy.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.05 }}
-              className="flex-shrink-0 w-[calc(50%-6px)] snap-center"
-            >
-              <Link to={caseStudy.route} className="block group">
-                <div className="relative overflow-hidden aspect-[3/4] bg-gray-100 rounded-xl">
-                  {/* Image */}
-                  <img 
-                    src={caseStudy.image} 
-                    alt={caseStudy.headline}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    width={300}
-                    height={400}
-                  />
-                  
-                  {/* Mobile: Always show content overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-                    <span className="text-[10px] font-bold text-white/70 uppercase tracking-wider mb-1">
-                      {caseStudy.client}
-                    </span>
-                    <h3 className="text-sm font-bold text-white leading-tight line-clamp-3">
-                      {caseStudy.headline}
-                    </h3>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-4 gap-0">
+        {/* Case Studies Grid - Unified layout for all screen sizes */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
           {caseStudies.map((caseStudy, index) => (
             <motion.div
               key={caseStudy.id}
@@ -126,39 +88,39 @@ export const CaseStudiesGrid = () => {
               transition={{ duration: 0.6, delay: index * 0.05 }}
             >
               <Link to={caseStudy.route} className="block group">
-                <div className="relative overflow-hidden aspect-square bg-gray-100 rounded-xl">
-                  {/* Image */}
+                <div className="relative overflow-hidden aspect-square bg-gray-900">
+                  {/* Image - object-contain to show full image */}
                   <img 
                     src={caseStudy.image} 
                     alt={caseStudy.headline}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                     width={400}
                     height={400}
                   />
                   
                   {/* Dark overlay on image */}
-                  <div className="absolute inset-0 bg-black/20" />
+                  <div className="absolute inset-0 bg-black/30" />
                   
                   {/* Normal State: + Icon */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                    <Plus className="w-12 h-12 text-white" strokeWidth={2} />
+                    <Plus className="w-8 h-8 md:w-12 md:h-12 text-white" strokeWidth={2} />
                   </div>
                   
                   {/* Hover State: Purple Overlay */}
-                  <div className="absolute inset-0 bg-[#7C3AED] opacity-0 group-hover:opacity-95 transition-all duration-300 flex flex-col justify-between p-6">
+                  <div className="absolute inset-0 bg-[#7C3AED] opacity-0 group-hover:opacity-95 transition-all duration-300 flex flex-col justify-between p-3 md:p-6">
                     {/* Top: White Line */}
-                    <div className="w-16 h-1 bg-white" />
+                    <div className="w-8 md:w-16 h-0.5 md:h-1 bg-white" />
                     
                     {/* Content */}
-                    <div className="space-y-3">
-                      <span className="text-xs font-bold text-white/80 uppercase tracking-wider">
+                    <div className="space-y-1 md:space-y-3">
+                      <span className="text-[10px] md:text-xs font-bold text-white/80 uppercase tracking-wider">
                         {caseStudy.client}
                       </span>
-                      <h3 className="text-2xl font-bold text-white leading-tight line-clamp-3">
+                      <h3 className="text-sm md:text-2xl font-bold text-white leading-tight line-clamp-3">
                         {caseStudy.headline}
                       </h3>
-                      <div className="flex items-center gap-2 text-white font-medium group-hover:gap-3 transition-all duration-300">
+                      <div className="hidden md:flex items-center gap-2 text-white font-medium group-hover:gap-3 transition-all duration-300">
                         <span className="underline">Case ansehen</span>
                         <ArrowUpRight className="w-5 h-5" />
                       </div>
@@ -166,7 +128,7 @@ export const CaseStudiesGrid = () => {
                     
                     {/* Bottom: Category Tag */}
                     <div>
-                      <span className="inline-block border border-white/80 px-4 py-1.5 text-xs font-bold text-white uppercase tracking-wider">
+                      <span className="inline-block border border-white/80 px-2 md:px-4 py-1 md:py-1.5 text-[8px] md:text-xs font-bold text-white uppercase tracking-wider">
                         {caseStudy.category}
                       </span>
                     </div>
