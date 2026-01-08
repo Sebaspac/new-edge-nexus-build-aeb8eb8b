@@ -293,7 +293,7 @@ const Media = () => {
               </Button>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-0">
+            <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-2 lg:grid-cols-3">
               {mediaCases.map((caseItem, index) => (
                 <motion.div
                   key={index}
@@ -302,7 +302,7 @@ const Media = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   onClick={() => navigate(caseItem.route)}
-                  className="group cursor-pointer"
+                  className="group cursor-pointer flex-shrink-0 w-[75%] snap-start md:w-auto"
                 >
                   <div className="relative aspect-square overflow-hidden">
                     <img
