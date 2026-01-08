@@ -163,27 +163,25 @@ export const MobileNavigation = ({
       </nav>
 
       {/* Mobile Navigation Header */}
-      <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-lg pointer-events-auto lg:hidden">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link to="/">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center">
-                <OptimizedLogo className="h-8 w-8 mr-3" width={32} height={32} />
-                <div className="text-2xl font-bold text-black">
-                  New Edge
-                </div>
-              </motion.div>
-            </Link>
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto lg:hidden shadow-2xl py-3 px-6" style={{ width: 'calc(100% - 32px)', maxWidth: '600px' }}>
+        <div className="flex items-center justify-between">
+          <Link to="/">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center gap-3">
+              <OptimizedLogo className="h-7 w-7" width={28} height={28} />
+              <div className="text-lg font-bold text-white">
+                New Edge
+              </div>
+            </motion.div>
+          </Link>
 
-            <motion.button 
-              whileTap={{ scale: 0.95 }} 
-              onClick={() => setIsOpen(!isOpen)} 
-              className="p-3 text-black z-50 relative min-h-[48px] min-w-[48px] flex items-center justify-center" 
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.button>
-          </div>
+          <motion.button 
+            whileTap={{ scale: 0.95 }} 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="p-2 text-white z-50 relative min-h-[44px] min-w-[44px] flex items-center justify-center" 
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
+          </motion.button>
         </div>
       </nav>
 
