@@ -7,6 +7,8 @@ import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { extractFormData, validateContactForm, submitContactForm } from "@/utils/contactFormValidation";
+
 interface ContactFormModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -15,6 +17,7 @@ interface ContactFormModalProps {
   gradientTo: string;
   theme: 'studio' | 'media' | 'lab';
 }
+
 export const ContactFormModal = ({
   isOpen,
   onClose,
@@ -24,50 +27,48 @@ export const ContactFormModal = ({
   theme
 }: ContactFormModalProps) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-    const data = {
-      name: formData.get('name')?.toString() || '',
-      email: formData.get('email')?.toString() || '',
-      position: formData.get('position')?.toString() || '',
-      firma: formData.get('firma')?.toString() || '',
-      telefon: formData.get('telefon')?.toString() || '',
-      nachricht: formData.get('nachricht')?.toString() || '',
-      source: theme.toUpperCase() // Track which page the form was submitted from
-    };
-    try {
-      const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-      if (response.ok) {
-        toast({
-          title: "Wir designen für dich",
-          description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
-          duration: 5000
-        });
-        form.reset();
-        onClose();
-      } else {
-        throw new Error(`Server responded with ${response.status}`);
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    
+    // Extract and validate form data
+    const rawData = extractFormData(formData, theme.toUpperCase());
+    const validation = validateContactForm(rawData);
+    
+    if (!validation.success) {
       toast({
-        title: "Fehler",
-        description: "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
+        title: "Validierungsfehler",
+        description: validation.error,
         variant: "destructive",
         duration: 5000
       });
-    } finally {
       setIsSubmitting(false);
+      return;
     }
+
+    const result = await submitContactForm(validation.data!);
+    
+    if (result.success) {
+      toast({
+        title: "Wir designen für dich",
+        description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
+        duration: 5000
+      });
+      form.reset();
+      onClose();
+    } else {
+      toast({
+        title: "Fehler",
+        description: result.error || "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
+        variant: "destructive",
+        duration: 5000
+      });
+    }
+    
+    setIsSubmitting(false);
   };
   return <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
