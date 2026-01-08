@@ -76,38 +76,38 @@ const Products = () => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-    const data = {
-      name: formData.get('name')?.toString() || '',
-      email: formData.get('email')?.toString() || '',
-      position: formData.get('position')?.toString() || '',
-      firma: formData.get('firma')?.toString() || '',
-      telefon: formData.get('telefon')?.toString() || '',
-      nachricht: formData.get('nachricht')?.toString() || ''
-    };
-    try {
-      const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+    
+    // Import validation utilities
+    const { extractFormData, validateContactForm, submitContactForm } = await import("@/utils/contactFormValidation");
+    
+    // Extract and validate form data
+    const rawData = extractFormData(formData, "PRODUCTS");
+    const validation = validateContactForm(rawData);
+    
+    if (!validation.success) {
+      toast({
+        title: "Validierungsfehler",
+        description: validation.error,
+        variant: "destructive",
+        duration: 5000
       });
-      if (response.ok) {
-        toast({
-          title: "Wir designen für dich",
-          description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
-          duration: 5000
-        });
-        form.reset();
-        setIsContactSheetOpen(false);
-      } else {
-        throw new Error(`Server responded with ${response.status}`);
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
+      return;
+    }
+
+    const result = await submitContactForm(validation.data!);
+    
+    if (result.success) {
+      toast({
+        title: "Wir designen für dich",
+        description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
+        duration: 5000
+      });
+      form.reset();
+      setIsContactSheetOpen(false);
+    } else {
       toast({
         title: "Fehler",
-        description: "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
+        description: result.error || "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
         variant: "destructive",
         duration: 5000
       });

@@ -57,63 +57,42 @@ const Index = () => {
     }
   };
 
-  // ✅ KORRIGIERTE handleSubmit Funktion - alle 6 Felder werden korrekt übertragen
+  // Contact form submission with validation
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted - handleSubmit called");
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
 
-    // Log all form fields to debug
-    console.log("Raw FormData entries:");
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: "${value}"`);
+    // Import validation utilities dynamically to avoid circular dependencies
+    const { extractFormData, validateContactForm, submitContactForm } = await import("@/utils/contactFormValidation");
+    
+    // Extract and validate form data
+    const rawData = extractFormData(formData, "INDEX");
+    const validation = validateContactForm(rawData);
+    
+    if (!validation.success) {
+      toast({
+        title: "Validierungsfehler",
+        description: validation.error,
+        variant: "destructive",
+        duration: 5000
+      });
+      return;
     }
 
-    // ✅ KORRIGIERT: Deutsche Feldnamen für Webhook + korrekte Feldzuordnung
-    const data = {
-      name: formData.get("name")?.toString() || "",
-      email: formData.get("email")?.toString() || "",
-      position: formData.get("position")?.toString() || "",
-      firma: formData.get("firma")?.toString() || "",
-      // ← firma (nicht company!)
-      telefon: formData.get("telefon")?.toString() || "",
-      // ← telefon (nicht phone!)
-      nachricht: formData.get("nachricht")?.toString() || "" // ← nachricht (nicht message!)
-    };
-    console.log("Complete data object to send to webhook:", data);
-    console.log("Firma:", data.firma);
-    console.log("Telefon:", data.telefon);
-    console.log("Nachricht:", data.nachricht);
-    try {
-      console.log("Attempting to send to webhook...");
-      const response = await fetch("https://n8n-pro-oh9w.onrender.com/webhook/kontakt", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
+    const result = await submitContactForm(validation.data!);
+    
+    if (result.success) {
+      toast({
+        title: "Wir designen für dich",
+        description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
+        duration: 5000
       });
-      console.log("Response status:", response.status);
-      console.log("Response ok:", response.ok);
-      if (response.ok) {
-        console.log("Form submitted successfully");
-        toast({
-          title: "Wir designen für dich",
-          description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
-          duration: 5000
-        });
-        form.reset();
-      } else {
-        const errorText = await response.text();
-        console.error("Server error:", errorText);
-        throw new Error(`Server responded with ${response.status}: ${errorText}`);
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
+      form.reset();
+    } else {
       toast({
         title: "Fehler",
-        description: "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
+        description: result.error || "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
         variant: "destructive",
         duration: 5000
       });
