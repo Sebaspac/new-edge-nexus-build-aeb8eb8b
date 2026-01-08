@@ -8,6 +8,9 @@ import { motion } from "framer-motion";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { ServiceScrollSection } from "@/components/ServiceScrollSection";
 import { LazyVideo } from "@/components/LazyVideo";
+import { ProcessAutomationAnimation } from "@/components/ui/process-automation-animation";
+import { WebSystemsAnimation } from "@/components/ui/web-systems-animation";
+import { TrackingAnalyticsAnimation } from "@/components/ui/tracking-analytics-animation";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const Lab = () => {
@@ -63,7 +66,8 @@ const Lab = () => {
     }],
     icon: Cpu,
     gradient: "from-[#fde047] to-[#fbbf24]",
-    video: "/assets/lab-ki-automation-video.mp4"
+    video: "/assets/lab-ki-automation-video.mp4",
+    animation: <ProcessAutomationAnimation />
   }, {
     title: "Websysteme & Conversion-Architektur",
     description: "Wir entwickeln performante, KI-fähige Webplattformen mit integrierter Funnel-Logik, Tracking-Setups und Schnittstellen zu Ihren Prozessen.",
@@ -82,7 +86,8 @@ const Lab = () => {
     }],
     icon: Globe,
     gradient: "from-[#fbbf24] to-[#fde047]",
-    video: "/assets/lab-section-video.mp4"
+    video: "/assets/lab-section-video.mp4",
+    animation: <WebSystemsAnimation />
   }, {
     title: "Tracking- & Analyse-Setups",
     description: "Wir verbinden Tracking, Analyse und KI, um Entscheidungsprozesse datenbasiert zu steuern. Statt isolierte Dashboards einzurichten, entwickeln wir ein System, das Erkenntnisse automatisch generiert und Handlungsempfehlungen liefert.",
@@ -101,7 +106,8 @@ const Lab = () => {
     }],
     icon: BarChart3,
     gradient: "from-[#fde047] to-[#fbbf24]",
-    video: "/assets/lab-new-video.mp4"
+    video: "/assets/lab-new-video.mp4",
+    animation: <TrackingAnalyticsAnimation />
   }];
   return <>
       <Helmet>
@@ -229,7 +235,7 @@ const Lab = () => {
           background: index % 2 === 0 ? "linear-gradient(to bottom right, white, rgba(253, 224, 71, 0.1), rgba(251, 191, 36, 0.1))" : "linear-gradient(to bottom right, white, rgba(251, 191, 36, 0.1), rgba(253, 224, 71, 0.1))"
         }}>
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <ServiceScrollSection gradient={service.gradient} videoSrc={service.video} imagePosition={isEven ? "right" : "left"}>
+                <ServiceScrollSection gradient={service.gradient} videoSrc={service.video} imagePosition={isEven ? "right" : "left"} animationBelow={service.animation}>
                   <div className="space-y-6">
                     <motion.div variants={{
                   hidden: {
