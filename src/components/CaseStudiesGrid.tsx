@@ -90,11 +90,11 @@ export const CaseStudiesGrid = () => {
             >
               <Link to={caseStudy.route} className="block group">
                 <div className="relative overflow-hidden aspect-square bg-gray-900">
-                  {/* Image - object-contain to show full image */}
+                  {/* Image - object-cover to fill the square */}
                   <img 
                     src={caseStudy.image} 
                     alt={caseStudy.headline}
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                     width={400}
                     height={400}
