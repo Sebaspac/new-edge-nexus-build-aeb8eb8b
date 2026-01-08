@@ -240,8 +240,11 @@ const Studio = () => {
                           delay: 0.1
                         }
                       }
-                    }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
-                      <p className="text-gray-600 leading-relaxed">{service.problem}</p>
+                    }} className="bg-red-50 border border-red-100 rounded-2xl p-5">
+                      <h3 className="text-sm font-semibold text-red-600 uppercase tracking-wider mb-2">
+                        Das Problem
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed">{service.problem}</p>
                     </motion.div>
 
                     {/* Solution */}
@@ -258,8 +261,11 @@ const Studio = () => {
                           delay: 0.2
                         }
                       }
-                    }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
-                      <p className="text-gray-600 leading-relaxed">{service.solution}</p>
+                    }} className="bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
+                      <h3 className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-2">
+                        Unsere Lösung
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed">{service.solution}</p>
                     </motion.div>
 
                     {/* Deliverables - Lab Style */}
