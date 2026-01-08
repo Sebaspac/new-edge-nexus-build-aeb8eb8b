@@ -304,7 +304,7 @@ const Media = () => {
                   onClick={() => navigate(caseItem.route)}
                   className="group cursor-pointer"
                 >
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-4">
+                  <div className="relative aspect-square overflow-hidden">
                     <img
                       src={caseItem.image}
                       alt={caseItem.headline}
