@@ -9,7 +9,7 @@ import { AgencyEdgeSection } from "../components/AgencyEdgeSection";
 import { InnovationSection } from "../components/InnovationSection";
 import { InteractiveCore } from "../components/InteractiveCore";
 import { TestimonialsSection } from "../components/TestimonialsSection";
-import { BlogGrid } from "@/components/BlogGrid";
+import { BlogGridHome } from "@/components/BlogGridHome";
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
@@ -363,7 +363,7 @@ const Index = () => {
 
         {/* Blog Section */}
         <div className="bg-surface">
-          <BlogGrid />
+          <BlogGridHome />
         </div>
 
         {/* Contact Section */}
