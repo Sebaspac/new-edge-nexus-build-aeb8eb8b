@@ -1,92 +1,181 @@
 import { Link } from "react-router-dom";
-import { Linkedin } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 import { OptimizedLogo } from "./OptimizedLogo";
+
 export const Footer = () => {
-  return <footer className="bg-black text-white border-t border-white/10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6 lg:py-12">
-        {/* Main Footer Content - Horizontal Layout */}
-        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 md:gap-12">
-          {/* Logo & Slogan - Links */}
-          <div className="md:max-w-xs">
-            <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 md:space-x-3">
-              <OptimizedLogo className="h-6 md:h-8 w-6 md:w-8" width={32} height={32} />
-              <span className="text-base md:text-xl font-bold">New Edge</span>
-            </a>
-            <p className="text-xs md:text-sm text-gray-400 mt-2">
+  return (
+    <footer className="bg-black text-white border-t border-white/10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
+        {/* Main Footer Content */}
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-16">
+          {/* Logo & Tagline */}
+          <div className="lg:max-w-xs">
+            <Link to="/" className="flex items-center space-x-3 group">
+              <OptimizedLogo className="h-8 w-8 transition-transform group-hover:scale-105" width={32} height={32} />
+              <span className="text-xl font-bold">New Edge</span>
+            </Link>
+            <p className="text-sm text-gray-400 mt-3 leading-relaxed">
               Design Brands. Drive Innovation.
             </p>
           </div>
 
-          {/* Navigation Columns - Rechts */}
-          <div className="grid grid-cols-2 gap-8 md:gap-10 lg:gap-12 md:justify-self-end">
+          {/* Navigation Columns */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
             {/* Services */}
-            <div className="space-y-2 md:space-y-4">
-              <h3 className="text-xs md:text-sm font-semibold uppercase tracking-wider text-gray-400">
+            <div className="space-y-4">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
                 Services
               </h3>
-              <ul className="space-y-2 md:space-y-2">
+              <ul className="space-y-3">
                 <li>
-                  <Link to="/studio" className="text-sm md:text-sm text-gray-300 hover:text-white transition-colors inline-block py-1">
-                    Studio
+                  <Link to="/studio" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
+                      Studio
+                    </span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/media" className="text-sm md:text-sm text-gray-300 hover:text-white transition-colors inline-block py-1">
-                    Media
+                  <Link to="/media" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
+                      Media
+                    </span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/lab" className="text-sm md:text-sm text-gray-300 hover:text-white transition-colors inline-block py-1">
-                    Lab
+                  <Link to="/lab" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
+                      Lab
+                    </span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/products" className="text-sm md:text-sm text-gray-300 hover:text-white transition-colors inline-block py-1">
-                    Agenten
+                  <Link to="/products" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
+                      Agenten
+                    </span>
                   </Link>
                 </li>
               </ul>
             </div>
 
             {/* Company */}
-            <div className="space-y-2 md:space-y-4">
-              <h3 className="text-xs md:text-sm font-semibold uppercase tracking-wider text-gray-400">
+            <div className="space-y-4">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
                 Company
               </h3>
-              <ul className="space-y-2 md:space-y-2">
+              <ul className="space-y-3">
                 <li>
-                  
+                  <Link to="/about" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
+                      About us
+                    </span>
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/about" className="text-sm md:text-sm text-gray-300 hover:text-white transition-colors inline-block py-1">
-                    About us
+                  <Link to="/team" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
+                      Team
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/careers" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
+                      Karriere
+                    </span>
                   </Link>
                 </li>
               </ul>
             </div>
 
-            {/* Content */}
-            
+            {/* Ressourcen */}
+            <div className="space-y-4">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                Ressourcen
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/blog" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
+                      Blog
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/use-cases" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
+                      Use Cases
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/news" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
+                      News
+                    </span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Kontakt */}
+            <div className="space-y-4">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                Kontakt
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <a 
+                    href="mailto:info@newedgebrand.com" 
+                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group"
+                  >
+                    <Mail className="w-4 h-4 text-gray-500 group-hover:text-white transition-colors" />
+                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
+                      E-Mail
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://www.linkedin.com/company/new-edge-brand/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group"
+                  >
+                    <Linkedin className="w-4 h-4 text-gray-500 group-hover:text-white transition-colors" />
+                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
+                      LinkedIn
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-4 md:mt-8 lg:mt-12 pt-4 md:pt-6 lg:pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
-          <p className="text-xs md:text-sm text-gray-400">
+        <div className="mt-10 md:mt-12 lg:mt-16 pt-6 md:pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs md:text-sm text-gray-500">
             © {new Date().getFullYear()} New Edge. All rights reserved.
           </p>
           
-          {/* LinkedIn Icon in der Mitte */}
-          <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
-            <Linkedin className="w-5 h-5 md:w-6 md:h-6" />
-          </a>
-          
-          <div className="flex space-x-4 md:space-x-6">
-            <Link to="/impressum" className="text-sm md:text-sm text-gray-400 hover:text-white transition-colors inline-block py-1">
+          <div className="flex items-center gap-6">
+            <Link 
+              to="/impressum" 
+              className="text-xs md:text-sm text-gray-500 hover:text-white transition-colors"
+            >
               Impressum
+            </Link>
+            <span className="text-gray-700">|</span>
+            <Link 
+              to="/impressum" 
+              className="text-xs md:text-sm text-gray-500 hover:text-white transition-colors"
+            >
+              Datenschutz
             </Link>
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
