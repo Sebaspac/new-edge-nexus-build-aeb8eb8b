@@ -353,7 +353,7 @@ const Studio = () => {
             </div>
 
             {/* Cases Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+            <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4">
               {studioCases.map((caseStudy, index) => <motion.div key={caseStudy.id} initial={{
               opacity: 0,
               y: 30
@@ -365,7 +365,7 @@ const Studio = () => {
             }} transition={{
               duration: 0.6,
               delay: index * 0.1
-            }}>
+            }} className="flex-shrink-0 w-[75%] snap-start md:w-auto">
                   <Link to={caseStudy.route} className="block group">
                     <div className="relative overflow-hidden aspect-square bg-gray-100">
                       <img src={caseStudy.image} alt={caseStudy.headline} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
