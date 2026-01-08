@@ -72,7 +72,7 @@ export const SocialMediaAnimation = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] bg-gradient-to-br from-blue-950/90 via-cyan-900/80 to-blue-900/90 rounded-3xl overflow-hidden border border-blue-500/30">
+    <div className="relative w-full h-[280px] sm:h-[350px] md:h-[400px] lg:h-[500px] bg-gradient-to-br from-blue-950/90 via-cyan-900/80 to-blue-900/90 rounded-2xl sm:rounded-3xl overflow-hidden border border-blue-500/30">
       {/* Grid Pattern */}
       <div className="absolute inset-0 opacity-20">
         <div
@@ -80,23 +80,23 @@ export const SocialMediaAnimation = () => {
           style={{
             backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px), 
                             linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
+            backgroundSize: "30px 30px",
           }}
         />
       </div>
 
       {/* Problems - Left Side */}
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 space-y-3 z-10">
+      <div className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 space-y-2 sm:space-y-3 z-10">
         {problems.map((problem, idx) => (
           <motion.div
             key={idx}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: idx * 0.4 + 0.5, duration: 0.8 }}
-            className="flex items-center gap-2 bg-red-500/20 border border-red-500/40 rounded-lg px-3 py-2"
+            className="flex items-center gap-1.5 sm:gap-2 bg-red-500/20 border border-red-500/40 rounded-md sm:rounded-lg px-2 sm:px-3 py-1.5 sm:py-2"
           >
-            <AlertTriangle className="w-4 h-4 text-red-400" />
-            <span className="text-xs text-red-300 font-medium whitespace-nowrap">
+            <AlertTriangle className="w-3 h-3 sm:w-4 sm:h-4 text-red-400 flex-shrink-0" />
+            <span className="text-[10px] sm:text-xs text-red-300 font-medium whitespace-nowrap">
               {problem.label}
             </span>
           </motion.div>
@@ -106,7 +106,25 @@ export const SocialMediaAnimation = () => {
       {/* Central Hub with Network */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         {/* Connection Lines */}
-        <svg className="absolute -inset-16 w-32 h-32" style={{ left: '-64px', top: '-64px' }}>
+        <svg className="absolute -inset-12 sm:-inset-16 w-24 h-24 sm:w-32 sm:h-32" style={{ left: '-48px', top: '-48px' }}>
+          {nodes.map((node, idx) => (
+            <motion.line
+              key={idx}
+              x1="48"
+              y1="48"
+              x2={48 + node.x * 0.75}
+              y2={48 + node.y * 0.75}
+              stroke={pulseNodes.includes(idx) ? "#06b6d4" : "#3b82f6"}
+              strokeWidth={pulseNodes.includes(idx) ? 2 : 1}
+              strokeOpacity={pulseNodes.includes(idx) ? 0.8 : 0.3}
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 1.5, delay: idx * 0.2 }}
+              className="sm:hidden"
+            />
+          ))}
+        </svg>
+        <svg className="absolute -inset-16 w-32 h-32 hidden sm:block" style={{ left: '-64px', top: '-64px' }}>
           {nodes.map((node, idx) => (
             <motion.line
               key={idx}
@@ -134,14 +152,14 @@ export const SocialMediaAnimation = () => {
               scale: pulseNodes.includes(idx) ? 1.3 : 1,
             }}
             transition={{ delay: idx * 0.2 + 0.5, duration: 0.5 }}
-            className={`absolute w-4 h-4 rounded-full transition-all duration-300 ${
+            className={`absolute w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 ${
               pulseNodes.includes(idx) 
                 ? "bg-cyan-400 shadow-lg shadow-cyan-400/50" 
                 : "bg-blue-500/60"
             }`}
             style={{
-              left: `calc(50% + ${node.x}px - 8px)`,
-              top: `calc(50% + ${node.y}px - 8px)`,
+              left: `calc(50% + ${node.x * 0.75}px - 6px)`,
+              top: `calc(50% + ${node.y * 0.75}px - 6px)`,
             }}
           >
             {pulseNodes.includes(idx) && (
@@ -170,9 +188,9 @@ export const SocialMediaAnimation = () => {
               ],
             }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center"
+            className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center"
           >
-            <Users className="w-8 h-8 text-white" />
+            <Users className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
           </motion.div>
         </motion.div>
 
@@ -180,28 +198,28 @@ export const SocialMediaAnimation = () => {
         <motion.div
           animate={{ y: [-5, 5, -5], opacity: [0.6, 1, 0.6] }}
           transition={{ duration: 3, repeat: Infinity }}
-          className="absolute -top-8 -right-8"
+          className="absolute -top-6 sm:-top-8 -right-6 sm:-right-8"
         >
-          <Heart className="w-5 h-5 text-pink-400" />
+          <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-pink-400" />
         </motion.div>
         <motion.div
           animate={{ y: [5, -5, 5], opacity: [0.6, 1, 0.6] }}
           transition={{ duration: 3.5, repeat: Infinity }}
-          className="absolute -bottom-8 -left-8"
+          className="absolute -bottom-6 sm:-bottom-8 -left-6 sm:-left-8"
         >
-          <MessageCircle className="w-5 h-5 text-cyan-400" />
+          <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
         </motion.div>
       </div>
 
       {/* Solution Checklist - Right Side */}
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 space-y-2 z-10">
+      <div className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 space-y-1.5 sm:space-y-2 z-10">
         {checklist.map((item, idx) => (
           <motion.div
             key={item.id}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: idx * 0.3 + 0.3, duration: 0.6 }}
-            className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-500 ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-md sm:rounded-lg transition-all duration-500 ${
               item.checked
                 ? "bg-cyan-500/20 border border-cyan-500/40"
                 : "bg-white/5 border border-white/10"
@@ -210,14 +228,14 @@ export const SocialMediaAnimation = () => {
             <motion.div
               animate={item.checked ? { scale: [1, 1.2, 1] } : {}}
               transition={{ duration: 0.4 }}
-              className={`w-4 h-4 rounded-full flex items-center justify-center ${
+              className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full flex items-center justify-center ${
                 item.checked ? "bg-cyan-500" : "bg-white/20"
               }`}
             >
-              {item.checked && <Check className="w-3 h-3 text-white" />}
+              {item.checked && <Check className="w-2 h-2 sm:w-3 sm:h-3 text-white" />}
             </motion.div>
             <span
-              className={`text-xs font-medium whitespace-nowrap ${
+              className={`text-[10px] sm:text-xs font-medium whitespace-nowrap ${
                 item.checked ? "text-white" : "text-gray-400"
               }`}
             >
@@ -228,7 +246,7 @@ export const SocialMediaAnimation = () => {
       </div>
 
       {/* Deliverables - Bottom */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-4">
+      <div className="absolute bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-4">
         <AnimatePresence>
           {deliverables.map((del, idx) => (
             <motion.div
@@ -240,17 +258,17 @@ export const SocialMediaAnimation = () => {
                 scale: activeDeliverables.includes(idx) ? 1 : 0.9,
               }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="flex flex-col items-center gap-1"
+              className="flex flex-col items-center gap-0.5 sm:gap-1"
             >
               <div
-                className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-500 ${
+                className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center transition-all duration-500 ${
                   activeDeliverables.includes(idx)
                     ? "bg-gradient-to-br from-blue-500 to-cyan-500"
                     : "bg-white/10"
                 }`}
               >
                 <del.icon
-                  className={`w-5 h-5 ${
+                  className={`w-4 h-4 sm:w-5 sm:h-5 ${
                     activeDeliverables.includes(idx)
                       ? "text-white"
                       : "text-gray-500"
@@ -258,7 +276,7 @@ export const SocialMediaAnimation = () => {
                 />
               </div>
               <span
-                className={`text-[10px] font-medium ${
+                className={`text-[8px] sm:text-[10px] font-medium ${
                   activeDeliverables.includes(idx)
                     ? "text-cyan-300"
                     : "text-gray-500"
@@ -276,14 +294,14 @@ export const SocialMediaAnimation = () => {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="absolute top-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-blue-500/20 border border-blue-500/30 rounded-full px-4 py-1.5"
+        className="absolute top-2 sm:top-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 sm:gap-2 bg-blue-500/20 border border-blue-500/30 rounded-full px-2.5 sm:px-4 py-1 sm:py-1.5"
       >
         <motion.div
           animate={{ opacity: [1, 0.4, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-2 h-2 rounded-full bg-cyan-400"
+          className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-cyan-400"
         />
-        <span className="text-xs text-gray-200 font-medium">
+        <span className="text-[10px] sm:text-xs text-gray-200 font-medium">
           Social Media System
         </span>
       </motion.div>
