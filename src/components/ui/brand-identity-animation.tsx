@@ -53,19 +53,19 @@ export const BrandIdentityAnimation = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#a855f7]/10 via-[#6366f1]/5 to-white border border-[#a855f7]/30">
+    <div className="relative w-full h-[240px] md:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#a855f7]/10 via-[#6366f1]/5 to-white border border-[#a855f7]/30">
       {/* Grid Pattern */}
       <div 
         className="absolute inset-0 opacity-30"
         style={{
           backgroundImage: `linear-gradient(rgba(168, 85, 247, 0.1) 1px, transparent 1px), 
                            linear-gradient(90deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
+          backgroundSize: '24px 24px'
         }}
       />
 
       {/* Design Elements - Left */}
-      <div className="absolute left-4 md:left-8 top-1/4 space-y-3">
+      <div className="absolute left-2 md:left-8 top-1/4 space-y-1.5 md:space-y-3">
         <AnimatePresence>
           {designElements.map((element, idx) => {
             const Icon = element.icon;
@@ -76,30 +76,30 @@ export const BrandIdentityAnimation = () => {
                 initial={{ opacity: 0, x: -30, scale: 0.8 }}
                 animate={isActive ? { opacity: 1, x: 0, scale: 1 } : { opacity: 0.3, x: -10, scale: 0.9 }}
                 transition={{ duration: 0.5, type: "spring" }}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-300 ${
+                className={`flex items-center gap-1.5 md:gap-3 px-1.5 md:px-3 py-1 md:py-2.5 rounded-lg md:rounded-xl transition-all duration-300 ${
                   isActive 
                     ? 'bg-white/90 backdrop-blur-sm border border-[#a855f7]/30 shadow-lg' 
                     : 'bg-white/40 border border-gray-200/30'
                 }`}
               >
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                <div className={`w-5 h-5 md:w-8 md:h-8 rounded-md md:rounded-lg flex items-center justify-center ${
                   isActive 
                     ? 'bg-gradient-to-br from-[#a855f7] to-[#6366f1]' 
                     : 'bg-gray-200'
                 }`}>
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-gray-400'}`} />
+                  <Icon className={`w-2.5 h-2.5 md:w-4 md:h-4 ${isActive ? 'text-white' : 'text-gray-400'}`} />
                 </div>
                 <div>
-                  <p className={`text-xs font-semibold ${isActive ? 'text-gray-800' : 'text-gray-400'}`}>
+                  <p className={`text-[8px] md:text-xs font-semibold ${isActive ? 'text-gray-800' : 'text-gray-400'}`}>
                     {element.label}
                   </p>
                   {isActive && (
                     <motion.p
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="text-[10px] text-green-600 flex items-center gap-1"
+                      className="text-[7px] md:text-[10px] text-green-600 flex items-center gap-0.5 md:gap-1"
                     >
-                      <CheckCircle2 className="w-3 h-3" />
+                      <CheckCircle2 className="w-2 h-2 md:w-3 md:h-3" />
                       {element.status}
                     </motion.p>
                   )}
@@ -115,7 +115,7 @@ export const BrandIdentityAnimation = () => {
         {/* Rotating Color Ring */}
         <motion.div
           animate={{ rotate: colorRotation }}
-          className="absolute w-36 h-36 md:w-44 md:h-44 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 rounded-full"
+          className="absolute w-20 h-20 md:w-44 md:h-44 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 rounded-full"
           style={{
             background: `conic-gradient(from ${colorRotation}deg, #6366f1, #a855f7, #ec4899, #f97316, #eab308, #22c55e, #06b6d4, #6366f1)`,
             opacity: 0.3,
@@ -126,7 +126,7 @@ export const BrandIdentityAnimation = () => {
         <motion.div
           animate={{ rotate: -360 }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute w-28 h-28 md:w-36 md:h-36 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+          className="absolute w-16 h-16 md:w-36 md:h-36 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
         >
           <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#a855f7]/30" />
         </motion.div>
@@ -134,7 +134,7 @@ export const BrandIdentityAnimation = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute w-20 h-20 md:w-28 md:h-28 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+          className="absolute w-12 h-12 md:w-28 md:h-28 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
         >
           <div className="absolute inset-0 rounded-full border border-[#6366f1]/40" />
         </motion.div>
@@ -143,51 +143,51 @@ export const BrandIdentityAnimation = () => {
         <motion.div
           animate={{ scale: [1, 1.08, 1] }}
           transition={{ duration: 5, repeat: Infinity }}
-          className="relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-[#a855f7] to-[#6366f1] flex items-center justify-center shadow-lg shadow-[#a855f7]/30"
+          className="relative w-10 h-10 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-[#a855f7] to-[#6366f1] flex items-center justify-center shadow-lg shadow-[#a855f7]/30"
         >
-          <Palette className="w-8 h-8 md:w-10 md:h-10 text-white" />
+          <Palette className="w-5 h-5 md:w-10 md:h-10 text-white" />
         </motion.div>
       </div>
 
       {/* Status Indicators - Right */}
-      <div className="absolute right-4 md:right-8 top-1/4 space-y-3">
+      <div className="absolute right-2 md:right-8 top-1/4 space-y-1.5 md:space-y-3">
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
-          className="bg-white/90 backdrop-blur-sm border border-[#a855f7]/20 rounded-xl p-3 shadow-lg"
+          className="bg-white/90 backdrop-blur-sm border border-[#a855f7]/20 rounded-lg md:rounded-xl p-1.5 md:p-3 shadow-lg"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 md:gap-2">
             <motion.span 
               animate={{ opacity: [1, 0.5, 1] }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="w-2 h-2 rounded-full bg-amber-500"
+              className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-amber-500"
             />
-            <span className="text-xs font-medium text-gray-700">Brand Book</span>
+            <span className="text-[8px] md:text-xs font-medium text-gray-700">Brand Book</span>
           </div>
-          <p className="text-[10px] text-gray-500 mt-1">In Erstellung...</p>
+          <p className="text-[7px] md:text-[10px] text-gray-500 mt-0.5 md:mt-1">In Erstellung...</p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.7 }}
-          className="bg-white/90 backdrop-blur-sm border border-green-500/20 rounded-xl p-3 shadow-lg"
+          className="bg-white/90 backdrop-blur-sm border border-green-500/20 rounded-lg md:rounded-xl p-1.5 md:p-3 shadow-lg"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 md:gap-2">
             <motion.span 
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="w-2 h-2 rounded-full bg-green-500"
+              className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-500"
             />
-            <span className="text-xs font-medium text-gray-700">Voice & Tone</span>
+            <span className="text-[8px] md:text-xs font-medium text-gray-700">Voice & Tone</span>
           </div>
-          <p className="text-[10px] text-green-600 mt-1">Definiert ✓</p>
+          <p className="text-[7px] md:text-[10px] text-green-600 mt-0.5 md:mt-1">Definiert ✓</p>
         </motion.div>
       </div>
 
       {/* Deliverables - Bottom */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-1.5 md:gap-2 flex-wrap justify-center max-w-[90%]">
+      <div className="absolute bottom-1.5 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-0.5 md:gap-2 flex-wrap justify-center max-w-[95%] md:max-w-[90%]">
         <AnimatePresence>
           {deliverables.map((del, idx) => {
             const Icon = del.icon;
@@ -198,14 +198,14 @@ export const BrandIdentityAnimation = () => {
                 initial={{ opacity: 0, y: 30, scale: 0.8 }}
                 animate={isActive ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0.4, y: 10, scale: 0.9 }}
                 transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
-                className={`flex flex-col items-center gap-1 px-2 py-1.5 md:px-3 md:py-2 rounded-xl transition-colors duration-300 ${
+                className={`flex flex-col items-center gap-0.5 px-1 py-0.5 md:px-3 md:py-2 rounded-md md:rounded-xl transition-colors duration-300 ${
                   isActive 
                     ? 'bg-gradient-to-br from-[#a855f7]/20 to-[#6366f1]/20 border border-[#a855f7]/40' 
                     : 'bg-gray-100/50 border border-gray-200/50'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 md:w-4 md:h-4 ${isActive ? 'text-[#a855f7]' : 'text-gray-400'}`} />
-                <span className={`text-[9px] md:text-[10px] font-medium ${isActive ? 'text-gray-800' : 'text-gray-400'}`}>
+                <Icon className={`w-2.5 h-2.5 md:w-4 md:h-4 ${isActive ? 'text-[#a855f7]' : 'text-gray-400'}`} />
+                <span className={`text-[6px] md:text-[10px] font-medium ${isActive ? 'text-gray-800' : 'text-gray-400'}`}>
                   {del.label}
                 </span>
               </motion.div>
@@ -219,14 +219,14 @@ export const BrandIdentityAnimation = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8 }}
-        className="absolute top-4 md:top-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm border border-[#a855f7]/30 rounded-full px-4 py-2 flex items-center gap-2 shadow-lg"
+        className="absolute top-1.5 md:top-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm border border-[#a855f7]/30 rounded-full px-1.5 md:px-4 py-0.5 md:py-2 flex items-center gap-1 md:gap-2 shadow-lg"
       >
         <motion.span 
           animate={{ opacity: [1, 0.5, 1] }}
           transition={{ duration: 3, repeat: Infinity }}
-          className="w-2 h-2 rounded-full bg-gradient-to-r from-[#a855f7] to-[#6366f1]"
+          className="w-1 h-1 md:w-2 md:h-2 rounded-full bg-gradient-to-r from-[#a855f7] to-[#6366f1]"
         />
-        <span className="text-xs font-medium text-gray-700">Designsystem wird aufgebaut</span>
+        <span className="text-[7px] md:text-xs font-medium text-gray-700">Designsystem wird aufgebaut</span>
       </motion.div>
 
       {/* Connecting Lines to Center */}
