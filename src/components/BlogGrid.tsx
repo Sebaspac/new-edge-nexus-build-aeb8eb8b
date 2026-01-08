@@ -63,7 +63,7 @@ export const BlogGrid = () => {
         </motion.div>
 
         {/* Blog Grid - Same layout as CaseStudiesGrid */}
-        <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-0 md:grid-cols-4">
           {blogPosts.map((post, index) => (
             <motion.div
               key={post.id}
@@ -71,7 +71,6 @@ export const BlogGrid = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
-              className="flex-shrink-0 w-[75%] snap-start md:w-auto"
             >
               <Link to={`/blog/${post.id}`} className="block group">
                 <div className="relative overflow-hidden aspect-square bg-gray-900">
