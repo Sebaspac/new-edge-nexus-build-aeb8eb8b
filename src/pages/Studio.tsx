@@ -41,9 +41,9 @@ const Studio = () => {
   };
   const studioServices = [{
     title: "Brand Strategy - Brand Foundation & Insights",
-    outcome: "Eine differenzierte, messbare und strategisch fundierte Markenbasis, die alle zukuenftigen Entscheidungen leitet.",
-    problem: "Unternehmen fehlt haeufig eine klare Positionierung, Differenzierung und ein strategisches Zentrum. Dadurch entsteht kommunikative Inkonsistenz und verlorenes Marktpotenzial.",
-    solution: "AI-gestuetzte Research-Methoden, tiefes Markenverstaendnis und ein strukturierter Strategie-Prozess. Wir definieren Brand Core, Value Proposition und die strategische Roadmap, die dein Wachstum steuert.",
+    outcome: "Eine differenzierte, messbare und strategisch fundierte Markenbasis, die alle zukünftigen Entscheidungen leitet.",
+    problem: "Unternehmen fehlt häufig eine klare Positionierung, Differenzierung und ein strategisches Zentrum. Dadurch entsteht kommunikative Inkonsistenz und verlorenes Marktpotenzial.",
+    solution: "AI-gestützte Research-Methoden, tiefes Markenverständnis und ein strukturierter Strategie-Prozess. Wir definieren Brand Core, Value Proposition und die strategische Roadmap, die dein Wachstum steuert.",
     deliverables: ["Personas & Customer Insights", "Positioning Map", "Differentiation Guide", "Brand Core (Purpose, Vision, Mission)", "Strategische Roadmap (12 Monate)"],
     icon: BookOpen,
     gradient: "from-[#6366f1] to-[#a855f7]"
@@ -51,7 +51,7 @@ const Studio = () => {
     title: "Brand Identity - Identity & Positioning",
     outcome: "Ein konsistentes, emotionales und skalierbares Designsystem, das Marken sichtbar und unverwechselbar macht.",
     problem: "Viele Marken wirken austauschbar, verlieren an Wiedererkennung und Vertrauen.",
-    solution: "Ein Brand System, das Stil, Haltung und Differenzierung transportiert - gestuetzt durch einheitliche Designrichtlinien und AI-gestuetzte Visual Frameworks.",
+    solution: "Ein Brand System, das Stil, Haltung und Differenzierung transportiert - gestützt durch einheitliche Designrichtlinien und AI-gestützte Visual Frameworks.",
     deliverables: ["Logo-System", "Farb- & Typografie-System", "UX/UI-Grundlagen", "Visual Language", "Brand Book", "Brand Story & Messaging", "Voice & Tone Guidelines"],
     icon: Palette,
     gradient: "from-[#a855f7] to-[#6366f1]"
@@ -67,8 +67,8 @@ const Studio = () => {
   return <>
       <Helmet>
         <title>NEW EDGE STUDIO - Marken mit Relevanz, Klarheit und kreativer Dominanz</title>
-        <meta name="description" content="New Edge Studio vereint Strategie, Design und Technologie zu einem kreativen Kern, der Marken transformiert. Wir schaffen Systeme, die Haltung, Aesthetik und messbaren Impact verbinden." />
-        <meta name="keywords" content="Brand Strategy, Brand Identity, Markenidentitaet, Brand Story, Design System, Positionierung" />
+        <meta name="description" content="New Edge Studio vereint Strategie, Design und Technologie zu einem kreativen Kern, der Marken transformiert. Wir schaffen Systeme, die Haltung, Ästhetik und messbaren Impact verbinden." />
+        <meta name="keywords" content="Brand Strategy, Brand Identity, Markenidentität, Brand Story, Design System, Positionierung" />
         <link rel="canonical" href="https://new-edge.de/studio" />
       </Helmet>
 
@@ -169,7 +169,7 @@ const Studio = () => {
                 }
               }} className="text-body-lg text-gray-600 mt-6 max-w-3xl text-xl leading-relaxed">
                   New Edge Studio vereint Strategie, Design und Technologie zu einem kreativen Kern, der Marken transformiert. 
-                  Wir schaffen Systeme, die Haltung, Aesthetik und messbaren Impact verbinden - von der strategischen Basis bis zur visuellen Exzellenz.
+                  Wir schaffen Systeme, die Haltung, Ästhetik und messbaren Impact verbinden - von der strategischen Basis bis zur visuellen Exzellenz.
                 </motion.p>
               </motion.div>
             </motion.div>
