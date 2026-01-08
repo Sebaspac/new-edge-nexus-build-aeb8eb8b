@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
 const blogPosts = [{
   id: "ki-agenten-2025",
   client: "NEW EDGE",
@@ -56,104 +56,75 @@ export const BlogGrid = () => {
         once: true
       }} transition={{
         duration: 0.6
-      }} className="mb-8 md:mb-12">
-          
+      }} className="mb-6 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-black">
+            Artikel & <span className="text-[#7C3AED]">Insights</span>
+          </h2>
         </motion.div>
 
-        {/* Main Layout: Featured Left + List Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-6 lg:gap-8">
-          {/* Featured Article (Left) */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6
-        }}>
-            <Link to={`/blog/${latestPost.id}`} className="block group">
-              <div className="relative overflow-hidden aspect-[4/3] lg:aspect-[4/3] bg-gray-100 rounded-2xl">
-                {latestPost.image ? <>
-                    <img src={latestPost.image} alt={latestPost.headline} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  </> : <div className={`absolute inset-0 bg-gradient-to-br ${latestPost.gradient}`} />}
-                
-                {/* Content Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                  <span className="inline-block bg-[#7C3AED] text-white text-xs font-bold px-3 py-1 mb-4 uppercase tracking-wider">
-                    {latestPost.category}
-                  </span>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight mb-3">
-                    {latestPost.headline}
-                  </h3>
-                  <p className="text-white/80 text-sm md:text-base mb-4 line-clamp-2">
-                    {latestPost.excerpt}
-                  </p>
-                  <div className="flex items-center gap-4 text-white/70 text-sm">
-                    <span>{latestPost.date}</span>
+        {/* Blog Grid - Same layout as CaseStudiesGrid */}
+        <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4">
+          {blogPosts.map((post, index) => (
+            <motion.div
+              key={post.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.05 }}
+              className="flex-shrink-0 w-[75%] snap-start md:w-auto"
+            >
+              <Link to={`/blog/${post.id}`} className="block group">
+                <div className="relative overflow-hidden aspect-square bg-gray-900">
+                  {/* Image */}
+                  {post.image ? (
+                    <img 
+                      src={post.image} 
+                      alt={post.headline}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className={`w-full h-full bg-gradient-to-br ${post.gradient}`} />
+                  )}
+                  
+                  {/* Dark overlay */}
+                  <div className="absolute inset-0 bg-black/30" />
+                  
+                  {/* Normal State: + Icon */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                    <Plus className="w-8 h-8 md:w-12 md:h-12 text-white" strokeWidth={2} />
                   </div>
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* Trending Articles (Right) */}
-          <div className="flex flex-col">
-            {/* Trending Header */}
-            <div className="flex items-center gap-3 mb-4 lg:mb-6 bg-gray-100 rounded-xl p-4">
-              <div className="flex flex-col gap-0.5">
-                <div className="flex gap-0.5">
-                  {[...Array(3)].map((_, i) => <div key={i} className="w-1 h-3 bg-[#7C3AED] rounded-full" style={{
-                  height: `${12 + i * 4}px`
-                }} />)}
-                </div>
-              </div>
-              <span className="font-bold text-gray-900">Trending Artikel</span>
-            </div>
-
-            {/* Article List */}
-            <div className="flex flex-col divide-y divide-gray-100">
-              {otherPosts.map((post, index) => <motion.div key={post.id} initial={{
-              opacity: 0,
-              x: 20
-            }} whileInView={{
-              opacity: 1,
-              x: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.5,
-              delay: index * 0.1
-            }}>
-                  <Link to={`/blog/${post.id}`} className="group flex gap-4 py-4 first:pt-0 last:pb-0">
-                    {/* Thumbnail */}
-                    <div className="flex-shrink-0 w-24 h-20 md:w-28 md:h-24 rounded-lg overflow-hidden bg-gray-100">
-                      {post.image ? <img src={post.image} alt={post.headline} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" /> : <div className={`w-full h-full bg-gradient-to-br ${post.gradient}`} />}
-                    </div>
-
+                  
+                  {/* Hover State: Purple Overlay */}
+                  <div className="absolute inset-0 bg-[#7C3AED] opacity-0 group-hover:opacity-95 transition-all duration-300 flex flex-col justify-between p-3 md:p-6">
+                    {/* Top: White Line */}
+                    <div className="w-8 md:w-16 h-0.5 md:h-1 bg-white" />
+                    
                     {/* Content */}
-                    <div className="flex-1 flex flex-col justify-center min-w-0">
-                      <h4 className="font-bold text-gray-900 text-sm md:text-base leading-tight line-clamp-2 group-hover:text-[#7C3AED] transition-colors">
+                    <div className="space-y-1 md:space-y-3">
+                      <span className="text-[10px] md:text-xs font-bold text-white/80 uppercase tracking-wider">
+                        {post.client}
+                      </span>
+                      <h3 className="text-sm md:text-2xl font-bold text-white leading-tight line-clamp-3">
                         {post.headline}
-                      </h4>
-                      <div className="flex items-center gap-2 mt-2 text-xs text-gray-500">
-                        <span>{post.date}</span>
-                        <span>•</span>
-                        <span className="text-[#7C3AED] font-medium">{post.category}</span>
+                      </h3>
+                      <div className="hidden md:flex items-center gap-2 text-white font-medium group-hover:gap-3 transition-all duration-300">
+                        <span className="underline">Artikel lesen</span>
+                        <ArrowUpRight className="w-5 h-5" />
                       </div>
                     </div>
-
-                    {/* Arrow */}
-                    <div className="flex-shrink-0 self-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <ArrowUpRight className="w-5 h-5 text-[#7C3AED]" />
+                    
+                    {/* Bottom: Category Tag */}
+                    <div>
+                      <span className="inline-block border border-white/80 px-2 md:px-4 py-1 md:py-1.5 text-[8px] md:text-xs font-bold text-white uppercase tracking-wider">
+                        {post.category}
+                      </span>
                     </div>
-                  </Link>
-                </motion.div>)}
-            </div>
-          </div>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>;
