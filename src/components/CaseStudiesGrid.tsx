@@ -78,7 +78,7 @@ export const CaseStudiesGrid = () => {
         </div>
 
         {/* Case Studies - Horizontal Scroll on Mobile, Grid on Desktop */}
-        <div className="md:hidden flex gap-3 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 scrollbar-hide">
+        <div className="md:hidden flex gap-3 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }}>
           {caseStudies.map((caseStudy, index) => (
             <motion.div
               key={caseStudy.id}
@@ -86,15 +86,18 @@ export const CaseStudiesGrid = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
-              className="flex-shrink-0 w-[calc(50%-6px)] snap-start"
+              className="flex-shrink-0 w-[calc(50%-6px)] snap-center"
             >
               <Link to={caseStudy.route} className="block group">
-                <div className="relative overflow-hidden aspect-[3/4] bg-gray-100">
+                <div className="relative overflow-hidden aspect-[3/4] bg-gray-100 rounded-xl">
                   {/* Image */}
                   <img 
                     src={caseStudy.image} 
                     alt={caseStudy.headline}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    width={300}
+                    height={400}
                   />
                   
                   {/* Mobile: Always show content overlay */}
@@ -123,12 +126,15 @@ export const CaseStudiesGrid = () => {
               transition={{ duration: 0.6, delay: index * 0.05 }}
             >
               <Link to={caseStudy.route} className="block group">
-                <div className="relative overflow-hidden aspect-square bg-gray-100">
+                <div className="relative overflow-hidden aspect-square bg-gray-100 rounded-xl">
                   {/* Image */}
                   <img 
                     src={caseStudy.image} 
                     alt={caseStudy.headline}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                    width={400}
+                    height={400}
                   />
                   
                   {/* Dark overlay on image */}

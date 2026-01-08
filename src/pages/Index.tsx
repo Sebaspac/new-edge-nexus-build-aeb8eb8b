@@ -211,7 +211,7 @@ const Index = () => {
         </div>
 
         {/* Unsere Kompetenzbereiche - Light Section */}
-        <section className="relative py-12 md:py-24 overflow-hidden bg-primary-foreground">
+        <section className="relative section-py-md overflow-hidden bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
             {/* Header */}
             <motion.div className="text-left mb-8 md:mb-16" initial={{
@@ -225,7 +225,7 @@ const Index = () => {
           }} transition={{
             duration: 0.8
           }}>
-              <span className="inline-block text-[#7C3AED] text-sm font-bold uppercase tracking-widest mb-3 md:mb-4">
+              <span className="inline-block text-primary text-sm font-bold uppercase tracking-widest mb-3 md:mb-4">
                 UNSERE SERVICES
               </span>
               <motion.h2 initial={{
@@ -239,7 +239,7 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-4 md:mb-6 font-black">
+            }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground mb-4 md:mb-6 font-black">
                 Drei Bereiche, eine Vision
               </motion.h2>
               <motion.p initial={{
@@ -253,7 +253,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }} className="text-base md:text-xl text-gray-600 max-w-3xl leading-relaxed">
+            }} className="text-base md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
                 Ihre Marke erfolgreich in der digitalen Welt positionieren
               </motion.p>
             </motion.div>
@@ -314,7 +314,7 @@ const Index = () => {
         </section>
 
         {/* Magic Text Section */}
-        <section className="relative py-16 md:py-32 lg:py-48 overflow-hidden bg-primary-foreground">
+        <section className="relative section-py-lg overflow-hidden bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
             <div className="max-w-5xl mx-auto text-center">
               <motion.span initial={{
@@ -346,7 +346,7 @@ const Index = () => {
               duration: 0.6
             }} className="mt-8 md:mt-12">
                 <Link to="/careers">
-                  <Button className="bg-black hover:bg-primary text-white px-6 md:px-8 py-4 md:py-6 text-base md:text-lg transition-colors duration-300">
+                  <Button className="bg-foreground hover:bg-primary text-background px-6 md:px-8 py-4 md:py-6 text-base md:text-lg transition-all duration-300 hover:-translate-y-0.5">
                     Verstärkung gesucht
                     <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 -rotate-45" />
                   </Button>
@@ -367,7 +367,7 @@ const Index = () => {
         </div>
 
         {/* Contact Section */}
-        <section id="contact-section" className="relative py-12 md:py-24 overflow-hidden bg-primary-foreground">
+        <section id="contact-section" className="relative section-py-md overflow-hidden bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
             <motion.div className="text-center max-w-4xl mx-auto" initial={{
             opacity: 0,
@@ -391,9 +391,9 @@ const Index = () => {
             }} transition={{
               delay: 0.2,
               duration: 0.7
-            }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 md:mb-8 leading-[1.1] text-black font-black">
+            }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 md:mb-8 leading-[1.1] text-foreground font-black">
                 Bereit für die{" "}
-                <span className="bg-gradient-to-r from-[#7C3AED] to-[#A78BFA] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                   Zukunft?
                 </span>
               </motion.h2>
@@ -409,7 +409,7 @@ const Index = () => {
             }} transition={{
               delay: 0.4,
               duration: 0.6
-            }} className="text-base md:text-xl lg:text-2xl text-gray-600 mb-8 md:mb-12 leading-relaxed px-4">
+            }} className="text-base md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-12 leading-relaxed px-4">
                 New Edge ist das Headquarter für Innovation. Hier entsteht die Zukunft von Marken, Agenturen und
                 Prozessen.
               </motion.p>
@@ -426,7 +426,7 @@ const Index = () => {
               delay: 0.6,
               duration: 0.6
             }} className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
-                <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="group bg-white text-black hover:bg-gray-100 transition-all duration-300 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 font-semibold w-full sm:w-auto">
+                <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="group bg-background text-foreground hover:bg-muted transition-all duration-300 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 font-semibold w-full sm:w-auto hover:-translate-y-0.5">
                   Kontakt aufnehmen
                   <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>

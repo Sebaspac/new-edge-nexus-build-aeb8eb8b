@@ -9,6 +9,12 @@ interface LazyVideoProps {
   muted?: boolean;
   playsInline?: boolean;
   preload?: 'auto' | 'metadata' | 'none';
+  /** Aspect ratio for CLS prevention (e.g., "16/9", "4/3") */
+  aspectRatio?: string;
+  /** Width for intrinsic sizing */
+  width?: number;
+  /** Height for intrinsic sizing */
+  height?: number;
 }
 
 export const LazyVideo = ({
@@ -19,7 +25,10 @@ export const LazyVideo = ({
   loop = true,
   muted = true,
   playsInline = true,
-  preload = 'metadata' // Load metadata for dimensions to prevent layout shift
+  preload = 'metadata',
+  aspectRatio = '16/9',
+  width = 1920,
+  height = 1080,
 }: LazyVideoProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -55,6 +64,9 @@ export const LazyVideo = ({
       playsInline={playsInline}
       poster={poster}
       preload={preload}
+      width={width}
+      height={height}
+      style={{ aspectRatio }}
     >
       {isLoaded && <source src={src} type="video/mp4" />}
     </video>

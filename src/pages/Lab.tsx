@@ -154,7 +154,7 @@ const Lab = () => {
         </section>
 
         {/* FROM VISION TO REALITY Section */}
-        <section className="relative py-12 sm:py-16 bg-white">
+        <section className="relative section-py-sm bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div initial="hidden" whileInView="visible" viewport={{
             once: true,
@@ -340,7 +340,7 @@ const Lab = () => {
       })}
 
         {/* Meet Our Agents Section */}
-        <section className="py-16 sm:py-24 bg-gradient-to-br from-white via-yellow-50/30 to-orange-50/30 relative overflow-hidden">
+        <section className="section-py-md bg-gradient-to-br from-white via-yellow-50/30 to-orange-50/30 relative overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div initial={{
             opacity: 0,

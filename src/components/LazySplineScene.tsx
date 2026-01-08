@@ -47,12 +47,19 @@ export const LazySplineScene = ({
   }, [threshold, rootMargin]);
 
   return (
-    <div ref={containerRef} className={`relative ${className}`}>
+    <div 
+      ref={containerRef} 
+      className={`relative ${className}`}
+      style={{ minHeight: '400px', aspectRatio: '1/1' }}
+    >
       {shouldLoad ? (
         <SplineScene scene={scene} className="w-full h-full" />
       ) : (
-        // Lightweight placeholder with gradient
-        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        // Lightweight placeholder with gradient - fixed dimensions to prevent CLS
+        <div 
+          className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+          style={{ minHeight: '400px' }}
+        >
           <div className="text-center space-y-4">
             <div className="w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto" />
             <p className="text-sm text-neutral-400">Loading 3D Scene...</p>
