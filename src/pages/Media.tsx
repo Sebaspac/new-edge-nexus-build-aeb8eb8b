@@ -148,13 +148,13 @@ const Media = () => {
 
         {/* Claim Section */}
         <section className="section-py-md px-4 md:px-8 lg:px-16 bg-white">
-          <div className="max-w-5xl mx-auto text-center">
+          <div className="max-w-7xl mx-auto">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight"
+              className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-left"
             >
               Wir bauen{" "}
               <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
@@ -167,7 +167,7 @@ const Media = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-8 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
+              className="mt-8 text-lg md:text-xl text-muted-foreground max-w-4xl text-left"
             >
               Content-Produktion, Social Media und Performance Marketing aus einer Hand – für Marken, die wachsen wollen.
             </motion.p>
