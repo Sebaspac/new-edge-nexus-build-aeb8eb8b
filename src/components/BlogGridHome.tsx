@@ -65,7 +65,7 @@ export const BlogGridHome = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden md:block flex-shrink-0"
+            className="hidden lg:block flex-shrink-0"
           >
             <Link 
               to="/blog"
@@ -78,7 +78,7 @@ export const BlogGridHome = () => {
         </div>
 
         {/* Blog Grid - Unified layout matching CaseStudiesGrid */}
-        <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4">
+        <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide lg:grid lg:grid-cols-4">
           {blogPosts.map((post, index) => (
             <motion.div
               key={post.id}
@@ -86,7 +86,7 @@ export const BlogGridHome = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
-              className="flex-shrink-0 w-[75%] snap-start md:w-auto"
+              className="flex-shrink-0 w-[75%] snap-start lg:w-auto"
             >
               <Link to={`/blog/${post.id}`} className="block group">
                 <div className="relative overflow-hidden aspect-square bg-gray-900">
@@ -142,13 +142,13 @@ export const BlogGridHome = () => {
 
         </div>
 
-        {/* Mobile: Show ALLE ARTIKEL button */}
+        {/* Mobile/Tablet: Show ALLE ARTIKEL button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="md:hidden mt-6 text-center"
+          className="lg:hidden mt-6 text-center"
         >
           <Link 
             to="/blog"

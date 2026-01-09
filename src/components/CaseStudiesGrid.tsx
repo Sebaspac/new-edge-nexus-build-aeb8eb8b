@@ -65,7 +65,7 @@ export const CaseStudiesGrid = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden md:block flex-shrink-0"
+            className="hidden lg:block flex-shrink-0"
           >
             <Link 
               to="/case-studies"
@@ -78,7 +78,7 @@ export const CaseStudiesGrid = () => {
         </div>
 
         {/* Case Studies Grid - Unified layout for all screen sizes */}
-        <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4">
+        <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide lg:grid lg:grid-cols-4">
           {caseStudies.map((caseStudy, index) => (
             <motion.div
               key={caseStudy.id}
@@ -86,7 +86,7 @@ export const CaseStudiesGrid = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
-              className="flex-shrink-0 w-[75%] snap-start md:w-auto"
+              className="flex-shrink-0 w-[75%] snap-start lg:w-auto"
             >
               <Link to={caseStudy.route} className="block group">
                 <div className="relative overflow-hidden aspect-square bg-gray-900">
@@ -138,13 +138,13 @@ export const CaseStudiesGrid = () => {
           ))}
         </div>
 
-        {/* Mobile: Show ALLE CASES button */}
+        {/* Mobile/Tablet: Show ALLE CASES button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="md:hidden mt-6 text-center"
+          className="lg:hidden mt-6 text-center"
         >
           <Link 
             to="/case-studies"
