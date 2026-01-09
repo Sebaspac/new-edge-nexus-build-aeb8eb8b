@@ -241,7 +241,7 @@ const CaseStudies = () => {
         
 
         {/* Category Rows - Alle auf einen Blick */}
-        <div className="flex flex-col">
+        <div className="flex flex-col pt-20 sm:pt-24 md:pt-28">
           {/* STUDIO - Cases links, Label rechts */}
           <CategoryRow title="STUDIO" subtitle="Brand Strategy & Identity" cases={studioCases} accentColor="bg-violet-500" slashColor="text-violet-500/40" direction="left" index={0} />
           
