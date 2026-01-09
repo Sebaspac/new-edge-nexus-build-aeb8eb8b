@@ -27,7 +27,7 @@ export const SalesChaosAnimation = () => {
     ];
     setLeads(initialLeads);
 
-    // Frantic cursor movement
+    // Slower cursor movement for professional feel
     const cursorInterval = setInterval(() => {
       const positions = [
         { x: 30, y: 35 },
@@ -39,7 +39,7 @@ export const SalesChaosAnimation = () => {
       ];
       const randomPos = positions[Math.floor(Math.random() * positions.length)];
       setCursorPos(randomPos);
-    }, 800);
+    }, 1800);
 
     return () => clearInterval(cursorInterval);
   }, []);

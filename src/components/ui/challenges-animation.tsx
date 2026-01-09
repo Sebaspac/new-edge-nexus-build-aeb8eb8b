@@ -47,7 +47,7 @@ export const ChallengesAnimation: React.FC = () => {
     };
 
     moveSearch();
-    const interval = setInterval(moveSearch, 2000);
+    const interval = setInterval(moveSearch, 3000);
 
     return () => clearInterval(interval);
   }, []);
