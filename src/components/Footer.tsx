@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Mail } from "lucide-react";
 import { OptimizedLogo } from "./OptimizedLogo";
-
 export const Footer = () => {
-  return (
-    <footer className="bg-black text-white border-t border-white/10">
+  return <footer className="bg-black text-white border-t border-white/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
         {/* Main Footer Content */}
         <div className="flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-16">
@@ -89,34 +87,7 @@ export const Footer = () => {
             </div>
 
             {/* Ressourcen */}
-            <div className="space-y-4">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                Ressourcen
-              </h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link to="/blog" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
-                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      Blog
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/use-cases" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
-                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      Use Cases
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/news" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
-                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      News
-                    </span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            
 
             {/* Kontakt */}
             <div className="space-y-4">
@@ -125,10 +96,7 @@ export const Footer = () => {
               </h3>
               <ul className="space-y-3">
                 <li>
-                  <a 
-                    href="mailto:info@newedgebrand.com" 
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group"
-                  >
+                  <a href="mailto:info@newedgebrand.com" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group">
                     <Mail className="w-4 h-4 text-gray-500 group-hover:text-white transition-colors" />
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
                       E-Mail
@@ -136,12 +104,7 @@ export const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="https://www.linkedin.com/company/new-edge-brand/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group"
-                  >
+                  <a href="https://www.linkedin.com/company/new-edge-brand/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group">
                     <Linkedin className="w-4 h-4 text-gray-500 group-hover:text-white transition-colors" />
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
                       LinkedIn
@@ -160,22 +123,15 @@ export const Footer = () => {
           </p>
           
           <div className="flex items-center gap-6">
-            <Link 
-              to="/impressum" 
-              className="text-xs md:text-sm text-gray-500 hover:text-white transition-colors"
-            >
+            <Link to="/impressum" className="text-xs md:text-sm text-gray-500 hover:text-white transition-colors">
               Impressum
             </Link>
             <span className="text-gray-700">|</span>
-            <Link 
-              to="/impressum" 
-              className="text-xs md:text-sm text-gray-500 hover:text-white transition-colors"
-            >
+            <Link to="/impressum" className="text-xs md:text-sm text-gray-500 hover:text-white transition-colors">
               Datenschutz
             </Link>
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
