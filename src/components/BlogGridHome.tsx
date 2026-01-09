@@ -115,22 +115,22 @@ export const BlogGridHome = () => {
                     <div className="w-8 md:w-16 h-0.5 md:h-1 bg-white" />
                     
                     {/* Content */}
-                    <div className="space-y-1 md:space-y-3">
-                      <span className="text-[10px] md:text-xs font-bold text-white/80 uppercase tracking-wider">
+                    <div className="space-y-0.5 md:space-y-2 lg:space-y-3">
+                      <span className="text-[8px] md:text-[10px] lg:text-xs font-bold text-white/80 uppercase tracking-wider">
                         {post.client}
                       </span>
-                      <h3 className="text-sm md:text-2xl font-bold text-white leading-tight line-clamp-3">
+                      <h3 className="text-[11px] md:text-base lg:text-2xl font-bold text-white leading-tight line-clamp-3">
                         {post.headline}
                       </h3>
-                      <div className="hidden md:flex items-center gap-2 text-white font-medium group-hover:gap-3 transition-all duration-300">
-                        <span className="underline">Artikel lesen</span>
-                        <ArrowUpRight className="w-5 h-5" />
+                      <div className="hidden lg:flex items-center gap-2 text-white font-medium group-hover:gap-3 transition-all duration-300">
+                        <span className="underline text-sm">Artikel lesen</span>
+                        <ArrowUpRight className="w-4 h-4" />
                       </div>
                     </div>
                     
                     {/* Bottom: Category Tag */}
                     <div>
-                      <span className="inline-block border border-white/80 px-2 md:px-4 py-1 md:py-1.5 text-[8px] md:text-xs font-bold text-white uppercase tracking-wider">
+                      <span className="inline-block border border-white/80 px-1.5 md:px-2 lg:px-4 py-0.5 md:py-1 lg:py-1.5 text-[6px] md:text-[8px] lg:text-xs font-bold text-white uppercase tracking-wider">
                         {post.category}
                       </span>
                     </div>
