@@ -7,7 +7,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { OptimizedLogo } from "@/components/OptimizedLogo";
 import { ContactFormModal } from "@/components/ContactFormModal";
 type CategoryFilter = 'all' | 'studio' | 'media' | 'lab';
-
 interface MobileNavigationProps {
   onContactClick: () => void;
   logoSrc?: string;
@@ -16,14 +15,22 @@ interface MobileNavigationProps {
   activeFilter?: CategoryFilter;
   onFilterChange?: (filter: CategoryFilter) => void;
 }
-
-const filterButtons: { key: CategoryFilter; label: string }[] = [
-  { key: 'all', label: 'Alle' },
-  { key: 'studio', label: 'Studio' },
-  { key: 'media', label: 'Media' },
-  { key: 'lab', label: 'Lab' },
-];
-
+const filterButtons: {
+  key: CategoryFilter;
+  label: string;
+}[] = [{
+  key: 'all',
+  label: 'Alle'
+}, {
+  key: 'studio',
+  label: 'Studio'
+}, {
+  key: 'media',
+  label: 'Media'
+}, {
+  key: 'lab',
+  label: 'Lab'
+}];
 export const MobileNavigation = ({
   onContactClick,
   logoSrc = "/assets/93b90410-bdbd-4098-938c-5ff9f158253c.png",
@@ -40,7 +47,6 @@ export const MobileNavigation = ({
     language,
     setLanguage
   } = useLanguage();
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -64,22 +70,19 @@ export const MobileNavigation = ({
       <ContactFormModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} accentColor="#000" gradientFrom="#000" gradientTo="#333" theme="studio" />
       
       {/* Desktop Navigation */}
-      <nav
-        className={`fixed left-4 right-4 z-50 mx-auto bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-6' : 'py-4 px-8'}`}
-        style={{ 
-          top: 'calc(var(--safe-area-top, 0px) + 16px)', 
-          maxWidth: isScrolled ? '1100px' : '1200px' 
-        }}
-      >
+      <nav className={`fixed left-4 right-4 z-50 mx-auto bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-6' : 'py-4 px-8'}`} style={{
+      top: 'calc(var(--safe-area-top, 0px) + 16px)',
+      maxWidth: isScrolled ? '1100px' : '1200px'
+    }}>
         <div className="flex items-center justify-between w-full relative">
           {/* Logo + Text */}
           <Link to="/" className="flex items-center gap-3">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center gap-3">
-              <OptimizedLogo 
-                className={`transition-all duration-500 ${isScrolled ? 'h-7 w-7' : 'h-9 w-9'}`} 
-                width={isScrolled ? 28 : 36} 
-                height={isScrolled ? 28 : 36} 
-              />
+            <motion.div whileHover={{
+            scale: 1.05
+          }} whileTap={{
+            scale: 0.98
+          }} className="flex items-center gap-3">
+              <OptimizedLogo className={`transition-all duration-500 ${isScrolled ? 'h-7 w-7' : 'h-9 w-9'}`} width={isScrolled ? 28 : 36} height={isScrolled ? 28 : 36} />
               <div className={`font-bold text-white transition-all duration-500 ${isScrolled ? 'text-lg' : 'text-xl'}`}>
                 New Edge
               </div>
@@ -87,29 +90,18 @@ export const MobileNavigation = ({
           </Link>
 
           {/* Center: Case Filter Buttons */}
-          {showCaseFilter && (
-            <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1">
-              {filterButtons.map((filter) => {
-                const isActive = activeFilter === filter.key;
-                return (
-                  <button
-                    key={filter.key}
-                    onClick={() => onFilterChange?.(filter.key)}
-                    className={`
+          {showCaseFilter && <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1">
+              {filterButtons.map(filter => {
+            const isActive = activeFilter === filter.key;
+            return <button key={filter.key} onClick={() => onFilterChange?.(filter.key)} className={`
                       px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider
                       transition-all duration-300
-                      ${isActive 
-                        ? 'bg-purple-600 text-white' 
-                        : 'text-white/60 hover:text-white hover:bg-white/10'
-                      }
-                    `}
-                  >
+                      ${isActive ? 'bg-purple-600 text-white' : 'text-white/60 hover:text-white hover:bg-white/10'}
+                    `}>
                     {filter.label}
-                  </button>
-                );
-              })}
-            </div>
-          )}
+                  </button>;
+          })}
+            </div>}
 
           {/* Right: Navigation Links */}
           <div className="flex items-center gap-6">
@@ -144,7 +136,7 @@ export const MobileNavigation = ({
               <div className="absolute top-full left-0 mt-2 w-52 bg-[#1A1A1A] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-[60] border border-white/10">
                 <div className="py-2">
                   <Link to="/about" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
-                    About us
+                    Über uns 
                   </Link>
                   <Link to="/use-cases" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
                     Use Cases
@@ -157,11 +149,7 @@ export const MobileNavigation = ({
             </div>
 
 
-            <Button 
-              onClick={onContactClick} 
-              className="bg-white text-black hover:bg-white/90 transition-all duration-200 hover:scale-[1.02] font-medium text-sm" 
-              size="sm"
-            >
+            <Button onClick={onContactClick} className="bg-white text-black hover:bg-white/90 transition-all duration-200 hover:scale-[1.02] font-medium text-sm" size="sm">
               Kontakt
             </Button>
           </div>
@@ -169,13 +157,16 @@ export const MobileNavigation = ({
       </nav>
 
       {/* Mobile Navigation Header */}
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto lg:hidden shadow-2xl py-3 px-4"
-        style={{ paddingTop: 'max(12px, calc(env(safe-area-inset-top, 0px) + 8px))' }}
-      >
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto lg:hidden shadow-2xl py-3 px-4" style={{
+      paddingTop: 'max(12px, calc(env(safe-area-inset-top, 0px) + 8px))'
+    }}>
         <div className="flex items-center justify-between">
           <Link to="/">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center gap-3">
+            <motion.div whileHover={{
+            scale: 1.05
+          }} whileTap={{
+            scale: 0.98
+          }} className="flex items-center gap-3">
               <OptimizedLogo className="h-7 w-7" width={28} height={28} />
               <div className="text-lg font-bold text-white">
                 New Edge
@@ -183,12 +174,9 @@ export const MobileNavigation = ({
             </motion.div>
           </Link>
 
-          <motion.button 
-            whileTap={{ scale: 0.95 }} 
-            onClick={() => setIsOpen(!isOpen)} 
-            className="p-2 text-white z-50 relative min-h-[44px] min-w-[44px] flex items-center justify-center" 
-            aria-label="Toggle menu"
-          >
+          <motion.button whileTap={{
+          scale: 0.95
+        }} onClick={() => setIsOpen(!isOpen)} className="p-2 text-white z-50 relative min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Toggle menu">
             {isOpen ? <X size={22} /> : <Menu size={22} />}
           </motion.button>
         </div>
