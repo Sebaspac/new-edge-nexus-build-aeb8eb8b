@@ -167,8 +167,8 @@ export const MobileNavigation = ({
 
       {/* Mobile Navigation Header */}
       <nav
-        className="fixed left-1/2 -translate-x-1/2 z-50 bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto lg:hidden shadow-2xl py-3 px-6"
-        style={{ top: 'calc(var(--safe-area-top, 0px) + 16px)', width: 'calc(100% - 32px)', maxWidth: '600px' }}
+        className="fixed left-1/2 -translate-x-1/2 z-50 bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto lg:hidden shadow-2xl py-3 px-6 rounded-full"
+        style={{ top: 'max(16px, calc(env(safe-area-inset-top, 0px) + 8px))', width: 'calc(100% - 32px)', maxWidth: '600px' }}
       >
         <div className="flex items-center justify-between">
           <Link to="/">
