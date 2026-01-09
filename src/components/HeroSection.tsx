@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { LazySplineScene } from "./LazySplineScene";
+import { SplineScene } from "./ui/splite";
 import { lazy, Suspense } from "react";
 
 // Lazy load the shader component - it's not critical for first paint
@@ -64,7 +64,7 @@ export const HeroSection = ({
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }} // Faster animation
+                transition={{ duration: 0.6 }}
                 className="block space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-6"
               >
                 
@@ -108,13 +108,11 @@ export const HeroSection = ({
             </div>
           </div>
 
-          {/* Right Side - 3D Spline Scene (lazy loaded with delay) */}
+          {/* Right Side - 3D Spline Scene */}
           <div className="absolute inset-0 lg:relative overflow-hidden z-10 lg:z-20">
-            <LazySplineScene 
+            <SplineScene 
               scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" 
               className="w-full h-full" 
-              threshold={0.1} 
-              rootMargin="0px" 
             />
           </div>
 
