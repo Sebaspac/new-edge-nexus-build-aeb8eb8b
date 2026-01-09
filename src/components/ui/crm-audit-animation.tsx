@@ -59,7 +59,7 @@ export const CRMAuditAnimation = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] bg-gradient-to-br from-blue-950/40 via-gray-900 to-cyan-950/30 overflow-hidden rounded-3xl border border-blue-500/30 backdrop-blur-sm">
+    <div className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] bg-gradient-to-br from-blue-950/40 via-gray-900 to-cyan-950/30 overflow-hidden rounded-3xl border border-blue-500/30" style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(0, 0, 0)' }}>
       {/* Grid pattern */}
       <div 
         className="absolute inset-0 opacity-20"
@@ -220,7 +220,8 @@ export const CRMAuditAnimation = () => {
 
       {/* Status badge */}
       <motion.div
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 backdrop-blur-sm"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30"
+        style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(-50%, 0, 0)' }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1 }}

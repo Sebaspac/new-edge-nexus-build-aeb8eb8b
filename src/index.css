@@ -448,19 +448,47 @@
 .gradient-subtle { background: var(--gradient-subtle); }
 .gradient-glow { background: var(--gradient-glow); }
 
-/* ✨ Glass Morphism */
+/* ✨ Glass Morphism - Safari Compatible */
 .glass {
   background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: var(--shadow-soft);
+  transform: translate3d(0, 0, 0); /* Safari stacking context fix */
 }
 
 .glass-strong {
   background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
   backdrop-filter: blur(40px) saturate(200%);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: var(--shadow-strong);
+  transform: translate3d(0, 0, 0); /* Safari stacking context fix */
+}
+
+/* Safari backdrop-filter support */
+@supports (-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px)) {
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl,
+  .backdrop-blur-2xl,
+  .backdrop-blur-3xl,
+  [class*="backdrop-blur"] {
+    -webkit-backdrop-filter: var(--tw-backdrop-blur, blur(8px));
+    backdrop-filter: var(--tw-backdrop-blur, blur(8px));
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Safari fallback for content-visibility */
+@supports not (content-visibility: auto) {
+  .hero-image,
+  .standard-image,
+  [class*="content-visibility"] {
+    content-visibility: visible;
+  }
 }
 
 /* 🎯 Modern Cards */

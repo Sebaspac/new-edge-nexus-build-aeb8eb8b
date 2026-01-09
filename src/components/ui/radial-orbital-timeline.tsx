@@ -163,7 +163,9 @@ export default function RadialOrbitalTimeline({
           ref={orbitRef}
           style={{
             perspective: "1000px",
+            WebkitPerspective: "1000px",
             transform: `translate(${centerOffset.x}px, ${centerOffset.y}px)`,
+            WebkitTransform: `translate3d(${centerOffset.x}px, ${centerOffset.y}px, 0)`,
           }}
         >
           <div className="absolute w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 animate-pulse flex items-center justify-center z-10">
@@ -251,7 +253,7 @@ export default function RadialOrbitalTimeline({
                 </div>
 
                 {isExpanded && (
-                  <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-64 bg-black/90 backdrop-blur-lg border-white/30 shadow-xl shadow-white/10 overflow-visible">
+                  <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-64 bg-black/90 border-white/30 shadow-xl shadow-white/10 overflow-visible" style={{ WebkitBackdropFilter: 'blur(16px)', backdropFilter: 'blur(16px)', transform: 'translate3d(-50%, 0, 0)' }}>
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-white/50"></div>
                     <CardHeader className="pb-2">
                       <div className="flex justify-between items-center">

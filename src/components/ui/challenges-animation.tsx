@@ -66,7 +66,7 @@ export const ChallengesAnimation: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] bg-gradient-to-br from-red-900/20 via-orange-900/20 to-yellow-900/20 rounded-3xl border border-red-500/30 backdrop-blur-sm overflow-hidden">
+    <div className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] bg-gradient-to-br from-red-900/20 via-orange-900/20 to-yellow-900/20 rounded-3xl border border-red-500/30 overflow-hidden" style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(0, 0, 0)' }}>
       {/* Chaotic background pattern */}
       <div className="absolute inset-0 opacity-20">
         <svg width="100%" height="100%">
@@ -98,7 +98,7 @@ export const ChallengesAnimation: React.FC = () => {
             y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: doc.delay }
           }}
         >
-          <div className="w-10 h-12 md:w-12 md:h-14 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 shadow-lg">
+          <div className="w-10 h-12 md:w-12 md:h-14 bg-white/10 border border-white/20 rounded-lg flex items-center justify-center shadow-lg" style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(-50%, -50%, 0)' }}>
             {getDocIcon(doc.type)}
           </div>
         </motion.div>
@@ -156,7 +156,8 @@ export const ChallengesAnimation: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-2 bg-red-900/40 backdrop-blur-md rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-red-500/30"
+          className="flex items-center gap-2 bg-red-900/40 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-red-500/30"
+          style={{ WebkitBackdropFilter: 'blur(12px)', backdropFilter: 'blur(12px)', transform: 'translate3d(0, 0, 0)' }}
         >
           <Clock className="w-3 h-3 md:w-4 md:h-4 text-red-400" />
           <div>
@@ -175,7 +176,8 @@ export const ChallengesAnimation: React.FC = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.1 }}
-          className="flex items-center gap-2 bg-orange-900/40 backdrop-blur-md rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-orange-500/30"
+          className="flex items-center gap-2 bg-orange-900/40 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-orange-500/30"
+          style={{ WebkitBackdropFilter: 'blur(12px)', backdropFilter: 'blur(12px)', transform: 'translate3d(0, 0, 0)' }}
         >
           <AlertTriangle className="w-3 h-3 md:w-4 md:h-4 text-orange-400" />
           <div>
@@ -188,7 +190,8 @@ export const ChallengesAnimation: React.FC = () => {
       {/* Problem description badge */}
       <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
         <motion.div 
-          className="bg-red-900/50 backdrop-blur-md rounded-lg px-3 py-2 md:px-4 md:py-3 border border-red-500/30"
+          className="bg-red-900/50 rounded-lg px-3 py-2 md:px-4 md:py-3 border border-red-500/30"
+          style={{ WebkitBackdropFilter: 'blur(12px)', backdropFilter: 'blur(12px)', transform: 'translate3d(0, 0, 0)' }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
