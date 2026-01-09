@@ -76,7 +76,7 @@ const Blog = () => {
         
 
         {/* Featured + List Layout */}
-        <section className="px-4 lg:px-8 pb-16 lg:pb-24">
+        <section className="pt-24 lg:pt-32 px-4 lg:px-8 pb-16 lg:pb-24">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               
