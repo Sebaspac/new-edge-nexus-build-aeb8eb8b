@@ -36,8 +36,8 @@ export const HeroSection = ({
         <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/80 z-10 pointer-events-none" />
         
         {/* Left Side - CTA Content */}
-        <div className="relative flex items-end lg:items-center z-20">
-          <div className="w-full px-4 sm:px-6 pb-8 sm:pb-12 md:pb-16 lg:pb-0 lg:px-12 xl:px-16 max-w-[90vw] lg:max-w-2xl lg:mt-auto lg:mb-auto text-center lg:text-left">
+        <div className="relative flex items-center justify-center lg:items-center lg:justify-start z-20">
+          <div className="w-full px-6 sm:px-8 md:px-12 lg:px-12 xl:px-16 max-w-xl md:max-w-2xl lg:max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
             <motion.div initial={{
               opacity: 0,
               y: 20
@@ -69,19 +69,17 @@ export const HeroSection = ({
               </p>
               
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center lg:justify-start items-center lg:items-start">
                 <button 
                   onClick={onContactClick} 
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm sm:text-base w-full sm:w-auto hover:-translate-y-0.5"
-                  style={{ borderRadius: 'var(--radius)' }}
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm sm:text-base w-full sm:w-auto hover:-translate-y-0.5 rounded-none"
                 >
                   Projekt Starten
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <Link 
                   to="/about"
-                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-white font-semibold border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm sm:text-base w-full sm:w-auto"
-                  style={{ borderRadius: 'var(--radius)' }}
+                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-white font-semibold border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm sm:text-base w-full sm:w-auto rounded-none"
                 >
                   Über Uns
                 </Link>
