@@ -43,14 +43,6 @@ const allCaseStudies = [
     category: "SALES",
     route: "/case-study/social-media",
     image: kiWorkflowImage
-  },
-  {
-    id: "visual-merchandising",
-    client: "VISUAL AI",
-    headline: "KI-gestützte Produktvisualisierung",
-    category: "MEDIA",
-    route: "/case-study/visual-merchandising",
-    image: kiCustomerImage
   }
 ];
 
