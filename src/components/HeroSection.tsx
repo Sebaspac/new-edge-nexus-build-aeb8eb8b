@@ -27,8 +27,8 @@ export const HeroSection = ({
     <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md">
       Skip to main content
     </a>
-    <section className="relative w-full min-h-[100dvh]" id="hero">
-      <div className="w-full min-h-[100dvh] grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden z-10">
+    <section className="relative w-full min-h-[100dvh] bg-black" id="hero" style={{ backgroundColor: '#000000' }}>
+      <div className="w-full min-h-[100dvh] grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden z-10 bg-black">
         <CyberneticGridShader />
         
         {/* Left Side - CTA Content */}
