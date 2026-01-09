@@ -18,7 +18,7 @@ const Impressum = () => {
       y: 0
     }} className="container mx-auto px-6 py-8">
         <Link to="/">
-          <Button variant="ghost" className="text-purple-400 hover:text-purple-300 mb-8">
+          <Button variant="ghost" className="text-purple-400 hover:text-purple-300 hover:bg-white/10 mb-8">
             <ArrowLeft className="w-4 h-4 mr-2" />
             {t('legal.backToHome')}
           </Button>
