@@ -110,6 +110,10 @@
     --section-py-sm: clamp(2rem, 5vw, 4rem);
     --section-py-md: clamp(3rem, 8vw, 6rem);
     --section-py-lg: clamp(4rem, 10vw, 8rem);
+
+    /* 🍎 iOS SAFE AREA */
+    --safe-area-top: env(safe-area-inset-top, 0px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
     
     /* 📏 CONTAINER FLUID PADDING */
     --container-px: clamp(1rem, 4vw, 3rem);

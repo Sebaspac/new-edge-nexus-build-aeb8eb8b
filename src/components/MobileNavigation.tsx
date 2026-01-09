@@ -64,7 +64,10 @@ export const MobileNavigation = ({
       <ContactFormModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} accentColor="#000" gradientFrom="#000" gradientTo="#333" theme="studio" />
       
       {/* Desktop Navigation */}
-      <nav className={`fixed top-4 left-4 right-4 z-50 mx-auto bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-6' : 'py-4 px-8'}`} style={{ maxWidth: '1200px' }}>
+      <nav
+        className={`fixed left-4 right-4 z-50 mx-auto bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-6' : 'py-4 px-8'}`}
+        style={{ top: 'calc(var(--safe-area-top, 0px) + 16px)', maxWidth: '1200px' }}
+      >
         <div className="flex items-center justify-between w-full relative">
           {/* Logo + Text */}
           <Link to="/" className="flex items-center gap-3">
@@ -163,7 +166,10 @@ export const MobileNavigation = ({
       </nav>
 
       {/* Mobile Navigation Header */}
-      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto lg:hidden shadow-2xl py-3 px-6" style={{ width: 'calc(100% - 32px)', maxWidth: '600px' }}>
+      <nav
+        className="fixed left-1/2 -translate-x-1/2 z-50 bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto lg:hidden shadow-2xl py-3 px-6"
+        style={{ top: 'calc(var(--safe-area-top, 0px) + 16px)', width: 'calc(100% - 32px)', maxWidth: '600px' }}
+      >
         <div className="flex items-center justify-between">
           <Link to="/">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center gap-3">
