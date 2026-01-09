@@ -7,7 +7,15 @@ import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { extractFormData, validateContactForm, submitContactForm } from "@/utils/contactFormValidation";
+import { 
+  extractFormData, 
+  validateContactForm, 
+  submitContactForm, 
+  checkRateLimit, 
+  recordSubmission,
+  isHoneypotTriggered,
+  extractHoneypotField
+} from "@/utils/contactFormValidation";
 
 interface ContactFormModalProps {
   isOpen: boolean;
@@ -34,6 +42,34 @@ export const ContactFormModal = ({
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
     
+    // Check honeypot field (bot detection)
+    const honeypotValue = extractHoneypotField(formData);
+    if (isHoneypotTriggered(honeypotValue)) {
+      // Silently fail for bots - appear as success
+      toast({
+        title: "Vielen Dank!",
+        description: "Ihre Nachricht wurde gesendet.",
+        duration: 5000
+      });
+      form.reset();
+      onClose();
+      setIsSubmitting(false);
+      return;
+    }
+    
+    // Check rate limit
+    const rateLimitCheck = checkRateLimit();
+    if (!rateLimitCheck.allowed) {
+      toast({
+        title: "Bitte warten",
+        description: rateLimitCheck.error,
+        variant: "destructive",
+        duration: 5000
+      });
+      setIsSubmitting(false);
+      return;
+    }
+    
     // Extract and validate form data
     const rawData = extractFormData(formData, theme.toUpperCase());
     const validation = validateContactForm(rawData);
@@ -52,6 +88,8 @@ export const ContactFormModal = ({
     const result = await submitContactForm(validation.data!);
     
     if (result.success) {
+      // Record successful submission for rate limiting
+      recordSubmission();
       toast({
         title: "Wir designen für dich",
         description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
@@ -96,6 +134,18 @@ export const ContactFormModal = ({
           }
         }
       }}>
+          {/* Honeypot field - hidden from users, filled by bots */}
+          <div style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
+            <label htmlFor="website_url">Website URL (leave empty)</label>
+            <input 
+              type="text" 
+              id="website_url" 
+              name="website_url" 
+              tabIndex={-1} 
+              autoComplete="off"
+            />
+          </div>
+
           <motion.div className="space-y-4" variants={{
           hidden: {
             opacity: 0

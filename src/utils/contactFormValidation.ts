@@ -1,5 +1,13 @@
 import { z } from 'zod';
 
+// Rate limiting configuration
+const RATE_LIMIT_WINDOW_MS = 60000; // 1 minute
+const MAX_SUBMISSIONS_PER_WINDOW = 1;
+
+// Store for rate limiting (in-memory, per session)
+let lastSubmissionTime = 0;
+let submissionCount = 0;
+
 // Contact form validation schema
 export const contactFormSchema = z.object({
   name: z.string()
@@ -34,6 +42,38 @@ export const contactFormSchema = z.object({
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
 
+// Check rate limit
+export function checkRateLimit(): { allowed: boolean; error?: string } {
+  const now = Date.now();
+  
+  // Reset counter if window has passed
+  if (now - lastSubmissionTime > RATE_LIMIT_WINDOW_MS) {
+    submissionCount = 0;
+  }
+  
+  if (submissionCount >= MAX_SUBMISSIONS_PER_WINDOW) {
+    const remainingSeconds = Math.ceil((RATE_LIMIT_WINDOW_MS - (now - lastSubmissionTime)) / 1000);
+    return { 
+      allowed: false, 
+      error: `Bitte warten Sie ${remainingSeconds} Sekunden, bevor Sie erneut senden.` 
+    };
+  }
+  
+  return { allowed: true };
+}
+
+// Record a submission for rate limiting
+export function recordSubmission(): void {
+  lastSubmissionTime = Date.now();
+  submissionCount++;
+}
+
+// Honeypot validation - returns true if bot detected
+export function isHoneypotTriggered(honeypotValue: string | undefined): boolean {
+  // If the hidden honeypot field has any value, it's likely a bot
+  return !!honeypotValue && honeypotValue.trim().length > 0;
+}
+
 // Validate form data and return result
 export function validateContactForm(data: Record<string, unknown>): { 
   success: boolean; 
@@ -66,6 +106,11 @@ export function extractFormData(formData: FormData, source?: string): Record<str
     nachricht: formData.get('nachricht')?.toString() || '',
     source: source || '',
   };
+}
+
+// Extract honeypot field from FormData
+export function extractHoneypotField(formData: FormData): string | undefined {
+  return formData.get('website_url')?.toString();
 }
 
 // Submit validated contact form data to webhook
