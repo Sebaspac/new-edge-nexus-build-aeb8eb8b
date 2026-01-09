@@ -67,7 +67,7 @@ export const PositionedForImpactSection = () => {
               }} whileTap={{
                 scale: 0.98
               }} className="relative px-6 sm:px-8 py-3 sm:py-4 font-bold uppercase text-xs sm:text-sm tracking-wider bg-white/10 backdrop-blur-md border-2 border-black text-black shadow-[0_8px_32px_0_rgba(124,58,237,0.1)] hover:bg-black hover:text-white transition-all duration-500">
-                  FINDE DEINE EDGE
+                  VORSPRUNG SICHERN 
                 </motion.button>
               </Link>
             </div>
