@@ -3,7 +3,7 @@ import { Plus, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import albanovaImage from "@/assets/albanova-building.png";
 import ragDatacenterImage from "@/assets/rag-datacenter.jpg";
-import kiMediaImage from "@/assets/ki-media.png";
+import marketingAutomationImage from "@/assets/marketing-automation.jpg";
 import leadGenerationImage from "@/assets/lead-generation.jpg";
 
 export const CaseStudiesGrid = () => {
@@ -30,7 +30,7 @@ export const CaseStudiesGrid = () => {
       headline: "Marketing-Automatisierung mit KI",
       category: "GROWTH",
       route: "/case-study/ecommerce",
-      image: kiMediaImage
+      image: marketingAutomationImage
     },
     {
       id: "social-media",
