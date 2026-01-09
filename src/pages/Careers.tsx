@@ -4,7 +4,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { Footer } from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import careersHeroImage from "@/assets/careers-hero.png";
+import careersHeroImage from "@/assets/careers-hero.jpg";
 const Careers = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -41,12 +41,17 @@ const Careers = () => {
             <div className="absolute inset-0 overflow-hidden">
               <img 
                 src={careersHeroImage} 
-                alt="NEW EDGE Office - Werk3 München" 
+                alt="NEW EDGE Office - Werksviertel München" 
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0" style={{
               background: 'linear-gradient(to top, rgba(17, 24, 39, 0.7), rgba(31, 41, 55, 0.3), transparent)'
             }} />
+              
+              {/* Copyright notice */}
+              <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4">
+                <span className="text-[10px] sm:text-xs text-white/50">© URKERN, Ivana Bilz</span>
+              </div>
               
               <div className="absolute bottom-0 left-0 p-4 pb-6 sm:p-12 sm:pb-12 lg:p-16 max-w-full sm:max-w-4xl">
                 <div className="inline-block mb-2 sm:mb-4">
