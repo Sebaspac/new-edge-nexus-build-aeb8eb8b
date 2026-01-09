@@ -38,10 +38,17 @@ const mediaCases: CaseStudy[] = [{
   image: albanovaImage
 }];
 
-// LAB Cases
+// LAB Cases - Alle anderen 3 Cases
 const labCases: CaseStudy[] = [{
+  id: "retail-lab",
+  client: "INDUSTRY KMU",
+  headline: "RAG-Wissensagent für Maschinenbau",
+  category: "AI AUTOMATION",
+  route: "/case-study/retail-lab",
+  image: kiInfrastructureImage
+}, {
   id: "ecommerce",
-  client: "E-COMMERCE",
+  client: "RETAIL CLIENT",
   headline: "Marketing-Automatisierung mit KI",
   category: "GROWTH",
   route: "/case-study/ecommerce",

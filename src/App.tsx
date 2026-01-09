@@ -22,7 +22,7 @@ import CaseStudyAlbaNova from "./pages/CaseStudyAlbaNova";
 import CaseStudyEcommerce from "./pages/CaseStudyEcommerce";
 import CaseStudyVisualMerchandising from "./pages/CaseStudyVisualMerchandising";
 import CaseStudySocialMedia from "./pages/CaseStudySocialMedia";
-
+import CaseStudyRetailLab from "./pages/CaseStudyRetailLab";
 import Careers from "./pages/Careers";
 import About from "./pages/About";
 import Resources from "./pages/Resources";
@@ -70,7 +70,7 @@ const App = () => {
             <Route path="/case-study/ecommerce" element={<CaseStudyEcommerce />} />
             <Route path="/case-study/visual-merchandising" element={<CaseStudyVisualMerchandising />} />
             <Route path="/case-study/social-media" element={<CaseStudySocialMedia />} />
-            
+            <Route path="/case-study/retail-lab" element={<CaseStudyRetailLab />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/about" element={<About />} />
