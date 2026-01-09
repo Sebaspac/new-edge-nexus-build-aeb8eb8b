@@ -85,7 +85,7 @@ export const MobileNavigation = ({
               <img 
                 src={newEdgeLogoHorizontal} 
                 alt="New Edge" 
-                className={`transition-all duration-500 ${isScrolled ? 'h-7' : 'h-9'} w-auto`}
+                className={`transition-all duration-500 ${isScrolled ? 'h-8' : 'h-10'} w-auto`}
               />
             </motion.div>
           </Link>
@@ -171,7 +171,7 @@ export const MobileNavigation = ({
               <img 
                 src={newEdgeLogoHorizontal} 
                 alt="New Edge" 
-                className="h-7 w-auto"
+                className="h-8 w-auto"
               />
             </motion.div>
           </Link>
