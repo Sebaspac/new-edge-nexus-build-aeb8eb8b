@@ -69,7 +69,7 @@ export const TestimonialsSection = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight mt-3 sm:mt-4 md:mt-6 text-center text-black">
             Was unsere Kunden sagen
           </h2>
-          <p className="text-center mt-2 sm:mt-3 md:mt-5 text-gray-600 text-sm sm:text-base md:text-lg">Erfahrungen echter Unternehmen mit New Edge.</p>
+          <p className="text-center mt-2 sm:mt-3 md:mt-5 text-gray-600 text-sm sm:text-base md:text-lg">Erfahrungen  mit New Edge</p>
         </motion.div>
 
         <div className="flex justify-center gap-3 md:gap-6 mt-6 sm:mt-8 md:mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[400px] sm:max-h-[500px] md:max-h-[740px] overflow-hidden">
