@@ -27,14 +27,12 @@ export const HeroSection = ({
     <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md">
       Skip to main content
     </a>
-    <section className="relative w-full min-h-[100dvh] bg-slate-900 pt-[60px] lg:pt-[72px]" id="hero">
-      <div className="w-full h-[calc(100dvh-60px)] lg:h-[calc(100dvh-72px)] grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden bg-slate-900 z-10">
+    <section className="relative w-full min-h-[100dvh]" id="hero">
+      <div className="w-full min-h-[100dvh] grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden z-10">
         <CyberneticGridShader />
         
-        <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/80 z-10 pointer-events-none" />
-        
         {/* Left Side - CTA Content */}
-        <div className="relative flex items-center justify-center lg:items-center lg:justify-start z-20">
+        <div className="relative flex items-center justify-center lg:items-center lg:justify-start z-20 pt-[80px] lg:pt-[100px]">
           <div className="w-full px-6 sm:px-8 md:px-12 lg:px-12 xl:px-16 max-w-xl md:max-w-2xl lg:max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
             <motion.div initial={{
               opacity: 0,
