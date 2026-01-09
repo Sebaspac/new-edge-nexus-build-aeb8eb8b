@@ -17,16 +17,8 @@ export const CaseStudiesGrid = () => {
       image: albanovaImage
     },
     {
-      id: "retail-lab",
-      client: "INDUSTRY KMU",
-      headline: "RAG-Wissensagent für Maschinenbau",
-      category: "AI AUTOMATION",
-      route: "/case-study/retail-lab",
-      image: kiInfrastructureImage
-    },
-    {
       id: "ecommerce",
-      client: "RETAIL CLIENT",
+      client: "E-COMMERCE",
       headline: "Marketing-Automatisierung mit KI",
       category: "GROWTH",
       route: "/case-study/ecommerce",
@@ -78,7 +70,7 @@ export const CaseStudiesGrid = () => {
         </div>
 
         {/* Case Studies Grid - Unified layout for all screen sizes */}
-        <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
           {caseStudies.map((caseStudy, index) => (
             <motion.div
               key={caseStudy.id}
@@ -86,7 +78,6 @@ export const CaseStudiesGrid = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
-              className="flex-shrink-0 w-[75%] snap-start md:w-auto"
             >
               <Link to={caseStudy.route} className="block group">
                 <div className="relative overflow-hidden aspect-square bg-gray-900">

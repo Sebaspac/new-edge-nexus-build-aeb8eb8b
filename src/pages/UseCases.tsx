@@ -25,15 +25,6 @@ const UseCases = () => {
     backgroundVideo: "/assets/studio-hero-video.mp4",
     route: "/case-study/albanova"
   }, {
-    id: "rag-wissensagent",
-    category: "lab" as const,
-    tabTitle: "RAG-Wissensagent (Industry)",
-    label: "CASE STUDY",
-    headline: "Industriewissen. Sofort verfügbar.",
-    description: "Wie wir für ein Maschinenbau-KMU einen unternehmensweiten RAG-Wissensagenten entwickelten, der Produktions- und Engineering-Know-how in Echtzeit abrufbar macht.",
-    backgroundVideo: "/assets/lab-hero-video.mp4",
-    route: "/case-study/retail-lab"
-  }, {
     id: "marketing-agent",
     category: "media" as const,
     tabTitle: "Marketing-Agent (Retail)",

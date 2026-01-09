@@ -21,16 +21,8 @@ const allCaseStudies = [
     image: albanovaImage
   },
   {
-    id: "retail-lab",
-    client: "INDUSTRY KMU",
-    headline: "RAG-Wissensagent für Maschinenbau",
-    category: "AI AUTOMATION",
-    route: "/case-study/retail-lab",
-    image: kiInfrastructureImage
-  },
-  {
     id: "ecommerce",
-    client: "RETAIL CLIENT",
+    client: "E-COMMERCE",
     headline: "Marketing-Automatisierung mit KI",
     category: "GROWTH",
     route: "/case-study/ecommerce",

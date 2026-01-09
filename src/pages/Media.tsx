@@ -88,7 +88,7 @@ const Media = () => {
   const mediaCases = [
     {
       id: "ecommerce",
-      client: "RETAIL CLIENT",
+      client: "E-COMMERCE",
       headline: "Marketing-Automatisierung mit KI",
       category: "GROWTH",
       route: "/case-study/ecommerce",
