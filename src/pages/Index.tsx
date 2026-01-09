@@ -406,7 +406,7 @@ const Index = () => {
               delay: 0.6,
               duration: 0.6
             }} className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
-                <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="group bg-background text-foreground hover:bg-muted transition-all duration-300 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 font-semibold w-full sm:w-auto hover:-translate-y-0.5">
+                <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="group bg-white/10 backdrop-blur-md text-white border-2 border-black hover:bg-black hover:text-white transition-all duration-300 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 font-semibold w-full sm:w-auto hover:-translate-y-0.5 rounded-none">
                   Kontakt aufnehmen
                   <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
