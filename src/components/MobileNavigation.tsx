@@ -65,10 +65,9 @@ export const MobileNavigation = ({
       
       {/* Desktop Navigation */}
       <nav
-        className={`fixed left-4 right-4 z-50 mx-auto bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-6' : 'py-4 px-8'}`}
-        style={{ top: 'calc(var(--safe-area-top, 0px) + 16px)', maxWidth: '1200px' }}
+        className={`fixed top-0 left-0 right-0 z-50 bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-6' : 'py-4 px-8'}`}
       >
-        <div className="flex items-center justify-between w-full relative">
+        <div className="flex items-center justify-between w-full relative max-w-7xl mx-auto">
           {/* Logo + Text */}
           <Link to="/" className="flex items-center gap-3">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center gap-3">

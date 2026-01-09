@@ -28,9 +28,9 @@ export const HeroSection = ({
     <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md">
       Skip to main content
     </a>
-    <section className="relative w-full min-h-[100dvh] bg-slate-900" id="hero">
+    <section className="relative w-full min-h-[100dvh] bg-slate-900 pt-[60px] lg:pt-[72px]" id="hero">
       <SplashCursor />
-      <div className="w-full h-[100dvh] grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden bg-slate-900 z-10">
+      <div className="w-full h-[calc(100dvh-60px)] lg:h-[calc(100dvh-72px)] grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden bg-slate-900 z-10">
         <CyberneticGridShader />
         
         <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/80 z-10 pointer-events-none" />
