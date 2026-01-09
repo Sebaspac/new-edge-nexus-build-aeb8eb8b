@@ -61,7 +61,7 @@ export const SalesChaosAnimation = () => {
   };
 
   return (
-    <div className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] bg-gradient-to-br from-red-950/40 via-gray-900 to-orange-950/30 overflow-hidden rounded-3xl border border-red-500/30 backdrop-blur-sm">
+    <div className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] bg-gradient-to-br from-red-950/40 via-gray-900 to-orange-950/30 overflow-hidden rounded-3xl border border-red-500/30" style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(0, 0, 0)' }}>
       {/* Chaotic grid pattern */}
       <div 
         className="absolute inset-0 opacity-20"
@@ -79,8 +79,8 @@ export const SalesChaosAnimation = () => {
       {leads.map((lead) => (
         <motion.div
           key={lead.id}
-          className={`absolute w-20 sm:w-24 md:w-28 p-2 rounded-lg border ${getStatusColor(lead.status)} backdrop-blur-sm -translate-x-1/2 -translate-y-1/2`}
-          style={{ left: `${lead.x}%`, top: `${lead.y}%` }}
+          className={`absolute w-20 sm:w-24 md:w-28 p-2 rounded-lg border ${getStatusColor(lead.status)}`}
+          style={{ left: `${lead.x}%`, top: `${lead.y}%`, WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(-50%, -50%, 0)' }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{
             opacity: [0.6, 0.9, 0.6],
@@ -145,7 +145,8 @@ export const SalesChaosAnimation = () => {
 
       {/* CRM Window with problems */}
       <motion.div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 md:w-40 p-3 rounded-xl border border-red-500/30 bg-red-950/30 backdrop-blur-sm"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 md:w-40 p-3 rounded-xl border border-red-500/30 bg-red-950/30"
+        style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(-50%, -50%, 0)' }}
         animate={{ 
           boxShadow: ['0 0 20px rgba(239, 68, 68, 0.1)', '0 0 30px rgba(239, 68, 68, 0.2)', '0 0 20px rgba(239, 68, 68, 0.1)'],
         }}
@@ -219,7 +220,8 @@ export const SalesChaosAnimation = () => {
 
       {/* Problem description badge */}
       <motion.div
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/30 backdrop-blur-sm"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/30"
+        style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(-50%, 0, 0)' }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1 }}

@@ -231,6 +231,22 @@ export default {
 					'&::-webkit-scrollbar': {
 						display: 'none'
 					}
+				},
+				// Safari-compatible backdrop-filter utilities
+				'.backdrop-blur-safari': {
+					'-webkit-backdrop-filter': 'blur(8px)',
+					'backdrop-filter': 'blur(8px)',
+					'transform': 'translate3d(0, 0, 0)'
+				},
+				'.backdrop-blur-md-safari': {
+					'-webkit-backdrop-filter': 'blur(12px)',
+					'backdrop-filter': 'blur(12px)',
+					'transform': 'translate3d(0, 0, 0)'
+				},
+				'.backdrop-blur-lg-safari': {
+					'-webkit-backdrop-filter': 'blur(16px)',
+					'backdrop-filter': 'blur(16px)',
+					'transform': 'translate3d(0, 0, 0)'
 				}
 			});
 		}
