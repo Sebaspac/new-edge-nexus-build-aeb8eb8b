@@ -406,11 +406,61 @@ const CaseStudyVisualMerchandising = () => {
           <AnimatedSection>
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">Projekt Timeline</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto hidden md:block">
                 [PLACEHOLDER: Timeline Intro - 1-2 Sätze über den Projektverlauf]
               </p>
+              <p className="text-base text-muted-foreground max-w-2xl mx-auto md:hidden">
+                Wischen Sie, um die Projektphasen zu erkunden
+              </p>
             </div>
-            <RadialOrbitalTimeline timelineData={orbitalTimelineData} />
+            
+            {/* Desktop: Radial Timeline */}
+            <div className="hidden md:block">
+              <RadialOrbitalTimeline timelineData={orbitalTimelineData} />
+            </div>
+            
+            {/* Mobile: Horizontal Snap-Scroll Timeline */}
+            <div className="md:hidden relative">
+              <div className="absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+              <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-6 pt-2 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                {orbitalTimelineData.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.id} className="flex-shrink-0 w-[80vw] snap-center">
+                      <div className="flex justify-center mb-4">
+                        <div className="w-4 h-4 rounded-full bg-primary border-2 border-primary/50 shadow-lg shadow-primary/50" />
+                      </div>
+                      <div className="bg-card/50 backdrop-blur-sm border border-primary/30 rounded-2xl p-5 h-full">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/50 flex items-center justify-center">
+                            <Icon className="w-5 h-5 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="text-foreground font-bold text-lg">{item.title}</h3>
+                            <span className="text-primary text-xs font-medium">{item.date}</span>
+                          </div>
+                        </div>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">{item.content}</p>
+                        <div className="flex items-center justify-between">
+                          <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">{item.category}</span>
+                          <div className="flex items-center gap-2">
+                            <div className="w-16 h-1.5 bg-muted rounded-full overflow-hidden">
+                              <div className="h-full bg-gradient-to-r from-primary to-primary/50 rounded-full" style={{ width: `${item.energy}%` }} />
+                            </div>
+                            <span className="text-muted-foreground text-xs">{item.energy}%</span>
+                          </div>
+                        </div>
+                        <div className="mt-4 pt-4 border-t border-border flex items-center justify-center gap-1">
+                          {orbitalTimelineData.map((_, i) => (
+                            <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === index ? 'bg-primary' : 'bg-muted'}`} />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </AnimatedSection>
         </div>
       </section>
