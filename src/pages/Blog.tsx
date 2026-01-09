@@ -118,7 +118,7 @@ const Blog = () => {
 
               {/* Other Posts - Right Side List */}
               <div className="lg:col-span-5 space-y-0 divide-y divide-gray-200">
-                <div className="text-sm font-semibold text-gray-400 uppercase tracking-wider pb-4 mb-0">
+                <div className="text-sm font-semibold uppercase tracking-wider pb-4 mb-0 text-accent-foreground">
                   Weitere Artikel
                 </div>
                 
