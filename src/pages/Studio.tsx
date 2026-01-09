@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { ServiceScrollSection } from "@/components/ServiceScrollSection";
 import { LazyVideo } from "@/components/LazyVideo";
-
 import { BrandStrategyAnimation } from "@/components/ui/brand-strategy-animation";
 import { BrandIdentityAnimation } from "@/components/ui/brand-identity-animation";
 import albanovaImage from "@/assets/albanova-website.png";
@@ -186,61 +185,56 @@ const Studio = () => {
           background: index % 2 === 0 ? 'linear-gradient(to bottom right, white, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08))' : 'linear-gradient(to bottom right, white, rgba(168, 85, 247, 0.08), rgba(99, 102, 241, 0.08))'
         }}>
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <ServiceScrollSection 
-                  gradient={service.gradient} 
-                  videoSrc={videoSrc} 
-                  imagePosition={isEven ? "right" : "left"}
-                  animationBelow={index === 0 ? <BrandStrategyAnimation /> : <BrandIdentityAnimation />}
-                >
+                <ServiceScrollSection gradient={service.gradient} videoSrc={videoSrc} imagePosition={isEven ? "right" : "left"} animationBelow={index === 0 ? <BrandStrategyAnimation /> : <BrandIdentityAnimation />}>
                   <div className="space-y-6">
                     <motion.div variants={{
-                      hidden: {
-                        opacity: 0,
-                        x: isEven ? -30 : 30
-                      },
-                      visible: {
-                        opacity: 1,
-                        x: 0,
-                        transition: {
-                          duration: 0.6
-                        }
-                      }
-                    }} className="flex items-center gap-4 mb-8">
+                  hidden: {
+                    opacity: 0,
+                    x: isEven ? -30 : 30
+                  },
+                  visible: {
+                    opacity: 1,
+                    x: 0,
+                    transition: {
+                      duration: 0.6
+                    }
+                  }
+                }} className="flex items-center gap-4 mb-8">
                       <h2 className="text-h2 font-bold text-black">{service.title}</h2>
                     </motion.div>
 
                     {/* Outcome */}
                     <motion.div variants={{
-                      hidden: {
-                        opacity: 0,
-                        y: 20
-                      },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                          duration: 0.5
-                        }
-                      }
-                    }} className="bg-gradient-to-r from-[#6366f1]/10 to-[#a855f7]/10 backdrop-blur-sm p-6 rounded-2xl border border-[#6366f1]/20">
+                  hidden: {
+                    opacity: 0,
+                    y: 20
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.5
+                    }
+                  }
+                }} className="bg-gradient-to-r from-[#6366f1]/10 to-[#a855f7]/10 backdrop-blur-sm p-6 rounded-2xl border border-[#6366f1]/20">
                       <p className="text-gray-700 leading-relaxed">{service.outcome}</p>
                     </motion.div>
 
                     {/* Problem */}
                     <motion.div variants={{
-                      hidden: {
-                        opacity: 0,
-                        y: 20
-                      },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                          duration: 0.5,
-                          delay: 0.1
-                        }
-                      }
-                    }} className="bg-red-50 border border-red-100 rounded-2xl p-5">
+                  hidden: {
+                    opacity: 0,
+                    y: 20
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.5,
+                      delay: 0.1
+                    }
+                  }
+                }} className="bg-red-50 border border-red-100 rounded-2xl p-5">
                       <h3 className="text-sm font-semibold text-red-600 uppercase tracking-wider mb-2">
                         Das Problem
                       </h3>
@@ -249,19 +243,19 @@ const Studio = () => {
 
                     {/* Solution */}
                     <motion.div variants={{
-                      hidden: {
-                        opacity: 0,
-                        y: 20
-                      },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                          duration: 0.5,
-                          delay: 0.2
-                        }
-                      }
-                    }} className="bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
+                  hidden: {
+                    opacity: 0,
+                    y: 20
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.5,
+                      delay: 0.2
+                    }
+                  }
+                }} className="bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
                       <h3 className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-2">
                         Unsere Lösung
                       </h3>
@@ -270,39 +264,42 @@ const Studio = () => {
 
                     {/* Deliverables - Lab Style */}
                     <motion.div variants={{
-                      hidden: {
-                        opacity: 0,
-                        y: 20
-                      },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                          duration: 0.5,
-                          delay: 0.3
-                        }
-                      }
-                    }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
+                  hidden: {
+                    opacity: 0,
+                    y: 20
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.5,
+                      delay: 0.3
+                    }
+                  }
+                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
                       <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Deliverables</h4>
                       <div className="space-y-3">
-                        {service.deliverables.map((item, idx) => (
-                          <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, x: -10 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: idx * 0.05 }}
-                            whileHover={{ x: 6 }}
-                            className="flex items-center gap-4 group cursor-default"
-                          >
+                        {service.deliverables.map((item, idx) => <motion.div key={idx} initial={{
+                      opacity: 0,
+                      x: -10
+                    }} whileInView={{
+                      opacity: 1,
+                      x: 0
+                    }} viewport={{
+                      once: true
+                    }} transition={{
+                      duration: 0.3,
+                      delay: idx * 0.05
+                    }} whileHover={{
+                      x: 6
+                    }} className="flex items-center gap-4 group cursor-default">
                             <span className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white text-sm font-bold shadow-md group-hover:scale-110 transition-transform duration-200`}>
                               {idx + 1}
                             </span>
                             <span className="text-gray-700 group-hover:text-gray-900 transition-colors duration-200 font-medium">
                               {item}
                             </span>
-                          </motion.div>
-                        ))}
+                          </motion.div>)}
                       </div>
                     </motion.div>
                   </div>
@@ -434,10 +431,8 @@ const Studio = () => {
         background: 'linear-gradient(to right, #6366f1, #8b5cf6, #a855f7)'
       }}>
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-            <h2 className="text-h1 mb-4 sm:mb-6">Bereit fuer den naechsten Schritt?</h2>
-            <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
-              Gemeinsam entwickeln wir eine Marke, die Haltung zeigt und in einer AI-getriebenen Welt Relevanz gewinnt.
-            </p>
+            <h2 className="text-h1 mb-4 sm:mb-6">Bereit für den nächsten Schritt?</h2>
+            <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">Gemeinsam entwickeln wir ihre Marke, die Haltung zeigt und in einer AI-getriebenen Welt Relevanz gewinnt.</p>
             <Button id="projekt-besprechen-btn" size="lg" className="bg-white hover:bg-gray-50 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-[1.02] transition-all duration-200" style={{
             color: '#6366f1'
           }} onClick={() => setIsModalOpen(true)}>
