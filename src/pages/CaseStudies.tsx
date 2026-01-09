@@ -84,7 +84,7 @@ const CaseCard = ({
     delay: index * 0.1
   }} className="flex-shrink-0">
       <Link to={caseStudy.route} className="block group">
-        <div className="relative overflow-hidden w-[260px] md:w-[300px] lg:w-[360px] aspect-[4/3]">
+        <div className="relative overflow-hidden w-[120px] sm:w-[160px] md:w-[240px] lg:w-[320px] xl:w-[360px] aspect-[4/3]">
           {/* Bild - eckig ohne Rundungen */}
           <img src={caseStudy.image} alt={caseStudy.headline} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
           
@@ -95,14 +95,14 @@ const CaseCard = ({
           <div className={`absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-300 ${accentColor}`} />
           
           {/* Content */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-            <span className="text-[10px] md:text-xs uppercase tracking-wider text-gray-300 mb-1 block font-medium">
+          <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3 md:p-4 lg:p-5">
+            <span className="text-[7px] sm:text-[8px] md:text-[10px] lg:text-xs uppercase tracking-wider text-gray-300 mb-0.5 sm:mb-1 block font-medium">
               {caseStudy.client}
             </span>
-            <h3 className="text-sm md:text-base lg:text-lg font-semibold text-white mb-2 leading-tight">
+            <h3 className="text-[9px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-semibold text-white mb-0.5 sm:mb-1 md:mb-2 leading-tight line-clamp-2">
               {caseStudy.headline}
             </h3>
-            <span className="inline-block text-[9px] md:text-[10px] uppercase tracking-wider px-2 py-0.5 bg-white/10 text-white/80 font-medium">
+            <span className="inline-block text-[6px] sm:text-[7px] md:text-[9px] lg:text-[10px] uppercase tracking-wider px-1 sm:px-1.5 md:px-2 py-0.5 bg-white/10 text-white/80 font-medium">
               {caseStudy.category}
             </span>
           </div>
@@ -141,17 +141,17 @@ const CategoryRow = ({
   }} transition={{
     duration: 0.6,
     delay: index * 0.15
-  }} className={`flex flex-col lg:flex-row ${!isLeft ? 'lg:flex-row-reverse' : ''} min-h-[260px] md:min-h-[300px] lg:min-h-[340px] border-b border-white/10`}>
+  }} className={`flex flex-row ${!isLeft ? 'flex-row-reverse' : ''} min-h-[160px] sm:min-h-[200px] md:min-h-[260px] lg:min-h-[340px] border-b border-white/10`}>
       {/* Cases Container */}
-      <div className="w-full lg:w-[72%] xl:w-[75%] overflow-x-auto scrollbar-hide py-4 lg:py-0">
+      <div className="w-[65%] sm:w-[68%] md:w-[70%] lg:w-[72%] xl:w-[75%] overflow-x-auto scrollbar-hide flex items-center">
         <div className="flex gap-0 h-full items-center">
           {cases.map((caseStudy, caseIndex) => <CaseCard key={caseStudy.id} caseStudy={caseStudy} accentColor={accentColor} index={caseIndex} />)}
         </div>
       </div>
       
       {/* Label Container mit Slash */}
-      <div className={`w-full lg:w-[28%] xl:w-[25%] flex items-center ${isLeft ? 'lg:justify-start lg:pl-6 xl:pl-10' : 'lg:justify-end lg:pr-6 xl:pr-10'} py-4 lg:py-0 px-4 lg:px-0`}>
-        <div className={`flex items-center gap-3 md:gap-5 ${isLeft ? '' : 'flex-row-reverse'}`}>
+      <div className={`w-[35%] sm:w-[32%] md:w-[30%] lg:w-[28%] xl:w-[25%] flex items-center ${isLeft ? 'justify-start pl-2 sm:pl-4 md:pl-6 lg:pl-10' : 'justify-end pr-2 sm:pr-4 md:pr-6 lg:pr-10'}`}>
+        <div className={`flex items-center gap-1 sm:gap-2 md:gap-4 lg:gap-5 ${isLeft ? '' : 'flex-row-reverse'}`}>
           {/* Großer Slash */}
           <motion.span initial={{
           opacity: 0,
@@ -166,7 +166,7 @@ const CategoryRow = ({
         }} transition={{
           duration: 0.6,
           delay: 0.2
-        }} className={`text-[70px] md:text-[90px] lg:text-[120px] xl:text-[150px] font-thin leading-none ${slashColor} select-none`}>
+        }} className={`text-[36px] sm:text-[50px] md:text-[70px] lg:text-[100px] xl:text-[150px] font-thin leading-none ${slashColor} select-none`}>
             /
           </motion.span>
           
@@ -183,7 +183,7 @@ const CategoryRow = ({
           }} transition={{
             duration: 0.4,
             delay: 0.3
-          }} className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white tracking-tight">
+          }} className="text-xs sm:text-base md:text-xl lg:text-3xl xl:text-4xl font-bold text-white tracking-tight">
               {title}
             </motion.h2>
             <motion.p initial={{
@@ -197,7 +197,7 @@ const CategoryRow = ({
           }} transition={{
             duration: 0.4,
             delay: 0.4
-          }} className="text-xs md:text-sm lg:text-base text-gray-400 mt-1">
+          }} className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm text-gray-400 mt-0.5 sm:mt-1">
               {subtitle}
             </motion.p>
           </div>
