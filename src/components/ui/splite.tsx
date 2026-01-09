@@ -1,7 +1,9 @@
-'use client'
-
 import { Suspense, lazy } from 'react'
-const Spline = lazy(() => import('@splinetool/react-spline'))
+
+// Properly handle the spline import - the package uses named export
+const Spline = lazy(() => 
+  import('@splinetool/react-spline').then(mod => ({ default: mod.default }))
+)
 
 interface SplineSceneProps {
   scene: string
