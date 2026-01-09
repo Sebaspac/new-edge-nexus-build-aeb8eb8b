@@ -72,14 +72,14 @@ export const Footer = () => {
                 <li>
                   <Link to="/team" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      Team
+                      Use Cases 
                     </span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/careers" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      Karriere
+                      Carreers
                     </span>
                   </Link>
                 </li>
