@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import albanovaImage from "@/assets/albanova-building.png";
 import ragDatacenterImage from "@/assets/rag-datacenter.jpg";
 import kiMediaImage from "@/assets/ki-media.png";
-import kiWorkflowImage from "@/assets/ki-workflow.png";
+import leadGenerationImage from "@/assets/lead-generation.jpg";
 
 export const CaseStudiesGrid = () => {
   const caseStudies = [
@@ -38,7 +38,7 @@ export const CaseStudiesGrid = () => {
       headline: "Intelligente Lead-Qualifizierung",
       category: "SALES",
       route: "/case-study/social-media",
-      image: kiWorkflowImage
+      image: leadGenerationImage
     }
   ];
 
