@@ -72,15 +72,10 @@ export const MethodologyGrid = () => {
               <div className="absolute -right-8 -bottom-8 sm:-right-12 sm:-bottom-12 w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 bg-[#7C3AED] opacity-80 group-hover:scale-110 transition-transform duration-500" />
               
               <div className="relative z-10">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">Web-Check 2025</h3>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">Web-Check 2026</h3>
                 <p className="text-gray-300 mb-3 sm:mb-4 md:mb-6 text-xs sm:text-sm md:text-base">Jetzt kostenlose Analyse sichern.</p>
                 
-                <a 
-                  href="https://seo-audit-pro-1064008039464.us-west1.run.app" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[#7C3AED] font-bold uppercase text-xs sm:text-sm tracking-wider group-hover:gap-4 transition-all duration-300"
-                >
+                <a href="https://seo-audit-pro-1064008039464.us-west1.run.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[#7C3AED] font-bold uppercase text-xs sm:text-sm tracking-wider group-hover:gap-4 transition-all duration-300">
                   ZUR ANMELDUNG
                   <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
