@@ -65,7 +65,7 @@ export const MobileNavigation = ({
       
       {/* Desktop Navigation */}
       <nav
-        className={`fixed left-4 right-4 z-50 mx-auto bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block rounded-xl ${isScrolled ? 'py-3 px-6' : 'py-4 px-8'}`}
+        className={`fixed left-4 right-4 z-50 mx-auto bg-[#1A1A1A] backdrop-blur-lg pointer-events-auto transition-all duration-500 ease-out shadow-2xl hidden lg:block ${isScrolled ? 'py-3 px-6' : 'py-4 px-8'}`}
         style={{ 
           top: 'calc(var(--safe-area-top, 0px) + 16px)', 
           maxWidth: isScrolled ? '1100px' : '1200px' 
