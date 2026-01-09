@@ -1,5 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
-import { SplineScene } from './ui/splite';
+import { useState, useEffect, useRef, lazy, Suspense } from 'react';
+
+// Dynamically import the heavy SplineScene component
+const SplineScene = lazy(() => import('./ui/splite').then(mod => ({ default: mod.SplineScene })));
 
 interface LazySplineSceneProps {
   scene: string;
@@ -8,35 +10,65 @@ interface LazySplineSceneProps {
   rootMargin?: string;
 }
 
+// Check if user prefers reduced motion
+const prefersReducedMotion = () => {
+  if (typeof window === 'undefined') return false;
+  return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+};
+
+// Check if device is low-end or has slow connection
+const isLowEndDevice = () => {
+  if (typeof navigator === 'undefined') return false;
+  const cores = navigator.hardwareConcurrency || 4;
+  const connection = (navigator as any).connection;
+  const isSlowConnection = connection?.effectiveType === 'slow-2g' || connection?.effectiveType === '2g' || connection?.effectiveType === '3g';
+  const isLowMemory = (navigator as any).deviceMemory && (navigator as any).deviceMemory < 4;
+  return cores <= 2 || isSlowConnection || isLowMemory;
+};
+
 /**
  * Lazy-loaded Spline Scene Component
- * Loads the heavy 3D scene only when it enters the viewport
- * Shows a lightweight placeholder until then
+ * - Loads heavy 3D scene only after user interaction or idle
+ * - Shows gradient fallback for reduced motion / low-end devices
+ * - Delays loading to prioritize above-the-fold content
  */
 export const LazySplineScene = ({
   scene,
   className = '',
-  threshold = 0.25,
-  rootMargin = '50px'
+  threshold = 0.1,
+  rootMargin = '100px'
 }: LazySplineSceneProps) => {
   const [shouldLoad, setShouldLoad] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Skip 3D on reduced motion or low-end devices
+  const shouldSkip3D = prefersReducedMotion() || isLowEndDevice();
+
   useEffect(() => {
-    // Don't load on server-side
+    // Skip loading for accessibility or performance
+    if (shouldSkip3D) return;
     if (typeof window === 'undefined') return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setShouldLoad(true);
+          // Delay loading to prioritize other content (LCP optimization)
+          const loadAfterIdle = () => {
+            setShouldLoad(true);
+          };
+          
+          // Use requestIdleCallback or setTimeout fallback
+          if ('requestIdleCallback' in window) {
+            (window as any).requestIdleCallback(loadAfterIdle, { timeout: 2000 });
+          } else {
+            setTimeout(loadAfterIdle, 1500);
+          }
+          
           observer.disconnect();
         }
       },
-      {
-        threshold,
-        rootMargin,
-      }
+      { threshold, rootMargin }
     );
 
     if (containerRef.current) {
@@ -44,27 +76,54 @@ export const LazySplineScene = ({
     }
 
     return () => observer.disconnect();
-  }, [threshold, rootMargin]);
+  }, [threshold, rootMargin, shouldSkip3D]);
+
+  // Gradient fallback - same visual style, zero performance cost
+  const GradientFallback = () => (
+    <div 
+      className="absolute inset-0 bg-gradient-to-br from-violet-900/20 via-black to-purple-900/15"
+      style={{
+        backgroundImage: 'radial-gradient(ellipse at 60% 40%, rgba(124, 58, 237, 0.12) 0%, transparent 60%)',
+      }}
+    />
+  );
+
+  // Show fallback for reduced motion, low-end devices, or errors
+  if (shouldSkip3D || hasError) {
+    return (
+      <div 
+        ref={containerRef}
+        className={`relative ${className}`}
+        style={{ 
+          minHeight: '400px', 
+          aspectRatio: '1/1',
+          contain: 'layout style paint',
+        }}
+      >
+        <GradientFallback />
+      </div>
+    );
+  }
 
   return (
     <div 
       ref={containerRef} 
       className={`relative ${className}`}
-      style={{ minHeight: '400px', aspectRatio: '1/1' }}
+      style={{ 
+        minHeight: '400px', 
+        aspectRatio: '1/1',
+        contain: 'layout style paint',
+      }}
     >
       {shouldLoad ? (
-        <SplineScene scene={scene} className="w-full h-full" />
+        <Suspense fallback={<GradientFallback />}>
+          <SplineScene 
+            scene={scene} 
+            className="w-full h-full" 
+          />
+        </Suspense>
       ) : (
-        // Lightweight placeholder with gradient - fixed dimensions to prevent CLS
-        <div 
-          className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
-          style={{ minHeight: '400px' }}
-        >
-          <div className="text-center space-y-4">
-            <div className="w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto" />
-            <p className="text-sm text-neutral-400">Loading 3D Scene...</p>
-          </div>
-        </div>
+        <GradientFallback />
       )}
     </div>
   );
