@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Languages } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { OptimizedLogo } from "@/components/OptimizedLogo";
 import { ContactFormModal } from "@/components/ContactFormModal";
+import newEdgeLogoHorizontal from "@/assets/new-edge-logo-horizontal.png";
 type CategoryFilter = 'all' | 'studio' | 'media' | 'lab';
 interface MobileNavigationProps {
   onContactClick: () => void;
@@ -75,17 +75,18 @@ export const MobileNavigation = ({
       maxWidth: isScrolled ? '1100px' : '1200px'
     }}>
         <div className="flex items-center justify-between w-full relative">
-          {/* Logo + Text */}
-          <Link to="/" className="flex items-center gap-3">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
             <motion.div whileHover={{
             scale: 1.05
           }} whileTap={{
             scale: 0.98
-          }} className="flex items-center gap-3">
-              <OptimizedLogo className={`transition-all duration-500 ${isScrolled ? 'h-7 w-7' : 'h-9 w-9'}`} width={isScrolled ? 28 : 36} height={isScrolled ? 28 : 36} />
-              <div className={`font-bold text-white transition-all duration-500 ${isScrolled ? 'text-lg' : 'text-xl'}`}>
-                New Edge
-              </div>
+          }}>
+              <img 
+                src={newEdgeLogoHorizontal} 
+                alt="New Edge" 
+                className={`transition-all duration-500 ${isScrolled ? 'h-7' : 'h-9'} w-auto`}
+              />
             </motion.div>
           </Link>
 
@@ -166,11 +167,12 @@ export const MobileNavigation = ({
             scale: 1.05
           }} whileTap={{
             scale: 0.98
-          }} className="flex items-center gap-3">
-              <OptimizedLogo className="h-7 w-7" width={28} height={28} />
-              <div className="text-lg font-bold text-white">
-                New Edge
-              </div>
+          }}>
+              <img 
+                src={newEdgeLogoHorizontal} 
+                alt="New Edge" 
+                className="h-7 w-auto"
+              />
             </motion.div>
           </Link>
 
