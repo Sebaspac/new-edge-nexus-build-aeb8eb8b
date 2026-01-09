@@ -18,7 +18,7 @@ interface CaseStudy {
   image: string;
 }
 
-// STUDIO Cases
+// STUDIO Cases - AlbaNova
 const studioCases: CaseStudy[] = [{
   id: "albanova",
   client: "ALBANOVA",
@@ -28,8 +28,25 @@ const studioCases: CaseStudy[] = [{
   image: albanovaImage
 }];
 
-// MEDIA Cases
+// MEDIA Cases - AlbaNova
 const mediaCases: CaseStudy[] = [{
+  id: "albanova-media",
+  client: "ALBANOVA",
+  headline: "Content & Performance Strategie",
+  category: "MEDIA",
+  route: "/case-study/albanova",
+  image: albanovaImage
+}];
+
+// LAB Cases - Alle anderen 3 Cases
+const labCases: CaseStudy[] = [{
+  id: "retail-lab",
+  client: "INDUSTRY KMU",
+  headline: "RAG-Wissensagent für Maschinenbau",
+  category: "AI AUTOMATION",
+  route: "/case-study/retail-lab",
+  image: kiInfrastructureImage
+}, {
   id: "ecommerce",
   client: "RETAIL CLIENT",
   headline: "Marketing-Automatisierung mit KI",
@@ -43,16 +60,6 @@ const mediaCases: CaseStudy[] = [{
   category: "SALES",
   route: "/case-study/social-media",
   image: kiWorkflowImage
-}];
-
-// LAB Cases
-const labCases: CaseStudy[] = [{
-  id: "retail-lab",
-  client: "INDUSTRY KMU",
-  headline: "RAG-Wissensagent für Maschinenbau",
-  category: "AI AUTOMATION",
-  route: "/case-study/retail-lab",
-  image: kiInfrastructureImage
 }];
 interface CaseCardProps {
   caseStudy: CaseStudy;
