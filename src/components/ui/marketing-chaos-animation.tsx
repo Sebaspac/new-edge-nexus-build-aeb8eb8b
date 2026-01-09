@@ -61,16 +61,20 @@ export const MarketingChaosAnimation: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] bg-gradient-to-br from-red-900/20 via-orange-900/20 to-yellow-900/20 rounded-3xl border border-red-500/30 backdrop-blur-sm overflow-hidden">
+    <div className="relative w-full h-[240px] sm:h-[280px] md:h-[350px] lg:h-[400px] xl:h-[500px] bg-gradient-to-br from-red-900/20 via-orange-900/20 to-yellow-900/20 rounded-2xl sm:rounded-3xl border border-red-500/30 overflow-hidden" style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(0, 0, 0)' }}>
       {/* Chaotic background pattern */}
       <div className="absolute inset-0 opacity-20">
         <svg width="100%" height="100%">
           <defs>
-            <pattern id="marketing-chaos-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <pattern id="marketing-chaos-grid" width="24" height="24" patternUnits="userSpaceOnUse" className="sm:hidden">
+              <path d="M 0 12 L 24 12 M 12 0 L 12 24" fill="none" stroke="rgba(239, 68, 68, 0.3)" strokeWidth="0.5" strokeDasharray="4 4" />
+            </pattern>
+            <pattern id="marketing-chaos-grid-md" width="40" height="40" patternUnits="userSpaceOnUse" className="hidden sm:block">
               <path d="M 0 20 L 40 20 M 20 0 L 20 40" fill="none" stroke="rgba(239, 68, 68, 0.3)" strokeWidth="0.5" strokeDasharray="4 4" />
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#marketing-chaos-grid)" />
+          <rect width="100%" height="100%" fill="url(#marketing-chaos-grid)" className="sm:hidden" />
+          <rect width="100%" height="100%" fill="url(#marketing-chaos-grid-md)" className="hidden sm:block" />
         </svg>
       </div>
 
@@ -97,8 +101,8 @@ export const MarketingChaosAnimation: React.FC = () => {
               x: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: icon.delay + 0.5 }
             }}
           >
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 shadow-lg">
-              <IconComponent className={`w-5 h-5 md:w-6 md:h-6 ${icon.color}`} />
+            <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-white/10 border border-white/20 rounded-lg sm:rounded-xl flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 shadow-lg" style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)' }}>
+              <IconComponent className={`w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 ${icon.color}`} />
             </div>
           </motion.div>
         );
@@ -121,41 +125,42 @@ export const MarketingChaosAnimation: React.FC = () => {
         >
           {/* Stress circle */}
           <motion.div
-            className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-dashed border-red-400/60"
+            className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full border-2 border-dashed border-red-400/60"
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
           />
           
           {/* Cursor icon */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-red-500/80 to-orange-600/80 rounded-full flex items-center justify-center border-2 border-red-400/50 shadow-lg shadow-red-500/30">
-              <MousePointer2 className="w-5 h-5 md:w-6 md:h-6 text-white" />
+            <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-red-500/80 to-orange-600/80 rounded-full flex items-center justify-center border-2 border-red-400/50 shadow-lg shadow-red-500/30">
+              <MousePointer2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-white" />
             </div>
           </div>
 
           {/* X marks showing confusion */}
           <motion.div
-            className="absolute -top-1 -right-1"
+            className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1"
             animate={{ rotate: [0, 10, -10, 0], opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 1, repeat: Infinity }}
           >
-            <XCircle className="w-4 h-4 text-red-400" />
+            <XCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-red-400" />
           </motion.div>
         </motion.div>
       </motion.div>
 
       {/* Status indicators */}
-      <div className="absolute top-4 md:top-6 left-4 md:left-6 space-y-2 md:space-y-3">
+      <div className="absolute top-2 sm:top-3 md:top-4 lg:top-6 left-2 sm:left-3 md:left-4 lg:left-6 space-y-1.5 sm:space-y-2 md:space-y-3">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-2 bg-red-900/40 backdrop-blur-md rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-red-500/30"
+          className="flex items-center gap-1.5 sm:gap-2 bg-red-900/40 rounded-md sm:rounded-lg px-1.5 py-1 sm:px-2 sm:py-1.5 md:px-3 md:py-2 border border-red-500/30"
+          style={{ WebkitBackdropFilter: 'blur(12px)', backdropFilter: 'blur(12px)', transform: 'translate3d(0, 0, 0)' }}
         >
-          <AlertTriangle className="w-3 h-3 md:w-4 md:h-4 text-red-400" />
+          <AlertTriangle className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-red-400" />
           <div>
-            <div className="text-[10px] md:text-xs text-red-300">Kanäle</div>
+            <div className="text-[8px] sm:text-[10px] md:text-xs text-red-300">Kanäle</div>
             <motion.div 
-              className="text-xs md:text-sm font-bold text-white"
+              className="text-[10px] sm:text-xs md:text-sm font-bold text-white"
               animate={{ opacity: [1, 0.5, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
             >
@@ -168,31 +173,33 @@ export const MarketingChaosAnimation: React.FC = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.1 }}
-          className="flex items-center gap-2 bg-orange-900/40 backdrop-blur-md rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-orange-500/30"
+          className="flex items-center gap-1.5 sm:gap-2 bg-orange-900/40 rounded-md sm:rounded-lg px-1.5 py-1 sm:px-2 sm:py-1.5 md:px-3 md:py-2 border border-orange-500/30"
+          style={{ WebkitBackdropFilter: 'blur(12px)', backdropFilter: 'blur(12px)', transform: 'translate3d(0, 0, 0)' }}
         >
-          <Clock className="w-3 h-3 md:w-4 md:h-4 text-orange-400" />
+          <Clock className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-orange-400" />
           <div>
-            <div className="text-[10px] md:text-xs text-orange-300">Automation</div>
-            <div className="text-xs md:text-sm font-bold text-white">0%</div>
+            <div className="text-[8px] sm:text-[10px] md:text-xs text-orange-300">Automation</div>
+            <div className="text-[10px] sm:text-xs md:text-sm font-bold text-white">0%</div>
           </div>
         </motion.div>
       </div>
 
       {/* Problem description badge */}
-      <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
+      <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 lg:bottom-6 left-2 sm:left-3 md:left-4 lg:left-6 right-2 sm:right-3 md:right-4 lg:right-6">
         <motion.div 
-          className="bg-red-900/50 backdrop-blur-md rounded-lg px-3 py-2 md:px-4 md:py-3 border border-red-500/30"
+          className="bg-red-900/50 rounded-md sm:rounded-lg px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-3 border border-red-500/30"
+          style={{ WebkitBackdropFilter: 'blur(12px)', backdropFilter: 'blur(12px)', transform: 'translate3d(0, 0, 0)' }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <motion.div 
-              className="w-2 h-2 rounded-full bg-red-400"
+              className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-400 flex-shrink-0"
               animate={{ opacity: [1, 0.3, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
             />
-            <span className="text-red-200 text-xs md:text-sm">
+            <span className="text-red-200 text-[10px] sm:text-xs md:text-sm">
               Manuelles Marketing · Kein Template-System · Keine Automation
             </span>
           </div>

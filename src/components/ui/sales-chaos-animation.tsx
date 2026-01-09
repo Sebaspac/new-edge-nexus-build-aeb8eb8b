@@ -54,14 +54,14 @@ export const SalesChaosAnimation = () => {
 
   const getStatusIcon = (status: LeadCard['status']) => {
     switch (status) {
-      case 'hot': return <AlertTriangle className="w-3 h-3 text-orange-400" />;
-      case 'cold': return <Clock className="w-3 h-3 text-blue-400" />;
-      case 'unknown': return <XCircle className="w-3 h-3 text-gray-400" />;
+      case 'hot': return <AlertTriangle className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 text-orange-400" />;
+      case 'cold': return <Clock className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 text-blue-400" />;
+      case 'unknown': return <XCircle className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 text-gray-400" />;
     }
   };
 
   return (
-    <div className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] bg-gradient-to-br from-red-950/40 via-gray-900 to-orange-950/30 overflow-hidden rounded-3xl border border-red-500/30" style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(0, 0, 0)' }}>
+    <div className="relative w-full h-[240px] sm:h-[280px] md:h-[350px] lg:h-[400px] xl:h-[500px] bg-gradient-to-br from-red-950/40 via-gray-900 to-orange-950/30 overflow-hidden rounded-2xl sm:rounded-3xl border border-red-500/30" style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(0, 0, 0)' }}>
       {/* Chaotic grid pattern */}
       <div 
         className="absolute inset-0 opacity-20"
@@ -70,7 +70,7 @@ export const SalesChaosAnimation = () => {
             linear-gradient(rgba(239, 68, 68, 0.1) 1px, transparent 1px),
             linear-gradient(90deg, rgba(239, 68, 68, 0.1) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px',
+          backgroundSize: '24px 24px',
           transform: 'skewY(-2deg)',
         }}
       />
@@ -79,7 +79,7 @@ export const SalesChaosAnimation = () => {
       {leads.map((lead) => (
         <motion.div
           key={lead.id}
-          className={`absolute w-20 sm:w-24 md:w-28 p-2 rounded-lg border ${getStatusColor(lead.status)}`}
+          className={`absolute w-14 sm:w-16 md:w-20 lg:w-24 xl:w-28 p-1.5 sm:p-2 rounded-md sm:rounded-lg border ${getStatusColor(lead.status)}`}
           style={{ left: `${lead.x}%`, top: `${lead.y}%`, WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(-50%, -50%, 0)' }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{
@@ -95,11 +95,11 @@ export const SalesChaosAnimation = () => {
             ease: "easeInOut",
           }}
         >
-          <div className="flex items-center gap-1 mb-1">
-            <User className="w-3 h-3 text-gray-400" />
+          <div className="flex items-center gap-0.5 sm:gap-1 mb-0.5 sm:mb-1">
+            <User className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 text-gray-400" />
             {getStatusIcon(lead.status)}
           </div>
-          <p className="text-[10px] text-gray-300 truncate">{lead.label}</p>
+          <p className="text-[8px] sm:text-[9px] md:text-[10px] text-gray-300 truncate">{lead.label}</p>
         </motion.div>
       ))}
 
@@ -115,7 +115,7 @@ export const SalesChaosAnimation = () => {
       >
         {/* Stress circle */}
         <motion.div
-          className="absolute -inset-6 rounded-full border-2 border-red-500/40"
+          className="absolute -inset-4 sm:-inset-5 md:-inset-6 rounded-full border-2 border-red-500/40"
           animate={{ 
             scale: [1, 1.3, 1],
             opacity: [0.4, 0.1, 0.4],
@@ -124,18 +124,18 @@ export const SalesChaosAnimation = () => {
           transition={{ duration: 2, repeat: Infinity }}
         />
         
-        <MousePointer2 className="w-6 h-6 text-red-400 drop-shadow-lg" />
+        <MousePointer2 className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-red-400 drop-shadow-lg" />
         
         {/* Question marks */}
         <motion.span
-          className="absolute -top-4 -right-2 text-red-400 text-xs font-bold"
+          className="absolute -top-3 -right-1.5 sm:-top-4 sm:-right-2 text-red-400 text-[10px] sm:text-xs font-bold"
           animate={{ opacity: [0, 1, 0], y: [0, -5, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
           ?
         </motion.span>
         <motion.span
-          className="absolute -top-2 -left-4 text-orange-400 text-sm font-bold"
+          className="absolute -top-1.5 -left-3 sm:-top-2 sm:-left-4 text-orange-400 text-xs sm:text-sm font-bold"
           animate={{ opacity: [0, 1, 0], y: [0, -5, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
         >
@@ -145,25 +145,25 @@ export const SalesChaosAnimation = () => {
 
       {/* CRM Window with problems */}
       <motion.div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 md:w-40 p-3 rounded-xl border border-red-500/30 bg-red-950/30"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 sm:w-28 md:w-32 lg:w-40 p-2 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl border border-red-500/30 bg-red-950/30"
         style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(-50%, -50%, 0)' }}
         animate={{ 
           boxShadow: ['0 0 20px rgba(239, 68, 68, 0.1)', '0 0 30px rgba(239, 68, 68, 0.2)', '0 0 20px rgba(239, 68, 68, 0.1)'],
         }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="flex items-center gap-2 mb-2">
-          <Database className="w-4 h-4 text-red-400" />
-          <span className="text-xs text-red-300">CRM Status</span>
+        <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
+          <Database className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-red-400" />
+          <span className="text-[10px] sm:text-xs text-red-300">CRM Status</span>
         </div>
-        <div className="space-y-1">
+        <div className="space-y-0.5 sm:space-y-1">
           <div className="flex items-center gap-1">
-            <XCircle className="w-3 h-3 text-red-400" />
-            <span className="text-[10px] text-gray-300">Daten unvollständig</span>
+            <XCircle className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 text-red-400" />
+            <span className="text-[8px] sm:text-[9px] md:text-[10px] text-gray-300">Daten unvollständig</span>
           </div>
           <div className="flex items-center gap-1">
-            <AlertTriangle className="w-3 h-3 text-orange-400" />
-            <span className="text-[10px] text-gray-300">8 Follow-ups offen</span>
+            <AlertTriangle className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 text-orange-400" />
+            <span className="text-[8px] sm:text-[9px] md:text-[10px] text-gray-300">8 Follow-ups offen</span>
           </div>
         </div>
       </motion.div>
@@ -197,42 +197,44 @@ export const SalesChaosAnimation = () => {
 
       {/* Status indicators */}
       <motion.div
-        className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/30"
+        className="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 rounded-full bg-red-500/10 border border-red-500/30"
+        style={{ WebkitBackdropFilter: 'blur(8px)', backdropFilter: 'blur(8px)', transform: 'translate3d(0, 0, 0)' }}
         animate={{ opacity: [0.7, 1, 0.7] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="flex items-center gap-2">
-          <AlertTriangle className="w-3 h-3 text-red-400" />
-          <span className="text-xs text-red-300">Follow-ups: 8+ verpasst</span>
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <AlertTriangle className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 text-red-400" />
+          <span className="text-[8px] sm:text-[10px] md:text-xs text-red-300">Follow-ups: 8+ verpasst</span>
         </div>
       </motion.div>
 
       <motion.div
-        className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30"
+        className="absolute top-2 sm:top-3 md:top-4 left-2 sm:left-3 md:left-4 px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30"
+        style={{ WebkitBackdropFilter: 'blur(8px)', backdropFilter: 'blur(8px)', transform: 'translate3d(0, 0, 0)' }}
         animate={{ opacity: [0.7, 1, 0.7] }}
         transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
       >
-        <div className="flex items-center gap-2">
-          <Clock className="w-3 h-3 text-orange-400" />
-          <span className="text-xs text-orange-300">Lead-Scoring: 0%</span>
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <Clock className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 text-orange-400" />
+          <span className="text-[8px] sm:text-[10px] md:text-xs text-orange-300">Lead-Scoring: 0%</span>
         </div>
       </motion.div>
 
       {/* Problem description badge */}
       <motion.div
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/30"
+        className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-1/2 -translate-x-1/2 px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full bg-red-500/10 border border-red-500/30"
         style={{ WebkitBackdropFilter: 'blur(4px)', backdropFilter: 'blur(4px)', transform: 'translate3d(-50%, 0, 0)' }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1 }}
       >
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           <motion.div
-            className="w-2 h-2 rounded-full bg-red-500"
+            className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-500 flex-shrink-0"
             animate={{ opacity: [1, 0.5, 1] }}
             transition={{ duration: 1, repeat: Infinity }}
           />
-          <span className="text-xs text-gray-200">Manueller Vertrieb • Kein System</span>
+          <span className="text-[9px] sm:text-[10px] md:text-xs text-gray-200 whitespace-nowrap">Manueller Vertrieb • Kein System</span>
         </div>
       </motion.div>
     </div>
