@@ -173,23 +173,23 @@ const blogPostsData: Record<string, {
     gradient: "from-cyan-600 to-teal-600",
     image: "/assets/blog-ki-social-media.png",
     content: {
-      intro: "Content-Flut? Ja. Leads? Nicht automatisch. Generative KI beschleunigt Social Media - doch generischer 'Slop'-Content untergraebt Vertrauen und Performance. Die Loesung: KI als Beschleuniger mit redaktioneller Kontrolle, klarer Positionierung und messbarem Performance-Setup.\n\nKI skaliert Social Media - oder erzeugt 'Slop'. Dieser Beitrag zeigt, wie Sie mit Strategie, Editorial Oversight, Personalisierung und Performance-Setup Vertrauen sichern, Inhalte differenzieren und Conversions steigern.",
+      intro: "Content-Flut? Ja. Leads? Nicht automatisch. Generative KI beschleunigt Social Media - doch generischer 'Slop'-Content untergräbt Vertrauen und Performance. Die Lösung: KI als Beschleuniger mit redaktioneller Kontrolle, klarer Positionierung und messbarem Performance-Setup.\n\nKI skaliert Social Media - oder erzeugt 'Slop'. Dieser Beitrag zeigt, wie Sie mit Strategie, Editorial Oversight, Personalisierung und Performance-Setup Vertrauen sichern, Inhalte differenzieren und Conversions steigern.",
       sections: [
         {
-          heading: "Warum 'Slop'-Content Ihre Marke schadet - und was jetzt zaehlt",
-          text: "Die neue Leichtigkeit der Produktion fuehrt zu Masseninhalten ohne Substanz - 'Slop', der austauschbar wirkt und Vertrauen erodiert. Marken punkten kuenftig nur, wenn sie Differenzierung, menschliche Redaktion und klare Governance konsequent verankern.\n\nDer Befund passt zur Vertrauenslage: Laut Accenture Life Trends 2025 faellt es vielen Menschen zunehmend schwer, Echtes von KI-Gemachtem zu unterscheiden (u. a. 76 % bei Bildern) - mit spuerbaren Folgen fuer Markeninteraktionen. Qualitaet schlaegt Quantitaet.\n\nKernprinzip: Behandeln Sie KI als Beschleuniger, nicht als Autor. Bringen Sie Unternehmensdaten, echte Expertise und Markenstimme ein; Menschen kuratieren, verifizieren, zuspitzen. Erst dann entsteht Content, der wirkt - und konvertiert."
+          heading: "Warum 'Slop'-Content Ihre Marke schadet - und was jetzt zählt",
+          text: "Die neue Leichtigkeit der Produktion führt zu Masseninhalten ohne Substanz - 'Slop', der austauschbar wirkt und Vertrauen erodiert. Marken punkten künftig nur, wenn sie Differenzierung, menschliche Redaktion und klare Governance konsequent verankern.\n\nDer Befund passt zur Vertrauenslage: Laut Accenture Life Trends 2025 fällt es vielen Menschen zunehmend schwer, Echtes von KI-Gemachtem zu unterscheiden (u. a. 76 % bei Bildern) - mit spürbaren Folgen für Markeninteraktionen. Qualität schlägt Quantität.\n\nKernprinzip: Behandeln Sie KI als Beschleuniger, nicht als Autor. Bringen Sie Unternehmensdaten, echte Expertise und Markenstimme ein; Menschen kuratieren, verifizieren, zuspitzen. Erst dann entsteht Content, der wirkt - und konvertiert."
         },
         {
           heading: "Chancen von KI im Social Media - richtig genutzt",
-          text: "Automatisierte Content-Erstellung: Schnelle Asset-Generierung (Text, Bild, Video) fuer Always-On-Praesenz - kuratiert durch Redaktion.\n\nPersonalisierung und Predictive Analytics: Zielgruppensegmente erhalten passgenaue Botschaften; A/B-Testing optimiert Motive, Hooks, Formate.\n\nEchtzeit-Analyse: Algorithmen erkennen Muster, Top-Posts und Saisonalitaeten - Entscheidungen werden datenbasiert.\n\nChatbots und Service: 24/7-Dialog steigert Zufriedenheit und entlastet Teams."
+          text: "Automatisierte Content-Erstellung: Schnelle Asset-Generierung (Text, Bild, Video) für Always-On-Präsenz - kuratiert durch Redaktion.\n\nPersonalisierung und Predictive Analytics: Zielgruppensegmente erhalten passgenaue Botschaften; A/B-Testing optimiert Motive, Hooks, Formate.\n\nEchtzeit-Analyse: Algorithmen erkennen Muster, Top-Posts und Saisonalitäten - Entscheidungen werden datenbasiert.\n\nChatbots und Service: 24/7-Dialog steigert Zufriedenheit und entlastet Teams."
         },
         {
-          heading: "Die vier grossen Herausforderungen (mit Loesungen)",
-          text: "1. Datenschutz und Ethik (DSGVO)\nTransparenzpflicht, Datensparsamkeit, Modellkontrollen. Loesung: Consent-saubere Datenpipelines, KI-Kennzeichnung, Fact-Checking-Gates.\n\n2. Kreativitaet und Markenidentitaet\nKI ersetzt keine Haltung. Loesung: Redaktionsbriefings mit Marken-Narrativ, Tonalitaet, No-Go-Liste; menschliches Lektorat.\n\n3. Tool-Abhaengigkeit\nVendor-Lock-in droht. Loesung: Offene Datenhaltung, kombinierte Tool-Stacks, Exit-Strategien.\n\n4. Algorithmische Verzerrungen\nModelle uebernehmen Bias. Loesung: Monitoring, manuelle Freigaben, kontinuierliche Prompt- und Guardrail-Updates."
+          heading: "Die vier großen Herausforderungen (mit Lösungen)",
+          text: "1. Datenschutz und Ethik (DSGVO)\nTransparenzpflicht, Datensparsamkeit, Modellkontrollen. Lösung: Consent-saubere Datenpipelines, KI-Kennzeichnung, Fact-Checking-Gates.\n\n2. Kreativität und Markenidentität\nKI ersetzt keine Haltung. Lösung: Redaktionsbriefings mit Marken-Narrativ, Tonalität, No-Go-Liste; menschliches Lektorat.\n\n3. Tool-Abhängigkeit\nVendor-Lock-in droht. Lösung: Offene Datenhaltung, kombinierte Tool-Stacks, Exit-Strategien.\n\n4. Algorithmische Verzerrungen\nModelle übernehmen Bias. Lösung: Monitoring, manuelle Freigaben, kontinuierliche Prompt- und Guardrail-Updates."
         },
         {
           heading: "Fazit",
-          text: "KI ist der Turbolader - aber ohne redaktionelles Steuerrad werden Inhalte zu 'Slop'. Wer auf Strategie, Editorial Oversight und messbare Performance setzt, gewinnt Sichtbarkeit und Vertrauen. Genau damit unterscheiden sich zukunftsfaehige Social-Media-Programme von der Content-Masse.\n\nSprechen Sie mit uns ueber Ihr Anti-Slop-Audit oder fordern Sie Ihren 30-Tage-Plan an."
+          text: "KI ist der Turbolader - aber ohne redaktionelles Steuerrad werden Inhalte zu 'Slop'. Wer auf Strategie, Editorial Oversight und messbare Performance setzt, gewinnt Sichtbarkeit und Vertrauen. Genau damit unterscheiden sich zukunftsfähige Social-Media-Programme von der Content-Masse.\n\nSprechen Sie mit uns über Ihr Anti-Slop-Audit oder fordern Sie Ihren 30-Tage-Plan an."
         }
       ]
     }
@@ -202,23 +202,23 @@ const blogPostsData: Record<string, {
     gradient: "from-teal-600 to-green-600",
     image: "/assets/blog-ki-agenten-hero.jpg",
     content: {
-      intro: "2025 wird zum Jahr der KI-Agenten: Self-Service, Personalisierung und Lead-Erkennung automatisieren Marketing - und veraendern die Rolle der Agenturen.\n\nKunden erwarten Relevanz in Echtzeit, Budgets muessen wirken, Teams bleiben schlank. Agentic AI verknuepft Daten, Inhalte und Ausspielung - kontinuierlich lernend. So entstehen skalierbare, individuelle Erlebnisse, ohne jedes Detail manuell zu steuern.",
+      intro: "2025 wird zum Jahr der KI-Agenten: Self-Service, Personalisierung und Lead-Erkennung automatisieren Marketing - und verändern die Rolle der Agenturen.\n\nKunden erwarten Relevanz in Echtzeit, Budgets müssen wirken, Teams bleiben schlank. Agentic AI verknüpft Daten, Inhalte und Ausspielung - kontinuierlich lernend. So entstehen skalierbare, individuelle Erlebnisse, ohne jedes Detail manuell zu steuern.",
       sections: [
         {
           heading: "Drei Entwicklungen, die den Unterschied machen",
-          text: "1) KI-Agenten werden operativ\nSie analysieren Signale, generieren Varianten, verteilen Budgets - und optimieren Kampagnen laufend ueber Kanaele hinweg. Aus einzelnen Aktionen werden selbstverbessernde Systeme.\n\n2) Self-Service ersetzt Tool-Huerden\nMarketing setzt mehr direkt um: natuerlichsprachliche Steuerung, klare Leitplanken, konsistente Markenfuehrung. Time-to-Market sinkt, Qualitaet bleibt stabil.\n\n3) Personalisierung und Lead-Erkennung reifen aus\nStatt Streuung entstehen zielgenaue Ansprachen: Inhalte passen sich Kontext und Bedarf an, potenzielle Kunden werden frueher erkannt und besser eingeordnet."
+          text: "1) KI-Agenten werden operativ\nSie analysieren Signale, generieren Varianten, verteilen Budgets - und optimieren Kampagnen laufend über Kanäle hinweg. Aus einzelnen Aktionen werden selbstverbessernde Systeme.\n\n2) Self-Service ersetzt Tool-Hürden\nMarketing setzt mehr direkt um: natürlichsprachliche Steuerung, klare Leitplanken, konsistente Markenführung. Time-to-Market sinkt, Qualität bleibt stabil.\n\n3) Personalisierung und Lead-Erkennung reifen aus\nStatt Streuung entstehen zielgenaue Ansprachen: Inhalte passen sich Kontext und Bedarf an, potenzielle Kunden werden früher erkannt und besser eingeordnet."
         },
         {
-          heading: "Was das fuer die Agenturbranche bedeutet",
-          text: "Agenturen verlagern ihren Fokus: weniger Handarbeit, mehr Strategie, Daten-Governance, Orchestrierung und Kreativfuehrung. Wert entsteht dort, wo Markenversprechen, Qualitaetssicherung und messbare Wirkung zusammenlaufen - nicht in endlosen Freigabeschleifen."
+          heading: "Was das für die Agenturbranche bedeutet",
+          text: "Agenturen verlagern ihren Fokus: weniger Handarbeit, mehr Strategie, Daten-Governance, Orchestrierung und Kreativführung. Wert entsteht dort, wo Markenversprechen, Qualitätssicherung und messbare Wirkung zusammenlaufen - nicht in endlosen Freigabeschleifen."
         },
         {
           heading: "Chancen ohne Hype",
-          text: "Geschwindigkeit: Von Wochen zu Tagen - ohne Zusatz-Headcount.\n\nRelevanz: Mehr passende Botschaften, weniger Streuverluste.\n\nTransparenz: Entscheidungen sind nachvollziehbarer - von der Impression bis zur Pipeline.\n\nVertrauen: Verantwortungsvolle Nutzung von Daten staerkt Markenbeziehung."
+          text: "Geschwindigkeit: Von Wochen zu Tagen - ohne Zusatz-Headcount.\n\nRelevanz: Mehr passende Botschaften, weniger Streuverluste.\n\nTransparenz: Entscheidungen sind nachvollziehbarer - von der Impression bis zur Pipeline.\n\nVertrauen: Verantwortungsvolle Nutzung von Daten stärkt Markenbeziehung."
         },
         {
           heading: "Ausblick",
-          text: "2025 ist kein Entweder-oder zwischen Mensch und Maschine. Es ist das Zusammenspiel aus KI-Agenten, Self-Service und markentreuer Fuehrung. Wer diese Bausteine verbindet, gewinnt Tempo, Effizienz und Differenzierung - unabhaengig von Unternehmensgroesse oder Branche.\n\nSprechen wir darueber, wie das fuer Ihre Marke aussieht. NEW EDGE uebersetzt Ihre Ziele in funktionierende Agentic-Setups - markenkonform, messbar, skalierbar."
+          text: "2025 ist kein Entweder-oder zwischen Mensch und Maschine. Es ist das Zusammenspiel aus KI-Agenten, Self-Service und markentreuer Führung. Wer diese Bausteine verbindet, gewinnt Tempo, Effizienz und Differenzierung - unabhängig von Unternehmensgröße oder Branche.\n\nSprechen wir darüber, wie das für Ihre Marke aussieht. NEW EDGE übersetzt Ihre Ziele in funktionierende Agentic-Setups - markenkonform, messbar, skalierbar."
         }
       ]
     }

@@ -25,7 +25,7 @@ const content: Record<StateType, ContentState> = {
   machine: {
     title: "MEDIA",
     subtitle: "Kreativ gedacht, performance-gemessen",
-    description: "Wir machen kein 'nice to have'-Storytelling. Wir machen Content, der auf Conversion zielt. Mit KI, KPIs und einer klaren Message - fuer jeden Funnel-Step.",
+    description: "Wir machen kein 'nice to have'-Storytelling. Wir machen Content, der auf Conversion zielt. Mit KI, KPIs und einer klaren Message - für jeden Funnel-Step.",
     tags: ["Creative Assets", "S.M Management", "Performance-Marketing"],
     color: "#3b82f6",
     icon: Cpu
