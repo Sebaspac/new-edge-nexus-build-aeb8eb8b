@@ -73,10 +73,10 @@ export const MethodologyGrid = () => {
               
               <div className="relative z-10">
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">Web-Check 2026</h3>
-                <p className="text-gray-300 mb-3 sm:mb-4 md:mb-6 text-xs sm:text-sm md:text-base">Jetzt kostenlose Analyse sichern.</p>
+                <p className="text-gray-300 mb-3 sm:mb-4 md:mb-6 text-xs sm:text-sm md:text-base">Kostenlose Analyse sichern: Performance, Struktur & Conversion kurz durchgecheckt.</p>
                 
                 <a href="https://seo-audit-pro-1064008039464.us-west1.run.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[#7C3AED] font-bold uppercase text-xs sm:text-sm tracking-wider group-hover:gap-4 transition-all duration-300">
-                  ZUR ANMELDUNG
+                  Mach den Check. For Free.                          
                   <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
               </div>
