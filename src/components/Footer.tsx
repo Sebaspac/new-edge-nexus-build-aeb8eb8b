@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Mail } from "lucide-react";
 import newEdgeLogoHorizontal from "@/assets/new-edge-logo-horizontal.png";
-
 export const Footer = () => {
   return <footer className="bg-black text-white border-t border-white/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
@@ -10,11 +9,7 @@ export const Footer = () => {
           {/* Logo & Tagline */}
           <div className="lg:max-w-xs">
             <Link to="/" className="group">
-              <img 
-                src={newEdgeLogoHorizontal} 
-                alt="New Edge" 
-                className="h-8 w-auto transition-transform group-hover:scale-105"
-              />
+              <img src={newEdgeLogoHorizontal} alt="New Edge" className="h-8 w-auto transition-transform group-hover:scale-105" />
             </Link>
             <p className="text-sm text-gray-400 mt-3 leading-relaxed">
               Design Brands. Drive Innovation.
@@ -53,7 +48,7 @@ export const Footer = () => {
                 <li>
                   <Link to="/products" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      Agente Hub 
+                      Agent Hub 
                     </span>
                   </Link>
                 </li>
