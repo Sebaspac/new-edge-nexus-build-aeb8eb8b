@@ -195,7 +195,7 @@ const blogPostsData: Record<string, {
     }
   },
   "ki-agenten-2025": {
-    title: "2025: Das Jahr der KI-Agenten im Marketing - und was es fuer Sie bedeutet",
+    title: "2025: Das Jahr der KI-Agenten im Marketing - und was es für Sie bedeutet",
     category: "KI & MARKETING",
     date: "20. Dezember 2024",
     author: "New Edge Team",
