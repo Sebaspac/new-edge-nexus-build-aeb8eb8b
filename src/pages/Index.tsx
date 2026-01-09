@@ -64,12 +64,15 @@ const Index = () => {
     const formData = new FormData(form);
 
     // Import validation utilities dynamically to avoid circular dependencies
-    const { extractFormData, validateContactForm, submitContactForm } = await import("@/utils/contactFormValidation");
-    
+    const {
+      extractFormData,
+      validateContactForm,
+      submitContactForm
+    } = await import("@/utils/contactFormValidation");
+
     // Extract and validate form data
     const rawData = extractFormData(formData, "INDEX");
     const validation = validateContactForm(rawData);
-    
     if (!validation.success) {
       toast({
         title: "Validierungsfehler",
@@ -79,9 +82,7 @@ const Index = () => {
       });
       return;
     }
-
     const result = await submitContactForm(validation.data!);
-    
     if (result.success) {
       toast({
         title: "Wir designen für dich",
@@ -409,12 +410,7 @@ const Index = () => {
                   Kontakt aufnehmen
                   <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button size="lg" variant="outline" onClick={() => {
-                setContactFormType("agentur");
-                setIsContactSheetOpen(true);
-              }} className="border-2 border-black text-black hover:bg-black hover:text-white transition-all duration-300 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 font-semibold w-full sm:w-auto">
-                  Partner werden
-                </Button>
+                
               </motion.div>
             </motion.div>
           </div>
