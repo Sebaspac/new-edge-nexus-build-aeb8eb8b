@@ -5,7 +5,6 @@ import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LazySplineScene } from "./LazySplineScene";
 import CyberneticGridShader from "./ui/cybernetic-grid-shader";
-import { SplashCursor } from "./ui/splash-cursor";
 interface HeroSectionProps {
   onContactClick: () => void;
 }
@@ -29,7 +28,6 @@ export const HeroSection = ({
       Skip to main content
     </a>
     <section className="relative w-full min-h-[100dvh] bg-slate-900 pt-[60px] lg:pt-[72px]" id="hero">
-      <SplashCursor />
       <div className="w-full h-[calc(100dvh-60px)] lg:h-[calc(100dvh-72px)] grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden bg-slate-900 z-10">
         <CyberneticGridShader />
         
