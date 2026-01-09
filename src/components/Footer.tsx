@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Mail } from "lucide-react";
-import { OptimizedLogo } from "./OptimizedLogo";
+import newEdgeLogoHorizontal from "@/assets/new-edge-logo-horizontal.png";
+
 export const Footer = () => {
   return <footer className="bg-black text-white border-t border-white/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
@@ -8,9 +9,12 @@ export const Footer = () => {
         <div className="flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-16">
           {/* Logo & Tagline */}
           <div className="lg:max-w-xs">
-            <Link to="/" className="flex items-center space-x-3 group">
-              <OptimizedLogo className="h-8 w-8 transition-transform group-hover:scale-105" width={32} height={32} />
-              <span className="text-xl font-bold">New Edge</span>
+            <Link to="/" className="group">
+              <img 
+                src={newEdgeLogoHorizontal} 
+                alt="New Edge" 
+                className="h-8 w-auto transition-transform group-hover:scale-105"
+              />
             </Link>
             <p className="text-sm text-gray-400 mt-3 leading-relaxed">
               Design Brands. Drive Innovation.
