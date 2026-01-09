@@ -3,27 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from "react-helmet-async";
 import { Footer } from "@/components/Footer";
-import {
-  ShieldCheck,
-  Globe,
-  TrendingUp,
-  Filter,
-  Heart,
-  ArrowRight,
-  CheckCircle,
-  Target,
-  BarChart3,
-  Palette,
-  BookOpen,
-  PenTool,
-  Monitor,
-  Languages,
-  Calendar,
-  Code,
-  FileText,
-  User,
-  Clock,
-} from "lucide-react";
+import { ShieldCheck, Globe, TrendingUp, Filter, Heart, ArrowRight, CheckCircle, Target, BarChart3, Palette, BookOpen, PenTool, Monitor, Languages, Calendar, Code, FileText, User, Clock } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import albanovaWebsite from "@/assets/albanova-website.png";
 import { RelatedCaseStudies } from "@/components/RelatedCaseStudies";
@@ -31,20 +11,20 @@ interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
 }
-const AnimatedSection = ({ children, className = "" }: AnimatedSectionProps) => {
+const AnimatedSection = ({
+  children,
+  className = ""
+}: AnimatedSectionProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      {
-        threshold: 0.1,
-      },
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    }, {
+      threshold: 0.1
+    });
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
@@ -54,227 +34,180 @@ const AnimatedSection = ({ children, className = "" }: AnimatedSectionProps) => 
       }
     };
   }, []);
-  return (
-    <div
-      ref={sectionRef}
-      className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"} ${className}`}
-    >
+  return <div ref={sectionRef} className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"} ${className}`}>
       {children}
-    </div>
-  );
+    </div>;
 };
 const CaseStudyAlbaNova = () => {
   const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "smooth"
     });
   }, []);
   const scrollToContact = () => {
     navigate("/", {
-      replace: true,
+      replace: true
     });
     setTimeout(() => {
       const contactSection = document.getElementById("contact-section");
       if (contactSection) {
         contactSection.scrollIntoView({
-          behavior: "smooth",
+          behavior: "smooth"
         });
       }
     }, 100);
   };
-  const phases = [
-    {
-      number: "PHASE 1",
-      title: "Strategie & Konzeption",
-      description:
-        "Den Grundstein für den Erfolg legen. In dieser initialen Phase definieren wir die strategische Ausrichtung und schaffen eine klare Vision für die Marke.",
-      image: "/assets/albanova-phase1-image.png",
-      features: [
-        {
-          icon: Target,
-          title: "Markenstrategie & Vision",
-          description: "In Workshops schufen wir eine klare Markenidentität, Mission und Vision als Fundament.",
-        },
-        {
-          icon: BarChart3,
-          title: "Marketing & Social Media",
-          description: "Entwicklung einer kanalübergreifenden Strategie, um Zielgruppen gezielt anzusprechen.",
-        },
-      ],
-    },
-    {
-      number: "PHASE 2",
-      title: "Kreation & Content",
-      description:
-        "Die Marke zum Leben erwecken. Wir gestalten ein einzigartiges visuelles Erscheinungsbild und erstellen Inhalte, die emotional ansprechen und überzeugen.",
-      video: "/assets/albanova-phase2-video.mp4",
-      features: [
-        {
-          icon: Palette,
-          title: "Branding & Webdesign",
-          description: "Gestaltung eines modernen, seriösen und einladenden Designs.",
-        },
-        {
-          icon: BookOpen,
-          title: "Storytelling & Texte",
-          description: "Empathische und vertrauensbildende Texte, die Expertise vermitteln.",
-        },
-        {
-          icon: PenTool,
-          title: "Content-Planung",
-          description: "Ein detaillierter Redaktionsplan für Blogs, Social Media und Newsletter.",
-        },
-      ],
-    },
-    {
-      number: "PHASE 3",
-      title: "Technische Umsetzung & Launch",
-      description:
-        "Die Vision wird Realität. Wir entwickeln eine performante, nutzerfreundliche Website und sorgen für eine reibungslose internationale Präsenz.",
-      features: [
-        {
-          icon: Monitor,
-          title: "Webentwicklung & Funnel",
-          description: "Responsive Umsetzung mit klarer Funnel-Logik zur Lead-Generierung.",
-        },
-        {
-          icon: Languages,
-          title: "Mehrsprachigkeit",
-          description: "Native Übersetzung und Lokalisierung ins Deutsche und Spanische.",
-        },
-      ],
-    },
-  ];
-  const results = [
-    {
-      metric: "+250%",
-      label: "Mehr Website-Traffic",
-      icon: TrendingUp,
-    },
-    {
-      metric: "+180%",
-      label: "Höhere Conversion Rate",
-      icon: Filter,
-    },
-    {
-      metric: "+320%",
-      label: "Mehr qualifizierte Leads",
-      icon: Globe,
-    },
-    {
-      metric: "95%",
-      label: "Kundenzufriedenheit",
-      icon: Heart,
-    },
-  ];
-  const services = [
-    "Brand Strategy & Positioning",
-    "Corporate Identity Design",
-    "Website Konzeption & Development",
-    "Content Strategy & Creation",
-    "SEO & Performance Optimization",
-    "Analytics & Tracking Setup",
-  ];
-  const orbitalTimelineData = [
-    {
-      id: 1,
-      title: "Kick-off",
-      date: "Week 1",
-      content: "Stakeholder-Interviews und Definition der Projektziele. Festlegung der strategischen Ausrichtung.",
-      category: "Planning",
-      icon: Calendar,
-      relatedIds: [2],
-      status: "completed" as const,
-      energy: 100,
-    },
-    {
-      id: 2,
-      title: "Research",
-      date: "Week 2",
-      content: "Marktanalyse, Wettbewerbsanalyse und Zielgruppenforschung für die neue Brand Identity.",
-      category: "Research",
-      icon: FileText,
-      relatedIds: [1, 3],
-      status: "completed" as const,
-      energy: 95,
-    },
-    {
-      id: 3,
-      title: "Strategie",
-      date: "Week 3",
-      content: "Brand Positioning Workshop und Entwicklung des Messaging Frameworks.",
-      category: "Strategy",
+  const phases = [{
+    number: "PHASE 1",
+    title: "Strategie & Konzeption",
+    description: "Den Grundstein für den Erfolg legen. In dieser initialen Phase definieren wir die strategische Ausrichtung und schaffen eine klare Vision für die Marke.",
+    image: "/assets/albanova-phase1-image.png",
+    features: [{
       icon: Target,
-      relatedIds: [2, 4],
-      status: "completed" as const,
-      energy: 90,
-    },
-    {
-      id: 4,
-      title: "Design",
-      date: "Week 4-6",
-      content: "UI/UX Design, Corporate Identity und Gestaltung des Design Systems.",
-      category: "Design",
+      title: "Markenstrategie & Vision",
+      description: "In Workshops schufen wir eine klare Markenidentität, Mission und Vision als Fundament."
+    }, {
+      icon: BarChart3,
+      title: "Marketing & Social Media",
+      description: "Entwicklung einer kanalübergreifenden Strategie, um Zielgruppen gezielt anzusprechen."
+    }]
+  }, {
+    number: "PHASE 2",
+    title: "Kreation & Content",
+    description: "Die Marke zum Leben erwecken. Wir gestalten ein einzigartiges visuelles Erscheinungsbild und erstellen Inhalte, die emotional ansprechen und überzeugen.",
+    video: "/assets/albanova-phase2-video.mp4",
+    features: [{
       icon: Palette,
-      relatedIds: [3, 5],
-      status: "completed" as const,
-      energy: 85,
-    },
-    {
-      id: 5,
-      title: "Development",
-      date: "Week 7-9",
-      content: "Frontend & Backend Development mit React, Performance-Optimierung und SEO-Integration.",
-      category: "Development",
-      icon: Code,
-      relatedIds: [4, 6],
-      status: "completed" as const,
-      energy: 80,
-    },
-    {
-      id: 6,
-      title: "Content",
-      date: "Week 8-9",
-      content: "Content Creation, Copywriting und Übersetzung in Deutsche und Spanische Sprache.",
-      category: "Content",
+      title: "Branding & Webdesign",
+      description: "Gestaltung eines modernen, seriösen und einladenden Designs."
+    }, {
       icon: BookOpen,
-      relatedIds: [5, 7],
-      status: "completed" as const,
-      energy: 75,
-    },
-    {
-      id: 7,
-      title: "Testing",
-      date: "Week 10",
-      content: "QA Testing, User Testing und Bug Fixes vor dem Launch.",
-      category: "Testing",
-      icon: User,
-      relatedIds: [6, 8],
-      status: "completed" as const,
-      energy: 70,
-    },
-    {
-      id: 8,
-      title: "Launch",
-      date: "Week 11",
-      content: "Finale Deployment, Go-Live und Monitoring der Performance.",
-      category: "Launch",
-      icon: Clock,
-      relatedIds: [7],
-      status: "completed" as const,
-      energy: 100,
-    },
-  ];
-  return (
-    <>
+      title: "Storytelling & Texte",
+      description: "Empathische und vertrauensbildende Texte, die Expertise vermitteln."
+    }, {
+      icon: PenTool,
+      title: "Content-Planung",
+      description: "Ein detaillierter Redaktionsplan für Blogs, Social Media und Newsletter."
+    }]
+  }, {
+    number: "PHASE 3",
+    title: "Technische Umsetzung & Launch",
+    description: "Die Vision wird Realität. Wir entwickeln eine performante, nutzerfreundliche Website und sorgen für eine reibungslose internationale Präsenz.",
+    features: [{
+      icon: Monitor,
+      title: "Webentwicklung & Funnel",
+      description: "Responsive Umsetzung mit klarer Funnel-Logik zur Lead-Generierung."
+    }, {
+      icon: Languages,
+      title: "Mehrsprachigkeit",
+      description: "Native Übersetzung und Lokalisierung ins Deutsche und Spanische."
+    }]
+  }];
+  const results = [{
+    metric: "+250%",
+    label: "Mehr Website-Traffic",
+    icon: TrendingUp
+  }, {
+    metric: "+180%",
+    label: "Höhere Conversion Rate",
+    icon: Filter
+  }, {
+    metric: "+320%",
+    label: "Mehr qualifizierte Leads",
+    icon: Globe
+  }, {
+    metric: "95%",
+    label: "Kundenzufriedenheit",
+    icon: Heart
+  }];
+  const services = ["Brand Strategy & Positioning", "Corporate Identity Design", "Website Konzeption & Development", "Content Strategy & Creation", "SEO & Performance Optimization", "Analytics & Tracking Setup"];
+  const orbitalTimelineData = [{
+    id: 1,
+    title: "Kick-off",
+    date: "Week 1",
+    content: "Stakeholder-Interviews und Definition der Projektziele. Festlegung der strategischen Ausrichtung.",
+    category: "Planning",
+    icon: Calendar,
+    relatedIds: [2],
+    status: "completed" as const,
+    energy: 100
+  }, {
+    id: 2,
+    title: "Research",
+    date: "Week 2",
+    content: "Marktanalyse, Wettbewerbsanalyse und Zielgruppenforschung für die neue Brand Identity.",
+    category: "Research",
+    icon: FileText,
+    relatedIds: [1, 3],
+    status: "completed" as const,
+    energy: 95
+  }, {
+    id: 3,
+    title: "Strategie",
+    date: "Week 3",
+    content: "Brand Positioning Workshop und Entwicklung des Messaging Frameworks.",
+    category: "Strategy",
+    icon: Target,
+    relatedIds: [2, 4],
+    status: "completed" as const,
+    energy: 90
+  }, {
+    id: 4,
+    title: "Design",
+    date: "Week 4-6",
+    content: "UI/UX Design, Corporate Identity und Gestaltung des Design Systems.",
+    category: "Design",
+    icon: Palette,
+    relatedIds: [3, 5],
+    status: "completed" as const,
+    energy: 85
+  }, {
+    id: 5,
+    title: "Development",
+    date: "Week 7-9",
+    content: "Frontend & Backend Development mit React, Performance-Optimierung und SEO-Integration.",
+    category: "Development",
+    icon: Code,
+    relatedIds: [4, 6],
+    status: "completed" as const,
+    energy: 80
+  }, {
+    id: 6,
+    title: "Content",
+    date: "Week 8-9",
+    content: "Content Creation, Copywriting und Übersetzung in Deutsche und Spanische Sprache.",
+    category: "Content",
+    icon: BookOpen,
+    relatedIds: [5, 7],
+    status: "completed" as const,
+    energy: 75
+  }, {
+    id: 7,
+    title: "Testing",
+    date: "Week 10",
+    content: "QA Testing, User Testing und Bug Fixes vor dem Launch.",
+    category: "Testing",
+    icon: User,
+    relatedIds: [6, 8],
+    status: "completed" as const,
+    energy: 70
+  }, {
+    id: 8,
+    title: "Launch",
+    date: "Week 11",
+    content: "Finale Deployment, Go-Live und Monitoring der Performance.",
+    category: "Launch",
+    icon: Clock,
+    relatedIds: [7],
+    status: "completed" as const,
+    energy: 100
+  }];
+  return <>
       <Helmet>
         <title>AlbaNova Case Study - NEW EDGE</title>
-        <meta
-          name="description"
-          content="Wie wir AlbaNova Consulting mit einer neuen digitalen Brand Identity zum Erfolg verholfen haben."
-        />
+        <meta name="description" content="Wie wir AlbaNova Consulting mit einer neuen digitalen Brand Identity zum Erfolg verholfen haben." />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
@@ -299,10 +232,7 @@ const CaseStudyAlbaNova = () => {
                 in eine Chance zu verwandeln.
               </p>
               <div className="flex justify-center">
-                <button
-                  onClick={scrollToContact}
-                  className="px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-full text-base md:text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50 active:scale-95"
-                >
+                <button onClick={scrollToContact} className="px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-full text-base md:text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50 active:scale-95">
                   Jetzt Kontakt aufnehmen
                 </button>
               </div>
@@ -337,13 +267,7 @@ const CaseStudyAlbaNova = () => {
                 {/* Left: Image/Visual */}
                 <div className="relative">
                   <div className="aspect-[4/3] rounded-3xl overflow-hidden border border-purple-500/20">
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                    >
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                       <source src="/assets/albanova-challenges-video.mp4" type="video/mp4" />
                     </video>
                   </div>
@@ -420,11 +344,8 @@ const CaseStudyAlbaNova = () => {
 
             {/* Desktop: Vertical Layout, Mobile: Horizontal Scroll */}
             <div className="hidden md:block space-y-32">
-              {phases.map((phase, phaseIndex) => (
-                <AnimatedSection key={phaseIndex}>
-                  <div
-                    className={`grid lg:grid-cols-2 gap-12 items-center ${phaseIndex % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
-                  >
+              {phases.map((phase, phaseIndex) => <AnimatedSection key={phaseIndex}>
+                  <div className={`grid lg:grid-cols-2 gap-12 items-center ${phaseIndex % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
                     {/* Content Side */}
                     <div className={phaseIndex % 2 === 1 ? "lg:order-2" : ""}>
                       <div className="mb-3 md:mb-4">
@@ -441,12 +362,8 @@ const CaseStudyAlbaNova = () => {
 
                       <div className="space-y-4 md:space-y-6">
                         {phase.features.map((feature, featureIndex) => {
-                          const Icon = feature.icon;
-                          return (
-                            <div
-                              key={featureIndex}
-                              className="flex items-start gap-3 md:gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300 active:scale-95"
-                            >
+                      const Icon = feature.icon;
+                      return <div key={featureIndex} className="flex items-start gap-3 md:gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300 active:scale-95">
                               <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg md:rounded-xl flex items-center justify-center">
                                 <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                               </div>
@@ -456,21 +373,14 @@ const CaseStudyAlbaNova = () => {
                                 </h3>
                                 <p className="text-sm md:text-base text-gray-400">{feature.description}</p>
                               </div>
-                            </div>
-                          );
-                        })}
+                            </div>;
+                    })}
                       </div>
                     </div>
 
                     {/* Image Side */}
                     <div className={phaseIndex % 2 === 1 ? "lg:order-1" : ""}>
-                      {phaseIndex === 2 ? (
-                        <a
-                          href="https://albanovaconsulting.com"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block group"
-                        >
+                      {phaseIndex === 2 ? <a href="https://albanovaconsulting.com" target="_blank" rel="noopener noreferrer" className="block group">
                           {/* Laptop Mockup */}
                           <div className="relative perspective-1000">
                             {/* Laptop Screen */}
@@ -479,11 +389,7 @@ const CaseStudyAlbaNova = () => {
                               <div className="bg-black p-3 rounded-t-xl">
                                 {/* Website Screenshot */}
                                 <div className="relative aspect-[16/10] rounded-lg overflow-hidden shadow-inner">
-                                  <img
-                                    src={albanovaWebsite}
-                                    alt="AlbaNova Consulting Website"
-                                    className="w-full h-full object-cover object-top"
-                                  />
+                                  <img src={albanovaWebsite} alt="AlbaNova Consulting Website" className="w-full h-full object-cover object-top" />
                                   {/* Screen Glare Effect */}
                                   <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
                                 </div>
@@ -503,46 +409,27 @@ const CaseStudyAlbaNova = () => {
                           <p className="text-center text-sm text-purple-400 mt-6 group-hover:text-purple-300 transition-colors">
                             Klicke aufs Bild →
                           </p>
-                        </a>
-                      ) : 'video' in phase && phase.video ? (
-                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
-                          <video
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="w-full h-full object-cover"
-                          >
+                        </a> : 'video' in phase && phase.video ? <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
+                          <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                             <source src={phase.video} type="video/mp4" />
                           </video>
-                        </div>
-                      ) : 'image' in phase && phase.image ? (
-                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
-                          <img
-                            src={phase.image}
-                            alt={phase.title}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      ) : (
-                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
+                        </div> : 'image' in phase && phase.image ? <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
+                          <img src={phase.image} alt={phase.title} className="w-full h-full object-cover" />
+                        </div> : <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
                           {/* Placeholder for image - using gradient background */}
                           <div className="absolute inset-0 flex items-center justify-center">
                             <div className="text-white/30 text-6xl font-black">{phase.number}</div>
                           </div>
-                        </div>
-                      )}
+                        </div>}
                     </div>
                   </div>
-                </AnimatedSection>
-              ))}
+                </AnimatedSection>)}
             </div>
 
             {/* Mobile: Horizontal Scroll */}
             <div className="md:hidden">
               <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
-                {phases.map((phase, phaseIndex) => (
-                  <div key={phaseIndex} className="min-w-[85vw] snap-center">
+                {phases.map((phase, phaseIndex) => <div key={phaseIndex} className="min-w-[85vw] snap-center">
                     <AnimatedSection>
                       <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
                         <div className="mb-3">
@@ -553,12 +440,8 @@ const CaseStudyAlbaNova = () => {
 
                         <div className="space-y-4">
                           {phase.features.map((feature, featureIndex) => {
-                            const Icon = feature.icon;
-                            return (
-                              <div
-                                key={featureIndex}
-                                className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4"
-                              >
+                        const Icon = feature.icon;
+                        return <div key={featureIndex} className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
                                 <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
                                   <Icon className="w-5 h-5 text-white" />
                                 </div>
@@ -566,19 +449,15 @@ const CaseStudyAlbaNova = () => {
                                   <h4 className="text-white font-bold text-sm mb-1">{feature.title}</h4>
                                   <p className="text-xs text-gray-400">{feature.description}</p>
                                 </div>
-                              </div>
-                            );
-                          })}
+                              </div>;
+                      })}
                         </div>
                       </div>
                     </AnimatedSection>
-                  </div>
-                ))}
+                  </div>)}
               </div>
               <div className="flex justify-center gap-2 mt-4">
-                {phases.map((_, index) => (
-                  <div key={index} className="w-2 h-2 rounded-full bg-white/20" />
-                ))}
+                {phases.map((_, index) => <div key={index} className="w-2 h-2 rounded-full bg-white/20" />)}
               </div>
             </div>
           </div>
@@ -596,7 +475,7 @@ const CaseStudyAlbaNova = () => {
                   auf unsere Online-Präsenz ist."
                 </blockquote>
                 <div className="flex items-center justify-center gap-3 md:gap-4">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex-shrink-0" />
+                  
                   <div className="text-left">
                     <div className="font-bold text-white text-base md:text-lg">Rocío Morales</div>
                     <div className="text-sm md:text-base text-gray-400">Founder, AlbaNova Consulting</div>
@@ -622,10 +501,7 @@ const CaseStudyAlbaNova = () => {
               <p className="text-base md:text-xl text-gray-300 mb-8 md:mb-10 leading-relaxed px-4">
                 Lassen Sie uns gemeinsam eine Strategie entwickeln, die Ihre Vision Realität werden lässt.
               </p>
-              <button
-                onClick={scrollToContact}
-                className="px-8 py-4 md:px-10 md:py-5 bg-white text-black font-bold rounded-full text-base md:text-lg hover:scale-105 active:scale-95 transition-transform duration-300 inline-flex items-center gap-3"
-              >
+              <button onClick={scrollToContact} className="px-8 py-4 md:px-10 md:py-5 bg-white text-black font-bold rounded-full text-base md:text-lg hover:scale-105 active:scale-95 transition-transform duration-300 inline-flex items-center gap-3">
                 Projekt starten
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
               </button>
@@ -635,7 +511,6 @@ const CaseStudyAlbaNova = () => {
 
         <Footer />
       </div>
-    </>
-  );
+    </>;
 };
 export default CaseStudyAlbaNova;
