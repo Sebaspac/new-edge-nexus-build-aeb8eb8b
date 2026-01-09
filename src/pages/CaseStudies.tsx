@@ -207,7 +207,7 @@ const CaseStudies = () => {
         <meta name="description" content="Erfolgsgeschichten und Case Studies von NEW EDGE. Erfahren Sie, wie wir unseren Kunden helfen." />
       </Helmet>
 
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen bg-black" style={{ backgroundColor: '#000000' }}>
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
         {/* Compact Header */}
