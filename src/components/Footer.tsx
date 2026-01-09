@@ -127,7 +127,7 @@ export const Footer = () => {
               Impressum
             </Link>
             <span className="text-gray-700">|</span>
-            <Link to="/impressum" className="text-xs md:text-sm text-gray-500 hover:text-white transition-colors">
+            <Link to="/impressum#datenschutz" className="text-xs md:text-sm text-gray-500 hover:text-white transition-colors">
               Datenschutz
             </Link>
           </div>

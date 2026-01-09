@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowLeft, Mail, MapPin, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,6 +9,19 @@ const Impressum = () => {
   const {
     t
   } = useLanguage();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location.hash]);
+
   return <div className="min-h-screen bg-black text-white">
       {/* Header */}
       <motion.header initial={{
@@ -142,7 +156,7 @@ const Impressum = () => {
           </motion.div>
 
           {/* Datenschutzerklärung */}
-          <motion.div initial={{
+          <motion.div id="datenschutz" initial={{
           opacity: 0,
           y: 20
         }} animate={{
