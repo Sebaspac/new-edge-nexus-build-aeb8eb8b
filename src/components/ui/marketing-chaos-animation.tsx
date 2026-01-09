@@ -55,7 +55,7 @@ export const MarketingChaosAnimation: React.FC = () => {
     };
 
     moveCursor();
-    const interval = setInterval(moveCursor, 1200);
+    const interval = setInterval(moveCursor, 2200);
 
     return () => clearInterval(interval);
   }, []);
