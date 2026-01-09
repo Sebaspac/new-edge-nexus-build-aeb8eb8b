@@ -325,14 +325,62 @@ const CaseStudySocialMedia = () => {
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 md:mb-6">
                   Von der Vision zur Realität
                 </h2>
-                <p className="text-base md:text-xl text-gray-300 px-4">
+                <p className="text-base md:text-xl text-gray-300 px-4 hidden md:block">
                   Interaktive Timeline: Klicken Sie auf die Knoten, um Details zu sehen
+                </p>
+                <p className="text-base text-gray-300 px-4 md:hidden">
+                  Wischen Sie, um die Projektphasen zu erkunden
                 </p>
               </div>
             </AnimatedSection>
           </div>
-          <div className="overflow-x-auto md:overflow-visible">
+          
+          {/* Desktop: Radial Timeline */}
+          <div className="hidden md:block">
             <RadialOrbitalTimeline timelineData={orbitalTimelineData} />
+          </div>
+          
+          {/* Mobile: Horizontal Snap-Scroll Timeline */}
+          <div className="md:hidden relative">
+            <div className="absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
+            <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-6 pt-2 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              {orbitalTimelineData.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.id} className="flex-shrink-0 w-[80vw] snap-center">
+                    <div className="flex justify-center mb-4">
+                      <div className="w-4 h-4 rounded-full bg-purple-500 border-2 border-purple-300 shadow-lg shadow-purple-500/50" />
+                    </div>
+                    <div className="bg-white/5 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-5 h-full">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                          <Icon className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="text-white font-bold text-lg">{item.title}</h3>
+                          <span className="text-purple-400 text-xs font-medium">{item.date}</span>
+                        </div>
+                      </div>
+                      <p className="text-gray-300 text-sm leading-relaxed mb-4">{item.content}</p>
+                      <div className="flex items-center justify-between">
+                        <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs font-medium rounded-full">{item.category}</span>
+                        <div className="flex items-center gap-2">
+                          <div className="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
+                            <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style={{ width: `${item.energy}%` }} />
+                          </div>
+                          <span className="text-gray-400 text-xs">{item.energy}%</span>
+                        </div>
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-1">
+                        {orbitalTimelineData.map((_, i) => (
+                          <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === index ? 'bg-purple-500' : 'bg-gray-600'}`} />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
