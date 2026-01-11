@@ -2,42 +2,42 @@ import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
 import { motion } from "motion/react";
 const testimonials = [{
   text: "New Edge hat unsere internen Abläufe komplett neu gedacht. Durch die KI-gestützten Workflows sparen wir unglaublich viel Zeit im Projektgeschäft.",
-  image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face",
+  image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=150&h=150&fit=crop&crop=face",
   name: "Kathrin Mertens",
   role: "Geschäftsführerin, Eventlogistik"
 }, {
   text: "Die Automatisierungslösungen von New Edge haben unsere Effizienz massiv gesteigert. Besonders das zentrale Dashboard gibt uns endlich einen klaren Blick auf unsere KPI´s.",
-  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+  image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150&h=150&fit=crop&crop=face",
   name: "Emre Yılmaz",
   role: "CEO, Automobilzulieferer"
 }, {
   text: "Die Implementierung lief erstaunlich reibungslos. Das Team hat unsere Anforderungen schnell verstanden, die bestehenden Tools clever integriert und die Übergabe so vorbereitet, dass unser Team ohne Frust weiterarbeiten konnte.",
-  image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
+  image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
   name: "Anna Kowalski",
   role: "Head of Marketing, E-Commerce"
 }, {
   text: "New Edge versteht die Realität von KMUs: wenig Zeit, begrenzte Ressourcen, hoher Druck. Die Lösungen sind praxisnah und so gebaut, dass jeder unseres Teams davon profitiert.",
-  image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150&h=150&fit=crop&crop=face",
+  image: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=150&h=150&fit=crop&crop=face",
   name: "Miriam El-Masri",
   role: "Leiterin Operations, Maschinenbau"
 }, {
   text: "Mit New Edge haben wir zuerst klein gestartet - ein Reporting-Dashboard und ein paar automatisierte Workflows. Inzwischen laufen komplette Kampagnen automatisiert. Das Team denkt wie eine verlängerter Arm unseres eigenen Teams.",
-  image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+  image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face",
   name: "Stefan Neuhaus",
   role: "Geschäftsführer, IT-Dienstleistungen"
 }, {
   text: "Dank New Edge konnten wir auch ohne technisches Verständnis schnell ein funktionierendes System umsetzen.",
-  image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=150&h=150&fit=crop&crop=face",
+  image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=150&h=150&fit=crop&crop=face",
   name: "Priya Sharma",
   role: "Brand Managerin, Food & Beverage"
 }, {
   text: "Durch New Edge konnten wir unseren Online-Auftritt verbessern und die Conversion steigern.",
-  image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+  image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face",
   name: "Aleksandar Kovačević",
   role: "E-Commerce Lead, Fashion Retail"
 }, {
   text: "Ein echter Tech-Partner, kein klassisches Agentur-Blabla. Das Team denkt nicht nur mit, sondern liefert messbare Ergebnisse.",
-  image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?w=150&h=150&fit=crop&crop=face",
+  image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face",
   name: "Carolin Bruns",
   role: "COO, Tech-Startup"
 }];
