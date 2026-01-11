@@ -11,8 +11,7 @@ import { SocialMediaAnimation } from "@/components/ui/social-media-animation";
 import { PerformanceLaunchAnimation } from "@/components/ui/performance-launch-animation";
 import { LazyVideo } from "@/components/LazyVideo";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import kiMediaImage from "@/assets/ki-media.png";
-import kiWorkflowImage from "@/assets/ki-workflow.png";
+import marketingAutomationImage from "@/assets/marketing-automation.jpg";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
@@ -92,15 +91,7 @@ const Media = () => {
       headline: "Marketing-Automatisierung mit KI",
       category: "GROWTH",
       route: "/case-study/ecommerce",
-      image: kiMediaImage
-    },
-    {
-      id: "social-media",
-      client: "B2B SALES",
-      headline: "Intelligente Lead-Qualifizierung",
-      category: "SALES",
-      route: "/case-study/social-media",
-      image: kiWorkflowImage
+      image: marketingAutomationImage
     }
   ];
 
