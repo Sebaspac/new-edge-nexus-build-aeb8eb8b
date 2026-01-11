@@ -96,9 +96,7 @@ const Studio = () => {
                   backgroundClip: 'text'
                 }}>STUDIO</span>
                 </h1>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-white/90 max-w-3xl leading-relaxed">
-                  Wir bauen Marken, die in einer AI-getriebenen Welt Relevanz, Klarheit und kreative Dominanz gewinnen.
-                </p>
+                <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-white/90 max-w-3xl leading-relaxed">Wir bauen Marken, die in einer Ki-getriebenen Welt Relevanz, Klarheit und kreative Dominanz gewinnen.</p>
               </div>
             </div>
           </div>
