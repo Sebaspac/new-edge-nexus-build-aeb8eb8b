@@ -17,7 +17,7 @@ const testimonials = [{
   role: "Head of Marketing, E-Commerce"
 }, {
   text: "New Edge versteht die Realität von KMUs: wenig Zeit, begrenzte Ressourcen, hoher Druck. Die Lösungen sind praxisnah und so gebaut, dass jeder unseres Teams davon profitiert.",
-  image: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=150&h=150&fit=crop&crop=face",
+  image: "",
   name: "Miriam El-Masri",
   role: "Leiterin Operations, Maschinenbau"
 }, {
@@ -27,12 +27,12 @@ const testimonials = [{
   role: "Geschäftsführer, IT-Dienstleistungen"
 }, {
   text: "Dank New Edge konnten wir auch ohne technisches Verständnis schnell ein funktionierendes System umsetzen.",
-  image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=150&h=150&fit=crop&crop=face",
+  image: "",
   name: "Priya Sharma",
   role: "Brand Managerin, Food & Beverage"
 }, {
   text: "Durch New Edge konnten wir unseren Online-Auftritt verbessern und die Conversion steigern.",
-  image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face",
+  image: "",
   name: "Aleksandar Kovačević",
   role: "E-Commerce Lead, Fashion Retail"
 }, {
