@@ -2,44 +2,44 @@ import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
 import { motion } from "motion/react";
 const testimonials = [{
   text: "New Edge hat unsere internen Abläufe komplett neu gedacht. Durch die KI-gestützten Workflows sparen wir unglaublich viel Zeit im Projektgeschäft.",
-  image: "https://randomuser.me/api/portraits/women/1.jpg",
-  name: "Sarah Schmidt",
-  role: "Geschäftsführerin"
+  image: "https://i.pravatar.cc/150?img=32",
+  name: "Kathrin Mertens",
+  role: "Geschäftsführerin, Eventlogistik"
 }, {
   text: "Die Automatisierungslösungen von New Edge haben unsere Effizienz massiv gesteigert. Besonders das zentrale Dashboard gibt uns endlich einen klaren Blick auf unsere KPI´s.",
-  image: "https://randomuser.me/api/portraits/men/2.jpg",
-  name: "Dr. Tobias Werner",
-  role: "CEO"
+  image: "https://i.pravatar.cc/150?img=59",
+  name: "Emre Yılmaz",
+  role: "CEO, Automobilzulieferer"
 }, {
   text: "Die Implementierung lief erstaunlich reibungslos. Das Team hat unsere Anforderungen schnell verstanden, die bestehenden Tools clever integriert und die Übergabe so vorbereitet, dass unser Team ohne Frust weiterarbeiten konnte.",
-  image: "https://randomuser.me/api/portraits/women/3.jpg",
-  name: "Julia Hoffmann",
-  role: "Marketing Direktorin"
+  image: "https://i.pravatar.cc/150?img=25",
+  name: "Anna Kowalski",
+  role: "Head of Marketing, E-Commerce"
 }, {
   text: "New Edge versteht die Realität von KMUs: wenig Zeit, begrenzte Ressourcen, hoher Druck. Die Lösungen sind praxisnah und so gebaut, dass jeder unseres Teams davon profitiert.",
-  image: "https://randomuser.me/api/portraits/women/4.jpg",
-  name: "Sabine Albrecht",
-  role: "Leiterin Operations"
+  image: "https://i.pravatar.cc/150?img=47",
+  name: "Miriam El-Masri",
+  role: "Leiterin Operations, Maschinenbau"
 }, {
   text: "Mit New Edge haben wir zuerst klein gestartet - ein Reporting-Dashboard und ein paar automatisierte Workflows. Inzwischen laufen komplette Kampagnen automatisiert. Das Team denkt wie eine verlängerter Arm unseres eigenen Teams.",
-  image: "https://randomuser.me/api/portraits/men/5.jpg",
-  name: "Christian Vogt",
-  role: "Geschäftsführer"
+  image: "https://i.pravatar.cc/150?img=12",
+  name: "Stefan Neuhaus",
+  role: "Geschäftsführer, IT-Dienstleistungen"
 }, {
   text: "Dank New Edge konnten wir auch ohne technisches Verständnis schnell ein funktionierendes System umsetzen.",
-  image: "https://randomuser.me/api/portraits/women/6.jpg",
-  name: "Lisa Wagner",
-  role: "Brand Managerin"
+  image: "https://i.pravatar.cc/150?img=38",
+  name: "Priya Sharma",
+  role: "Brand Managerin, Food & Beverage"
 }, {
   text: "Durch New Edge konnten wir unseren Online-Auftritt verbessern und die Conversion steigern.",
-  image: "https://randomuser.me/api/portraits/men/7.jpg",
-  name: "David Schneider",
-  role: "E-Commerce Manager"
+  image: "https://i.pravatar.cc/150?img=53",
+  name: "Aleksandar Kovačević",
+  role: "E-Commerce Lead, Fashion Retail"
 }, {
   text: "Ein echter Tech-Partner, kein klassisches Agentur-Blabla. Das Team denkt nicht nur mit, sondern liefert messbare Ergebnisse.",
-  image: "https://randomuser.me/api/portraits/women/8.jpg",
-  name: "Sophie Klein",
-  role: "Operations Managerin"
+  image: "https://i.pravatar.cc/150?img=23",
+  name: "Carolin Bruns",
+  role: "COO, Tech-Startup"
 }];
 const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
