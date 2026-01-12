@@ -69,7 +69,7 @@ export const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/use-cases" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                  <Link to="/case-studies" className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
                       Use Cases 
                     </span>
