@@ -86,7 +86,7 @@ export const BlogGridHome = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
-              className="flex-shrink-0 w-[75%] snap-start md:w-auto"
+              className="flex-shrink-0 w-[65%] snap-start md:w-auto"
             >
               <Link to={`/blog/${post.id}`} className="block group">
                 <div className="relative overflow-hidden aspect-square bg-gray-900">
