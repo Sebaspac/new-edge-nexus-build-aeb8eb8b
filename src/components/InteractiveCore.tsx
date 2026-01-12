@@ -482,6 +482,87 @@ export const InteractiveCore = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Quick Navigation Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-12 md:mt-16 lg:mt-20"
+        >
+          <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-4 md:mb-6">
+            Hier geht's zu:
+          </p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
+            {/* Studio Link */}
+            <a
+              href="/studio"
+              className="group relative p-4 sm:p-5 md:p-6 bg-gradient-to-br from-purple-50 to-white border border-purple-200 hover:border-purple-400 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="text-[10px] sm:text-xs font-medium text-purple-500 tracking-wider">01</span>
+                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-black mt-1 group-hover:text-purple-600 transition-colors">
+                    STUDIO
+                  </h4>
+                  <p className="text-xs sm:text-sm text-gray-500 mt-1">Branding & Strategie</p>
+                </div>
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-purple-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-500 group-hover:w-full transition-all duration-300" />
+            </a>
+
+            {/* Media Link */}
+            <a
+              href="/media"
+              className="group relative p-4 sm:p-5 md:p-6 bg-gradient-to-br from-blue-50 to-white border border-blue-200 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="text-[10px] sm:text-xs font-medium text-blue-500 tracking-wider">02</span>
+                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-black mt-1 group-hover:text-blue-600 transition-colors">
+                    MEDIA
+                  </h4>
+                  <p className="text-xs sm:text-sm text-gray-500 mt-1">Content & Performance</p>
+                </div>
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-blue-500 group-hover:w-full transition-all duration-300" />
+            </a>
+
+            {/* Lab Link */}
+            <a
+              href="/lab"
+              className="group relative p-4 sm:p-5 md:p-6 bg-gradient-to-br from-yellow-50 to-white border border-yellow-300 hover:border-yellow-500 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/10"
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="text-[10px] sm:text-xs font-medium text-yellow-600 tracking-wider">03</span>
+                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-black mt-1 group-hover:text-yellow-600 transition-colors">
+                    LAB
+                  </h4>
+                  <p className="text-xs sm:text-sm text-gray-500 mt-1">Automation & KI</p>
+                </div>
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-yellow-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-yellow-500 group-hover:w-full transition-all duration-300" />
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
