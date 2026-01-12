@@ -401,7 +401,7 @@ const Lab = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex-shrink-0 w-[75%] snap-start md:w-auto"
+                  className="flex-shrink-0 w-[65%] snap-start md:w-auto"
                 >
                   <Link to={caseStudy.route} className="block group">
                     <div className="relative overflow-hidden aspect-square bg-gray-100">

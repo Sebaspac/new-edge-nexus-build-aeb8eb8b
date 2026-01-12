@@ -327,7 +327,7 @@ const Media = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   onClick={() => navigate(caseItem.route)}
-                  className="group cursor-pointer flex-shrink-0 w-[75%] snap-start md:w-auto"
+                  className="group cursor-pointer flex-shrink-0 w-[65%] snap-start md:w-auto"
                 >
                   <div className="relative aspect-square overflow-hidden">
                     <img
