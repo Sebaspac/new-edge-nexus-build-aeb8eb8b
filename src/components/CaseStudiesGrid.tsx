@@ -68,7 +68,7 @@ export const CaseStudiesGrid = () => {
             className="hidden md:block flex-shrink-0"
           >
             <Link 
-              to="/case-studies"
+              to="/use-cases"
               className="inline-flex items-center gap-2 text-lg font-bold text-black hover:text-[#7C3AED] transition-colors duration-300"
             >
               ALLE CASES
@@ -147,7 +147,7 @@ export const CaseStudiesGrid = () => {
           className="md:hidden mt-6 text-center"
         >
           <Link 
-            to="/case-studies"
+            to="/use-cases"
             className="inline-flex items-center gap-2 text-sm font-bold text-black hover:text-[#7C3AED] transition-colors duration-300"
           >
             ALLE CASES
