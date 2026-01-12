@@ -23,12 +23,10 @@ export const AgencyEdgeSection = () => {
         }} transition={{
           duration: 0.8
         }} className="space-y-4 sm:space-y-6">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-black">
-              New Edge steht für strategisches Design, das Marken stärkt und Prozesse beschleunigt.
-            </h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-black">Mehr als eine Agentur. Ein Vorsprung.</h2>
 
             <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
-              Mit unserer "Edge Methodology" verbinden wir Purpose, Markencharakter und KI-gestützte User Experience zu digitalen Markenerlebnissen, die berühren, überzeugen und nachhaltig im Gedächtnis bleiben. Wir sind keine klassische Agentur. Wir sind Ihr Tech-Partner.
+              Mit unserer "Edge Methodology" denken wir Marken als System, nicht als Kampagne. So entstehen Lösungen – die Prozesse beschleunigen, Nutzer überzeugen und Marken Nachhaltig stärken.                                     
             </p>
 
             <div className="pt-4 sm:pt-6 md:pt-8">
