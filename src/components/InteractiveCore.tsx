@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Fingerprint, Cpu, Zap } from "lucide-react";
+import { Fingerprint, Cpu, Zap, Palette, Play, FlaskConical, ArrowRight } from "lucide-react";
 type StateType = "human" | "machine" | "fusion";
 interface ContentState {
   title: string;
@@ -501,19 +501,18 @@ export const InteractiveCore = () => {
               href="/studio"
               className="group relative p-4 sm:p-5 md:p-6 bg-gradient-to-br from-purple-50 to-white border border-purple-200 hover:border-purple-400 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
             >
-              <div className="flex items-center justify-between">
-                <div>
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 flex items-center justify-center group-hover:bg-purple-500 transition-colors">
+                  <Palette className="w-5 h-5 sm:w-6 sm:h-6 text-purple-500 group-hover:text-white transition-colors" />
+                </div>
+                <div className="flex-1">
                   <span className="text-[10px] sm:text-xs font-medium text-purple-500 tracking-wider">01</span>
-                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-black mt-1 group-hover:text-purple-600 transition-colors">
+                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-black group-hover:text-purple-600 transition-colors">
                     STUDIO
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-500 mt-1">Branding & Strategie</p>
+                  <p className="text-xs sm:text-sm text-gray-500">Branding & Strategie</p>
                 </div>
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-purple-500 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
+                <ArrowRight className="w-5 h-5 text-purple-400 group-hover:translate-x-1 transition-transform" />
               </div>
               <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-500 group-hover:w-full transition-all duration-300" />
             </a>
@@ -523,19 +522,18 @@ export const InteractiveCore = () => {
               href="/media"
               className="group relative p-4 sm:p-5 md:p-6 bg-gradient-to-br from-blue-50 to-white border border-blue-200 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
             >
-              <div className="flex items-center justify-between">
-                <div>
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 flex items-center justify-center group-hover:bg-blue-500 transition-colors">
+                  <Play className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500 group-hover:text-white transition-colors" />
+                </div>
+                <div className="flex-1">
                   <span className="text-[10px] sm:text-xs font-medium text-blue-500 tracking-wider">02</span>
-                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-black mt-1 group-hover:text-blue-600 transition-colors">
+                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-black group-hover:text-blue-600 transition-colors">
                     MEDIA
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-500 mt-1">Content & Performance</p>
+                  <p className="text-xs sm:text-sm text-gray-500">Content & Performance</p>
                 </div>
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
+                <ArrowRight className="w-5 h-5 text-blue-400 group-hover:translate-x-1 transition-transform" />
               </div>
               <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-blue-500 group-hover:w-full transition-all duration-300" />
             </a>
@@ -545,19 +543,18 @@ export const InteractiveCore = () => {
               href="/lab"
               className="group relative p-4 sm:p-5 md:p-6 bg-gradient-to-br from-yellow-50 to-white border border-yellow-300 hover:border-yellow-500 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/10"
             >
-              <div className="flex items-center justify-between">
-                <div>
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-100 flex items-center justify-center group-hover:bg-yellow-500 transition-colors">
+                  <FlaskConical className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-600 group-hover:text-white transition-colors" />
+                </div>
+                <div className="flex-1">
                   <span className="text-[10px] sm:text-xs font-medium text-yellow-600 tracking-wider">03</span>
-                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-black mt-1 group-hover:text-yellow-600 transition-colors">
+                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-black group-hover:text-yellow-600 transition-colors">
                     LAB
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-500 mt-1">Automation & KI</p>
+                  <p className="text-xs sm:text-sm text-gray-500">Automation & KI</p>
                 </div>
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-yellow-500 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
+                <ArrowRight className="w-5 h-5 text-yellow-500 group-hover:translate-x-1 transition-transform" />
               </div>
               <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-yellow-500 group-hover:w-full transition-all duration-300" />
             </a>
