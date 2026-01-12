@@ -5,10 +5,10 @@ import { Helmet } from 'react-helmet-async';
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import albanovaImage from "@/assets/albanova-website.png";
-import kiInfrastructureImage from "@/assets/ki-infrastructure.png";
-import kiMediaImage from "@/assets/ki-media.png";
-import kiWorkflowImage from "@/assets/ki-workflow.png";
+import albanovaImage from "@/assets/albanova-building.png";
+import ragDatacenterImage from "@/assets/rag-datacenter.jpg";
+import marketingAutomationImage from "@/assets/marketing-automation.jpg";
+import leadGenerationImage from "@/assets/lead-generation.jpg";
 interface CaseStudy {
   id: string;
   client: string;
@@ -45,21 +45,21 @@ const labCases: CaseStudy[] = [{
   headline: "RAG-Wissensagent für Maschinenbau",
   category: "AI AUTOMATION",
   route: "/case-study/retail-lab",
-  image: kiInfrastructureImage
+  image: ragDatacenterImage
 }, {
   id: "ecommerce",
   client: "RETAIL CLIENT",
   headline: "Marketing-Automatisierung mit KI",
   category: "GROWTH",
   route: "/case-study/ecommerce",
-  image: kiMediaImage
+  image: marketingAutomationImage
 }, {
   id: "social-media",
   client: "B2B SALES",
   headline: "Intelligente Lead-Qualifizierung",
   category: "SALES",
   route: "/case-study/social-media",
-  image: kiWorkflowImage
+  image: leadGenerationImage
 }];
 interface CaseCardProps {
   caseStudy: CaseStudy;
