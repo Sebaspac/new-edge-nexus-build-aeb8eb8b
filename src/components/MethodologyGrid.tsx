@@ -52,7 +52,7 @@ export const MethodologyGrid = () => {
 
             {/* Description */}
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 leading-relaxed max-w-md">
-              Wir kombinieren strategische Exzellenz einer Marketing Agentur mit der Kraft einer spezialisierten KI-Agentur. Keine Buzzwords, nur Ergebnisse.
+              Wir verbinden Strategie, Kreativität und Automation aus einer Hand – sicher. schnell.  DSGVO-Konform.
             </p>
 
             {/* CTA Box */}

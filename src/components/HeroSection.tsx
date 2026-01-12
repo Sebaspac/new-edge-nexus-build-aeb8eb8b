@@ -27,7 +27,9 @@ export const HeroSection = ({
     <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md">
       Skip to main content
     </a>
-    <section className="relative w-full min-h-[100dvh] bg-black" id="hero" style={{ backgroundColor: '#000000' }}>
+    <section className="relative w-full min-h-[100dvh] bg-black" id="hero" style={{
+      backgroundColor: '#000000'
+    }}>
       <div className="w-full min-h-[100dvh] grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden z-10 bg-black">
         <CyberneticGridShader />
         
@@ -61,22 +63,16 @@ export const HeroSection = ({
               
               {/* Description */}
               <p className="text-sm sm:text-base md:text-lg text-neutral-400 max-w-xl mx-auto lg:mx-0">
-                New Edge ist Ihre Innovationsagentur für den Mittelstand. Wir verbinden Strategie, Kreation und Prozessautomatisierung für messbares Wachstum.
+                New Edge ist Ihr zuverlässiger partner für Prozessautomatisierung und Marketing – powered by KI, entwickelt für den Mittelstand.                   
               </p>
               
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center lg:justify-start items-center lg:items-start">
-                <button 
-                  onClick={onContactClick} 
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm sm:text-base w-full sm:w-auto hover:-translate-y-0.5 rounded-none"
-                >
+                <button onClick={onContactClick} className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm sm:text-base w-full sm:w-auto hover:-translate-y-0.5 rounded-none">
                   Projekt Starten
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <Link 
-                  to="/about"
-                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-white font-semibold border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm sm:text-base w-full sm:w-auto rounded-none"
-                >
+                <Link to="/about" className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-white font-semibold border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm sm:text-base w-full sm:w-auto rounded-none">
                   Über Uns
                 </Link>
               </div>
