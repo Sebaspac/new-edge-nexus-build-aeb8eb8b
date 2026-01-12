@@ -190,6 +190,42 @@ const Index = () => {
           <InteractiveCore />
         </div>
 
+        {/* Quick Navigation Grid */}
+        <section className="relative py-12 md:py-16 overflow-hidden bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              {[
+                { label: "Studio", href: "/studio", color: "from-purple-500 to-indigo-600" },
+                { label: "Media", href: "/media", color: "from-blue-500 to-cyan-500" },
+                { label: "Lab", href: "/lab", color: "from-yellow-400 to-orange-500" }
+              ].map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Link
+                    to={item.href}
+                    className="group flex items-center justify-between p-6 md:p-8 bg-transparent border-2 border-black hover:bg-black transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className="text-sm font-medium text-gray-500 group-hover:text-white/70 transition-colors">
+                        Hier geht's zu
+                      </span>
+                      <span className={`text-xl md:text-2xl font-black bg-gradient-to-r ${item.color} bg-clip-text text-transparent group-hover:text-white transition-all`}>
+                        {item.label}
+                      </span>
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-black group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Unsere Kompetenzbereiche - Light Section */}
         <section className="relative section-py-md overflow-hidden bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
