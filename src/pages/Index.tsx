@@ -162,80 +162,8 @@ const Index = () => {
           <MethodologyGrid />
         </div>
 
-        {/* Quick Navigation Grid */}
-        <section className="relative py-16 md:py-20 overflow-hidden bg-black">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <motion.div 
-              className="text-center mb-10"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="text-xs font-bold uppercase tracking-[0.3em] text-white/50 mb-3 block">
-                Unsere Bereiche
-              </span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white">
-                Entdecken Sie unsere Expertise
-              </h2>
-            </motion.div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/20">
-              {[
-                { label: "Studio", href: "/studio", number: "01", desc: "Branding & Strategie", color: "#a855f7" },
-                { label: "Media", href: "/media", number: "02", desc: "Content & Performance", color: "#3b82f6" },
-                { label: "Lab", href: "/lab", number: "03", desc: "Automation & KI", color: "#fbbf24" }
-              ].map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`${index < 2 ? 'md:border-r border-b md:border-b-0 border-white/20' : ''}`}
-                >
-                  <Link
-                    to={item.href}
-                    className="group relative flex flex-col p-8 md:p-10 bg-transparent hover:bg-white/5 transition-all duration-500 h-full"
-                  >
-                    <div className="flex items-start justify-between mb-6">
-                      <span 
-                        className="text-xs font-mono tracking-wider"
-                        style={{ color: item.color }}
-                      >
-                        {item.number}
-                      </span>
-                      <ArrowRight 
-                        className="w-5 h-5 text-white/30 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" 
-                      />
-                    </div>
-                    
-                    <h3 
-                      className="text-3xl md:text-4xl font-black mb-2 transition-all duration-300"
-                      style={{ color: item.color }}
-                    >
-                      {item.label}
-                    </h3>
-                    
-                    <p className="text-sm text-white/50 group-hover:text-white/70 transition-colors">
-                      {item.desc}
-                    </p>
-                    
-                    <div 
-                      className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500"
-                      style={{ backgroundColor: item.color }}
-                    />
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Logo Cloud */}
-        <div className="bg-background">
-          <LogoCloud />
-        </div>
+        
 
         {/* Positioned for Impact Section */}
         <div className="bg-surface">
