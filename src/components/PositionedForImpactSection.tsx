@@ -50,7 +50,7 @@ export const PositionedForImpactSection = () => {
 
             {/* Description */}
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
-              Erfolg ist das Ergebnis einer klaren KI-Strategie und einer authentischen Markenidentität. Als Expert:innen für Automatisierung, Branding und Markeninteraktion unterstützen wir Unternehmen dabei, ihre unverwechselbare Position im Markt zu finden und durch Technologie zu festigen.
+              Erfolg entsteht aus einer klaren strukturierten Strategie und einer starken Markenidentität. Als Experten für Automatisierung, Branding und Markeninteraktion helfen wir Unternehmen dabei, ihre Positionierung im Markt zu schärfen und diese durch intelligente Technologie nachhaltig zu stärken.
             </p>
 
             {/* CTA Button */}
