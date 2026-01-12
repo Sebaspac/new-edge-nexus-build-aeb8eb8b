@@ -111,8 +111,11 @@ export const InteractiveCore = () => {
             </span>
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl">
-            Wir vereinen strategische Markenführung und intelligente Automatisierung zu messbaren Ergebnissen -
+            Wir vereinen strategische Markenführung und intelligente Automatisierung zu messbaren Ergebnissen –
             realisiert über ein Headquarter-Modell.
+          </p>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mt-3">
+            New Edge ist keine klassische Agentur. Wir sind Ihr strategischer Tech-Partner.
           </p>
         </motion.div>
 
