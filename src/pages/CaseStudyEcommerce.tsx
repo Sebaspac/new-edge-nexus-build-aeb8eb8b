@@ -435,7 +435,7 @@ const CaseStudyEcommerce = () => {
               <div className="max-w-4xl mx-auto text-center">
                 <ShieldCheck className="w-12 h-12 md:w-16 md:h-16 text-purple-500 mx-auto mb-6 md:mb-8" />
                 <blockquote className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white leading-relaxed mb-6 md:mb-8">
-                  "Unser Marketing arbeitet jetzt skalierbar und konsistent. Ergebnisse kommen schneller, günstiger und messbar besser. Prozesse, die früher manuell und fehleranfällig waren, sind jetzt automatisiert – inklusive Auswertung und Optimierung. Unser Team kann sich wieder auf Wachstum statt auf operative Aufgaben konzentrieren.“ "
+                  "Unser Marketing arbeitet jetzt skalierbar und konsistent. Ergebnisse kommen schneller, günstiger und messbar besser. Prozesse, die früher manuell und fehleranfällig waren, sind jetzt automatisiert – inklusive Auswertung und Optimierung. Unser Team kann sich wieder auf Wachstum statt auf operative Aufgaben konzentrieren.“ 
                 </blockquote>
                 <div className="flex items-center justify-center gap-3 md:gap-4">
                   
