@@ -346,100 +346,6 @@ const Lab = () => {
             </section>;
       })}
 
-        {/* Lab Cases Section */}
-        <section className="relative py-24 bg-white overflow-hidden">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            {/* Header */}
-            <div className="flex items-end justify-between mb-12">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] text-black">
-                  Lab Cases.
-                  <br />
-                  <span style={{
-                    background: 'linear-gradient(to right, #fde047, #fbbf24)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}>Technologie, die liefert.</span>
-                </h2>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="hidden md:block"
-              >
-                <Link to="/case-studies" className="inline-flex items-center gap-2 text-lg font-bold text-black hover:text-[#fbbf24] transition-colors duration-300">
-                  ALLE CASES
-                  <ArrowUpRight className="w-6 h-6" />
-                </Link>
-              </motion.div>
-            </div>
-
-            {/* Cases Grid */}
-            <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4">
-              {[
-                {
-                  id: "social-media",
-                  client: "B2B SALES",
-                  headline: "Intelligente Lead-Qualifizierung",
-                  category: "AUTOMATION",
-                  route: "/case-study/social-media",
-                  image: leadGenerationImage
-                }
-              ].map((caseStudy, index) => (
-                <motion.div
-                  key={caseStudy.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex-shrink-0 w-[65%] snap-start md:w-auto"
-                >
-                  <Link to={caseStudy.route} className="block group">
-                    <div className="relative overflow-hidden aspect-square bg-gray-100">
-                      <img
-                        src={caseStudy.image}
-                        alt={caseStudy.headline}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-black/20" />
-                      
-                      <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                        <Plus className="w-12 h-12 text-white" strokeWidth={2} />
-                      </div>
-                      
-                      {/* Hover Overlay mit Lab-Gradient (Gelb/Orange) */}
-                      <div className="absolute inset-0 bg-[#fbbf24] opacity-0 group-hover:opacity-95 transition-all duration-300 flex flex-col justify-between p-6">
-                        <div className="w-16 h-1 bg-white" />
-                        <div className="space-y-3">
-                          <span className="text-xs font-bold text-white/80 uppercase tracking-wider">
-                            {caseStudy.client}
-                          </span>
-                          <h3 className="text-2xl font-bold text-white leading-tight">
-                            {caseStudy.headline}
-                          </h3>
-                          <div className="flex items-center gap-2 text-white font-medium">
-                            <span className="underline">Case ansehen</span>
-                            <ArrowUpRight className="w-5 h-5" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Meet Our Agents Section */}
         <section className="section-py-md bg-gradient-to-br from-white via-yellow-50/30 to-orange-50/30 relative overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -595,6 +501,100 @@ const Lab = () => {
                 Alle Agenten entdecken
               </Button>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Lab Cases Section */}
+        <section className="relative py-24 bg-white overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            {/* Header */}
+            <div className="flex items-end justify-between mb-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] text-black">
+                  Lab Cases.
+                  <br />
+                  <span style={{
+                    background: 'linear-gradient(to right, #fde047, #fbbf24)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text'
+                  }}>Technologie, die liefert.</span>
+                </h2>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="hidden md:block"
+              >
+                <Link to="/case-studies" className="inline-flex items-center gap-2 text-lg font-bold text-black hover:text-[#fbbf24] transition-colors duration-300">
+                  ALLE CASES
+                  <ArrowUpRight className="w-6 h-6" />
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Cases Grid */}
+            <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4">
+              {[
+                {
+                  id: "social-media",
+                  client: "B2B SALES",
+                  headline: "Intelligente Lead-Qualifizierung",
+                  category: "AUTOMATION",
+                  route: "/case-study/social-media",
+                  image: leadGenerationImage
+                }
+              ].map((caseStudy, index) => (
+                <motion.div
+                  key={caseStudy.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="flex-shrink-0 w-[65%] snap-start md:w-auto"
+                >
+                  <Link to={caseStudy.route} className="block group">
+                    <div className="relative overflow-hidden aspect-square bg-gray-100">
+                      <img
+                        src={caseStudy.image}
+                        alt={caseStudy.headline}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-black/20" />
+                      
+                      <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                        <Plus className="w-12 h-12 text-white" strokeWidth={2} />
+                      </div>
+                      
+                      {/* Hover Overlay mit Lab-Gradient (Gelb/Orange) */}
+                      <div className="absolute inset-0 bg-[#fbbf24] opacity-0 group-hover:opacity-95 transition-all duration-300 flex flex-col justify-between p-6">
+                        <div className="w-16 h-1 bg-white" />
+                        <div className="space-y-3">
+                          <span className="text-xs font-bold text-white/80 uppercase tracking-wider">
+                            {caseStudy.client}
+                          </span>
+                          <h3 className="text-2xl font-bold text-white leading-tight">
+                            {caseStudy.headline}
+                          </h3>
+                          <div className="flex items-center gap-2 text-white font-medium">
+                            <span className="underline">Case ansehen</span>
+                            <ArrowUpRight className="w-5 h-5" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
