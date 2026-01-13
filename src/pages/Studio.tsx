@@ -43,7 +43,13 @@ const Studio = () => {
     outcome: "Eine differenzierte, messbare und strategisch fundierte Markenbasis, die alle zukünftigen Entscheidungen leitet.",
     problem: "Unternehmen fehlt häufig eine klare Positionierung, Differenzierung und ein strategisches Zentrum. Dadurch entsteht kommunikative Inkonsistenz und verlorenes Marktpotenzial.",
     solution: "AI-gestützte Research-Methoden, tiefes Markenverständnis und ein strukturierter Strategie-Prozess. Wir definieren Brand Core, Value Proposition und die strategische Roadmap, die dein Wachstum steuert.",
-    deliverables: ["Personas & Customer Insights", "Positioning Map", "Differentiation Guide", "Brand Core (Purpose, Vision, Mission)", "Strategische Roadmap (12 Monate)"],
+    deliverables: [
+      { title: "Personas & Customer Insights", description: "Zielgruppenanalyse mit Verhaltensmustern, Pain Points und Kaufmotiven." },
+      { title: "Positioning Map", description: "Visuelle Einordnung im Wettbewerbsumfeld mit klarer Differenzierung." },
+      { title: "Differentiation Guide", description: "Dokumentation der Alleinstellungsmerkmale und strategischen Vorteile." },
+      { title: "Brand Core", description: "Purpose, Vision und Mission als strategisches Fundament der Marke." },
+      { title: "Strategische Roadmap", description: "12-Monats-Plan mit priorisierten Maßnahmen und Meilensteinen." }
+    ],
     icon: BookOpen,
     gradient: "from-[#6366f1] to-[#a855f7]"
   }, {
@@ -51,7 +57,15 @@ const Studio = () => {
     outcome: "Ein konsistentes, emotionales und skalierbares Designsystem, das Marken sichtbar und unverwechselbar macht.",
     problem: "Viele Marken wirken austauschbar, verlieren an Wiedererkennung und Vertrauen.",
     solution: "Ein Brand System, das Stil, Haltung und Differenzierung transportiert - gestützt durch einheitliche Designrichtlinien und AI-gestützte Visual Frameworks.",
-    deliverables: ["Logo-System", "Farb- & Typografie-System", "UX/UI-Grundlagen", "Visual Language", "Brand Book", "Brand Story & Messaging", "Voice & Tone Guidelines"],
+    deliverables: [
+      { title: "Logo-System", description: "Primär- und Sekundärlogo mit Varianten für alle Anwendungsbereiche." },
+      { title: "Farb- & Typografie-System", description: "Definierte Farbpalette und Schriftfamilien mit Anwendungsregeln." },
+      { title: "UX/UI-Grundlagen", description: "Designprinzipien für digitale Touchpoints und Interfaces." },
+      { title: "Visual Language", description: "Bildsprache, Ikonografie und grafische Elemente." },
+      { title: "Brand Book", description: "Umfassende Dokumentation aller Markenrichtlinien." },
+      { title: "Brand Story & Messaging", description: "Kernbotschaften und Storytelling-Framework." },
+      { title: "Voice & Tone Guidelines", description: "Sprachstil und Tonalität für alle Kommunikationskanäle." }
+    ],
     icon: Palette,
     gradient: "from-[#a855f7] to-[#6366f1]"
   }];
@@ -276,7 +290,7 @@ const Studio = () => {
                   }
                 }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
                       <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Deliverables</h4>
-                      <div className="space-y-3">
+                      <div className="space-y-4">
                         {service.deliverables.map((item, idx) => <motion.div key={idx} initial={{
                       opacity: 0,
                       x: -10
@@ -290,13 +304,18 @@ const Studio = () => {
                       delay: idx * 0.05
                     }} whileHover={{
                       x: 6
-                    }} className="flex items-center gap-4 group cursor-default">
-                            <span className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white text-sm font-bold shadow-md group-hover:scale-110 transition-transform duration-200`}>
+                    }} className="flex items-start gap-4 group cursor-default">
+                            <span className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white text-sm font-bold shadow-md group-hover:scale-110 transition-transform duration-200 mt-0.5`}>
                               {idx + 1}
                             </span>
-                            <span className="text-gray-700 group-hover:text-gray-900 transition-colors duration-200 font-medium">
-                              {item}
-                            </span>
+                            <div className="flex-1">
+                              <span className="text-gray-900 font-semibold block">
+                                {item.title}
+                              </span>
+                              <span className="text-gray-500 text-sm">
+                                {item.description}
+                              </span>
+                            </div>
                           </motion.div>)}
                       </div>
                     </motion.div>
