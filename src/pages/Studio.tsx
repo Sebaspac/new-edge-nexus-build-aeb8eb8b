@@ -43,13 +43,22 @@ const Studio = () => {
     outcome: "Eine differenzierte, messbare und strategisch fundierte Markenbasis, die alle zukünftigen Entscheidungen leitet.",
     problem: "Unternehmen fehlt häufig eine klare Positionierung, Differenzierung und ein strategisches Zentrum. Dadurch entsteht kommunikative Inkonsistenz und verlorenes Marktpotenzial.",
     solution: "AI-gestützte Research-Methoden, tiefes Markenverständnis und ein strukturierter Strategie-Prozess. Wir definieren Brand Core, Value Proposition und die strategische Roadmap, die dein Wachstum steuert.",
-    deliverables: [
-      { title: "Personas & Customer Insights", description: "Zielgruppenanalyse mit Verhaltensmustern, Pain Points und Kaufmotiven." },
-      { title: "Positioning Map", description: "Visuelle Einordnung im Wettbewerbsumfeld mit klarer Differenzierung." },
-      { title: "Differentiation Guide", description: "Dokumentation der Alleinstellungsmerkmale und strategischen Vorteile." },
-      { title: "Brand Core", description: "Purpose, Vision und Mission als strategisches Fundament der Marke." },
-      { title: "Strategische Roadmap", description: "12-Monats-Plan mit priorisierten Maßnahmen und Meilensteinen." }
-    ],
+    deliverables: [{
+      title: "Personas & Customer Insights",
+      description: "Zielgruppenanalyse mit Verhaltensmustern, Pain Points und Kaufmotiven."
+    }, {
+      title: "Positioning Map",
+      description: "Visuelle Einordnung im Wettbewerbsumfeld mit klarer Differenzierung."
+    }, {
+      title: "Differentiation Guide",
+      description: "Dokumentation der Alleinstellungsmerkmale und strategischen Vorteile."
+    }, {
+      title: "Brand Core",
+      description: "Purpose, Vision und Mission als strategisches Fundament der Marke."
+    }, {
+      title: "Strategische Roadmap",
+      description: "12-Monats-Plan mit priorisierten Maßnahmen und Meilensteinen."
+    }],
     icon: BookOpen,
     gradient: "from-[#6366f1] to-[#a855f7]"
   }, {
@@ -57,15 +66,28 @@ const Studio = () => {
     outcome: "Ein konsistentes, emotionales und skalierbares Designsystem, das Marken sichtbar und unverwechselbar macht.",
     problem: "Viele Marken wirken austauschbar, verlieren an Wiedererkennung und Vertrauen.",
     solution: "Ein Brand System, das Stil, Haltung und Differenzierung transportiert - gestützt durch einheitliche Designrichtlinien und AI-gestützte Visual Frameworks.",
-    deliverables: [
-      { title: "Logo-System", description: "Primär- und Sekundärlogo mit Varianten für alle Anwendungsbereiche." },
-      { title: "Farb- & Typografie-System", description: "Definierte Farbpalette und Schriftfamilien mit Anwendungsregeln." },
-      { title: "UX/UI-Grundlagen", description: "Designprinzipien für digitale Touchpoints und Interfaces." },
-      { title: "Visual Language", description: "Bildsprache, Ikonografie und grafische Elemente." },
-      { title: "Brand Book", description: "Umfassende Dokumentation aller Markenrichtlinien." },
-      { title: "Brand Story & Messaging", description: "Kernbotschaften und Storytelling-Framework." },
-      { title: "Voice & Tone Guidelines", description: "Sprachstil und Tonalität für alle Kommunikationskanäle." }
-    ],
+    deliverables: [{
+      title: "Logo-System",
+      description: "Primär- und Sekundärlogo mit Varianten für alle Anwendungsbereiche."
+    }, {
+      title: "Farb- & Typografie-System",
+      description: "Definierte Farbpalette und Schriftfamilien mit Anwendungsregeln."
+    }, {
+      title: "UX/UI-Grundlagen",
+      description: "Designprinzipien für digitale Touchpoints und Interfaces."
+    }, {
+      title: "Visual Language",
+      description: "Bildsprache, Ikonografie und grafische Elemente."
+    }, {
+      title: "Brand Book",
+      description: "Umfassende Dokumentation aller Markenrichtlinien."
+    }, {
+      title: "Brand Story & Messaging",
+      description: "Kernbotschaften und Storytelling-Framework."
+    }, {
+      title: "Voice & Tone Guidelines",
+      description: "Sprachstil und Tonalität für alle Kommunikationskanäle."
+    }],
     icon: Palette,
     gradient: "from-[#a855f7] to-[#6366f1]"
   }];
@@ -216,21 +238,7 @@ const Studio = () => {
                     </motion.div>
 
                     {/* Outcome */}
-                    <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 20
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.5
-                    }
-                  }
-                }} className="bg-gradient-to-r from-[#6366f1]/10 to-[#a855f7]/10 backdrop-blur-sm p-6 rounded-2xl border border-[#6366f1]/20">
-                      <p className="text-gray-700 leading-relaxed">{service.outcome}</p>
-                    </motion.div>
+                    
 
                     {/* Problem */}
                     <motion.div variants={{
