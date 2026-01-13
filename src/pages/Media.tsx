@@ -303,23 +303,23 @@ const Media = () => {
         </section>
 
         {/* Media Cases Section */}
-        <section className="section-py-md px-4 md:px-8 lg:px-16 bg-white">
+        <section className="py-12 md:py-16 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-6 mb-6 md:mb-12">
               <div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
                   Media Cases
                 </h2>
-                <p className="mt-4 text-lg text-muted-foreground max-w-xl">
+                <p className="mt-2 md:mt-4 text-sm md:text-lg text-muted-foreground max-w-xl">
                   Ausgewählte Projekte aus Content, Social und Performance.
                 </p>
               </div>
               <Button
                 variant="outline"
-                className="self-start md:self-auto border-2 border-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+                className="self-start md:self-auto border-2 border-foreground hover:bg-foreground hover:text-background transition-all duration-300 text-sm md:text-base"
                 onClick={() => navigate("/case-studies")}
               >
-                Alle Cases <ArrowRight className="ml-2 w-4 h-4" />
+                Alle Cases <ArrowRight className="ml-2 w-3 h-3 md:w-4 md:h-4" />
               </Button>
             </div>
 
@@ -342,13 +342,13 @@ const Media = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                  <span className="text-sm font-medium text-blue-600">
+                  <span className="text-[10px] md:text-sm font-medium text-blue-600">
                     {caseItem.category}
                   </span>
-                  <h3 className="mt-2 text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <h3 className="mt-1 md:mt-2 text-sm md:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight">
                     {caseItem.headline}
                   </h3>
-                  <p className="mt-1 text-gray-600">{caseItem.client}</p>
+                  <p className="mt-0.5 md:mt-1 text-[10px] md:text-base text-gray-600">{caseItem.client}</p>
                 </motion.div>
               ))}
             </div>
