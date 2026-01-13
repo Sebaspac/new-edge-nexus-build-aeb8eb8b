@@ -93,12 +93,12 @@ export const BrandStrategyAnimation = () => {
       </div>
 
       {/* Central Hub */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
         {/* Rotating Rings - slower */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 w-16 h-16 md:w-40 md:h-40 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+          className="absolute w-16 h-16 md:w-40 md:h-40"
         >
           <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#6366f1]/30" />
         </motion.div>
@@ -106,7 +106,7 @@ export const BrandStrategyAnimation = () => {
         <motion.div
           animate={{ rotate: -360 }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 w-12 h-12 md:w-32 md:h-32 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+          className="absolute w-12 h-12 md:w-32 md:h-32"
         >
           <div className="absolute inset-0 rounded-full border border-[#a855f7]/40" />
         </motion.div>
@@ -115,7 +115,7 @@ export const BrandStrategyAnimation = () => {
         <motion.div
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 4, repeat: Infinity }}
-          className="relative w-10 h-10 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-[#6366f1] to-[#a855f7] flex items-center justify-center shadow-lg shadow-[#6366f1]/30"
+          className="relative w-10 h-10 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-[#6366f1] to-[#a855f7] flex items-center justify-center shadow-lg shadow-[#6366f1]/30 z-10"
         >
           <Target className="w-5 h-5 md:w-10 md:h-10 text-white" />
         </motion.div>
@@ -126,7 +126,7 @@ export const BrandStrategyAnimation = () => {
             key={i}
             animate={{ rotate: 360 }}
             transition={{ duration: 16, repeat: Infinity, ease: "linear", delay: i * 4 }}
-            className="absolute w-16 h-16 md:w-40 md:h-40 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+            className="absolute w-16 h-16 md:w-40 md:h-40"
             style={{ transformOrigin: "center center" }}
           >
             <motion.div 

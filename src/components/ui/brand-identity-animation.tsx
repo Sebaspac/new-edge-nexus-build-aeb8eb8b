@@ -111,11 +111,11 @@ export const BrandIdentityAnimation = () => {
       </div>
 
       {/* Central Hub */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
         {/* Rotating Color Ring */}
         <motion.div
           animate={{ rotate: colorRotation }}
-          className="absolute w-20 h-20 md:w-44 md:h-44 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 rounded-full"
+          className="absolute w-20 h-20 md:w-44 md:h-44 rounded-full"
           style={{
             background: `conic-gradient(from ${colorRotation}deg, #6366f1, #a855f7, #ec4899, #f97316, #eab308, #22c55e, #06b6d4, #6366f1)`,
             opacity: 0.3,
@@ -126,7 +126,7 @@ export const BrandIdentityAnimation = () => {
         <motion.div
           animate={{ rotate: -360 }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute w-16 h-16 md:w-36 md:h-36 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+          className="absolute w-16 h-16 md:w-36 md:h-36"
         >
           <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#a855f7]/30" />
         </motion.div>
@@ -134,7 +134,7 @@ export const BrandIdentityAnimation = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute w-12 h-12 md:w-28 md:h-28 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+          className="absolute w-12 h-12 md:w-28 md:h-28"
         >
           <div className="absolute inset-0 rounded-full border border-[#6366f1]/40" />
         </motion.div>
@@ -143,7 +143,7 @@ export const BrandIdentityAnimation = () => {
         <motion.div
           animate={{ scale: [1, 1.08, 1] }}
           transition={{ duration: 5, repeat: Infinity }}
-          className="relative w-10 h-10 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-[#a855f7] to-[#6366f1] flex items-center justify-center shadow-lg shadow-[#a855f7]/30"
+          className="relative w-10 h-10 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-[#a855f7] to-[#6366f1] flex items-center justify-center shadow-lg shadow-[#a855f7]/30 z-10"
         >
           <Palette className="w-5 h-5 md:w-10 md:h-10 text-white" />
         </motion.div>
