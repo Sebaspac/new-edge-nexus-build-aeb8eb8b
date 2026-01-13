@@ -202,7 +202,21 @@ const Studio = () => {
                     </motion.div>
 
                     {/* Outcome */}
-                    
+                    <motion.div variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: 20
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.5
+                    }
+                  }
+                }} className="bg-gradient-to-r from-[#6366f1]/10 to-[#a855f7]/10 backdrop-blur-sm p-6 rounded-2xl border border-[#6366f1]/20">
+                      <p className="text-gray-700 leading-relaxed">{service.outcome}</p>
+                    </motion.div>
 
                     {/* Problem */}
                     <motion.div variants={{
