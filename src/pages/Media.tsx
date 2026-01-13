@@ -220,7 +220,7 @@ const Media = () => {
                     transition={{ duration: 0.5 }}
                   >
                     <div className="flex items-center gap-3 mb-4">
-                      <div className={`w-10 h-10 rounded-xl bg-gradient-to-r ${service.gradient} flex items-center justify-center`}>
+                      <div className={`w-10 h-10 bg-gradient-to-r ${service.gradient} flex items-center justify-center`}>
                         <service.icon className="w-5 h-5 text-white" />
                       </div>
                       <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
@@ -238,7 +238,7 @@ const Media = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="bg-red-50 border border-red-100 rounded-2xl p-5"
+                    className="bg-red-50 border border-red-100 p-5"
                   >
                     <h3 className="text-sm font-semibold text-red-600 uppercase tracking-wider mb-2">
                       Das Problem
@@ -252,7 +252,7 @@ const Media = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="bg-blue-50 border border-blue-100 rounded-2xl p-5"
+                    className="bg-blue-50 border border-blue-100 p-5"
                   >
                     <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2">
                       Unsere Lösung
@@ -281,7 +281,7 @@ const Media = () => {
                           whileHover={{ x: 8 }}
                           className="group flex items-start gap-4 cursor-default"
                         >
-                          <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white text-sm font-bold shadow-lg group-hover:scale-110 transition-transform duration-200 mt-0.5`}>
+                          <div className={`flex-shrink-0 w-8 h-8 bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white text-sm font-bold shadow-lg group-hover:scale-110 transition-transform duration-200 mt-0.5`}>
                             {idx + 1}
                           </div>
                           <div className="flex-1">

@@ -254,7 +254,7 @@ const Studio = () => {
                       delay: 0.1
                     }
                   }
-                }} className="bg-red-50 border border-red-100 rounded-2xl p-5">
+                }} className="bg-red-50 border border-red-100 p-5">
                       <h3 className="text-sm font-semibold text-red-600 uppercase tracking-wider mb-2">
                         Das Problem
                       </h3>
@@ -275,7 +275,7 @@ const Studio = () => {
                       delay: 0.2
                     }
                   }
-                }} className="bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
+                }} className="bg-indigo-50 border border-indigo-100 p-5">
                       <h3 className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-2">
                         Unsere Lösung
                       </h3>
@@ -296,7 +296,7 @@ const Studio = () => {
                       delay: 0.3
                     }
                   }
-                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#6366f1]/20">
+                }} className="bg-white/80 backdrop-blur-sm p-6 shadow-lg border border-[#6366f1]/20">
                       <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Deliverables</h4>
                       <div className="space-y-4">
                         {service.deliverables.map((item, idx) => <motion.div key={idx} initial={{
@@ -313,7 +313,7 @@ const Studio = () => {
                     }} whileHover={{
                       x: 6
                     }} className="flex items-start gap-4 group cursor-default">
-                            <span className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white text-sm font-bold shadow-md group-hover:scale-110 transition-transform duration-200 mt-0.5`}>
+                            <span className={`flex-shrink-0 w-8 h-8 bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white text-sm font-bold shadow-md group-hover:scale-110 transition-transform duration-200 mt-0.5`}>
                               {idx + 1}
                             </span>
                             <div className="flex-1">
