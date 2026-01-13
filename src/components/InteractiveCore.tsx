@@ -93,7 +93,7 @@ export const InteractiveCore = () => {
           <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 text-black">
             Drei Bereiche, eine{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-blue-500 to-yellow-400">
-              Vision
+              Vision.
             </span>
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl">Wir vereinen strategische Markenführung und intelligente Automatisierung zu messbaren Ergebnissen – realisiert über ein Headquarter-Modell. 

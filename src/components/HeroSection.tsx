@@ -63,7 +63,7 @@ export const HeroSection = ({
               
               {/* Description */}
               <p className="text-sm sm:text-base md:text-lg text-neutral-400 max-w-xl mx-auto lg:mx-0">
-                New Edge ist Ihr zuverlässiger partner für Prozessautomatisierung und Marketing – powered by KI, entwickelt für den Mittelstand.                   
+                New Edge ist Ihr zuverlässiger Partner für Prozessautomatisierung und Marketing – powered by KI, entwickelt für den Mittelstand.                   
               </p>
               
               {/* Buttons */}
