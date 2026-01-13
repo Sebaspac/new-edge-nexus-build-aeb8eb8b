@@ -52,6 +52,7 @@ const Lab = () => {
   const labServices = [{
     title: "KI-gestützte Prozessautomatisierung",
     description: "Wir analysieren bestehende Abläufe, bewerten manuelle Routinen und identifizieren, welche Prozesse sich durch künstliche Intelligenz optimieren oder automatisieren lassen.",
+    problem: "Manuelle, zeitfressende Routinen binden wertvolle Ressourcen. Ohne klare Prozessstruktur fehlt die Grundlage für effiziente Automatisierung – und Potenzial bleibt ungenutzt.",
     details: [{
       title: "Workflow-Analyse & Prozess-Mapping",
       description: "Erfassen, dokumentieren und bewerten bestehender Abläufe nach Aufwand, Risiko und Automatisierungspotenzial."
@@ -72,6 +73,7 @@ const Lab = () => {
   }, {
     title: "Websysteme & Conversion-Architektur",
     description: "Wir entwickeln performante, KI-fähige Webplattformen mit integrierter Funnel-Logik, Tracking-Setups und Schnittstellen zu Ihren Prozessen.",
+    problem: "Veraltete Webseiten ohne Conversion-Fokus und fehlende Datenintegration führen zu verlorenen Leads und ineffizienten Marketing-Ausgaben.",
     details: [{
       title: "Headless & CMS-Systeme",
       description: "Flexible, wartungsarme Systeme mit API-Anbindung und modularer Struktur."
@@ -92,6 +94,7 @@ const Lab = () => {
   }, {
     title: "Tracking- & Analyse-Setups",
     description: "Wir verbinden Tracking, Analyse und KI, um Entscheidungsprozesse datenbasiert zu steuern. Statt isolierte Dashboards einzurichten, entwickeln wir ein System, das Erkenntnisse automatisch generiert und Handlungsempfehlungen liefert.",
+    problem: "Fragmentierte Daten, unvollständiges Tracking und fehlende Analyse-Struktur verhindern fundierte Entscheidungen und datengetriebenes Wachstum.",
     details: [{
       title: "Data-Audit & Systemintegration",
       description: "Analyse bestehender Tracking-Setups und Entwicklung einer integrierten Datenarchitektur (GA4, Tag Manager, CRM, AI-Schnittstellen)."
@@ -257,6 +260,7 @@ const Lab = () => {
                       </h2>
                     </motion.div>
 
+                    {/* Das Problem */}
                     <motion.div variants={{
                   hidden: {
                     opacity: 0,
@@ -269,13 +273,29 @@ const Lab = () => {
                       duration: 0.5
                     }
                   }
-                }} whileHover={{
-                  scale: 1.02,
-                  y: -5
-                }} transition={{
-                  type: "spring",
-                  stiffness: 300
-                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30 hover:shadow-xl hover:border-[#fde047]/40 transition-all duration-200">
+                }} className="bg-red-50 border border-red-100 p-5">
+                      <h3 className="text-sm font-semibold text-red-600 uppercase tracking-wider mb-2">
+                        Das Problem
+                      </h3>
+                      <p className="text-sm leading-relaxed text-gray-700 sm:text-base">{service.problem}</p>
+                    </motion.div>
+
+                    <motion.div variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: 20
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.5
+                    }
+                  }
+                }} className="bg-amber-50 border border-amber-100 p-5">
+                      <h3 className="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-2">
+                        Unsere Lösung
+                      </h3>
                       <p className="text-sm leading-relaxed text-gray-600 sm:text-base">{service.description}</p>
                     </motion.div>
 
@@ -291,13 +311,7 @@ const Lab = () => {
                       duration: 0.5
                     }
                   }
-                }} whileHover={{
-                  scale: 1.02,
-                  y: -5
-                }} transition={{
-                  type: "spring",
-                  stiffness: 300
-                }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-[#fde047]/30 hover:shadow-xl hover:border-[#fde047]/40 transition-all duration-200">
+                }} className="bg-white/80 backdrop-blur-sm p-6 shadow-lg border border-[#fde047]/30">
                       <h3 className="text-h3 font-black mb-4 text-black">Unsere Leistungen</h3>
                       <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                         {service.details.map((detail, idx) => <motion.li key={idx} variants={{
@@ -310,7 +324,7 @@ const Lab = () => {
                         x: 0
                       }
                     }} className="flex gap-3">
-                            <span className={`flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r ${service.gradient} text-white flex items-center justify-center text-sm font-bold`}>
+                            <span className={`flex-shrink-0 w-7 h-7 bg-gradient-to-r ${service.gradient} text-white flex items-center justify-center text-sm font-bold`}>
                               {idx + 1}
                             </span>
                             <div className="flex-1">
