@@ -505,17 +505,17 @@ const Lab = () => {
         </section>
 
         {/* Lab Cases Section */}
-        <section className="relative py-24 bg-white overflow-hidden">
+        <section className="relative py-12 md:py-24 bg-white overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             {/* Header */}
-            <div className="flex items-end justify-between mb-12">
+            <div className="flex items-end justify-between mb-6 md:mb-12">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] text-black">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-black">
                   Lab Cases.
                   <br />
                   <span style={{
@@ -534,9 +534,9 @@ const Lab = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="hidden md:block"
               >
-                <Link to="/case-studies" className="inline-flex items-center gap-2 text-lg font-bold text-black hover:text-[#fbbf24] transition-colors duration-300">
+                <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm lg:text-lg font-bold text-black hover:text-[#fbbf24] transition-colors duration-300">
                   ALLE CASES
-                  <ArrowUpRight className="w-6 h-6" />
+                  <ArrowUpRight className="w-5 h-5 lg:w-6 lg:h-6" />
                 </Link>
               </motion.div>
             </div>
@@ -571,22 +571,22 @@ const Lab = () => {
                       <div className="absolute inset-0 bg-black/20" />
                       
                       <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                        <Plus className="w-12 h-12 text-white" strokeWidth={2} />
+                        <Plus className="w-8 h-8 md:w-12 md:h-12 text-white" strokeWidth={2} />
                       </div>
                       
                       {/* Hover Overlay mit Lab-Gradient (Gelb/Orange) */}
-                      <div className="absolute inset-0 bg-[#fbbf24] opacity-0 group-hover:opacity-95 transition-all duration-300 flex flex-col justify-between p-6">
-                        <div className="w-16 h-1 bg-white" />
-                        <div className="space-y-3">
-                          <span className="text-xs font-bold text-white/80 uppercase tracking-wider">
+                      <div className="absolute inset-0 bg-[#fbbf24] opacity-0 group-hover:opacity-95 transition-all duration-300 flex flex-col justify-between p-3 md:p-6">
+                        <div className="w-10 md:w-16 h-0.5 md:h-1 bg-white" />
+                        <div className="space-y-1 md:space-y-3">
+                          <span className="text-[8px] md:text-xs font-bold text-white/80 uppercase tracking-wider">
                             {caseStudy.client}
                           </span>
-                          <h3 className="text-2xl font-bold text-white leading-tight">
+                          <h3 className="text-sm md:text-2xl font-bold text-white leading-tight">
                             {caseStudy.headline}
                           </h3>
-                          <div className="flex items-center gap-2 text-white font-medium">
-                            <span className="underline">Case ansehen</span>
-                            <ArrowUpRight className="w-5 h-5" />
+                          <div className="flex items-center gap-1 md:gap-2 text-white font-medium">
+                            <span className="underline text-[10px] md:text-base">Case ansehen</span>
+                            <ArrowUpRight className="w-3 h-3 md:w-5 md:h-5" />
                           </div>
                         </div>
                       </div>
