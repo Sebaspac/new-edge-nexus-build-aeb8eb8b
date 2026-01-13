@@ -17,7 +17,7 @@ const allCaseStudies = [
     headline: "Marke & Digitalstrategie von Null aufgebaut",
     category: "BRANDING",
     route: "/case-study/albanova",
-    image: albanovaImage
+    image: albanovaImage,
   },
   {
     id: "retail-lab",
@@ -25,15 +25,15 @@ const allCaseStudies = [
     headline: "RAG-Wissensagent für Maschinenbau",
     category: "AI AUTOMATION",
     route: "/case-study/retail-lab",
-    image: ragDatacenterImage
+    image: ragDatacenterImage,
   },
   {
     id: "ecommerce",
     client: "RETAIL CLIENT",
     headline: "Marketing-Automatisierung mit KI",
-    category: "GROWTH",
+    category: "Wachstum",
     route: "/case-study/ecommerce",
-    image: marketingAutomationImage
+    image: marketingAutomationImage,
   },
   {
     id: "social-media",
@@ -41,13 +41,13 @@ const allCaseStudies = [
     headline: "Intelligente Lead-Qualifizierung",
     category: "SALES",
     route: "/case-study/social-media",
-    image: leadGenerationImage
-  }
+    image: leadGenerationImage,
+  },
 ];
 
 export const RelatedCaseStudies = ({ currentCaseId }: RelatedCaseStudiesProps) => {
   // Filter out the current case study
-  const relatedCases = allCaseStudies.filter(cs => cs.id !== currentCaseId);
+  const relatedCases = allCaseStudies.filter((cs) => cs.id !== currentCaseId);
 
   return (
     <section className="relative py-24 bg-black overflow-hidden">
@@ -74,7 +74,7 @@ export const RelatedCaseStudies = ({ currentCaseId }: RelatedCaseStudiesProps) =
             transition={{ duration: 0.6, delay: 0.2 }}
             className="hidden md:block"
           >
-            <Link 
+            <Link
               to="/use-cases"
               className="inline-flex items-center gap-2 text-lg font-bold text-white hover:text-[#7C3AED] transition-colors duration-300"
             >
@@ -97,40 +97,38 @@ export const RelatedCaseStudies = ({ currentCaseId }: RelatedCaseStudiesProps) =
               <Link to={caseStudy.route} className="block group">
                 <div className="relative overflow-hidden aspect-square bg-gray-900">
                   {/* Image */}
-                  <img 
-                    src={caseStudy.image} 
+                  <img
+                    src={caseStudy.image}
                     alt={caseStudy.headline}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
-                  
+
                   {/* Dark overlay on image */}
                   <div className="absolute inset-0 bg-black/30" />
-                  
+
                   {/* Normal State: + Icon */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                     <Plus className="w-12 h-12 text-white" strokeWidth={2} />
                   </div>
-                  
+
                   {/* Hover State: Purple Overlay */}
                   <div className="absolute inset-0 bg-[#7C3AED] opacity-0 group-hover:opacity-95 transition-all duration-300 flex flex-col justify-between p-6">
                     {/* Top: White Line */}
                     <div className="w-16 h-1 bg-white" />
-                    
+
                     {/* Content */}
                     <div className="space-y-3">
                       <span className="text-xs font-bold text-white/80 uppercase tracking-wider">
                         {caseStudy.client}
                       </span>
-                      <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">
-                        {caseStudy.headline}
-                      </h3>
+                      <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">{caseStudy.headline}</h3>
                       <div className="flex items-center gap-2 text-white font-medium group-hover:gap-3 transition-all duration-300">
                         <span className="underline">Case ansehen</span>
                         <ArrowUpRight className="w-5 h-5" />
                       </div>
                     </div>
-                    
+
                     {/* Bottom: Category Tag */}
                     <div>
                       <span className="inline-block border border-white/80 px-4 py-1.5 text-xs font-bold text-white uppercase tracking-wider">
@@ -152,7 +150,7 @@ export const RelatedCaseStudies = ({ currentCaseId }: RelatedCaseStudiesProps) =
           transition={{ duration: 0.6, delay: 0.4 }}
           className="md:hidden mt-8 text-center"
         >
-          <Link 
+          <Link
             to="/use-cases"
             className="inline-flex items-center gap-2 text-lg font-bold text-white hover:text-[#7C3AED] transition-colors duration-300"
           >

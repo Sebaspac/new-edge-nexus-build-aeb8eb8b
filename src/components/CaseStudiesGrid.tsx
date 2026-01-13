@@ -14,7 +14,7 @@ export const CaseStudiesGrid = () => {
       headline: "Marke & Digitalstrategie von Null aufgebaut",
       category: "BRANDING",
       route: "/case-study/albanova",
-      image: albanovaImage
+      image: albanovaImage,
     },
     {
       id: "retail-lab",
@@ -22,15 +22,15 @@ export const CaseStudiesGrid = () => {
       headline: "RAG-Wissensagent für Maschinenbau",
       category: "AI AUTOMATION",
       route: "/case-study/retail-lab",
-      image: ragDatacenterImage
+      image: ragDatacenterImage,
     },
     {
       id: "ecommerce",
       client: "RETAIL CLIENT",
       headline: "Marketing-Automatisierung mit KI",
-      category: "GROWTH",
+      category: "WACHSTUM",
       route: "/case-study/ecommerce",
-      image: marketingAutomationImage
+      image: marketingAutomationImage,
     },
     {
       id: "social-media",
@@ -38,8 +38,8 @@ export const CaseStudiesGrid = () => {
       headline: "Intelligente Lead-Qualifizierung",
       category: "SALES",
       route: "/case-study/social-media",
-      image: leadGenerationImage
-    }
+      image: leadGenerationImage,
+    },
   ];
 
   return (
@@ -67,7 +67,7 @@ export const CaseStudiesGrid = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="hidden md:block flex-shrink-0"
           >
-            <Link 
+            <Link
               to="/case-studies"
               className="inline-flex items-center gap-2 text-lg font-bold text-black hover:text-[#7C3AED] transition-colors duration-300"
             >
@@ -91,26 +91,26 @@ export const CaseStudiesGrid = () => {
               <Link to={caseStudy.route} className="block group">
                 <div className="relative overflow-hidden aspect-square bg-gray-900">
                   {/* Image - absolute positioned to fill the square */}
-                  <img 
-                    src={caseStudy.image} 
+                  <img
+                    src={caseStudy.image}
                     alt={caseStudy.headline}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
-                  
+
                   {/* Dark overlay on image */}
                   <div className="absolute inset-0 bg-black/30" />
-                  
+
                   {/* Normal State: + Icon */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                     <Plus className="w-8 h-8 md:w-12 md:h-12 text-white" strokeWidth={2} />
                   </div>
-                  
+
                   {/* Hover State: Purple Overlay */}
                   <div className="absolute inset-0 bg-[#7C3AED] opacity-0 group-hover:opacity-95 transition-all duration-300 flex flex-col justify-between p-3 md:p-6">
                     {/* Top: White Line */}
                     <div className="w-8 md:w-16 h-0.5 md:h-1 bg-white" />
-                    
+
                     {/* Content */}
                     <div className="space-y-1 md:space-y-3">
                       <span className="text-[10px] md:text-xs font-bold text-white/80 uppercase tracking-wider">
@@ -124,7 +124,7 @@ export const CaseStudiesGrid = () => {
                         <ArrowUpRight className="w-5 h-5" />
                       </div>
                     </div>
-                    
+
                     {/* Bottom: Category Tag */}
                     <div>
                       <span className="inline-block border border-white/80 px-2 md:px-4 py-1 md:py-1.5 text-[8px] md:text-xs font-bold text-white uppercase tracking-wider">
@@ -146,7 +146,7 @@ export const CaseStudiesGrid = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="md:hidden mt-6 text-center"
         >
-          <Link 
+          <Link
             to="/case-studies"
             className="inline-flex items-center gap-2 text-sm font-bold text-black hover:text-[#7C3AED] transition-colors duration-300"
           >
