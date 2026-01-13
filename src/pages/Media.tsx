@@ -44,10 +44,10 @@ const Media = () => {
       problem: "Fehlende interne Kapazitäten, inkonsistente Qualität und lange Produktionszyklen bremsen Ihre Marketingaktivitäten.",
       solution: "Unser Team übernimmt den gesamten Produktionsprozess – von der Konzeption über die Umsetzung bis zur finalen Auslieferung in allen benötigten Formaten.",
       deliverables: [
-        "Video- & Foto-Produktion",
-        "Animationen & Motion Graphics",
-        "Ad-Creatives & Social Assets",
-        "Content-Strategie & Planung",
+        { title: "Video- & Foto-Produktion", description: "Professionelle Aufnahmen für alle Kanäle und Formate." },
+        { title: "Animationen & Motion Graphics", description: "Dynamische visuelle Inhalte für erhöhte Aufmerksamkeit." },
+        { title: "Ad-Creatives & Social Assets", description: "Performanceorientierte Werbemittel für alle Plattformen." },
+        { title: "Content-Strategie & Planung", description: "Redaktionspläne und Formatentwicklung." },
       ],
     },
     {
@@ -60,10 +60,10 @@ const Media = () => {
       problem: "Ohne klare Redaktionslogik und regelmäßige Veröffentlichungen verlieren Sie Reichweite, Engagement und letztlich potenzielle Kunden.",
       solution: "Wir entwickeln eine maßgeschneiderte Social-Media-Strategie und übernehmen die komplette Umsetzung – von der Content-Planung bis zum Community Management.",
       deliverables: [
-        "Community Management",
-        "Content-Planung & Publishing",
-        "Performance Reporting",
-        "Creator-Kooperationen",
+        { title: "Community Management", description: "Interaktion und Moderation für aktive Communities." },
+        { title: "Content-Planung & Publishing", description: "Strategische Redaktionspläne mit automatisierter Veröffentlichung." },
+        { title: "Performance Reporting", description: "Detaillierte Analysen mit KPI-Tracking und Insights." },
+        { title: "Creator-Kooperationen", description: "Influencer-Partnerschaften für authentische Reichweite." },
       ],
     },
     {
@@ -76,10 +76,10 @@ const Media = () => {
       problem: "Ohne datengetriebene Kampagnen und kontinuierliche Optimierung verbrennen Sie Budget ohne nachweisbaren ROI.",
       solution: "Wir launchen Ihre Kampagnen strategisch, testen kontinuierlich und skalieren, was funktioniert – für maximale Conversion bei optimalem Budget-Einsatz.",
       deliverables: [
-        "Launch-Strategie & Planung",
-        "Paid Advertising (Meta, Google, LinkedIn)",
-        "Conversion-Optimierung & A/B-Testing",
-        "Analytics & Reporting",
+        { title: "Launch-Strategie & Planung", description: "Go-to-Market-Konzepte mit Timing und Kanalauswahl." },
+        { title: "Paid Advertising", description: "Kampagnen auf Meta, Google und LinkedIn mit Budgetoptimierung." },
+        { title: "Conversion-Optimierung & A/B-Testing", description: "Datenbasierte Tests zur Steigerung der Conversion Rate." },
+        { title: "Analytics & Reporting", description: "Transparente Dashboards mit ROI-Nachweis." },
       ],
     },
   ];
@@ -270,7 +270,7 @@ const Media = () => {
                     <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
                       Deliverables
                     </h3>
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       {service.deliverables.map((item, idx) => (
                         <motion.div
                           key={idx}
@@ -279,14 +279,19 @@ const Media = () => {
                           viewport={{ once: true }}
                           transition={{ duration: 0.4, delay: 0.1 * idx }}
                           whileHover={{ x: 8 }}
-                          className="group flex items-center gap-4 cursor-default"
+                          className="group flex items-start gap-4 cursor-default"
                         >
-                          <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white text-sm font-bold shadow-lg group-hover:scale-110 transition-transform duration-200`}>
+                          <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white text-sm font-bold shadow-lg group-hover:scale-110 transition-transform duration-200 mt-0.5`}>
                             {idx + 1}
                           </div>
-                          <span className="text-gray-700 font-medium group-hover:text-gray-900 transition-colors">
-                            {item}
-                          </span>
+                          <div className="flex-1">
+                            <span className="text-gray-900 font-semibold block">
+                              {item.title}
+                            </span>
+                            <span className="text-gray-500 text-sm">
+                              {item.description}
+                            </span>
+                          </div>
                         </motion.div>
                       ))}
                     </div>
