@@ -331,14 +331,13 @@ const CaseStudyAlbaNova = () => {
             <div className="absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
             
             {/* Scrollable Container */}
-            <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-6 pt-2 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-6 pt-2 scrollbar-hide" style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none'
+          }}>
               {orbitalTimelineData.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={item.id}
-                    className="flex-shrink-0 w-[80vw] snap-center"
-                  >
+              const Icon = item.icon;
+              return <div key={item.id} className="flex-shrink-0 w-[80vw] snap-center">
                     {/* Node Dot */}
                     <div className="flex justify-center mb-4">
                       <div className="w-4 h-4 rounded-full bg-purple-500 border-2 border-purple-300 shadow-lg shadow-purple-500/50" />
@@ -369,10 +368,9 @@ const CaseStudyAlbaNova = () => {
                         </span>
                         <div className="flex items-center gap-2">
                           <div className="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
-                            <div 
-                              className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
-                              style={{ width: `${item.energy}%` }}
-                            />
+                            <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style={{
+                          width: `${item.energy}%`
+                        }} />
                           </div>
                           <span className="text-gray-400 text-xs">{item.energy}%</span>
                         </div>
@@ -380,17 +378,11 @@ const CaseStudyAlbaNova = () => {
                       
                       {/* Progress Indicator */}
                       <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-1">
-                        {orbitalTimelineData.map((_, i) => (
-                          <div 
-                            key={i}
-                            className={`w-1.5 h-1.5 rounded-full transition-colors ${i === index ? 'bg-purple-500' : 'bg-gray-600'}`}
-                          />
-                        ))}
+                        {orbitalTimelineData.map((_, i) => <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === index ? 'bg-purple-500' : 'bg-gray-600'}`} />)}
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  </div>;
+            })}
             </div>
           </div>
         </section>
@@ -544,9 +536,7 @@ const CaseStudyAlbaNova = () => {
               <div className="max-w-4xl mx-auto text-center">
                 <ShieldCheck className="w-12 h-12 md:w-16 md:h-16 text-purple-500 mx-auto mb-6 md:mb-8" />
                 <blockquote className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white leading-relaxed mb-6 md:mb-8">
-                  "NEW EDGE hat nicht nur unsere Website neu gestaltet – sie haben unsere gesamte digitale Identität
-                  transformiert. Die Ergebnisse sprechen für sich: Mehr Anfragen, bessere Leads und ein Team, das stolz
-                  auf unsere Online-Präsenz ist."
+                  "Klare Markenstrategie, professionelle Website und durchgängige Begleitung New Edge hat unsere Außenkommunikation auf ein neues Niveau gehoben.
                 </blockquote>
                 <div className="flex items-center justify-center gap-3 md:gap-4">
                   
