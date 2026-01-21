@@ -288,8 +288,7 @@ const Index = () => {
               delay: 0.4,
               duration: 0.6
             }} className="text-base md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-12 leading-relaxed px-4">
-                New Edge ist das Headquarter für Innovation. Hier entsteht die Zukunft von Marken, Agenturen und
-                Prozessen.
+                New Edge steht für Innovation und nachhaltige Entwicklung. Gemeinsam gestalten wir die Zukunft von Marken und Prozessen.
               </motion.p>
 
               <motion.div initial={{
