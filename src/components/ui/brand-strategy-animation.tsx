@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Transition } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Target, AlertTriangle, CheckCircle2, Users, Map, Compass, Heart, Route } from "lucide-react";
 
@@ -7,6 +7,9 @@ interface ChecklistItem {
   label: string;
   checked: boolean;
 }
+
+// Professional easing curve
+const elegantEase: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 export const BrandStrategyAnimation = () => {
   const [currentCheck, setCurrentCheck] = useState(0);
@@ -17,6 +20,7 @@ export const BrandStrategyAnimation = () => {
     { id: 4, label: "Roadmap erstellt", checked: false },
   ]);
   const [activeDeliverables, setActiveDeliverables] = useState<number[]>([]);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   const deliverables = [
     { icon: Users, label: "Personas" },
@@ -27,12 +31,15 @@ export const BrandStrategyAnimation = () => {
   ];
 
   const problems = [
-    { label: "Keine Positionierung", delay: 0.2 },
-    { label: "Inkonsistente Kommunikation", delay: 0.5 },
+    { label: "Keine Positionierung", delay: 0.6 },
+    { label: "Inkonsistente Kommunikation", delay: 0.8 },
   ];
 
   useEffect(() => {
-    // Checklist animation - slower
+    // Staggered initialization
+    const initTimer = setTimeout(() => setIsInitialized(true), 400);
+
+    // Slower checklist animation
     const checkInterval = setInterval(() => {
       setCurrentCheck(prev => {
         const next = (prev + 1) % 5;
@@ -48,126 +55,156 @@ export const BrandStrategyAnimation = () => {
         }
         return next;
       });
-    }, 2500);
+    }, 3500);
 
-    // Deliverables animation - slower
+    // Slower deliverables animation
     const deliverableInterval = setInterval(() => {
       setActiveDeliverables(prev => {
         if (prev.length >= 5) return [];
         return [...prev, prev.length];
       });
-    }, 1800);
+    }, 2800);
 
     return () => {
+      clearTimeout(initTimer);
       clearInterval(checkInterval);
       clearInterval(deliverableInterval);
     };
   }, []);
 
   return (
-    <div className="relative w-full h-[240px] md:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#6366f1]/10 via-[#a855f7]/5 to-white border border-[#6366f1]/30">
+    <div className="relative w-full h-[240px] md:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950/80 to-slate-900 border border-indigo-500/20">
       {/* Grid Pattern */}
       <div 
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-20"
         style={{
-          backgroundImage: `linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px), 
-                           linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px), 
+                           linear-gradient(90deg, rgba(99, 102, 241, 0.08) 1px, transparent 1px)`,
           backgroundSize: '24px 24px'
         }}
       />
 
       {/* Problems Section - Left */}
-      <div className="absolute left-2 md:left-8 top-1/4 space-y-1.5 md:space-y-3">
+      <motion.div 
+        className="absolute left-2 md:left-8 top-1/4 space-y-1.5 md:space-y-3"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInitialized ? 1 : 0 }}
+        transition={{ duration: 0.6, ease: elegantEase }}
+      >
         {problems.map((problem, idx) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: problem.delay, duration: 0.5 }}
-            className="flex items-center gap-1 md:gap-2 bg-red-500/10 backdrop-blur-sm border border-red-500/30 rounded-md md:rounded-lg px-1.5 md:px-3 py-1 md:py-2"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: isInitialized ? 1 : 0, x: isInitialized ? 0 : -20 }}
+            transition={{ delay: problem.delay, duration: 0.6, ease: elegantEase }}
+            className="flex items-center gap-1 md:gap-2 bg-red-500/10 backdrop-blur-sm border border-red-500/20 rounded-md md:rounded-lg px-1.5 md:px-3 py-1 md:py-2"
           >
-            <AlertTriangle className="w-2.5 h-2.5 md:w-4 md:h-4 text-red-500" />
-            <span className="text-[8px] md:text-sm text-red-600 font-medium">{problem.label}</span>
+            <AlertTriangle className="w-2.5 h-2.5 md:w-4 md:h-4 text-red-400" />
+            <span className="text-[8px] md:text-sm text-red-300 font-medium">{problem.label}</span>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Central Hub */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-        {/* Rotating Rings - slower */}
+        {/* Rotating Rings - much slower */}
         <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isInitialized ? 1 : 0, rotate: 360 }}
+          transition={{ 
+            opacity: { duration: 0.6, delay: 0.4, ease: elegantEase },
+            rotate: { duration: 60, repeat: Infinity, ease: "linear" }
+          }}
           className="absolute w-16 h-16 md:w-40 md:h-40"
         >
-          <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#6366f1]/30" />
+          <div className="absolute inset-0 rounded-full border-2 border-dashed border-indigo-500/20" />
         </motion.div>
         
         <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isInitialized ? 1 : 0, rotate: -360 }}
+          transition={{ 
+            opacity: { duration: 0.6, delay: 0.5, ease: elegantEase },
+            rotate: { duration: 45, repeat: Infinity, ease: "linear" }
+          }}
           className="absolute w-12 h-12 md:w-32 md:h-32"
         >
-          <div className="absolute inset-0 rounded-full border border-[#a855f7]/40" />
+          <div className="absolute inset-0 rounded-full border border-purple-500/30" />
         </motion.div>
 
-        {/* Center Target Icon - slower pulse */}
+        {/* Center Target Icon - subtle pulse */}
         <motion.div
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 4, repeat: Infinity }}
-          className="relative w-10 h-10 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-[#6366f1] to-[#a855f7] flex items-center justify-center shadow-lg shadow-[#6366f1]/30 z-10"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ 
+            opacity: 1, 
+            scale: [1, 1.02, 1]
+          }}
+          transition={{ 
+            opacity: { duration: 0.4 },
+            scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+          }}
+          className="relative w-10 h-10 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/20 z-10"
         >
           <Target className="w-5 h-5 md:w-10 md:h-10 text-white" />
         </motion.div>
 
-        {/* Orbiting Data Points - slower */}
-        {[0, 1, 2, 3].map((i) => (
+        {/* Orbiting Data Points - reduced to 2, slower */}
+        {[0, 1].map((i) => (
           <motion.div
             key={i}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 16, repeat: Infinity, ease: "linear", delay: i * 4 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isInitialized ? 1 : 0, rotate: 360 }}
+            transition={{ 
+              opacity: { duration: 0.6, delay: 0.6 + i * 0.2, ease: elegantEase },
+              rotate: { duration: 24, repeat: Infinity, ease: "linear", delay: i * 12 }
+            }}
             className="absolute w-16 h-16 md:w-40 md:h-40"
             style={{ transformOrigin: "center center" }}
           >
             <motion.div 
-              className="absolute w-1.5 h-1.5 md:w-3 md:h-3 rounded-full bg-gradient-to-r from-[#6366f1] to-[#a855f7]"
+              className="absolute w-1.5 h-1.5 md:w-3 md:h-3 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400"
               style={{ 
                 top: 0, 
                 left: '50%', 
                 transform: 'translateX(-50%)' 
               }}
-              animate={{ scale: [1, 1.3, 1] }}
-              transition={{ duration: 3, repeat: Infinity, delay: i * 0.6 }}
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 4, repeat: Infinity, delay: i * 1.5, ease: "easeInOut" }}
             />
           </motion.div>
         ))}
       </div>
 
       {/* Solution Checklist - Right */}
-      <div className="absolute right-2 md:right-8 top-1/4 space-y-1.5 md:space-y-2">
-        <div className="bg-white/80 backdrop-blur-sm border border-[#6366f1]/20 rounded-lg md:rounded-xl p-1.5 md:p-4 shadow-lg">
-          <h4 className="text-[7px] md:text-xs font-bold text-[#6366f1] mb-1 md:mb-2 uppercase tracking-wide">Strategie-Prozess</h4>
+      <motion.div 
+        className="absolute right-2 md:right-8 top-1/4 space-y-1.5 md:space-y-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInitialized ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: 0.8, ease: elegantEase }}
+      >
+        <div className="bg-slate-800/60 backdrop-blur-sm border border-indigo-500/20 rounded-lg md:rounded-xl p-1.5 md:p-4 shadow-lg">
+          <h4 className="text-[7px] md:text-xs font-bold text-indigo-300 mb-1 md:mb-2 uppercase tracking-wide">Strategie-Prozess</h4>
           <div className="space-y-1 md:space-y-2">
             {checklist.map((item, idx) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.1 }}
+                transition={{ delay: 0.9 + idx * 0.1, duration: 0.5, ease: elegantEase }}
                 className="flex items-center gap-1 md:gap-2"
               >
                 <motion.div
-                  animate={item.checked ? { scale: [1, 1.2, 1] } : {}}
-                  transition={{ duration: 0.3 }}
+                  animate={item.checked ? { scale: [1, 1.08, 1] } : {}}
+                  transition={{ duration: 0.4, ease: elegantEase }}
                 >
                   <CheckCircle2 
-                    className={`w-2.5 h-2.5 md:w-4 md:h-4 transition-colors duration-300 ${
-                      item.checked ? 'text-green-500' : 'text-gray-300'
+                    className={`w-2.5 h-2.5 md:w-4 md:h-4 transition-colors duration-500 ${
+                      item.checked ? 'text-emerald-400' : 'text-slate-600'
                     }`} 
                   />
                 </motion.div>
-                <span className={`text-[8px] md:text-sm transition-colors duration-300 ${
-                  item.checked ? 'text-gray-800 font-medium' : 'text-gray-500'
+                <span className={`text-[8px] md:text-sm transition-colors duration-500 ${
+                  item.checked ? 'text-slate-200 font-medium' : 'text-slate-500'
                 }`}>
                   {item.label}
                 </span>
@@ -175,10 +212,15 @@ export const BrandStrategyAnimation = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Deliverables - Bottom */}
-      <div className="absolute bottom-1.5 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-0.5 md:gap-3">
+      <motion.div 
+        className="absolute bottom-1.5 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-0.5 md:gap-3"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInitialized ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: 1.0, ease: elegantEase }}
+      >
         <AnimatePresence>
           {deliverables.map((del, idx) => {
             const Icon = del.icon;
@@ -186,38 +228,38 @@ export const BrandStrategyAnimation = () => {
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 30, scale: 0.8 }}
-                animate={isActive ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0.4, y: 10, scale: 0.9 }}
-                transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
-                className={`flex flex-col items-center gap-0.5 px-1 md:px-3 py-0.5 md:py-2 rounded-md md:rounded-xl transition-colors duration-300 ${
+                initial={{ opacity: 0, y: 15 }}
+                animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0.3, y: 5 }}
+                transition={{ duration: 0.6, ease: elegantEase }}
+                className={`flex flex-col items-center gap-0.5 px-1 md:px-3 py-0.5 md:py-2 rounded-md md:rounded-xl transition-colors duration-500 ${
                   isActive 
-                    ? 'bg-gradient-to-br from-[#6366f1]/20 to-[#a855f7]/20 border border-[#6366f1]/40' 
-                    : 'bg-gray-100/50 border border-gray-200/50'
+                    ? 'bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-500/30' 
+                    : 'bg-slate-800/30 border border-slate-700/30'
                 }`}
               >
-                <Icon className={`w-2.5 h-2.5 md:w-5 md:h-5 ${isActive ? 'text-[#6366f1]' : 'text-gray-400'}`} />
-                <span className={`text-[6px] md:text-xs font-medium ${isActive ? 'text-gray-800' : 'text-gray-400'}`}>
+                <Icon className={`w-2.5 h-2.5 md:w-5 md:h-5 transition-colors duration-500 ${isActive ? 'text-indigo-300' : 'text-slate-600'}`} />
+                <span className={`text-[6px] md:text-xs font-medium transition-colors duration-500 ${isActive ? 'text-slate-200' : 'text-slate-600'}`}>
                   {del.label}
                 </span>
               </motion.div>
             );
           })}
         </AnimatePresence>
-      </div>
+      </motion.div>
 
       {/* Status Badge */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8 }}
-        className="absolute top-1.5 md:top-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm border border-[#6366f1]/30 rounded-full px-1.5 md:px-4 py-0.5 md:py-2 flex items-center gap-1 md:gap-2 shadow-lg"
+        transition={{ delay: 0.4, duration: 0.6, ease: elegantEase }}
+        className="absolute top-1.5 md:top-6 left-1/2 -translate-x-1/2 bg-slate-800/70 backdrop-blur-sm border border-indigo-500/20 rounded-full px-1.5 md:px-4 py-0.5 md:py-2 flex items-center gap-1 md:gap-2 shadow-lg"
       >
         <motion.span 
-          animate={{ opacity: [1, 0.5, 1] }}
-          transition={{ duration: 3, repeat: Infinity }}
-          className="w-1 h-1 md:w-2 md:h-2 rounded-full bg-gradient-to-r from-[#6366f1] to-[#a855f7]"
+          animate={{ opacity: [1, 0.7, 1] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="w-1 h-1 md:w-2 md:h-2 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400"
         />
-        <span className="text-[7px] md:text-xs font-medium text-gray-700">Strategische Roadmap wird erstellt</span>
+        <span className="text-[7px] md:text-xs font-medium text-slate-300">Strategische Roadmap wird erstellt</span>
       </motion.div>
     </div>
   );
