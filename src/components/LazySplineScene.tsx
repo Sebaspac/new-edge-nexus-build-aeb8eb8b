@@ -71,16 +71,13 @@ export const LazySplineScene = ({
     </div>
   );
 
-  // Loading placeholder with spinner
+  // Silent gradient placeholder during loading - no spinner or text
   const LoadingPlaceholder = () => (
     <div 
-      className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+      className="w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
       style={{ minHeight: '400px' }}
     >
-      <div className="text-center space-y-4">
-        <div className="w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto" />
-        <p className="text-sm text-neutral-400">Loading 3D Scene...</p>
-      </div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-600/10 via-transparent to-transparent" />
     </div>
   );
 
