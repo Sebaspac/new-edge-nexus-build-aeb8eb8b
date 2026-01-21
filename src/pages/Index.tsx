@@ -16,6 +16,8 @@ import CookieConsent from "@/components/CookieConsent";
 import LogoCloud from "@/components/ui/logo-cloud";
 import { MagicText } from "@/components/ui/magic-text";
 import { lazy, Suspense, useCallback, useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
+import newEdgeLogo from "@/assets/new-edge-logo.png";
 import { ProblemSolutionSection } from "@/components/ProblemSolutionSection";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -41,6 +43,24 @@ const Index = () => {
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const [contactFormType, setContactFormType] = useState<"kmu" | "agentur" | null>(null);
   const [openAccordionIndex, setOpenAccordionIndex] = useState(0);
+  const [showInitialLoading, setShowInitialLoading] = useState(() => {
+    // Only show loading on first visit in this session
+    if (typeof window !== 'undefined') {
+      return !sessionStorage.getItem('hasVisited');
+    }
+    return false;
+  });
+
+  // Initial loading - only on first visit
+  useEffect(() => {
+    if (showInitialLoading) {
+      const timer = setTimeout(() => {
+        setShowInitialLoading(false);
+        sessionStorage.setItem('hasVisited', 'true');
+      }, 1200); // Show logo for 1.2 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [showInitialLoading]);
 
   // Auto-focus und Reset-Logik für Kontaktformular
   useEffect(() => {
@@ -136,6 +156,27 @@ const Index = () => {
     icon: Star
   }];
   return <>
+      {/* Initial Loading Screen - only first visit */}
+      <AnimatePresence mode="wait">
+        {showInitialLoading && (
+          <motion.div 
+            className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          >
+            <motion.img
+              src={newEdgeLogo}
+              alt="New Edge"
+              className="w-24 h-24 md:w-32 md:h-32"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <Helmet>
         <title>New Edge - Ihr Unternehmen an die Spitze bringen | Innovations- und KI Agentur für KMUs</title>
         <meta name="description" content="New Edge ist eine KI- & Automationsagentur für KMU. Wir verbinden Markenstrategie und Content mit maßgeschneiderten KI-Agenten und Integrationen." />
