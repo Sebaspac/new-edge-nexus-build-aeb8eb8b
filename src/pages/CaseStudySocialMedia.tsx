@@ -435,7 +435,7 @@ const CaseStudySocialMedia = () => {
               <div className="max-w-4xl mx-auto text-center">
                 <ShieldCheck className="w-12 h-12 md:w-16 md:h-16 text-purple-500 mx-auto mb-6 md:mb-8" />
                 <blockquote className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white leading-relaxed mb-6 md:mb-8">
-                  "Der Agent hat unsere Pipeline transformiert. Wir sprechen nur noch mit hochrelevanten Leads."
+                  "Die Implementierung lief reibungslos, der Agent hat unsere Pipeline in kurzer Zeit transformiert. Wir sprechen nur noch mit hochrelevanten Leads."
                 </blockquote>
                 <div className="flex items-center justify-center gap-3 md:gap-4">
                   
