@@ -2,10 +2,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Palette, PenTool, Droplets, Type, Layout, BookOpen, MessageSquare, CheckCircle2, Sparkles } from "lucide-react";
 
+// Professional easing curve
+const elegantEase: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
+
 export const BrandIdentityAnimation = () => {
   const [activeElements, setActiveElements] = useState<number[]>([]);
   const [colorRotation, setColorRotation] = useState(0);
   const [activeDeliverables, setActiveDeliverables] = useState<number[]>([]);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   const designElements = [
     { icon: PenTool, label: "Logo-System", status: "Erstellt" },
@@ -20,32 +24,36 @@ export const BrandIdentityAnimation = () => {
     { icon: Layout, label: "UX/UI" },
     { icon: Sparkles, label: "Visuals" },
     { icon: BookOpen, label: "Brand Book" },
-    { icon: MessageSquare, label: "Voice & Tone" },
+    { icon: MessageSquare, label: "Voice" },
   ];
 
   useEffect(() => {
-    // Design elements animation - slower
+    // Staggered initialization
+    const initTimer = setTimeout(() => setIsInitialized(true), 400);
+
+    // Slower design elements animation
     const elementsInterval = setInterval(() => {
       setActiveElements(prev => {
         if (prev.length >= 3) return [];
         return [...prev, prev.length];
       });
-    }, 2200);
+    }, 3200);
 
-    // Color rotation - slower
+    // Much slower color rotation for elegance
     const colorInterval = setInterval(() => {
-      setColorRotation(prev => (prev + 15) % 360);
-    }, 150);
+      setColorRotation(prev => (prev + 8) % 360);
+    }, 200);
 
-    // Deliverables animation - slower
+    // Slower deliverables animation
     const deliverableInterval = setInterval(() => {
       setActiveDeliverables(prev => {
         if (prev.length >= 7) return [];
         return [...prev, prev.length];
       });
-    }, 1400);
+    }, 2400);
 
     return () => {
+      clearTimeout(initTimer);
       clearInterval(elementsInterval);
       clearInterval(colorInterval);
       clearInterval(deliverableInterval);
@@ -53,19 +61,24 @@ export const BrandIdentityAnimation = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[240px] md:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#a855f7]/10 via-[#6366f1]/5 to-white border border-[#a855f7]/30">
+    <div className="relative w-full h-[240px] md:h-[400px] lg:h-[450px] overflow-hidden bg-gradient-to-br from-slate-900 via-purple-950/80 to-slate-900 border border-purple-500/20">
       {/* Grid Pattern */}
       <div 
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-15"
         style={{
-          backgroundImage: `linear-gradient(rgba(168, 85, 247, 0.1) 1px, transparent 1px), 
-                           linear-gradient(90deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(168, 85, 247, 0.08) 1px, transparent 1px), 
+                           linear-gradient(90deg, rgba(168, 85, 247, 0.08) 1px, transparent 1px)`,
           backgroundSize: '24px 24px'
         }}
       />
 
       {/* Design Elements - Left */}
-      <div className="absolute left-2 md:left-8 top-1/4 space-y-1.5 md:space-y-3">
+      <motion.div 
+        className="absolute left-3 md:left-6 lg:left-8 top-[20%] md:top-1/4 space-y-1.5 md:space-y-3 max-w-[110px] md:max-w-[160px]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInitialized ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: 0.6, ease: elegantEase }}
+      >
         <AnimatePresence>
           {designElements.map((element, idx) => {
             const Icon = element.icon;
@@ -73,31 +86,32 @@ export const BrandIdentityAnimation = () => {
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, x: -30, scale: 0.8 }}
-                animate={isActive ? { opacity: 1, x: 0, scale: 1 } : { opacity: 0.3, x: -10, scale: 0.9 }}
-                transition={{ duration: 0.5, type: "spring" }}
-                className={`flex items-center gap-1.5 md:gap-3 px-1.5 md:px-3 py-1 md:py-2.5 rounded-lg md:rounded-xl transition-all duration-300 ${
+                initial={{ opacity: 0, x: -15 }}
+                animate={isActive ? { opacity: 1, x: 0 } : { opacity: 0.3, x: -5 }}
+                transition={{ duration: 0.6, ease: elegantEase }}
+                className={`flex items-center gap-1.5 md:gap-2 px-1.5 md:px-3 py-1 md:py-2 transition-all duration-500 ${
                   isActive 
-                    ? 'bg-white/90 backdrop-blur-sm border border-[#a855f7]/30 shadow-lg' 
-                    : 'bg-white/40 border border-gray-200/30'
+                    ? 'bg-slate-800/70 backdrop-blur-sm border border-purple-500/30 shadow-lg' 
+                    : 'bg-slate-800/30 border border-slate-700/30'
                 }`}
               >
-                <div className={`w-5 h-5 md:w-8 md:h-8 rounded-md md:rounded-lg flex items-center justify-center ${
+                <div className={`w-5 h-5 md:w-7 md:h-7 flex items-center justify-center transition-colors duration-500 ${
                   isActive 
-                    ? 'bg-gradient-to-br from-[#a855f7] to-[#6366f1]' 
-                    : 'bg-gray-200'
+                    ? 'bg-gradient-to-br from-purple-500 to-indigo-600' 
+                    : 'bg-slate-700'
                 }`}>
-                  <Icon className={`w-2.5 h-2.5 md:w-4 md:h-4 ${isActive ? 'text-white' : 'text-gray-400'}`} />
+                  <Icon className={`w-2.5 h-2.5 md:w-3.5 md:h-3.5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
                 </div>
                 <div>
-                  <p className={`text-[8px] md:text-xs font-semibold ${isActive ? 'text-gray-800' : 'text-gray-400'}`}>
+                  <p className={`text-[8px] md:text-xs font-semibold transition-colors duration-500 ${isActive ? 'text-slate-200' : 'text-slate-500'}`}>
                     {element.label}
                   </p>
                   {isActive && (
                     <motion.p
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="text-[7px] md:text-[10px] text-green-600 flex items-center gap-0.5 md:gap-1"
+                      transition={{ duration: 0.4, ease: elegantEase }}
+                      className="text-[7px] md:text-[10px] text-emerald-400 flex items-center gap-0.5 md:gap-1"
                     >
                       <CheckCircle2 className="w-2 h-2 md:w-3 md:h-3" />
                       {element.status}
@@ -108,86 +122,112 @@ export const BrandIdentityAnimation = () => {
             );
           })}
         </AnimatePresence>
-      </div>
+      </motion.div>
 
       {/* Central Hub */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-        {/* Rotating Color Ring */}
+        {/* Rotating Color Ring - subtle */}
         <motion.div
-          animate={{ rotate: colorRotation }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isInitialized ? 0.25 : 0, rotate: colorRotation }}
+          transition={{ opacity: { duration: 0.6, delay: 0.4, ease: elegantEase } }}
           className="absolute w-20 h-20 md:w-44 md:h-44 rounded-full"
           style={{
             background: `conic-gradient(from ${colorRotation}deg, #6366f1, #a855f7, #ec4899, #f97316, #eab308, #22c55e, #06b6d4, #6366f1)`,
-            opacity: 0.3,
           }}
         />
         
-        {/* Inner Rings - slower */}
+        {/* Inner Rings - much slower */}
         <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isInitialized ? 1 : 0, rotate: -360 }}
+          transition={{ 
+            opacity: { duration: 0.6, delay: 0.5, ease: elegantEase },
+            rotate: { duration: 60, repeat: Infinity, ease: "linear" }
+          }}
           className="absolute w-16 h-16 md:w-36 md:h-36"
         >
-          <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#a855f7]/30" />
+          <div className="absolute inset-0 rounded-full border-2 border-dashed border-purple-500/20" />
         </motion.div>
 
         <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isInitialized ? 1 : 0, rotate: 360 }}
+          transition={{ 
+            opacity: { duration: 0.6, delay: 0.6, ease: elegantEase },
+            rotate: { duration: 45, repeat: Infinity, ease: "linear" }
+          }}
           className="absolute w-12 h-12 md:w-28 md:h-28"
         >
-          <div className="absolute inset-0 rounded-full border border-[#6366f1]/40" />
+          <div className="absolute inset-0 rounded-full border border-indigo-500/30" />
         </motion.div>
 
-        {/* Center Palette Icon - slower pulse */}
+        {/* Center Palette Icon - subtle pulse */}
         <motion.div
-          animate={{ scale: [1, 1.08, 1] }}
-          transition={{ duration: 5, repeat: Infinity }}
-          className="relative w-10 h-10 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-[#a855f7] to-[#6366f1] flex items-center justify-center shadow-lg shadow-[#a855f7]/30 z-10"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ 
+            opacity: 1, 
+            scale: [1, 1.02, 1]
+          }}
+          transition={{ 
+            opacity: { duration: 0.4 },
+            scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+          }}
+          className="relative w-10 h-10 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-purple-500/20 z-10"
         >
           <Palette className="w-5 h-5 md:w-10 md:h-10 text-white" />
         </motion.div>
       </div>
 
       {/* Status Indicators - Right */}
-      <div className="absolute right-2 md:right-8 top-1/4 space-y-1.5 md:space-y-3">
+      <motion.div 
+        className="absolute right-3 md:right-6 lg:right-8 top-[20%] md:top-1/4 space-y-1.5 md:space-y-3 max-w-[100px] md:max-w-[140px]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInitialized ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: 0.8, ease: elegantEase }}
+      >
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 0, x: 10 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.5 }}
-          className="bg-white/90 backdrop-blur-sm border border-[#a855f7]/20 rounded-lg md:rounded-xl p-1.5 md:p-3 shadow-lg"
+          transition={{ delay: 0.9, duration: 0.5, ease: elegantEase }}
+          className="bg-slate-800/60 backdrop-blur-sm border border-purple-500/20 p-1.5 md:p-3 shadow-lg"
         >
           <div className="flex items-center gap-1 md:gap-2">
             <motion.span 
-              animate={{ opacity: [1, 0.5, 1] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-amber-500"
+              animate={{ opacity: [1, 0.7, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-amber-400"
             />
-            <span className="text-[8px] md:text-xs font-medium text-gray-700">Brand Book</span>
+            <span className="text-[8px] md:text-xs font-medium text-slate-300">Brand Book</span>
           </div>
-          <p className="text-[7px] md:text-[10px] text-gray-500 mt-0.5 md:mt-1">In Erstellung...</p>
+          <p className="text-[7px] md:text-[10px] text-slate-500 mt-0.5 md:mt-1">In Erstellung...</p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 0, x: 10 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.7 }}
-          className="bg-white/90 backdrop-blur-sm border border-green-500/20 rounded-lg md:rounded-xl p-1.5 md:p-3 shadow-lg"
+          transition={{ delay: 1.0, duration: 0.5, ease: elegantEase }}
+          className="bg-slate-800/60 backdrop-blur-sm border border-emerald-500/20 p-1.5 md:p-3 shadow-lg"
         >
           <div className="flex items-center gap-1 md:gap-2">
             <motion.span 
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-500"
+              animate={{ scale: [1, 1.08, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-emerald-400"
             />
-            <span className="text-[8px] md:text-xs font-medium text-gray-700">Voice & Tone</span>
+            <span className="text-[8px] md:text-xs font-medium text-slate-300">Voice & Tone</span>
           </div>
-          <p className="text-[7px] md:text-[10px] text-green-600 mt-0.5 md:mt-1">Definiert ✓</p>
+          <p className="text-[7px] md:text-[10px] text-emerald-400 mt-0.5 md:mt-1">Definiert ✓</p>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Deliverables - Bottom */}
-      <div className="absolute bottom-1.5 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-0.5 md:gap-2 flex-wrap justify-center max-w-[95%] md:max-w-[90%]">
+      <motion.div 
+        className="absolute bottom-2 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-0.5 md:gap-1.5 flex-wrap justify-center max-w-[95%] md:max-w-[85%]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInitialized ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: 1.0, ease: elegantEase }}
+      >
         <AnimatePresence>
           {deliverables.map((del, idx) => {
             const Icon = del.icon;
@@ -195,64 +235,39 @@ export const BrandIdentityAnimation = () => {
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 30, scale: 0.8 }}
-                animate={isActive ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0.4, y: 10, scale: 0.9 }}
-                transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
-                className={`flex flex-col items-center gap-0.5 px-1 py-0.5 md:px-3 md:py-2 rounded-md md:rounded-xl transition-colors duration-300 ${
+                initial={{ opacity: 0, y: 10 }}
+                animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0.3, y: 4 }}
+                transition={{ duration: 0.6, ease: elegantEase }}
+                className={`flex flex-col items-center gap-0.5 px-1 py-0.5 md:px-2 md:py-1.5 transition-colors duration-500 ${
                   isActive 
-                    ? 'bg-gradient-to-br from-[#a855f7]/20 to-[#6366f1]/20 border border-[#a855f7]/40' 
-                    : 'bg-gray-100/50 border border-gray-200/50'
+                    ? 'bg-gradient-to-br from-purple-500/20 to-indigo-500/20 border border-purple-500/30' 
+                    : 'bg-slate-800/30 border border-slate-700/30'
                 }`}
               >
-                <Icon className={`w-2.5 h-2.5 md:w-4 md:h-4 ${isActive ? 'text-[#a855f7]' : 'text-gray-400'}`} />
-                <span className={`text-[6px] md:text-[10px] font-medium ${isActive ? 'text-gray-800' : 'text-gray-400'}`}>
+                <Icon className={`w-2.5 h-2.5 md:w-4 md:h-4 transition-colors duration-500 ${isActive ? 'text-purple-300' : 'text-slate-600'}`} />
+                <span className={`text-[6px] md:text-[10px] font-medium transition-colors duration-500 ${isActive ? 'text-slate-200' : 'text-slate-600'}`}>
                   {del.label}
                 </span>
               </motion.div>
             );
           })}
         </AnimatePresence>
-      </div>
+      </motion.div>
 
       {/* Status Badge */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8 }}
-        className="absolute top-1.5 md:top-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm border border-[#a855f7]/30 rounded-full px-1.5 md:px-4 py-0.5 md:py-2 flex items-center gap-1 md:gap-2 shadow-lg"
+        transition={{ delay: 0.4, duration: 0.6, ease: elegantEase }}
+        className="absolute top-2 md:top-4 left-1/2 -translate-x-1/2 bg-slate-800/70 backdrop-blur-sm border border-purple-500/20 px-1.5 md:px-3 py-0.5 md:py-1.5 flex items-center gap-1 md:gap-2 shadow-lg"
       >
         <motion.span 
-          animate={{ opacity: [1, 0.5, 1] }}
-          transition={{ duration: 3, repeat: Infinity }}
-          className="w-1 h-1 md:w-2 md:h-2 rounded-full bg-gradient-to-r from-[#a855f7] to-[#6366f1]"
+          animate={{ opacity: [1, 0.7, 1] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="w-1 h-1 md:w-2 md:h-2 rounded-full bg-gradient-to-r from-purple-400 to-indigo-400"
         />
-        <span className="text-[7px] md:text-xs font-medium text-gray-700">Designsystem wird aufgebaut</span>
+        <span className="text-[7px] md:text-xs font-medium text-slate-300">Designsystem wird aufgebaut</span>
       </motion.div>
-
-      {/* Connecting Lines to Center */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none">
-        <defs>
-          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#a855f7" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#6366f1" stopOpacity="0.3" />
-          </linearGradient>
-        </defs>
-        {activeDeliverables.slice(0, 3).map((_, idx) => (
-          <motion.line
-            key={idx}
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.5 }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
-            x1="50%"
-            y1="50%"
-            x2={`${15 + idx * 5}%`}
-            y2="75%"
-            stroke="url(#lineGradient)"
-            strokeWidth="1"
-            strokeDasharray="4 4"
-          />
-        ))}
-      </svg>
     </div>
   );
 };
