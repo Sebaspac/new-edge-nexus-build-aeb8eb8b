@@ -42,7 +42,7 @@ export const LazyVideo = ({
         }
       },
       { 
-        rootMargin: '200px', // Reduced from 600px for less eager loading
+        rootMargin: '600px', // Restored for better UX - ensures videos load before they're visible
         threshold: 0.1
       }
     );
