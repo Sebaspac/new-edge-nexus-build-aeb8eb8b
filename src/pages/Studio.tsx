@@ -334,10 +334,10 @@ const Studio = () => {
       })}
 
         {/* Studio Cases Section */}
-        <section className="relative py-12 md:py-24 bg-white overflow-hidden">
+        <section className="relative py-8 md:py-12 lg:py-16 bg-white overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             {/* Header */}
-            <div className="flex items-end justify-between mb-6 md:mb-12">
+            <div className="flex items-end justify-between mb-4 md:mb-8">
               <motion.div initial={{
               opacity: 0,
               y: 20
@@ -349,7 +349,7 @@ const Studio = () => {
             }} transition={{
               duration: 0.6
             }}>
-                <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-black">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black leading-[1.1] text-black">
                   Studio Cases.
                   <br />
                   <span style={{

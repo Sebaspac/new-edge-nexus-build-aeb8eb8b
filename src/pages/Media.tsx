@@ -342,18 +342,18 @@ const Media = () => {
         </section>
 
         {/* Media Cases Section */}
-        <section className="py-12 md:py-16 lg:py-24 px-4 md:px-8 lg:px-16 bg-white">
+        <section className="py-8 md:py-12 lg:py-16 px-4 md:px-8 lg:px-16 bg-white">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-6 mb-6 md:mb-12">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 md:gap-4 mb-4 md:mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">Media Cases</h2>
-                <p className="mt-2 md:mt-4 text-sm md:text-lg text-muted-foreground max-w-xl">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">Media Cases</h2>
+                <p className="mt-1 md:mt-2 text-xs md:text-sm text-muted-foreground max-w-xl">
                   Ausgewählte Projekte aus Content, Social und Performance.
                 </p>
               </div>
               <Button
                 variant="outline"
-                className="self-start md:self-auto border-2 border-foreground hover:bg-foreground hover:text-background transition-all duration-300 text-sm md:text-base"
+                className="self-start md:self-auto border-2 border-foreground hover:bg-foreground hover:text-background transition-all duration-300 text-xs md:text-sm"
                 onClick={() => navigate("/case-studies")}
               >
                 Alle Cases <ArrowRight className="ml-2 w-3 h-3 md:w-4 md:h-4" />

@@ -95,7 +95,7 @@ const CaseCard = ({ caseStudy, accentColor, index }: CaseCardProps) => {
       className="flex-shrink-0"
     >
       <Link to={caseStudy.route} className="block group">
-        <div className="relative overflow-hidden w-[120px] sm:w-[160px] md:w-[240px] lg:w-[320px] xl:w-[360px] aspect-[4/3]">
+        <div className="relative overflow-hidden w-[100px] sm:w-[130px] md:w-[200px] lg:w-[260px] xl:w-[300px] aspect-[4/3]">
           {/* Bild - eckig ohne Rundungen */}
           <img
             src={caseStudy.image}
@@ -158,7 +158,7 @@ const CategoryRow = ({ title, subtitle, cases, accentColor, slashColor, directio
         duration: 0.6,
         delay: index * 0.15,
       }}
-      className={`flex flex-row ${!isLeft ? "flex-row-reverse" : ""} min-h-[160px] sm:min-h-[200px] md:min-h-[260px] lg:min-h-[340px] border-b border-white/10`}
+      className={`flex flex-row ${!isLeft ? "flex-row-reverse" : ""} min-h-[140px] sm:min-h-[170px] md:min-h-[220px] lg:min-h-[280px] border-b border-white/10`}
     >
       {/* Cases Container */}
       <div className="w-[65%] sm:w-[68%] md:w-[70%] lg:w-[72%] xl:w-[75%] overflow-x-auto scrollbar-hide flex items-center">
@@ -193,7 +193,7 @@ const CategoryRow = ({ title, subtitle, cases, accentColor, slashColor, directio
               duration: 0.6,
               delay: 0.2,
             }}
-            className={`text-[36px] sm:text-[50px] md:text-[70px] lg:text-[100px] xl:text-[150px] font-thin leading-none ${slashColor} select-none`}
+            className={`text-[28px] sm:text-[40px] md:text-[56px] lg:text-[80px] xl:text-[120px] font-thin leading-none ${slashColor} select-none`}
           >
             /
           </motion.span>
@@ -216,7 +216,7 @@ const CategoryRow = ({ title, subtitle, cases, accentColor, slashColor, directio
                 duration: 0.4,
                 delay: 0.3,
               }}
-              className="text-xs sm:text-base md:text-xl lg:text-3xl xl:text-4xl font-bold text-white tracking-tight"
+              className="text-[10px] sm:text-sm md:text-lg lg:text-2xl xl:text-3xl font-bold text-white tracking-tight"
             >
               {title}
             </motion.h2>
@@ -324,7 +324,7 @@ const CaseStudies = () => {
         </div>
 
         {/* Bottom CTA */}
-        <section className="py-12 md:py-20">
+        <section className="py-8 md:py-14">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
             <motion.div
               initial={{
