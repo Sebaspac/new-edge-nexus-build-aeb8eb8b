@@ -10,8 +10,9 @@ interface LazySplineSceneProps {
 
 /**
  * Lazy-loaded Spline Scene Component
- * Loads the heavy 3D scene only when it enters the viewport
- * Shows a lightweight placeholder until then
+ * - Delays loading by 1.5s or until first scroll/touch for better FCP
+ * - On mobile (<768px), shows a static gradient instead of heavy 3D scene
+ * - Shows a lightweight placeholder during loading
  */
 export const LazySplineScene = ({
   scene,
@@ -20,31 +21,68 @@ export const LazySplineScene = ({
   rootMargin = '50px'
 }: LazySplineSceneProps) => {
   const [shouldLoad, setShouldLoad] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Don't load on server-side
     if (typeof window === 'undefined') return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setShouldLoad(true);
-          observer.disconnect();
-        }
-      },
-      {
-        threshold,
-        rootMargin,
-      }
-    );
+    // Check if mobile - don't load heavy 3D on mobile devices
+    const checkMobile = () => window.innerWidth < 768;
+    setIsMobile(checkMobile());
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
+    // Don't load 3D scene on mobile for performance
+    if (checkMobile()) return;
 
-    return () => observer.disconnect();
-  }, [threshold, rootMargin]);
+    let timeoutId: ReturnType<typeof setTimeout>;
+    let hasTriggered = false;
+
+    const triggerLoad = () => {
+      if (hasTriggered) return;
+      hasTriggered = true;
+      setShouldLoad(true);
+      cleanup();
+    };
+
+    // Delay load by 1.5s to prioritize critical content
+    timeoutId = setTimeout(triggerLoad, 1500);
+
+    // Or load immediately on first user interaction
+    const handleInteraction = () => triggerLoad();
+    window.addEventListener('scroll', handleInteraction, { once: true, passive: true });
+    window.addEventListener('touchstart', handleInteraction, { once: true, passive: true });
+
+    const cleanup = () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('scroll', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+    };
+
+    return cleanup;
+  }, []);
+
+  // Static gradient placeholder for mobile - much lighter than 3D
+  const GradientPlaceholder = () => (
+    <div 
+      className="w-full h-full bg-gradient-to-br from-slate-900 via-violet-950/30 to-slate-900"
+      style={{ minHeight: '400px' }}
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-600/20 via-transparent to-transparent" />
+    </div>
+  );
+
+  // Loading placeholder with spinner
+  const LoadingPlaceholder = () => (
+    <div 
+      className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+      style={{ minHeight: '400px' }}
+    >
+      <div className="text-center space-y-4">
+        <div className="w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto" />
+        <p className="text-sm text-neutral-400">Loading 3D Scene...</p>
+      </div>
+    </div>
+  );
 
   return (
     <div 
@@ -52,19 +90,12 @@ export const LazySplineScene = ({
       className={`relative ${className}`}
       style={{ minHeight: '400px', aspectRatio: '1/1' }}
     >
-      {shouldLoad ? (
+      {isMobile ? (
+        <GradientPlaceholder />
+      ) : shouldLoad ? (
         <SplineScene scene={scene} className="w-full h-full" />
       ) : (
-        // Lightweight placeholder with gradient - fixed dimensions to prevent CLS
-        <div 
-          className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
-          style={{ minHeight: '400px' }}
-        >
-          <div className="text-center space-y-4">
-            <div className="w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto" />
-            <p className="text-sm text-neutral-400">Loading 3D Scene...</p>
-          </div>
-        </div>
+        <LoadingPlaceholder />
       )}
     </div>
   );

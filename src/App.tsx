@@ -9,28 +9,28 @@ import { HelmetProvider } from 'react-helmet-async';
 import { useEffect, lazy, Suspense } from "react";
 import { LoadingScreen } from "@/components/LoadingScreen";
 
-// Eager load main pages for better performance
+// Eager load only critical pages for faster initial load
 import Index from "./pages/Index";
 import OptimizedMedia from "./components/OptimizedMedia";
 import OptimizedStudio from "./components/OptimizedStudio";
 import OptimizedLab from "./components/OptimizedLab";
 import OptimizedProducts from "./components/OptimizedProducts";
-import Team from "./pages/Team";
-import CaseStudies from "./pages/CaseStudies";
-import UseCases from "./pages/UseCases";
-import CaseStudyAlbaNova from "./pages/CaseStudyAlbaNova";
-import CaseStudyEcommerce from "./pages/CaseStudyEcommerce";
-import CaseStudyVisualMerchandising from "./pages/CaseStudyVisualMerchandising";
-import CaseStudySocialMedia from "./pages/CaseStudySocialMedia";
-import CaseStudyRetailLab from "./pages/CaseStudyRetailLab";
-import Careers from "./pages/Careers";
-import About from "./pages/About";
-import Resources from "./pages/Resources";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import News from "./pages/News";
 
-// Only lazy load rarely visited pages
+// Lazy load all secondary pages for better performance
+const Team = lazy(() => import("./pages/Team"));
+const CaseStudies = lazy(() => import("./pages/CaseStudies"));
+const UseCases = lazy(() => import("./pages/UseCases"));
+const CaseStudyAlbaNova = lazy(() => import("./pages/CaseStudyAlbaNova"));
+const CaseStudyEcommerce = lazy(() => import("./pages/CaseStudyEcommerce"));
+const CaseStudyVisualMerchandising = lazy(() => import("./pages/CaseStudyVisualMerchandising"));
+const CaseStudySocialMedia = lazy(() => import("./pages/CaseStudySocialMedia"));
+const CaseStudyRetailLab = lazy(() => import("./pages/CaseStudyRetailLab"));
+const Careers = lazy(() => import("./pages/Careers"));
+const About = lazy(() => import("./pages/About"));
+const Resources = lazy(() => import("./pages/Resources"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const News = lazy(() => import("./pages/News"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
