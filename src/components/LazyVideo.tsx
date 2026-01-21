@@ -25,7 +25,7 @@ export const LazyVideo = ({
   loop = true,
   muted = true,
   playsInline = true,
-  preload = 'metadata',
+  preload = 'none', // Changed from 'metadata' to 'none' for faster initial load
   aspectRatio = '16/9',
   width = 1920,
   height = 1080,
@@ -42,8 +42,8 @@ export const LazyVideo = ({
         }
       },
       { 
-        rootMargin: '600px', // Load 600px before entering viewport
-        threshold: 0.1 // Start loading when 10% visible
+        rootMargin: '200px', // Reduced from 600px for less eager loading
+        threshold: 0.1
       }
     );
 
