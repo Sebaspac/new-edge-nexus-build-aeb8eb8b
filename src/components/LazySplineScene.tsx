@@ -61,24 +61,20 @@ export const LazySplineScene = ({
     return cleanup;
   }, []);
 
-  // Static gradient placeholder for mobile - much lighter than 3D
+  // Transparent placeholder for mobile - allows grid to show through
   const GradientPlaceholder = () => (
     <div 
-      className="w-full h-full bg-gradient-to-br from-slate-900 via-violet-950/30 to-slate-900"
+      className="w-full h-full"
       style={{ minHeight: '400px' }}
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-600/20 via-transparent to-transparent" />
-    </div>
+    />
   );
 
-  // Silent gradient placeholder during loading - no spinner or text
+  // Transparent placeholder during loading - allows grid background to show through
   const LoadingPlaceholder = () => (
     <div 
-      className="w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+      className="w-full h-full"
       style={{ minHeight: '400px' }}
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-600/10 via-transparent to-transparent" />
-    </div>
+    />
   );
 
   return (
