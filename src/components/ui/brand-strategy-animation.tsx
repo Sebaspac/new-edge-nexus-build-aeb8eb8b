@@ -73,7 +73,7 @@ export const BrandStrategyAnimation = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[240px] md:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950/80 to-slate-900 border border-indigo-500/20">
+    <div className="relative w-full h-[240px] md:h-[400px] lg:h-[450px] overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950/80 to-slate-900 border border-indigo-500/20">
       {/* Grid Pattern */}
       <div 
         className="absolute inset-0 opacity-20"
@@ -86,7 +86,7 @@ export const BrandStrategyAnimation = () => {
 
       {/* Problems Section - Left */}
       <motion.div 
-        className="absolute left-2 md:left-8 top-1/4 space-y-1.5 md:space-y-3"
+        className="absolute left-3 md:left-6 lg:left-8 top-[20%] md:top-1/4 space-y-1.5 md:space-y-3 max-w-[120px] md:max-w-[180px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: isInitialized ? 1 : 0 }}
         transition={{ duration: 0.6, ease: elegantEase }}
@@ -97,10 +97,10 @@ export const BrandStrategyAnimation = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: isInitialized ? 1 : 0, x: isInitialized ? 0 : -20 }}
             transition={{ delay: problem.delay, duration: 0.6, ease: elegantEase }}
-            className="flex items-center gap-1 md:gap-2 bg-red-500/10 backdrop-blur-sm border border-red-500/20 rounded-md md:rounded-lg px-1.5 md:px-3 py-1 md:py-2"
+            className="flex items-center gap-1 md:gap-2 bg-red-500/10 backdrop-blur-sm border border-red-500/20 px-1.5 md:px-3 py-1 md:py-2"
           >
-            <AlertTriangle className="w-2.5 h-2.5 md:w-4 md:h-4 text-red-400" />
-            <span className="text-[8px] md:text-sm text-red-300 font-medium">{problem.label}</span>
+            <AlertTriangle className="w-2.5 h-2.5 md:w-4 md:h-4 text-red-400 flex-shrink-0" />
+            <span className="text-[8px] md:text-sm text-red-300 font-medium leading-tight">{problem.label}</span>
           </motion.div>
         ))}
       </motion.div>
@@ -177,12 +177,12 @@ export const BrandStrategyAnimation = () => {
 
       {/* Solution Checklist - Right */}
       <motion.div 
-        className="absolute right-2 md:right-8 top-1/4 space-y-1.5 md:space-y-2"
+        className="absolute right-3 md:right-6 lg:right-8 top-[20%] md:top-1/4 space-y-1.5 md:space-y-2 max-w-[130px] md:max-w-[180px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: isInitialized ? 1 : 0 }}
         transition={{ duration: 0.6, delay: 0.8, ease: elegantEase }}
       >
-        <div className="bg-slate-800/60 backdrop-blur-sm border border-indigo-500/20 rounded-lg md:rounded-xl p-1.5 md:p-4 shadow-lg">
+        <div className="bg-slate-800/60 backdrop-blur-sm border border-indigo-500/20 p-1.5 md:p-4 shadow-lg">
           <h4 className="text-[7px] md:text-xs font-bold text-indigo-300 mb-1 md:mb-2 uppercase tracking-wide">Strategie-Prozess</h4>
           <div className="space-y-1 md:space-y-2">
             {checklist.map((item, idx) => (
@@ -198,12 +198,12 @@ export const BrandStrategyAnimation = () => {
                   transition={{ duration: 0.4, ease: elegantEase }}
                 >
                   <CheckCircle2 
-                    className={`w-2.5 h-2.5 md:w-4 md:h-4 transition-colors duration-500 ${
+                    className={`w-2.5 h-2.5 md:w-4 md:h-4 transition-colors duration-500 flex-shrink-0 ${
                       item.checked ? 'text-emerald-400' : 'text-slate-600'
                     }`} 
                   />
                 </motion.div>
-                <span className={`text-[8px] md:text-sm transition-colors duration-500 ${
+                <span className={`text-[8px] md:text-sm transition-colors duration-500 leading-tight ${
                   item.checked ? 'text-slate-200 font-medium' : 'text-slate-500'
                 }`}>
                   {item.label}
@@ -216,7 +216,7 @@ export const BrandStrategyAnimation = () => {
 
       {/* Deliverables - Bottom */}
       <motion.div 
-        className="absolute bottom-1.5 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-0.5 md:gap-3"
+        className="absolute bottom-2 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-0.5 md:gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: isInitialized ? 1 : 0 }}
         transition={{ duration: 0.6, delay: 1.0, ease: elegantEase }}
@@ -231,14 +231,14 @@ export const BrandStrategyAnimation = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0.3, y: 5 }}
                 transition={{ duration: 0.6, ease: elegantEase }}
-                className={`flex flex-col items-center gap-0.5 px-1 md:px-3 py-0.5 md:py-2 rounded-md md:rounded-xl transition-colors duration-500 ${
+                className={`flex flex-col items-center gap-0.5 px-1 md:px-2 py-0.5 md:py-1.5 transition-colors duration-500 ${
                   isActive 
                     ? 'bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-500/30' 
                     : 'bg-slate-800/30 border border-slate-700/30'
                 }`}
               >
-                <Icon className={`w-2.5 h-2.5 md:w-5 md:h-5 transition-colors duration-500 ${isActive ? 'text-indigo-300' : 'text-slate-600'}`} />
-                <span className={`text-[6px] md:text-xs font-medium transition-colors duration-500 ${isActive ? 'text-slate-200' : 'text-slate-600'}`}>
+                <Icon className={`w-2.5 h-2.5 md:w-4 md:h-4 transition-colors duration-500 ${isActive ? 'text-indigo-300' : 'text-slate-600'}`} />
+                <span className={`text-[6px] md:text-[10px] font-medium transition-colors duration-500 ${isActive ? 'text-slate-200' : 'text-slate-600'}`}>
                   {del.label}
                 </span>
               </motion.div>
@@ -252,7 +252,7 @@ export const BrandStrategyAnimation = () => {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.6, ease: elegantEase }}
-        className="absolute top-1.5 md:top-6 left-1/2 -translate-x-1/2 bg-slate-800/70 backdrop-blur-sm border border-indigo-500/20 rounded-full px-1.5 md:px-4 py-0.5 md:py-2 flex items-center gap-1 md:gap-2 shadow-lg"
+        className="absolute top-2 md:top-4 left-1/2 -translate-x-1/2 bg-slate-800/70 backdrop-blur-sm border border-indigo-500/20 px-1.5 md:px-3 py-0.5 md:py-1.5 flex items-center gap-1 md:gap-2 shadow-lg"
       >
         <motion.span 
           animate={{ opacity: [1, 0.7, 1] }}
