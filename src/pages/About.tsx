@@ -839,8 +839,8 @@ const About = () => {
                   </p>
 
                   <p>
-                    New Edge ist ein übergeordnetes Netzwerkzentrum, das Agenturen und Unternehmen im Mittelstand
-                    miteinander verbindet.
+                    Wir übernehmen Marketing & Innovation end-to-end, KI-gestützt, automatisiert und messbar. New Edge
+                    ist der Hub, der alle Disziplinen bündelt und in skalierbare Systeme übersetzt.
                   </p>
                 </div>
 
