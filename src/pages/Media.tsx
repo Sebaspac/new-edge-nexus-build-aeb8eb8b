@@ -376,7 +376,7 @@ const Media = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="section-py-md px-4 md:px-8 lg:px-16 bg-gradient-to-br from-blue-600 to-cyan-500 bg-primary-foreground">
+        <section className="section-py-md px-4 md:px-8 lg:px-16 bg-blue-50">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h2 initial={{
             opacity: 0,
@@ -388,8 +388,8 @@ const Media = () => {
             once: true
           }} transition={{
             duration: 0.6
-          }} className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Bereit für den nächsten  Schritt?
+          }} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Bereit für die Zukunft?
             </motion.h2>
             <motion.p initial={{
             opacity: 0,
@@ -402,8 +402,8 @@ const Media = () => {
           }} transition={{
             duration: 0.6,
             delay: 0.1
-          }} className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Lassen Sie uns gemeinsam Ihre Reichweite in messbare Ergebnisse verwandeln.
+          }} className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              New Edge steht für Innovation und nachhaltige Entwicklung. Gemeinsam gestalten wir die Zukunft von Marken und Prozessen.
             </motion.p>
             <motion.div initial={{
             opacity: 0,
@@ -417,10 +417,8 @@ const Media = () => {
             duration: 0.6,
             delay: 0.2
           }}>
-              <Button size="lg" onClick={() => setIsModalOpen(true)} className="bg-white text-blue-600 hover:bg-white/90 font-semibold px-8 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5" style={{
-              borderRadius: "var(--radius-lg)"
-            }}>
-                Projekt starten <ArrowRight className="ml-2 w-5 h-5" />
+              <Button size="lg" onClick={() => setIsModalOpen(true)} className="bg-blue-600 text-white hover:bg-blue-700 font-semibold px-8 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 rounded-none">
+                Kontakt aufnehmen <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </motion.div>
           </div>
