@@ -1,8 +1,7 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, memo } from "react";
 import { LazyVideo } from "@/components/LazyVideo";
 import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 interface AgentScrollSectionProps {
   children: React.ReactNode;
@@ -19,16 +18,6 @@ const AgentScrollSectionComponent = ({
 }: AgentScrollSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { shouldAnimate } = useOptimizedAnimation();
-  const isMobile = useIsMobile();
-  
-  // Scroll-based animations for text fade-in
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-
-  // Text content fades in as user scrolls
-  const textOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
 
   return (
     <>
@@ -60,18 +49,14 @@ const AgentScrollSectionComponent = ({
         </motion.div>
       </div>
 
-      {/* Desktop: Sticky Video with Scrolling Text */}
+      {/* Desktop: True Sticky Video with Scrolling Text */}
       <div 
         ref={sectionRef}
         className="hidden lg:block relative"
-        style={{ minHeight: '150vh' }}
       >
-        <div className={`flex ${imagePosition === "left" ? "flex-row-reverse" : "flex-row"} gap-16`}>
+        <div className={`flex ${imagePosition === "left" ? "flex-row-reverse" : "flex-row"} gap-12`}>
           {/* Scrolling Text Content */}
-          <motion.div 
-            style={{ opacity: isMobile ? 1 : textOpacity }}
-            className="w-1/2 pt-24 pb-48"
-          >
+          <div className="w-1/2">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -89,11 +74,14 @@ const AgentScrollSectionComponent = ({
             >
               {children}
             </motion.div>
-          </motion.div>
+          </div>
 
-          {/* Sticky Video - stays fixed while text scrolls */}
-          <div className="w-1/2 relative">
-            <div className="sticky top-24 h-[calc(100vh-8rem)]">
+          {/* Sticky Video Container - stays fixed in viewport while text scrolls */}
+          <div className="w-1/2">
+            <div 
+              className="sticky top-28"
+              style={{ height: 'calc(100vh - 10rem)' }}
+            >
               <div className={`w-full h-full ${gradient} rounded-none flex items-center justify-center shadow-2xl relative overflow-hidden`}>
                 <LazyVideo
                   src={videoSrc}
