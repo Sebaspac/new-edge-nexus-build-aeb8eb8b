@@ -14,7 +14,7 @@ const AgentScrollSectionComponent = ({
   children,
   videoSrc,
   gradient,
-  imagePosition = "right",
+  imagePosition = "left",
 }: AgentScrollSectionProps) => {
   const { shouldAnimate } = useOptimizedAnimation();
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -26,7 +26,7 @@ const AgentScrollSectionComponent = ({
   });
   
   // Fade out video as we approach the end of section
-  const videoOpacity = useTransform(scrollYProgress, [0.85, 1], [1, 0]);
+  const videoOpacity = useTransform(scrollYProgress, [0.8, 0.95], [1, 0]);
 
   return (
     <>
@@ -63,10 +63,36 @@ const AgentScrollSectionComponent = ({
       <div 
         ref={sectionRef}
         className="hidden lg:block relative"
+        style={{ minHeight: '150vh' }}
       >
-        <div className="grid lg:grid-cols-[1fr_480px] gap-12 xl:gap-16">
-          {/* Text Content - scrolls normally */}
-          <div className={`${imagePosition === "left" ? "order-2" : "order-1"} pb-32`}>
+        <div className="grid lg:grid-cols-2 gap-12 xl:gap-16">
+          {/* Sticky Video Container - fixed position while scrolling */}
+          <div className={`${imagePosition === "right" ? "order-2" : "order-1"} relative`}>
+            <motion.div 
+              className="sticky top-28"
+              style={{ opacity: videoOpacity }}
+            >
+              {/* Video container with 16:9 aspect ratio */}
+              <div className={`w-full ${gradient} rounded-none shadow-2xl relative overflow-hidden`}>
+                <div className="aspect-video relative">
+                  <LazyVideo
+                    src={videoSrc}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="none"
+                    aspectRatio="16/9"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Text Content - scrolls normally past the sticky video */}
+          <div className={`${imagePosition === "right" ? "order-1" : "order-2"} pb-16`}>
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -83,33 +109,6 @@ const AgentScrollSectionComponent = ({
               }}
             >
               {children}
-            </motion.div>
-          </div>
-
-          {/* Sticky Video Container - fixed 16:9 aspect ratio, narrower */}
-          <div className={`${imagePosition === "left" ? "order-1" : "order-2"} relative`}>
-            <motion.div 
-              className="sticky top-28"
-              style={{ opacity: videoOpacity }}
-            >
-              {/* Fixed width video container with 16:9 aspect ratio */}
-              <div className={`w-full max-w-[480px] ${gradient} rounded-none shadow-2xl relative overflow-hidden`}>
-                <div className="aspect-video relative">
-                  <LazyVideo
-                    src={videoSrc}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="none"
-                    aspectRatio="16/9"
-                    width={480}
-                    height={270}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
