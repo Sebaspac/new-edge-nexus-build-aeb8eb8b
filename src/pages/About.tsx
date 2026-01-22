@@ -1264,7 +1264,7 @@ const About = () => {
                 <Button
                   size="lg"
                   onClick={() => scrollToContact(false)}
-                  className="group bg-white border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  className="group bg-transparent backdrop-blur-sm border-2 border-black text-black hover:bg-black hover:text-white rounded-none transition-all duration-300"
                 >
                   Kontakt aufnehmen
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
