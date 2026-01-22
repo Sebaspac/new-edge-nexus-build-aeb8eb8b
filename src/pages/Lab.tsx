@@ -613,7 +613,7 @@ const Lab = () => {
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-900">
               Gemeinsam entwickeln wir innovative Technologielösungen, die Ihr Unternehmen voranbringen.
             </p>
-            <Button id="projekt-besprechen-btn" size="lg" className="bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-semibold text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 transition-all duration-300 hover:-translate-y-0.5 rounded-none" onClick={() => setIsModalOpen(true)}>
+            <Button id="projekt-besprechen-btn" size="lg" className="bg-black text-white hover:bg-gray-900 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-[1.02] transition-all duration-200" onClick={() => setIsModalOpen(true)}>
               Loslegen!
             </Button>
           </div>
