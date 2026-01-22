@@ -217,7 +217,7 @@ const Impressum = () => {
                 <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 flex items-center text-white">
                   <Shield className="w-8 h-8 mr-3 text-purple-400" />
                   Datenschutzerklärung
-                  <span className="text-sm font-normal text-gray-400 ml-3">(Stand: September 2025)</span>
+                  <span className="text-sm font-normal text-gray-400 ml-3">(Stand: Januar 2026)</span>
                 </h2>
 
                 <div className="space-y-8 text-gray-300">
