@@ -996,7 +996,7 @@ const About = () => {
                         <Card className="hover:shadow-xl transition-all">
                           <CardContent className="p-3 sm:p-4 md:p-6">
                             <div className="text-lg sm:text-xl font-semibold text-secondary mb-1">
-                              {milestone.year} — {milestone.subtitle}
+                              {milestone.year} – {milestone.subtitle}
                             </div>
                             <h3 className="text-base sm:text-lg md:text-xl mb-2 sm:mb-3 font-bold">
                               {milestone.title}
