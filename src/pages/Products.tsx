@@ -43,12 +43,11 @@ const DetailCard = memo(({
     }
   }
 }} whileHover={hover ? {
-  scale: 1.02,
-  y: -5
+  scale: 1.01
 } : undefined} transition={{
-  type: "spring",
-  stiffness: 300
-}} className={`${gradient || 'bg-white/80 backdrop-blur-sm border border-purple-100 hover:shadow-2xl hover:border-purple-200'} p-6 rounded-2xl shadow-lg`}>
+  duration: 0.3,
+  ease: [0.25, 0.46, 0.45, 0.94]
+}} className={`${gradient || 'bg-white/80 backdrop-blur-sm border border-gray-200 hover:shadow-xl'} p-6 rounded-none shadow-lg`}>
     <h3 className={`text-xl sm:text-2xl font-black mb-4 ${gradient ? 'text-white' : 'text-black'}`}>{title}</h3>
     {children}
   </motion.div>);
@@ -258,7 +257,7 @@ const Products = () => {
         </section>
 
         {/* Riley - Wissensagent */}
-        <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-purple-50/30 to-blue-50/30">
+        <section className="py-12 sm:py-16 bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <AgentScrollSection videoSrc="/assets/products-hero-video.mp4" gradient="bg-gradient-to-br from-purple-500 via-blue-500 to-purple-600" imagePosition="right">
               <div className="space-y-6">
@@ -276,9 +275,8 @@ const Products = () => {
                 }
               }} className="flex items-center gap-4 mb-8">
                   <motion.div whileHover={shouldAnimate ? {
-                  scale: 1.1,
-                  rotate: 5
-                } : undefined} className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl" style={{
+                  scale: 1.05
+                } : undefined} className="w-16 h-16 rounded-none flex items-center justify-center shadow-xl" style={{
                   background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
                 }}>
                     <Lightbulb className="w-8 h-8 text-white" />
@@ -306,12 +304,11 @@ const Products = () => {
                   }
                 }
               }} whileHover={{
-                scale: 1.02,
-                y: -5
+                scale: 1.01
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-none shadow-lg border border-gray-200 hover:shadow-xl">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Riley</h3>
                   <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                     <motion.li variants={{
@@ -324,7 +321,7 @@ const Products = () => {
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">1</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">1</span>
                       <span className="text-accent-foreground"><strong>Daten sammeln & organisieren:</strong> Dokumente, Handbücher, FAQs, Policies und Produktinfos werden auf einer Wissensbasis organisiert - wir schaffen eine ganze Backend-Infrastruktur falls nicht vorhanden.
                     </span>
                     </motion.li>
@@ -338,7 +335,7 @@ const Products = () => {
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">2</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">2</span>
                       <span className="text-accent-foreground"><strong>Recherche & Analyse:</strong>Riley findet die relevanten Passagen und setzt sie korrekt in Zusammenhang.</span>
                     </motion.li>
                     <motion.li variants={{
@@ -351,7 +348,7 @@ const Products = () => {
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">3</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">3</span>
                       <span className="text-accent-foreground"><strong>Generieren & Antworten:</strong> Riley formuliert verständliche Antworten - auf Wunsch inkl. Referenzen/Quellenstellen.</span>
                     </motion.li>
                     <motion.li variants={{
@@ -364,7 +361,7 @@ const Products = () => {
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">4</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center text-sm font-bold">4</span>
                       <span className="text-accent-foreground"><strong>Lernen & verbessern:</strong>Feedback und neue Dokumente verbessern die Antworten kontinuierlich. </span>
                     </motion.li>
                   </ol>
@@ -382,7 +379,7 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} className="bg-gradient-to-br from-purple-600 to-blue-600 p-6 rounded-2xl shadow-xl text-white">
+              }} className="bg-gradient-to-br from-purple-600 to-blue-600 p-6 rounded-none shadow-xl text-white">
                   <h3 className="text-xl sm:text-2xl font-black mb-4">Ihre Vorteile mit Riley</h3>
                   <ul className="text-sm sm:text-base leading-relaxed space-y-2">
                     <li className="flex items-start gap-2">
@@ -418,25 +415,18 @@ const Products = () => {
                   }
                 }
               }} whileHover={{
-                scale: 1.02,
-                y: -5
+                scale: 1.01
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-none shadow-lg border border-gray-200 hover:shadow-xl">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Riley in der Praxis</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
                     Ein neuer Mitarbeiter fragt im internen Chat nach dem Onboarding-Prozess. Riley zieht die passenden Abschnitte aus Handbuch & FAQ, gibt eine klare Schritt-für-Schritt-Antwort und spart dem Team Zeit. Gleichzeitig entlastet Riley HR und Teamleads bei Skalierung: Wenn z. B. 150 Mitarbeitende regelmäßig Fragen zu Arbeitszeiten, Urlaubsregeln, internen Prozessen oder Preis-/Leistungsrichtlinien stellen, beantwortet Riley diese rund um die Uhr konsistent - inklusive Verweis auf die richtige Richtlinie - und reduziert Rückfragen, Tickets und Meeting-Zeit spürbar.
 
                   </p>
 
-                  <motion.div whileHover={{
-                  scale: 1.02
-                }} whileTap={{
-                  scale: 0.98
-                }}>
-                    <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={() => scrollToContact("Riley")}>Riley ausprobieren</Button>
-                  </motion.div>
+                  <Button size="lg" className="w-full bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-bold text-lg px-8 py-6 rounded-none transition-all duration-300 hover:-translate-y-0.5" onClick={() => scrollToContact("Riley")}>Riley ausprobieren</Button>
                 </motion.div>
               </div>
             </AgentScrollSection>
@@ -444,7 +434,7 @@ const Products = () => {
         </section>
 
         {/* Liam - Lead-Gen-Agent */}
-        <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
+        <section className="py-12 sm:py-16 bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <AgentScrollSection videoSrc="/assets/liam-video.mp4" gradient="bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600" imagePosition="left">
               <div className="space-y-6">
@@ -462,9 +452,8 @@ const Products = () => {
                 }
               }} className="flex items-center gap-4 mb-8">
                   <motion.div whileHover={{
-                  scale: 1.1,
-                  rotate: 5
-                }} className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl" style={{
+                  scale: 1.05
+                }} className="w-16 h-16 rounded-none flex items-center justify-center shadow-xl" style={{
                   background: 'linear-gradient(135deg, #a855f7, #ec4899)'
                 }}>
                     <Bot className="w-8 h-8 text-white" />
@@ -485,12 +474,11 @@ const Products = () => {
                   }
                 }
               }} whileHover={{
-                scale: 1.02,
-                y: -5
+                scale: 1.01
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-none shadow-lg border border-gray-200 hover:shadow-xl">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Was macht Liam?</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                     Liam ist Ihr Pipeline-Motor: Er erfasst Leads, segmentiert sie, bewertet ihre Kaufbereitschaft (Predictive Scoring) und führt automatisierte Follow-ups aus. Zusätzlich kann Liam kalte Leads per Zielgruppen-Abfrage recherchieren und strukturierte Akquise-Listen erstellen - damit Ihr Vertrieb nur dort Zeit investiert, wo Abschlusswahrscheinlichkeit besteht.
@@ -511,12 +499,11 @@ const Products = () => {
                   }
                 }
               }} whileHover={{
-                scale: 1.02,
-                y: -5
+                scale: 1.01
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-purple-100 hover:shadow-2xl hover:border-purple-200">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-none shadow-lg border border-gray-200 hover:shadow-xl">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Liam</h3>
                   <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                     <motion.li variants={{
@@ -529,7 +516,7 @@ const Products = () => {
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">1</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">1</span>
                       <span className="text-accent-foreground"><strong>Erkennen & Segmentieren:</strong>  Liam analysiert Website-Besucher und Anfragen und ordnet sie Zielgruppen zu. (IN GT4)
                     </span>
                     </motion.li>
@@ -543,7 +530,7 @@ const Products = () => {
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">2</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">2</span>
                       <span className="text-accent-foreground"><strong>Interagieren & Qualifizieren:</strong> Er erfasst Kontaktdaten, klärt Bedarf und erstellt einen Lead-Score. (In Database) // CRM</span>
                     </motion.li>
                     <motion.li variants={{
@@ -556,7 +543,7 @@ const Products = () => {
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">3</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">3</span>
                       <span className="text-accent-foreground"><strong>Nurturing & Personalisierung:</strong> Automatisierte Sequenzen (z. B. sofort, 24h, 48h, Reminder vor Angeboten) halten den Kontakt warm.</span>
                     </motion.li>
                     <motion.li variants={{
@@ -569,7 +556,7 @@ const Products = () => {
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">4</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center text-sm font-bold">4</span>
                       <span className="text-accent-foreground"><strong>Übergabe an den Vertrieb:</strong> Vorqualifizierte Informationen werden gespeichert und ans Team für Sales übergeben</span>
                     </motion.li>
                   </ol>
@@ -587,7 +574,7 @@ const Products = () => {
                     duration: 0.5
                   }
                 }
-              }} className="bg-gradient-to-br from-purple-600 to-pink-600 p-6 rounded-2xl shadow-xl text-white">
+              }} className="bg-gradient-to-br from-purple-600 to-pink-600 p-6 rounded-none shadow-xl text-white">
                   <h3 className="text-xl sm:text-2xl font-black mb-4">Ihre Vorteile mit Liam</h3>
                   <ul className="text-sm sm:text-base leading-relaxed space-y-2">
                     <li className="flex items-start gap-2">
@@ -648,7 +635,7 @@ const Products = () => {
         </section>
 
         {/* Vera - Voice-Agent */}
-        <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-green-50/30 to-emerald-50/30">
+        <section className="py-12 sm:py-16 bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <AgentScrollSection videoSrc="/assets/vera-agent-video.mp4" gradient="bg-gradient-to-br from-green-500 via-emerald-500 to-green-600" imagePosition="right">
               <div className="space-y-6">
@@ -666,9 +653,8 @@ const Products = () => {
                 }
               }} className="flex items-center gap-4 mb-8">
                   <motion.div whileHover={{
-                  scale: 1.1,
-                  rotate: 5
-                }} className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl" style={{
+                  scale: 1.05
+                }} className="w-16 h-16 rounded-none flex items-center justify-center shadow-xl" style={{
                   background: 'linear-gradient(135deg, #22c55e, #10b981)'
                 }}>
                     <Phone className="w-8 h-8 text-white" />
@@ -691,12 +677,11 @@ Ihr Costumer Support Agent
                   }
                 }
               }} whileHover={{
-                scale: 1.02,
-                y: -5
+                scale: 1.01
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100 hover:shadow-2xl hover:border-green-200">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-none shadow-lg border border-gray-200 hover:shadow-xl">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">Was macht Vera?</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                     Vera ist Ihre smarte Telefon‑Assistentin. Sie nimmt Anrufe rund um die Uhr entgegen, automatisiert Routinegespräche, beantwortet Fragen und leitet komplexe Anliegen an Ihr Team weiter. Voice‑AI‑Lösungen können hohe Anrufvolumina bewältigen, Wartezeiten verkürzen und 24/7‑Service ermöglichen.
@@ -716,12 +701,11 @@ Ihr Costumer Support Agent
                   }
                 }
               }} whileHover={{
-                scale: 1.02,
-                y: -5
+                scale: 1.01
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100 hover:shadow-2xl hover:border-green-200">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-none shadow-lg border border-gray-200 hover:shadow-xl">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Vera</h3>
                   <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                     <motion.li variants={{
@@ -734,7 +718,7 @@ Ihr Costumer Support Agent
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">1</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">1</span>
                       <span className="text-accent-foreground"><strong>Anruf entgegennehmen:</strong> Vera nimmt jeden Anruf automatisch an und begrüßt den Kunden.</span>
                     </motion.li>
                     <motion.li variants={{
@@ -747,7 +731,7 @@ Ihr Costumer Support Agent
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">2</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">2</span>
                       <span className="text-accent-foreground"><strong>Anliegen verstehen:</strong> Dank natürlicher Spracherkennung erfasst sie Absicht und Kontext des Gesprächs.</span>
                     </motion.li>
                     <motion.li variants={{
@@ -760,7 +744,7 @@ Ihr Costumer Support Agent
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">3</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">3</span>
                       <span className="text-accent-foreground"><strong>Automatisierte Antworten & Aktionen:</strong> Sie beantwortet Fragen, führt Bestellungen aus und erfasst Feedback.</span>
                     </motion.li>
                     <motion.li variants={{
@@ -773,7 +757,7 @@ Ihr Costumer Support Agent
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">4</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center text-sm font-bold">4</span>
                       <span className="text-card-foreground"><strong>Weiterleiten & Protokollieren:</strong> Komplexere Fälle übergibt sie samt Gesprächsnotizen an Ihre Mitarbeitenden – jederzeit.</span>
                     </motion.li>
                   </ol>
@@ -791,7 +775,7 @@ Ihr Costumer Support Agent
                     duration: 0.5
                   }
                 }
-              }} className="bg-gradient-to-br from-green-600 to-emerald-600 p-6 rounded-2xl shadow-xl text-white">
+              }} className="bg-gradient-to-br from-green-600 to-emerald-600 p-6 rounded-none shadow-xl text-white">
                   <h3 className="text-xl sm:text-2xl font-black mb-4">Ihre Vorteile mit Vera</h3>
                   <ul className="text-sm sm:text-base leading-relaxed space-y-2">
                     <li className="flex items-start gap-2">
@@ -826,24 +810,17 @@ Ihr Costumer Support Agent
                   }
                 }
               }} whileHover={{
-                scale: 1.02,
-                y: -5
+                scale: 1.01
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-100 hover:shadow-2xl hover:border-green-200">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-none shadow-lg border border-gray-200 hover:shadow-xl">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Vera in der Praxis</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
                     Ein Service‑Center setzt Vera ein, damit Kunden jederzeit Bestellungen aufgeben oder Termine verschieben können. Standardfragen beantwortet die KI sofort, während Mitarbeitende sich auf individuelle Beratung konzentrieren.
                   </p>
 
-                  <motion.div whileHover={{
-                  scale: 1.02
-                }} whileTap={{
-                  scale: 0.98
-                }}>
-                    <Button size="lg" className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={() => scrollToContact("Vera")}>Vera live erleben</Button>
-                  </motion.div>
+                  <Button size="lg" className="w-full bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-bold text-lg px-8 py-6 rounded-none transition-all duration-300 hover:-translate-y-0.5" onClick={() => scrollToContact("Vera")}>Vera live erleben</Button>
                 </motion.div>
               </div>
             </AgentScrollSection>
@@ -851,7 +828,7 @@ Ihr Costumer Support Agent
         </section>
 
         {/* Cora - Content-Agent */}
-        <section className="py-12 sm:py-16 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/30">
+        <section className="py-12 sm:py-16 bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <AgentScrollSection videoSrc="/assets/cora-agent-video.mp4" gradient="bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600" imagePosition="left">
               <div className="space-y-6">
@@ -869,9 +846,8 @@ Ihr Costumer Support Agent
                 }
               }} className="flex items-center gap-4 mb-8">
                   <motion.div whileHover={{
-                  scale: 1.1,
-                  rotate: 5
-                }} className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl" style={{
+                  scale: 1.05
+                }} className="w-16 h-16 rounded-none flex items-center justify-center shadow-xl" style={{
                   background: 'linear-gradient(135deg, #f59e0b, #d97706)'
                 }}>
                     <FileText className="w-8 h-8 text-white" />
@@ -892,12 +868,11 @@ Ihr Costumer Support Agent
                   }
                 }
               }} whileHover={{
-                scale: 1.02,
-                y: -5
+                scale: 1.01
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-amber-100 hover:shadow-2xl hover:border-amber-200">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-none shadow-lg border border-gray-200 hover:shadow-xl">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Was macht Cora?</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                     Cora erstellt und optimiert Inhalte für Blogs, Social Media und E‑Mail‑Newsletter. AI‑Content‑Agenten sparen Zeit, verbessern die Qualität und sorgen für konsistente Texte. Cora analysiert Keyword‑Trends, generiert SEO‑optimierte Texte und passt Inhalte an Ihre Zielgruppen an.
@@ -917,12 +892,11 @@ Ihr Costumer Support Agent
                   }
                 }
               }} whileHover={{
-                scale: 1.02,
-                y: -5
+                scale: 1.01
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-amber-100 hover:shadow-2xl hover:border-amber-200">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-none shadow-lg border border-gray-200 hover:shadow-xl">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert Cora</h3>
                   <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                     <motion.li variants={{
@@ -935,7 +909,7 @@ Ihr Costumer Support Agent
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">1</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">1</span>
                       <span className="text-accent-foreground"><strong>Themen & Keywords recherchieren:</strong> Cora analysiert Branchentrends und Keywords für Ihre Zielgruppe.</span>
                     </motion.li>
                     <motion.li variants={{
@@ -948,7 +922,7 @@ Ihr Costumer Support Agent
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">2</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">2</span>
                       <span className="text-accent-foreground"><strong>Inhalte generieren:</strong> Die KI erstellt Blogposts, Social‑Media‑Beiträge und Newsletter‑Entwürfe.</span>
                     </motion.li>
                     <motion.li variants={{
@@ -961,7 +935,7 @@ Ihr Costumer Support Agent
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">3</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">3</span>
                       <span className="text-accent-foreground"><strong>Optimieren & Personalisieren:</strong> Grammatik und Stil werden verbessert; Texte werden für verschiedene Zielgruppen angepasst.</span>
                     </motion.li>
                     <motion.li variants={{
@@ -974,7 +948,7 @@ Ihr Costumer Support Agent
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">4</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-center text-sm font-bold">4</span>
                       <span className="text-accent-foreground"><strong>Veröffentlichen & Lernen:</strong> Veröffentlichungen werden geplant; Engagement‑Daten fließen zurück in die Optimierung.</span>
                     </motion.li>
                   </ol>
@@ -992,7 +966,7 @@ Ihr Costumer Support Agent
                     duration: 0.5
                   }
                 }
-              }} className="bg-gradient-to-br from-amber-600 to-orange-600 p-6 rounded-2xl shadow-xl text-white">
+              }} className="bg-gradient-to-br from-amber-600 to-orange-600 p-6 rounded-none shadow-xl text-white">
                   <h3 className="text-xl sm:text-2xl font-black mb-4">Ihre Vorteile mit Cora</h3>
                   <ul className="text-sm sm:text-base leading-relaxed space-y-2">
                     <li className="flex items-start gap-2">
@@ -1027,24 +1001,17 @@ Ihr Costumer Support Agent
                   }
                 }
               }} whileHover={{
-                scale: 1.02,
-                y: -5
+                scale: 1.01
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-amber-100 hover:shadow-2xl hover:border-amber-200">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-none shadow-lg border border-gray-200 hover:shadow-xl">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Cora in der Praxis</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
                     Eine Marketing‑Abteilung nutzt Cora, um wöchentlich Blogartikel und Social‑Media‑Posts zu erstellen. Die KI passt jeden Beitrag an die jeweilige Plattform an, verbessert die Sichtbarkeit und steigert das Engagement – was wiederum zu mehr Leads führt.
                   </p>
 
-                  <motion.div whileHover={{
-                  scale: 1.02
-                }} whileTap={{
-                  scale: 0.98
-                }}>
-                    <Button size="lg" className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={() => scrollToContact("Cora")}>Cora testen</Button>
-                  </motion.div>
+                  <Button size="lg" className="w-full bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-bold text-lg px-8 py-6 rounded-none transition-all duration-300 hover:-translate-y-0.5" onClick={() => scrollToContact("Cora")}>Cora testen</Button>
                 </motion.div>
               </div>
             </AgentScrollSection>
@@ -1392,16 +1359,16 @@ Ihr Costumer Support Agent
         </section>
 
         {/* CTA Section */}
-        <section className="py-12 sm:py-16 bg-white">
+        <section className="py-16 sm:py-24 relative overflow-hidden bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center">
-              <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold mb-6 text-black">
-                Bereit für KI-gestützte Innovation?
+              <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold mb-6 text-gray-900">
+                Bereit für den nächsten Schritt?
               </h2>
-              <p className="text-base sm:text-lg lg:text-xl mb-12 max-w-3xl mx-auto leading-relaxed text-gray-700">
+              <p className="text-base sm:text-lg lg:text-xl mb-12 max-w-3xl mx-auto leading-relaxed text-gray-600">
                 Entdecken Sie, wie unsere KI-Agenten Ihr Business revolutionieren können.
               </p>
-              <Button size="lg" className="bg-black hover:bg-gray-800 text-white text-base sm:text-lg px-12 py-4 rounded-full font-medium transition-all duration-300" onClick={() => scrollToContact("Agent Hub")}>
+              <Button size="lg" className="bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-bold text-base sm:text-lg px-12 py-4 rounded-none transition-all duration-300 hover:-translate-y-0.5" onClick={() => scrollToContact("Agent Hub")}>
                 KONTAKT AUFNEHMEN
               </Button>
             </div>
