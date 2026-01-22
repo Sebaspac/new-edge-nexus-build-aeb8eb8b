@@ -196,7 +196,7 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About - The Headquarters of Innovation - NEW EDGE</title>
+        <title>Über Uns - New Edge X The Headquarter of Innovation</title>
         <meta
           name="description"
           content="New Edge ist das kreative, technologische und strategische Zentrum für den digitalen Wandel im Mittelstand."
@@ -355,7 +355,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* 1️⃣ Intro Section - The Headquarters of Innovation */}
+        {/* 1️⃣ Intro Section - The Headquarter of Innovation */}
 
         {/* 3️⃣ Unser Modell - Wie New Edge funktioniert */}
         <section id="modell" className="relative py-12 sm:py-16 md:section-padding bg-background overflow-hidden">
