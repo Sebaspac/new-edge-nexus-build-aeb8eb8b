@@ -626,7 +626,7 @@ const Products = () => {
                 }} whileTap={{
                   scale: 0.98
                 }}>
-                    <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={() => scrollToContact("Liam")}>Liam testen</Button>
+                    <Button size="lg" className="w-full bg-transparent backdrop-blur-md border-2 border-black text-black hover:bg-black hover:text-white px-8 py-6 rounded-none font-bold text-lg transition-all duration-300 hover:-translate-y-0.5" onClick={() => scrollToContact("Liam")}>Liam testen</Button>
                   </motion.div>
                 </motion.div>
               </div>
