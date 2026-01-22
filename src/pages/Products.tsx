@@ -1052,7 +1052,7 @@ Ihr Costumer Support Agent
         </section>
 
         {/* Agent Hub */}
-        <section className="hidden py-12 sm:py-16 bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/30">
+        <section className="hidden py-12 sm:py-16 bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div initial="hidden" whileInView="visible" viewport={{
             once: true,
@@ -1084,9 +1084,8 @@ Ihr Costumer Support Agent
                 }
               }} className="flex items-center gap-4 mb-8">
                   <motion.div whileHover={{
-                  scale: 1.1,
-                  rotate: 5
-                }} className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl" style={{
+                  scale: 1.05
+                }} className="w-16 h-16 rounded-none flex items-center justify-center shadow-xl" style={{
                   background: 'linear-gradient(135deg, #9F91F8, #4F97F0)'
                 }}>
                     <Bot className="w-8 h-8 text-white" />
@@ -1107,12 +1106,11 @@ Ihr Costumer Support Agent
                   }
                 }
               }} whileHover={{
-                scale: 1.02,
-                y: -5
+                scale: 1.01
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-indigo-100 hover:shadow-2xl hover:border-indigo-200">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-none shadow-lg border border-gray-200 hover:shadow-xl">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Was ist der Agent Hub?</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                     Der Agent Hub ist Ihre zentrale Plattform mit 8+ spezialisierten KI-Agenten für Copywriting, HR, Marketing, Strategie und mehr. Mit einem einmaligen Zugang erhalten Sie lebenslangen Zugriff auf alle Agenten – ohne monatliche Abonnementkosten.
@@ -1132,12 +1130,11 @@ Ihr Costumer Support Agent
                   }
                 }
               }} whileHover={{
-                scale: 1.02,
-                y: -5
+                scale: 1.01
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-indigo-100 hover:shadow-2xl hover:border-indigo-200">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-none shadow-lg border border-gray-200 hover:shadow-xl">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">So funktioniert der Agent Hub</h3>
                   <ol className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
                     <motion.li variants={{
@@ -1150,7 +1147,7 @@ Ihr Costumer Support Agent
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">1</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">1</span>
                       <span><strong>Einmalige Registrierung:</strong> Erstellen Sie Ihren Account und erhalten Sie sofortigen Zugang zu allen verfügbaren Agenten.</span>
                     </motion.li>
                     <motion.li variants={{
@@ -1163,7 +1160,7 @@ Ihr Costumer Support Agent
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">2</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">2</span>
                       <span><strong>Agent auswählen:</strong> Wählen Sie aus über 8 spezialisierten Agenten den passenden für Ihre aktuelle Aufgabe.</span>
                     </motion.li>
                     <motion.li variants={{
@@ -1176,7 +1173,7 @@ Ihr Costumer Support Agent
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">3</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">3</span>
                       <span><strong>Aufgabe definieren:</strong> Beschreiben Sie Ihr Anliegen – der Agent analysiert und verarbeitet Ihre Anfrage.</span>
                     </motion.li>
                     <motion.li variants={{
@@ -1189,7 +1186,7 @@ Ihr Costumer Support Agent
                       x: 0
                     }
                   }} className="flex gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">4</span>
+                      <span className="flex-shrink-0 w-7 h-7 rounded-none bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center text-sm font-bold">4</span>
                       <span><strong>Ergebnisse nutzen:</strong> Erhalten Sie hochwertige Outputs, die Sie direkt einsetzen können.</span>
                     </motion.li>
                   </ol>
@@ -1207,7 +1204,7 @@ Ihr Costumer Support Agent
                     duration: 0.5
                   }
                 }
-              }} className="bg-gradient-to-br from-indigo-600 to-purple-600 p-6 rounded-2xl shadow-xl text-white">
+              }} className="bg-gradient-to-br from-indigo-600 to-purple-600 p-6 rounded-none shadow-xl text-white">
                   <h3 className="text-xl sm:text-2xl font-black mb-4">Ihre Vorteile mit dem Agent Hub</h3>
                   <ul className="text-sm sm:text-base leading-relaxed space-y-2">
                     <li className="flex items-start gap-2">
@@ -1246,26 +1243,19 @@ Ihr Costumer Support Agent
                   }
                 }
               }} whileHover={{
-                scale: 1.02,
-                y: -5
+                scale: 1.01
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-indigo-100 hover:shadow-2xl hover:border-indigo-200">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="bg-white/80 backdrop-blur-sm p-6 rounded-none shadow-lg border border-gray-200 hover:shadow-xl">
                   <h3 className="text-xl sm:text-2xl font-black mb-4 text-black">Agent Hub in der Praxis</h3>
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
                     Ein Startup nutzt den Agent Hub für seine gesamte Content-Produktion: Cody erstellt Werbetexte, Dimarko plant Social-Media-Kampagnen und Inti unterstützt bei der Mitarbeitersuche. Alle Bereiche werden mit einem Tool abgedeckt – effizient und kostenoptimiert.
                   </p>
 
-                  <motion.div whileHover={{
-                  scale: 1.02
-                }} whileTap={{
-                  scale: 0.98
-                }}>
-                    <Button size="lg" className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-6 rounded-xl font-bold text-lg shadow-xl transition-all duration-300" onClick={() => window.open('https://agenthub.newedgebrand.com', '_blank')}>
-                      Loslegen
-                    </Button>
-                  </motion.div>
+                  <Button size="lg" className="w-full bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-bold text-lg px-8 py-6 rounded-none transition-all duration-300 hover:-translate-y-0.5" onClick={() => window.open('https://agenthub.newedgebrand.com', '_blank')}>
+                    Loslegen
+                  </Button>
                 </motion.div>
               </div>
               
@@ -1283,11 +1273,11 @@ Ihr Costumer Support Agent
               }
             }} className="hidden lg:block sticky top-24">
                 <motion.div whileHover={{
-                scale: 1.05
+                scale: 1.02
               }} transition={{
-                type: "spring",
-                stiffness: 300
-              }} className="w-full bg-gradient-to-br from-indigo-500 via-purple-500 to-indigo-600 rounded-3xl p-8 shadow-2xl">
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }} className="w-full bg-gradient-to-br from-indigo-500 via-purple-500 to-indigo-600 rounded-none p-8 shadow-2xl">
                   <div className="grid grid-cols-2 gap-4">
                     <motion.div className="space-y-4" variants={{
                     hidden: {
@@ -1310,11 +1300,10 @@ Ihr Costumer Support Agent
                         y: 0
                       }
                     }} whileHover={{
-                      scale: 1.05,
-                      y: -5
-                    }} className="bg-white p-4 rounded-xl shadow-lg">
+                      scale: 1.02
+                    }} className="bg-white p-4 rounded-none shadow-lg">
                         <div className="flex items-center gap-3 mb-2">
-                          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-purple-500 to-indigo-500">
+                          <div className="w-10 h-10 rounded-none flex items-center justify-center bg-gradient-to-br from-purple-500 to-indigo-500">
                             <FileText className="w-5 h-5 text-white" />
                           </div>
                           <span className="text-sm font-bold">Cody</span>
@@ -1331,11 +1320,10 @@ Ihr Costumer Support Agent
                         y: 0
                       }
                     }} whileHover={{
-                      scale: 1.05,
-                      y: -5
-                    }} className="bg-white p-4 rounded-xl shadow-lg">
+                      scale: 1.02
+                    }} className="bg-white p-4 rounded-none shadow-lg">
                         <div className="flex items-center gap-3 mb-2">
-                          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-cyan-500">
+                          <div className="w-10 h-10 rounded-none flex items-center justify-center bg-gradient-to-br from-blue-500 to-cyan-500">
                             <Bot className="w-5 h-5 text-white" />
                           </div>
                           <span className="text-sm font-bold">Inti</span>
@@ -1365,11 +1353,10 @@ Ihr Costumer Support Agent
                         y: 0
                       }
                     }} whileHover={{
-                      scale: 1.05,
-                      y: -5
-                    }} className="bg-white p-4 rounded-xl shadow-lg">
+                      scale: 1.02
+                    }} className="bg-white p-4 rounded-none shadow-lg">
                         <div className="flex items-center gap-3 mb-2">
-                          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-yellow-500 to-orange-500">
+                          <div className="w-10 h-10 rounded-none flex items-center justify-center bg-gradient-to-br from-yellow-500 to-orange-500">
                             <Lightbulb className="w-5 h-5 text-white" />
                           </div>
                           <span className="text-sm font-bold">Dimarko</span>
@@ -1386,11 +1373,10 @@ Ihr Costumer Support Agent
                         y: 0
                       }
                     }} whileHover={{
-                      scale: 1.05,
-                      y: -5
-                    }} className="bg-white p-4 rounded-xl shadow-lg">
+                      scale: 1.02
+                    }} className="bg-white p-4 rounded-none shadow-lg">
                         <div className="flex items-center gap-3 mb-2">
-                          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-pink-500 to-purple-500">
+                          <div className="w-10 h-10 rounded-none flex items-center justify-center bg-gradient-to-br from-pink-500 to-purple-500">
                             <Bot className="w-5 h-5 text-white" />
                           </div>
                           <span className="text-sm font-bold">+9 weitere</span>
