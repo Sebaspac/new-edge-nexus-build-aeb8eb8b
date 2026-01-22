@@ -450,13 +450,11 @@ const Studio = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 sm:py-24 text-white relative overflow-hidden" style={{
-        background: 'linear-gradient(to right, #6366f1, #8b5cf6, #a855f7)'
-      }}>
+        <section className="py-16 sm:py-24 relative overflow-hidden bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-            <h2 className="text-h1 mb-4 sm:mb-6">Bereit für den nächsten Schritt?</h2>
-            <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">Gemeinsam entwickeln wir eine Marke, die Haltung zeigt und in einer AI-getriebenen Welt Relevanz gewinnt.</p>
-            <Button id="projekt-besprechen-btn" size="lg" className="bg-transparent backdrop-blur-md text-white border-2 border-white hover:bg-white hover:text-black font-semibold text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 transition-all duration-300 hover:-translate-y-0.5 rounded-none" onClick={() => setIsModalOpen(true)}>
+            <h2 className="text-h1 mb-4 sm:mb-6 text-gray-900">Bereit für den nächsten Schritt?</h2>
+            <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-600">Gemeinsam entwickeln wir eine Marke, die Haltung zeigt und in einer AI-getriebenen Welt Relevanz gewinnt.</p>
+            <Button id="projekt-besprechen-btn" size="lg" className="bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-semibold text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 transition-all duration-300 hover:-translate-y-0.5 rounded-none" onClick={() => setIsModalOpen(true)}>
               Loslegen!
             </Button>
           </div>

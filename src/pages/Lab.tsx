@@ -601,17 +601,15 @@ const Lab = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-12 sm:py-16 text-black relative overflow-hidden bg-primary-foreground" style={{
-        background: "linear-gradient(to right, #fde047, #fbbf24, #fde047)"
-      }}>
+        <section className="py-12 sm:py-16 relative overflow-hidden bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold mb-4 sm:mb-6">
+            <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold mb-4 sm:mb-6 text-gray-900">
               Bereit für den nächsten Schritt?
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-900">
+            <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-600">
               Gemeinsam entwickeln wir innovative Technologielösungen, die Ihr Unternehmen voranbringen.
             </p>
-            <Button id="projekt-besprechen-btn" size="lg" className="bg-black text-white hover:bg-gray-900 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-[1.02] transition-all duration-200" onClick={() => setIsModalOpen(true)}>
+            <Button id="projekt-besprechen-btn" size="lg" className="bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-semibold text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 transition-all duration-300 hover:-translate-y-0.5 rounded-none" onClick={() => setIsModalOpen(true)}>
               Loslegen!
             </Button>
           </div>
