@@ -830,7 +830,7 @@ const About = () => {
             <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
               {[{
               name: "Sebastian Pachón",
-              role: "Founder & Creative-Tech Partner",
+              role: "Founder",
               tags: ["Founder"],
               image: "/assets/sebastian-pachon.webp"
             }, {
