@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { memo } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { memo, useRef } from "react";
 import { LazyVideo } from "@/components/LazyVideo";
 import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
 
@@ -17,13 +17,23 @@ const AgentScrollSectionComponent = ({
   imagePosition = "right",
 }: AgentScrollSectionProps) => {
   const { shouldAnimate } = useOptimizedAnimation();
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  // Track scroll progress within this section
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"]
+  });
+  
+  // Fade out video as we approach the end of section
+  const videoOpacity = useTransform(scrollYProgress, [0.85, 1], [1, 0]);
 
   return (
     <>
       {/* Mobile/Tablet: Simple Stack Layout */}
       <div className="lg:hidden space-y-6 pb-12 relative">
-        {/* Video Container */}
-        <div className={`w-full h-64 sm:h-80 ${gradient} rounded-none flex items-center justify-center shadow-2xl relative overflow-hidden`}>
+        {/* Video Container - 16:9 */}
+        <div className={`w-full aspect-video ${gradient} rounded-none flex items-center justify-center shadow-2xl relative overflow-hidden`}>
           <LazyVideo
             src={videoSrc}
             className="absolute inset-0 w-full h-full object-cover"
@@ -32,6 +42,7 @@ const AgentScrollSectionComponent = ({
             muted
             playsInline
             preload="none"
+            aspectRatio="16/9"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
@@ -48,47 +59,58 @@ const AgentScrollSectionComponent = ({
         </motion.div>
       </div>
 
-      {/* Desktop: Sticky Video with Scrolling Text - Using min-height to ensure scroll distance */}
-      <div className="hidden lg:grid lg:grid-cols-2 gap-12" style={{ minHeight: '120vh' }}>
-        {/* Text Content - scrolls normally */}
-        <div className={`${imagePosition === "left" ? "order-2" : "order-1"}`}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: shouldAnimate ? 0.05 : 0,
-                  delayChildren: shouldAnimate ? 0.03 : 0,
+      {/* Desktop: Sticky Video with Scrolling Text */}
+      <div 
+        ref={sectionRef}
+        className="hidden lg:block relative"
+      >
+        <div className="grid lg:grid-cols-[1fr_480px] gap-12 xl:gap-16">
+          {/* Text Content - scrolls normally */}
+          <div className={`${imagePosition === "left" ? "order-2" : "order-1"} pb-32`}>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: shouldAnimate ? 0.05 : 0,
+                    delayChildren: shouldAnimate ? 0.03 : 0,
+                  },
                 },
-              },
-            }}
-          >
-            {children}
-          </motion.div>
-        </div>
+              }}
+            >
+              {children}
+            </motion.div>
+          </div>
 
-        {/* Sticky Video Container - stays fixed while text scrolls past */}
-        <div className={`${imagePosition === "left" ? "order-1" : "order-2"} relative`}>
-          <div 
-            className="sticky top-24"
-            style={{ height: 'calc(100vh - 8rem)' }}
-          >
-            <div className={`w-full h-full ${gradient} rounded-none flex items-center justify-center shadow-2xl relative overflow-hidden`}>
-              <LazyVideo
-                src={videoSrc}
-                className="absolute inset-0 w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="none"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-            </div>
+          {/* Sticky Video Container - fixed 16:9 aspect ratio, narrower */}
+          <div className={`${imagePosition === "left" ? "order-1" : "order-2"} relative`}>
+            <motion.div 
+              className="sticky top-28"
+              style={{ opacity: videoOpacity }}
+            >
+              {/* Fixed width video container with 16:9 aspect ratio */}
+              <div className={`w-full max-w-[480px] ${gradient} rounded-none shadow-2xl relative overflow-hidden`}>
+                <div className="aspect-video relative">
+                  <LazyVideo
+                    src={videoSrc}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="none"
+                    aspectRatio="16/9"
+                    width={480}
+                    height={270}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
