@@ -22,11 +22,11 @@ const AgentScrollSectionComponent = ({
   // Track scroll progress within this section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end end"]
+    offset: ["start start", "end start"]
   });
   
-  // Fade out video as we approach the end of section
-  const videoOpacity = useTransform(scrollYProgress, [0.8, 0.95], [1, 0]);
+  // Fade out video only when next section starts (at 85-100% progress)
+  const videoOpacity = useTransform(scrollYProgress, [0.85, 1], [1, 0]);
 
   return (
     <>
@@ -63,7 +63,6 @@ const AgentScrollSectionComponent = ({
       <div 
         ref={sectionRef}
         className="hidden lg:block relative"
-        style={{ minHeight: '150vh' }}
       >
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-16">
           {/* Sticky Video Container - fixed position while scrolling */}
@@ -92,7 +91,7 @@ const AgentScrollSectionComponent = ({
           </div>
 
           {/* Text Content - scrolls normally past the sticky video */}
-          <div className={`${imagePosition === "right" ? "order-1" : "order-2"} pb-16`}>
+          <div className={`${imagePosition === "right" ? "order-1" : "order-2"} pb-[25vh]`}>
             <motion.div
               initial="hidden"
               whileInView="visible"
