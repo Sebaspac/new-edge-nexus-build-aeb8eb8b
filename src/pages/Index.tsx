@@ -32,21 +32,36 @@ import { toast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
 
 // Lazy load Footer
-const Footer = lazy(() => import("@/components/Footer").then(module => ({
-  default: module.Footer
-})));
-import { ArrowRight, Lightbulb, Zap, Palette, Target, Rocket, Star, Users, Code, Globe, Briefcase, Phone, MessageSquare, Eye } from "lucide-react";
+const Footer = lazy(() =>
+  import("@/components/Footer").then((module) => ({
+    default: module.Footer,
+  })),
+);
+import {
+  ArrowRight,
+  Lightbulb,
+  Zap,
+  Palette,
+  Target,
+  Rocket,
+  Star,
+  Users,
+  Code,
+  Globe,
+  Briefcase,
+  Phone,
+  MessageSquare,
+  Eye,
+} from "lucide-react";
 const Index = () => {
-  const {
-    t
-  } = useLanguage();
+  const { t } = useLanguage();
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const [contactFormType, setContactFormType] = useState<"kmu" | "agentur" | null>(null);
   const [openAccordionIndex, setOpenAccordionIndex] = useState(0);
   const [showInitialLoading, setShowInitialLoading] = useState(() => {
     // Only show loading on first visit in this session
-    if (typeof window !== 'undefined') {
-      return !sessionStorage.getItem('hasVisited');
+    if (typeof window !== "undefined") {
+      return !sessionStorage.getItem("hasVisited");
     }
     return false;
   });
@@ -56,7 +71,7 @@ const Index = () => {
     if (showInitialLoading) {
       const timer = setTimeout(() => {
         setShowInitialLoading(false);
-        sessionStorage.setItem('hasVisited', 'true');
+        sessionStorage.setItem("hasVisited", "true");
       }, 2000); // Show logo for 2 seconds
       return () => clearTimeout(timer);
     }
@@ -84,11 +99,7 @@ const Index = () => {
     const formData = new FormData(form);
 
     // Import validation utilities dynamically to avoid circular dependencies
-    const {
-      extractFormData,
-      validateContactForm,
-      submitContactForm
-    } = await import("@/utils/contactFormValidation");
+    const { extractFormData, validateContactForm, submitContactForm } = await import("@/utils/contactFormValidation");
 
     // Extract and validate form data
     const rawData = extractFormData(formData, "INDEX");
@@ -98,7 +109,7 @@ const Index = () => {
         title: "Validierungsfehler",
         description: validation.error,
         variant: "destructive",
-        duration: 5000
+        duration: 5000,
       });
       return;
     }
@@ -107,7 +118,7 @@ const Index = () => {
       toast({
         title: "Wir designen für dich",
         description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
-        duration: 5000
+        duration: 5000,
       });
       form.reset();
     } else {
@@ -115,51 +126,62 @@ const Index = () => {
         title: "Fehler",
         description: result.error || "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
         variant: "destructive",
-        duration: 5000
+        duration: 5000,
       });
     }
   }, []);
-  const services = [{
-    icon: Lightbulb,
-    title: "New Edge Studio",
-    description: "Kreative Basis Ihrer Marke: Positionierung, Tonalität, Branding – übersetzt in Kampagnen & Designsysteme.",
-    gradient: "from-primary to-primary/70",
-    link: "/studio"
-  }, {
-    icon: Palette,
-    title: "New Edge Media",
-    description: "Content für den ganzen Funnel: Social bis Website, Paid & Owned – mit klaren KPIs.",
-    gradient: "from-secondary to-secondary/70",
-    link: "/media"
-  }, {
-    icon: Zap,
-    title: "New Edge Lab",
-    description: "Automationsmotor: Workflows, Integrationen, KI-Agenten & Dashboards.",
-    gradient: "from-accent to-accent/70",
-    link: "/lab"
-  }];
-  const stats = [{
-    number: "30%",
-    label: "mehr Zeit fürs Kerngeschäft",
-    icon: Target
-  }, {
-    number: "5-150",
-    label: "Mitarbeiter (unsere Zielgruppe)",
-    icon: Users
-  }, {
-    number: "4x",
-    label: "ROI durch Automatisierung",
-    icon: Rocket
-  }, {
-    number: "100%",
-    label: "Kundenzufriedenheit",
-    icon: Star
-  }];
-  return <>
+  const services = [
+    {
+      icon: Lightbulb,
+      title: "New Edge Studio",
+      description:
+        "Kreative Basis Ihrer Marke: Positionierung, Tonalität, Branding – übersetzt in Kampagnen & Designsysteme.",
+      gradient: "from-primary to-primary/70",
+      link: "/studio",
+    },
+    {
+      icon: Palette,
+      title: "New Edge Media",
+      description: "Content für den ganzen Funnel: Social bis Website, Paid & Owned – mit klaren KPIs.",
+      gradient: "from-secondary to-secondary/70",
+      link: "/media",
+    },
+    {
+      icon: Zap,
+      title: "New Edge Lab",
+      description: "Automationsmotor: Workflows, Integrationen, KI-Agenten & Dashboards.",
+      gradient: "from-accent to-accent/70",
+      link: "/lab",
+    },
+  ];
+  const stats = [
+    {
+      number: "30%",
+      label: "mehr Zeit fürs Kerngeschäft",
+      icon: Target,
+    },
+    {
+      number: "5-150",
+      label: "Mitarbeiter (unsere Zielgruppe)",
+      icon: Users,
+    },
+    {
+      number: "4x",
+      label: "ROI durch Automatisierung",
+      icon: Rocket,
+    },
+    {
+      number: "100%",
+      label: "Kundenzufriedenheit",
+      icon: Star,
+    },
+  ];
+  return (
+    <>
       {/* Initial Loading Screen - only first visit */}
       <AnimatePresence mode="wait">
         {showInitialLoading && (
-          <motion.div 
+          <motion.div
             className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -170,18 +192,18 @@ const Index = () => {
               alt="New Edge"
               className="w-24 h-24 md:w-32 md:h-32"
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ 
-                opacity: 1, 
+              animate={{
+                opacity: 1,
                 scale: [1, 1.15, 1, 1.1, 1],
               }}
-              transition={{ 
+              transition={{
                 opacity: { duration: 0.3 },
-                scale: { 
-                  duration: 0.8, 
-                  repeat: Infinity, 
+                scale: {
+                  duration: 0.8,
+                  repeat: Infinity,
                   ease: [0.4, 0, 0.2, 1],
-                  times: [0, 0.2, 0.4, 0.6, 1]
-                }
+                  times: [0, 0.2, 0.4, 0.6, 1],
+                },
               }}
             />
           </motion.div>
@@ -189,11 +211,20 @@ const Index = () => {
       </AnimatePresence>
 
       <Helmet>
-        <title>New Edge - Ihr Unternehmen an die Spitze bringen | Innovations- und KI Agentur für KMUs</title>
-        <meta name="description" content="New Edge ist eine KI- & Automationsagentur für KMU. Wir verbinden Markenstrategie und Content mit maßgeschneiderten KI-Agenten und Integrationen." />
-        <meta name="keywords" content="KI Agentur, KMU Automatisierung, Prozessoptimierung, Digitalisierung Mittelstand, KI für Unternehmen, Geschäftsprozesse automatisieren, Effizienzsteigerung, Innovation für KMUs" />
+        <title>KI Agentur für KMU & Automatisierung | New Edge</title>
+        <meta
+          name="description"
+          content="New Edge ist eine KI- & Automationsagentur für KMU. Wir verbinden Markenstrategie und Content mit maßgeschneiderten KI-Agenten und Integrationen."
+        />
+        <meta
+          name="keywords"
+          content="KI Agentur, KMU Automatisierung, Prozessoptimierung, Digitalisierung Mittelstand, KI für Unternehmen, Geschäftsprozesse automatisieren, Effizienzsteigerung, Innovation für KMUs"
+        />
         <meta property="og:title" content="New Edge - Innovations- und KI Agentur für KMUs" />
-        <meta property="og:description" content="Durch KI & Automationen Vorreiter Ihrer Branche werden mit New Edge - wir verbinden creative Prozesse mit KI Lösungen.  " />
+        <meta
+          property="og:description"
+          content="Durch KI & Automationen Vorreiter Ihrer Branche werden mit New Edge - wir verbinden creative Prozesse mit KI Lösungen.  "
+        />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://new-edge.com" />
@@ -207,7 +238,6 @@ const Index = () => {
         <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
 
         {/* Services Overview Section */}
-        
 
         {/* Methodology Grid Section */}
         <div className="bg-surface">
@@ -233,7 +263,6 @@ const Index = () => {
         </div>
 
         {/* Innovation Section */}
-        
 
         {/* Interactive Core - Digital Methodology Reactor */}
         <div className="bg-surface">
@@ -241,40 +270,51 @@ const Index = () => {
         </div>
 
         {/* Unsere Kompetenzbereiche - Light Section */}
-        
 
         {/* Magic Text Section */}
         <section className="relative section-py-lg overflow-hidden bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
             <div className="max-w-5xl mx-auto text-center">
-              <motion.span initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6
-            }} className="inline-block text-sm font-bold uppercase tracking-widest mb-4 md:mb-8 text-primary">
+              <motion.span
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  duration: 0.6,
+                }}
+                className="inline-block text-sm font-bold uppercase tracking-widest mb-4 md:mb-8 text-primary"
+              >
                 HIER ENTSTEHT MAGIE
               </motion.span>
-              
+
               <MagicText text="Unsere kreativen Köpfe verschmelzen Expertise und Ideen zu beeindruckenden Ergebnissen." />
-              
-              <motion.div initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.4,
-              duration: 0.6
-            }} className="mt-8 md:mt-12">
+
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  delay: 0.4,
+                  duration: 0.6,
+                }}
+                className="mt-8 md:mt-12"
+              >
                 <Link to="/careers">
                   <Button className="bg-foreground hover:bg-primary text-background px-6 md:px-8 py-4 md:py-6 text-base md:text-lg transition-all duration-300 hover:-translate-y-0.5">
                     Verstärkung gesucht
@@ -299,67 +339,95 @@ const Index = () => {
         {/* Contact Section */}
         <section id="contact-section" className="relative section-py-md overflow-hidden bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-            <motion.div className="text-center max-w-4xl mx-auto" initial={{
-            opacity: 0,
-            y: 50
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.8
-          }}>
-              <motion.h2 initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.2,
-              duration: 0.7
-            }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 md:mb-8 leading-[1.1] text-foreground font-black">
+            <motion.div
+              className="text-center max-w-4xl mx-auto"
+              initial={{
+                opacity: 0,
+                y: 50,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.8,
+              }}
+            >
+              <motion.h2
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  delay: 0.2,
+                  duration: 0.7,
+                }}
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 md:mb-8 leading-[1.1] text-foreground font-black"
+              >
                 Bereit für die{" "}
                 <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                   Zukunft?
                 </span>
               </motion.h2>
 
-              <motion.p initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.4,
-              duration: 0.6
-            }} className="text-base md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-12 leading-relaxed px-4">
-                New Edge steht für Innovation und nachhaltige Entwicklung. Gemeinsam gestalten wir die Zukunft von Marken und Prozessen.
+              <motion.p
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  delay: 0.4,
+                  duration: 0.6,
+                }}
+                className="text-base md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-12 leading-relaxed px-4"
+              >
+                New Edge steht für Innovation und nachhaltige Entwicklung. Gemeinsam gestalten wir die Zukunft von
+                Marken und Prozessen.
               </motion.p>
 
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.6,
-              duration: 0.6
-            }} className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
-                <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="group bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white transition-all duration-300 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 font-semibold w-full sm:w-auto hover:-translate-y-0.5 rounded-none">
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  delay: 0.6,
+                  duration: 0.6,
+                }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4"
+              >
+                <Button
+                  size="lg"
+                  onClick={() => setIsContactSheetOpen(true)}
+                  className="group bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white transition-all duration-300 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 font-semibold w-full sm:w-auto hover:-translate-y-0.5 rounded-none"
+                >
                   Kontakt aufnehmen
                   <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                
               </motion.div>
             </motion.div>
           </div>
@@ -370,7 +438,11 @@ const Index = () => {
           <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto backdrop-blur-sm">
             <SheetHeader className="mb-6">
               <SheetTitle className="text-2xl font-bold">
-                {contactFormType === "kmu" ? "Anfrage von Unternehmen (KMU)" : contactFormType === "agentur" ? "Anfrage von Agenturpartner" : "Projekt besprechen"}
+                {contactFormType === "kmu"
+                  ? "Anfrage von Unternehmen (KMU)"
+                  : contactFormType === "agentur"
+                    ? "Anfrage von Agenturpartner"
+                    : "Projekt besprechen"}
               </SheetTitle>
               <SheetDescription>
                 Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen.
@@ -379,48 +451,76 @@ const Index = () => {
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-5">
-                {[{
-                id: "name",
-                label: "Name *",
-                type: "text",
-                placeholder: "Ihr Name",
-                required: true
-              }, {
-                id: "email",
-                label: "E-Mail *",
-                type: "email",
-                placeholder: "ihre@email.com",
-                required: true
-              }, {
-                id: "position",
-                label: "Position *",
-                type: "text",
-                placeholder: "Ihre Position",
-                required: true
-              }, {
-                id: "firma",
-                label: "Firma *",
-                type: "text",
-                placeholder: "Ihr Unternehmen",
-                required: true
-              }, {
-                id: "telefon",
-                label: "Telefon",
-                type: "tel",
-                placeholder: "Ihre Telefonnummer",
-                required: false
-              }].map(field => <div key={field.id} className="space-y-2">
+                {[
+                  {
+                    id: "name",
+                    label: "Name *",
+                    type: "text",
+                    placeholder: "Ihr Name",
+                    required: true,
+                  },
+                  {
+                    id: "email",
+                    label: "E-Mail *",
+                    type: "email",
+                    placeholder: "ihre@email.com",
+                    required: true,
+                  },
+                  {
+                    id: "position",
+                    label: "Position *",
+                    type: "text",
+                    placeholder: "Ihre Position",
+                    required: true,
+                  },
+                  {
+                    id: "firma",
+                    label: "Firma *",
+                    type: "text",
+                    placeholder: "Ihr Unternehmen",
+                    required: true,
+                  },
+                  {
+                    id: "telefon",
+                    label: "Telefon",
+                    type: "tel",
+                    placeholder: "Ihre Telefonnummer",
+                    required: false,
+                  },
+                ].map((field) => (
+                  <div key={field.id} className="space-y-2">
                     <Label htmlFor={field.id} className="text-foreground font-medium">
                       {field.label}
                     </Label>
-                    <Input id={field.id} name={field.id} type={field.type} placeholder={field.placeholder} required={field.required} className="bg-background/50 border-border focus:border-primary transition-colors" />
-                  </div>)}
+                    <Input
+                      id={field.id}
+                      name={field.id}
+                      type={field.type}
+                      placeholder={field.placeholder}
+                      required={field.required}
+                      className="bg-background/50 border-border focus:border-primary transition-colors"
+                    />
+                  </div>
+                ))}
 
                 <div className="space-y-2">
                   <Label htmlFor="nachricht" className="text-foreground font-medium">
                     Nachricht *
                   </Label>
-                  <Textarea id="nachricht" name="nachricht" placeholder="Erzählen Sie uns von Ihrem Projekt..." defaultValue={contactFormType === "kmu" ? "Ich interessiere mich für Automatisierungslösungen mit New Edge." : contactFormType === "agentur" ? "Wir möchten Partner von New Edge werden und gemeinsam Projekte automatisieren." : ""} required className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none" />
+                  <Textarea
+                    id="nachricht"
+                    name="nachricht"
+                    placeholder="Erzählen Sie uns von Ihrem Projekt..."
+                    defaultValue={
+                      contactFormType === "kmu"
+                        ? "Ich interessiere mich für Automatisierungslösungen mit New Edge."
+                        : contactFormType === "agentur"
+                          ? "Wir möchten Partner von New Edge werden und gemeinsam Projekte automatisieren."
+                          : ""
+                    }
+                    required
+                    className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none"
+                  />
                 </div>
               </div>
 
@@ -440,6 +540,7 @@ const Index = () => {
         {/* Cookie Consent */}
         <CookieConsent />
       </div>
-    </>;
+    </>
+  );
 };
 export default Index;
