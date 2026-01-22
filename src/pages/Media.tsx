@@ -417,7 +417,7 @@ const Media = () => {
             duration: 0.6,
             delay: 0.2
           }}>
-              <Button size="lg" onClick={() => setIsModalOpen(true)} className="bg-blue-600 text-white hover:bg-blue-700 font-semibold px-8 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 rounded-none">
+              <Button size="lg" onClick={() => setIsModalOpen(true)} className="bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-semibold px-8 py-6 text-lg transition-all duration-300 hover:-translate-y-0.5 rounded-none">
                 Kontakt aufnehmen <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </motion.div>
