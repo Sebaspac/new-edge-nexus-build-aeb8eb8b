@@ -875,7 +875,7 @@ const About = () => {
 
                       {/* Tags */}
                       <div className="flex gap-1.5 sm:gap-2 flex-wrap justify-center">
-                        {founder.tags.map(tag => <span key={tag} className="px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm border border-gray-200 hover:border-primary/50 hover:bg-gray-50 transition-colors">
+                        {founder.tags.map(tag => <span key={tag} className="px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 bg-gray-100 text-gray-700 rounded-none text-xs sm:text-sm border border-gray-200 hover:border-primary/50 hover:bg-gray-50 transition-colors">
                             {tag}
                           </span>)}
                       </div>
