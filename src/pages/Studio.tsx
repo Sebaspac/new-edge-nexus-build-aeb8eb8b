@@ -457,7 +457,7 @@ const Studio = () => {
       }}>
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
             <h2 className="text-h1 mb-4 sm:mb-6">Bereit für den nächsten Schritt?</h2>
-            <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">Gemeinsam entwickeln wir ihre Marke, die Haltung zeigt und in einer AI-getriebenen Welt Relevanz gewinnt.</p>
+            <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">Gemeinsam entwickeln wir eine Marke, die Haltung zeigt und in einer AI-getriebenen Welt Relevanz gewinnt.</p>
             <Button id="projekt-besprechen-btn" size="lg" className="bg-white hover:bg-gray-50 text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 hover:scale-[1.02] transition-all duration-200" style={{
             color: '#6366f1'
           }} onClick={() => setIsModalOpen(true)}>
