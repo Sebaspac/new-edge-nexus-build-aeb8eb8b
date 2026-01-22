@@ -493,7 +493,7 @@ const Lab = () => {
             duration: 0.5,
             delay: 0.5
           }} className="text-center mt-12">
-              <Button size="lg" className="bg-white border-2 border-[#fde047] text-black px-12 py-6 rounded-xl font-bold text-lg shadow-lg transition-all duration-200 hover:bg-[#fde047]/10 hover:scale-[1.02]" onClick={() => navigate("/products")}>
+              <Button size="lg" className="bg-transparent backdrop-blur-sm border-2 border-black text-black px-12 py-6 rounded-none font-bold text-lg transition-all duration-300 hover:bg-black hover:text-white" onClick={() => navigate("/agenthub")}>
                 Alle Agenten entdecken
               </Button>
             </motion.div>
