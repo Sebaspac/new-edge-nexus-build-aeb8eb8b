@@ -215,9 +215,7 @@ const Studio = () => {
         const isEven = index % 2 === 0;
         let videoSrc = "/assets/brandstory-video.mp4";
         if (index === 1) videoSrc = "/assets/template-video.mp4";
-        return <section key={index} className="py-16 sm:py-24" style={{
-          background: index % 2 === 0 ? 'linear-gradient(to bottom right, white, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08))' : 'linear-gradient(to bottom right, white, rgba(168, 85, 247, 0.08), rgba(99, 102, 241, 0.08))'
-        }}>
+        return <section key={index} className="py-16 sm:py-24 bg-primary-foreground">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 <ServiceScrollSection gradient={service.gradient} videoSrc={videoSrc} imagePosition={isEven ? "right" : "left"} animationBelow={index === 0 ? <BrandStrategyAnimation /> : <BrandIdentityAnimation />}>
                   <div className="space-y-6">
