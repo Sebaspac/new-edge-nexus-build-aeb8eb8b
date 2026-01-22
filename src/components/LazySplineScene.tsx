@@ -27,12 +27,9 @@ export const LazySplineScene = ({
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Check if mobile - don't load heavy 3D on mobile devices
+    // Check if mobile for potential styling differences
     const checkMobile = () => window.innerWidth < 768;
     setIsMobile(checkMobile());
-
-    // Don't load 3D scene on mobile for performance
-    if (checkMobile()) return;
 
     let timeoutId: ReturnType<typeof setTimeout>;
     let hasTriggered = false;
@@ -44,8 +41,9 @@ export const LazySplineScene = ({
       cleanup();
     };
 
-    // Delay load by 1.5s to prioritize critical content
-    timeoutId = setTimeout(triggerLoad, 1500);
+    // Delay load by 1.5s to prioritize critical content (slightly longer on mobile)
+    const loadDelay = checkMobile() ? 2000 : 1500;
+    timeoutId = setTimeout(triggerLoad, loadDelay);
 
     // Or load immediately on first user interaction
     const handleInteraction = () => triggerLoad();
@@ -83,9 +81,7 @@ export const LazySplineScene = ({
       className={`relative ${className}`}
       style={{ minHeight: '400px', aspectRatio: '1/1' }}
     >
-      {isMobile ? (
-        <GradientPlaceholder />
-      ) : shouldLoad ? (
+      {shouldLoad ? (
         <SplineScene scene={scene} className="w-full h-full" />
       ) : (
         <LoadingPlaceholder />
