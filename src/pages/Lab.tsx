@@ -12,8 +12,9 @@ import { LazyVideo } from "@/components/LazyVideo";
 import { ProcessAutomationAnimation } from "@/components/ui/process-automation-animation";
 import { WebSystemsAnimation } from "@/components/ui/web-systems-animation";
 import { TrackingAnalyticsAnimation } from "@/components/ui/tracking-analytics-animation";
-
-const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
+const Footer = lazy(() => import("@/components/Footer").then(m => ({
+  default: m.Footer
+})));
 const Lab = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
@@ -130,15 +131,7 @@ const Lab = () => {
             <div className="absolute inset-0 overflow-hidden" style={{
             background: "linear-gradient(to bottom right, rgba(253, 224, 71, 0.3), rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.1))"
           }}>
-              <LazyVideo
-                src="/assets/lab-hero-video.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="none"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+              <LazyVideo src="/assets/lab-hero-video.mp4" autoPlay loop muted playsInline preload="none" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0" style={{
               background: "linear-gradient(to top, rgba(251, 146, 60, 0.4), rgba(251, 191, 36, 0.2), transparent)"
             }} />
@@ -484,16 +477,7 @@ const Lab = () => {
                 }} transition={{
                   duration: 0.4
                 }} className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
-                      <LazyVideo
-                        key={currentAgent.video}
-                        src={currentAgent.video}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="none"
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
+                      <LazyVideo key={currentAgent.video} src={currentAgent.video} autoPlay loop muted playsInline preload="none" className="absolute inset-0 w-full h-full object-cover" />
                     </motion.div>;
               })()}
               </div>
@@ -523,31 +507,41 @@ const Lab = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             {/* Header */}
             <div className="flex items-end justify-between mb-4 md:mb-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6
+            }}>
                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black leading-[1.1] text-black">
                   Lab Cases.
                   <br />
                   <span style={{
-                    background: 'linear-gradient(to right, #fde047, #fbbf24)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}>Technologie, die liefert.</span>
+                  background: 'linear-gradient(to right, #fde047, #fbbf24)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}>Technologie, die liefert.</span>
                 </h2>
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="hidden md:block"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6,
+              delay: 0.2
+            }} className="hidden md:block">
                 <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm lg:text-lg font-bold text-black hover:text-[#fbbf24] transition-colors duration-300">
                   ALLE CASES
                   <ArrowUpRight className="w-5 h-5 lg:w-6 lg:h-6" />
@@ -557,31 +551,28 @@ const Lab = () => {
 
             {/* Cases Grid */}
             <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4">
-              {[
-                {
-                  id: "social-media",
-                  client: "B2B SALES",
-                  headline: "Intelligente Lead-Qualifizierung",
-                  category: "AUTOMATION",
-                  route: "/case-study/social-media",
-                  image: leadGenerationImage
-                }
-              ].map((caseStudy, index) => (
-                <motion.div
-                  key={caseStudy.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex-shrink-0 w-[65%] snap-start md:w-auto"
-                >
+              {[{
+              id: "social-media",
+              client: "B2B SALES",
+              headline: "Intelligente Lead-Qualifizierung",
+              category: "AUTOMATION",
+              route: "/case-study/social-media",
+              image: leadGenerationImage
+            }].map((caseStudy, index) => <motion.div key={caseStudy.id} initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.5,
+              delay: index * 0.1
+            }} className="flex-shrink-0 w-[65%] snap-start md:w-auto">
                   <Link to={caseStudy.route} className="block group">
                     <div className="relative overflow-hidden aspect-square bg-gray-100">
-                      <img
-                        src={caseStudy.image}
-                        alt={caseStudy.headline}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
+                      <img src={caseStudy.image} alt={caseStudy.headline} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                       <div className="absolute inset-0 bg-black/20" />
                       
                       <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
@@ -606,14 +597,13 @@ const Lab = () => {
                       </div>
                     </div>
                   </Link>
-                </motion.div>
-              ))}
+                </motion.div>)}
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-12 sm:py-16 text-black relative overflow-hidden" style={{
+        <section className="py-12 sm:py-16 text-black relative overflow-hidden bg-primary-foreground" style={{
         background: "linear-gradient(to right, #fde047, #fbbf24, #fde047)"
       }}>
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
