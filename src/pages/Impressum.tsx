@@ -183,8 +183,9 @@ const Impressum = () => {
                     </p>
                     <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
                       <p>New Edge</p>
-                      <p>Inhaber: Wenjamin Zababezhanskiy</p
-                      <p>München</p>
+                      <p>Inhaber: Juan Sebastián Pachón Araque</p>
+                      <p>Pachemstraße 9</p>
+                      <p>81673 München</p>
                       <p>Deutschland</p>
                       <p>📧 E-Mail: <a href="mailto:info@newedgebrand.com" className="text-purple-400 hover:text-purple-300">info@newedgebrand.com</a></p>
                     </div>
