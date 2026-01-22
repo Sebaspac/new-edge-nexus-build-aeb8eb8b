@@ -113,10 +113,13 @@ export function extractHoneypotField(formData: FormData): string | undefined {
   return formData.get('website_url')?.toString();
 }
 
-// Submit validated contact form data to webhook
+// Submit validated contact form data via Supabase Edge Function
 export async function submitContactForm(data: ContactFormData): Promise<{ success: boolean; error?: string }> {
   try {
-    const response = await fetch('https://n8n-pro-oh9w.onrender.com/webhook/kontakt', {
+    // Use Supabase Edge Function for server-side validation and rate limiting
+    const edgeFunctionUrl = 'https://yzmtgxfehvzgobxjivjl.supabase.co/functions/v1/contact-form';
+    
+    const response = await fetch(edgeFunctionUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -126,10 +129,17 @@ export async function submitContactForm(data: ContactFormData): Promise<{ succes
 
     if (response.ok) {
       return { success: true };
-    } else {
+    } else if (response.status === 429) {
+      const result = await response.json();
       return { 
         success: false, 
-        error: `Server antwortete mit Status ${response.status}` 
+        error: `Zu viele Anfragen. Bitte warten Sie ${result.retryAfter || 60} Sekunden.` 
+      };
+    } else {
+      const result = await response.json().catch(() => ({}));
+      return { 
+        success: false, 
+        error: result.error || `Server antwortete mit Status ${response.status}` 
       };
     }
   } catch (error) {
