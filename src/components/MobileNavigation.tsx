@@ -122,7 +122,7 @@ export const MobileNavigation = ({
                   <Link to="/lab" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
                     Lab
                   </Link>
-                  <Link to="/products" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
+                  <Link to="/agenthub" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
                     Agent Hub
                   </Link>
                 </div>
@@ -286,7 +286,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.24
                 }}>
-                      <Link to="/products" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-green-500/10 transition-colors min-h-[44px] flex items-center`}>Agent Hub</Link>
+                      <Link to="/agenthub" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-green-500/10 transition-colors min-h-[44px] flex items-center`}>Agent Hub</Link>
                     </motion.div>
                   </div>
 
