@@ -75,14 +75,17 @@ const Products = () => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-    
+
     // Import validation utilities
-    const { extractFormData, validateContactForm, submitContactForm } = await import("@/utils/contactFormValidation");
-    
+    const {
+      extractFormData,
+      validateContactForm,
+      submitContactForm
+    } = await import("@/utils/contactFormValidation");
+
     // Extract and validate form data
     const rawData = extractFormData(formData, "PRODUCTS");
     const validation = validateContactForm(rawData);
-    
     if (!validation.success) {
       toast({
         title: "Validierungsfehler",
@@ -92,9 +95,7 @@ const Products = () => {
       });
       return;
     }
-
     const result = await submitContactForm(validation.data!);
-    
     if (result.success) {
       toast({
         title: "Wir designen für dich",
@@ -426,7 +427,7 @@ const Products = () => {
 
                   </p>
 
-                  <Button size="lg" className="w-full bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-bold text-lg px-8 py-6 rounded-none transition-all duration-300 hover:-translate-y-0.5" onClick={() => scrollToContact("Riley")}>Riley ausprobieren</Button>
+                  <Button size="lg" className="w-full bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-bold text-lg px-8 py-6 rounded-none transition-all duration-300 hover:-translate-y-0.5" onClick={() => scrollToContact("Riley")}>Riley testen</Button>
                 </motion.div>
               </div>
             </AgentScrollSection>
@@ -820,7 +821,7 @@ Ihr Costumer Support Agent
                     Ein Service‑Center setzt Vera ein, damit Kunden jederzeit Bestellungen aufgeben oder Termine verschieben können. Standardfragen beantwortet die KI sofort, während Mitarbeitende sich auf individuelle Beratung konzentrieren.
                   </p>
 
-                  <Button size="lg" className="w-full bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-bold text-lg px-8 py-6 rounded-none transition-all duration-300 hover:-translate-y-0.5" onClick={() => scrollToContact("Vera")}>Vera live erleben</Button>
+                  <Button size="lg" className="w-full bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-bold text-lg px-8 py-6 rounded-none transition-all duration-300 hover:-translate-y-0.5" onClick={() => scrollToContact("Vera")}>Vera testen</Button>
                 </motion.div>
               </div>
             </AgentScrollSection>
