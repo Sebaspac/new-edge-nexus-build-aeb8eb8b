@@ -791,8 +791,8 @@ const About = () => {
               <Button size="lg" onClick={() => {
               setIsPartnerRequest(false);
               setIsContactSheetOpen(true);
-            }} className="group bg-white text-purple-600 hover:bg-purple-600 hover:text-white border-2 border-purple-600 transition-all">
-                Agentur-Match anfragen
+            }} className="group border-2 transition-all text-popover-foreground bg-primary-foreground border-accent-foreground">
+                Projekt anfragen 
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               
