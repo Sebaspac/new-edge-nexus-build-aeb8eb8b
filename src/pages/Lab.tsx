@@ -228,9 +228,7 @@ const Lab = () => {
         {labServices.map((service, index) => {
         const Icon = service.icon;
         const isEven = index % 2 === 0;
-        return <section key={index} className="py-12 sm:py-16" style={{
-          background: index % 2 === 0 ? "linear-gradient(to bottom right, white, rgba(253, 224, 71, 0.1), rgba(251, 191, 36, 0.1))" : "linear-gradient(to bottom right, white, rgba(251, 191, 36, 0.1), rgba(253, 224, 71, 0.1))"
-        }}>
+        return <section key={index} className="py-12 sm:py-16 bg-primary-foreground">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 <ServiceScrollSection gradient={service.gradient} videoSrc={service.video} imagePosition={isEven ? "right" : "left"} animationBelow={service.animation}>
                   <div className="space-y-6">
@@ -354,7 +352,7 @@ const Lab = () => {
       })}
 
         {/* Meet Our Agents Section */}
-        <section className="section-py-md bg-gradient-to-br from-white via-yellow-50/30 to-orange-50/30 relative overflow-hidden">
+        <section className="section-py-md bg-primary-foreground relative overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div initial={{
             opacity: 0,

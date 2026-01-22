@@ -228,7 +228,7 @@ const Media = () => {
         </section>
 
         {/* Services Sections */}
-        <section className="section-py-md px-4 md:px-8 lg:px-16 bg-muted">
+        <section className="section-py-md px-4 md:px-8 lg:px-16 bg-primary-foreground">
           <div className="max-w-7xl mx-auto space-y-24 md:space-y-40">
             {mediaServices.map((service, index) => <ServiceScrollSection key={service.title} gradient={service.gradient} imagePosition={index % 2 === 0 ? "right" : "left"} videoSrc={service.videoSrc} icon={service.icon} animationBelow={service.animation}>
                 <div className="space-y-6 md:space-y-8">
