@@ -376,7 +376,7 @@ const Media = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="section-py-md px-4 md:px-8 lg:px-16 bg-blue-50">
+        <section className="section-py-md px-4 md:px-8 lg:px-16 bg-primary-foreground">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h2 initial={{
             opacity: 0,
