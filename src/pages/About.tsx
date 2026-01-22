@@ -831,7 +831,7 @@ const About = () => {
               {[{
               name: "Sebastian Pachón",
               role: "Founder",
-              tags: ["Founder"],
+              tags: ["Vision", "Innovation"],
               image: "/assets/sebastian-pachon.webp"
             }, {
               name: "Wenjamin Zabezhanskiy",
