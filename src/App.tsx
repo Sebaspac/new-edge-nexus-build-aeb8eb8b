@@ -17,7 +17,6 @@ import OptimizedLab from "./components/OptimizedLab";
 import OptimizedProducts from "./components/OptimizedProducts";
 
 // Lazy load all secondary pages for better performance
-const Team = lazy(() => import("./pages/Team"));
 const CaseStudies = lazy(() => import("./pages/CaseStudies"));
 const UseCases = lazy(() => import("./pages/UseCases"));
 const CaseStudyAlbaNova = lazy(() => import("./pages/CaseStudyAlbaNova"));
@@ -27,10 +26,8 @@ const CaseStudySocialMedia = lazy(() => import("./pages/CaseStudySocialMedia"));
 const CaseStudyRetailLab = lazy(() => import("./pages/CaseStudyRetailLab"));
 const Careers = lazy(() => import("./pages/Careers"));
 const About = lazy(() => import("./pages/About"));
-const Resources = lazy(() => import("./pages/Resources"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
-const News = lazy(() => import("./pages/News"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -64,7 +61,6 @@ const App = () => {
                   <Route path="/studio" element={<OptimizedStudio />} />
                   <Route path="/lab" element={<OptimizedLab />} />
                   <Route path="/agenthub" element={<OptimizedProducts />} />
-            <Route path="/team" element={<Team />} />
             <Route path="/use-cases" element={<UseCases />} />
             <Route path="/case-study/albanova" element={<CaseStudyAlbaNova />} />
             <Route path="/case-study/ecommerce" element={<CaseStudyEcommerce />} />
@@ -74,10 +70,8 @@ const App = () => {
             <Route path="/careers" element={<Careers />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/about" element={<About />} />
-            <Route path="/resources" element={<Resources />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/news" element={<News />} />
                   <Route path="/impressum" element={<Impressum />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
