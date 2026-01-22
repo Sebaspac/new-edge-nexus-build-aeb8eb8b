@@ -101,7 +101,7 @@ NEW EDGE
             }, {
               title: "Weiterentwicklung",
               description: "Kontinuierliche Weiterbildung, Konferenz-Besuche und persönliches Entwicklungsbudget."
-            }].map((value, index) => <div key={index} className="bg-white p-5 sm:p-8 rounded-xl sm:rounded-2xl shadow-sm border border-gray-100">
+            }].map((value, index) => <div key={index} className="bg-white p-5 sm:p-8 rounded-none shadow-sm border border-gray-100">
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-2 sm:mb-4">{value.title}</h3>
                   <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{value.description}</p>
                 </div>)}
@@ -118,7 +118,7 @@ NEW EDGE
             <p className="text-center text-sm sm:text-base text-gray-600 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2">Bei Interesse sende uns eine E-Mail mit deiner aussagekräftigen Bewerbung (Lebenslauf + kurzes Anschreiben) an info@newedgebrand.com - alternativ gern über den Button.</p>
             <div className="max-w-4xl mx-auto">
               <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
-                <AccordionItem value="item-1" className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 px-4 sm:px-8">
+                <AccordionItem value="item-1" className="bg-white rounded-none shadow-sm border border-gray-100 px-4 sm:px-8">
                   <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-4 w-full pr-2 sm:pr-4">
                       <div className="text-left">
@@ -165,13 +165,13 @@ NEW EDGE
                         <li>Internationales Umfeld: Einblick in moderne KI-Marketing-Projekte über alle Units</li>
                       </ul>
                     </div>
-                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Praktikum Marketing & Projektmanagement" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-2 sm:mt-4">
+                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Praktikum Marketing & Projektmanagement" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-transparent backdrop-blur-md text-black border-2 border-black font-semibold rounded-none hover:bg-black hover:text-white transition-all duration-300 hover:-translate-y-0.5 mt-2 sm:mt-4">
                       Jetzt bewerben
                     </a>
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-2" className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 px-4 sm:px-8">
+                <AccordionItem value="item-2" className="bg-white rounded-none shadow-sm border border-gray-100 px-4 sm:px-8">
                   <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-4 w-full pr-2 sm:pr-4">
                       <div className="text-left">
@@ -218,13 +218,13 @@ NEW EDGE
                         <li>Vergütung: marktüblich & erfahrungsabhängig (Festanstellung) bzw. fairer Tagessatz (Freelance). Richtwert nennen wir im Gespräch</li>
                       </ul>
                     </div>
-                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: DevOps Engineer" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-2 sm:mt-4">
+                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: DevOps Engineer" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-transparent backdrop-blur-md text-black border-2 border-black font-semibold rounded-none hover:bg-black hover:text-white transition-all duration-300 hover:-translate-y-0.5 mt-2 sm:mt-4">
                       Jetzt bewerben
                     </a>
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-3" className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 px-4 sm:px-8">
+                <AccordionItem value="item-3" className="bg-white rounded-none shadow-sm border border-gray-100 px-4 sm:px-8">
                   <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-4 w-full pr-2 sm:pr-4">
                       <div className="text-left">
@@ -271,13 +271,13 @@ NEW EDGE
                         <li>Remote-first: flexible Zeiten; Meetings/Workshops online</li>
                       </ul>
                     </div>
-                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Freelancer-Pool Media & Lab" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-2 sm:mt-4">
+                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Freelancer-Pool Media & Lab" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-transparent backdrop-blur-md text-black border-2 border-black font-semibold rounded-none hover:bg-black hover:text-white transition-all duration-300 hover:-translate-y-0.5 mt-2 sm:mt-4">
                       Jetzt bewerben
                     </a>
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-4" className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 px-4 sm:px-8">
+                <AccordionItem value="item-4" className="bg-white rounded-none shadow-sm border border-gray-100 px-4 sm:px-8">
                   <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-4 w-full pr-2 sm:pr-4">
                       <div className="text-left">
@@ -320,7 +320,7 @@ NEW EDGE
                         <li>Lab-Zugang: Einblicke in produktive KI-Stacks & moderne Toolchains</li>
                       </ul>
                     </div>
-                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Werkstudent:in DevOps & Full-Stack" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-black text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 mt-2 sm:mt-4">
+                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Werkstudent:in DevOps & Full-Stack" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-transparent backdrop-blur-md text-black border-2 border-black font-semibold rounded-none hover:bg-black hover:text-white transition-all duration-300 hover:-translate-y-0.5 mt-2 sm:mt-4">
                       Jetzt bewerben
                     </a>
                   </AccordionContent>
@@ -334,16 +334,16 @@ NEW EDGE
         
 
         {/* CTA */}
-        <section className="relative py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
+        <section className="relative py-12 sm:py-16 bg-gray-50 overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 text-black leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 text-gray-900 leading-tight">
               Finden Sie Ihre Traumposition nicht?
             </h2>
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
               Senden Sie uns Ihre Initiativbewerbung! Wir sind immer auf der Suche nach 
               talentierten Menschen, die unser Team bereichern möchten.
             </p>
-            <a href="mailto:info@newedgebrand.com?subject=Initiativbewerbung" className="inline-block px-8 py-4 bg-primary text-white font-bold rounded-full hover:scale-105 transition-transform duration-300">
+            <a href="mailto:info@newedgebrand.com?subject=Initiativbewerbung" className="inline-block px-8 py-4 bg-transparent backdrop-blur-md text-black border-2 border-black font-bold rounded-none hover:bg-black hover:text-white transition-all duration-300 hover:-translate-y-0.5">
               Initiativbewerbung senden
             </a>
           </div>
