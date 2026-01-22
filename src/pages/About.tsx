@@ -230,9 +230,8 @@ const About = () => {
                       Mission
                     </h3>
                     <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed text-left">
-                      Wir bringen Innovation dorthin, wo sie am meisten gebraucht wird – in den Mittelstand. Dafür
-                      automatisieren wir Prozesse, verbinden Agenturen mit Unternehmen und machen Kreativität
-                      skalierbar.
+                      Wir bringen Innovation in den Mittelstand, indem wir Prozesse automatisieren, Teams vernetzen und Kreativität in wiederholbare, skalierbare Systeme übersetzen.
+
                     </p>
                   </div>
 
