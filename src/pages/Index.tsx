@@ -57,7 +57,7 @@ const Index = () => {
       const timer = setTimeout(() => {
         setShowInitialLoading(false);
         sessionStorage.setItem('hasVisited', 'true');
-      }, 1200); // Show logo for 1.2 seconds
+      }, 2000); // Show logo for 2 seconds
       return () => clearTimeout(timer);
     }
   }, [showInitialLoading]);
@@ -170,8 +170,19 @@ const Index = () => {
               alt="New Edge"
               className="w-24 h-24 md:w-32 md:h-32"
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
+              animate={{ 
+                opacity: 1, 
+                scale: [1, 1.15, 1, 1.1, 1],
+              }}
+              transition={{ 
+                opacity: { duration: 0.3 },
+                scale: { 
+                  duration: 0.8, 
+                  repeat: Infinity, 
+                  ease: [0.4, 0, 0.2, 1],
+                  times: [0, 0.2, 0.4, 0.6, 1]
+                }
+              }}
             />
           </motion.div>
         )}
