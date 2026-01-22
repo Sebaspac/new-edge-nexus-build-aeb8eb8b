@@ -21,27 +21,19 @@ const AgentScrollSectionComponent = ({
   return (
     <>
       {/* Mobile/Tablet: Simple Stack Layout */}
-      <div className="md:hidden space-y-6 pb-8 relative">
-        {/* Video Container - 9:16 centered */}
-        <div className="w-full flex justify-center">
-          <div 
-            className={`w-40 sm:w-48 ${gradient} rounded-none shadow-2xl relative overflow-hidden`}
-            style={{ aspectRatio: '9/16' }}
-          >
-            <LazyVideo
-              src={videoSrc}
-              className="absolute inset-0 w-full h-full object-cover"
-              aspectRatio="9/16"
-              width={540}
-              height={960}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="none"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-          </div>
+      <div className="lg:hidden space-y-6 pb-12 relative">
+        {/* Video Container */}
+        <div className={`w-full h-64 sm:h-80 ${gradient} rounded-none flex items-center justify-center shadow-2xl relative overflow-hidden`}>
+          <LazyVideo
+            src={videoSrc}
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="none"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
 
         {/* Text Content Below */}
@@ -56,16 +48,10 @@ const AgentScrollSectionComponent = ({
         </motion.div>
       </div>
 
-      {/* Desktop: Asymmetric Grid with Sticky Video */}
-      <div 
-        className={`hidden md:grid gap-8 lg:gap-16 ${
-          imagePosition === "left" 
-            ? "md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr]" 
-            : "md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_320px]"
-        }`}
-      >
-        {/* Text Content - scrolls normally with bottom padding for runway */}
-        <div className={`${imagePosition === "left" ? "order-2" : "order-1"} pb-[40vh]`}>
+      {/* Desktop: Sticky Video with Scrolling Text - Using min-height to ensure scroll distance */}
+      <div className="hidden lg:grid lg:grid-cols-2 gap-12" style={{ minHeight: '120vh' }}>
+        {/* Text Content - scrolls normally */}
+        <div className={`${imagePosition === "left" ? "order-2" : "order-1"}`}>
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -85,28 +71,23 @@ const AgentScrollSectionComponent = ({
           </motion.div>
         </div>
 
-        {/* Sticky Video Container - 9:16 format, stays fixed while text scrolls */}
+        {/* Sticky Video Container - stays fixed while text scrolls past */}
         <div className={`${imagePosition === "left" ? "order-1" : "order-2"} relative`}>
-          <div className="sticky top-28">
-            <div className="flex items-start justify-center">
-              <div 
-                className={`w-full max-w-[280px] lg:max-w-[320px] ${gradient} rounded-none shadow-2xl relative overflow-hidden`}
-                style={{ aspectRatio: '9/16' }}
-              >
-                <LazyVideo
-                  src={videoSrc}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  aspectRatio="9/16"
-                  width={540}
-                  height={960}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="none"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              </div>
+          <div 
+            className="sticky top-24"
+            style={{ height: 'calc(100vh - 8rem)' }}
+          >
+            <div className={`w-full h-full ${gradient} rounded-none flex items-center justify-center shadow-2xl relative overflow-hidden`}>
+              <LazyVideo
+                src={videoSrc}
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="none"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>
           </div>
         </div>
