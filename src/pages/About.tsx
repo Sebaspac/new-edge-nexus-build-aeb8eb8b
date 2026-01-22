@@ -242,8 +242,7 @@ const About = () => {
                       Vision
                     </h3>
                     <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed text-left">
-                      Ein Ökosystem, in dem Marken, Agenturen und Technologien nahtlos zusammenarbeiten – und der
-                      Mittelstand zum Motor echter Innovation wird.
+                      Ein Ökosystem, in dem Marken und Technologie friktionslos zusammenarbeiten – der Mittelstand als Triebfeder für echte, messbare Innovation.
                     </p>
                   </div>
                 </div>
