@@ -284,11 +284,13 @@ const CaseStudyRetailLab = () => {
           {/* Mobile: Horizontal Snap-Scroll Timeline */}
           <div className="md:hidden relative">
             <div className="absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
-            <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-6 pt-2 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-6 pt-2 scrollbar-hide" style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none'
+          }}>
               {orbitalTimelineData.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <div key={item.id} className="flex-shrink-0 w-[80vw] snap-center">
+              const Icon = item.icon;
+              return <div key={item.id} className="flex-shrink-0 w-[80vw] snap-center">
                     <div className="flex justify-center mb-4">
                       <div className="w-4 h-4 rounded-full bg-purple-500 border-2 border-purple-300 shadow-lg shadow-purple-500/50" />
                     </div>
@@ -307,20 +309,19 @@ const CaseStudyRetailLab = () => {
                         <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs font-medium rounded-full">{item.category}</span>
                         <div className="flex items-center gap-2">
                           <div className="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style={{ width: `${item.energy}%` }} />
+                            <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style={{
+                          width: `${item.energy}%`
+                        }} />
                           </div>
                           <span className="text-gray-400 text-xs">{item.energy}%</span>
                         </div>
                       </div>
                       <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-1">
-                        {orbitalTimelineData.map((_, i) => (
-                          <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === index ? 'bg-purple-500' : 'bg-gray-600'}`} />
-                        ))}
+                        {orbitalTimelineData.map((_, i) => <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === index ? 'bg-purple-500' : 'bg-gray-600'}`} />)}
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  </div>;
+            })}
             </div>
           </div>
         </section>
@@ -428,7 +429,7 @@ const CaseStudyRetailLab = () => {
                 <div className="flex items-center justify-center gap-3 md:gap-4">
                   
                   <div className="text-left">
-                    <div className="font-bold text-white text-base md:text-lg">Thomas Müller</div>
+                    <div className="font-bold text-white text-base md:text-lg">Gerhardt Müller</div>
                     <div className="text-sm md:text-base text-gray-400">Geschäftsführer, Produktions-KMU</div>
                   </div>
                 </div>
