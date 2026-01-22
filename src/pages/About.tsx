@@ -1037,7 +1037,7 @@ const About = () => {
                   setIsPartnerRequest(false);
                   setIsContactSheetOpen(true);
                 }}
-                className="group border-2 transition-all text-popover-foreground bg-primary-foreground border-accent-foreground"
+                className="group rounded-none border-2 border-black bg-transparent backdrop-blur-sm transition-all hover:bg-black hover:text-white"
               >
                 Projekt anfragen
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
