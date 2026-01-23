@@ -160,10 +160,22 @@ const About = () => {
     const formData = new FormData(form);
 
     // Import validation utilities
-    const { extractFormData, validateContactForm, submitContactForm } = await import("@/utils/contactFormValidation");
+    const { extractFormData, validateContactForm, submitContactForm, getTurnstileToken, resetTurnstile } = await import("@/utils/contactFormValidation");
+
+    // Get Turnstile token
+    const turnstileToken = getTurnstileToken();
+    if (!turnstileToken) {
+      toast({
+        title: "Sicherheitsüberprüfung erforderlich",
+        description: "Bitte warten Sie, bis die Sicherheitsüberprüfung abgeschlossen ist.",
+        variant: "destructive",
+        duration: 5000,
+      });
+      return;
+    }
 
     // Extract and validate form data
-    const rawData = extractFormData(formData, "ABOUT");
+    const rawData = extractFormData(formData);
     const validation = validateContactForm(rawData);
     if (!validation.success) {
       toast({
@@ -174,7 +186,7 @@ const About = () => {
       });
       return;
     }
-    const result = await submitContactForm(validation.data!);
+    const result = await submitContactForm(validation.data!, turnstileToken);
     if (result.success) {
       toast({
         title: "Wir designen für dich",
@@ -182,6 +194,7 @@ const About = () => {
         duration: 5000,
       });
       form.reset();
+      resetTurnstile();
       setIsContactSheetOpen(false);
       setIsPartnerRequest(false);
     } else {
@@ -191,6 +204,7 @@ const About = () => {
         variant: "destructive",
         duration: 5000,
       });
+      resetTurnstile();
     }
   };
   return (

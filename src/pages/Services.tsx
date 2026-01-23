@@ -63,10 +63,22 @@ const Services = () => {
     const formData = new FormData(form);
 
     // Import validation utilities
-    const { extractFormData, validateContactForm, submitContactForm } = await import("@/utils/contactFormValidation");
+    const { extractFormData, validateContactForm, submitContactForm, getTurnstileToken, resetTurnstile } = await import("@/utils/contactFormValidation");
+
+    // Get Turnstile token
+    const turnstileToken = getTurnstileToken();
+    if (!turnstileToken) {
+      toast({
+        title: "Sicherheitsüberprüfung erforderlich",
+        description: "Bitte warten Sie, bis die Sicherheitsüberprüfung abgeschlossen ist.",
+        variant: "destructive",
+        duration: 5000,
+      });
+      return;
+    }
 
     // Extract and validate form data
-    const rawData = extractFormData(formData, "SERVICES");
+    const rawData = extractFormData(formData);
     const validation = validateContactForm(rawData);
 
     if (!validation.success) {
@@ -79,7 +91,7 @@ const Services = () => {
       return;
     }
 
-    const result = await submitContactForm(validation.data!);
+    const result = await submitContactForm(validation.data!, turnstileToken);
 
     if (result.success) {
       toast({
@@ -88,6 +100,7 @@ const Services = () => {
         duration: 5000,
       });
       form.reset();
+      resetTurnstile();
       setIsContactSheetOpen(false);
     } else {
       toast({
@@ -96,6 +109,7 @@ const Services = () => {
         variant: "destructive",
         duration: 5000,
       });
+      resetTurnstile();
     }
   };
   return (
