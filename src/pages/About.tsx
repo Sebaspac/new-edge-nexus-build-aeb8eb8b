@@ -206,10 +206,8 @@ const About = () => {
       <div className="min-h-screen bg-background">
         <MobileNavigation onContactClick={() => scrollToContact(false)} theme="dark" />
 
-        {/* Sticky Navigation */}
-
         {/* Hero Section */}
-        <section className="relative w-full mt-16">
+        <section className="relative w-full">
           <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
               <video
