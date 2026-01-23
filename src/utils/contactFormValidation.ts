@@ -18,21 +18,26 @@ export const contactFormSchema = z.object({
     .trim()
     .email({ message: "Bitte geben Sie eine gültige E-Mail-Adresse ein" })
     .max(200, { message: "E-Mail darf maximal 200 Zeichen lang sein" }),
-  phone: z.string()
+  position: z.string()
     .trim()
-    .max(30, { message: "Telefonnummer darf maximal 30 Zeichen lang sein" })
+    .max(100, { message: "Position darf maximal 100 Zeichen lang sein" })
     .optional()
     .or(z.literal('')),
-  company: z.string()
+  firma: z.string()
     .trim()
     .max(200, { message: "Firmenname darf maximal 200 Zeichen lang sein" })
     .optional()
     .or(z.literal('')),
-  message: z.string()
+  telefon: z.string()
+    .trim()
+    .max(30, { message: "Telefonnummer darf maximal 30 Zeichen lang sein" })
+    .optional()
+    .or(z.literal('')),
+  nachricht: z.string()
     .trim()
     .min(10, { message: "Nachricht muss mindestens 10 Zeichen lang sein" })
     .max(2000, { message: "Nachricht darf maximal 2000 Zeichen lang sein" }),
-  website_url: z.string().optional(),
+  source: z.string().optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -91,14 +96,15 @@ export function validateContactForm(data: Record<string, unknown>): {
 }
 
 // Extract form data from FormData object
-export function extractFormData(formData: FormData): Record<string, unknown> {
+export function extractFormData(formData: FormData, source?: string): Record<string, unknown> {
   return {
     name: formData.get('name')?.toString() || '',
     email: formData.get('email')?.toString() || '',
-    phone: formData.get('phone')?.toString() || '',
-    company: formData.get('company')?.toString() || '',
-    message: formData.get('message')?.toString() || '',
-    website_url: formData.get('website_url')?.toString() || '',
+    position: formData.get('position')?.toString() || '',
+    firma: formData.get('firma')?.toString() || '',
+    telefon: formData.get('telefon')?.toString() || '',
+    nachricht: formData.get('nachricht')?.toString() || '',
+    source: source || '',
   };
 }
 
@@ -107,73 +113,27 @@ export function extractHoneypotField(formData: FormData): string | undefined {
   return formData.get('website_url')?.toString();
 }
 
-// Get Turnstile token from form
-export function getTurnstileToken(): string | null {
-  const tokenInput = document.querySelector<HTMLInputElement>('[name="cf-turnstile-response"]');
-  return tokenInput?.value || null;
-}
-
-// Reset Turnstile widget
-export function resetTurnstile(): void {
-  if (typeof window !== 'undefined' && (window as any).turnstile) {
-    (window as any).turnstile.reset();
-  }
-}
-
 // Submit validated contact form data via Supabase Edge Function
-export async function submitContactForm(
-  data: ContactFormData, 
-  turnstileToken: string
-): Promise<{ success: boolean; error?: string }> {
+export async function submitContactForm(data: ContactFormData): Promise<{ success: boolean; error?: string }> {
   try {
-    // Use external Supabase Edge Function
-    const edgeFunctionUrl = 'https://uafyaqlbrxviyrrbrmjm.supabase.co/functions/v1/contact-form';
+    // Use Supabase Edge Function for server-side validation and rate limiting
+    const edgeFunctionUrl = 'https://yzmtgxfehvzgobxjivjl.supabase.co/functions/v1/contact-form';
     
-    const payload = {
-      name: data.name,
-      email: data.email,
-      phone: data.phone || '',
-      company: data.company || '',
-      message: data.message,
-      website_url: data.website_url || '',
-      turnstileToken,
-    };
-
     const response = await fetch(edgeFunctionUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(data),
     });
 
     if (response.ok) {
-      const result = await response.json().catch(() => ({}));
-      if (result.ok === true || result.success === true) {
-        return { success: true };
-      }
       return { success: true };
     } else if (response.status === 429) {
       const result = await response.json();
       return { 
         success: false, 
         error: `Zu viele Anfragen. Bitte warten Sie ${result.retryAfter || 60} Sekunden.` 
-      };
-    } else if (response.status === 403) {
-      return { 
-        success: false, 
-        error: "Sicherheitsüberprüfung fehlgeschlagen. Bitte laden Sie die Seite neu und versuchen Sie es erneut." 
-      };
-    } else if (response.status === 400) {
-      const result = await response.json().catch(() => ({}));
-      return { 
-        success: false, 
-        error: result.error || "Ungültige Formulardaten. Bitte überprüfen Sie Ihre Eingaben." 
-      };
-    } else if (response.status === 502) {
-      return { 
-        success: false, 
-        error: "Der Server ist vorübergehend nicht erreichbar. Bitte versuchen Sie es später erneut." 
       };
     } else {
       const result = await response.json().catch(() => ({}));

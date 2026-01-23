@@ -89,22 +89,10 @@ const Products = () => {
     const formData = new FormData(form);
 
     // Import validation utilities
-    const { extractFormData, validateContactForm, submitContactForm, getTurnstileToken, resetTurnstile } = await import("@/utils/contactFormValidation");
-
-    // Get Turnstile token
-    const turnstileToken = getTurnstileToken();
-    if (!turnstileToken) {
-      toast({
-        title: "Sicherheitsüberprüfung erforderlich",
-        description: "Bitte warten Sie, bis die Sicherheitsüberprüfung abgeschlossen ist.",
-        variant: "destructive",
-        duration: 5000,
-      });
-      return;
-    }
+    const { extractFormData, validateContactForm, submitContactForm } = await import("@/utils/contactFormValidation");
 
     // Extract and validate form data
-    const rawData = extractFormData(formData);
+    const rawData = extractFormData(formData, "PRODUCTS");
     const validation = validateContactForm(rawData);
     if (!validation.success) {
       toast({
@@ -115,7 +103,7 @@ const Products = () => {
       });
       return;
     }
-    const result = await submitContactForm(validation.data!, turnstileToken);
+    const result = await submitContactForm(validation.data!);
     if (result.success) {
       toast({
         title: "Wir designen für dich",
@@ -123,7 +111,6 @@ const Products = () => {
         duration: 5000,
       });
       form.reset();
-      resetTurnstile();
       setIsContactSheetOpen(false);
     } else {
       toast({
@@ -132,7 +119,6 @@ const Products = () => {
         variant: "destructive",
         duration: 5000,
       });
-      resetTurnstile();
     }
   }, []);
   return (
@@ -150,6 +136,9 @@ const Products = () => {
         <link rel="canonical" href="https://new-edge.de/products" />
         <link rel="preload" href="/assets/agents-hero-video.mp4" as="video" type="video/mp4" />
         <link rel="preload" href="/assets/products-hero-video.mp4" as="video" type="video/mp4" />
+        {/* Resource hints for n8n webhook */}
+        <link rel="preconnect" href="https://n8n-pro-oh9w.onrender.com" />
+        <link rel="dns-prefetch" href="https://n8n-pro-oh9w.onrender.com" />
       </Helmet>
 
       <div className="min-h-screen bg-white">

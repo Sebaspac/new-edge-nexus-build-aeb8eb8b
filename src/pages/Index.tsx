@@ -99,22 +99,10 @@ const Index = () => {
     const formData = new FormData(form);
 
     // Import validation utilities dynamically to avoid circular dependencies
-    const { extractFormData, validateContactForm, submitContactForm, getTurnstileToken, resetTurnstile } = await import("@/utils/contactFormValidation");
-
-    // Get Turnstile token
-    const turnstileToken = getTurnstileToken();
-    if (!turnstileToken) {
-      toast({
-        title: "Sicherheitsüberprüfung erforderlich",
-        description: "Bitte warten Sie, bis die Sicherheitsüberprüfung abgeschlossen ist.",
-        variant: "destructive",
-        duration: 5000,
-      });
-      return;
-    }
+    const { extractFormData, validateContactForm, submitContactForm } = await import("@/utils/contactFormValidation");
 
     // Extract and validate form data
-    const rawData = extractFormData(formData);
+    const rawData = extractFormData(formData, "INDEX");
     const validation = validateContactForm(rawData);
     if (!validation.success) {
       toast({
@@ -125,7 +113,7 @@ const Index = () => {
       });
       return;
     }
-    const result = await submitContactForm(validation.data!, turnstileToken);
+    const result = await submitContactForm(validation.data!);
     if (result.success) {
       toast({
         title: "Wir designen für dich",
@@ -133,7 +121,6 @@ const Index = () => {
         duration: 5000,
       });
       form.reset();
-      resetTurnstile();
     } else {
       toast({
         title: "Fehler",
@@ -141,7 +128,6 @@ const Index = () => {
         variant: "destructive",
         duration: 5000,
       });
-      resetTurnstile();
     }
   }, []);
   const services = [
