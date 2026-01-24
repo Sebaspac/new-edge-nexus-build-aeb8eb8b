@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import foundersColorImage from "@/assets/founders-color.png";
+import foundersColorImage from "@/assets/founders-color.webp";
 export const PositionedForImpactSection = () => {
   return <section className="relative py-12 md:py-20 lg:py-32 bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">

@@ -1,11 +1,11 @@
-import sadieKessler from "@/assets/logos/sadie-kessler.jpg";
-import circlePhoto from "@/assets/logos/circle-photo.jpg";
-import hydeOfficial from "@/assets/logos/hyde-official.jpg";
-import dariusCompany from "@/assets/logos/darius-company.jpg";
-import museStudio from "@/assets/logos/muse-studio.jpg";
-import drAaronLoeb from "@/assets/logos/dr-aaron-loeb.jpg";
-import pureDesign from "@/assets/logos/pure-design.jpg";
-import seabreeze from "@/assets/logos/seabreeze.jpg";
+import sadieKessler from "@/assets/logos/sadie-kessler.webp";
+import circlePhoto from "@/assets/logos/circle-photo.webp";
+import hydeOfficial from "@/assets/logos/hyde-official.webp";
+import dariusCompany from "@/assets/logos/darius-company.webp";
+import museStudio from "@/assets/logos/muse-studio.webp";
+import drAaronLoeb from "@/assets/logos/dr-aaron-loeb.webp";
+import pureDesign from "@/assets/logos/pure-design.webp";
+import seabreeze from "@/assets/logos/seabreeze.webp";
 
 // ✅ Einfach neue Logos hier hinzufügen - die Marquee passt sich automatisch an
 const logos = [

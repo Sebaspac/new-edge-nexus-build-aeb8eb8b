@@ -1,7 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Cpu, Globe, Bot, BarChart3, Lightbulb, Phone, FileText, ChevronDown, Plus, ArrowUpRight } from "lucide-react";
-import leadGenerationImage from "@/assets/lead-generation.jpg";
+import leadGenerationImage from "@/assets/lead-generation.webp";
 import { Button } from "@/components/ui/button";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from "react-helmet-async";

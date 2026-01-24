@@ -32,7 +32,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
-import newEdgeHubLogo from "@/assets/new-edge-hub-logo.png";
+import newEdgeHubLogo from "@/assets/new-edge-hub-logo.webp";
 const moduleVideos = {
   studio: ["/assets/studio-hero-video.mp4", "/assets/studio-service-video.mp4", "/assets/brandstory-video.mp4"],
   media: ["/assets/media-hero-video.mp4", "/assets/media-section-video.mp4", "/assets/template-video.mp4"],

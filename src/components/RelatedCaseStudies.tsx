@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { Plus, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import albanovaImage from "@/assets/albanova-building.png";
-import ragDatacenterImage from "@/assets/rag-datacenter.jpg";
-import marketingAutomationImage from "@/assets/marketing-automation.jpg";
-import leadGenerationImage from "@/assets/lead-generation.jpg";
+import albanovaImage from "@/assets/albanova-building.webp";
+import ragDatacenterImage from "@/assets/rag-datacenter.webp";
+import marketingAutomationImage from "@/assets/marketing-automation.webp";
+import leadGenerationImage from "@/assets/lead-generation.webp";
 
 interface RelatedCaseStudiesProps {
   currentCaseId: string;

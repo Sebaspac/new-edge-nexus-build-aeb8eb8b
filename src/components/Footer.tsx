@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Mail } from "lucide-react";
-import newEdgeLogoHorizontal from "@/assets/new-edge-logo-horizontal.png";
+import newEdgeLogoHorizontal from "@/assets/new-edge-logo-horizontal.webp";
 export const Footer = () => {
   return (
     <footer className="bg-black text-white border-t border-white/10">
