@@ -26,7 +26,7 @@ export const AgencyEdgeSection = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-black">Mehr als eine Agentur. Ein Vorsprung.</h2>
 
             <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
-              Mit unserer "Edge Methodology" denken wir Marken als System, nicht als Kampagne. So entstehen Lösungen – die Prozesse beschleunigen, Nutzer überzeugen und Marken Nachhaltig stärken.                                     
+              Mit unserer „Edge Methodology“ denken wir Marken als System, nicht als Kampagne. So entstehen Lösungen, die Prozesse beschleunigen, Nutzer überzeugen und Marken klar stärken.                                     
             </p>
 
             <div className="pt-4 sm:pt-6 md:pt-8">
