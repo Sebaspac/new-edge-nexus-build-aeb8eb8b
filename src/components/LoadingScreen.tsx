@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import newEdgeLogo from "@/assets/new-edge-logo.png";
+import newEdgeLogo from "@/assets/new-edge-logo.webp";
 
 interface LoadingScreenProps {
   progress: number;

@@ -11,7 +11,7 @@ import { SocialMediaAnimation } from "@/components/ui/social-media-animation";
 import { PerformanceLaunchAnimation } from "@/components/ui/performance-launch-animation";
 import { LazyVideo } from "@/components/LazyVideo";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import marketingAutomationImage from "@/assets/marketing-automation.jpg";
+import marketingAutomationImage from "@/assets/marketing-automation.webp";
 const Footer = lazy(() =>
   import("@/components/Footer").then((m) => ({
     default: m.Footer,

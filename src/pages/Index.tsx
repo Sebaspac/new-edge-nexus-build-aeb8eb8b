@@ -17,7 +17,7 @@ import LogoCloud from "@/components/ui/logo-cloud";
 import { MagicText } from "@/components/ui/magic-text";
 import { lazy, Suspense, useCallback, useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import newEdgeLogo from "@/assets/new-edge-logo.png";
+import newEdgeLogo from "@/assets/new-edge-logo.webp";
 import { ProblemSolutionSection } from "@/components/ProblemSolutionSection";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";

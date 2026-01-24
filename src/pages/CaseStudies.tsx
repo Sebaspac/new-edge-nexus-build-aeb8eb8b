@@ -5,10 +5,10 @@ import { Helmet } from "react-helmet-async";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import albanovaImage from "@/assets/albanova-building.png";
-import ragDatacenterImage from "@/assets/rag-datacenter.jpg";
-import marketingAutomationImage from "@/assets/marketing-automation.jpg";
-import leadGenerationImage from "@/assets/lead-generation.jpg";
+import albanovaImage from "@/assets/albanova-building.webp";
+import ragDatacenterImage from "@/assets/rag-datacenter.webp";
+import marketingAutomationImage from "@/assets/marketing-automation.webp";
+import leadGenerationImage from "@/assets/lead-generation.webp";
 interface CaseStudy {
   id: string;
   client: string;

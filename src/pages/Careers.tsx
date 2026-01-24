@@ -4,7 +4,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from 'react-helmet-async';
 import { Footer } from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import careersHeroImage from "@/assets/careers-hero.jpg";
+import careersHeroImage from "@/assets/careers-hero.webp";
 const Careers = () => {
   const navigate = useNavigate();
   useEffect(() => {

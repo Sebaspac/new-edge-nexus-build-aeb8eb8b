@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => ({
     mode === 'development' && componentTagger(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'robots.txt', 'assets/*.png', 'assets/*.mp4'],
+      includeAssets: ['favicon.ico', 'robots.txt', 'assets/*.png', 'assets/*.webp', 'assets/*.mp4'],
       manifest: {
         name: 'New Edge',
         short_name: 'New Edge',
