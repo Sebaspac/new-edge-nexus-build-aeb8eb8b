@@ -231,7 +231,7 @@ const Impressum = () => {
                     <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
                       <p>New Edge</p>
                       <p>Inhaber: Wenjamin Zababezhanskiy</p>
-                      <p>Zehntfeldstraße 22a</p>
+                      <p>Zehntfeldstraße 125a</p>
                       <p>81825 München</p>
                       <p>Deutschland</p>
                       <p>
