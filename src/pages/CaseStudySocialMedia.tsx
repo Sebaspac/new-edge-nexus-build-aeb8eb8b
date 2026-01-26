@@ -198,7 +198,7 @@ const CaseStudySocialMedia = () => {
                 Wie ein KI-Sales-Agent Leads automatisch qualifiziert, personalisiert anspricht und den Vertrieb auf echte Chancen fokussiert.
               </p>
               <div className="flex justify-center">
-                <button onClick={scrollToContact} className="px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-full text-base md:text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50 active:scale-95">
+                <button onClick={scrollToContact} className="px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-none text-base md:text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50 active:scale-95">
                   Jetzt Kontakt aufnehmen
                 </button>
               </div>
@@ -290,11 +290,11 @@ const CaseStudySocialMedia = () => {
               const Icon = item.icon;
               return <div key={item.id} className="flex-shrink-0 w-[80vw] snap-center">
                     <div className="flex justify-center mb-4">
-                      <div className="w-4 h-4 rounded-full bg-purple-500 border-2 border-purple-300 shadow-lg shadow-purple-500/50" />
+                      <div className="w-4 h-4 rounded-none bg-purple-500 border-2 border-purple-300 shadow-lg shadow-purple-500/50" />
                     </div>
-                    <div className="bg-white/5 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-5 h-full">
+                    <div className="bg-white/5 backdrop-blur-sm border border-purple-500/30 rounded-none p-5 h-full">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-none bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
                           <Icon className="w-5 h-5 text-white" />
                         </div>
                         <div>
@@ -304,10 +304,10 @@ const CaseStudySocialMedia = () => {
                       </div>
                       <p className="text-gray-300 text-sm leading-relaxed mb-4">{item.content}</p>
                       <div className="flex items-center justify-between">
-                        <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs font-medium rounded-full">{item.category}</span>
+                        <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs font-medium rounded-none">{item.category}</span>
                         <div className="flex items-center gap-2">
-                          <div className="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style={{
+                          <div className="w-16 h-1.5 bg-gray-700 rounded-none overflow-hidden">
+                            <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-none" style={{
                           width: `${item.energy}%`
                         }} />
                           </div>
@@ -315,7 +315,7 @@ const CaseStudySocialMedia = () => {
                         </div>
                       </div>
                       <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-1">
-                        {orbitalTimelineData.map((_, i) => <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === index ? 'bg-purple-500' : 'bg-gray-600'}`} />)}
+                        {orbitalTimelineData.map((_, i) => <div key={i} className={`w-1.5 h-1.5 rounded-none transition-colors ${i === index ? 'bg-purple-500' : 'bg-gray-600'}`} />)}
                       </div>
                     </div>
                   </div>;
@@ -366,8 +366,8 @@ const CaseStudySocialMedia = () => {
                       <div className="space-y-4 md:space-y-6">
                         {phase.features.map((feature, featureIndex) => {
                       const Icon = feature.icon;
-                      return <div key={featureIndex} className="flex items-start gap-3 md:gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300 active:scale-95">
-                              <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg md:rounded-xl flex items-center justify-center">
+                      return <div key={featureIndex} className="flex items-start gap-3 md:gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-none p-4 md:p-6 hover:bg-white/10 transition-all duration-300 active:scale-95">
+                              <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-none flex items-center justify-center">
                                 <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                               </div>
                               <div>
@@ -396,7 +396,7 @@ const CaseStudySocialMedia = () => {
               <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
                 {phases.map((phase, phaseIndex) => <div key={phaseIndex} className="min-w-[85vw] snap-center">
                     <AnimatedSection>
-                      <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                      <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-none p-6">
                         <div className="mb-3">
                           <span className="text-purple-400 font-bold text-xs tracking-wider">{phase.number}</span>
                         </div>
@@ -406,8 +406,8 @@ const CaseStudySocialMedia = () => {
                         <div className="space-y-4">
                           {phase.features.map((feature, featureIndex) => {
                         const Icon = feature.icon;
-                        return <div key={featureIndex} className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
-                                <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                        return <div key={featureIndex} className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-none p-4">
+                                <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-none flex items-center justify-center">
                                   <Icon className="w-5 h-5 text-white" />
                                 </div>
                                 <div>
@@ -422,7 +422,7 @@ const CaseStudySocialMedia = () => {
                   </div>)}
               </div>
               <div className="flex justify-center gap-2 mt-4">
-                {phases.map((_, index) => <div key={index} className="w-2 h-2 rounded-full bg-white/20" />)}
+                {phases.map((_, index) => <div key={index} className="w-2 h-2 rounded-none bg-white/20" />)}
               </div>
             </div>
           </div>
