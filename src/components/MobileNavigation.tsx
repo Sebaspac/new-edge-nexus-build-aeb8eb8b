@@ -82,11 +82,7 @@ export const MobileNavigation = ({
           }} whileTap={{
             scale: 0.98
           }}>
-              <img 
-                src={newEdgeLogoHorizontal} 
-                alt="New Edge" 
-                className={`transition-all duration-500 ${isScrolled ? 'h-8' : 'h-10'} w-auto`}
-              />
+              <img src={newEdgeLogoHorizontal} alt="New Edge" className={`transition-all duration-500 ${isScrolled ? 'h-8' : 'h-10'} w-auto`} />
             </motion.div>
           </Link>
 
@@ -168,11 +164,7 @@ export const MobileNavigation = ({
           }} whileTap={{
             scale: 0.98
           }}>
-              <img 
-                src={newEdgeLogoHorizontal} 
-                alt="New Edge" 
-                className="h-8 w-auto"
-              />
+              <img src={newEdgeLogoHorizontal} alt="New Edge" className="h-8 w-auto" />
             </motion.div>
           </Link>
 
@@ -314,7 +306,7 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.30
                 }}>
-                      <Link to="/about" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 transition-colors min-h-[44px] flex items-center`}>About us</Link>
+                      <Link to="/about" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-gray-100/10 transition-colors min-h-[44px] flex items-center`}>Über uns</Link>
                     </motion.div>
                     <motion.div initial={{
                   opacity: 0,
