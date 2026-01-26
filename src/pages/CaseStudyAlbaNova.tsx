@@ -232,7 +232,7 @@ const CaseStudyAlbaNova = () => {
                 in eine Chance zu verwandeln.
               </p>
               <div className="flex justify-center">
-                <button onClick={scrollToContact} className="px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-full text-base md:text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50 active:scale-95">
+              <button onClick={scrollToContact} className="px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-none text-base md:text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50 active:scale-95">
                   Jetzt Kontakt aufnehmen
                 </button>
               </div>
@@ -266,7 +266,7 @@ const CaseStudyAlbaNova = () => {
               <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center mt-12 md:mt-20">
                 {/* Left: Image/Visual */}
                 <div className="relative">
-                  <div className="aspect-[4/3] rounded-3xl overflow-hidden border border-purple-500/20">
+                  <div className="aspect-[4/3] rounded-none overflow-hidden border border-purple-500/20">
                     <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                       <source src="/assets/albanova-challenges-video.mp4" type="video/mp4" />
                     </video>
@@ -340,14 +340,14 @@ const CaseStudyAlbaNova = () => {
               return <div key={item.id} className="flex-shrink-0 w-[80vw] snap-center">
                     {/* Node Dot */}
                     <div className="flex justify-center mb-4">
-                      <div className="w-4 h-4 rounded-full bg-purple-500 border-2 border-purple-300 shadow-lg shadow-purple-500/50" />
+                      <div className="w-4 h-4 rounded-none bg-purple-500 border-2 border-purple-300 shadow-lg shadow-purple-500/50" />
                     </div>
                     
                     {/* Card */}
-                    <div className="bg-white/5 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-5 h-full">
+                    <div className="bg-white/5 backdrop-blur-sm border border-purple-500/30 rounded-none p-5 h-full">
                       {/* Header */}
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-none bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
                           <Icon className="w-5 h-5 text-white" />
                         </div>
                         <div>
@@ -363,12 +363,12 @@ const CaseStudyAlbaNova = () => {
                       
                       {/* Footer */}
                       <div className="flex items-center justify-between">
-                        <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs font-medium rounded-full">
+                        <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs font-medium rounded-none">
                           {item.category}
                         </span>
                         <div className="flex items-center gap-2">
-                          <div className="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style={{
+                            <div className="w-16 h-1.5 bg-gray-700 rounded-none overflow-hidden">
+                            <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-none" style={{
                           width: `${item.energy}%`
                         }} />
                           </div>
@@ -378,7 +378,7 @@ const CaseStudyAlbaNova = () => {
                       
                       {/* Progress Indicator */}
                       <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-1">
-                        {orbitalTimelineData.map((_, i) => <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === index ? 'bg-purple-500' : 'bg-gray-600'}`} />)}
+                        {orbitalTimelineData.map((_, i) => <div key={i} className={`w-1.5 h-1.5 rounded-none transition-colors ${i === index ? 'bg-purple-500' : 'bg-gray-600'}`} />)}
                       </div>
                     </div>
                   </div>;
@@ -429,8 +429,8 @@ const CaseStudyAlbaNova = () => {
                       <div className="space-y-4 md:space-y-6">
                         {phase.features.map((feature, featureIndex) => {
                       const Icon = feature.icon;
-                      return <div key={featureIndex} className="flex items-start gap-3 md:gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-6 hover:bg-white/10 transition-all duration-300 active:scale-95">
-                              <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg md:rounded-xl flex items-center justify-center">
+                      return <div key={featureIndex} className="flex items-start gap-3 md:gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-none p-4 md:p-6 hover:bg-white/10 transition-all duration-300 active:scale-95">
+                              <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-none flex items-center justify-center">
                                 <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                               </div>
                               <div>
@@ -450,11 +450,11 @@ const CaseStudyAlbaNova = () => {
                           {/* Laptop Mockup */}
                           <div className="relative perspective-1000">
                             {/* Laptop Screen */}
-                            <div className="relative bg-gray-800 rounded-t-2xl border-4 border-gray-700 shadow-2xl transition-transform group-hover:scale-[1.02]">
+                            <div className="relative bg-gray-800 rounded-none border-4 border-gray-700 shadow-2xl transition-transform group-hover:scale-[1.02]">
                               {/* Screen Bezel */}
-                              <div className="bg-black p-3 rounded-t-xl">
+                              <div className="bg-black p-3 rounded-none">
                                 {/* Website Screenshot */}
-                                <div className="relative aspect-[16/10] rounded-lg overflow-hidden shadow-inner">
+                                <div className="relative aspect-[16/10] rounded-none overflow-hidden shadow-inner">
                                   <img src={albanovaWebsite} alt="AlbaNova Consulting Website" className="w-full h-full object-cover object-top" />
                                   {/* Screen Glare Effect */}
                                   <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
@@ -463,9 +463,9 @@ const CaseStudyAlbaNova = () => {
                             </div>
 
                             {/* Laptop Base */}
-                            <div className="relative h-3 bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-xl shadow-lg">
+                            <div className="relative h-3 bg-gradient-to-b from-gray-700 to-gray-800 rounded-none shadow-lg">
                               {/* Notch */}
-                              <div className="absolute left-1/2 -translate-x-1/2 top-0 w-16 h-1 bg-gray-600 rounded-b" />
+                              <div className="absolute left-1/2 -translate-x-1/2 top-0 w-16 h-1 bg-gray-600 rounded-none" />
                             </div>
 
                             {/* Shadow */}
@@ -475,13 +475,13 @@ const CaseStudyAlbaNova = () => {
                           <p className="text-center text-sm text-purple-400 mt-6 group-hover:text-purple-300 transition-colors">
                             Klicke aufs Bild →
                           </p>
-                        </a> : 'video' in phase && phase.video ? <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
+                        </a> : 'video' in phase && phase.video ? <div className="relative aspect-[4/3] rounded-none overflow-hidden border border-white/10">
                           <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                             <source src={phase.video} type="video/mp4" />
                           </video>
-                        </div> : 'image' in phase && phase.image ? <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
+                        </div> : 'image' in phase && phase.image ? <div className="relative aspect-[4/3] rounded-none overflow-hidden border border-white/10">
                           <img src={phase.image} alt={phase.title} className="w-full h-full object-cover" />
-                        </div> : <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
+                        </div> : <div className="relative aspect-[4/3] rounded-none overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
                           {/* Placeholder for image - using gradient background */}
                           <div className="absolute inset-0 flex items-center justify-center">
                             <div className="text-white/30 text-6xl font-black">{phase.number}</div>
@@ -497,7 +497,7 @@ const CaseStudyAlbaNova = () => {
               <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
                 {phases.map((phase, phaseIndex) => <div key={phaseIndex} className="min-w-[85vw] snap-center">
                     <AnimatedSection>
-                      <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                      <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-none p-6">
                         <div className="mb-3">
                           <span className="text-purple-400 font-bold text-xs tracking-wider">{phase.number}</span>
                         </div>
@@ -507,8 +507,8 @@ const CaseStudyAlbaNova = () => {
                         <div className="space-y-4">
                           {phase.features.map((feature, featureIndex) => {
                         const Icon = feature.icon;
-                        return <div key={featureIndex} className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
-                                <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                        return <div key={featureIndex} className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-none p-4">
+                                <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-none flex items-center justify-center">
                                   <Icon className="w-5 h-5 text-white" />
                                 </div>
                                 <div>
