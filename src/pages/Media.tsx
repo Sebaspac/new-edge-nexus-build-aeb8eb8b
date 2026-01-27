@@ -211,7 +211,7 @@ const Media = () => {
         </section>
 
         {/* Intro Section - Matching Studio/Lab Style */}
-        <section className="relative py-12 sm:py-16 bg-white">
+        <section className="relative pt-12 pb-6 sm:pt-16 sm:pb-8 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div
               initial="hidden"
@@ -299,8 +299,8 @@ const Media = () => {
         </section>
 
         {/* Services Sections */}
-        <section className="section-py-md px-4 md:px-8 lg:px-16 bg-primary-foreground">
-          <div className="max-w-7xl mx-auto space-y-24 md:space-y-40">
+        <section className="py-8 sm:py-12 px-4 md:px-8 lg:px-16 bg-primary-foreground">
+          <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
             {mediaServices.map((service, index) => (
               <ServiceScrollSection
                 key={service.title}
