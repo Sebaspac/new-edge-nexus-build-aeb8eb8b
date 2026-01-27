@@ -32,7 +32,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
-import newEdgeHubLogo from "@/assets/new-edge-hub-logo.webp";
+import newEdgeHubLogo from "@/assets/new-edge-hub-logo.png";
 const moduleVideos = {
   studio: ["/assets/studio-hero-video.mp4", "/assets/studio-service-video.mp4", "/assets/brandstory-video.mp4"],
   media: ["/assets/media-hero-video.mp4", "/assets/media-section-video.mp4", "/assets/template-video.mp4"],
@@ -1035,7 +1035,7 @@ const About = () => {
                   setIsPartnerRequest(false);
                   setIsContactSheetOpen(true);
                 }}
-                className="group rounded-none border-2 border-black bg-transparent backdrop-blur-sm transition-all hover:bg-black hover:text-white"
+                className="group rounded-none border-2 border-black bg-transparent text-black backdrop-blur-sm transition-all hover:bg-black hover:text-white"
               >
                 Projekt anfragen
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
