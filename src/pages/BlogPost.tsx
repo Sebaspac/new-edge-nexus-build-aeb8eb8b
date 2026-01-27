@@ -477,7 +477,7 @@ const BlogPost = () => {
               </div>
 
               {/* Call to Action */}
-              <div className="mt-16 p-8 bg-gradient-to-br from-gray-50 to-purple-50 rounded-2xl">
+              <div className="mt-16 p-8 bg-gradient-to-br from-gray-50 to-purple-50 rounded-none">
                 <h3 className="text-2xl font-black mb-4 text-black">
                   Lassen Sie uns Ihr Projekt besprechen
                 </h3>
@@ -486,7 +486,7 @@ const BlogPost = () => {
                 </p>
                 <button
                   onClick={scrollToContact}
-                  className="px-8 py-3 bg-black text-white rounded-full font-semibold hover:bg-purple-600 transition-colors"
+                  className="px-8 py-3 bg-transparent text-black border-2 border-black rounded-none font-semibold hover:bg-black hover:text-white transition-colors"
                 >
                   Kontakt aufnehmen
                 </button>

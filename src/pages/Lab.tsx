@@ -157,7 +157,7 @@ const Lab = () => {
         </section>
 
         {/* FROM VISION TO REALITY Section */}
-        <section className="relative section-py-sm bg-white">
+        <section className="relative pt-12 pb-6 sm:pt-16 sm:pb-8 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div initial="hidden" whileInView="visible" viewport={{
             once: true,
