@@ -195,7 +195,7 @@ const Studio = () => {
         </section>
 
         {/* Intro Section */}
-        <section className="relative py-16 sm:py-24 bg-white">
+        <section className="relative py-12 sm:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div
               initial="hidden"
@@ -290,7 +290,7 @@ const Studio = () => {
           let videoSrc = "/assets/brandstory-video.mp4";
           if (index === 1) videoSrc = "/assets/template-video.mp4";
           return (
-            <section key={index} className="py-16 sm:py-24 bg-primary-foreground">
+            <section key={index} className="py-12 sm:py-16 bg-primary-foreground">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 <ServiceScrollSection
                   gradient={service.gradient}
