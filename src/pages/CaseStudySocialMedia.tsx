@@ -453,22 +453,7 @@ const CaseStudySocialMedia = () => {
         <RelatedCaseStudies currentCaseId="social-media" />
 
         {/* CTA Section */}
-        <section className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-gray-900 to-black">
-          <div className="container mx-auto px-4 md:px-6">
-            <AnimatedSection className="text-center max-w-4xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 md:mb-6">
-                Bereit für Ihr eigenes KI-Projekt?
-              </h2>
-              <p className="text-base md:text-xl text-gray-300 mb-8 md:mb-10 leading-relaxed px-4">
-                Lassen Sie uns gemeinsam Ihren Vertrieb transformieren.
-              </p>
-              <button onClick={scrollToContact} className="px-8 py-4 md:px-10 md:py-5 bg-white text-black font-bold rounded-full text-base md:text-lg hover:scale-105 active:scale-95 transition-transform duration-300 inline-flex items-center gap-3">
-                Projekt starten
-                <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-              </button>
-            </AnimatedSection>
-          </div>
-        </section>
+        
 
         <Footer />
       </div>
