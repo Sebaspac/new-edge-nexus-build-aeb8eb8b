@@ -8,7 +8,7 @@ interface LoadingScreenProps {
 export const LoadingScreen = ({ progress }: LoadingScreenProps) => {
   return (
     <motion.div 
-      className="fixed inset-0 z-50 bg-background flex items-center justify-center"
+      className="fixed inset-0 z-50 bg-black flex items-center justify-center"
       initial={{ opacity: 1 }}
       exit={{ 
         opacity: 0, 
