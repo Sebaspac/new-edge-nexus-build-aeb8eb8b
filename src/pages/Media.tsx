@@ -144,19 +144,19 @@ const Media = () => {
   return (
     <>
       <Helmet>
-        <title>New Edge Media - Content, Social & Performance | Kreative Kampagnen</title>
+        <title>Content & Social Media Marketing München | Performance Marketing | New Edge Media</title>
         <meta
           name="description"
-          content="NEW EDGE MEDIA vereint Content-Produktion, Social Media Management und Performance Marketing. Wir schaffen Kampagnen, die Marken sichtbar machen und Wachstum messbar steigern."
+          content="New Edge Media München - Content-Produktion, Social Media Management und Performance Marketing. Kreative Kampagnen für KMU, die Marken sichtbar machen."
         />
         <meta
           name="keywords"
-          content="Content Marketing, Social Media Management, Performance Marketing, Content Produktion, Launchkampagnen, Creative Assets"
+          content="Content Marketing München, Social Media Management München, Performance Marketing, Content Produktion, Marketing Automation München, KI Agentur München"
         />
-        <link rel="canonical" href="https://new-edge.de/media" />
-        <meta property="og:title" content="NEW EDGE MEDIA - Content, Social & Performance" />
-        <meta property="og:description" content="Kreative Kampagnen für messbares Wachstum" />
-        <meta property="og:url" content="https://new-edge.de/media" />
+        <link rel="canonical" href="https://www.newedgebrand.com/media" />
+        <meta property="og:title" content="Content & Social Media Marketing München | New Edge Media" />
+        <meta property="og:description" content="Kreative Kampagnen für KMU aus München - Content, Social Media und Performance Marketing" />
+        <meta property="og:url" content="https://www.newedgebrand.com/media" />
         <meta property="og:type" content="website" />
       </Helmet>
 

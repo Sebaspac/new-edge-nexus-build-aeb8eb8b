@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
 import {
@@ -99,6 +100,19 @@ const Services = () => {
     }
   };
   return (
+    <>
+      <Helmet>
+        <title>Unsere Leistungen | KI Agentur München | Prozessautomatisierung | New Edge</title>
+        <meta
+          name="description"
+          content="Die Reise mit New Edge - Ihrer KI Agentur aus München. Von Strategie über Umsetzung bis Innovation: Prozessautomatisierung und Marketing für KMU."
+        />
+        <meta
+          name="keywords"
+          content="KI Agentur München Leistungen, Prozessautomatisierung Services, Marketing Automation, Digitalisierung KMU, Innovation München"
+        />
+        <link rel="canonical" href="https://www.newedgebrand.com/services" />
+      </Helmet>
     <div ref={containerRef} className="min-h-screen bg-background overflow-hidden">
       <MobileNavigation onContactClick={scrollToContact} theme="dark" />
 
@@ -1144,6 +1158,7 @@ const Services = () => {
         <Footer />
       </Suspense>
     </div>
+    </>
   );
 };
 export default Services;

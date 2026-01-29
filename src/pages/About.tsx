@@ -196,11 +196,16 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>Über Uns - New Edge X The Headquarter of Innovation</title>
+        <title>Über New Edge | KI Agentur München | Innovation für KMU</title>
         <meta
           name="description"
-          content="New Edge ist das kreative, technologische und strategische Zentrum für den digitalen Wandel im Mittelstand."
+          content="New Edge - KI Agentur aus München. Wir verbinden Strategie, Kreativität und KI-Technologie für den digitalen Erfolg mittelständischer Unternehmen."
         />
+        <meta
+          name="keywords"
+          content="KI Agentur München, Über New Edge, Innovation für KMU, Digitalisierung Mittelstand, KI München, Prozessautomatisierung"
+        />
+        <link rel="canonical" href="https://www.newedgebrand.com/about" />
       </Helmet>
 
       <div className="min-h-screen bg-background">
