@@ -14,12 +14,13 @@ const StructuredData = () => {
       "width": 512,
       "height": 512
     },
-    "description": "New Edge ist eine KI-gestützte Kreativagentur, die Markenentwicklung, Content-Produktion und intelligente Automatisierung für zukunftsorientierte Unternehmen bietet.",
+    "description": "New Edge ist eine KI Agentur in München, spezialisiert auf Prozessautomatisierung, Marketing-Automation und KI-Lösungen für KMU im Mittelstand.",
     "foundingDate": "2024",
-    "areaServed": {
-      "@type": "Place",
-      "name": "Deutschland"
-    },
+    "areaServed": [
+      { "@type": "City", "name": "München" },
+      { "@type": "State", "name": "Bayern" },
+      { "@type": "Country", "name": "Deutschland" }
+    ],
     "sameAs": [
       "https://www.linkedin.com/company/newedgebrand",
       "https://www.instagram.com/newedgebrand"
@@ -32,11 +33,15 @@ const StructuredData = () => {
     },
     "knowsAbout": [
       "KI-Agenten",
+      "Prozessautomatisierung",
+      "KI Agentur München",
+      "Marketing Automation",
+      "Automatisierung für KMU",
       "Markenentwicklung",
       "Content-Produktion",
-      "Marketing Automation",
       "Brand Strategy",
-      "Digital Marketing"
+      "Digital Marketing",
+      "Workflow Automatisierung"
     ]
   };
 
@@ -45,8 +50,8 @@ const StructuredData = () => {
     "@type": "WebSite",
     "@id": "https://www.newedgebrand.com/#website",
     "url": "https://www.newedgebrand.com",
-    "name": "New Edge",
-    "description": "KI-gestützte Kreativagentur für Markenentwicklung, Content-Produktion und intelligente Automatisierung",
+    "name": "New Edge - KI Agentur München",
+    "description": "KI Agentur in München für Prozessautomatisierung, Marketing-Automation und intelligente KI-Lösungen für KMU",
     "publisher": {
       "@id": "https://www.newedgebrand.com/#organization"
     },
@@ -65,19 +70,37 @@ const StructuredData = () => {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": "https://www.newedgebrand.com/#localbusiness",
-    "name": "New Edge",
+    "name": "New Edge - KI Agentur München",
+    "alternateName": "New Edge Brand",
     "image": "https://www.newedgebrand.com/favicon.ico",
     "url": "https://www.newedgebrand.com",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Zehntfeldstraße 125a",
+      "addressLocality": "München",
+      "postalCode": "81825",
+      "addressRegion": "Bayern",
       "addressCountry": "DE"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "51.1657",
-      "longitude": "10.4515"
+      "latitude": "48.1351",
+      "longitude": "11.5820"
     },
+    "areaServed": [
+      { "@type": "City", "name": "München" },
+      { "@type": "State", "name": "Bayern" },
+      { "@type": "Country", "name": "Deutschland" }
+    ],
+    "serviceType": [
+      "KI Agentur",
+      "Prozessautomatisierung",
+      "Marketing Automatisierung",
+      "KI-Entwicklung",
+      "Workflow Automatisierung",
+      "Digitalisierung für KMU"
+    ],
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

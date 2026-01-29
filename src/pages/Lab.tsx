@@ -116,10 +116,10 @@ const Lab = () => {
   }];
   return <>
       <Helmet>
-        <title>NEW EDGE LAB - Tech Innovation | KI & Webentwicklung</title>
-        <meta name="description" content="NEW EDGE LAB entwickelt innovative KI-Lösungen und maßgeschneiderte Webanwendungen. Von Prozessautomatisierung bis Analytics - Technologie für Ihren Erfolg." />
-        <meta name="keywords" content="KI Entwicklung, Webentwicklung, Prozessautomatisierung, KI Agenten, Analytics, Tech Innovation" />
-        <link rel="canonical" href="https://new-edge.de/lab" />
+        <title>Prozessautomatisierung München | KI-Lösungen für KMU | New Edge Lab</title>
+        <meta name="description" content="Prozessautomatisierung mit KI aus München. New Edge Lab entwickelt intelligente Automatisierungslösungen, KI-Agenten und Workflow-Optimierung für den Mittelstand." />
+        <meta name="keywords" content="Prozessautomatisierung München, KI Automatisierung, Workflow Automatisierung, KI Agenten, KI Entwicklung München, Automatisierung KMU, Tech Innovation München" />
+        <link rel="canonical" href="https://www.newedgebrand.com/lab" />
       </Helmet>
 
       <div className="min-h-screen bg-white">

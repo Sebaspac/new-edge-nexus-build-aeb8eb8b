@@ -211,23 +211,23 @@ const Index = () => {
       </AnimatePresence>
 
       <Helmet>
-        <title>KI Agentur für KMU & Automatisierung | New Edge</title>
+        <title>KI Agentur München | Prozessautomatisierung & Marketing für KMU | New Edge</title>
         <meta
           name="description"
-          content="New Edge ist eine KI- & Automationsagentur für KMU. Wir verbinden Markenstrategie und Content mit maßgeschneiderten KI-Agenten und Integrationen."
+          content="New Edge - Ihre KI Agentur in München. Experten für Prozessautomatisierung, KI-gestütztes Marketing und Digitalisierung im Mittelstand. Jetzt Projekt starten!"
         />
         <meta
           name="keywords"
-          content="KI Agentur, KMU Automatisierung, Prozessoptimierung, Digitalisierung Mittelstand, KI für Unternehmen, Geschäftsprozesse automatisieren, Effizienzsteigerung, Innovation für KMUs"
+          content="KI Agentur München, Prozessautomatisierung, Prozessautomatisierung München, KI Automatisierung, Automatisierung KMU, Digitalisierung Mittelstand, KI für Unternehmen, Marketing Automation München"
         />
-        <meta property="og:title" content="New Edge - Innovations- und KI Agentur für KMUs" />
+        <meta property="og:title" content="KI Agentur München | Prozessautomatisierung & Marketing | New Edge" />
         <meta
           property="og:description"
-          content="Durch KI & Automationen Vorreiter Ihrer Branche werden mit New Edge - wir verbinden creative Prozesse mit KI Lösungen.  "
+          content="New Edge - Ihre KI Agentur in München. Experten für Prozessautomatisierung, KI-gestütztes Marketing und Digitalisierung im Mittelstand."
         />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href="https://new-edge.com" />
+        <link rel="canonical" href="https://www.newedgebrand.com" />
       </Helmet>
 
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">

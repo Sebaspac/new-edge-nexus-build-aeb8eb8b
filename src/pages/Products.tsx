@@ -124,16 +124,16 @@ const Products = () => {
   return (
     <>
       <Helmet>
-        <title>Agenthub - KI-Agenten für Ihr Business by New Edge</title>
+        <title>KI-Agenten München | Prozessautomatisierung Agenten | New Edge Agenthub</title>
         <meta
           name="description"
-          content="Entdecken Sie unsere KI-Agenten: Riley (Wissensagent), Liam (Lead-Gen), Vera (Voice-Agent), Cora (Content-Agent) und Agent Hub mit 8+ spezialisierten KI-Agenten."
+          content="Entdecken Sie unsere KI-Agenten aus München: Riley (Wissensagent), Liam (Lead-Gen), Vera (Voice-Agent), Cora (Content-Agent). Spezialisierte KI-Agenten für Ihre Prozessautomatisierung."
         />
         <meta
           name="keywords"
-          content="KI Agenten, Riley, Liam, Vera, Cora, Agent Hub, RAG, Lead Generation, Voice AI, Content AI"
+          content="KI Agenten München, Prozessautomatisierung Agenten, Riley, Liam, Vera, Cora, Agent Hub, RAG, Lead Generation München, Voice AI, Content AI, KI München"
         />
-        <link rel="canonical" href="https://new-edge.de/products" />
+        <link rel="canonical" href="https://www.newedgebrand.com/agenthub" />
         <link rel="preload" href="/assets/agents-hero-video.mp4" as="video" type="video/mp4" />
         <link rel="preload" href="/assets/products-hero-video.mp4" as="video" type="video/mp4" />
         {/* Resource hints for n8n webhook */}
