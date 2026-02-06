@@ -12,10 +12,8 @@ import StructuredData from "@/components/StructuredData";
 
 // Eager load only critical pages for faster initial load
 import Index from "./pages/Index";
-import OptimizedMedia from "./components/OptimizedMedia";
 import OptimizedStudio from "./components/OptimizedStudio";
 import OptimizedLab from "./components/OptimizedLab";
-import OptimizedProducts from "./components/OptimizedProducts";
 
 // Lazy load all secondary pages for better performance
 const CaseStudies = lazy(() => import("./pages/CaseStudies"));
@@ -58,11 +56,9 @@ const App = () => {
             <BrowserRouter>
               <Suspense fallback={<LoadingScreen progress={100} />}>
                 <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/media" element={<OptimizedMedia />} />
+                <Route path="/" element={<Index />} />
                   <Route path="/studio" element={<OptimizedStudio />} />
                   <Route path="/lab" element={<OptimizedLab />} />
-                  <Route path="/agenthub" element={<OptimizedProducts />} />
             <Route path="/use-cases" element={<UseCases />} />
             <Route path="/case-study/albanova" element={<CaseStudyAlbaNova />} />
             <Route path="/case-study/ecommerce" element={<CaseStudyEcommerce />} />

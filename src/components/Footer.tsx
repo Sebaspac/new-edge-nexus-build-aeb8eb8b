@@ -25,7 +25,7 @@ export const Footer = () => {
             <div className="space-y-4">
               <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Services</h3>
               <ul className="space-y-3">
-                <li>
+              <li>
                   <Link
                     to="/studio"
                     className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group"
@@ -37,31 +37,11 @@ export const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to="/media"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group"
-                  >
-                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      Media
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     to="/lab"
                     className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group"
                   >
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
                       Lab
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/agenthub"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group"
-                  >
-                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      Agent Hub
                     </span>
                   </Link>
                 </li>

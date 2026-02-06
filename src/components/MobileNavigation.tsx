@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import newEdgeLogoHorizontal from "@/assets/new-edge-logo-horizontal.png";
-type CategoryFilter = 'all' | 'studio' | 'media' | 'lab';
+type CategoryFilter = 'all' | 'studio' | 'lab';
 interface MobileNavigationProps {
   onContactClick: () => void;
   logoSrc?: string;
@@ -24,9 +24,6 @@ const filterButtons: {
 }, {
   key: 'studio',
   label: 'Studio'
-}, {
-  key: 'media',
-  label: 'Media'
 }, {
   key: 'lab',
   label: 'Lab'
@@ -112,14 +109,8 @@ export const MobileNavigation = ({
                   <Link to="/studio" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
                     Studio
                   </Link>
-                  <Link to="/media" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
-                    Media
-                  </Link>
                   <Link to="/lab" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
                     Lab
-                  </Link>
-                  <Link to="/agenthub" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
-                    Agent Hub
                   </Link>
                 </div>
               </div>
@@ -252,33 +243,9 @@ export const MobileNavigation = ({
                 }} transition={{
                   delay: 0.18
                 }}>
-                      <Link to="/media" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-blue-500/10 transition-colors min-h-[44px] flex items-center`}>
-                        Media
-                      </Link>
-                    </motion.div>
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.21
-                }}>
                       <Link to="/lab" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-yellow-500/10 transition-colors min-h-[44px] flex items-center`}>
                         Lab
                       </Link>
-                    </motion.div>
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.24
-                }}>
-                      <Link to="/agenthub" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-green-500/10 transition-colors min-h-[44px] flex items-center`}>Agent Hub</Link>
                     </motion.div>
                   </div>
 

@@ -135,21 +135,14 @@ const Index = () => {
       icon: Lightbulb,
       title: "New Edge Studio",
       description:
-        "Kreative Basis Ihrer Marke: Positionierung, Tonalität, Branding – übersetzt in Kampagnen & Designsysteme.",
+        "Risk Reduction & Enablement: Klarheit, Entscheidungsfähigkeit und Systemlogik – bevor Unternehmen Systeme bauen.",
       gradient: "from-primary to-primary/70",
       link: "/studio",
     },
     {
-      icon: Palette,
-      title: "New Edge Media",
-      description: "Content für den ganzen Funnel: Social bis Website, Paid & Owned – mit klaren KPIs.",
-      gradient: "from-secondary to-secondary/70",
-      link: "/media",
-    },
-    {
       icon: Zap,
       title: "New Edge Lab",
-      description: "Automationsmotor: Workflows, Integrationen, KI-Agenten & Dashboards.",
+      description: "AI Systems & Ownership: Firmeneigene Systeme, die Unternehmen selbst kontrollieren.",
       gradient: "from-accent to-accent/70",
       link: "/lab",
     },
