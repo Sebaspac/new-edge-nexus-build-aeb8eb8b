@@ -42,77 +42,85 @@ const Studio = () => {
   };
   const studioServices = [
     {
-      title: "Brand Strategy - Brand Foundation & Insights",
-      outcome:
-        "Eine differenzierte, messbare und strategisch fundierte Markenbasis, die alle zukünftigen Entscheidungen leitet.",
+      title: "Brand Identity & Brand System",
       problem:
-        "Unternehmen fehlt häufig eine klare Positionierung, Differenzierung und ein strategisches Zentrum. Dadurch entsteht kommunikative Inkonsistenz und verlorenes Marktpotenzial.",
+        "Unklare Markenlogik und inkonsistente Kommunikation führen zu Reibung, Fehlannahmen und nicht anschlussfähigen Systemen.",
       solution:
-        "AI-gestützte Research-Methoden, tiefes Markenverständnis und ein strukturierter Strategie-Prozess. Wir definieren Brand Core, Value Proposition und die strategische Roadmap, die dein Wachstum steuert.",
+        "Wir entwickeln eine Markenidentität, die als funktionale Grundlage für Web, Software und KI-Systeme dient.",
       deliverables: [
         {
-          title: "Personas & Customer Insights",
-          description: "Zielgruppenanalyse mit Verhaltensmustern, Pain Points und Kaufmotiven.",
+          title: "Markenkern & Purpose",
+          description: "Das strategische Fundament der Marke als Entscheidungsgrundlage.",
         },
         {
-          title: "Positioning Map",
-          description: "Visuelle Einordnung im Wettbewerbsumfeld mit klarer Differenzierung.",
+          title: "Positionierung & Markenlogik",
+          description: "Klare Differenzierung und Einordnung im Wettbewerbsumfeld.",
         },
         {
-          title: "Differentiation Guide",
-          description: "Dokumentation der Alleinstellungsmerkmale und strategischen Vorteile.",
+          title: "Logosystem & Typografie",
+          description: "Visuelle Identität mit definierten Anwendungsregeln.",
         },
         {
-          title: "Brand Core",
-          description: "Purpose, Vision und Mission als strategisches Fundament der Marke.",
-        },
-        {
-          title: "Strategische Roadmap",
-          description: "12-Monats-Plan mit priorisierten Maßnahmen und Meilensteinen.",
+          title: "Brand Book als Regelwerk",
+          description: "Umfassende Dokumentation aller Markenrichtlinien.",
         },
       ],
       icon: BookOpen,
       gradient: "from-[#6366f1] to-[#a855f7]",
     },
     {
-      title: "Brand Identity - Identity & Positioning",
-      outcome:
-        "Ein konsistentes, emotionales und skalierbares Designsystem, das Marken sichtbar und unverwechselbar macht.",
-      problem: "Viele Marken wirken austauschbar, verlieren an Wiedererkennung und Vertrauen.",
+      title: "KI Enablement & Audit",
+      problem:
+        "KI wird oft eingesetzt, ohne klare Ziele, ohne saubere Datenbasis und ohne Verständnis für Risiken.",
       solution:
-        "Ein Brand System, das Stil, Haltung und Differenzierung transportiert - gestützt durch einheitliche Designrichtlinien und AI-gestützte Visual Frameworks.",
+        "Wir analysieren Prozesse, Daten und Tools und schaffen Entscheidungsfähigkeit: Was ist sinnvoll – und was nicht?",
       deliverables: [
         {
-          title: "Logo-System",
-          description: "Primär- und Sekundärlogo mit Varianten für alle Anwendungsbereiche.",
+          title: "Analyse bestehender Prozesse & Tools",
+          description: "Erfassung und Bewertung aktueller Abläufe und Systeme.",
         },
         {
-          title: "Farb- & Typografie-System",
-          description: "Definierte Farbpalette und Schriftfamilien mit Anwendungsregeln.",
+          title: "Bewertung von KI-Potenzialen",
+          description: "Identifikation realistischer Automatisierungs- und KI-Chancen.",
         },
         {
-          title: "UX/UI-Grundlagen",
-          description: "Designprinzipien für digitale Touchpoints und Interfaces.",
+          title: "Risiko- & Governance-Einordnung",
+          description: "Bewertung von Datenrisiken, Compliance und Kontrollmechanismen.",
         },
         {
-          title: "Visual Language",
-          description: "Bildsprache, Ikonografie und grafische Elemente.",
-        },
-        {
-          title: "Brand Book",
-          description: "Umfassende Dokumentation aller Markenrichtlinien.",
-        },
-        {
-          title: "Brand Story & Messaging",
-          description: "Kernbotschaften und Storytelling-Framework.",
-        },
-        {
-          title: "Voice & Tone Guidelines",
-          description: "Sprachstil und Tonalität für alle Kommunikationskanäle.",
+          title: "Klare Go-/No-Go-Entscheidungen",
+          description: "Fundierte Handlungsempfehlungen für nächste Schritte.",
         },
       ],
       icon: Palette,
       gradient: "from-[#a855f7] to-[#6366f1]",
+    },
+    {
+      title: "Digitale Kommunikations- & Sichtbarkeitsarchitektur",
+      problem:
+        "Digitale Kommunikation entsteht oft isoliert und ohne Verbindung zu Systemen, Vertrieb oder Automatisierung.",
+      solution:
+        "Wir definieren eine klare Kommunikationslogik, die als strukturelle Grundlage für Websites, Plattformen und Systeme dient.",
+      deliverables: [
+        {
+          title: "Rollen digitaler Kanäle",
+          description: "Definition der Funktion und Zielsetzung jedes Kanals.",
+        },
+        {
+          title: "Narrative & Markenstimme",
+          description: "Einheitliche Tonalität und Storytelling-Prinzipien.",
+        },
+        {
+          title: "Systemische Leitplanken",
+          description: "Strukturelle Vorgaben für konsistente Kommunikation.",
+        },
+        {
+          title: "Anschlussfähigkeit für Lab",
+          description: "Technische Übergabepunkte für Automatisierung und Systeme.",
+        },
+      ],
+      icon: BookOpen,
+      gradient: "from-[#6366f1] to-[#a855f7]",
     },
   ];
   const studioCases = [
@@ -186,8 +194,11 @@ const Studio = () => {
                     STUDIO
                   </span>
                 </h1>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-white/90 max-w-3xl leading-relaxed">
-                  Wir bauen Marken, die in einer Ki-getriebenen Welt Relevanz, Klarheit und kreative Dominanz gewinnen.
+                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-white/90 max-w-3xl mb-3">
+                  Risk Reduction & Enablement
+                </p>
+                <p className="text-base sm:text-lg lg:text-xl font-medium text-white/80 max-w-3xl leading-relaxed">
+                  Wir schaffen Klarheit, Entscheidungsfähigkeit und Systemlogik – bevor Unternehmen Systeme bauen.
                 </p>
               </div>
             </div>
@@ -238,7 +249,7 @@ const Studio = () => {
                 className="mb-6"
               >
                 <h2 className="text-h1 font-extrabold text-black">
-                  DESIGN{" "}
+                  STUDIO{" "}
                   <motion.span
                     className="inline-block bg-clip-text text-transparent"
                     style={{
@@ -254,7 +265,7 @@ const Studio = () => {
                       delay: 0.3,
                     }}
                   >
-                    EXCELLENCE
+                    POWER
                   </motion.span>
                 </h2>
                 <motion.p
@@ -274,9 +285,7 @@ const Studio = () => {
                   }}
                   className="text-body-lg text-gray-600 mt-6 max-w-3xl text-xl leading-relaxed"
                 >
-                  New Edge Studio vereint Strategie, Design und Technologie zu einem kreativen Kern, der Marken
-                  transformiert. Wir schaffen Systeme, die Haltung, Ästhetik und messbaren Impact verbinden - von der
-                  strategischen Basis bis zur visuellen Exzellenz.
+                  Wir bauen Klarheit, die Fehlentscheidungen verhindert. Studio übersetzt Marke, Kommunikation und KI-Verständnis in eine belastbare Systemgrundlage.
                 </motion.p>
               </motion.div>
             </motion.div>
@@ -590,9 +599,9 @@ const Studio = () => {
         {/* CTA Section */}
         <section className="py-16 sm:py-24 relative overflow-hidden bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-            <h2 className="text-h1 mb-4 sm:mb-6 text-gray-900">Bereit für den nächsten Schritt?</h2>
+            <h2 className="text-h1 mb-4 sm:mb-6 text-gray-900">Bereit für Klarheit?</h2>
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-600">
-              Gemeinsam entwickeln wir eine Marke, die Haltung zeigt und in einer AI-getriebenen Welt Relevanz gewinnt.
+              Studio ist der notwendige Einstieg in kontrollierbare Systeme.
             </p>
             <Button
               id="projekt-besprechen-btn"
@@ -600,7 +609,7 @@ const Studio = () => {
               className="bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-semibold text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 transition-all duration-300 hover:-translate-y-0.5 rounded-none"
               onClick={() => setIsModalOpen(true)}
             >
-              Loslegen!
+              Kontakt aufnehmen
             </Button>
           </div>
         </section>

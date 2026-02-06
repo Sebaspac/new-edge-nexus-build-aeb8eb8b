@@ -51,68 +51,89 @@ const Lab = () => {
     }
   };
   const labServices = [{
-    title: "KI-gestützte Prozessautomatisierung",
-    description: "Wir analysieren bestehende Abläufe, bewerten manuelle Routinen und identifizieren, welche Prozesse sich durch künstliche Intelligenz optimieren oder automatisieren lassen.",
-    problem: "Manuelle, zeitfressende Routinen binden wertvolle Ressourcen. Ohne klare Prozessstruktur fehlt die Grundlage für effiziente Automatisierung – und Potenzial bleibt ungenutzt.",
+    title: "AI Systems & Automation Architecture",
+    description: "Wir bauen KI-gestützte Systeme, die Prozesse durchgängig automatisieren – von Input bis Output.",
+    problem: "Fragmentierte Tools und manuelle Abläufe verhindern Skalierung und verursachen operative Komplexität.",
     details: [{
-      title: "Workflow-Analyse & Prozess-Mapping",
-      description: "Erfassen, dokumentieren und bewerten bestehender Abläufe nach Aufwand, Risiko und Automatisierungspotenzial."
+      title: "KI-Architektur & Datenlogik",
+      description: "Design der technischen Grundstruktur für KI-gestützte Prozesse."
     }, {
-      title: "Automatisierungs-Audit & Strategische Roadmap",
-      description: "Durchführung eines Audits zur Identifikation und Priorisierung von Automatisierungschancen – inklusive Machbarkeitsbewertung, Effizienz-Ranking und Handlungsempfehlungen."
+      title: "Zentrales KI-System",
+      description: "Aufbau eines einheitlichen Systems für alle KI-Funktionen."
     }, {
-      title: "Intelligente Datenverarbeitung & Decision-Flows",
-      description: "Erkennen und strukturieren von Prozessen, die von KI-gestützten Analysen, Empfehlungen oder Entscheidungslogiken profitieren."
+      title: "End-to-End-Automatisierung",
+      description: "Durchgängige Prozessautomatisierung ohne manuelle Zwischenschritte."
     }, {
-      title: "Chatbot- und LLM-Integration",
-      description: "Bewertung möglicher Einsatzszenarien für konversationsbasierte Assistenten, Support-Bots oder interne Wissenssysteme."
+      title: "Rollen, Zugriffe & Governance",
+      description: "Klare Verantwortlichkeiten und Kontrollmechanismen."
     }],
     icon: Cpu,
     gradient: "from-[#fde047] to-[#fbbf24]",
     video: "/assets/lab-ki-automation-video.mp4",
     animation: <ProcessAutomationAnimation />
   }, {
-    title: "Websysteme & Conversion-Architektur",
-    description: "Wir entwickeln performante, KI-fähige Webplattformen mit integrierter Funnel-Logik, Tracking-Setups und Schnittstellen zu Ihren Prozessen.",
-    problem: "Veraltete Webseiten ohne Conversion-Fokus und fehlende Datenintegration führen zu verlorenen Leads und ineffizienten Marketing-Ausgaben.",
+    title: "Internal Software & Data Ownership",
+    description: "Wir entwickeln interne Tools, die kritische Funktionen selbst abbilden und Daten im Unternehmen halten.",
+    problem: "SaaS-Stacks erzeugen Abhängigkeiten, steigende Kosten und fragmentierte Daten.",
     details: [{
-      title: "Headless & CMS-Systeme",
-      description: "Flexible, wartungsarme Systeme mit API-Anbindung und modularer Struktur."
+      title: "Interne Dashboards & Tools",
+      description: "Maßgeschneiderte Anwendungen für spezifische Unternehmensanforderungen."
     }, {
-      title: "Conversion-optimierte Landingpages",
-      description: "UX-Design, Copy und Struktur, die Nutzer gezielt durch den Funnel führen."
+      title: "Eigene Datenlogik",
+      description: "Selbst kontrollierte Datenstrukturen und -flüsse."
     }, {
-      title: "Sales- & Lead-Funnel-Entwicklung",
-      description: "Automatisierte Funnel-Logik mit CRM- und Tracking-Integration."
+      title: "Reduktion von SaaS-Abhängigkeit",
+      description: "Strategischer Ersatz externer Tools durch eigene Lösungen."
     }, {
-      title: "Performance-Optimierung & Skalierbarkeit",
-      description: "Schnelle Ladezeiten, sauberer Code und zukunftssichere Architektur."
+      title: "Volle Datenhoheit",
+      description: "Vollständige Kontrolle über alle Unternehmensdaten."
     }],
     icon: Globe,
     gradient: "from-[#fbbf24] to-[#fde047]",
     video: "/assets/lab-section-video.mp4",
     animation: <WebSystemsAnimation />
   }, {
-    title: "Tracking- & Analyse-Setups",
-    description: "Wir verbinden Tracking, Analyse und KI, um Entscheidungsprozesse datenbasiert zu steuern. Statt isolierte Dashboards einzurichten, entwickeln wir ein System, das Erkenntnisse automatisch generiert und Handlungsempfehlungen liefert.",
-    problem: "Fragmentierte Daten, unvollständiges Tracking und fehlende Analyse-Struktur verhindern fundierte Entscheidungen und datengetriebenes Wachstum.",
+    title: "Web & Platform Architecture",
+    description: "Wir bauen Websites als funktionale Knotenpunkte innerhalb der Systemarchitektur.",
+    problem: "Websites sind oft isolierte Marketingflächen ohne Verbindung zu Systemen oder Automatisierung.",
     details: [{
-      title: "Data-Audit & Systemintegration",
-      description: "Analyse bestehender Tracking-Setups und Entwicklung einer integrierten Datenarchitektur (GA4, Tag Manager, CRM, AI-Schnittstellen)."
+      title: "Technische Web-Architektur",
+      description: "Skalierbare und wartbare technische Grundstruktur."
     }, {
-      title: "Custom Dashboard & Insight Design",
-      description: "Entwicklung intelligenter Dashboards mit KPI-Struktur, Forecasting und Performance Alerts."
+      title: "CMS & Datenlogik",
+      description: "Content-Management mit klarer Datenstruktur und API-Anbindung."
     }, {
-      title: "Automatisierte Reporting-Flows",
-      description: "Einrichtung von Report-Automationen und Alert-Systemen zur Echtzeitbewertung von Kampagnen und Funnels."
+      title: "System-Integrationen",
+      description: "Nahtlose Verbindung zu CRM, ERP und Automatisierungssystemen."
     }, {
-      title: "KI-basierte Analyse & Handlungsempfehlungen",
-      description: "Nutzung von Machine-Learning-Modellen und Agenten, um Muster zu erkennen, Trends vorherzusagen und Optimierungen vorzuschlagen."
+      title: "Skalierbarkeit & Sicherheit",
+      description: "Performante, sichere und zukunftsfähige Infrastruktur."
     }],
     icon: BarChart3,
     gradient: "from-[#fde047] to-[#fbbf24]",
     video: "/assets/lab-new-video.mp4",
     animation: <TrackingAnalyticsAnimation />
+  }, {
+    title: "Internal LLM Systems & GPU Infrastructure",
+    description: "Wir setzen interne LLM-Systeme um, inklusive eigener GPU-Infrastruktur und lokaler oder isolierter Nutzung.",
+    problem: "Externe KI-APIs bedeuten Kontrollverlust über Daten, Kosten und Verfügbarkeit.",
+    details: [{
+      title: "GPU-Setup & Infrastruktur",
+      description: "Aufbau eigener Rechenkapazitäten für KI-Workloads."
+    }, {
+      title: "Deployment interner LLMs",
+      description: "Einrichtung und Betrieb eigener Sprachmodelle."
+    }, {
+      title: "Optionales Fine-Tuning",
+      description: "Anpassung von Modellen an spezifische Unternehmensanforderungen."
+    }, {
+      title: "Integration in bestehende Systeme",
+      description: "Nahtlose Anbindung an vorhandene Workflows und Tools."
+    }],
+    icon: Cpu,
+    gradient: "from-[#fbbf24] to-[#fde047]",
+    video: "/assets/lab-ki-automation-video.mp4",
+    animation: <ProcessAutomationAnimation />
   }];
   return <>
       <Helmet>
@@ -148,8 +169,13 @@ const Lab = () => {
                 }}>
                     LAB
                   </span>
-                  <br />
                 </h1>
+                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-white/90 max-w-3xl mb-3">
+                  AI Systems & Ownership
+                </p>
+                <p className="text-base sm:text-lg lg:text-xl font-medium text-white/80 max-w-3xl leading-relaxed">
+                  Wir bauen firmeneigene Systeme, die Unternehmen selbst kontrollieren.
+                </p>
               </div>
 
             </div>
@@ -191,7 +217,7 @@ const Lab = () => {
               }
             }} className="mb-6">
                 <h2 className="text-h1 font-extrabold text-black">
-                  TECH{" "}
+                  LAB{" "}
                   <motion.span className="inline-block bg-clip-text text-transparent" style={{
                   background: "linear-gradient(to right, #fde047, #fbbf24)",
                   WebkitBackgroundClip: "text",
@@ -202,7 +228,7 @@ const Lab = () => {
                   duration: 1,
                   delay: 0.3
                 }}>
-                    INNOVATION
+                    POWER
                   </motion.span>
                 </h2>
                 <motion.p variants={{
@@ -218,7 +244,7 @@ const Lab = () => {
                     delay: 0.2
                   }
                 }
-              }} className="text-body-lg text-gray-600 mt-4 max-w-3xl text-xl">LAB ist die technologische Einheit von New Edge – entwickelt, geführt und gesteuert direkt durch unser Team. Hier entstehen KI-gestützte Systeme, automatisierte Prozesse und datengetriebene Infrastrukturen, die Projekte effizienter, präziser und skalierbarer machen.</motion.p>
+              }} className="text-body-lg text-gray-600 mt-4 max-w-3xl text-xl">Wir bauen Systeme statt Tools. Ownership statt Abhängigkeit. Produktiv, integrierbar, kontrollierbar.</motion.p>
               </motion.div>
             </motion.div>
           </div>
@@ -604,13 +630,13 @@ const Lab = () => {
         <section className="py-12 sm:py-16 relative overflow-hidden bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
             <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold mb-4 sm:mb-6 text-gray-900">
-              Bereit für den nächsten Schritt?
+              Bereit für Kontrolle?
             </h2>
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-600">
-              Gemeinsam entwickeln wir innovative Technologielösungen, die Ihr Unternehmen voranbringen.
+              Lab ist kein Projektgeschäft. Lab ist Systembau.
             </p>
             <Button id="projekt-besprechen-btn" size="lg" className="bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-semibold text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 transition-all duration-300 hover:-translate-y-0.5 rounded-none" onClick={() => setIsModalOpen(true)}>
-              Loslegen!
+              Kontakt aufnehmen
             </Button>
           </div>
         </section>
