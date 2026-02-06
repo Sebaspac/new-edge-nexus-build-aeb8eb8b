@@ -384,22 +384,7 @@ export const InteractiveCore = () => {
             </a>
 
             {/* Media Link */}
-            <a href="/media" className="group relative p-4 sm:p-5 md:p-6 bg-gradient-to-br from-blue-50 to-white border border-blue-200 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10">
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 flex items-center justify-center group-hover:bg-blue-500 transition-colors">
-                  <Play className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500 group-hover:text-white transition-colors" />
-                </div>
-                <div className="flex-1">
-                  <span className="text-[10px] sm:text-xs font-medium text-blue-500 tracking-wider">02</span>
-                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-black group-hover:text-blue-600 transition-colors">
-                    MEDIA
-                  </h4>
-                  <p className="text-xs sm:text-sm text-gray-500">Content & Performance</p>
-                </div>
-                <ArrowRight className="w-5 h-5 text-blue-400 group-hover:translate-x-1 transition-transform" />
-              </div>
-              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-blue-500 group-hover:w-full transition-all duration-300" />
-            </a>
+            
 
             {/* Lab Link */}
             <a href="/lab" className="group relative p-4 sm:p-5 md:p-6 bg-gradient-to-br from-yellow-50 to-white border border-yellow-300 hover:border-yellow-500 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/10">
