@@ -294,7 +294,7 @@ const About = () => {
 
         {/* 3️⃣ Unser Modell - Wie New Edge funktioniert */}
         <section id="modell" className="relative py-12 sm:py-16 md:section-padding bg-background overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+          
 
           
         </section>
