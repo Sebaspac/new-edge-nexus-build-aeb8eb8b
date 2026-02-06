@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { LazyVideo } from "@/components/LazyVideo";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
-type CategoryFilter = 'all' | 'studio' | 'media' | 'lab';
+type CategoryFilter = 'all' | 'studio' | 'lab';
 const UseCases = () => {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -34,13 +34,13 @@ const UseCases = () => {
     backgroundVideo: "/assets/lab-hero-video.mp4",
     route: "/case-study/retail-lab"
   }, {
-    id: "marketing-agent",
-    category: "media" as const,
-    tabTitle: "Marketing-Agent (Retail)",
+    id: "marketing-automation",
+    category: "lab" as const,
+    tabTitle: "Marketing-Automatisierung (Retail)",
     label: "CASE STUDY",
     headline: "Marketing. Automatisiert.",
     description: "KI-gestützte Marketingautomatisierung für den Einzelhandel – von der Content-Erstellung bis zur Performance-Optimierung.",
-    backgroundVideo: "/assets/media-hero-video.mp4",
+    backgroundVideo: "/assets/lab-hero-video.mp4",
     route: "/case-study/ecommerce"
   }, {
     id: "sales-agent",
@@ -49,17 +49,8 @@ const UseCases = () => {
     label: "CASE STUDY",
     headline: "Vertrieb. Intelligent.",
     description: "Automatisierte Lead-Qualifizierung und Vertriebsunterstützung durch KI – für mehr Effizienz im B2B-Sales-Prozess.",
-    backgroundVideo: "/assets/agents-hero-video.mp4",
+    backgroundVideo: "/assets/lab-hero-video.mp4",
     route: "/case-study/social-media"
-  }, {
-    id: "visual-merchandising",
-    category: "media" as const,
-    tabTitle: "Visual Merchandising AI",
-    label: "CASE STUDY",
-    headline: "Visuals. Automatisiert.",
-    description: "KI-gestützte Produktvisualisierung für Marketing-Kampagnen – schneller Content, höheres Engagement, messbare Ergebnisse.",
-    backgroundVideo: "/assets/media-content-video.mp4",
-    route: "/case-study/visual-merchandising"
   }];
 
   // Filtered case studies based on active filter
@@ -129,13 +120,6 @@ const UseCases = () => {
           text: 'text-purple-400',
           bg: 'bg-purple-500/10',
           underline: 'bg-purple-500'
-        };
-      case 'media':
-        return {
-          border: 'border-blue-500/50',
-          text: 'text-blue-400',
-          bg: 'bg-blue-500/10',
-          underline: 'bg-blue-500'
         };
       case 'lab':
         return {

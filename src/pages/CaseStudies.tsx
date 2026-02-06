@@ -30,18 +30,6 @@ const studioCases: CaseStudy[] = [
   },
 ];
 
-// MEDIA Cases - AlbaNova
-const mediaCases: CaseStudy[] = [
-  {
-    id: "albanova-media",
-    client: "ALBANOVA",
-    headline: "Content & Performance Strategie",
-    category: "MEDIA",
-    route: "/case-study/albanova",
-    image: albanovaImage,
-  },
-];
-
 // LAB Cases - Alle anderen 3 Cases
 const labCases: CaseStudy[] = [
   {
@@ -300,17 +288,6 @@ const CaseStudies = () => {
             index={0}
           />
 
-          {/* MEDIA - Label links, Cases rechts */}
-          <CategoryRow
-            title="MEDIA"
-            subtitle="Content & Performance"
-            cases={mediaCases}
-            accentColor="bg-cyan-500"
-            slashColor="text-cyan-500/40"
-            direction="right"
-            index={1}
-          />
-
           {/* LAB - Cases links, Label rechts */}
           <CategoryRow
             title="LAB"
@@ -318,8 +295,8 @@ const CaseStudies = () => {
             cases={labCases}
             accentColor="bg-amber-500"
             slashColor="text-amber-500/40"
-            direction="left"
-            index={2}
+            direction="right"
+            index={1}
           />
         </div>
 

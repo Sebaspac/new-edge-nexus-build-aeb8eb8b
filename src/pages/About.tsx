@@ -35,7 +35,6 @@ import { toast } from "@/hooks/use-toast";
 import newEdgeHubLogo from "@/assets/new-edge-hub-logo.png";
 const moduleVideos = {
   studio: ["/assets/studio-hero-video.mp4", "/assets/studio-service-video.mp4", "/assets/brandstory-video.mp4"],
-  media: ["/assets/media-hero-video.mp4", "/assets/media-section-video.mp4", "/assets/template-video.mp4"],
   lab: [
     "/assets/lab-hero-video.mp4",
     "/assets/lab-section-video.mp4",
@@ -47,11 +46,10 @@ const moduleVideos = {
 const About = () => {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState("intro");
-  const [hoveredModule, setHoveredModule] = useState<"studio" | "media" | "lab" | null>(null);
+  const [hoveredModule, setHoveredModule] = useState<"studio" | "lab" | null>(null);
   const [hoveredTeamCard, setHoveredTeamCard] = useState<"strategy" | "creative" | "tech" | null>(null);
   const [currentVideoIndex, setCurrentVideoIndex] = useState({
     studio: 0,
-    media: 0,
     lab: 0,
   });
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -69,10 +67,8 @@ const About = () => {
   const orbitalAngle = useMotionValue(0);
   const studioX = useTransform(orbitalAngle, (a) => Math.cos(((a - 90) * Math.PI) / 180) * orbitalRadius);
   const studioY = useTransform(orbitalAngle, (a) => Math.sin(((a - 90) * Math.PI) / 180) * orbitalRadius);
-  const mediaX = useTransform(orbitalAngle, (a) => Math.cos(((a + 30) * Math.PI) / 180) * orbitalRadius);
-  const mediaY = useTransform(orbitalAngle, (a) => Math.sin(((a + 30) * Math.PI) / 180) * orbitalRadius);
-  const labX = useTransform(orbitalAngle, (a) => Math.cos(((a + 150) * Math.PI) / 180) * orbitalRadius);
-  const labY = useTransform(orbitalAngle, (a) => Math.sin(((a + 150) * Math.PI) / 180) * orbitalRadius);
+  const labX = useTransform(orbitalAngle, (a) => Math.cos(((a + 90) * Math.PI) / 180) * orbitalRadius);
+  const labY = useTransform(orbitalAngle, (a) => Math.sin(((a + 90) * Math.PI) / 180) * orbitalRadius);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -383,7 +379,7 @@ const About = () => {
                 Wie New Edge <span className="bg-gradient-primary bg-clip-text text-transparent">funktioniert</span>
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl text-left">
-                Studio · Media · Lab – drei Einheiten, ein Headquarter.
+                Studio · Lab – zwei Einheiten, ein Headquarter.
               </p>
             </motion.div>
 
@@ -487,60 +483,6 @@ const About = () => {
                   </motion.div>
                 </motion.div>
 
-                {/* Media Node */}
-                <motion.div
-                  className="absolute left-1/2 top-1/2 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40"
-                  style={{
-                    x: mediaX,
-                    y: mediaY,
-                    translateX: "-50%",
-                    translateY: "-50%",
-                  }}
-                  initial={{
-                    opacity: 0,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
-                  transition={{
-                    delay: 0.7,
-                  }}
-                  onMouseEnter={() => {
-                    setHoveredModule("media");
-                    setVideoPosition({
-                      x: mediaX.get(),
-                      y: mediaY.get(),
-                    });
-                  }}
-                  onMouseLeave={() => {
-                    setHoveredModule(null);
-                    setVideoPosition(null);
-                  }}
-                >
-                  <motion.div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-gradient-to-br from-secondary/10 via-background to-background backdrop-blur-sm border border-secondary/40 shadow-lg p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center text-center transition-all duration-200 hover:scale-[1.02] hover:border-secondary/50 group overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                    <div className="relative z-10">
-                      <motion.div
-                        className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-secondary to-secondary/70 p-1.5 sm:p-2 md:p-2.5 mb-2 sm:mb-2.5 md:mb-3 shadow-lg mx-auto"
-                        whileHover={{
-                          scale: 1.05,
-                        }}
-                        transition={{
-                          duration: 0.2,
-                        }}
-                      >
-                        <Palette className="w-full h-full text-white" />
-                      </motion.div>
-                      <div className="font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1 text-foreground group-hover:text-secondary transition-colors">
-                        MEDIA
-                      </div>
-                      <div className="text-[10px] sm:text-xs text-muted-foreground">Die kreative Energie</div>
-                    </div>
-                  </motion.div>
-                </motion.div>
 
                 {/* Lab Node */}
                 <motion.div
@@ -665,19 +607,13 @@ const About = () => {
               {[
                 {
                   title: "STUDIO",
-                  description: "Identität, Positionierung, Partner-Matching",
+                  description: "Risk Reduction & Enablement – Klarheit und Systemlogik",
                   icon: Lightbulb,
                   link: "/studio",
                 },
                 {
-                  title: "MEDIA",
-                  description: "Kampagnen, Sichtbarkeit, Agenturkooperation",
-                  icon: Palette,
-                  link: "/media",
-                },
-                {
                   title: "LAB",
-                  description: "Systeme, KI, Prozessoptimierung",
+                  description: "AI Systems & Ownership – Kontrolle und Automatisierung",
                   icon: Zap,
                   link: "/lab",
                 },
