@@ -1,151 +1,109 @@
 
-# Plan: SEO-Optimierung für "KI Agentur München" & "Prozessautomatisierung"
+# Plan: Text-Inhalte für Studio & Lab komplett überarbeiten
 
-## Ziel
-Platz 1 bei Google für die Keywords "KI Agentur München" und "Prozessautomatisierung" erreichen - ausschließlich durch technische und inhaltliche SEO-Änderungen, ohne das Design zu verändern.
-
----
-
-## Analyse des Ist-Zustands
-
-### Aktuelle Stärken
-- Strukturierte Daten (JSON-LD) vorhanden für Organization, Website, ProfessionalService
-- robots.txt erlaubt alle relevanten Crawler inkl. AI-Bots
-- Sitemap.xml vorhanden
-- Google Analytics & GTM integriert
-- Meta-Tags auf Hauptseiten vorhanden
-
-### Identifizierte Schwächen
-1. **Lokaler Bezug "München" fehlt fast komplett** - nur auf Impressum und Careers erwähnt
-2. **Keyword "Prozessautomatisierung" unterrepräsentiert** in Meta-Tags
-3. **LocalBusiness Schema zeigt falsche Koordinaten** (Mitte Deutschlands statt München)
-4. **Canonical URLs inkonsistent** (mix aus new-edge.com, newedgebrand.com, new-edge.de)
-5. **Fehlende Keywords in kritischen Meta-Tags** auf wichtigen Seiten
+## Zusammenfassung
+Die Textinhalte beider Seiten (Studio und Lab) werden gemäß den neuen Vorgaben komplett ausgetauscht. Das **Layout bleibt identisch** – nur die Texte, Titel und Beschreibungen werden angepasst.
 
 ---
 
-## Geplante Änderungen
+## STUDIO-Seite Änderungen
 
-### 1. index.html - Haupt-Meta-Tags optimieren
-**Datei:** `index.html`
+### 1. Hero Section (Zeile 173-192)
+| Element | Aktuell | Neu |
+|---------|---------|-----|
+| Untertitel | "Wir bauen Marken, die in einer KI-getriebenen Welt Relevanz, Klarheit und kreative Dominanz gewinnen." | **"Risk Reduction & Enablement"** + Beschreibung: "Wir schaffen Klarheit, Entscheidungsfähigkeit und Systemlogik – bevor Unternehmen Systeme bauen." |
 
-| Element | Vorher | Nachher |
-|---------|--------|---------|
-| Title | "New Edge - Ihre Agentur für Innovation" | "KI Agentur München | Prozessautomatisierung & Marketing | New Edge" |
-| Description | "KI trifft auf Marketing: End to End Agentur..." | "New Edge ist Ihre KI Agentur in München für Prozessautomatisierung, Marketing-Automation und KI-Lösungen für KMU. Jetzt Beratung anfragen!" |
-| OG/Twitter Title | (gleich wie Title) | (gleich wie Title) |
-| Keywords (NEU) | - | meta name="keywords" hinzufügen |
+### 2. Intro Section "STUDIO POWER" (Zeile 240-280)
+| Element | Aktuell | Neu |
+|---------|---------|-----|
+| Headline | "DESIGN EXCELLENCE" | **"STUDIO POWER"** |
+| Beschreibung | "New Edge Studio vereint Strategie, Design und Technologie zu einem kreativen Kern..." | **"Wir bauen Klarheit, die Fehlentscheidungen verhindert. Studio übersetzt Marke, Kommunikation und KI-Verständnis in eine belastbare Systemgrundlage."** |
 
-### 2. StructuredData.tsx - Lokale SEO stärken
-**Datei:** `src/components/StructuredData.tsx`
+### 3. Service 1: Brand Identity & Brand System (studioServices[0])
+| Element | Aktuell | Neu |
+|---------|---------|-----|
+| Titel | "Brand Strategy - Brand Foundation & Insights" | **"Brand Identity & Brand System"** |
+| Outcome (entfernt) | "Eine differenzierte, messbare..." | (wird entfernt) |
+| Problem | "Unternehmen fehlt häufig eine klare Positionierung..." | **"Unklare Markenlogik und inkonsistente Kommunikation führen zu Reibung, Fehlannahmen und nicht anschlussfähigen Systemen."** |
+| Solution | "AI-gestützte Research-Methoden..." | **"Wir entwickeln eine Markenidentität, die als funktionale Grundlage für Web, Software und KI-Systeme dient."** |
+| Deliverables | 5 Items | **4 Items: Markenkern & Purpose, Positionierung & Markenlogik, Logosystem & Typografie, Brand Book als Regelwerk** |
 
-Änderungen am `localBusinessSchema`:
-- **Adresse vollständig hinzufügen** mit München
-- **Geo-Koordinaten korrigieren** auf München (48.1351, 11.5820)
-- **areaServed erweitern** auf München, Bayern, Deutschland
+### 4. Service 2: KI Enablement & Audit (studioServices[1])
+| Element | Aktuell | Neu |
+|---------|---------|-----|
+| Titel | "Brand Identity - Identity & Positioning" | **"KI Enablement & Audit"** |
+| Problem | "Viele Marken wirken austauschbar..." | **"KI wird oft eingesetzt, ohne klare Ziele, ohne saubere Datenbasis und ohne Verständnis für Risiken."** |
+| Solution | "Ein Brand System, das Stil, Haltung..." | **"Wir analysieren Prozesse, Daten und Tools und schaffen Entscheidungsfähigkeit: Was ist sinnvoll – und was nicht?"** |
+| Deliverables | 7 Items | **4 Items: Analyse bestehender Prozesse & Tools, Bewertung von KI-Potenzialen, Risiko- & Governance-Einordnung, Klare Go-/No-Go-Entscheidungen** |
 
-Änderungen am `organizationSchema`:
-- **knowsAbout erweitern** mit: "Prozessautomatisierung", "KI Agentur München", "Automatisierung für KMU"
+### 5. NEUER Service 3 hinzufügen: Digitale Kommunikations- & Sichtbarkeitsarchitektur
+| Element | Wert |
+|---------|------|
+| Titel | **"Digitale Kommunikations- & Sichtbarkeitsarchitektur"** |
+| Problem | **"Digitale Kommunikation entsteht oft isoliert und ohne Verbindung zu Systemen, Vertrieb oder Automatisierung."** |
+| Solution | **"Wir definieren eine klare Kommunikationslogik, die als strukturelle Grundlage für Websites, Plattformen und Systeme dient."** |
+| Deliverables | **4 Items: Rollen digitaler Kanäle, Narrative & Markenstimme, Systemische Leitplanken, Anschlussfähigkeit für Lab** |
 
-### 3. Index.tsx - Hauptseite Keywords optimieren
-**Datei:** `src/pages/Index.tsx`
-
-Helmet-Meta-Tags anpassen:
-- Title: "KI Agentur München | Prozessautomatisierung & Marketing für KMU | New Edge"
-- Description: "New Edge - Ihre KI Agentur in München. Experten für Prozessautomatisierung, KI-gestütztes Marketing und Digitalisierung im Mittelstand. Jetzt Projekt starten!"
-- Keywords erweitern um: "KI Agentur München", "Prozessautomatisierung München", "Automatisierung KMU"
-
-### 4. Lab.tsx - Prozessautomatisierung-Fokus verstärken
-**Datei:** `src/pages/Lab.tsx`
-
-Helmet-Meta-Tags anpassen:
-- Title: "Prozessautomatisierung München | KI-Lösungen für KMU | New Edge Lab"
-- Description: "Prozessautomatisierung mit KI aus München. New Edge Lab entwickelt intelligente Automatisierungslösungen, KI-Agenten und Workflow-Optimierung für den Mittelstand."
-- Keywords erweitern um: "Prozessautomatisierung München", "KI Automatisierung", "Workflow Automatisierung"
-
-### 5. About.tsx - Lokalen Bezug stärken
-**Datei:** `src/pages/About.tsx`
-
-Helmet-Meta-Tags anpassen:
-- Title: "Über New Edge | KI Agentur München | Innovation für KMU"
-- Description: "New Edge - KI Agentur aus München. Wir verbinden Strategie, Kreativität und KI-Technologie für den digitalen Erfolg mittelständischer Unternehmen."
-- Keywords hinzufügen mit München-Bezug
-
-### 6. Products.tsx (Agenthub) - Keywords ergänzen
-**Datei:** `src/pages/Products.tsx`
-
-Helmet-Meta-Tags anpassen:
-- Keywords erweitern um: "KI Agenten München", "Prozessautomatisierung Agenten"
-
-### 7. Services.tsx - Keywords ergänzen
-**Datei:** `src/pages/Services.tsx`
-
-Helmet hinzufügen (falls noch nicht vorhanden):
-- Title: "Unsere Leistungen | KI Agentur München | Prozessautomatisierung | New Edge"
-- Description mit München-Fokus
-
-### 8. sitemap.xml - lastmod aktualisieren
-**Datei:** `public/sitemap.xml`
-
-- Alle lastmod-Einträge auf aktuelles Datum setzen (2025-01-29)
-- Lab-Seite Priorität erhöhen auf 0.9
-
-### 9. HeroSection.tsx - Semantische Keywords
-**Datei:** `src/components/HeroSection.tsx`
-
-- Im Badge "Innovationen & Automatisierung" ergänzen zu "KI-Automatisierung aus München"
-- Im unsichtbaren aria-label/screen-reader Text Keywords einbauen
+### 6. CTA Section (Zeile 593-605)
+| Element | Aktuell | Neu |
+|---------|---------|-----|
+| Headline | "Bereit für den nächsten Schritt?" | **"Bereit für Klarheit?"** |
+| Beschreibung | "Gemeinsam entwickeln wir eine Marke, die Haltung zeigt..." | **"Studio ist der notwendige Einstieg in kontrollierbare Systeme."** |
+| Button | "Loslegen!" | **"Kontakt aufnehmen"** |
 
 ---
 
-## Technische Details
+## LAB-Seite Änderungen
 
-### StructuredData.tsx - Vollständiges Schema
-```typescript
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://www.newedgebrand.com/#localbusiness",
-  "name": "New Edge - KI Agentur München",
-  "alternateName": "New Edge Brand",
-  "image": "https://www.newedgebrand.com/favicon.ico",
-  "url": "https://www.newedgebrand.com",
-  "telephone": "", // falls vorhanden ergänzen
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Zehntfeldstraße 125a",
-    "addressLocality": "München",
-    "postalCode": "81825",
-    "addressRegion": "Bayern",
-    "addressCountry": "DE"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "48.1351",
-    "longitude": "11.5820"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "München" },
-    { "@type": "State", "name": "Bayern" },
-    { "@type": "Country", "name": "Deutschland" }
-  ],
-  "serviceType": [
-    "KI Agentur",
-    "Prozessautomatisierung",
-    "Marketing Automatisierung",
-    "KI-Entwicklung"
-  ],
-  ...
-};
-```
+### 1. Hero Section (Zeile 139-153)
+| Element | Aktuell | Neu |
+|---------|---------|-----|
+| Nach "LAB" | (kein Untertitel) | **"AI Systems & Ownership"** + "Wir bauen firmeneigene Systeme, die Unternehmen selbst kontrollieren." |
 
-### index.html - Meta-Tag Struktur
-```html
-<title>KI Agentur München | Prozessautomatisierung & Marketing | New Edge</title>
-<meta name="description" content="New Edge ist Ihre KI Agentur in München für Prozessautomatisierung, Marketing-Automation und KI-Lösungen für KMU. Jetzt Beratung anfragen!">
-<meta name="keywords" content="KI Agentur München, Prozessautomatisierung, KI Automatisierung, Marketing Automation, KI für KMU, Digitalisierung Mittelstand, München">
-```
+### 2. Intro Section "LAB POWER" (Zeile 193-222)
+| Element | Aktuell | Neu |
+|---------|---------|-----|
+| Headline | "TECH INNOVATION" | **"LAB POWER"** |
+| Beschreibung | "LAB ist die technologische Einheit von New Edge..." | **"Wir bauen Systeme statt Tools. Ownership statt Abhängigkeit. Produktiv, integrierbar, kontrollierbar."** |
+
+### 3. Service 1: AI Systems & Automation Architecture (labServices[0])
+| Element | Aktuell | Neu |
+|---------|---------|-----|
+| Titel | "KI-gestützte Prozessautomatisierung" | **"AI Systems & Automation Architecture"** |
+| Problem | "Manuelle, zeitfressende Routinen..." | **"Fragmentierte Tools und manuelle Abläufe verhindern Skalierung und verursachen operative Komplexität."** |
+| Solution (description) | "Wir analysieren bestehende Abläufe..." | **"Wir bauen KI-gestützte Systeme, die Prozesse durchgängig automatisieren – von Input bis Output."** |
+| Deliverables | 4 Items | **4 Items: KI-Architektur & Datenlogik, Zentrales KI-System, End-to-End-Automatisierung, Rollen, Zugriffe & Governance** |
+
+### 4. Service 2: Internal Software & Data Ownership (labServices[1])
+| Element | Aktuell | Neu |
+|---------|---------|-----|
+| Titel | "Websysteme & Conversion-Architektur" | **"Internal Software & Data Ownership"** |
+| Problem | "Veraltete Webseiten ohne Conversion-Fokus..." | **"SaaS-Stacks erzeugen Abhängigkeiten, steigende Kosten und fragmentierte Daten."** |
+| Solution | "Wir entwickeln performante, KI-fähige Webplattformen..." | **"Wir entwickeln interne Tools, die kritische Funktionen selbst abbilden und Daten im Unternehmen halten."** |
+| Deliverables | 4 Items | **4 Items: Interne Dashboards & Tools, Eigene Datenlogik, Reduktion von SaaS-Abhängigkeit, Volle Datenhoheit** |
+
+### 5. Service 3: Web & Platform Architecture (labServices[2])
+| Element | Aktuell | Neu |
+|---------|---------|-----|
+| Titel | "Tracking- & Analyse-Setups" | **"Web & Platform Architecture"** |
+| Problem | "Fragmentierte Daten, unvollständiges Tracking..." | **"Websites sind oft isolierte Marketingflächen ohne Verbindung zu Systemen oder Automatisierung."** |
+| Solution | "Wir verbinden Tracking, Analyse und KI..." | **"Wir bauen Websites als funktionale Knotenpunkte innerhalb der Systemarchitektur."** |
+| Deliverables | 4 Items | **4 Items: Technische Web-Architektur, CMS & Datenlogik, System-Integrationen, Skalierbarkeit & Sicherheit** |
+
+### 6. NEUER Service 4 hinzufügen: Internal LLM Systems & GPU Infrastructure
+| Element | Wert |
+|---------|------|
+| Titel | **"Internal LLM Systems & GPU Infrastructure"** |
+| Problem | **"Externe KI-APIs bedeuten Kontrollverlust über Daten, Kosten und Verfügbarkeit."** |
+| Solution | **"Wir setzen interne LLM-Systeme um, inklusive eigener GPU-Infrastruktur und lokaler oder isolierter Nutzung."** |
+| Deliverables | **4 Items: GPU-Setup & Infrastruktur, Deployment interner LLMs, Optionales Fine-Tuning, Integration in bestehende Systeme** |
+
+### 7. CTA Section (Zeile 604-615)
+| Element | Aktuell | Neu |
+|---------|---------|-----|
+| Headline | "Bereit für den nächsten Schritt?" | **"Bereit für Kontrolle?"** |
+| Beschreibung | "Gemeinsam entwickeln wir innovative Technologielösungen..." | **"Lab ist kein Projektgeschäft. Lab ist Systembau."** |
+| Button | "Loslegen!" | **"Kontakt aufnehmen"** |
 
 ---
 
@@ -153,24 +111,67 @@ const localBusinessSchema = {
 
 | Datei | Änderungen |
 |-------|------------|
-| `index.html` | Title, Description, Keywords Meta-Tags |
-| `src/components/StructuredData.tsx` | LocalBusiness Schema mit München, erweitertes knowsAbout |
-| `src/pages/Index.tsx` | Helmet Meta-Tags |
-| `src/pages/Lab.tsx` | Helmet Meta-Tags |
-| `src/pages/About.tsx` | Helmet Meta-Tags |
-| `src/pages/Products.tsx` | Keywords ergänzen |
-| `src/pages/Services.tsx` | Helmet hinzufügen/erweitern |
-| `src/pages/Studio.tsx` | Keywords mit München |
-| `src/pages/Media.tsx` | Keywords mit München |
-| `public/sitemap.xml` | lastmod aktualisieren, Lab-Priorität erhöhen |
-| `src/components/HeroSection.tsx` | Semantische Anpassung im Badge-Text |
+| `src/pages/Studio.tsx` | Hero-Text, Intro-Text, 2 Services → 3 Services, CTA-Text |
+| `src/pages/Lab.tsx` | Hero-Text, Intro-Text, 3 Services → 4 Services, CTA-Text |
+
+---
+
+## Technische Details
+
+### Studio studioServices Array (neu)
+```typescript
+const studioServices = [
+  {
+    title: "Brand Identity & Brand System",
+    problem: "Unklare Markenlogik und inkonsistente Kommunikation führen zu Reibung, Fehlannahmen und nicht anschlussfähigen Systemen.",
+    solution: "Wir entwickeln eine Markenidentität, die als funktionale Grundlage für Web, Software und KI-Systeme dient.",
+    deliverables: [
+      { title: "Markenkern & Purpose", description: "..." },
+      { title: "Positionierung & Markenlogik", description: "..." },
+      { title: "Logosystem & Typografie", description: "..." },
+      { title: "Brand Book als Regelwerk", description: "..." },
+    ],
+    // ...
+  },
+  {
+    title: "KI Enablement & Audit",
+    // ...
+  },
+  {
+    title: "Digitale Kommunikations- & Sichtbarkeitsarchitektur",
+    // ... (NEUER Service)
+  },
+];
+```
+
+### Lab labServices Array (neu)
+```typescript
+const labServices = [
+  {
+    title: "AI Systems & Automation Architecture",
+    // ...
+  },
+  {
+    title: "Internal Software & Data Ownership",
+    // ...
+  },
+  {
+    title: "Web & Platform Architecture",
+    // ...
+  },
+  {
+    title: "Internal LLM Systems & GPU Infrastructure",
+    // ... (NEUER Service)
+  },
+];
+```
 
 ---
 
 ## Erwartetes Ergebnis
-- Starker lokaler SEO-Fokus auf "München"
-- Keyword-Dichte für "Prozessautomatisierung" erhöht
-- Strukturierte Daten signalisieren lokale Präsenz
-- Keine sichtbaren Design-Änderungen
-- Verbesserte Rankings für die Ziel-Keywords
-
+- Alle Texte entsprechen den neuen Vorgaben
+- Studio hat jetzt **3 Services** statt 2
+- Lab hat jetzt **4 Services** statt 3
+- Layout und Design bleiben unverändert
+- Hero-Bereiche haben klare Untertitel
+- CTA-Texte fokussieren auf "Klarheit" (Studio) und "Kontrolle" (Lab)
