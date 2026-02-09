@@ -50,7 +50,11 @@ export const PositionedForImpactSection = () => {
 
             {/* Description */}
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
-              Erfolg entsteht aus einer klaren strukturierten Strategie und einer starken Markenidentität. Als Experten für Automatisierung, Branding und Markeninteraktion helfen wir Unternehmen dabei, ihre Positionierung im Markt zu schärfen und diese durch intelligente Technologie nachhaltig zu stärken.
+              Erfolg entsteht nicht durch mehr Tools,
+sondern durch klare Systeme. Wir helfen Unternehmen,
+ihre operative Realität, Entscheidungslogik und Markenführung
+in kontrollierbare KI- und Softwaresysteme zu überführen –
+statt in isolierte Lösungen oder externe Abhängigkeiten.
             </p>
 
             {/* CTA Button */}
