@@ -140,9 +140,7 @@ const Studio = () => {
                     STUDIO
                   </span>
                 </h1>
-                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-white/90 max-w-3xl mb-3">
-                  Risk Reduction & Enablement
-                </p>
+                
                 
               </div>
             </div>
