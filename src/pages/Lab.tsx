@@ -150,9 +150,7 @@ const Lab = () => {
                   </span>
                 </h1>
                 
-                <p className="text-base sm:text-lg lg:text-xl font-medium text-white/80 max-w-3xl leading-relaxed">
-                  Wir bauen firmeneigene Systeme, die Unternehmen selbst kontrollieren.
-                </p>
+                
               </div>
 
             </div>
