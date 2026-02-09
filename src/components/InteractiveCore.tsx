@@ -370,7 +370,7 @@ export const InteractiveCore = () => {
                   <FlaskConical className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-600 group-hover:text-white transition-colors" />
                 </div>
                 <div className="flex-1">
-                  <span className="text-[10px] sm:text-xs font-medium text-yellow-600 tracking-wider">03</span>
+                  <span className="text-[10px] sm:text-xs font-medium text-yellow-600 tracking-wider">02</span>
                   <h4 className="text-base sm:text-lg md:text-xl font-bold text-black group-hover:text-yellow-600 transition-colors">
                     LAB
                   </h4>
