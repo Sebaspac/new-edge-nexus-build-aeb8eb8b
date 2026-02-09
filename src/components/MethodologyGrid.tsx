@@ -3,25 +3,29 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 export const MethodologyGrid = () => {
   const services = [{
-    category: "STRATEGIE",
-    title: "KI Beratung & Workshops",
+    category: "KLARHEIT",
+    title: "Brand Identity & Brand System",
     link: "/studio"
   }, {
-    category: "AUTOMATION",
-    title: "KI Agenten für Unternehmen",
+    category: "ORIENTIERUNG",
+    title: "KI Workshops & Audit",
+    link: "/studio"
+  }, {
+    category: "STRATEGIE",
+    title: "Digitale Kommunikations- & Systemarchitektur",
+    link: "/studio"
+  }, {
+    category: "AUTOMATISIERUNG",
+    title: "KI gestützte Prozessautomatisierung",
     link: "/lab"
   }, {
-    category: "BRANDING",
-    title: "Markenstrategie",
-    link: "/studio"
+    category: "OWNERSHIP",
+    title: "Interne Software & Datenhoheit",
+    link: "/lab"
   }, {
-    category: "WACHSTUM",
-    title: "Kampagnenmanagement",
-    link: "/media"
-  }, {
-    category: "SYSTEME",
-    title: "Web- & Prototyp Design",
-    link: "/studio"
+    category: "STRUKTUR",
+    title: "Web- & Plattformarchitektur",
+    link: "/lab"
   }];
   return <section className="relative py-12 md:py-24 lg:py-32 bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
