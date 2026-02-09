@@ -58,6 +58,9 @@ export const CaseStudiesGrid = () => {
               <br />
               <span className="text-[#7C3AED]">Her mit den Cases.</span>
             </h2>
+            <p className="mt-3 md:mt-4 text-sm md:text-base lg:text-lg text-black/60 max-w-2xl leading-relaxed">
+              Ausgewählte Projekte, bei denen Strategie, Automatisierung und Ownership zusammengedacht wurden.
+            </p>
           </motion.div>
 
           <motion.div
