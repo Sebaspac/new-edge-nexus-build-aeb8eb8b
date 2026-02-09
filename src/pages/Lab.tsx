@@ -149,9 +149,7 @@ const Lab = () => {
                     LAB
                   </span>
                 </h1>
-                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-white/90 max-w-3xl mb-3">
-                  AI Systems & Ownership
-                </p>
+                
                 <p className="text-base sm:text-lg lg:text-xl font-medium text-white/80 max-w-3xl leading-relaxed">
                   Wir bauen firmeneigene Systeme, die Unternehmen selbst kontrollieren.
                 </p>
