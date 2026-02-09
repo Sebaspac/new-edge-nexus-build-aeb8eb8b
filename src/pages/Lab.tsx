@@ -72,26 +72,26 @@ const Lab = () => {
     video: "/assets/lab-ki-automation-video.mp4",
     animation: <ProcessAutomationAnimation />
   }, {
-    title: "Internal Software & Data Ownership",
-    description: "Wir entwickeln interne Tools, die kritische Funktionen selbst abbilden und Daten im Unternehmen halten.",
-    problem: "SaaS-Stacks erzeugen Abhängigkeiten, steigende Kosten und fragmentierte Daten.",
+    title: "Internal LLM Systems & GPU Infrastructure",
+    description: "Wir setzen interne LLM-Systeme um, inklusive eigener GPU-Infrastruktur und lokaler oder isolierter Nutzung.",
+    problem: "Externe KI-APIs bedeuten Kontrollverlust über Daten, Kosten und Verfügbarkeit.",
     details: [{
-      title: "Interne Dashboards & Tools",
-      description: "Maßgeschneiderte Anwendungen für spezifische Unternehmensanforderungen."
+      title: "GPU-Setup & Infrastruktur",
+      description: "Aufbau eigener Rechenkapazitäten für KI-Workloads."
     }, {
-      title: "Eigene Datenlogik",
-      description: "Selbst kontrollierte Datenstrukturen und -flüsse."
+      title: "Deployment interner LLMs",
+      description: "Einrichtung und Betrieb eigener Sprachmodelle."
     }, {
-      title: "Reduktion von SaaS-Abhängigkeit",
-      description: "Strategischer Ersatz externer Tools durch eigene Lösungen."
+      title: "Optionales Fine-Tuning",
+      description: "Anpassung von Modellen an spezifische Unternehmensanforderungen."
     }, {
-      title: "Volle Datenhoheit",
-      description: "Vollständige Kontrolle über alle Unternehmensdaten."
+      title: "Integration in bestehende Systeme",
+      description: "Nahtlose Anbindung an vorhandene Workflows und Tools."
     }],
     icon: Globe,
     gradient: "from-[#fbbf24] to-[#fde047]",
-    video: "/assets/lab-section-video.mp4",
-    animation: <WebSystemsAnimation />
+    video: "/assets/lab-new-video.mp4",
+    animation: <TrackingAnalyticsAnimation />
   }, {
     title: "Web & Platform Architecture",
     description: "Wir bauen Websites als funktionale Knotenpunkte innerhalb der Systemarchitektur.",
@@ -111,29 +111,8 @@ const Lab = () => {
     }],
     icon: BarChart3,
     gradient: "from-[#fde047] to-[#fbbf24]",
-    video: "/assets/lab-new-video.mp4",
-    animation: <TrackingAnalyticsAnimation />
-  }, {
-    title: "Internal LLM Systems & GPU Infrastructure",
-    description: "Wir setzen interne LLM-Systeme um, inklusive eigener GPU-Infrastruktur und lokaler oder isolierter Nutzung.",
-    problem: "Externe KI-APIs bedeuten Kontrollverlust über Daten, Kosten und Verfügbarkeit.",
-    details: [{
-      title: "GPU-Setup & Infrastruktur",
-      description: "Aufbau eigener Rechenkapazitäten für KI-Workloads."
-    }, {
-      title: "Deployment interner LLMs",
-      description: "Einrichtung und Betrieb eigener Sprachmodelle."
-    }, {
-      title: "Optionales Fine-Tuning",
-      description: "Anpassung von Modellen an spezifische Unternehmensanforderungen."
-    }, {
-      title: "Integration in bestehende Systeme",
-      description: "Nahtlose Anbindung an vorhandene Workflows und Tools."
-    }],
-    icon: Cpu,
-    gradient: "from-[#fbbf24] to-[#fde047]",
-    video: "/assets/lab-ki-automation-video.mp4",
-    animation: <ProcessAutomationAnimation />
+    video: "/assets/lab-section-video.mp4",
+    animation: <WebSystemsAnimation />
   }];
   return <>
       <Helmet>
