@@ -507,22 +507,7 @@ const Lab = () => {
               </div>
             </div>
 
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.5,
-            delay: 0.5
-          }} className="text-center mt-12">
-              <Button size="lg" className="bg-transparent backdrop-blur-sm border-2 border-black text-black px-12 py-6 rounded-none font-bold text-lg transition-all duration-300 hover:bg-black hover:text-white" onClick={() => navigate("/agenthub")}>
-                Alle Agenten entdecken
-              </Button>
-            </motion.div>
+            
           </div>
         </section>
 
