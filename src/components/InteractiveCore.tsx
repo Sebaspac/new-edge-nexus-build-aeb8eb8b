@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Fingerprint, Cpu, Zap, Palette, Play, FlaskConical, ArrowRight } from "lucide-react";
-type StateType = "human" | "machine" | "fusion";
+import { Fingerprint, Zap, Palette, FlaskConical, ArrowRight } from "lucide-react";
+type StateType = "human" | "fusion";
 interface ContentState {
   title: string;
   subtitle: string;
@@ -18,14 +18,6 @@ const content: Record<StateType, ContentState> = {
     tags: ["Strategie", "Kreativität", "Brand Identity"],
     color: "#a855f7",
     icon: Fingerprint
-  },
-  machine: {
-    title: "MEDIA",
-    subtitle: "Kreativ gedacht, performance-gemessen",
-    description: "Wir machen kein 'nice to have'-Storytelling. Wir machen Content, der auf Conversion zielt. Mit KI, KPIs und einer klaren Message - für jeden Funnel-Step.",
-    tags: ["Creative Assets", "S.M Management", "Performance-Marketing"],
-    color: "#3b82f6",
-    icon: Cpu
   },
   fusion: {
     title: "LAB",
@@ -61,13 +53,9 @@ export const InteractiveCore = () => {
     label: "STUDIO",
     number: "01"
   }, {
-    key: "machine",
-    label: "MEDIA",
-    number: "02"
-  }, {
     key: "fusion",
     label: "LAB",
-    number: "03"
+    number: "02"
   }];
   const activeContent = content[activeState];
   const Icon = activeContent.icon;
@@ -111,9 +99,9 @@ export const InteractiveCore = () => {
             {states.map((state, index) => {
             const isActive = activeState === state.key;
             const stateColor = content[state.key].color;
-            const hoverClasses = state.key === "human" ? "hover:bg-purple-50 hover:border-purple-300" : state.key === "machine" ? "hover:bg-blue-50 hover:border-blue-300" : "hover:bg-yellow-50 hover:border-yellow-300";
-            const activeClasses = state.key === "human" ? "bg-purple-50 border-purple-500 shadow-lg shadow-purple-500/10" : state.key === "machine" ? "bg-blue-50 border-blue-500 shadow-lg shadow-blue-500/10" : "bg-yellow-50 border-yellow-500 shadow-lg shadow-yellow-500/10";
-            const badgeActiveClasses = state.key === "human" ? "bg-purple-500 text-white" : state.key === "machine" ? "bg-blue-500 text-white" : "bg-yellow-500 text-black";
+            const hoverClasses = state.key === "human" ? "hover:bg-purple-50 hover:border-purple-300" : "hover:bg-yellow-50 hover:border-yellow-300";
+            const activeClasses = state.key === "human" ? "bg-purple-50 border-purple-500 shadow-lg shadow-purple-500/10" : "bg-yellow-50 border-yellow-500 shadow-lg shadow-yellow-500/10";
+            const badgeActiveClasses = state.key === "human" ? "bg-purple-500 text-white" : "bg-yellow-500 text-black";
             return <motion.button key={state.key} onClick={() => setActiveState(state.key)} initial={{
               opacity: 0,
               x: -40
@@ -226,17 +214,6 @@ export const InteractiveCore = () => {
                   }} />)}
                     </div>}
 
-                  {activeState === "machine" && <div className="absolute inset-0">
-                      <div className="grid grid-cols-6 md:grid-cols-8 grid-rows-6 md:grid-rows-8 w-full h-full gap-2 md:gap-4 p-8 md:p-12">
-                        {[...Array(48)].map((_, i) => <motion.div key={i} className="bg-blue-500/15 border border-blue-400/25" animate={{
-                      opacity: [0.1, 0.6, 0.1]
-                    }} transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: i * 0.05
-                    }} />)}
-                      </div>
-                    </div>}
 
                   {activeState === "fusion" && <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                       {[...Array(3)].map((_, i) => <motion.div key={i} className="absolute top-1/2 left-1/2" animate={{
