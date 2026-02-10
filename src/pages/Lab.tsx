@@ -2,6 +2,8 @@ import { useEffect, useState, lazy, Suspense } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Cpu, Globe, Bot, BarChart3, Lightbulb, Phone, FileText, ChevronDown, Plus, ArrowUpRight } from "lucide-react";
 import leadGenerationImage from "@/assets/lead-generation.webp";
+import ragDatacenterImage from "@/assets/rag-datacenter.webp";
+import marketingAutomationImage from "@/assets/marketing-automation.webp";
 import { Button } from "@/components/ui/button";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from "react-helmet-async";
@@ -548,10 +550,24 @@ const Lab = () => {
             {/* Cases Grid */}
             <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4">
               {[{
+              id: "retail-lab",
+              client: "TRY KMU",
+              headline: "RAG-Wissensagent für Maschinenbau",
+              category: "AI AUTOMATION",
+              route: "/case-study/retail-lab",
+              image: ragDatacenterImage
+            }, {
+              id: "ecommerce",
+              client: "RETAIL CLIENT",
+              headline: "Marketing-Automatisierung mit KI",
+              category: "WACHSTUM",
+              route: "/case-study/ecommerce",
+              image: marketingAutomationImage
+            }, {
               id: "social-media",
               client: "B2B SALES",
               headline: "Intelligente Lead-Qualifizierung",
-              category: "AUTOMATION",
+              category: "SALES",
               route: "/case-study/social-media",
               image: leadGenerationImage
             }].map((caseStudy, index) => <motion.div key={caseStudy.id} initial={{
