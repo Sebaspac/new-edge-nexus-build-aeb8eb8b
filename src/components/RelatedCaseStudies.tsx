@@ -21,7 +21,7 @@ const allCaseStudies = [
   },
   {
     id: "retail-lab",
-    client: "INDUSTRY KMU",
+    client: "TRY KMU",
     headline: "RAG-Wissensagent für Maschinenbau",
     category: "AI AUTOMATION",
     route: "/case-study/retail-lab",
