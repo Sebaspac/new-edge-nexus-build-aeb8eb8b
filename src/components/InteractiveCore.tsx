@@ -13,16 +13,16 @@ interface ContentState {
 const content: Record<StateType, ContentState> = {
   human: {
     title: "STUDIO",
-    subtitle: "Branding, das skaliert – modular, maßgeschneidert, schnell",
-    description: "Wir schaffen eine klare Markenpositionierung & Branding, die menschliche Verbindungen schaffen.",
+    subtitle: "Klarheit vor Umsetzung",
+    description: "Studio schafft Entscheidungsfähigkeit: Struktur, Systemlogik und strategische Klarheit als Grundlage für jede technische Umsetzung.",
     tags: ["Strategie", "Kreativität", "Brand Identity"],
     color: "#a855f7",
     icon: Fingerprint
   },
   fusion: {
     title: "LAB",
-    subtitle: "Innovation, die wirkt – mit KI-Speed",
-    description: "Im Lab setzen wir KI und Softwareentwicklung so um, dass daraus echte, funktionierende Produkte entstehen.",
+    subtitle: "Systeme mit Ownership",
+    description: "Lab entwickelt firmeneigene KI-, Daten- und Softwaresysteme – ohne SaaS-Zwang, ohne Black Boxes, unter voller Kontrolle des Unternehmens.",
     tags: ["Prozessautomatisierung", "Websysteme", "Prototypen", "KI-Agenten"],
     color: "#fbbf24",
     icon: Zap
