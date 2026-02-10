@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence, useMotionValue, useTransform, animate } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Users, Code, Palette, Globe, Briefcase, ChevronDown, ArrowRight, Sparkles, Zap, Heart, Target, Network, Building2, Lightbulb, Rocket, ShieldCheck, TrendingUp, Handshake } from "lucide-react";
+import { Users, Code, Palette, Globe, Briefcase, ChevronDown, ArrowRight, Sparkles, Zap, Heart, Target, Network, Building2, Lightbulb, Rocket, ShieldCheck, TrendingUp, Handshake, FlaskConical, Fingerprint } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
@@ -397,6 +397,24 @@ const About = () => {
                     Kontakt aufnehmen
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
+                </motion.div>
+
+                {/* Subtle Studio & Lab Links */}
+                <motion.div className="mt-8 flex flex-col sm:flex-row gap-3" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }}>
+                  <a href="/studio" className="group flex items-center gap-3 px-4 py-3 border border-purple-200 hover:border-purple-400 bg-purple-50/50 hover:bg-purple-50 transition-all duration-300">
+                    <div className="w-8 h-8 flex items-center justify-center bg-purple-100 group-hover:bg-purple-500 transition-colors">
+                      <Fingerprint className="w-4 h-4 text-purple-500 group-hover:text-white transition-colors" />
+                    </div>
+                    <span className="text-sm font-medium text-foreground">Studio entdecken</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-purple-400 group-hover:translate-x-1 transition-transform ml-auto" />
+                  </a>
+                  <a href="/lab" className="group flex items-center gap-3 px-4 py-3 border border-yellow-200 hover:border-yellow-400 bg-yellow-50/50 hover:bg-yellow-50 transition-all duration-300">
+                    <div className="w-8 h-8 flex items-center justify-center bg-yellow-100 group-hover:bg-yellow-500 transition-colors">
+                      <FlaskConical className="w-4 h-4 text-yellow-600 group-hover:text-white transition-colors" />
+                    </div>
+                    <span className="text-sm font-medium text-foreground">Lab entdecken</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-yellow-500 group-hover:translate-x-1 transition-transform ml-auto" />
+                  </a>
                 </motion.div>
               </motion.div>
             </div>
