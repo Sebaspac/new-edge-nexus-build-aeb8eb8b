@@ -384,23 +384,20 @@ const About = () => {
                   </p>
                 </div>
 
-                <motion.div className="mt-8" initial={{
-                opacity: 0
+                
+
+                {/* Subtle Studio & Lab Links */}
+                <motion.div className="mt-8 flex flex-col sm:flex-row gap-3" initial={{
+                opacity: 0,
+                y: 10
               }} whileInView={{
-                opacity: 1
+                opacity: 1,
+                y: 0
               }} viewport={{
                 once: true
               }} transition={{
-                delay: 0.4
+                delay: 0.6
               }}>
-                  <Button size="lg" onClick={() => scrollToSection("kontakt")} className="group bg-transparent backdrop-blur-sm border-2 border-black text-black hover:bg-black hover:text-white rounded-none transition-all duration-300">
-                    Kontakt aufnehmen
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </motion.div>
-
-                {/* Subtle Studio & Lab Links */}
-                <motion.div className="mt-8 flex flex-col sm:flex-row gap-3" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }}>
                   <a href="/studio" className="group flex items-center gap-3 px-4 py-3 border border-purple-200 hover:border-purple-400 bg-purple-50/50 hover:bg-purple-50 transition-all duration-300">
                     <div className="w-8 h-8 flex items-center justify-center bg-purple-100 group-hover:bg-purple-500 transition-colors">
                       <Fingerprint className="w-4 h-4 text-purple-500 group-hover:text-white transition-colors" />
