@@ -52,41 +52,53 @@ const Lab = () => {
   };
   const labServices = [{
     title: "AI Systems & Automation Architecture",
-    description: "Wir bauen KI-gestützte Systeme, die Prozesse durchgängig automatisieren – von Input bis Output.",
-    problem: "Fragmentierte Tools und manuelle Abläufe verhindern Skalierung und verursachen operative Komplexität.",
+    description: "Wir automatisieren operative Aufgaben und Prozesse end-to-end – pragmatisch, stabil und skalierbar. Dabei setzen wir dort KI ein, wo sie einen echten Mehrwert bringt, und kombinieren sie mit klassischen Automationen, wo Zuverlässigkeit und Klarheit wichtiger sind. Das Ergebnis sind durchgängige Workflows, die selbstständig laufen und sich sauber in bestehende Systeme integrieren.",
+    problem: "Viele operative Aufgaben sind repetitiv, manuell und über mehrere Tools verteilt. Das führt zu hohem Zeitaufwand, Fehleranfälligkeit, Medienbrüchen und fehlender Skalierbarkeit. Ob mit oder ohne KI: Operative Arbeit bindet Ressourcen, die besser für Entscheidungen genutzt würden.",
     details: [{
-      title: "KI-Architektur & Datenlogik",
-      description: "Design der technischen Grundstruktur für KI-gestützte Prozesse."
+      title: "Automatisierung operativer Aufgaben",
+      description: "Reduktion manueller Tätigkeiten in täglichen Abläufen (z. B. Erfassung, Verarbeitung, Weiterleitung)."
     }, {
-      title: "Zentrales KI-System",
-      description: "Aufbau eines einheitlichen Systems für alle KI-Funktionen."
+      title: "KI-gestützte Prozessschritte (optional)",
+      description: "Einsatz von KI für Klassifikation, Priorisierung, Textverarbeitung oder Entscheidungsunterstützung."
     }, {
-      title: "End-to-End-Automatisierung",
-      description: "Durchgängige Prozessautomatisierung ohne manuelle Zwischenschritte."
+      title: "End-to-End-Workflows",
+      description: "Durchgängige Prozesse ohne manuelle Übergaben zwischen Tools, Systemen oder Teams."
     }, {
-      title: "Rollen, Zugriffe & Governance",
-      description: "Klare Verantwortlichkeiten und Kontrollmechanismen."
+      title: "Integration bestehender Systeme",
+      description: "Anbindung von CRM, Support-, Ops- oder internen Tools in eine konsistente Automationslogik."
+    }, {
+      title: "Stabile Prozesslogik & Kontrolle",
+      description: "Klare Abläufe, definierte Ausnahmen und nachvollziehbare Ergebnisse."
     }],
     icon: Cpu,
     gradient: "from-[#fde047] to-[#fbbf24]",
     video: "/assets/lab-ki-automation-video.mp4",
     animation: <ProcessAutomationAnimation />
   }, {
-    title: "Internal LLM Systems & GPU Infrastructure",
-    description: "Wir setzen interne LLM-Systeme um, inklusive eigener GPU-Infrastruktur und lokaler oder isolierter Nutzung.",
-    problem: "Externe KI-APIs bedeuten Kontrollverlust über Daten, Kosten und Verfügbarkeit.",
+    title: "Internal Systems, Data & AI Ownership",
+    description: "Wir bauen interne Systeme, die Software, Daten und KI unter eine gemeinsame, kontrollierbare Architektur bringen. Dazu entwickeln wir eigene interne Tools statt SaaS-Zwang, selbst kontrollierte Datenlogik sowie interne KI- und LLM-Systeme mit eigener Infrastruktur. Alles integriert, wartbar und im Besitz des Unternehmens.",
+    problem: "SaaS-Stacks und externe KI-APIs erzeugen Abhängigkeiten, steigende laufende Kosten und fragmentierte Datenlandschaften. Unternehmen verlieren dadurch Kontrolle über sensible Daten, Transparenz über Prozesse sowie Einfluss auf Kosten, Verfügbarkeit und Weiterentwicklung. Kritische Systeme liegen außerhalb der eigenen Verantwortung.",
     details: [{
-      title: "GPU-Setup & Infrastruktur",
-      description: "Aufbau eigener Rechenkapazitäten für KI-Workloads."
+      title: "Interne Dashboards & Tools",
+      description: "Maßgeschneiderte Anwendungen zur Abbildung kritischer Unternehmensfunktionen."
     }, {
-      title: "Deployment interner LLMs",
-      description: "Einrichtung und Betrieb eigener Sprachmodelle."
+      title: "Eigene Datenlogik & Datenflüsse",
+      description: "Selbst kontrollierte Datenstrukturen, Schnittstellen und Verarbeitungslogik."
+    }, {
+      title: "Interne KI- & LLM-Systeme",
+      description: "Deployment firmeneigener Sprachmodelle für interne Use Cases."
+    }, {
+      title: "GPU-Infrastruktur & Betrieb",
+      description: "Aufbau eigener oder isolierter Rechenkapazitäten für KI-Workloads."
     }, {
       title: "Optionales Fine-Tuning",
-      description: "Anpassung von Modellen an spezifische Unternehmensanforderungen."
+      description: "Anpassung von Modellen an unternehmensspezifische Daten und Anforderungen."
     }, {
       title: "Integration in bestehende Systeme",
-      description: "Nahtlose Anbindung an vorhandene Workflows und Tools."
+      description: "Nahtlose Anbindung an vorhandene Workflows, Tools und Plattformen."
+    }, {
+      title: "Reduktion externer Abhängigkeiten",
+      description: "Strategischer Ersatz von SaaS- und API-Abhängigkeiten durch eigene Systeme."
     }],
     icon: Globe,
     gradient: "from-[#fbbf24] to-[#fde047]",
