@@ -150,7 +150,7 @@ const CategoryRow = ({ title, subtitle, cases, accentColor, slashColor, directio
     >
       {/* Cases Container */}
       <div className="w-[65%] sm:w-[68%] md:w-[70%] lg:w-[72%] xl:w-[75%] overflow-x-auto scrollbar-hide flex items-center">
-        <div className="flex gap-0 h-full items-center justify-end w-full">
+        <div className={`flex gap-0 h-full items-center w-full ${isLeft ? "justify-end" : "justify-start"}`}>
           {cases.map((caseStudy, caseIndex) => (
             <CaseCard key={caseStudy.id} caseStudy={caseStudy} accentColor={accentColor} index={caseIndex} />
           ))}
