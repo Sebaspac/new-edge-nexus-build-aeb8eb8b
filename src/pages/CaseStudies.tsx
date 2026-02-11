@@ -146,7 +146,7 @@ const CategoryRow = ({ title, subtitle, cases, accentColor, slashColor, directio
         duration: 0.6,
         delay: index * 0.15,
       }}
-      className={`flex flex-row ${!isLeft ? "flex-row-reverse" : ""} min-h-[140px] sm:min-h-[170px] md:min-h-[220px] lg:min-h-[280px] border-b border-white/10`}
+      className={`flex flex-row ${!isLeft ? "flex-row-reverse" : ""} min-h-[140px] sm:min-h-[170px] md:min-h-[220px] lg:min-h-[280px] border-b border-black/10`}
     >
       {/* Cases Container */}
       <div className="w-[65%] sm:w-[68%] md:w-[70%] lg:w-[72%] xl:w-[75%] overflow-x-auto scrollbar-hide flex items-center">
@@ -204,7 +204,7 @@ const CategoryRow = ({ title, subtitle, cases, accentColor, slashColor, directio
                 duration: 0.4,
                 delay: 0.3,
               }}
-              className="text-[10px] sm:text-sm md:text-lg lg:text-2xl xl:text-3xl font-bold text-white tracking-tight"
+              className="text-[10px] sm:text-sm md:text-lg lg:text-2xl xl:text-3xl font-bold text-black tracking-tight"
             >
               {title}
             </motion.h2>
@@ -224,7 +224,7 @@ const CategoryRow = ({ title, subtitle, cases, accentColor, slashColor, directio
                 duration: 0.4,
                 delay: 0.4,
               }}
-              className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm text-gray-400 mt-0.5 sm:mt-1"
+              className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm text-gray-500 mt-0.5 sm:mt-1"
             >
               {subtitle}
             </motion.p>
@@ -266,12 +266,9 @@ const CaseStudies = () => {
       </Helmet>
 
       <div
-        className="min-h-screen bg-black"
-        style={{
-          backgroundColor: "#000000",
-        }}
+        className="min-h-screen bg-white"
       >
-        <MobileNavigation onContactClick={scrollToContact} theme="dark" />
+        <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Compact Header */}
 
@@ -319,10 +316,10 @@ const CaseStudies = () => {
                 duration: 0.6,
               }}
             >
-              <h2 className="text-xl md:text-3xl font-bold text-white mb-5">Bereit für Ihr nächstes Projekt?</h2>
+              <h2 className="text-xl md:text-3xl font-bold text-black mb-5">Bereit für Ihr nächstes Projekt?</h2>
               <button
                 onClick={scrollToContact}
-                className="inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 md:px-7 md:py-3 font-semibold hover:bg-gray-200 transition-colors duration-300"
+                className="inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 md:px-7 md:py-3 font-semibold hover:bg-gray-800 transition-colors duration-300"
               >
                 Projekt starten
                 <ArrowRight className="w-4 h-4" />
