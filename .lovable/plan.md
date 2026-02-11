@@ -1,45 +1,34 @@
 
 
-# Lab-Seite: Services umstrukturieren
+# Case Studies Seite: Helles Theme und Layout-Anpassung
 
 ## Zusammenfassung
-Die Lab-Seite wird von 4 auf 3 Dienstleistungen reduziert. Service 2 bekommt neue Texte, Videos/Animationen werden zwischen Service 2 und 3 getauscht, Service 4 wird gelöscht.
+Die Case Studies Seite (`/case-studies`) wird von einem dunklen auf ein helles Theme umgestellt. Die Studio-Reihe behalt die Anordnung Cases links, Label rechts bei (erster Case ganz links).
 
 ---
 
-## Änderungen im Detail
+## Anderungen im Detail
 
-### Service 1: AI Systems & Automation Architecture
-Keine Änderung.
+### 1. Hintergrund und Grundfarben
+- `bg-black` / `backgroundColor: "#000000"` wird zu `bg-white`
+- MobileNavigation `theme="dark"` wird zu `theme="light"`
 
-### Service 2: Text komplett ersetzen
-| Element | Aktuell | Neu |
-|---------|---------|-----|
-| Titel | Internal Software & Data Ownership | **Internal LLM Systems & GPU Infrastructure** |
-| Problem | SaaS-Stacks erzeugen Abhängigkeiten... | **Externe KI-APIs bedeuten Kontrollverlust über Daten, Kosten und Verfügbarkeit.** |
-| Lösung | Wir entwickeln interne Tools... | **Wir setzen interne LLM-Systeme um, inklusive eigener GPU-Infrastruktur und lokaler oder isolierter Nutzung.** |
-| Deliverable 1 | Interne Dashboards & Tools | **GPU-Setup & Infrastruktur** – Aufbau eigener Rechenkapazitäten für KI-Workloads. |
-| Deliverable 2 | Eigene Datenlogik | **Deployment interner LLMs** – Einrichtung und Betrieb eigener Sprachmodelle. |
-| Deliverable 3 | Reduktion von SaaS-Abhängigkeit | **Optionales Fine-Tuning** – Anpassung von Modellen an spezifische Unternehmensanforderungen. |
-| Deliverable 4 | Volle Datenhoheit | **Integration in bestehende Systeme** – Nahtlose Anbindung an vorhandene Workflows und Tools. |
+### 2. Textfarben anpassen
+- **CategoryRow**: `border-white/10` wird zu `border-black/10`
+- **Titel (h2)**: `text-white` wird zu `text-black`
+- **Subtitle (p)**: `text-gray-400` wird zu `text-gray-500`
+- **CTA Headline**: `text-white` wird zu `text-black`
+- **CTA Button**: `bg-white text-black` wird zu `bg-black text-white` (invertiert)
 
-### Service 2 und 3: Video & Animation tauschen
-| Element | Service 2 (neu) | Service 3 (neu) |
-|---------|-----------------|-----------------|
-| Video | `/assets/lab-new-video.mp4` (von Service 3) | `/assets/lab-section-video.mp4` (von Service 2) |
-| Animation | TrackingAnalyticsAnimation (von Service 3) | WebSystemsAnimation (von Service 2) |
+### 3. CaseCard Farben anpassen
+- Gradient Overlay bleibt dunkel (Bilder brauchen dunklen Overlay fur Lesbarkeit)
+- Textfarben in den Cards bleiben hell (auf dunklem Bild-Overlay)
 
-### Service 4: Internal LLM Systems & GPU Infrastructure
-Wird komplett gelöscht (Zeile 116-137 im labServices Array).
+### 4. Studio-Reihe: direction bleibt "left"
+- Cases links, Label rechts -- erster Case ist ganz links (bereits so konfiguriert)
 
 ---
-
-## Ergebnis
-3 Services auf der Lab-Seite:
-1. **AI Systems & Automation Architecture** (unverändert)
-2. **Internal LLM Systems & GPU Infrastructure** (neuer Text, Video/Animation von ehem. Service 3)
-3. **Web & Platform Architecture** (unverändert im Text, Video/Animation von ehem. Service 2)
 
 ## Betroffene Datei
-`src/pages/Lab.tsx` – labServices Array anpassen
+`src/pages/CaseStudies.tsx` -- Theme-Klassen im gesamten Layout umstellen
 
