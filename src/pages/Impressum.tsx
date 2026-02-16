@@ -26,14 +26,14 @@ const Impressum = () => {
       <motion.header
         initial={{
           opacity: 0,
-          y: -20,
+          y: -20
         }}
         animate={{
           opacity: 1,
-          y: 0,
+          y: 0
         }}
-        className="container mx-auto px-6 py-8"
-      >
+        className="container mx-auto px-6 py-8">
+
         <Link to="/">
           <Button variant="ghost" className="text-purple-400 hover:text-purple-300 hover:bg-white/10 mb-8">
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -47,33 +47,33 @@ const Impressum = () => {
         <motion.div
           initial={{
             opacity: 0,
-            y: 30,
+            y: 30
           }}
           animate={{
             opacity: 1,
-            y: 0,
+            y: 0
           }}
           transition={{
-            duration: 0.8,
+            duration: 0.8
           }}
-          className="max-w-4xl mx-auto"
-        >
+          className="max-w-4xl mx-auto">
+
           {/* Title */}
           <motion.h1
             initial={{
               opacity: 0,
-              scale: 0.9,
+              scale: 0.9
             }}
             animate={{
               opacity: 1,
-              scale: 1,
+              scale: 1
             }}
             transition={{
               delay: 0.2,
-              duration: 0.6,
+              duration: 0.6
             }}
-            className="text-4xl md:text-6xl font-black mb-16 text-center"
-          >
+            className="text-4xl md:text-6xl font-black mb-16 text-center">
+
             <span className="bg-gradient-to-r from-purple-400 to-purple-200 bg-clip-text text-transparent">
               Impressum & Datenschutz
             </span>
@@ -83,17 +83,17 @@ const Impressum = () => {
           <motion.div
             initial={{
               opacity: 0,
-              y: 20,
+              y: 20
             }}
             animate={{
               opacity: 1,
-              y: 0,
+              y: 0
             }}
             transition={{
               delay: 0.4,
-              duration: 0.6,
-            }}
-          >
+              duration: 0.6
+            }}>
+
             <Card className="bg-gray-900/50 border border-purple-500/20 backdrop-blur-lg mb-8">
               <CardContent className="p-8">
                 <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 flex items-center text-white">
@@ -129,8 +129,8 @@ const Impressum = () => {
                           href="https://www.linkedin.com/company/newedgebrand"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-purple-400 hover:text-purple-300"
-                        >
+                          className="text-purple-400 hover:text-purple-300">
+
                           LinkedIn
                         </a>
                       </li>
@@ -201,17 +201,17 @@ const Impressum = () => {
             id="datenschutz"
             initial={{
               opacity: 0,
-              y: 20,
+              y: 20
             }}
             animate={{
               opacity: 1,
-              y: 0,
+              y: 0
             }}
             transition={{
               delay: 0.5,
-              duration: 0.6,
-            }}
-          >
+              duration: 0.6
+            }}>
+
             <Card className="bg-gray-900/50 border border-purple-500/20 backdrop-blur-lg">
               <CardContent className="p-8">
                 <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 flex items-center text-white">
@@ -231,7 +231,7 @@ const Impressum = () => {
                     <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
                       <p>New Edge</p>
                       <p>Inhaber: Wenjamin Zababezhanskiy</p>
-                      <p>Zehntfeldstraße 125a</p>
+                      <p>Zehntfeldstraße 156a</p>
                       <p>81825 München</p>
                       <p>Deutschland</p>
                       <p>
@@ -307,8 +307,8 @@ const Impressum = () => {
                         href="https://www.facebook.com/about/privacy"
                         className="text-purple-400 hover:text-purple-300 underline"
                         target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                        rel="noopener noreferrer">
+
                         https://www.facebook.com/about/privacy
                       </a>
                     </p>
@@ -346,8 +346,8 @@ const Impressum = () => {
                         href="https://policies.google.com/privacy"
                         className="text-purple-400 hover:text-purple-300 underline"
                         target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                        rel="noopener noreferrer">
+
                         https://policies.google.com/privacy
                       </a>
                     </p>
@@ -396,8 +396,8 @@ const Impressum = () => {
                         href="https://support.google.com/analytics/answer/6004245"
                         className="text-purple-400 hover:text-purple-300 underline"
                         target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                        rel="noopener noreferrer">
+
                         https://support.google.com/analytics/answer/6004245
                       </a>
                     </p>
@@ -499,7 +499,7 @@ const Impressum = () => {
           </motion.div>
         </motion.div>
       </main>
-    </div>
-  );
+    </div>);
+
 };
 export default Impressum;
