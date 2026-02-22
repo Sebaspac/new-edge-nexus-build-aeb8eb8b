@@ -62,26 +62,8 @@ export const InteractiveCore = () => {
     <section className="relative py-12 md:py-20 lg:py-32 bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
 
-        {/* Header: Badge + Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-8 md:mb-12 lg:mb-16"
-        >
-          <div className="mb-3 sm:mb-4">
-            <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#7C3AED]">
-              UNSERE SERVICES
-            </span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black max-w-3xl">
-            Zwei Bereiche. Eine Vision.
-          </h2>
-        </motion.div>
-
         {/* Main Split: Box left, Text right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* LEFT: Interactive Box */}
           <div className="flex flex-col-reverse gap-3 sm:gap-4 order-2 lg:order-1">
@@ -283,6 +265,14 @@ export const InteractiveCore = () => {
             transition={{ duration: 0.8 }}
             className="order-1 lg:order-2"
           >
+            <div className="mb-3 sm:mb-4 md:mb-6">
+              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#7C3AED]">
+                UNSERE SERVICES
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 text-black">
+              Zwei Bereiche. Eine Vision.
+            </h2>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-xl">
               Steuerbare Systeme beginnen nicht mit Technologie, sondern mit Klarheit über Marke, Struktur und Entscheidungslogik.<br />
               Ohne diese Grundlage führen neue Tools und KI zu mehr Komplexität statt zu mehr Kontrolle. Das Ergebnis sind steigende Kosten, operative Komplexität und neue Abhängigkeiten.
