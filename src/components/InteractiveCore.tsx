@@ -66,7 +66,7 @@ export const InteractiveCore = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* LEFT: Interactive Box */}
-          <div className="flex flex-col gap-3 sm:gap-4 order-2 lg:order-1">
+          <div className="flex flex-col-reverse gap-3 sm:gap-4 order-2 lg:order-1">
             {/* Control Panel */}
             <div className="flex gap-2 sm:gap-3">
               {states.map((state, index) => {
