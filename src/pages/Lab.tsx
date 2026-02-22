@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { LazyVideo } from "@/components/LazyVideo";
 import { ProcessAutomationAnimation } from "@/components/ui/process-automation-animation";
@@ -217,16 +216,22 @@ const Lab = () => {
                 }}>Effekt.</span>
               </h2>
             </motion.div>
-            <AnimatedTooltip
-              className="bg-black/5"
-              items={[
-                { id: 1, name: "Produktive Systeme statt Einzelautomationen", designation: "Es entstehen keine Insellösungen, sondern eine zusammenhängende operative Infrastruktur." },
-                { id: 2, name: "Ownership statt Abhängigkeit", designation: "Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie." },
-                { id: 3, name: "Technologie als steuerbares Unternehmenssystem", designation: "Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung." },
-                { id: 4, name: "Skalierung ohne steigende Komplexität", designation: "Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen." },
-                { id: 5, name: "Integration bestehender Systeme", designation: "Bestehende Tools und Plattformen werden in eine gemeinsame Systemlogik integriert – ohne funktionierende Strukturen zu zerstören. Datenflüsse laufen automatisch, Prozesse werden zentral steuerbar." },
-              ]}
-            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/5">
+              {[
+                { title: "Produktive Systeme statt Einzelautomationen", description: "Es entstehen keine Insellösungen, sondern eine zusammenhängende operative Infrastruktur." },
+                { title: "Ownership statt Abhängigkeit", description: "Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie." },
+                { title: "Technologie als steuerbares Unternehmenssystem", description: "Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung." },
+                { title: "Skalierung ohne steigende Komplexität", description: "Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen." },
+                { title: "Integration bestehender Systeme", description: "Bestehende Tools und Plattformen werden in eine gemeinsame Systemlogik integriert – ohne funktionierende Strukturen zu zerstören. Datenflüsse laufen automatisch, Prozesse werden zentral steuerbar." },
+              ].map((d, i) =>
+                <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="bg-white p-8 sm:p-10 group hover:bg-gray-50 transition-colors duration-300">
+                  <span className="text-sm font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
+                  <h4 className="text-black font-bold mt-3 text-base sm:text-lg leading-snug">{d.title}</h4>
+                  <p className="text-black/50 text-sm sm:text-base mt-3 leading-relaxed">{d.description}</p>
+                </motion.div>
+              )}
+            </div>
           </div>
         </section>
 
