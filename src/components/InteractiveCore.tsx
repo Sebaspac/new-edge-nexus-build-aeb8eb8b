@@ -81,22 +81,22 @@ export const InteractiveCore = () => {
           <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 text-black">
             Zwei Bereiche. Eine Vision.
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl">Der Aufbau steuerbarer Systeme beginnt nicht mit Technologie. Er beginnt mit Klarheit über Marke, Struktur und Entscheidungslogik. 
-Erst wenn diese Grundlage steht, kann KI sinnvoll integriert werden. Heute passiert meist das Gegenteil: Unternehmen führen neue Tools ein, testen KI und erweitern ihre SaaS-Stacks – ohne eine gemeinsame Systemlogik. Das Ergebnis sind steigende Kosten, operative Komplexität und neue Abhängigkeiten. Unsere Arbeit folgt deshalb einer klaren Reihenfolge: Klarheit im Studio. Umsetzung im Lab. So entstehen digitale Plattformen, Automatisierungen und KI-Systeme, die Unternehmen verstehen, steuern und selbst weiterentwickeln können.  
-
-
-
-
-
-
-
-
-
-
-
-
-        </p>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl">
+            Der Aufbau steuerbarer Systeme beginnt nicht mit Technologie. Er beginnt mit Klarheit über Marke, Struktur und Entscheidungslogik.
+          </p>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mt-3">
+            Erst wenn diese Grundlage steht, kann KI sinnvoll integriert werden.
+          </p>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mt-3">
+            Heute passiert meist das Gegenteil: Unternehmen führen neue Tools ein, testen KI und erweitern ihre SaaS-Stacks – ohne eine gemeinsame Systemlogik.
+          </p>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mt-3">
+            Das Ergebnis sind steigende Kosten, operative Komplexität und neue Abhängigkeiten.
+          </p>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mt-6">
+            Unsere Arbeit folgt deshalb einer klaren Reihenfolge: Klarheit im Studio. Umsetzung im Lab. So entstehen digitale Plattformen, Automatisierungen und KI-Systeme, die Unternehmen verstehen, steuern und selbst weiterentwickeln können.
+          </p>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mt-6">
             New Edge ist keine klassische Agentur. Wir sind Ihr strategischer Tech-Partner.
           </p>
         </motion.div>
