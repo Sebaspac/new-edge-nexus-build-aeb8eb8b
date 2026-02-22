@@ -28,9 +28,9 @@ export const MethodologyGrid = () => {
     title: "Web- & Plattformarchitektur",
     link: "/lab"
   }];
-  return <section className="relative py-12 md:py-24 lg:py-32 bg-white overflow-hidden">
+  return <section className="relative py-8 md:py-12 lg:py-16 bg-white overflow-hidden min-h-screen flex items-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-16 items-start">
           {/* Left Column */}
           <motion.div initial={{
           opacity: 0,
@@ -49,7 +49,7 @@ export const MethodologyGrid = () => {
             </div>
 
             {/* Main Headline */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-[0.9] text-black">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black leading-[0.9] text-black">
               Deine{" "}
               <AnimatedTextCycle
                 words={["Prozesse.", "Daten.", "KI.", "Plattform.", "Abläufe.", "Entscheidungen."]}
@@ -122,13 +122,13 @@ sicher, strukturiert und unter voller Kontrolle des Unternehmens.
             }} transition={{
               duration: 0.5,
               delay: 0.3 + index * 0.1
-            }} className="relative py-4 sm:py-5 md:py-8 border-b border-gray-200 hover:bg-gray-50/50 transition-all duration-300 px-2 sm:px-4 md:px-6 -mx-2 sm:-mx-4 md:-mx-6">
+            }} className="relative py-3 sm:py-4 md:py-5 border-b border-gray-200 hover:bg-gray-50/50 transition-all duration-300 px-2 sm:px-4 md:px-6 -mx-2 sm:-mx-4 md:-mx-6">
                   <div className="flex items-start justify-between gap-3 sm:gap-4 md:gap-8">
                     <div className="flex-1">
                       <span className="text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] mb-1 sm:mb-2 md:mb-3 block text-muted-foreground">
                         {service.category}
                       </span>
-                      <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-black group-hover:text-[#7C3AED] transition-colors duration-300">
+                      <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-black group-hover:text-[#7C3AED] transition-colors duration-300">
                         {service.title}
                       </h3>
                     </div>
