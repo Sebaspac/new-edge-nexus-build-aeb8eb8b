@@ -6,12 +6,14 @@ interface AnimatedTextCycleProps {
   words: string[];
   interval?: number;
   className?: string;
+  renderWord?: (word: string) => React.ReactNode;
 }
 
 export default function AnimatedTextCycle({
   words,
   interval = 5000,
   className = "",
+  renderWord,
 }: AnimatedTextCycleProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [width, setWidth] = useState("auto");
@@ -59,7 +61,7 @@ export default function AnimatedTextCycle({
       >
         {words.map((word, i) => (
           <span key={i} className={className}>
-            {word}
+            {renderWord ? renderWord(word) : word}
           </span>
         ))}
       </div>
@@ -77,7 +79,7 @@ export default function AnimatedTextCycle({
             exit="exit"
             className={className}
           >
-            {words[currentIndex]}
+            {renderWord ? renderWord(words[currentIndex]) : words[currentIndex]}
           </motion.span>
         </AnimatePresence>
       </span>
