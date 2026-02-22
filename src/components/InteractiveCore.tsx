@@ -131,7 +131,7 @@ export const InteractiveCore = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative min-h-[350px] sm:min-h-[400px] md:min-h-[450px] lg:min-h-[500px] overflow-hidden shadow-2xl"
+              className="relative min-h-[350px] sm:min-h-[400px] md:min-h-[450px] lg:min-h-[500px] overflow-hidden shadow-2xl flex flex-col"
             >
               <div className="absolute inset-0 bg-[#0a0a0f] border border-white/20" />
 
@@ -185,7 +185,7 @@ export const InteractiveCore = () => {
                 </motion.div>
               </AnimatePresence>
 
-              <div className="relative z-10 h-full p-4 sm:p-6 md:p-8 flex flex-col">
+              <div className="relative z-10 flex-1 p-4 sm:p-6 md:p-8 flex flex-col">
                 <div className="mt-auto">
                   <div className="flex items-start justify-between mb-4 sm:mb-6">
                     <AnimatePresence mode="wait">
