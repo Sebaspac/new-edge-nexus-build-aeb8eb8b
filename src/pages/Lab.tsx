@@ -355,9 +355,7 @@ const Lab = () => {
                 },
                 {
                   title: "Integration bestehender Systeme",
-                  description:
-                    "Bestehende Systeme werden verbunden statt ersetzt.
-Daten laufen automatisch, Prozesse sind zentral steuerbar.",
+                  description: "Bestehende Systeme werden verbunden statt ersetzt. Daten laufen automatisch, Prozesse sind zentral steuerbar.",
                 },
               ]}
             />
