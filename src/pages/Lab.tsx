@@ -212,20 +212,20 @@ const Lab = () => {
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-           INTRO / MANIFESTO SECTION
-           ═══════════════════════════════════════════════════════ */}
+            INTRO / MANIFESTO SECTION
+            ═══════════════════════════════════════════════════════ */}
         <section className="relative bg-white py-24 sm:py-32 lg:py-40 overflow-hidden border-b border-black/5">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
             {/* Label */}
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-black/40 mb-6"
-            >
-              Lab
-            </motion.span>
+            
+
+
+
+
+
+
+
+
 
             {/* Headline */}
             <motion.h2
@@ -233,8 +233,8 @@ const Lab = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] tracking-tight mb-12 lg:mb-16"
-            >
+              className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] tracking-tight mb-12 lg:mb-16">
+
               Systeme statt <span className="italic">Chaos</span>
             </motion.h2>
 
@@ -265,8 +265,8 @@ const Lab = () => {
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-           SERVICE MODULES
-           ═══════════════════════════════════════════════════════ */}
+            SERVICE MODULES
+            ═══════════════════════════════════════════════════════ */}
         {labServices.map((service, idx) => {
           const isReversed = idx % 2 !== 0;
           return (
@@ -361,8 +361,8 @@ const Lab = () => {
 
         })}
         {/* ═══════════════════════════════════════════════════════
-           INTEGRATION & ÜBERGEORDNETER LAB-EFFEKT
-           ═══════════════════════════════════════════════════════ */}
+            INTEGRATION & ÜBERGEORDNETER LAB-EFFEKT
+            ═══════════════════════════════════════════════════════ */}
         <section className="relative py-24 sm:py-32 lg:py-40 bg-white overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div
