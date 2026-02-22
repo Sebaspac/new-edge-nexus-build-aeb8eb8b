@@ -211,7 +211,68 @@ const Lab = () => {
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-        3-5. UNIFIED SERVICE MODULES
+        INTRO / MANIFESTO SECTION
+        ═══════════════════════════════════════════════════════ */}
+        <section className="relative bg-white py-24 sm:py-32 lg:py-40 overflow-hidden border-b border-black/5">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+            {/* Label */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-6"
+            >
+              <span className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-black/40">
+                Lab
+              </span>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight mb-12 lg:mb-16"
+            >
+              Systeme statt{" "}
+              <span
+                className="italic"
+                style={{
+                  background: "linear-gradient(to right, #fde047, #fbbf24)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Einzelmaßnahmen.
+              </span>
+            </motion.h2>
+
+            {/* Description */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="max-w-3xl"
+            >
+              <p className="text-lg sm:text-xl text-black/50 leading-relaxed">
+                Im Lab entwickeln wir die operative Infrastruktur für Ihr Unternehmen – von automatisierten End-to-End-Prozessen über Plattform-Architektur bis zu firmeneigener KI.
+              </p>
+              <p className="text-lg sm:text-xl text-black/50 leading-relaxed mt-4">
+                Alles folgt einer klaren Systemlogik, bleibt steuerbar und gehört Ihrem Unternehmen.
+              </p>
+              <p className="text-lg sm:text-xl text-black/50 leading-relaxed mt-4">
+                So entsteht Technologie, die Wachstum ermöglicht, ohne Komplexität zu erhöhen.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════
+        SERVICE MODULES
         ═══════════════════════════════════════════════════════ */}
         {labServices.map((service, idx) => {
           const isReversed = idx % 2 !== 0;
