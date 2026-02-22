@@ -56,14 +56,14 @@ export const HeroSection = ({
               
               {/* Headline */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-[0.95] tracking-tight uppercase">
-                <span className="text-white">KI- & Marketing</span><br />
-                <span className="text-[#7C3AED]">Agentur</span><br />
-                <span className="text-white">für KMU.</span>
+                <span className="text-white">STRATEGIE</span><br />
+                <span className="text-[#7C3AED]">SYSTEME</span><br />
+                <span className="text-white">WACHSTUM</span>
               </h1>
               
               {/* Description */}
               <p className="text-sm sm:text-base md:text-lg text-neutral-400 max-w-xl mx-auto lg:mx-0">
-                New Edge ist Ihr zuverlässiger Partner für Prozessautomatisierung und Marketing – powered by KI, entwickelt für den Mittelstand.                   
+                Wir entwickeln aus Automatisierung, Marke und Plattformen eine integrierte Infrastruktur – für weniger Komplexität und nachhaltiges Wachstum.                   
               </p>
               
               {/* Buttons */}
