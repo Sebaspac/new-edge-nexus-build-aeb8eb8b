@@ -207,7 +207,7 @@ const Studio = () => {
                   {service.deliverables.map((d, i) => (
                     <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
                       className="bg-white p-4 sm:p-5 group hover:bg-gray-50 transition-colors duration-300">
-                      <span className="text-[10px] font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="text-[10px] font-mono font-bold text-indigo-600">{String(i + 1).padStart(2, "0")}</span>
                       <h4 className="text-black font-bold mt-1 text-xs sm:text-sm leading-snug">{d.title}</h4>
                       <p className="text-black/40 text-[10px] sm:text-xs mt-1 leading-relaxed">{d.description}</p>
                     </motion.div>
@@ -221,17 +221,17 @@ const Studio = () => {
         {/* ═══════════════════════════════════════════════════════
             STUDIO-EFFEKT — Infrastructure Grid
         ═══════════════════════════════════════════════════════ */}
-        <section className="relative py-24 sm:py-32 lg:py-40 bg-white overflow-hidden">
+        <section className="relative py-16 sm:py-20 lg:py-24 bg-white overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="mb-12"
+              className="mb-8"
             >
               <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-indigo-500">Das Ergebnis</span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[0.95] text-black mt-3">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[0.95] text-black mt-3">
                 Der Studio‑{" "}
                 <span style={{
                   background: "linear-gradient(to right, #6366f1, #a855f7)",
