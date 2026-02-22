@@ -326,10 +326,10 @@ Bereit für die digitale Revolution?
               delay: 0.4,
               duration: 0.6
             }} className="text-base md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-12 leading-relaxed px-4">
-                New Edge unterstützt Unternehmen dabei,
-KI und Automatisierung kontrolliert, nachhaltig
-und im eigenen Besitz umzusetzen.
-              </motion.p>
+                New Edge unterstützt Unternehmen dabei, KI und Automatisierung kontrolliert & nachhaltig im eigenen Besitz umzusetzen. 
+              
+
+            </motion.p>
 
               <motion.div initial={{
               opacity: 0,
