@@ -52,7 +52,7 @@ export const MethodologyGrid = () => {
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black leading-[0.9] text-black">
               Deine{" "}
               <AnimatedTextCycle
-                words={["Prozesse.", "Daten.", "KI.", "Plattform.", "Abläufe.", "Entscheidungen."]}
+                words={["Prozesse.", "Daten.", "KI.", "Plattform.", "Abläufe."]}
                 interval={3000}
                 className="text-[#7C3AED]"
               />
