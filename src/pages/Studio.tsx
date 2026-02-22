@@ -106,8 +106,8 @@ const Studio = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* ═══════════════════════════════════════════════════════
-                                  1. HERO — Immersive full-screen with claim
-                               ═══════════════════════════════════════════════════════ */}
+                                        1. HERO — Immersive full-screen with claim
+                                     ═══════════════════════════════════════════════════════ */}
         <section ref={heroRef} className="relative w-full h-[100dvh] overflow-hidden">
           <div className="absolute inset-0">
             <LazyVideo
@@ -167,8 +167,8 @@ const Studio = () => {
 
 
         {/* ═══════════════════════════════════════════════════════
-                                  INTRO / MANIFESTO SECTION
-                               ═══════════════════════════════════════════════════════ */}
+                                        INTRO / MANIFESTO SECTION
+                                     ═══════════════════════════════════════════════════════ */}
         <section className="relative bg-white py-24 sm:py-32 lg:py-40 overflow-hidden border-b border-black/5">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
             {/* Headline */}
@@ -209,8 +209,8 @@ const Studio = () => {
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-                                  3-5. UNIFIED SERVICE MODULES
-                               ═══════════════════════════════════════════════════════ */}
+                                        3-5. UNIFIED SERVICE MODULES
+                                     ═══════════════════════════════════════════════════════ */}
         {studioServices.map((service, idx) => {
           const isReversed = idx % 2 !== 0;
           return (
@@ -262,8 +262,8 @@ const Studio = () => {
         })}
 
         {/* ═══════════════════════════════════════════════════════
-                                  STUDIO-EFFEKT — Infrastructure Grid
-                               ═══════════════════════════════════════════════════════ */}
+                                        STUDIO-EFFEKT — Infrastructure Grid
+                                     ═══════════════════════════════════════════════════════ */}
         <section className="relative py-16 sm:py-20 lg:py-24 bg-white overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div
@@ -295,8 +295,8 @@ const Studio = () => {
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-                                  6. CASE STUDY — Full-width feature
-                               ═══════════════════════════════════════════════════════ */}
+                                        6. CASE STUDY — Full-width feature
+                                     ═══════════════════════════════════════════════════════ */}
         <section className="bg-white py-16 sm:py-24">
           <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
@@ -358,8 +358,8 @@ const Studio = () => {
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-                                  7. CTA — Design-system conform
-                               ═══════════════════════════════════════════════════════ */}
+                                        7. CTA — Design-system conform
+                                     ═══════════════════════════════════════════════════════ */}
         <section className="py-24 sm:py-32 bg-white relative overflow-hidden">
           {/* Subtle gradient accent */}
           <div className="absolute inset-0 opacity-10" style={{
@@ -368,7 +368,7 @@ const Studio = () => {
 
           <div className="container mx-auto px-6 sm:px-8 text-center relative z-10 max-w-3xl">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black leading-[1.05]">Bereit für die digitale Transformation?
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black leading-[1.05]">Bereit für die digitale Revolution?
 
               </h2>
               <p className="text-black/50 text-base sm:text-lg mt-6 leading-relaxed max-w-2xl mx-auto">
