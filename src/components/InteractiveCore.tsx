@@ -66,65 +66,7 @@ export const InteractiveCore = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
           {/* LEFT: Interactive Box */}
-          <div className="flex flex-col-reverse gap-3 sm:gap-4 order-2 lg:order-1">
-            {/* Control Panel */}
-            <div className="flex gap-2 sm:gap-3">
-              {states.map((state, index) => {
-                const isActive = activeState === state.key;
-                const stateColor = content[state.key].color;
-                const hoverClasses = state.key === "human" ?
-                "hover:bg-purple-50 hover:border-purple-300" :
-                "hover:bg-yellow-50 hover:border-yellow-300";
-                const activeClasses = state.key === "human" ?
-                "bg-purple-50 border-purple-500 shadow-lg shadow-purple-500/10" :
-                "bg-yellow-50 border-yellow-500 shadow-lg shadow-yellow-500/10";
-                const badgeActiveClasses = state.key === "human" ?
-                "bg-purple-500 text-white" :
-                "bg-yellow-500 text-black";
-
-                return (
-                  <motion.button
-                    key={state.key}
-                    onClick={() => setActiveState(state.key)}
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className={`
-                      relative p-3 sm:p-4 lg:p-5 text-left transition-all duration-500
-                      border overflow-hidden group flex-1
-                      ${isActive ? activeClasses : `bg-transparent border-gray-200 ${hoverClasses}`}
-                    `}>
-
-                    <div className={`
-                      absolute top-2 right-2 sm:top-3 sm:right-3 w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center
-                      text-[10px] sm:text-xs font-bold transition-all duration-500
-                      ${isActive ? badgeActiveClasses : "bg-gray-100 text-gray-400"}
-                    `}>
-                      {state.number}
-                    </div>
-                    <div className="pr-8 sm:pr-10">
-                      <span className={`
-                        text-sm sm:text-base lg:text-lg font-bold tracking-widest uppercase transition-all duration-500
-                        ${isActive ? "text-black" : "text-gray-500"}
-                      `}>
-                        {state.label}
-                      </span>
-                    </div>
-                    {isActive &&
-                    <motion.div
-                      className="absolute bottom-0 left-0 h-[2px]"
-                      style={{ backgroundColor: stateColor }}
-                      initial={{ width: "0%" }}
-                      animate={{ width: `${progress}%` }}
-                      transition={{ duration: 0.1 }} />
-
-                    }
-                  </motion.button>);
-
-              })}
-            </div>
-
+          <div className="flex flex-col gap-3 sm:gap-4 order-2 lg:order-1">
             {/* Display Card */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -255,6 +197,64 @@ export const InteractiveCore = () => {
                 </div>
               </div>
             </motion.div>
+
+            {/* Control Panel */}
+            <div className="flex gap-2 sm:gap-3">
+              {states.map((state, index) => {
+                const isActive = activeState === state.key;
+                const stateColor = content[state.key].color;
+                const hoverClasses = state.key === "human" ?
+                "hover:bg-purple-50 hover:border-purple-300" :
+                "hover:bg-yellow-50 hover:border-yellow-300";
+                const activeClasses = state.key === "human" ?
+                "bg-purple-50 border-purple-500 shadow-lg shadow-purple-500/10" :
+                "bg-yellow-50 border-yellow-500 shadow-lg shadow-yellow-500/10";
+                const badgeActiveClasses = state.key === "human" ?
+                "bg-purple-500 text-white" :
+                "bg-yellow-500 text-black";
+
+                return (
+                  <motion.button
+                    key={state.key}
+                    onClick={() => setActiveState(state.key)}
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className={`
+                      relative p-3 sm:p-4 lg:p-5 text-left transition-all duration-500
+                      border overflow-hidden group flex-1
+                      ${isActive ? activeClasses : `bg-transparent border-gray-200 ${hoverClasses}`}
+                    `}>
+
+                    <div className={`
+                      absolute top-2 right-2 sm:top-3 sm:right-3 w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center
+                      text-[10px] sm:text-xs font-bold transition-all duration-500
+                      ${isActive ? badgeActiveClasses : "bg-gray-100 text-gray-400"}
+                    `}>
+                      {state.number}
+                    </div>
+                    <div className="pr-8 sm:pr-10">
+                      <span className={`
+                        text-sm sm:text-base lg:text-lg font-bold tracking-widest uppercase transition-all duration-500
+                        ${isActive ? "text-black" : "text-gray-500"}
+                      `}>
+                        {state.label}
+                      </span>
+                    </div>
+                    {isActive &&
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-[2px]"
+                      style={{ backgroundColor: stateColor }}
+                      initial={{ width: "0%" }}
+                      animate={{ width: `${progress}%` }}
+                      transition={{ duration: 0.1 }} />
+
+                    }
+                  </motion.button>);
+
+              })}
+            </div>
           </div>
 
           {/* RIGHT: Text */}
