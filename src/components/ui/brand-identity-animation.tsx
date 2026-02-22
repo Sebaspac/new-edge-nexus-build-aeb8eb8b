@@ -1,8 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Palette, PenTool, Droplets, Type, Layout, BookOpen, MessageSquare, CheckCircle2, Sparkles } from "lucide-react";
+import { Globe, MessageSquare, Share2, Megaphone, Layout, Link2, CheckCircle2, Radio } from "lucide-react";
 
-// Professional easing curve
 const elegantEase: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 export const BrandIdentityAnimation = () => {
@@ -11,27 +10,23 @@ export const BrandIdentityAnimation = () => {
   const [activeDeliverables, setActiveDeliverables] = useState<number[]>([]);
   const [isInitialized, setIsInitialized] = useState(false);
 
-  const designElements = [
-    { icon: PenTool, label: "Logo-System", status: "Erstellt" },
-    { icon: Droplets, label: "Farb-System", status: "Definiert" },
-    { icon: Type, label: "Typografie", status: "Ausgewählt" },
+  const channelElements = [
+    { icon: Globe, label: "Kanal-Rollen", status: "Definiert" },
+    { icon: MessageSquare, label: "Markenstimme", status: "Festgelegt" },
+    { icon: Link2, label: "System-Leitplanken", status: "Erstellt" },
   ];
 
   const deliverables = [
-    { icon: PenTool, label: "Logo" },
-    { icon: Droplets, label: "Farben" },
-    { icon: Type, label: "Typo" },
-    { icon: Layout, label: "UX/UI" },
-    { icon: Sparkles, label: "Visuals" },
-    { icon: BookOpen, label: "Brand Book" },
-    { icon: MessageSquare, label: "Voice" },
+    { icon: Globe, label: "Kanäle" },
+    { icon: MessageSquare, label: "Narrative" },
+    { icon: Megaphone, label: "Tonalität" },
+    { icon: Layout, label: "Struktur" },
+    { icon: Link2, label: "Lab-Anbindung" },
   ];
 
   useEffect(() => {
-    // Staggered initialization
     const initTimer = setTimeout(() => setIsInitialized(true), 400);
 
-    // Slower design elements animation
     const elementsInterval = setInterval(() => {
       setActiveElements(prev => {
         if (prev.length >= 3) return [];
@@ -39,15 +34,13 @@ export const BrandIdentityAnimation = () => {
       });
     }, 3200);
 
-    // Much slower color rotation for elegance
     const colorInterval = setInterval(() => {
       setColorRotation(prev => (prev + 8) % 360);
     }, 200);
 
-    // Slower deliverables animation
     const deliverableInterval = setInterval(() => {
       setActiveDeliverables(prev => {
-        if (prev.length >= 7) return [];
+        if (prev.length >= 5) return [];
         return [...prev, prev.length];
       });
     }, 2400);
@@ -63,7 +56,7 @@ export const BrandIdentityAnimation = () => {
   return (
     <div className="relative w-full h-[240px] md:h-[400px] lg:h-[450px] overflow-hidden bg-gradient-to-br from-slate-900 via-purple-950/80 to-slate-900 border border-purple-500/20">
       {/* Grid Pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-15"
         style={{
           backgroundImage: `linear-gradient(rgba(168, 85, 247, 0.08) 1px, transparent 1px), 
@@ -72,15 +65,15 @@ export const BrandIdentityAnimation = () => {
         }}
       />
 
-      {/* Design Elements - Left */}
-      <motion.div 
+      {/* Channel Elements - Left */}
+      <motion.div
         className="absolute left-3 md:left-6 lg:left-8 top-[20%] md:top-1/4 space-y-1.5 md:space-y-3 max-w-[110px] md:max-w-[160px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: isInitialized ? 1 : 0 }}
         transition={{ duration: 0.6, delay: 0.6, ease: elegantEase }}
       >
         <AnimatePresence>
-          {designElements.map((element, idx) => {
+          {channelElements.map((element, idx) => {
             const Icon = element.icon;
             const isActive = activeElements.includes(idx);
             return (
@@ -90,14 +83,14 @@ export const BrandIdentityAnimation = () => {
                 animate={isActive ? { opacity: 1, x: 0 } : { opacity: 0.3, x: -5 }}
                 transition={{ duration: 0.6, ease: elegantEase }}
                 className={`flex items-center gap-1.5 md:gap-2 px-1.5 md:px-3 py-1 md:py-2 transition-all duration-500 ${
-                  isActive 
-                    ? 'bg-slate-800/70 backdrop-blur-sm border border-purple-500/30 shadow-lg' 
+                  isActive
+                    ? 'bg-slate-800/70 backdrop-blur-sm border border-purple-500/30 shadow-lg'
                     : 'bg-slate-800/30 border border-slate-700/30'
                 }`}
               >
                 <div className={`w-5 h-5 md:w-7 md:h-7 flex items-center justify-center transition-colors duration-500 ${
-                  isActive 
-                    ? 'bg-gradient-to-br from-purple-500 to-indigo-600' 
+                  isActive
+                    ? 'bg-gradient-to-br from-purple-500 to-indigo-600'
                     : 'bg-slate-700'
                 }`}>
                   <Icon className={`w-2.5 h-2.5 md:w-3.5 md:h-3.5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
@@ -126,22 +119,20 @@ export const BrandIdentityAnimation = () => {
 
       {/* Central Hub */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-        {/* Rotating Color Ring - subtle */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: isInitialized ? 0.25 : 0, rotate: colorRotation }}
           transition={{ opacity: { duration: 0.6, delay: 0.4, ease: elegantEase } }}
           className="absolute w-20 h-20 md:w-44 md:h-44 rounded-full"
           style={{
-            background: `conic-gradient(from ${colorRotation}deg, #6366f1, #a855f7, #ec4899, #f97316, #eab308, #22c55e, #06b6d4, #6366f1)`,
+            background: `conic-gradient(from ${colorRotation}deg, #6366f1, #a855f7, #6366f1, transparent, #6366f1)`,
           }}
         />
-        
-        {/* Inner Rings - much slower */}
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: isInitialized ? 1 : 0, rotate: -360 }}
-          transition={{ 
+          transition={{
             opacity: { duration: 0.6, delay: 0.5, ease: elegantEase },
             rotate: { duration: 60, repeat: Infinity, ease: "linear" }
           }}
@@ -153,7 +144,7 @@ export const BrandIdentityAnimation = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: isInitialized ? 1 : 0, rotate: 360 }}
-          transition={{ 
+          transition={{
             opacity: { duration: 0.6, delay: 0.6, ease: elegantEase },
             rotate: { duration: 45, repeat: Infinity, ease: "linear" }
           }}
@@ -162,25 +153,25 @@ export const BrandIdentityAnimation = () => {
           <div className="absolute inset-0 rounded-full border border-indigo-500/30" />
         </motion.div>
 
-        {/* Center Palette Icon - subtle pulse */}
+        {/* Center Share Icon */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ 
-            opacity: 1, 
+          animate={{
+            opacity: 1,
             scale: [1, 1.02, 1]
           }}
-          transition={{ 
+          transition={{
             opacity: { duration: 0.4 },
             scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
           }}
           className="relative w-10 h-10 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-purple-500/20 z-10"
         >
-          <Palette className="w-5 h-5 md:w-10 md:h-10 text-white" />
+          <Share2 className="w-5 h-5 md:w-10 md:h-10 text-white" />
         </motion.div>
       </div>
 
-      {/* Status Indicators - Right */}
-      <motion.div 
+      {/* Status Cards - Right */}
+      <motion.div
         className="absolute right-3 md:right-6 lg:right-8 top-[20%] md:top-1/4 space-y-1.5 md:space-y-3 max-w-[100px] md:max-w-[140px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: isInitialized ? 1 : 0 }}
@@ -193,14 +184,14 @@ export const BrandIdentityAnimation = () => {
           className="bg-slate-800/60 backdrop-blur-sm border border-purple-500/20 p-1.5 md:p-3 shadow-lg"
         >
           <div className="flex items-center gap-1 md:gap-2">
-            <motion.span 
+            <motion.span
               animate={{ opacity: [1, 0.7, 1] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-amber-400"
             />
-            <span className="text-[8px] md:text-xs font-medium text-slate-300">Brand Book</span>
+            <span className="text-[8px] md:text-xs font-medium text-slate-300">Storytelling</span>
           </div>
-          <p className="text-[7px] md:text-[10px] text-slate-500 mt-0.5 md:mt-1">In Erstellung...</p>
+          <p className="text-[7px] md:text-[10px] text-slate-500 mt-0.5 md:mt-1">In Abstimmung...</p>
         </motion.div>
 
         <motion.div
@@ -210,19 +201,19 @@ export const BrandIdentityAnimation = () => {
           className="bg-slate-800/60 backdrop-blur-sm border border-emerald-500/20 p-1.5 md:p-3 shadow-lg"
         >
           <div className="flex items-center gap-1 md:gap-2">
-            <motion.span 
+            <motion.span
               animate={{ scale: [1, 1.08, 1] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-emerald-400"
             />
-            <span className="text-[8px] md:text-xs font-medium text-slate-300">Voice & Tone</span>
+            <span className="text-[8px] md:text-xs font-medium text-slate-300">Kanalstruktur</span>
           </div>
-          <p className="text-[7px] md:text-[10px] text-emerald-400 mt-0.5 md:mt-1">Definiert ✓</p>
+          <p className="text-[7px] md:text-[10px] text-emerald-400 mt-0.5 md:mt-1">Systemisch ✓</p>
         </motion.div>
       </motion.div>
 
       {/* Deliverables - Bottom */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-2 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-0.5 md:gap-1.5 flex-wrap justify-center max-w-[95%] md:max-w-[85%]"
         initial={{ opacity: 0 }}
         animate={{ opacity: isInitialized ? 1 : 0 }}
@@ -239,8 +230,8 @@ export const BrandIdentityAnimation = () => {
                 animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0.3, y: 4 }}
                 transition={{ duration: 0.6, ease: elegantEase }}
                 className={`flex flex-col items-center gap-0.5 px-1 py-0.5 md:px-2 md:py-1.5 transition-colors duration-500 ${
-                  isActive 
-                    ? 'bg-gradient-to-br from-purple-500/20 to-indigo-500/20 border border-purple-500/30' 
+                  isActive
+                    ? 'bg-gradient-to-br from-purple-500/20 to-indigo-500/20 border border-purple-500/30'
                     : 'bg-slate-800/30 border border-slate-700/30'
                 }`}
               >
@@ -255,18 +246,18 @@ export const BrandIdentityAnimation = () => {
       </motion.div>
 
       {/* Status Badge */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.6, ease: elegantEase }}
         className="absolute top-2 md:top-4 left-1/2 -translate-x-1/2 bg-slate-800/70 backdrop-blur-sm border border-purple-500/20 px-1.5 md:px-3 py-0.5 md:py-1.5 flex items-center gap-1 md:gap-2 shadow-lg"
       >
-        <motion.span 
+        <motion.span
           animate={{ opacity: [1, 0.7, 1] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           className="w-1 h-1 md:w-2 md:h-2 rounded-full bg-gradient-to-r from-purple-400 to-indigo-400"
         />
-        <span className="text-[7px] md:text-xs font-medium text-slate-300">Designsystem wird aufgebaut</span>
+        <span className="text-[7px] md:text-xs font-medium text-slate-300">Kommunikationsarchitektur wird aufgebaut</span>
       </motion.div>
     </div>
   );
