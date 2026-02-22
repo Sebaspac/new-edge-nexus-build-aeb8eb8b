@@ -16,9 +16,9 @@ import { ProcessAutomationAnimation } from "@/components/ui/process-automation-a
 import { WebSystemsAnimation } from "@/components/ui/web-systems-animation";
 import { TrackingAnalyticsAnimation } from "@/components/ui/tracking-analytics-animation";
 const Footer = lazy(() =>
-  import("@/components/Footer").then((m) => ({
-    default: m.Footer,
-  })),
+import("@/components/Footer").then((m) => ({
+  default: m.Footer
+}))
 );
 const Lab = () => {
   const navigate = useNavigate();
@@ -29,19 +29,19 @@ const Lab = () => {
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "smooth"
     });
     setIsVisible(true);
   }, []);
   const scrollToContact = () => {
     navigate("/", {
-      replace: true,
+      replace: true
     });
     setTimeout(() => {
       const contactSection = document.getElementById("contact-section");
       if (contactSection) {
         contactSection.scrollIntoView({
-          behavior: "smooth",
+          behavior: "smooth"
         });
       }
     }, 100);
@@ -51,100 +51,100 @@ const Lab = () => {
     if (projectButton) {
       projectButton.scrollIntoView({
         behavior: "smooth",
-        block: "center",
+        block: "center"
       });
     }
   };
   const labServices = [
+  {
+    number: "01",
+    title: "AI Systems & Automation Architecture",
+    problem:
+    "Viele operative Aufgaben sind repetitiv, manuell und über mehrere Tools verteilt. Das führt zu hohem Zeitaufwand, Fehleranfälligkeit, Medienbrüchen und fehlender Skalierbarkeit.",
+    solution:
+    "Wir automatisieren operative Aufgaben und Prozesse end-to-end – pragmatisch, stabil und skalierbar. Dabei setzen wir dort KI ein, wo sie einen echten Mehrwert bringt, und kombinieren sie mit klassischen Automationen.",
+    animation: <ProcessAutomationAnimation />,
+    deliverables: [
     {
-      number: "01",
-      title: "AI Systems & Automation Architecture",
-      problem:
-        "Viele operative Aufgaben sind repetitiv, manuell und über mehrere Tools verteilt. Das führt zu hohem Zeitaufwand, Fehleranfälligkeit, Medienbrüchen und fehlender Skalierbarkeit.",
-      solution:
-        "Wir automatisieren operative Aufgaben und Prozesse end-to-end – pragmatisch, stabil und skalierbar. Dabei setzen wir dort KI ein, wo sie einen echten Mehrwert bringt, und kombinieren sie mit klassischen Automationen.",
-      animation: <ProcessAutomationAnimation />,
-      deliverables: [
-        {
-          title: "Operative Entlastung durch End-to-End-Workflows",
-          description: "Manuelle Abläufe werden in stabile Prozesse übersetzt, die systemübergreifend laufen.",
-        },
-        {
-          title: "Skalierbare Prozesslogik statt Tool-Flickwerk",
-          description: "Workflows folgen einer klaren Architektur, unabhängig von einzelnen Tools.",
-        },
-        {
-          title: "KI dort, wo sie echten Hebel hat",
-          description:
-            "KI wird gezielt für Klassifikation, Priorisierung und Entscheidungsunterstützung eingesetzt – nicht als Gimmick.",
-        },
-        {
-          title: "Transparenz & Kontrolle über Ergebnisse",
-          description: "Automatisierungen bleiben nachvollziehbar, steuerbar und auditierbar.",
-        },
-      ],
+      title: "Operative Entlastung durch End-to-End-Workflows",
+      description: "Manuelle Abläufe werden in stabile Prozesse übersetzt, die systemübergreifend laufen."
     },
     {
-      number: "02",
-      title: "Internal Systems, Data & AI Ownership",
-      problem:
-        "SaaS-Stacks und externe KI-APIs erzeugen Abhängigkeiten, steigende Kosten und fragmentierte Datenlandschaften. Unternehmen verlieren Kontrolle über sensible Daten und Prozesse.",
-      solution:
-        "Wir bauen interne Systeme, die Software, Daten und KI unter eine gemeinsame, kontrollierbare Architektur bringen – inklusive eigener LLM- und GPU-Infrastruktur.",
-      animation: <TrackingAnalyticsAnimation />,
-      deliverables: [
-        {
-          title: "Eigene Systeme statt SaaS-Abhängigkeit",
-          description: "Kritische Funktionen werden intern kontrollierbar aufgebaut.",
-        },
-        { title: "Datenhoheit als Grundlage", description: "Datenflüsse, Logik und Zugriff bleiben im Unternehmen." },
-        {
-          title: "Interne KI für sensible Bereiche",
-          description: "Modelle können isoliert und kontrolliert betrieben werden.",
-        },
-        {
-          title: "Planbare Kosten & Unabhängigkeit",
-          description: "Weniger Vendor-Lock-in, weniger laufende Toolkosten.",
-        },
-        {
-          title: "Weiterentwickelbar aus eigener Kraft",
-          description: "Systeme sind so gebaut, dass sie intern ausgebaut werden können.",
-        },
-      ],
+      title: "Skalierbare Prozesslogik statt Tool-Flickwerk",
+      description: "Workflows folgen einer klaren Architektur, unabhängig von einzelnen Tools."
     },
     {
-      number: "03",
-      title: "Web & Platform Architecture",
-      problem: "Websites sind oft isolierte Marketingflächen ohne Verbindung zu Systemen oder Automatisierung.",
-      solution:
-        "Wir bauen Websites als funktionale Knotenpunkte innerhalb der Systemarchitektur – skalierbar, integriert und wartbar.",
-      animation: <WebSystemsAnimation />,
-      deliverables: [
-        {
-          title: "Plattform statt Website",
-          description: "Digitale Präsenz wird als System gebaut – nicht als Einzelprojekt.",
-        },
-        {
-          title: "Conversion durch Struktur, nicht durch Hacks",
-          description:
-            "Informationsarchitektur und Journey-Logik reduzieren Reibung und erhöhen Abschlusswahrscheinlichkeit.",
-        },
-        { title: "Messbarkeit als Standard", description: "Tracking- und Datenlogik sind integriert und wartbar." },
-        {
-          title: "Direkte Anschlussfähigkeit an Systeme",
-          description: "Web wird Einstiegspunkt in CRM, Automationen und Agenten.",
-        },
-      ],
+      title: "KI dort, wo sie echten Hebel hat",
+      description:
+      "KI wird gezielt für Klassifikation, Priorisierung und Entscheidungsunterstützung eingesetzt – nicht als Gimmick."
     },
-  ];
+    {
+      title: "Transparenz & Kontrolle über Ergebnisse",
+      description: "Automatisierungen bleiben nachvollziehbar, steuerbar und auditierbar."
+    }]
+
+  },
+  {
+    number: "02",
+    title: "Internal Systems, Data & AI Ownership",
+    problem:
+    "SaaS-Stacks und externe KI-APIs erzeugen Abhängigkeiten, steigende Kosten und fragmentierte Datenlandschaften. Unternehmen verlieren Kontrolle über sensible Daten und Prozesse.",
+    solution:
+    "Wir bauen interne Systeme, die Software, Daten und KI unter eine gemeinsame, kontrollierbare Architektur bringen – inklusive eigener LLM- und GPU-Infrastruktur.",
+    animation: <TrackingAnalyticsAnimation />,
+    deliverables: [
+    {
+      title: "Eigene Systeme statt SaaS-Abhängigkeit",
+      description: "Kritische Funktionen werden intern kontrollierbar aufgebaut."
+    },
+    { title: "Datenhoheit als Grundlage", description: "Datenflüsse, Logik und Zugriff bleiben im Unternehmen." },
+    {
+      title: "Interne KI für sensible Bereiche",
+      description: "Modelle können isoliert und kontrolliert betrieben werden."
+    },
+    {
+      title: "Planbare Kosten & Unabhängigkeit",
+      description: "Weniger Vendor-Lock-in, weniger laufende Toolkosten."
+    },
+    {
+      title: "Weiterentwickelbar aus eigener Kraft",
+      description: "Systeme sind so gebaut, dass sie intern ausgebaut werden können."
+    }]
+
+  },
+  {
+    number: "03",
+    title: "Web & Platform Architecture",
+    problem: "Websites sind oft isolierte Marketingflächen ohne Verbindung zu Systemen oder Automatisierung.",
+    solution:
+    "Wir bauen Websites als funktionale Knotenpunkte innerhalb der Systemarchitektur – skalierbar, integriert und wartbar.",
+    animation: <WebSystemsAnimation />,
+    deliverables: [
+    {
+      title: "Plattform statt Website",
+      description: "Digitale Präsenz wird als System gebaut – nicht als Einzelprojekt."
+    },
+    {
+      title: "Conversion durch Struktur, nicht durch Hacks",
+      description:
+      "Informationsarchitektur und Journey-Logik reduzieren Reibung und erhöhen Abschlusswahrscheinlichkeit."
+    },
+    { title: "Messbarkeit als Standard", description: "Tracking- und Datenlogik sind integriert und wartbar." },
+    {
+      title: "Direkte Anschlussfähigkeit an Systeme",
+      description: "Web wird Einstiegspunkt in CRM, Automationen und Agenten."
+    }]
+
+  }];
+
 
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     visible: (i: number = 0) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
-    }),
+      transition: { duration: 0.7, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }
+    })
   };
   return (
     <>
@@ -152,12 +152,12 @@ const Lab = () => {
         <title>Prozessautomatisierung München | KI-Lösungen für KMU | New Edge Lab</title>
         <meta
           name="description"
-          content="Prozessautomatisierung mit KI aus München. New Edge Lab entwickelt intelligente Automatisierungslösungen, KI-Agenten und Workflow-Optimierung für den Mittelstand."
-        />
+          content="Prozessautomatisierung mit KI aus München. New Edge Lab entwickelt intelligente Automatisierungslösungen, KI-Agenten und Workflow-Optimierung für den Mittelstand." />
+
         <meta
           name="keywords"
-          content="Prozessautomatisierung München, KI Automatisierung, Workflow Automatisierung, KI Agenten, KI Entwicklung München, Automatisierung KMU, Tech Innovation München"
-        />
+          content="Prozessautomatisierung München, KI Automatisierung, Workflow Automatisierung, KI Agenten, KI Entwicklung München, Automatisierung KMU, Tech Innovation München" />
+
         <link rel="canonical" href="https://www.newedgebrand.com/lab" />
       </Helmet>
 
@@ -171,9 +171,9 @@ const Lab = () => {
               className="absolute inset-0 overflow-hidden"
               style={{
                 background:
-                  "linear-gradient(to bottom right, rgba(253, 224, 71, 0.3), rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.1))",
-              }}
-            >
+                "linear-gradient(to bottom right, rgba(253, 224, 71, 0.3), rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.1))"
+              }}>
+
               <LazyVideo
                 src="/assets/lab-hero-video.mp4"
                 autoPlay
@@ -181,14 +181,14 @@ const Lab = () => {
                 muted
                 playsInline
                 preload="none"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+                className="absolute inset-0 w-full h-full object-cover" />
+
               <div
                 className="absolute inset-0"
                 style={{
-                  background: "linear-gradient(to top, rgba(251, 146, 60, 0.4), rgba(251, 191, 36, 0.2), transparent)",
-                }}
-              />
+                  background: "linear-gradient(to top, rgba(251, 146, 60, 0.4), rgba(251, 191, 36, 0.2), transparent)"
+                }} />
+
 
               <div className="absolute bottom-0 left-0 p-6 pb-8 sm:pb-12 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
                 <h1 className="text-h1 lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
@@ -200,9 +200,9 @@ const Lab = () => {
                       background: "linear-gradient(to right, #fde047, #fbbf24)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
+                      backgroundClip: "text"
+                    }}>
+
                     LAB
                   </span>
                 </h1>
@@ -212,22 +212,22 @@ const Lab = () => {
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-        INTRO / MANIFESTO SECTION
-        ═══════════════════════════════════════════════════════ */}
+          INTRO / MANIFESTO SECTION
+          ═══════════════════════════════════════════════════════ */}
         <section className="relative bg-white py-24 sm:py-32 lg:py-40 overflow-hidden border-b border-black/5">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
             {/* Label */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-6"
-            >
-              <span className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-black/40">
-                Lab
-              </span>
-            </motion.div>
+            
+
+
+
+
+
+
+
+
+
+
 
             {/* Headline */}
             <motion.h2
@@ -235,8 +235,8 @@ const Lab = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] tracking-tight mb-12 lg:mb-16"
-            >
+              className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] tracking-tight mb-12 lg:mb-16">
+
               Systeme statt{" "}
               <span
                 className="italic"
@@ -244,9 +244,9 @@ const Lab = () => {
                   background: "linear-gradient(to right, #fde047, #fbbf24)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+                  backgroundClip: "text"
+                }}>
+
                 Einzelmaßnahmen.
               </span>
             </motion.h2>
@@ -257,41 +257,41 @@ const Lab = () => {
                 text="Im Lab entwickeln wir die operative Infrastruktur für Ihr Unternehmen – von automatisierten End-to-End-Prozessen über Plattform-Architektur bis zu firmeneigener KI."
                 className="text-lg sm:text-xl text-black/50 leading-relaxed"
                 y={12}
-                delay={30}
-              />
+                delay={30} />
+
               <WhisperText
                 text="Alles folgt einer klaren Systemlogik, bleibt steuerbar und gehört Ihrem Unternehmen."
                 className="text-lg sm:text-xl text-black/50 leading-relaxed"
                 y={12}
                 delay={30}
-                triggerStart="top 92%"
-              />
+                triggerStart="top 92%" />
+
               <WhisperText
                 text="So entsteht Technologie, die Wachstum ermöglicht, ohne Komplexität zu erhöhen."
                 className="text-lg sm:text-xl text-black/50 leading-relaxed"
                 y={12}
                 delay={30}
-                triggerStart="top 94%"
-              />
+                triggerStart="top 94%" />
+
             </div>
           </div>
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-        SERVICE MODULES
-        ═══════════════════════════════════════════════════════ */}
+          SERVICE MODULES
+          ═══════════════════════════════════════════════════════ */}
         {labServices.map((service, idx) => {
           const isReversed = idx % 2 !== 0;
           return (
             <section
               key={service.number}
-              className="relative bg-white py-24 sm:py-32 overflow-hidden border-b border-black/5 last:border-b-0"
-            >
+              className="relative bg-white py-24 sm:py-32 overflow-hidden border-b border-black/5 last:border-b-0">
+
               <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
                 <span
                   className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
-                  style={{ WebkitTextStroke: "1px rgba(251,191,36,0.12)", WebkitTextFillColor: "transparent" }}
-                >
+                  style={{ WebkitTextStroke: "1px rgba(251,191,36,0.12)", WebkitTextFillColor: "transparent" }}>
+
                   {service.number}
                 </span>
               </div>
@@ -302,8 +302,8 @@ const Lab = () => {
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true, margin: "-80px" }}
-                      variants={fadeUp}
-                    >
+                      variants={fadeUp}>
+
                       <span className="text-xs font-mono tracking-widest text-black/30 uppercase">
                         Service {service.number}
                       </span>
@@ -317,8 +317,8 @@ const Lab = () => {
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={fadeUp}
-                        custom={1}
-                      >
+                        custom={1}>
+
                         <h3 className="text-xs font-bold tracking-widest text-red-500/70 uppercase mb-3">
                           Das Problem
                         </h3>
@@ -329,8 +329,8 @@ const Lab = () => {
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={fadeUp}
-                        custom={2}
-                      >
+                        custom={2}>
+
                         <h3 className="text-xs font-bold tracking-widest text-amber-500/70 uppercase mb-3">
                           Unsere Lösung
                         </h3>
@@ -344,38 +344,38 @@ const Lab = () => {
                       whileInView="visible"
                       viewport={{ once: true }}
                       variants={fadeUp}
-                      custom={2}
-                    >
+                      custom={2}>
+
                       {service.animation}
                     </motion.div>
                   </div>
                 </div>
                 <div
-                  className={`grid grid-cols-1 sm:grid-cols-2 ${service.deliverables.length === 5 ? "lg:grid-cols-5" : "lg:grid-cols-4"} gap-px mt-20 bg-black/5`}
-                >
-                  {service.deliverables.map((d, i) => (
-                    <motion.div
-                      key={i}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      variants={fadeUp}
-                      custom={i}
-                      className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300"
-                    >
+                  className={`grid grid-cols-1 sm:grid-cols-2 ${service.deliverables.length === 5 ? "lg:grid-cols-5" : "lg:grid-cols-4"} gap-px mt-20 bg-black/5`}>
+
+                  {service.deliverables.map((d, i) =>
+                  <motion.div
+                    key={i}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeUp}
+                    custom={i}
+                    className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300">
+
                       <span className="text-xs font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
                       <h4 className="text-black font-bold mt-2 text-sm">{d.title}</h4>
                       <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
                     </motion.div>
-                  ))}
+                  )}
                 </div>
               </div>
-            </section>
-          );
+            </section>);
+
         })}
         {/* ═══════════════════════════════════════════════════════
-        INTEGRATION & ÜBERGEORDNETER LAB-EFFEKT
-        ═══════════════════════════════════════════════════════ */}
+          INTEGRATION & ÜBERGEORDNETER LAB-EFFEKT
+          ═══════════════════════════════════════════════════════ */}
         <section className="relative py-24 sm:py-32 lg:py-40 bg-white overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div
@@ -383,8 +383,8 @@ const Lab = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="mb-12"
-            >
+              className="mb-12">
+
               <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-amber-500">
                 Das Ergebnis
               </span>
@@ -395,37 +395,37 @@ const Lab = () => {
                     background: "linear-gradient(to right, #fde047, #fbbf24)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
+                    backgroundClip: "text"
+                  }}>
+
                   Effekt.
                 </span>
               </h2>
             </motion.div>
             <LabInfrastructureGrid
               items={[
-                {
-                  title: "Produktive Systeme statt Einzelautomationen",
-                  description: "Anstatt Insellösungen, eine zusammenhängende operative Infrastruktur.",
-                },
-                {
-                  title: "Ownership statt Abhängigkeit",
-                  description: "Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie.",
-                },
-                {
-                  title: "Technologie als steuerbares Unternehmenssystem",
-                  description: "Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung.",
-                },
-                {
-                  title: "Skalierung ohne steigende Komplexität",
-                  description: "Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen.",
-                },
-                {
-                  title: "Integration bestehender Systeme",
-                  description: "Bestehende Systeme werden verbunden statt ersetzt. Daten laufen automatisch, Prozesse sind zentral steuerbar.",
-                },
-              ]}
-            />
+              {
+                title: "Produktive Systeme statt Einzelautomationen",
+                description: "Anstatt Insellösungen, eine zusammenhängende operative Infrastruktur."
+              },
+              {
+                title: "Ownership statt Abhängigkeit",
+                description: "Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie."
+              },
+              {
+                title: "Technologie als steuerbares Unternehmenssystem",
+                description: "Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung."
+              },
+              {
+                title: "Skalierung ohne steigende Komplexität",
+                description: "Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen."
+              },
+              {
+                title: "Integration bestehender Systeme",
+                description: "Bestehende Systeme werden verbunden statt ersetzt. Daten laufen automatisch, Prozesse sind zentral steuerbar."
+              }]
+              } />
+
           </div>
         </section>
 
@@ -435,20 +435,20 @@ const Lab = () => {
             <motion.div
               initial={{
                 opacity: 0,
-                y: 30,
+                y: 30
               }}
               whileInView={{
                 opacity: 1,
-                y: 0,
+                y: 0
               }}
               viewport={{
-                once: true,
+                once: true
               }}
               transition={{
-                duration: 0.6,
+                duration: 0.6
               }}
-              className="text-left mb-12"
-            >
+              className="text-left mb-12">
+
               <h2 className="text-h1 font-bold mb-2 text-black">Meet Our Agents</h2>
               <p className="text-base sm:text-lg lg:text-xl max-w-3xl text-gray-700 leading-relaxed">
                 In unseren Projekten arbeiten KI-Agenten Seite an Seite mit Menschen – sie automatisieren Workflows,
@@ -462,82 +462,82 @@ const Lab = () => {
               {/* Left: Accordion List */}
               <div className="space-y-1">
                 {[
-                  {
-                    name: "Riley",
-                    subtitle: "Wissensagent",
-                    icon: Lightbulb,
-                    gradient: "from-purple-500 to-blue-500",
-                    description:
-                      "Riley nutzt Retrieval-Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten.",
-                    video: "/assets/products-hero-video.mp4",
-                  },
-                  {
-                    name: "Liam",
-                    subtitle: "Lead-Gen-Agent",
-                    icon: Bot,
-                    gradient: "from-purple-500 to-pink-500",
-                    description:
-                      "Liam automatisiert Ihre Lead-Generierung. Er kombiniert Chatbots, Segmentierung, Predictive Lead Scoring und automatisierte E-Mail-Kampagnen. Dadurch identifiziert und pflegt er wertvolle Kontakte, während Ihr Vertrieb sich auf Abschlüsse konzentriert.",
-                    video: "/assets/liam-video.mp4",
-                  },
-                  {
-                    name: "Vera",
-                    subtitle: "Voice-Agent",
-                    icon: Phone,
-                    gradient: "from-green-500 to-emerald-500",
-                    description:
-                      "Vera ist Ihre smarte Telefon-Assistentin. Sie nimmt Anrufe rund um die Uhr entgegen, automatisiert Routinegespräche, beantwortet Fragen und leitet komplexe Anliegen an Ihr Team weiter. Voice-AI-Lösungen können hohe Anrufvolumina bewältigen.",
-                    video: "/assets/vera-agent-video.mp4",
-                  },
-                  {
-                    name: "Cora",
-                    subtitle: "Content-Agent",
-                    icon: FileText,
-                    gradient: "from-amber-500 to-orange-500",
-                    description:
-                      "Cora erstellt und optimiert Inhalte für Blogs, Social Media und E-Mail-Newsletter. AI-Content-Agenten sparen Zeit, verbessern die Qualität und sorgen für konsistente Texte. Cora analysiert Keyword-Trends und generiert SEO-optimierte Texte.",
-                    video: "/assets/cora-agent-video.mp4",
-                  },
-                ].map((agent, index) => {
+                {
+                  name: "Riley",
+                  subtitle: "Wissensagent",
+                  icon: Lightbulb,
+                  gradient: "from-purple-500 to-blue-500",
+                  description:
+                  "Riley nutzt Retrieval-Augmented Generation (RAG), um präzise, kontextbezogene Antworten aus Ihrer firmeneigenen Wissensbasis zu liefern. Er durchsucht Dokumente, Handbücher und FAQs, extrahiert relevante Informationen und formuliert daraus verständliche Antworten.",
+                  video: "/assets/products-hero-video.mp4"
+                },
+                {
+                  name: "Liam",
+                  subtitle: "Lead-Gen-Agent",
+                  icon: Bot,
+                  gradient: "from-purple-500 to-pink-500",
+                  description:
+                  "Liam automatisiert Ihre Lead-Generierung. Er kombiniert Chatbots, Segmentierung, Predictive Lead Scoring und automatisierte E-Mail-Kampagnen. Dadurch identifiziert und pflegt er wertvolle Kontakte, während Ihr Vertrieb sich auf Abschlüsse konzentriert.",
+                  video: "/assets/liam-video.mp4"
+                },
+                {
+                  name: "Vera",
+                  subtitle: "Voice-Agent",
+                  icon: Phone,
+                  gradient: "from-green-500 to-emerald-500",
+                  description:
+                  "Vera ist Ihre smarte Telefon-Assistentin. Sie nimmt Anrufe rund um die Uhr entgegen, automatisiert Routinegespräche, beantwortet Fragen und leitet komplexe Anliegen an Ihr Team weiter. Voice-AI-Lösungen können hohe Anrufvolumina bewältigen.",
+                  video: "/assets/vera-agent-video.mp4"
+                },
+                {
+                  name: "Cora",
+                  subtitle: "Content-Agent",
+                  icon: FileText,
+                  gradient: "from-amber-500 to-orange-500",
+                  description:
+                  "Cora erstellt und optimiert Inhalte für Blogs, Social Media und E-Mail-Newsletter. AI-Content-Agenten sparen Zeit, verbessern die Qualität und sorgen für konsistente Texte. Cora analysiert Keyword-Trends und generiert SEO-optimierte Texte.",
+                  video: "/assets/cora-agent-video.mp4"
+                }].
+                map((agent, index) => {
                   const isOpen = selectedAgent === agent.name;
                   return (
                     <motion.div
                       key={agent.name}
                       initial={{
                         opacity: 0,
-                        y: 10,
+                        y: 10
                       }}
                       whileInView={{
                         opacity: 1,
-                        y: 0,
+                        y: 0
                       }}
                       viewport={{
-                        once: true,
+                        once: true
                       }}
                       transition={{
                         duration: 0.3,
-                        delay: index * 0.05,
+                        delay: index * 0.05
                       }}
-                      className="border-b border-gray-200 last:border-b-0"
-                    >
+                      className="border-b border-gray-200 last:border-b-0">
+
                       {/* Accordion Header */}
                       <button
                         onClick={() => setSelectedAgent(isOpen ? "" : agent.name)}
-                        className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity"
-                      >
+                        className="w-full py-5 px-0 flex items-center justify-between text-left hover:opacity-70 transition-opacity">
+
                         <h3 className="text-xl sm:text-2xl font-bold text-black">{agent.name}</h3>
                         <motion.svg
                           animate={{
-                            rotate: isOpen ? 180 : 0,
+                            rotate: isOpen ? 180 : 0
                           }}
                           transition={{
-                            duration: 0.3,
+                            duration: 0.3
                           }}
                           className="w-5 h-5 text-gray-500 flex-shrink-0 ml-4"
                           fill="none"
                           viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
+                          stroke="currentColor">
+
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </motion.svg>
                       </button>
@@ -547,20 +547,20 @@ const Lab = () => {
                         initial={false}
                         animate={{
                           height: isOpen ? "auto" : 0,
-                          opacity: isOpen ? 1 : 0,
+                          opacity: isOpen ? 1 : 0
                         }}
                         transition={{
                           duration: 0.3,
-                          ease: "easeInOut",
+                          ease: "easeInOut"
                         }}
-                        className="overflow-hidden"
-                      >
+                        className="overflow-hidden">
+
                         <div className="pb-6 pr-8">
                           <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{agent.description}</p>
                         </div>
                       </motion.div>
-                    </motion.div>
-                  );
+                    </motion.div>);
+
                 })}
               </div>
 
@@ -568,40 +568,40 @@ const Lab = () => {
               <div className="lg:sticky lg:top-24">
                 {(() => {
                   const agents = [
-                    {
-                      name: "Riley",
-                      video: "/assets/products-hero-video.mp4",
-                    },
-                    {
-                      name: "Liam",
-                      video: "/assets/liam-video.mp4",
-                    },
-                    {
-                      name: "Vera",
-                      video: "/assets/vera-agent-video.mp4",
-                    },
-                    {
-                      name: "Cora",
-                      video: "/assets/cora-agent-video.mp4",
-                    },
-                  ];
+                  {
+                    name: "Riley",
+                    video: "/assets/products-hero-video.mp4"
+                  },
+                  {
+                    name: "Liam",
+                    video: "/assets/liam-video.mp4"
+                  },
+                  {
+                    name: "Vera",
+                    video: "/assets/vera-agent-video.mp4"
+                  },
+                  {
+                    name: "Cora",
+                    video: "/assets/cora-agent-video.mp4"
+                  }];
+
                   const currentAgent = agents.find((a) => a.name === selectedAgent) || agents[0];
                   return (
                     <motion.div
                       key={currentAgent.name}
                       initial={{
                         opacity: 0,
-                        scale: 0.95,
+                        scale: 0.95
                       }}
                       animate={{
                         opacity: 1,
-                        scale: 1,
+                        scale: 1
                       }}
                       transition={{
-                        duration: 0.4,
+                        duration: 0.4
                       }}
-                      className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-100"
-                    >
+                      className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
+
                       <LazyVideo
                         key={currentAgent.video}
                         src={currentAgent.video}
@@ -610,10 +610,10 @@ const Lab = () => {
                         muted
                         playsInline
                         preload="none"
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                    </motion.div>
-                  );
+                        className="absolute inset-0 w-full h-full object-cover" />
+
+                    </motion.div>);
+
                 })()}
               </div>
             </div>
@@ -628,19 +628,19 @@ const Lab = () => {
               <motion.div
                 initial={{
                   opacity: 0,
-                  y: 20,
+                  y: 20
                 }}
                 whileInView={{
                   opacity: 1,
-                  y: 0,
+                  y: 0
                 }}
                 viewport={{
-                  once: true,
+                  once: true
                 }}
                 transition={{
-                  duration: 0.6,
-                }}
-              >
+                  duration: 0.6
+                }}>
+
                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black leading-[1.1] text-black">
                   Lab Cases.
                   <br />
@@ -649,9 +649,9 @@ const Lab = () => {
                       background: "linear-gradient(to right, #fde047, #fbbf24)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
+                      backgroundClip: "text"
+                    }}>
+
                     Technologie, die liefert.
                   </span>
                 </h2>
@@ -660,25 +660,25 @@ const Lab = () => {
               <motion.div
                 initial={{
                   opacity: 0,
-                  y: 20,
+                  y: 20
                 }}
                 whileInView={{
                   opacity: 1,
-                  y: 0,
+                  y: 0
                 }}
                 viewport={{
-                  once: true,
+                  once: true
                 }}
                 transition={{
                   duration: 0.6,
-                  delay: 0.2,
+                  delay: 0.2
                 }}
-                className="hidden md:block"
-              >
+                className="hidden md:block">
+
                 <Link
                   to="/case-studies"
-                  className="inline-flex items-center gap-2 text-sm lg:text-lg font-bold text-black hover:text-[#fbbf24] transition-colors duration-300"
-                >
+                  className="inline-flex items-center gap-2 text-sm lg:text-lg font-bold text-black hover:text-[#fbbf24] transition-colors duration-300">
+
                   ALLE CASES
                   <ArrowUpRight className="w-5 h-5 lg:w-6 lg:h-6" />
                 </Link>
@@ -688,57 +688,57 @@ const Lab = () => {
             {/* Cases Grid */}
             <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4">
               {[
-                {
-                  id: "retail-lab",
-                  client: "TRY KMU",
-                  headline: "RAG-Wissensagent für Maschinenbau",
-                  category: "AI AUTOMATION",
-                  route: "/case-study/retail-lab",
-                  image: ragDatacenterImage,
-                },
-                {
-                  id: "ecommerce",
-                  client: "RETAIL CLIENT",
-                  headline: "Marketing-Automatisierung mit KI",
-                  category: "WACHSTUM",
-                  route: "/case-study/ecommerce",
-                  image: marketingAutomationImage,
-                },
-                {
-                  id: "social-media",
-                  client: "B2B SALES",
-                  headline: "Intelligente Lead-Qualifizierung",
-                  category: "SALES",
-                  route: "/case-study/social-media",
-                  image: leadGenerationImage,
-                },
-              ].map((caseStudy, index) => (
-                <motion.div
-                  key={caseStudy.id}
-                  initial={{
-                    opacity: 0,
-                    y: 30,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1,
-                  }}
-                  className="flex-shrink-0 w-[65%] snap-start md:w-auto"
-                >
+              {
+                id: "retail-lab",
+                client: "TRY KMU",
+                headline: "RAG-Wissensagent für Maschinenbau",
+                category: "AI AUTOMATION",
+                route: "/case-study/retail-lab",
+                image: ragDatacenterImage
+              },
+              {
+                id: "ecommerce",
+                client: "RETAIL CLIENT",
+                headline: "Marketing-Automatisierung mit KI",
+                category: "WACHSTUM",
+                route: "/case-study/ecommerce",
+                image: marketingAutomationImage
+              },
+              {
+                id: "social-media",
+                client: "B2B SALES",
+                headline: "Intelligente Lead-Qualifizierung",
+                category: "SALES",
+                route: "/case-study/social-media",
+                image: leadGenerationImage
+              }].
+              map((caseStudy, index) =>
+              <motion.div
+                key={caseStudy.id}
+                initial={{
+                  opacity: 0,
+                  y: 30
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0
+                }}
+                viewport={{
+                  once: true
+                }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1
+                }}
+                className="flex-shrink-0 w-[65%] snap-start md:w-auto">
+
                   <Link to={caseStudy.route} className="block group">
                     <div className="relative overflow-hidden aspect-square bg-gray-100">
                       <img
-                        src={caseStudy.image}
-                        alt={caseStudy.headline}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
+                      src={caseStudy.image}
+                      alt={caseStudy.headline}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+
                       <div className="absolute inset-0 bg-black/20" />
 
                       <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
@@ -764,7 +764,7 @@ const Lab = () => {
                     </div>
                   </Link>
                 </motion.div>
-              ))}
+              )}
             </div>
           </div>
         </section>
@@ -782,8 +782,8 @@ const Lab = () => {
               id="projekt-besprechen-btn"
               size="lg"
               className="bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-semibold text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 transition-all duration-300 hover:-translate-y-0.5 rounded-none"
-              onClick={() => setIsModalOpen(true)}
-            >
+              onClick={() => setIsModalOpen(true)}>
+
               Kontakt aufnehmen
             </Button>
           </div>
@@ -800,9 +800,9 @@ const Lab = () => {
         accentColor="#fde047"
         gradientFrom="#fde047"
         gradientTo="#fbbf24"
-        theme="lab"
-      />
-    </>
-  );
+        theme="lab" />
+
+    </>);
+
 };
 export default Lab;
