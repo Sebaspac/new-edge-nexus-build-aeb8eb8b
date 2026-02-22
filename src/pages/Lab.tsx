@@ -217,17 +217,15 @@ const Lab = () => {
         <section className="relative bg-white py-24 sm:py-32 lg:py-40 overflow-hidden border-b border-black/5">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
             {/* Label */}
-            
-
-
-
-
-
-
-
-
-
-
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-black/40 mb-6"
+            >
+              Lab
+            </motion.span>
 
             {/* Headline */}
             <motion.h2
@@ -235,20 +233,12 @@ const Lab = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] tracking-tight mb-12 lg:mb-16">
-
+              className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] tracking-tight mb-12 lg:mb-16"
+            >
               Systeme statt{" "}
-              
-
-
-
-
-
-
-
-
-
-
+              <span className="bg-gradient-to-r from-yellow-300 to-amber-400 bg-clip-text text-transparent italic">
+                Chaos
+              </span>
             </motion.h2>
 
             {/* Description */}
