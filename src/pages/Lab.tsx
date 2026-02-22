@@ -706,7 +706,7 @@ const Lab = () => {
         <section className="py-12 sm:py-16 relative overflow-hidden bg-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
             <h2 className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[56px] font-bold mb-4 sm:mb-6 text-gray-900">
-              Bereit für Kontrolle?
+              Werde mit uns Teil der digitalen Revolution für dein Business.
             </h2>
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-600">
               Lab ist kein Projektgeschäft. Lab ist Systembau.
