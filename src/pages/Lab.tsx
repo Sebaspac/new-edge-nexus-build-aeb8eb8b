@@ -222,7 +222,7 @@ const Lab = () => {
           { title: "Ownership statt Abhängigkeit", description: "Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie." },
           { title: "Technologie als steuerbares Unternehmenssystem", description: "Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung." },
           { title: "Skalierung ohne steigende Komplexität", description: "Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen." },
-          { title: "Integration bestehender Systeme", description: "Bestehende Tools und Plattformen werden in eine gemeinsame Systemlogik integriert – ohne funktionierende Strukturen zu zerstören. Datenflüsse laufen automatisch, Prozesse werden zentral steuerbar." }]
+          { title: "Integration bestehender Systeme", description: "Bestehende Systeme werden verbunden statt ersetzt.\nDaten laufen automatisch, Prozesse sind zentral steuerbar." }]
           } />
           </div>
         </section>
