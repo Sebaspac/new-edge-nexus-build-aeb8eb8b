@@ -54,19 +54,19 @@ export const LabInfrastructureGrid: React.FC<LabInfrastructureGridProps> = ({ it
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
-            className="bg-white p-8 sm:p-10 group hover:bg-gray-50/80 transition-all duration-500 relative"
+            className="bg-white p-5 sm:p-6 group hover:bg-gray-50/80 transition-all duration-500 relative"
           >
-            <div className="flex items-start gap-4">
-              <div className={`flex-shrink-0 w-10 h-10 rounded-full border ${borderColor} ${bgColor} flex items-center justify-center`}>
-                <span className={`text-xs font-mono font-bold ${textColor}`}>
+            <div className="flex items-start gap-3">
+              <div className={`flex-shrink-0 w-8 h-8 rounded-full border ${borderColor} ${bgColor} flex items-center justify-center`}>
+                <span className={`text-[10px] font-mono font-bold ${textColor}`}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
               <div className="flex-1 min-w-0">
-                <h4 className="text-black font-bold text-base sm:text-lg leading-snug">
+                <h4 className="text-black font-bold text-sm sm:text-base leading-snug">
                   {item.title}
                 </h4>
-                <p className="text-black/45 text-sm sm:text-base mt-2 leading-relaxed">
+                <p className="text-black/45 text-xs sm:text-sm mt-1.5 leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -98,19 +98,19 @@ export const LabInfrastructureGrid: React.FC<LabInfrastructureGridProps> = ({ it
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: (i + 3) * 0.1 }}
-            className="bg-white p-8 sm:p-10 group hover:bg-gray-50/80 transition-all duration-500 relative"
+            className="bg-white p-5 sm:p-6 group hover:bg-gray-50/80 transition-all duration-500 relative"
           >
-            <div className="flex items-start gap-4">
-              <div className={`flex-shrink-0 w-10 h-10 rounded-full border ${borderColor} ${bgColor} flex items-center justify-center`}>
-                <span className={`text-xs font-mono font-bold ${textColor}`}>
+            <div className="flex items-start gap-3">
+              <div className={`flex-shrink-0 w-8 h-8 rounded-full border ${borderColor} ${bgColor} flex items-center justify-center`}>
+                <span className={`text-[10px] font-mono font-bold ${textColor}`}>
                   {String(i + 4).padStart(2, "0")}
                 </span>
               </div>
               <div className="flex-1 min-w-0">
-                <h4 className="text-black font-bold text-base sm:text-lg leading-snug">
+                <h4 className="text-black font-bold text-sm sm:text-base leading-snug">
                   {item.title}
                 </h4>
-                <p className="text-black/45 text-sm sm:text-base mt-2 leading-relaxed">
+                <p className="text-black/45 text-xs sm:text-sm mt-1.5 leading-relaxed">
                   {item.description}
                 </p>
               </div>
