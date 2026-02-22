@@ -244,23 +244,19 @@ const Lab = () => {
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-black">
                   Übergeordneter Lab‑Effekt
                 </h3>
-                <div className="space-y-5">
-                  <div>
-                    <h4 className="text-sm font-bold text-black">Produktive Systeme statt Einzelautomationen</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed mt-1">Es entstehen keine Insellösungen, sondern eine zusammenhängende operative Infrastruktur.</p>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-black">Ownership statt Abhängigkeit</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed mt-1">Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie.</p>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-black">Technologie als steuerbares Unternehmenssystem</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed mt-1">Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung.</p>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-black">Skalierung ohne steigende Komplexität</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed mt-1">Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen.</p>
-                  </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-black/5">
+                  {[
+                    { title: "Produktive Systeme statt Einzelautomationen", description: "Es entstehen keine Insellösungen, sondern eine zusammenhängende operative Infrastruktur." },
+                    { title: "Ownership statt Abhängigkeit", description: "Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie." },
+                    { title: "Technologie als steuerbares Unternehmenssystem", description: "Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung." },
+                    { title: "Skalierung ohne steigende Komplexität", description: "Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen." },
+                  ].map((d, i) => (
+                    <div key={i} className="bg-white p-6 group hover:bg-gray-50 transition-colors duration-300">
+                      <span className="text-xs font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
+                      <h4 className="text-black font-bold mt-2 text-sm">{d.title}</h4>
+                      <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
             </div>
