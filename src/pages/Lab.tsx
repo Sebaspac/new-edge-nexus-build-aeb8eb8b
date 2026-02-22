@@ -355,7 +355,9 @@ const Lab = () => {
                 },
                 {
                   title: "Integration bestehender Systeme",
-                  description: "Bestehende Systeme werden verbunden statt ersetzt. Daten laufen automatisch, Prozesse sind zentral steuerbar.",
+                  description:
+                    "Bestehende Systeme werden verbunden statt ersetzt.
+Daten laufen automatisch, Prozesse sind zentral steuerbar.",
                 },
               ]}
             />
@@ -709,7 +711,7 @@ const Lab = () => {
               Bereit für die digitale Revolution?
             </h2>
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-600">
-              Lab ist kein Projektgeschäft. Lab ist Systembau.
+              Gemeinsam entwickeln wir die operative Infrastruktur & automatisierte Systeme Systeme, die deine Daten unter Kontrolle bringen und deine KI produktiv machen.
             </p>
             <Button
               id="projekt-besprechen-btn"
