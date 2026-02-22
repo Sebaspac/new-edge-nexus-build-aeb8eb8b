@@ -58,10 +58,10 @@ const Lab = () => {
     solution: "Wir automatisieren operative Aufgaben und Prozesse end-to-end – pragmatisch, stabil und skalierbar. Dabei setzen wir dort KI ein, wo sie einen echten Mehrwert bringt, und kombinieren sie mit klassischen Automationen.",
     animation: <ProcessAutomationAnimation />,
     deliverables: [
-    { title: "End-to-End-Workflows", description: "Durchgängige Prozesse ohne manuelle Übergaben zwischen Tools oder Teams." },
-    { title: "KI-gestützte Prozessschritte", description: "Einsatz von KI für Klassifikation, Priorisierung und Entscheidungsunterstützung." },
-    { title: "Systemintegration", description: "Anbindung von CRM, Support-, Ops- oder internen Tools in konsistente Automationslogik." },
-    { title: "Stabile Prozesslogik", description: "Klare Abläufe, definierte Ausnahmen und nachvollziehbare Ergebnisse." }]
+    { title: "Operative Entlastung durch End-to-End-Workflows", description: "Manuelle Abläufe werden in stabile Prozesse übersetzt, die systemübergreifend laufen." },
+    { title: "Skalierbare Prozesslogik statt Tool-Flickwerk", description: "Workflows folgen einer klaren Architektur, unabhängig von einzelnen Tools." },
+    { title: "KI dort, wo sie echten Hebel hat", description: "KI wird gezielt für Klassifikation, Priorisierung und Entscheidungsunterstützung eingesetzt – nicht als Gimmick." },
+    { title: "Transparenz & Kontrolle über Ergebnisse", description: "Automatisierungen bleiben nachvollziehbar, steuerbar und auditierbar." }]
 
   }, {
     number: "02",
@@ -70,10 +70,11 @@ const Lab = () => {
     solution: "Wir bauen interne Systeme, die Software, Daten und KI unter eine gemeinsame, kontrollierbare Architektur bringen – inklusive eigener LLM- und GPU-Infrastruktur.",
     animation: <TrackingAnalyticsAnimation />,
     deliverables: [
-    { title: "Interne Dashboards & Tools", description: "Maßgeschneiderte Anwendungen zur Abbildung kritischer Unternehmensfunktionen." },
-    { title: "Eigene Datenlogik", description: "Selbst kontrollierte Datenstrukturen, Schnittstellen und Verarbeitungslogik." },
-    { title: "Interne KI- & LLM-Systeme", description: "Deployment firmeneigener Sprachmodelle für interne Use Cases." },
-    { title: "GPU-Infrastruktur & Betrieb", description: "Aufbau eigener oder isolierter Rechenkapazitäten für KI-Workloads." }]
+    { title: "Eigene Systeme statt SaaS-Abhängigkeit", description: "Kritische Funktionen werden intern kontrollierbar aufgebaut." },
+    { title: "Datenhoheit als Grundlage", description: "Datenflüsse, Logik und Zugriff bleiben im Unternehmen." },
+    { title: "Interne KI für sensible Bereiche", description: "Modelle können isoliert und kontrolliert betrieben werden." },
+    { title: "Planbare Kosten & Unabhängigkeit", description: "Weniger Vendor-Lock-in, weniger laufende Toolkosten." },
+    { title: "Weiterentwickelbar aus eigener Kraft", description: "Systeme sind so gebaut, dass sie intern ausgebaut werden können." }]
 
   }, {
     number: "03",
@@ -82,10 +83,10 @@ const Lab = () => {
     solution: "Wir bauen Websites als funktionale Knotenpunkte innerhalb der Systemarchitektur – skalierbar, integriert und wartbar.",
     animation: <WebSystemsAnimation />,
     deliverables: [
-    { title: "Technische Web-Architektur", description: "Skalierbare und wartbare technische Grundstruktur." },
-    { title: "CMS & Datenlogik", description: "Content-Management mit klarer Datenstruktur und API-Anbindung." },
-    { title: "System-Integrationen", description: "Nahtlose Verbindung zu CRM, ERP und Automatisierungssystemen." },
-    { title: "Skalierbarkeit & Sicherheit", description: "Performante, sichere und zukunftsfähige Infrastruktur." }]
+    { title: "Plattform statt Website", description: "Digitale Präsenz wird als System gebaut – nicht als Einzelprojekt." },
+    { title: "Conversion durch Struktur, nicht durch Hacks", description: "Informationsarchitektur und Journey-Logik reduzieren Reibung und erhöhen Abschlusswahrscheinlichkeit." },
+    { title: "Messbarkeit als Standard", description: "Tracking- und Datenlogik sind integriert und wartbar." },
+    { title: "Direkte Anschlussfähigkeit an Systeme", description: "Web wird Einstiegspunkt in CRM, Automationen und Agenten." }]
 
   }];
 
@@ -179,7 +180,7 @@ const Lab = () => {
                     </motion.div>
                   </div>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-20 bg-black/5">
+                <div className={`grid grid-cols-1 sm:grid-cols-2 ${service.deliverables.length === 5 ? 'lg:grid-cols-5' : 'lg:grid-cols-4'} gap-px mt-20 bg-black/5`}>
                   {service.deliverables.map((d, i) =>
                 <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
                 className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300">
