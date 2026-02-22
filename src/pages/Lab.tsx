@@ -608,69 +608,29 @@ const Lab = () => {
         </section>
 
         {/* Lab Cases Section */}
-        <section className="relative py-8 md:py-12 lg:py-16 bg-white overflow-hidden">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            {/* Header */}
-            <div className="flex items-end justify-between mb-4 md:mb-8">
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0
-                }}
-                viewport={{
-                  once: true
-                }}
-                transition={{
-                  duration: 0.6
-                }}>
-
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black leading-[1.1] text-black">
-                  Lab Cases.
-                  <br />
-                  <span
-                    style={{
+        <section className="relative py-16 sm:py-24 bg-white overflow-hidden">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+              <div className="flex items-end justify-between mb-8">
+                <div>
+                  <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Case Study</span>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black mt-2">
+                    Lab Cases.{" "}
+                    <span style={{
                       background: "linear-gradient(to right, #fde047, #fbbf24)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text"
                     }}>
-
-                    Technologie, die liefert.
-                  </span>
-                </h2>
-              </motion.div>
-
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0
-                }}
-                viewport={{
-                  once: true
-                }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.2
-                }}
-                className="hidden md:block">
-
-                <Link
-                  to="/case-studies"
-                  className="inline-flex items-center gap-2 text-sm lg:text-lg font-bold text-black hover:text-[#fbbf24] transition-colors duration-300">
-
-                  ALLE CASES
-                  <ArrowUpRight className="w-5 h-5 lg:w-6 lg:h-6" />
+                      Technologie, die liefert.
+                    </span>
+                  </h2>
+                </div>
+                <Link to="/case-studies" className="hidden md:inline-flex items-center gap-2 text-sm font-bold text-black hover:text-[#fbbf24] transition-colors">
+                  ALLE CASES <ArrowUpRight className="w-4 h-4" />
                 </Link>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
 
             {/* Cases Grid */}
             <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4">
@@ -752,6 +712,13 @@ const Lab = () => {
                   </Link>
                 </motion.div>
               )}
+            </div>
+
+            {/* Mobile link */}
+            <div className="md:hidden mt-6 text-center">
+              <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm font-bold text-black hover:text-[#fbbf24] transition-colors">
+                ALLE CASES <ArrowUpRight className="w-5 h-5" />
+              </Link>
             </div>
           </div>
         </section>
