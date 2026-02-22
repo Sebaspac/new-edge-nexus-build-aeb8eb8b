@@ -1,93 +1,91 @@
 
 
-# Studio-Seite: Komplettes Redesign mit neuer Scroll-Architektur
+# Studio-Seite: Einheitliches Modul-Design fuer alle Services
 
-## Analyse der Probleme
+## Problem
 
-Die aktuelle Seite wirkt wie ein Template -- alle drei Services nutzen dasselbe ServiceScrollSection-Raster (Video + Text nebeneinander), dieselben roten/blauen Boxen, dieselbe Struktur. Es gibt keinen visuellen Fluss, keine Storytelling-Architektur und keinen modernen Scroll-Ansatz. Die Seite sieht aus wie drei Kopien desselben Blocks.
+Die drei Service-Sektionen auf der Studio-Seite haben aktuell drei komplett unterschiedliche Layouts:
+- **Service 01**: 2-Spalten-Grid (Text links, Animation rechts), Deliverables als 4-Spalten-Karten
+- **Service 02**: Zentrierter Titel, Problem/Loesung als 2-Spalten-Box, Animation zentriert, Deliverables als nummerierte Timeline
+- **Service 03**: Umgekehrtes 2-Spalten-Grid (Animation links, Text rechts), Deliverables als gestapelte Liste
 
----
-
-## Neues Konzept: "Clarity Flow"
-
-Die Seite wird als durchgehende visuelle Reise aufgebaut, die den Nutzer durch die drei Phasen von Studio fuehrt. Jede Sektion hat ein einzigartiges Layout und eine eigene visuelle Sprache.
-
----
-
-## Sektionsarchitektur (von oben nach unten)
-
-### 1. Hero -- Immersiver Vollbild-Hero mit Claim
-- Video-Hintergrund bleibt
-- NEU: Grosser Claim "Klarheit vor Umsetzung." prominent unter dem Titel
-- NEU: Animierter Scroll-Indikator (ChevronDown mit Bounce-Animation)
-- Entfernung der leeren Zeilen im aktuellen Code
-
-### 2. Manifesto-Statement (ersetzt "STUDIO POWER")
-- Full-width, zentriertes Statement-Layout
-- Grosse Headline: "Bevor Systeme gebaut werden, muss Klarheit geschaffen werden."
-- Darunter: Drei kompakte Pillars nebeneinander als Karten mit Nummern (01, 02, 03)
-  - "Marke" -- "Identitaet als Systemgrundlage"
-  - "KI-Readiness" -- "Entscheidungsfaehigkeit vor Einsatz"  
-  - "Kommunikation" -- "Struktur statt Silos"
-- Minimalistisch, viel Weissraum, typografisch stark
-
-### 3. Service 1: Brand Identity -- Dunkle Full-Width Sektion
-- **Hintergrund: bg-slate-950 (schwarz/dunkel)**, kontrastiert stark zur weissen Seite
-- Layout: Grosser Service-Nummer "01" als dekoratives Element (text-[120px], Outline-Stil, halbtransparent)
-- Titel in Weiss, Problem/Loesung als zwei schlanke Spalten nebeneinander (nicht als farbige Boxen)
-- BrandStrategyAnimation rechts daneben (sticky auf Desktop)
-- Deliverables als horizontale Karten-Reihe am unteren Rand (4 Karten, weisser Text auf dunklem Grund)
-- Kein Video mehr -- die Animation allein traegt die visuelle Kommunikation
-
-### 4. Service 2: KI Enablement & Audit -- Weisse Sektion, zentriert
-- **Hintergrund: bg-white**
-- Grosses "02" dekorativ
-- Titel zentriert, darunter Problem und Loesung als zwei Spalten mit subtiler Linie dazwischen
-- KiAuditAnimation zentriert darunter, volle Breite
-- Deliverables als nummerierte horizontale Timeline-Steps (1 -> 2 -> 3 -> 4 mit Linien)
-
-### 5. Service 3: Kommunikationsarchitektur -- Helle graue Sektion
-- **Hintergrund: bg-gray-50**
-- Grosses "03" dekorativ
-- Umgekehrtes Layout: Animation links (sticky), Text rechts
-- Deliverables als gestapelte, minimalistische Zeilen mit Hover-Effekt
-
-### 6. Case Study -- Full-Width Feature
-- Statt 4-Col-Grid mit einem kleinen Bild: Full-width Feature-Card
-- Grosses Bild (aspect-[21/9]) mit Overlay-Gradient und Text-Overlay
-- "ALBANOVA" Case prominent praesentiert
-- Hover zeigt CTA
-
-### 7. CTA -- Staerker und Design-System-konform
-- Text: "Bereit fuer die Zukunft?" (gemaess Design-System Memory)
-- Subtext: "New Edge steht fuer Innovation und nachhaltige Entwicklung. Gemeinsam gestalten wir die Zukunft von Marken und Prozessen."
-- Liquid-Glass Button
+Das wirkt **nicht wie eine einheitliche CI**, sondern wie zusammengewuerfelte Module. Professionelle Seiten nutzen ein einheitliches Modul-System mit klarer Wiederholung.
 
 ---
 
-## Technische Details
+## Loesung: Ein einheitliches Service-Modul
 
-### Dateien die geaendert werden:
+Alle drei Services bekommen **exakt dasselbe Layout-System**, nur mit alternierenden Positionen (links/rechts) fuer visuellen Rhythmus.
 
-**`src/pages/Studio.tsx`** -- Kompletter Umbau:
-- ServiceScrollSection wird nicht mehr verwendet (Import entfernt)
-- LazyVideo wird nur noch im Hero verwendet (kein Video pro Service)
-- Jeder Service bekommt eine eigene, handgefertigte Sektion
-- Die Animations-Komponenten (BrandStrategyAnimation, KiAuditAnimation, BrandIdentityAnimation) bleiben und werden direkt eingebettet
-- Framer Motion Scroll-Animationen fuer jede Sektion individuell
-- Service-Daten bleiben als Array, aber das Rendering ist pro Service individuell
-- Dekorative Nummern ("01", "02", "03") als grosse, halbtransparente Typografie-Elemente
-- Problem/Loesung nicht mehr als farbige Boxen, sondern als saubere Typografie-Paare
-- Deliverables je nach Service anders dargestellt (Karten, Timeline, Liste)
+### Einheitliches Modul-Layout pro Service:
 
-### Design-System-Konformitaet:
-- Hard-Edge: rounded-none ueberall
-- Liquid-Glass Buttons
-- Studio-Palette: Indigo (#6366f1) bis Purple (#a855f7)
-- Keine abgerundeten Ecken bei Karten, Buttons, Containern
-- CTA-Text gemaess Memory
+```text
++------------------------------------------------------------------+
+|  Service [Nummer]                                                 |
+|                                                                   |
+|  +---------------------------+  +-----------------------------+   |
+|  |                           |  |                             |   |
+|  |  [Titel]                  |  |  [Animation]                |   |
+|  |                           |  |                             |   |
+|  |  DAS PROBLEM              |  |                             |   |
+|  |  [Problem-Text]           |  |                             |   |
+|  |                           |  |                             |   |
+|  |  UNSERE LOESUNG           |  |                             |   |
+|  |  [Loesung-Text]           |  |                             |   |
+|  |                           |  |                             |   |
+|  +---------------------------+  +-----------------------------+   |
+|                                                                   |
+|  +--------+  +--------+  +--------+  +--------+                  |
+|  | Del. 01|  | Del. 02|  | Del. 03|  | Del. 04|                  |
+|  +--------+  +--------+  +--------+  +--------+                  |
++------------------------------------------------------------------+
+```
 
-### Keine neuen Abhaengigkeiten oder Dateien noetig
-- Alles in `src/pages/Studio.tsx`
-- Bestehende Komponenten werden weiterverwendet
+- **Service 01**: Text links, Animation rechts
+- **Service 02**: Animation links, Text rechts (alternierend)
+- **Service 03**: Text links, Animation rechts (alternierend)
+
+### Einheitliche Deliverables-Darstellung:
+Alle drei Services nutzen dasselbe 4-Spalten-Karten-Raster (wie aktuell bei Service 01). Keine Timeline, keine Checklisten-Liste -- nur einheitliche Karten.
+
+### Einheitliche Hintergruende:
+Alle drei Sektionen nutzen `bg-white` mit einer feinen `border-b border-black/5` Trennlinie dazwischen. Kein `bg-gray-50` -- rein weiss.
+
+### Einheitliche Typografie und Spacing:
+- Gleiche Service-Label-Formatierung: `text-xs font-mono tracking-widest text-black/30 uppercase`
+- Gleiche Titel-Formatierung: `text-3xl sm:text-4xl lg:text-5xl font-black text-black leading-[1.05]`
+- Gleiche Problem/Loesung-Labels: `text-xs font-bold tracking-widest uppercase mb-3`
+- Problem in `text-red-500/70`, Loesung in `text-indigo-600/70`
+- Gleicher vertikaler Abstand: `py-24 sm:py-32`
+- Gleiche Container-Breite: `max-w-7xl`
+
+### Dekorative Nummern:
+Alle drei mit demselben Stil -- Outline, halbtransparent, `text-[120px] sm:text-[180px] lg:text-[240px]`, `WebkitTextStroke: "1px rgba(99,102,241,0.12)"` -- immer rechts oben positioniert.
+
+---
+
+## Technische Umsetzung
+
+### Datei: `src/pages/Studio.tsx`
+
+Die drei Service-Sektionen (Zeilen 207-411) werden durch eine einheitliche Loop-basierte Rendering-Logik ersetzt:
+
+1. **Daten-Array erweitern**: `studioServices` bekommt ein `animation`-Feld (React-Komponente)
+2. **Einheitliches Rendering**: `studioServices.map()` rendert jede Sektion mit demselben Template
+3. **Alternierende Positionen**: Index gerade = Text links/Animation rechts, Index ungerade = umgekehrt
+4. **Deliverables**: Immer als 4-Spalten-Karten-Grid mit `gap-px bg-black/5` Trennlinien
+
+### Konkrete Aenderungen:
+- Service 02 (KI Enablement): Zentriertes Layout wird zu 2-Spalten-Layout umgebaut
+- Service 03 (Kommunikation): Checkmark-Liste wird zu 4-Spalten-Karten umgebaut
+- Alle `bg-gray-50` Hintergruende werden zu `bg-white`
+- Dekorative Nummern werden einheitlich gestyled
+- Problem/Loesung-Darstellung wird in allen drei Sektionen identisch (gestapelt, nicht nebeneinander bei Service 02)
+
+### Design-System:
+- Hard-Edge (rounded-none) durchgehend
+- Keine farbigen Boxen fuer Problem/Loesung
+- Liquid-Glass Button im CTA
+- Studio-Palette: Indigo bis Purple
+- Einheitliche Abstande und Container-Breiten
 
