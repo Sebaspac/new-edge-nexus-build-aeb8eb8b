@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { BarChart3, LineChart, PieChart, Bell, AlertTriangle, Check, TrendingUp } from "lucide-react";
+import { Server, Layout, Database, Brain, AlertTriangle, Check } from "lucide-react";
 import { useState, useEffect } from "react";
 
 // Professional easing curve
@@ -8,25 +8,25 @@ const elegantEase: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 export const TrackingAnalyticsAnimation = () => {
   const [currentCheck, setCurrentCheck] = useState(0);
   const [checklist, setChecklist] = useState([
-    { id: 1, label: "Data-Audit", checked: false },
-    { id: 2, label: "Dashboard", checked: false },
-    { id: 3, label: "Reporting", checked: false },
-    { id: 4, label: "KI-Analyse", checked: false },
+    { id: 1, label: "Interne Tools", checked: false },
+    { id: 2, label: "Datenlogik", checked: false },
+    { id: 3, label: "LLM-Systeme", checked: false },
+    { id: 4, label: "GPU-Infrastruktur", checked: false },
   ]);
   const [activeDeliverables, setActiveDeliverables] = useState<number[]>([]);
   const [dataPoints, setDataPoints] = useState<number[]>([]);
   const [isInitialized, setIsInitialized] = useState(false);
 
   const deliverables = [
-    { icon: PieChart, label: "Dashboard" },
-    { icon: LineChart, label: "Reports" },
-    { icon: Bell, label: "Alerts" },
-    { icon: TrendingUp, label: "Forecasting" },
+    { icon: Layout, label: "Tools" },
+    { icon: Database, label: "Datenfluss" },
+    { icon: Brain, label: "LLM" },
+    { icon: Server, label: "Infrastruktur" },
   ];
 
   const problems = [
-    { label: "Isolierte Dashboards", delay: 0.6 },
-    { label: "Keine Insights", delay: 0.8 },
+    { label: "SaaS-Abhängigkeit", delay: 0.6 },
+    { label: "Keine Datenkontrolle", delay: 0.8 },
   ];
 
   // Generate chart bar heights
@@ -174,7 +174,7 @@ export const TrackingAnalyticsAnimation = () => {
           }}
           className="w-12 h-12 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center z-10"
         >
-          <BarChart3 className="w-6 h-6 md:w-10 md:h-10 text-white" />
+          <Server className="w-6 h-6 md:w-10 md:h-10 text-white" />
         </motion.div>
       </div>
 
@@ -278,7 +278,7 @@ export const TrackingAnalyticsAnimation = () => {
           className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-orange-400"
         />
         <span className="text-[8px] md:text-xs text-gray-200 font-medium">
-          Daten werden analysiert
+          Eigene Systeme werden aufgebaut
         </span>
       </motion.div>
     </div>
