@@ -58,11 +58,6 @@ const studioServices = [
   },
 ];
 
-const pillars = [
-  { number: "01", label: "Marke", desc: "Identität als Systemgrundlage" },
-  { number: "02", label: "KI-Readiness", desc: "Entscheidungsfähigkeit vor Einsatz" },
-  { number: "03", label: "Kommunikation", desc: "Struktur statt Silos" },
-];
 
 /* ─── Fade-in variant ─── */
 const fadeUp = {
@@ -168,43 +163,6 @@ const Studio = () => {
           </motion.div>
         </section>
 
-        {/* ═══════════════════════════════════════════════════════
-            2. MANIFESTO STATEMENT
-        ═══════════════════════════════════════════════════════ */}
-        <section className="py-24 sm:py-32 lg:py-40 bg-white">
-          <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-6xl">
-            <motion.h2
-              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
-              variants={fadeUp}
-              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.05] text-black max-w-5xl"
-            >
-              Bevor Systeme gebaut werden,{" "}
-              <span style={{
-                background: "linear-gradient(to right, #6366f1, #a855f7)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}>
-                muss Klarheit geschaffen werden.
-              </span>
-            </motion.h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px mt-16 sm:mt-20 bg-black/10">
-              {pillars.map((p, i) => (
-                <motion.div
-                  key={p.number}
-                  initial="hidden" whileInView="visible" viewport={{ once: true }}
-                  variants={fadeUp} custom={i + 1}
-                  className="bg-white p-8 sm:p-10"
-                >
-                  <span className="text-xs font-mono tracking-widest text-black/30">{p.number}</span>
-                  <h3 className="text-xl sm:text-2xl font-black text-black mt-2">{p.label}</h3>
-                  <p className="text-sm text-black/50 mt-2 leading-relaxed">{p.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ═══════════════════════════════════════════════════════
             3-5. UNIFIED SERVICE MODULES
