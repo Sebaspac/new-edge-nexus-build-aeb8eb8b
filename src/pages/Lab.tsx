@@ -212,8 +212,8 @@ const Lab = () => {
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-            INTRO / MANIFESTO SECTION
-            ═══════════════════════════════════════════════════════ */}
+             INTRO / MANIFESTO SECTION
+             ═══════════════════════════════════════════════════════ */}
         <section className="relative bg-white py-24 sm:py-32 lg:py-40 overflow-hidden border-b border-black/5">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
             {/* Label */}
@@ -265,8 +265,8 @@ const Lab = () => {
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-            SERVICE MODULES
-            ═══════════════════════════════════════════════════════ */}
+             SERVICE MODULES
+             ═══════════════════════════════════════════════════════ */}
         {labServices.map((service, idx) => {
           const isReversed = idx % 2 !== 0;
           return (
@@ -361,8 +361,8 @@ const Lab = () => {
 
         })}
         {/* ═══════════════════════════════════════════════════════
-            INTEGRATION & ÜBERGEORDNETER LAB-EFFEKT
-            ═══════════════════════════════════════════════════════ */}
+             INTEGRATION & ÜBERGEORDNETER LAB-EFFEKT
+             ═══════════════════════════════════════════════════════ */}
         <section className="relative py-24 sm:py-32 lg:py-40 bg-white overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div
@@ -616,14 +616,14 @@ const Lab = () => {
                   <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Case Study</span>
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black mt-2">
                     Lab Cases.{" "}
-                    <span style={{
-                      background: "linear-gradient(to right, #fde047, #fbbf24)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text"
-                    }}>
-                      Technologie, die liefert.
-                    </span>
+                    
+
+
+
+
+
+
+
                   </h2>
                 </div>
                 <Link to="/case-studies" className="hidden md:inline-flex items-center gap-2 text-sm font-bold text-black hover:text-[#fbbf24] transition-colors">
