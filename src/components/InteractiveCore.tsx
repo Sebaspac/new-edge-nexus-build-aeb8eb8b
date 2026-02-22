@@ -86,7 +86,7 @@ export const InteractiveCore = () => {
             Ohne diese Grundlage führen neue Tools und KI zu mehr Komplexität statt zu mehr Kontrolle. Das Ergebnis sind steigende Kosten, operative Komplexität und neue Abhängigkeiten.
           </p>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mt-6">
-            Unsere Arbeit folgt deshalb einer klaren Reihenfolge: Klarheit im Studio. Umsetzung im Lab. 
+            Unsere Arbeit folgt deshalb einer klaren Reihenfolge: Klarheit im Studio. Umsetzung im Lab.<br />
 So entstehen digitale Plattformen, Automatisierungen und KI-Systeme, die Unternehmen verstehen, steuern und selbst weiterentwickeln können.
           </p>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mt-6">
