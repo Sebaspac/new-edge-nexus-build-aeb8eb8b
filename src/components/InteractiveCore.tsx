@@ -185,8 +185,8 @@ export const InteractiveCore = () => {
                 </motion.div>
               </AnimatePresence>
 
-              <div className="relative z-10 h-full p-4 sm:p-6 md:p-8 flex flex-col">
-                <div className="flex items-start justify-between mb-auto">
+              <div className="relative z-10 h-full p-4 sm:p-6 md:p-8 flex flex-col justify-end">
+                <div className="flex items-start justify-between mb-6 sm:mb-8">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={`icon-${activeState}`}
