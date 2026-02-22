@@ -1,91 +1,73 @@
 
 
-# Split-Screen Scroll-Animation fuer Studio Services
+# Lab-Seite: Layout an Studio angleichen
 
-## Konzept
+## Was sich aendert
 
-Die drei Service-Module werden als **immersive, vollbild Split-Screen Sektionen** praesentiert, bei denen beim Scrollen die linke und rechte Haelfte in entgegengesetzte Richtungen sliden (links von unten, rechts von oben). Das erzeugt einen cinematischen Uebergangseffekt zwischen den Services.
+Die Lab-Seite bekommt dasselbe Layout-System wie die Studio-Seite. Konkret betrifft das die **drei Service-Sektionen** und die **Manifesto/Intro-Sektion**. Hero, Agents, Cases und CTA bleiben unveraendert.
 
-## Architektur
+## Aktuelle Unterschiede
 
-### Neue Komponente: `src/components/ui/studio-scroll-sections.tsx`
+| Element | Studio (Ziel) | Lab (aktuell) |
+|---------|---------------|---------------|
+| Hero | Fullscreen `100dvh`, Parallax | Kuerzer `75vh`, kein Parallax -- **bleibt so** |
+| Intro | Grosse Headline + 3-Spalten-Pillars | "LAB POWER" mit Fliesstext |
+| Services | Einheitliche Module: Nummer, 2-Spalten, 4er-Deliverables | `ServiceScrollSection` mit farbigen Boxen, nummerierten Listen |
+| Cases | Einzelnes grosses Bild | Grid mit 3 Cases -- **bleibt so** |
 
-Eine angepasste Version der `animated-scroll` Komponente, speziell fuer die Studio-Seite:
+## Aenderungen
 
-- **3 Fullscreen-Slides** statt 5 generischer Pages
-- **Linke Haelfte**: Service-Text (Nummer, Titel, Problem, Loesung)
-- **Rechte Haelfte**: Die bestehende Animation (BrandStrategyAnimation, KiAuditAnimation, BrandIdentityAnimation)
-- **Slide-Richtung alterniert**: Links kommt von unten, Rechts von oben (wie im Original)
-- **Scroll-Hijacking** nur innerhalb der Sektion (nicht die gesamte Seite), gesteuert durch einen IntersectionObserver
-- Deliverables erscheinen als Overlay-Cards am unteren Rand jedes Slides
+### 1. Intro-Sektion (Zeilen 174-240) → Studio-Manifesto-Stil
 
-### Technische Details
+Aktuell: "LAB POWER" mit Fliesstext darunter.
 
-- Kein Scroll-Hijacking der ganzen Seite -- stattdessen wird die Komponente in einen Container mit `h-[100vh]` und `position: sticky` eingebettet, sodass sie sich beim normalen Scrollen durch die Seite aktiviert
-- Die Scroll-Position innerhalb des sticky-Containers steuert die Slide-Transitions via `useScroll` von Framer Motion
-- Keine externen Dependencies noetig -- alles mit React State + CSS Transforms + Framer Motion (bereits installiert)
-- TypeScript-typisiert
-- Responsive: Auf Mobile werden die Slides vertikal gestapelt (kein Split), mit einfachen Fade-Uebergaengen
+Neu: Gleicher Aufbau wie Studio-Manifesto:
+- Grosse Headline: "Systeme mit Ownership." mit Lab-Gradient (gelb statt lila)
+- 3-Spalten-Pillars darunter mit den drei Lab-Kernbereichen:
+  - 01: Automatisierung — "End-to-End-Prozesse statt Einzeltools"
+  - 02: Ownership — "Eigene Systeme statt SaaS-Abhaengigkeit"  
+  - 03: Web & Plattform — "Architektur statt isolierte Seiten"
 
-### Aenderungen an `src/pages/Studio.tsx`
+### 2. Service-Sektionen (Zeilen 242-367) → Studio-Module-Stil
 
-- Der bisherige `studioServices.map()` Block (Sektionen 3-5, Zeilen 209-277) wird durch die neue `StudioScrollSections` Komponente ersetzt
-- Die Service-Daten (studioServices Array) werden als Props uebergeben
-- Hero, Manifesto, Case Study und CTA Sektionen bleiben unveraendert
+Aktuell: `ServiceScrollSection`-Komponente mit farbigen Problem/Loesung-Boxen (`bg-red-50`, `bg-amber-50`), nummerierten Listen und Video.
 
-### Scroll-Mechanik (Sticky-Scroll Ansatz)
+Neu: Exakt dasselbe Template wie Studio:
+- Dekorative Nummer rechts oben (Outline-Stil mit `WebkitTextStroke`)
+- 2-Spalten-Grid: Text links/rechts alternierend, Animation gegenueber
+- Problem/Loesung als schlichte Text-Bloecke (kein farbiger Hintergrund)
+- Problem-Label in `text-red-500/70`, Loesung in `text-amber-500/70` (Lab-Farbe statt Indigo)
+- 4-Spalten Deliverables-Karten am Ende jeder Sektion
+- `bg-white` Hintergrund mit `border-b border-black/5`
+- Kein `ServiceScrollSection`, kein Video -- nur die bestehenden Animationen
 
-```text
-Normales Scrollen
-    |
-    v
-[Hero]
-[Manifesto]
-    |
-    v  Sektion wird sticky
-+-----------------------------------+
-|  STUDIO SCROLL CONTAINER          |
-|  (height: 300vh, position: rel)   |
-|                                   |
-|  +-----------------------------+  |
-|  | Sticky Inner (100vh)        |  |
-|  |                             |  |
-|  | +----------+ +----------+  |  |
-|  | | LEFT     | | RIGHT    |  |  |
-|  | | Text     | | Anim     |  |  |
-|  | | slides   | | slides   |  |  |
-|  | | down>up  | | up>down  |  |  |
-|  | +----------+ +----------+  |  |
-|  +-----------------------------+  |
-+-----------------------------------+
-    |
-    v  Sticky loest sich
-[Case Study]
-[CTA]
-[Footer]
-```
+### 3. Daten-Anpassung
 
-Der aeussere Container ist `300vh` hoch (3 Services x 100vh). Der innere Container klebt mit `position: sticky; top: 0` und ist `100vh` hoch. Die Scroll-Position innerhalb des aeusseren Containers (0% bis 100%) steuert welcher Slide sichtbar ist.
+Die `labServices`-Daten werden umstrukturiert:
+- `details`-Array (5-7 Items) wird zu `deliverables`-Array (4 Items) gekuerzt
+- Jeder Deliverable bekommt `title` + `description` (wie bei Studio)
+- `video`, `icon`, `gradient` Felder werden nicht mehr benoetigt
+- `animation` Feld bleibt (bereits vorhanden)
+- `description` wird zu `solution` umbenannt
 
-### Visuelles Design pro Slide
+### Farbpalette
 
-- **Hintergrund**: Weiss, konsistent mit dem hellen Theme
-- **Linke Seite**: Service-Nummer gross dekorativ, Titel, Problem/Loesung Text
-- **Rechte Seite**: Die bestehende Animation-Komponente, zentriert
-- **Deliverables**: 4 kleine Cards am unteren Rand, eingeblendet mit Fade wenn Slide aktiv
-- **Uebergang**: CSS `transform: translateY()` mit `transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1)` -- links und rechts in entgegengesetzte Richtungen
-- **Dot-Navigation**: Kleine vertikale Dots am rechten Rand zeigen den aktuellen Slide
+Alle Lab-spezifischen Akzente nutzen den Lab-Gradient (gelb/amber) statt Studio's Indigo/Purple:
+- Loesung-Label: `text-amber-500/70` statt `text-indigo-600/70`
+- Dekorative Nummer: `rgba(251,191,36,0.12)` statt `rgba(99,102,241,0.12)`
+- Gradient-Text: `linear-gradient(to right, #fde047, #fbbf24)`
 
-### Dateien
+## Dateien
 
 | Datei | Aktion |
 |-------|--------|
-| `src/components/ui/studio-scroll-sections.tsx` | Neu erstellen |
-| `src/pages/Studio.tsx` | Service-Sektionen durch neue Komponente ersetzen |
+| `src/pages/Lab.tsx` | Intro + Service-Sektionen umbauen |
 
-### Keine neuen Dependencies noetig
-- React State fuer aktuelle Seite
-- Framer Motion `useScroll` + `useTransform` fuer Scroll-Progress
-- CSS Transforms fuer die Split-Animation
-- Alles bereits im Projekt vorhanden
+## Was NICHT geaendert wird
+
+- Hero-Sektion (bleibt mit eigenem Stil)
+- "Meet Our Agents"-Sektion (bleibt)
+- Lab Cases-Sektion (bleibt)
+- CTA-Sektion (bleibt)
+- Keine neuen Dateien oder Dependencies
 
