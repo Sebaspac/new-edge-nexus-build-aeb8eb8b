@@ -1,6 +1,6 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Cpu, Globe, Bot, BarChart3, Lightbulb, Phone, FileText, ChevronDown, Plus, ArrowUpRight } from "lucide-react";
+import { Bot, Lightbulb, Phone, FileText, Plus, ArrowUpRight } from "lucide-react";
 import leadGenerationImage from "@/assets/lead-generation.webp";
 import ragDatacenterImage from "@/assets/rag-datacenter.webp";
 import marketingAutomationImage from "@/assets/marketing-automation.webp";
@@ -9,7 +9,6 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { ContactFormModal } from "@/components/ContactFormModal";
-import { ServiceScrollSection } from "@/components/ServiceScrollSection";
 import { LazyVideo } from "@/components/LazyVideo";
 import { ProcessAutomationAnimation } from "@/components/ui/process-automation-animation";
 import { WebSystemsAnimation } from "@/components/ui/web-systems-animation";
@@ -53,81 +52,57 @@ const Lab = () => {
     }
   };
   const labServices = [{
+    number: "01",
     title: "AI Systems & Automation Architecture",
-    description: "Wir automatisieren operative Aufgaben und Prozesse end-to-end – pragmatisch, stabil und skalierbar. Dabei setzen wir dort KI ein, wo sie einen echten Mehrwert bringt, und kombinieren sie mit klassischen Automationen, wo Zuverlässigkeit und Klarheit wichtiger sind. Das Ergebnis sind durchgängige Workflows, die selbstständig laufen und sich sauber in bestehende Systeme integrieren.",
-    problem: "Viele operative Aufgaben sind repetitiv, manuell und über mehrere Tools verteilt. Das führt zu hohem Zeitaufwand, Fehleranfälligkeit, Medienbrüchen und fehlender Skalierbarkeit. Ob mit oder ohne KI: Operative Arbeit bindet Ressourcen, die besser für Entscheidungen genutzt würden.",
-    details: [{
-      title: "Automatisierung operativer Aufgaben",
-      description: "Reduktion manueller Tätigkeiten in täglichen Abläufen (z. B. Erfassung, Verarbeitung, Weiterleitung)."
-    }, {
-      title: "KI-gestützte Prozessschritte (optional)",
-      description: "Einsatz von KI für Klassifikation, Priorisierung, Textverarbeitung oder Entscheidungsunterstützung."
-    }, {
-      title: "End-to-End-Workflows",
-      description: "Durchgängige Prozesse ohne manuelle Übergaben zwischen Tools, Systemen oder Teams."
-    }, {
-      title: "Integration bestehender Systeme",
-      description: "Anbindung von CRM, Support-, Ops- oder internen Tools in eine konsistente Automationslogik."
-    }, {
-      title: "Stabile Prozesslogik & Kontrolle",
-      description: "Klare Abläufe, definierte Ausnahmen und nachvollziehbare Ergebnisse."
-    }],
-    icon: Cpu,
-    gradient: "from-[#fde047] to-[#fbbf24]",
-    video: "/assets/lab-ki-automation-video.mp4",
-    animation: <ProcessAutomationAnimation />
+    problem: "Viele operative Aufgaben sind repetitiv, manuell und über mehrere Tools verteilt. Das führt zu hohem Zeitaufwand, Fehleranfälligkeit, Medienbrüchen und fehlender Skalierbarkeit.",
+    solution: "Wir automatisieren operative Aufgaben und Prozesse end-to-end – pragmatisch, stabil und skalierbar. Dabei setzen wir dort KI ein, wo sie einen echten Mehrwert bringt, und kombinieren sie mit klassischen Automationen.",
+    animation: <ProcessAutomationAnimation />,
+    deliverables: [
+      { title: "End-to-End-Workflows", description: "Durchgängige Prozesse ohne manuelle Übergaben zwischen Tools oder Teams." },
+      { title: "KI-gestützte Prozessschritte", description: "Einsatz von KI für Klassifikation, Priorisierung und Entscheidungsunterstützung." },
+      { title: "Systemintegration", description: "Anbindung von CRM, Support-, Ops- oder internen Tools in konsistente Automationslogik." },
+      { title: "Stabile Prozesslogik", description: "Klare Abläufe, definierte Ausnahmen und nachvollziehbare Ergebnisse." },
+    ],
   }, {
+    number: "02",
     title: "Internal Systems, Data & AI Ownership",
-    description: "Wir bauen interne Systeme, die Software, Daten und KI unter eine gemeinsame, kontrollierbare Architektur bringen. Dazu entwickeln wir eigene interne Tools statt SaaS-Zwang, selbst kontrollierte Datenlogik sowie interne KI- und LLM-Systeme mit eigener Infrastruktur. Alles integriert, wartbar und im Besitz des Unternehmens.",
-    problem: "SaaS-Stacks und externe KI-APIs erzeugen Abhängigkeiten, steigende laufende Kosten und fragmentierte Datenlandschaften. Unternehmen verlieren dadurch Kontrolle über sensible Daten, Transparenz über Prozesse sowie Einfluss auf Kosten, Verfügbarkeit und Weiterentwicklung. Kritische Systeme liegen außerhalb der eigenen Verantwortung.",
-    details: [{
-      title: "Interne Dashboards & Tools",
-      description: "Maßgeschneiderte Anwendungen zur Abbildung kritischer Unternehmensfunktionen."
-    }, {
-      title: "Eigene Datenlogik & Datenflüsse",
-      description: "Selbst kontrollierte Datenstrukturen, Schnittstellen und Verarbeitungslogik."
-    }, {
-      title: "Interne KI- & LLM-Systeme",
-      description: "Deployment firmeneigener Sprachmodelle für interne Use Cases."
-    }, {
-      title: "GPU-Infrastruktur & Betrieb",
-      description: "Aufbau eigener oder isolierter Rechenkapazitäten für KI-Workloads."
-    }, {
-      title: "Optionales Fine-Tuning",
-      description: "Anpassung von Modellen an unternehmensspezifische Daten und Anforderungen."
-    }, {
-      title: "Integration in bestehende Systeme",
-      description: "Nahtlose Anbindung an vorhandene Workflows, Tools und Plattformen."
-    }, {
-      title: "Reduktion externer Abhängigkeiten",
-      description: "Strategischer Ersatz von SaaS- und API-Abhängigkeiten durch eigene Systeme."
-    }],
-    icon: Globe,
-    gradient: "from-[#fbbf24] to-[#fde047]",
-    video: "/assets/lab-new-video.mp4",
-    animation: <TrackingAnalyticsAnimation />
+    problem: "SaaS-Stacks und externe KI-APIs erzeugen Abhängigkeiten, steigende Kosten und fragmentierte Datenlandschaften. Unternehmen verlieren Kontrolle über sensible Daten und Prozesse.",
+    solution: "Wir bauen interne Systeme, die Software, Daten und KI unter eine gemeinsame, kontrollierbare Architektur bringen – inklusive eigener LLM- und GPU-Infrastruktur.",
+    animation: <TrackingAnalyticsAnimation />,
+    deliverables: [
+      { title: "Interne Dashboards & Tools", description: "Maßgeschneiderte Anwendungen zur Abbildung kritischer Unternehmensfunktionen." },
+      { title: "Eigene Datenlogik", description: "Selbst kontrollierte Datenstrukturen, Schnittstellen und Verarbeitungslogik." },
+      { title: "Interne KI- & LLM-Systeme", description: "Deployment firmeneigener Sprachmodelle für interne Use Cases." },
+      { title: "GPU-Infrastruktur & Betrieb", description: "Aufbau eigener oder isolierter Rechenkapazitäten für KI-Workloads." },
+    ],
   }, {
+    number: "03",
     title: "Web & Platform Architecture",
-    description: "Wir bauen Websites als funktionale Knotenpunkte innerhalb der Systemarchitektur.",
     problem: "Websites sind oft isolierte Marketingflächen ohne Verbindung zu Systemen oder Automatisierung.",
-    details: [{
-      title: "Technische Web-Architektur",
-      description: "Skalierbare und wartbare technische Grundstruktur."
-    }, {
-      title: "CMS & Datenlogik",
-      description: "Content-Management mit klarer Datenstruktur und API-Anbindung."
-    }, {
-      title: "System-Integrationen",
-      description: "Nahtlose Verbindung zu CRM, ERP und Automatisierungssystemen."
-    }, {
-      title: "Skalierbarkeit & Sicherheit",
-      description: "Performante, sichere und zukunftsfähige Infrastruktur."
-    }],
-    icon: BarChart3,
-    gradient: "from-[#fde047] to-[#fbbf24]",
-    video: "/assets/lab-section-video.mp4",
-    animation: <WebSystemsAnimation />
+    solution: "Wir bauen Websites als funktionale Knotenpunkte innerhalb der Systemarchitektur – skalierbar, integriert und wartbar.",
+    animation: <WebSystemsAnimation />,
+    deliverables: [
+      { title: "Technische Web-Architektur", description: "Skalierbare und wartbare technische Grundstruktur." },
+      { title: "CMS & Datenlogik", description: "Content-Management mit klarer Datenstruktur und API-Anbindung." },
+      { title: "System-Integrationen", description: "Nahtlose Verbindung zu CRM, ERP und Automatisierungssystemen." },
+      { title: "Skalierbarkeit & Sicherheit", description: "Performante, sichere und zukunftsfähige Infrastruktur." },
+    ],
   }];
+
+  const labPillars = [
+    { number: "01", label: "Automatisierung", desc: "End-to-End-Prozesse statt Einzeltools" },
+    { number: "02", label: "Ownership", desc: "Eigene Systeme statt SaaS-Abhängigkeit" },
+    { number: "03", label: "Web & Plattform", desc: "Architektur statt isolierte Seiten" },
+  ];
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i: number = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
+    }),
+  };
   return <>
       <Helmet>
         <title>Prozessautomatisierung München | KI-Lösungen für KMU | New Edge Lab</title>
@@ -171,201 +146,95 @@ const Lab = () => {
           </div>
         </section>
 
-        {/* FROM VISION TO REALITY Section */}
-        <section className="relative pt-12 pb-6 sm:pt-16 sm:pb-8 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <motion.div initial="hidden" whileInView="visible" viewport={{
-            once: true,
-            margin: "-80px"
-          }} variants={{
-            hidden: {
-              opacity: 0
-            },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.1
-              }
-            }
-          }} className="max-w-4xl">
-              <motion.div variants={{
-              hidden: {
-                opacity: 0,
-                y: 40,
-                scale: 0.95
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                transition: {
-                  duration: 0.7,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }
-              }
-            }} className="mb-6">
-                <h2 className="text-h1 font-extrabold text-black">
-                  LAB{" "}
-                  <motion.span className="inline-block bg-clip-text text-transparent" style={{
-                  background: "linear-gradient(to right, #fde047, #fbbf24)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent"
-                }} whileInView={{
-                  scale: [1, 1.05, 1]
-                }} transition={{
-                  duration: 1,
-                  delay: 0.3
-                }}>
-                    POWER
-                  </motion.span>
-                </h2>
-                <motion.p variants={{
-                hidden: {
-                  opacity: 0,
-                  y: 20
-                },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.6,
-                    delay: 0.2
-                  }
-                }
-              }} className="text-body-lg text-gray-600 mt-4 max-w-3xl text-xl">Wir bauen Systeme statt Tools. Ownership statt Abhängigkeit. Produktiv, integrierbar, kontrollierbar.</motion.p>
-              </motion.div>
-            </motion.div>
+        {/* ═══════════════════════════════════════════════════════
+            2. MANIFESTO STATEMENT
+        ═══════════════════════════════════════════════════════ */}
+        <section className="py-24 sm:py-32 lg:py-40 bg-white">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-6xl">
+            <motion.h2
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+              variants={fadeUp}
+              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.05] text-black max-w-5xl"
+            >
+              Systeme mit{" "}
+              <span style={{
+                background: "linear-gradient(to right, #fde047, #fbbf24)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}>
+                Ownership.
+              </span>
+            </motion.h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px mt-16 sm:mt-20 bg-black/10">
+              {labPillars.map((p, i) => (
+                <motion.div
+                  key={p.number}
+                  initial="hidden" whileInView="visible" viewport={{ once: true }}
+                  variants={fadeUp} custom={i + 1}
+                  className="bg-white p-8 sm:p-10"
+                >
+                  <span className="text-xs font-mono tracking-widest text-black/30">{p.number}</span>
+                  <h3 className="text-xl sm:text-2xl font-black text-black mt-2">{p.label}</h3>
+                  <p className="text-sm text-black/50 mt-2 leading-relaxed">{p.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Services Sections */}
-        {labServices.map((service, index) => {
-        const Icon = service.icon;
-        const isEven = index % 2 === 0;
-        return <section key={index} className="py-12 sm:py-16 bg-primary-foreground">
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <ServiceScrollSection gradient={service.gradient} videoSrc={service.video} imagePosition={isEven ? "right" : "left"} animationBelow={service.animation}>
-                  <div className="space-y-6">
-                    <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    x: isEven ? -30 : 30
-                  },
-                  visible: {
-                    opacity: 1,
-                    x: 0,
-                    transition: {
-                      duration: 0.6
-                    }
-                  }
-                }} className="flex items-center gap-4 mb-8">
-                      
-                      <h2 className="text-h2 font-bold text-black">
-                        {service.title}
-                      </h2>
+        {/* ═══════════════════════════════════════════════════════
+            3-5. UNIFIED SERVICE MODULES
+        ═══════════════════════════════════════════════════════ */}
+        {labServices.map((service, idx) => {
+          const isReversed = idx % 2 !== 0;
+          return (
+            <section key={service.number} className="relative bg-white py-24 sm:py-32 overflow-hidden border-b border-black/5 last:border-b-0">
+              <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
+                <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
+                  style={{ WebkitTextStroke: "1px rgba(251,191,36,0.12)", WebkitTextFillColor: "transparent" }}>
+                  {service.number}
+                </span>
+              </div>
+              <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                  <div className={isReversed ? "order-2 lg:order-2" : ""}>
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
+                      <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service {service.number}</span>
+                      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">{service.title}</h2>
                     </motion.div>
-
-                    {/* Das Problem */}
-                    <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 20
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.5
-                    }
-                  }
-                }} className="bg-red-50 border border-red-100 p-5">
-                      <h3 className="text-sm font-semibold text-red-600 uppercase tracking-wider mb-2">
-                        Das Problem
-                      </h3>
-                      <p className="text-sm leading-relaxed text-gray-700 sm:text-base">{service.problem}</p>
-                    </motion.div>
-
-                    <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 20
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.5
-                    }
-                  }
-                }} className="bg-amber-50 border border-amber-100 p-5">
-                      <h3 className="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-2">
-                        Unsere Lösung
-                      </h3>
-                      <p className="text-sm leading-relaxed text-gray-600 sm:text-base">{service.description}</p>
-                    </motion.div>
-
-                    <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 20
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.5
-                    }
-                  }
-                }} className="bg-white/80 backdrop-blur-sm p-6 shadow-lg border border-[#fde047]/30">
-                      <h3 className="text-h3 font-black mb-4 text-black">Unsere Leistungen</h3>
-                      <ul className="text-sm sm:text-base text-gray-700 leading-relaxed space-y-3">
-                        {service.details.map((detail, idx) => <motion.li key={idx} variants={{
-                      hidden: {
-                        opacity: 0,
-                        x: -20
-                      },
-                      visible: {
-                        opacity: 1,
-                        x: 0
-                      }
-                    }} className="flex gap-3">
-                            <span className={`flex-shrink-0 w-7 h-7 bg-gradient-to-r ${service.gradient} text-white flex items-center justify-center text-sm font-bold`}>
-                              {idx + 1}
-                            </span>
-                            <div className="flex-1">
-                              <span className="font-semibold text-black">{typeof detail === 'string' ? detail : detail.title}</span>
-                              {typeof detail === 'object' && detail.description && <p className="mt-1 text-gray-600">{detail.description}</p>}
-                            </div>
-                          </motion.li>)}
-                      </ul>
-                    </motion.div>
-
-                    <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 20
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.5
-                    }
-                  }
-                }}>
-                      <motion.div whileHover={{
-                    scale: 1.02
-                  }} whileTap={{
-                    scale: 0.98
-                  }}></motion.div>
+                    <div className="mt-12 space-y-8">
+                      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
+                        <h3 className="text-xs font-bold tracking-widest text-red-500/70 uppercase mb-3">Das Problem</h3>
+                        <p className="text-black/60 text-sm leading-relaxed">{service.problem}</p>
+                      </motion.div>
+                      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
+                        <h3 className="text-xs font-bold tracking-widest text-amber-500/70 uppercase mb-3">Unsere Lösung</h3>
+                        <p className="text-black/60 text-sm leading-relaxed">{service.solution}</p>
+                      </motion.div>
+                    </div>
+                  </div>
+                  <div className={`lg:sticky lg:top-24 ${isReversed ? "order-1 lg:order-1" : ""}`}>
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
+                      {service.animation}
                     </motion.div>
                   </div>
-                </ServiceScrollSection>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-20 bg-black/5">
+                  {service.deliverables.map((d, i) => (
+                    <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
+                      className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300">
+                      <span className="text-xs font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
+                      <h4 className="text-black font-bold mt-2 text-sm">{d.title}</h4>
+                      <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-            </section>;
-      })}
-
+            </section>
+          );
+        })}
         {/* Meet Our Agents Section */}
         <section className="section-py-md bg-primary-foreground relative overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
