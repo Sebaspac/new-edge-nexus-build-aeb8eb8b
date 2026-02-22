@@ -206,7 +206,7 @@ const Studio = () => {
         {/* ═══════════════════════════════════════════════════════
             3. SERVICE 01 — Brand Identity (Dark section)
         ═══════════════════════════════════════════════════════ */}
-        <section className="relative bg-slate-950 py-24 sm:py-32 overflow-hidden">
+        <section className="relative bg-white py-24 sm:py-32 overflow-hidden">
           {/* Decorative number */}
           <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
             <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
@@ -224,20 +224,20 @@ const Studio = () => {
               {/* Left: Text content */}
               <div>
                 <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
-                  <span className="text-xs font-mono tracking-widest text-indigo-400/60 uppercase">Service 01</span>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mt-3 leading-[1.05]">
+                  <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service 01</span>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">
                     {studioServices[0].title}
                   </h2>
                 </motion.div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
                   <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
-                    <h3 className="text-xs font-bold tracking-widest text-red-400/80 uppercase mb-3">Das Problem</h3>
-                    <p className="text-white/60 text-sm leading-relaxed">{studioServices[0].problem}</p>
+                    <h3 className="text-xs font-bold tracking-widest text-red-500/70 uppercase mb-3">Das Problem</h3>
+                    <p className="text-black/60 text-sm leading-relaxed">{studioServices[0].problem}</p>
                   </motion.div>
                   <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
-                    <h3 className="text-xs font-bold tracking-widest text-indigo-400/80 uppercase mb-3">Unsere Lösung</h3>
-                    <p className="text-white/60 text-sm leading-relaxed">{studioServices[0].solution}</p>
+                    <h3 className="text-xs font-bold tracking-widest text-indigo-600/70 uppercase mb-3">Unsere Lösung</h3>
+                    <p className="text-black/60 text-sm leading-relaxed">{studioServices[0].solution}</p>
                   </motion.div>
                 </div>
               </div>
@@ -251,17 +251,17 @@ const Studio = () => {
             </div>
 
             {/* Deliverables — horizontal cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-20 bg-white/5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-20 bg-black/5">
               {studioServices[0].deliverables.map((d, i) => (
                 <motion.div
                   key={i}
                   initial="hidden" whileInView="visible" viewport={{ once: true }}
                   variants={fadeUp} custom={i}
-                  className="bg-slate-950 p-6 sm:p-8 group hover:bg-slate-900 transition-colors duration-300"
+                  className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300"
                 >
-                  <span className="text-xs font-mono text-indigo-400/40">{String(i + 1).padStart(2, "0")}</span>
-                  <h4 className="text-white font-bold mt-2 text-sm">{d.title}</h4>
-                  <p className="text-white/40 text-xs mt-2 leading-relaxed">{d.description}</p>
+                  <span className="text-xs font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
+                  <h4 className="text-black font-bold mt-2 text-sm">{d.title}</h4>
+                  <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -476,23 +476,23 @@ const Studio = () => {
         {/* ═══════════════════════════════════════════════════════
             7. CTA — Design-system conform
         ═══════════════════════════════════════════════════════ */}
-        <section className="py-24 sm:py-32 bg-slate-950 relative overflow-hidden">
+        <section className="py-24 sm:py-32 bg-white relative overflow-hidden">
           {/* Subtle gradient accent */}
-          <div className="absolute inset-0 opacity-20" style={{
+          <div className="absolute inset-0 opacity-10" style={{
             background: "radial-gradient(ellipse at 50% 100%, rgba(99,102,241,0.4) 0%, transparent 70%)"
           }} />
 
           <div className="container mx-auto px-6 sm:px-8 text-center relative z-10 max-w-3xl">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.05]">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black leading-[1.05]">
                 Bereit für die Zukunft?
               </h2>
-              <p className="text-white/50 text-base sm:text-lg mt-6 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-black/50 text-base sm:text-lg mt-6 leading-relaxed max-w-2xl mx-auto">
                 New Edge steht für Innovation und nachhaltige Entwicklung. Gemeinsam gestalten wir die Zukunft von Marken und Prozessen.
               </p>
               <Button
                 size="lg"
-                className="mt-10 bg-transparent backdrop-blur-md text-white border-2 border-white/30 hover:bg-white hover:text-black font-semibold text-base sm:text-lg px-10 sm:px-14 py-4 transition-all duration-300 hover:-translate-y-0.5 rounded-none"
+                className="mt-10 bg-transparent backdrop-blur-md text-black border-2 border-black/30 hover:bg-black hover:text-white font-semibold text-base sm:text-lg px-10 sm:px-14 py-4 transition-all duration-300 hover:-translate-y-0.5 rounded-none"
                 onClick={() => setIsModalOpen(true)}
               >
                 Kontakt aufnehmen
