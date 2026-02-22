@@ -194,66 +194,75 @@ const Lab = () => {
           );
         })}
         {/* ═══════════════════════════════════════════════════════
-            INTEGRATION BESTEHENDER SYSTEME
+            INTEGRATION & ÜBERGEORDNETER LAB-EFFEKT
         ═══════════════════════════════════════════════════════ */}
-        <section className="relative bg-white py-24 sm:py-32 overflow-hidden border-b border-black/5">
-          <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
-            <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
-              style={{ WebkitTextStroke: "1px rgba(251,191,36,0.12)", WebkitTextFillColor: "transparent" }}>
-              04
-            </span>
-          </div>
-          <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl relative z-10">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
-              <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service 04</span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">Integration bestehender Systeme</h2>
-            </motion.div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-px mt-16 bg-black/5">
-              {[
-                { title: "Verbindung statt Ersatz", description: "Bestehende Tools und Plattformen werden in eine gemeinsame Systemlogik integriert – ohne funktionierende Strukturen zu zerstören." },
-                { title: "Durchgängige Datenflüsse", description: "Informationen bewegen sich automatisch zwischen Ihren Systemen, ohne manuelle Übergaben." },
-                { title: "Zentrale Steuerbarkeit", description: "Ihre Prozesse werden aus einer klaren Architektur heraus kontrolliert – nicht aus einzelnen Tools." },
-              ].map((d, i) => (
-                <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
-                  className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300">
-                  <span className="text-xs font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
-                  <h4 className="text-black font-bold mt-2 text-sm">{d.title}</h4>
-                  <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <section className="relative py-24 sm:py-32 lg:py-40 bg-white overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+              {/* Left Column */}
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6"
+              >
+                <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-amber-500">Integration & Wirkung</span>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[0.95] text-black">
+                  Integration bestehender{" "}
+                  <span style={{
+                    background: "linear-gradient(to right, #fde047, #fbbf24)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}>Systeme.</span>
+                </h2>
+                <div className="space-y-5 pt-4">
+                  <div>
+                    <h4 className="text-sm font-bold text-black">Verbindung statt Ersatz</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed mt-1">Bestehende Tools und Plattformen werden in eine gemeinsame Systemlogik integriert – ohne funktionierende Strukturen zu zerstören.</p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-black">Durchgängige Datenflüsse</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed mt-1">Informationen bewegen sich automatisch zwischen Ihren Systemen, ohne manuelle Übergaben.</p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-black">Zentrale Steuerbarkeit</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed mt-1">Ihre Prozesse werden aus einer klaren Architektur heraus kontrolliert – nicht aus einzelnen Tools.</p>
+                  </div>
+                </div>
+              </motion.div>
 
-        {/* ═══════════════════════════════════════════════════════
-            ÜBERGEORDNETER LAB-EFFEKT
-        ═══════════════════════════════════════════════════════ */}
-        <section className="relative bg-white py-24 sm:py-32 overflow-hidden border-b border-black/5">
-          <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
-            <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
-              style={{ WebkitTextStroke: "1px rgba(251,191,36,0.12)", WebkitTextFillColor: "transparent" }}>
-              05
-            </span>
-          </div>
-          <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl relative z-10">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
-              <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Übergeordnet</span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">Übergeordneter Lab‑Effekt</h2>
-            </motion.div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-16 bg-black/5">
-              {[
-                { title: "Produktive Systeme statt Einzelautomationen", description: "Es entstehen keine Insellösungen, sondern eine zusammenhängende operative Infrastruktur." },
-                { title: "Ownership statt Abhängigkeit", description: "Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie." },
-                { title: "Technologie als steuerbares Unternehmenssystem", description: "Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung." },
-                { title: "Skalierung ohne steigende Komplexität", description: "Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen." },
-              ].map((d, i) => (
-                <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
-                  className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300">
-                  <span className="text-xs font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
-                  <h4 className="text-black font-bold mt-2 text-sm">{d.title}</h4>
-                  <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
-                </motion.div>
-              ))}
+              {/* Right Column */}
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="space-y-6 lg:pt-16"
+              >
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-black">
+                  Übergeordneter Lab‑Effekt
+                </h3>
+                <div className="space-y-5">
+                  <div>
+                    <h4 className="text-sm font-bold text-black">Produktive Systeme statt Einzelautomationen</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed mt-1">Es entstehen keine Insellösungen, sondern eine zusammenhängende operative Infrastruktur.</p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-black">Ownership statt Abhängigkeit</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed mt-1">Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie.</p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-black">Technologie als steuerbares Unternehmenssystem</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed mt-1">Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung.</p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-black">Skalierung ohne steigende Komplexität</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed mt-1">Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen.</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
