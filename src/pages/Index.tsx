@@ -32,7 +32,7 @@ import { toast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
 
 // Lazy load Footer
-const Footer = lazy(() => import("@/components/Footer").then(module => ({
+const Footer = lazy(() => import("@/components/Footer").then((module) => ({
   default: module.Footer
 })));
 import { ArrowRight, Lightbulb, Zap, Palette, Target, Rocket, Star, Users, Code, Globe, Briefcase, Phone, MessageSquare, Eye } from "lucide-react";
@@ -312,9 +312,9 @@ const Index = () => {
               duration: 0.7
             }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 md:mb-8 leading-[1.1] text-foreground font-black">
                 Bereit für die{" "}
-                <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                  Zukunft?
-                </span>
+                
+
+
               </motion.h2>
 
               <motion.p initial={{
@@ -399,7 +399,7 @@ und im eigenen Besitz umzusetzen.
                 type: "tel",
                 placeholder: "Ihre Telefonnummer",
                 required: false
-              }].map(field => <div key={field.id} className="space-y-2">
+              }].map((field) => <div key={field.id} className="space-y-2">
                     <Label htmlFor={field.id} className="text-foreground font-medium">
                       {field.label}
                     </Label>
