@@ -27,14 +27,14 @@ export const AgencyEdgeSection = () => {
 
             <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">Mit unserer "Edge" Methodik denken wir Marke, Prozesse und KI als zusammenhängendes System – damit Unternehmen langfristig steuerbar bleiben und nicht in Tool- oder Anbieterabhängigkeiten geraten.</p>
 
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">Wir bauen keine Einzelleistungen, sondern zusammenhängende Systeme. Studio schafft Klarheit, Entscheidungsfähigkeit und Systemlogik. Lab setzt diese Logik technisch um und baut produktive Systeme – integrierbar und kontrollierbar.</p>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">Wir denken nicht in Einzelleistungen, sondern in vernetzten Systemen.
+
+          
+          </p>
 
             <div className="pt-4 sm:pt-6 md:pt-8">
               <Link to="/about">
-                <motion.button whileHover={{
-                scale: 1.02
-              }} whileTap={{
-                scale: 0.98
+                <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98
               }} className="relative px-6 sm:px-8 py-3 sm:py-4 font-bold uppercase text-xs sm:text-sm tracking-wider bg-white/10 backdrop-blur-md border-2 border-black text-black shadow-[0_8px_32px_0_rgba(124,58,237,0.1)] hover:bg-black hover:text-white transition-all duration-500">
                   ÜBER UNS
                 </motion.button>
