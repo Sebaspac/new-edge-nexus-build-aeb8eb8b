@@ -10,6 +10,7 @@ import { ServiceScrollSection } from "@/components/ServiceScrollSection";
 import { LazyVideo } from "@/components/LazyVideo";
 import { BrandStrategyAnimation } from "@/components/ui/brand-strategy-animation";
 import { BrandIdentityAnimation } from "@/components/ui/brand-identity-animation";
+import { KiAuditAnimation } from "@/components/ui/ki-audit-animation";
 import albanovaImage from "@/assets/albanova-website.png";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({
   default: m.Footer
@@ -225,7 +226,7 @@ const Studio = () => {
         if (index === 1) videoSrc = "/assets/template-video.mp4";
         return <section key={index} className="py-12 sm:py-16 bg-primary-foreground">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <ServiceScrollSection gradient={service.gradient} videoSrc={videoSrc} imagePosition={isEven ? "right" : "left"} animationBelow={index === 0 ? <BrandStrategyAnimation /> : <BrandIdentityAnimation />}>
+                <ServiceScrollSection gradient={service.gradient} videoSrc={videoSrc} imagePosition={isEven ? "right" : "left"} animationBelow={index === 0 ? <BrandStrategyAnimation /> : index === 1 ? <KiAuditAnimation /> : <BrandIdentityAnimation />}>
                   <div className="space-y-6">
                     <motion.div variants={{
                   hidden: {
