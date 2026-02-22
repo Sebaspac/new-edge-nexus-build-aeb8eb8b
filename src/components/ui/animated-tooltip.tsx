@@ -17,6 +17,7 @@ export const AnimatedTooltip = ({
     id: number;
     name: string;
     designation: string;
+    icon?: React.ReactNode;
   }[];
   className?: string;
 }) => {
@@ -37,10 +38,10 @@ export const AnimatedTooltip = ({
   };
 
   return (
-    <div className={cn("flex flex-wrap gap-px", className)}>
+    <div className={cn("flex items-center justify-center", className)}>
       {items.map((item, idx) => (
         <div
-          className="relative group flex-1 min-w-[200px]"
+          className="-mr-4 relative group"
           key={item.id}
           onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -63,27 +64,26 @@ export const AnimatedTooltip = ({
                 style={{
                   translateX: translateX,
                   rotate: rotate,
-                  whiteSpace: "nowrap",
+                  whiteSpace: "normal",
                 }}
-                className="absolute -top-20 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center rounded-xl bg-black z-50 shadow-xl px-5 py-3"
+                className="absolute -top-24 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center rounded-xl bg-black z-50 shadow-xl px-4 py-3 w-[220px]"
               >
                 <div className="absolute inset-x-4 z-30 w-[40%] -bottom-px bg-gradient-to-r from-transparent via-amber-500 to-transparent h-px" />
                 <div className="absolute left-4 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent h-px" />
-                <p className="text-white font-bold text-sm">{item.name}</p>
+                <p className="text-white font-bold text-xs text-center leading-snug">
+                  {item.name}
+                </p>
+                <p className="text-white/60 text-[10px] text-center mt-1 leading-snug">
+                  {item.designation}
+                </p>
               </motion.div>
             )}
           </AnimatePresence>
           <div
             onMouseMove={handleMouseMove}
-            className="bg-white p-6 sm:p-8 cursor-pointer hover:bg-gray-50 transition-colors duration-300 h-full"
+            className="relative flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full border-2 border-white bg-gradient-to-br from-amber-400 to-amber-600 text-white font-black text-lg sm:text-xl cursor-pointer shadow-lg transition-transform duration-200 group-hover:scale-110 group-hover:z-30"
           >
-            <span className="text-xs font-mono text-black/20">
-              {String(idx + 1).padStart(2, "0")}
-            </span>
-            <h4 className="text-black font-bold mt-2 text-sm">{item.name}</h4>
-            <p className="text-black/40 text-xs mt-2 leading-relaxed whitespace-normal">
-              {item.designation}
-            </p>
+            {item.icon || String(idx + 1).padStart(2, "0")}
           </div>
         </div>
       ))}
