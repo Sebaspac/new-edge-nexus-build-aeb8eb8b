@@ -63,7 +63,7 @@ export const InteractiveCore = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
 
         {/* Main Split: Box left, Text right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
           {/* LEFT: Interactive Box */}
           <div className="flex flex-col-reverse gap-3 sm:gap-4 order-2 lg:order-1">
