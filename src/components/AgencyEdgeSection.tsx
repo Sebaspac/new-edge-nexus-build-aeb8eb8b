@@ -27,10 +27,11 @@ export const AgencyEdgeSection = () => {
 
             <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">Mit unserer "Edge" Methodik denken wir Marke, Prozesse und KI als zusammenhängendes System – damit Unternehmen langfristig steuerbar bleiben und nicht in Tool- oder Anbieterabhängigkeiten geraten.</p>
 
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">Wir denken nicht in Einzelleistungen, sondern in vernetzten Systemen.
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">Wir denken nicht in Einzelleistungen, sondern in vernetzten Systemen.</p>
 
-          
-          </p>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">Im Studio entstehen Klarheit, fundierte Entscheidungen und die zugrunde liegende Logik.</p>
+
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">Im Lab wird daraus funktionierende Technologie – integrierbar, skalierbar und kontrollierbar.</p>
 
             <div className="pt-4 sm:pt-6 md:pt-8">
               <Link to="/about">
