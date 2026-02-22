@@ -236,7 +236,7 @@ const Lab = () => {
               className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] tracking-tight mb-12 lg:mb-16"
             >
               Systeme statt{" "}
-              <span className="bg-gradient-to-r from-yellow-300 to-amber-400 bg-clip-text text-transparent italic">
+              <span className="italic">
                 Chaos
               </span>
             </motion.h2>
