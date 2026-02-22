@@ -8,9 +8,19 @@ interface InfrastructureItem {
 
 interface LabInfrastructureGridProps {
   items: InfrastructureItem[];
+  colorScheme?: "amber" | "indigo";
 }
 
-export const LabInfrastructureGrid: React.FC<LabInfrastructureGridProps> = ({ items }) => {
+export const LabInfrastructureGrid: React.FC<LabInfrastructureGridProps> = ({ items, colorScheme = "amber" }) => {
+  const isIndigo = colorScheme === "indigo";
+  const accentRgba = isIndigo ? "rgba(99,102,241," : "rgba(251,191,36,";
+  const borderColor = isIndigo ? "border-indigo-400/30" : "border-amber-400/30";
+  const bgColor = isIndigo ? "bg-indigo-50" : "bg-amber-50";
+  const textColor = isIndigo ? "text-indigo-600" : "text-amber-600";
+  const gradientFrom = isIndigo ? "from-indigo-400/40" : "from-amber-400/40";
+  const gradientVia = isIndigo ? "via-indigo-400/10" : "via-amber-400/10";
+  const gradientViaBorder = isIndigo ? "via-indigo-400/10" : "via-amber-400/10";
+
   return (
     <div className="relative">
       {/* SVG Connection Lines */}
@@ -19,19 +29,19 @@ export const LabInfrastructureGrid: React.FC<LabInfrastructureGridProps> = ({ it
         preserveAspectRatio="none"
       >
         <defs>
-          <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgba(251,191,36,0.08)" />
-            <stop offset="50%" stopColor="rgba(251,191,36,0.25)" />
-            <stop offset="100%" stopColor="rgba(251,191,36,0.08)" />
+          <linearGradient id={`line-gradient-${colorScheme}`} x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor={`${accentRgba}0.08)`} />
+            <stop offset="50%" stopColor={`${accentRgba}0.25)`} />
+            <stop offset="100%" stopColor={`${accentRgba}0.08)`} />
           </linearGradient>
         </defs>
         {/* Horizontal lines */}
-        <line x1="33.3%" y1="50%" x2="66.6%" y2="50%" stroke="url(#line-gradient)" strokeWidth="1" />
-        <line x1="0%" y1="50%" x2="33.3%" y2="50%" stroke="url(#line-gradient)" strokeWidth="1" />
-        <line x1="66.6%" y1="50%" x2="100%" y2="50%" stroke="url(#line-gradient)" strokeWidth="1" />
+        <line x1="33.3%" y1="50%" x2="66.6%" y2="50%" stroke={`url(#line-gradient-${colorScheme})`} strokeWidth="1" />
+        <line x1="0%" y1="50%" x2="33.3%" y2="50%" stroke={`url(#line-gradient-${colorScheme})`} strokeWidth="1" />
+        <line x1="66.6%" y1="50%" x2="100%" y2="50%" stroke={`url(#line-gradient-${colorScheme})`} strokeWidth="1" />
         {/* Vertical connector dots */}
         {[16.65, 50, 83.3].map((cx, i) => (
-          <circle key={i} cx={`${cx}%`} cy="50%" r="3" fill="rgba(251,191,36,0.3)" />
+          <circle key={i} cx={`${cx}%`} cy="50%" r="3" fill={`${accentRgba}0.3)`} />
         ))}
       </svg>
 
@@ -47,8 +57,8 @@ export const LabInfrastructureGrid: React.FC<LabInfrastructureGridProps> = ({ it
             className="bg-white p-8 sm:p-10 group hover:bg-gray-50/80 transition-all duration-500 relative"
           >
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full border border-amber-400/30 bg-amber-50 flex items-center justify-center">
-                <span className="text-xs font-mono font-bold text-amber-600">
+              <div className={`flex-shrink-0 w-10 h-10 rounded-full border ${borderColor} ${bgColor} flex items-center justify-center`}>
+                <span className={`text-xs font-mono font-bold ${textColor}`}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
@@ -63,8 +73,8 @@ export const LabInfrastructureGrid: React.FC<LabInfrastructureGridProps> = ({ it
             </div>
             {/* Corner accent */}
             <div className="absolute top-0 right-0 w-8 h-8 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <div className="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-amber-400/40 to-transparent" />
-              <div className="absolute top-0 right-0 h-px w-8 bg-gradient-to-l from-amber-400/40 to-transparent" />
+              <div className={`absolute top-0 right-0 w-px h-8 bg-gradient-to-b ${gradientFrom} to-transparent`} />
+              <div className={`absolute top-0 right-0 h-px w-8 bg-gradient-to-l ${gradientFrom} to-transparent`} />
             </div>
           </motion.div>
         ))}
@@ -74,7 +84,7 @@ export const LabInfrastructureGrid: React.FC<LabInfrastructureGridProps> = ({ it
       <div className="hidden sm:grid grid-cols-3 relative z-10">
         {[0, 1, 2].map((i) => (
           <div key={i} className="flex justify-center">
-            <div className="w-px h-8 bg-gradient-to-b from-amber-400/20 via-amber-400/10 to-amber-400/20" />
+            <div className={`w-px h-8 bg-gradient-to-b ${gradientFrom} ${gradientViaBorder} ${gradientFrom}`} />
           </div>
         ))}
       </div>
@@ -91,8 +101,8 @@ export const LabInfrastructureGrid: React.FC<LabInfrastructureGridProps> = ({ it
             className="bg-white p-8 sm:p-10 group hover:bg-gray-50/80 transition-all duration-500 relative"
           >
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full border border-amber-400/30 bg-amber-50 flex items-center justify-center">
-                <span className="text-xs font-mono font-bold text-amber-600">
+              <div className={`flex-shrink-0 w-10 h-10 rounded-full border ${borderColor} ${bgColor} flex items-center justify-center`}>
+                <span className={`text-xs font-mono font-bold ${textColor}`}>
                   {String(i + 4).padStart(2, "0")}
                 </span>
               </div>
@@ -106,8 +116,8 @@ export const LabInfrastructureGrid: React.FC<LabInfrastructureGridProps> = ({ it
               </div>
             </div>
             <div className="absolute top-0 right-0 w-8 h-8 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <div className="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-amber-400/40 to-transparent" />
-              <div className="absolute top-0 right-0 h-px w-8 bg-gradient-to-l from-amber-400/40 to-transparent" />
+              <div className={`absolute top-0 right-0 w-px h-8 bg-gradient-to-b ${gradientFrom} to-transparent`} />
+              <div className={`absolute top-0 right-0 h-px w-8 bg-gradient-to-l ${gradientFrom} to-transparent`} />
             </div>
           </motion.div>
         ))}
