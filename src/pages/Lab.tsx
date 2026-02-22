@@ -1,4 +1,5 @@
 import { useEffect, useState, lazy, Suspense } from "react";
+import WhisperText from "@/components/ui/whisper-text";
 import { useNavigate, Link } from "react-router-dom";
 import { Bot, Lightbulb, Phone, FileText, Plus, ArrowUpRight } from "lucide-react";
 import leadGenerationImage from "@/assets/lead-generation.webp";
@@ -251,23 +252,28 @@ const Lab = () => {
             </motion.h2>
 
             {/* Description */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="max-w-3xl"
-            >
-              <p className="text-lg sm:text-xl text-black/50 leading-relaxed">
-                Im Lab entwickeln wir die operative Infrastruktur für Ihr Unternehmen – von automatisierten End-to-End-Prozessen über Plattform-Architektur bis zu firmeneigener KI.
-              </p>
-              <p className="text-lg sm:text-xl text-black/50 leading-relaxed mt-4">
-                Alles folgt einer klaren Systemlogik, bleibt steuerbar und gehört Ihrem Unternehmen.
-              </p>
-              <p className="text-lg sm:text-xl text-black/50 leading-relaxed mt-4">
-                So entsteht Technologie, die Wachstum ermöglicht, ohne Komplexität zu erhöhen.
-              </p>
-            </motion.div>
+            <div className="max-w-3xl space-y-4">
+              <WhisperText
+                text="Im Lab entwickeln wir die operative Infrastruktur für Ihr Unternehmen – von automatisierten End-to-End-Prozessen über Plattform-Architektur bis zu firmeneigener KI."
+                className="text-lg sm:text-xl text-black/50 leading-relaxed"
+                y={12}
+                delay={30}
+              />
+              <WhisperText
+                text="Alles folgt einer klaren Systemlogik, bleibt steuerbar und gehört Ihrem Unternehmen."
+                className="text-lg sm:text-xl text-black/50 leading-relaxed"
+                y={12}
+                delay={30}
+                triggerStart="top 92%"
+              />
+              <WhisperText
+                text="So entsteht Technologie, die Wachstum ermöglicht, ohne Komplexität zu erhöhen."
+                className="text-lg sm:text-xl text-black/50 leading-relaxed"
+                y={12}
+                delay={30}
+                triggerStart="top 94%"
+              />
+            </div>
           </div>
         </section>
 
