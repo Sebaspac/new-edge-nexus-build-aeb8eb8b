@@ -53,7 +53,16 @@ export const MethodologyGrid = () => {
               <AnimatedTextCycle
                 words={["Dein Marketing.", "Deine Prozesse.", "Deine Daten.", "Deine KI."]}
                 interval={3000}
-                className="text-[#7C3AED]"
+                className=""
+                renderWord={(word) => {
+                  const parts = word.split(" ");
+                  return (
+                    <>
+                      {parts[0]}{" "}
+                      <span className="text-[#7C3AED]">{parts.slice(1).join(" ")}</span>
+                    </>
+                  );
+                }}
               />
               <br />
               Als System gedacht.
