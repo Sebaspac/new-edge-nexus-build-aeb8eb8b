@@ -81,10 +81,21 @@ export const InteractiveCore = () => {
           <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 text-black">
             Zwei Bereiche. Eine Vision.
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl">
-            ​Viele Unternehmen nutzen heute KI, aber kaum eines kontrolliert sie. Tool‑Chaos, fragmentierte SaaS‑Landschaften und KI‑Experimente ohne Struktur führen zu steigenden Kosten, operativer Komplexität und Abhängigkeiten. Unsere Systeme geben Kontrolle zurück.
-  
-          </p>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl">Der Aufbau steuerbarer Systeme beginnt nicht mit Technologie. Er beginnt mit Klarheit über Marke, Struktur und Entscheidungslogik. 
+Erst wenn diese Grundlage steht, kann KI sinnvoll integriert werden. Heute passiert meist das Gegenteil: Unternehmen führen neue Tools ein, testen KI und erweitern ihre SaaS-Stacks – ohne eine gemeinsame Systemlogik. Das Ergebnis sind steigende Kosten, operative Komplexität und neue Abhängigkeiten. Unsere Arbeit folgt deshalb einer klaren Reihenfolge: Klarheit im Studio. Umsetzung im Lab. So entstehen digitale Plattformen, Automatisierungen und KI-Systeme, die Unternehmen verstehen, steuern und selbst weiterentwickeln können.  
+
+
+
+
+
+
+
+
+
+
+
+
+        </p>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mt-3">
             New Edge ist keine klassische Agentur. Wir sind Ihr strategischer Tech-Partner.
           </p>
@@ -94,23 +105,12 @@ export const InteractiveCore = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] xl:grid-cols-[400px_1fr] gap-4 md:gap-6 lg:gap-8 items-stretch">
           {/* Control Panel - Horizontal scroll on mobile */}
           <div className="flex lg:flex-col gap-2 sm:gap-3 lg:gap-4 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 scrollbar-hide">
-            {states.map((state, index) => {const isActive = activeState === state.key;
-              const stateColor = content[state.key].color;
-              const hoverClasses = state.key === "human" ? "hover:bg-purple-50 hover:border-purple-300" : "hover:bg-yellow-50 hover:border-yellow-300";
-              const activeClasses = state.key === "human" ? "bg-purple-50 border-purple-500 shadow-lg shadow-purple-500/10" : "bg-yellow-50 border-yellow-500 shadow-lg shadow-yellow-500/10";
-              const badgeActiveClasses = state.key === "human" ? "bg-purple-500 text-white" : "bg-yellow-500 text-black";
-              return <motion.button key={state.key} onClick={() => setActiveState(state.key)} initial={{
-                opacity: 0,
-                x: -40
-              }} whileInView={{
-                opacity: 1,
-                x: 0
-              }} viewport={{
-                once: true
-              }} transition={{
-                duration: 0.6,
-                delay: index * 0.1
-              }} className={`
+            {states.map((state, index) => {const isActive = activeState === state.key;const stateColor = content[state.key].color;const hoverClasses = state.key === "human" ? "hover:bg-purple-50 hover:border-purple-300" : "hover:bg-yellow-50 hover:border-yellow-300";const activeClasses = state.key === "human" ? "bg-purple-50 border-purple-500 shadow-lg shadow-purple-500/10" : "bg-yellow-50 border-yellow-500 shadow-lg shadow-yellow-500/10";const badgeActiveClasses = state.key === "human" ? "bg-purple-500 text-white" : "bg-yellow-500 text-black";return <motion.button key={state.key} onClick={() => setActiveState(state.key)} initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6,
+              delay: index * 0.1
+            }} className={`
                     relative p-3 sm:p-4 lg:p-6 text-left transition-all duration-500
                     border overflow-hidden group flex-shrink-0 min-w-[120px] sm:min-w-[140px] lg:min-w-0
                     ${isActive ? activeClasses : `bg-transparent border-gray-200 ${hoverClasses}`}
@@ -136,29 +136,29 @@ export const InteractiveCore = () => {
 
                   {/* Progress Bar */}
                   {isActive && <motion.div className="absolute bottom-0 left-0 h-[2px]" style={{
-                  backgroundColor: stateColor
-                }} initial={{
-                  width: "0%"
-                }} animate={{
-                  width: `${progress}%`
-                }} transition={{
-                  duration: 0.1
-                }} />}
+                backgroundColor: stateColor
+              }} initial={{
+                width: "0%"
+              }} animate={{
+                width: `${progress}%`
+              }} transition={{
+                duration: 0.1
+              }} />}
 
                   {/* Arrow Indicator - Hidden on mobile */}
                   {isActive && <motion.div initial={{
-                  opacity: 0,
-                  x: -10
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3">
+                opacity: 0,
+                x: -10
+              }} animate={{
+                opacity: 1,
+                x: 0
+              }} className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3">
                       <div className="w-2 h-2" style={{
-                    backgroundColor: stateColor
-                  }} />
+                  backgroundColor: stateColor
+                }} />
                     </motion.div>}
                 </motion.button>;
-            })}
+          })}
           </div>
 
           {/* Display Card */}
