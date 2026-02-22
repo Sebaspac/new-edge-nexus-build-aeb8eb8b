@@ -212,8 +212,8 @@ const Lab = () => {
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-          INTRO / MANIFESTO SECTION
-          ═══════════════════════════════════════════════════════ */}
+           INTRO / MANIFESTO SECTION
+           ═══════════════════════════════════════════════════════ */}
         <section className="relative bg-white py-24 sm:py-32 lg:py-40 overflow-hidden border-b border-black/5">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
             {/* Label */}
@@ -238,17 +238,17 @@ const Lab = () => {
               className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] tracking-tight mb-12 lg:mb-16">
 
               Systeme statt{" "}
-              <span
-                className="italic"
-                style={{
-                  background: "linear-gradient(to right, #fde047, #fbbf24)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text"
-                }}>
+              
 
-                Einzelmaßnahmen.
-              </span>
+
+
+
+
+
+
+
+
+
             </motion.h2>
 
             {/* Description */}
@@ -278,8 +278,8 @@ const Lab = () => {
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-          SERVICE MODULES
-          ═══════════════════════════════════════════════════════ */}
+           SERVICE MODULES
+           ═══════════════════════════════════════════════════════ */}
         {labServices.map((service, idx) => {
           const isReversed = idx % 2 !== 0;
           return (
@@ -374,8 +374,8 @@ const Lab = () => {
 
         })}
         {/* ═══════════════════════════════════════════════════════
-          INTEGRATION & ÜBERGEORDNETER LAB-EFFEKT
-          ═══════════════════════════════════════════════════════ */}
+           INTEGRATION & ÜBERGEORDNETER LAB-EFFEKT
+           ═══════════════════════════════════════════════════════ */}
         <section className="relative py-24 sm:py-32 lg:py-40 bg-white overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div
