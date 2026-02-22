@@ -11,6 +11,7 @@ import { LazyVideo } from "@/components/LazyVideo";
 import { BrandStrategyAnimation } from "@/components/ui/brand-strategy-animation";
 import { BrandIdentityAnimation } from "@/components/ui/brand-identity-animation";
 import { KiAuditAnimation } from "@/components/ui/ki-audit-animation";
+import { StudioScrollSections } from "@/components/ui/studio-scroll-sections";
 import albanovaImage from "@/assets/albanova-website.png";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
@@ -207,74 +208,9 @@ const Studio = () => {
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-            3-5. UNIFIED SERVICE MODULES
+            3-5. SPLIT-SCREEN SCROLL SERVICES
         ═══════════════════════════════════════════════════════ */}
-        {studioServices.map((service, idx) => {
-          const isReversed = idx % 2 !== 0;
-          return (
-            <section key={service.number} className="relative bg-white py-24 sm:py-32 overflow-hidden border-b border-black/5 last:border-b-0">
-              {/* Decorative number */}
-              <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
-                <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
-                  style={{
-                    WebkitTextStroke: "1px rgba(99,102,241,0.12)",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
-                  {service.number}
-                </span>
-              </div>
-
-              <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-                  {/* Text content */}
-                  <div className={isReversed ? "order-2 lg:order-2" : ""}>
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
-                      <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service {service.number}</span>
-                      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">
-                        {service.title}
-                      </h2>
-                    </motion.div>
-
-                    <div className="mt-12 space-y-8">
-                      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
-                        <h3 className="text-xs font-bold tracking-widest text-red-500/70 uppercase mb-3">Das Problem</h3>
-                        <p className="text-black/60 text-sm leading-relaxed">{service.problem}</p>
-                      </motion.div>
-                      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
-                        <h3 className="text-xs font-bold tracking-widest text-indigo-600/70 uppercase mb-3">Unsere Lösung</h3>
-                        <p className="text-black/60 text-sm leading-relaxed">{service.solution}</p>
-                      </motion.div>
-                    </div>
-                  </div>
-
-                  {/* Animation (sticky on desktop) */}
-                  <div className={`lg:sticky lg:top-24 ${isReversed ? "order-1 lg:order-1" : ""}`}>
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
-                      {service.animation}
-                    </motion.div>
-                  </div>
-                </div>
-
-                {/* Deliverables — unified 4-column card grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-20 bg-black/5">
-                  {service.deliverables.map((d, i) => (
-                    <motion.div
-                      key={i}
-                      initial="hidden" whileInView="visible" viewport={{ once: true }}
-                      variants={fadeUp} custom={i}
-                      className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300"
-                    >
-                      <span className="text-xs font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
-                      <h4 className="text-black font-bold mt-2 text-sm">{d.title}</h4>
-                      <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </section>
-          );
-        })}
+        <StudioScrollSections services={studioServices} />
 
         {/* ═══════════════════════════════════════════════════════
             6. CASE STUDY — Full-width feature
