@@ -1,17 +1,39 @@
 
-# Fix: Karteninhalte nach unten ausrichten
+# Kontaktformular: Fehlende Felder debuggen und fixen
 
-## Problem
-Die Inhalte im dunklen Kasten (Icon, Status-Badge, Titel, Beschreibung, Tags) schweben in der Mitte, anstatt am unteren Rand ausgerichtet zu sein. Obwohl `justify-end` gesetzt ist, verteilen sich die Elemente ueber die gesamte Kartenhoehe.
+## Analyse
 
-## Loesung
-Den Content-Wrapper innerhalb der Karte mit `mt-auto` versehen, damit alle Inhalte (Icon-Zeile, Titel, Beschreibung, Tags) nach unten gedrueckt werden und am Boden der Karte anliegen.
+Der Datenfluss ist: **Frontend -> Edge Function -> n8n Webhook**
 
-## Technische Aenderung
-**Datei:** `src/components/InteractiveCore.tsx`
+Die Edge Function extrahiert und validiert alle Felder korrekt (name, email, position, firma, telefon, nachricht, source) und sendet sie als JSON an den n8n Webhook. Das Problem: Es gibt kein Logging der tatsaechlich gesendeten Daten, sodass wir nicht sehen koennen, ob alle Felder wirklich ankommen.
 
-- Den aeusseren Content-Container (Zeile 188) behalten mit `justify-end`
-- Die Icon/Status-Zeile (Zeile 189) bekommt kein `mt-auto` mehr, stattdessen wird der gesamte sichtbare Inhalt in einen Wrapper mit `mt-auto` gepackt
-- Alternativ: einfach den bestehenden Flex-Container so anpassen, dass die Kinder wirklich am Ende kleben -- dazu den `mb-6 sm:mb-8` Abstand zwischen Icon-Zeile und Content reduzieren und sicherstellen, dass kein ueberfluessiger Platz oben entsteht
+## Moegliche Ursachen
 
-Konkret: Die Icon/Status-Leiste und den Content-Block zusammen in ein `div` mit `mt-auto` wrappen, sodass alles als Block nach unten geschoben wird.
+1. **n8n Webhook-Konfiguration**: Der Webhook in n8n ist moeglicherweise so konfiguriert, dass er nur bestimmte Felder extrahiert
+2. **Datenformat**: n8n erwartet moeglicherweise ein anderes Format (z.B. verschachtelte Struktur)
+
+## Plan
+
+### Schritt 1: Debug-Logging in der Edge Function hinzufuegen
+
+In `supabase/functions/contact-form/index.ts` wird ein `console.log` mit dem vollstaendigen Payload eingefuegt, der an n8n gesendet wird. So koennen wir in den Edge Function Logs genau sehen, welche Daten weitergeleitet werden.
+
+Aenderung in Zeile 142 (vor dem Webhook-Call):
+```typescript
+console.log(`Processing contact form submission from ${clientIP}`);
+console.log(`Payload being sent to webhook: ${JSON.stringify(validation.data)}`);
+```
+
+### Schritt 2: Test durchfuehren und Logs pruefen
+
+Nach dem Deployment wird ein Testformular abgeschickt, um die Logs zu ueberpruefen.
+
+### Schritt 3: Falls das Problem bei n8n liegt
+
+Wenn die Logs zeigen, dass alle Daten korrekt gesendet werden, liegt das Problem in der n8n Workflow-Konfiguration. In dem Fall muss der n8n Workflow "CRM UPDATES" (ID: 6FnYmim7NA9GOkTn) angepasst werden, damit alle Felder verarbeitet werden.
+
+## Technische Details
+
+- Datei: `supabase/functions/contact-form/index.ts`
+- Aenderung: Eine zusaetzliche `console.log`-Zeile nach Zeile 142
+- Edge Function Logs koennen hier eingesehen werden: Supabase Dashboard > Edge Functions > contact-form > Logs
