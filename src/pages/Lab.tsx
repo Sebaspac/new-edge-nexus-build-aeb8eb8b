@@ -201,29 +201,29 @@ const Lab = () => {
         <section className="relative py-24 sm:py-32 lg:py-40 bg-white overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="mb-12">
-              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-amber-500">Übergeordneter Nutzen</span>
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-12">
+              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-amber-500">Das Ergebnis</span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[0.95] text-black mt-3">
                 Der Lab‑{" "}
                 <span style={{
-                  background: "linear-gradient(to right, #fde047, #fbbf24)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text"
-                }}>Effekt.</span>
+                background: "linear-gradient(to right, #fde047, #fbbf24)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text"
+              }}>Effekt.</span>
               </h2>
             </motion.div>
             <LabInfrastructureGrid items={[
-              { title: "Produktive Systeme statt Einzelautomationen", description: "Es entstehen keine Insellösungen, sondern eine zusammenhängende operative Infrastruktur." },
-              { title: "Ownership statt Abhängigkeit", description: "Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie." },
-              { title: "Technologie als steuerbares Unternehmenssystem", description: "Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung." },
-              { title: "Skalierung ohne steigende Komplexität", description: "Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen." },
-              { title: "Integration bestehender Systeme", description: "Bestehende Tools und Plattformen werden in eine gemeinsame Systemlogik integriert – ohne funktionierende Strukturen zu zerstören. Datenflüsse laufen automatisch, Prozesse werden zentral steuerbar." },
-            ]} />
+          { title: "Produktive Systeme statt Einzelautomationen", description: "Es entstehen keine Insellösungen, sondern eine zusammenhängende operative Infrastruktur." },
+          { title: "Ownership statt Abhängigkeit", description: "Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie." },
+          { title: "Technologie als steuerbares Unternehmenssystem", description: "Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung." },
+          { title: "Skalierung ohne steigende Komplexität", description: "Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen." },
+          { title: "Integration bestehender Systeme", description: "Bestehende Tools und Plattformen werden in eine gemeinsame Systemlogik integriert – ohne funktionierende Strukturen zu zerstören. Datenflüsse laufen automatisch, Prozesse werden zentral steuerbar." }]
+          } />
           </div>
         </section>
 
