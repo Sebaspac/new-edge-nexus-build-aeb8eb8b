@@ -43,7 +43,7 @@ export const PositionedForImpactSection = () => {
           delay: 0.2
         }} className="space-y-4 sm:space-y-6 md:space-y-8 order-1 lg:order-2">
             {/* Main Headline */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-[0.95] text-black">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[0.95] text-black">
               Positioned for{" "}
               <span className="text-[#7C3AED]">Impact.</span>
             </h2>
