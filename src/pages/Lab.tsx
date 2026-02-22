@@ -150,7 +150,7 @@ const Lab = () => {
         {labServices.map((service, idx) => {
         const isReversed = idx % 2 !== 0;
         return (
-          <section key={service.number} className="relative bg-white py-24 sm:py-32 overflow-hidden border-b border-black/5 last:border-b-0">
+          <section key={service.number} className="relative bg-white min-h-screen flex items-center overflow-hidden border-b border-black/5 last:border-b-0 py-12 sm:py-16">
               <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
                 <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
               style={{ WebkitTextStroke: "1px rgba(251,191,36,0.12)", WebkitTextFillColor: "transparent" }}>
@@ -158,19 +158,19 @@ const Lab = () => {
                 </span>
               </div>
               <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
                   <div className={isReversed ? "order-2 lg:order-2" : ""}>
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
                       <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service {service.number}</span>
-                      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">{service.title}</h2>
+                      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black mt-2 leading-[1.05]">{service.title}</h2>
                     </motion.div>
-                    <div className="mt-12 space-y-8">
+                    <div className="mt-6 space-y-5">
                       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
-                        <h3 className="text-xs font-bold tracking-widest text-red-500/70 uppercase mb-3">Das Problem</h3>
+                        <h3 className="text-xs font-bold tracking-widest text-red-500/70 uppercase mb-2">Das Problem</h3>
                         <p className="text-black/60 text-sm leading-relaxed">{service.problem}</p>
                       </motion.div>
                       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
-                        <h3 className="text-xs font-bold tracking-widest text-amber-500/70 uppercase mb-3">Unsere Lösung</h3>
+                        <h3 className="text-xs font-bold tracking-widest text-amber-500/70 uppercase mb-2">Unsere Lösung</h3>
                         <p className="text-black/60 text-sm leading-relaxed">{service.solution}</p>
                       </motion.div>
                     </div>
@@ -181,15 +181,15 @@ const Lab = () => {
                     </motion.div>
                   </div>
                 </div>
-                <div className={`grid grid-cols-1 sm:grid-cols-2 ${service.deliverables.length === 5 ? 'lg:grid-cols-5' : 'lg:grid-cols-4'} gap-px mt-20 bg-black/5`}>
+                <div className={`grid grid-cols-1 sm:grid-cols-2 ${service.deliverables.length === 5 ? 'lg:grid-cols-5' : 'lg:grid-cols-4'} gap-px mt-10 bg-black/5`}>
                   {service.deliverables.map((d, i) =>
-                <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
-                className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300">
-                      <span className="text-xs font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
-                      <h4 className="text-black font-bold mt-2 text-sm">{d.title}</h4>
-                      <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
+                    <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
+                      className="bg-white p-4 sm:p-5 group hover:bg-gray-50 transition-colors duration-300">
+                      <span className="text-[10px] font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
+                      <h4 className="text-black font-bold mt-1 text-xs sm:text-sm leading-snug">{d.title}</h4>
+                      <p className="text-black/40 text-[10px] sm:text-xs mt-1 leading-relaxed">{d.description}</p>
                     </motion.div>
-                )}
+                  )}
                 </div>
               </div>
             </section>);
