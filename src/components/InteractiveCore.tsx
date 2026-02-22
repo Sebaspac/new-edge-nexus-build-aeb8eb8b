@@ -265,7 +265,7 @@ export const InteractiveCore = () => {
             transition={{ duration: 0.8 }}
             className="order-1 lg:order-2 relative lg:pt-0"
           >
-            <div className="lg:absolute lg:-top-8 mb-3 sm:mb-4 md:mb-6 lg:mb-0">
+            <div className="lg:absolute lg:-top-12 mb-3 sm:mb-4 md:mb-6 lg:mb-0">
               <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#7C3AED]">
                 UNSERE SERVICES
               </span>
