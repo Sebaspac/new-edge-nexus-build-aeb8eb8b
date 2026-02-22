@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 export const MethodologyGrid = () => {
   const services = [{
     category: "KLARHEIT",
@@ -49,11 +50,13 @@ export const MethodologyGrid = () => {
 
             {/* Main Headline */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-[0.9] text-black">
-              SCALE
+              <AnimatedTextCycle
+                words={["Dein Marketing.", "Deine Prozesse.", "Deine Daten.", "Deine KI."]}
+                interval={3000}
+                className="text-[#7C3AED]"
+              />
               <br />
-              YOUR
-              <br />
-              <span className="text-[#7C3AED]">VISION.</span>
+              Als System gedacht.
             </h2>
 
             {/* Description */}
