@@ -24,10 +24,10 @@ const studioServices = [
     solution: "Wir entwickeln eine Markenidentität, die als funktionale Grundlage für Websites, Software und KI‑Systeme dient.",
     animation: <BrandStrategyAnimation />,
     deliverables: [
-      { title: "Markenkern & Purpose", description: "Klar definierter Markenkern und Purpose als Entscheidungsgrundlage." },
-      { title: "Positionierung & Differenzierung", description: "Differenzierung und Einordnung im Wettbewerbsumfeld." },
-      { title: "Visuelle & sprachliche Identität", description: "Einheitliche Identität, die sich in Interfaces, Automatisierungen und Entscheidungslogiken niederschlägt." },
-      { title: "Lebendiges Brand System", description: "Brand System, das intern gepflegt und weiterentwickelt wird." },
+      { title: "Marke als Entscheidungsgrundlage", description: "Der Markenkern wird zu einem steuernden Element für Strategie, Kommunikation, Produktentwicklung und Systeme – nicht zu einer reinen Designbasis." },
+      { title: "Differenzierung mit operativer Wirkung", description: "Ihre Positionierung wirkt nicht nur nach außen, sondern strukturiert Interfaces, Inhalte, Prozesse und Automatisierungen." },
+      { title: "Konsistenz ohne Reibungsverluste", description: "Eine einheitliche visuelle und sprachliche Logik reduziert Abstimmungsaufwand, beschleunigt Entscheidungen und macht Systeme anschlussfähig." },
+      { title: "Intern weiterentwickelbares Brand System", description: "Ihre Marke wird zu einem lebendigen, intern gepflegten System – unabhängig von externen Dienstleistern." },
     ],
   },
   {
@@ -37,10 +37,10 @@ const studioServices = [
     solution: "Wir analysieren Prozesse, Daten und Tools, identifizieren realistische Automatisierungs‑ und KI‑Chancen und bewerten Risiken und Governance.",
     animation: <KiAuditAnimation />,
     deliverables: [
-      { title: "Bestandsaufnahme", description: "Transparente Bestandsaufnahme von Abläufen und Systemen." },
-      { title: "Go/No‑Go‑Entscheidungen", description: "Klare Go/No‑Go‑Entscheidungen zur Automatisierung." },
-      { title: "KI‑Enablement Roadmap", description: "Priorisierte Roadmap für KI‑Enablement." },
-      { title: "Entscheidungsfähigkeit", description: "Entscheidungsfähigkeit darüber, was sinnvoll ist – und was nicht." },
+      { title: "Transparenz über die bestehende Realität", description: "Alle relevanten Prozesse, Tools und Datenstrukturen werden als zusammenhängendes System sichtbar." },
+      { title: "Sichere Automatisierungsentscheidungen", description: "Klare Go-/No-Go-Bewertungen zeigen, welche KI-Vorhaben echten Hebel haben – und verhindern Fehlinvestitionen." },
+      { title: "Priorisierte KI-Roadmap", description: "Die nächsten Schritte sind nach Wirkung, Risiko und Aufwand geordnet und bilden eine belastbare Umsetzungslogik." },
+      { title: "Entscheidungsfähigkeit im Management", description: "Technologie- und Investitionsentscheidungen basieren auf Struktur statt auf Hype." },
     ],
   },
   {
@@ -50,10 +50,10 @@ const studioServices = [
     solution: "Wir definieren eine strukturelle Kommunikationslogik, die als Grundlage für Websites, Plattformen und Systeme dient.",
     animation: <BrandIdentityAnimation />,
     deliverables: [
-      { title: "Kanalrollen & Struktur", description: "Klar definierte Rollen digitaler Kanäle (Web, Social, CRM usw.)." },
-      { title: "Tonalität & Storytelling", description: "Einheitliche Tonalität und Storytelling‑Prinzipien." },
-      { title: "Systemische Leitplanken", description: "Konsistente Kommunikation über alle Touchpoints." },
-      { title: "Kontrollierte Sichtbarkeit", description: "Aufbau einer sichtbaren, kontrollierten Präsenz, die in Automationen integriert ist." },
+      { title: "Klare Rolle jedes Kanals", description: "Website, Content, CRM, Kampagnen und Plattformen übernehmen definierte Funktionen im Gesamtsystem." },
+      { title: "Durchgängige Markenlogik über alle Touchpoints", description: "Ihre Kommunikation folgt einer konsistenten Struktur – unabhängig vom Kanal oder Format." },
+      { title: "Anschlussfähigkeit für Automatisierung und KI", description: "Inhalte, Daten und Touchpoints sind so aufgebaut, dass sie direkt in Systeme und Workflows integriert werden können." },
+      { title: "Sichtbarkeit unter eigener Kontrolle", description: "Ihre digitale Präsenz funktioniert nach Ihrer Systemlogik – nicht nach den Regeln einzelner Plattformen." },
     ],
   },
 ];
