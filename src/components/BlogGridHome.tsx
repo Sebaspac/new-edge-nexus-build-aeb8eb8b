@@ -53,7 +53,7 @@ export const BlogGridHome = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-black">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.1] text-black">
               Insights & Wissen.
               <br />
               <span className="text-[#7C3AED]">Her mit den Artikeln.</span>

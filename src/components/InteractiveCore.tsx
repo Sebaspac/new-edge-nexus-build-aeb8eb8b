@@ -270,7 +270,7 @@ export const InteractiveCore = () => {
                 UNSERE SERVICES
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 text-black md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6 text-black">
               Zwei Bereiche. Eine Vision.
             </h2>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-xl">
