@@ -50,19 +50,11 @@ export const MethodologyGrid = () => {
 
             {/* Main Headline */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-[0.9] text-black">
+              Deine{" "}
               <AnimatedTextCycle
-                words={["Dein Marketing.", "Deine Prozesse.", "Deine Daten.", "Deine KI."]}
+                words={["Prozesse.", "Daten.", "KI.", "Plattform.", "Abläufe.", "Entscheidungen."]}
                 interval={3000}
-                className=""
-                renderWord={(word) => {
-                  const parts = word.split(" ");
-                  return (
-                    <>
-                      {parts[0]}{" "}
-                      <span className="text-[#7C3AED]">{parts.slice(1).join(" ")}</span>
-                    </>
-                  );
-                }}
+                className="text-[#7C3AED]"
               />
               <br />
               Als System gedacht.
