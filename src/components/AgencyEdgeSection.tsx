@@ -27,6 +27,8 @@ export const AgencyEdgeSection = () => {
 
             <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">Mit unserer "Edge" Methodik denken wir Marke, Prozesse und KI als zusammenhängendes System – damit Unternehmen langfristig steuerbar bleiben und nicht in Tool- oder Anbieterabhängigkeiten geraten.</p>
 
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">Wir bauen keine Einzelleistungen, sondern zusammenhängende Systeme. Studio schafft Klarheit, Entscheidungsfähigkeit und Systemlogik. Lab setzt diese Logik technisch um und baut produktive Systeme – integrierbar und kontrollierbar.</p>
+
             <div className="pt-4 sm:pt-6 md:pt-8">
               <Link to="/about">
                 <motion.button whileHover={{
