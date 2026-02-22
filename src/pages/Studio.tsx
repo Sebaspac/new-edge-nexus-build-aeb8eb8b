@@ -12,6 +12,7 @@ import { BrandStrategyAnimation } from "@/components/ui/brand-strategy-animation
 import { BrandIdentityAnimation } from "@/components/ui/brand-identity-animation";
 import { KiAuditAnimation } from "@/components/ui/ki-audit-animation";
 import albanovaImage from "@/assets/albanova-website.png";
+import { LabInfrastructureGrid } from "@/components/ui/lab-infrastructure-grid";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
@@ -215,6 +216,39 @@ const Studio = () => {
             </section>
           );
         })}
+
+        {/* ═══════════════════════════════════════════════════════
+            STUDIO-EFFEKT — Infrastructure Grid
+        ═══════════════════════════════════════════════════════ */}
+        <section className="relative py-24 sm:py-32 lg:py-40 bg-white overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="mb-12"
+            >
+              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-indigo-500">Das Ergebnis</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[0.95] text-black mt-3">
+                Der Studio‑{" "}
+                <span style={{
+                  background: "linear-gradient(to right, #6366f1, #a855f7)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text"
+                }}>Effekt.</span>
+              </h2>
+            </motion.div>
+            <LabInfrastructureGrid colorScheme="indigo" items={[
+              { title: "Klarheit als operative Grundlage", description: "Marke, Kommunikation und Systeme folgen einer gemeinsamen Logik – statt isolierter Einzelmaßnahmen." },
+              { title: "Entscheidungsfähigkeit statt Abhängigkeit", description: "Ihr Unternehmen versteht seine eigene Systemlogik und kann strategische Entscheidungen eigenständig treffen." },
+              { title: "Konsistenz über alle Touchpoints", description: "Website, Kampagnen, CRM und Plattformen sprechen eine einheitliche Sprache – visuell und strukturell." },
+              { title: "Anschlussfähigkeit für Technologie", description: "Markenlogik und Kommunikationsarchitektur sind so aufgebaut, dass KI, Automatisierung und Systeme direkt andocken können." },
+              { title: "Sichtbarkeit unter eigener Kontrolle", description: "Ihre digitale Präsenz funktioniert nach Ihrer Systemlogik – unabhängig von einzelnen Plattformen oder externen Dienstleistern." }
+            ]} />
+          </div>
+        </section>
 
         {/* ═══════════════════════════════════════════════════════
             6. CASE STUDY — Full-width feature
