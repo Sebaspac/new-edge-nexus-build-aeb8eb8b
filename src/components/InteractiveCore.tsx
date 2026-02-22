@@ -63,6 +63,13 @@ export const InteractiveCore = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
 
         {/* Main Split: Box left, Text right */}
+        {/* Label above grid */}
+        <div className="mb-3 sm:mb-4 md:mb-6">
+          <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#7C3AED]">
+            UNSERE SERVICES
+          </span>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
           {/* LEFT: Interactive Box */}
@@ -265,11 +272,6 @@ export const InteractiveCore = () => {
             transition={{ duration: 0.8 }}
             className="order-1 lg:order-2"
           >
-            <div className="mb-3 sm:mb-4 md:mb-6">
-              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#7C3AED]">
-                UNSERE SERVICES
-              </span>
-            </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 text-black">
               Zwei Bereiche. Eine Vision.
             </h2>
