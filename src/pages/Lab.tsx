@@ -13,7 +13,7 @@ import { LazyVideo } from "@/components/LazyVideo";
 import { ProcessAutomationAnimation } from "@/components/ui/process-automation-animation";
 import { WebSystemsAnimation } from "@/components/ui/web-systems-animation";
 import { TrackingAnalyticsAnimation } from "@/components/ui/tracking-analytics-animation";
-const Footer = lazy(() => import("@/components/Footer").then(m => ({
+const Footer = lazy(() => import("@/components/Footer").then((m) => ({
   default: m.Footer
 })));
 const Lab = () => {
@@ -58,11 +58,11 @@ const Lab = () => {
     solution: "Wir automatisieren operative Aufgaben und Prozesse end-to-end – pragmatisch, stabil und skalierbar. Dabei setzen wir dort KI ein, wo sie einen echten Mehrwert bringt, und kombinieren sie mit klassischen Automationen.",
     animation: <ProcessAutomationAnimation />,
     deliverables: [
-      { title: "End-to-End-Workflows", description: "Durchgängige Prozesse ohne manuelle Übergaben zwischen Tools oder Teams." },
-      { title: "KI-gestützte Prozessschritte", description: "Einsatz von KI für Klassifikation, Priorisierung und Entscheidungsunterstützung." },
-      { title: "Systemintegration", description: "Anbindung von CRM, Support-, Ops- oder internen Tools in konsistente Automationslogik." },
-      { title: "Stabile Prozesslogik", description: "Klare Abläufe, definierte Ausnahmen und nachvollziehbare Ergebnisse." },
-    ],
+    { title: "End-to-End-Workflows", description: "Durchgängige Prozesse ohne manuelle Übergaben zwischen Tools oder Teams." },
+    { title: "KI-gestützte Prozessschritte", description: "Einsatz von KI für Klassifikation, Priorisierung und Entscheidungsunterstützung." },
+    { title: "Systemintegration", description: "Anbindung von CRM, Support-, Ops- oder internen Tools in konsistente Automationslogik." },
+    { title: "Stabile Prozesslogik", description: "Klare Abläufe, definierte Ausnahmen und nachvollziehbare Ergebnisse." }]
+
   }, {
     number: "02",
     title: "Internal Systems, Data & AI Ownership",
@@ -70,11 +70,11 @@ const Lab = () => {
     solution: "Wir bauen interne Systeme, die Software, Daten und KI unter eine gemeinsame, kontrollierbare Architektur bringen – inklusive eigener LLM- und GPU-Infrastruktur.",
     animation: <TrackingAnalyticsAnimation />,
     deliverables: [
-      { title: "Interne Dashboards & Tools", description: "Maßgeschneiderte Anwendungen zur Abbildung kritischer Unternehmensfunktionen." },
-      { title: "Eigene Datenlogik", description: "Selbst kontrollierte Datenstrukturen, Schnittstellen und Verarbeitungslogik." },
-      { title: "Interne KI- & LLM-Systeme", description: "Deployment firmeneigener Sprachmodelle für interne Use Cases." },
-      { title: "GPU-Infrastruktur & Betrieb", description: "Aufbau eigener oder isolierter Rechenkapazitäten für KI-Workloads." },
-    ],
+    { title: "Interne Dashboards & Tools", description: "Maßgeschneiderte Anwendungen zur Abbildung kritischer Unternehmensfunktionen." },
+    { title: "Eigene Datenlogik", description: "Selbst kontrollierte Datenstrukturen, Schnittstellen und Verarbeitungslogik." },
+    { title: "Interne KI- & LLM-Systeme", description: "Deployment firmeneigener Sprachmodelle für interne Use Cases." },
+    { title: "GPU-Infrastruktur & Betrieb", description: "Aufbau eigener oder isolierter Rechenkapazitäten für KI-Workloads." }]
+
   }, {
     number: "03",
     title: "Web & Platform Architecture",
@@ -82,11 +82,11 @@ const Lab = () => {
     solution: "Wir bauen Websites als funktionale Knotenpunkte innerhalb der Systemarchitektur – skalierbar, integriert und wartbar.",
     animation: <WebSystemsAnimation />,
     deliverables: [
-      { title: "Technische Web-Architektur", description: "Skalierbare und wartbare technische Grundstruktur." },
-      { title: "CMS & Datenlogik", description: "Content-Management mit klarer Datenstruktur und API-Anbindung." },
-      { title: "System-Integrationen", description: "Nahtlose Verbindung zu CRM, ERP und Automatisierungssystemen." },
-      { title: "Skalierbarkeit & Sicherheit", description: "Performante, sichere und zukunftsfähige Infrastruktur." },
-    ],
+    { title: "Technische Web-Architektur", description: "Skalierbare und wartbare technische Grundstruktur." },
+    { title: "CMS & Datenlogik", description: "Content-Management mit klarer Datenstruktur und API-Anbindung." },
+    { title: "System-Integrationen", description: "Nahtlose Verbindung zu CRM, ERP und Automatisierungssystemen." },
+    { title: "Skalierbarkeit & Sicherheit", description: "Performante, sichere und zukunftsfähige Infrastruktur." }]
+
   }];
 
 
@@ -95,8 +95,8 @@ const Lab = () => {
     visible: (i: number = 0) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
-    }),
+      transition: { duration: 0.7, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }
+    })
   };
   return <>
       <Helmet>
@@ -143,15 +143,15 @@ const Lab = () => {
 
 
         {/* ═══════════════════════════════════════════════════════
-            3-5. UNIFIED SERVICE MODULES
+        3-5. UNIFIED SERVICE MODULES
         ═══════════════════════════════════════════════════════ */}
         {labServices.map((service, idx) => {
-          const isReversed = idx % 2 !== 0;
-          return (
-            <section key={service.number} className="relative bg-white py-24 sm:py-32 overflow-hidden border-b border-black/5 last:border-b-0">
+        const isReversed = idx % 2 !== 0;
+        return (
+          <section key={service.number} className="relative bg-white py-24 sm:py-32 overflow-hidden border-b border-black/5 last:border-b-0">
               <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
                 <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
-                  style={{ WebkitTextStroke: "1px rgba(251,191,36,0.12)", WebkitTextFillColor: "transparent" }}>
+              style={{ WebkitTextStroke: "1px rgba(251,191,36,0.12)", WebkitTextFillColor: "transparent" }}>
                   {service.number}
                 </span>
               </div>
@@ -180,42 +180,42 @@ const Lab = () => {
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-20 bg-black/5">
-                  {service.deliverables.map((d, i) => (
-                    <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
-                      className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300">
+                  {service.deliverables.map((d, i) =>
+                <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
+                className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300">
                       <span className="text-xs font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
                       <h4 className="text-black font-bold mt-2 text-sm">{d.title}</h4>
                       <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
                     </motion.div>
-                  ))}
+                )}
                 </div>
               </div>
-            </section>
-          );
-        })}
+            </section>);
+
+      })}
         {/* ═══════════════════════════════════════════════════════
-            INTEGRATION & ÜBERGEORDNETER LAB-EFFEKT
+        INTEGRATION & ÜBERGEORDNETER LAB-EFFEKT
         ═══════════════════════════════════════════════════════ */}
         <section className="relative py-24 sm:py-32 lg:py-40 bg-white overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
               {/* Left Column */}
               <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="space-y-6"
-              >
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6">
+
                 <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-amber-500">Integration & Wirkung</span>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[0.95] text-black">
                   Integration bestehender{" "}
                   <span style={{
-                    background: "linear-gradient(to right, #fde047, #fbbf24)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}>Systeme.</span>
+                  background: "linear-gradient(to right, #fde047, #fbbf24)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text"
+                }}>Systeme.</span>
                 </h2>
                 <div className="space-y-5 pt-4">
                   <div>
@@ -235,28 +235,28 @@ const Lab = () => {
 
               {/* Right Column */}
               <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="space-y-6 lg:pt-16"
-              >
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-black">
-                  Übergeordneter Lab‑Effekt
-                </h3>
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-6 lg:pt-16">
+
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-black">Der Lab‑Effekt
+
+              </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-black/5">
                   {[
-                    { title: "Produktive Systeme statt Einzelautomationen", description: "Es entstehen keine Insellösungen, sondern eine zusammenhängende operative Infrastruktur." },
-                    { title: "Ownership statt Abhängigkeit", description: "Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie." },
-                    { title: "Technologie als steuerbares Unternehmenssystem", description: "Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung." },
-                    { title: "Skalierung ohne steigende Komplexität", description: "Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen." },
-                  ].map((d, i) => (
-                    <div key={i} className="bg-white p-6 group hover:bg-gray-50 transition-colors duration-300">
+                { title: "Produktive Systeme statt Einzelautomationen", description: "Es entstehen keine Insellösungen, sondern eine zusammenhängende operative Infrastruktur." },
+                { title: "Ownership statt Abhängigkeit", description: "Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie." },
+                { title: "Technologie als steuerbares Unternehmenssystem", description: "Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung." },
+                { title: "Skalierung ohne steigende Komplexität", description: "Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen." }].
+                map((d, i) =>
+                <div key={i} className="bg-white p-6 group hover:bg-gray-50 transition-colors duration-300">
                       <span className="text-xs font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
                       <h4 className="text-black font-bold mt-2 text-sm">{d.title}</h4>
                       <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
                     </div>
-                  ))}
+                )}
                 </div>
               </motion.div>
             </div>
@@ -377,7 +377,7 @@ const Lab = () => {
                   name: "Cora",
                   video: "/assets/cora-agent-video.mp4"
                 }];
-                const currentAgent = agents.find(a => a.name === selectedAgent) || agents[0];
+                const currentAgent = agents.find((a) => a.name === selectedAgent) || agents[0];
                 return <motion.div key={currentAgent.name} initial={{
                   opacity: 0,
                   scale: 0.95
