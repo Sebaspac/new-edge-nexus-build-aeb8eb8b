@@ -179,7 +179,7 @@ const Studio = () => {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] tracking-tight mb-12 lg:mb-16">
 
-              Die Grundlage für skalierbare <span className="italic">Systeme.</span>
+              Wir schaffen die Grundlage für skalierbare <span className="italic">Systeme.</span>
             </motion.h2>
 
             {/* Description */}
