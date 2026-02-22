@@ -140,6 +140,7 @@ serve(async (req) => {
     }
 
     console.log(`Processing contact form submission from ${clientIP}`);
+    console.log(`Payload being sent to webhook: ${JSON.stringify(validation.data)}`);
 
     // Forward to n8n webhook (URL is now server-side only)
     const webhookUrl = 'https://n8n-pro-oh9w.onrender.com/webhook/kontakt';
