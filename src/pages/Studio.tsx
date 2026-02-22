@@ -1,6 +1,6 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { ChevronDown, ArrowRight, ArrowUpRight, Check } from "lucide-react";
+import { ChevronDown, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from "react-helmet-async";
@@ -22,6 +22,7 @@ const studioServices = [
     title: "Brand Identity & Brand System",
     problem: "Unklare Markenlogik und inkonsistente Kommunikation führen zu Reibung, Fehlannahmen und nicht anschlussfähigen Systemen.",
     solution: "Wir entwickeln eine Markenidentität, die als funktionale Grundlage für Web, Software und KI-Systeme dient.",
+    animation: <BrandStrategyAnimation />,
     deliverables: [
       { title: "Markenkern & Purpose", description: "Das strategische Fundament der Marke als Entscheidungsgrundlage." },
       { title: "Positionierung & Markenlogik", description: "Klare Differenzierung und Einordnung im Wettbewerbsumfeld." },
@@ -34,6 +35,7 @@ const studioServices = [
     title: "KI Enablement & Audit",
     problem: "KI wird oft eingesetzt, ohne klare Ziele, ohne saubere Datenbasis und ohne Verständnis für Risiken.",
     solution: "Wir analysieren Prozesse, Daten und Tools und schaffen Entscheidungsfähigkeit: Was ist sinnvoll – und was nicht?",
+    animation: <KiAuditAnimation />,
     deliverables: [
       { title: "Analyse bestehender Prozesse & Tools", description: "Erfassung und Bewertung aktueller Abläufe und Systeme." },
       { title: "Bewertung von KI-Potenzialen", description: "Identifikation realistischer Automatisierungs- und KI-Chancen." },
@@ -46,6 +48,7 @@ const studioServices = [
     title: "Digitale Kommunikations- & Sichtbarkeitsarchitektur",
     problem: "Digitale Kommunikation entsteht oft isoliert und ohne Verbindung zu Systemen, Vertrieb oder Automatisierung.",
     solution: "Wir definieren eine klare Kommunikationslogik, die als strukturelle Grundlage für Websites, Plattformen und Systeme dient.",
+    animation: <BrandIdentityAnimation />,
     deliverables: [
       { title: "Rollen digitaler Kanäle", description: "Definition der Funktion und Zielsetzung jedes Kanals." },
       { title: "Narrative & Markenstimme", description: "Einheitliche Tonalität und Storytelling-Prinzipien." },
@@ -204,211 +207,74 @@ const Studio = () => {
         </section>
 
         {/* ═══════════════════════════════════════════════════════
-            3. SERVICE 01 — Brand Identity (Dark section)
+            3-5. UNIFIED SERVICE MODULES
         ═══════════════════════════════════════════════════════ */}
-        <section className="relative bg-white py-24 sm:py-32 overflow-hidden">
-          {/* Decorative number */}
-          <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
-            <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
-              style={{
-                WebkitTextStroke: "1px rgba(99,102,241,0.15)",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              01
-            </span>
-          </div>
-
-          <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-              {/* Left: Text content */}
-              <div>
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
-                  <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service 01</span>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">
-                    {studioServices[0].title}
-                  </h2>
-                </motion.div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
-                  <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
-                    <h3 className="text-xs font-bold tracking-widest text-red-500/70 uppercase mb-3">Das Problem</h3>
-                    <p className="text-black/60 text-sm leading-relaxed">{studioServices[0].problem}</p>
-                  </motion.div>
-                  <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
-                    <h3 className="text-xs font-bold tracking-widest text-indigo-600/70 uppercase mb-3">Unsere Lösung</h3>
-                    <p className="text-black/60 text-sm leading-relaxed">{studioServices[0].solution}</p>
-                  </motion.div>
-                </div>
-              </div>
-
-              {/* Right: Animation (sticky on desktop) */}
-              <div className="lg:sticky lg:top-24">
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
-                  <BrandStrategyAnimation />
-                </motion.div>
-              </div>
-            </div>
-
-            {/* Deliverables — horizontal cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-20 bg-black/5">
-              {studioServices[0].deliverables.map((d, i) => (
-                <motion.div
-                  key={i}
-                  initial="hidden" whileInView="visible" viewport={{ once: true }}
-                  variants={fadeUp} custom={i}
-                  className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300"
+        {studioServices.map((service, idx) => {
+          const isReversed = idx % 2 !== 0;
+          return (
+            <section key={service.number} className="relative bg-white py-24 sm:py-32 overflow-hidden border-b border-black/5 last:border-b-0">
+              {/* Decorative number */}
+              <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
+                <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
+                  style={{
+                    WebkitTextStroke: "1px rgba(99,102,241,0.12)",
+                    WebkitTextFillColor: "transparent",
+                  }}
                 >
-                  <span className="text-xs font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
-                  <h4 className="text-black font-bold mt-2 text-sm">{d.title}</h4>
-                  <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+                  {service.number}
+                </span>
+              </div>
 
-        {/* ═══════════════════════════════════════════════════════
-            4. SERVICE 02 — KI Enablement & Audit (White section, centered)
-        ═══════════════════════════════════════════════════════ */}
-        <section className="relative bg-white py-24 sm:py-32 overflow-hidden">
-          {/* Decorative number */}
-          <div className="absolute top-8 left-8 lg:left-16 select-none pointer-events-none">
-            <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
-              style={{
-                WebkitTextStroke: "1px rgba(99,102,241,0.08)",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              02
-            </span>
-          </div>
+              <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                  {/* Text content */}
+                  <div className={isReversed ? "order-2 lg:order-2" : ""}>
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
+                      <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service {service.number}</span>
+                      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">
+                        {service.title}
+                      </h2>
+                    </motion.div>
 
-          <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-6xl relative z-10">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp} className="text-center">
-              <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service 02</span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">
-                {studioServices[1].title}
-              </h2>
-            </motion.div>
-
-            {/* Problem / Solution — two columns with divider */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 mt-16 border border-black/5">
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}
-                className="p-8 sm:p-10 md:border-r border-black/5"
-              >
-                <h3 className="text-xs font-bold tracking-widest text-red-500/70 uppercase mb-3">Das Problem</h3>
-                <p className="text-black/60 text-sm leading-relaxed">{studioServices[1].problem}</p>
-              </motion.div>
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}
-                className="p-8 sm:p-10 border-t md:border-t-0 border-black/5"
-              >
-                <h3 className="text-xs font-bold tracking-widest text-indigo-600/70 uppercase mb-3">Unsere Lösung</h3>
-                <p className="text-black/60 text-sm leading-relaxed">{studioServices[1].solution}</p>
-              </motion.div>
-            </div>
-
-            {/* Animation centered */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={3}
-              className="mt-16 max-w-3xl mx-auto"
-            >
-              <KiAuditAnimation />
-            </motion.div>
-
-            {/* Deliverables — Timeline steps */}
-            <div className="mt-20">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
-                {studioServices[1].deliverables.map((d, i) => (
-                  <motion.div
-                    key={i}
-                    initial="hidden" whileInView="visible" viewport={{ once: true }}
-                    variants={fadeUp} custom={i}
-                    className="relative p-6 sm:p-8"
-                  >
-                    {/* Connecting line */}
-                    {i < studioServices[1].deliverables.length - 1 && (
-                      <div className="hidden lg:block absolute top-10 right-0 w-full h-px bg-black/10 translate-x-1/2" />
-                    )}
-                    <div className="relative z-10">
-                      <div className="w-8 h-8 flex items-center justify-center border border-indigo-500/30 text-indigo-600 text-xs font-bold">
-                        {String(i + 1).padStart(2, "0")}
-                      </div>
-                      <h4 className="text-black font-bold mt-4 text-sm">{d.title}</h4>
-                      <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
+                    <div className="mt-12 space-y-8">
+                      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
+                        <h3 className="text-xs font-bold tracking-widest text-red-500/70 uppercase mb-3">Das Problem</h3>
+                        <p className="text-black/60 text-sm leading-relaxed">{service.problem}</p>
+                      </motion.div>
+                      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
+                        <h3 className="text-xs font-bold tracking-widest text-indigo-600/70 uppercase mb-3">Unsere Lösung</h3>
+                        <p className="text-black/60 text-sm leading-relaxed">{service.solution}</p>
+                      </motion.div>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+                  </div>
 
-        {/* ═══════════════════════════════════════════════════════
-            5. SERVICE 03 — Kommunikationsarchitektur (Gray section, reversed)
-        ═══════════════════════════════════════════════════════ */}
-        <section className="relative bg-gray-50 py-24 sm:py-32 overflow-hidden">
-          {/* Decorative number */}
-          <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
-            <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
-              style={{
-                WebkitTextStroke: "1px rgba(99,102,241,0.06)",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              03
-            </span>
-          </div>
-
-          <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-              {/* Left: Animation (sticky) */}
-              <div className="lg:sticky lg:top-24 order-2 lg:order-1">
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
-                  <BrandIdentityAnimation />
-                </motion.div>
-              </div>
-
-              {/* Right: Text content */}
-              <div className="order-1 lg:order-2">
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
-                  <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service 03</span>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">
-                    {studioServices[2].title}
-                  </h2>
-                </motion.div>
-
-                <div className="mt-12 space-y-6">
-                  <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
-                    <h3 className="text-xs font-bold tracking-widest text-red-500/70 uppercase mb-3">Das Problem</h3>
-                    <p className="text-black/60 text-sm leading-relaxed">{studioServices[2].problem}</p>
-                  </motion.div>
-                  <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
-                    <h3 className="text-xs font-bold tracking-widest text-indigo-600/70 uppercase mb-3">Unsere Lösung</h3>
-                    <p className="text-black/60 text-sm leading-relaxed">{studioServices[2].solution}</p>
-                  </motion.div>
+                  {/* Animation (sticky on desktop) */}
+                  <div className={`lg:sticky lg:top-24 ${isReversed ? "order-1 lg:order-1" : ""}`}>
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
+                      {service.animation}
+                    </motion.div>
+                  </div>
                 </div>
 
-                {/* Deliverables — stacked minimal rows */}
-                <div className="mt-12 space-y-0 border-t border-black/5">
-                  {studioServices[2].deliverables.map((d, i) => (
+                {/* Deliverables — unified 4-column card grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-20 bg-black/5">
+                  {service.deliverables.map((d, i) => (
                     <motion.div
                       key={i}
                       initial="hidden" whileInView="visible" viewport={{ once: true }}
                       variants={fadeUp} custom={i}
-                      className="group border-b border-black/5 py-5 flex items-start gap-4 hover:bg-white/60 transition-colors duration-200 px-2"
+                      className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300"
                     >
-                      <Check className="w-4 h-4 text-indigo-500/50 mt-0.5 flex-shrink-0 group-hover:text-indigo-600 transition-colors" />
-                      <div>
-                        <span className="text-black font-semibold text-sm">{d.title}</span>
-                        <p className="text-black/40 text-xs mt-1">{d.description}</p>
-                      </div>
+                      <span className="text-xs font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
+                      <h4 className="text-black font-bold mt-2 text-sm">{d.title}</h4>
+                      <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
                     </motion.div>
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
+          );
+        })}
 
         {/* ═══════════════════════════════════════════════════════
             6. CASE STUDY — Full-width feature
