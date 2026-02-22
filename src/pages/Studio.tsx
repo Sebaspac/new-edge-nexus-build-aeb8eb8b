@@ -8,6 +8,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { LazyVideo } from "@/components/LazyVideo";
+import WhisperText from "@/components/ui/whisper-text";
 import { BrandStrategyAnimation } from "@/components/ui/brand-strategy-animation";
 import { BrandIdentityAnimation } from "@/components/ui/brand-identity-animation";
 import { KiAuditAnimation } from "@/components/ui/ki-audit-animation";
@@ -164,6 +165,48 @@ const Studio = () => {
           </motion.div>
         </section>
 
+
+        {/* ═══════════════════════════════════════════════════════
+            INTRO / MANIFESTO SECTION
+        ═══════════════════════════════════════════════════════ */}
+        <section className="relative bg-white py-24 sm:py-32 lg:py-40 overflow-hidden border-b border-black/5">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+            {/* Headline */}
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] tracking-tight mb-12 lg:mb-16"
+            >
+              Klarheit vor <span className="italic">Technologie.</span>
+            </motion.h2>
+
+            {/* Description */}
+            <div className="max-w-3xl space-y-4">
+              <WhisperText
+                text="Im Studio entsteht die Systemlogik für Marke, Kommunikation und den sinnvollen Einsatz von KI."
+                className="text-lg sm:text-xl text-black/50 leading-relaxed"
+                y={12}
+                delay={30}
+              />
+              <WhisperText
+                text="Wir analysieren Ihre bestehende Realität, schaffen Entscheidungsfähigkeit im Management und entwickeln die priorisierte Roadmap für steuerbare Systeme."
+                className="text-lg sm:text-xl text-black/50 leading-relaxed"
+                y={12}
+                delay={30}
+                triggerStart="top 92%"
+              />
+              <WhisperText
+                text="Keine Maßnahmenliste – sondern die belastbare Grundlage für alles, was danach gebaut wird."
+                className="text-lg sm:text-xl text-black/50 leading-relaxed"
+                y={12}
+                delay={30}
+                triggerStart="top 94%"
+              />
+            </div>
+          </div>
+        </section>
 
         {/* ═══════════════════════════════════════════════════════
             3-5. UNIFIED SERVICE MODULES
