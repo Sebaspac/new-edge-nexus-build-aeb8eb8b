@@ -50,10 +50,10 @@ export const InteractiveCore = () => {
     return () => clearInterval(interval);
   }, [activeState]);
 
-  const states: Array<{ key: StateType; label: string; number: string }> = [
-    { key: "human", label: "STUDIO", number: "01" },
-    { key: "fusion", label: "LAB", number: "02" }
-  ];
+  const states: Array<{key: StateType;label: string;number: string;}> = [
+  { key: "human", label: "STUDIO", number: "01" },
+  { key: "fusion", label: "LAB", number: "02" }];
+
 
   const activeContent = content[activeState];
   const Icon = activeContent.icon;
@@ -63,7 +63,7 @@ export const InteractiveCore = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
 
         {/* Main Split: Box left, Text right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* LEFT: Interactive Box */}
           <div className="flex flex-col-reverse gap-3 sm:gap-4 order-2 lg:order-1">
@@ -72,15 +72,15 @@ export const InteractiveCore = () => {
               {states.map((state, index) => {
                 const isActive = activeState === state.key;
                 const stateColor = content[state.key].color;
-                const hoverClasses = state.key === "human"
-                  ? "hover:bg-purple-50 hover:border-purple-300"
-                  : "hover:bg-yellow-50 hover:border-yellow-300";
-                const activeClasses = state.key === "human"
-                  ? "bg-purple-50 border-purple-500 shadow-lg shadow-purple-500/10"
-                  : "bg-yellow-50 border-yellow-500 shadow-lg shadow-yellow-500/10";
-                const badgeActiveClasses = state.key === "human"
-                  ? "bg-purple-500 text-white"
-                  : "bg-yellow-500 text-black";
+                const hoverClasses = state.key === "human" ?
+                "hover:bg-purple-50 hover:border-purple-300" :
+                "hover:bg-yellow-50 hover:border-yellow-300";
+                const activeClasses = state.key === "human" ?
+                "bg-purple-50 border-purple-500 shadow-lg shadow-purple-500/10" :
+                "bg-yellow-50 border-yellow-500 shadow-lg shadow-yellow-500/10";
+                const badgeActiveClasses = state.key === "human" ?
+                "bg-purple-500 text-white" :
+                "bg-yellow-500 text-black";
 
                 return (
                   <motion.button
@@ -94,8 +94,8 @@ export const InteractiveCore = () => {
                       relative p-3 sm:p-4 lg:p-5 text-left transition-all duration-500
                       border overflow-hidden group flex-1
                       ${isActive ? activeClasses : `bg-transparent border-gray-200 ${hoverClasses}`}
-                    `}
-                  >
+                    `}>
+
                     <div className={`
                       absolute top-2 right-2 sm:top-3 sm:right-3 w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center
                       text-[10px] sm:text-xs font-bold transition-all duration-500
@@ -111,17 +111,17 @@ export const InteractiveCore = () => {
                         {state.label}
                       </span>
                     </div>
-                    {isActive && (
-                      <motion.div
-                        className="absolute bottom-0 left-0 h-[2px]"
-                        style={{ backgroundColor: stateColor }}
-                        initial={{ width: "0%" }}
-                        animate={{ width: `${progress}%` }}
-                        transition={{ duration: 0.1 }}
-                      />
-                    )}
-                  </motion.button>
-                );
+                    {isActive &&
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-[2px]"
+                      style={{ backgroundColor: stateColor }}
+                      initial={{ width: "0%" }}
+                      animate={{ width: `${progress}%` }}
+                      transition={{ duration: 0.1 }} />
+
+                    }
+                  </motion.button>);
+
               })}
             </div>
 
@@ -131,8 +131,8 @@ export const InteractiveCore = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative min-h-[350px] sm:min-h-[400px] md:min-h-[450px] lg:min-h-[500px] overflow-hidden shadow-2xl flex flex-col"
-            >
+              className="relative min-h-[350px] sm:min-h-[400px] md:min-h-[450px] lg:min-h-[500px] overflow-hidden shadow-2xl flex flex-col">
+
               <div className="absolute inset-0 bg-[#0a0a0f] border border-white/20" />
 
               <AnimatePresence mode="wait">
@@ -142,45 +142,45 @@ export const InteractiveCore = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.8 }}
-                  className="absolute inset-0"
-                >
+                  className="absolute inset-0">
+
                   <div
                     className="absolute top-1/2 right-1/4 -translate-y-1/2 translate-x-1/4 w-[250px] sm:w-[350px] md:w-[400px] lg:w-[450px] h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px] blur-[80px] sm:blur-[100px] lg:blur-[120px] opacity-40"
-                    style={{ backgroundColor: activeContent.color }}
-                  />
+                    style={{ backgroundColor: activeContent.color }} />
+
 
                   <div className="absolute inset-0 translate-x-1/4 hidden sm:block">
-                    {activeState === "human" && (
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        {[...Array(4)].map((_, i) => (
-                          <motion.div
-                            key={i}
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-purple-400/30"
-                            style={{ width: `${80 + i * 50}px`, height: `${80 + i * 50}px` }}
-                            animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
-                            transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut" }}
-                          />
-                        ))}
+                    {activeState === "human" &&
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                        {[...Array(4)].map((_, i) =>
+                      <motion.div
+                        key={i}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-purple-400/30"
+                        style={{ width: `${80 + i * 50}px`, height: `${80 + i * 50}px` }}
+                        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
+                        transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut" }} />
+
+                      )}
                       </div>
-                    )}
-                    {activeState === "fusion" && (
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        {[...Array(3)].map((_, i) => (
-                          <motion.div
-                            key={i}
-                            className="absolute top-1/2 left-1/2"
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 8 - i * 2, repeat: Infinity, ease: "linear" }}
-                          >
+                    }
+                    {activeState === "fusion" &&
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                        {[...Array(3)].map((_, i) =>
+                      <motion.div
+                        key={i}
+                        className="absolute top-1/2 left-1/2"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 8 - i * 2, repeat: Infinity, ease: "linear" }}>
+
                             <div
-                              className="w-16 h-16 md:w-24 md:h-24 border-2 border-yellow-400/40"
-                              style={{ transform: `translate(-50%, -50%) translateX(${50 + i * 25}px)` }}
-                            />
+                          className="w-16 h-16 md:w-24 md:h-24 border-2 border-yellow-400/40"
+                          style={{ transform: `translate(-50%, -50%) translateX(${50 + i * 25}px)` }} />
+
                           </motion.div>
-                        ))}
+                      )}
                         <div className="w-8 h-8 md:w-12 md:h-12 bg-yellow-500/30 backdrop-blur animate-pulse-slow" />
                       </div>
-                    )}
+                    }
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -196,8 +196,8 @@ export const InteractiveCore = () => {
                         exit={{ opacity: 0, scale: 0.8, rotate: 20 }}
                         transition={{ duration: 0.5 }}
                         className="p-3 sm:p-4 md:p-5 bg-white/10 backdrop-blur-xl border border-white/20"
-                        style={{ boxShadow: `0 0 40px ${activeContent.color}50` }}
-                      >
+                        style={{ boxShadow: `0 0 40px ${activeContent.color}50` }}>
+
                         <Icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />
                       </motion.div>
                     </AnimatePresence>
@@ -205,8 +205,8 @@ export const InteractiveCore = () => {
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="px-2 py-1 sm:px-3 sm:py-1.5 bg-green-500/15 border border-green-400/40"
-                    >
+                      className="px-2 py-1 sm:px-3 sm:py-1.5 bg-green-500/15 border border-green-400/40">
+
                       <div className="flex items-center gap-1.5 sm:gap-2">
                         <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 animate-pulse" />
                         <span className="text-[9px] sm:text-[10px] md:text-xs font-mono uppercase tracking-wider text-green-300">
@@ -223,8 +223,8 @@ export const InteractiveCore = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.5 }}
-                      >
+                        transition={{ duration: 0.5 }}>
+
                         <div className="mb-3 sm:mb-4">
                           <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-1.5 sm:mb-2 text-white tracking-tight drop-shadow-lg">
                             {activeContent.title}
@@ -237,17 +237,17 @@ export const InteractiveCore = () => {
                           {activeContent.description}
                         </p>
                         <div className="flex flex-wrap gap-2 sm:gap-3">
-                          {activeContent.tags.map((tag, i) => (
-                            <motion.span
-                              key={tag}
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              transition={{ delay: 0.3 + i * 0.1 }}
-                              className="px-2 py-1 sm:px-3 sm:py-1.5 bg-white/10 border border-white/20 text-[10px] sm:text-xs md:text-sm font-semibold text-white backdrop-blur"
-                            >
+                          {activeContent.tags.map((tag, i) =>
+                          <motion.span
+                            key={tag}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.3 + i * 0.1 }}
+                            className="px-2 py-1 sm:px-3 sm:py-1.5 bg-white/10 border border-white/20 text-[10px] sm:text-xs md:text-sm font-semibold text-white backdrop-blur">
+
                               {tag}
                             </motion.span>
-                          ))}
+                          )}
                         </div>
                       </motion.div>
                     </AnimatePresence>
@@ -263,14 +263,14 @@ export const InteractiveCore = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="order-1 lg:order-2 relative lg:pt-0"
-          >
-            <div className="lg:absolute lg:-top-12 mb-3 sm:mb-4 md:mb-6 lg:mb-0">
+            className="order-1 lg:order-2">
+
+            <div className="mb-3 sm:mb-4 md:mb-6">
               <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#7C3AED]">
                 UNSERE SERVICES
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 text-black">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 text-black md:text-3xl">
               Zwei Bereiche. Eine Vision.
             </h2>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-xl">
@@ -293,8 +293,8 @@ export const InteractiveCore = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-12 md:mt-16 lg:mt-20"
-        >
+          className="mt-12 md:mt-16 lg:mt-20">
+
           <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-4 md:mb-6">Hier geht's zu:</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
             <a href="/studio" className="group relative p-4 sm:p-5 md:p-6 bg-gradient-to-br from-purple-50 to-white border border-purple-200 hover:border-purple-400 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
@@ -329,6 +329,6 @@ export const InteractiveCore = () => {
           </div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
