@@ -311,10 +311,7 @@ const Index = () => {
               delay: 0.2,
               duration: 0.7
             }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 md:mb-8 leading-[1.1] text-foreground font-black">
-                Bereit für die{" "}
-                
-
-
+Bereit für die digitale Revolution?
               </motion.h2>
 
               <motion.p initial={{
