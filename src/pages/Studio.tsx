@@ -180,7 +180,6 @@ const Studio = () => {
               </div>
               <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-                  {/* Left: Text + Deliverables */}
                   <div className={isReversed ? "order-2 lg:order-2" : ""}>
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
                       <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service {service.number}</span>
@@ -196,24 +195,23 @@ const Studio = () => {
                         <p className="text-black/60 text-sm leading-relaxed">{service.solution}</p>
                       </motion.div>
                     </div>
-                    {/* Deliverables inline */}
-                    <div className="grid grid-cols-2 gap-px mt-8 bg-black/5">
-                      {service.deliverables.map((d, i) => (
-                        <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i + 2}
-                          className="bg-white p-4 sm:p-5 group hover:bg-gray-50 transition-colors duration-300">
-                          <span className="text-[10px] font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
-                          <h4 className="text-black font-bold mt-1 text-xs sm:text-sm leading-snug">{d.title}</h4>
-                          <p className="text-black/40 text-[10px] sm:text-xs mt-1 leading-relaxed">{d.description}</p>
-                        </motion.div>
-                      ))}
-                    </div>
                   </div>
-                  {/* Right: Animation */}
                   <div className={`lg:sticky lg:top-24 ${isReversed ? "order-1 lg:order-1" : ""}`}>
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
                       {service.animation}
                     </motion.div>
                   </div>
+                </div>
+                {/* Deliverables — full width, reduced spacing, smaller */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-10 bg-black/5">
+                  {service.deliverables.map((d, i) => (
+                    <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
+                      className="bg-white p-4 sm:p-5 group hover:bg-gray-50 transition-colors duration-300">
+                      <span className="text-[10px] font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
+                      <h4 className="text-black font-bold mt-1 text-xs sm:text-sm leading-snug">{d.title}</h4>
+                      <p className="text-black/40 text-[10px] sm:text-xs mt-1 leading-relaxed">{d.description}</p>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </section>
