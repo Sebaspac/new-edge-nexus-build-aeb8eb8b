@@ -709,7 +709,7 @@ const Lab = () => {
               Bereit für die digitale Revolution?
             </h2>
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-600">
-              Gemeinsam entwickeln wir die operative Infrastruktur & automatisierte Systeme Systeme, die deine Daten unter Kontrolle bringen und deine KI produktiv machen.
+              Gemeinsam entwickeln wir die operative Infrastruktur & automatisierte Systeme, die deine Daten unter Kontrolle bringen und deine KI produktiver machen.
             </p>
             <Button
               id="projekt-besprechen-btn"
