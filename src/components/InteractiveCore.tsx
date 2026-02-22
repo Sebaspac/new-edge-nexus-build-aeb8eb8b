@@ -82,15 +82,9 @@ export const InteractiveCore = () => {
             Zwei Bereiche. Eine Vision.
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl">
-            Der Aufbau steuerbarer Systeme beginnt nicht mit Technologie. Er beginnt mit Klarheit über Marke, Struktur und Entscheidungslogik.
-          </p>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mt-3">
-            Erst wenn diese Grundlage steht, kann KI sinnvoll integriert werden.
-          </p>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mt-3">
-            Heute passiert meist das Gegenteil: Unternehmen führen neue Tools ein, testen KI und erweitern ihre SaaS-Stacks – ohne eine gemeinsame Systemlogik.
-          </p>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mt-3">
+            Der Aufbau steuerbarer Systeme beginnt nicht mit Technologie. Er beginnt mit Klarheit über Marke, Struktur und Entscheidungslogik.<br />
+            Erst wenn diese Grundlage steht, kann KI sinnvoll integriert werden.<br />
+            Heute passiert meist das Gegenteil: Unternehmen führen neue Tools ein, testen KI und erweitern ihre SaaS-Stacks – ohne eine gemeinsame Systemlogik.<br />
             Das Ergebnis sind steigende Kosten, operative Komplexität und neue Abhängigkeiten.
           </p>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mt-6">
