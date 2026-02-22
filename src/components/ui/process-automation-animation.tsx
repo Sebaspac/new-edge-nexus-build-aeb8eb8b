@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Cpu, Workflow, Zap, Bot, AlertTriangle, Check, Settings } from "lucide-react";
+import { Cpu, Workflow, Zap, AlertTriangle, Check, Cog, Link2 } from "lucide-react";
 import { useState, useEffect } from "react";
 
 // Professional easing curve
@@ -8,24 +8,24 @@ const elegantEase: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 export const ProcessAutomationAnimation = () => {
   const [currentCheck, setCurrentCheck] = useState(0);
   const [checklist, setChecklist] = useState([
-    { id: 1, label: "Workflow-Analyse", checked: false },
-    { id: 2, label: "Audit", checked: false },
-    { id: 3, label: "Decision-Flows", checked: false },
-    { id: 4, label: "LLM-Integration", checked: false },
+    { id: 1, label: "Prozess-Mapping", checked: false },
+    { id: 2, label: "KI-Prozessschritte", checked: false },
+    { id: 3, label: "End-to-End-Workflows", checked: false },
+    { id: 4, label: "System-Integration", checked: false },
   ]);
   const [activeDeliverables, setActiveDeliverables] = useState<number[]>([]);
   const [isInitialized, setIsInitialized] = useState(false);
 
   const deliverables = [
     { icon: Workflow, label: "Workflow-Map" },
-    { icon: Settings, label: "Roadmap" },
+    { icon: Cog, label: "Prozesslogik" },
     { icon: Zap, label: "Automation" },
-    { icon: Bot, label: "Chatbot" },
+    { icon: Link2, label: "Integration" },
   ];
 
   const problems = [
-    { label: "Manuelle Routinen", delay: 0.6 },
-    { label: "Fragmentierte Systeme", delay: 0.8 },
+    { label: "Manuelle Prozesse", delay: 0.6 },
+    { label: "Medienbrüche & Silos", delay: 0.8 },
   ];
 
   useEffect(() => {

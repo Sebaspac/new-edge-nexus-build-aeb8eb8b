@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Globe, Layout, TrendingUp, Activity, AlertTriangle, Check, MousePointer } from "lucide-react";
+import { Globe, Layout, Link2, Plug, Shield, AlertTriangle, Check } from "lucide-react";
 import { useState, useEffect } from "react";
 
 // Professional easing curve
@@ -8,10 +8,10 @@ const elegantEase: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 export const WebSystemsAnimation = () => {
   const [currentCheck, setCurrentCheck] = useState(0);
   const [checklist, setChecklist] = useState([
-    { id: 1, label: "Headless CMS", checked: false },
-    { id: 2, label: "Landingpages", checked: false },
-    { id: 3, label: "Funnel-Logik", checked: false },
-    { id: 4, label: "Performance", checked: false },
+    { id: 1, label: "Web-Architektur", checked: false },
+    { id: 2, label: "CMS & Datenlogik", checked: false },
+    { id: 3, label: "System-Integration", checked: false },
+    { id: 4, label: "Skalierbarkeit", checked: false },
   ]);
   const [activeDeliverables, setActiveDeliverables] = useState<number[]>([]);
   const [pulseNodes, setPulseNodes] = useState<number[]>([]);
@@ -19,14 +19,14 @@ export const WebSystemsAnimation = () => {
 
   const deliverables = [
     { icon: Layout, label: "CMS" },
-    { icon: MousePointer, label: "Landingpage" },
-    { icon: TrendingUp, label: "Funnel" },
-    { icon: Activity, label: "Tracking" },
+    { icon: Link2, label: "API-Layer" },
+    { icon: Plug, label: "Integration" },
+    { icon: Shield, label: "Sicherheit" },
   ];
 
   const problems = [
-    { label: "Langsame Ladezeiten", delay: 0.6 },
-    { label: "Keine Funnel-Logik", delay: 0.8 },
+    { label: "Isolierte Website", delay: 0.6 },
+    { label: "Keine System-Anbindung", delay: 0.8 },
   ];
 
   // Reduced nodes for cleaner look
@@ -297,7 +297,7 @@ export const WebSystemsAnimation = () => {
           className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-amber-400"
         />
         <span className="text-[8px] md:text-xs text-gray-200 font-medium">
-          Conversion-System wird gebaut
+          Plattform-Architektur wird aufgebaut
         </span>
       </motion.div>
     </div>
