@@ -264,10 +264,10 @@ const Lab = () => {
                         variants={fadeUp}
                         custom={2}
                       >
-                        <h3 className="text-sm sm:text-base font-bold tracking-widest text-amber-500/70 uppercase mb-3">
+                        <h3 className="text-xs font-bold tracking-widest text-amber-500/70 uppercase mb-3">
                           Unsere Lösung
                         </h3>
-                        <p className="text-black/60 text-base sm:text-lg leading-relaxed">{service.solution}</p>
+                        <p className="text-black/60 text-sm leading-relaxed">{service.solution}</p>
                       </motion.div>
                     </div>
                   </div>
