@@ -235,9 +235,7 @@ const Lab = () => {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] tracking-tight mb-12 lg:mb-16"
             >
-              Systeme statt{" "}
-              <span className="italic">
-                Chaos
+              Systeme statt Chaos
               </span>
             </motion.h2>
 
