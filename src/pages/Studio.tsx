@@ -1,111 +1,100 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Palette, BookOpen, Plus, ArrowUpRight } from "lucide-react";
+import { ChevronDown, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { ContactFormModal } from "@/components/ContactFormModal";
-import { ServiceScrollSection } from "@/components/ServiceScrollSection";
 import { LazyVideo } from "@/components/LazyVideo";
 import { BrandStrategyAnimation } from "@/components/ui/brand-strategy-animation";
 import { BrandIdentityAnimation } from "@/components/ui/brand-identity-animation";
 import { KiAuditAnimation } from "@/components/ui/ki-audit-animation";
 import albanovaImage from "@/assets/albanova-website.png";
-const Footer = lazy(() => import("@/components/Footer").then(m => ({
-  default: m.Footer
-})));
-const Studio = () => {
-  const navigate = useNavigate();
-  const [isVisible, setIsVisible] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-    setIsVisible(true);
-  }, []);
-  const scrollToContact = () => {
-    navigate("/", {
-      replace: true
-    });
-    setTimeout(() => {
-      const contactSection = document.getElementById("contact-section");
-      if (contactSection) {
-        contactSection.scrollIntoView({
-          behavior: "smooth"
-        });
-      }
-    }, 100);
-  };
-  const studioServices = [{
+
+const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
+
+/* ─── Data ─── */
+const studioServices = [
+  {
+    number: "01",
     title: "Brand Identity & Brand System",
     problem: "Unklare Markenlogik und inkonsistente Kommunikation führen zu Reibung, Fehlannahmen und nicht anschlussfähigen Systemen.",
     solution: "Wir entwickeln eine Markenidentität, die als funktionale Grundlage für Web, Software und KI-Systeme dient.",
-    deliverables: [{
-      title: "Markenkern & Purpose",
-      description: "Das strategische Fundament der Marke als Entscheidungsgrundlage."
-    }, {
-      title: "Positionierung & Markenlogik",
-      description: "Klare Differenzierung und Einordnung im Wettbewerbsumfeld."
-    }, {
-      title: "Logosystem & Typografie",
-      description: "Visuelle Identität mit definierten Anwendungsregeln."
-    }, {
-      title: "Brand Book als Regelwerk",
-      description: "Umfassende Dokumentation aller Markenrichtlinien."
-    }],
-    icon: BookOpen,
-    gradient: "from-[#6366f1] to-[#a855f7]"
-  }, {
+    deliverables: [
+      { title: "Markenkern & Purpose", description: "Das strategische Fundament der Marke als Entscheidungsgrundlage." },
+      { title: "Positionierung & Markenlogik", description: "Klare Differenzierung und Einordnung im Wettbewerbsumfeld." },
+      { title: "Logosystem & Typografie", description: "Visuelle Identität mit definierten Anwendungsregeln." },
+      { title: "Brand Book als Regelwerk", description: "Umfassende Dokumentation aller Markenrichtlinien." },
+    ],
+  },
+  {
+    number: "02",
     title: "KI Enablement & Audit",
     problem: "KI wird oft eingesetzt, ohne klare Ziele, ohne saubere Datenbasis und ohne Verständnis für Risiken.",
     solution: "Wir analysieren Prozesse, Daten und Tools und schaffen Entscheidungsfähigkeit: Was ist sinnvoll – und was nicht?",
-    deliverables: [{
-      title: "Analyse bestehender Prozesse & Tools",
-      description: "Erfassung und Bewertung aktueller Abläufe und Systeme."
-    }, {
-      title: "Bewertung von KI-Potenzialen",
-      description: "Identifikation realistischer Automatisierungs- und KI-Chancen."
-    }, {
-      title: "Risiko- & Governance-Einordnung",
-      description: "Bewertung von Datenrisiken, Compliance und Kontrollmechanismen."
-    }, {
-      title: "Klare Go-/No-Go-Entscheidungen",
-      description: "Fundierte Handlungsempfehlungen für nächste Schritte."
-    }],
-    icon: Palette,
-    gradient: "from-[#a855f7] to-[#6366f1]"
-  }, {
+    deliverables: [
+      { title: "Analyse bestehender Prozesse & Tools", description: "Erfassung und Bewertung aktueller Abläufe und Systeme." },
+      { title: "Bewertung von KI-Potenzialen", description: "Identifikation realistischer Automatisierungs- und KI-Chancen." },
+      { title: "Risiko- & Governance-Einordnung", description: "Bewertung von Datenrisiken, Compliance und Kontrollmechanismen." },
+      { title: "Klare Go-/No-Go-Entscheidungen", description: "Fundierte Handlungsempfehlungen für nächste Schritte." },
+    ],
+  },
+  {
+    number: "03",
     title: "Digitale Kommunikations- & Sichtbarkeitsarchitektur",
     problem: "Digitale Kommunikation entsteht oft isoliert und ohne Verbindung zu Systemen, Vertrieb oder Automatisierung.",
     solution: "Wir definieren eine klare Kommunikationslogik, die als strukturelle Grundlage für Websites, Plattformen und Systeme dient.",
-    deliverables: [{
-      title: "Rollen digitaler Kanäle",
-      description: "Definition der Funktion und Zielsetzung jedes Kanals."
-    }, {
-      title: "Narrative & Markenstimme",
-      description: "Einheitliche Tonalität und Storytelling-Prinzipien."
-    }, {
-      title: "Systemische Leitplanken",
-      description: "Strukturelle Vorgaben für konsistente Kommunikation."
-    }, {
-      title: "Anschlussfähigkeit für Lab",
-      description: "Technische Übergabepunkte für Automatisierung und Systeme."
-    }],
-    icon: BookOpen,
-    gradient: "from-[#6366f1] to-[#a855f7]"
-  }];
-  const studioCases = [{
-    id: "albanova",
-    client: "ALBANOVA",
-    headline: "Marke & Digitalstrategie von Null aufgebaut",
-    category: "BRANDING",
-    route: "/case-study/albanova",
-    image: albanovaImage
-  }];
-  return <>
+    deliverables: [
+      { title: "Rollen digitaler Kanäle", description: "Definition der Funktion und Zielsetzung jedes Kanals." },
+      { title: "Narrative & Markenstimme", description: "Einheitliche Tonalität und Storytelling-Prinzipien." },
+      { title: "Systemische Leitplanken", description: "Strukturelle Vorgaben für konsistente Kommunikation." },
+      { title: "Anschlussfähigkeit für Lab", description: "Technische Übergabepunkte für Automatisierung und Systeme." },
+    ],
+  },
+];
+
+const pillars = [
+  { number: "01", label: "Marke", desc: "Identität als Systemgrundlage" },
+  { number: "02", label: "KI-Readiness", desc: "Entscheidungsfähigkeit vor Einsatz" },
+  { number: "03", label: "Kommunikation", desc: "Struktur statt Silos" },
+];
+
+/* ─── Fade-in variant ─── */
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
+  }),
+};
+
+/* ─── Component ─── */
+const Studio = () => {
+  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  const scrollToContact = () => {
+    navigate("/", { replace: true });
+    setTimeout(() => {
+      document.getElementById("contact-section")?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
+  /* Parallax for hero */
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroY = useTransform(heroProgress, [0, 1], [0, 120]);
+  const heroOpacity = useTransform(heroProgress, [0, 0.6], [1, 0]);
+
+  return (
+    <>
       <Helmet>
         <title>Brand Strategy & Identity München | Markenentwicklung | New Edge Studio</title>
         <meta name="description" content="New Edge Studio München - Ihre Agentur für Brand Strategy und Markenidentität. Wir entwickeln Marken mit KI-gestützten Methoden für den Mittelstand." />
@@ -116,353 +105,400 @@ const Studio = () => {
       <div className="min-h-screen bg-white">
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
-        {/* Hero Section */}
-        <section className="relative w-full">
-          <div className="w-full relative h-[85vh] lg:h-auto lg:aspect-video">
-            <div className="absolute inset-0 overflow-hidden" style={{
-            background: "linear-gradient(to bottom right, rgba(99, 102, 241, 0.3), rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.1))"
-          }}>
-              <LazyVideo src="/assets/studio-hero-background.mp4" autoPlay loop muted playsInline preload="none" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-black/40" />
-              <div className="absolute inset-0" style={{
-              background: "linear-gradient(to top, rgba(99, 102, 241, 0.6), rgba(99, 102, 241, 0.2), transparent)"
+        {/* ═══════════════════════════════════════════════════════
+            1. HERO — Immersive full-screen with claim
+        ═══════════════════════════════════════════════════════ */}
+        <section ref={heroRef} className="relative w-full h-[100dvh] overflow-hidden">
+          <div className="absolute inset-0">
+            <LazyVideo
+              src="/assets/studio-hero-background.mp4"
+              autoPlay loop muted playsInline preload="none"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0" style={{
+              background: "linear-gradient(to top, rgba(99,102,241,0.5) 0%, rgba(99,102,241,0.15) 40%, transparent 70%)"
             }} />
+          </div>
 
-              <div className="absolute bottom-0 left-0 p-6 pb-8 sm:pb-12 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
-                <h1 className="text-h1 lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
-                  NEW EDGE
-                  <br />
-                  <span className="italic font-black" style={{
+          <motion.div
+            style={{ y: heroY, opacity: heroOpacity }}
+            className="relative z-10 h-full flex flex-col justify-end pb-20 sm:pb-28 px-6 sm:px-12 lg:px-16"
+          >
+            <div className="max-w-4xl">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] tracking-tight text-white"
+              >
+                NEW EDGE<br />
+                <span className="italic" style={{
                   background: "linear-gradient(to right, #6366f1, #a855f7)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                  backgroundClip: "text"
+                  backgroundClip: "text",
                 }}>
-                    STUDIO
-                  </span>
-                </h1>
-                
-                
-              </div>
+                  STUDIO
+                </span>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-xl sm:text-2xl lg:text-3xl text-white/80 mt-4 sm:mt-6 font-light tracking-wide"
+              >
+                Klarheit vor Umsetzung.
+              </motion.p>
+            </div>
+          </motion.div>
+
+          {/* Scroll indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+          >
+            <span className="text-[10px] font-medium tracking-[0.3em] text-white/50 uppercase">Scroll</span>
+            <ChevronDown className="w-5 h-5 text-white/50 animate-bounce" />
+          </motion.div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════
+            2. MANIFESTO STATEMENT
+        ═══════════════════════════════════════════════════════ */}
+        <section className="py-24 sm:py-32 lg:py-40 bg-white">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-6xl">
+            <motion.h2
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+              variants={fadeUp}
+              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.05] text-black max-w-5xl"
+            >
+              Bevor Systeme gebaut werden,{" "}
+              <span style={{
+                background: "linear-gradient(to right, #6366f1, #a855f7)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}>
+                muss Klarheit geschaffen werden.
+              </span>
+            </motion.h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px mt-16 sm:mt-20 bg-black/10">
+              {pillars.map((p, i) => (
+                <motion.div
+                  key={p.number}
+                  initial="hidden" whileInView="visible" viewport={{ once: true }}
+                  variants={fadeUp} custom={i + 1}
+                  className="bg-white p-8 sm:p-10"
+                >
+                  <span className="text-xs font-mono tracking-widest text-black/30">{p.number}</span>
+                  <h3 className="text-xl sm:text-2xl font-black text-black mt-2">{p.label}</h3>
+                  <p className="text-sm text-black/50 mt-2 leading-relaxed">{p.desc}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Intro Section */}
-        <section className="relative pt-12 pb-6 sm:pt-16 sm:pb-8 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <motion.div initial="hidden" whileInView="visible" viewport={{
-            once: true,
-            margin: "-80px"
-          }} variants={{
-            hidden: {
-              opacity: 0
-            },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.1
-              }
-            }
-          }} className="max-w-4xl">
-              <motion.div variants={{
-              hidden: {
-                opacity: 0,
-                y: 40,
-                scale: 0.95
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                transition: {
-                  duration: 0.7,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }
-              }
-            }} className="mb-6">
-                <h2 className="text-h1 font-extrabold text-black">
-                  STUDIO{" "}
-                  <motion.span className="inline-block bg-clip-text text-transparent" style={{
-                  background: "linear-gradient(to right, #6366f1, #a855f7)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent"
-                }} whileInView={{
-                  scale: [1, 1.05, 1]
-                }} transition={{
-                  duration: 1,
-                  delay: 0.3
-                }}>
-                    POWER
-                  </motion.span>
-                </h2>
-                <motion.p variants={{
-                hidden: {
-                  opacity: 0,
-                  y: 20
-                },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.6,
-                    delay: 0.2
-                  }
-                }
-              }} className="text-body-lg text-gray-600 mt-6 max-w-3xl text-xl leading-relaxed">
-                  Wir bauen Klarheit, die Fehlentscheidungen verhindert. Studio übersetzt Marke, Kommunikation und KI-Verständnis in eine belastbare Systemgrundlage.
-                </motion.p>
-              </motion.div>
+        {/* ═══════════════════════════════════════════════════════
+            3. SERVICE 01 — Brand Identity (Dark section)
+        ═══════════════════════════════════════════════════════ */}
+        <section className="relative bg-slate-950 py-24 sm:py-32 overflow-hidden">
+          {/* Decorative number */}
+          <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
+            <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
+              style={{
+                WebkitTextStroke: "1px rgba(99,102,241,0.15)",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              01
+            </span>
+          </div>
+
+          <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+              {/* Left: Text content */}
+              <div>
+                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
+                  <span className="text-xs font-mono tracking-widest text-indigo-400/60 uppercase">Service 01</span>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mt-3 leading-[1.05]">
+                    {studioServices[0].title}
+                  </h2>
+                </motion.div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
+                  <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
+                    <h3 className="text-xs font-bold tracking-widest text-red-400/80 uppercase mb-3">Das Problem</h3>
+                    <p className="text-white/60 text-sm leading-relaxed">{studioServices[0].problem}</p>
+                  </motion.div>
+                  <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
+                    <h3 className="text-xs font-bold tracking-widest text-indigo-400/80 uppercase mb-3">Unsere Lösung</h3>
+                    <p className="text-white/60 text-sm leading-relaxed">{studioServices[0].solution}</p>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Right: Animation (sticky on desktop) */}
+              <div className="lg:sticky lg:top-24">
+                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
+                  <BrandStrategyAnimation />
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Deliverables — horizontal cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-20 bg-white/5">
+              {studioServices[0].deliverables.map((d, i) => (
+                <motion.div
+                  key={i}
+                  initial="hidden" whileInView="visible" viewport={{ once: true }}
+                  variants={fadeUp} custom={i}
+                  className="bg-slate-950 p-6 sm:p-8 group hover:bg-slate-900 transition-colors duration-300"
+                >
+                  <span className="text-xs font-mono text-indigo-400/40">{String(i + 1).padStart(2, "0")}</span>
+                  <h4 className="text-white font-bold mt-2 text-sm">{d.title}</h4>
+                  <p className="text-white/40 text-xs mt-2 leading-relaxed">{d.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════
+            4. SERVICE 02 — KI Enablement & Audit (White section, centered)
+        ═══════════════════════════════════════════════════════ */}
+        <section className="relative bg-white py-24 sm:py-32 overflow-hidden">
+          {/* Decorative number */}
+          <div className="absolute top-8 left-8 lg:left-16 select-none pointer-events-none">
+            <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
+              style={{
+                WebkitTextStroke: "1px rgba(99,102,241,0.08)",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              02
+            </span>
+          </div>
+
+          <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-6xl relative z-10">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp} className="text-center">
+              <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service 02</span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">
+                {studioServices[1].title}
+              </h2>
             </motion.div>
+
+            {/* Problem / Solution — two columns with divider */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 mt-16 border border-black/5">
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}
+                className="p-8 sm:p-10 md:border-r border-black/5"
+              >
+                <h3 className="text-xs font-bold tracking-widest text-red-500/70 uppercase mb-3">Das Problem</h3>
+                <p className="text-black/60 text-sm leading-relaxed">{studioServices[1].problem}</p>
+              </motion.div>
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}
+                className="p-8 sm:p-10 border-t md:border-t-0 border-black/5"
+              >
+                <h3 className="text-xs font-bold tracking-widest text-indigo-600/70 uppercase mb-3">Unsere Lösung</h3>
+                <p className="text-black/60 text-sm leading-relaxed">{studioServices[1].solution}</p>
+              </motion.div>
+            </div>
+
+            {/* Animation centered */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={3}
+              className="mt-16 max-w-3xl mx-auto"
+            >
+              <KiAuditAnimation />
+            </motion.div>
+
+            {/* Deliverables — Timeline steps */}
+            <div className="mt-20">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
+                {studioServices[1].deliverables.map((d, i) => (
+                  <motion.div
+                    key={i}
+                    initial="hidden" whileInView="visible" viewport={{ once: true }}
+                    variants={fadeUp} custom={i}
+                    className="relative p-6 sm:p-8"
+                  >
+                    {/* Connecting line */}
+                    {i < studioServices[1].deliverables.length - 1 && (
+                      <div className="hidden lg:block absolute top-10 right-0 w-full h-px bg-black/10 translate-x-1/2" />
+                    )}
+                    <div className="relative z-10">
+                      <div className="w-8 h-8 flex items-center justify-center border border-indigo-500/30 text-indigo-600 text-xs font-bold">
+                        {String(i + 1).padStart(2, "0")}
+                      </div>
+                      <h4 className="text-black font-bold mt-4 text-sm">{d.title}</h4>
+                      <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Services Sections */}
-        {studioServices.map((service, index) => {
-        const Icon = service.icon;
-        const isEven = index % 2 === 0;
-        let videoSrc = "/assets/brandstory-video.mp4";
-        if (index === 1) videoSrc = "/assets/template-video.mp4";
-        return <section key={index} className="py-12 sm:py-16 bg-primary-foreground">
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <ServiceScrollSection gradient={service.gradient} videoSrc={videoSrc} imagePosition={isEven ? "right" : "left"} animationBelow={index === 0 ? <BrandStrategyAnimation /> : index === 1 ? <KiAuditAnimation /> : <BrandIdentityAnimation />}>
-                  <div className="space-y-6">
-                    <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    x: isEven ? -30 : 30
-                  },
-                  visible: {
-                    opacity: 1,
-                    x: 0,
-                    transition: {
-                      duration: 0.6
-                    }
-                  }
-                }} className="flex items-center gap-4 mb-8">
-                      <h2 className="text-h2 font-bold text-black">{service.title}</h2>
-                    </motion.div>
+        {/* ═══════════════════════════════════════════════════════
+            5. SERVICE 03 — Kommunikationsarchitektur (Gray section, reversed)
+        ═══════════════════════════════════════════════════════ */}
+        <section className="relative bg-gray-50 py-24 sm:py-32 overflow-hidden">
+          {/* Decorative number */}
+          <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
+            <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
+              style={{
+                WebkitTextStroke: "1px rgba(99,102,241,0.06)",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              03
+            </span>
+          </div>
 
-                    {/* Outcome */}
-
-                    {/* Problem */}
-                    <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 20
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.5,
-                      delay: 0.1
-                    }
-                  }
-                }} className="bg-red-50 border border-red-100 p-5">
-                      <h3 className="text-sm font-semibold text-red-600 uppercase tracking-wider mb-2">Das Problem</h3>
-                      <p className="text-gray-700 leading-relaxed">{service.problem}</p>
-                    </motion.div>
-
-                    {/* Solution */}
-                    <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 20
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.5,
-                      delay: 0.2
-                    }
-                  }
-                }} className="bg-indigo-50 border border-indigo-100 p-5">
-                      <h3 className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-2">
-                        Unsere Lösung
-                      </h3>
-                      <p className="text-gray-700 leading-relaxed">{service.solution}</p>
-                    </motion.div>
-
-                    {/* Deliverables - Lab Style */}
-                    <motion.div variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 20
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.5,
-                      delay: 0.3
-                    }
-                  }
-                }} className="bg-white/80 backdrop-blur-sm p-6 shadow-lg border border-[#6366f1]/20">
-                      <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Deliverables</h4>
-                      <div className="space-y-4">
-                        {service.deliverables.map((item, idx) => <motion.div key={idx} initial={{
-                      opacity: 0,
-                      x: -10
-                    }} whileInView={{
-                      opacity: 1,
-                      x: 0
-                    }} viewport={{
-                      once: true
-                    }} transition={{
-                      duration: 0.3,
-                      delay: idx * 0.05
-                    }} whileHover={{
-                      x: 6
-                    }} className="flex items-start gap-4 group cursor-default">
-                            <span className={`flex-shrink-0 w-8 h-8 bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white text-sm font-bold shadow-md group-hover:scale-110 transition-transform duration-200 mt-0.5`}>
-                              {idx + 1}
-                            </span>
-                            <div className="flex-1">
-                              <span className="text-gray-900 font-semibold block">{item.title}</span>
-                              <span className="text-gray-500 text-sm">{item.description}</span>
-                            </div>
-                          </motion.div>)}
-                      </div>
-                    </motion.div>
-                  </div>
-                </ServiceScrollSection>
+          <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+              {/* Left: Animation (sticky) */}
+              <div className="lg:sticky lg:top-24 order-2 lg:order-1">
+                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
+                  <BrandIdentityAnimation />
+                </motion.div>
               </div>
-            </section>;
-      })}
 
-        {/* Studio Cases Section */}
-        <section className="relative py-8 md:py-12 lg:py-16 bg-white overflow-hidden">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            {/* Header */}
-            <div className="flex items-end justify-between mb-4 md:mb-8">
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6
-            }}>
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black leading-[1.1] text-black">
-                  Studio Cases.
-                  <br />
-                  <span style={{
-                  background: "linear-gradient(to right, #6366f1, #a855f7)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text"
-                }}>
-                    Marken, die wirken.
-                  </span>
-                </h2>
-              </motion.div>
+              {/* Right: Text content */}
+              <div className="order-1 lg:order-2">
+                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
+                  <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service 03</span>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">
+                    {studioServices[2].title}
+                  </h2>
+                </motion.div>
 
-              <motion.div initial={{
-              opacity: 0,
-              x: 20
-            }} whileInView={{
-              opacity: 1,
-              x: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: 0.2
-            }} className="hidden md:block">
-                <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm lg:text-lg font-bold text-black hover:text-[#6366f1] transition-colors duration-300">
-                  ALLE CASES
-                  <ArrowUpRight className="w-5 h-5 lg:w-6 lg:h-6" />
+                <div className="mt-12 space-y-6">
+                  <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
+                    <h3 className="text-xs font-bold tracking-widest text-red-500/70 uppercase mb-3">Das Problem</h3>
+                    <p className="text-black/60 text-sm leading-relaxed">{studioServices[2].problem}</p>
+                  </motion.div>
+                  <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}>
+                    <h3 className="text-xs font-bold tracking-widest text-indigo-600/70 uppercase mb-3">Unsere Lösung</h3>
+                    <p className="text-black/60 text-sm leading-relaxed">{studioServices[2].solution}</p>
+                  </motion.div>
+                </div>
+
+                {/* Deliverables — stacked minimal rows */}
+                <div className="mt-12 space-y-0 border-t border-black/5">
+                  {studioServices[2].deliverables.map((d, i) => (
+                    <motion.div
+                      key={i}
+                      initial="hidden" whileInView="visible" viewport={{ once: true }}
+                      variants={fadeUp} custom={i}
+                      className="group border-b border-black/5 py-5 flex items-start gap-4 hover:bg-white/60 transition-colors duration-200 px-2"
+                    >
+                      <Check className="w-4 h-4 text-indigo-500/50 mt-0.5 flex-shrink-0 group-hover:text-indigo-600 transition-colors" />
+                      <div>
+                        <span className="text-black font-semibold text-sm">{d.title}</span>
+                        <p className="text-black/40 text-xs mt-1">{d.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════
+            6. CASE STUDY — Full-width feature
+        ═══════════════════════════════════════════════════════ */}
+        <section className="bg-white py-16 sm:py-24">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+              <div className="flex items-end justify-between mb-8">
+                <div>
+                  <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Case Study</span>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black mt-2">
+                    Studio Cases.{" "}
+                    <span style={{
+                      background: "linear-gradient(to right, #6366f1, #a855f7)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}>
+                      Marken, die wirken.
+                    </span>
+                  </h2>
+                </div>
+                <Link to="/case-studies" className="hidden md:inline-flex items-center gap-2 text-sm font-bold text-black hover:text-indigo-600 transition-colors">
+                  ALLE CASES <ArrowUpRight className="w-4 h-4" />
                 </Link>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
 
-            {/* Cases Grid */}
-            <div className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4">
-              {studioCases.map((caseStudy, index) => <motion.div key={caseStudy.id} initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6,
-              delay: index * 0.1
-            }} className="flex-shrink-0 w-[65%] snap-start md:w-auto">
-                  <Link to={caseStudy.route} className="block group">
-                    <div className="relative overflow-hidden aspect-square bg-gray-100">
-                      <img src={caseStudy.image} alt={caseStudy.headline} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                      <div className="absolute inset-0 bg-black/20" />
-
-                      <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                        <Plus className="w-8 h-8 md:w-12 md:h-12 text-white" strokeWidth={2} />
-                      </div>
-
-                      <div className="absolute inset-0 bg-[#6366f1] opacity-0 group-hover:opacity-95 transition-all duration-300 flex flex-col justify-between p-3 md:p-6">
-                        <div className="w-10 md:w-16 h-0.5 md:h-1 bg-white" />
-
-                        <div className="space-y-1 md:space-y-3">
-                          <span className="text-[8px] md:text-xs font-bold text-white/80 uppercase tracking-wider">
-                            {caseStudy.client}
-                          </span>
-                          <h3 className="text-sm md:text-2xl font-bold text-white leading-tight">
-                            {caseStudy.headline}
-                          </h3>
-                          <div className="flex items-center gap-1 md:gap-2 text-white font-medium group-hover:gap-2 md:group-hover:gap-3 transition-all duration-300">
-                            <span className="underline text-[10px] md:text-base">Case ansehen</span>
-                            <ArrowUpRight className="w-3 h-3 md:w-5 md:h-5" />
-                          </div>
-                        </div>
-
-                        <div>
-                          <span className="inline-block border border-white/80 px-2 md:px-4 py-0.5 md:py-1.5 text-[7px] md:text-xs font-bold text-white uppercase tracking-wider">
-                            {caseStudy.category}
-                          </span>
-                        </div>
-                      </div>
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
+              <Link to="/case-study/albanova" className="block group relative overflow-hidden">
+                <div className="relative aspect-[21/9] sm:aspect-[21/9] w-full">
+                  <img
+                    src={albanovaImage}
+                    alt="ALBANOVA — Marke & Digitalstrategie von Null aufgebaut"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-6 sm:p-10 lg:p-14">
+                    <span className="inline-block border border-white/40 px-3 py-1 text-[10px] font-bold text-white uppercase tracking-widest mb-3">
+                      Branding
+                    </span>
+                    <h3 className="text-xl sm:text-3xl lg:text-4xl font-black text-white leading-tight">
+                      ALBANOVA
+                    </h3>
+                    <p className="text-white/60 text-sm sm:text-base mt-2 max-w-lg">
+                      Marke & Digitalstrategie von Null aufgebaut
+                    </p>
+                    <div className="inline-flex items-center gap-2 text-white/80 text-sm font-semibold mt-4 group-hover:gap-3 transition-all">
+                      Case ansehen <ArrowRight className="w-4 h-4" />
                     </div>
-                  </Link>
-                </motion.div>)}
-            </div>
-
-            {/* Mobile Link */}
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.6,
-            delay: 0.4
-          }} className="md:hidden mt-8 text-center">
-              <Link to="/case-studies" className="inline-flex items-center gap-2 text-lg font-bold text-black hover:text-[#6366f1] transition-colors duration-300">
-                ALLE CASES
-                <ArrowUpRight className="w-6 h-6" />
+                  </div>
+                </div>
               </Link>
             </motion.div>
+
+            {/* Mobile link */}
+            <div className="md:hidden mt-6 text-center">
+              <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm font-bold text-black hover:text-indigo-600 transition-colors">
+                ALLE CASES <ArrowUpRight className="w-5 h-5" />
+              </Link>
+            </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 sm:py-24 relative overflow-hidden bg-primary-foreground">
-          <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-            <h2 className="text-h1 mb-4 sm:mb-6 text-gray-900">Bereit für Klarheit?</h2>
-            <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-600">
-              Studio ist der notwendige Einstieg in kontrollierbare Systeme.
-            </p>
-            <Button id="projekt-besprechen-btn" size="lg" className="bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-semibold text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 transition-all duration-300 hover:-translate-y-0.5 rounded-none" onClick={() => setIsModalOpen(true)}>
-              Kontakt aufnehmen
-            </Button>
+        {/* ═══════════════════════════════════════════════════════
+            7. CTA — Design-system conform
+        ═══════════════════════════════════════════════════════ */}
+        <section className="py-24 sm:py-32 bg-slate-950 relative overflow-hidden">
+          {/* Subtle gradient accent */}
+          <div className="absolute inset-0 opacity-20" style={{
+            background: "radial-gradient(ellipse at 50% 100%, rgba(99,102,241,0.4) 0%, transparent 70%)"
+          }} />
+
+          <div className="container mx-auto px-6 sm:px-8 text-center relative z-10 max-w-3xl">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.05]">
+                Bereit für die Zukunft?
+              </h2>
+              <p className="text-white/50 text-base sm:text-lg mt-6 leading-relaxed max-w-2xl mx-auto">
+                New Edge steht für Innovation und nachhaltige Entwicklung. Gemeinsam gestalten wir die Zukunft von Marken und Prozessen.
+              </p>
+              <Button
+                size="lg"
+                className="mt-10 bg-transparent backdrop-blur-md text-white border-2 border-white/30 hover:bg-white hover:text-black font-semibold text-base sm:text-lg px-10 sm:px-14 py-4 transition-all duration-300 hover:-translate-y-0.5 rounded-none"
+                onClick={() => setIsModalOpen(true)}
+              >
+                Kontakt aufnehmen
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </motion.div>
           </div>
         </section>
 
@@ -471,7 +507,16 @@ const Studio = () => {
         </Suspense>
       </div>
 
-      <ContactFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} accentColor="#6366f1" gradientFrom="#6366f1" gradientTo="#a855f7" theme="studio" />
-    </>;
+      <ContactFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        accentColor="#6366f1"
+        gradientFrom="#6366f1"
+        gradientTo="#a855f7"
+        theme="studio"
+      />
+    </>
+  );
 };
+
 export default Studio;
