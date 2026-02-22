@@ -296,7 +296,7 @@ const Lab = () => {
                       custom={i}
                       className="bg-white p-6 sm:p-8 group hover:bg-gray-50 transition-colors duration-300"
                     >
-                      <span className="text-xs font-mono text-black/20">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="text-xs font-mono font-bold text-amber-600">{String(i + 1).padStart(2, "0")}</span>
                       <h4 className="text-black font-bold mt-2 text-sm">{d.title}</h4>
                       <p className="text-black/40 text-xs mt-2 leading-relaxed">{d.description}</p>
                     </motion.div>
