@@ -322,30 +322,28 @@ const Studio = () => {
             </motion.div>
 
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
-              <Link to="/case-study/albanova" className="block group relative overflow-hidden">
-                <div className="relative aspect-[21/9] sm:aspect-[21/9] w-full">
-                  <img
-                    src={albanovaImage}
-                    alt="ALBANOVA — Marke & Digitalstrategie von Null aufgebaut"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-6 sm:p-10 lg:p-14">
-                    <span className="inline-block border border-white/40 px-3 py-1 text-[10px] font-bold text-white uppercase tracking-widest mb-3">
-                      Branding
-                    </span>
-                    <h3 className="text-xl sm:text-3xl lg:text-4xl font-black text-white leading-tight">
-                      ALBANOVA
-                    </h3>
-                    <p className="text-white/60 text-sm sm:text-base mt-2 max-w-lg">
-                      Marke & Digitalstrategie von Null aufgebaut
-                    </p>
-                    <div className="inline-flex items-center gap-2 text-white/80 text-sm font-semibold mt-4 group-hover:gap-3 transition-all">
-                      Case ansehen <ArrowRight className="w-4 h-4" />
+              <div className="max-w-md">
+                <Link to="/case-study/albanova" className="block group relative overflow-hidden">
+                  <div className="relative aspect-square w-full bg-gray-100">
+                    <img
+                      src={albanovaImage}
+                      alt="ALBANOVA — Marke & Digitalstrategie von Null aufgebaut"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-black/20" />
+                    <div className="absolute inset-0 bg-indigo-500 opacity-0 group-hover:opacity-95 transition-all duration-300 flex flex-col justify-between p-6">
+                      <div className="w-16 h-1 bg-white" />
+                      <div className="space-y-3">
+                        <span className="text-xs font-bold text-white/80 uppercase tracking-wider">Branding</span>
+                        <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">ALBANOVA</h3>
+                        <p className="text-white/70 text-sm mt-1">Marke & Digitalstrategie von Null aufgebaut</p>
+                        <div className="inline-flex items-center gap-2 text-white text-sm font-semibold mt-2">
+                          Case ansehen <ArrowRight className="w-4 h-4" />
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </motion.div>
 
             {/* Mobile link */}
