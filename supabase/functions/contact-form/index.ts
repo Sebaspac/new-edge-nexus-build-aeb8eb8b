@@ -142,13 +142,17 @@ serve(async (req) => {
     console.log(`Processing contact form submission from ${clientIP}`);
     console.log(`Payload being sent to webhook: ${JSON.stringify(validation.data)}`);
 
-    // Forward to n8n webhook (URL is now server-side only)
+    // Forward to n8n webhook with Basic Auth
     const webhookUrl = 'https://n8n-pro-oh9w.onrender.com/webhook/kontakt';
+    const basicUser = Deno.env.get('BASIC_AUTH_USER') || '';
+    const basicPass = Deno.env.get('BASIC_AUTH_PASSWORD') || '';
+    const authHeader = btoa(`${basicUser}:${basicPass}`);
     
     const webhookResponse = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Basic ${authHeader}`,
       },
       body: JSON.stringify(validation.data),
     });
