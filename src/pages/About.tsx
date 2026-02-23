@@ -40,10 +40,10 @@ const About = () => {
   // Orbital rotation setup
   const orbitalRadius = typeof window !== "undefined" && window.innerWidth < 768 ? 180 : 280;
   const orbitalAngle = useMotionValue(0);
-  const studioX = useTransform(orbitalAngle, a => Math.cos((a - 90) * Math.PI / 180) * orbitalRadius);
-  const studioY = useTransform(orbitalAngle, a => Math.sin((a - 90) * Math.PI / 180) * orbitalRadius);
-  const labX = useTransform(orbitalAngle, a => Math.cos((a + 90) * Math.PI / 180) * orbitalRadius);
-  const labY = useTransform(orbitalAngle, a => Math.sin((a + 90) * Math.PI / 180) * orbitalRadius);
+  const studioX = useTransform(orbitalAngle, (a) => Math.cos((a - 90) * Math.PI / 180) * orbitalRadius);
+  const studioY = useTransform(orbitalAngle, (a) => Math.sin((a - 90) * Math.PI / 180) * orbitalRadius);
+  const labX = useTransform(orbitalAngle, (a) => Math.cos((a + 90) * Math.PI / 180) * orbitalRadius);
+  const labY = useTransform(orbitalAngle, (a) => Math.sin((a + 90) * Math.PI / 180) * orbitalRadius);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -80,7 +80,7 @@ const About = () => {
 
       // Start cycling videos every 3 seconds
       intervalRef.current = setInterval(() => {
-        setCurrentVideoIndex(prev => {
+        setCurrentVideoIndex((prev) => {
           const videos = moduleVideos[hoveredModule];
           const nextIndex = (prev[hoveredModule] + 1) % videos.length;
           return {
@@ -379,17 +379,17 @@ const About = () => {
                   </p>
 
                   <p>
-                    Wir übernehmen Marketing & Innovation end-to-end, KI-gestützt, automatisiert und messbar. New Edge
-                    ist der Hub, der alle Disziplinen bündelt und in skalierbare Systeme übersetzt.
+                    Von Umsetzung zu Steuerbarkeit.
+wir verbinden Strategie und Technologie
+zu einem System, das Sie verstehen, kontrollieren und weiterentwickeln können.
+
                   </p>
                 </div>
 
                 
 
                 {/* Subtle Studio & Lab Links */}
-                <motion.div className="mt-8 flex flex-col sm:flex-row gap-3" initial={{
-                opacity: 0,
-                y: 10
+                <motion.div className="mt-8 flex flex-col sm:flex-row gap-3" initial={{ opacity: 0, y: 10
               }} whileInView={{
                 opacity: 1,
                 y: 0
@@ -622,7 +622,7 @@ const About = () => {
 
                       {/* Tags */}
                       <div className="flex gap-1.5 sm:gap-2 flex-wrap justify-center">
-                        {founder.tags.map(tag => <span key={tag} className="px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 bg-gray-100 text-gray-700 rounded-none text-xs sm:text-sm border border-gray-200 hover:border-primary/50 hover:bg-gray-50 transition-colors">
+                        {founder.tags.map((tag) => <span key={tag} className="px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 bg-gray-100 text-gray-700 rounded-none text-xs sm:text-sm border border-gray-200 hover:border-primary/50 hover:bg-gray-50 transition-colors">
                             {tag}
                           </span>)}
                       </div>
@@ -705,7 +705,7 @@ const About = () => {
         </section>
 
         {/* Contact Form Sheet */}
-        <Sheet open={isContactSheetOpen} onOpenChange={open => {
+        <Sheet open={isContactSheetOpen} onOpenChange={(open) => {
         setIsContactSheetOpen(open);
         if (!open) setIsPartnerRequest(false);
       }}>
@@ -751,7 +751,7 @@ const About = () => {
                 type: "tel",
                 placeholder: "Ihre Telefonnummer",
                 required: false
-              }].map(field => <div key={field.id} className="space-y-2">
+              }].map((field) => <div key={field.id} className="space-y-2">
                     <Label htmlFor={field.id} className="text-foreground font-medium">
                       {field.label}
                     </Label>
