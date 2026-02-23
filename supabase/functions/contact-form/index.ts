@@ -142,23 +142,33 @@ serve(async (req) => {
     console.log(`Processing contact form submission from ${clientIP}`);
     console.log(`Payload being sent to webhook: ${JSON.stringify(validation.data)}`);
 
-    // Forward to n8n webhook with Basic Auth
-    const webhookUrl = 'https://n8n-pro-oh9w.onrender.com/webhook/kontakt';
-    const basicUser = Deno.env.get('BASIC_AUTH_USER') || '';
-    const basicPass = Deno.env.get('BASIC_AUTH_PASSWORD') || '';
-    const authHeader = btoa(`${basicUser}:${basicPass}`);
-    
-    const webhookResponse = await fetch(webhookUrl, {
+    // Forward to n8n webhook with Basic Auth from secrets
+    const n8nUrl = Deno.env.get('N8N_WEBHOOK_URL')!;
+    const user = Deno.env.get('N8N_BASIC_USER')!;
+    const pass = Deno.env.get('N8N_BASIC_PASS')!;
+    const auth = 'Basic ' + btoa(`${user}:${pass}`);
+
+    const forwardBody = {
+      ...validation.data,
+      _meta: {
+        ip: req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? null,
+        user_agent: req.headers.get('user-agent') ?? null,
+        source: 'supabase-edge',
+      },
+    };
+
+    const webhookResponse = await fetch(n8nUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Basic ${authHeader}`,
+        'Authorization': auth,
       },
-      body: JSON.stringify(validation.data),
+      body: JSON.stringify(forwardBody),
     });
 
     if (!webhookResponse.ok) {
-      console.error(`Webhook returned status ${webhookResponse.status}`);
+      const t = await webhookResponse.text();
+      console.error('n8n forward failed:', webhookResponse.status, t);
       return new Response(
         JSON.stringify({ error: 'Failed to process submission' }),
         { status: 502, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
