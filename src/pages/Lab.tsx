@@ -1,7 +1,7 @@
 import { useEffect, useState, lazy, Suspense, useRef } from "react";
 import WhisperText from "@/components/ui/whisper-text";
 import { useNavigate, Link } from "react-router-dom";
-import { Bot, Lightbulb, Phone, FileText, Plus, ArrowUpRight } from "lucide-react";
+import { Bot, Lightbulb, Phone, FileText, Plus, ArrowUpRight, ChevronDown } from "lucide-react";
 import leadGenerationImage from "@/assets/lead-generation.webp";
 import ragDatacenterImage from "@/assets/rag-datacenter.webp";
 import marketingAutomationImage from "@/assets/marketing-automation.webp";
@@ -221,6 +221,14 @@ const Lab = () => {
                 </span>
               </motion.h1>
             </div>
+          </motion.div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            style={{ opacity: heroOpacity }}
+            className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20">
+            <span className="text-xs font-medium tracking-widest text-white/50 uppercase">Scroll</span>
+            <ChevronDown className="w-5 h-5 text-white/50 animate-bounce" />
           </motion.div>
         </section>
 
