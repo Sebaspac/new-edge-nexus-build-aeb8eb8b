@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, useState, lazy, Suspense, useRef } from "react";
 import WhisperText from "@/components/ui/whisper-text";
 import { useNavigate, Link } from "react-router-dom";
 import { Bot, Lightbulb, Phone, FileText, Plus, ArrowUpRight } from "lucide-react";
@@ -8,7 +8,7 @@ import marketingAutomationImage from "@/assets/marketing-automation.webp";
 import { Button } from "@/components/ui/button";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { LabInfrastructureGrid } from "@/components/ui/lab-infrastructure-grid";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { LazyVideo } from "@/components/LazyVideo";
@@ -33,6 +33,13 @@ const Lab = () => {
     });
     setIsVisible(true);
   }, []);
+
+  /* Parallax for hero */
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroY = useTransform(heroProgress, [0, 1], [0, 120]);
+  const heroOpacity = useTransform(heroProgress, [0, 0.6], [1, 0]);
+
   const scrollToContact = () => {
     navigate("/", {
       replace: true
@@ -165,8 +172,8 @@ const Lab = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Hero Section */}
-        <section className="relative w-full">
-          <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video">
+        <section ref={heroRef} className="relative w-full h-[75vh] lg:h-auto lg:aspect-video overflow-hidden">
+          <div className="absolute inset-0">
             <div
               className="absolute inset-0 overflow-hidden"
               style={{
@@ -188,27 +195,33 @@ const Lab = () => {
                 style={{
                   background: "linear-gradient(to top, rgba(251, 146, 60, 0.4), rgba(251, 191, 36, 0.2), transparent)"
                 }} />
-
-
-              <div className="absolute bottom-0 left-0 p-6 pb-8 sm:pb-12 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
-                <h1 className="text-h1 lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
-                  NEW EDGE
-                  <br />
-                  <span
-                    className="italic font-black"
-                    style={{
-                      background: "linear-gradient(to right, #fde047, #fbbf24)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text"
-                    }}>
-
-                    LAB
-                  </span>
-                </h1>
-              </div>
             </div>
           </div>
+
+          <motion.div
+            style={{ y: heroY, opacity: heroOpacity }}
+            className="relative z-10 h-full flex flex-col justify-end pb-8 sm:pb-12 px-6 sm:px-12 lg:px-16">
+            <div className="max-w-4xl">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-h1 lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+                NEW EDGE
+                <br />
+                <span
+                  className="italic font-black"
+                  style={{
+                    background: "linear-gradient(to right, #fde047, #fbbf24)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text"
+                  }}>
+                  LAB
+                </span>
+              </motion.h1>
+            </div>
+          </motion.div>
         </section>
 
         {/* ═══════════════════════════════════════════════════════
