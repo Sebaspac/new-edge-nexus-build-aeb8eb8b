@@ -187,20 +187,17 @@ const Studio = () => {
               <WhisperText
                 text="Im Studio entsteht die Systemlogik für Marke, Kommunikation und den sinnvollen Einsatz von KI."
                 className="text-lg sm:text-xl text-black/50 leading-relaxed"
-                y={12}
                 delay={30} />
 
               <WhisperText
                 text="Wir analysieren Ihre bestehende Realität, schaffen Entscheidungsfähigkeit im Management und entwickeln die priorisierte Roadmap für steuerbare Systeme."
                 className="text-lg sm:text-xl text-black/50 leading-relaxed"
-                y={12}
                 delay={30}
                 triggerStart="top 92%" />
 
               <WhisperText
                 text="Keine Maßnahmenliste – sondern die belastbare Grundlage für alles, was danach gebaut wird."
                 className="text-lg sm:text-xl text-black/50 leading-relaxed"
-                y={12}
                 delay={30}
                 triggerStart="top 94%" />
 
