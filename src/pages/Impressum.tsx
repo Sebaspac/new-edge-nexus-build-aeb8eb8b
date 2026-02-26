@@ -229,8 +229,8 @@ const Impressum = () => {
                       Datenschutz-Grundverordnung (DSGVO) ist:
                     </p>
                     <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
-                      <p>New Edge Brand </p>
-                      <p>Inhaber: Wenjamin Zabezhanskiy</p>
+                      <p>New Edge</p>
+                      <p>Inhaber: Wenjamin Zababezhanskiy</p>
                       <p>Zehntfeldstraße 156a</p>
                       <p>81825 München</p>
                       <p>Deutschland</p>
