@@ -106,7 +106,7 @@ const Impressum = () => {
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-4">Angaben gemäß § 5 TMG</h3>
                     <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
-                      <p className="font-semibold text-white">New Edge – Creative Tech Agentur</p>
+                      <p className="font-semibold text-white">New Edge Brand – Creative Tech Agentur</p>
                       <p>Inhaber: Wenjamin Zabezhanskiy </p>
 
                       <p>Deutschland</p>
@@ -230,7 +230,7 @@ const Impressum = () => {
                     </p>
                     <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
                       <p>New Edge</p>
-                      <p>Inhaber: Wenjamin Zababezhanskiy</p>
+                      <p>Inhaber: Wenjamin Zabezhanskiy</p>
                       <p>Zehntfeldstraße 156a</p>
                       <p>81825 München</p>
                       <p>Deutschland</p>
