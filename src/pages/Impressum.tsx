@@ -229,7 +229,7 @@ const Impressum = () => {
                       Datenschutz-Grundverordnung (DSGVO) ist:
                     </p>
                     <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
-                      <p>New Edge</p>
+                      <p>New Edge Brand  </p>
                       <p>Inhaber: Wenjamin Zababezhanskiy</p>
                       <p>Mädelegabelstraße 31, </p>
                       <p>81825 München</p>
