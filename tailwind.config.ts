@@ -25,8 +25,10 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				'sans': ['Inter Variable', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+		fontFamily: {
+				'sans': ['Consolas', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Liberation Mono', 'Courier New', 'monospace'],
+				'heading': ['DM Serif Display', 'serif'],
+				'mono': ['Consolas', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Liberation Mono', 'Courier New', 'monospace'],
 				'epilogue': ['Epilogue', 'Inter', 'sans-serif'],
 			},
 			colors: {
