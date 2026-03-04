@@ -1,39 +1,14 @@
 
-# Kontaktformular: Fehlende Felder debuggen und fixen
 
-## Analyse
+## Problem
 
-Der Datenfluss ist: **Frontend -> Edge Function -> n8n Webhook**
+The `h1`-`h6` CSS rule (line 165-167 in `src/index.css`) sets `font-family: 'DM Serif Display'` but does NOT set `font-weight`. Browsers default headings to `font-weight: bold` (700), making them appear too thick.
 
-Die Edge Function extrahiert und validiert alle Felder korrekt (name, email, position, firma, telefon, nachricht, source) und sendet sie als JSON an den n8n Webhook. Das Problem: Es gibt kein Logging der tatsaechlich gesendeten Daten, sodass wir nicht sehen koennen, ob alle Felder wirklich ankommen.
+DM Serif Display only ships in weight 400, so the browser is artificially bolding it (faux bold), which looks bad.
 
-## Moegliche Ursachen
+## Fix
 
-1. **n8n Webhook-Konfiguration**: Der Webhook in n8n ist moeglicherweise so konfiguriert, dass er nur bestimmte Felder extrahiert
-2. **Datenformat**: n8n erwartet moeglicherweise ein anderes Format (z.B. verschachtelte Struktur)
+Add `font-weight: 400 !important;` to the global `h1, h2, h3, h4, h5, h6` rule in `src/index.css`. This ensures all headings render at the font's natural weight across every page and component.
 
-## Plan
+Single line change in `src/index.css`, line 165-167.
 
-### Schritt 1: Debug-Logging in der Edge Function hinzufuegen
-
-In `supabase/functions/contact-form/index.ts` wird ein `console.log` mit dem vollstaendigen Payload eingefuegt, der an n8n gesendet wird. So koennen wir in den Edge Function Logs genau sehen, welche Daten weitergeleitet werden.
-
-Aenderung in Zeile 142 (vor dem Webhook-Call):
-```typescript
-console.log(`Processing contact form submission from ${clientIP}`);
-console.log(`Payload being sent to webhook: ${JSON.stringify(validation.data)}`);
-```
-
-### Schritt 2: Test durchfuehren und Logs pruefen
-
-Nach dem Deployment wird ein Testformular abgeschickt, um die Logs zu ueberpruefen.
-
-### Schritt 3: Falls das Problem bei n8n liegt
-
-Wenn die Logs zeigen, dass alle Daten korrekt gesendet werden, liegt das Problem in der n8n Workflow-Konfiguration. In dem Fall muss der n8n Workflow "CRM UPDATES" (ID: 6FnYmim7NA9GOkTn) angepasst werden, damit alle Felder verarbeitet werden.
-
-## Technische Details
-
-- Datei: `supabase/functions/contact-form/index.ts`
-- Aenderung: Eine zusaetzliche `console.log`-Zeile nach Zeile 142
-- Edge Function Logs koennen hier eingesehen werden: Supabase Dashboard > Edge Functions > contact-form > Logs
