@@ -109,16 +109,16 @@ const CyberneticGridShader = () => {
       const width  = rect.width;
       const height = rect.height;
       renderer.setSize(width, height);
-      uniforms.iResolution.value.set(width, height);
+      uniforms.iResolution.value.set(width * window.devicePixelRatio, height * window.devicePixelRatio);
     };
     window.addEventListener('resize', onResize);
     onResize(); // set initial size
 
-    // 5) Mouse handler – map to canvas-relative coordinates
+    // 5) Mouse handler – map to canvas-relative coordinates, accounting for devicePixelRatio
     const onMouseMove = (e: MouseEvent) => {
       const rect = container.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = rect.height - (e.clientY - rect.top);
+      const mouseX = (e.clientX - rect.left) * window.devicePixelRatio;
+      const mouseY = (rect.height - (e.clientY - rect.top)) * window.devicePixelRatio;
       
       uniforms.iMouse.value.set(mouseX, mouseY);
     };
