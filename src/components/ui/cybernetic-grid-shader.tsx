@@ -103,20 +103,22 @@ const CyberneticGridShader = () => {
     const mesh     = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
-    // 4) Resize handler
+    // 4) Resize handler – use canvas container size, not window
     const onResize = () => {
-      const width  = window.innerWidth;
-      const height = window.innerHeight;
+      const rect = container.getBoundingClientRect();
+      const width  = rect.width;
+      const height = rect.height;
       renderer.setSize(width, height);
       uniforms.iResolution.value.set(width, height);
     };
     window.addEventListener('resize', onResize);
     onResize(); // set initial size
 
-    // 5) Mouse handler
+    // 5) Mouse handler – map to canvas-relative coordinates
     const onMouseMove = (e: MouseEvent) => {
-      const mouseX = e.clientX;
-      const mouseY = window.innerHeight - e.clientY;
+      const rect = container.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = rect.height - (e.clientY - rect.top);
       
       uniforms.iMouse.value.set(mouseX, mouseY);
     };
