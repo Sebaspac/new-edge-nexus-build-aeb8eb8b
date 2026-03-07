@@ -16,6 +16,9 @@ export const contactFormSchema = z.object({
     .trim()
     .email({ message: "Bitte geben Sie eine gültige E-Mail-Adresse ein" })
     .max(200, { message: "E-Mail darf maximal 200 Zeichen lang sein" }),
+  phone: z.string().trim().max(30, { message: "Telefon darf maximal 30 Zeichen lang sein" }).optional().or(z.literal('')),
+  company: z.string().trim().max(120, { message: "Firma darf maximal 120 Zeichen lang sein" }).optional().or(z.literal('')),
+  position: z.string().trim().max(120, { message: "Position darf maximal 120 Zeichen lang sein" }).optional().or(z.literal('')),
   message: z.string()
     .trim()
     .min(10, { message: "Nachricht muss mindestens 10 Zeichen lang sein" })
