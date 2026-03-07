@@ -1,153 +1,97 @@
 import { z } from 'zod';
 
 // Rate limiting configuration
-const RATE_LIMIT_WINDOW_MS = 60000; // 1 minute
+const RATE_LIMIT_WINDOW_MS = 60000;
 const MAX_SUBMISSIONS_PER_WINDOW = 1;
-
-// Store for rate limiting (in-memory, per session)
 let lastSubmissionTime = 0;
 let submissionCount = 0;
 
-// Contact form validation schema
+// Contact form validation schema — 3 fields only
 export const contactFormSchema = z.object({
   name: z.string()
     .trim()
     .min(2, { message: "Name muss mindestens 2 Zeichen lang sein" })
-    .max(100, { message: "Name darf maximal 100 Zeichen lang sein" }),
+    .max(120, { message: "Name darf maximal 120 Zeichen lang sein" }),
   email: z.string()
     .trim()
     .email({ message: "Bitte geben Sie eine gültige E-Mail-Adresse ein" })
     .max(200, { message: "E-Mail darf maximal 200 Zeichen lang sein" }),
-  position: z.string()
-    .trim()
-    .max(100, { message: "Position darf maximal 100 Zeichen lang sein" })
-    .optional()
-    .or(z.literal('')),
-  firma: z.string()
-    .trim()
-    .max(200, { message: "Firmenname darf maximal 200 Zeichen lang sein" })
-    .optional()
-    .or(z.literal('')),
-  telefon: z.string()
-    .trim()
-    .max(30, { message: "Telefonnummer darf maximal 30 Zeichen lang sein" })
-    .optional()
-    .or(z.literal('')),
-  nachricht: z.string()
+  message: z.string()
     .trim()
     .min(10, { message: "Nachricht muss mindestens 10 Zeichen lang sein" })
-    .max(2000, { message: "Nachricht darf maximal 2000 Zeichen lang sein" }),
-  source: z.string().optional(),
+    .max(5000, { message: "Nachricht darf maximal 5000 Zeichen lang sein" }),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
 
-// Check rate limit
 export function checkRateLimit(): { allowed: boolean; error?: string } {
   const now = Date.now();
-  
-  // Reset counter if window has passed
   if (now - lastSubmissionTime > RATE_LIMIT_WINDOW_MS) {
     submissionCount = 0;
   }
-  
   if (submissionCount >= MAX_SUBMISSIONS_PER_WINDOW) {
     const remainingSeconds = Math.ceil((RATE_LIMIT_WINDOW_MS - (now - lastSubmissionTime)) / 1000);
-    return { 
-      allowed: false, 
-      error: `Bitte warten Sie ${remainingSeconds} Sekunden, bevor Sie erneut senden.` 
-    };
+    return { allowed: false, error: `Bitte warten Sie ${remainingSeconds} Sekunden, bevor Sie erneut senden.` };
   }
-  
   return { allowed: true };
 }
 
-// Record a submission for rate limiting
 export function recordSubmission(): void {
   lastSubmissionTime = Date.now();
   submissionCount++;
 }
 
-// Honeypot validation - returns true if bot detected
 export function isHoneypotTriggered(honeypotValue: string | undefined): boolean {
-  // If the hidden honeypot field has any value, it's likely a bot
   return !!honeypotValue && honeypotValue.trim().length > 0;
 }
 
-// Validate form data and return result
-export function validateContactForm(data: Record<string, unknown>): { 
-  success: boolean; 
-  data?: ContactFormData; 
-  error?: string 
+// Validate and return per-field errors
+export function validateContactForm(data: Record<string, unknown>): {
+  success: boolean;
+  data?: ContactFormData;
+  fieldErrors?: Record<string, string>;
 } {
   try {
     const validated = contactFormSchema.parse(data);
     return { success: true, data: validated };
   } catch (error) {
     if (error instanceof z.ZodError) {
-      const firstError = error.errors[0];
-      return { 
-        success: false, 
-        error: firstError?.message || "Validierungsfehler bei den Formulardaten" 
-      };
+      const fieldErrors: Record<string, string> = {};
+      for (const issue of error.errors) {
+        const field = issue.path[0] as string;
+        if (!fieldErrors[field]) {
+          fieldErrors[field] = issue.message;
+        }
+      }
+      return { success: false, fieldErrors };
     }
-    return { success: false, error: "Ein unerwarteter Fehler ist aufgetreten" };
+    return { success: false, fieldErrors: { _form: "Ein unerwarteter Fehler ist aufgetreten" } };
   }
 }
 
-// Extract form data from FormData object
-export function extractFormData(formData: FormData, source?: string): Record<string, unknown> {
-  return {
-    name: formData.get('name')?.toString() || '',
-    email: formData.get('email')?.toString() || '',
-    position: formData.get('position')?.toString() || '',
-    firma: formData.get('firma')?.toString() || '',
-    telefon: formData.get('telefon')?.toString() || '',
-    nachricht: formData.get('nachricht')?.toString() || '',
-    source: source || '',
-  };
-}
-
-// Extract honeypot field from FormData
-export function extractHoneypotField(formData: FormData): string | undefined {
-  return formData.get('website_url')?.toString();
-}
-
-// Submit validated contact form data via Supabase Edge Function
+// Submit via plain fetch to new-contact edge function — no auth header
 export async function submitContactForm(data: ContactFormData): Promise<{ success: boolean; error?: string }> {
   try {
-    // Use Supabase Edge Function for server-side validation and rate limiting
-    const edgeFunctionUrl = 'https://yzmtgxfehvzgobxjivjl.supabase.co/functions/v1/contact-form';
-    
-    const response = await fetch(edgeFunctionUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-        'apikey': import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      'https://yzmtgxfehvzgobxjivjl.supabase.co/functions/v1/new-contact',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      }
+    );
 
-    if (response.ok) {
+    const result = await response.json().catch(() => ({}));
+
+    if (response.ok && result.ok) {
       return { success: true };
-    } else if (response.status === 429) {
-      const result = await response.json();
-      return { 
-        success: false, 
-        error: `Zu viele Anfragen. Bitte warten Sie ${result.retryAfter || 60} Sekunden.` 
-      };
-    } else {
-      const result = await response.json().catch(() => ({}));
-      return { 
-        success: false, 
-        error: result.error || `Server antwortete mit Status ${response.status}` 
-      };
     }
-  } catch (error) {
-    return { 
-      success: false, 
-      error: "Netzwerkfehler beim Senden der Nachricht" 
+
+    return {
+      success: false,
+      error: result.error || `Server antwortete mit Status ${response.status}`,
     };
+  } catch {
+    return { success: false, error: "Verbindungsfehler. Bitte erneut versuchen." };
   }
 }
