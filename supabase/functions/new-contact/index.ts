@@ -63,7 +63,7 @@ serve(async (req) => {
       );
     }
 
-    const { name, email, message } = body as Record<string, unknown>;
+    const { name, email, phone, company, position, message } = body as Record<string, unknown>;
 
     // Validation
     const errors: string[] = [];
@@ -71,6 +71,9 @@ serve(async (req) => {
     if (typeof name === "string" && name.length > 120) errors.push("Name darf maximal 120 Zeichen lang sein");
     if (!email || typeof email !== "string" || !validateEmail(email.trim())) errors.push("Bitte geben Sie eine gültige E-Mail-Adresse ein");
     if (typeof email === "string" && email.length > 200) errors.push("E-Mail darf maximal 200 Zeichen lang sein");
+    if (phone && typeof phone === "string" && phone.length > 30) errors.push("Telefon darf maximal 30 Zeichen lang sein");
+    if (company && typeof company === "string" && company.length > 120) errors.push("Firma darf maximal 120 Zeichen lang sein");
+    if (position && typeof position === "string" && position.length > 120) errors.push("Position darf maximal 120 Zeichen lang sein");
     if (!message || typeof message !== "string" || message.trim().length < 10) errors.push("Nachricht muss mindestens 10 Zeichen lang sein");
     if (typeof message === "string" && message.length > 5000) errors.push("Nachricht darf maximal 5000 Zeichen lang sein");
 
@@ -84,7 +87,22 @@ serve(async (req) => {
     const sanitized = {
       name: (name as string).trim(),
       email: (email as string).trim(),
+      phone: phone && typeof phone === "string" ? phone.trim() || null : null,
+      company: company && typeof company === "string" ? company.trim() || null : null,
+      position: position && typeof position === "string" ? position.trim() || null : null,
       message: (message as string).trim(),
+    };
+
+    const n8nPayload = {
+      name: sanitized.name,
+      email: sanitized.email,
+      phone: sanitized.phone,
+      company: sanitized.company,
+      position: sanitized.position,
+      message: sanitized.message,
+      ip,
+      user_agent: req.headers.get("user-agent") || null,
+      source: "new-contact",
     };
 
     console.log("New contact submission from", ip, ":", sanitized.email);
@@ -103,7 +121,7 @@ serve(async (req) => {
         const n8nRes = await fetch(n8nUrl, {
           method: "POST",
           headers,
-          body: JSON.stringify(sanitized),
+          body: JSON.stringify(n8nPayload),
         });
 
         if (!n8nRes.ok) {

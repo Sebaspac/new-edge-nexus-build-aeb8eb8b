@@ -1,23 +1,39 @@
 
+# Kontaktformular: Fehlende Felder debuggen und fixen
 
-## Kontaktformular: Phone, Company, Position Felder hinzufügen
+## Analyse
 
-### Überblick
-Drei optionale Felder (Telefon, Firma, Position) zum Formular hinzufügen und durch die gesamte Kette bis n8n weiterleiten.
+Der Datenfluss ist: **Frontend -> Edge Function -> n8n Webhook**
 
-### Änderungen
+Die Edge Function extrahiert und validiert alle Felder korrekt (name, email, position, firma, telefon, nachricht, source) und sendet sie als JSON an den n8n Webhook. Das Problem: Es gibt kein Logging der tatsaechlich gesendeten Daten, sodass wir nicht sehen koennen, ob alle Felder wirklich ankommen.
 
-**1. `src/components/ContactFormModal.tsx`** — 3 optionale Felder einfügen:
-- Zwischen E-Mail und Nachricht drei neue Inputs: Telefon, Firma, Position (alle optional, kein `required`)
-- Werte aus FormData auslesen und an `submitContactForm` übergeben
+## Moegliche Ursachen
 
-**2. `src/utils/contactFormValidation.ts`** — Schema & Submit erweitern:
-- Zod-Schema um `phone`, `company`, `position` erweitern (alle `z.string().optional()` mit sinnvollen max-Längen)
-- `ContactFormData` Typ wird automatisch aktualisiert
-- `submitContactForm` sendet die 3 neuen Felder mit (als `null` wenn leer)
+1. **n8n Webhook-Konfiguration**: Der Webhook in n8n ist moeglicherweise so konfiguriert, dass er nur bestimmte Felder extrahiert
+2. **Datenformat**: n8n erwartet moeglicherweise ein anderes Format (z.B. verschachtelte Struktur)
 
-**3. `supabase/functions/new-contact/index.ts`** — Felder durchreichen:
-- `phone`, `company`, `position` aus dem Body extrahieren (optional, dürfen null/leer sein)
-- n8n-Payload erweitern: `{ name, email, phone, company, position, message, ip, user_agent, source: "new-contact" }`
-- Validierung: nur Längenbegrenzung, kein Required-Check
+## Plan
 
+### Schritt 1: Debug-Logging in der Edge Function hinzufuegen
+
+In `supabase/functions/contact-form/index.ts` wird ein `console.log` mit dem vollstaendigen Payload eingefuegt, der an n8n gesendet wird. So koennen wir in den Edge Function Logs genau sehen, welche Daten weitergeleitet werden.
+
+Aenderung in Zeile 142 (vor dem Webhook-Call):
+```typescript
+console.log(`Processing contact form submission from ${clientIP}`);
+console.log(`Payload being sent to webhook: ${JSON.stringify(validation.data)}`);
+```
+
+### Schritt 2: Test durchfuehren und Logs pruefen
+
+Nach dem Deployment wird ein Testformular abgeschickt, um die Logs zu ueberpruefen.
+
+### Schritt 3: Falls das Problem bei n8n liegt
+
+Wenn die Logs zeigen, dass alle Daten korrekt gesendet werden, liegt das Problem in der n8n Workflow-Konfiguration. In dem Fall muss der n8n Workflow "CRM UPDATES" (ID: 6FnYmim7NA9GOkTn) angepasst werden, damit alle Felder verarbeitet werden.
+
+## Technische Details
+
+- Datei: `supabase/functions/contact-form/index.ts`
+- Aenderung: Eine zusaetzliche `console.log`-Zeile nach Zeile 142
+- Edge Function Logs koennen hier eingesehen werden: Supabase Dashboard > Edge Functions > contact-form > Logs
