@@ -106,14 +106,19 @@ serve(async (req) => {
       name: sanitized.name,
       email: sanitized.email,
       phone: sanitized.phone,
+      telefon: sanitized.phone,       // German alias for n8n
       company: sanitized.company,
+      firma: sanitized.company,       // German alias for n8n
       position: sanitized.position,
       message: sanitized.message,
+      nachricht: sanitized.message,   // German alias for n8n
       ip,
       user_agent: req.headers.get("user-agent") || null,
       source: "new-contact",
     };
 
+    console.log("Sanitized payload:", JSON.stringify(sanitized));
+    console.log("n8n payload:", JSON.stringify(n8nPayload));
     console.log("New contact submission from", ip, ":", sanitized.email);
 
     // Optional: forward to n8n
