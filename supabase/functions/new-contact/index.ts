@@ -87,7 +87,22 @@ serve(async (req) => {
     const sanitized = {
       name: (name as string).trim(),
       email: (email as string).trim(),
+      phone: phone && typeof phone === "string" ? phone.trim() || null : null,
+      company: company && typeof company === "string" ? company.trim() || null : null,
+      position: position && typeof position === "string" ? position.trim() || null : null,
       message: (message as string).trim(),
+    };
+
+    const n8nPayload = {
+      name: sanitized.name,
+      email: sanitized.email,
+      phone: sanitized.phone,
+      company: sanitized.company,
+      position: sanitized.position,
+      message: sanitized.message,
+      ip,
+      user_agent: req.headers.get("user-agent") || null,
+      source: "new-contact",
     };
 
     console.log("New contact submission from", ip, ":", sanitized.email);

@@ -159,6 +159,27 @@ export const ContactFormModal = ({
               {fieldErrors.email && <p className="text-sm text-destructive">{fieldErrors.email}</p>}
             </motion.div>
 
+            {/* Phone */}
+            <motion.div className="space-y-2" variants={fieldVariants}>
+              <Label htmlFor="phone" className="text-foreground font-medium">Telefon</Label>
+              <Input id="phone" name="phone" type="tel" placeholder="+49 123 456789" maxLength={30} className="bg-background/50 border-border focus:border-primary transition-colors" />
+              {fieldErrors.phone && <p className="text-sm text-destructive">{fieldErrors.phone}</p>}
+            </motion.div>
+
+            {/* Company */}
+            <motion.div className="space-y-2" variants={fieldVariants}>
+              <Label htmlFor="company" className="text-foreground font-medium">Firma</Label>
+              <Input id="company" name="company" type="text" placeholder="Ihre Firma" maxLength={120} className="bg-background/50 border-border focus:border-primary transition-colors" />
+              {fieldErrors.company && <p className="text-sm text-destructive">{fieldErrors.company}</p>}
+            </motion.div>
+
+            {/* Position */}
+            <motion.div className="space-y-2" variants={fieldVariants}>
+              <Label htmlFor="position" className="text-foreground font-medium">Position</Label>
+              <Input id="position" name="position" type="text" placeholder="Ihre Position" maxLength={120} className="bg-background/50 border-border focus:border-primary transition-colors" />
+              {fieldErrors.position && <p className="text-sm text-destructive">{fieldErrors.position}</p>}
+            </motion.div>
+
             {/* Message */}
             <motion.div className="space-y-2" variants={fieldVariants}>
               <Label htmlFor="message" className="text-foreground font-medium">Nachricht *</Label>

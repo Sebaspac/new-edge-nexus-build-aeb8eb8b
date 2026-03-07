@@ -80,7 +80,14 @@ export async function submitContactForm(data: ContactFormData): Promise<{ succes
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone || null,
+          company: data.company || null,
+          position: data.position || null,
+          message: data.message,
+        }),
       }
     );
 

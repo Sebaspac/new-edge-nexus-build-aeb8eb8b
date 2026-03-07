@@ -16,30 +16,45 @@ export type Database = {
     Tables: {
       contact_messages: {
         Row: {
+          agents: string | null
+          company: string | null
           created_at: string
           email: string
           id: number
           ip: string | null
           message: string
           name: string
+          package: string | null
+          phone: string | null
+          position: string | null
           user_agent: string | null
         }
         Insert: {
+          agents?: string | null
+          company?: string | null
           created_at?: string
           email: string
           id?: number
           ip?: string | null
           message: string
           name: string
+          package?: string | null
+          phone?: string | null
+          position?: string | null
           user_agent?: string | null
         }
         Update: {
+          agents?: string | null
+          company?: string | null
           created_at?: string
           email?: string
           id?: number
           ip?: string | null
           message?: string
           name?: string
+          package?: string | null
+          phone?: string | null
+          position?: string | null
           user_agent?: string | null
         }
         Relationships: []
