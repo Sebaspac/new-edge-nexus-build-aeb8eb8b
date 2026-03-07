@@ -63,7 +63,7 @@ serve(async (req) => {
       );
     }
 
-    const { name, email, message } = body as Record<string, unknown>;
+    const { name, email, phone, company, position, message } = body as Record<string, unknown>;
 
     // Validation
     const errors: string[] = [];
@@ -71,6 +71,9 @@ serve(async (req) => {
     if (typeof name === "string" && name.length > 120) errors.push("Name darf maximal 120 Zeichen lang sein");
     if (!email || typeof email !== "string" || !validateEmail(email.trim())) errors.push("Bitte geben Sie eine gültige E-Mail-Adresse ein");
     if (typeof email === "string" && email.length > 200) errors.push("E-Mail darf maximal 200 Zeichen lang sein");
+    if (phone && typeof phone === "string" && phone.length > 30) errors.push("Telefon darf maximal 30 Zeichen lang sein");
+    if (company && typeof company === "string" && company.length > 120) errors.push("Firma darf maximal 120 Zeichen lang sein");
+    if (position && typeof position === "string" && position.length > 120) errors.push("Position darf maximal 120 Zeichen lang sein");
     if (!message || typeof message !== "string" || message.trim().length < 10) errors.push("Nachricht muss mindestens 10 Zeichen lang sein");
     if (typeof message === "string" && message.length > 5000) errors.push("Nachricht darf maximal 5000 Zeichen lang sein");
 
