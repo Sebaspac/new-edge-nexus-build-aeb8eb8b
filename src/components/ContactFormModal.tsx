@@ -65,6 +65,9 @@ export const ContactFormModal = ({
     const rawData = {
       name: formData.get('name')?.toString() || '',
       email: formData.get('email')?.toString() || '',
+      phone: formData.get('phone')?.toString() || '',
+      company: formData.get('company')?.toString() || '',
+      position: formData.get('position')?.toString() || '',
       message: formData.get('message')?.toString() || '',
     };
 
