@@ -121,7 +121,7 @@ serve(async (req) => {
         const n8nRes = await fetch(n8nUrl, {
           method: "POST",
           headers,
-          body: JSON.stringify(sanitized),
+          body: JSON.stringify(n8nPayload),
         });
 
         if (!n8nRes.ok) {
