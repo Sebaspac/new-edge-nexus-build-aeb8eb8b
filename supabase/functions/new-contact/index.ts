@@ -63,7 +63,16 @@ serve(async (req) => {
       );
     }
 
-    const { name, email, phone, company, position, message } = body as Record<string, unknown>;
+    // Normalize input — accept both EN and DE field names
+    const raw = body as Record<string, unknown>;
+    const name = raw.name;
+    const email = raw.email;
+    const phone = raw.phone ?? raw.telefon ?? null;
+    const company = raw.company ?? raw.firma ?? null;
+    const position = raw.position ?? null;
+    const message = raw.message ?? raw.nachricht ?? null;
+
+    console.log("Normalized input:", JSON.stringify({ name, email, phone, company, position, message }));
 
     // Validation
     const errors: string[] = [];
@@ -97,14 +106,19 @@ serve(async (req) => {
       name: sanitized.name,
       email: sanitized.email,
       phone: sanitized.phone,
+      telefon: sanitized.phone,       // German alias for n8n
       company: sanitized.company,
+      firma: sanitized.company,       // German alias for n8n
       position: sanitized.position,
       message: sanitized.message,
+      nachricht: sanitized.message,   // German alias for n8n
       ip,
       user_agent: req.headers.get("user-agent") || null,
       source: "new-contact",
     };
 
+    console.log("Sanitized payload:", JSON.stringify(sanitized));
+    console.log("n8n payload:", JSON.stringify(n8nPayload));
     console.log("New contact submission from", ip, ":", sanitized.email);
 
     // Optional: forward to n8n

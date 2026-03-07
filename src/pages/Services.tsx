@@ -68,6 +68,9 @@ const Services = () => {
     const rawData = {
       name: formData.get('name')?.toString() || '',
       email: formData.get('email')?.toString() || '',
+      phone: formData.get('phone')?.toString() || formData.get('telefon')?.toString() || '',
+      company: formData.get('company')?.toString() || formData.get('firma')?.toString() || '',
+      position: formData.get('position')?.toString() || '',
       message: formData.get('message')?.toString() || formData.get('nachricht')?.toString() || '',
     };
     const validation = validateContactForm(rawData);
