@@ -157,16 +157,19 @@ const About = () => {
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
 
-    // Import validation utilities
-    const { extractFormData, validateContactForm, submitContactForm } = await import("@/utils/contactFormValidation");
+    const { validateContactForm, submitContactForm } = await import("@/utils/contactFormValidation");
 
-    // Extract and validate form data
-    const rawData = extractFormData(formData, "ABOUT");
+    const rawData = {
+      name: formData.get('name')?.toString() || '',
+      email: formData.get('email')?.toString() || '',
+      message: formData.get('message')?.toString() || formData.get('nachricht')?.toString() || '',
+    };
     const validation = validateContactForm(rawData);
     if (!validation.success) {
+      const firstError = validation.fieldErrors ? Object.values(validation.fieldErrors)[0] : "Validierungsfehler";
       toast({
         title: "Validierungsfehler",
-        description: validation.error,
+        description: firstError,
         variant: "destructive",
         duration: 5000,
       });

@@ -1,35 +1,39 @@
 
+# Kontaktformular: Fehlende Felder debuggen und fixen
 
-## Kontaktformular auf `new-contact` Edge Function umstellen
+## Analyse
 
-### Überblick
-Das Formular wird auf die neue Edge Function `new-contact` umgestellt. Die Felder werden auf die drei geforderten reduziert (name, email, message). Fehler werden inline unter dem Formular angezeigt statt als Toast. Erfolgsmeldung ebenfalls inline.
+Der Datenfluss ist: **Frontend -> Edge Function -> n8n Webhook**
 
-### Änderungen
+Die Edge Function extrahiert und validiert alle Felder korrekt (name, email, position, firma, telefon, nachricht, source) und sendet sie als JSON an den n8n Webhook. Das Problem: Es gibt kein Logging der tatsaechlich gesendeten Daten, sodass wir nicht sehen koennen, ob alle Felder wirklich ankommen.
 
-**1. `src/utils/contactFormValidation.ts`** — Validation & Submit komplett überarbeiten:
-- Neues Zod-Schema: nur `name` (max 120), `email` (max 200), `message` (max 5000) — alle required
-- `submitContactForm` → plain `fetch()` an `https://yzmtgxfehvzgobxjivjl.supabase.co/functions/v1/new-contact`, kein Auth-Header
-- Netzwerkfehler abfangen mit spezifischer Meldung "Verbindungsfehler. Bitte erneut versuchen."
-- Honeypot und Rate-Limit bleiben erhalten
+## Moegliche Ursachen
 
-**2. `src/components/ContactFormModal.tsx`** — UI komplett überarbeiten:
-- Formularfelder auf 3 reduzieren: Name, E-Mail, Nachricht (statt 5 + Nachricht)
-- `maxLength` Attribute auf den Inputs setzen
-- Inline-Fehlerstatus (`fieldErrors` State) statt Toast für Validierung
-- Erfolg: grüne Inline-Meldung "Nachricht gesendet! Wir melden uns bald." + Form reset
-- Fehler: rote Inline-Meldung unter dem Formular (aus response `error`)
-- Netzwerkfehler: "Verbindungsfehler. Bitte erneut versuchen."
-- Button disabled + "Wird gesendet..." während fetch läuft
-- Honeypot-Feld bleibt
+1. **n8n Webhook-Konfiguration**: Der Webhook in n8n ist moeglicherweise so konfiguriert, dass er nur bestimmte Felder extrahiert
+2. **Datenformat**: n8n erwartet moeglicherweise ein anderes Format (z.B. verschachtelte Struktur)
 
-**3. `supabase/functions/new-contact/index.ts`** — Neue Edge Function erstellen:
-- CORS-Headers mit Lovable Preview Domain
-- POST-only, parst JSON body
-- Validiert name, email, message serverseitig
-- Optional: Weiterleitung an n8n via `N8N_WEBHOOK_URL` (wenn gesetzt)
-- Gibt `{ ok: true }` oder `{ error: "..." }` zurück
+## Plan
 
-**4. `supabase/config.toml`** — Eintrag für neue Function:
-- `[functions.new-contact]` mit `verify_jwt = false`
+### Schritt 1: Debug-Logging in der Edge Function hinzufuegen
 
+In `supabase/functions/contact-form/index.ts` wird ein `console.log` mit dem vollstaendigen Payload eingefuegt, der an n8n gesendet wird. So koennen wir in den Edge Function Logs genau sehen, welche Daten weitergeleitet werden.
+
+Aenderung in Zeile 142 (vor dem Webhook-Call):
+```typescript
+console.log(`Processing contact form submission from ${clientIP}`);
+console.log(`Payload being sent to webhook: ${JSON.stringify(validation.data)}`);
+```
+
+### Schritt 2: Test durchfuehren und Logs pruefen
+
+Nach dem Deployment wird ein Testformular abgeschickt, um die Logs zu ueberpruefen.
+
+### Schritt 3: Falls das Problem bei n8n liegt
+
+Wenn die Logs zeigen, dass alle Daten korrekt gesendet werden, liegt das Problem in der n8n Workflow-Konfiguration. In dem Fall muss der n8n Workflow "CRM UPDATES" (ID: 6FnYmim7NA9GOkTn) angepasst werden, damit alle Felder verarbeitet werden.
+
+## Technische Details
+
+- Datei: `supabase/functions/contact-form/index.ts`
+- Aenderung: Eine zusaetzliche `console.log`-Zeile nach Zeile 142
+- Edge Function Logs koennen hier eingesehen werden: Supabase Dashboard > Edge Functions > contact-form > Logs
