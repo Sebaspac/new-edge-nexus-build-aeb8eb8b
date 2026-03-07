@@ -1,39 +1,115 @@
 
-# Kontaktformular: Fehlende Felder debuggen und fixen
 
-## Analyse
+## Root Cause Analysis
 
-Der Datenfluss ist: **Frontend -> Edge Function -> n8n Webhook**
+There are **two separate problems** causing `phone`, `company`, and `position` to arrive as `null`:
 
-Die Edge Function extrahiert und validiert alle Felder korrekt (name, email, position, firma, telefon, nachricht, source) und sendet sie als JSON an den n8n Webhook. Das Problem: Es gibt kein Logging der tatsaechlich gesendeten Daten, sodass wir nicht sehen koennen, ob alle Felder wirklich ankommen.
+### Problem 1: Index.tsx and Services.tsx forms don't collect all fields
 
-## Moegliche Ursachen
+Both `Index.tsx` (line 88-92) and `Services.tsx` (line 68-72) only extract **3 fields** from FormData:
 
-1. **n8n Webhook-Konfiguration**: Der Webhook in n8n ist moeglicherweise so konfiguriert, dass er nur bestimmte Felder extrahiert
-2. **Datenformat**: n8n erwartet moeglicherweise ein anderes Format (z.B. verschachtelte Struktur)
-
-## Plan
-
-### Schritt 1: Debug-Logging in der Edge Function hinzufuegen
-
-In `supabase/functions/contact-form/index.ts` wird ein `console.log` mit dem vollstaendigen Payload eingefuegt, der an n8n gesendet wird. So koennen wir in den Edge Function Logs genau sehen, welche Daten weitergeleitet werden.
-
-Aenderung in Zeile 142 (vor dem Webhook-Call):
 ```typescript
-console.log(`Processing contact form submission from ${clientIP}`);
-console.log(`Payload being sent to webhook: ${JSON.stringify(validation.data)}`);
+const rawData = {
+  name: formData.get('name')?.toString() || '',
+  email: formData.get('email')?.toString() || '',
+  message: formData.get('message')?.toString() || formData.get('nachricht')?.toString() || '',
+};
 ```
 
-### Schritt 2: Test durchfuehren und Logs pruefen
+**`phone`, `company`, and `position` are never read from the form**, even though the Index.tsx form actually has `telefon`, `firma`, and `position` input fields (lines 381-397). The data is in the DOM but never extracted.
 
-Nach dem Deployment wird ein Testformular abgeschickt, um die Logs zu ueberpruefen.
+### Problem 2: German vs English field name mismatch
 
-### Schritt 3: Falls das Problem bei n8n liegt
+The Index.tsx form uses **German** field names (`telefon`, `firma`, `nachricht`) while:
+- The Edge Function expects **English** names (`phone`, `company`, `message`)
+- The `submitContactForm` function sends English names
+- The n8n workflow "Edit Fields" node references German names
 
-Wenn die Logs zeigen, dass alle Daten korrekt gesendet werden, liegt das Problem in der n8n Workflow-Konfiguration. In dem Fall muss der n8n Workflow "CRM UPDATES" (ID: 6FnYmim7NA9GOkTn) angepasst werden, damit alle Felder verarbeitet werden.
+### Problem 3: Edge Function doesn't handle German input aliases
 
-## Technische Details
+Even if the frontend sent German keys, the Edge Function destructures only English keys (line 66):
+```typescript
+const { name, email, phone, company, position, message } = body;
+```
 
-- Datei: `supabase/functions/contact-form/index.ts`
-- Aenderung: Eine zusaetzliche `console.log`-Zeile nach Zeile 142
-- Edge Function Logs koennen hier eingesehen werden: Supabase Dashboard > Edge Functions > contact-form > Logs
+---
+
+## Fix Plan
+
+### 1. Fix `src/pages/Index.tsx` — extract all form fields with bilingual key support
+
+Update `handleSubmit` (around line 88) to read all fields using both EN and DE names:
+
+```typescript
+const rawData = {
+  name: formData.get('name')?.toString() || '',
+  email: formData.get('email')?.toString() || '',
+  phone: formData.get('phone')?.toString() || formData.get('telefon')?.toString() || '',
+  company: formData.get('company')?.toString() || formData.get('firma')?.toString() || '',
+  position: formData.get('position')?.toString() || '',
+  message: formData.get('message')?.toString() || formData.get('nachricht')?.toString() || '',
+};
+```
+
+### 2. Fix `src/pages/Services.tsx` — same extraction fix
+
+Update `handleSubmit` (around line 68) with the same bilingual field extraction.
+
+### 3. Fix `supabase/functions/new-contact/index.ts` — normalize input + bilingual output
+
+- **Input normalization** (line 66): Accept both EN and DE field names from `body`
+- **Sanitization**: Use the normalized object
+- **Output to n8n**: Send both EN and DE keys
+- **Debug logging**: Add `console.log` before n8n send
+
+```typescript
+// Normalize input — accept both EN and DE keys
+const normalized = {
+  name: body.name ?? null,
+  email: body.email ?? null,
+  phone: body.phone ?? body.telefon ?? null,
+  company: body.company ?? body.firma ?? null,
+  position: body.position ?? null,
+  message: body.message ?? body.nachricht ?? null,
+};
+
+// Use normalized for validation and sanitization...
+
+// n8n payload with both EN and DE aliases
+const n8nPayload = {
+  name: sanitized.name,
+  email: sanitized.email,
+  phone: sanitized.phone,
+  telefon: sanitized.phone,
+  company: sanitized.company,
+  firma: sanitized.company,
+  position: sanitized.position,
+  message: sanitized.message,
+  nachricht: sanitized.message,
+  ip,
+  user_agent: req.headers.get("user-agent") || null,
+  source: "new-contact",
+};
+
+console.log("Normalized payload:", JSON.stringify(normalized));
+console.log("Sanitized payload:", JSON.stringify(sanitized));
+console.log("n8n payload:", JSON.stringify(n8nPayload));
+```
+
+### 4. No changes needed to `ContactFormModal.tsx`
+
+This component already correctly reads all 6 fields with English names — it works fine.
+
+---
+
+## Summary
+
+| Layer | Issue | Fix |
+|-------|-------|-----|
+| **Index.tsx** | Only reads 3 of 6 fields; uses German `name` attrs but reads English keys | Read all 6 fields with EN/DE fallback |
+| **Services.tsx** | Same — only reads 3 fields | Same fix |
+| **Edge Function** | Only destructures English keys | Normalize EN+DE input, send both in output |
+| **ContactFormModal** | No issue | No change |
+
+Three files modified, one root cause: the frontend forms never extracted the optional fields from FormData.
+
