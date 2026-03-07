@@ -63,7 +63,16 @@ serve(async (req) => {
       );
     }
 
-    const { name, email, phone, company, position, message } = body as Record<string, unknown>;
+    // Normalize input — accept both EN and DE field names
+    const raw = body as Record<string, unknown>;
+    const name = raw.name;
+    const email = raw.email;
+    const phone = raw.phone ?? raw.telefon ?? null;
+    const company = raw.company ?? raw.firma ?? null;
+    const position = raw.position ?? null;
+    const message = raw.message ?? raw.nachricht ?? null;
+
+    console.log("Normalized input:", JSON.stringify({ name, email, phone, company, position, message }));
 
     // Validation
     const errors: string[] = [];
