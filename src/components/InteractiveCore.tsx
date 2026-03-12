@@ -25,7 +25,7 @@ const content: Record<StateType, ContentState> = {
   fusion: {
     title: "LAB",
     subtitle: "Systeme mit Ownership",
-    description: "Im Lab vereinen wir fragmentierte KI- & Datensysteme zu einem ganzheitlichen Markenökosystem.",
+    description: "Lab entwickelt firmeneigene KI-, Daten- und Softwaresysteme – ohne SaaS-Zwang, ohne Black Boxes, unter voller Kontrolle des Unternehmens.",
     tags: ["Prozessautomatisierung", "Webseiten", "Prototypen", "KI-Agenten"],
     color: "#fbbf24",
     icon: Zap
@@ -277,8 +277,8 @@ export const InteractiveCore = () => {
               Steuerbare Systeme beginnen nicht mit Technologie, sondern mit Klarheit über Marke, Struktur und Entscheidungslogik.<br />
               Ohne diese Grundlage führen neue Tools und KI zu mehr Komplexität statt zu mehr Kontrolle. Das Ergebnis sind steigende Kosten, operative Komplexität und neue Abhängigkeiten.
             </p>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-xl mt-4 sm:mt-6">
-              Unsere Arbeit folgt deshalb einer klaren Reihenfolge: Klarheit im Studio. Umsetzung im Lab.
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-xl mt-4 sm:mt-6">Unsere Arbeit folgt deshalb einer klaren Reihenfolge: Klarheit im Studio. Umsetzung im Lab.
+
 
               <br />
               So entstehen digitale Plattformen, Automatisierungen und KI-Systeme, die Unternehmen verstehen, steuern und selbst weiterentwickeln können.
