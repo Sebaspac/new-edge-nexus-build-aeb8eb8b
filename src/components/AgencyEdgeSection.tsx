@@ -22,14 +22,14 @@ export const AgencyEdgeSection = () => {
           once: true
         }} transition={{
           duration: 0.8
-         }} className="space-y-4 sm:space-y-6">
+        }} className="space-y-4 sm:space-y-6">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-black">Mehr als eine Agentur. Ein Vorsprung.</h2>
 
             <div className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
               <p>Mit unserer "Edge" Methodik denken wir Marke, Prozesse und KI als zusammenhängendes System – damit Unternehmen langfristig steuerbar bleiben und nicht in Tool- oder Anbieterabhängigkeiten geraten.</p>
               <p>Wir denken nicht in Einzelleistungen, sondern in vernetzten Systemen.</p>
               <p>Im Studio entstehen Klarheit, fundierte Entscheidungen und die zugrunde liegende Logik.</p>
-              <p>Im Lab wird daraus funktionierende Technologie – integrierbar, skalierbar und kontrollierbar.</p>
+              
             </div>
 
             <div className="pt-4 sm:pt-6 md:pt-8">
