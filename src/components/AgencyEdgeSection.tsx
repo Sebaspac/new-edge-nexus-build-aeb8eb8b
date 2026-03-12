@@ -28,7 +28,7 @@ export const AgencyEdgeSection = () => {
             <div className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
               <p>Mit unserer "Edge" Methodik denken wir Marke, Prozesse und KI als zusammenhängendes System – damit Unternehmen langfristig steuerbar bleiben und nicht in Tool- oder Anbieterabhängigkeiten geraten.</p>
               <p>Wir denken nicht in Einzelleistungen, sondern in vernetzten Systemen.</p>
-              <p>Im Studio entstehen Klarheit, fundierte Entscheidungen und die zugrunde liegende Logik.</p>
+              
               
             </div>
 
