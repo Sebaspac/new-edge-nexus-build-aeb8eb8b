@@ -252,20 +252,6 @@ const KiAudit = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════
-              5 — PREIS & FÖRDERUNG
-           ═══════════════════════════════════════════════ */}
-      <section className="bg-foreground text-primary-foreground py-20 md:py-32">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-4xl text-center">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>
-            
-            
-
-            
-          </motion.div>
-
-          
-
 
 
 
