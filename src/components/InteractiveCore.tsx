@@ -25,7 +25,7 @@ const content: Record<StateType, ContentState> = {
   fusion: {
     title: "LAB",
     subtitle: "Systeme mit Ownership",
-    description: "Lab entwickelt firmeneigene KI-, Daten- und Softwaresysteme – ohne SaaS-Zwang, ohne Black Boxes, unter voller Kontrolle des Unternehmens.",
+    description: "Im Lab vereinen wir fragmentierte KI- & Datensysteme zu einem ganzheitlichen Markenökosystem.",
     tags: ["Prozessautomatisierung", "Webseiten", "Prototypen", "KI-Agenten"],
     color: "#fbbf24",
     icon: Zap
