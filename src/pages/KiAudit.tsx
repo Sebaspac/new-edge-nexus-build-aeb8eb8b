@@ -148,7 +148,7 @@ const KiAudit = () => {
                   whileInView="visible"
                   viewport={{ once: true }}
                   custom={i}
-                  className="flex items-start gap-4 p-5 border-2 border-foreground/8 bg-primary-foreground hover:border-primary/30 transition-colors duration-300 rounded-none"
+                  className="flex items-start gap-4 p-5 border-2 border-foreground/[0.08] bg-primary-foreground hover:border-primary/30 transition-colors duration-300 rounded-none"
                 >
                   <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-primary/10">
                     <item.icon className="w-5 h-5 text-primary" />
