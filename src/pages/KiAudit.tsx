@@ -32,8 +32,8 @@ const KiAudit = () => {
       <MobileNavigation onContactClick={() => setIsContactOpen(true)} theme="dark" />
 
       {/* ═══════════════════════════════════════════════
-             1 — HERO
-          ═══════════════════════════════════════════════ */}
+              1 — HERO
+           ═══════════════════════════════════════════════ */}
       <section className="relative min-h-[100dvh] bg-foreground text-primary-foreground flex items-center overflow-hidden">
         {/* Subtle grid overlay */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
@@ -86,8 +86,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-             2 — PROBLEM / PAIN POINTS
-          ═══════════════════════════════════════════════ */}
+              2 — PROBLEM / PAIN POINTS
+           ═══════════════════════════════════════════════ */}
       <section className="bg-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-16">
@@ -121,8 +121,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-             3 — LEISTUNG
-          ═══════════════════════════════════════════════ */}
+              3 — LEISTUNG
+           ═══════════════════════════════════════════════ */}
       <section className="bg-muted py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-16">
@@ -186,8 +186,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-             4 — PROZESS
-          ═══════════════════════════════════════════════ */}
+              4 — PROZESS
+           ═══════════════════════════════════════════════ */}
       <section className="bg-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-16">
@@ -253,12 +253,12 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-             5 — PREIS & FÖRDERUNG
-          ═══════════════════════════════════════════════ */}
+              5 — PREIS & FÖRDERUNG
+           ═══════════════════════════════════════════════ */}
       <section className="bg-foreground text-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-4xl text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>
-            <span className="text-xs font-medium tracking-widest uppercase text-primary mb-4 block">Preis & Förderung</span>
+            
             
 
             
@@ -297,8 +297,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-             6 — TRUST & SOCIAL PROOF
-          ═══════════════════════════════════════════════ */}
+              6 — TRUST & SOCIAL PROOF
+           ═══════════════════════════════════════════════ */}
       <section className="bg-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-16">
@@ -347,8 +347,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-             7 — FINAL CTA
-          ═══════════════════════════════════════════════ */}
+              7 — FINAL CTA
+           ═══════════════════════════════════════════════ */}
       <section className="bg-foreground text-primary-foreground py-24 md:py-36">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-3xl text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>
