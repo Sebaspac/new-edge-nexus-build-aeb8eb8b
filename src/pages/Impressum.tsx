@@ -8,6 +8,12 @@ const SectionDivider = () => (
   <div className="w-full border-t border-foreground/10 my-10 md:my-14" />
 );
 
+const SectionHeading = ({ children }: { children: React.ReactNode }) => (
+  <h3 className="text-base md:text-lg font-semibold text-foreground/80 tracking-wide mb-4">
+    {children}
+  </h3>
+);
+
 const Impressum = () => {
   const { t } = useLanguage();
   const location = useLocation();
@@ -70,9 +76,7 @@ const Impressum = () => {
 
             {/* Angaben gemäß § 5 TMG */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                Angaben gemäß § 5 TMG
-              </h3>
+              <SectionHeading>Angaben gemäß § 5 TMG</SectionHeading>
               <div className="border border-foreground/10 p-5 md:p-6">
                 <p className="font-medium text-foreground">New Edge Brand – Creative Tech Agentur</p>
                 <p className="text-foreground/60 mt-1">Inhaber: Wenjamin Zabezhanskiy</p>
@@ -93,9 +97,7 @@ const Impressum = () => {
 
             {/* Geltungsbereich */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                Geltungsbereich
-              </h3>
+              <SectionHeading>Geltungsbereich</SectionHeading>
               <p className="text-foreground/70 leading-relaxed mb-3">
                 Dieses Impressum gilt ebenfalls für folgende Online-Präsenzen:
               </p>
@@ -117,9 +119,7 @@ const Impressum = () => {
 
             {/* Haftungsbeschränkung */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                Haftungsbeschränkung
-              </h3>
+              <SectionHeading>Haftungsbeschränkung</SectionHeading>
               <div className="space-y-4 text-foreground/70 leading-relaxed">
                 <p>
                   Die Inhalte dieser Webseite wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit,
@@ -141,9 +141,7 @@ const Impressum = () => {
 
             {/* Externe Links */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                Externe Links
-              </h3>
+              <SectionHeading>Externe Links</SectionHeading>
               <div className="space-y-4 text-foreground/70 leading-relaxed">
                 <p>
                   Diese Webseite enthält Verknüpfungen zu externen Webseiten Dritter („externe Links"). Auf deren
@@ -161,9 +159,7 @@ const Impressum = () => {
 
             {/* Urheberrecht */}
             <div>
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                Urheberrecht / Leistungsschutzrecht
-              </h3>
+              <SectionHeading>Urheberrecht / Leistungsschutzrecht</SectionHeading>
               <div className="space-y-4 text-foreground/70 leading-relaxed">
                 <p>
                   Die auf dieser Webseite veröffentlichten Inhalte und Werke unterliegen dem deutschen Urheberrecht.
@@ -194,9 +190,7 @@ const Impressum = () => {
 
             {/* 1. Verantwortlicher */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                1. Verantwortlicher Anbieter
-              </h3>
+              <SectionHeading>1. Verantwortlicher Anbieter</SectionHeading>
               <p className="text-foreground/70 leading-relaxed mb-4">
                 Verantwortlich für die Verarbeitung personenbezogener Daten im Sinne der
                 Datenschutz-Grundverordnung (DSGVO) ist:
@@ -223,9 +217,7 @@ const Impressum = () => {
 
             {/* 2. Erhebung */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                2. Erhebung und Verarbeitung personenbezogener Daten
-              </h3>
+              <SectionHeading>2. Erhebung und Verarbeitung personenbezogener Daten</SectionHeading>
               <div className="space-y-4 text-foreground/70 leading-relaxed">
                 <p>
                   Wir verarbeiten personenbezogene Daten nur, wenn dies zur Bereitstellung unserer Website, zur
@@ -242,9 +234,7 @@ const Impressum = () => {
 
             {/* 3. Server-Logfiles */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                3. Server-Logfiles
-              </h3>
+              <SectionHeading>3. Server-Logfiles</SectionHeading>
               <p className="text-foreground/70 leading-relaxed mb-4">
                 Beim Besuch unserer Website werden automatisch folgende Daten durch unseren Hostinganbieter erfasst:
               </p>
@@ -267,9 +257,7 @@ const Impressum = () => {
 
             {/* 4. Kontaktaufnahme */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                4. Kontaktaufnahme
-              </h3>
+              <SectionHeading>4. Kontaktaufnahme</SectionHeading>
               <div className="space-y-4 text-foreground/70 leading-relaxed">
                 <p>
                   Wenn Sie uns per E-Mail oder über ein Kontaktformular kontaktieren, speichern wir Ihre Angaben zur
@@ -283,9 +271,7 @@ const Impressum = () => {
 
             {/* 5. Meta Pixel */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                5. Verwendung des Meta (Facebook) Pixels
-              </h3>
+              <SectionHeading>5. Verwendung des Meta (Facebook) Pixels</SectionHeading>
               <div className="space-y-4 text-foreground/70 leading-relaxed">
                 <p>
                   Wir nutzen auf unserer Website das Meta Pixel, um das Verhalten von Nutzer:innen nach dem Klick
@@ -309,7 +295,7 @@ const Impressum = () => {
                 </p>
               </div>
               <div className="border border-foreground/10 p-5 md:p-6 mt-4">
-                <p className="font-medium text-foreground text-sm uppercase tracking-widest mb-2">Widerspruchsmöglichkeit</p>
+                <p className="font-medium text-foreground text-sm mb-2">Widerspruchsmöglichkeit</p>
                 <p className="text-foreground/70 leading-relaxed">
                   Sie können der Erfassung durch das Meta Pixel jederzeit widersprechen – z. B. über die
                   Cookie-Einstellungen auf unserer Website oder direkt bei Meta.
@@ -321,9 +307,7 @@ const Impressum = () => {
 
             {/* 6. Google Tag Manager */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                6. Verwendung des Google Tag Managers
-              </h3>
+              <SectionHeading>6. Verwendung des Google Tag Managers</SectionHeading>
               <div className="space-y-4 text-foreground/70 leading-relaxed">
                 <p>Wir setzen auf unserer Website den Google Tag Manager ein.</p>
                 <p>
@@ -333,7 +317,7 @@ const Impressum = () => {
                 <p>Der Tag Manager ermöglicht uns, Website-Tags zentral zu verwalten.</p>
               </div>
               <div className="border border-foreground/10 p-5 md:p-6 mt-4">
-                <p className="font-medium text-foreground text-sm uppercase tracking-widest mb-2">Das Tool selbst:</p>
+                <p className="font-medium text-foreground text-sm mb-2">Das Tool selbst:</p>
                 <ul className="list-disc list-inside text-foreground/70 space-y-1">
                   <li>Speichert keine personenbezogenen Daten</li>
                   <li>Setzt keine Cookies</li>
@@ -357,9 +341,7 @@ const Impressum = () => {
 
             {/* 7. Google Analytics */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                7. Einsatz von Google Analytics
-              </h3>
+              <SectionHeading>7. Einsatz von Google Analytics</SectionHeading>
               <div className="space-y-4 text-foreground/70 leading-relaxed">
                 <p>
                   Wir nutzen Google Analytics, einen Webanalysedienst der Google Ireland Limited, Gordon House,
@@ -391,7 +373,7 @@ const Impressum = () => {
               </div>
 
               <div className="border border-foreground/10 p-5 md:p-6 mb-4">
-                <p className="font-medium text-foreground text-sm uppercase tracking-widest mb-2">IP-Anonymisierung</p>
+                <p className="font-medium text-foreground text-sm mb-2">IP-Anonymisierung</p>
                 <p className="text-foreground/70 leading-relaxed">
                   Wir haben Google Analytics so konfiguriert, dass Ihre IP-Adresse innerhalb der EU oder des EWR
                   gekürzt wird, bevor sie an Google weitergeleitet wird.
@@ -415,9 +397,7 @@ const Impressum = () => {
 
             {/* 8. Cookies */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                8. Cookies
-              </h3>
+              <SectionHeading>8. Cookies</SectionHeading>
               <p className="text-foreground/70 leading-relaxed mb-4">
                 Unsere Website verwendet Cookies, um grundlegende Funktionen bereitzustellen und Ihre
                 Nutzererfahrung zu verbessern.
@@ -433,7 +413,7 @@ const Impressum = () => {
               </div>
 
               <div className="border border-foreground/10 p-5 md:p-6">
-                <p className="font-medium text-foreground text-sm uppercase tracking-widest mb-2">Ihre Kontrolle</p>
+                <p className="font-medium text-foreground text-sm mb-2">Ihre Kontrolle</p>
                 <p className="text-foreground/70 leading-relaxed">
                   Über unsere Cookie-Einstellungen können Sie individuell festlegen, welche Cookies Sie zulassen möchten.
                 </p>
@@ -444,9 +424,7 @@ const Impressum = () => {
 
             {/* 9. Ihre Rechte */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                9. Ihre Rechte als betroffene Person
-              </h3>
+              <SectionHeading>9. Ihre Rechte als betroffene Person</SectionHeading>
               <p className="text-foreground/70 leading-relaxed mb-4">
                 Gemäß DSGVO haben Sie jederzeit folgende Rechte:
               </p>
@@ -473,9 +451,7 @@ const Impressum = () => {
 
             {/* 10. Datensicherheit */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                10. Datensicherheit
-              </h3>
+              <SectionHeading>10. Datensicherheit</SectionHeading>
               <div className="space-y-4 text-foreground/70 leading-relaxed">
                 <p>
                   Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten gegen
@@ -489,9 +465,7 @@ const Impressum = () => {
 
             {/* 11. Änderungen */}
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                11. Änderungen dieser Datenschutzerklärung
-              </h3>
+              <SectionHeading>11. Änderungen dieser Datenschutzerklärung</SectionHeading>
               <div className="space-y-4 text-foreground/70 leading-relaxed">
                 <p>
                   Wir behalten uns vor, diese Datenschutzerklärung anzupassen, sofern Änderungen an unserer Website
@@ -505,9 +479,7 @@ const Impressum = () => {
 
             {/* 12. Cookie-Consent */}
             <div>
-              <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-4">
-                12. Cookie-Consent & Tracking-Opt-in
-              </h3>
+              <SectionHeading>12. Cookie-Consent & Tracking-Opt-in</SectionHeading>
               <p className="text-foreground/70 leading-relaxed mb-4">
                 Da wir Meta Pixel, Google Tag Manager und Google Analytics verwenden, setzen wir ein Cookie-Banner
                 mit Opt-in-Funktion ein.
