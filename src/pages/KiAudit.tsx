@@ -314,13 +314,15 @@ const KiAudit = () => {
               Kein Verkaufsgespräch. 30 Minuten. Wir hören zu.
             </p>
 
-            <button
-              onClick={() => setIsContactOpen(true)}
+            <a
+              href="https://calendly.com/wenjamin-z-newedgebrand/30min?month=2026-03"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-primary-foreground text-foreground font-semibold border-2 border-primary-foreground hover:bg-transparent hover:text-primary-foreground transition-all duration-300 group text-sm uppercase tracking-wider rounded-none">
               
               Jetzt kostenloses Erstgespräch buchen
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
           </motion.div>
         </div>
       </section>
