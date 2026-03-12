@@ -18,7 +18,7 @@ const content: Record<StateType, ContentState> = {
     title: "STUDIO",
     subtitle: "Klare Strategie",
     description: "Studio schafft Entscheidungsfähigkeit: Struktur, Systemlogik und strategische Klarheit als Grundlage für jede technische Umsetzung.",
-    tags: ["Strategie", "Kreativität", "Brand Identity"],
+    tags: ["Kommunikationsstrategie", "Workshops", "Brand Identity"],
     color: "#a855f7",
     icon: Fingerprint
   },
