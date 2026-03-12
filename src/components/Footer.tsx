@@ -13,10 +13,10 @@ export const Footer = () => {
               <img
                 src={newEdgeLogoHorizontal}
                 alt="New Edge"
-                className="h-8 w-auto transition-transform group-hover:scale-105"
-              />
+                className="h-8 w-auto transition-transform group-hover:scale-105" />
+              
             </Link>
-            <p className="text-sm text-gray-400 mt-3 leading-relaxed">Design Brands. Drive Innovation.</p>
+            <p className="text-sm text-gray-400 mt-3 leading-relaxed">Design the Future. Drive Innovation.</p>
           </div>
 
           {/* Navigation Columns */}
@@ -28,8 +28,8 @@ export const Footer = () => {
               <li>
                   <Link
                     to="/studio"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group"
-                  >
+                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
                       Studio
                     </span>
@@ -38,8 +38,8 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/lab"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group"
-                  >
+                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
                       Lab
                     </span>
@@ -55,8 +55,8 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/about"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group"
-                  >
+                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
                       Über uns
                     </span>
@@ -65,8 +65,8 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/case-studies"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group"
-                  >
+                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
                       Use Cases
                     </span>
@@ -75,8 +75,8 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/careers"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group"
-                  >
+                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
+                    
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
                       Careers
                     </span>
@@ -94,8 +94,8 @@ export const Footer = () => {
                 <li>
                   <a
                     href="mailto:info@newedgebrand.com"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group"
-                  >
+                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group">
+                    
                     <Mail className="w-4 h-4 text-gray-500 group-hover:text-white transition-colors" />
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
                       E-Mail
@@ -107,8 +107,8 @@ export const Footer = () => {
                     href="https://www.linkedin.com/company/new-edge-brand/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group"
-                  >
+                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group">
+                    
                     <Linkedin className="w-4 h-4 text-gray-500 group-hover:text-white transition-colors" />
                     <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
                       LinkedIn
@@ -133,13 +133,13 @@ export const Footer = () => {
             <span className="text-gray-700">|</span>
             <Link
               to="/impressum#datenschutz"
-              className="text-xs md:text-sm text-gray-500 hover:text-white transition-colors"
-            >
+              className="text-xs md:text-sm text-gray-500 hover:text-white transition-colors">
+              
               Datenschutz
             </Link>
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 };
