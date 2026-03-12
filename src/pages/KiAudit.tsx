@@ -32,8 +32,8 @@ const KiAudit = () => {
       <MobileNavigation onContactClick={() => setIsContactOpen(true)} theme="dark" />
 
       {/* ═══════════════════════════════════════════════
-           1 — HERO
-        ═══════════════════════════════════════════════ */}
+            1 — HERO
+         ═══════════════════════════════════════════════ */}
       <section className="relative min-h-[100dvh] bg-foreground text-primary-foreground flex items-center overflow-hidden">
         {/* Subtle grid overlay */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
@@ -86,8 +86,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-           2 — PROBLEM / PAIN POINTS
-        ═══════════════════════════════════════════════ */}
+            2 — PROBLEM / PAIN POINTS
+         ═══════════════════════════════════════════════ */}
       <section className="bg-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-16">
@@ -121,8 +121,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-           3 — LEISTUNG
-        ═══════════════════════════════════════════════ */}
+            3 — LEISTUNG
+         ═══════════════════════════════════════════════ */}
       <section className="bg-muted py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-16">
@@ -186,8 +186,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-           4 — PROZESS
-        ═══════════════════════════════════════════════ */}
+            4 — PROZESS
+         ═══════════════════════════════════════════════ */}
       <section className="bg-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-16">
@@ -253,8 +253,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-           5 — PREIS & FÖRDERUNG
-        ═══════════════════════════════════════════════ */}
+            5 — PREIS & FÖRDERUNG
+         ═══════════════════════════════════════════════ */}
       <section className="bg-foreground text-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-4xl text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>
@@ -264,41 +264,41 @@ const KiAudit = () => {
             </h2>
           </motion.div>
 
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={1}
-            className="border-2 border-primary-foreground/20 p-10 md:p-14 rounded-none">
-            
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mb-10">
-              <div>
-                <p className="text-body-sm text-primary-foreground/50 uppercase tracking-wider mb-2">Normalpreis</p>
-                <p className="text-h1 line-through text-primary-foreground/40">€3.200</p>
-              </div>
-              <div className="hidden md:block w-px h-16 bg-primary-foreground/20" />
-              <div>
-                <p className="text-body-sm text-primary uppercase tracking-wider mb-2">Mit BAFA-Förderung</p>
-                <p className="text-display-lg text-primary">ab €448</p>
-              </div>
-            </div>
+          
 
-            <div className="border-t border-primary-foreground/10 pt-8 space-y-3">
-              <p className="text-body text-primary-foreground/60">
-                BAFA = Bundesamt für Wirtschaft und Ausfuhrkontrolle
-              </p>
-              <p className="text-body text-primary-foreground/80">
-                Wir unterstützen euch beim kompletten Förderantrag.
-              </p>
-            </div>
-          </motion.div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════
-           6 — TRUST & SOCIAL PROOF
-        ═══════════════════════════════════════════════ */}
+            6 — TRUST & SOCIAL PROOF
+         ═══════════════════════════════════════════════ */}
       <section className="bg-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-16">
@@ -347,8 +347,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-           7 — FINAL CTA
-        ═══════════════════════════════════════════════ */}
+            7 — FINAL CTA
+         ═══════════════════════════════════════════════ */}
       <section className="bg-foreground text-primary-foreground py-24 md:py-36">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-3xl text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>
