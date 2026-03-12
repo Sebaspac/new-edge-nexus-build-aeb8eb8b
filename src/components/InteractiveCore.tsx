@@ -277,23 +277,23 @@ export const InteractiveCore = () => {
               Steuerbare Systeme beginnen nicht mit Technologie, sondern mit Klarheit über Marke, Struktur und Entscheidungslogik.<br />
               Ohne diese Grundlage führen neue Tools und KI zu mehr Komplexität statt zu mehr Kontrolle. Das Ergebnis sind steigende Kosten, operative Komplexität und neue Abhängigkeiten.
             </p>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-xl mt-4 sm:mt-6">
-              Unsere Arbeit folgt deshalb einer klaren Reihenfolge: Klarheit im Studio. Umsetzung im Lab.<br />
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-xl mt-4 sm:mt-6">Unsere Arbeit folgt deshalb einer klaren Reihenfolge: 
+Klarheit im Studio. Umsetzung im Lab.
+
+              <br />
               So entstehen digitale Plattformen, Automatisierungen und KI-Systeme, die Unternehmen verstehen, steuern und selbst weiterentwickeln können.
             </p>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-xl mt-4 sm:mt-6">
-              New Edge ist keine klassische Agentur. Wir sind Ihr strategischer Tech-Partner.
-            </p>
+            
+
+            
           </motion.div>
         </div>
 
         {/* Quick Navigation Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-12 md:mt-16 lg:mt-20">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="mt-12 md:mt-16 lg:mt-20">
 
           <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-4 md:mb-6">Hier geht's zu:</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
