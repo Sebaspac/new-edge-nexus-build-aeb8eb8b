@@ -52,20 +52,20 @@ export const MethodologyGrid = () => {
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black leading-[0.9] text-black">
               Deine{" "}
               <AnimatedTextCycle
-                words={["Prozesse.", "Daten.", "KI.", "Plattform.", "Abläufe."]}
-                interval={3000}
-                className="text-[#7C3AED]"
-              />
+              words={["Prozesse.", "Daten.", "KI.", "Plattform.", "Abläufe."]}
+              interval={3000}
+              className="text-[#7C3AED]" />
+            
               <br />
               Als System gedacht.
             </h2>
 
             {/* Description */}
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 leading-relaxed max-w-md">
-              Wir übersetzen Strategie, Marke und operative Abläufe
-in zusammenhängende KI- und Softwaresysteme –
-sicher, strukturiert und unter voller Kontrolle des Unternehmens.
-            </p>
+              Wir übersetzen Strategie, Marke und operative Abläufe in zusammenhängende KI- und ganzheitliche Systeme unter voller Kontrolle des Unternehmens.
+            
+
+          </p>
 
             {/* CTA Box */}
             <motion.div initial={{
