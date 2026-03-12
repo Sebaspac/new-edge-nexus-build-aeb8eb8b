@@ -279,7 +279,7 @@ export const InteractiveCore = () => {
             </p>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-xl mt-4 sm:mt-6">
               Unsere Arbeit folgt deshalb einer klaren Reihenfolge:
-              <br /><br />
+              <br />
               Klarheit im Studio. Umsetzung im Lab.
             </p>
             
