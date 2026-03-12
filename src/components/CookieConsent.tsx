@@ -54,7 +54,7 @@ const CookieConsent = () => {
   };
   const handlePreferenceChange = (key: keyof typeof preferences, value: boolean) => {
     if (key === 'necessary') return; // Necessary cookies can't be disabled
-    setPreferences(prev => ({
+    setPreferences((prev) => ({
       ...prev,
       [key]: value
     }));
@@ -85,8 +85,8 @@ const CookieConsent = () => {
                       </h3>
                       <p className="text-gray-300 text-sm leading-relaxed">
                         Unsere Website verwendet Cookies, um grundlegende Funktionen bereitzustellen und Ihre Nutzererfahrung zu verbessern. 
-                        Über unsere Cookie-Einstellungen können Sie individuell festlegen, welche Cookies Sie zulassen möchten.
-                      </p>
+                      
+                </p>
                     </div>
                   </div>
                   
@@ -133,7 +133,7 @@ const CookieConsent = () => {
                           Zur Analyse durch Google Analytics
                         </p>
                       </div>
-                      <Switch checked={preferences.analytics} onCheckedChange={checked => handlePreferenceChange('analytics', checked)} className="data-[state=checked]:bg-purple-600" />
+                      <Switch checked={preferences.analytics} onCheckedChange={(checked) => handlePreferenceChange('analytics', checked)} className="data-[state=checked]:bg-purple-600" />
                     </div>
                     
                     {/* Marketing Cookies */}
@@ -144,7 +144,7 @@ const CookieConsent = () => {
                           Für Meta Pixel und Google Ads
                         </p>
                       </div>
-                      <Switch checked={preferences.marketing} onCheckedChange={checked => handlePreferenceChange('marketing', checked)} className="data-[state=checked]:bg-purple-600" />
+                      <Switch checked={preferences.marketing} onCheckedChange={(checked) => handlePreferenceChange('marketing', checked)} className="data-[state=checked]:bg-purple-600" />
                     </div>
                   </div>
                   
