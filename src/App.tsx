@@ -29,6 +29,7 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const Contact = lazy(() => import("./pages/Contact"));
+const KiAudit = lazy(() => import("./pages/KiAudit"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient({
