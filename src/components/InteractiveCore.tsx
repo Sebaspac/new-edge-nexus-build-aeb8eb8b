@@ -26,7 +26,7 @@ const content: Record<StateType, ContentState> = {
     title: "LAB",
     subtitle: "Systeme mit Ownership",
     description: "Lab entwickelt firmeneigene KI-, Daten- und Softwaresysteme – ohne SaaS-Zwang, ohne Black Boxes, unter voller Kontrolle des Unternehmens.",
-    tags: ["Prozessautomatisierung", "Websysteme", "Prototypen", "KI-Agenten"],
+    tags: ["Prozessautomatisierung", "Webseiten", "Prototypen", "KI-Agenten"],
     color: "#fbbf24",
     icon: Zap
   }
