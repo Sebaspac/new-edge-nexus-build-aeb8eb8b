@@ -34,8 +34,8 @@ const KiAudit = () => {
       <MobileNavigation onContactClick={() => setIsContactOpen(true)} theme="dark" />
 
       {/* ═══════════════════════════════════════════════
-               1 — HERO (mobile-first, image below text)
-          ═══════════════════════════════════════════════ */}
+                                             1 — HERO (mobile-first, image below text)
+                                        ═══════════════════════════════════════════════ */}
       <section className="relative bg-foreground text-primary-foreground overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
@@ -111,8 +111,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-               2 — PROBLEM / PAIN POINTS
-          ═══════════════════════════════════════════════ */}
+                                             2 — PROBLEM / PAIN POINTS
+                                        ═══════════════════════════════════════════════ */}
       <section className="bg-primary-foreground py-14 md:py-28">
         <div className="container mx-auto px-5 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-10 md:mb-16">
@@ -146,8 +146,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-               3 — LEISTUNG
-          ═══════════════════════════════════════════════ */}
+                                             3 — LEISTUNG
+                                        ═══════════════════════════════════════════════ */}
       <section className="bg-muted py-14 md:py-28">
         <div className="container mx-auto px-5 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-10 md:mb-16">
@@ -207,8 +207,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-               4 — PROZESS (with image)
-          ═══════════════════════════════════════════════ */}
+                                             4 — PROZESS (with image)
+                                        ═══════════════════════════════════════════════ */}
       <section className="bg-primary-foreground py-14 md:py-28">
         <div className="container mx-auto px-5 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-10 md:mb-16">
@@ -293,8 +293,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-               5 — TRUST & SOCIAL PROOF
-          ═══════════════════════════════════════════════ */}
+                                             5 — TRUST & SOCIAL PROOF
+                                        ═══════════════════════════════════════════════ */}
       <section className="bg-muted py-14 md:py-28">
         <div className="container mx-auto px-5 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-10 md:mb-16">
@@ -342,12 +342,12 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-               6 — FINAL CTA
-          ═══════════════════════════════════════════════ */}
+                                             6 — FINAL CTA
+                                        ═══════════════════════════════════════════════ */}
       <section className="bg-foreground text-primary-foreground py-16 md:py-32">
         <div className="container mx-auto px-5 sm:px-8 lg:px-12 max-w-3xl text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>
-            <h2 className="text-2xl sm:text-display-lg mb-4 sm:mb-6">Bereit für Klarheit?</h2>
+            <h2 className="text-2xl sm:text-display-lg mb-4 sm:mb-6">Bereit für das KI-alter?</h2>
             <p className="text-sm sm:text-body-lg text-primary-foreground/60 mb-8 sm:mb-10 max-w-xl mx-auto">
               Kein Verkaufsgespräch. 30 Minuten. Wir hören zu.
             </p>
