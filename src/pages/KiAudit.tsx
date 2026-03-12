@@ -12,8 +12,8 @@ const fadeUp = {
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] as const },
-  }),
+    transition: { duration: 0.7, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] as const }
+  })
 };
 
 const KiAudit = () => {
@@ -25,15 +25,15 @@ const KiAudit = () => {
         <title>KI Enablement & Audit — New Edge</title>
         <meta
           name="description"
-          content="Strukturierter KI Audit für den Mittelstand. IST-Analyse, Roadmap, BAFA-förderfähig. Ab €448 mit Förderung."
-        />
+          content="Strukturierter KI Audit für den Mittelstand. IST-Analyse, Roadmap, BAFA-förderfähig. Ab €448 mit Förderung." />
+        
       </Helmet>
 
       <MobileNavigation onContactClick={() => setIsContactOpen(true)} theme="dark" />
 
       {/* ═══════════════════════════════════════════════
-          1 — HERO
-      ═══════════════════════════════════════════════ */}
+           1 — HERO
+        ═══════════════════════════════════════════════ */}
       <section className="relative min-h-[100dvh] bg-foreground text-primary-foreground flex items-center overflow-hidden">
         {/* Subtle grid overlay */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
@@ -57,8 +57,8 @@ const KiAudit = () => {
               initial="hidden"
               animate="visible"
               custom={1}
-              className="text-display-lg lg:text-display-xl mb-8 max-w-3xl"
-            >
+              className="text-display-lg lg:text-display-xl mb-8 max-w-3xl">
+              
               Wir sagen euch auch, wenn KI bei euch gerade noch keinen Sinn macht.
             </motion.h1>
 
@@ -67,16 +67,16 @@ const KiAudit = () => {
               initial="hidden"
               animate="visible"
               custom={2}
-              className="text-body-lg text-primary-foreground/60 max-w-xl mb-10"
-            >
+              className="text-body-lg text-primary-foreground/60 max-w-xl mb-10">
+              
               KI Enablement & Audit — strukturiert, konkret, BAFA-gefördert.
             </motion.p>
 
             <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={3} className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => setIsContactOpen(true)}
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary-foreground text-foreground font-semibold border-2 border-primary-foreground hover:bg-transparent hover:text-primary-foreground transition-all duration-300 group text-sm uppercase tracking-wider rounded-none"
-              >
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary-foreground text-foreground font-semibold border-2 border-primary-foreground hover:bg-transparent hover:text-primary-foreground transition-all duration-300 group text-sm uppercase tracking-wider rounded-none">
+                
                 Audit anfragen
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
@@ -86,8 +86,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-          2 — PROBLEM / PAIN POINTS
-      ═══════════════════════════════════════════════ */}
+           2 — PROBLEM / PAIN POINTS
+        ═══════════════════════════════════════════════ */}
       <section className="bg-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-16">
@@ -99,30 +99,30 @@ const KiAudit = () => {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              {q: "ChatGPT läuft. Zapier auch. Aber eigentlich läuft alles noch manuell."},
-              {q: "Wir haben 2 KI-Projekte gestartet, keines läuft heute produktiv."},
-              {q: "Wir wissen nicht, ob wir überhaupt KI-ready sind."},
-            ].map(({q}, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={i + 1}
-                className="relative border-2 border-foreground/10 p-8 md:p-10 hover:border-primary/40 transition-colors duration-300 rounded-none"
-              >
+            { q: "ChatGPT läuft. Zapier auch. Aber eigentlich läuft alles noch manuell." },
+            { q: "Wir haben 2 KI-Projekte gestartet, keines läuft heute produktiv." },
+            { q: "Wir wissen nicht, ob wir überhaupt KI-ready sind." }].
+            map(({ q }, i) =>
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={i + 1}
+              className="relative border-2 border-foreground/10 p-8 md:p-10 hover:border-primary/40 transition-colors duration-300 rounded-none">
+              
                 <Quote className="w-6 h-6 text-primary/40 mb-4" />
                 <p className="text-body-lg text-foreground/80 italic leading-relaxed">{q}</p>
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════
-          3 — LEISTUNG
-      ═══════════════════════════════════════════════ */}
+           3 — LEISTUNG
+        ═══════════════════════════════════════════════ */}
       <section className="bg-muted py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-16">
@@ -136,26 +136,26 @@ const KiAudit = () => {
             {/* What it is */}
             <div className="space-y-5">
               {[
-                { icon: FileText, text: "Strukturierte IST-Analyse eurer Prozesse und Tools" },
-                { icon: Zap, text: "Bewertung: Wo lohnt sich KI, wo noch nicht" },
-                { icon: CheckCircle2, text: "Konkrete Maßnahmen-Roadmap für die nächsten 90 Tage" },
-                { icon: Shield, text: "Kein Bericht der in der Schublade landet — sondern Aktionsplan" },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  custom={i}
-                  className="flex items-start gap-4 p-5 border-2 border-foreground/[0.08] bg-primary-foreground hover:border-primary/30 transition-colors duration-300 rounded-none"
-                >
+              { icon: FileText, text: "Strukturierte IST-Analyse eurer Prozesse und Tools" },
+              { icon: Zap, text: "Bewertung: Wo lohnt sich KI, wo noch nicht" },
+              { icon: CheckCircle2, text: "Konkrete Maßnahmen-Roadmap für die nächsten 90 Tage" },
+              { icon: Shield, text: "Kein Bericht der in der Schublade landet — sondern Aktionsplan" }].
+              map((item, i) =>
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+                className="flex items-start gap-4 p-5 border-2 border-foreground/[0.08] bg-primary-foreground hover:border-primary/30 transition-colors duration-300 rounded-none">
+                
                   <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-primary/10">
                     <item.icon className="w-5 h-5 text-primary" />
                   </div>
                   <p className="text-body text-foreground/80 pt-1.5">{item.text}</p>
                 </motion.div>
-              ))}
+              )}
             </div>
 
             {/* What it's NOT */}
@@ -165,20 +165,20 @@ const KiAudit = () => {
               whileInView="visible"
               viewport={{ once: true }}
               custom={2}
-              className="border-2 border-foreground/10 p-8 md:p-10 bg-primary-foreground rounded-none"
-            >
+              className="border-2 border-foreground/10 p-8 md:p-10 bg-primary-foreground rounded-none">
+              
               <h3 className="text-h3 mb-6">Kein:</h3>
               <ul className="space-y-4">
                 {[
-                  "Tool-Demo",
-                  "Theorie-Workshop",
-                  "Framework-Folien",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-body text-foreground/60">
+                "Tool-Demo",
+                "Theorie-Workshop",
+                "Framework-Folien"].
+                map((item, i) =>
+                <li key={i} className="flex items-center gap-3 text-body text-foreground/60">
                     <span className="w-5 h-px bg-foreground/30" />
                     {item}
                   </li>
-                ))}
+                )}
               </ul>
             </motion.div>
           </div>
@@ -186,8 +186,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-          4 — PROZESS
-      ═══════════════════════════════════════════════ */}
+           4 — PROZESS
+        ═══════════════════════════════════════════════ */}
       <section className="bg-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-16">
@@ -199,34 +199,34 @@ const KiAudit = () => {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              {
-                step: "01",
-                title: "30-Min Erstgespräch",
-                desc: "Kostenlos, unverbindlich — wir lernen euer Unternehmen kennen.",
-                icon: Clock,
-              },
-              {
-                step: "02",
-                title: "Audit-Durchführung",
-                desc: "1–2 Wochen intensive Analyse eurer Prozesse, Tools und Potenziale.",
-                icon: FileText,
-              },
-              {
-                step: "03",
-                title: "Ergebnis & Aktionsplan",
-                desc: "Präsentation mit konkreter Roadmap für die nächsten 90 Tage.",
-                icon: Presentation,
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={i}
-                className="group border-2 border-foreground/10 p-8 md:p-10 hover:border-primary/40 transition-all duration-300 rounded-none"
-              >
+            {
+              step: "01",
+              title: "30-Min Erstgespräch",
+              desc: "Kostenlos, unverbindlich — wir lernen euer Unternehmen kennen.",
+              icon: Clock
+            },
+            {
+              step: "02",
+              title: "Audit-Durchführung",
+              desc: "1–2 Wochen intensive Analyse eurer Prozesse, Tools und Potenziale.",
+              icon: FileText
+            },
+            {
+              step: "03",
+              title: "Ergebnis & Aktionsplan",
+              desc: "Präsentation mit konkreter Roadmap für die nächsten 90 Tage.",
+              icon: Presentation
+            }].
+            map((item, i) =>
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={i}
+              className="group border-2 border-foreground/10 p-8 md:p-10 hover:border-primary/40 transition-all duration-300 rounded-none">
+              
                 <div className="flex items-center gap-4 mb-6">
                   <span className="text-display text-primary/20 group-hover:text-primary/40 transition-colors">{item.step}</span>
                   <div className="w-10 h-10 flex items-center justify-center bg-primary/10 group-hover:bg-primary transition-colors duration-300">
@@ -236,25 +236,25 @@ const KiAudit = () => {
                 <h3 className="text-h3 mb-3">{item.title}</h3>
                 <p className="text-body-sm text-foreground/60 leading-relaxed">{item.desc}</p>
               </motion.div>
-            ))}
+            )}
           </div>
 
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={3}
-            className="text-body text-foreground/50 mt-10 text-center"
-          >
-            Gesamtdauer: ca. 3 Wochen ab Beauftragung
-          </motion.p>
+          
+
+
+
+
+
+
+
+
+          
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════
-          5 — PREIS & FÖRDERUNG
-      ═══════════════════════════════════════════════ */}
+           5 — PREIS & FÖRDERUNG
+        ═══════════════════════════════════════════════ */}
       <section className="bg-foreground text-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-4xl text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>
@@ -270,8 +270,8 @@ const KiAudit = () => {
             whileInView="visible"
             viewport={{ once: true }}
             custom={1}
-            className="border-2 border-primary-foreground/20 p-10 md:p-14 rounded-none"
-          >
+            className="border-2 border-primary-foreground/20 p-10 md:p-14 rounded-none">
+            
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mb-10">
               <div>
                 <p className="text-body-sm text-primary-foreground/50 uppercase tracking-wider mb-2">Normalpreis</p>
@@ -297,8 +297,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-          6 — TRUST & SOCIAL PROOF
-      ═══════════════════════════════════════════════ */}
+           6 — TRUST & SOCIAL PROOF
+        ═══════════════════════════════════════════════ */}
       <section className="bg-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-16">
@@ -315,19 +315,19 @@ const KiAudit = () => {
             whileInView="visible"
             viewport={{ once: true }}
             custom={1}
-            className="border-2 border-foreground/10 p-8 md:p-12 mb-12 rounded-none"
-          >
+            className="border-2 border-foreground/10 p-8 md:p-12 mb-12 rounded-none">
+            
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               {[
-                { value: "30%", label: "Zeitersparnis bei Routineaufgaben" },
-                { value: "5×", label: "Schnellere Angebotserstellung" },
-                { value: "90 Tage", label: "Vom Audit zur produktiven KI" },
-              ].map((stat, i) => (
-                <div key={i} className="text-center md:text-left">
+              { value: "30%", label: "Zeitersparnis bei Routineaufgaben" },
+              { value: "5×", label: "Schnellere Angebotserstellung" },
+              { value: "90 Tage", label: "Vom Audit zur produktiven KI" }].
+              map((stat, i) =>
+              <div key={i} className="text-center md:text-left">
                   <p className="text-display text-primary mb-2">{stat.value}</p>
                   <p className="text-body-sm text-foreground/60">{stat.label}</p>
                 </div>
-              ))}
+              )}
             </div>
 
             <div className="border-t border-foreground/10 pt-8">
@@ -347,8 +347,8 @@ const KiAudit = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════
-          7 — FINAL CTA
-      ═══════════════════════════════════════════════ */}
+           7 — FINAL CTA
+        ═══════════════════════════════════════════════ */}
       <section className="bg-foreground text-primary-foreground py-24 md:py-36">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-3xl text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>
@@ -359,8 +359,8 @@ const KiAudit = () => {
 
             <button
               onClick={() => setIsContactOpen(true)}
-              className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-primary-foreground text-foreground font-semibold border-2 border-primary-foreground hover:bg-transparent hover:text-primary-foreground transition-all duration-300 group text-sm uppercase tracking-wider rounded-none"
-            >
+              className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-primary-foreground text-foreground font-semibold border-2 border-primary-foreground hover:bg-transparent hover:text-primary-foreground transition-all duration-300 group text-sm uppercase tracking-wider rounded-none">
+              
               Jetzt kostenloses Erstgespräch buchen
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -376,10 +376,10 @@ const KiAudit = () => {
         accentColor="#ffffff"
         gradientFrom="#333333"
         gradientTo="#000000"
-        theme="studio"
-      />
-    </>
-  );
+        theme="studio" />
+      
+    </>);
+
 };
 
 export default KiAudit;
