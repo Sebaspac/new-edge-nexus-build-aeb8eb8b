@@ -113,7 +113,7 @@ const KiAudit = () => {
                 className="relative border-2 border-foreground/10 p-8 md:p-10 hover:border-primary/40 transition-colors duration-300 rounded-none"
               >
                 <Quote className="w-6 h-6 text-primary/40 mb-4" />
-                <p className="text-body-lg text-foreground/80 italic leading-relaxed">{quote}</p>
+                <p className="text-body-lg text-foreground/80 italic leading-relaxed">{q}</p>
               </motion.div>
             ))}
           </div>
