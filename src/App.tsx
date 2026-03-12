@@ -74,6 +74,7 @@ const App = () => {
             <Route path="/blog/:slug" element={<BlogPost />} />
                   <Route path="/impressum" element={<Impressum />} />
                   <Route path="/kontakt" element={<Contact />} />
+                  <Route path="/ki-audit" element={<KiAudit />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

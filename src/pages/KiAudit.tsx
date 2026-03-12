@@ -99,10 +99,10 @@ const KiAudit = () => {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              "„ChatGPT läuft. Zapier auch. Aber eigentlich läuft alles noch manuell."",
-              "„Wir haben 2 KI-Projekte gestartet, keines läuft heute produktiv."",
-              "„Wir wissen nicht, ob wir überhaupt KI-ready sind."",
-            ].map((quote, i) => (
+              {q: "ChatGPT läuft. Zapier auch. Aber eigentlich läuft alles noch manuell."},
+              {q: "Wir haben 2 KI-Projekte gestartet, keines läuft heute produktiv."},
+              {q: "Wir wissen nicht, ob wir überhaupt KI-ready sind."},
+            ].map(({q}, i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
