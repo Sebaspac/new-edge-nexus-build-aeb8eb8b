@@ -16,7 +16,7 @@ interface ContentState {
 const content: Record<StateType, ContentState> = {
   human: {
     title: "STUDIO",
-    subtitle: "Klarheit vor Umsetzung",
+    subtitle: "Klare Strategie",
     description: "Studio schafft Entscheidungsfähigkeit: Struktur, Systemlogik und strategische Klarheit als Grundlage für jede technische Umsetzung.",
     tags: ["Strategie", "Kreativität", "Brand Identity"],
     color: "#a855f7",
