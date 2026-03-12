@@ -49,13 +49,13 @@ export const PositionedForImpactSection = () => {
             </h2>
 
             {/* Description */}
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
-              Erfolg entsteht nicht durch mehr Tools,
-sondern durch klare Systeme. Wir helfen Unternehmen,
-ihre operative Realität, Entscheidungslogik und Markenführung
-in kontrollierbare KI- und Softwaresysteme zu überführen –
-statt in isolierte Lösungen oder externe Abhängigkeiten.
-            </p>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">Erfolg entsteht nicht durch mehr Tools, sondern durch klare Systeme. 
+
+Wir helfen Unternehmen, ihre operative Realität, Entscheidungslogik und Markenführung in kontrollierbare KI- und Softwaresysteme zu überführen – statt in isolierte Lösungen oder externe Abhängigkeiten.
+
+
+
+          </p>
 
             {/* CTA Button */}
             <div className="pt-4 sm:pt-6 md:pt-8">
