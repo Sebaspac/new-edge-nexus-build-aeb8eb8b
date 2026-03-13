@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { Footer } from "@/components/Footer";
 import { Database, FileText, MessageSquare, Zap, Search, ShieldCheck, Brain, Target, ArrowRight } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
