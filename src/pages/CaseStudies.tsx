@@ -258,8 +258,8 @@ const CaseStudies = () => {
   return (
     <>
       <SEOHead
-        title="Case Studies | Erfolgsgeschichten | New Edge"
-        description="Erfolgsgeschichten und Case Studies von New Edge. Erfahren Sie, wie wir unseren Kunden mit KI-Lösungen helfen."
+        title="Cases – Projekte & Ergebnisse | New Edge Brand"
+        description="Unsere Projekte: Von Brand Identity über KI-Audits bis zu vollständigen AI-Systemen. Echte Ergebnisse für echte Unternehmen in München und deutschlandweit."
         canonical="/case-studies"
       />
 
@@ -272,6 +272,9 @@ const CaseStudies = () => {
 
         {/* Category Rows - Alle auf einen Blick */}
         <div className="flex flex-col pt-20 sm:pt-24 md:pt-28">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black px-6 sm:px-8 lg:px-16 mb-8">
+            Cases – Was wir gebaut haben
+          </h1>
           {/* STUDIO - Cases links, Label rechts */}
           <CategoryRow
             title="STUDIO"

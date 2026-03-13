@@ -197,8 +197,8 @@ const About = () => {
   return (
     <>
       <SEOHead
-        title="Über New Edge | KI Agentur München | Innovation für KMU"
-        description="New Edge - KI Agentur aus München. Wir verbinden Strategie, Kreativität und KI-Technologie für den digitalen Erfolg mittelständischer Unternehmen."
+        title="Über uns – Das Team hinter New Edge Brand München"
+        description="New Edge Brand ist eine KI-Agentur aus München. Wir arbeiten an der Schnittstelle von Marke, Digital und KI – für Unternehmen, die Verantwortung übernehmen wollen."
         canonical="/about"
       />
 
@@ -222,12 +222,8 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
               <div className="absolute bottom-0 left-0 p-6 pb-20 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
-                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight">
-                  <span className="text-white">DESIGN BRANDS.</span>
-                  <br />
-                  <span className="italic font-black bg-gradient-primary bg-clip-text text-transparent">
-                    DRIVE INNOVATION.
-                  </span>
+                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+                  Über uns – Konsequenz statt Versprechen
                 </h1>
               </div>
             </div>

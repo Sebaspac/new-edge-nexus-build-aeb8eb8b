@@ -28,8 +28,8 @@ const Careers = () => {
   };
   return <>
       <SEOHead
-        title="Karriere bei New Edge | KI Agentur München"
-        description="Karrieremöglichkeiten bei New Edge. Werden Sie Teil unseres innovativen Teams in München."
+        title="Karriere – Arbeiten bei New Edge Brand München"
+        description="Du willst an der Schnittstelle von Marke, Digital und KI arbeiten? New Edge Brand sucht Gestalter, Entwickler und KI-Strategen für München."
         canonical="/careers"
       />
 
@@ -59,14 +59,7 @@ const Careers = () => {
                   <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/80">Join Our Team</span>
                 </div>
                 <h1 className="text-3xl sm:text-h1 lg:text-6xl xl:text-7xl font-black mb-2 sm:mb-4 lg:mb-6 leading-tight text-white">
-NEW EDGE
-                <br />
-                  <span className="italic font-black" style={{
-                  background: 'linear-gradient(to right, #6b7280, #9ca3af)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>CAREERS</span>
+                  Karriere bei New Edge Brand
                 </h1>
               </div>
             </div>
