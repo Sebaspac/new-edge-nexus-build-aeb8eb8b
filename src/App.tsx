@@ -50,7 +50,6 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
-        <StructuredData />
         <LanguageProvider>
           <TooltipProvider>
             <Toaster />
