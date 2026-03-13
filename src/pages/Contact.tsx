@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { ContactFormModal } from "@/components/ContactFormModal";
+import SEOHead from "@/components/SEOHead";
 
 const Contact = () => {
   const navigate = useNavigate();
