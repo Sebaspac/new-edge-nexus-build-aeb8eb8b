@@ -22,6 +22,7 @@ const studioServices = [
 {
   number: "01",
   title: "Klarheit & Markenidentität",
+  h3Title: "Brand Identity & Brand System – ab €2.100",
   problem: "Unklare Markenlogik und inkonsistente Kommunikation führen zu Reibung und nicht anschlussfähigen Systemen.",
   solution: "Wir entwickeln eine Markenidentität, die als funktionale Grundlage für Websites, Software und KI‑Systeme dient.",
   animation: <BrandStrategyAnimation />,
@@ -30,11 +31,11 @@ const studioServices = [
   { title: "Differenzierung mit operativer Wirkung", description: "Ihre Positionierung wirkt nicht nur nach außen, sondern strukturiert Interfaces, Inhalte, Prozesse und Automatisierungen." },
   { title: "Konsistenz ohne Reibungsverluste", description: "Eine einheitliche visuelle und sprachliche Logik reduziert Abstimmungsaufwand, beschleunigt Entscheidungen und macht Systeme anschlussfähig." },
   { title: "Intern weiterentwickelbares Brand System", description: "Ihre Marke wird zu einem lebendigen, intern gepflegten System – unabhängig von externen Dienstleistern." }]
-
 },
 {
   number: "02",
   title: "KI‑Enablement & Audit",
+  h3Title: "KI Enablement & Audit – ab €2.240",
   problem: "KI wird oft ohne klare Ziele, saubere Datenbasis oder Verständnis der Risiken eingesetzt.",
   solution: "Wir analysieren Prozesse, Daten und Tools, identifizieren realistische Automatisierungs‑ und KI‑Chancen und bewerten Risiken und Governance.",
   animation: <KiAuditAnimation />,
@@ -43,11 +44,11 @@ const studioServices = [
   { title: "Sichere Automatisierungsentscheidungen", description: "Klare Go-/No-Go-Bewertungen zeigen, welche KI-Vorhaben echten Hebel haben – und verhindern Fehlinvestitionen." },
   { title: "Priorisierte KI-Roadmap", description: "Die nächsten Schritte sind nach Wirkung, Risiko und Aufwand geordnet und bilden eine belastbare Umsetzungslogik." },
   { title: "Entscheidungsfähigkeit im Management", description: "Technologie- und Investitionsentscheidungen basieren auf Struktur statt auf Hype." }]
-
 },
 {
   number: "03",
   title: "Kommunikations‑ & Sichtbarkeitsarchitektur",
+  h3Title: "Kommunikations- & Sichtbarkeitsarchitektur – ab €1.330",
   problem: "Digitale Kommunikation entsteht oft isoliert und ohne Verbindung zu Systemen, Vertrieb oder Automatisierung.",
   solution: "Wir definieren eine strukturelle Kommunikationslogik, die als Grundlage für Websites, Plattformen und Systeme dient.",
   animation: <BrandIdentityAnimation />,
@@ -56,7 +57,6 @@ const studioServices = [
   { title: "Durchgängige Markenlogik über alle Touchpoints", description: "Ihre Kommunikation folgt einer konsistenten Struktur – unabhängig vom Kanal oder Format." },
   { title: "Anschlussfähigkeit für Automatisierung und KI", description: "Inhalte, Daten und Touchpoints sind so aufgebaut, dass sie direkt in Systeme und Workflows integriert werden können." },
   { title: "Sichtbarkeit unter eigener Kontrolle", description: "Ihre digitale Präsenz funktioniert nach Ihrer Systemlogik – nicht nach den Regeln einzelner Plattformen." }]
-
 }];
 
 
@@ -96,8 +96,8 @@ const Studio = () => {
   return (
     <>
       <SEOHead
-        title="Brand Strategy & Identity München | Markenentwicklung | New Edge Studio"
-        description="New Edge Studio München - Ihre Agentur für Brand Strategy und Markenidentität. Wir entwickeln Marken mit KI-gestützten Methoden für den Mittelstand."
+        title="Studio – Brand & Strategieberatung München | New Edge Brand"
+        description="Brand Identity, KI-Audit und Kommunikationsarchitektur für Unternehmen in München. Förderfähig bis 80% über BAFA."
         canonical="/studio"
       />
 
@@ -129,23 +129,24 @@ const Studio = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] tracking-tight text-white">
-
-                NEW EDGE<br />
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight text-white">
+                Studio – Marke, Strategie{" "}
                 <span className="italic" style={{
                   background: "linear-gradient(to right, #6366f1, #a855f7)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text"
                 }}>
-                  STUDIO
+                  & KI-Beratung
                 </span>
               </motion.h1>
-              
-
-
-
-
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mt-4 leading-relaxed">
+                Drei Bausteine. Ein System. Messbares Ergebnis.
+              </motion.h2>
 
 
 
@@ -222,7 +223,7 @@ const Studio = () => {
                   <div className={isReversed ? "order-2 lg:order-2" : ""}>
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
                       <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service {service.number}</span>
-                      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black mt-2 leading-[1.05]">{service.title}</h2>
+                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black mt-2 leading-[1.05]">{service.h3Title}</h3>
                     </motion.div>
                     <div className="mt-6 space-y-5">
                       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
