@@ -156,8 +156,8 @@ const Lab = () => {
   return (
     <>
       <SEOHead
-        title="Prozessautomatisierung München | KI-Lösungen für KMU | New Edge Lab"
-        description="Prozessautomatisierung mit KI aus München. New Edge Lab entwickelt intelligente Automatisierungslösungen, KI-Agenten und Workflow-Optimierung für den Mittelstand."
+        title="Lab – Webentwicklung, KI-Systeme & LLM Deployment München | New Edge Brand"
+        description="Website-Entwicklung, KI-Automatisierung und LLM-Deployment für Unternehmen in München. Von €2.240 bis Enterprise. Förderbar über BAFA."
         canonical="/lab"
       />
 
