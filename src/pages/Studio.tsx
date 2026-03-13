@@ -129,23 +129,24 @@ const Studio = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] tracking-tight text-white">
-
-                NEW EDGE<br />
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight text-white">
+                Studio – Marke, Strategie{" "}
                 <span className="italic" style={{
                   background: "linear-gradient(to right, #6366f1, #a855f7)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text"
                 }}>
-                  STUDIO
+                  & KI-Beratung
                 </span>
               </motion.h1>
-              
-
-
-
-
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mt-4 leading-relaxed">
+                Drei Bausteine. Ein System. Messbares Ergebnis.
+              </motion.h2>
 
 
 
