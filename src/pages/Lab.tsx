@@ -314,9 +314,9 @@ const Lab = () => {
                       <span className="text-xs font-mono tracking-widest text-black/30 uppercase">
                         Service {service.number}
                       </span>
-                      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">
+                      <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">
                         {service.title}
-                      </h2>
+                      </h3>
                     </motion.div>
                     <div className="mt-12 space-y-8">
                       <motion.div
