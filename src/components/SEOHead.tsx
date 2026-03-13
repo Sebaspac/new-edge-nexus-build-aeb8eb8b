@@ -42,12 +42,12 @@ const SEOHead = ({
       <meta property="og:image" content={ogImage || DEFAULT_OG_IMAGE} />
       <meta property="og:url" content={fullCanonical} />
       <meta property="og:type" content="website" />
+      <meta property="og:locale" content="de_DE" />
       <meta property="og:site_name" content="New Edge Brand" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={ogTitle || title} />
       <meta name="twitter:description" content={ogDescription || description} />
-      <meta name="twitter:image" content={ogImage || DEFAULT_OG_IMAGE} />
     </Helmet>
   );
 };
