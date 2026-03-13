@@ -156,8 +156,8 @@ const Lab = () => {
   return (
     <>
       <SEOHead
-        title="Prozessautomatisierung München | KI-Lösungen für KMU | New Edge Lab"
-        description="Prozessautomatisierung mit KI aus München. New Edge Lab entwickelt intelligente Automatisierungslösungen, KI-Agenten und Workflow-Optimierung für den Mittelstand."
+        title="Lab – Webentwicklung, KI-Systeme & LLM Deployment München | New Edge Brand"
+        description="Website-Entwicklung, KI-Automatisierung und LLM-Deployment für Unternehmen in München. Von €2.240 bis Enterprise. Förderbar über BAFA."
         canonical="/lab"
       />
 
@@ -199,9 +199,8 @@ const Lab = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-h1 lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
-                NEW EDGE
-                <br />
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight text-white">
+                Lab – Website, KI-Systeme{" "}
                 <span
                   className="italic font-black"
                   style={{
@@ -210,9 +209,16 @@ const Lab = () => {
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text"
                   }}>
-                  LAB
+                  & eigene Sprachmodelle
                 </span>
               </motion.h1>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mt-4 leading-relaxed">
+                Wir bauen. Wir deployen. Wir übergeben – mit Dokumentation und Übergabe-Session.
+              </motion.h2>
             </div>
           </motion.div>
 
@@ -308,9 +314,9 @@ const Lab = () => {
                       <span className="text-xs font-mono tracking-widest text-black/30 uppercase">
                         Service {service.number}
                       </span>
-                      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">
+                      <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mt-3 leading-[1.05]">
                         {service.title}
-                      </h2>
+                      </h3>
                     </motion.div>
                     <div className="mt-12 space-y-8">
                       <motion.div
