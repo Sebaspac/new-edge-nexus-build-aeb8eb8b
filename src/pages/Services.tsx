@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useOptimizedAnimation } from "@/hooks/useOptimizedAnimation";
 import {
