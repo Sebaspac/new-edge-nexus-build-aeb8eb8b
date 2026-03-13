@@ -223,7 +223,7 @@ const Studio = () => {
                   <div className={isReversed ? "order-2 lg:order-2" : ""}>
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
                       <span className="text-xs font-mono tracking-widest text-black/30 uppercase">Service {service.number}</span>
-                      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black mt-2 leading-[1.05]">{service.title}</h2>
+                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black mt-2 leading-[1.05]">{service.h3Title}</h3>
                     </motion.div>
                     <div className="mt-6 space-y-5">
                       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
