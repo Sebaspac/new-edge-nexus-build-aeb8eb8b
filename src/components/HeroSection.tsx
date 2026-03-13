@@ -56,14 +56,19 @@ export const HeroSection = ({
               
               {/* Headline */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-[0.95] tracking-tight uppercase">
-                <span className="text-white">STRATEGIE.</span><br />
-                <span className="text-[#7C3AED]">SYSTEME.</span><br />
-                <span className="text-white">WACHSTUM.</span>
+                <span className="text-white">Die KI-Agentur</span><br />
+                <span className="text-white">für </span><span className="text-[#7C3AED]">Brand, Digital</span><br />
+                <span className="text-[#7C3AED]">& AI</span>
               </h1>
               
-              {/* Description */}
-              <p className="text-sm sm:text-base md:text-lg text-neutral-400 max-w-xl mx-auto lg:mx-0">
-                Wir entwickeln aus Automatisierung, Marke und Plattformen eine integrierte Infrastruktur – für weniger Komplexität und nachhaltiges Wachstum.                   
+              {/* Subheadline */}
+              <h2 className="text-sm sm:text-base md:text-lg text-neutral-400 max-w-xl mx-auto lg:mx-0 font-normal">
+                Wir bauen keine Slides. Wir bauen Systeme – für Marke, Web und künstliche Intelligenz. Messbares Ergebnis oder wir arbeiten weiter.
+              </h2>
+
+              {/* Trust Indicators */}
+              <p className="text-xs sm:text-sm text-neutral-500 max-w-xl mx-auto lg:mx-0">
+                Förderbar bis zu 80% über BAFA | Standort München | Umsetzung in 4–10 Wochen
               </p>
               
               {/* Buttons */}

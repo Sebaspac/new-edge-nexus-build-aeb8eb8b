@@ -183,8 +183,8 @@ const Index = () => {
       </AnimatePresence>
 
       <SEOHead
-        title="KI Agentur München | Prozessautomatisierung & Marketing für KMU | New Edge"
-        description="New Edge - Ihre KI Agentur in München. Experten für Prozessautomatisierung, KI-gestütztes Marketing und Digitalisierung im Mittelstand. Jetzt Projekt starten!"
+        title="KI-Agentur München – Brand, Digital & AI | New Edge Brand"
+        description="New Edge Brand ist eure KI-Agentur in München. Wir verbinden Markenaufbau, digitale Entwicklung und KI-Systeme – für Unternehmen, die konsequent wachsen wollen."
         canonical="/"
       />
 
