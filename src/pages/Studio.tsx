@@ -96,8 +96,8 @@ const Studio = () => {
   return (
     <>
       <SEOHead
-        title="Brand Strategy & Identity München | Markenentwicklung | New Edge Studio"
-        description="New Edge Studio München - Ihre Agentur für Brand Strategy und Markenidentität. Wir entwickeln Marken mit KI-gestützten Methoden für den Mittelstand."
+        title="Studio – Brand & Strategieberatung München | New Edge Brand"
+        description="Brand Identity, KI-Audit und Kommunikationsarchitektur für Unternehmen in München. Förderfähig bis 80% über BAFA."
         canonical="/studio"
       />
 
