@@ -12,7 +12,7 @@ interface SEOHeadProps {
 }
 
 const BASE_URL = 'https://newedgebrand.com';
-const DEFAULT_OG_IMAGE = `${BASE_URL}/lovable-uploads/198e2b1f-64ac-4570-82fe-278fb98b54ef.png`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/og-default.jpg`;
 
 const SEOHead = ({
   title,
