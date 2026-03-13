@@ -50,12 +50,12 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
-        <StructuredData />
         <LanguageProvider>
           <TooltipProvider>
             <Toaster />
             <Sonner />
             <BrowserRouter>
+              <StructuredData />
               <Suspense fallback={<LoadingScreen progress={100} />}>
                 <Routes>
                 <Route path="/" element={<Index />} />
