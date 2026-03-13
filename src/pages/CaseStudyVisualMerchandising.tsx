@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { Footer } from "@/components/Footer";
 import {
   Eye,
@@ -244,13 +244,11 @@ const CaseStudyVisualMerchandising = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Visual Merchandising AI Case Study | New Edge</title>
-        <meta
-          name="description"
-          content="[PLACEHOLDER: Meta-Beschreibung für SEO - max 160 Zeichen]"
-        />
-      </Helmet>
+      <SEOHead
+        title="Visual Merchandising AI Case Study | New Edge"
+        description="Wie KI-gestütztes Visual Merchandising den Einzelhandel revolutioniert. Automatisierte Produktinszenierung und Analyse."
+        canonical="/case-study/visual-merchandising"
+      />
 
       <MobileNavigation onContactClick={scrollToContact} />
 

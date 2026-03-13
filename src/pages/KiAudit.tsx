@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, Clock, FileText, Presentation, Quote, Shield,
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Footer } from "@/components/Footer";
 import { ContactFormModal } from "@/components/ContactFormModal";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import LogoCloud from "@/components/ui/logo-cloud";
 import heroImage from "@/assets/ki-audit-hero.webp";
 import processImage from "@/assets/ki-audit-process.webp";
@@ -23,13 +23,11 @@ const KiAudit = () => {
 
   return (
     <>
-      <Helmet>
-        <title>KI Enablement & Audit — New Edge</title>
-        <meta
-          name="description"
-          content="Strukturierter KI Audit für den Mittelstand. IST-Analyse, Roadmap, BAFA-förderfähig. Ab €448 mit Förderung." />
-        
-      </Helmet>
+      <SEOHead
+        title="KI Enablement & Audit | Prozessautomatisierung | New Edge"
+        description="Strukturierter KI Audit für den Mittelstand. IST-Analyse, Roadmap, BAFA-förderfähig. Ab €448 mit Förderung."
+        canonical="/ki-audit"
+      />
 
       <MobileNavigation onContactClick={() => setIsContactOpen(true)} theme="dark" />
 

@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { motion, AnimatePresence, useMotionValue, useTransform, animate } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -196,18 +196,11 @@ const About = () => {
   };
   return (
     <>
-      <Helmet>
-        <title>Über New Edge | KI Agentur München | Innovation für KMU</title>
-        <meta
-          name="description"
-          content="New Edge - KI Agentur aus München. Wir verbinden Strategie, Kreativität und KI-Technologie für den digitalen Erfolg mittelständischer Unternehmen."
-        />
-        <meta
-          name="keywords"
-          content="KI Agentur München, Über New Edge, Innovation für KMU, Digitalisierung Mittelstand, KI München, Prozessautomatisierung"
-        />
-        <link rel="canonical" href="https://www.newedgebrand.com/about" />
-      </Helmet>
+      <SEOHead
+        title="Über New Edge | KI Agentur München | Innovation für KMU"
+        description="New Edge - KI Agentur aus München. Wir verbinden Strategie, Kreativität und KI-Technologie für den digitalen Erfolg mittelständischer Unternehmen."
+        canonical="/about"
+      />
 
       <div className="min-h-screen bg-background">
         <MobileNavigation onContactClick={() => scrollToContact(false)} theme="dark" />

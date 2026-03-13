@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SEOHead from "@/components/SEOHead";
 
 const SectionDivider = () => (
   <div className="w-full border-t border-foreground/10 my-10 md:my-14" />
@@ -31,6 +32,12 @@ const Impressum = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead
+        title="Impressum | New Edge"
+        description="Impressum und rechtliche Angaben der New Edge GbR, München."
+        canonical="/impressum"
+        noindex
+      />
       {/* Header */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { HeroSection } from "../components/HeroSection";
 import { ServicesOverviewSection } from "../components/ServicesOverviewSection";
@@ -182,16 +182,11 @@ const Index = () => {
           </motion.div>}
       </AnimatePresence>
 
-      <Helmet>
-        <title>KI Agentur München | Prozessautomatisierung & Marketing für KMU | New Edge</title>
-        <meta name="description" content="New Edge - Ihre KI Agentur in München. Experten für Prozessautomatisierung, KI-gestütztes Marketing und Digitalisierung im Mittelstand. Jetzt Projekt starten!" />
-        <meta name="keywords" content="KI Agentur München, Prozessautomatisierung, Prozessautomatisierung München, KI Automatisierung, Automatisierung KMU, Digitalisierung Mittelstand, KI für Unternehmen, Marketing Automation München" />
-        <meta property="og:title" content="KI Agentur München | Prozessautomatisierung & Marketing | New Edge" />
-        <meta property="og:description" content="New Edge - Ihre KI Agentur in München. Experten für Prozessautomatisierung, KI-gestütztes Marketing und Digitalisierung im Mittelstand." />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href="https://www.newedgebrand.com" />
-      </Helmet>
+      <SEOHead
+        title="KI Agentur München | Prozessautomatisierung & Marketing für KMU | New Edge"
+        description="New Edge - Ihre KI Agentur in München. Experten für Prozessautomatisierung, KI-gestütztes Marketing und Digitalisierung im Mittelstand. Jetzt Projekt starten!"
+        canonical="/"
+      />
 
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
         {/* Mobile Navigation */}

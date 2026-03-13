@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { ContactFormModal } from "@/components/ContactFormModal";
+import SEOHead from "@/components/SEOHead";
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -14,6 +15,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Kontakt | New Edge – KI Agentur München"
+        description="Kontaktieren Sie New Edge für KI-Beratung, Prozessautomatisierung und Marketing-Automation in München."
+        canonical="/kontakt"
+      />
       <ContactFormModal
         isOpen={true}
         onClose={handleClose}

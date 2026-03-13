@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { Helmet } from 'react-helmet-async';
+import SEOHead from "@/components/SEOHead";
 import { Footer } from "@/components/Footer";
 import { Calendar, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -64,10 +64,11 @@ const Blog = () => {
   const featuredPost = blogPostsData[0];
   const otherPosts = blogPostsData.slice(1);
   return <>
-      <Helmet>
-        <title>Blog - NEW EDGE</title>
-        <meta name="description" content="Neueste Artikel, Insights und Trends von NEW EDGE." />
-      </Helmet>
+      <SEOHead
+        title="Blog | KI & Automatisierung Insights | New Edge"
+        description="Neueste Artikel, Insights und Trends zu KI, Prozessautomatisierung und Marketing von New Edge."
+        canonical="/blog"
+      />
 
       <div className="min-h-screen bg-white">
         <MobileNavigation onContactClick={scrollToContact} theme="light" />

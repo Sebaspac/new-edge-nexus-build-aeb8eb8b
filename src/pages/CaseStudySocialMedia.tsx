@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { Footer } from "@/components/Footer";
 import { ShieldCheck, Target, Mail, CalendarCheck, Flame, Database, Phone, TrendingUp, ArrowRight, Brain, BarChart3 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
@@ -172,10 +172,11 @@ const CaseStudySocialMedia = () => {
     energy: 100
   }];
   return <>
-      <Helmet>
-        <title>Sales-Agent Case Study - NEW EDGE</title>
-        <meta name="description" content="Wie ein KI-Sales-Agent Leads automatisch qualifiziert, personalisiert anspricht und den Vertrieb auf echte Chancen fokussiert." />
-      </Helmet>
+      <SEOHead
+        title="Sales-Agent Case Study | KI Vertrieb | New Edge"
+        description="Wie ein KI-Sales-Agent Leads automatisch qualifiziert, personalisiert anspricht und den Vertrieb auf echte Chancen fokussiert."
+        canonical="/case-study/social-media"
+      />
 
       <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />

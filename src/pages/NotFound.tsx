@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 import { useLanguage } from "@/contexts/LanguageContext";
+import SEOHead from "@/components/SEOHead";
 
 const NotFound = () => {
   const { t } = useLanguage();
@@ -16,6 +17,7 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <SEOHead title="Seite nicht gefunden | New Edge" description="Die angeforderte Seite wurde nicht gefunden." noindex />
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">{t('notFound.title')}</h1>
         <p className="text-xl text-gray-600 mb-4">{t('notFound.subtitle')}</p>

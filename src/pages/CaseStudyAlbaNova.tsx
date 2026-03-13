@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { Footer } from "@/components/Footer";
 import { ShieldCheck, Globe, TrendingUp, Filter, Heart, ArrowRight, CheckCircle, Target, BarChart3, Palette, BookOpen, PenTool, Monitor, Languages, Calendar, Code, FileText, User, Clock } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
@@ -205,10 +205,11 @@ const CaseStudyAlbaNova = () => {
     energy: 100
   }];
   return <>
-      <Helmet>
-        <title>AlbaNova Case Study - NEW EDGE</title>
-        <meta name="description" content="Wie wir AlbaNova Consulting mit einer neuen digitalen Brand Identity zum Erfolg verholfen haben." />
-      </Helmet>
+      <SEOHead
+        title="AlbaNova Case Study | Brand Identity | New Edge"
+        description="Wie wir AlbaNova Consulting mit einer neuen digitalen Brand Identity zum Erfolg verholfen haben."
+        canonical="/case-study/albanova"
+      />
 
       <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />

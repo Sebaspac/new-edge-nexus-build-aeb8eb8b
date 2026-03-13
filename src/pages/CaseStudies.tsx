@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -257,13 +257,11 @@ const CaseStudies = () => {
   };
   return (
     <>
-      <Helmet>
-        <title>Case Studies - NEW EDGE</title>
-        <meta
-          name="description"
-          content="Erfolgsgeschichten und Case Studies von NEW EDGE. Erfahren Sie, wie wir unseren Kunden helfen."
-        />
-      </Helmet>
+      <SEOHead
+        title="Case Studies | Erfolgsgeschichten | New Edge"
+        description="Erfolgsgeschichten und Case Studies von New Edge. Erfahren Sie, wie wir unseren Kunden mit KI-Lösungen helfen."
+        canonical="/case-studies"
+      />
 
       <div
         className="min-h-screen bg-white"

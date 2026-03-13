@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { LazyVideo } from "@/components/LazyVideo";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
@@ -138,10 +138,11 @@ const UseCases = () => {
     }
   };
   return <>
-      <Helmet>
-        <title>Use Cases - NEW EDGE</title>
-        <meta name="description" content="Entdecken Sie unsere KI-Lösungen für verschiedene Branchen. Von Enterprise Automation bis Customer Experience." />
-      </Helmet>
+      <SEOHead
+        title="Use Cases | KI-Lösungen für Unternehmen | New Edge"
+        description="Entdecken Sie unsere KI-Lösungen für verschiedene Branchen. Von Enterprise Automation bis Customer Experience."
+        canonical="/use-cases"
+      />
 
       <div className="min-h-screen bg-black">
         <MobileNavigation onContactClick={scrollToContact} theme="dark" showCaseFilter={true} activeFilter={activeFilter} onFilterChange={setActiveFilter} />

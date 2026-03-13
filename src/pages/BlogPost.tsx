@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { Helmet } from 'react-helmet-async';
+import SEOHead from "@/components/SEOHead";
 import { Footer } from "@/components/Footer";
 import { ArrowLeft, Calendar, User, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -307,9 +307,11 @@ const BlogPost = () => {
   if (!post) {
     return (
       <>
-        <Helmet>
-          <title>Artikel nicht gefunden - NEW EDGE</title>
-        </Helmet>
+        <SEOHead
+          title="Artikel nicht gefunden | New Edge"
+          description="Der gesuchte Artikel wurde nicht gefunden."
+          noindex
+        />
         <div className="min-h-screen bg-white flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-4xl font-black mb-4">Artikel nicht gefunden</h1>
@@ -324,12 +326,12 @@ const BlogPost = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{post.title} - NEW EDGE</title>
-        <meta name="description" content={post.content.intro.substring(0, 160)} />
-        {post.image && <meta property="og:image" content={post.image} />}
-        {post.image && <meta name="twitter:image" content={post.image} />}
-      </Helmet>
+      <SEOHead
+        title={`${post.title} | New Edge Blog`}
+        description={post.content.intro.substring(0, 160)}
+        canonical={`/blog/${slug}`}
+        ogImage={post.image ? `https://www.newedgebrand.com${post.image}` : undefined}
+      />
 
       <div className="min-h-screen bg-white">
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />
