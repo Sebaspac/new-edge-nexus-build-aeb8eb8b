@@ -63,7 +63,7 @@ export const HeroSection = ({
               
               {/* Subheadline */}
               <h2 className="text-sm sm:text-base md:text-lg text-neutral-400 max-w-xl mx-auto lg:mx-0 font-normal">
-                Wir bauen keine Slides. Wir bauen Systeme – für Marke, Web und künstliche Intelligenz. Messbares Ergebnis oder wir arbeiten weiter.
+                Wir bauen keine Slides. Wir bauen Systeme – für Marke, Web und künstliche Intelligenz für messbare Ergebnisse         
               </h2>
 
               {/* Trust Indicators */}
