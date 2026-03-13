@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { ChevronDown, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ContactFormModal } from "@/components/ContactFormModal";
