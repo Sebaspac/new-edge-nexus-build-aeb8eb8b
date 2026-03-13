@@ -307,9 +307,11 @@ const BlogPost = () => {
   if (!post) {
     return (
       <>
-        <Helmet>
-          <title>Artikel nicht gefunden - NEW EDGE</title>
-        </Helmet>
+        <SEOHead
+          title="Artikel nicht gefunden | New Edge"
+          description="Der gesuchte Artikel wurde nicht gefunden."
+          noindex
+        />
         <div className="min-h-screen bg-white flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-4xl font-black mb-4">Artikel nicht gefunden</h1>
