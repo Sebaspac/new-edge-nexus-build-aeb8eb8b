@@ -200,7 +200,7 @@ const Lab = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight text-white">
-                Lab – Website, KI-Systeme{" "}
+                Lab – Website, Automation{" "}
                 <span
                   className="italic font-black"
                   style={{
@@ -209,7 +209,7 @@ const Lab = () => {
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text"
                   }}>
-                  & eigene Sprachmodelle
+                  & Ownership
                 </span>
               </motion.h1>
               <motion.h2
