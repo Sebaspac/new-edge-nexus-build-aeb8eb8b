@@ -258,8 +258,8 @@ const CaseStudies = () => {
   return (
     <>
       <SEOHead
-        title="Case Studies | Erfolgsgeschichten | New Edge"
-        description="Erfolgsgeschichten und Case Studies von New Edge. Erfahren Sie, wie wir unseren Kunden mit KI-Lösungen helfen."
+        title="Cases – Projekte & Ergebnisse | New Edge Brand"
+        description="Unsere Projekte: Von Brand Identity über KI-Audits bis zu vollständigen AI-Systemen. Echte Ergebnisse für echte Unternehmen in München und deutschlandweit."
         canonical="/case-studies"
       />
 
