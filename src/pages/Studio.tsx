@@ -22,6 +22,7 @@ const studioServices = [
 {
   number: "01",
   title: "Klarheit & Markenidentität",
+  h3Title: "Brand Identity & Brand System – ab €2.100",
   problem: "Unklare Markenlogik und inkonsistente Kommunikation führen zu Reibung und nicht anschlussfähigen Systemen.",
   solution: "Wir entwickeln eine Markenidentität, die als funktionale Grundlage für Websites, Software und KI‑Systeme dient.",
   animation: <BrandStrategyAnimation />,
@@ -30,11 +31,11 @@ const studioServices = [
   { title: "Differenzierung mit operativer Wirkung", description: "Ihre Positionierung wirkt nicht nur nach außen, sondern strukturiert Interfaces, Inhalte, Prozesse und Automatisierungen." },
   { title: "Konsistenz ohne Reibungsverluste", description: "Eine einheitliche visuelle und sprachliche Logik reduziert Abstimmungsaufwand, beschleunigt Entscheidungen und macht Systeme anschlussfähig." },
   { title: "Intern weiterentwickelbares Brand System", description: "Ihre Marke wird zu einem lebendigen, intern gepflegten System – unabhängig von externen Dienstleistern." }]
-
 },
 {
   number: "02",
   title: "KI‑Enablement & Audit",
+  h3Title: "KI Enablement & Audit – ab €2.240",
   problem: "KI wird oft ohne klare Ziele, saubere Datenbasis oder Verständnis der Risiken eingesetzt.",
   solution: "Wir analysieren Prozesse, Daten und Tools, identifizieren realistische Automatisierungs‑ und KI‑Chancen und bewerten Risiken und Governance.",
   animation: <KiAuditAnimation />,
@@ -43,11 +44,11 @@ const studioServices = [
   { title: "Sichere Automatisierungsentscheidungen", description: "Klare Go-/No-Go-Bewertungen zeigen, welche KI-Vorhaben echten Hebel haben – und verhindern Fehlinvestitionen." },
   { title: "Priorisierte KI-Roadmap", description: "Die nächsten Schritte sind nach Wirkung, Risiko und Aufwand geordnet und bilden eine belastbare Umsetzungslogik." },
   { title: "Entscheidungsfähigkeit im Management", description: "Technologie- und Investitionsentscheidungen basieren auf Struktur statt auf Hype." }]
-
 },
 {
   number: "03",
   title: "Kommunikations‑ & Sichtbarkeitsarchitektur",
+  h3Title: "Kommunikations- & Sichtbarkeitsarchitektur – ab €1.330",
   problem: "Digitale Kommunikation entsteht oft isoliert und ohne Verbindung zu Systemen, Vertrieb oder Automatisierung.",
   solution: "Wir definieren eine strukturelle Kommunikationslogik, die als Grundlage für Websites, Plattformen und Systeme dient.",
   animation: <BrandIdentityAnimation />,
@@ -56,7 +57,6 @@ const studioServices = [
   { title: "Durchgängige Markenlogik über alle Touchpoints", description: "Ihre Kommunikation folgt einer konsistenten Struktur – unabhängig vom Kanal oder Format." },
   { title: "Anschlussfähigkeit für Automatisierung und KI", description: "Inhalte, Daten und Touchpoints sind so aufgebaut, dass sie direkt in Systeme und Workflows integriert werden können." },
   { title: "Sichtbarkeit unter eigener Kontrolle", description: "Ihre digitale Präsenz funktioniert nach Ihrer Systemlogik – nicht nach den Regeln einzelner Plattformen." }]
-
 }];
 
 
