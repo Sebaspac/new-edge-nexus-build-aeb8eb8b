@@ -7,7 +7,7 @@ import ragDatacenterImage from "@/assets/rag-datacenter.webp";
 import marketingAutomationImage from "@/assets/marketing-automation.webp";
 import { Button } from "@/components/ui/button";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { LabInfrastructureGrid } from "@/components/ui/lab-infrastructure-grid";
 import { ContactFormModal } from "@/components/ContactFormModal";
