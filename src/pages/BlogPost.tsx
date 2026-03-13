@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { Helmet } from 'react-helmet-async';
+import SEOHead from "@/components/SEOHead";
 import { Footer } from "@/components/Footer";
 import { ArrowLeft, Calendar, User, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
