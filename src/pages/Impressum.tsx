@@ -32,6 +32,12 @@ const Impressum = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEOHead
+        title="Impressum | New Edge"
+        description="Impressum und rechtliche Angaben der New Edge GbR, München."
+        canonical="/impressum"
+        noindex
+      />
       {/* Header */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}

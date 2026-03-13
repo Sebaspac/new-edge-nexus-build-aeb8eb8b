@@ -95,12 +95,11 @@ const Studio = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Brand Strategy & Identity München | Markenentwicklung | New Edge Studio</title>
-        <meta name="description" content="New Edge Studio München - Ihre Agentur für Brand Strategy und Markenidentität. Wir entwickeln Marken mit KI-gestützten Methoden für den Mittelstand." />
-        <meta name="keywords" content="Brand Strategy München, Markenentwicklung München, Brand Identity, Markenidentität, Design System, Positionierung, KI Agentur München" />
-        <link rel="canonical" href="https://www.newedgebrand.com/studio" />
-      </Helmet>
+      <SEOHead
+        title="Brand Strategy & Identity München | Markenentwicklung | New Edge Studio"
+        description="New Edge Studio München - Ihre Agentur für Brand Strategy und Markenidentität. Wir entwickeln Marken mit KI-gestützten Methoden für den Mittelstand."
+        canonical="/studio"
+      />
 
       <div className="min-h-screen bg-white">
         <MobileNavigation onContactClick={scrollToContact} theme="light" />

@@ -15,6 +15,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Kontakt | New Edge – KI Agentur München"
+        description="Kontaktieren Sie New Edge für KI-Beratung, Prozessautomatisierung und Marketing-Automation in München."
+        canonical="/kontakt"
+      />
       <ContactFormModal
         isOpen={true}
         onClose={handleClose}

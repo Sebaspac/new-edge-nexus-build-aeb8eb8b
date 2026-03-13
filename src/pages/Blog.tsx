@@ -64,10 +64,11 @@ const Blog = () => {
   const featuredPost = blogPostsData[0];
   const otherPosts = blogPostsData.slice(1);
   return <>
-      <Helmet>
-        <title>Blog - NEW EDGE</title>
-        <meta name="description" content="Neueste Artikel, Insights und Trends von NEW EDGE." />
-      </Helmet>
+      <SEOHead
+        title="Blog | KI & Automatisierung Insights | New Edge"
+        description="Neueste Artikel, Insights und Trends zu KI, Prozessautomatisierung und Marketing von New Edge."
+        canonical="/blog"
+      />
 
       <div className="min-h-screen bg-white">
         <MobileNavigation onContactClick={scrollToContact} theme="light" />

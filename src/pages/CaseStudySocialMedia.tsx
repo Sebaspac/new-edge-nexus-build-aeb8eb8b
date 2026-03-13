@@ -172,10 +172,11 @@ const CaseStudySocialMedia = () => {
     energy: 100
   }];
   return <>
-      <Helmet>
-        <title>Sales-Agent Case Study - NEW EDGE</title>
-        <meta name="description" content="Wie ein KI-Sales-Agent Leads automatisch qualifiziert, personalisiert anspricht und den Vertrieb auf echte Chancen fokussiert." />
-      </Helmet>
+      <SEOHead
+        title="Sales-Agent Case Study | KI Vertrieb | New Edge"
+        description="Wie ein KI-Sales-Agent Leads automatisch qualifiziert, personalisiert anspricht und den Vertrieb auf echte Chancen fokussiert."
+        canonical="/case-study/social-media"
+      />
 
       <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />

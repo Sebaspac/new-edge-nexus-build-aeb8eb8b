@@ -27,10 +27,11 @@ const Careers = () => {
     }, 100);
   };
   return <>
-      <Helmet>
-        <title>Karriere - NEW EDGE</title>
-        <meta name="description" content="Karrieremöglichkeiten bei NEW EDGE. Werden Sie Teil unseres innovativen Teams." />
-      </Helmet>
+      <SEOHead
+        title="Karriere bei New Edge | KI Agentur München"
+        description="Karrieremöglichkeiten bei New Edge. Werden Sie Teil unseres innovativen Teams in München."
+        canonical="/careers"
+      />
 
       <div className="min-h-screen bg-white">
         <MobileNavigation onContactClick={scrollToContact} theme="light" />

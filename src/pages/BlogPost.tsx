@@ -326,12 +326,12 @@ const BlogPost = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{post.title} - NEW EDGE</title>
-        <meta name="description" content={post.content.intro.substring(0, 160)} />
-        {post.image && <meta property="og:image" content={post.image} />}
-        {post.image && <meta name="twitter:image" content={post.image} />}
-      </Helmet>
+      <SEOHead
+        title={`${post.title} | New Edge Blog`}
+        description={post.content.intro.substring(0, 160)}
+        canonical={`/blog/${slug}`}
+        ogImage={post.image ? `https://www.newedgebrand.com${post.image}` : undefined}
+      />
 
       <div className="min-h-screen bg-white">
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />

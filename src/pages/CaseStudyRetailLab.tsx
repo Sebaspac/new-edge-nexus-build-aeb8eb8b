@@ -168,10 +168,11 @@ const CaseStudyRetailLab = () => {
     energy: 100
   }];
   return <>
-      <Helmet>
-        <title>RAG-Wissensagent Case Study - NEW EDGE</title>
-        <meta name="description" content="Wie wir für einen KMU im produzierenden Gewerbe einen RAG-Wissensagenten entwickelt haben." />
-      </Helmet>
+      <SEOHead
+        title="RAG-Wissensagent Case Study | KI für KMU | New Edge"
+        description="Wie wir für einen KMU im produzierenden Gewerbe einen RAG-Wissensagenten entwickelt haben."
+        canonical="/case-study/retail-lab"
+      />
 
       <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />

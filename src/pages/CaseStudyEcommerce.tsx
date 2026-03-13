@@ -172,10 +172,11 @@ const CaseStudyEcommerce = () => {
     energy: 100
   }];
   return <>
-      <Helmet>
-        <title>Marketing-Agent Case Study - NEW EDGE</title>
-        <meta name="description" content="Wie ein KI-Marketing-Agent die gesamte Content-Produktion, Kampagnensteuerung & Analyse eines Händlers automatisiert." />
-      </Helmet>
+      <SEOHead
+        title="Marketing-Agent Case Study | KI Automatisierung | New Edge"
+        description="Wie ein KI-Marketing-Agent die gesamte Content-Produktion, Kampagnensteuerung & Analyse eines Händlers automatisiert."
+        canonical="/case-study/ecommerce"
+      />
 
       <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
         <MobileNavigation onContactClick={scrollToContact} theme="dark" />
