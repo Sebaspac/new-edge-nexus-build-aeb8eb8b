@@ -199,9 +199,8 @@ const Lab = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-h1 lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
-                NEW EDGE
-                <br />
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight text-white">
+                Lab – Website, KI-Systeme{" "}
                 <span
                   className="italic font-black"
                   style={{
@@ -210,9 +209,16 @@ const Lab = () => {
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text"
                   }}>
-                  LAB
+                  & eigene Sprachmodelle
                 </span>
               </motion.h1>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mt-4 leading-relaxed">
+                Wir bauen. Wir deployen. Wir übergeben – mit Dokumentation und Übergabe-Session.
+              </motion.h2>
             </div>
           </motion.div>
 
