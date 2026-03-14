@@ -57,7 +57,7 @@ export const HeroSection = ({
               {/* Headline */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-[0.95] tracking-tight uppercase">
                 <span className="text-white">Dein Partner</span><br />
-                <span className="text-white">Brand & KI    </span><span className="text-[#7C3AED]">Brand, Digital</span><br />
+                <span className="text-white">für systeme,     </span><span className="text-[#7C3AED]">Brand, Digital</span><br />
                 
               </h1>
               
