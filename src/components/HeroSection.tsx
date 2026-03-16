@@ -34,8 +34,8 @@ export const HeroSection = ({
         <CyberneticGridShader />
         
         {/* Left Side - CTA Content */}
-        <div className="relative flex items-center justify-center lg:items-center lg:justify-start z-20 pt-[80px] lg:pt-[100px]">
-          <div className="w-full px-6 sm:px-8 md:px-12 lg:px-12 xl:px-16 max-w-xl md:max-w-2xl lg:max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+        <div className="relative flex items-center justify-center lg:items-center lg:justify-start z-20 pt-[72px] lg:pt-[80px]">
+          <div className="w-full px-6 sm:px-8 md:px-12 lg:pl-12 xl:pl-16 lg:pr-4 lg:max-w-none text-center lg:text-left">
             <motion.div initial={{
               opacity: 0,
               y: 20
@@ -44,7 +44,7 @@ export const HeroSection = ({
               y: 0
             }} transition={{
               duration: 0.8
-            }} className="block space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-6">
+            }} className="block space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-4">
               
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 border border-white/20 bg-white/5 backdrop-blur-sm">
