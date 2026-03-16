@@ -30,12 +30,12 @@ export const HeroSection = ({
     <section className="relative w-full min-h-[100dvh] bg-black" id="hero" style={{
       backgroundColor: '#000000'
     }}>
-      <div className="w-full min-h-[100dvh] grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden z-10 bg-black">
+      <div className="w-full min-h-[100dvh] relative overflow-hidden z-10 bg-black">
         <CyberneticGridShader />
         
-        {/* Left Side - CTA Content */}
-        <div className="relative flex items-center justify-center lg:items-center lg:justify-start z-20 pt-[80px] lg:pt-[100px]">
-          <div className="w-full px-6 sm:px-8 md:px-12 lg:px-12 xl:px-16 max-w-xl md:max-w-2xl lg:max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+        {/* Centered CTA Content */}
+        <div className="relative flex items-center justify-center z-20 w-full min-h-[100dvh] pt-[80px] lg:pt-[100px]">
+          <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16 max-w-4xl mx-auto text-center">
             <motion.div initial={{
               opacity: 0,
               y: 20
