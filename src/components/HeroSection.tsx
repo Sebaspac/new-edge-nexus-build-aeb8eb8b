@@ -34,8 +34,8 @@ export const HeroSection = ({
         <CyberneticGridShader />
         
         {/* Left Side - CTA Content */}
-        <div className="relative flex items-center justify-center lg:items-center lg:justify-start z-20 pt-[80px] lg:pt-[100px]">
-          <div className="w-full px-6 sm:px-8 md:px-12 lg:px-12 xl:px-16 max-w-xl md:max-w-2xl lg:max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+        <div className="relative flex items-center justify-center lg:items-center lg:justify-start z-20 pt-[72px] lg:pt-[80px]">
+          <div className="w-full px-6 sm:px-8 md:px-12 lg:pl-12 xl:pl-16 lg:pr-4 lg:max-w-none text-center lg:text-left">
             <motion.div initial={{
               opacity: 0,
               y: 20
@@ -44,7 +44,7 @@ export const HeroSection = ({
               y: 0
             }} transition={{
               duration: 0.8
-            }} className="block space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-6">
+            }} className="block space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-4">
               
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 border border-white/20 bg-white/5 backdrop-blur-sm">
@@ -55,15 +55,14 @@ export const HeroSection = ({
               </div>
               
               {/* Headline */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-[0.95] tracking-tight uppercase">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-black leading-[0.95] tracking-tight uppercase">
                 <span className="text-white">Dein Partner</span><br />
-                <span className="text-white">für systeme,     </span><span className="text-[#7C3AED]">Brand, Digital</span><br />
-                
+                <span className="text-white">für systeme, </span><span className="text-[#7C3AED]">Brand, Digital</span>
               </h1>
               
               {/* Subheadline */}
-              <h2 className="text-sm sm:text-base md:text-lg text-neutral-400 max-w-xl mx-auto lg:mx-0 font-normal">
-                Wir bauen keine Slides. Wir bauen Systeme – für Marke, Web und künstliche Intelligenz für messbare Ergebnisse         
+              <h2 className="text-xs sm:text-sm md:text-base text-neutral-400 max-w-lg mx-auto lg:mx-0 font-normal">
+                Wir bauen keine Slides. Wir bauen Systeme – für Marke, Web und künstliche Intelligenz für messbare Ergebnisse.
               </h2>
 
               {/* Trust Indicators */}
@@ -78,12 +77,12 @@ export const HeroSection = ({
               </div>
               
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center lg:justify-start items-center lg:items-start">
-                <button onClick={onContactClick} className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm sm:text-base w-full sm:w-auto hover:-translate-y-0.5 rounded-none">
+              <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center lg:justify-start items-center lg:items-start">
+                <button onClick={onContactClick} className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm w-full sm:w-auto hover:-translate-y-0.5 rounded-none">
                   Projekt Starten
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <Link to="/about" className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-white font-semibold border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm sm:text-base w-full sm:w-auto rounded-none">
+                <Link to="/about" className="inline-flex items-center justify-center px-6 py-3 bg-transparent text-white font-semibold border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm w-full sm:w-auto rounded-none">
                   Über Uns
                 </Link>
               </div>

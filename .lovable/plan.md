@@ -1,27 +1,39 @@
 
+# Kontaktformular: Fehlende Felder debuggen und fixen
 
-## Problem Analysis
+## Analyse
 
-The hero headline font sizes are too large at the current viewport (1311px = xl breakpoint), causing the content to overflow beyond one screen. The text also needs to be visually aligned with the navigation bar's left edge.
+Der Datenfluss ist: **Frontend -> Edge Function -> n8n Webhook**
 
-Current headline sizes: `text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl` -- at xl, that's 72px, which is too large.
+Die Edge Function extrahiert und validiert alle Felder korrekt (name, email, position, firma, telefon, nachricht, source) und sendet sie als JSON an den n8n Webhook. Das Problem: Es gibt kein Logging der tatsaechlich gesendeten Daten, sodass wir nicht sehen koennen, ob alle Felder wirklich ankommen.
 
-The nav has `left-4 right-4` (16px margin) with internal `px-8` padding, so the logo/content starts at roughly 48px from screen edge.
+## Moegliche Ursachen
+
+1. **n8n Webhook-Konfiguration**: Der Webhook in n8n ist moeglicherweise so konfiguriert, dass er nur bestimmte Felder extrahiert
+2. **Datenformat**: n8n erwartet moeglicherweise ein anderes Format (z.B. verschachtelte Struktur)
 
 ## Plan
 
-**File: `src/components/HeroSection.tsx`**
+### Schritt 1: Debug-Logging in der Edge Function hinzufuegen
 
-1. **Reduce headline font sizes** to fit in one viewport:
-   - Change from `lg:text-6xl xl:text-7xl 2xl:text-8xl` to `lg:text-4xl xl:text-5xl 2xl:text-6xl`
+In `supabase/functions/contact-form/index.ts` wird ein `console.log` mit dem vollstaendigen Payload eingefuegt, der an n8n gesendet wird. So koennen wir in den Edge Function Logs genau sehen, welche Daten weitergeleitet werden.
 
-2. **Align left padding with nav**: Set consistent left padding on the content container to match nav alignment (~48px on desktop), removing the `max-w-xl/2xl` constraint that centers the text block awkwardly.
+Aenderung in Zeile 142 (vor dem Webhook-Call):
+```typescript
+console.log(`Processing contact form submission from ${clientIP}`);
+console.log(`Payload being sent to webhook: ${JSON.stringify(validation.data)}`);
+```
 
-3. **Reduce vertical spacing**: Tighten `space-y` values and reduce `pt` on the container so everything fits above the fold.
+### Schritt 2: Test durchfuehren und Logs pruefen
 
-4. **Compact subheadline and trust indicators**: Slightly smaller text sizes to ensure the full hero (badge + headline + subheadline + trust badges + CTAs + scroll indicator) fits in 100dvh.
+Nach dem Deployment wird ein Testformular abgeschickt, um die Logs zu ueberpruefen.
 
-5. **CTA buttons**: Keep them clear and prominent, ensure proper sizing.
+### Schritt 3: Falls das Problem bei n8n liegt
 
-These are purely CSS class changes within HeroSection.tsx -- no structural changes needed.
+Wenn die Logs zeigen, dass alle Daten korrekt gesendet werden, liegt das Problem in der n8n Workflow-Konfiguration. In dem Fall muss der n8n Workflow "CRM UPDATES" (ID: 6FnYmim7NA9GOkTn) angepasst werden, damit alle Felder verarbeitet werden.
 
+## Technische Details
+
+- Datei: `supabase/functions/contact-form/index.ts`
+- Aenderung: Eine zusaetzliche `console.log`-Zeile nach Zeile 142
+- Edge Function Logs koennen hier eingesehen werden: Supabase Dashboard > Edge Functions > contact-form > Logs
