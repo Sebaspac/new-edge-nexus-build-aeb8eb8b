@@ -30,12 +30,12 @@ export const HeroSection = ({
     <section className="relative w-full min-h-[100dvh] bg-black" id="hero" style={{
       backgroundColor: '#000000'
     }}>
-      <div className="w-full min-h-[100dvh] relative overflow-hidden z-10 bg-black">
+      <div className="w-full min-h-[100dvh] grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden z-10 bg-black">
         <CyberneticGridShader />
         
-        {/* Centered CTA Content */}
-        <div className="relative flex items-center justify-center z-20 w-full min-h-[100dvh] pt-[80px] lg:pt-[100px]">
-          <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16 max-w-4xl mx-auto text-center">
+        {/* Left Side - CTA Content */}
+        <div className="relative flex items-center justify-center lg:items-center lg:justify-start z-20 pt-[80px] lg:pt-[100px]">
+          <div className="w-full px-6 sm:px-8 md:px-12 lg:px-12 xl:px-16 max-w-xl md:max-w-2xl lg:max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
             <motion.div initial={{
               opacity: 0,
               y: 20
@@ -67,7 +67,7 @@ export const HeroSection = ({
               </h2>
 
               {/* Trust Indicators */}
-              <div className="flex flex-wrap gap-2 justify-center">
+              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 border border-white/15 bg-white/5 backdrop-blur-sm text-[10px] sm:text-xs font-medium tracking-wide text-white/70 uppercase">
                   Förderbar bis 80% über BAFA
                 </span>
@@ -78,7 +78,7 @@ export const HeroSection = ({
               </div>
               
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center lg:justify-start items-center lg:items-start">
                 <button onClick={onContactClick} className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm sm:text-base w-full sm:w-auto hover:-translate-y-0.5 rounded-none">
                   Projekt Starten
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -91,8 +91,8 @@ export const HeroSection = ({
           </div>
         </div>
 
-        {/* 3D Spline Scene as background */}
-        <div className="absolute inset-0 overflow-hidden z-10 opacity-60 lg:opacity-100">
+        {/* Right Side - 3D Spline Scene */}
+        <div className="absolute inset-0 lg:relative overflow-hidden z-10 lg:z-20">
           <LazySplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" threshold={0.25} rootMargin="50px" />
         </div>
 
