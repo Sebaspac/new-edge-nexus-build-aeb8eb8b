@@ -35,7 +35,7 @@ export const HeroSection = ({
         
         {/* Left Side - CTA Content */}
         <div className="relative flex items-center justify-center lg:items-center lg:justify-start z-20 pt-[72px] lg:pt-[80px]">
-          <div className="w-full px-6 sm:px-8 md:px-12 lg:pl-12 xl:pl-16 lg:pr-4 lg:max-w-none text-center lg:text-left">
+          <div className="w-full px-6 sm:px-8 md:px-12 lg:pl-[calc((100vw-1200px)/2+32px)] xl:pl-[calc((100vw-1200px)/2+32px)] lg:pr-4 lg:max-w-none text-center lg:text-left">
             <motion.div initial={{
               opacity: 0,
               y: 20
@@ -56,8 +56,8 @@ export const HeroSection = ({
               
               {/* Headline */}
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-black leading-[0.95] tracking-tight uppercase">
-                <span className="text-white">Dein Partner für </span><br />
-                <span className="text-white">Systeme,  </span><span className="text-[#7C3AED]">Brand, Digital</span>
+                <span className="text-white">Dein Partner</span><br />
+                <span className="text-white">für systeme, </span><span className="text-[#7C3AED]">Brand, Digital</span>
               </h1>
               
               {/* Subheadline */}
