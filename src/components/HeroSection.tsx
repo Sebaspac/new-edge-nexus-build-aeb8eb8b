@@ -67,12 +67,10 @@ export const HeroSection = ({
               </h2>
 
               {/* Trust Indicators */}
-              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+              <div className="flex flex-wrap gap-2 justify-center">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 border border-white/15 bg-white/5 backdrop-blur-sm text-[10px] sm:text-xs font-medium tracking-wide text-white/70 uppercase">
                   Förderbar bis 80% über BAFA
                 </span>
-                
-
                 
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 border border-white/15 bg-white/5 backdrop-blur-sm text-[10px] sm:text-xs font-medium tracking-wide text-white/70 uppercase">
                   Umsetzung in 4–10 Wochen
@@ -80,7 +78,7 @@ export const HeroSection = ({
               </div>
               
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center lg:justify-start items-center lg:items-start">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center items-center">
                 <button onClick={onContactClick} className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm sm:text-base w-full sm:w-auto hover:-translate-y-0.5 rounded-none">
                   Projekt Starten
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -93,8 +91,8 @@ export const HeroSection = ({
           </div>
         </div>
 
-        {/* Right Side - 3D Spline Scene */}
-        <div className="absolute inset-0 lg:relative overflow-hidden z-10 lg:z-20">
+        {/* 3D Spline Scene as background */}
+        <div className="absolute inset-0 overflow-hidden z-10 opacity-60 lg:opacity-100">
           <LazySplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" threshold={0.25} rootMargin="50px" />
         </div>
 
