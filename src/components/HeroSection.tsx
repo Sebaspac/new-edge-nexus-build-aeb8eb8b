@@ -77,12 +77,12 @@ export const HeroSection = ({
               </div>
               
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center lg:justify-start items-center lg:items-start">
-                <button onClick={onContactClick} className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm sm:text-base w-full sm:w-auto hover:-translate-y-0.5 rounded-none">
+              <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center lg:justify-start items-center lg:items-start">
+                <button onClick={onContactClick} className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm w-full sm:w-auto hover:-translate-y-0.5 rounded-none">
                   Projekt Starten
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <Link to="/about" className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-white font-semibold border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm sm:text-base w-full sm:w-auto rounded-none">
+                <Link to="/about" className="inline-flex items-center justify-center px-6 py-3 bg-transparent text-white font-semibold border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm w-full sm:w-auto rounded-none">
                   Über Uns
                 </Link>
               </div>
