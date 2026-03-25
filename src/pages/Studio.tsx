@@ -281,13 +281,88 @@ const Studio = () => {
                 }}>Effekt.</span>
               </h2>
             </motion.div>
-            <LabInfrastructureGrid colorScheme="indigo" items={[
-            { title: "Klarheit als operative Grundlage", description: "Marke, Kommunikation und Systeme folgen einer gemeinsamen Logik – statt isolierter Einzelmaßnahmen." },
-            { title: "Entscheidungsfähigkeit statt Abhängigkeit", description: "Ihr Unternehmen versteht seine eigene Systemlogik und kann strategische Entscheidungen eigenständig treffen." },
-            { title: "Konsistenz über alle Touchpoints", description: "Website, Kampagnen, CRM und Plattformen sprechen eine einheitliche Sprache – visuell und strukturell." },
-            { title: "Anschlussfähigkeit für Technologie", description: "Markenlogik und Kommunikationsarchitektur sind so aufgebaut, dass KI, Automatisierung und Systeme direkt andocken können." },
-            { title: "Sichtbarkeit unter eigener Kontrolle", description: "Ihre digitale Präsenz funktioniert nach Ihrer Systemlogik – unabhängig von einzelnen Plattformen oder externen Dienstleistern." }]
-            } />
+            {/* Bento Grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 grid-rows-[auto_auto_auto] gap-3 sm:gap-4">
+              {/* Card 1 - Large left (spans 2 rows) */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="col-span-2 row-span-2 bg-indigo-50 p-6 sm:p-8 lg:p-10 flex flex-col justify-between group hover:bg-indigo-100/80 transition-colors duration-500 relative overflow-hidden"
+              >
+                <div className="absolute top-4 right-4 text-[80px] sm:text-[120px] font-black leading-none select-none pointer-events-none" style={{ WebkitTextStroke: '2px rgba(99,102,241,0.2)', WebkitTextFillColor: 'transparent' }}>01</div>
+                <div className="relative z-10">
+                  <span className="inline-block px-3 py-1 text-[10px] font-bold tracking-widest uppercase text-indigo-700 bg-indigo-200/60 mb-4">Strategie</span>
+                  <h4 className="text-xl sm:text-2xl lg:text-3xl font-black text-black leading-tight">Klarheit als operative Grundlage</h4>
+                </div>
+                <p className="text-black/50 text-sm sm:text-base mt-4 leading-relaxed relative z-10">Marke, Kommunikation und Systeme folgen einer gemeinsamen Logik – statt isolierter Einzelmaßnahmen.</p>
+              </motion.div>
+
+              {/* Card 2 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="col-span-1 bg-violet-50 p-5 sm:p-6 group hover:bg-violet-100/80 transition-colors duration-500 relative overflow-hidden"
+              >
+                <div className="absolute -bottom-2 -right-2 text-[60px] font-black leading-none select-none pointer-events-none" style={{ WebkitTextStroke: '1.5px rgba(99,102,241,0.15)', WebkitTextFillColor: 'transparent' }}>02</div>
+                <span className="inline-block w-8 h-8 rounded-full bg-indigo-200/60 flex items-center justify-center mb-3">
+                  <span className="text-[10px] font-mono font-bold text-indigo-700">02</span>
+                </span>
+                <h4 className="text-sm sm:text-base font-black text-black leading-snug">Entscheidungsfähigkeit statt Abhängigkeit</h4>
+                <p className="text-black/45 text-xs sm:text-sm mt-2 leading-relaxed">Ihr Unternehmen versteht seine eigene Systemlogik und kann strategische Entscheidungen eigenständig treffen.</p>
+              </motion.div>
+
+              {/* Card 3 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="col-span-1 bg-purple-50 p-5 sm:p-6 group hover:bg-purple-100/80 transition-colors duration-500 relative overflow-hidden"
+              >
+                <div className="absolute -bottom-2 -right-2 text-[60px] font-black leading-none select-none pointer-events-none" style={{ WebkitTextStroke: '1.5px rgba(99,102,241,0.15)', WebkitTextFillColor: 'transparent' }}>03</div>
+                <span className="inline-block w-8 h-8 rounded-full bg-purple-200/60 flex items-center justify-center mb-3">
+                  <span className="text-[10px] font-mono font-bold text-purple-700">03</span>
+                </span>
+                <h4 className="text-sm sm:text-base font-black text-black leading-snug">Konsistenz über alle Touchpoints</h4>
+                <p className="text-black/45 text-xs sm:text-sm mt-2 leading-relaxed">Website, Kampagnen, CRM und Plattformen sprechen eine einheitliche Sprache – visuell und strukturell.</p>
+              </motion.div>
+
+              {/* Card 4 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="col-span-1 bg-indigo-50/80 p-5 sm:p-6 group hover:bg-indigo-100/60 transition-colors duration-500 relative overflow-hidden"
+              >
+                <div className="absolute -bottom-2 -right-2 text-[60px] font-black leading-none select-none pointer-events-none" style={{ WebkitTextStroke: '1.5px rgba(99,102,241,0.15)', WebkitTextFillColor: 'transparent' }}>04</div>
+                <span className="inline-block w-8 h-8 rounded-full bg-indigo-200/60 flex items-center justify-center mb-3">
+                  <span className="text-[10px] font-mono font-bold text-indigo-700">04</span>
+                </span>
+                <h4 className="text-sm sm:text-base font-black text-black leading-snug">Anschlussfähigkeit für Technologie</h4>
+                <p className="text-black/45 text-xs sm:text-sm mt-2 leading-relaxed">Markenlogik und Kommunikationsarchitektur sind so aufgebaut, dass KI und Automatisierung direkt andocken können.</p>
+              </motion.div>
+
+              {/* Card 5 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                className="col-span-1 bg-violet-50/80 p-5 sm:p-6 group hover:bg-violet-100/60 transition-colors duration-500 relative overflow-hidden"
+              >
+                <div className="absolute -bottom-2 -right-2 text-[60px] font-black leading-none select-none pointer-events-none" style={{ WebkitTextStroke: '1.5px rgba(99,102,241,0.15)', WebkitTextFillColor: 'transparent' }}>05</div>
+                <span className="inline-block w-8 h-8 rounded-full bg-violet-200/60 flex items-center justify-center mb-3">
+                  <span className="text-[10px] font-mono font-bold text-violet-700">05</span>
+                </span>
+                <h4 className="text-sm sm:text-base font-black text-black leading-snug">Sichtbarkeit unter eigener Kontrolle</h4>
+                <p className="text-black/45 text-xs sm:text-sm mt-2 leading-relaxed">Ihre digitale Präsenz funktioniert nach Ihrer Systemlogik – unabhängig von externen Dienstleistern.</p>
+              </motion.div>
+            </div>
           </div>
         </section>
 
