@@ -409,29 +409,88 @@ const Lab = () => {
                 </span>
               </h2>
             </motion.div>
-            <LabInfrastructureGrid
-              items={[
-              {
-                title: "Produktive Systeme statt Einzelautomationen",
-                description: "Anstatt Insellösungen, eine zusammenhängende operative Infrastruktur."
-              },
-              {
-                title: "Ownership statt Abhängigkeit",
-                description: "Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie."
-              },
-              {
-                title: "Technologie als steuerbares Unternehmenssystem",
-                description: "Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung."
-              },
-              {
-                title: "Skalierung ohne steigende Komplexität",
-                description: "Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen."
-              },
-              {
-                title: "Integration bestehender Systeme",
-                description: "Bestehende Systeme werden verbunden statt ersetzt. Daten laufen automatisch, Prozesse sind zentral steuerbar."
-              }]
-              } />
+            {/* Bento Grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 grid-rows-[auto_auto_auto] gap-3 sm:gap-4">
+              {/* Card 1 - Large left (spans 2 rows) */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="col-span-2 row-span-2 bg-amber-50 p-6 sm:p-8 lg:p-10 flex flex-col justify-between group hover:bg-amber-100/80 transition-colors duration-500 relative overflow-hidden"
+              >
+                <div className="absolute top-4 right-4 text-[80px] sm:text-[120px] font-black leading-none select-none pointer-events-none" style={{ WebkitTextStroke: '2px rgba(251,191,36,0.2)', WebkitTextFillColor: 'transparent' }}>01</div>
+                <div className="relative z-10">
+                  <span className="inline-block px-3 py-1 text-[10px] font-bold tracking-widest uppercase text-amber-700 bg-amber-200/60 mb-4">Infrastruktur</span>
+                  <h4 className="text-xl sm:text-2xl lg:text-3xl font-black text-black leading-tight">Produktive Systeme statt Einzelautomationen</h4>
+                </div>
+                <p className="text-black/50 text-sm sm:text-base mt-4 leading-relaxed relative z-10">Anstatt Insellösungen, eine zusammenhängende operative Infrastruktur.</p>
+              </motion.div>
+
+              {/* Card 2 - Top right */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="col-span-1 bg-yellow-50 p-5 sm:p-6 group hover:bg-yellow-100/80 transition-colors duration-500 relative overflow-hidden"
+              >
+                <div className="absolute -bottom-2 -right-2 text-[60px] font-black leading-none select-none pointer-events-none" style={{ WebkitTextStroke: '1.5px rgba(251,191,36,0.15)', WebkitTextFillColor: 'transparent' }}>02</div>
+                <span className="inline-block w-8 h-8 rounded-full bg-amber-200/60 flex items-center justify-center mb-3">
+                  <span className="text-[10px] font-mono font-bold text-amber-700">02</span>
+                </span>
+                <h4 className="text-sm sm:text-base font-black text-black leading-snug">Ownership statt Abhängigkeit</h4>
+                <p className="text-black/45 text-xs sm:text-sm mt-2 leading-relaxed">Ihr Unternehmen bleibt Eigentümer von Logik, Daten und Technologie.</p>
+              </motion.div>
+
+              {/* Card 3 - Top right next */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="col-span-1 bg-orange-50 p-5 sm:p-6 group hover:bg-orange-100/80 transition-colors duration-500 relative overflow-hidden"
+              >
+                <div className="absolute -bottom-2 -right-2 text-[60px] font-black leading-none select-none pointer-events-none" style={{ WebkitTextStroke: '1.5px rgba(251,191,36,0.15)', WebkitTextFillColor: 'transparent' }}>03</div>
+                <span className="inline-block w-8 h-8 rounded-full bg-orange-200/60 flex items-center justify-center mb-3">
+                  <span className="text-[10px] font-mono font-bold text-orange-700">03</span>
+                </span>
+                <h4 className="text-sm sm:text-base font-black text-black leading-snug">Technologie als steuerbares System</h4>
+                <p className="text-black/45 text-xs sm:text-sm mt-2 leading-relaxed">Ihre digitale Infrastruktur wird zu einem aktiven Bestandteil Ihrer Wertschöpfung.</p>
+              </motion.div>
+
+              {/* Card 4 - Bottom right wide */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="col-span-1 bg-amber-50/80 p-5 sm:p-6 group hover:bg-amber-100/60 transition-colors duration-500 relative overflow-hidden"
+              >
+                <div className="absolute -bottom-2 -right-2 text-[60px] font-black leading-none select-none pointer-events-none" style={{ WebkitTextStroke: '1.5px rgba(251,191,36,0.15)', WebkitTextFillColor: 'transparent' }}>04</div>
+                <span className="inline-block w-8 h-8 rounded-full bg-amber-200/60 flex items-center justify-center mb-3">
+                  <span className="text-[10px] font-mono font-bold text-amber-700">04</span>
+                </span>
+                <h4 className="text-sm sm:text-base font-black text-black leading-snug">Skalierung ohne steigende Komplexität</h4>
+                <p className="text-black/45 text-xs sm:text-sm mt-2 leading-relaxed">Wachstum führt nicht zu mehr Chaos, sondern zu stabileren Abläufen.</p>
+              </motion.div>
+
+              {/* Card 5 - Bottom right */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                className="col-span-1 bg-yellow-50/80 p-5 sm:p-6 group hover:bg-yellow-100/60 transition-colors duration-500 relative overflow-hidden"
+              >
+                <div className="absolute -bottom-2 -right-2 text-[60px] font-black leading-none select-none pointer-events-none" style={{ WebkitTextStroke: '1.5px rgba(251,191,36,0.15)', WebkitTextFillColor: 'transparent' }}>05</div>
+                <span className="inline-block w-8 h-8 rounded-full bg-yellow-200/60 flex items-center justify-center mb-3">
+                  <span className="text-[10px] font-mono font-bold text-yellow-700">05</span>
+                </span>
+                <h4 className="text-sm sm:text-base font-black text-black leading-snug">Integration bestehender Systeme</h4>
+                <p className="text-black/45 text-xs sm:text-sm mt-2 leading-relaxed">Bestehende Systeme werden verbunden statt ersetzt. Prozesse sind zentral steuerbar.</p>
+              </motion.div>
+            </div>
 
           </div>
         </section>
