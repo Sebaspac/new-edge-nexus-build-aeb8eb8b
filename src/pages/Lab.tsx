@@ -297,7 +297,7 @@ const Lab = () => {
               <div className="absolute top-8 right-8 lg:right-16 select-none pointer-events-none">
                 <span
                   className="text-[120px] sm:text-[180px] lg:text-[240px] font-black leading-none"
-                  style={{ WebkitTextStroke: "1px rgba(251,191,36,0.12)", WebkitTextFillColor: "transparent" }}>
+                  style={{ WebkitTextStroke: "1.5px rgba(251,191,36,0.25)", WebkitTextFillColor: "transparent" }}>
 
                   {service.number}
                 </span>
