@@ -23,9 +23,31 @@ const studioServices = [
   number: "01",
   title: "Klarheit & Markenidentität",
   h3Title: "Brand Identity & Brand System",
-...
+  problem: "Unklare Markenlogik und inkonsistente Kommunikation führen zu Reibung und nicht anschlussfähigen Systemen.",
+  solution: "Wir entwickeln eine Markenidentität, die als funktionale Grundlage für Websites, Software und KI‑Systeme dient.",
+  animation: <BrandStrategyAnimation />,
+  deliverables: [
+  { title: "Marke als Entscheidungsgrundlage", description: "Der Markenkern wird zu einem steuernden Element für Strategie, Kommunikation, Produktentwicklung und Systeme – nicht zu einer reinen Designbasis." },
+  { title: "Differenzierung mit operativer Wirkung", description: "Ihre Positionierung wirkt nicht nur nach außen, sondern strukturiert Interfaces, Inhalte, Prozesse und Automatisierungen." },
+  { title: "Konsistenz ohne Reibungsverluste", description: "Eine einheitliche visuelle und sprachliche Logik reduziert Abstimmungsaufwand, beschleunigt Entscheidungen und macht Systeme anschlussfähig." },
+  { title: "Intern weiterentwickelbares Brand System", description: "Ihre Marke wird zu einem lebendigen, intern gepflegten System – unabhängig von externen Dienstleistern." }]
+},
+{
+  number: "02",
+  title: "KI‑Enablement & Audit",
   h3Title: "KI Enablement & Audit",
-...
+  problem: "KI wird oft ohne klare Ziele, saubere Datenbasis oder Verständnis der Risiken eingesetzt.",
+  solution: "Wir analysieren Prozesse, Daten und Tools, identifizieren realistische Automatisierungs‑ und KI‑Chancen und bewerten Risiken und Governance.",
+  animation: <KiAuditAnimation />,
+  deliverables: [
+  { title: "Transparenz über die bestehende Realität", description: "Alle relevanten Prozesse, Tools und Datenstrukturen werden als zusammenhängendes System sichtbar." },
+  { title: "Sichere Automatisierungsentscheidungen", description: "Klare Go-/No-Go-Bewertungen zeigen, welche KI-Vorhaben echten Hebel haben – und verhindern Fehlinvestitionen." },
+  { title: "Priorisierte KI-Roadmap", description: "Die nächsten Schritte sind nach Wirkung, Risiko und Aufwand geordnet und bilden eine belastbare Umsetzungslogik." },
+  { title: "Entscheidungsfähigkeit im Management", description: "Technologie- und Investitionsentscheidungen basieren auf Struktur statt auf Hype." }]
+},
+{
+  number: "03",
+  title: "Kommunikations‑ & Sichtbarkeitsarchitektur",
   h3Title: "Kommunikations- & Sichtbarkeitsarchitektur",
   problem: "Digitale Kommunikation entsteht oft isoliert und ohne Verbindung zu Systemen, Vertrieb oder Automatisierung.",
   solution: "Wir definieren eine strukturelle Kommunikationslogik, die als Grundlage für Websites, Plattformen und Systeme dient.",
