@@ -22,7 +22,7 @@ const studioServices = [
 {
   number: "01",
   title: "Klarheit & Markenidentität",
-  h3Title: "Brand Identity & Brand System – ab €2.100",
+  h3Title: "Brand Identity & Brand System",
   problem: "Unklare Markenlogik und inkonsistente Kommunikation führen zu Reibung und nicht anschlussfähigen Systemen.",
   solution: "Wir entwickeln eine Markenidentität, die als funktionale Grundlage für Websites, Software und KI‑Systeme dient.",
   animation: <BrandStrategyAnimation />,
@@ -35,7 +35,7 @@ const studioServices = [
 {
   number: "02",
   title: "KI‑Enablement & Audit",
-  h3Title: "KI Enablement & Audit – ab €2.240",
+  h3Title: "KI Enablement & Audit",
   problem: "KI wird oft ohne klare Ziele, saubere Datenbasis oder Verständnis der Risiken eingesetzt.",
   solution: "Wir analysieren Prozesse, Daten und Tools, identifizieren realistische Automatisierungs‑ und KI‑Chancen und bewerten Risiken und Governance.",
   animation: <KiAuditAnimation />,
@@ -48,7 +48,7 @@ const studioServices = [
 {
   number: "03",
   title: "Kommunikations‑ & Sichtbarkeitsarchitektur",
-  h3Title: "Kommunikations- & Sichtbarkeitsarchitektur – ab €1.330",
+  h3Title: "Kommunikations- & Sichtbarkeitsarchitektur",
   problem: "Digitale Kommunikation entsteht oft isoliert und ohne Verbindung zu Systemen, Vertrieb oder Automatisierung.",
   solution: "Wir definieren eine strukturelle Kommunikationslogik, die als Grundlage für Websites, Plattformen und Systeme dient.",
   animation: <BrandIdentityAnimation />,
