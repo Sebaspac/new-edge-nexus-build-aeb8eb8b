@@ -217,7 +217,7 @@ const Lab = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mt-4 leading-relaxed">
-                Wir bauen. Wir deployen. Wir übergeben – mit Dokumentation und Übergabe-Session.
+                Wir bauen. Wir deployen. Wir übergeben – mit Dokumentation und laufende Betreuung.
               </motion.h2>
             </div>
           </motion.div>
