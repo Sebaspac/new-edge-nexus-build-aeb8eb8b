@@ -104,9 +104,15 @@ const KiAudit = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
+           </div>
+         </div>
+
+         {/* Scroll Indicator */}
+         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20">
+           <span className="text-[10px] font-medium tracking-[0.3em] text-primary-foreground/50 uppercase">Scroll</span>
+           <ChevronDown className="w-5 h-5 text-primary-foreground/50 animate-bounce" />
+         </div>
+       </section>
 
       {/* ═══════════════════════════════════════════════
                                              2 — PROBLEM / PAIN POINTS
