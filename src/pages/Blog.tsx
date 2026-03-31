@@ -76,6 +76,7 @@ const Blog = () => {
         {/* Featured + List Layout */}
         <section className="pt-24 lg:pt-32 px-4 lg:px-8 pb-16 lg:pb-24">
           <div className="max-w-7xl mx-auto">
+            <h1 className="text-3xl lg:text-5xl font-black text-black mb-10 lg:mb-14">Blog – KI & Automatisierung Insights</h1>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               
               {/* Featured Post - Left Side */}
