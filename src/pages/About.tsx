@@ -206,27 +206,31 @@ const About = () => {
         <MobileNavigation onContactClick={() => scrollToContact(false)} theme="dark" />
 
         {/* Hero Section */}
-        <section className="relative w-full">
-          <div className="w-full relative h-[75vh] lg:h-auto lg:aspect-video">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-background overflow-hidden">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="auto"
-                className="absolute inset-0 w-full h-full object-cover"
-              >
-                <source src="/assets/hero-video.mp4" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+        <section className="relative w-full h-[100dvh]">
+          <div className="absolute inset-0 overflow-hidden">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/assets/hero-video.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-              <div className="absolute bottom-0 left-0 p-6 pb-20 sm:p-12 lg:p-16 max-w-full sm:max-w-4xl">
-                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
-                  Über uns – Konsequenz statt Versprechen
-                </h1>
-              </div>
+            <div className="absolute bottom-0 left-0 p-6 pb-24 sm:p-12 sm:pb-28 lg:p-16 lg:pb-32 max-w-full sm:max-w-4xl">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
+                Über uns – Konsequenz statt Versprechen
+              </h1>
             </div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30">
+            <span className="text-xs font-medium tracking-widest text-white/50 uppercase">Scroll</span>
+            <ChevronDown className="w-5 h-5 text-white/50 animate-bounce" />
           </div>
         </section>
 
