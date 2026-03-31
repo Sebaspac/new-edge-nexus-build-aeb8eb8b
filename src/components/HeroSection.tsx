@@ -119,7 +119,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             <img 
               src={neBrandLogo}
               alt=""
-              className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 sm:w-20 lg:w-28 opacity-80 pointer-events-none z-20 hidden lg:block"
+              className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 sm:w-20 lg:w-28 opacity-80 pointer-events-none z-20 hidden lg:block"
               style={{ mixBlendMode: 'screen', filter: 'drop-shadow(0 0 20px rgba(124, 58, 237, 0.5))' }}
             />
           </div>
