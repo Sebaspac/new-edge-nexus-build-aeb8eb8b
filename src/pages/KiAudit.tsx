@@ -70,7 +70,7 @@ const KiAudit = () => {
                 custom={2}
                 className="text-sm sm:text-body-lg text-primary-foreground/60 mb-8">
                 
-                KI Enablement & Audit — strukturiert, konkret, BAFA-gefördert.
+                Jetzt kostenloser KI Audit sichern – strukturiert, punktuell, BAFA-gefördert.
               </motion.p>
 
               <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={3}>
