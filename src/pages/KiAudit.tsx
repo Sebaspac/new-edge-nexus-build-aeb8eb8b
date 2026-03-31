@@ -58,7 +58,7 @@ const KiAudit = () => {
                 initial="hidden"
                 animate="visible"
                 custom={1}
-                className="text-[1.75rem] leading-[1.1] sm:text-4xl md:text-5xl lg:text-display-xl mb-5 sm:mb-8">
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] mb-5 sm:mb-8">
                 
                 Schon mal an KI & Automationen gedacht?
               </motion.h1>

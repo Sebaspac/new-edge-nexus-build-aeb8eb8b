@@ -140,11 +140,11 @@ const Services = () => {
               }}
               className="text-center mb-6"
             >
-              <span className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black block mb-2">
+              <span className="text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black block mb-2">
                 UNSERE
               </span>
               <motion.span
-                className="italic bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black block"
+                className="italic bg-clip-text text-transparent text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black block"
                 style={{
                   background: "linear-gradient(135deg, #A78BFA, #818CF8, #60A5FA)",
                   WebkitBackgroundClip: "text",

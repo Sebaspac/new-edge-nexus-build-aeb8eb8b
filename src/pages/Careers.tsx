@@ -58,7 +58,7 @@ const Careers = () => {
               <div className="inline-block mb-2 sm:mb-4">
                 <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/80">Join Our Team</span>
               </div>
-              <h1 className="text-3xl sm:text-h1 lg:text-6xl xl:text-7xl font-black mb-2 sm:mb-4 lg:mb-6 leading-tight text-white">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black mb-2 sm:mb-4 lg:mb-6 leading-tight text-white">
                 Karriere bei New Edge
               </h1>
             </div>

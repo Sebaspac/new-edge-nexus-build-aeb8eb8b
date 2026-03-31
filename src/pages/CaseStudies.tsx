@@ -272,7 +272,7 @@ const CaseStudies = () => {
 
         {/* Category Rows - Alle auf einen Blick */}
         <div className="flex flex-col pt-20 sm:pt-24 md:pt-28">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black px-6 sm:px-8 lg:px-16 mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-black px-6 sm:px-8 lg:px-16 mb-8">
             Cases – Was wir gebaut haben
           </h1>
           {/* STUDIO - Cases links, Label rechts */}
