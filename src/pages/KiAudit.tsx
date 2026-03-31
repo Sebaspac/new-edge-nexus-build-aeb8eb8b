@@ -122,9 +122,9 @@ const KiAudit = () => {
 
           <div className="grid gap-4 md:grid-cols-3 md:gap-6">
             {[
-            { q: "ChatGPT läuft. Zapier auch. Aber eigentlich läuft alles noch manuell." },
-            { q: "Wir haben 2 KI-Projekte gestartet, keines läuft heute produktiv." },
-            { q: "Wir wissen nicht, ob wir überhaupt KI-ready sind." }].
+            { q: "Wir haben 20 Mitarbeiter die täglich dieselben Aufgaben manuell abarbeiten — das muss doch smarter gehen." },
+            { q: "Angebote schreiben, Daten pflegen, Mails beantworten — wir wissen, dass KI das kann, aber nicht wo wir anfangen sollen." },
+            { q: "Unsere operativen Kosten steigen, aber die Prozesse dahinter sind seit Jahren dieselben." }].
             map(({ q }, i) =>
             <motion.div
               key={i}
