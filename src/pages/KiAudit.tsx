@@ -48,7 +48,7 @@ const KiAudit = () => {
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-primary-foreground/20 bg-primary-foreground/5 backdrop-blur-sm mb-6">
                   <span className="w-1.5 h-1.5 bg-primary" />
                   <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-primary-foreground/70">
-                    KI Audit
+                    Kostenloser KI Audit
                   </span>
                 </div>
               </motion.div>
@@ -68,7 +68,8 @@ const KiAudit = () => {
                 initial="hidden"
                 animate="visible"
                 custom={2}
-                className="text-sm sm:text-body-lg text-primary-foreground/60 mb-8">
+                className="text-sm sm:text-body-lg text-primary-foreground/60 mb-8 whitespace-pre-line">
+                Erfahren Sie in 30 Minuten welche Prozesse sich in Ihrem Unternehemen automatisieren lassen. {"\n"}
                 Jetzt kostenlosen KI Audit sichern – strukturiert, punktuell, BAFA-gefördert.
               </motion.p>
 
