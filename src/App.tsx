@@ -9,6 +9,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { useEffect, lazy, Suspense } from "react";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import StructuredData from "@/components/StructuredData";
+import StickyAuditBubble from "@/components/StickyAuditBubble";
 
 // Eager load only critical pages for faster initial load
 import Index from "./pages/Index";
