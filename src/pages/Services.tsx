@@ -108,7 +108,7 @@ const Services = () => {
   return (
     <>
       <SEOHead
-        title="Unsere Leistungen | KI Agentur München | Prozessautomatisierung | New Edge"
+        title="KI-Leistungen München | Prozessautomatisierung & Marketing für KMU | New Edge"
         description="Die Reise mit New Edge - Ihrer KI Agentur aus München. Von Strategie über Umsetzung bis Innovation: Prozessautomatisierung und Marketing für KMU."
         canonical="/services"
       />
