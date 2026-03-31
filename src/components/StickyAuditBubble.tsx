@@ -53,7 +53,7 @@ const StickyAuditBubble = () => {
         animate={{ y: [0, -4, 0] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        Kostenloser Audit sichern
+        Kostenlose Analyse sichern
       </motion.div>
 
       {/* Bubble */}
