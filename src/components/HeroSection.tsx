@@ -5,7 +5,6 @@ import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LazySplineScene } from "./LazySplineScene";
 import CyberneticGridShader from "./ui/cybernetic-grid-shader";
-import neBrandLogo from "@/assets/ne-logo-brand.png";
 interface HeroSectionProps {
   onContactClick: () => void;
 }
@@ -115,12 +114,6 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               className="w-full h-full"
               threshold={0.25}
               rootMargin="50px"
-            />
-            <img 
-              src={neBrandLogo}
-              alt=""
-              className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 sm:w-20 lg:w-28 opacity-80 pointer-events-none z-20 hidden lg:block"
-              style={{ mixBlendMode: 'screen', filter: 'drop-shadow(0 0 20px rgba(124, 58, 237, 0.5))' }}
             />
           </div>
 
