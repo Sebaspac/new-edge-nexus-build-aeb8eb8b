@@ -118,7 +118,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30 hidden lg:flex">
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30">
             <span className="text-xs font-medium tracking-widest text-white/50 uppercase">Scroll</span>
             <ChevronDown className="w-5 h-5 text-white/50 animate-bounce" />
           </div>

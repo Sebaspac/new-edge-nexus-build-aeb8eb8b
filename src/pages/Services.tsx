@@ -180,6 +180,12 @@ const Services = () => {
               From Vision to Reality
             </motion.p>
           </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20">
+            <span className="text-[10px] font-medium tracking-[0.3em] text-white/50 uppercase">Scroll</span>
+            <ChevronDown className="w-5 h-5 text-white/50 animate-bounce" />
+          </div>
         </div>
       </section>
 
