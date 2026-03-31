@@ -33,6 +33,7 @@ const StickyAuditBubble = () => {
         const dy = Math.abs(info.point.y - dragStartPos.current.y);
         if (dx < 5 && dy < 5) {
           navigate("/ki-audit");
+          window.scrollTo(0, 0);
         }
         setTimeout(() => setIsDragging(false), 50);
       }}
