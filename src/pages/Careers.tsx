@@ -72,28 +72,24 @@ const Careers = () => {
         </section>
 
         {/* Combined: Über uns + Warum NEW EDGE */}
-        <section className="relative w-full py-16 sm:py-20 lg:py-28 bg-[#0a0a0a] text-white overflow-hidden">
-          {/* Background accent */}
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-violet-500/5 to-transparent pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-violet-500/5 rounded-full blur-3xl pointer-events-none" />
-          
+        <section className="relative w-full py-16 sm:py-20 lg:py-28 bg-white overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
             {/* Über uns */}
             <div className="max-w-3xl mb-16 sm:mb-20">
-              <span className="text-xs font-medium tracking-widest text-violet-400 uppercase mb-4 block">Über uns</span>
-              <p className="text-lg sm:text-xl lg:text-2xl text-white/80 leading-relaxed font-light">
+              <span className="text-xs font-medium tracking-widest text-violet-600 uppercase mb-4 block">Über uns</span>
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed font-light">
                 New Edge ist eine Creative-Tech-Agentur an der Schnittstelle von Kreation und Technologie. Wir verbinden Marke, Strategie und Technologie in zwei integrierten Units –{' '}
-                <span className="text-white font-medium">Studio</span> (Marke, Strategie & KI-Beratung) und{' '}
-                <span className="text-white font-medium">Lab</span> (Website, Automation & Ownership) – mit klaren Prozessen und messbaren Ergebnissen.
+                <span className="text-black font-medium">Studio</span> (Marke, Strategie & KI-Beratung) und{' '}
+                <span className="text-black font-medium">Lab</span> (Website, Automation & Ownership) – mit klaren Prozessen und messbaren Ergebnissen.
               </p>
             </div>
 
             {/* Warum NEW EDGE */}
             <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-10 sm:mb-14 text-white">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-10 sm:mb-14 text-black">
                 Warum NEW EDGE?
               </h2>
-              <div className="grid sm:grid-cols-3 gap-0 border border-white/10">
+              <div className="grid sm:grid-cols-3 gap-0 border border-gray-200">
                 {[{
                   number: "01",
                   title: "Innovation First",
@@ -107,12 +103,12 @@ const Careers = () => {
                   title: "Weiterentwicklung",
                   description: "Kontinuierliche Weiterbildung, Konferenz-Besuche und persönliches Entwicklungsbudget."
                 }].map((value, index) => (
-                  <div key={index} className={`relative p-6 sm:p-8 lg:p-10 group hover:bg-white/5 transition-colors duration-300 ${index < 2 ? 'sm:border-r border-b sm:border-b-0 border-white/10' : ''}`}>
-                    <span className="text-5xl sm:text-6xl font-black text-white/[0.03] absolute top-4 right-4 select-none">{value.number}</span>
+                  <div key={index} className={`relative p-6 sm:p-8 lg:p-10 group hover:bg-gray-50 transition-colors duration-300 ${index < 2 ? 'sm:border-r border-b sm:border-b-0 border-gray-200' : ''}`}>
+                    <span className="text-5xl sm:text-6xl font-black text-black/[0.03] absolute top-4 right-4 select-none">{value.number}</span>
                     <div className="relative z-10">
-                      <span className="text-xs font-medium tracking-widest text-violet-400 uppercase mb-3 block">{value.number}</span>
-                      <h3 className="text-lg sm:text-xl font-bold text-white mb-3">{value.title}</h3>
-                      <p className="text-sm sm:text-base text-white/60 leading-relaxed">{value.description}</p>
+                      <span className="text-xs font-medium tracking-widest text-violet-600 uppercase mb-3 block">{value.number}</span>
+                      <h3 className="text-lg sm:text-xl font-bold text-black mb-3">{value.title}</h3>
+                      <p className="text-sm sm:text-base text-gray-500 leading-relaxed">{value.description}</p>
                     </div>
                   </div>
                 ))}
