@@ -165,7 +165,7 @@ const Lab = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Hero Section */}
-        <section ref={heroRef} className="relative w-full h-[75vh] lg:h-auto lg:aspect-video overflow-hidden">
+        <section ref={heroRef} className="relative w-full h-[100dvh] overflow-hidden">
           <div className="absolute inset-0">
             <div
               className="absolute inset-0 overflow-hidden"
