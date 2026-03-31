@@ -48,7 +48,7 @@ const KiAudit = () => {
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-primary-foreground/20 bg-primary-foreground/5 backdrop-blur-sm mb-6">
                   <span className="w-1.5 h-1.5 bg-primary" />
                   <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-primary-foreground/70">
-                    KI Enablement & Audit
+                    KI Audit
                   </span>
                 </div>
               </motion.div>
