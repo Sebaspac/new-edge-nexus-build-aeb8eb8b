@@ -239,19 +239,19 @@ const KiAudit = () => {
             {
               step: "01",
               title: "30-Min Erstgespräch",
-              desc: "Kostenlos, unverbindlich — wir lernen euer Unternehmen kennen.",
+              desc: "Kostenlos & unverbindlich — wir analysieren gemeinsam eure Prozesse, Tools und KI-Potenziale.",
               icon: Clock
             },
             {
               step: "02",
-              title: "Audit-Durchführung",
-              desc: "1–2 Wochen intensive Analyse eurer Prozesse, Tools und Potenziale.",
+              title: "Sofort-Audit in 30 Min",
+              desc: "Direkt im Gespräch: Potenzialanalyse, priorisierte Roadmap und klare Entscheidungsgrundlagen — kein Warten.",
               icon: FileText
             },
             {
               step: "03",
-              title: "Ergebnis & Aktionsplan",
-              desc: "Präsentation mit konkreter Roadmap für die nächsten 90 Tage.",
+              title: "Implementierung & Klarheit",
+              desc: "Ihr wisst genau, wo KI euch weiterbringt — mit konkretem Aktionsplan für die nächsten 90 Tage.",
               icon: Presentation
             }].
             map((item, i) =>
