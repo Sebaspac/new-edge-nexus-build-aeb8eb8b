@@ -174,7 +174,7 @@ const Careers = () => {
                   <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-4 w-full pr-2 sm:pr-4">
                       <div className="text-left">
-                        <h3 className="text-base sm:text-xl lg:text-2xl font-bold text-black mb-1 sm:mb-2 leading-tight">DevOps Engineer (m/w/d)</h3>
+                        <h3 className="text-base sm:text-xl lg:text-2xl font-bold text-black mb-1 sm:mb-2 leading-tight">Vertrieb & Business Development (m/w/d)</h3>
                         <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-600">
                           <span>📍 Remote/München</span>
                           <span>💼 Vollzeit (unbefristet) oder Freelance</span>
@@ -186,92 +186,44 @@ const Careers = () => {
                   <AccordionContent className="text-gray-600 pt-3 sm:pt-4 space-y-3 sm:space-y-4 pb-4 sm:pb-6">
                     <div>
                       <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Mission</h4>
-                      <p className="text-xs sm:text-sm">Baue mit uns eine sichere, skalierbare Infrastruktur für unser Lab (Automations, Chatbots, Microservices) und unsere Media-Pipelines.</p>
+                      <p className="text-xs sm:text-sm">Gewinne mit uns neue Kunden im DACH-Raum und baue langfristige Geschäftsbeziehungen auf – an der Schnittstelle von Kreation, Technologie und KI.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Deine Aufgaben</h4>
                       <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
-                        <li>CI/CD & Automatisierung: Aufbau & Pflege moderner Pipelines (z. B. GitHub Actions/Jenkins/GitLab CI); Build-/Deploy-Prozesse; Code-Qualität (Reviews, statische Analysen)</li>
-                        <li>Cloud & IaC: Planung/Betrieb in AWS/GCP/Azure; Terraform/Pulumi; Kostenkontrolle, Secret-Management, DSGVO-konforme Setups</li>
-                        <li>Container & Orchestrierung: Docker, Kubernetes/OpenShift; Cluster-Betrieb; Observability (OpenTelemetry, Prometheus, Grafana)</li>
-                        <li>Data/ML & APIs: Setup von Data-/ML-Workflows; API-Gateways (REST/Webhooks); Deployment-Automatisierung & Hardening</li>
-                        <li>Incident-Handling & Support: Analyse & Priorisierung von Incidents; Enabling für Dev/Automation-Teams (Low/No-Code, n8n, Supabase, Postgres)</li>
+                        <li>Neukundenakquise & Outreach: Identifikation und Ansprache potenzieller Kunden (B2B) über LinkedIn, E-Mail, Telefon und Events</li>
+                        <li>Beratung & Bedarfsanalyse: Erstgespräche führen, Anforderungen verstehen, passgenaue Lösungen aus Studio, Media & Lab positionieren</li>
+                        <li>Angebotserstellung & Pitches: Erstellung von Angeboten, Präsentationen und Pitch-Decks in enger Abstimmung mit dem Team</li>
+                        <li>Pipeline-Management: Pflege und Steuerung der Sales-Pipeline im CRM; Forecasting & Reporting</li>
+                        <li>Partnerschaften & Netzwerk: Aufbau strategischer Partnerschaften; Teilnahme an Branchen-Events und Meetups</li>
                       </ul>
                     </div>
                     <div>
                       <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Dein Profil</h4>
                       <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
-                        <li>≥3 Jahre Erfahrung in DevOps/SRE; produktive Cloud-Umgebungen, CI/CD & Container-Orchestrierung</li>
-                        <li>Praxis mit Git/GitLab, Build-Tools (z. B. Jenkins, Maven, Sonar) und Bash/Python/Node</li>
-                        <li>Erfahrung mit Observability, Secret-Management, Kostenkontrolle & IT-Security; GitOps-Mindset</li>
-                        <li>Nice-to-have: Vektor-DBs, LLM-Ops, Supabase, n8n, Queues (SQS/Cloud Tasks), CDN/Edge</li>
+                        <li>≥2 Jahre Erfahrung im B2B-Vertrieb, idealerweise im Agentur-, SaaS- oder Tech-Umfeld</li>
+                        <li>Starke Kommunikations- und Verhandlungsfähigkeiten; sicheres Auftreten in Kundengesprächen</li>
+                        <li>Verständnis für digitale Produkte, Branding und/oder KI-Lösungen – kein tiefes Tech-Wissen nötig, aber Interesse an Innovation</li>
+                        <li>Eigeninitiative, Abschlussstärke und CRM-Erfahrung (z. B. HubSpot, Pipedrive)</li>
+                        <li>Sehr gutes Deutsch (C2) und gutes Englisch; DACH-Netzwerk von Vorteil</li>
                       </ul>
                     </div>
                     <div>
                       <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Wir bieten</h4>
                       <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
                         <li>Remote-first & Flex-Time: flexible Arbeitszeiten, remote/hybrid möglich</li>
-                        <li>Weiterbildung & Zertifizierungen: z. B. AWS, Kubernetes, Atlassian</li>
-                        <li>Stabilität & Greenfield: langfristige Projekte plus Greenfield-Setups im Lab</li>
-                        <li>Modernes Umfeld: agile Teams, flache Hierarchien, offener Austausch</li>
-                        <li>Vergütung: marktüblich & erfahrungsabhängig (Festanstellung) bzw. fairer Tagessatz (Freelance). Richtwert nennen wir im Gespräch</li>
+                        <li>Attraktive Vergütung: Fixum + leistungsbasierte Provision; faire Konditionen für Freelancer</li>
+                        <li>Modernes Umfeld: innovatives Produkt-Portfolio, kurze Entscheidungswege, direkter Draht zur Geschäftsführung</li>
+                        <li>Weiterbildung: Sales-Trainings, KI-Updates und Zugang zu modernen Tools & Stacks</li>
+                        <li>Wachstumspotenzial: Mitgestaltung der Vertriebsstrategie in einer wachsenden Agentur</li>
                       </ul>
                     </div>
-                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: DevOps Engineer" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-transparent backdrop-blur-md text-black border-2 border-black font-semibold rounded-none hover:bg-black hover:text-white transition-all duration-300 hover:-translate-y-0.5 mt-2 sm:mt-4">
+                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Vertrieb & Business Development" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-transparent backdrop-blur-md text-black border-2 border-black font-semibold rounded-none hover:bg-black hover:text-white transition-all duration-300 hover:-translate-y-0.5 mt-2 sm:mt-4">
                       Jetzt bewerben
                     </a>
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-3" className="bg-white rounded-none shadow-sm border border-gray-100 px-4 sm:px-8">
-                  <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-4 w-full pr-2 sm:pr-4">
-                      <div className="text-left">
-                        <h3 className="text-base sm:text-xl lg:text-2xl font-bold text-black mb-1 sm:mb-2 leading-tight">Freelancer-Pool Media & Lab (m/w/d)</h3>
-                        <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-600">
-                          <span>📍 Remote (DACH)</span>
-                          <span>💼 Projektbasiert/Freelance</span>
-                          <span>🚀 Start laufend</span>
-                        </div>
-                      </div>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 pt-3 sm:pt-4 space-y-3 sm:space-y-4 pb-4 sm:pb-6">
-                    <div>
-                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Gesuchte Profile</h4>
-                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
-                        <li>Media: Videograf:in/Editor, Motion/3D-Designer:in, Social-Content-Producer (Short-Form, Performance-Cuts), Audio/Podcast-Producer</li>
-                        <li>Lab: Automation Builder/Prompt Engineer, Conversational-AI/Chatbot-Developer, Low-/No-Code-Prototyping (z. B. n8n, Supabase, Postgres)</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Deine Aufgaben</h4>
-                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
-                        <li>Full-Funnel-Content: Short-Form-Video/Reels, Performance-Cuts, Audio-Bearbeitung, 3D/Motion-Grafiken – von Awareness bis Conversion</li>
-                        <li>Editing & Creation: Zuschneiden/Optimieren von Kurzvideos (typisch: 15 Reels ≤2 Min), präzises Storytelling</li>
-                        <li>Conversational AI & Automations: Konzeption/Umsetzung von Chatbots (Voice/Phone, WhatsApp, Web/App), Customer-Journeys & Beratung</li>
-                        <li>Low/No-Code-Prototyping: Automationen & Integrationen mit REST-APIs, Webhooks, SDKs; saubere Doku & Handover</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Dein Profil</h4>
-                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
-                        <li>Media-Talente: starkes Portfolio in Video/Audio/Motion; Erfahrung mit Short-Form-Edits; sehr gutes Deutsch für DACH-Content</li>
-                        <li>Lab-Talente: Erfahrung/Interesse in Conversational AI, Prompt Engineering oder Automations; sicher im Umgang mit REST/JSON/Webhooks; Plus: Erfahrung als PO/PM im Tech-Umfeld</li>
-                        <li>Soft Skills: Verlässlichkeit, klare Kommunikation, Termintreue, hohe Eigeninitiative; DACH-B2B-Erfahrung & DSGVO-Awareness von Vorteil</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Wir bieten</h4>
-                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
-                        <li>Pilotprojekte & Beta-Tools: Zugriff auf unser Lab & moderne KI-Stacks</li>
-                        <li>Wiederkehrende Projekte: langfristige Kooperationen je nach Kapazität</li>
-                        <li>Transparente Zusammenarbeit: klare Briefings, faire Vergütung pro Deliverable/Projekt, direkte Kommunikation</li>
-                        <li>Remote-first: flexible Zeiten; Meetings/Workshops online</li>
-                      </ul>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
 
                 <AccordionItem value="item-4" className="bg-white rounded-none shadow-sm border border-gray-100 px-4 sm:px-8">
                   <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
