@@ -270,9 +270,6 @@ const Careers = () => {
                         <li>Remote-first: flexible Zeiten; Meetings/Workshops online</li>
                       </ul>
                     </div>
-                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Freelancer-Pool Media & Lab" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-transparent backdrop-blur-md text-black border-2 border-black font-semibold rounded-none hover:bg-black hover:text-white transition-all duration-300 hover:-translate-y-0.5 mt-2 sm:mt-4">
-                      Jetzt bewerben
-                    </a>
                   </AccordionContent>
                 </AccordionItem>
 
