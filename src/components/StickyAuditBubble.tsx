@@ -38,7 +38,7 @@ const StickyAuditBubble = () => {
         setTimeout(() => setIsDragging(false), 50);
       }}
       onClick={() => {
-        if (!isDragging) navigate("/ki-audit");
+        if (!isDragging) { navigate("/ki-audit"); window.scrollTo(0, 0); }
       }}
       className="fixed bottom-8 right-8 z-[9999] cursor-grab active:cursor-grabbing flex flex-col items-center gap-2"
       style={{ touchAction: "none" }}
