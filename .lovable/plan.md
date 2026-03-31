@@ -1,39 +1,41 @@
 
-# Kontaktformular: Fehlende Felder debuggen und fixen
 
-## Analyse
+# Logo-Overlay auf dem Hero-Roboter
 
-Der Datenfluss ist: **Frontend -> Edge Function -> n8n Webhook**
+## Ziel
+Das hochgeladene NE-Logo als 2D-Overlay über dem 3D-Roboter in der Hero-Sektion platzieren, sodass es aussieht, als wäre der Roboter mit dem Logo gebrandet.
 
-Die Edge Function extrahiert und validiert alle Felder korrekt (name, email, position, firma, telefon, nachricht, source) und sendet sie als JSON an den n8n Webhook. Das Problem: Es gibt kein Logging der tatsaechlich gesendeten Daten, sodass wir nicht sehen koennen, ob alle Felder wirklich ankommen.
+## Umsetzung
 
-## Moegliche Ursachen
+### Schritt 1: Logo-Datei ins Projekt kopieren
+- `Logo_completo_letras_blancas.png` nach `src/assets/ne-logo-brand.png` kopieren
 
-1. **n8n Webhook-Konfiguration**: Der Webhook in n8n ist moeglicherweise so konfiguriert, dass er nur bestimmte Felder extrahiert
-2. **Datenformat**: n8n erwartet moeglicherweise ein anderes Format (z.B. verschachtelte Struktur)
+### Schritt 2: Logo-Overlay in HeroSection.tsx
+- Im rechten Grid-Bereich (wo `LazySplineScene` liegt) ein absolut positioniertes `<img>` einfügen
+- Positionierung: zentriert auf der "Brust"-Region des Roboters (~40% von oben, 50% horizontal)
+- Styling:
+  - `pointer-events-none` (3D-Interaktion nicht blockieren)
+  - `mix-blend-mode: screen` für nahtlose Integration
+  - Leichter `drop-shadow` mit Violet-Glow
+  - Größe: ~80-120px, responsive skaliert
+  - Leichte Transparenz (`opacity-80`) damit es sich natürlich einfügt
+- Auf Mobile ausblenden oder kleiner machen, da der Roboter dort im Hintergrund liegt
 
-## Plan
+### Technische Details
 
-### Schritt 1: Debug-Logging in der Edge Function hinzufuegen
+**Datei:** `src/components/HeroSection.tsx`
 
-In `supabase/functions/contact-form/index.ts` wird ein `console.log` mit dem vollstaendigen Payload eingefuegt, der an n8n gesendet wird. So koennen wir in den Edge Function Logs genau sehen, welche Daten weitergeleitet werden.
+Im rechten Grid-Container (um Zeile 109-115), innerhalb des `<div>` das `LazySplineScene` enthält, wird das Logo als absolut positioniertes Element ergänzt:
 
-Aenderung in Zeile 142 (vor dem Webhook-Call):
-```typescript
-console.log(`Processing contact form submission from ${clientIP}`);
-console.log(`Payload being sent to webhook: ${JSON.stringify(validation.data)}`);
+```tsx
+import neBrandLogo from "@/assets/ne-logo-brand.png";
+
+// Inside the right-side div:
+<img 
+  src={neBrandLogo}
+  alt=""
+  className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 lg:w-28 opacity-80 pointer-events-none z-20 drop-shadow-[0_0_20px_rgba(124,58,237,0.5)]"
+  style={{ mixBlendMode: 'screen' }}
+/>
 ```
 
-### Schritt 2: Test durchfuehren und Logs pruefen
-
-Nach dem Deployment wird ein Testformular abgeschickt, um die Logs zu ueberpruefen.
-
-### Schritt 3: Falls das Problem bei n8n liegt
-
-Wenn die Logs zeigen, dass alle Daten korrekt gesendet werden, liegt das Problem in der n8n Workflow-Konfiguration. In dem Fall muss der n8n Workflow "CRM UPDATES" (ID: 6FnYmim7NA9GOkTn) angepasst werden, damit alle Felder verarbeitet werden.
-
-## Technische Details
-
-- Datei: `supabase/functions/contact-form/index.ts`
-- Aenderung: Eine zusaetzliche `console.log`-Zeile nach Zeile 142
-- Edge Function Logs koennen hier eingesehen werden: Supabase Dashboard > Edge Functions > contact-form > Logs
