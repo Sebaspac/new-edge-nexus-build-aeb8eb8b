@@ -45,7 +45,7 @@ const StickyAuditBubble = () => {
     >
       {/* Label */}
       <motion.div
-        className="rounded-none bg-primary px-3 py-1.5 text-primary-foreground text-xs font-mono font-bold tracking-wide whitespace-nowrap shadow-glow select-none pointer-events-none"
+        className="rounded-none bg-foreground px-3 py-1.5 text-background text-xs font-mono font-bold tracking-wide whitespace-nowrap shadow-glow select-none pointer-events-none"
         animate={{ y: [0, -4, 0] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       >
