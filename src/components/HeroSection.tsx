@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LazySplineScene } from "./LazySplineScene";
 import CyberneticGridShader from "./ui/cybernetic-grid-shader";
+import neBrandLogo from "@/assets/ne-logo-brand.png";
 interface HeroSectionProps {
   onContactClick: () => void;
 }
