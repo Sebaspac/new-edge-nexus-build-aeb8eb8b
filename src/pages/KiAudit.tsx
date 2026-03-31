@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Clock, FileText, Presentation, Quote, Shield, Zap, X } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronDown, Clock, FileText, Presentation, Quote, Shield, Zap, X } from "lucide-react";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Footer } from "@/components/Footer";
 import { ContactFormModal } from "@/components/ContactFormModal";
