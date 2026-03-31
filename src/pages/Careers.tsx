@@ -277,6 +277,7 @@ const Careers = () => {
                   </AccordionContent>
                 </AccordionItem>
 
+                <AccordionItem value="item-4" className="bg-white rounded-none shadow-sm border border-gray-100 px-4 sm:px-8">
                   <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-4 w-full pr-2 sm:pr-4">
                       <div className="text-left">
