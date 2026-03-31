@@ -4,6 +4,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
 import { Footer } from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ChevronDown } from "lucide-react";
 import careersHeroImage from "@/assets/careers-hero.webp";
 const Careers = () => {
   const navigate = useNavigate();
