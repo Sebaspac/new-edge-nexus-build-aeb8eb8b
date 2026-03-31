@@ -27,6 +27,8 @@ const StickyAuditBubble = () => {
       onDragStart={(_, info) => {
         dragStartPos.current = { x: info.point.x, y: info.point.y };
         setIsDragging(true);
+        document.body.style.userSelect = "none";
+        document.body.style.webkitUserSelect = "none";
       }}
       onDragEnd={(_, info) => {
         const dx = Math.abs(info.point.x - dragStartPos.current.x);
@@ -35,13 +37,15 @@ const StickyAuditBubble = () => {
           navigate("/ki-audit");
           window.scrollTo(0, 0);
         }
+        document.body.style.userSelect = "";
+        document.body.style.webkitUserSelect = "";
         setTimeout(() => setIsDragging(false), 50);
       }}
       onClick={() => {
         if (!isDragging) { navigate("/ki-audit"); window.scrollTo(0, 0); }
       }}
       className="fixed bottom-8 right-8 z-[9999] cursor-grab active:cursor-grabbing flex flex-col items-center gap-2"
-      style={{ touchAction: "none" }}
+      style={{ touchAction: "none", userSelect: "none", WebkitUserSelect: "none" }}
     >
       {/* Label */}
       <motion.div
