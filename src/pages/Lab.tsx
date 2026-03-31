@@ -193,7 +193,7 @@ const Lab = () => {
 
           <motion.div
             style={{ y: heroY, opacity: heroOpacity }}
-            className="relative z-10 h-full flex flex-col justify-end pb-8 sm:pb-12 px-6 sm:px-12 lg:px-16">
+            className="relative z-10 h-full flex flex-col justify-end pb-20 sm:pb-28 px-6 sm:px-12 lg:px-16">
             <div className="max-w-4xl">
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
