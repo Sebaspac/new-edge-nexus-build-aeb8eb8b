@@ -124,7 +124,7 @@ const KiAudit = () => {
             {[
             { q: "Wir haben 20 Mitarbeiter die täglich dieselben Aufgaben manuell abarbeiten — das muss doch smarter gehen." },
             { q: "Erste Automationen laufen, aber eigentlich läuft alles noch manuell." },
-            { q: "Unser Team verbringt 60 % der Zeit mit Aufgaben, die eine KI bestimmt erledigen könnte — wir wissen es, aber haben keinen Plan." }].
+            { q: "Unser Team verbringt 40 % der Zeit mit Aufgaben, die eine KI bestimmt erledigen könnte — wir wissen es, aber haben keinen Plan." }].
             map(({ q }, i) =>
             <motion.div
               key={i}
