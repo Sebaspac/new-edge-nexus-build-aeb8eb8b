@@ -48,7 +48,7 @@ const KiAudit = () => {
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-primary-foreground/20 bg-primary-foreground/5 backdrop-blur-sm mb-6">
                   <span className="w-1.5 h-1.5 bg-primary" />
                   <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-primary-foreground/70">
-                    KI Enablement & Audit
+                    KI Audit
                   </span>
                 </div>
               </motion.div>
@@ -60,7 +60,7 @@ const KiAudit = () => {
                 custom={1}
                 className="text-[1.75rem] leading-[1.1] sm:text-4xl md:text-5xl lg:text-display-xl mb-5 sm:mb-8">
                 
-                Wir sagen euch auch, wenn KI bei euch gerade noch keinen Sinn macht.
+                Schon mal an KI & Automationen gedacht?
               </motion.h1>
 
               <motion.p
@@ -70,7 +70,7 @@ const KiAudit = () => {
                 custom={2}
                 className="text-sm sm:text-body-lg text-primary-foreground/60 mb-8">
                 
-                KI Enablement & Audit — strukturiert, konkret, BAFA-gefördert.
+                Jetzt kostenloser KI Audit sichern – strukturiert, punktuell, BAFA-gefördert.
               </motion.p>
 
               <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={3}>
