@@ -633,7 +633,7 @@ const About = () => {
               className="mb-8 sm:mb-12"
             >
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground text-left mb-3">
-                Für wen wir <span className="bg-gradient-primary bg-clip-text text-transparent">arbeiten</span>
+                Unsere Kunden & <span className="bg-gradient-primary bg-clip-text text-transparent">Partner</span>
               </h2>
               <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl text-left">
                 Unsere Kunden haben eines gemeinsam: Sie brauchen mehr Sichtbarkeit, haben manuelle Prozesse und kein internes Marketing- oder Automatisierungsteam.
