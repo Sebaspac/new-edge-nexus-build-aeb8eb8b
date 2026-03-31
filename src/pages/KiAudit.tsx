@@ -80,7 +80,7 @@ const KiAudit = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-7 py-3.5 bg-primary-foreground text-foreground font-semibold border-2 border-primary-foreground hover:bg-transparent hover:text-primary-foreground transition-all duration-300 group text-xs sm:text-sm uppercase tracking-wider rounded-none">
                   
-                  Audit anfragen
+                  Audit sichern
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </motion.div>
