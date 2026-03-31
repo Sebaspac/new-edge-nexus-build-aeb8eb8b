@@ -1,39 +1,69 @@
 
-# Kontaktformular: Fehlende Felder debuggen und fixen
 
-## Analyse
+# OnPage & Content SEO-Optimierung
 
-Der Datenfluss ist: **Frontend -> Edge Function -> n8n Webhook**
+## Zusammenfassung
 
-Die Edge Function extrahiert und validiert alle Felder korrekt (name, email, position, firma, telefon, nachricht, source) und sendet sie als JSON an den n8n Webhook. Das Problem: Es gibt kein Logging der tatsaechlich gesendeten Daten, sodass wir nicht sehen koennen, ob alle Felder wirklich ankommen.
+Drei Maßnahmen: Title-Tags auf transaktionale Keywords optimieren, H1-H3-Hierarchie korrigieren, und eine Grundlage für den Blog/Ratgeber-Ausbau schaffen.
 
-## Moegliche Ursachen
+---
 
-1. **n8n Webhook-Konfiguration**: Der Webhook in n8n ist moeglicherweise so konfiguriert, dass er nur bestimmte Felder extrahiert
-2. **Datenformat**: n8n erwartet moeglicherweise ein anderes Format (z.B. verschachtelte Struktur)
+## 1. Title-Tags auf Fokus-Keywords optimieren
 
-## Plan
+Aktuelle und neue Title-Tags:
 
-### Schritt 1: Debug-Logging in der Edge Function hinzufuegen
+| Seite | Aktuell | Neu |
+|-------|---------|-----|
+| **Home** | KI-Agentur München – Brand, Digital & AI \| New Edge Brand | KI-Agentur München \| Prozessautomatisierung & Markenaufbau für KMU \| New Edge |
+| **Studio** | Studio – Brand & Strategieberatung München \| New Edge Brand | Brand Strategie & KI-Audit München \| BAFA-förderfähig \| New Edge |
+| **Lab** | Lab – Webentwicklung, KI-Systeme & LLM Deployment München \| New Edge Brand | Webentwicklung & KI-Automatisierung München \| LLM Deployment für KMU \| New Edge |
+| **Services** | Unsere Leistungen \| KI Agentur München \| Prozessautomatisierung \| New Edge | KI-Leistungen München \| Prozessautomatisierung & Marketing für KMU \| New Edge |
+| **Cases** | Cases – Projekte & Ergebnisse \| New Edge Brand | KI-Projekte & Case Studies \| Prozessautomatisierung Ergebnisse \| New Edge |
+| **Blog** | Blog \| KI & Automatisierung Insights \| New Edge | KI-Blog \| Prozessautomatisierung, KI-Tools & Strategien für KMU \| New Edge |
+| **KI-Audit** | KI Enablement & Audit \| Prozessautomatisierung \| New Edge | KI-Audit für den Mittelstand \| BAFA-förderfähig ab €448 \| New Edge |
+| **Karriere** | Karriere – Arbeiten bei New Edge Brand München | Karriere bei New Edge München \| Jobs in KI, Brand & Digital |
+| **Über uns** | Über uns – Das Team hinter New Edge Brand München | Über New Edge \| KI-Agentur München für Marke, Digital & AI |
+| **Kontakt** | Kontakt \| New Edge – KI Agentur München | Kontakt \| KI-Beratung & Prozessautomatisierung München \| New Edge |
 
-In `supabase/functions/contact-form/index.ts` wird ein `console.log` mit dem vollstaendigen Payload eingefuegt, der an n8n gesendet wird. So koennen wir in den Edge Function Logs genau sehen, welche Daten weitergeleitet werden.
+**Dateien:** `src/pages/Index.tsx`, `Studio.tsx`, `Lab.tsx`, `Services.tsx`, `CaseStudies.tsx`, `Blog.tsx`, `KiAudit.tsx`, `Careers.tsx`, `About.tsx`, `Contact.tsx`
 
-Aenderung in Zeile 142 (vor dem Webhook-Call):
-```typescript
-console.log(`Processing contact form submission from ${clientIP}`);
-console.log(`Payload being sent to webhook: ${JSON.stringify(validation.data)}`);
-```
+---
 
-### Schritt 2: Test durchfuehren und Logs pruefen
+## 2. H1-H3 Hierarchie korrigieren
 
-Nach dem Deployment wird ein Testformular abgeschickt, um die Logs zu ueberpruefen.
+### Probleme gefunden:
+- **Blog (/blog)**: Keine H1 vorhanden — Überschrift fehlt komplett
+- **Home**: H1 in `HeroSection.tsx` sagt "Dein Partner für systeme, Brand & KI" — sollte Fokus-Keyword enthalten
+- **Services**: H1 sagt "THE NEW EDGE JOURNEY" — kein Keyword-Bezug
+- **UseCases**: H1 ist dynamisch pro Case Study — OK aber generische Seite hat keine eigene H1
 
-### Schritt 3: Falls das Problem bei n8n liegt
+### Fixes:
+| Seite | Änderung |
+|-------|----------|
+| **Home** (`HeroSection.tsx`) | H1-Text ändern zu "Die KI-Agentur für Brand, Digital & AI" (passend zur SEO-Strategie) |
+| **Services** (`Services.tsx`) | H1-Text ändern zu "Unsere Leistungen" oder "KI-Leistungen für Unternehmen" |
+| **Blog** (`Blog.tsx`) | H1 hinzufügen: "Blog – KI & Automatisierung Insights" als sichtbare Überschrift |
+| **Home** (`HeroSection.tsx`) | Subheadline H2 → bleibt H2 ✓ |
 
-Wenn die Logs zeigen, dass alle Daten korrekt gesendet werden, liegt das Problem in der n8n Workflow-Konfiguration. In dem Fall muss der n8n Workflow "CRM UPDATES" (ID: 6FnYmim7NA9GOkTn) angepasst werden, damit alle Felder verarbeitet werden.
+Alle anderen Seiten (Studio, Lab, About, Careers, Cases, KI-Audit, Case Studies) haben korrekte einzelne H1s.
+
+---
+
+## 3. Blog/Ratgeber-Grundlage verbessern
+
+Der Blog existiert bereits mit 4 Artikeln. Um die Awareness-Phase besser abzudecken:
+
+- **Meta-Descriptions der Blog-Artikel** mit transaktionalen Keywords anreichern (z.B. "KI-Implementierung Kosten", "Make.com vs Zapier")
+- **Blog-Übersichtsseite** bekommt eine keyword-optimierte H1 und Description
+
+Dies ist eine rein textliche Optimierung — keine neuen Artikel, nur bessere SEO-Signale auf bestehenden Inhalten.
+
+---
 
 ## Technische Details
 
-- Datei: `supabase/functions/contact-form/index.ts`
-- Aenderung: Eine zusaetzliche `console.log`-Zeile nach Zeile 142
-- Edge Function Logs koennen hier eingesehen werden: Supabase Dashboard > Edge Functions > contact-form > Logs
+- **Betroffene Dateien**: 12 Dateien (10 Pages + `HeroSection.tsx` + `SEOHead.tsx`)
+- **Art der Änderungen**: Reine Text/String-Änderungen in Title-Tags, H1-Texten und Meta-Descriptions
+- **Keine strukturellen Änderungen** am Code oder Layout
+- **SEOHead-Komponente** bleibt unverändert (funktioniert korrekt)
+
