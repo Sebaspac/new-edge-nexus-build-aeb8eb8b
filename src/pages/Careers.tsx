@@ -71,52 +71,52 @@ const Careers = () => {
           </div>
         </section>
 
-        {/* Intro Section */}
-        <section className="relative py-8 sm:py-12 lg:py-16 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="max-w-4xl">
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
-                Werden Sie Teil unseres innovativen Teams und gestalten Sie die Zukunft der 
-                KI-gestützten digitalen Transformation. Bei uns arbeiten Sie an spannenden 
-                Projekten mit modernsten Technologien.
+        {/* Combined: Über uns + Warum NEW EDGE */}
+        <section className="relative w-full py-16 sm:py-20 lg:py-28 bg-[#0a0a0a] text-white overflow-hidden">
+          {/* Background accent */}
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-violet-500/5 to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-violet-500/5 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+            {/* Über uns */}
+            <div className="max-w-3xl mb-16 sm:mb-20">
+              <span className="text-xs font-medium tracking-widest text-violet-400 uppercase mb-4 block">Über uns</span>
+              <p className="text-lg sm:text-xl lg:text-2xl text-white/80 leading-relaxed font-light">
+                New Edge ist eine Creative-Tech-Agentur an der Schnittstelle von Kreation und Technologie. Wir verbinden Marke, Strategie und Technologie in zwei integrierten Units –{' '}
+                <span className="text-white font-medium">Studio</span> (Marke, Strategie & KI-Beratung) und{' '}
+                <span className="text-white font-medium">Lab</span> (Website, Automation & Ownership) – mit klaren Prozessen und messbaren Ergebnissen.
               </p>
             </div>
-          </div>
-        </section>
 
-        {/* Values Section */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-8 sm:mb-12 text-center text-black">
-              Warum NEW EDGE?
-            </h2>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-              {[{
-              title: "Innovation First",
-              description: "Arbeiten Sie mit cutting-edge KI-Technologien und gestalten Sie die Zukunft aktiv mit."
-            }, {
-              title: "Work-Life Balance",
-              description: "Flexible Arbeitszeiten, Remote-Möglichkeiten und 30 Tage Urlaub für Ihre Erholung."
-            }, {
-              title: "Weiterentwicklung",
-              description: "Kontinuierliche Weiterbildung, Konferenz-Besuche und persönliches Entwicklungsbudget."
-            }].map((value, index) => <div key={index} className="bg-white p-5 sm:p-8 rounded-none shadow-sm border border-gray-100">
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-2 sm:mb-4">{value.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{value.description}</p>
-                </div>)}
-            </div>
-          </div>
-        </section>
-        {/* Über uns */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-20 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 text-black">
-                Über uns
+            {/* Warum NEW EDGE */}
+            <div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-10 sm:mb-14 text-white">
+                Warum NEW EDGE?
               </h2>
-              <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
-                New Edge ist eine Creative-Tech-Agentur an der Schnittstelle von Kreation und Technologie. Wir verbinden Marke, Strategie und Technologie in zwei integrierten Units – Studio (Marke, Strategie & KI-Beratung) und Lab (Website, Automation & Ownership) – mit klaren Prozessen und messbaren Ergebnissen.
-              </p>
+              <div className="grid sm:grid-cols-3 gap-0 border border-white/10">
+                {[{
+                  number: "01",
+                  title: "Innovation First",
+                  description: "Arbeite mit cutting-edge KI-Technologien und gestalte die Zukunft aktiv mit."
+                }, {
+                  number: "02",
+                  title: "Work-Life Balance",
+                  description: "Flexible Arbeitszeiten, Remote-Möglichkeiten und Raum für dein Leben neben der Arbeit."
+                }, {
+                  number: "03",
+                  title: "Weiterentwicklung",
+                  description: "Kontinuierliche Weiterbildung, Konferenz-Besuche und persönliches Entwicklungsbudget."
+                }].map((value, index) => (
+                  <div key={index} className={`relative p-6 sm:p-8 lg:p-10 group hover:bg-white/5 transition-colors duration-300 ${index < 2 ? 'sm:border-r border-b sm:border-b-0 border-white/10' : ''}`}>
+                    <span className="text-5xl sm:text-6xl font-black text-white/[0.03] absolute top-4 right-4 select-none">{value.number}</span>
+                    <div className="relative z-10">
+                      <span className="text-xs font-medium tracking-widest text-violet-400 uppercase mb-3 block">{value.number}</span>
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-3">{value.title}</h3>
+                      <p className="text-sm sm:text-base text-white/60 leading-relaxed">{value.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
