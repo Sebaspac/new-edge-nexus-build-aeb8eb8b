@@ -101,7 +101,7 @@ const About = () => {
   return (
     <>
       <SEOHead
-        title="Über uns – Das Team hinter New Edge Brand München"
+        title="Über New Edge | KI-Agentur München für Marke, Digital & AI"
         description="New Edge Brand ist eine KI-Agentur aus München. Wir arbeiten an der Schnittstelle von Marke, Digital und KI – für Unternehmen, die Verantwortung übernehmen wollen."
         canonical="/about"
       />

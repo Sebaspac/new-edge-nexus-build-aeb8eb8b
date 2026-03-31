@@ -96,7 +96,7 @@ const Studio = () => {
   return (
     <>
       <SEOHead
-        title="Studio – Brand & Strategieberatung München | New Edge Brand"
+        title="Brand Strategie & KI-Audit München | BAFA-förderfähig | New Edge"
         description="Brand Identity, KI-Audit und Kommunikationsarchitektur für Unternehmen in München. Förderfähig bis 80% über BAFA."
         canonical="/studio"
       />

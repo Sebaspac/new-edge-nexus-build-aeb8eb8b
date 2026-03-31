@@ -16,7 +16,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Kontakt | New Edge – KI Agentur München"
+        title="Kontakt | KI-Beratung & Prozessautomatisierung München | New Edge"
         description="Kontaktieren Sie New Edge für KI-Beratung, Prozessautomatisierung und Marketing-Automation in München."
         canonical="/kontakt"
       />

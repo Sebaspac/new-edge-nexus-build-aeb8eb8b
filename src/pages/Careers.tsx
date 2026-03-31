@@ -29,7 +29,7 @@ const Careers = () => {
   };
   return <>
       <SEOHead
-        title="Karriere – Arbeiten bei New Edge Brand München"
+        title="Karriere bei New Edge München | Jobs in KI, Brand & Digital"
         description="Du willst an der Schnittstelle von Marke, Digital und KI arbeiten? New Edge Brand sucht Gestalter, Entwickler und KI-Strategen für München."
         canonical="/careers"
       />

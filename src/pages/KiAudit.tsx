@@ -24,7 +24,7 @@ const KiAudit = () => {
   return (
     <>
       <SEOHead
-        title="KI Enablement & Audit | Prozessautomatisierung | New Edge"
+        title="KI-Audit für den Mittelstand | BAFA-förderfähig ab €448 | New Edge"
         description="Strukturierter KI Audit für den Mittelstand. IST-Analyse, Roadmap, BAFA-förderfähig. Ab €448 mit Förderung."
         canonical="/ki-audit"
       />

@@ -108,7 +108,7 @@ const Services = () => {
   return (
     <>
       <SEOHead
-        title="Unsere Leistungen | KI Agentur München | Prozessautomatisierung | New Edge"
+        title="KI-Leistungen München | Prozessautomatisierung & Marketing für KMU | New Edge"
         description="Die Reise mit New Edge - Ihrer KI Agentur aus München. Von Strategie über Umsetzung bis Innovation: Prozessautomatisierung und Marketing für KMU."
         canonical="/services"
       />
@@ -141,7 +141,7 @@ const Services = () => {
               className="text-center mb-6"
             >
               <span className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black block mb-2">
-                THE
+                UNSERE
               </span>
               <motion.span
                 className="italic bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black block"
@@ -157,7 +157,7 @@ const Services = () => {
                   },
                 })}
               >
-                JOURNEY
+                LEISTUNGEN
               </motion.span>
             </motion.h1>
 

@@ -65,20 +65,18 @@ const Blog = () => {
   const otherPosts = blogPostsData.slice(1);
   return <>
       <SEOHead
-        title="Blog | KI & Automatisierung Insights | New Edge"
-        description="Neueste Artikel, Insights und Trends zu KI, Prozessautomatisierung und Marketing von New Edge."
+        title="KI-Blog | Prozessautomatisierung, KI-Tools & Strategien für KMU | New Edge"
+        description="Ratgeber und Insights zu KI-Implementierung, Prozessautomatisierung, Make.com vs Zapier und KI-Tools für den Mittelstand."
         canonical="/blog"
       />
 
       <div className="min-h-screen bg-white">
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
-        {/* Hero Section */}
-        
-
         {/* Featured + List Layout */}
         <section className="pt-24 lg:pt-32 px-4 lg:px-8 pb-16 lg:pb-24">
           <div className="max-w-7xl mx-auto">
+            <h1 className="text-3xl lg:text-5xl font-black text-black mb-10 lg:mb-14">Blog – KI & Automatisierung Insights</h1>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               
               {/* Featured Post - Left Side */}
