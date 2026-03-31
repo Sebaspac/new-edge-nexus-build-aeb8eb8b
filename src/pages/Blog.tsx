@@ -73,9 +73,6 @@ const Blog = () => {
       <div className="min-h-screen bg-white">
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
-        {/* Hero Section */}
-        
-
         {/* Featured + List Layout */}
         <section className="pt-24 lg:pt-32 px-4 lg:px-8 pb-16 lg:pb-24">
           <div className="max-w-7xl mx-auto">

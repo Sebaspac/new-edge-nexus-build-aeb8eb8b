@@ -156,7 +156,7 @@ const Lab = () => {
   return (
     <>
       <SEOHead
-        title="Lab – Webentwicklung, KI-Systeme & LLM Deployment München | New Edge Brand"
+        title="Webentwicklung & KI-Automatisierung München | LLM Deployment für KMU | New Edge"
         description="Website-Entwicklung, KI-Automatisierung und LLM-Deployment für Unternehmen in München. Von €2.240 bis Enterprise. Förderbar über BAFA."
         canonical="/lab"
       />
