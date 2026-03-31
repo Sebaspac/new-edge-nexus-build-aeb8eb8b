@@ -224,8 +224,59 @@ const Careers = () => {
                   </AccordionContent>
                 </AccordionItem>
 
+                <AccordionItem value="item-3" className="bg-white rounded-none shadow-sm border border-gray-100 px-4 sm:px-8">
+                  <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-4 w-full pr-2 sm:pr-4">
+                      <div className="text-left">
+                        <h3 className="text-base sm:text-xl lg:text-2xl font-bold text-black mb-1 sm:mb-2 leading-tight">Praktikum Vertrieb & Business Development (m/w/d)</h3>
+                        <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-600">
+                          <span>📍 Remote/München</span>
+                          <span>💼 Vollzeit, 3–6 Monate</span>
+                          <span>🚀 Start jederzeit</span>
+                        </div>
+                      </div>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 pt-3 sm:pt-4 space-y-3 sm:space-y-4 pb-4 sm:pb-6">
+                    <div>
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Über uns</h4>
+                      <p className="text-xs sm:text-sm">New Edge ist eine Creative-Tech-Agentur mit zwei Units – Studio (Marke, Strategie & KI-Beratung) und Lab (Website, Automation & Ownership). Du unterstützt unser Vertriebsteam dabei, neue Kunden zu gewinnen und bestehende Beziehungen zu pflegen.</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Deine Aufgaben</h4>
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                        <li>Lead-Recherche & Prospecting: Identifikation potenzieller B2B-Kunden, Recherche zu Branchen, Unternehmen und Ansprechpartnern</li>
+                        <li>Outreach-Unterstützung: Vorbereitung von E-Mail-Sequenzen, LinkedIn-Nachrichten und Gesprächsleitfäden</li>
+                        <li>CRM-Pflege: Kontaktdaten anlegen, Pipeline-Updates, einfache Reportings und Auswertungen</li>
+                        <li>Pitch-Vorbereitung: Mitarbeit an Präsentationen, Angeboten und Case-Study-Aufbereitungen für Studio & Lab</li>
+                        <li>Markt- & Wettbewerbsanalysen: Trends im Agentur-/KI-Markt beobachten, Insights aufbereiten</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Dein Profil</h4>
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                        <li>Eingeschriebene:r Student:in in BWL, Marketing, Kommunikation o. ä.; idealerweise Pflichtpraktikum möglich</li>
+                        <li>Interesse an Vertrieb, Kundenbeziehungen und digitalen Geschäftsmodellen</li>
+                        <li>Kommunikationsstärke, Eigeninitiative und strukturierte Arbeitsweise</li>
+                        <li>Sehr gutes Deutsch (C1+) und gutes Englisch; erste CRM-Erfahrung (z. B. HubSpot) von Vorteil</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Wir bieten</h4>
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                        <li>Onboarding & Mentoring: strukturiertes Onboarding, persönliche Betreuung durch erfahrene Vertriebler:innen</li>
+                        <li>Praxisnahe Einblicke: echte Kundenprojekte, Sales-Calls und Pitch-Situationen von Anfang an</li>
+                        <li>Flexibilität: Remote-first, flexible Arbeitszeiten; Büro in München nach Absprache</li>
+                        <li>Team-Spirit: After-Work-Formate, Team-Events und offene Feedback-Kultur</li>
+                        <li>Karriereperspektive: bei guter Leistung Übernahme in eine Festanstellung möglich</li>
+                      </ul>
+                    </div>
+                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Praktikum Vertrieb & Business Development" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-transparent backdrop-blur-md text-black border-2 border-black font-semibold rounded-none hover:bg-black hover:text-white transition-all duration-300 hover:-translate-y-0.5 mt-2 sm:mt-4">
+                      Jetzt bewerben
+                    </a>
+                  </AccordionContent>
+                </AccordionItem>
 
-                <AccordionItem value="item-4" className="bg-white rounded-none shadow-sm border border-gray-100 px-4 sm:px-8">
                   <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-4 w-full pr-2 sm:pr-4">
                       <div className="text-left">
