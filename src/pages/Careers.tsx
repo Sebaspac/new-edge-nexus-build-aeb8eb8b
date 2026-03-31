@@ -107,6 +107,19 @@ const Careers = () => {
             </div>
           </div>
         </section>
+        {/* Über uns */}
+        <section className="relative w-full py-12 sm:py-16 lg:py-20 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 text-black">
+                Über uns
+              </h2>
+              <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
+                New Edge ist eine Creative-Tech-Agentur an der Schnittstelle von Kreation und Technologie. Wir verbinden Marke, Strategie und Technologie in zwei integrierten Units – Studio (Marke, Strategie & KI-Beratung) und Lab (Website, Automation & Ownership) – mit klaren Prozessen und messbaren Ergebnissen.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Open Positions */}
         <section className="relative w-full py-12 sm:py-16 lg:py-20 bg-gray-50">
@@ -131,10 +144,6 @@ const Careers = () => {
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-600 pt-3 sm:pt-4 space-y-3 sm:space-y-4 pb-4 sm:pb-6">
-                    <div>
-                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Über uns</h4>
-                      <p className="text-xs sm:text-sm">New Edge ist eine Creative-Tech-Agentur an der Schnittstelle von Kreation und Technologie. Wir verbinden Marke, Strategie und Technologie in zwei integrierten Units – Studio (Marke, Strategie & KI-Beratung) und Lab (Website, Automation & Ownership) – mit klaren Prozessen und messbaren Ergebnissen.</p>
-                    </div>
                     <div>
                       <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Deine Aufgaben</h4>
                       <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
@@ -238,10 +247,6 @@ const Careers = () => {
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-600 pt-3 sm:pt-4 space-y-3 sm:space-y-4 pb-4 sm:pb-6">
-                    <div>
-                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Über uns</h4>
-                      <p className="text-xs sm:text-sm">New Edge ist eine Creative-Tech-Agentur mit zwei Units – Studio (Marke, Strategie & KI-Beratung) und Lab (Website, Automation & Ownership). Du unterstützt unser Vertriebsteam dabei, neue Kunden zu gewinnen und bestehende Beziehungen zu pflegen.</p>
-                    </div>
                     <div>
                       <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Deine Aufgaben</h4>
                       <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
