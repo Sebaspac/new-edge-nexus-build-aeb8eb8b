@@ -4,6 +4,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
 import { Footer } from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ChevronDown } from "lucide-react";
 import careersHeroImage from "@/assets/careers-hero.webp";
 const Careers = () => {
   const navigate = useNavigate();
@@ -37,31 +38,35 @@ const Careers = () => {
         <MobileNavigation onContactClick={scrollToContact} theme="light" />
 
         {/* Hero Section */}
-        <section className="relative w-full">
-          <div className="w-full relative h-[60vh] sm:h-[75vh] lg:h-auto lg:aspect-video">
-            <div className="absolute inset-0 overflow-hidden">
-              <img 
-                src={careersHeroImage} 
-                alt="NEW EDGE Office - Werksviertel München" 
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0" style={{
+        <section className="relative w-full min-h-[100dvh]">
+          <div className="absolute inset-0 overflow-hidden">
+            <img 
+              src={careersHeroImage} 
+              alt="NEW EDGE Office - Werksviertel München" 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0" style={{
               background: 'linear-gradient(to top, rgba(17, 24, 39, 0.7), rgba(31, 41, 55, 0.3), transparent)'
             }} />
-              
-              {/* Copyright notice */}
-              <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4">
-                <span className="text-[10px] sm:text-xs text-white/50">© URKERN, Ivana Bilz</span>
+            
+            {/* Copyright notice */}
+            <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4">
+              <span className="text-[10px] sm:text-xs text-white/50">© URKERN, Ivana Bilz</span>
+            </div>
+            
+            <div className="absolute bottom-20 left-0 p-4 pb-6 sm:p-12 sm:pb-12 lg:p-16 max-w-full sm:max-w-4xl">
+              <div className="inline-block mb-2 sm:mb-4">
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/80">Join Our Team</span>
               </div>
-              
-              <div className="absolute bottom-0 left-0 p-4 pb-6 sm:p-12 sm:pb-12 lg:p-16 max-w-full sm:max-w-4xl">
-                <div className="inline-block mb-2 sm:mb-4">
-                  <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/80">Join Our Team</span>
-                </div>
-                <h1 className="text-3xl sm:text-h1 lg:text-6xl xl:text-7xl font-black mb-2 sm:mb-4 lg:mb-6 leading-tight text-white">
-                  Karriere bei New Edge
-                </h1>
-              </div>
+              <h1 className="text-3xl sm:text-h1 lg:text-6xl xl:text-7xl font-black mb-2 sm:mb-4 lg:mb-6 leading-tight text-white">
+                Karriere bei New Edge
+              </h1>
+            </div>
+
+            {/* Scroll Indicator */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30">
+              <span className="text-xs font-medium tracking-widest text-white/50 uppercase">Scroll</span>
+              <ChevronDown className="w-5 h-5 text-white/50 animate-bounce" />
             </div>
           </div>
         </section>
@@ -265,9 +270,6 @@ const Careers = () => {
                         <li>Remote-first: flexible Zeiten; Meetings/Workshops online</li>
                       </ul>
                     </div>
-                    <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Freelancer-Pool Media & Lab" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-transparent backdrop-blur-md text-black border-2 border-black font-semibold rounded-none hover:bg-black hover:text-white transition-all duration-300 hover:-translate-y-0.5 mt-2 sm:mt-4">
-                      Jetzt bewerben
-                    </a>
                   </AccordionContent>
                 </AccordionItem>
 
