@@ -65,8 +65,8 @@ const Blog = () => {
   const otherPosts = blogPostsData.slice(1);
   return <>
       <SEOHead
-        title="Blog | KI & Automatisierung Insights | New Edge"
-        description="Neueste Artikel, Insights und Trends zu KI, Prozessautomatisierung und Marketing von New Edge."
+        title="KI-Blog | Prozessautomatisierung, KI-Tools & Strategien für KMU | New Edge"
+        description="Ratgeber und Insights zu KI-Implementierung, Prozessautomatisierung, Make.com vs Zapier und KI-Tools für den Mittelstand."
         canonical="/blog"
       />
 
