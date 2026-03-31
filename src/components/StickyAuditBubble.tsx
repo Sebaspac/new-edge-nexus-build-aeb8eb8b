@@ -33,11 +33,12 @@ const StickyAuditBubble = () => {
         const dy = Math.abs(info.point.y - dragStartPos.current.y);
         if (dx < 5 && dy < 5) {
           navigate("/ki-audit");
+          window.scrollTo(0, 0);
         }
         setTimeout(() => setIsDragging(false), 50);
       }}
       onClick={() => {
-        if (!isDragging) navigate("/ki-audit");
+        if (!isDragging) { navigate("/ki-audit"); window.scrollTo(0, 0); }
       }}
       className="fixed bottom-8 right-8 z-[9999] cursor-grab active:cursor-grabbing flex flex-col items-center gap-2"
       style={{ touchAction: "none" }}
