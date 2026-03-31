@@ -140,7 +140,7 @@ const Services = () => {
               }}
               className="text-center mb-6"
             >
-              <span className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black block mb-2">
+              <span className="text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black block mb-2">
                 UNSERE
               </span>
               <motion.span
