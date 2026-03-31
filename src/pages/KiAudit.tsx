@@ -68,7 +68,8 @@ const KiAudit = () => {
                 initial="hidden"
                 animate="visible"
                 custom={2}
-                className="text-sm sm:text-body-lg text-primary-foreground/60 mb-8">
+                className="text-sm sm:text-body-lg text-primary-foreground/60 mb-8 whitespace-pre-line">
+                Erfahren Sie in 30 Minuten welche Prozesse sich in Ihrem Unternehemen automatisieren lassen. {"\n"}
                 Jetzt kostenlosen KI Audit sichern – strukturiert, punktuell, BAFA-gefördert.
               </motion.p>
 
