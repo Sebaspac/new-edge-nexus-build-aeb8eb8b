@@ -224,55 +224,6 @@ const Careers = () => {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-3" className="bg-white rounded-none shadow-sm border border-gray-100 px-4 sm:px-8">
-                  <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 sm:gap-4 w-full pr-2 sm:pr-4">
-                      <div className="text-left">
-                        <h3 className="text-base sm:text-xl lg:text-2xl font-bold text-black mb-1 sm:mb-2 leading-tight">Freelancer-Pool Media & Lab (m/w/d)</h3>
-                        <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-600">
-                          <span>📍 Remote (DACH)</span>
-                          <span>💼 Projektbasiert/Freelance</span>
-                          <span>🚀 Start laufend</span>
-                        </div>
-                      </div>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 pt-3 sm:pt-4 space-y-3 sm:space-y-4 pb-4 sm:pb-6">
-                    <div>
-                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Gesuchte Profile</h4>
-                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
-                        <li>Media: Videograf:in/Editor, Motion/3D-Designer:in, Social-Content-Producer (Short-Form, Performance-Cuts), Audio/Podcast-Producer</li>
-                        <li>Lab: Automation Builder/Prompt Engineer, Conversational-AI/Chatbot-Developer, Low-/No-Code-Prototyping (z. B. n8n, Supabase, Postgres)</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Deine Aufgaben</h4>
-                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
-                        <li>Full-Funnel-Content: Short-Form-Video/Reels, Performance-Cuts, Audio-Bearbeitung, 3D/Motion-Grafiken – von Awareness bis Conversion</li>
-                        <li>Editing & Creation: Zuschneiden/Optimieren von Kurzvideos (typisch: 15 Reels ≤2 Min), präzises Storytelling</li>
-                        <li>Conversational AI & Automations: Konzeption/Umsetzung von Chatbots (Voice/Phone, WhatsApp, Web/App), Customer-Journeys & Beratung</li>
-                        <li>Low/No-Code-Prototyping: Automationen & Integrationen mit REST-APIs, Webhooks, SDKs; saubere Doku & Handover</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Dein Profil</h4>
-                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
-                        <li>Media-Talente: starkes Portfolio in Video/Audio/Motion; Erfahrung mit Short-Form-Edits; sehr gutes Deutsch für DACH-Content</li>
-                        <li>Lab-Talente: Erfahrung/Interesse in Conversational AI, Prompt Engineering oder Automations; sicher im Umgang mit REST/JSON/Webhooks; Plus: Erfahrung als PO/PM im Tech-Umfeld</li>
-                        <li>Soft Skills: Verlässlichkeit, klare Kommunikation, Termintreue, hohe Eigeninitiative; DACH-B2B-Erfahrung & DSGVO-Awareness von Vorteil</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Wir bieten</h4>
-                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
-                        <li>Pilotprojekte & Beta-Tools: Zugriff auf unser Lab & moderne KI-Stacks</li>
-                        <li>Wiederkehrende Projekte: langfristige Kooperationen je nach Kapazität</li>
-                        <li>Transparente Zusammenarbeit: klare Briefings, faire Vergütung pro Deliverable/Projekt, direkte Kommunikation</li>
-                        <li>Remote-first: flexible Zeiten; Meetings/Workshops online</li>
-                      </ul>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
 
                 <AccordionItem value="item-4" className="bg-white rounded-none shadow-sm border border-gray-100 px-4 sm:px-8">
                   <AccordionTrigger className="hover:no-underline py-4 sm:py-5">
