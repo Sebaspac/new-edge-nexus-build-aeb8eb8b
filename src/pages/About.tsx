@@ -140,7 +140,7 @@ const About = () => {
 
         {/* 2️⃣ Mission & Vision – UPDATED */}
         <section id="mission" className="relative py-12 sm:py-16 md:section-padding bg-surface">
-          <div className="container-xl">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -60 }}
@@ -214,7 +214,7 @@ const About = () => {
 
         {/* 3️⃣ Unsere DNA – NEW Bento Grid */}
         <section className="relative py-12 sm:py-16 md:section-padding bg-background">
-          <div className="container-xl">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -383,7 +383,7 @@ const About = () => {
 
         {/* 4️⃣ Warum New Edge keine gewöhnliche Agentur ist – UPDATED TEXT */}
         <section className="relative py-12 sm:py-16 md:section-padding bg-surface">
-          <div className="container-xl">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -488,7 +488,7 @@ const About = () => {
 
         {/* 5️⃣ Unsere Geschichte – Timeline */}
         <section id="geschichte" className="relative py-12 sm:py-16 md:section-padding bg-background">
-          <div className="container-xl">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -624,7 +624,7 @@ const About = () => {
 
         {/* 6️⃣ Für wen wir arbeiten – NEW */}
         <section className="relative py-12 sm:py-16 md:section-padding bg-surface">
-          <div className="container-xl">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -705,7 +705,7 @@ const About = () => {
         <section className="relative py-12 sm:py-16 md:section-padding bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3" />
 
-          <div className="container-xl relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -786,7 +786,7 @@ const About = () => {
           id="kontakt"
           className="relative py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-white overflow-hidden"
         >
-          <div className="container-xl relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
