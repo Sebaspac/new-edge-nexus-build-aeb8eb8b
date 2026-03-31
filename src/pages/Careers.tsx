@@ -133,16 +133,16 @@ const Careers = () => {
                   <AccordionContent className="text-gray-600 pt-3 sm:pt-4 space-y-3 sm:space-y-4 pb-4 sm:pb-6">
                     <div>
                       <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Über uns</h4>
-                      <p className="text-xs sm:text-sm">New Edge ist eine Creative-Tech-Agentur an der Schnittstelle von Kreation und Technologie. Wir verbinden Branding, Medienproduktion und Automatisierung in einem integrierten Modell (Studio | Media | Lab) – mit klaren Prozessen und messbaren Ergebnissen.</p>
+                      <p className="text-xs sm:text-sm">New Edge ist eine Creative-Tech-Agentur an der Schnittstelle von Kreation und Technologie. Wir verbinden Marke, Strategie und Technologie in zwei integrierten Units – Studio (Marke, Strategie & KI-Beratung) und Lab (Website, Automation & Ownership) – mit klaren Prozessen und messbaren Ergebnissen.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-sm sm:text-base text-black mb-1.5 sm:mb-2">Deine Aufgaben</h4>
                       <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
                         <li>Content & SEO: Keyword-Recherche, Redaktionsplanung, Wettbewerbs-/Benchmark-Analysen, Auswertung von Statistiken & Echtzeit-Daten</li>
                         <li>Social Media: Planung & Vorbereitung von LinkedIn-/Instagram-Posts, Community-Management, einfache Reportings</li>
-                        <li>Projektmanagement: Mitarbeit in Kick-offs & Workshops, Koordination von Timings/Assets, Quality Assurance (QA)</li>
+                        <li>Projektmanagement: Mitarbeit in Kick-offs & Workshops, Koordination von Timings/Assets über Studio & Lab hinweg, Quality Assurance (QA)</li>
                         <li>KPI-Tracking: Monitoring von Traffic, Leads, Conversion-Rates & Social Engagement; Monats-Reports (z. B. Google Analytics/Looker)</li>
-                        <li>Webinare & Events: Unterstützung bei Planung/Begleitung, Landing-Pages & Follow-ups im CRM</li>
+                        <li>KI-Beratung & Audit-Support: Unterstützung bei KI-Readiness-Checks, Recherche zu Automatisierungs- und KI-Tools</li>
                       </ul>
                     </div>
                     <div>
@@ -150,7 +150,7 @@ const Careers = () => {
                       <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
                         <li>Eingeschriebene:r Student:in in Marketing, Medien, WiWi o. ä.; idealerweise Pflichtpraktikum möglich</li>
                         <li>Erste Erfahrung im Marketing/PM von Vorteil, aber kein Muss</li>
-                        <li>Ausgeprägtes Interesse an Marketing-Trends & KI-Tools; sehr gute MS-Office-Skills (v. a. PowerPoint); strukturierte & zuverlässige Arbeitsweise</li>
+                        <li>Ausgeprägtes Interesse an Branding, KI-Tools & digitaler Strategie; strukturierte & zuverlässige Arbeitsweise</li>
                         <li>Sehr gute Deutsch- und Englischkenntnisse; Teamspirit</li>
                       </ul>
                     </div>
@@ -161,7 +161,7 @@ const Careers = () => {
                         <li>Weiterbildung: interne Sessions, Sprachkurse, regelmäßige Coachings</li>
                         <li>Flexibilität: Remote-first, flexible Arbeitszeiten; Büro im Münchner Kreativviertel nach Absprache</li>
                         <li>Team-Spirit: After-Work-Formate & Team-Events; sportliche Angebote (z. B. Bike-Leasing) nach Verfügbarkeit</li>
-                        <li>Internationales Umfeld: Einblick in moderne KI-Marketing-Projekte über alle Units</li>
+                        <li>Einblick in beide Units: Mitarbeit an Projekten aus Studio (Marke & Strategie) und Lab (Web & Automation)</li>
                       </ul>
                     </div>
                     <a href="mailto:info@newedgebrand.com?subject=Bewerbung: Praktikum Marketing & Projektmanagement" className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-transparent backdrop-blur-md text-black border-2 border-black font-semibold rounded-none hover:bg-black hover:text-white transition-all duration-300 hover:-translate-y-0.5 mt-2 sm:mt-4">
