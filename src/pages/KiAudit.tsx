@@ -315,7 +315,7 @@ const KiAudit = () => {
               {[
               { value: "30%", label: "Zeitersparnis bei Routineaufgaben" },
               { value: "5×", label: "Schnellere Angebotserstellung" },
-              { value: "90", label: "Tage: Audit → produktive KI" }].
+              { value: "90", label: "Tage bis ganzheitliche Automatisierung " }].
               map((stat, i) =>
               <div key={i} className="text-center">
                   <p className="text-2xl sm:text-4xl md:text-display text-primary mb-1 sm:mb-2 font-bold">{stat.value}</p>
