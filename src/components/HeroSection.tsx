@@ -92,7 +92,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                     onClick={onContactClick}
                     className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm w-full sm:w-auto hover:-translate-y-0.5 rounded-none"
                   >
-                    Projekt Starten
+                    Kostenlose KI-Analyse
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                   <Link

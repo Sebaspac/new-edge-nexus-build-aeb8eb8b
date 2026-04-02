@@ -1,0 +1,82 @@
+import { motion } from "framer-motion";
+import { X, CheckCircle } from "lucide-react";
+
+const problems = [
+  "„Zu viele manuelle Schritte – wir verlieren Zeit und Überblick."",
+  "„Kein Dashboard, keine KPIs – wir treffen Entscheidungen im Blindflug."",
+  "„Abhängig von externen Tools und Agenturen – nichts gehört uns."",
+];
+
+const solutions = [
+  { metric: "30–60 %", label: "weniger operativer Aufwand durch Automatisierung" },
+  { metric: "4x ROI", label: "durch KI-gestützte Prozessoptimierung" },
+  { metric: "100 %", label: "Datenhoheit – eure Systeme, euer Eigentum" },
+];
+
+export const ProblemSolutionFraming = () => {
+  return (
+    <section className="section-py-md bg-card">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10 md:mb-14"
+        >
+          <span className="inline-block text-sm font-bold uppercase tracking-widest mb-3 text-primary">
+            Warum jetzt handeln
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground leading-tight">
+            Vom Problem zur Lösung
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Problems */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-4"
+          >
+            <h3 className="text-lg font-bold text-destructive mb-4 flex items-center gap-2">
+              <X className="w-5 h-5" /> Das kennen viele Unternehmen
+            </h3>
+            {problems.map((problem, i) => (
+              <div
+                key={i}
+                className="p-5 border border-destructive/20 bg-destructive/5 text-foreground text-sm leading-relaxed italic"
+              >
+                {problem}
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Solutions */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="space-y-4"
+          >
+            <h3 className="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+              <CheckCircle className="w-5 h-5" /> So lösen wir das
+            </h3>
+            {solutions.map((sol, i) => (
+              <div
+                key={i}
+                className="p-5 border border-primary/20 bg-primary/5 flex items-start gap-4"
+              >
+                <span className="text-2xl font-black text-primary whitespace-nowrap">{sol.metric}</span>
+                <span className="text-sm text-muted-foreground leading-relaxed pt-1">{sol.label}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
