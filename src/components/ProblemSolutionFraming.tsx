@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { X, CheckCircle } from "lucide-react";
 
 const problems = [
-  "„Zu viele manuelle Schritte – wir verlieren Zeit und Überblick."",
-  "„Kein Dashboard, keine KPIs – wir treffen Entscheidungen im Blindflug."",
-  "„Abhängig von externen Tools und Agenturen – nichts gehört uns."",
+  "\u201EZu viele manuelle Schritte \u2013 wir verlieren Zeit und \u00DCberblick.\u201C",
+  "\u201EKein Dashboard, keine KPIs \u2013 wir treffen Entscheidungen im Blindflug.\u201C",
+  "\u201EAbh\u00E4ngig von externen Tools und Agenturen \u2013 nichts geh\u00F6rt uns.\u201C",
 ];
 
 const solutions = [
