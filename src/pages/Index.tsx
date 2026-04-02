@@ -198,7 +198,11 @@ const Index = () => {
         {/* Hero Section */}
         <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
 
-        {/* Services Overview Section */}
+        {/* Target Audience Section */}
+        <TargetAudienceSection />
+
+        {/* Problem → Solution Framing */}
+        <ProblemSolutionFraming />
 
         {/* Methodology Grid Section */}
         <div className="bg-surface">
@@ -208,82 +212,33 @@ const Index = () => {
         {/* Logo Cloud */}
         <LogoCloud />
 
-        {/* Positioned for Impact Section */}
-        <div className="bg-surface">
-          <PositionedForImpactSection />
-        </div>
-
-        {/* Case Studies Grid */}
+        {/* Case Studies Grid - Social Proof early */}
         <div className="bg-surface">
           <CaseStudiesGrid />
         </div>
-
-        {/* Agency Edge Section */}
-        <div className="bg-surface">
-          <AgencyEdgeSection />
-        </div>
-
-        {/* Innovation Section */}
-
-        {/* Interactive Core - Digital Methodology Reactor */}
-        <div className="bg-surface">
-          <InteractiveCore />
-        </div>
-
-        {/* Unsere Kompetenzbereiche - Light Section */}
-
-        {/* Magic Text Section */}
-        <section className="relative section-py-lg overflow-hidden bg-primary-foreground">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-            <div className="max-w-5xl mx-auto text-center">
-              <motion.span initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.6
-            }} className="inline-block text-sm font-bold uppercase tracking-widest mb-4 md:mb-8 text-primary">
-                HIER ENTSTEHT MAGIE
-              </motion.span>
-
-              <MagicText text="Unsere kreativen Köpfe verschmelzen Expertise und Ideen zu beeindruckenden Ergebnissen." />
-
-              <motion.div initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.4,
-              duration: 0.6
-            }} className="mt-8 md:mt-12">
-                <Link to="/careers">
-                  <Button className="bg-foreground hover:bg-primary text-background px-6 md:px-8 py-4 md:py-6 text-base md:text-lg transition-all duration-300 hover:-translate-y-0.5">
-                    Verstärkung gesucht
-                    <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 -rotate-45" />
-                  </Button>
-                </Link>
-              </motion.div>
-            </div>
-          </div>
-        </section>
 
         {/* Testimonials Section */}
         <div className="bg-surface">
           <TestimonialsSection />
         </div>
 
+        {/* Positioned for Impact Section */}
+        <div className="bg-surface">
+          <PositionedForImpactSection />
+        </div>
+
+        {/* Interactive Core */}
+        <div className="bg-surface">
+          <InteractiveCore />
+        </div>
+
         {/* Blog Section */}
         <div className="bg-surface">
           <BlogGridHome />
         </div>
+
+        {/* Entry Point CTA */}
+        <EntryPointCTA onContactClick={() => setIsContactSheetOpen(true)} />
 
         {/* Contact Section */}
         <section id="contact-section" className="relative section-py-md overflow-hidden bg-primary-foreground">
