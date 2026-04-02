@@ -198,16 +198,16 @@ const Index = () => {
         {/* Hero Section */}
         <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
 
+        {/* Methodology Grid Section */}
+        <div className="bg-surface">
+          <MethodologyGrid />
+        </div>
+
         {/* Target Audience Section */}
         <TargetAudienceSection />
 
         {/* Problem → Solution Framing */}
         <ProblemSolutionFraming />
-
-        {/* Methodology Grid Section */}
-        <div className="bg-surface">
-          <MethodologyGrid />
-        </div>
 
         {/* Logo Cloud */}
         <LogoCloud />
