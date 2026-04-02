@@ -64,16 +64,15 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
 
                 {/* Headline */}
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight uppercase">
-                  <span className="text-white">Die KI-Agentur</span>
+                  <span className="text-white">Wir automatisieren</span>
                   <br />
-                  <span className="text-white">für </span>
-                  <span className="text-[#7C3AED]">Brand, Digital & AI</span>
+                  <span className="text-white">Prozesse </span>
+                  <span className="text-[#7C3AED]">mit KI.</span>
                 </h1>
 
                 {/* Subheadline */}
                 <h2 className="text-xs sm:text-sm md:text-base text-neutral-400 max-w-lg mx-auto lg:mx-0 font-normal">
-                  Wir bauen keine Slides. Wir bauen Systeme – für Marke, Web und künstliche Intelligenz für messbare
-                  Ergebnisse.
+                  Verwaltungsaufwand reduzieren. Abläufe beschleunigen. Systeme aufbauen, die euch gehören. Ergebnis: 30–60 % weniger operativer Aufwand.
                 </h2>
 
                 {/* Trust Indicators */}
@@ -93,7 +92,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                     onClick={onContactClick}
                     className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm w-full sm:w-auto hover:-translate-y-0.5 rounded-none"
                   >
-                    Projekt Starten
+                    Kostenlose KI-Analyse
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                   <Link
