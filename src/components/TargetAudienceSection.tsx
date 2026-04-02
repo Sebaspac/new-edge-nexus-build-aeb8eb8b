@@ -31,7 +31,7 @@ export const TargetAudienceSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10 md:mb-14"
+          className="text-left mb-10 md:mb-14"
         >
           <span className="inline-block text-sm font-bold uppercase tracking-widest mb-3 text-primary">
             Für wen wir das machen
