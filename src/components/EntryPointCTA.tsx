@@ -13,7 +13,7 @@ interface EntryPointCTAProps {
 
 export const EntryPointCTA = ({ onContactClick }: EntryPointCTAProps) => {
   return (
-    <section className="section-py-lg bg-foreground text-background">
+    <section className="section-py-lg bg-primary-foreground text-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -25,7 +25,7 @@ export const EntryPointCTA = ({ onContactClick }: EntryPointCTAProps) => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-4">
             In 30 Minuten wissen, wo KI euch am meisten bringt.
           </h2>
-          <p className="text-base md:text-lg text-background/70 mb-10">
+          <p className="text-base md:text-lg text-muted-foreground mb-10">
             Kostenlos. Unverbindlich. BAFA-förderfähig.
           </p>
         </motion.div>
@@ -40,14 +40,14 @@ export const EntryPointCTA = ({ onContactClick }: EntryPointCTAProps) => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="text-center"
             >
-              <div className="w-14 h-14 mx-auto mb-3 flex items-center justify-center border border-background/20 bg-background/10">
-                <step.icon className="w-6 h-6 text-background/80" />
+              <div className="w-14 h-14 mx-auto mb-3 flex items-center justify-center border border-border bg-background">
+                <step.icon className="w-6 h-6 text-foreground/80" />
               </div>
-              <span className="text-xs font-bold uppercase tracking-widest text-background/50 mb-1 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1 block">
                 Schritt {i + 1}
               </span>
               <h3 className="text-lg font-bold mb-1">{step.label}</h3>
-              <p className="text-sm text-background/60">{step.desc}</p>
+              <p className="text-sm text-muted-foreground">{step.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -61,7 +61,7 @@ export const EntryPointCTA = ({ onContactClick }: EntryPointCTAProps) => {
         >
           <button
             onClick={onContactClick}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-background text-foreground font-bold text-base hover:bg-background/90 transition-all duration-300 group hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent backdrop-blur-md border-2 border-black text-black font-bold text-base hover:bg-black hover:text-white transition-all duration-300 group hover:-translate-y-0.5"
           >
             Kostenlose KI-Analyse sichern
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
