@@ -232,13 +232,13 @@ const Index = () => {
           <InteractiveCore />
         </div>
 
+        {/* Entry Point CTA */}
+        <EntryPointCTA onContactClick={() => setIsContactSheetOpen(true)} />
+
         {/* Blog Section */}
         <div className="bg-surface">
           <BlogGridHome />
         </div>
-
-        {/* Entry Point CTA */}
-        <EntryPointCTA onContactClick={() => setIsContactSheetOpen(true)} />
 
         {/* Contact Section */}
         <section id="contact-section" className="relative section-py-md overflow-hidden bg-primary-foreground">
