@@ -217,10 +217,13 @@ const Index = () => {
           <PositionedForImpactSection />
         </div>
 
-        {/* Case Studies Grid - Social Proof early */}
+        {/* Case Studies Grid */}
         <div className="bg-surface">
           <CaseStudiesGrid />
         </div>
+
+        {/* Entry Point CTA */}
+        <EntryPointCTA onContactClick={() => setIsContactSheetOpen(true)} />
 
         {/* Testimonials Section */}
         <div className="bg-surface">
@@ -231,9 +234,6 @@ const Index = () => {
         <div className="bg-surface">
           <InteractiveCore />
         </div>
-
-        {/* Entry Point CTA */}
-        <EntryPointCTA onContactClick={() => setIsContactSheetOpen(true)} />
 
         {/* Blog Section */}
         <div className="bg-surface">
