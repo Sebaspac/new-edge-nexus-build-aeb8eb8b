@@ -203,16 +203,16 @@ const Index = () => {
           <MethodologyGrid />
         </div>
 
-        {/* Positioned for Impact Section */}
-        <div className="bg-surface">
-          <PositionedForImpactSection />
-        </div>
-
         {/* Target Audience Section */}
         <TargetAudienceSection />
 
         {/* Problem → Solution Framing */}
         <ProblemSolutionFraming />
+
+        {/* Positioned for Impact Section */}
+        <div className="bg-surface">
+          <PositionedForImpactSection />
+        </div>
 
         {/* Logo Cloud */}
         <LogoCloud />
