@@ -203,6 +203,11 @@ const Index = () => {
           <MethodologyGrid />
         </div>
 
+        {/* Positioned for Impact Section */}
+        <div className="bg-surface">
+          <PositionedForImpactSection />
+        </div>
+
         {/* Target Audience Section */}
         <TargetAudienceSection />
 
@@ -220,11 +225,6 @@ const Index = () => {
         {/* Testimonials Section */}
         <div className="bg-surface">
           <TestimonialsSection />
-        </div>
-
-        {/* Positioned for Impact Section */}
-        <div className="bg-surface">
-          <PositionedForImpactSection />
         </div>
 
         {/* Interactive Core */}
