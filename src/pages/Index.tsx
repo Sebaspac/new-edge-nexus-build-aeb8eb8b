@@ -203,6 +203,9 @@ const Index = () => {
           <MethodologyGrid />
         </div>
 
+        {/* Logo Cloud */}
+        <LogoCloud />
+
         {/* Target Audience Section */}
         <TargetAudienceSection />
 
@@ -213,9 +216,6 @@ const Index = () => {
         <div className="bg-surface">
           <PositionedForImpactSection />
         </div>
-
-        {/* Logo Cloud */}
-        <LogoCloud />
 
         {/* Case Studies Grid - Social Proof early */}
         <div className="bg-surface">
