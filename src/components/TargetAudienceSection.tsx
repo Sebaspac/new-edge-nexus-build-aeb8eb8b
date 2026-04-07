@@ -34,10 +34,10 @@ export const TargetAudienceSection = () => {
           className="text-left mb-10 md:mb-14"
         >
           <span className="inline-block text-sm font-bold uppercase tracking-widest mb-3 text-primary">
-            Für wen wir das machen
+            Unsere Zielgruppe
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground leading-tight">
-            KI-Automatisierung für den Mittelstand
+            Für wen wir das machen
           </h2>
         </motion.div>
 
