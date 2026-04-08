@@ -206,14 +206,13 @@ const Index = () => {
         {/* Logo Cloud */}
         <LogoCloud />
 
-
-        {/* Problem → Solution Framing */}
-        <ProblemSolutionFraming />
-
         {/* Positioned for Impact Section */}
         <div className="bg-surface">
           <PositionedForImpactSection />
         </div>
+
+        {/* Problem → Solution Framing */}
+        <ProblemSolutionFraming />
 
         {/* Case Studies Grid */}
         <div className="bg-surface">
