@@ -206,8 +206,6 @@ const Index = () => {
         {/* Logo Cloud */}
         <LogoCloud />
 
-        {/* Target Audience Section */}
-        <TargetAudienceSection />
 
         {/* Problem → Solution Framing */}
         <ProblemSolutionFraming />
