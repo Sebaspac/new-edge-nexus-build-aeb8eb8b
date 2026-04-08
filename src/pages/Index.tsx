@@ -222,14 +222,14 @@ const Index = () => {
         {/* Entry Point CTA */}
         <EntryPointCTA onContactClick={() => setIsContactSheetOpen(true)} />
 
-        {/* Testimonials Section */}
-        <div className="bg-surface">
-          <TestimonialsSection />
-        </div>
-
         {/* Interactive Core */}
         <div className="bg-surface">
           <InteractiveCore />
+        </div>
+
+        {/* Testimonials Section */}
+        <div className="bg-surface">
+          <TestimonialsSection />
         </div>
 
         {/* Blog Section */}
