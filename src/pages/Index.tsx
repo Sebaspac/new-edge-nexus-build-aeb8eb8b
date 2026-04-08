@@ -22,6 +22,7 @@ import { lazy, Suspense, useCallback, useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import newEdgeLogo from "@/assets/new-edge-logo.webp";
 import { ProblemSolutionSection } from "@/components/ProblemSolutionSection";
+import { PartnerBanner } from "@/components/PartnerBanner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -221,6 +222,9 @@ const Index = () => {
 
         {/* Entry Point CTA */}
         <EntryPointCTA onContactClick={() => setIsContactSheetOpen(true)} />
+
+        {/* Partner & Akkreditierungen Banner */}
+        <PartnerBanner />
 
         {/* Interactive Core */}
         <div className="bg-surface">
