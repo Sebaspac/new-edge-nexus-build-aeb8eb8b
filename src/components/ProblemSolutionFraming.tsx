@@ -4,7 +4,7 @@ import { X, CheckCircle } from "lucide-react";
 const problems = [
   "Die Marke wird nach Außen nicht klar. Intern fehlt die Richtung.",
   "Prozesse sind gewachsen, aber nicht dafür gemacht, automatisiert oder mit KI weitergedacht zu werden.",
-  "\u201EAbh\u00E4ngig von externen Tools und Agenturen \u2013 nichts geh\u00F6rt uns.\u201C",
+  "Alles läuft irgendwie – aber auf einem Flickwerk aus Tools, Logins und Abhängigkeiten.",
 ];
 
 const solutions = [
