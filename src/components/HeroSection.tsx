@@ -64,10 +64,10 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
 
                 {/* Headline */}
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight uppercase">
-                  <span className="text-white">Wir automatisieren</span>
+                  <span className="text-white">Der Mittelstand braucht mehr als nur Marketing.</span>
                   <br />
-                  <span className="text-white">eure </span>
-                  <span className="text-[#7C3AED]">Prozesse.</span>
+                  <span className="text-white">als nur </span>
+                  <span className="text-[#7C3AED]">Marketing.</span>
                 </h1>
 
                 {/* Subheadline */}
