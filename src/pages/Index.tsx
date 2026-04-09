@@ -18,6 +18,7 @@ import { MagicText } from "@/components/ui/magic-text";
 import { TargetAudienceSection } from "@/components/TargetAudienceSection";
 import { ProblemSolutionFraming } from "@/components/ProblemSolutionFraming";
 import { EntryPointCTA } from "@/components/EntryPointCTA";
+import { PartnerBanner } from "@/components/PartnerBanner";
 import { lazy, Suspense, useCallback, useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import newEdgeLogo from "@/assets/new-edge-logo.webp";
