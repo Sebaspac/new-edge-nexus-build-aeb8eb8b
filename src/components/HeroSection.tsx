@@ -72,8 +72,8 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
 
                 {/* Subheadline */}
                 <h2 className="text-xs sm:text-sm md:text-base text-neutral-400 max-w-lg mx-auto lg:mx-0 font-normal">
-                  New Edge verbindet Markenstrategie, Technologie und künstliche Intelligenz zu Systemen, die
-                  Unternehmen klarer positionieren, effizienter machen und zukunftsfähig aufstellen.
+                  KI wird erst dann wirksam, wenn Marke, Struktur und Systeme zusammenspielen. Genau deshalb denkt New
+                  Edge KI nicht als Tool, sondern als Folge einer klaren unternehmerischen Grundlage.
                 </h2>
 
                 {/* Trust Indicators */}
