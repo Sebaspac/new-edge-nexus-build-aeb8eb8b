@@ -1,10 +1,9 @@
-
-
 # Homepage Reposicionamiento – Modularer Umbau
 
 ## Analyse der aktuellen Schwächen (Diego's Feedback)
 
 Die aktuelle Homepage hat vier Kernprobleme:
+
 1. **Keine konkrete Wertversprechen** – "KI-Agentur für Brand, Digital & AI" sagt nicht WAS ihr löst
 2. **Kein klarer Entry Point** – nur generisches "Kontakt aufnehmen", kein niedrigschwelliges Angebot
 3. **Fehlende Glaubwürdigkeit** – keine messbaren Ergebnisse, keine konkreten Zahlen/Cases prominent
@@ -35,8 +34,9 @@ Die aktuelle Homepage hat vier Kernprobleme:
 **Problem:** Headline ist generisch, Subheadline zu vage, kein messbares Ergebnis.
 
 **Änderungen:**
+
 - Headline: **"Wir automatisieren repetitive Prozesse für den Mittelstand – mit KI."**
-- Subheadline: **"Verwaltungsaufwand reduzieren. Abläufe beschleunigen. Systeme aufbauen, die euch gehören. Ergebnis: 30–60 % weniger operativer Aufwand."**
+- Subheadline: **"Digitale Lösungen für wirkungsstarke Kommunikation. Ergebnis: 30–60 % weniger operativer Aufwand."**
 - Primärer CTA: **"Kostenlose KI-Analyse sichern"** (→ Calendly/KI-Audit) statt generischem "Projekt starten"
 - Sekundärer CTA bleibt "Über Uns"
 - Trust-Badges bleiben (BAFA, 4–10 Wochen)
@@ -46,6 +46,7 @@ Die aktuelle Homepage hat vier Kernprobleme:
 **Problem:** Zielgruppe wird nirgends klar kommuniziert.
 
 **Neues Modul** – Kompakte Sektion mit 3 Zielgruppen-Karten:
+
 - **Handwerk & Dienstleister** (5–50 MA) – "Sichtbarkeit und Prozessklarheit"
 - **Gesundheitswesen & Kliniken** – "Patientenmanagement, Reporting, Admin automatisieren"
 - **Hausverwaltungen & Immobilien** – "KI-Integration für operative Effizienz"
@@ -57,6 +58,7 @@ Jede Karte: Icon + Zielgruppe + 1 Satz konkreter Nutzen.
 **Problem:** Kein klares Problem/Lösung-Framing.
 
 **Neues Modul** – Zwei-Spalten-Layout:
+
 - Links: **3 Pain Points** als kurze Zitate ("Zu viele manuelle Schritte", "Kein Überblick über KPIs", "Abhängig von externen Tools")
 - Rechts: **Eure Lösung** in 3 Bullet Points mit messbaren Outcomes (30% Zeitersparnis, 4x ROI, 100% Datenhoheit)
 
@@ -83,6 +85,7 @@ Direkt nach Cases → verstärkt Glaubwürdigkeit.
 **Problem:** Kein niedrigschwelliger Einstieg.
 
 **Neues Modul** – Prominente Sektion mit:
+
 - Headline: "In 30 Minuten wissen, wo KI euch am meisten bringt."
 - 3 Schritte: Analyse → Roadmap → Umsetzung
 - Großer CTA-Button → Calendly-Link (kostenlose KI-Analyse)
@@ -122,4 +125,3 @@ Direkt nach Cases → verstärkt Glaubwürdigkeit.
 - `HeroSection.tsx` – Headline, Subheadline, primären CTA-Text ändern
 - `Index.tsx` – Modul-Reihenfolge umbauen, MagicText-Sektion entfernen
 - Bestehende Komponenten bleiben unverändert, werden nur neu positioniert
-
