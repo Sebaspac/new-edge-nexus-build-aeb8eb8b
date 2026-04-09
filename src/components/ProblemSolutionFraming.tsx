@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { X, CheckCircle } from "lucide-react";
 
 const problems = [
-  " "Die Marke wird nach Außen nicht klar. Intern fehlt die Richtung." ",
+  "Die Marke wird nach Außen nicht klar. Intern fehlt die Richtung.",
   "\u201EKein Dashboard, keine KPIs \u2013 wir treffen Entscheidungen im Blindflug.\u201C",
   "\u201EAbh\u00E4ngig von externen Tools und Agenturen \u2013 nichts geh\u00F6rt uns.\u201C",
 ];
