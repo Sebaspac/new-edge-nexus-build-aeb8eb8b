@@ -58,7 +58,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 border border-white/20 bg-white/5 backdrop-blur-sm">
                   <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-violet-500" aria-hidden="true"></span>
                   <span className="text-[10px] sm:text-xs font-medium tracking-widest text-white/80 uppercase">
-                    KI-Agentur aus München
+                    Von der Marke zum System
                   </span>
                 </div>
 
