@@ -223,6 +223,9 @@ const Index = () => {
         {/* Entry Point CTA */}
         <EntryPointCTA onContactClick={() => setIsContactSheetOpen(true)} />
 
+        {/* Partner Banner */}
+        <PartnerBanner />
+
         {/* Interactive Core */}
         <div className="bg-surface">
           <InteractiveCore />
