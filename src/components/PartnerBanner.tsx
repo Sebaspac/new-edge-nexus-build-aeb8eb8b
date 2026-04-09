@@ -10,7 +10,7 @@ const partners = [
 
 export const PartnerBanner = () => {
   return (
-    <section className="py-10 md:py-14 bg-background border-t border-border">
+    <section className="py-10 md:py-14 bg-background border-t border-border" data-section="partner-banner">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center">
           {partners.map((partner) => (
