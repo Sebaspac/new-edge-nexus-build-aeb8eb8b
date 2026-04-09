@@ -25,10 +25,10 @@ export const ProblemSolutionFraming = () => {
           className="text-left mb-10 md:mb-14"
         >
           <span className="inline-block text-sm font-bold uppercase tracking-widest mb-3 text-primary">
-            Warum jetzt handeln
+            Warum viele KI-Initiativen scheitern
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground leading-tight">
-            Vom Problem zur Lösung
+            KI scheitert selten an den Tools.
           </h2>
         </motion.div>
 
@@ -42,7 +42,7 @@ export const ProblemSolutionFraming = () => {
             className="space-y-4"
           >
             <h3 className="text-lg font-bold text-destructive mb-4 flex items-center gap-2">
-              <X className="w-5 h-5" /> Das kennen viele Unternehmen
+              <X className="w-5 h-5" /> Das bremst Unternehmen aus
             </h3>
             {problems.map((problem, i) => (
               <div
@@ -63,13 +63,10 @@ export const ProblemSolutionFraming = () => {
             className="space-y-4"
           >
             <h3 className="text-lg font-bold text-primary mb-4 flex items-center gap-2">
-              <CheckCircle className="w-5 h-5" /> So lösen wir das
+              <CheckCircle className="w-5 h-5" /> So schaffen wir die Grundlage
             </h3>
             {solutions.map((sol, i) => (
-              <div
-                key={i}
-                className="p-5 border border-primary/20 bg-primary/5 flex items-start gap-4"
-              >
+              <div key={i} className="p-5 border border-primary/20 bg-primary/5 flex items-start gap-4">
                 <span className="text-2xl font-black text-primary whitespace-nowrap">{sol.metric}</span>
                 <span className="text-sm text-muted-foreground leading-relaxed pt-1">{sol.label}</span>
               </div>
