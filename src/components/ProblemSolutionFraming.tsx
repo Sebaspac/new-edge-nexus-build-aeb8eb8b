@@ -28,7 +28,7 @@ export const ProblemSolutionFraming = () => {
             Warum viele KI-Initiativen scheitern
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground leading-tight">
-            KI scheitert selten an den Tools.
+            Zu viele Tools. Zu wenig System.
           </h2>
         </motion.div>
 
