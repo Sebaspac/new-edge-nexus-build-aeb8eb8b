@@ -3,14 +3,21 @@ import { X, CheckCircle } from "lucide-react";
 
 const problems = [
   "Die Marke wird nach Außen nicht klar. Intern fehlt die Richtung.",
-  "\u201EKein Dashboard, keine KPIs \u2013 wir treffen Entscheidungen im Blindflug.\u201C",
+  "Prozesse sind gewachsen, aber nicht dafür gemacht, automatisiert oder mit KI weitergedacht zu werden.",
   "\u201EAbh\u00E4ngig von externen Tools und Agenturen \u2013 nichts geh\u00F6rt uns.\u201C",
 ];
 
 const solutions = [
-  { metric: "30–60 %", label: "weniger operativer Aufwand durch Automatisierung" },
-  { metric: "4x ROI", label: "durch KI-gestützte Prozessoptimierung" },
-  { metric: "100 %", label: "Datenhoheit – eure Systeme, euer Eigentum" },
+  "Die Marke wird nach Außen nicht klar. Intern fehlt die Richtung.",
+  { metric: "Klare Marke", label: "Positionierung, Auftritt und Kommunikation greifen sauber ineinander." },
+  {
+    metric: "Digitale Struktur",
+    label: "Websites und Touchpoints werden zur funktionierenden Grundlage für Wachstum und Systeme.",
+  },
+  {
+    metric: "Wirksame Systeme",
+    label: "Automatisierung und KI werden dort eingesetzt, wo sie im Unternehmen wirklich entlasten und skalieren.",
+  },
 ];
 
 export const ProblemSolutionFraming = () => {
