@@ -66,13 +66,14 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight uppercase">
                   <span className="text-white">Wir automatisieren</span>
                   <br />
-                  <span className="text-white">Prozesse </span>
-                  <span className="text-[#7C3AED]">mit KI.</span>
+                  <span className="text-white">eure </span>
+                  <span className="text-[#7C3AED]">Prozesse.</span>
                 </h1>
 
                 {/* Subheadline */}
                 <h2 className="text-xs sm:text-sm md:text-base text-neutral-400 max-w-lg mx-auto lg:mx-0 font-normal">
-                  Verwaltungsaufwand reduzieren. Abläufe beschleunigen. Systeme aufbauen, die euch gehören. Ergebnis: 30–60 % weniger operativer Aufwand.
+                  Verwaltungsaufwand reduzieren. Abläufe beschleunigen. Systeme aufbauen, die euch gehören. Ergebnis:
+                  30–60 % weniger operativer Aufwand.
                 </h2>
 
                 {/* Trust Indicators */}
