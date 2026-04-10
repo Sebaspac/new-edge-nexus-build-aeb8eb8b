@@ -285,7 +285,7 @@ export const InteractiveCore = () => {
         className="mt-12 md:mt-16 lg:mt-20">
 
           <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-4 md:mb-6">Hier geht's zu:</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
             <a href="/studio" className="group relative p-4 sm:p-5 md:p-6 bg-gradient-to-br from-purple-50 to-white border border-purple-200 hover:border-purple-400 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
               <div className="flex items-center gap-3 sm:gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 flex items-center justify-center group-hover:bg-purple-500 transition-colors">
