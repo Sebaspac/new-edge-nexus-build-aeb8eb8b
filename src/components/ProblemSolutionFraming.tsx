@@ -8,7 +8,6 @@ const problems = [
 ];
 
 const solutions = [
-  "Die Marke wird nach Außen nicht klar. Intern fehlt die Richtung.",
   { metric: "Klare Marke", label: "Positionierung, Auftritt und Kommunikation greifen sauber ineinander." },
   {
     metric: "Digitale Struktur",
