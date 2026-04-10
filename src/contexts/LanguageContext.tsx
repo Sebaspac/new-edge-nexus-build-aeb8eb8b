@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { safeGetItem, safeLocalStorage, safeSetItem } from "@/utils/safeStorage";
 
 type Language = "de" | "en";
 
@@ -266,14 +267,15 @@ const translations = {
 };
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const storage = safeLocalStorage();
   const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem("language");
+    const saved = safeGetItem(storage, "language");
     return (saved as Language) || "de";
   });
 
   useEffect(() => {
-    localStorage.setItem("language", language);
-  }, [language]);
+    safeSetItem(storage, "language", language);
+  }, [language, storage]);
 
   const t = (key: string): string => {
     return translations[language][key] || key;

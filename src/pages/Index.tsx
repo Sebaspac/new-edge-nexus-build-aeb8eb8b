@@ -34,6 +34,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { toast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
+import { safeGetItem, safeSessionStorage, safeSetItem } from "@/utils/safeStorage";
 
 // Lazy load Footer
 const Footer = lazy(() => import("@/components/Footer").then((module) => ({
@@ -41,6 +42,7 @@ const Footer = lazy(() => import("@/components/Footer").then((module) => ({
 })));
 import { ArrowRight, Lightbulb, Zap, Palette, Target, Rocket, Star, Users, Code, Globe, Briefcase, Phone, MessageSquare, Eye } from "lucide-react";
 const Index = () => {
+  const sessionStorageSafe = safeSessionStorage();
   const {
     t
   } = useLanguage();
@@ -50,7 +52,7 @@ const Index = () => {
   const [showInitialLoading, setShowInitialLoading] = useState(() => {
     // Only show loading on first visit in this session
     if (typeof window !== "undefined") {
-      return !sessionStorage.getItem("hasVisited");
+      return !safeGetItem(sessionStorageSafe, "hasVisited");
     }
     return false;
   });
@@ -60,11 +62,11 @@ const Index = () => {
     if (showInitialLoading) {
       const timer = setTimeout(() => {
         setShowInitialLoading(false);
-        sessionStorage.setItem("hasVisited", "true");
+        safeSetItem(sessionStorageSafe, "hasVisited", "true");
       }, 2000); // Show logo for 2 seconds
       return () => clearTimeout(timer);
     }
-  }, [showInitialLoading]);
+  }, [sessionStorageSafe, showInitialLoading]);
 
   // Auto-focus und Reset-Logik für Kontaktformular
   useEffect(() => {
