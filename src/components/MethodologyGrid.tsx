@@ -36,7 +36,7 @@ export const MethodologyGrid = () => {
     },
   ];
   return (
-    <section className="relative py-8 md:py-12 lg:py-16 bg-white overflow-hidden min-h-screen flex items-center">
+    <section className="relative py-8 md:py-12 lg:py-16 bg-white overflow-hidden md:min-h-screen md:flex md:items-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-16 items-start">
           {/* Left Column */}

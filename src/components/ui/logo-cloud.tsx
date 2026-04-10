@@ -22,7 +22,7 @@ const logos = [
 ];
 
 const LogoItem = ({ src, alt }: { src: string; alt: string }) => (
-  <div className="flex-shrink-0 flex items-center justify-center h-12 sm:h-16 md:h-20 lg:h-24 px-4 sm:px-6 md:px-8">
+  <div className="flex-shrink-0 flex items-center justify-center h-10 sm:h-14 md:h-20 lg:h-24 px-3 sm:px-5 md:px-8">
     <img
       src={src}
       alt={alt}
