@@ -30,6 +30,54 @@ const schedulePreviewReload = (reason: string) => {
   }, 120);
 };
 
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error('Root element #root was not found.');
+}
+
+if (isPreviewHost && typeof MutationObserver !== 'undefined') {
+  const previewRecoveryCount = Number(
+    window.sessionStorage.getItem('__lovable_preview_recovery_count__') || '0'
+  );
+  let blankSince: number | null = null;
+
+  const detectBlankPreview = () => {
+    const hasRenderableContent =
+      rootElement.childElementCount > 0 || Boolean(rootElement.textContent?.trim());
+
+    if (hasRenderableContent) {
+      blankSince = null;
+      if (previewRecoveryCount > 0) {
+        window.sessionStorage.removeItem('__lovable_preview_recovery_count__');
+      }
+      return;
+    }
+
+    if (blankSince === null) {
+      blankSince = window.performance.now();
+      return;
+    }
+
+    if (window.performance.now() - blankSince < 350 || previewRecoveryCount >= 3) {
+      return;
+    }
+
+    window.sessionStorage.setItem(
+      '__lovable_preview_recovery_count__',
+      String(previewRecoveryCount + 1)
+    );
+    schedulePreviewReload('Preview root stayed empty after an edit');
+  };
+
+  const observer = new MutationObserver(() => {
+    window.requestAnimationFrame(detectBlankPreview);
+  });
+
+  observer.observe(rootElement, { childList: true });
+  window.setTimeout(detectBlankPreview, 700);
+}
+
 if (isPreviewHost && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     void navigator.serviceWorker.getRegistrations().then((registrations) => {
@@ -67,13 +115,17 @@ if (isPreviewHost && import.meta.hot) {
     schedulePreviewReload('HMR update detected in Lovable Preview');
   });
 
+  import.meta.hot.on('vite:beforeFullReload', () => {
+    schedulePreviewReload('Full reload detected in Lovable Preview');
+  });
+
   import.meta.hot.on('vite:error', () => {
     schedulePreviewReload('Vite error detected in Lovable Preview');
   });
 }
 
 // Render app immediately
-createRoot(document.getElementById('root')!).render(
+createRoot(rootElement).render(
   <AppErrorBoundary>
     <App />
   </AppErrorBoundary>
