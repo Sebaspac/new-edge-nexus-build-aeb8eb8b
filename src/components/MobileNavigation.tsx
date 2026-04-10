@@ -177,7 +177,7 @@ export const MobileNavigation = ({
           opacity: 1
         }} exit={{
           opacity: 0
-        }} onClick={() => setIsOpen(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden" />
+        }} onClick={() => setIsOpen(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden" data-mobile-menu="open" />
 
             {/* Mobile Menu */}
             <motion.div initial={{
