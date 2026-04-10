@@ -5,7 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { safeGetItem, safeLocalStorage, safeSetItem } from "@/utils/safeStorage";
+
 const CookieConsent = () => {
+  const storage = safeLocalStorage();
   const [showBanner, setShowBanner] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [preferences, setPreferences] = useState({
@@ -14,11 +17,11 @@ const CookieConsent = () => {
     marketing: false
   });
   useEffect(() => {
-    const consent = localStorage.getItem('cookie-consent');
+    const consent = safeGetItem(storage, 'cookie-consent');
     if (!consent) {
       setShowBanner(true);
     }
-  }, []);
+  }, [storage]);
   const acceptAll = () => {
     const newPreferences = {
       necessary: true,
@@ -47,7 +50,7 @@ const CookieConsent = () => {
     setShowSettings(false);
   };
   const saveConsent = (prefs: typeof preferences) => {
-    localStorage.setItem('cookie-consent', JSON.stringify({
+    safeSetItem(storage, 'cookie-consent', JSON.stringify({
       timestamp: Date.now(),
       preferences: prefs
     }));
