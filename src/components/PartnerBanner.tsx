@@ -5,8 +5,8 @@ import idcLogo from "@/assets/logos/idc-logo.png";
 
 const partners = [
   { src: bmpLogo, alt: "Bayerischer Mittelstandspreis 2026", label: "Partner von" },
-  { src: bafaLogo, alt: "BAFA förderfähig", label: "Akkreditiert durch" },
-  { src: idcLogo, alt: "International anerkannt", label: "International anerkannt" },
+  { src: bafaLogo, alt: "International anerkannt", label: "International anerkannt" },
+  { src: idcLogo, alt: "BAFA förderfähig", label: "BAFA förderfähig" },
 ];
 
 export const PartnerBanner = () => {
@@ -18,9 +18,7 @@ export const PartnerBanner = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center">
           {partners.map((partner) => (
             <div key={partner.alt} className="flex flex-col items-center gap-3 text-center">
-              <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                {partner.label}
-              </span>
+              <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">{partner.label}</span>
               {hiddenLogos[partner.alt] ? (
                 <span className="text-sm font-medium text-foreground">{partner.alt}</span>
               ) : (
@@ -29,9 +27,7 @@ export const PartnerBanner = () => {
                   alt={partner.alt}
                   loading="lazy"
                   decoding="async"
-                  onError={() =>
-                    setHiddenLogos((prev) => ({ ...prev, [partner.alt]: true }))
-                  }
+                  onError={() => setHiddenLogos((prev) => ({ ...prev, [partner.alt]: true }))}
                   className="h-12 sm:h-14 md:h-16 w-auto object-contain"
                 />
               )}
