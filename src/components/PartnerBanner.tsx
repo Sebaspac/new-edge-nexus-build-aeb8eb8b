@@ -1,9 +1,12 @@
 import { useState } from "react";
+import bmpLogo from "@/assets/logos/bayerischer-mittelstandspreis.jpg";
+import bafaLogo from "@/assets/logos/bafa-logo.png";
+import idcLogo from "@/assets/logos/idc-logo.png";
 
 const partners = [
-  { src: new URL("@/assets/logos/bayerischer-mittelstandspreis.jpg", import.meta.url).href, alt: "Bayerischer Mittelstandspreis 2026", label: "Partner von" },
-  { src: new URL("@/assets/logos/bafa-logo.png", import.meta.url).href, alt: "BAFA förderfähig", label: "Akkreditiert durch" },
-  { src: new URL("@/assets/logos/idc-logo.png", import.meta.url).href, alt: "International anerkannt", label: "International anerkannt" },
+  { src: bmpLogo, alt: "Bayerischer Mittelstandspreis 2026", label: "Partner von" },
+  { src: bafaLogo, alt: "BAFA förderfähig", label: "Akkreditiert durch" },
+  { src: idcLogo, alt: "International anerkannt", label: "International anerkannt" },
 ];
 
 export const PartnerBanner = () => {
