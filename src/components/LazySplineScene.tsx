@@ -84,7 +84,7 @@ export const LazySplineScene = ({
       className={`relative ${className}`}
       style={{ minHeight: '400px', aspectRatio: '1/1' }}
     >
-      {disableHeavyEffects || isMobile ? (
+      {disableHeavyEffects ? (
         <GradientPlaceholder />
       ) : shouldLoad ? (
         <SplineScene scene={scene} className="w-full h-full" />
