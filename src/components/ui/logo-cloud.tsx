@@ -6,19 +6,25 @@ import museStudio from "@/assets/logos/muse-studio.webp";
 import drAaronLoeb from "@/assets/logos/dr-aaron-loeb.webp";
 import pureDesign from "@/assets/logos/pure-design.webp";
 import seabreeze from "@/assets/logos/seabreeze.webp";
+import albanova from "@/assets/logos/albanova-consulting.png";
+import bayMittelstandspreis from "@/assets/logos/bayerischer-mittelstandspreis-2026.jpg";
+import clubCli from "@/assets/logos/club-cli.webp";
+import becomingYou from "@/assets/logos/becoming-you.png";
 
 // ✅ Einfach neue Logos hier hinzufügen - die Marquee passt sich automatisch an
 const logos = [
   { src: sadieKessler, alt: "Sadie Kessler" },
   { src: circlePhoto, alt: "The Circle Photo Studio" },
   { src: hydeOfficial, alt: "Hyde Official" },
+  { src: albanova, alt: "AlbaNova Consulting" },
   { src: dariusCompany, alt: "Darius Company" },
   { src: museStudio, alt: "Muse Music Studio" },
+  { src: bayMittelstandspreis, alt: "Bayerischer Mittelstandspreis 2026" },
   { src: drAaronLoeb, alt: "Dr Aaron Loeb" },
+  { src: clubCli, alt: "Club Cli" },
   { src: pureDesign, alt: "Pure Design Studio" },
+  { src: becomingYou, alt: "Becoming You" },
   { src: seabreeze, alt: "Seabreeze Beach Club" },
-  // Neue Logos einfach hier hinzufügen:
-  // { src: neuesLogo, alt: "Neuer Kunde" },
 ];
 
 const LogoItem = ({ src, alt }: { src: string; alt: string }) => (
