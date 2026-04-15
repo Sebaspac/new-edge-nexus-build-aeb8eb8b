@@ -40,12 +40,24 @@ const KiAuditGate = ({ onSuccess }: KiAuditGateProps) => {
     setStatus("loading");
 
     try {
-      const { data, error } = await supabase.functions.invoke("ki-audit-signup", {
-        body: { name: name.trim(), email: email.trim(), phone: phone.trim(), website },
-      });
+      // Honeypot — silently succeed for bots
+      if (website) {
+        setStatus("success");
+        const storage = safeSessionStorage();
+        safeSetItem(storage, "ki-audit-access", "true");
+        setTimeout(() => onSuccess(), 1200);
+        return;
+      }
 
-      if (error) throw error;
-      if (data?.error) throw new Error(data.error);
+      const { error: dbError } = await supabase
+        .from("ki_audit_leads" as any)
+        .insert({
+          name: name.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+        } as any);
+
+      if (dbError) throw dbError;
 
       setStatus("success");
       const storage = safeSessionStorage();
