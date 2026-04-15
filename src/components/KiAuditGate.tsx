@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
-import { safeSessionStorage, safeSetItem, safeGetItem } from "@/utils/safeStorage";
+import { safeSessionStorage, safeSetItem } from "@/utils/safeStorage";
 
 interface KiAuditGateProps {
   onSuccess: () => void;
@@ -40,9 +40,19 @@ const KiAuditGate = ({ onSuccess }: KiAuditGateProps) => {
 
     try {
       const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+      if (!supabaseUrl || !supabaseAnonKey) {
+        throw new Error("Missing Supabase environment variables");
+      }
+
       const res = await fetch(`${supabaseUrl}/functions/v1/ki-audit-signup`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          apikey: supabaseAnonKey,
+          Authorization: `Bearer ${supabaseAnonKey}`,
+        },
         body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim(), website }),
       });
 
@@ -54,7 +64,8 @@ const KiAuditGate = ({ onSuccess }: KiAuditGateProps) => {
       safeSetItem(storage, "ki-audit-access", "true");
 
       setTimeout(() => onSuccess(), 1200);
-    } catch {
+    } catch (error) {
+      console.error("KI audit signup failed", error);
       setStatus("error");
       setErrorMsg("Ein Fehler ist aufgetreten. Bitte versuche es erneut.");
     }
