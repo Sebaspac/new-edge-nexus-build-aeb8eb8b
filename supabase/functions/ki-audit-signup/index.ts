@@ -56,6 +56,21 @@ Deno.serve(async (req: Request) => {
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
+    // Insert lead into database
+    const { error: dbError } = await supabase
+      .from("ki_audit_leads")
+      .insert({
+        name: name.trim(),
+        email: email.trim(),
+        phone: phone.trim(),
+        ip: req.headers.get("x-forwarded-for") || req.headers.get("cf-connecting-ip") || null,
+        user_agent: req.headers.get("user-agent") || null,
+      });
+
+    if (dbError) {
+      console.error("DB insert error:", dbError);
+    }
+
     const timestamp = new Date().toLocaleString("de-DE", { timeZone: "Europe/Berlin" });
     const idempotencyKey = `ki-audit-${email.trim().toLowerCase()}-${Date.now()}`;
 
