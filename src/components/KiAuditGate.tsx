@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
 import { safeSessionStorage, safeSetItem } from "@/utils/safeStorage";
+import { supabase } from "@/integrations/supabase/client";
 
 interface KiAuditGateProps {
   onSuccess: () => void;
@@ -39,25 +40,12 @@ const KiAuditGate = ({ onSuccess }: KiAuditGateProps) => {
     setStatus("loading");
 
     try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-      if (!supabaseUrl || !supabaseAnonKey) {
-        throw new Error("Missing Supabase environment variables");
-      }
-
-      const res = await fetch(`${supabaseUrl}/functions/v1/ki-audit-signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          apikey: supabaseAnonKey,
-          Authorization: `Bearer ${supabaseAnonKey}`,
-        },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim(), website }),
+      const { data, error } = await supabase.functions.invoke("ki-audit-signup", {
+        body: { name: name.trim(), email: email.trim(), phone: phone.trim(), website },
       });
 
-      const result = await res.json().catch(() => ({}));
-      if (!res.ok || result.error) throw new Error(result.error || "Request failed");
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
 
       setStatus("success");
       const storage = safeSessionStorage();
