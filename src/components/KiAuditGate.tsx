@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { safeSessionStorage, safeSetItem, safeGetItem } from "@/utils/safeStorage";
 
 interface KiAuditGateProps {
@@ -40,11 +39,15 @@ const KiAuditGate = ({ onSuccess }: KiAuditGateProps) => {
     setStatus("loading");
 
     try {
-      const { error } = await supabase.functions.invoke("ki-audit-signup", {
-        body: { name: name.trim(), email: email.trim(), phone: phone.trim(), website },
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const res = await fetch(`${supabaseUrl}/functions/v1/ki-audit-signup`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim(), website }),
       });
 
-      if (error) throw error;
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || result.error) throw new Error(result.error || "Request failed");
 
       setStatus("success");
       const storage = safeSessionStorage();
