@@ -57,7 +57,10 @@ const KiAuditGate = ({ onSuccess }: KiAuditGateProps) => {
           phone: phone.trim(),
         } as any);
 
-      if (dbError) throw dbError;
+      if (dbError) {
+        // Log but don't block — user access is more important than data capture
+        console.warn("KI audit lead save failed (non-blocking):", dbError.message);
+      }
 
       setStatus("success");
       const storage = safeSessionStorage();
