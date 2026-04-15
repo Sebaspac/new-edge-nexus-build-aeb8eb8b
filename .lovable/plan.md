@@ -1,42 +1,55 @@
 
 
-## Plan: KI-Audit Gated Page mit direktem E-Mail-Versand (ohne n8n)
+## Plan: KI-Audit Leads in Datenbanktabelle speichern
 
-### Konzept
-Fullscreen-Gate auf `/ki-audit` — Besucher müssen Name, E-Mail, Telefonnummer eingeben, bevor die Seite sichtbar wird. Die Daten werden per **Lovable Transactional Email** direkt an Santiago.p@newedgebrand.com gesendet — kein n8n involviert.
+### 1. Migration: Neue Tabelle `ki_audit_leads` erstellen
 
-### Voraussetzung: E-Mail-Domain einrichten
-Damit E-Mails versendet werden können, muss zuerst eine E-Mail-Domain verifiziert werden (z.B. `newedgebrand.com`). Das ist ein einmaliger Setup-Schritt.
+```sql
+CREATE TABLE public.ki_audit_leads (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  ip TEXT,
+  user_agent TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
 
-<lov-actions>
-<lov-open-email-setup>E-Mail-Domain einrichten</lov-open-email-setup>
-</lov-actions>
+ALTER TABLE public.ki_audit_leads ENABLE ROW LEVEL SECURITY;
 
-### Schritte
+-- Keine öffentlichen SELECT-Policies — nur service_role kann lesen/schreiben
+-- Dashboard-Zugriff läuft über service_role oder eine spätere Admin-Funktion
+```
 
-**1. E-Mail-Infrastruktur aufsetzen**
-- E-Mail-Domain verifizieren (DNS-Einträge)
-- Lovable Transactional Email scaffolden
+Tabelle enthält PII (E-Mail, Telefon), daher keine öffentlich lesbaren RLS-Policies. Zugriff nur über `service_role` in der Edge Function.
 
-**2. Edge Function `ki-audit-signup` erstellen**
-- Nimmt `name`, `email`, `phone` entgegen (alle required)
-- Validierung (Zod-Pattern, Honeypot, Rate-Limiting)
-- Sendet eine formatierte E-Mail an Santiago.p@newedgebrand.com mit den Lead-Daten
-- Kein n8n, kein Webhook — direkter E-Mail-Versand über Lovable Email
+### 2. Edge Function `ki-audit-signup` erweitern
 
-**3. Gate-Komponente `KiAuditGate` bauen**
-- Fullscreen dark overlay, CI-konform (Hard-Edge, keine Rundungen)
-- 3 Felder: Name, E-Mail, Telefonnummer + Submit-Button
-- Honeypot-Feld (hidden) gegen Bots
-- Loading/Success/Error States mit Framer Motion
-- Nach Erfolg: `sessionStorage.setItem('ki-audit-access', 'true')`
+Nach der Validierung und vor dem E-Mail-Versand: Lead in die Datenbank schreiben.
 
-**4. `KiAudit.tsx` anpassen**
-- Prüft `sessionStorage('ki-audit-access')` beim Mount
-- Zeigt Gate solange kein Zugang, blockiert Scrollen
-- Nach Submit: Gate verschwindet, voller Content sichtbar
-- Calendly-Links und restliche Seite bleiben unverändert
+```typescript
+// Insert lead into database
+const { error: dbError } = await supabase
+  .from("ki_audit_leads")
+  .insert({
+    name: name.trim(),
+    email: email.trim(),
+    phone: phone.trim(),
+    ip: req.headers.get("x-forwarded-for") || req.headers.get("cf-connecting-ip") || null,
+    user_agent: req.headers.get("user-agent") || null,
+  });
 
-### Bitte zuerst
-Klicke auf **"E-Mail-Domain einrichten"** oben, damit wir die Domain verifizieren können. Danach implementiere ich alles.
+if (dbError) {
+  console.error("DB insert error:", dbError);
+}
+```
+
+### 3. Supabase Types aktualisieren
+
+Die generierten Types in `src/integrations/supabase/types.ts` werden um die neue Tabelle ergänzt (automatisch nach Migration).
+
+### Zusammenfassung
+- Eine Migration erstellt die `ki_audit_leads` Tabelle
+- Die Edge Function speichert jeden Lead zusätzlich zur E-Mail-Benachrichtigung
+- RLS schützt die PII-Daten — kein öffentlicher Zugriff
 
