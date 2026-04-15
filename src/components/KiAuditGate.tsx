@@ -157,7 +157,7 @@ const KiAuditGate = ({ onSuccess }: KiAuditGateProps) => {
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="text-xs text-red-400"
+                  className="text-xs text-destructive"
                 >
                   {errorMsg}
                 </motion.p>

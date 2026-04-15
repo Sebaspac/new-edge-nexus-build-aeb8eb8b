@@ -6,9 +6,10 @@ import { Footer } from "@/components/Footer";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import SEOHead from "@/components/SEOHead";
 import LogoCloud from "@/components/ui/logo-cloud";
+import KiAuditGate from "@/components/KiAuditGate";
+import { safeSessionStorage, safeGetItem } from "@/utils/safeStorage";
 import heroImage from "@/assets/ki-audit-hero.webp";
 import processImage from "@/assets/ki-audit-process.webp";
-
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i: number = 0) => ({
@@ -20,6 +21,14 @@ const fadeUp = {
 
 const KiAudit = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [hasAccess, setHasAccess] = useState(() => {
+    const storage = safeSessionStorage();
+    return safeGetItem(storage, "ki-audit-access") === "true";
+  });
+
+  if (!hasAccess) {
+    return <KiAuditGate onSuccess={() => setHasAccess(true)} />;
+  }
 
   return (
     <>
