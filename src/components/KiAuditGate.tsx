@@ -106,7 +106,7 @@ const KiAuditGate = ({ onSuccess }: KiAuditGateProps) => {
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-primary-foreground/20 bg-primary-foreground/5 mb-6">
                   <span className="w-1.5 h-1.5 bg-primary" />
                   <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-primary-foreground/70">
-                    Kostenloser KI Audit
+                    Kostenloses KI Audit
                   </span>
                 </div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl text-primary-foreground leading-[1.1] mb-3">
