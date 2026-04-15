@@ -1,127 +1,42 @@
-# Homepage Reposicionamiento – Modularer Umbau
 
-## Analyse der aktuellen Schwächen (Diego's Feedback)
 
-Die aktuelle Homepage hat vier Kernprobleme:
+## Plan: KI-Audit Gated Page mit direktem E-Mail-Versand (ohne n8n)
 
-1. **Keine konkrete Wertversprechen** – "KI-Agentur für Brand, Digital & AI" sagt nicht WAS ihr löst
-2. **Kein klarer Entry Point** – nur generisches "Kontakt aufnehmen", kein niedrigschwelliges Angebot
-3. **Fehlende Glaubwürdigkeit** – keine messbaren Ergebnisse, keine konkreten Zahlen/Cases prominent
-4. **Zielgruppe unklar** – "für wen" wird nicht sofort deutlich
+### Konzept
+Fullscreen-Gate auf `/ki-audit` — Besucher müssen Name, E-Mail, Telefonnummer eingeben, bevor die Seite sichtbar wird. Die Daten werden per **Lovable Transactional Email** direkt an Santiago.p@newedgebrand.com gesendet — kein n8n involviert.
 
-## Aktuelle Modul-Reihenfolge
+### Voraussetzung: E-Mail-Domain einrichten
+Damit E-Mails versendet werden können, muss zuerst eine E-Mail-Domain verifiziert werden (z.B. `newedgebrand.com`). Das ist ein einmaliger Setup-Schritt.
 
-```text
-1. HeroSection
-2. MethodologyGrid (6 Service-Kacheln)
-3. LogoCloud
-4. PositionedForImpactSection (Founders-Bild + "Positioned for Impact")
-5. CaseStudiesGrid
-6. AgencyEdgeSection ("Mehr als eine Agentur")
-7. InteractiveCore
-8. MagicText ("Hier entsteht Magie" → Careers)
-9. TestimonialsSection
-10. BlogGridHome
-11. Contact Section
-```
+<lov-actions>
+<lov-open-email-setup>E-Mail-Domain einrichten</lov-open-email-setup>
+</lov-actions>
 
----
+### Schritte
 
-## Vorgeschlagene Änderungen
+**1. E-Mail-Infrastruktur aufsetzen**
+- E-Mail-Domain verifizieren (DNS-Einträge)
+- Lovable Transactional Email scaffolden
 
-### MODUL 1 – HeroSection (ÄNDERN)
+**2. Edge Function `ki-audit-signup` erstellen**
+- Nimmt `name`, `email`, `phone` entgegen (alle required)
+- Validierung (Zod-Pattern, Honeypot, Rate-Limiting)
+- Sendet eine formatierte E-Mail an Santiago.p@newedgebrand.com mit den Lead-Daten
+- Kein n8n, kein Webhook — direkter E-Mail-Versand über Lovable Email
 
-**Problem:** Headline ist generisch, Subheadline zu vage, kein messbares Ergebnis.
+**3. Gate-Komponente `KiAuditGate` bauen**
+- Fullscreen dark overlay, CI-konform (Hard-Edge, keine Rundungen)
+- 3 Felder: Name, E-Mail, Telefonnummer + Submit-Button
+- Honeypot-Feld (hidden) gegen Bots
+- Loading/Success/Error States mit Framer Motion
+- Nach Erfolg: `sessionStorage.setItem('ki-audit-access', 'true')`
 
-**Änderungen:**
+**4. `KiAudit.tsx` anpassen**
+- Prüft `sessionStorage('ki-audit-access')` beim Mount
+- Zeigt Gate solange kein Zugang, blockiert Scrollen
+- Nach Submit: Gate verschwindet, voller Content sichtbar
+- Calendly-Links und restliche Seite bleiben unverändert
 
-- Headline: **"Wir automatisieren repetitive Prozesse für den Mittelstand – mit KI."**
-- Subheadline: **"Digitale Lösungen für wirkungsstarke Kommunikation. Ergebnis: 30–60 % weniger operativer Aufwand."**
-- Primärer CTA: **"Kostenlose KI-Analyse sichern"** (→ Calendly/KI-Audit) statt generischem "Projekt starten"
-- Sekundärer CTA bleibt "Über Uns"
-- Trust-Badges bleiben (BAFA, 4–10 Wochen)
+### Bitte zuerst
+Klicke auf **"E-Mail-Domain einrichten"** oben, damit wir die Domain verifizieren können. Danach implementiere ich alles.
 
-### MODUL 2 – NEU: "Für wen wir das machen" (EINFÜGEN nach Hero)
-
-**Problem:** Zielgruppe wird nirgends klar kommuniziert.
-
-**Neues Modul** – Kompakte Sektion mit 3 Zielgruppen-Karten:
-
-- **Handwerk & Dienstleister** (5–50 MA) – "Sichtbarkeit und Prozessklarheit"
-- **Gesundheitswesen & Kliniken** – "Patientenmanagement, Reporting, Admin automatisieren"
-- **Hausverwaltungen & Immobilien** – "KI-Integration für operative Effizienz"
-
-Jede Karte: Icon + Zielgruppe + 1 Satz konkreter Nutzen.
-
-### MODUL 3 – NEU: "Problem → Lösung" Sektion (EINFÜGEN)
-
-**Problem:** Kein klares Problem/Lösung-Framing.
-
-**Neues Modul** – Zwei-Spalten-Layout:
-
-- Links: **3 Pain Points** als kurze Zitate ("Zu viele manuelle Schritte", "Kein Überblick über KPIs", "Abhängig von externen Tools")
-- Rechts: **Eure Lösung** in 3 Bullet Points mit messbaren Outcomes (30% Zeitersparnis, 4x ROI, 100% Datenhoheit)
-
-### MODUL 4 – ProblemSolutionSection (BEHALTEN, leicht anpassen)
-
-Die bestehende `ProblemSolutionSection` (Accordion + Feature Cards) passt gut hierher. Nur kleiner Text-Refresh: konkretere Ergebniszahlen.
-
-### MODUL 5 – MethodologyGrid (BEHALTEN, Position verschieben)
-
-Bleibt inhaltlich, rutscht aber nach unten – erst Problem/Zielgruppe, dann Lösung, dann "wie wir arbeiten".
-
-### MODUL 6 – CaseStudiesGrid (NACH OBEN verschieben)
-
-**Problem:** Cases sind zu weit unten, dabei sind sie der stärkste Glaubwürdigkeitsbeweis.
-
-Case Studies direkt nach der Methodik zeigen → Social Proof früh im Scroll.
-
-### MODUL 7 – TestimonialsSection (NACH OBEN verschieben)
-
-Direkt nach Cases → verstärkt Glaubwürdigkeit.
-
-### MODUL 8 – NEU: "Entry Point" CTA-Sektion (EINFÜGEN vor Footer-Contact)
-
-**Problem:** Kein niedrigschwelliger Einstieg.
-
-**Neues Modul** – Prominente Sektion mit:
-
-- Headline: "In 30 Minuten wissen, wo KI euch am meisten bringt."
-- 3 Schritte: Analyse → Roadmap → Umsetzung
-- Großer CTA-Button → Calendly-Link (kostenlose KI-Analyse)
-- Trust-Signal: "Kostenlos. Unverbindlich. BAFA-förderfähig."
-
-### Module die entfernt/gekürzt werden:
-
-- **MagicText/Careers-Sektion** → entfernen (lenkt ab, Careers gehört nicht auf die Homepage)
-- **AgencyEdgeSection** → nach unten verschieben oder in About auslagern
-- **InteractiveCore** → nach unten verschieben (nice-to-have, nicht conversion-relevant)
-
----
-
-## Neue Modul-Reihenfolge
-
-```text
-1.  HeroSection (überarbeitet – konkrete Value Prop + KI-Analyse CTA)
-2.  NEU: Zielgruppen-Sektion ("Für wen wir arbeiten")
-3.  NEU: Problem → Lösung Sektion
-4.  ProblemSolutionSection (Accordion, leicht angepasst)
-5.  MethodologyGrid (wie wir arbeiten)
-6.  LogoCloud
-7.  CaseStudiesGrid (Social Proof früh)
-8.  TestimonialsSection (Social Proof verstärken)
-9.  PositionedForImpactSection (Founders)
-10. InteractiveCore (optional, weiter unten)
-11. BlogGridHome
-12. NEU: Entry-Point CTA ("30 Min KI-Analyse")
-13. Contact Section (generisch)
-```
-
----
-
-## Technische Umsetzung
-
-- 3 neue Komponenten erstellen: `TargetAudienceSection.tsx`, `ProblemSolutionFraming.tsx`, `EntryPointCTA.tsx`
-- `HeroSection.tsx` – Headline, Subheadline, primären CTA-Text ändern
-- `Index.tsx` – Modul-Reihenfolge umbauen, MagicText-Sektion entfernen
-- Bestehende Komponenten bleiben unverändert, werden nur neu positioniert
