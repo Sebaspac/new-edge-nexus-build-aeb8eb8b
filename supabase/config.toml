@@ -2,3 +2,6 @@ project_id = "yzmtgxfehvzgobxjivjl"
 
 [functions.new-contact]
 verify_jwt = false
+
+[functions.ki-audit-signup]
+verify_jwt = false
