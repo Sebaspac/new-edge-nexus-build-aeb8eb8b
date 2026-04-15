@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
 import { safeSessionStorage, safeSetItem } from "@/utils/safeStorage";
+import { supabase } from "@/integrations/supabase/client";
 
 interface KiAuditGateProps {
   onSuccess: () => void;
@@ -39,25 +40,27 @@ const KiAuditGate = ({ onSuccess }: KiAuditGateProps) => {
     setStatus("loading");
 
     try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-      if (!supabaseUrl || !supabaseAnonKey) {
-        throw new Error("Missing Supabase environment variables");
+      // Honeypot — silently succeed for bots
+      if (website) {
+        setStatus("success");
+        const storage = safeSessionStorage();
+        safeSetItem(storage, "ki-audit-access", "true");
+        setTimeout(() => onSuccess(), 1200);
+        return;
       }
 
-      const res = await fetch(`${supabaseUrl}/functions/v1/ki-audit-signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          apikey: supabaseAnonKey,
-          Authorization: `Bearer ${supabaseAnonKey}`,
-        },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim(), website }),
-      });
+      const { error: dbError } = await supabase
+        .from("ki_audit_leads" as any)
+        .insert({
+          name: name.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+        } as any);
 
-      const result = await res.json().catch(() => ({}));
-      if (!res.ok || result.error) throw new Error(result.error || "Request failed");
+      if (dbError) {
+        // Log but don't block — user access is more important than data capture
+        console.warn("KI audit lead save failed (non-blocking):", dbError.message);
+      }
 
       setStatus("success");
       const storage = safeSessionStorage();
