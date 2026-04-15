@@ -28,9 +28,12 @@ Deno.serve(async (req: Request) => {
     }
 
     const { name, email, phone } = body;
+    const trimmedName = typeof name === "string" ? name.trim() : "";
+    const trimmedEmail = typeof email === "string" ? email.trim() : "";
+    const trimmedPhone = typeof phone === "string" ? phone.trim() : "";
 
     // Validation
-    if (!name || typeof name !== "string" || name.trim().length === 0 || name.length > 120) {
+    if (!trimmedName || trimmedName.length > 120) {
       return new Response(JSON.stringify({ error: "Ungültiger Name" }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -38,14 +41,14 @@ Deno.serve(async (req: Request) => {
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || typeof email !== "string" || !emailRegex.test(email) || email.length > 200) {
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail) || trimmedEmail.length > 200) {
       return new Response(JSON.stringify({ error: "Ungültige E-Mail" }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    if (!phone || typeof phone !== "string" || phone.trim().length < 5 || phone.length > 30) {
+    if (!trimmedPhone || trimmedPhone.length < 5 || trimmedPhone.length > 30) {
       return new Response(JSON.stringify({ error: "Ungültige Telefonnummer" }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -60,37 +63,19 @@ Deno.serve(async (req: Request) => {
     const { error: dbError } = await supabase
       .from("ki_audit_leads")
       .insert({
-        name: name.trim(),
-        email: email.trim(),
-        phone: phone.trim(),
+        name: trimmedName,
+        email: trimmedEmail,
+        phone: trimmedPhone,
         ip: req.headers.get("x-forwarded-for") || req.headers.get("cf-connecting-ip") || null,
         user_agent: req.headers.get("user-agent") || null,
       });
 
     if (dbError) {
       console.error("DB insert error:", dbError);
-    }
-
-    const timestamp = new Date().toLocaleString("de-DE", { timeZone: "Europe/Berlin" });
-    const idempotencyKey = `ki-audit-${email.trim().toLowerCase()}-${Date.now()}`;
-
-    // Send notification via transactional email system
-    const { error: invokeError } = await supabase.functions.invoke("send-transactional-email", {
-      body: {
-        templateName: "ki-audit-notification",
-        recipientEmail: "Santiago.p@newedgebrand.com",
-        idempotencyKey,
-        templateData: {
-          name: name.trim(),
-          email: email.trim(),
-          phone: phone.trim(),
-          timestamp,
-        },
-      },
-    });
-
-    if (invokeError) {
-      console.error("Transactional email invoke error:", invokeError);
+      return new Response(JSON.stringify({ error: "Lead konnte nicht gespeichert werden" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
     }
 
     return new Response(JSON.stringify({ success: true }), {
