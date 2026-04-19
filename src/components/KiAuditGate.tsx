@@ -49,20 +49,21 @@ const KiAuditGate = ({ onSuccess }: KiAuditGateProps) => {
         return;
       }
 
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const response = await fetch(`${supabaseUrl}/functions/v1/ki-audit-signup`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const { data, error } = await supabase.functions.invoke("ki-audit-signup", {
+        body: {
           name: name.trim(),
           email: email.trim(),
           phone: phone.trim(),
           website,
-        }),
+        },
       });
 
-      if (!response.ok) {
-        console.warn("KI audit lead save failed (non-blocking):", response.status);
+      if (error || (data && (data as any).error)) {
+        const msg = (data as any)?.error || error?.message || "Unbekannter Fehler";
+        console.error("KI audit lead save failed:", msg, error);
+        setStatus("error");
+        setErrorMsg("Anmeldung fehlgeschlagen: " + msg);
+        return;
       }
 
       setStatus("success");
