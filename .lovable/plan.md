@@ -1,55 +1,49 @@
 
+Ziel: Herausfinden, warum echte KI-Audit-Anmeldungen nicht in `ki_audit_leads` landen, obwohl Nutzer auf der Seite erfolgreich weitergelassen werden.
 
-## Plan: KI-Audit Leads in Datenbanktabelle speichern
+Was ich im Code bereits gefunden habe:
+- `src/components/KiAuditGate.tsx` ruft die Edge Function per `fetch(...)` auf.
+- Wenn die Anfrage fehlschlägt, wird trotzdem `setStatus("success")` gesetzt und der Nutzer bekommt Zugriff.
+- Dadurch können Einsendungen still fehlschlagen, ohne dass man es merkt.
+- Zusätzlich gibt es Projekt-Memory, dass Edge-Function-Requests die Header `Authorization` und `apikey` brauchen. Diese fehlen aktuell im Formular-Request.
+- Im aktuellen Backend-Kontext ist auf `ki_audit_leads` keine aktive RLS-Policy sichtbar, obwohl im Repo eine alte Policy-Migration existiert. Das deutet auf Drift zwischen Code und Live-Backend hin.
 
-### 1. Migration: Neue Tabelle `ki_audit_leads` erstellen
+Plan:
+1. Live-Fluss gegen Published-Version prüfen
+- Prüfen, ob die veröffentlichte Seite wirklich den aktuellen Formularcode nutzt oder noch eine ältere Version geladen wird.
+- Dabei gezielt schauen, ob auf der Live-Seite ein Request an `ki-audit-signup` rausgeht und welchen Status er zurückgibt.
 
-```sql
-CREATE TABLE public.ki_audit_leads (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  phone TEXT NOT NULL,
-  ip TEXT,
-  user_agent TEXT,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
-);
+2. Formular-Request robust machen
+- `KiAuditGate.tsx` so anpassen, dass der Request sauber über den vorhandenen Backend-Client oder mit vollständigen Headers gesendet wird.
+- Kein “stilles Weiter” mehr bei `!response.ok`: Fehler klar behandeln und loggen.
+- Falls Sofortzugriff weiterhin Pflicht ist, dann den Nutzer zwar weiterlassen, aber den Fehlschlag sichtbar erfassbar machen statt ihn zu verschlucken.
 
-ALTER TABLE public.ki_audit_leads ENABLE ROW LEVEL SECURITY;
+3. Edge Function härten
+- `supabase/functions/ki-audit-signup/index.ts` mit saubererem Request-Parsing, klaren Fehlerantworten und konsistenten CORS-/Response-Headern absichern.
+- Sicherstellen, dass die Funktion in Lovable Cloud tatsächlich erfolgreich in `ki_audit_leads` schreibt.
 
--- Keine öffentlichen SELECT-Policies — nur service_role kann lesen/schreiben
--- Dashboard-Zugriff läuft über service_role oder eine spätere Admin-Funktion
-```
+4. Backend-Zustand bereinigen
+- Prüfen, ob Tabelle, Funktion und Policies im Live-Backend wirklich dem Repo entsprechen.
+- Falls noch ein alter Client-Insert-Pfad aktiv ist oder wieder verwendet werden soll, passende `INSERT`-Policy für `anon/authenticated` sauber herstellen.
+- Falls ausschließlich die Edge Function genutzt wird, unnötige offene Tabellen-Policies vermeiden.
 
-Tabelle enthält PII (E-Mail, Telefon), daher keine öffentlich lesbaren RLS-Policies. Zugriff nur über `service_role` in der Edge Function.
+5. End-to-End verifizieren
+- Test auf der veröffentlichten Domain durchführen.
+- Danach direkt in der Datenbank prüfen, ob ein neuer Datensatz mit aktuellem Timestamp auftaucht.
+- Zusätzlich Edge-Function-Logs prüfen, damit klar ist, ob das Problem Frontend, Gateway oder Datenbank war.
 
-### 2. Edge Function `ki-audit-signup` erweitern
+Technische Details:
+- Betroffene Dateien:
+  - `src/components/KiAuditGate.tsx`
+  - `supabase/functions/ki-audit-signup/index.ts`
+  - ggf. neue/angepasste Migration für `ki_audit_leads`
+- Wahrscheinlichster Hauptfehler:
+  - Das Formular behandelt fehlgeschlagene Saves aktuell als Erfolg.
+  - Sehr wahrscheinlich fehlt dem Live-Request die korrekte Auth/Header-Konfiguration oder die Published-Version ist nicht auf dem Stand des aktuellen Preview-Codes.
+- Sekundäres Risiko:
+  - Live-Backend und Repo sind nicht vollständig synchron (sichtbar bei den Policies).
 
-Nach der Validierung und vor dem E-Mail-Versand: Lead in die Datenbank schreiben.
-
-```typescript
-// Insert lead into database
-const { error: dbError } = await supabase
-  .from("ki_audit_leads")
-  .insert({
-    name: name.trim(),
-    email: email.trim(),
-    phone: phone.trim(),
-    ip: req.headers.get("x-forwarded-for") || req.headers.get("cf-connecting-ip") || null,
-    user_agent: req.headers.get("user-agent") || null,
-  });
-
-if (dbError) {
-  console.error("DB insert error:", dbError);
-}
-```
-
-### 3. Supabase Types aktualisieren
-
-Die generierten Types in `src/integrations/supabase/types.ts` werden um die neue Tabelle ergänzt (automatisch nach Migration).
-
-### Zusammenfassung
-- Eine Migration erstellt die `ki_audit_leads` Tabelle
-- Die Edge Function speichert jeden Lead zusätzlich zur E-Mail-Benachrichtigung
-- RLS schützt die PII-Daten — kein öffentlicher Zugriff
-
+Ergebnis nach Umsetzung:
+- Jede echte Anmeldung erzeugt verlässlich einen Datensatz in `ki_audit_leads`.
+- Fehlgeschlagene Saves sind nachvollziehbar statt unsichtbar.
+- Published-Seite, Edge Function und Datenbank verhalten sich konsistent.
