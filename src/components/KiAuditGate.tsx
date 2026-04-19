@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
 import { safeSessionStorage, safeSetItem } from "@/utils/safeStorage";
+import { supabase } from "@/integrations/supabase/client";
 
 interface KiAuditGateProps {
   onSuccess: () => void;
