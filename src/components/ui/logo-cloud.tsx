@@ -35,14 +35,14 @@ export default function LogoCloud() {
   return (
     <section
       className="relative w-full overflow-hidden"
-      style={{ backgroundColor: "#0a0a0a", padding: "0 0 32px" }}
+      style={{ backgroundColor: "#0a0a0a", padding: "0 0 12px" }}
     >
       {/* Vertical line on top — fades into the upper arc */}
       <div className="flex justify-center">
         <div
           style={{
             width: "1px",
-            height: "110px",
+            height: "60px",
             background: "linear-gradient(to bottom, transparent, #a855f7)",
           }}
         />
@@ -58,7 +58,7 @@ export default function LogoCloud() {
           className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
           style={{
             top: "0",
-            width: "min(520px, 78vw)",
+            width: "min(420px, 70vw)",
             height: "auto",
             zIndex: 0,
           }}
@@ -84,12 +84,12 @@ export default function LogoCloud() {
             style={{
               fontFamily: SANS,
               color: "#fff",
-              fontSize: "clamp(28px, 4vw, 42px)",
+              fontSize: "clamp(22px, 3vw, 32px)",
               fontWeight: 700,
               letterSpacing: "-0.5px",
               lineHeight: 1.15,
-              marginTop: "clamp(70px, 10vw, 100px)",
-              marginBottom: "24px",
+              marginTop: "clamp(40px, 6vw, 70px)",
+              marginBottom: "16px",
             }}
           >
             Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
@@ -99,7 +99,7 @@ export default function LogoCloud() {
           <div
             className="relative w-full overflow-hidden"
             style={{
-              padding: "14px 0",
+              padding: "10px 0",
               backgroundColor: "#0a0a0a",
             }}
           >
@@ -128,7 +128,7 @@ export default function LogoCloud() {
                 <div
                   key={`logo-${index}`}
                   className="flex-shrink-0 flex items-center justify-center"
-                  style={{ height: "40px" }}
+                  style={{ height: "32px" }}
                 >
                   <img
                     src={logo.src}
@@ -146,7 +146,7 @@ export default function LogoCloud() {
           </div>
 
           {/* Spacer below marquee — just enough for lower circle half */}
-          <div style={{ height: "clamp(140px, 16vw, 180px)" }} />
+          <div style={{ height: "clamp(80px, 9vw, 110px)" }} />
         </div>
       </div>
     </section>
