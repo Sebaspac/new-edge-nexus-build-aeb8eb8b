@@ -75,7 +75,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               maxWidth: "780px",
             }}
           >
-            Close Deals Faster With
+            Mehr Output.
             <span
               className="block bg-clip-text text-transparent"
               style={{
@@ -85,7 +85,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 fontWeight: 800,
               }}
             >
-              AI Sales Automation
+              Weniger Kosten.
             </span>
           </div>
 
@@ -96,13 +96,12 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               fontFamily: SANS,
               fontSize: "clamp(15px, 1.8vw, 18px)",
               color: "#a0a0a0",
-              maxWidth: "500px",
+              maxWidth: "560px",
               lineHeight: 1.55,
               fontWeight: 400,
             }}
           >
-            The all-in-one conversational AI voice and text agent platform built for
-            SMBs
+            Wir sorgen dafür, dass Ihr Unternehmen mit weniger Aufwand mehr Wirkung erzielt – indem wir Marke, Kommunikation und Prozesse als ganzheitliche Systeme denken und KI gezielt integrieren.
           </p>
 
           {/* CTAs */}
