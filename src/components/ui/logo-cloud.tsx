@@ -48,8 +48,27 @@ export default function LogoCloud() {
         />
       </div>
 
-      {/* Stacked stage: full circle behind, heading + marquee in front. */}
-      <div className="relative w-full" style={{ marginTop: "-1px" }}>
+      {/* Heading sits OUTSIDE/above the circle */}
+      <div
+        role="heading"
+        aria-level={2}
+        className="text-center px-4"
+        style={{
+          fontFamily: SANS,
+          color: "#fff",
+          fontSize: "clamp(22px, 3vw, 32px)",
+          fontWeight: 700,
+          letterSpacing: "-0.5px",
+          lineHeight: 1.15,
+          marginTop: "20px",
+          marginBottom: "28px",
+        }}
+      >
+        Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
+      </div>
+
+      {/* Circle stage starts AFTER the heading */}
+      <div className="relative w-full">
         {/* Compact circle — minimal stroke with cool purple gradient */}
         <svg
           aria-hidden
@@ -58,7 +77,7 @@ export default function LogoCloud() {
           className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
           style={{
             top: "0",
-            width: "min(420px, 70vw)",
+            width: "min(480px, 74vw)",
             height: "auto",
             zIndex: 0,
           }}
@@ -87,30 +106,14 @@ export default function LogoCloud() {
 
         {/* Foreground content */}
         <div className="relative" style={{ zIndex: 1 }}>
-          {/* Heading — sits in the upper part of the circle */}
-          <div
-            role="heading"
-            aria-level={2}
-            className="text-center px-4"
-            style={{
-              fontFamily: SANS,
-              color: "#fff",
-              fontSize: "clamp(22px, 3vw, 32px)",
-              fontWeight: 700,
-              letterSpacing: "-0.5px",
-              lineHeight: 1.15,
-              marginTop: "clamp(40px, 6vw, 70px)",
-              marginBottom: "16px",
-            }}
-          >
-            Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
-          </div>
+          {/* Spacer above marquee — pushes marquee to circle's vertical center */}
+          <div style={{ height: "clamp(110px, 17vw, 170px)" }} />
 
           {/* Marquee strip — masks the circle's horizontal mid-line */}
           <div
             className="relative w-full overflow-hidden"
             style={{
-              padding: "10px 0",
+              padding: "14px 0",
               backgroundColor: "#0a0a0a",
             }}
           >
@@ -133,13 +136,13 @@ export default function LogoCloud() {
 
             <div
               className="flex animate-marquee hover:[animation-play-state:paused]"
-              style={{ width: "max-content", gap: "56px" }}
+              style={{ width: "max-content", gap: "64px" }}
             >
               {duplicatedLogos.map((logo, index) => (
                 <div
                   key={`logo-${index}`}
                   className="flex-shrink-0 flex items-center justify-center"
-                  style={{ height: "32px" }}
+                  style={{ height: "48px" }}
                 >
                   <img
                     src={logo.src}
@@ -147,8 +150,8 @@ export default function LogoCloud() {
                     loading="lazy"
                     className="h-full w-auto object-contain brightness-0 invert"
                     style={{
-                      maxWidth: "160px",
-                      opacity: 0.7,
+                      maxWidth: "200px",
+                      opacity: 0.75,
                     }}
                   />
                 </div>
@@ -156,8 +159,8 @@ export default function LogoCloud() {
             </div>
           </div>
 
-          {/* Spacer below marquee — just enough for lower circle half */}
-          <div style={{ height: "clamp(80px, 9vw, 110px)" }} />
+          {/* Spacer below marquee — ~2cm */}
+          <div style={{ height: "76px" }} />
         </div>
       </div>
     </section>
