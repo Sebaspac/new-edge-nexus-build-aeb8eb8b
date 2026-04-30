@@ -114,8 +114,8 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             <h1
               className="text-white tracking-tight"
               style={{
-                fontSize: "clamp(2.5rem, 8.5vw, 8.75rem)",
-                lineHeight: 1.02,
+                fontSize: "clamp(2.25rem, 5.5vw, 5.5rem)",
+                lineHeight: 1.05,
                 letterSpacing: "-0.02em",
               }}
             >
