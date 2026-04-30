@@ -35,24 +35,22 @@ export default function LogoCloud() {
   return (
     <section
       className="relative w-full overflow-hidden"
-      style={{ backgroundColor: "#0a0a0a", padding: "0 0 60px" }}
+      style={{ backgroundColor: "#0a0a0a", padding: "0 0 32px" }}
     >
       {/* Vertical line on top — fades into the upper arc */}
       <div className="flex justify-center">
         <div
           style={{
             width: "1px",
-            height: "140px",
+            height: "110px",
             background: "linear-gradient(to bottom, transparent, #a855f7)",
           }}
         />
       </div>
 
-      {/* Stacked stage: full circle behind, heading + marquee in front.
-          The marquee strip cuts the circle exactly in half horizontally. */}
+      {/* Stacked stage: full circle behind, heading + marquee in front. */}
       <div className="relative w-full" style={{ marginTop: "-1px" }}>
-        {/* Full circle SVG — purple gradient stroke, no fill.
-            Top of the circle starts exactly where the line ends (top: 0). */}
+        {/* Compact circle — thin minimal stroke */}
         <svg
           aria-hidden
           viewBox="0 0 800 800"
@@ -60,7 +58,7 @@ export default function LogoCloud() {
           className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
           style={{
             top: "0",
-            width: "min(720px, 88vw)",
+            width: "min(520px, 78vw)",
             height: "auto",
             zIndex: 0,
           }}
@@ -78,7 +76,7 @@ export default function LogoCloud() {
 
         {/* Foreground content */}
         <div className="relative" style={{ zIndex: 1 }}>
-          {/* Heading — sits in the upper half of the circle */}
+          {/* Heading — sits in the upper part of the circle */}
           <div
             role="heading"
             aria-level={2}
@@ -90,8 +88,8 @@ export default function LogoCloud() {
               fontWeight: 700,
               letterSpacing: "-0.5px",
               lineHeight: 1.15,
-              marginTop: "clamp(60px, 12vw, 130px)",
-              marginBottom: "28px",
+              marginTop: "clamp(70px, 10vw, 100px)",
+              marginBottom: "24px",
             }}
           >
             Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
@@ -101,17 +99,15 @@ export default function LogoCloud() {
           <div
             className="relative w-full overflow-hidden"
             style={{
-              padding: "18px 0",
+              padding: "14px 0",
               backgroundColor: "#0a0a0a",
             }}
           >
-            {/* Edge fades */}
             <div
               className="absolute left-0 top-0 bottom-0 pointer-events-none"
               style={{
                 width: "120px",
-                background:
-                  "linear-gradient(to right, #0a0a0a, transparent)",
+                background: "linear-gradient(to right, #0a0a0a, transparent)",
                 zIndex: 2,
               }}
             />
@@ -119,21 +115,20 @@ export default function LogoCloud() {
               className="absolute right-0 top-0 bottom-0 pointer-events-none"
               style={{
                 width: "120px",
-                background:
-                  "linear-gradient(to left, #0a0a0a, transparent)",
+                background: "linear-gradient(to left, #0a0a0a, transparent)",
                 zIndex: 2,
               }}
             />
 
             <div
               className="flex animate-marquee hover:[animation-play-state:paused]"
-              style={{ width: "max-content", gap: "72px" }}
+              style={{ width: "max-content", gap: "56px" }}
             >
               {duplicatedLogos.map((logo, index) => (
                 <div
                   key={`logo-${index}`}
                   className="flex-shrink-0 flex items-center justify-center"
-                  style={{ height: "44px" }}
+                  style={{ height: "40px" }}
                 >
                   <img
                     src={logo.src}
@@ -141,7 +136,7 @@ export default function LogoCloud() {
                     loading="lazy"
                     className="h-full w-auto object-contain brightness-0 invert"
                     style={{
-                      maxWidth: "180px",
+                      maxWidth: "160px",
                       opacity: 0.7,
                     }}
                   />
@@ -150,8 +145,8 @@ export default function LogoCloud() {
             </div>
           </div>
 
-          {/* Spacer below marquee so the lower half of the circle is visible */}
-          <div style={{ height: "clamp(120px, 22vw, 220px)" }} />
+          {/* Spacer below marquee — just enough for lower circle half */}
+          <div style={{ height: "clamp(140px, 16vw, 180px)" }} />
         </div>
       </div>
     </section>
