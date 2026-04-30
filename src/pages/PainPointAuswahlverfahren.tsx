@@ -217,7 +217,107 @@ const stepsData = [
 
 const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [visibleSteps, setVisibleSteps] = useState(0); // 0 = none visible, 1 = first, 2 = first+second, 3 = all
+  const [activeStep, setActiveStep] = useState(0);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const handleScroll = () => {
+      const rect = section.getBoundingClientRect();
+      const progress = (window.innerHeight - rect.top) / rect.height;
+      const clamped = Math.max(0, Math.min(1, progress));
+      setActiveStep(Math.min(2, Math.floor(clamped * 3)));
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div
+      ref={sectionRef}
+      className="relative"
+      style={{
+        background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
+        minHeight: "200vh",
+      }}
+    >
+      <div className="sticky top-0 min-h-screen flex items-center overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-16 md:py-24 w-full">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* LEFT */}
+            <div className="flex flex-col justify-between">
+              <div>
+                <h2
+                  className="text-[clamp(2.2rem,5vw,4rem)] leading-[1.05] mb-8 uppercase"
+                  style={{ ...SERIF, letterSpacing: "-0.02em", color: "#ffffff" }}
+                >
+                  Drei<br />Schritte<br />zum Erfolg
+                </h2>
+                <Link to="/kontakt">
+                  <button
+                    className="inline-flex items-center gap-2 px-7 py-3.5 text-[0.9rem] font-medium transition-all hover:opacity-90 hover:-translate-y-0.5"
+                    style={{ background: "#ffffff", color: PURPLE_DARK, ...MONO, border: "none" }}
+                  >
+                    Erstgespräch vereinbaren
+                  </button>
+                </Link>
+              </div>
+              <div className="flex items-center gap-3 mt-12">
+                <img
+                  src={foundersImg}
+                  alt="Sebastian Pachon — Gründer New Edge"
+                  className="w-12 h-12 object-cover object-[25%_20%]"
+                  style={{ borderRadius: "50%" }}
+                />
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-wide text-white" style={MONO}>
+                    Mit Sebastian Pachon
+                  </p>
+                  <p className="text-xs text-white/70" style={MONO}>
+                    Gründer und Geschäftsführer New Edge
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT — one card at a time */}
+            <div className="relative h-[320px] md:h-[360px]">
+              {stepsData.map((step, i) => (
+                <div
+                  key={i}
+                  className="absolute inset-0 p-8 md:p-10 transition-all duration-500 ease-out"
+                  style={{
+                    background: "rgba(255,255,255,0.97)",
+                    opacity: activeStep === i ? 1 : 0,
+                    transform: activeStep === i
+                      ? "translateY(0) rotate(-1.5deg) scale(1)"
+                      : activeStep > i
+                        ? "translateY(-30px) rotate(-3deg) scale(0.95)"
+                        : "translateY(30px) rotate(0deg) scale(0.95)",
+                    boxShadow: "0 20px 60px rgba(0,0,0,0.15)",
+                    pointerEvents: activeStep === i ? "auto" : "none",
+                  }}
+                >
+                  <div className="text-3xl mb-4">{step.icon}</div>
+                  <h3
+                    className="text-[1.1rem] font-bold mb-3"
+                    style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p className="text-[0.9rem] leading-[1.7]" style={{ color: L.textMuted, ...MONO }}>
+                    {step.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
   useEffect(() => {
     const section = sectionRef.current;
