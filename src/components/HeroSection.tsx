@@ -27,6 +27,20 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
         className="relative w-full overflow-hidden flex items-center justify-center"
         style={{ backgroundColor: "#0a0a0a", minHeight: "100dvh" }}
       >
+        {/* Soft purple glow behind the headline */}
+        <div
+          aria-hidden
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          style={{
+            width: "min(900px, 90vw)",
+            height: "min(900px, 90vw)",
+            background:
+              "radial-gradient(circle, rgba(168,85,247,0.28) 0%, rgba(168,85,247,0.14) 28%, rgba(126,34,206,0.06) 55%, transparent 75%)",
+            filter: "blur(40px)",
+            zIndex: 0,
+          }}
+        />
+
         {/* Vertical line at bottom of hero — fades down toward LogoCloud */}
         <div
           aria-hidden
