@@ -37,8 +37,7 @@ export default function LogoCloud() {
       className="relative w-full overflow-hidden flex flex-col items-center justify-center"
       style={{
         backgroundColor: "#0a0a0a",
-        minHeight: "100dvh",
-        padding: "40px 0",
+        padding: "32px 0 24px",
       }}
     >
       {/* Heading */}
