@@ -222,23 +222,25 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
-    let ticking = false;
+    let raf = 0;
     const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
         const rect = section.getBoundingClientRect();
         const pinDistance = rect.height - window.innerHeight;
-        if (pinDistance <= 0) { ticking = false; return; }
-        const progress = Math.min(1, Math.max(0, -rect.top / pinDistance));
-        const next = progress < 0.33 ? 0 : progress < 0.66 ? 1 : 2;
-        setActiveStep(next);
-        ticking = false;
+        if (pinDistance <= 0) return;
+        const scrolled = -rect.top;
+        const progress = Math.min(1, Math.max(0, scrolled / pinDistance));
+        const next = progress < 0.3 ? 0 : progress < 0.65 ? 1 : 2;
+        setActiveStep((prev) => (prev !== next ? next : prev));
       });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
