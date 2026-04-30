@@ -585,7 +585,13 @@ const PainPointAuswahlverfahren = () => {
         <Reveal>
           <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-[72px] items-center">
             <div>
-              <VisualPanel caption="Animation: PDF-Stapel oben → KI-Erfassung (pulsierender Kreis) → strukturiertes Formular mit ausgefüllten Feldern unten. Purple Scanning-Linie." />
+              <img
+                src={painpointAVorherNachher}
+                alt="Vorher: unstrukturierte PDF-Bewerbungen — Nachher: strukturiertes KI-Scoring-Dashboard"
+                loading="lazy"
+                className="w-full h-auto"
+                style={{ border: `1px solid ${BORDER}` }}
+              />
             </div>
             <div>
               <SectionLabel>Feature 01</SectionLabel>
