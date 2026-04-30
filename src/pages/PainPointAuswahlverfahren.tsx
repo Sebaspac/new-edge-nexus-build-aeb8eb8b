@@ -11,6 +11,7 @@ import painpointAFeature3 from "@/assets/painpoint-a-feature3.png";
 import iconAnalyse from "@/assets/painpoint-a-icon-analyse.png";
 import iconKoordination from "@/assets/painpoint-a-icon-koordination.png";
 import iconInsights from "@/assets/painpoint-a-icon-insights.png";
+import integrationsLogos from "@/assets/painpoint-a-integrations-logos.png";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -706,31 +707,14 @@ const PainPointAuswahlverfahren = () => {
                 </SectionSub>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-12">
-                {integrations.map((it) => (
-                  <div
-                    key={it.name}
-                    className="flex flex-col items-center gap-2.5 px-4 py-6 cursor-pointer transition-all hover:-translate-y-0.5"
-                    style={{
-                      background: SURFACE_2,
-                      border: `1px solid ${BORDER}`,
-                    }}
-                  >
-                    <div
-                      className="w-11 h-11 flex items-center justify-center text-[1.25rem]"
-                      style={{ background: SURFACE }}
-                    >
-                      {it.icon}
-                    </div>
-                    <span className="text-[0.8rem] font-semibold text-center" style={{ color: "#888" }}>
-                      {it.name}
-                    </span>
-                  </div>
-                ))}
+              <div className="mt-12">
+                <img
+                  src={integrationsLogos}
+                  alt="Integrationen: Microsoft Teams, SharePoint, Outlook, HubSpot, Zapier, Make, Notion, Google Workspace, Microsoft 365"
+                  loading="lazy"
+                  className="w-full h-auto max-w-[900px] mx-auto"
+                />
               </div>
-              <p className="mt-6 text-[10px]" style={{ color: ACCENT_BRIGHT + "99" }}>
-                🖼️ Icon-Slot: echte Tool-Logos (mono-weiß SVG) ersetzen die Emoji-Platzhalter
-              </p>
             </div>
           </Reveal>
         </div>
