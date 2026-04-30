@@ -2,7 +2,7 @@ import { lazy, Suspense, useState, useEffect, useRef, useMemo, useCallback } fro
 
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { ScrollLegend } from "@/components/ui/scroll-legend";
+
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
