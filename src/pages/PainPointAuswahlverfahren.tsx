@@ -484,6 +484,44 @@ const PainPointAuswahlverfahren = () => {
           `}</style>
         </section>
 
+        {/* ──────────── LIGHT THEME SCOPE (alles unter dem Hero) ──────────── */}
+        <div className="light-scope" style={{ background: "#ffffff", color: "#0a0a0a" }}>
+          <style>{`
+            .light-scope { color: #0a0a0a; }
+            /* Backgrounds: dunkle Surfaces → helle Surfaces */
+            .light-scope [style*="background: rgb(20, 20, 20)"],
+            .light-scope [style*="background:#141414"],
+            .light-scope [style*="background: #141414"] { background: #f6f6f7 !important; }
+            .light-scope [style*="background: rgb(30, 30, 30)"],
+            .light-scope [style*="background:#1e1e1e"],
+            .light-scope [style*="background: #1e1e1e"] { background: #efefef !important; }
+            .light-scope [style*="background: rgb(10, 10, 10)"],
+            .light-scope [style*="background:#0a0a0a"],
+            .light-scope [style*="background: #0a0a0a"] { background: #ffffff !important; }
+            /* Borders: dunkles #252525 → hell */
+            .light-scope [style*="rgb(37, 37, 37)"],
+            .light-scope [style*="#252525"] { border-color: #e5e7eb !important; }
+            /* Muted-Text #888 / #bbb / #9a9a9a → dunkler */
+            .light-scope [style*="color: rgb(136, 136, 136)"],
+            .light-scope [style*="color:#888"],
+            .light-scope [style*="color: #888"] { color: #6b7280 !important; }
+            .light-scope [style*="color: rgb(154, 154, 154)"],
+            .light-scope [style*="color:#9a9a9a"],
+            .light-scope [style*="color: #9a9a9a"] { color: #6b7280 !important; }
+            .light-scope [style*="color: rgb(187, 187, 187)"],
+            .light-scope [style*="color:#bbb"],
+            .light-scope [style*="color: #bbb"] { color: #4b5563 !important; }
+            /* Weißer Standard-Text → schwarz */
+            .light-scope .text-white { color: #0a0a0a !important; }
+            .light-scope [style*="color: rgb(255, 255, 255)"],
+            .light-scope [style*="color:#fff"],
+            .light-scope [style*="color: #fff"] { color: #0a0a0a !important; }
+            /* Subtile dark-row backgrounds in Tabelle (rgba weiß) */
+            .light-scope [style*="rgba(255,255,255,0.025)"] { background: rgba(0,0,0,0.025) !important; }
+            .light-scope [style*="rgba(255,255,255,0.01)"] { background: rgba(0,0,0,0.01) !important; }
+            /* Closing CTA: dunkles SURFACE → sehr helles, lila Glow bleibt */
+          `}</style>
+
         {/* SECTION 2 — DEFINITION (crawl-priorisiert, jetzt unter Hero) */}
         <section className="pt-16 md:pt-20 pb-0">
           <div className="max-w-[800px] mx-auto px-6 lg:px-8">
