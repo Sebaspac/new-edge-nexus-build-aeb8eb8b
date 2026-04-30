@@ -161,8 +161,8 @@ export default function LogoCloud() {
             </div>
           </div>
 
-          {/* Spacer below marquee — ~2cm */}
-          <div style={{ height: "76px" }} />
+          {/* Spacer below marquee — matches circle's lower half so it ends cleanly, plus minimal gap */}
+          <div style={{ height: "calc(min(320px, 60vw) / 2 + 12px)" }} />
         </div>
       </div>
     </section>
