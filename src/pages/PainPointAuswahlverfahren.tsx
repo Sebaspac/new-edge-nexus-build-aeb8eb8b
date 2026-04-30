@@ -255,21 +255,15 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
 
   return (
     <div
-      ref={sectionRef}
-      className="relative overflow-hidden"
+      className="relative overflow-visible"
       style={{
         background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
-        height: "210vh",
       }}
     >
-      <div
-        className={pinMode === "active" ? "fixed inset-x-0 top-0 z-20 h-[100dvh] flex items-center overflow-hidden" : "absolute inset-x-0 h-[100dvh] flex items-center overflow-hidden"}
-        style={{ top: pinMode === "after" ? "calc(100% - 100dvh)" : 0 }}
-      >
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
             {/* LEFT */}
-            <div className="flex flex-col justify-between">
+            <div className="md:sticky md:top-0 md:h-[100dvh] flex flex-col justify-center py-16 md:py-0">
               <div>
                 <h2
                   className="text-[clamp(2.2rem,5vw,4rem)] leading-[1.05] mb-8 uppercase"
@@ -305,24 +299,21 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
               </div>
             </div>
 
-            {/* RIGHT — one card at a time */}
-            <div className="relative h-[340px] md:h-[360px]" aria-live="polite">
+            {/* RIGHT — scroll cards */}
+            <div className="flex flex-col gap-[22vh] py-12 md:py-[28vh]" aria-live="polite">
               {stepsData.map((step, i) => (
                 <div
                   key={i}
-                  className="absolute inset-0 p-8 md:p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
+                  ref={(el) => (cardRefs.current[i] = el)}
+                  data-step-index={i}
+                  className="min-h-[280px] p-8 md:p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
                   style={{
                     background: "rgba(255,255,255,0.97)",
-                    opacity: activeStep === i ? 1 : 0,
-                    transform: activeStep === i
-                      ? "translateY(0) rotate(-1deg) scale(1)"
-                      : activeStep > i
-                        ? "translateY(-28px) rotate(-2deg) scale(0.96)"
-                        : "translateY(36px) rotate(0deg) scale(0.96)",
+                    opacity: activeStep === i ? 1 : 0.42,
+                    transform: activeStep === i ? "translateY(0) rotate(-1deg) scale(1)" : "translateY(18px) rotate(0deg) scale(0.96)",
                     boxShadow: activeStep === i
                       ? "0 25px 60px rgba(0,0,0,0.18)"
                       : "0 10px 30px rgba(0,0,0,0.08)",
-                    pointerEvents: activeStep === i ? "auto" : "none",
                   }}
                 >
                   <div className="text-3xl mb-4">{step.icon}</div>
