@@ -66,11 +66,11 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           {/* Subline */}
           <p
             style={{
-              marginTop: "28px",
+              marginTop: "22px",
               fontFamily: SANS,
-              fontSize: "clamp(16px, 2.2vw, 20px)",
+              fontSize: "clamp(15px, 1.8vw, 18px)",
               color: "#a0a0a0",
-              maxWidth: "520px",
+              maxWidth: "500px",
               lineHeight: 1.55,
               fontWeight: 400,
             }}
