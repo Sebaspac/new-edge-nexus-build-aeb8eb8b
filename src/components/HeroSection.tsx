@@ -59,7 +59,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           className="relative flex flex-col items-center text-center w-full"
-          style={{ padding: "clamp(70px, 10vh, 120px) 24px clamp(40px, 6vh, 80px)", fontFamily: SANS, zIndex: 1 }}
+          style={{ padding: "clamp(100px, 18vh, 120px) 24px clamp(40px, 6vh, 80px)", fontFamily: SANS, zIndex: 1 }}
         >
           {/* Headline — slightly smaller for better fit; rendered as div to bypass global h1 DM-Serif !important */}
           <div
