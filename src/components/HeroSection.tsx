@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import CyberneticGridShader from "./ui/cybernetic-grid-shader";
 
 interface HeroSectionProps {
   onContactClick: () => void;
@@ -23,22 +22,27 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
       <section
         className="relative w-full min-h-[100dvh] overflow-hidden"
         id="hero"
-        style={{ backgroundColor: "#000000" }}
+        style={{ backgroundColor: "hsl(0 0% 0%)" }}
       >
         {/* Solid black base layer to prevent any white flash */}
-        <div className="absolute inset-0 z-0 bg-black" />
+        <div className="absolute inset-0 z-0 bg-[hsl(0_0%_0%)]" />
 
-        {/* Background Shader (decorative, optional) */}
-        <div className="absolute inset-0 z-[1] pointer-events-none">
-          <CyberneticGridShader />
-        </div>
-
-        {/* Radial purple glow accent */}
+        {/* Stable CSS-only CI background (no WebGL/3D dependency) */}
         <div
-          className="absolute inset-0 z-[2] pointer-events-none opacity-60"
+          className="absolute inset-0 z-[1] pointer-events-none opacity-70"
           style={{
             background:
-              "radial-gradient(ellipse 80% 50% at 50% 40%, rgba(124,58,237,0.25), transparent 70%)",
+              "radial-gradient(ellipse 80% 50% at 50% 36%, hsl(var(--primary) / 0.34), transparent 68%), linear-gradient(180deg, hsl(0 0% 0%) 0%, hsl(270 40% 6%) 54%, hsl(0 0% 0%) 100%)",
+          }}
+        />
+
+        <div
+          className="absolute inset-0 z-[2] pointer-events-none opacity-25"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--primary) / 0.18) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary) / 0.18) 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
+            maskImage: "radial-gradient(ellipse 70% 50% at 50% 42%, black, transparent 72%)",
           }}
         />
 
