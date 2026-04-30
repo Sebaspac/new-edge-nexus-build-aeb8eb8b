@@ -33,20 +33,20 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           className="flex flex-col items-center text-center"
-          style={{ padding: "100px 24px 80px", fontFamily: SANS }}
+          style={{ padding: "160px 24px 60px", fontFamily: SANS }}
         >
-          {/* Headline — rendered as div to bypass global h1 DM-Serif !important */}
+          {/* Headline — slightly smaller for better fit; rendered as div to bypass global h1 DM-Serif !important */}
           <div
             role="heading"
             aria-level={1}
             style={{
               fontFamily: SANS,
-              fontSize: "clamp(48px, 7vw, 80px)",
+              fontSize: "clamp(36px, 5.5vw, 64px)",
               fontWeight: 800,
               lineHeight: 1.08,
-              letterSpacing: "-2px",
+              letterSpacing: "-1.5px",
               color: "#fff",
-              maxWidth: "860px",
+              maxWidth: "780px",
             }}
           >
             Close Deals Faster With
@@ -66,11 +66,11 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           {/* Subline */}
           <p
             style={{
-              marginTop: "28px",
+              marginTop: "22px",
               fontFamily: SANS,
-              fontSize: "clamp(16px, 2.2vw, 20px)",
+              fontSize: "clamp(15px, 1.8vw, 18px)",
               color: "#a0a0a0",
-              maxWidth: "520px",
+              maxWidth: "500px",
               lineHeight: 1.55,
               fontWeight: 400,
             }}
@@ -82,7 +82,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           {/* CTAs */}
           <div
             className="flex flex-wrap justify-center"
-            style={{ marginTop: "44px", gap: "16px" }}
+            style={{ marginTop: "32px", gap: "14px" }}
           >
             <button
               onClick={onContactClick}
@@ -92,7 +92,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 fontFamily: SANS,
                 fontSize: "16px",
                 fontWeight: 700,
-                padding: "16px 36px",
+                padding: "13px 30px",
                 borderRadius: "12px",
                 border: "none",
                 cursor: "pointer",
@@ -117,7 +117,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 fontFamily: SANS,
                 fontSize: "16px",
                 fontWeight: 700,
-                padding: "16px 36px",
+                padding: "13px 30px",
                 borderRadius: "12px",
                 border: "2px solid #a855f7",
                 textDecoration: "none",
@@ -141,7 +141,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           <div
             className="flex flex-wrap items-center justify-center"
             style={{
-              marginTop: "60px",
+              marginTop: "44px",
               gap: "28px",
               fontFamily: SANS,
               fontSize: "14px",
