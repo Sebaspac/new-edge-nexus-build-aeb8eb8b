@@ -35,7 +35,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             width: "min(900px, 90vw)",
             height: "min(900px, 90vw)",
             background:
-              "radial-gradient(circle, rgba(124,58,237,0.28) 0%, rgba(124,58,237,0.14) 28%, rgba(91,33,182,0.06) 55%, transparent 75%)",
+              "radial-gradient(circle, rgba(91,33,182,0.30) 0%, rgba(76,29,149,0.16) 28%, rgba(76,29,149,0.06) 55%, transparent 75%)",
             filter: "blur(40px)",
             zIndex: 0,
           }}
@@ -49,7 +49,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             bottom: "0",
             width: "1px",
             height: "60px",
-            background: "linear-gradient(to bottom, transparent, #7c3aed)",
+            background: "linear-gradient(to bottom, transparent, #6d28d9)",
             zIndex: 2,
           }}
         />
@@ -80,7 +80,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               className="block bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  "linear-gradient(90deg, #9b7bd4 0%, #7c3aed 50%, #5b21b6 100%)",
+                  "linear-gradient(90deg, #8b5cf6 0%, #6d28d9 50%, #4c1d95 100%)",
                 fontFamily: SANS,
                 fontWeight: 800,
               }}
@@ -112,23 +112,27 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             <button
               onClick={onContactClick}
               style={{
-                background: "#7c3aed",
+                background: "rgba(91,33,182,0.25)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
                 color: "#fff",
                 fontFamily: SANS,
                 fontSize: "16px",
                 fontWeight: 700,
                 padding: "13px 30px",
-                borderRadius: "12px",
-                border: "none",
+                borderRadius: "0px",
+                border: "2px solid #5b21b6",
                 cursor: "pointer",
-                transition: "background 0.2s, transform 0.15s",
+                transition: "all 0.3s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#6d28d9";
+                e.currentTarget.style.background = "#5b21b6";
+                e.currentTarget.style.color = "#fff";
                 e.currentTarget.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "#7c3aed";
+                e.currentTarget.style.background = "rgba(91,33,182,0.25)";
+                e.currentTarget.style.color = "#fff";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
@@ -137,24 +141,28 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             <Link
               to="/case-studies"
               style={{
-                background: "transparent",
-                color: "#7c3aed",
+                background: "rgba(91,33,182,0.1)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+                color: "#c4b5fd",
                 fontFamily: SANS,
                 fontSize: "16px",
                 fontWeight: 700,
                 padding: "13px 30px",
-                borderRadius: "12px",
-                border: "2px solid #7c3aed",
+                borderRadius: "0px",
+                border: "2px solid #5b21b6",
                 textDecoration: "none",
                 display: "inline-block",
-                transition: "background 0.2s, transform 0.15s",
+                transition: "all 0.3s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(124,58,237,0.06)";
+                e.currentTarget.style.background = "#5b21b6";
+                e.currentTarget.style.color = "#fff";
                 e.currentTarget.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.background = "rgba(91,33,182,0.1)";
+                e.currentTarget.style.color = "#c4b5fd";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
@@ -175,7 +183,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           >
             <div className="flex items-center" style={{ gap: "8px" }}>
               <span
-                style={{ color: "#7c3aed", fontSize: "18px", letterSpacing: "1px" }}
+                style={{ color: "#6d28d9", fontSize: "18px", letterSpacing: "1px" }}
               >
                 ★★★★★
               </span>
