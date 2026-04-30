@@ -247,26 +247,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
     };
   }, []);
 
-  const getCardStyle = (index: number): CSSProperties => {
-    const relativeIndex = index - activeStep;
-
-    return {
-      background: "rgba(255,255,255,0.97)",
-      opacity: relativeIndex === 0 ? 1 : 0,
-      transform:
-        relativeIndex === 0
-          ? "translate3d(0, -50%, 0) rotate(-2deg) scale(1)"
-          : relativeIndex < 0
-            ? "translate3d(0, -72%, 0) rotate(-5deg) scale(0.94)"
-            : "translate3d(0, -28%, 0) rotate(3deg) scale(0.94)",
-      transition: "opacity 520ms cubic-bezier(0.22,1,0.36,1), transform 520ms cubic-bezier(0.22,1,0.36,1)",
-      pointerEvents: relativeIndex === 0 ? "auto" : "none",
-      zIndex: 10 - Math.abs(relativeIndex),
-      boxShadow: relativeIndex === 0
-        ? "0 26px 70px rgba(0,0,0,0.2)"
-        : "0 18px 45px rgba(0,0,0,0.12)",
-    };
-  };
+  const activeCard = stepsData[activeStep];
 
   return (
     <div
@@ -327,34 +308,36 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
               </div>
             </div>
 
-            {/* RIGHT — RAF-synced cards */}
-            <div className="relative h-[430px] md:h-[500px]" aria-live="polite">
-              {stepsData.map((step, i) => (
-                <div
-                  key={i}
-                  className="absolute left-0 right-0 top-1/2 min-h-[280px] p-8 md:p-12 flex flex-col justify-center will-change-transform"
-                  style={getCardStyle(i)}
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl">{step.icon}</span>
-                    <span
-                      className="text-[0.8rem] font-bold uppercase tracking-widest"
-                      style={{ ...MONO, color: PURPLE }}
-                    >
-                      Schritt {i + 1}
-                    </span>
-                  </div>
-                  <h3
-                    className="text-[1.1rem] font-bold mb-3"
-                    style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+            {/* RIGHT — RAF-synced single pop card */}
+            <div className="relative h-[430px] md:h-[500px] flex items-center" aria-live="polite">
+              <div
+                key={activeStep}
+                className="w-full min-h-[280px] p-8 md:p-12 flex flex-col justify-center animate-scale-in will-change-transform"
+                style={{
+                  background: "rgba(255,255,255,0.97)",
+                  transform: "rotate(-2deg)",
+                  boxShadow: "0 26px 70px rgba(0,0,0,0.2)",
+                }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-3xl">{activeCard.icon}</span>
+                  <span
+                    className="text-[0.8rem] font-bold uppercase tracking-widest"
+                    style={{ ...MONO, color: PURPLE }}
                   >
-                    {step.title}
-                  </h3>
-                  <p className="text-[0.9rem] leading-[1.7]" style={{ color: L.textMuted, ...MONO }}>
-                    {step.desc}
-                  </p>
+                    Schritt {activeStep + 1}
+                  </span>
                 </div>
-              ))}
+                <h3
+                  className="text-[1.1rem] font-bold mb-3"
+                  style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+                >
+                  {activeCard.title}
+                </h3>
+                <p className="text-[0.9rem] leading-[1.7]" style={{ color: L.textMuted, ...MONO }}>
+                  {activeCard.desc}
+                </p>
+              </div>
             </div>
           </div>
         </div>
