@@ -84,12 +84,12 @@ export default function LogoCloud() {
             style={{
               fontFamily: SANS,
               color: "#fff",
-              fontSize: "clamp(28px, 4vw, 42px)",
+              fontSize: "clamp(22px, 3vw, 32px)",
               fontWeight: 700,
               letterSpacing: "-0.5px",
               lineHeight: 1.15,
-              marginTop: "clamp(70px, 10vw, 100px)",
-              marginBottom: "24px",
+              marginTop: "clamp(40px, 6vw, 70px)",
+              marginBottom: "16px",
             }}
           >
             Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
