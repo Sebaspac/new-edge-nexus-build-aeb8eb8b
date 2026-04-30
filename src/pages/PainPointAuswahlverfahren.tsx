@@ -217,69 +217,70 @@ const stepsData = [
 
 const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   const [activeStep, setActiveStep] = useState(0);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visible?.target instanceof HTMLElement) {
-          setActiveStep(Number(visible.target.dataset.stepIndex || 0));
-        }
-      },
-      { threshold: [0.45, 0.6, 0.75], rootMargin: "-20% 0px -20% 0px" }
-    );
-
-    cardRefs.current.forEach((card) => card && observer.observe(card));
-    return () => observer.disconnect();
+    const section = sectionRef.current;
+    if (!section) return;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const rect = section.getBoundingClientRect();
+        const pinDistance = rect.height - window.innerHeight;
+        if (pinDistance <= 0) { ticking = false; return; }
+        const progress = Math.min(1, Math.max(0, -rect.top / pinDistance));
+        const next = progress < 0.33 ? 0 : progress < 0.66 ? 1 : 2;
+        setActiveStep(next);
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  // Step indicator dots
-  const dots = (
-    <div className="flex gap-2 mt-8">
-      {[0, 1, 2].map((i) => (
-        <div
-          key={i}
-          className="w-2 h-2 transition-all duration-300"
-          style={{
-            background: activeStep === i ? "#ffffff" : "rgba(255,255,255,0.3)",
-            transform: activeStep === i ? "scale(1.3)" : "scale(1)",
-          }}
-        />
-      ))}
-    </div>
-  );
 
   return (
     <div
-      className="relative overflow-visible"
+      ref={sectionRef}
+      className="relative"
       style={{
+        height: "250vh",
         background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
       }}
     >
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+      <div className="sticky top-0 h-[100dvh] flex items-center overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             {/* LEFT */}
-            <div className="md:sticky md:top-0 md:h-[100dvh] flex flex-col justify-center py-16 md:py-0">
-              <div>
-                <h2
-                  className="text-[clamp(2.2rem,5vw,4rem)] leading-[1.05] mb-8 uppercase"
-                  style={{ ...SERIF, letterSpacing: "-0.02em", color: "#ffffff" }}
+            <div className="flex flex-col justify-center">
+              <h2
+                className="text-[clamp(2.2rem,5vw,4rem)] leading-[1.05] mb-8 uppercase"
+                style={{ ...SERIF, letterSpacing: "-0.02em", color: "#ffffff" }}
+              >
+                Drei<br />Schritte<br />zum Erfolg
+              </h2>
+              <Link to="/kontakt">
+                <button
+                  className="inline-flex items-center gap-2 px-7 py-3.5 text-[0.9rem] font-medium transition-all hover:opacity-90 hover:-translate-y-0.5"
+                  style={{ background: "#ffffff", color: PURPLE_DARK, ...MONO, border: "none" }}
                 >
-                  Drei<br />Schritte<br />zum Erfolg
-                </h2>
-                <Link to="/kontakt">
-                  <button
-                    className="inline-flex items-center gap-2 px-7 py-3.5 text-[0.9rem] font-medium transition-all hover:opacity-90 hover:-translate-y-0.5"
-                    style={{ background: "#ffffff", color: PURPLE_DARK, ...MONO, border: "none" }}
-                  >
-                    Erstgespräch vereinbaren
-                  </button>
-                </Link>
-                {dots}
+                  Erstgespräch vereinbaren
+                </button>
+              </Link>
+              {/* Step indicator dots */}
+              <div className="flex gap-2 mt-8">
+                {[0, 1, 2].map((i) => (
+                  <div
+                    key={i}
+                    className="w-2 h-2 transition-all duration-500"
+                    style={{
+                      background: activeStep === i ? "#ffffff" : "rgba(255,255,255,0.3)",
+                      transform: activeStep === i ? "scale(1.3)" : "scale(1)",
+                    }}
+                  />
+                ))}
               </div>
               <div className="flex items-center gap-3 mt-12">
                 <img
@@ -299,26 +300,37 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
               </div>
             </div>
 
-            {/* RIGHT — scroll cards */}
-            <div className="flex flex-col gap-12 py-12 md:py-[24vh]" aria-live="polite">
+            {/* RIGHT — stacked cards, only active visible */}
+            <div className="relative h-[400px]">
               {stepsData.map((step, i) => (
                 <div
                   key={i}
-                  ref={(el) => {
-                    cardRefs.current[i] = el;
-                  }}
-                  data-step-index={i}
-                  className="min-h-[360px] md:min-h-[380px] p-8 md:p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform flex flex-col justify-center"
+                  className="absolute inset-0 p-8 md:p-10 flex flex-col justify-center will-change-transform"
                   style={{
                     background: "rgba(255,255,255,0.97)",
-                    opacity: activeStep === i ? 1 : 0.68,
-                    transform: activeStep === i ? "translateY(0) rotate(-1deg) scale(1)" : "translateY(12px) rotate(0deg) scale(0.98)",
+                    opacity: activeStep === i ? 1 : 0,
+                    transform:
+                      activeStep === i
+                        ? "translateY(0) scale(1)"
+                        : i < activeStep
+                        ? "translateY(-30px) scale(0.97)"
+                        : "translateY(30px) scale(0.97)",
+                    transition: "opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1)",
+                    pointerEvents: activeStep === i ? "auto" : "none",
                     boxShadow: activeStep === i
                       ? "0 25px 60px rgba(0,0,0,0.18)"
                       : "0 10px 30px rgba(0,0,0,0.08)",
                   }}
                 >
-                  <div className="text-3xl mb-4">{step.icon}</div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-3xl">{step.icon}</span>
+                    <span
+                      className="text-[0.8rem] font-bold uppercase tracking-widest"
+                      style={{ ...MONO, color: PURPLE }}
+                    >
+                      Schritt {i + 1}
+                    </span>
+                  </div>
                   <h3
                     className="text-[1.1rem] font-bold mb-3"
                     style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
@@ -332,6 +344,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
               ))}
             </div>
           </div>
+        </div>
       </div>
     </div>
   );
