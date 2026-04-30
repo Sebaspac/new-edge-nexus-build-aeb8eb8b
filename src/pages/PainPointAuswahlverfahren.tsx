@@ -829,14 +829,16 @@ const PainPointAuswahlverfahren = () => {
                     className="p-8 transition-all hover:-translate-y-1"
                     style={{ background: "#0a0a0a", border: `1px solid ${BORDER}` }}
                   >
-                    <img
-                      src={c.icon}
-                      alt={c.title}
-                      loading="lazy"
-                      width={48}
-                      height={48}
-                      className="w-12 h-12 object-contain mb-5"
-                    />
+                    <div className="flex justify-center mb-5">
+                      <img
+                        src={c.icon}
+                        alt={c.title}
+                        loading="lazy"
+                        width={64}
+                        height={64}
+                        className="w-16 h-16 object-contain"
+                      />
+                    </div>
                     <h3 className="text-[1.1rem] font-bold mb-2.5" style={{ ...SERIF, letterSpacing: "-0.02em" }}>
                       {c.title}
                     </h3>
