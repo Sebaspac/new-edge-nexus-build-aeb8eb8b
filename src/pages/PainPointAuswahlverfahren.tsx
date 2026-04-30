@@ -289,10 +289,12 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
     return () => { obs.disconnect(); clearInterval(timer); };
   }, [isMobile]);
 
+  /* ── MOBILE LAYOUT ── */
+  if (isMobile) {
     return (
       <div
         id="cta"
-        ref={mobileRef}
+        ref={sectionRef}
         className="px-6 py-16"
         style={{
           background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
