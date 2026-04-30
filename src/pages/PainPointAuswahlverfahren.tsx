@@ -636,7 +636,7 @@ const PainPointAuswahlverfahren = () => {
                 >
                   Auswahlverfahren automatisieren —<br />
                   <span style={{ color: PURPLE_LIGHT }}>
-                    KI-gestützte Bewertungssysteme für Jurys
+                    KI-gestützte Bewertungssysteme
                   </span>
                 </h1>
                 <p className="text-[0.925rem] leading-[1.65] mb-6 max-w-[500px]" style={{ color: D.textMuted }}>
