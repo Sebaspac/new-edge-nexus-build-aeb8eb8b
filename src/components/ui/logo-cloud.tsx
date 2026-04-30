@@ -77,7 +77,7 @@ export default function LogoCloud() {
           className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
           style={{
             top: "0",
-            width: "min(480px, 74vw)",
+            width: "min(320px, 60vw)",
             height: "auto",
             zIndex: 0,
           }}
@@ -107,7 +107,7 @@ export default function LogoCloud() {
         {/* Foreground content */}
         <div className="relative" style={{ zIndex: 1 }}>
           {/* Spacer above marquee — pushes marquee to circle's vertical center */}
-          <div style={{ height: "clamp(110px, 17vw, 170px)" }} />
+          <div style={{ height: "clamp(70px, 11vw, 110px)" }} />
 
           {/* Marquee strip — masks the circle's horizontal mid-line */}
           <div
