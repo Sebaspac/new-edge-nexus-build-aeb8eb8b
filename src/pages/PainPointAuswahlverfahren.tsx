@@ -5,6 +5,7 @@ import { ArrowRight, Plus } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import painpointAVorherNachher from "@/assets/painpoint-a-vorher-nachher.png";
+import painpointASection3 from "@/assets/painpoint-a-section3.png";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -596,7 +597,12 @@ const PainPointAuswahlverfahren = () => {
         <Reveal>
           <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-[72px] items-center">
             <div>
-              <VisualPanel caption="Vorher/Nachher: PDF-Chaos → strukturiertes KI-Scoring-Dashboard" />
+              <img
+                src={painpointASection3}
+                alt="KI-gestützte Erfassung: PDF-Dokumente werden via Texterkennung, Klassifizierung, Strukturierung und Validierung in ein strukturiertes Projektdatenblatt überführt"
+                loading="lazy"
+                className="w-full h-auto"
+              />
             </div>
             <div>
               <SectionLabel>Feature 01</SectionLabel>
