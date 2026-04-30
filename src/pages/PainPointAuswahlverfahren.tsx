@@ -8,6 +8,9 @@ import painpointAVorherNachher from "@/assets/painpoint-a-vorher-nachher.png";
 import painpointASection3 from "@/assets/painpoint-a-section3.png";
 import painpointAFeature2 from "@/assets/painpoint-a-feature2.png";
 import painpointAFeature3 from "@/assets/painpoint-a-feature3.png";
+import iconAnalyse from "@/assets/painpoint-a-icon-analyse.png";
+import iconKoordination from "@/assets/painpoint-a-icon-koordination.png";
+import iconInsights from "@/assets/painpoint-a-icon-insights.png";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -350,9 +353,9 @@ const PainPointAuswahlverfahren = () => {
   ];
 
   const featureCards = [
-    { icon: "🤖", title: "KI Bewerbungsanalyse", desc: "Jede Einreichung wird automatisch analysiert, kategorisiert und für die Jury aufbereitet." },
-    { icon: "⚙️", title: "Automatisierte Jury-Koordination", desc: "Briefings, Reminder, Deadlines — läuft automatisch. Euer Team fokussiert sich auf Entscheidungen." },
-    { icon: "📊", title: "Analysen & Insights", desc: "Aus jedem Zyklus entstehen automatisch Muster und Trends — die den nächsten Prozess verbessern." },
+    { icon: iconAnalyse, title: "KI Bewerbungsanalyse", desc: "Jede Einreichung wird automatisch analysiert, kategorisiert und für die Jury aufbereitet." },
+    { icon: iconKoordination, title: "Automatisierte Jury-Koordination", desc: "Briefings, Reminder, Deadlines — läuft automatisch. Euer Team fokussiert sich auf Entscheidungen." },
+    { icon: iconInsights, title: "Analysen & Insights", desc: "Aus jedem Zyklus entstehen automatisch Muster und Trends — die den nächsten Prozess verbessern." },
   ];
 
   const testimonials = [
@@ -827,19 +830,23 @@ const PainPointAuswahlverfahren = () => {
                     style={{ background: "#0a0a0a", border: `1px solid ${BORDER}` }}
                   >
                     <div
-                      className="w-12 h-12 flex items-center justify-center text-[1.4rem] mb-5"
-                      style={{ background: TABLE_HIGHLIGHT }}
+                      className="w-14 h-14 flex items-center justify-center mb-5"
+                      style={{ background: TABLE_HIGHLIGHT, border: `1px solid ${ACCENT}55` }}
                     >
-                      {c.icon}
+                      <img
+                        src={c.icon}
+                        alt={c.title}
+                        loading="lazy"
+                        width={32}
+                        height={32}
+                        className="w-8 h-8 object-contain"
+                      />
                     </div>
                     <h3 className="text-[1.1rem] font-bold mb-2.5" style={{ ...SERIF, letterSpacing: "-0.02em" }}>
                       {c.title}
                     </h3>
                     <p className="text-[0.9rem] leading-[1.65]" style={{ color: "#888" }}>
                       {c.desc}
-                    </p>
-                    <p className="mt-3 text-[10px]" style={{ color: ACCENT_BRIGHT + "99" }}>
-                      🖼️ Icon-Slot: animiertes SVG ersetzen
                     </p>
                   </div>
                 ))}
