@@ -6,6 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import painpointAVorherNachher from "@/assets/painpoint-a-vorher-nachher.png";
 import painpointASection3 from "@/assets/painpoint-a-section3.png";
+import painpointAFeature2 from "@/assets/painpoint-a-feature2.png";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -629,7 +630,12 @@ const PainPointAuswahlverfahren = () => {
           <Reveal>
             <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-[72px] items-center">
               <div className="md:order-2">
-                <VisualPanel caption="Hub-Animation: Jury-Kreis links → New-Edge-Hub Mitte (pulsierend, purple) → Output-Cards rechts (Briefing ✓, Reminder ✓, Score ✓). Datenpunkte fließen entlang der Pfade." />
+                <img
+                  src={painpointAFeature2}
+                  alt="3-Schritt-Prozess: PDFs hochladen → KI-Erfassung → Strukturiertes Ergebnis"
+                  loading="lazy"
+                  className="w-full h-auto"
+                />
               </div>
               <div className="md:order-1">
                 <SectionLabel>Feature 02</SectionLabel>
