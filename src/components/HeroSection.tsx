@@ -24,16 +24,16 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
 
       <section
         id="hero"
-        className="relative w-full overflow-hidden"
-        style={{ backgroundColor: "#0a0a0a" }}
+        className="relative w-full overflow-hidden flex items-center justify-center"
+        style={{ backgroundColor: "#0a0a0a", minHeight: "100dvh" }}
       >
         {/* Hero — exact Dapta spec */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="flex flex-col items-center text-center"
-          style={{ padding: "160px 24px 60px", fontFamily: SANS }}
+          className="flex flex-col items-center text-center w-full"
+          style={{ padding: "120px 24px 80px", fontFamily: SANS }}
         >
           {/* Headline — slightly smaller for better fit; rendered as div to bypass global h1 DM-Serif !important */}
           <div
