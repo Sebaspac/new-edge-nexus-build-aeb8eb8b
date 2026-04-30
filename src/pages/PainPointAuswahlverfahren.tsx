@@ -457,30 +457,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
               >
                 Drei<br />Schritte<br />zum Erfolg
               </h2>
-              <div className="space-y-2 mb-4" aria-label={`Schritt ${activeStep + 1} von 3`}>
-                {stepsData.map((step, i) => {
-                  const isActive = activeStep === i;
-                  return (
-                    <div
-                      key={step.title}
-                      className="grid grid-cols-[34px_1fr] gap-2.5 p-2.5 transition-all duration-500"
-                      style={{
-                        background: isActive ? "rgba(255,255,255,0.16)" : "rgba(255,255,255,0.06)",
-                        border: `1px solid ${isActive ? "rgba(255,255,255,0.86)" : "rgba(255,255,255,0.22)"}`,
-                        transform: isActive ? "translateX(0)" : "translateX(-6px)",
-                      }}
-                    >
-                      <span className="text-sm font-bold text-white" style={MONO}>0{i + 1}</span>
-                      <div>
-                        <p className="text-[0.8rem] font-bold text-white" style={MONO}>{step.title}</p>
-                        <p className="text-[0.68rem] leading-[1.45] mt-0.5" style={{ color: "rgba(255,255,255,0.72)", ...MONO }}>
-                          {step.desc}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+              
               <Link to="/kontakt">
                 <button
                   className="inline-flex w-fit items-center gap-2 px-5 py-2.5 text-[0.8rem] font-medium transition-all hover:opacity-90 hover:-translate-y-0.5"
