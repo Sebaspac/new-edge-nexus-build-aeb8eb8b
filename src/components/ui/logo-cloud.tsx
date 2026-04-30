@@ -54,33 +54,33 @@ export default function LogoCloud() {
           lineHeight: 1.15,
         }}
       >
-        Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
+        Vertraut von <span style={{ color: "#6d28d9" }}>50+ Unternehmen</span>
       </div>
 
       {/* Vertical line between heading and circle */}
       <div
         style={{
           width: "1px",
-          height: "clamp(40px, 6vh, 60px)",
-          background: "linear-gradient(to bottom, #a855f7, transparent)",
-          marginTop: "20px",
+          height: "clamp(30px, 4vh, 50px)",
+          background: "linear-gradient(to bottom, #6d28d9, transparent)",
+          marginTop: "16px",
         }}
       />
 
-      {/* Circle stage — sized to viewport */}
+      {/* Circle stage — contained within viewport */}
       <div
-        className="relative w-full"
-        style={{ height: "clamp(280px, 42vh, 380px)" }}
+        className="relative w-full flex items-center justify-center"
+        style={{ height: "clamp(220px, 36vh, 340px)" }}
       >
-        {/* Compact circle — minimal stroke with cool purple gradient */}
+        {/* Circle SVG — constrained to never exceed viewport width */}
         <svg
           aria-hidden
           viewBox="0 0 800 800"
           preserveAspectRatio="xMidYMid meet"
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
           style={{
-            width: "clamp(280px, 42vh, 380px)",
-            height: "clamp(280px, 42vh, 380px)",
+            width: "min(clamp(220px, 36vh, 340px), 85vw)",
+            height: "min(clamp(220px, 36vh, 340px), 85vw)",
             zIndex: 0,
           }}
         >
@@ -88,8 +88,8 @@ export default function LogoCloud() {
             <linearGradient id="orb-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#e9d5ff" stopOpacity="1" />
               <stop offset="25%" stopColor="#c084fc" stopOpacity="1" />
-              <stop offset="50%" stopColor="#a855f7" stopOpacity="1" />
-              <stop offset="75%" stopColor="#7e22ce" stopOpacity="1" />
+              <stop offset="50%" stopColor="#7c3aed" stopOpacity="1" />
+              <stop offset="75%" stopColor="#5b21b6" stopOpacity="1" />
               <stop offset="100%" stopColor="#4c1d95" stopOpacity="0.95" />
             </linearGradient>
           </defs>
@@ -102,7 +102,7 @@ export default function LogoCloud() {
             strokeWidth="2"
             style={{
               filter:
-                "drop-shadow(0 0 8px rgba(192,132,252,0.7)) drop-shadow(0 0 20px rgba(168,85,247,0.5)) drop-shadow(0 0 36px rgba(126,34,206,0.35))",
+                "drop-shadow(0 0 8px rgba(124,58,237,0.7)) drop-shadow(0 0 20px rgba(109,40,217,0.5)) drop-shadow(0 0 36px rgba(91,33,182,0.35))",
             }}
           />
         </svg>
@@ -111,7 +111,7 @@ export default function LogoCloud() {
         <div
           className="absolute left-0 right-0 top-1/2 -translate-y-1/2 w-full overflow-hidden"
           style={{
-            padding: "14px 0",
+            padding: "10px 0",
             backgroundColor: "#0a0a0a",
             zIndex: 1,
           }}
@@ -119,7 +119,7 @@ export default function LogoCloud() {
           <div
             className="absolute left-0 top-0 bottom-0 pointer-events-none"
             style={{
-              width: "120px",
+              width: "80px",
               background: "linear-gradient(to right, #0a0a0a, transparent)",
               zIndex: 2,
             }}
@@ -127,7 +127,7 @@ export default function LogoCloud() {
           <div
             className="absolute right-0 top-0 bottom-0 pointer-events-none"
             style={{
-              width: "120px",
+              width: "80px",
               background: "linear-gradient(to left, #0a0a0a, transparent)",
               zIndex: 2,
             }}
@@ -135,22 +135,24 @@ export default function LogoCloud() {
 
           <div
             className="flex animate-marquee hover:[animation-play-state:paused]"
-            style={{ width: "max-content", gap: "64px" }}
+            style={{ width: "max-content", gap: "40px", alignItems: "center" }}
           >
             {duplicatedLogos.map((logo, index) => (
               <div
                 key={`logo-${index}`}
                 className="flex-shrink-0 flex items-center justify-center"
-                style={{ height: "48px" }}
+                style={{ height: "36px" }}
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
                   loading="lazy"
-                  className="h-full w-auto object-contain brightness-0 invert"
+                  className="object-contain brightness-0 invert"
                   style={{
-                    maxWidth: "200px",
-                    opacity: 0.75,
+                    height: "36px",
+                    width: "auto",
+                    maxWidth: "140px",
+                    opacity: 0.7,
                   }}
                 />
               </div>
