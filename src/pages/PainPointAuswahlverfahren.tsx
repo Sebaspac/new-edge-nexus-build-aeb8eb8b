@@ -200,7 +200,7 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 };
 
 /* ── Mobile Cycling Cards ── */
-const MobileCyclingCards = ({ stepsData }: { stepsData: typeof stepsDataArr }) => {
+const MobileCyclingCards = ({ stepsData }: { stepsData: { icon: string; title: string; desc: string }[] }) => {
   const [current, setCurrent] = useState(0);
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
