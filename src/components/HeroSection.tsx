@@ -41,12 +41,12 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             aria-level={1}
             style={{
               fontFamily: SANS,
-              fontSize: "clamp(48px, 7vw, 80px)",
+              fontSize: "clamp(36px, 5.5vw, 64px)",
               fontWeight: 800,
               lineHeight: 1.08,
-              letterSpacing: "-2px",
+              letterSpacing: "-1.5px",
               color: "#fff",
-              maxWidth: "860px",
+              maxWidth: "780px",
             }}
           >
             Close Deals Faster With
