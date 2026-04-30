@@ -9,7 +9,7 @@ interface HeroSectionProps {
 }
 
 export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
-  const { t } = useLanguage();
+  useLanguage();
 
   return (
     <>
