@@ -607,7 +607,7 @@ const PainPointAuswahlverfahren = () => {
       </Helmet>
 
       <div className="min-h-screen" style={{ ...MONO, overflowX: "clip" }}>
-        <ScrollLegend items={legendItems} />
+        
 
         {/* ═══════════════════════════════════════════
             HERO — Dark (stays dark)
