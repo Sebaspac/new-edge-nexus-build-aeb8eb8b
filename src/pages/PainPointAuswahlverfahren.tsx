@@ -128,12 +128,11 @@ const BtnGhost = ({ children, large = false, dark = false }: { children: React.R
 
 /* ────────────── FAQ accordion ────────────── */
 
-const FAQItem = ({ q, a, defaultOpen = false }: { q: string; a: string; defaultOpen?: boolean }) => {
-  const [open, setOpen] = useState(defaultOpen);
+const FAQItem = ({ q, a, open, onToggle }: { q: string; a: string; open: boolean; onToggle: () => void }) => {
   return (
     <div className="overflow-hidden" style={{ borderBottom: `1px solid ${L.border}` }}>
       <button
-        onClick={() => setOpen(!open)}
+        onClick={onToggle}
         className="w-full flex justify-between items-center py-5 px-1 text-left text-[0.9rem] font-medium hover:opacity-80 transition-colors gap-4"
         style={{ color: open ? PURPLE : L.text, ...MONO }}
       >
@@ -199,6 +198,7 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 const PainPointAuswahlverfahren = () => {
   const [, setContactOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const compareRows = [
     ["Bewerbungseingang", "Strukturiert & automatisch", "PDFs, Mails, verschiedene Formate"],
@@ -657,7 +657,7 @@ const PainPointAuswahlverfahren = () => {
                 </div>
                 <div style={{ borderTop: `1px solid ${L.border}` }}>
                   {faqs.map((f, i) => (
-                    <FAQItem key={i} q={f.q} a={f.a} defaultOpen={i === 0} />
+                    <FAQItem key={i} q={f.q} a={f.a} open={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? null : i)} />
                   ))}
                 </div>
               </div>
