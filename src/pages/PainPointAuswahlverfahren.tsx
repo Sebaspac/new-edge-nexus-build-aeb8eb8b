@@ -1,4 +1,5 @@
 import { lazy, Suspense, useState, useEffect, useRef } from "react";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Plus, Check } from "lucide-react";
@@ -215,16 +216,6 @@ const PainPointAuswahlverfahren = () => {
     { icon: iconInsights, title: "Analysen & Insights", desc: "Aus jedem Zyklus entstehen automatisch Muster und Trends — die den nächsten Prozess verbessern." },
   ];
 
-  const testimonials = [
-    { name: "BMP Award", role: "Projektleitung", quote: "Was früher 60.000€ und drei Monate Aufwand war, läuft jetzt automatisch.", initials: "BA" },
-    { name: "Award-Org", role: "Geschäftsführung", quote: "Endlich vergleichbare Bewertungen über alle Jury-Mitglieder hinweg.", initials: "AO" },
-    { name: "Förderinstitut", role: "Vorstand", quote: "Revisionssicher, schnell, transparent — genau das, was wir brauchten.", initials: "FI" },
-    { name: "Verband", role: "Leitung Awards", quote: "Die Jury-Koordination läuft seit New Edge wirklich von selbst.", initials: "VB" },
-    { name: "Accelerator", role: "Programm-Director", quote: "Datenbasierte Auswahl statt Bauchgefühl — endlich messbar.", initials: "AC" },
-    { name: "Stiftung", role: "Geschäftsstelle", quote: "Persistente Datenbasis bedeutet: kein Wissensverlust mehr.", initials: "ST" },
-    { name: "IHK", role: "Award-Verantwortlich", quote: "Implementierung in 3 Wochen, ROI im ersten Zyklus.", initials: "IH" },
-    { name: "Forschung", role: "Programm-Leitung", quote: "Aus dem Auswahlprozess wurde eine echte Forschungsplattform.", initials: "FR" },
-  ];
 
   const faqs = [
     {
@@ -645,37 +636,7 @@ const PainPointAuswahlverfahren = () => {
           </div>
 
           {/* TESTIMONIAL GRID */}
-          <div style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
-            <Reveal>
-              <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
-                <div className="text-center max-w-[600px] mx-auto mb-12">
-                  <SectionLabel>Stimmen</SectionLabel>
-                  <SectionH2 className="!mb-0">Was Organisationen über New Edge sagen</SectionH2>
-                </div>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                  {testimonials.map((t, i) => (
-                    <div key={i} className="p-6" style={{ background: L.bg, border: `1px solid ${L.border}` }}>
-                      <div className="flex items-center gap-3 mb-4">
-                        <div
-                          className="w-10 h-10 flex items-center justify-center text-sm font-bold text-white"
-                          style={{ background: PURPLE }}
-                        >
-                          {t.initials}
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium" style={{ ...SERIF, color: L.text }}>{t.name}</p>
-                          <p className="text-[11px]" style={{ color: L.textLight }}>{t.role}</p>
-                        </div>
-                      </div>
-                      <p className="text-[0.85rem] leading-[1.65]" style={{ color: L.textMuted }}>
-                        „{t.quote}"
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          </div>
+          <TestimonialsSection />
 
           {/* FAQ */}
           <Reveal>
