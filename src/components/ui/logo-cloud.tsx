@@ -56,6 +56,16 @@ export default function LogoCloud() {
         Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
       </div>
 
+      {/* Vertical line between heading and circle */}
+      <div className="flex justify-center" style={{ marginTop: "24px" }}>
+        <div
+          style={{
+            width: "1px",
+            height: "60px",
+            background: "linear-gradient(to bottom, #a855f7, transparent)",
+          }}
+        />
+      </div>
 
       {/* Circle stage starts AFTER the heading */}
       <div className="relative w-full">

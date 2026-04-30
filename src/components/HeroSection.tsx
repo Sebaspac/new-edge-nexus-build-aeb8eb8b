@@ -27,6 +27,18 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
         className="relative w-full overflow-hidden flex items-center justify-center"
         style={{ backgroundColor: "#0a0a0a", minHeight: "100dvh" }}
       >
+        {/* Vertical line at bottom of hero — fades down toward LogoCloud */}
+        <div
+          aria-hidden
+          className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
+          style={{
+            bottom: "0",
+            width: "1px",
+            height: "60px",
+            background: "linear-gradient(to bottom, transparent, #a855f7)",
+            zIndex: 2,
+          }}
+        />
         {/* Hero — exact Dapta spec */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
