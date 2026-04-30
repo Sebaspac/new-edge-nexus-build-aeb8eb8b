@@ -216,32 +216,25 @@ const stepsData = [
 ];
 
 const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-    let ticking = false;
-    const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
+        if (visible?.target instanceof HTMLElement) {
+          setActiveStep(Number(visible.target.dataset.stepIndex || 0));
+        }
+      },
+      { threshold: [0.45, 0.6, 0.75], rootMargin: "-20% 0px -20% 0px" }
+    );
 
-      window.requestAnimationFrame(() => {
-        const rect = section.getBoundingClientRect();
-        const pinDistance = Math.max(1, rect.height - window.innerHeight);
-        const progress = Math.min(1, Math.max(0, -rect.top / pinDistance));
-        const nextStep = progress < 0.28 ? 0 : progress < 0.62 ? 1 : 2;
-
-        setActiveStep((current) => (current === nextStep ? current : nextStep));
-        ticking = false;
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    cardRefs.current.forEach((card) => card && observer.observe(card));
+    return () => observer.disconnect();
   }, []);
 
   // Step indicator dots
@@ -262,18 +255,15 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
 
   return (
     <div
-      ref={sectionRef}
-      className="relative"
+      className="relative overflow-visible"
       style={{
         background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
-        height: "220vh",
       }}
     >
-      <div className="sticky top-0 h-[100dvh] flex items-center overflow-hidden">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
             {/* LEFT */}
-            <div className="flex flex-col justify-between">
+            <div className="md:sticky md:top-0 md:h-[100dvh] flex flex-col justify-center py-16 md:py-0">
               <div>
                 <h2
                   className="text-[clamp(2.2rem,5vw,4rem)] leading-[1.05] mb-8 uppercase"
@@ -309,24 +299,23 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
               </div>
             </div>
 
-            {/* RIGHT — one card at a time */}
-            <div className="relative h-[340px] md:h-[360px]" aria-live="polite">
+            {/* RIGHT — scroll cards */}
+            <div className="flex flex-col gap-12 py-12 md:py-[24vh]" aria-live="polite">
               {stepsData.map((step, i) => (
                 <div
                   key={i}
-                  className="absolute inset-0 p-8 md:p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
+                  ref={(el) => {
+                    cardRefs.current[i] = el;
+                  }}
+                  data-step-index={i}
+                  className="min-h-[360px] md:min-h-[380px] p-8 md:p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform flex flex-col justify-center"
                   style={{
                     background: "rgba(255,255,255,0.97)",
-                    opacity: activeStep === i ? 1 : 0,
-                    transform: activeStep === i
-                      ? "translateY(0) rotate(-1deg) scale(1)"
-                      : activeStep > i
-                        ? "translateY(-28px) rotate(-2deg) scale(0.96)"
-                        : "translateY(36px) rotate(0deg) scale(0.96)",
+                    opacity: activeStep === i ? 1 : 0.68,
+                    transform: activeStep === i ? "translateY(0) rotate(-1deg) scale(1)" : "translateY(12px) rotate(0deg) scale(0.98)",
                     boxShadow: activeStep === i
                       ? "0 25px 60px rgba(0,0,0,0.18)"
                       : "0 10px 30px rgba(0,0,0,0.08)",
-                    pointerEvents: activeStep === i ? "auto" : "none",
                   }}
                 >
                   <div className="text-3xl mb-4">{step.icon}</div>
@@ -343,7 +332,6 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
               ))}
             </div>
           </div>
-        </div>
       </div>
     </div>
   );
