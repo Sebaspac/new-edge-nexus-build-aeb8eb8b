@@ -226,7 +226,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
     let frame = 0;
     const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
     const updateStep = () => {
-      const start = section.offsetTop;
+      const start = section.getBoundingClientRect().top + window.scrollY;
       const end = start + section.offsetHeight - window.innerHeight;
       const progress = clamp((window.scrollY - start) / Math.max(1, end - start), 0, 1);
       const nextStep = progress < 1 / 3 ? 0 : progress < 2 / 3 ? 1 : 2;
@@ -249,17 +249,16 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
 
   const getCardStyle = (index: number): CSSProperties => {
     const relativeIndex = index - activeStep;
-    const visible = Math.abs(relativeIndex) <= 1;
 
     return {
       background: "rgba(255,255,255,0.97)",
-      opacity: visible ? (relativeIndex === 0 ? 1 : 0.74) : 0,
+      opacity: relativeIndex === 0 ? 1 : 0,
       transform:
         relativeIndex === 0
-          ? "translate3d(0, 0, 0) rotate(-2deg) scale(1)"
+          ? "translate3d(0, -50%, 0) rotate(-2deg) scale(1)"
           : relativeIndex < 0
-            ? "translate3d(0, -56%, 0) rotate(-5deg) scale(0.94)"
-            : "translate3d(0, 56%, 0) rotate(3deg) scale(0.94)",
+            ? "translate3d(0, -72%, 0) rotate(-5deg) scale(0.94)"
+            : "translate3d(0, -28%, 0) rotate(3deg) scale(0.94)",
       transition: "opacity 520ms cubic-bezier(0.22,1,0.36,1), transform 520ms cubic-bezier(0.22,1,0.36,1)",
       pointerEvents: relativeIndex === 0 ? "auto" : "none",
       zIndex: 10 - Math.abs(relativeIndex),
@@ -274,17 +273,17 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
       ref={sectionRef}
       className="relative isolate"
       style={{
-        height: "340dvh",
+        height: "300dvh",
         background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
       }}
     >
-      <div className="sticky top-0 h-[100dvh] overflow-hidden">
+      <div className="sticky top-0 h-[100dvh] overflow-hidden pt-24 md:pt-20 pb-10">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full h-full flex items-center">
           <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-center w-full">
             {/* LEFT */}
             <div className="flex flex-col justify-center pt-10 md:pt-0">
               <h2
-                className="text-[clamp(3rem,7vw,6.5rem)] leading-[0.95] mb-8 uppercase"
+                className="text-[clamp(2.8rem,6vw,5.6rem)] leading-[0.95] mb-8 uppercase"
                 style={{ ...SERIF, letterSpacing: "0", color: "#ffffff" }}
               >
                 Drei<br />Schritte<br />zum Erfolg
@@ -329,11 +328,11 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
             </div>
 
             {/* RIGHT — RAF-synced cards */}
-            <div className="relative h-[500px] md:h-[560px]" aria-live="polite">
+            <div className="relative h-[430px] md:h-[500px]" aria-live="polite">
               {stepsData.map((step, i) => (
                 <div
                   key={i}
-                  className="absolute left-0 right-0 top-[15%] min-h-[290px] p-8 md:p-12 flex flex-col justify-center will-change-transform"
+                  className="absolute left-0 right-0 top-1/2 min-h-[280px] p-8 md:p-12 flex flex-col justify-center will-change-transform"
                   style={getCardStyle(i)}
                 >
                   <div className="flex items-center gap-3 mb-4">
