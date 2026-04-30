@@ -112,27 +112,23 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             <button
               onClick={onContactClick}
               style={{
-                background: "rgba(91,33,182,0.25)",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-                color: "#fff",
+                background: "#c8e64a",
+                color: "#0a0a0a",
                 fontFamily: SANS,
                 fontSize: "16px",
                 fontWeight: 700,
-                padding: "13px 30px",
-                borderRadius: "0px",
-                border: "2px solid #5b21b6",
+                padding: "14px 32px",
+                borderRadius: "12px",
+                border: "none",
                 cursor: "pointer",
-                transition: "all 0.3s ease",
+                transition: "all 0.25s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#5b21b6";
-                e.currentTarget.style.color = "#fff";
+                e.currentTarget.style.background = "#b8d63a";
                 e.currentTarget.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(91,33,182,0.25)";
-                e.currentTarget.style.color = "#fff";
+                e.currentTarget.style.background = "#c8e64a";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
@@ -141,28 +137,24 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             <Link
               to="/case-studies"
               style={{
-                background: "rgba(91,33,182,0.1)",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-                color: "#c4b5fd",
+                background: "transparent",
+                color: "#c8e64a",
                 fontFamily: SANS,
                 fontSize: "16px",
                 fontWeight: 700,
-                padding: "13px 30px",
-                borderRadius: "0px",
-                border: "2px solid #5b21b6",
+                padding: "14px 32px",
+                borderRadius: "12px",
+                border: "2px solid #c8e64a",
                 textDecoration: "none",
                 display: "inline-block",
-                transition: "all 0.3s ease",
+                transition: "all 0.25s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#5b21b6";
-                e.currentTarget.style.color = "#fff";
+                e.currentTarget.style.background = "rgba(200,230,74,0.1)";
                 e.currentTarget.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(91,33,182,0.1)";
-                e.currentTarget.style.color = "#c4b5fd";
+                e.currentTarget.style.background = "transparent";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
