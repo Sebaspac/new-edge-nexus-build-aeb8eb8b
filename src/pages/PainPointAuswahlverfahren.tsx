@@ -198,6 +198,7 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 const PainPointAuswahlverfahren = () => {
   const [, setContactOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const compareRows = [
     ["Bewerbungseingang", "Strukturiert & automatisch", "PDFs, Mails, verschiedene Formate"],
@@ -656,7 +657,7 @@ const PainPointAuswahlverfahren = () => {
                 </div>
                 <div style={{ borderTop: `1px solid ${L.border}` }}>
                   {faqs.map((f, i) => (
-                    <FAQItem key={i} q={f.q} a={f.a} defaultOpen={i === 0} />
+                    <FAQItem key={i} q={f.q} a={f.a} open={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? null : i)} />
                   ))}
                 </div>
               </div>
