@@ -268,28 +268,28 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
       ref={sectionRef}
       className="relative isolate"
       style={{
-        height: "260dvh",
+        height: "280dvh",
         background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
       }}
     >
       <div style={pinnedStyle} className="overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full h-full relative">
-          <div className="absolute inset-0 grid md:grid-cols-[0.92fr_1.08fr] gap-8 md:gap-14 items-center w-full pt-20 pb-8 md:pt-16 md:pb-10">
+          <div className="absolute inset-0 grid md:grid-cols-[0.9fr_1.1fr] gap-7 md:gap-12 items-center w-full pt-24 pb-6 md:pt-24 md:pb-8">
             {/* LEFT */}
             <div className="flex flex-col justify-center">
               <h2
-                className="text-[clamp(2.25rem,5vw,4.5rem)] leading-[0.95] mb-6 uppercase"
+                className="text-[clamp(2rem,4.4vw,3.8rem)] leading-[0.94] mb-4 uppercase"
                 style={{ ...SERIF, letterSpacing: "0", color: "#ffffff" }}
               >
                 Drei<br />Schritte<br />zum Erfolg
               </h2>
-              <div className="space-y-3 mb-6" aria-label={`Schritt ${activeStep + 1} von 3`}>
+              <div className="space-y-2 mb-4" aria-label={`Schritt ${activeStep + 1} von 3`}>
                 {stepsData.map((step, i) => {
                   const isActive = activeStep === i;
                   return (
                     <div
                       key={step.title}
-                      className="grid grid-cols-[42px_1fr] gap-3 p-3 transition-all duration-500"
+                      className="grid grid-cols-[34px_1fr] gap-2.5 p-2.5 transition-all duration-500"
                       style={{
                         background: isActive ? "rgba(255,255,255,0.16)" : "rgba(255,255,255,0.06)",
                         border: `1px solid ${isActive ? "rgba(255,255,255,0.86)" : "rgba(255,255,255,0.22)"}`,
@@ -298,8 +298,8 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
                     >
                       <span className="text-sm font-bold text-white" style={MONO}>0{i + 1}</span>
                       <div>
-                        <p className="text-sm font-bold text-white" style={MONO}>{step.title}</p>
-                        <p className="text-xs leading-relaxed mt-1" style={{ color: "rgba(255,255,255,0.72)", ...MONO }}>
+                        <p className="text-[0.8rem] font-bold text-white" style={MONO}>{step.title}</p>
+                        <p className="text-[0.68rem] leading-[1.45] mt-0.5" style={{ color: "rgba(255,255,255,0.72)", ...MONO }}>
                           {step.desc}
                         </p>
                       </div>
@@ -309,13 +309,13 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
               </div>
               <Link to="/kontakt">
                 <button
-                  className="inline-flex w-fit items-center gap-2 px-6 py-3 text-[0.85rem] font-medium transition-all hover:opacity-90 hover:-translate-y-0.5"
+                  className="inline-flex w-fit items-center gap-2 px-5 py-2.5 text-[0.8rem] font-medium transition-all hover:opacity-90 hover:-translate-y-0.5"
                   style={{ background: "#ffffff", color: PURPLE_DARK, ...MONO, border: "none" }}
                 >
                   Erstgespräch vereinbaren
                 </button>
               </Link>
-              <div className="flex gap-2 mt-6">
+              <div className="flex gap-2 mt-4">
                 {[0, 1, 2].map((i) => (
                   <span
                     key={i}
@@ -327,7 +327,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
                   />
                 ))}
               </div>
-              <div className="flex items-center gap-3 mt-6">
+              <div className="flex items-center gap-3 mt-4">
                 <img
                   src={foundersImg}
                   alt="Sebastian Pachon — Gründer New Edge"
@@ -346,13 +346,13 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
             </div>
 
             {/* RIGHT — RAF-synced fixed-threshold cards */}
-            <div className="relative h-[360px] md:h-[470px] flex items-center" aria-live="polite">
+            <div className="relative h-[300px] md:h-[390px] flex items-center" aria-live="polite">
               {stepsData.map((card, i) => {
                 const isActive = activeStep === i;
                 return (
                   <div
                     key={card.title}
-                    className="absolute inset-x-0 top-1/2 min-h-[260px] p-8 md:p-12 flex flex-col justify-center will-change-transform"
+                    className="absolute inset-x-0 top-1/2 min-h-[230px] p-7 md:p-10 flex flex-col justify-center will-change-transform"
                     style={{
                       background: "rgba(255,255,255,0.98)",
                       opacity: isActive ? 1 : 0,
