@@ -200,81 +200,99 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 };
 
 /* ── Mobile Cycling Cards ── */
-const MobileCyclingCards = ({ stepsData }: { stepsData: { icon: string; title: string; desc: string }[] }) => {
-  const [current, setCurrent] = useState(0);
-  const [inView, setInView] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+const MobileScrollCards = ({ stepsData }: { stepsData: { icon: string; title: string; desc: string }[] }) => {
+  const [activeStep, setActiveStep] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => setInView(e.isIntersecting),
-      { threshold: 0.3 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
+    const section = sectionRef.current;
+    if (!section) return;
+
+    let frame = 0;
+    const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
+
+    const update = () => {
+      const rect = section.getBoundingClientRect();
+      const pinDistance = Math.max(1, section.offsetHeight - window.innerHeight);
+      const progress = clamp(-rect.top / pinDistance, 0, 1);
+      const next = progress < 0.34 ? 0 : progress < 0.67 ? 1 : 2;
+      setActiveStep((c) => (c === next ? c : next));
+    };
+
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
+    };
   }, []);
 
-  useEffect(() => {
-    if (!inView) return;
-    const timer = setInterval(() => {
-      setCurrent((c) => (c + 1) % stepsData.length);
-    }, 2800);
-    return () => clearInterval(timer);
-  }, [inView, stepsData.length]);
-
-  const card = stepsData[current];
-
   return (
-    <div ref={ref} className="relative" style={{ minHeight: 200 }}>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current}
-          initial={{ opacity: 0, y: 30, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -20, scale: 0.95 }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="p-6 flex flex-col"
-          style={{
-            background: "rgba(255,255,255,0.98)",
-            boxShadow: "0 16px 50px rgba(0,0,0,0.18)",
-          }}
-        >
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-2xl">{card.icon}</span>
-            <span
-              className="text-[0.75rem] font-bold uppercase tracking-widest"
-              style={{ ...MONO, color: PURPLE }}
-            >
-              Schritt {current + 1}
-            </span>
-          </div>
-          <h3
-            className="text-[1rem] font-bold mb-2"
-            style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
-          >
-            {card.title}
-          </h3>
-          <p className="text-[0.85rem] leading-[1.65]" style={{ color: L.textMuted, ...MONO }}>
-            {card.desc}
-          </p>
-        </motion.div>
-      </AnimatePresence>
+    <div
+      ref={sectionRef}
+      style={{ height: "280dvh" }}
+      className="relative"
+    >
+      <div
+        className="sticky top-0 h-[100dvh] flex items-center justify-center px-6"
+      >
+        <div className="relative w-full" style={{ minHeight: 220 }}>
+          {stepsData.map((card, i) => {
+            const isActive = activeStep === i;
+            return (
+              <div
+                key={card.title}
+                className="absolute inset-x-0 top-0 p-6 flex flex-col will-change-transform"
+                style={{
+                  background: "rgba(255,255,255,0.98)",
+                  opacity: isActive ? 1 : 0,
+                  transform: `translateY(${isActive ? "0" : i < activeStep ? "-20px" : "20px"}) scale(${isActive ? 1 : 0.95})`,
+                  transition: "opacity 450ms cubic-bezier(0.22,1,0.36,1), transform 450ms cubic-bezier(0.22,1,0.36,1)",
+                  pointerEvents: isActive ? "auto" : "none",
+                  boxShadow: "0 16px 50px rgba(0,0,0,0.18)",
+                }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl">{card.icon}</span>
+                  <span
+                    className="text-[0.75rem] font-bold uppercase tracking-widest"
+                    style={{ ...MONO, color: PURPLE }}
+                  >
+                    Schritt {i + 1}
+                  </span>
+                </div>
+                <h3
+                  className="text-[1rem] font-bold mb-2"
+                  style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+                >
+                  {card.title}
+                </h3>
+                <p className="text-[0.85rem] leading-[1.65]" style={{ color: L.textMuted, ...MONO }}>
+                  {card.desc}
+                </p>
+              </div>
+            );
+          })}
 
-      {/* Progress dots */}
-      <div className="flex justify-center gap-2 mt-4">
-        {stepsData.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            className="w-2 h-2 transition-all duration-300"
-            style={{
-              background: i === current ? "#fff" : "rgba(255,255,255,0.35)",
-              borderRadius: "50%",
-            }}
-          />
-        ))}
+          {/* Progress dots */}
+          <div className="absolute -bottom-8 left-0 right-0 flex justify-center gap-2">
+            {stepsData.map((_, i) => (
+              <span
+                key={i}
+                className="block h-2 transition-all duration-500"
+                style={{
+                  background: activeStep === i ? "#ffffff" : "rgba(255,255,255,0.3)",
+                  width: activeStep === i ? "28px" : "10px",
+                }}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
