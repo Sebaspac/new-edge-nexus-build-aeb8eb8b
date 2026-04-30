@@ -132,7 +132,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              Start for free
+              Jetzt beraten lassen
             </button>
             <Link
               to="/case-studies"
@@ -158,8 +158,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              Book a Demo
-            </Link>
+              Case Studies
           </div>
 
           {/* Social proof */}
