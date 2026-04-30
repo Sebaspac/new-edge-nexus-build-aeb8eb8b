@@ -219,11 +219,13 @@ const stepsData = [
 ];
 
 const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
+  const isMobile = useIsMobile();
   const [activeStep, setActiveStep] = useState(0);
   const [pinMode, setPinMode] = useState<"before" | "fixed" | "after">("before");
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (isMobile) return; // no scroll-pin on mobile
     const section = sectionRef.current;
     if (!section) return;
 
@@ -252,8 +254,112 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
       window.removeEventListener("resize", requestStepUpdate);
       cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [isMobile]);
 
+  /* ── MOBILE LAYOUT ── */
+  if (isMobile) {
+    return (
+      <div
+        id="cta"
+        className="px-6 py-16"
+        style={{
+          background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
+        }}
+      >
+        {/* Headline */}
+        <h2
+          className="text-[2.4rem] leading-[0.94] mb-6 uppercase"
+          style={{ ...SERIF, letterSpacing: "0", color: "#ffffff" }}
+        >
+          Drei<br />Schritte<br />zum Erfolg
+        </h2>
+
+        {/* CTA Button */}
+        <Link to="/kontakt">
+          <button
+            className="inline-flex w-fit items-center gap-2 px-5 py-2.5 text-[0.8rem] font-medium transition-all hover:opacity-90 mb-6"
+            style={{ background: "#ffffff", color: PURPLE_DARK, ...MONO, border: "none" }}
+          >
+            Erstgespräch vereinbaren
+          </button>
+        </Link>
+
+        {/* Founder info */}
+        <div className="flex items-center gap-3 mb-10">
+          <img
+            src={foundersImg}
+            alt="Sebastian Pachon — Gründer New Edge"
+            className="w-12 h-12 object-cover object-[25%_20%]"
+            style={{ borderRadius: "50%" }}
+          />
+          <div>
+            <p className="text-sm font-bold uppercase tracking-wide text-white" style={MONO}>
+              Mit Sebastian Pachon
+            </p>
+            <p className="text-xs text-white/70" style={MONO}>
+              Gründer und Geschäftsführer New Edge
+            </p>
+          </div>
+        </div>
+
+        {/* 3 Steps horizontal */}
+        <div className="flex gap-2 mb-10">
+          {stepsData.map((step, i) => (
+            <div
+              key={step.title}
+              className="flex-1 p-2.5"
+              style={{
+                background: "rgba(255,255,255,0.12)",
+                border: "1px solid rgba(255,255,255,0.3)",
+              }}
+            >
+              <span className="text-xs font-bold text-white block mb-1" style={MONO}>0{i + 1}</span>
+              <p className="text-[0.65rem] font-bold text-white leading-tight" style={MONO}>{step.title}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* 3 Cards stacked, pop-in */}
+        <div className="space-y-4">
+          {stepsData.map((card, i) => (
+            <motion.div
+              key={card.title}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="p-6 flex flex-col"
+              style={{
+                background: "rgba(255,255,255,0.98)",
+                boxShadow: "0 16px 50px rgba(0,0,0,0.18)",
+              }}
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-2xl">{card.icon}</span>
+                <span
+                  className="text-[0.75rem] font-bold uppercase tracking-widest"
+                  style={{ ...MONO, color: PURPLE }}
+                >
+                  Schritt {i + 1}
+                </span>
+              </div>
+              <h3
+                className="text-[1rem] font-bold mb-2"
+                style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+              >
+                {card.title}
+              </h3>
+              <p className="text-[0.85rem] leading-[1.65]" style={{ color: L.textMuted, ...MONO }}>
+                {card.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  /* ── DESKTOP LAYOUT (unchanged) ── */
   const pinnedStyle: React.CSSProperties = {
     position: pinMode === "fixed" ? "fixed" : "absolute",
     top: pinMode === "after" ? "auto" : 0,
@@ -350,7 +456,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
             </div>
 
             {/* RIGHT — RAF-synced fixed-threshold cards */}
-            <div className="relative h-[300px] md:h-[390px] flex items-center" aria-live="polite">
+            <div className="relative h-[390px] flex items-center" aria-live="polite">
               {stepsData.map((card, i) => {
                 const isActive = activeStep === i;
                 return (
