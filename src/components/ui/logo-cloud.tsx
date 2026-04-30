@@ -50,7 +50,7 @@ export default function LogoCloud() {
 
       {/* Stacked stage: full circle behind, heading + marquee in front. */}
       <div className="relative w-full" style={{ marginTop: "-1px" }}>
-        {/* Compact circle — thin minimal stroke */}
+        {/* Compact circle — minimal stroke with cool purple gradient */}
         <svg
           aria-hidden
           viewBox="0 0 800 800"
@@ -63,14 +63,28 @@ export default function LogoCloud() {
             zIndex: 0,
           }}
         >
+          <defs>
+            <linearGradient id="orb-stroke" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#c084fc" stopOpacity="0.95" />
+              <stop offset="50%" stopColor="#a855f7" stopOpacity="0.85" />
+              <stop offset="100%" stopColor="#7e22ce" stopOpacity="0.95" />
+            </linearGradient>
+            <radialGradient id="orb-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="55%" stopColor="#a855f7" stopOpacity="0" />
+              <stop offset="92%" stopColor="#a855f7" stopOpacity="0.18" />
+              <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+          {/* Soft outer glow */}
+          <circle cx="400" cy="400" r="399" fill="url(#orb-glow)" />
+          {/* Crisp gradient ring */}
           <circle
             cx="400"
             cy="400"
-            r="399"
+            r="397"
             fill="none"
-            stroke="#a855f7"
-            strokeOpacity="0.45"
-            strokeWidth="0.6"
+            stroke="url(#orb-stroke)"
+            strokeWidth="1.4"
           />
         </svg>
 
