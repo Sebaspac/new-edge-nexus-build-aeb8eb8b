@@ -603,7 +603,7 @@ const PainPointAuswahlverfahren = () => {
                 src={painpointASection3}
                 alt="KI-gestützte Erfassung: PDF-Dokumente werden via Texterkennung, Klassifizierung, Strukturierung und Validierung in ein strukturiertes Projektdatenblatt überführt"
                 loading="lazy"
-                className="w-full h-auto"
+                className="w-full h-auto max-w-[420px] mx-auto"
               />
             </div>
             <div>
@@ -635,7 +635,7 @@ const PainPointAuswahlverfahren = () => {
                   src={painpointAFeature2}
                   alt="3-Schritt-Prozess: PDFs hochladen → KI-Erfassung → Strukturiertes Ergebnis"
                   loading="lazy"
-                  className="w-full h-auto"
+                  className="w-full h-auto max-w-[480px] mx-auto"
                 />
               </div>
               <div className="md:order-1">
@@ -668,7 +668,7 @@ const PainPointAuswahlverfahren = () => {
                 src={painpointAFeature3}
                 alt="Einzelscore mit Kategorien-Bewertung und Heatmap zur Bias-Analyse über Jurys und Kategorien"
                 loading="lazy"
-                className="w-full h-auto"
+                className="w-full h-auto max-w-[480px] mx-auto"
               />
             </div>
             <div>
