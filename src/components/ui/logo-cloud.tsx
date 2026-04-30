@@ -37,18 +37,7 @@ export default function LogoCloud() {
       className="relative w-full overflow-hidden"
       style={{ backgroundColor: "#0a0a0a", padding: "0 0 12px" }}
     >
-      {/* Vertical line on top — fades into the upper arc */}
-      <div className="flex justify-center">
-        <div
-          style={{
-            width: "1px",
-            height: "60px",
-            background: "linear-gradient(to bottom, transparent, #a855f7)",
-          }}
-        />
-      </div>
-
-      {/* Heading sits OUTSIDE/above the circle */}
+      {/* Heading — top of the second viewport */}
       <div
         role="heading"
         aria-level={2}
@@ -60,11 +49,22 @@ export default function LogoCloud() {
           fontWeight: 700,
           letterSpacing: "-0.5px",
           lineHeight: 1.15,
-          marginTop: "20px",
-          marginBottom: "28px",
+          marginTop: "60px",
+          marginBottom: "0",
         }}
       >
         Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
+      </div>
+
+      {/* Vertical line between heading and circle */}
+      <div className="flex justify-center" style={{ marginTop: "24px" }}>
+        <div
+          style={{
+            width: "1px",
+            height: "60px",
+            background: "linear-gradient(to bottom, #a855f7, transparent)",
+          }}
+        />
       </div>
 
       {/* Circle stage starts AFTER the heading */}
