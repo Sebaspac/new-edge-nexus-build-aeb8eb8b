@@ -788,7 +788,7 @@ const PainPointAuswahlverfahren = () => {
           </Reveal>
 
           {/* FEATURE CARDS */}
-          <div style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+          <div id="features" style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
             <Reveal>
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
                 <div className="text-center max-w-[600px] mx-auto mb-12">
