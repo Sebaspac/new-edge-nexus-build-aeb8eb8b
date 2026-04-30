@@ -266,6 +266,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
 
   return (
     <div
+      id="cta"
       ref={sectionRef}
       className="relative isolate"
       style={{
