@@ -88,15 +88,13 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               transition={{ duration: 0.8 }}
               className="w-full max-w-[1200px] mx-auto text-center"
             >
-              {/* Headline — Dapta-style, two lines, second line with gradient */}
+              {/* Headline — sized 1:1 to Dapta reference (~96px desktop) */}
               <h1
-                className="font-sans font-extrabold tracking-tight text-white"
+                className="tracking-tight text-white"
                 style={{
-                  fontSize: "clamp(2.5rem, 7vw, 6rem)",
+                  fontSize: "clamp(2.75rem, 8vw, 6rem)",
                   lineHeight: 1.05,
-                  letterSpacing: "-0.025em",
-                  fontFamily:
-                    "'Inter', 'Geist', 'Satoshi', ui-sans-serif, system-ui, sans-serif",
+                  letterSpacing: "-0.02em",
                 }}
               >
                 <span className="block">Dein Unternehmen braucht mehr</span>
@@ -117,8 +115,6 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 style={{
                   fontSize: "clamp(1rem, 1.4vw, 1.25rem)",
                   lineHeight: 1.5,
-                  fontFamily:
-                    "'Inter', 'Geist', 'Satoshi', ui-sans-serif, system-ui, sans-serif",
                 }}
               >
                 Wir entwickeln KI- und Softwaresysteme, die Marke,
@@ -126,39 +122,25 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 Struktur und Wachstum für den Mittelstand verbinden.
               </p>
 
-              {/* CTA Buttons — pill-shaped */}
+              {/* CTA Buttons — squared (hard-edge CI) */}
               <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
                 <button
                   onClick={onContactClick}
-                  className="group inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 bg-[#a855f7] text-white font-bold hover:bg-[#9333ea] transition-all duration-300 text-base sm:text-lg w-full sm:w-auto rounded-full"
-                  style={{
-                    fontFamily:
-                      "'Inter', 'Geist', 'Satoshi', ui-sans-serif, system-ui, sans-serif",
-                  }}
+                  className="group inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 bg-[#a855f7] text-white font-semibold hover:bg-[#9333ea] transition-all duration-300 text-base sm:text-lg w-full sm:w-auto rounded-none"
                 >
                   Start for free
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <Link
                   to="/case-studies"
-                  className="inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 bg-transparent text-white font-bold border border-[#a855f7] hover:bg-[#a855f7]/10 transition-all duration-300 text-base sm:text-lg w-full sm:w-auto rounded-full"
-                  style={{
-                    fontFamily:
-                      "'Inter', 'Geist', 'Satoshi', ui-sans-serif, system-ui, sans-serif",
-                  }}
+                  className="inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 bg-transparent text-white font-semibold border-2 border-[#a855f7] hover:bg-[#a855f7]/10 transition-all duration-300 text-base sm:text-lg w-full sm:w-auto rounded-none"
                 >
                   Book a Demo
                 </Link>
               </div>
 
               {/* Social Proof bar */}
-              <div
-                className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 text-white/90"
-                style={{
-                  fontFamily:
-                    "'Inter', 'Geist', 'Satoshi', ui-sans-serif, system-ui, sans-serif",
-                }}
-              >
+              <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 text-white/90">
                 <div className="flex items-center gap-2 sm:px-6 text-sm sm:text-[15px]">
                   <div className="flex items-center gap-0.5" aria-label="5 von 5 Sternen">
                     {[...Array(5)].map((_, i) => (
