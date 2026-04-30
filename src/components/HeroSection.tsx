@@ -117,7 +117,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 fontFamily: SANS,
                 fontSize: "16px",
                 fontWeight: 700,
-                padding: "16px 36px",
+                padding: "13px 30px",
                 borderRadius: "12px",
                 border: "2px solid #a855f7",
                 textDecoration: "none",
