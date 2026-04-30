@@ -218,20 +218,48 @@ const stepsData = [
 const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
+  const [pinComplete, setPinComplete] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
+
     const handleScroll = () => {
       const rect = section.getBoundingClientRect();
-      const progress = (window.innerHeight - rect.top) / rect.height;
+      // The section is 100vh tall. We add scroll-padding via a spacer inside.
+      // Progress based on how far the section top has scrolled above viewport top
+      const scrolledPast = -rect.top;
+      const totalScroll = rect.height - window.innerHeight;
+      if (totalScroll <= 0) return;
+      const progress = scrolledPast / totalScroll;
       const clamped = Math.max(0, Math.min(1, progress));
-      setActiveStep(Math.min(2, Math.floor(clamped * 3)));
+
+      // 3 even zones: 0-0.33 = step 0, 0.33-0.66 = step 1, 0.66-1 = step 2
+      const step = clamped < 0.33 ? 0 : clamped < 0.66 ? 1 : 2;
+      setActiveStep(step);
+      setPinComplete(clamped >= 0.98);
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Step indicator dots
+  const dots = (
+    <div className="flex gap-2 mt-8">
+      {[0, 1, 2].map((i) => (
+        <div
+          key={i}
+          className="w-2 h-2 transition-all duration-300"
+          style={{
+            background: activeStep === i ? "#ffffff" : "rgba(255,255,255,0.3)",
+            transform: activeStep === i ? "scale(1.3)" : "scale(1)",
+          }}
+        />
+      ))}
+    </div>
+  );
 
   return (
     <div
@@ -239,11 +267,12 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
       className="relative"
       style={{
         background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
-        minHeight: "200vh",
+        // 100vh visible + 2 * 100vh scroll distance for 3 steps
+        height: "300vh",
       }}
     >
-      <div className="sticky top-0 min-h-screen flex items-center overflow-hidden">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-16 md:py-24 w-full">
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             {/* LEFT */}
             <div className="flex flex-col justify-between">
@@ -262,6 +291,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
                     Erstgespräch vereinbaren
                   </button>
                 </Link>
+                {dots}
               </div>
               <div className="flex items-center gap-3 mt-12">
                 <img
@@ -282,20 +312,22 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
             </div>
 
             {/* RIGHT — one card at a time */}
-            <div className="relative h-[320px] md:h-[360px]">
+            <div className="relative h-[300px] md:h-[340px]">
               {stepsData.map((step, i) => (
                 <div
                   key={i}
-                  className="absolute inset-0 p-8 md:p-10 transition-all duration-500 ease-out"
+                  className="absolute inset-0 p-8 md:p-10 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)]"
                   style={{
                     background: "rgba(255,255,255,0.97)",
                     opacity: activeStep === i ? 1 : 0,
                     transform: activeStep === i
                       ? "translateY(0) rotate(-1.5deg) scale(1)"
                       : activeStep > i
-                        ? "translateY(-30px) rotate(-3deg) scale(0.95)"
-                        : "translateY(30px) rotate(0deg) scale(0.95)",
-                    boxShadow: "0 20px 60px rgba(0,0,0,0.15)",
+                        ? "translateY(-40px) rotate(-3deg) scale(0.92)"
+                        : "translateY(40px) rotate(0deg) scale(0.92)",
+                    boxShadow: activeStep === i
+                      ? "0 25px 60px rgba(0,0,0,0.18)"
+                      : "0 10px 30px rgba(0,0,0,0.08)",
                     pointerEvents: activeStep === i ? "auto" : "none",
                   }}
                 >
