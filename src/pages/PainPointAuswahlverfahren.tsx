@@ -260,150 +260,164 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
     };
   }, [isMobile]);
 
-  // Mobile auto-cycle logic
+  // Mobile scroll-driven logic — pin section and cycle cards based on scroll
   useEffect(() => {
     if (!isMobile) return;
-    const el = sectionRef.current;
-    if (!el) return;
-    let running = false;
-    let timer: ReturnType<typeof setInterval>;
+    const section = sectionRef.current;
+    if (!section) return;
 
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !running) {
-          running = true;
-          setMobileStep(0);
-          let step = 0;
-          timer = setInterval(() => {
-            step = (step + 1) % 3;
-            setMobileStep(step);
-          }, 2800);
-        } else if (!entry.isIntersecting && running) {
-          running = false;
-          clearInterval(timer);
-        }
-      },
-      { threshold: 0.3 }
-    );
-    obs.observe(el);
-    return () => { obs.disconnect(); clearInterval(timer); };
+    let frame = 0;
+    const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
+    const update = () => {
+      const rect = section.getBoundingClientRect();
+      const pinDist = Math.max(1, section.offsetHeight - window.innerHeight);
+      const progress = clamp(-rect.top / pinDist, 0, 1);
+      const nextMode = rect.top > 0 ? "before" : rect.bottom <= window.innerHeight ? "after" : "fixed";
+      const nextStep = progress < 0.34 ? 0 : progress < 0.67 ? 1 : 2;
+      setPinMode((c) => (c === nextMode ? c : nextMode));
+      setMobileStep((c) => (c === nextStep ? c : nextStep));
+    };
+    const onScroll = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(update); };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    onScroll();
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); cancelAnimationFrame(frame); };
   }, [isMobile]);
 
   /* ── MOBILE LAYOUT ── */
   if (isMobile) {
+    const mobilePinStyle: React.CSSProperties = {
+      position: pinMode === "fixed" ? "fixed" : "absolute",
+      top: pinMode === "after" ? "auto" : 0,
+      bottom: pinMode === "after" ? 0 : "auto",
+      left: 0, right: 0, width: "100%", height: "100dvh", zIndex: 1,
+      background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
+    };
+
     return (
       <div
         id="cta"
         ref={sectionRef}
-        className="px-6 py-16"
+        className="relative isolate"
         style={{
+          height: "350dvh",
           background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
         }}
       >
-        {/* Headline */}
-        <h2
-          className="text-[2.4rem] leading-[0.94] mb-4 uppercase"
-          style={{ ...SERIF, letterSpacing: "0", color: "#ffffff" }}
-        >
-          Drei<br />Schritte<br />zum Erfolg
-        </h2>
-
-        {/* CTA Button */}
-        <Link to="/kontakt">
-          <button
-            className="inline-flex w-fit items-center gap-2 px-5 py-2.5 text-[0.8rem] font-medium transition-all hover:opacity-90 mb-4"
-            style={{ background: "#ffffff", color: PURPLE_DARK, ...MONO, border: "none" }}
-          >
-            Erstgespräch vereinbaren
-          </button>
-        </Link>
-
-        {/* Founder info */}
-        <div className="flex items-center gap-3 mb-8">
-          <img
-            src={foundersImg}
-            alt="Sebastian Pachon — Gründer New Edge"
-            className="w-10 h-10 object-cover object-[25%_20%]"
-            style={{ borderRadius: "50%" }}
-          />
-          <div>
-            <p className="text-xs font-bold uppercase tracking-wide text-white" style={MONO}>
-              Mit Sebastian Pachon
-            </p>
-            <p className="text-[0.65rem] text-white/70" style={MONO}>
-              Gründer und Geschäftsführer New Edge
-            </p>
-          </div>
-        </div>
-
-        {/* Step indicators horizontal */}
-        <div className="flex gap-2 mb-6">
-          {stepsData.map((_, i) => (
-            <div
-              key={i}
-              className="flex-1 p-2 text-center transition-all duration-500"
-              style={{
-                background: mobileStep === i ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.06)",
-                border: `1px solid ${mobileStep === i ? "rgba(255,255,255,0.6)" : "rgba(255,255,255,0.15)"}`,
-              }}
+        <div style={mobilePinStyle} className="overflow-hidden">
+          <div className="px-6 pt-16 pb-8 h-full flex flex-col">
+            {/* Headline */}
+            <h2
+              className="text-[2.2rem] leading-[0.94] mb-3 uppercase"
+              style={{ ...SERIF, letterSpacing: "0", color: "#ffffff" }}
             >
-              <span className="text-sm font-bold text-white" style={MONO}>0{i + 1}</span>
-            </div>
-          ))}
-        </div>
+              Drei<br />Schritte<br />zum Erfolg
+            </h2>
 
-        {/* Card area — one card at a time */}
-        <div className="relative" style={{ minHeight: 180 }}>
-          {stepsData.map((card, i) => {
-            const isActive = mobileStep === i;
-            return (
-              <div
-                key={card.title}
-                className="absolute inset-x-0 top-0 p-5 flex flex-col will-change-transform"
-                style={{
-                  background: "rgba(255,255,255,0.98)",
-                  opacity: isActive ? 1 : 0,
-                  transform: `translateY(${isActive ? "0" : "20px"}) scale(${isActive ? 1 : 0.95})`,
-                  transition: "opacity 450ms ease, transform 450ms ease",
-                  pointerEvents: isActive ? "auto" : "none",
-                  boxShadow: "0 16px 50px rgba(0,0,0,0.18)",
-                }}
+            {/* CTA Button */}
+            <Link to="/kontakt">
+              <button
+                className="inline-flex w-fit items-center gap-2 px-5 py-2.5 text-[0.8rem] font-medium transition-all hover:opacity-90 mb-3"
+                style={{ background: "#ffffff", color: PURPLE_DARK, ...MONO, border: "none" }}
               >
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-2xl">{card.icon}</span>
-                  <span
-                    className="text-[0.75rem] font-bold uppercase tracking-widest"
-                    style={{ ...MONO, color: PURPLE }}
-                  >
-                    Schritt {i + 1}
-                  </span>
-                </div>
-                <h3
-                  className="text-[1rem] font-bold mb-2"
-                  style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
-                >
-                  {card.title}
-                </h3>
-                <p className="text-[0.82rem] leading-[1.6]" style={{ color: L.textMuted, ...MONO }}>
-                  {card.desc}
+                Erstgespräch vereinbaren
+              </button>
+            </Link>
+
+            {/* Founder info */}
+            <div className="flex items-center gap-3 mb-5">
+              <img
+                src={foundersImg}
+                alt="Sebastian Pachon — Gründer New Edge"
+                className="w-10 h-10 object-cover object-[25%_20%]"
+                style={{ borderRadius: "50%" }}
+              />
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wide text-white" style={MONO}>
+                  Mit Sebastian Pachon
+                </p>
+                <p className="text-[0.65rem] text-white/70" style={MONO}>
+                  Gründer und Geschäftsführer New Edge
                 </p>
               </div>
-            );
-          })}
-        </div>
+            </div>
 
-        {/* Progress dots */}
-        <div className="flex justify-center gap-2 mt-4">
-          {stepsData.map((_, i) => (
-            <span
-              key={i}
-              className="block h-2 transition-all duration-500"
-              style={{
-                background: mobileStep === i ? "#ffffff" : "rgba(255,255,255,0.3)",
-                width: mobileStep === i ? "28px" : "10px",
-              }}
-            />
-          ))}
+            {/* Step indicators horizontal */}
+            <div className="flex gap-2 mb-4">
+              {stepsData.map((_, i) => (
+                <div
+                  key={i}
+                  className="flex-1 p-2 text-center transition-all duration-500"
+                  style={{
+                    background: mobileStep === i ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.06)",
+                    border: `1px solid ${mobileStep === i ? "rgba(255,255,255,0.6)" : "rgba(255,255,255,0.15)"}`,
+                  }}
+                >
+                  <span className="text-sm font-bold text-white" style={MONO}>0{i + 1}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Card area — scroll-driven swipe */}
+            <div className="relative flex-1" style={{ minHeight: 200 }}>
+              {stepsData.map((card, i) => {
+                const isActive = mobileStep === i;
+                const isPast = mobileStep > i;
+                return (
+                  <div
+                    key={card.title}
+                    className="absolute inset-x-0 top-0 p-5 flex flex-col will-change-transform"
+                    style={{
+                      background: "rgba(255,255,255,0.98)",
+                      opacity: isActive ? 1 : 0,
+                      transform: isPast
+                        ? "translateX(-120%) rotate(-8deg) scale(0.9)"
+                        : isActive
+                          ? "translateX(0) rotate(0deg) scale(1)"
+                          : "translateX(60px) scale(0.92)",
+                      transition: "opacity 500ms ease, transform 600ms cubic-bezier(0.4,0,0.2,1)",
+                      pointerEvents: isActive ? "auto" : "none",
+                      boxShadow: "0 16px 50px rgba(0,0,0,0.18)",
+                    }}
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-2xl">{card.icon}</span>
+                      <span
+                        className="text-[0.75rem] font-bold uppercase tracking-widest"
+                        style={{ ...MONO, color: PURPLE }}
+                      >
+                        Schritt {i + 1}
+                      </span>
+                    </div>
+                    <h3
+                      className="text-[1rem] font-bold mb-2"
+                      style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+                    >
+                      {card.title}
+                    </h3>
+                    <p className="text-[0.82rem] leading-[1.6]" style={{ color: L.textMuted, ...MONO }}>
+                      {card.desc}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Progress dots */}
+            <div className="flex justify-center gap-2 mt-auto pt-4">
+              {stepsData.map((_, i) => (
+                <span
+                  key={i}
+                  className="block h-2 transition-all duration-500"
+                  style={{
+                    background: mobileStep === i ? "#ffffff" : "rgba(255,255,255,0.3)",
+                    width: mobileStep === i ? "28px" : "10px",
+                  }}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     );
