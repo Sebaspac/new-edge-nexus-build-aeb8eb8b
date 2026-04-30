@@ -1,47 +1,88 @@
-## Logo-Cloud-Section pixelgenau an Dapta-Referenz angleichen
+## Ziel
 
-Die Section ist aktuell deutlich zu groß und zu lang. Kreis schrumpfen, Spacer kürzen, Section wird ~40% kürzer.
+Neuer Navi-Punkt **Leistungen** ersetzt logisch das alte "Services". Beim Hover öffnet sich ein **Mega-Menü** im Dapta-Stil mit zwei Spalten links (Pain Points / Industrien) und einer Featured-Case-Card ganz rechts. Anschließend bauen wir **eine** vollständige Musterseite für **Pain Point A — Auswahlverfahren** mit allen 12 Sections in New Edge CI. Industrien-Seiten werden noch nicht gebaut, nur als Routes/Stubs vorbereitet.
 
-### Änderungen in `src/components/ui/logo-cloud.tsx`
+## 1. Navigation – Mega-Menü "Leistungen"
 
-**1. Kreis verkleinern (720px → 520px)**
-- SVG-Breite: `min(720px, 88vw)` → `min(520px, 78vw)`
-- Bleibt dünn (`strokeWidth 0.6`, `opacity 0.45`) und mittig
+**Datei:** `src/components/MobileNavigation.tsx` (Desktop-Bereich erweitern, Services-Dropdown ersetzen)
 
-**2. Vertikale Linie**
-- Höhe: `140px` → `110px` (proportional zum kleineren Kreis)
-- Position bleibt — Kreis startet direkt am Linien-Ende
-
-**3. Heading-Abstand zum Linien-Ende**
-- `marginTop: clamp(60px, 12vw, 130px)` → `clamp(70px, 10vw, 100px)` (Heading sitzt sauber im oberen Kreisbogen, ca. ¼ unter Top)
-- `marginBottom: 28px` → `24px`
-
-**4. Marquee-Streifen**
-- Padding `18px 0` → `14px 0` (kompakter)
-- Logo-Höhe `44px` → `40px`
-- Gap `72px` → `56px` (dichteres Logo-Spacing wie Referenz)
-
-**5. Bottom-Spacer drastisch kürzen (Hauptfix für "zu lang")**
-- `clamp(120px, 22vw, 220px)` → `clamp(140px, 16vw, 180px)`
-- Dadurch endet die untere Kreishälfte sauber, ohne überflüssigen Leerraum
-
-**6. Section-Bottom-Padding**
-- `0 0 60px` → `0 0 32px` (knapperer Übergang zur nächsten Section)
-
-### Erwartetes Ergebnis
+Layout (Desktop, beim Hover auf "Leistungen"):
 
 ```text
-       │   (110px Linie, fade)
-       │
-   ╭───┴───╮          ← Kreis startet, top-arc
-   │       │
-   │ Vertraut von 50+ Unternehmen
-   │       │
-═══│═══════│═══  Marquee (Logos schneiden Mitte)
-   │       │
-   │       │
-   ╰───────╯          ← Kreis endet
-        (32px)
+┌──────────────────────────────────────────────────────────────┐
+│  PAIN POINTS              INDUSTRIEN          FEATURED CASE  │
+│  ─ Auswahlverfahren       ─ Awards & Jurys                   │
+│  ─ Kundengewinnung        ─ Gym & Spa         [Card mit Bild │
+│  ─ Import / Compliance    ─ Handel & Logistik  + BMP Award   │
+│  ─ KPI & Reporting        ─ Mittelstand        Mini-Teaser]  │
+│  ─ Kundensupport          ─ E-Commerce                       │
+└──────────────────────────────────────────────────────────────┘
 ```
 
-Section-Gesamthöhe sinkt von ~1100px auf ~720px — passt zur Referenz.
+- Dark Background `#1A1A1A`, hard edges (rounded-none), Spalten-Headlines in Purple-Accent (`#a855f7`), Items in DM Serif Display für Titel + Consolas für Sub.
+- Hover-Item: Purple-Underline + leichter Shift.
+- Featured-Card rechts: Bild (BMP Award Mockup-Platzhalter), Label "Case Study", Titel, kleiner CTA "Lesen →".
+- Alte "Studio / Lab" Punkte wandern als zusätzliche Items ans Ende der Pain-Points-Spalte (Übergangslogik), bis Migration komplett ist.
+
+**Mobile:** "Leistungen" als aufklappbare Sektion mit zwei Subgruppen (Pain Points / Industrien). Featured Card entfällt mobile.
+
+## 2. Routing & Stubs
+
+**Datei:** `src/App.tsx`
+
+Neue Routes:
+
+- `/leistungen/pain-points/auswahlverfahren` → `PainPointAuswahlverfahren` (volle Seite, lazy)
+- `/leistungen/pain-points/kundengewinnung` → Stub-Seite "In Arbeit"
+- `/leistungen/pain-points/compliance` → Stub
+- `/leistungen/pain-points/reporting` → Stub
+- `/leistungen/pain-points/kundensupport` → Stub
+- `/leistungen/industrien/:slug` → gemeinsame Stub-Komponente
+
+Ein gemeinsamer Stub `src/pages/LeistungenStub.tsx` mit Hero "Bald verfügbar" + Link zurück.
+
+## 3. Musterseite Pain Point A — Auswahlverfahren
+
+**Datei:** `src/pages/PainPointAuswahlverfahren.tsx`
+
+Folgt 1:1 dem Briefing (alle Texte exakt übernommen) und der New Edge CI:
+
+- Backgrounds: Schwarz `#0a0a0a` Hero & Closing, weiß für Mid-Sections wo sinnvoll, Akzent **Purple `#a855f7**` statt Electric Blue (CI-Konformität, abweichend vom Briefing — siehe Hinweis unten).
+- Typo: H1/H2 DM Serif Display, Body Consolas.
+- Buttons: Liquid-Glass-Style, hard edges, `rounded-none`.
+
+Section-Reihenfolge (alle 12):
+
+1. **Hero** – Oberlabel-Pill, zweiteilige H1 (weiß + purple), Subtext, 2 CTAs, rechts Visual-Placeholder Card "Dashboard Mockup" (Platzhalter-Div mit Beschreibung als Caption, später ersetzbar).
+2. **Social Proof Bar** – "Vertraut von führenden Organisationen" + bestehende `LogoCloud`-Komponente (recycelt, kompaktere Variante).
+3. **Feature Block 1 – Dokumenten-Chaos** – Visual links / Text rechts. 3 Bullets mit `lucide-react` Icons (FileCheck, ListChecks, Database).
+4. **Feature Block 2 – Jury-Koordination** – alterniert: Text links / Visual rechts. Icons: Bell, SlidersHorizontal, Scale.
+5. **Feature Block 3 – Implizite Erkenntnisse** – Visual links / Text rechts. Icons: TrendingUp, LayoutGrid, Lightbulb.
+6. **Integrations** – Grid mit dunklen Pills (Microsoft Teams, SharePoint, Outlook, HubSpot, Zapier, Make, Notion, Google Workspace, SAP) – Logos als Text-Pills mit Icon-Slot.
+7. **Vergleichstabelle** – 2-Spalten-Tabelle "New Edge vs. manueller Prozess", purple Checks, rote X. Hard-edge Tabelle, dunkler Hintergrund.
+8. **Feature Cards** – 3er-Grid, je Card mit Icon-Block oben, Titel, Beschreibung. Hover: invert.
+9. **Testimonial Hero** – Großer Purple-Card-Block (`#a855f7` Hintergrund), weißes Zitat, Name + Rolle.
+10. **Testimonial Grid** – 4×2 Karten, Avatar-Kreis mit Initialen (purple), Name, Rolle, Zitat. Acht Platzhalter-Testimonials.
+11. **FAQ** – Zwei-Spalten: links Headline + Kontakt-CTA, rechts `Accordion` (shadcn) mit den 4 Fragen aus Briefing.
+12. **Closing CTA** – Volle Breite, Purple-Glow im Hintergrund, große H1, Subtext, zwei CTAs.
+
+Footer + MobileNavigation (theme="dark") wiederverwenden.
+
+SEO via `SEOHead`: Title "KI für Auswahlverfahren & Awards | New Edge", passende Description, canonical Pfad.
+
+## 4. Bilder / Icons / Animationen – Markierung
+
+In der Seite werden visuelle Slots als beschriftete `<div>`-Placeholders mit gestricheltem Border + Caption gerendert (z.B. „🖼️ Hero Visual: Dashboard Mockup, Chaos→Struktur Animation"). So sieht der User sofort wo Assets hin müssen, ohne dass wir bereits Bilder generieren. Icons aus `lucide-react` werden direkt eingebaut.
+
+## CI-Hinweis
+
+Briefing nennt Electric Blue `#00C2FF`. Aktuelle gespeicherte Core-CI = **Purple `#a855f7**`. Ich nutze konsequent Purple, damit die Seite zum Rest der Site passt. Falls du explizit Electric Blue für die neue Leistungs-Welt willst, sag Bescheid – dann tauschen wir den Akzent global für `/leistungen/*`.
+
+- Echte Mockup-Bilder / Animationen generieren
+
+## Out of Scope (jetzt nicht)
+
+- &nbsp;
+- Industrien-Seiten ausarbeiten
+- Pain Points B–E ausarbeiten
+- Alte `/studio` / `/lab` Routen entfernen (bleiben aktiv)
