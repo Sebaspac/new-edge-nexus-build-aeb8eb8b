@@ -264,47 +264,52 @@ export const MobileNavigation = ({
                     
                   </motion.div>
 
-                  {/* Services Section */}
-                  <motion.div initial={{
-                opacity: 0,
-                x: 50
-              }} animate={{
-                opacity: 1,
-                x: 0
-              }} transition={{
-                delay: 0.12
-              }}>
+                  {/* Leistungen — Pain Points */}
+                  <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.12 }}>
                     <div className={`block py-2 px-3 text-sm font-semibold ${textColor} uppercase tracking-wide`}>
-                      Services
+                      Leistungen — Pain Points
                     </div>
                   </motion.div>
                   <div className="pl-3 space-y-0.5">
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.15
-                }}>
-                      <Link to="/studio" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
-                        Studio
-                      </Link>
-                    </motion.div>
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.18
-                }}>
-                      <Link to="/lab" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-yellow-500/10 transition-colors min-h-[44px] flex items-center`}>
-                        Lab
-                      </Link>
-                    </motion.div>
+                    <Link to="/leistungen/pain-points/auswahlverfahren" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
+                      Auswahlverfahren & Awards
+                    </Link>
+                    <Link to="/leistungen/pain-points/kundengewinnung" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
+                      Kundengewinnung & Funnel
+                    </Link>
+                    <Link to="/leistungen/pain-points/compliance" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
+                      Import & Compliance
+                    </Link>
+                    <Link to="/leistungen/pain-points/reporting" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
+                      KPI & Reporting
+                    </Link>
+                    <Link to="/leistungen/pain-points/kundensupport" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
+                      Kundensupport mit KI
+                    </Link>
+                  </div>
+
+                  {/* Leistungen — Industrien */}
+                  <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.18 }}>
+                    <div className={`block py-2 px-3 text-sm font-semibold ${textColor} uppercase tracking-wide mt-2`}>
+                      Leistungen — Industrien
+                    </div>
+                  </motion.div>
+                  <div className="pl-3 space-y-0.5">
+                    <Link to="/leistungen/industrien/awards" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} min-h-[44px] flex items-center`}>Awards & Jurys</Link>
+                    <Link to="/leistungen/industrien/gym-spa" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} min-h-[44px] flex items-center`}>Gym & Spa</Link>
+                    <Link to="/leistungen/industrien/handel-logistik" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} min-h-[44px] flex items-center`}>Handel & Logistik</Link>
+                    <Link to="/leistungen/industrien/mittelstand" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} min-h-[44px] flex items-center`}>Mittelstand</Link>
+                    <Link to="/leistungen/industrien/ecommerce" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} min-h-[44px] flex items-center`}>E-Commerce</Link>
+                  </div>
+
+                  {/* Studio / Lab fallback */}
+                  <div className="pl-3 space-y-0.5 mt-2">
+                    <Link to="/studio" onClick={handleLinkClick} className={`block py-2.5 px-3 text-xs uppercase tracking-wider ${textColorSecondary} min-h-[44px] flex items-center`}>
+                      Studio
+                    </Link>
+                    <Link to="/lab" onClick={handleLinkClick} className={`block py-2.5 px-3 text-xs uppercase tracking-wider ${textColorSecondary} min-h-[44px] flex items-center`}>
+                      Lab
+                    </Link>
                   </div>
 
                   {/* Company Section */}
