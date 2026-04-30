@@ -100,10 +100,8 @@ export default function LogoCloud() {
           <div
             className="relative w-full overflow-hidden"
             style={{
-              borderTop: "1px solid rgba(168,85,247,0.25)",
-              borderBottom: "1px solid rgba(168,85,247,0.25)",
               padding: "20px 0",
-              backgroundColor: "#0a0a0a",
+              backgroundColor: "transparent",
             }}
           >
             {/* Edge fades */}
