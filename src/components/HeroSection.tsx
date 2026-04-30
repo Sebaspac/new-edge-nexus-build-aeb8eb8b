@@ -3,7 +3,6 @@ import { ArrowRight, ChevronDown, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import CyberneticGridShader from "./ui/cybernetic-grid-shader";
-import CyberneticGridShader from "./ui/cybernetic-grid-shader";
 
 interface HeroSectionProps {
   onContactClick: () => void;
