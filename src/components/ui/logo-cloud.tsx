@@ -11,7 +11,6 @@ import bayMittelstandspreis from "@/assets/logos/bayerischer-mittelstandspreis-2
 import clubCli from "@/assets/logos/club-cli.webp";
 import becomingYou from "@/assets/logos/becoming-you.png";
 
-// ✅ Einfach neue Logos hier hinzufügen - die Marquee passt sich automatisch an
 const logos = [
   { src: sadieKessler, alt: "Sadie Kessler" },
   { src: circlePhoto, alt: "The Circle Photo Studio" },
@@ -28,33 +27,47 @@ const logos = [
 ];
 
 const LogoItem = ({ src, alt }: { src: string; alt: string }) => (
-  <div className="flex-shrink-0 flex items-center justify-center h-8 sm:h-10 md:h-14 lg:h-16 px-3 sm:px-5 md:px-8">
+  <div className="flex-shrink-0 flex items-center justify-center h-10 sm:h-12 md:h-14 lg:h-16 px-6 sm:px-10 md:px-14 lg:px-16">
     <img
       src={src}
       alt={alt}
-      className="h-full w-auto object-contain max-w-[100px] sm:max-w-[140px] md:max-w-[180px] lg:max-w-[200px] grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+      loading="lazy"
+      className="h-full w-auto object-contain max-w-[120px] sm:max-w-[160px] md:max-w-[200px] lg:max-w-[220px] brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
     />
   </div>
 );
 
 export default function LogoCloud() {
-  // Logos für nahtlosen Loop duplizieren
   const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <section className="py-10 sm:py-12 md:py-16 lg:py-24 overflow-hidden bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <p className="text-center text-muted-foreground font-medium mb-6 sm:mb-8 md:mb-10 text-sm sm:text-base md:text-lg">
-          Vertraut von führenden Unternehmen
-        </p>
+    <section className="bg-black py-20 sm:py-24 md:py-32 overflow-hidden">
+      {/* Headline like Dapta */}
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 text-center mb-12 sm:mb-16 md:mb-20">
+        <h2
+          className="text-white tracking-tight"
+          style={{
+            fontSize: "clamp(2rem, 5vw, 4rem)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.02em",
+          }}
+        >
+          Vertraut von <span className="text-[#a855f7]">50+ Unternehmen</span>
+        </h2>
       </div>
-      
-      <div className="relative w-full">
-        {/* Gradient overlays für seamless fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-16 md:w-24 lg:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 md:w-24 lg:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-        
-        {/* Marquee container mit CSS Animation */}
+
+      {/* Marquee with thin purple lines top/bottom */}
+      <div
+        className="relative w-full py-8 sm:py-10 md:py-12"
+        style={{
+          borderTop: "1px solid rgba(168, 85, 247, 0.35)",
+          borderBottom: "1px solid rgba(168, 85, 247, 0.35)",
+        }}
+      >
+        {/* Edge fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 md:w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 md:w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+
         <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
           {duplicatedLogos.map((logo, index) => (
             <LogoItem key={`logo-${index}`} src={logo.src} alt={logo.alt} />
