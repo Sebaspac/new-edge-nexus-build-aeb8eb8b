@@ -562,7 +562,7 @@ const PainPointAuswahlverfahren = () => {
         <div style={{ background: L.bg, color: L.text }}>
 
           {/* DEFINITION */}
-          <section className="pt-16 md:pt-20 pb-0">
+          <section id="definition" className="pt-16 md:pt-20 pb-0">
             <div className="max-w-[800px] mx-auto px-6 lg:px-8">
               <div className="border-l-2 pl-5 py-2" style={{ borderColor: PURPLE }}>
                 <p className="text-[0.7rem] uppercase tracking-[0.12em] mb-2" style={{ color: PURPLE }}>
