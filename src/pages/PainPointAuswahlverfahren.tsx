@@ -106,10 +106,26 @@ const FeatureCTA = ({ children }: { children: React.ReactNode }) => (
 const BtnFilled = ({ children, large = false, onClick }: { children: React.ReactNode; large?: boolean; onClick?: () => void }) => (
   <button
     onClick={onClick}
-    className={`inline-flex items-center gap-1.5 font-medium transition-all hover:opacity-90 hover:-translate-y-0.5 ${
+    className={`inline-flex items-center gap-1.5 font-bold transition-all cursor-pointer ${
       large ? "px-7 py-3.5 text-[0.9rem]" : "px-5 py-2.5 text-sm"
     }`}
-    style={{ background: PURPLE, color: "#fff", ...MONO }}
+    style={{
+      background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)",
+      color: "#fff",
+      border: "1px solid rgba(139,92,246,0.4)",
+      boxShadow: "0 0 20px rgba(124,58,237,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
+      ...MONO,
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.background = "linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)";
+      e.currentTarget.style.boxShadow = "0 0 30px rgba(124,58,237,0.5), inset 0 1px 0 rgba(255,255,255,0.15)";
+      e.currentTarget.style.transform = "translateY(-1px)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.background = "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)";
+      e.currentTarget.style.boxShadow = "0 0 20px rgba(124,58,237,0.3), inset 0 1px 0 rgba(255,255,255,0.1)";
+      e.currentTarget.style.transform = "translateY(0)";
+    }}
   >
     {children}
   </button>
@@ -117,14 +133,32 @@ const BtnFilled = ({ children, large = false, onClick }: { children: React.React
 
 const BtnGhost = ({ children, large = false, dark = false }: { children: React.ReactNode; large?: boolean; dark?: boolean }) => (
   <button
-    className={`inline-flex items-center gap-1.5 font-medium transition-all ${
+    className={`inline-flex items-center gap-1.5 font-bold transition-all cursor-pointer ${
       large ? "px-7 py-3.5 text-[0.9rem]" : "px-5 py-2.5 text-sm"
     }`}
     style={{
-      background: "transparent",
-      border: `1px solid ${dark ? D.border : L.border}`,
-      color: dark ? D.textMuted : L.textMuted,
+      background: dark ? "rgba(139,92,246,0.08)" : "transparent",
+      backdropFilter: dark ? "blur(16px)" : undefined,
+      border: `1px solid ${dark ? "rgba(139,92,246,0.25)" : L.border}`,
+      color: dark ? "#c4b5fd" : L.textMuted,
+      boxShadow: dark ? "inset 0 1px 0 rgba(255,255,255,0.05)" : undefined,
       ...MONO,
+    }}
+    onMouseEnter={(e) => {
+      if (dark) {
+        e.currentTarget.style.background = "rgba(139,92,246,0.15)";
+        e.currentTarget.style.borderColor = "rgba(139,92,246,0.4)";
+        e.currentTarget.style.color = "#e0d4ff";
+      }
+      e.currentTarget.style.transform = "translateY(-1px)";
+    }}
+    onMouseLeave={(e) => {
+      if (dark) {
+        e.currentTarget.style.background = "rgba(139,92,246,0.08)";
+        e.currentTarget.style.borderColor = "rgba(139,92,246,0.25)";
+        e.currentTarget.style.color = "#c4b5fd";
+      }
+      e.currentTarget.style.transform = "translateY(0)";
     }}
   >
     {children}
