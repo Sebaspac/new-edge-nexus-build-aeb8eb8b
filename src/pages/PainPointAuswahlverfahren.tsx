@@ -217,7 +217,7 @@ const stepsData = [
 
 const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [activeStep, setActiveStep] = useState(0);
+  const [visibleSteps, setVisibleSteps] = useState(0); // 0 = none visible, 1 = first, 2 = first+second, 3 = all
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -225,13 +225,13 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
 
     const handleScroll = () => {
       const rect = section.getBoundingClientRect();
-      const sectionHeight = rect.height;
       const viewportH = window.innerHeight;
-      // Progress from 0 to 1 as section scrolls through viewport
-      const scrolled = (viewportH - rect.top) / (sectionHeight + viewportH);
-      const clamped = Math.max(0, Math.min(1, scrolled));
-      const step = Math.min(2, Math.floor(clamped * 3));
-      setActiveStep(step);
+      // How far into the section we've scrolled (0 = just entered, 1 = fully past)
+      const progress = (viewportH - rect.top) / (rect.height * 0.75);
+      const clamped = Math.max(0, Math.min(1, progress));
+      // Map progress to steps: each step triggers at 0.2, 0.5, 0.8
+      const steps = clamped < 0.15 ? 0 : clamped < 0.4 ? 1 : clamped < 0.65 ? 2 : 3;
+      setVisibleSteps(steps);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
