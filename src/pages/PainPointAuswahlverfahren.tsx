@@ -24,10 +24,10 @@ const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: 
 /* ──────────────────────────────────────────────
    Design tokens
 ────────────────────────────────────────────── */
-const PURPLE = "#a855f7";
-const PURPLE_DARK = "#7e22ce";
-const PURPLE_LIGHT = "#c084fc";
-const PURPLE_BG = "rgba(168,85,247,0.08)";
+const PURPLE = "#7c3aed";
+const PURPLE_DARK = "#4c1d95";
+const PURPLE_LIGHT = "#6d28d9";
+const PURPLE_BG = "rgba(124,58,237,0.08)";
 
 // Light theme
 const L = {
@@ -292,7 +292,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
       top: pinMode === "after" ? "auto" : 0,
       bottom: pinMode === "after" ? 0 : "auto",
       left: 0, right: 0, width: "100%", height: "100dvh", zIndex: 1,
-      background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
+      background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, ${PURPLE_LIGHT} 100%)`,
     };
 
     return (
@@ -302,7 +302,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
         className="relative isolate"
         style={{
           height: "350dvh",
-          background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
+          background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, ${PURPLE_LIGHT} 100%)`,
         }}
       >
         <div style={mobilePinStyle} className="overflow-hidden">
@@ -433,7 +433,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
     width: "100%",
     height: "100dvh",
     zIndex: 1,
-    background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
+    background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, ${PURPLE_LIGHT} 100%)`,
   };
 
   return (
@@ -443,7 +443,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
       className="relative isolate"
       style={{
         height: "280dvh",
-        background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
+        background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, ${PURPLE_LIGHT} 100%)`,
       }}
     >
       <div style={pinnedStyle} className="overflow-hidden">
