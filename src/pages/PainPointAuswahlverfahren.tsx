@@ -402,8 +402,91 @@ const PainPointAuswahlverfahren = () => {
       <div className="min-h-screen text-white overflow-x-hidden" style={{ background: "#0a0a0a", ...MONO }}>
         <MobileNavigation onContactClick={() => setContactOpen(true)} theme="dark" />
 
-        {/* SECTION 0 — DEFINITION (crawl-priorisiert, visuell dezent) */}
-        <section className="pt-28 md:pt-32 pb-0">
+        {/* SECTION 1 — HERO (Dapta-Layout: Text links, Visual rechts, Logo-Badge unten) */}
+        <section
+          className="relative overflow-hidden"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 20% 30%, rgba(168,85,247,0.18) 0%, transparent 60%), #0a0a0a",
+          }}
+        >
+          <div className="max-w-[1280px] mx-auto px-6 lg:px-10 pt-32 md:pt-36 pb-12 grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <Reveal>
+              <p
+                className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] mb-7"
+                style={{ color: ACCENT_BRIGHT, ...MONO }}
+              >
+                KI-AUTOMATISIERUNG FÜR AUSWAHLVERFAHREN
+              </p>
+              <h1
+                className="text-[clamp(2.25rem,4.2vw,3.5rem)] leading-[1.08] mb-7"
+                style={{ ...SERIF, letterSpacing: "-0.02em" }}
+              >
+                Auswahlverfahren automatisieren —<br />
+                <span style={{ color: ACCENT_BRIGHT }}>
+                  KI-gestützte Bewertungssysteme für Jurys
+                </span>
+              </h1>
+              <p className="text-[1rem] leading-[1.7] mb-9 max-w-[540px]" style={{ color: "#9a9a9a" }}>
+                Unstrukturierte Bewerbungen, überlastete Jurys, verlorenes Wissen. Manuelle Auswahlprozesse kosten
+                Organisationen durchschnittlich 60.000–80.000€ pro Zyklus — und produzieren in 43% der Fälle nicht
+                reproduzierbare Entscheidungen (HR-Tech-Studie, 2024). New Edge strukturiert euren gesamten Prozess:
+                von der ersten Einreichung bis zur revisionssicheren Entscheidung.
+              </p>
+              <div className="flex gap-3 flex-wrap">
+                <BtnFilled large onClick={() => setContactOpen(true)}>Demo buchen</BtnFilled>
+                <BtnGhost large>Case Study ansehen — BMP Award</BtnGhost>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="flex justify-center md:justify-end">
+                <HeroVisualPlaceholder />
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Logo-Badge / Social Proof direkt unter dem Hero */}
+          <div className="max-w-[1280px] mx-auto px-6 lg:px-10 pb-16">
+            <p
+              className="text-center text-[1.5rem] md:text-[1.75rem] mb-2"
+              style={{ ...SERIF, color: "#fff" }}
+            >
+              Vertraut von führenden Organisationen in Deutschland
+            </p>
+            <p className="text-center text-[0.85rem] mb-8" style={{ color: "#888" }}>
+              Reale Ergebnisse aus Auswahlprozessen wie eurem
+            </p>
+            <div className="overflow-hidden" style={{ borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}` }}>
+              <div className="flex w-max py-7" style={{ animation: "marquee 28s linear infinite" }}>
+                {[...Array(2)].flatMap((_, dup) =>
+                  ["BMP Award", "Stiftung", "Förderinstitut", "Verband", "IHK", "Accelerator", "Forschungsinstitut"].map((name, i) => (
+                    <div
+                      key={`hero-${dup}-${i}`}
+                      className="flex items-center gap-2.5 px-10 text-[1rem] font-semibold whitespace-nowrap"
+                      style={{ color: "#888", ...SERIF }}
+                    >
+                      <span>{name}</span>
+                      <span style={{ color: BORDER }}>•</span>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+            <p className="text-center mt-3 text-[10px]" style={{ color: ACCENT_BRIGHT + "99" }}>
+              🖼️ Logo-Slot: monochrome SVG-Logos (BMP Award + weitere Referenzen) — später als Bilder ersetzen
+            </p>
+          </div>
+          <style>{`
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          `}</style>
+        </section>
+
+        {/* SECTION 2 — DEFINITION (crawl-priorisiert, jetzt unter Hero) */}
+        <section className="pt-16 md:pt-20 pb-0">
           <div className="max-w-[800px] mx-auto px-6 lg:px-8">
             <div className="border-l-2 pl-5 py-2" style={{ borderColor: ACCENT }}>
               <p className="text-[0.7rem] uppercase tracking-[0.12em] mb-2" style={{ color: ACCENT_BRIGHT }}>
@@ -422,51 +505,8 @@ const PainPointAuswahlverfahren = () => {
           </div>
         </section>
 
-        {/* SECTION 1 — HERO */}
-        <section>
-          <div className="max-w-[1200px] mx-auto px-6 lg:px-8 pt-16 md:pt-20 pb-20 grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <Reveal>
-              <span
-                className="inline-block text-[0.7rem] font-semibold uppercase tracking-[0.12em] px-3 py-1.5 mb-6"
-                style={{
-                  color: ACCENT_BRIGHT,
-                  background: "rgba(168,85,247,0.10)",
-                  border: "1px solid rgba(168,85,247,0.20)",
-                }}
-              >
-                KI-Automatisierung für Auswahlverfahren
-              </span>
-              <h1
-                className="text-[clamp(2rem,3.5vw,3rem)] leading-[1.12] mb-6"
-                style={{ ...SERIF, letterSpacing: "-0.02em" }}
-              >
-                Auswahlverfahren automatisieren —<br />
-                <span style={{ color: ACCENT_BRIGHT }}>
-                  KI-gestützte Bewertungssysteme für Jurys
-                </span>
-              </h1>
-              <p className="text-base leading-[1.7] mb-9 max-w-[520px]" style={{ color: "#888" }}>
-                Unstrukturierte Bewerbungen, überlastete Jurys, verlorenes Wissen. Manuelle Auswahlprozesse kosten
-                Organisationen durchschnittlich 60.000–80.000€ pro Zyklus — und produzieren in 43% der Fälle nicht
-                reproduzierbare Entscheidungen (HR-Tech-Studie, 2024). New Edge strukturiert euren gesamten Prozess:
-                von der ersten Einreichung bis zur revisionssicheren Entscheidung.
-              </p>
-              <div className="flex gap-3 flex-wrap">
-                <BtnFilled large onClick={() => setContactOpen(true)}>Demo buchen</BtnFilled>
-                <BtnGhost large>Case Study ansehen — BMP Award</BtnGhost>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <div className="hidden md:flex justify-center">
-                <HeroVisualPlaceholder />
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* SECTION 2 — SOCIAL PROOF / MARQUEE */}
-        <section className="py-10 overflow-hidden" style={{ borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}` }}>
+        {/* SECTION 2b — alte Marquee entfernt, Logo-Badge ist jetzt im Hero */}
+        <section className="hidden">
           <p
             className="text-center text-[0.8rem] uppercase tracking-[0.06em] mb-7 font-medium"
             style={{ color: "#888" }}
