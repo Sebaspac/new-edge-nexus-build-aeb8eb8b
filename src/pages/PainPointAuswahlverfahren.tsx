@@ -217,7 +217,7 @@ const stepsData = [
 
 const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [activeStep, setActiveStep] = useState(0);
+  const [visibleSteps, setVisibleSteps] = useState(0); // 0 = none visible, 1 = first, 2 = first+second, 3 = all
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -225,13 +225,13 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
 
     const handleScroll = () => {
       const rect = section.getBoundingClientRect();
-      const sectionHeight = rect.height;
       const viewportH = window.innerHeight;
-      // Progress from 0 to 1 as section scrolls through viewport
-      const scrolled = (viewportH - rect.top) / (sectionHeight + viewportH);
-      const clamped = Math.max(0, Math.min(1, scrolled));
-      const step = Math.min(2, Math.floor(clamped * 3));
-      setActiveStep(step);
+      // How far into the section we've scrolled (0 = just entered, 1 = fully past)
+      const progress = (viewportH - rect.top) / (rect.height * 0.75);
+      const clamped = Math.max(0, Math.min(1, progress));
+      // Map progress to steps: each step triggers at 0.2, 0.5, 0.8
+      const steps = clamped < 0.15 ? 0 : clamped < 0.4 ? 1 : clamped < 0.65 ? 2 : 3;
+      setVisibleSteps(steps);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -292,29 +292,39 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
 
           {/* RIGHT — scrolling cards */}
           <div className="relative flex flex-col gap-6">
-            {stepsData.map((step, i) => (
-              <div
-                key={i}
-                className="p-8 md:p-10 transition-all duration-500"
-                style={{
-                  background: "rgba(255,255,255,0.95)",
-                  opacity: activeStep === i ? 1 : 0.35,
-                  transform: activeStep === i ? "scale(1) rotate(-1deg)" : "scale(0.95) rotate(0deg)",
-                  boxShadow: activeStep === i ? "0 20px 60px rgba(0,0,0,0.15)" : "0 4px 20px rgba(0,0,0,0.05)",
-                }}
-              >
-                <div className="text-3xl mb-4">{step.icon}</div>
-                <h3
-                  className="text-[1.1rem] font-bold mb-3"
-                  style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+            {stepsData.map((step, i) => {
+              const isVisible = visibleSteps > i;
+              const isActive = visibleSteps === i + 1; // the most recently revealed card
+              return (
+                <div
+                  key={i}
+                  className="p-8 md:p-10 transition-all duration-700 ease-out"
+                  style={{
+                    background: "rgba(255,255,255,0.95)",
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible
+                      ? `translateY(0) scale(1) rotate(${isActive ? -1.5 : 0}deg)`
+                      : "translateY(40px) scale(0.92) rotate(0deg)",
+                    boxShadow: isActive
+                      ? "0 20px 60px rgba(0,0,0,0.18)"
+                      : isVisible
+                        ? "0 4px 20px rgba(0,0,0,0.06)"
+                        : "none",
+                  }}
                 >
-                  {step.title}
-                </h3>
-                <p className="text-[0.9rem] leading-[1.7]" style={{ color: L.textMuted, ...MONO }}>
-                  {step.desc}
-                </p>
-              </div>
-            ))}
+                  <div className="text-3xl mb-4">{step.icon}</div>
+                  <h3
+                    className="text-[1.1rem] font-bold mb-3"
+                    style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p className="text-[0.9rem] leading-[1.7]" style={{ color: L.textMuted, ...MONO }}>
+                    {step.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
