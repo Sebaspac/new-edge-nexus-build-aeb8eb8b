@@ -582,7 +582,7 @@ const PainPointAuswahlverfahren = () => {
           </section>
 
           {/* FEATURE 01 */}
-          <Reveal>
+          <Reveal><div id="feature-01">
             <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <img
