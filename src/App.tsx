@@ -80,10 +80,12 @@ const App = () => {
                   <Route path="/kontakt" element={<Contact />} />
                   <Route path="/ki-audit" element={<KiAudit />} />
                   <Route path="/unsubscribe" element={<Unsubscribe />} />
+                  <Route path="/loesungen/auswahlverfahren-automatisieren" element={<PainPointAuswahlverfahren />} />
                   <Route path="/leistungen/pain-points/auswahlverfahren" element={<PainPointAuswahlverfahren />} />
                   <Route path="/leistungen/pain-points/:slug" element={<LeistungenStub />} />
                   <Route path="/leistungen/industrien/:slug" element={<LeistungenStub />} />
                   <Route path="/leistungen" element={<LeistungenStub />} />
+                  <Route path="/loesungen/:slug" element={<LeistungenStub />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

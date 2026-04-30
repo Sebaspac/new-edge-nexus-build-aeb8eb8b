@@ -110,7 +110,7 @@ export const MobileNavigation = ({
                   <div className="col-span-4 p-6 border-r border-white/10">
                     <p className="text-[10px] uppercase tracking-[0.25em] text-purple-400 mb-4">Pain Points</p>
                     <div className="space-y-1">
-                      <Link to="/leistungen/pain-points/auswahlverfahren" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
+                      <Link to="/loesungen/auswahlverfahren-automatisieren" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
                         Auswahlverfahren & Awards
                       </Link>
                       <Link to="/leistungen/pain-points/kundengewinnung" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
@@ -158,7 +158,7 @@ export const MobileNavigation = ({
                   {/* Featured Case */}
                   <div className="col-span-4 p-6 bg-gradient-to-br from-purple-500/10 to-transparent">
                     <p className="text-[10px] uppercase tracking-[0.25em] text-purple-400 mb-4">Featured Case</p>
-                    <Link to="/leistungen/pain-points/auswahlverfahren" className="block group/card">
+                    <Link to="/loesungen/auswahlverfahren-automatisieren" className="block group/card">
                       <div className="aspect-[4/3] bg-gradient-to-br from-purple-500/30 to-black border border-purple-500/30 mb-3 flex items-end p-3 group-hover/card:border-purple-400 transition-colors">
                         <p className="text-[10px] text-purple-200/80" style={{ fontFamily: "Consolas, monospace" }}>
                           🖼️ BMP Award Mockup
@@ -271,7 +271,7 @@ export const MobileNavigation = ({
                     </div>
                   </motion.div>
                   <div className="pl-3 space-y-0.5">
-                    <Link to="/leistungen/pain-points/auswahlverfahren" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
+                    <Link to="/loesungen/auswahlverfahren-automatisieren" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
                       Auswahlverfahren & Awards
                     </Link>
                     <Link to="/leistungen/pain-points/kundengewinnung" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
