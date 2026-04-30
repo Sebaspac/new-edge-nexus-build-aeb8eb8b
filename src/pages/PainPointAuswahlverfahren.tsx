@@ -1,7 +1,7 @@
 import { lazy, Suspense, useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Plus } from "lucide-react";
+import { ArrowRight, Plus, Check } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import painpointAVorherNachher from "@/assets/painpoint-a-vorher-nachher.png";
@@ -16,29 +16,42 @@ import integrationsLogos from "@/assets/painpoint-a-integrations-logos.png";
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
 /* ──────────────────────────────────────────────
-   New Edge CI tokens (mapped from HTML reference)
-   accent → Purple #a855f7 (instead of Teal)
-   surface → #141414 / #1e1e1e
-   border  → #252525
+   Design tokens
 ────────────────────────────────────────────── */
-const ACCENT = "#a855f7";
-const ACCENT_DARK = "#7e22ce";
-const ACCENT_BRIGHT = "#c084fc";
-const SURFACE = "#141414";
-const SURFACE_2 = "#1e1e1e";
-const BORDER = "#252525";
-const TABLE_HIGHLIGHT = "rgba(168,85,247,0.15)";
-const TABLE_DANGER = "rgba(80,20,20,0.4)";
+const PURPLE = "#a855f7";
+const PURPLE_DARK = "#7e22ce";
+const PURPLE_LIGHT = "#c084fc";
+const PURPLE_BG = "rgba(168,85,247,0.08)";
 
-const SERIF: React.CSSProperties = { fontFamily: "'DM Serif Display', serif" };
+// Light theme
+const L = {
+  bg: "#ffffff",
+  bgAlt: "#f8f8fa",
+  text: "#111111",
+  textMuted: "#555555",
+  textLight: "#888888",
+  border: "#e5e5e5",
+  borderLight: "#f0f0f0",
+};
+
+// Dark theme (hero only)
+const D = {
+  bg: "#0a0a0a",
+  surface: "#141414",
+  border: "#252525",
+  text: "#ffffff",
+  textMuted: "#9a9a9a",
+};
+
+const SERIF: React.CSSProperties = { fontFamily: "'DM Serif Display', serif", fontWeight: 400 };
 const MONO: React.CSSProperties = { fontFamily: "Consolas, monospace" };
 
-/* ────────────── Reusable atoms ────────────── */
+/* ────────────── Reusable atoms (Light theme) ────────────── */
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
   <span
-    className="inline-block text-[0.68rem] font-semibold uppercase tracking-[0.12em] mb-4"
-    style={{ color: ACCENT_BRIGHT, ...MONO }}
+    className="inline-block text-[0.7rem] font-semibold uppercase tracking-[0.14em] mb-3"
+    style={{ color: PURPLE, ...MONO }}
   >
     {children}
   </span>
@@ -46,7 +59,7 @@ const SectionLabel = ({ children }: { children: React.ReactNode }) => (
 
 const SectionH2 = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
   <h2
-    className={`text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.15] mb-5 ${className}`}
+    className={`text-[clamp(1.6rem,2.8vw,2.25rem)] leading-[1.15] mb-4 text-[#111] ${className}`}
     style={{ ...SERIF, letterSpacing: "-0.02em" }}
   >
     {children}
@@ -54,24 +67,20 @@ const SectionH2 = ({ children, className = "" }: { children: React.ReactNode; cl
 );
 
 const SectionSub = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-base leading-[1.7] mb-9 max-w-[560px]" style={{ color: "#888", ...MONO }}>
+  <p className="text-[0.925rem] leading-[1.75] mb-8 max-w-[540px]" style={{ color: L.textMuted, ...MONO }}>
     {children}
   </p>
 );
 
 const BulletList = ({ items }: { items: string[] }) => (
-  <ul className="flex flex-col gap-3.5 mb-8 list-none">
+  <ul className="flex flex-col gap-3 mb-7 list-none">
     {items.map((item, i) => (
-      <li key={i} className="flex items-start gap-3 text-[0.9375rem] text-white" style={MONO}>
+      <li key={i} className="flex items-start gap-3 text-[0.9rem]" style={{ color: L.text, ...MONO }}>
         <span
-          className="shrink-0 w-[22px] h-[22px] flex items-center justify-center text-[0.65rem] mt-0.5"
-          style={{
-            background: TABLE_HIGHLIGHT,
-            border: `1px solid ${ACCENT}`,
-            color: ACCENT_BRIGHT,
-          }}
+          className="shrink-0 w-5 h-5 flex items-center justify-center mt-0.5"
+          style={{ background: PURPLE_BG, border: `1px solid ${PURPLE}` }}
         >
-          ✓
+          <Check className="w-3 h-3" style={{ color: PURPLE }} />
         </span>
         {item}
       </li>
@@ -81,8 +90,8 @@ const BulletList = ({ items }: { items: string[] }) => (
 
 const FeatureCTA = ({ children }: { children: React.ReactNode }) => (
   <button
-    className="inline-flex items-center gap-1.5 text-[0.9375rem] font-medium hover:gap-2.5 transition-all bg-transparent border-none p-0 cursor-pointer"
-    style={{ color: ACCENT_BRIGHT, ...MONO }}
+    className="inline-flex items-center gap-1.5 text-[0.9rem] font-medium hover:gap-2.5 transition-all bg-transparent border-none p-0 cursor-pointer"
+    style={{ color: PURPLE, ...MONO }}
   >
     {children} <ArrowRight className="w-4 h-4" />
   </button>
@@ -92,23 +101,23 @@ const BtnFilled = ({ children, large = false, onClick }: { children: React.React
   <button
     onClick={onClick}
     className={`inline-flex items-center gap-1.5 font-medium transition-all hover:opacity-90 hover:-translate-y-0.5 ${
-      large ? "px-7 py-3.5 text-[0.9375rem]" : "px-5 py-2.5 text-sm"
+      large ? "px-7 py-3.5 text-[0.9rem]" : "px-5 py-2.5 text-sm"
     }`}
-    style={{ background: ACCENT, color: "#fff", ...MONO }}
+    style={{ background: PURPLE, color: "#fff", ...MONO }}
   >
     {children}
   </button>
 );
 
-const BtnGhost = ({ children, large = false }: { children: React.ReactNode; large?: boolean }) => (
+const BtnGhost = ({ children, large = false, dark = false }: { children: React.ReactNode; large?: boolean; dark?: boolean }) => (
   <button
-    className={`inline-flex items-center gap-1.5 font-medium transition-all hover:text-white hover:border-white/60 ${
-      large ? "px-7 py-3.5 text-[0.9375rem]" : "px-5 py-2.5 text-sm"
+    className={`inline-flex items-center gap-1.5 font-medium transition-all ${
+      large ? "px-7 py-3.5 text-[0.9rem]" : "px-5 py-2.5 text-sm"
     }`}
     style={{
       background: "transparent",
-      border: `1px solid ${BORDER}`,
-      color: "#888",
+      border: `1px solid ${dark ? D.border : L.border}`,
+      color: dark ? D.textMuted : L.textMuted,
       ...MONO,
     }}
   >
@@ -116,165 +125,24 @@ const BtnGhost = ({ children, large = false }: { children: React.ReactNode; larg
   </button>
 );
 
-/* ────────────── Visual Placeholders ────────────── */
-
-const VisualPanel = ({ caption, height = "min-h-[320px]" }: { caption: string; height?: string }) => (
-  <div
-    className={`relative overflow-hidden p-9 flex items-end justify-start ${height}`}
-    style={{
-      background: SURFACE,
-      border: `1px dashed ${ACCENT}55`,
-    }}
-  >
-    <div
-      className="absolute inset-0 pointer-events-none"
-      style={{
-        background:
-          "radial-gradient(ellipse at center, rgba(168,85,247,0.08) 0%, transparent 70%)",
-      }}
-    />
-    <p className="relative text-[11px] leading-snug max-w-full" style={{ color: ACCENT_BRIGHT, ...MONO }}>
-      🖼️ {caption}
-    </p>
-  </div>
-);
-
-/* ────────────── Hero score-card mockup placeholder ────────────── */
-
-const HeroVisualPlaceholder = () => (
-  <div className="relative w-full max-w-[480px] ml-auto">
-    <img
-      src={painpointAVorherNachher}
-      alt="Vorher: unstrukturierte PDF-Bewerbungen — Nachher: strukturiertes KI-Scoring-Dashboard"
-      className="w-full h-auto"
-      style={{ border: `1px solid ${BORDER}` }}
-    />
-  </div>
-);
-
-const HeroVisualPlaceholderOld = () => (
-  <div className="relative w-full max-w-[340px] scale-[0.85] origin-top-right md:scale-90">
-    {/* floating chips */}
-    <div
-      className="absolute -top-4 left-2.5 px-3.5 py-2 text-[0.75rem] flex items-center gap-1.5 whitespace-nowrap animate-[float_3s_ease-in-out_infinite]"
-      style={{ background: SURFACE_2, border: `1px solid ${BORDER}`, color: "#888", ...MONO }}
-    >
-      <span className="w-[7px] h-[7px] rounded-full" style={{ background: ACCENT_BRIGHT }} />
-      87 Bewerbungen eingegangen
-    </div>
-    <div
-      className="absolute top-10 -right-5 px-3.5 py-2 text-[0.75rem] flex items-center gap-1.5 whitespace-nowrap animate-[float_3s_ease-in-out_infinite]"
-      style={{ background: SURFACE_2, border: `1px solid ${BORDER}`, color: "#888", animationDelay: "0.7s", ...MONO }}
-    >
-      <span className="w-[7px] h-[7px] rounded-full" style={{ background: ACCENT_BRIGHT }} />
-      Jury: 6/6 abgeschlossen
-    </div>
-    <div
-      className="absolute bottom-8 -left-4 px-3.5 py-2 text-[0.75rem] flex items-center gap-1.5 whitespace-nowrap animate-[float_3s_ease-in-out_infinite]"
-      style={{ background: SURFACE_2, border: `1px solid ${BORDER}`, color: "#888", animationDelay: "1.4s", ...MONO }}
-    >
-      <span className="w-[7px] h-[7px] rounded-full" style={{ background: ACCENT_BRIGHT }} />
-      Bericht generiert ✓
-    </div>
-
-    {/* score card mock */}
-    <div
-      className="relative p-7 w-full max-w-[420px] mx-auto"
-      style={{
-        background: SURFACE,
-        border: `1px solid ${BORDER}`,
-        boxShadow: "0 0 60px rgba(168,85,247,0.12), 0 32px 64px rgba(0,0,0,0.4)",
-      }}
-    >
-      <div className="flex items-center justify-between mb-5">
-        <span className="text-[0.875rem]" style={SERIF}>Bewerbung #42 — Scoring</span>
-        <span
-          className="text-[0.7rem] font-semibold px-2.5 py-1"
-          style={{ background: TABLE_HIGHLIGHT, color: ACCENT_BRIGHT, border: `1px solid ${ACCENT}55`, ...MONO }}
-        >
-          FINAL
-        </span>
-      </div>
-
-      <div className="flex flex-col gap-3 mb-5">
-        {[
-          ["Innovation", 84, "8.4 / 10"],
-          ["Nachhaltigkeit", 79, "7.9 / 10"],
-          ["Marktpotenzial", 91, "9.1 / 10"],
-          ["Umsetzung", 72, "7.2 / 10"],
-        ].map(([label, w, val]) => (
-          <div key={label as string} className="flex flex-col gap-1">
-            <div className="flex justify-between items-center">
-              <span className="text-[0.8rem]" style={{ color: "#888", ...MONO }}>{label}</span>
-              <span className="text-[0.8rem] font-semibold text-white" style={MONO}>{val}</span>
-            </div>
-            <div className="h-1.5 overflow-hidden" style={{ background: SURFACE_2 }}>
-              <div
-                className="h-full"
-                style={{ width: `${w}%`, background: `linear-gradient(90deg, ${ACCENT_DARK}, ${ACCENT_BRIGHT})` }}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="h-px my-4" style={{ background: BORDER }} />
-
-      <div className="flex flex-col gap-2 mb-4">
-        {[
-          { name: "M. Kuhn", initials: "MK", filled: 4, color: ACCENT_DARK },
-          { name: "T. Schmidt", initials: "TS", filled: 3, color: "#1a4a6b" },
-          { name: "L. Weiss", initials: "LW", filled: 5, color: ACCENT },
-        ].map((j) => (
-          <div key={j.name} className="flex items-center gap-2.5">
-            <div
-              className="w-[26px] h-[26px] rounded-full flex items-center justify-center text-[0.65rem] font-bold text-white"
-              style={{ background: j.color }}
-            >
-              {j.initials}
-            </div>
-            <span className="text-[0.8rem] flex-1" style={{ color: "#888", ...MONO }}>{j.name}</span>
-            <div className="flex gap-1">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="w-[22px] h-2"
-                  style={{ background: i < j.filled ? ACCENT : BORDER }}
-                />
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="flex items-center justify-between p-3" style={{ background: SURFACE_2 }}>
-        <span className="text-[0.8rem]" style={{ color: "#888", ...MONO }}>Gesamtscore</span>
-        <span className="text-[1.5rem] font-bold" style={{ color: ACCENT_BRIGHT, ...SERIF }}>8.15</span>
-      </div>
-
-      {/* 🖼️ Hero Visual Slot: Animiertes Scoring-Dashboard (Mock-Daten) — später ersetzen */}
-    </div>
-  </div>
-);
-
 /* ────────────── FAQ accordion ────────────── */
 
 const FAQItem = ({ q, a, defaultOpen = false }: { q: string; a: string; defaultOpen?: boolean }) => {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <div className="overflow-hidden border-b" style={{ borderColor: BORDER }}>
+    <div className="overflow-hidden" style={{ borderBottom: `1px solid ${L.border}` }}>
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex justify-between items-center py-5 px-1 text-left text-[0.9375rem] font-medium hover:opacity-80 transition-colors gap-4"
-        style={{ color: open ? ACCENT_BRIGHT : "#fff", ...MONO }}
+        className="w-full flex justify-between items-center py-5 px-1 text-left text-[0.9rem] font-medium hover:opacity-80 transition-colors gap-4"
+        style={{ color: open ? PURPLE : L.text, ...MONO }}
       >
         <span>{q}</span>
         <span
-          className={`shrink-0 w-[22px] h-[22px] flex items-center justify-center text-[0.7rem] transition-all ${open ? "rotate-45" : ""}`}
+          className={`shrink-0 w-5 h-5 flex items-center justify-center text-[0.7rem] transition-all ${open ? "rotate-45" : ""}`}
           style={{
-            border: `1px solid ${open ? ACCENT : BORDER}`,
-            background: open ? TABLE_HIGHLIGHT : "transparent",
-            color: open ? ACCENT_BRIGHT : "#888",
+            border: `1px solid ${open ? PURPLE : L.border}`,
+            background: open ? PURPLE_BG : "transparent",
+            color: open ? PURPLE : L.textLight,
           }}
         >
           <Plus className="w-3 h-3" />
@@ -284,7 +152,7 @@ const FAQItem = ({ q, a, defaultOpen = false }: { q: string; a: string; defaultO
         className="overflow-hidden transition-all duration-300"
         style={{ maxHeight: open ? "400px" : "0px" }}
       >
-        <div className="px-1 pb-5 text-[0.9rem] leading-[1.7]" style={{ color: "#888", ...MONO }}>
+        <div className="px-1 pb-5 text-[0.875rem] leading-[1.7]" style={{ color: L.textMuted, ...MONO }}>
           {a}
         </div>
       </div>
@@ -292,7 +160,7 @@ const FAQItem = ({ q, a, defaultOpen = false }: { q: string; a: string; defaultO
   );
 };
 
-/* ────────────── Reveal hook ────────────── */
+/* ────────────── Reveal ────────────── */
 
 const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -317,8 +185,8 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
       ref={ref}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(28px)",
-        transition: `opacity 0.65s ease ${delay}s, transform 0.65s ease ${delay}s`,
+        transform: visible ? "translateY(0)" : "translateY(24px)",
+        transition: `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`,
       }}
     >
       {children}
@@ -331,26 +199,14 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 const PainPointAuswahlverfahren = () => {
   const [, setContactOpen] = useState(false);
 
-  const integrations = [
-    { name: "Microsoft Teams", icon: "💬" },
-    { name: "SharePoint", icon: "🗂" },
-    { name: "Outlook", icon: "📧" },
-    { name: "HubSpot", icon: "🧲" },
-    { name: "Zapier", icon: "⚡" },
-    { name: "Make", icon: "🔧" },
-    { name: "Notion", icon: "📝" },
-    { name: "Google Workspace", icon: "🌐" },
-    { name: "SAP", icon: "🏢" },
-  ];
-
   const compareRows = [
-    ["Bewerbungseingang", "✅ Strukturiert & automatisch", "❌ PDFs, Mails, verschiedene Formate"],
-    ["Jury-Koordination", "✅ Vollautomatisiert", "❌ Endlose E-Mail-Threads"],
-    ["Vergleichbarkeit", "✅ Einheitliches Kategoriensystem", "❌ Keine einheitliche Basis"],
-    ["Entscheidungsdoku", "✅ Revisionssicher & automatisch", "❌ Existiert kaum"],
-    ["Wissen nach Zyklus", "✅ Persistente Datenbasis", "❌ Geht jedes Jahr verloren"],
-    ["Analysen", "✅ Automatisch generiert", "❌ Nicht vorhanden"],
-    ["Kosten", "✅ Planbar & skalierbar", "❌ 60–80k€ pro Zyklus"],
+    ["Bewerbungseingang", "Strukturiert & automatisch", "PDFs, Mails, verschiedene Formate"],
+    ["Jury-Koordination", "Vollautomatisiert", "Endlose E-Mail-Threads"],
+    ["Vergleichbarkeit", "Einheitliches Kategoriensystem", "Keine einheitliche Basis"],
+    ["Entscheidungsdoku", "Revisionssicher & automatisch", "Existiert kaum"],
+    ["Wissen nach Zyklus", "Persistente Datenbasis", "Geht jedes Jahr verloren"],
+    ["Analysen", "Automatisch generiert", "Nicht vorhanden"],
+    ["Kosten", "Planbar & skalierbar", "60–80k€ pro Zyklus"],
   ];
 
   const featureCards = [
@@ -408,33 +264,28 @@ const PainPointAuswahlverfahren = () => {
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
-        <style>{`
-          @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-          }
-        `}</style>
       </Helmet>
 
-      <div className="min-h-screen text-white overflow-x-hidden" style={{ background: "#0a0a0a", ...MONO }}>
-        <MobileNavigation onContactClick={() => setContactOpen(true)} theme="dark" />
+      <div className="min-h-screen overflow-x-hidden" style={MONO}>
 
-        {/* SECTION 1 — HERO (Dapta-Layout, 1-Viewport: Text+Visual oben, Logos im Fold) */}
+        {/* ═══════════════════════════════════════════
+            HERO — Dark (stays dark)
+        ═══════════════════════════════════════════ */}
         <section
-          className="relative overflow-hidden flex flex-col"
+          className="relative overflow-hidden flex flex-col text-white"
           style={{
             minHeight: "100dvh",
-            background:
-              "radial-gradient(ellipse 70% 55% at 18% 35%, rgba(168,85,247,0.20) 0%, transparent 60%), #0a0a0a",
+            background: `radial-gradient(ellipse 70% 55% at 18% 35%, rgba(168,85,247,0.18) 0%, transparent 60%), ${D.bg}`,
           }}
         >
-          {/* Top: Text links, Visual rechts */}
+          <MobileNavigation onContactClick={() => setContactOpen(true)} theme="dark" />
+
           <div className="flex-1 flex items-center">
-            <div className="max-w-[1280px] w-full mx-auto px-6 lg:px-10 pt-20 md:pt-20 pb-4 grid md:grid-cols-2 gap-6 lg:gap-10 items-center">
+            <div className="max-w-[1200px] w-full mx-auto px-6 lg:px-8 pt-24 md:pt-20 pb-4 grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
               <Reveal>
                 <p
-                  className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] mb-5"
-                  style={{ color: ACCENT_BRIGHT, ...MONO }}
+                  className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] mb-5"
+                  style={{ color: PURPLE_LIGHT, ...MONO }}
                 >
                   KI-AUTOMATISIERUNG FÜR AUSWAHLVERFAHREN
                 </p>
@@ -443,51 +294,55 @@ const PainPointAuswahlverfahren = () => {
                   style={{ ...SERIF, letterSpacing: "-0.02em" }}
                 >
                   Auswahlverfahren automatisieren —<br />
-                  <span style={{ color: ACCENT_BRIGHT }}>
+                  <span style={{ color: PURPLE_LIGHT }}>
                     KI-gestützte Bewertungssysteme für Jurys
                   </span>
                 </h1>
-                <p className="text-[0.95rem] leading-[1.6] mb-6 max-w-[520px]" style={{ color: "#9a9a9a" }}>
+                <p className="text-[0.925rem] leading-[1.65] mb-6 max-w-[500px]" style={{ color: D.textMuted }}>
                   Unstrukturierte Bewerbungen, überlastete Jurys, verlorenes Wissen. New Edge strukturiert euren
                   gesamten Auswahlprozess — von der ersten Einreichung bis zur revisionssicheren Entscheidung.
                 </p>
                 <div className="flex gap-3 flex-wrap">
                   <BtnFilled onClick={() => setContactOpen(true)}>Demo buchen</BtnFilled>
-                  <BtnGhost>Case Study — BMP Award</BtnGhost>
+                  <BtnGhost dark>Case Study — BMP Award</BtnGhost>
                 </div>
               </Reveal>
 
               <Reveal delay={0.2}>
                 <div className="flex justify-center md:justify-end">
-                  <HeroVisualPlaceholder />
+                  <div className="relative w-full max-w-[460px]">
+                    <img
+                      src={painpointAVorherNachher}
+                      alt="Vorher: unstrukturierte PDF-Bewerbungen — Nachher: strukturiertes KI-Scoring-Dashboard"
+                      className="w-full h-auto"
+                      style={{ border: `1px solid ${D.border}` }}
+                    />
+                  </div>
                 </div>
               </Reveal>
             </div>
           </div>
 
-          {/* Bottom: Trust-Headline + Logo-Marquee (immer im 1. Viewport sichtbar) */}
+          {/* Trust bar */}
           <div className="shrink-0 pb-6 md:pb-8">
-            <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-              <p
-                className="text-center text-[1.25rem] md:text-[1.5rem] mb-1"
-                style={{ ...SERIF, color: "#fff" }}
-              >
+            <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+              <p className="text-center text-[1.15rem] md:text-[1.35rem] mb-1" style={SERIF}>
                 Vertraut von führenden Organisationen in Deutschland
               </p>
-              <p className="text-center text-[0.78rem] mb-4" style={{ color: "#888" }}>
+              <p className="text-center text-[0.75rem] mb-4" style={{ color: D.textMuted }}>
                 Reale Ergebnisse aus Auswahlprozessen wie eurem
               </p>
-              <div className="overflow-hidden" style={{ borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}` }}>
-                <div className="flex w-max py-4" style={{ animation: "marquee 28s linear infinite" }}>
+              <div className="overflow-hidden" style={{ borderTop: `1px solid ${D.border}`, borderBottom: `1px solid ${D.border}` }}>
+                <div className="flex w-max py-3.5" style={{ animation: "marquee 28s linear infinite" }}>
                   {[...Array(2)].flatMap((_, dup) =>
                     ["BMP Award", "Stiftung", "Förderinstitut", "Verband", "IHK", "Accelerator", "Forschungsinstitut"].map((name, i) => (
                       <div
                         key={`hero-${dup}-${i}`}
-                        className="flex items-center gap-2.5 px-8 text-[0.95rem] font-semibold whitespace-nowrap"
-                        style={{ color: "#888", ...SERIF }}
+                        className="flex items-center gap-2.5 px-8 text-[0.9rem] font-semibold whitespace-nowrap"
+                        style={{ color: "#666", ...SERIF }}
                       >
-                        <span>{name}</span>
-                        <span style={{ color: BORDER }}>•</span>
+                        {name}
+                        <span style={{ color: D.border }}>·</span>
                       </div>
                     ))
                   )}
@@ -495,458 +350,390 @@ const PainPointAuswahlverfahren = () => {
               </div>
             </div>
           </div>
-          <style>{`
-            @keyframes marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-          `}</style>
+          <style>{`@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`}</style>
         </section>
 
-        {/* ──────────── LIGHT THEME SCOPE (alles unter dem Hero) ──────────── */}
-        <div className="light-scope" style={{ background: "#ffffff", color: "#0a0a0a" }}>
-          <style>{`
-            .light-scope { color: #0a0a0a; }
-            /* Backgrounds: dunkle Surfaces → helle Surfaces */
-            .light-scope [style*="background: rgb(20, 20, 20)"],
-            .light-scope [style*="background:#141414"],
-            .light-scope [style*="background: #141414"] { background: #f6f6f7 !important; }
-            .light-scope [style*="background: rgb(30, 30, 30)"],
-            .light-scope [style*="background:#1e1e1e"],
-            .light-scope [style*="background: #1e1e1e"] { background: #efefef !important; }
-            .light-scope [style*="background: rgb(10, 10, 10)"],
-            .light-scope [style*="background:#0a0a0a"],
-            .light-scope [style*="background: #0a0a0a"] { background: #ffffff !important; }
-            /* Borders: dunkles #252525 → hell */
-            .light-scope [style*="rgb(37, 37, 37)"],
-            .light-scope [style*="#252525"] { border-color: #e5e7eb !important; }
-            /* Muted-Text #888 / #bbb / #9a9a9a → dunkler */
-            .light-scope [style*="color: rgb(136, 136, 136)"],
-            .light-scope [style*="color:#888"],
-            .light-scope [style*="color: #888"] { color: #6b7280 !important; }
-            .light-scope [style*="color: rgb(154, 154, 154)"],
-            .light-scope [style*="color:#9a9a9a"],
-            .light-scope [style*="color: #9a9a9a"] { color: #6b7280 !important; }
-            .light-scope [style*="color: rgb(187, 187, 187)"],
-            .light-scope [style*="color:#bbb"],
-            .light-scope [style*="color: #bbb"] { color: #4b5563 !important; }
-            /* Weißer Standard-Text → schwarz */
-            .light-scope .text-white { color: #0a0a0a !important; }
-            .light-scope [style*="color: rgb(255, 255, 255)"],
-            .light-scope [style*="color:#fff"],
-            .light-scope [style*="color: #fff"] { color: #0a0a0a !important; }
-            /* Subtile dark-row backgrounds in Tabelle (rgba weiß) */
-            .light-scope [style*="rgba(255,255,255,0.025)"] { background: rgba(0,0,0,0.025) !important; }
-            .light-scope [style*="rgba(255,255,255,0.01)"] { background: rgba(0,0,0,0.01) !important; }
-            /* Closing CTA: dunkles SURFACE → sehr helles, lila Glow bleibt */
-          `}</style>
+        {/* ═══════════════════════════════════════════
+            CONTENT — Light theme (native, no CSS hacks)
+        ═══════════════════════════════════════════ */}
+        <div style={{ background: L.bg, color: L.text }}>
 
-        {/* SECTION 2 — DEFINITION (crawl-priorisiert, jetzt unter Hero) */}
-        <section className="pt-16 md:pt-20 pb-0">
-          <div className="max-w-[800px] mx-auto px-6 lg:px-8">
-            <div className="border-l-2 pl-5 py-2" style={{ borderColor: ACCENT }}>
-              <p className="text-[0.7rem] uppercase tracking-[0.12em] mb-2" style={{ color: ACCENT_BRIGHT }}>
-                Definition
-              </p>
-              <h2 className="text-lg md:text-xl mb-2" style={SERIF}>
-                Was ist KI-gestützte Auswahlverfahren-Automatisierung?
-              </h2>
-              <p className="text-sm leading-[1.7]" style={{ color: "#888" }}>
-                KI-gestützte Auswahlverfahren-Automatisierung ersetzt manuelle Bewerbungsverarbeitung durch
-                strukturierte Datenerfassung, automatische Vollständigkeitsprüfung und ein operationalisiertes
-                Jury-Bewertungssystem. Organisationen reduzieren den Prozessaufwand damit um bis zu 70% — bei
-                revisionssicherer Entscheidungsdokumentation und nachweislich besserer Entscheidungsqualität.
-              </p>
+          {/* DEFINITION */}
+          <section className="pt-16 md:pt-20 pb-0">
+            <div className="max-w-[800px] mx-auto px-6 lg:px-8">
+              <div className="border-l-2 pl-5 py-2" style={{ borderColor: PURPLE }}>
+                <p className="text-[0.7rem] uppercase tracking-[0.12em] mb-2" style={{ color: PURPLE }}>
+                  Definition
+                </p>
+                <h2 className="text-lg md:text-xl mb-2" style={{ ...SERIF, color: L.text }}>
+                  Was ist KI-gestützte Auswahlverfahren-Automatisierung?
+                </h2>
+                <p className="text-sm leading-[1.7]" style={{ color: L.textMuted }}>
+                  KI-gestützte Auswahlverfahren-Automatisierung ersetzt manuelle Bewerbungsverarbeitung durch
+                  strukturierte Datenerfassung, automatische Vollständigkeitsprüfung und ein operationalisiertes
+                  Jury-Bewertungssystem. Organisationen reduzieren den Prozessaufwand damit um bis zu 70% — bei
+                  revisionssicherer Entscheidungsdokumentation und nachweislich besserer Entscheidungsqualität.
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* SECTION 2b — alte Marquee entfernt, Logo-Badge ist jetzt im Hero */}
-        <section className="hidden">
-          <p
-            className="text-center text-[0.8rem] uppercase tracking-[0.06em] mb-7 font-medium"
-            style={{ color: "#888" }}
-          >
-            Vertraut von führenden Organisationen in Deutschland
-          </p>
-          <div className="overflow-hidden">
-            <div
-              className="flex w-max"
-              style={{ animation: "marquee 28s linear infinite" }}
-            >
-              {[...Array(2)].flatMap((_, dup) =>
-                ["BMP Award", "Stiftung", "Förderinstitut", "Verband", "IHK", "Accelerator", "Forschungsinstitut"].map((name, i) => (
-                  <div
-                    key={`${dup}-${i}`}
-                    className="flex items-center gap-2.5 px-10 text-[0.875rem] font-semibold whitespace-nowrap"
-                    style={{ color: "#888", ...SERIF }}
-                  >
-                    <span>{name}</span>
-                    <span style={{ color: BORDER }}>•</span>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-          <p className="text-center mt-4 text-[10px]" style={{ color: ACCENT_BRIGHT + "99" }}>
-            🖼️ Logo-Slot: monochrome SVG-Logos (BMP Award + weitere Referenzen) — später als Bilder ersetzen
-          </p>
-          <style>{`
-            @keyframes marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-          `}</style>
-        </section>
-
-        {/* SECTION 3 — FEATURE BLOCK 1 */}
-        <Reveal>
-          <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-[72px] items-center">
-            <div>
-              <img
-                src={painpointASection3}
-                alt="KI-gestützte Erfassung: PDF-Dokumente werden via Texterkennung, Klassifizierung, Strukturierung und Validierung in ein strukturiertes Projektdatenblatt überführt"
-                loading="lazy"
-                className="w-full h-auto max-w-[420px] mx-auto"
-              />
-            </div>
-            <div>
-              <SectionLabel>Feature 01</SectionLabel>
-              <SectionH2>Schluss mit dem Dokumenten-Chaos</SectionH2>
-              <SectionSub>
-                Bewerbungen kommen als PDFs, Freitexte und E-Mails — jedes in einem anderen Format. Systematisch
-                vergleichen lässt sich das nicht. New Edge strukturiert die Datenerfassung, prüft Vollständigkeit
-                automatisch und führt Bewerber durch einen klaren, geführten Prozess — ohne manuelle Nacharbeit.
-              </SectionSub>
-              <BulletList
-                items={[
-                  "Automatische Dokumentenprüfung auf Vollständigkeit",
-                  "Guided Application — Schritt-für-Schritt geführt",
-                  "Persistente Datenbasis — kein Wissen geht verloren",
-                ]}
-              />
-              <FeatureCTA>Wie es funktioniert</FeatureCTA>
-            </div>
-          </div>
-        </Reveal>
-
-        {/* SECTION 4 — FEATURE BLOCK 2 (flipped) */}
-        <div style={{ background: SURFACE, borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}` }}>
+          {/* FEATURE 01 */}
           <Reveal>
-            <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-[72px] items-center">
-              <div className="md:order-2">
+            <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div>
                 <img
-                  src={painpointAFeature2}
-                  alt="3-Schritt-Prozess: PDFs hochladen → KI-Erfassung → Strukturiertes Ergebnis"
+                  src={painpointASection3}
+                  alt="KI-gestützte Erfassung: PDF-Dokumente werden via Texterkennung, Klassifizierung, Strukturierung und Validierung in ein strukturiertes Projektdatenblatt überführt"
                   loading="lazy"
-                  className="w-full h-auto max-w-[480px] mx-auto"
+                  className="w-full h-auto max-w-[440px] mx-auto"
                 />
               </div>
-              <div className="md:order-1">
-                <SectionLabel>Feature 02</SectionLabel>
-                <SectionH2>Jury-Koordination die sich selbst organisiert</SectionH2>
+              <div>
+                <SectionLabel>Feature 01</SectionLabel>
+                <SectionH2>Schluss mit dem Dokumenten-Chaos</SectionH2>
                 <SectionSub>
-                  Endlose E-Mail-Threads, vergessene Deadlines, inkonsistente Bewertungen. New Edge automatisiert
-                  Briefings, Reminder und die gesamte Jury-Kommunikation. Teams berichten von einer Reduktion des
-                  Koordinationsaufwands um durchschnittlich 80%. Jedes Mitglied bewertet im eigenen Interface — in
-                  seinem Tempo.
+                  Bewerbungen kommen als PDFs, Freitexte und E-Mails — jedes in einem anderen Format. Systematisch
+                  vergleichen lässt sich das nicht. New Edge strukturiert die Datenerfassung, prüft Vollständigkeit
+                  automatisch und führt Bewerber durch einen klaren, geführten Prozess — ohne manuelle Nacharbeit.
                 </SectionSub>
                 <BulletList
                   items={[
-                    "Automatische Briefings und Reminder ohne manuellen Aufwand",
-                    "Operationalisiertes Bewertungssystem — keine Subjektivität",
-                    "Automatische Konflikt-Erkennung bei abweichenden Urteilen",
+                    "Automatische Dokumentenprüfung auf Vollständigkeit",
+                    "Guided Application — Schritt-für-Schritt geführt",
+                    "Persistente Datenbasis — kein Wissen geht verloren",
                   ]}
                 />
-                <FeatureCTA>Jury-Interface ansehen</FeatureCTA>
+                <FeatureCTA>Wie es funktioniert</FeatureCTA>
               </div>
             </div>
           </Reveal>
-        </div>
 
-        {/* SECTION 5 — FEATURE BLOCK 3 */}
-        <Reveal>
-          <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-[72px] items-center">
-            <div>
-              <img
-                src={painpointAFeature3}
-                alt="Einzelscore mit Kategorien-Bewertung und Heatmap zur Bias-Analyse über Jurys und Kategorien"
-                loading="lazy"
-                className="w-full h-auto max-w-[480px] mx-auto"
-              />
-            </div>
-            <div>
-              <SectionLabel>Feature 03</SectionLabel>
-              <SectionH2>Erkenntnisse die niemand explizit angefragt hat</SectionH2>
-              <SectionSub>
-                Das eigentliche Gold liegt in den Daten. Welche Jury-Mitglieder bewerten systematisch zu hart? Welche
-                Merkmale korrelieren mit späterem Projekterfolg? New Edge generiert diese Analysen automatisch aus
-                jedem abgeschlossenen Zyklus — der Award wird zur strategischen Forschungsplattform.
-              </SectionSub>
-              <BulletList
-                items={[
-                  "Jury-Bias-Erkennung — systematische Muster werden sichtbar",
-                  "Bewerber-Clustering — strukturelle Ähnlichkeiten sichtbar machen",
-                  "Markt-Insights — Trendanalysen über Zyklen hinweg",
-                ]}
-              />
-              <FeatureCTA>Analyse-Demo ansehen</FeatureCTA>
-            </div>
-          </div>
-        </Reveal>
-
-        {/* SECTION 6 — INTEGRATIONS */}
-        <div style={{ background: SURFACE, borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}` }}>
-          <Reveal>
-            <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
-              <div className="max-w-[600px]">
-                <SectionLabel>Integrationen</SectionLabel>
-                <SectionH2>Verbindet sich mit den Tools die ihr bereits nutzt</SectionH2>
-                <SectionSub>
-                  Kein neues System das alles ersetzt. New Edge integriert sich in eure bestehende Infrastruktur.
-                </SectionSub>
+          {/* FEATURE 02 (flipped) */}
+          <div style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+            <Reveal>
+              <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div className="md:order-2">
+                  <img
+                    src={painpointAFeature2}
+                    alt="3-Schritt-Prozess: PDFs hochladen → KI-Erfassung → Strukturiertes Ergebnis"
+                    loading="lazy"
+                    className="w-full h-auto max-w-[500px] mx-auto"
+                  />
+                </div>
+                <div className="md:order-1">
+                  <SectionLabel>Feature 02</SectionLabel>
+                  <SectionH2>Jury-Koordination die sich selbst organisiert</SectionH2>
+                  <SectionSub>
+                    Endlose E-Mail-Threads, vergessene Deadlines, inkonsistente Bewertungen. New Edge automatisiert
+                    Briefings, Reminder und die gesamte Jury-Kommunikation. Teams berichten von einer Reduktion des
+                    Koordinationsaufwands um durchschnittlich 80%. Jedes Mitglied bewertet im eigenen Interface — in
+                    seinem Tempo.
+                  </SectionSub>
+                  <BulletList
+                    items={[
+                      "Automatische Briefings und Reminder ohne manuellen Aufwand",
+                      "Operationalisiertes Bewertungssystem — keine Subjektivität",
+                      "Automatische Konflikt-Erkennung bei abweichenden Urteilen",
+                    ]}
+                  />
+                  <FeatureCTA>Jury-Interface ansehen</FeatureCTA>
+                </div>
               </div>
+            </Reveal>
+          </div>
 
-              <div className="mt-12">
+          {/* FEATURE 03 */}
+          <Reveal>
+            <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div>
                 <img
-                  src={integrationsLogos}
-                  alt="Integrationen: Microsoft Teams, SharePoint, Outlook, HubSpot, Zapier, Make, Notion, Google Workspace, Microsoft 365"
+                  src={painpointAFeature3}
+                  alt="Einzelscore mit Kategorien-Bewertung und Heatmap zur Bias-Analyse über Jurys und Kategorien"
                   loading="lazy"
-                  className="w-full h-auto max-w-[900px] mx-auto"
+                  className="w-full h-auto max-w-[500px] mx-auto"
                 />
               </div>
+              <div>
+                <SectionLabel>Feature 03</SectionLabel>
+                <SectionH2>Erkenntnisse die niemand explizit angefragt hat</SectionH2>
+                <SectionSub>
+                  Das eigentliche Gold liegt in den Daten. Welche Jury-Mitglieder bewerten systematisch zu hart? Welche
+                  Merkmale korrelieren mit späterem Projekterfolg? New Edge generiert diese Analysen automatisch aus
+                  jedem abgeschlossenen Zyklus — der Award wird zur strategischen Forschungsplattform.
+                </SectionSub>
+                <BulletList
+                  items={[
+                    "Jury-Bias-Erkennung — systematische Muster werden sichtbar",
+                    "Bewerber-Clustering — strukturelle Ähnlichkeiten sichtbar machen",
+                    "Markt-Insights — Trendanalysen über Zyklen hinweg",
+                  ]}
+                />
+                <FeatureCTA>Analyse-Demo ansehen</FeatureCTA>
+              </div>
             </div>
           </Reveal>
-        </div>
 
-        {/* SECTION 7 — COMPARISON TABLE */}
-        <Reveal>
-          <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
-            <div className="max-w-[600px]">
-              <SectionLabel>Vergleich</SectionLabel>
-              <SectionH2>New Edge vs. manueller Auswahlprozess</SectionH2>
-            </div>
-
-            <div className="mt-12 overflow-x-auto" style={{ border: `1px solid ${BORDER}` }}>
-              <table className="w-full border-collapse min-w-[640px]">
-                <thead>
-                  <tr>
-                    <th
-                      className="text-left p-5 text-[0.875rem] font-bold w-[26%]"
-                      style={{ background: SURFACE_2, color: "#888", borderBottom: `1px solid ${BORDER}`, ...SERIF }}
-                    >
-                      Kriterium
-                    </th>
-                    <th
-                      className="text-left p-5 text-[0.875rem] font-bold w-[37%]"
-                      style={{
-                        background: TABLE_HIGHLIGHT,
-                        color: ACCENT_BRIGHT,
-                        borderBottom: `1px solid ${BORDER}`,
-                        borderLeft: "1px solid rgba(168,85,247,0.2)",
-                        ...SERIF,
-                      }}
-                    >
-                      New Edge
-                    </th>
-                    <th
-                      className="text-left p-5 text-[0.875rem] font-bold w-[37%]"
-                      style={{
-                        background: TABLE_DANGER,
-                        color: "#ff8080",
-                        borderBottom: `1px solid ${BORDER}`,
-                        borderLeft: "1px solid rgba(80,20,20,0.5)",
-                        ...SERIF,
-                      }}
-                    >
-                      Manuell
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {compareRows.map(([k, ne, ma], i) => (
-                    <tr key={i} style={{ background: i % 2 ? "rgba(255,255,255,0.025)" : "rgba(255,255,255,0.01)" }}>
-                      <td className="p-4 text-[0.875rem] font-medium" style={{ color: "#888", borderBottom: i === compareRows.length - 1 ? "none" : `1px solid ${BORDER}` }}>
-                        {k}
-                      </td>
-                      <td
-                        className="p-4 text-[0.875rem]"
-                        style={{
-                          color: ACCENT_BRIGHT,
-                          borderLeft: "1px solid rgba(168,85,247,0.1)",
-                          borderBottom: i === compareRows.length - 1 ? "none" : `1px solid ${BORDER}`,
-                        }}
-                      >
-                        {ne}
-                      </td>
-                      <td
-                        className="p-4 text-[0.875rem]"
-                        style={{
-                          color: "#cc6060",
-                          borderLeft: "1px solid rgba(80,20,20,0.3)",
-                          borderBottom: i === compareRows.length - 1 ? "none" : `1px solid ${BORDER}`,
-                        }}
-                      >
-                        {ma}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          {/* INTEGRATIONS */}
+          <div style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+            <Reveal>
+              <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
+                <div className="max-w-[600px]">
+                  <SectionLabel>Integrationen</SectionLabel>
+                  <SectionH2>Verbindet sich mit den Tools die ihr bereits nutzt</SectionH2>
+                  <SectionSub>
+                    Kein neues System das alles ersetzt. New Edge integriert sich in eure bestehende Infrastruktur.
+                  </SectionSub>
+                </div>
+                <div className="mt-10">
+                  <img
+                    src={integrationsLogos}
+                    alt="Integrationen: Microsoft Teams, SharePoint, Outlook, HubSpot, Zapier, Make, Notion, Google Workspace, Microsoft 365"
+                    loading="lazy"
+                    className="w-full h-auto max-w-[880px] mx-auto"
+                  />
+                </div>
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
 
-        {/* SECTION 8 — FEATURE CARDS */}
-        <div style={{ background: SURFACE, borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}` }}>
+          {/* COMPARISON TABLE */}
           <Reveal>
             <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
-              <div className="text-center max-w-[600px] mx-auto">
-                <SectionLabel>Kernfunktionen</SectionLabel>
-                <SectionH2 className="!mb-0">KI die qualifiziert, koordiniert und entscheidet.</SectionH2>
+              <div className="max-w-[600px] mb-10">
+                <SectionLabel>Vergleich</SectionLabel>
+                <SectionH2>New Edge vs. manueller Auswahlprozess</SectionH2>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-5 mt-12">
-                {featureCards.map((c) => (
-                  <div
-                    key={c.title}
-                    className="p-8 transition-all hover:-translate-y-1"
-                    style={{ background: "#0a0a0a", border: `1px solid ${BORDER}` }}
-                  >
-                    <div className="flex justify-center mb-5">
-                      <img
-                        src={c.icon}
-                        alt={c.title}
-                        loading="lazy"
-                        width={64}
-                        height={64}
-                        className="w-16 h-16 object-contain"
-                      />
-                    </div>
-                    <h3 className="text-[1.1rem] font-bold mb-2.5" style={{ ...SERIF, letterSpacing: "-0.02em" }}>
-                      {c.title}
-                    </h3>
-                    <p className="text-[0.9rem] leading-[1.65]" style={{ color: "#888" }}>
-                      {c.desc}
-                    </p>
-                  </div>
-                ))}
+              <div className="overflow-x-auto" style={{ border: `1px solid ${L.border}` }}>
+                <table className="w-full border-collapse min-w-[640px]">
+                  <thead>
+                    <tr>
+                      <th
+                        className="text-left p-5 text-[0.8rem] font-bold uppercase tracking-wider w-[26%]"
+                        style={{ background: L.bgAlt, color: L.textLight, borderBottom: `1px solid ${L.border}`, ...MONO }}
+                      >
+                        Kriterium
+                      </th>
+                      <th
+                        className="text-left p-5 text-[0.8rem] font-bold w-[37%]"
+                        style={{
+                          background: PURPLE_BG,
+                          color: PURPLE_DARK,
+                          borderBottom: `1px solid ${L.border}`,
+                          borderLeft: `1px solid ${L.border}`,
+                          ...SERIF,
+                        }}
+                      >
+                        New Edge
+                      </th>
+                      <th
+                        className="text-left p-5 text-[0.8rem] font-bold w-[37%]"
+                        style={{
+                          background: "rgba(220,38,38,0.05)",
+                          color: "#b91c1c",
+                          borderBottom: `1px solid ${L.border}`,
+                          borderLeft: `1px solid ${L.border}`,
+                          ...SERIF,
+                        }}
+                      >
+                        Manuell
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {compareRows.map(([k, ne, ma], i) => (
+                      <tr key={i} style={{ background: i % 2 ? L.bgAlt : L.bg }}>
+                        <td
+                          className="p-4 text-[0.85rem] font-medium"
+                          style={{
+                            color: L.textMuted,
+                            borderBottom: i === compareRows.length - 1 ? "none" : `1px solid ${L.borderLight}`,
+                            ...MONO,
+                          }}
+                        >
+                          {k}
+                        </td>
+                        <td
+                          className="p-4 text-[0.85rem]"
+                          style={{
+                            color: "#16a34a",
+                            borderLeft: `1px solid ${L.borderLight}`,
+                            borderBottom: i === compareRows.length - 1 ? "none" : `1px solid ${L.borderLight}`,
+                            ...MONO,
+                          }}
+                        >
+                          ✓ {ne}
+                        </td>
+                        <td
+                          className="p-4 text-[0.85rem]"
+                          style={{
+                            color: "#b91c1c",
+                            borderLeft: `1px solid ${L.borderLight}`,
+                            borderBottom: i === compareRows.length - 1 ? "none" : `1px solid ${L.borderLight}`,
+                            ...MONO,
+                          }}
+                        >
+                          ✗ {ma}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </Reveal>
-        </div>
 
-        {/* SECTION 9 — TESTIMONIAL HERO */}
-        <div style={{ background: SURFACE, borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}` }}>
-          <div className="max-w-[800px] mx-auto px-6 lg:px-8 py-20 md:py-24 text-center">
-            <div className="text-[5rem] leading-[0.6] mb-6 opacity-40" style={{ color: ACCENT, ...SERIF }}>
-              „
-            </div>
-            <p
-              className="text-[clamp(1.2rem,2.5vw,1.6rem)] font-semibold leading-[1.5] mb-8"
-              style={{ ...SERIF, letterSpacing: "-0.02em" }}
-            >
-              New Edge hat unseren gesamten Auswahlprozess transformiert. Was früher 60.000€ und drei Monate Aufwand
-              war, läuft jetzt automatisch — und die Qualität unserer Entscheidungen ist nachweislich besser.
-            </p>
-            <div className="flex items-center justify-center gap-2.5 text-[0.875rem]" style={{ color: "#888" }}>
-              <span className="block h-px w-10" style={{ background: BORDER }} />
-              BMP Award — Projektleitung
-              <span className="block h-px w-10" style={{ background: BORDER }} />
-            </div>
-          </div>
-        </div>
-
-        {/* SECTION 10 — TESTIMONIAL GRID */}
-        <Reveal>
-          <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
-            <div className="text-center max-w-[600px] mx-auto mb-12">
-              <SectionLabel>Stimmen</SectionLabel>
-              <SectionH2 className="!mb-0">Was Organisationen über New Edge sagen</SectionH2>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {testimonials.map((t, i) => (
-                <div key={i} className="p-6" style={{ background: SURFACE, border: `1px solid ${BORDER}` }}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div
-                      className="w-10 h-10 flex items-center justify-center text-sm font-bold text-white"
-                      style={{ background: ACCENT }}
-                    >
-                      {t.initials}
-                    </div>
-                    <div>
-                      <p className="text-sm text-white" style={SERIF}>{t.name}</p>
-                      <p className="text-[11px]" style={{ color: "#888" }}>{t.role}</p>
-                    </div>
-                  </div>
-                  <p className="text-[0.875rem] leading-[1.65]" style={{ color: "#bbb" }}>
-                    „{t.quote}"
-                  </p>
+          {/* FEATURE CARDS */}
+          <div style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+            <Reveal>
+              <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
+                <div className="text-center max-w-[600px] mx-auto mb-12">
+                  <SectionLabel>Kernfunktionen</SectionLabel>
+                  <SectionH2 className="!mb-0">KI die qualifiziert, koordiniert und entscheidet.</SectionH2>
                 </div>
-              ))}
+
+                <div className="grid md:grid-cols-3 gap-6">
+                  {featureCards.map((c) => (
+                    <div
+                      key={c.title}
+                      className="p-8 transition-all hover:-translate-y-1"
+                      style={{ background: L.bg, border: `1px solid ${L.border}` }}
+                    >
+                      <div className="flex justify-center mb-6">
+                        <img
+                          src={c.icon}
+                          alt={c.title}
+                          loading="lazy"
+                          width={64}
+                          height={64}
+                          className="w-16 h-16 object-contain"
+                        />
+                      </div>
+                      <h3 className="text-[1.05rem] font-bold mb-2.5 text-center" style={{ ...SERIF, letterSpacing: "-0.02em", color: L.text }}>
+                        {c.title}
+                      </h3>
+                      <p className="text-[0.875rem] leading-[1.65] text-center" style={{ color: L.textMuted }}>
+                        {c.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* TESTIMONIAL HERO */}
+          <div className="py-20 md:py-24">
+            <div className="max-w-[800px] mx-auto px-6 lg:px-8 text-center">
+              <div className="text-[4.5rem] leading-[0.6] mb-6 opacity-25" style={{ color: PURPLE, ...SERIF }}>
+                „
+              </div>
+              <p
+                className="text-[clamp(1.15rem,2.4vw,1.5rem)] font-semibold leading-[1.5] mb-8"
+                style={{ ...SERIF, letterSpacing: "-0.02em", color: L.text }}
+              >
+                New Edge hat unseren gesamten Auswahlprozess transformiert. Was früher 60.000€ und drei Monate Aufwand
+                war, läuft jetzt automatisch — und die Qualität unserer Entscheidungen ist nachweislich besser.
+              </p>
+              <div className="flex items-center justify-center gap-2.5 text-[0.85rem]" style={{ color: L.textLight }}>
+                <span className="block h-px w-10" style={{ background: L.border }} />
+                BMP Award — Projektleitung
+                <span className="block h-px w-10" style={{ background: L.border }} />
+              </div>
             </div>
           </div>
-        </Reveal>
 
-        {/* SECTION 11 — FAQ */}
-        <Reveal>
-          <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
-            <div className="grid md:grid-cols-[1fr,1.5fr] gap-12 md:gap-[72px] items-start">
-              <div>
-                <SectionLabel>FAQ</SectionLabel>
-                <h2
-                  className="text-[clamp(1.5rem,2.5vw,2.2rem)] mb-6"
-                  style={{ ...SERIF, letterSpacing: "-0.02em" }}
-                >
-                  Du hast Fragen?<br />
-                  <span style={{ color: ACCENT_BRIGHT }}>Wir haben Antworten.</span>
-                </h2>
-                <Link to="/kontakt">
-                  <BtnFilled large>Kontakt aufnehmen</BtnFilled>
-                </Link>
+          {/* TESTIMONIAL GRID */}
+          <div style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+            <Reveal>
+              <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
+                <div className="text-center max-w-[600px] mx-auto mb-12">
+                  <SectionLabel>Stimmen</SectionLabel>
+                  <SectionH2 className="!mb-0">Was Organisationen über New Edge sagen</SectionH2>
+                </div>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                  {testimonials.map((t, i) => (
+                    <div key={i} className="p-6" style={{ background: L.bg, border: `1px solid ${L.border}` }}>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div
+                          className="w-10 h-10 flex items-center justify-center text-sm font-bold text-white"
+                          style={{ background: PURPLE }}
+                        >
+                          {t.initials}
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium" style={{ ...SERIF, color: L.text }}>{t.name}</p>
+                          <p className="text-[11px]" style={{ color: L.textLight }}>{t.role}</p>
+                        </div>
+                      </div>
+                      <p className="text-[0.85rem] leading-[1.65]" style={{ color: L.textMuted }}>
+                        „{t.quote}"
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-col" style={{ borderTop: `1px solid ${BORDER}` }}>
-                {faqs.map((f, i) => (
-                  <FAQItem key={i} q={f.q} a={f.a} defaultOpen={i === 0} />
-                ))}
+            </Reveal>
+          </div>
+
+          {/* FAQ */}
+          <Reveal>
+            <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
+              <div className="grid md:grid-cols-[1fr,1.5fr] gap-12 md:gap-16 items-start">
+                <div>
+                  <SectionLabel>FAQ</SectionLabel>
+                  <h2
+                    className="text-[clamp(1.5rem,2.5vw,2.2rem)] mb-6"
+                    style={{ ...SERIF, letterSpacing: "-0.02em", color: L.text }}
+                  >
+                    Du hast Fragen?<br />
+                    <span style={{ color: PURPLE }}>Wir haben Antworten.</span>
+                  </h2>
+                  <Link to="/kontakt">
+                    <BtnFilled large>Kontakt aufnehmen</BtnFilled>
+                  </Link>
+                </div>
+                <div style={{ borderTop: `1px solid ${L.border}` }}>
+                  {faqs.map((f, i) => (
+                    <FAQItem key={i} q={f.q} a={f.a} defaultOpen={i === 0} />
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
 
-        {/* SECTION 12 — CLOSING CTA */}
-        <div className="relative overflow-hidden" style={{ background: SURFACE, borderTop: `1px solid ${BORDER}` }}>
+          {/* CLOSING CTA */}
           <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(circle at 50% 50%, rgba(168,85,247,0.18) 0%, rgba(168,85,247,0.05) 35%, transparent 70%)",
-              filter: "blur(40px)",
-            }}
-          />
-          <div className="max-w-[800px] mx-auto px-6 lg:px-8 py-24 md:py-32 text-center relative z-10">
-            <h2
-              className="text-[clamp(1.8rem,4vw,3rem)] leading-[1.15] mb-5"
-              style={{ ...SERIF, letterSpacing: "-0.02em" }}
-            >
-              Hört auf, jedes Jahr dasselbe<br />
-              <span style={{ color: ACCENT_BRIGHT }}>Wissen neu zu erzeugen.</span>
-            </h2>
-            <p className="text-[1.05rem] leading-[1.65] mb-10" style={{ color: "#888" }}>
-              Euer nächster Zyklus kann der erste sein, der wirklich skaliert.
-            </p>
-            <div className="flex gap-3.5 justify-center flex-wrap">
-              <BtnFilled large onClick={() => setContactOpen(true)}>Demo buchen</BtnFilled>
-              <BtnGhost large>Case Study herunterladen</BtnGhost>
+            className="relative overflow-hidden"
+            style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}` }}
+          >
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: "radial-gradient(circle at 50% 50%, rgba(168,85,247,0.08) 0%, transparent 65%)",
+              }}
+            />
+            <div className="max-w-[800px] mx-auto px-6 lg:px-8 py-24 md:py-32 text-center relative z-10">
+              <h2
+                className="text-[clamp(1.8rem,4vw,3rem)] leading-[1.15] mb-5"
+                style={{ ...SERIF, letterSpacing: "-0.02em", color: L.text }}
+              >
+                Hört auf, jedes Jahr dasselbe<br />
+                <span style={{ color: PURPLE }}>Wissen neu zu erzeugen.</span>
+              </h2>
+              <p className="text-[1rem] leading-[1.65] mb-10" style={{ color: L.textMuted }}>
+                Euer nächster Zyklus kann der erste sein, der wirklich skaliert.
+              </p>
+              <div className="flex gap-3.5 justify-center flex-wrap">
+                <BtnFilled large onClick={() => setContactOpen(true)}>Demo buchen</BtnFilled>
+                <BtnGhost large>Case Study herunterladen</BtnGhost>
+              </div>
             </div>
-            <p className="mt-10 text-[10px]" style={{ color: ACCENT_BRIGHT + "99" }}>
-              🖼️ Background-Slot: Subtile Partikel-Animation (Datenpunkte verbinden sich zu Netzwerk) — Purple CI
-            </p>
           </div>
-        </div>
 
         </div>
-        {/* ──────────── /LIGHT THEME SCOPE ──────────── */}
+        {/* ── /LIGHT THEME ── */}
 
         <Suspense fallback={<div className="min-h-[200px]" />}>
           <Footer />
