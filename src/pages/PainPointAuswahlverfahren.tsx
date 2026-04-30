@@ -258,13 +258,13 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
         background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
       }}
     >
-      <div className="sticky top-0 h-[100dvh] overflow-hidden pt-24 md:pt-20 pb-10">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full h-full flex items-center">
-          <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-center w-full">
+      <div className="sticky top-0 h-[100dvh] overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full h-full relative">
+          <div className="absolute inset-0 grid md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-center w-full pt-24 pb-10">
             {/* LEFT */}
-            <div className="flex flex-col justify-center pt-10 md:pt-0">
+            <div className="flex flex-col justify-center">
               <h2
-                className="text-[clamp(2.8rem,6vw,5.6rem)] leading-[0.95] mb-8 uppercase"
+                className="text-[clamp(2.7rem,5.4vw,5rem)] leading-[0.95] mb-8 uppercase"
                 style={{ ...SERIF, letterSpacing: "0", color: "#ffffff" }}
               >
                 Drei<br />Schritte<br />zum Erfolg
