@@ -33,9 +33,9 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           className="flex flex-col items-center text-center"
-          style={{ padding: "100px 24px 80px", fontFamily: SANS }}
+          style={{ padding: "160px 24px 60px", fontFamily: SANS }}
         >
-          {/* Headline — rendered as div to bypass global h1 DM-Serif !important */}
+          {/* Headline — slightly smaller for better fit; rendered as div to bypass global h1 DM-Serif !important */}
           <div
             role="heading"
             aria-level={1}
