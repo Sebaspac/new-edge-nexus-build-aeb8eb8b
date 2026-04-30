@@ -1,4 +1,5 @@
-import { lazy, Suspense, useState, useEffect, useRef, useMemo } from "react";
+import { lazy, Suspense, useState, useEffect, useRef, useMemo, useCallback } from "react";
+import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ScrollLegend } from "@/components/ui/scroll-legend";
@@ -198,6 +199,87 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   );
 };
 
+/* ── Mobile Cycling Cards ── */
+const MobileCyclingCards = ({ stepsData }: { stepsData: { icon: string; title: string; desc: string }[] }) => {
+  const [current, setCurrent] = useState(0);
+  const [inView, setInView] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => setInView(e.isIntersecting),
+      { threshold: 0.3 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!inView) return;
+    const timer = setInterval(() => {
+      setCurrent((c) => (c + 1) % stepsData.length);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, [inView, stepsData.length]);
+
+  const card = stepsData[current];
+
+  return (
+    <div ref={ref} className="relative" style={{ minHeight: 200 }}>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -20, scale: 0.95 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="p-6 flex flex-col"
+          style={{
+            background: "rgba(255,255,255,0.98)",
+            boxShadow: "0 16px 50px rgba(0,0,0,0.18)",
+          }}
+        >
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-2xl">{card.icon}</span>
+            <span
+              className="text-[0.75rem] font-bold uppercase tracking-widest"
+              style={{ ...MONO, color: PURPLE }}
+            >
+              Schritt {current + 1}
+            </span>
+          </div>
+          <h3
+            className="text-[1rem] font-bold mb-2"
+            style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+          >
+            {card.title}
+          </h3>
+          <p className="text-[0.85rem] leading-[1.65]" style={{ color: L.textMuted, ...MONO }}>
+            {card.desc}
+          </p>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Progress dots */}
+      <div className="flex justify-center gap-2 mt-4">
+        {stepsData.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className="w-2 h-2 transition-all duration-300"
+            style={{
+              background: i === current ? "#fff" : "rgba(255,255,255,0.35)",
+              borderRadius: "50%",
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 /* ────────────── Three Steps CTA ────────────── */
 
 const stepsData = [
@@ -319,42 +401,8 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
           ))}
         </div>
 
-        {/* 3 Cards stacked, pop-in */}
-        <div className="space-y-4">
-          {stepsData.map((card, i) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="p-6 flex flex-col"
-              style={{
-                background: "rgba(255,255,255,0.98)",
-                boxShadow: "0 16px 50px rgba(0,0,0,0.18)",
-              }}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl">{card.icon}</span>
-                <span
-                  className="text-[0.75rem] font-bold uppercase tracking-widest"
-                  style={{ ...MONO, color: PURPLE }}
-                >
-                  Schritt {i + 1}
-                </span>
-              </div>
-              <h3
-                className="text-[1rem] font-bold mb-2"
-                style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
-              >
-                {card.title}
-              </h3>
-              <p className="text-[0.85rem] leading-[1.65]" style={{ color: L.textMuted, ...MONO }}>
-                {card.desc}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+        {/* Cycling card — one at a time */}
+        <MobileCyclingCards stepsData={stepsData} />
       </div>
     );
   }
