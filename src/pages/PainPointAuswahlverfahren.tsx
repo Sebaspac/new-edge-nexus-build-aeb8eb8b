@@ -232,7 +232,6 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
         const scrolled = -rect.top;
         const progress = Math.min(1, Math.max(0, scrolled / pinDistance));
         const next = progress < 0.3 ? 0 : progress < 0.65 ? 1 : 2;
-        console.log('[CTA]', { scrolled, pinDistance, progress, next });
         setActiveStep((prev) => (prev !== next ? next : prev));
       });
     };
