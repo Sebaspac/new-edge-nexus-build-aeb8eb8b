@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState, useEffect, useRef, useMemo, type CSSProperties } from "react";
+import { lazy, Suspense, useState, useEffect, useRef, useMemo } from "react";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
