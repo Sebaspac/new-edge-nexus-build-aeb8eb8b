@@ -75,7 +75,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               maxWidth: "780px",
             }}
           >
-            Close Deals Faster With
+            Mehr Output.
             <span
               className="block bg-clip-text text-transparent"
               style={{
@@ -85,7 +85,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 fontWeight: 800,
               }}
             >
-              AI Sales Automation
+              Weniger Kosten.
             </span>
           </div>
 
@@ -96,13 +96,12 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               fontFamily: SANS,
               fontSize: "clamp(15px, 1.8vw, 18px)",
               color: "#a0a0a0",
-              maxWidth: "500px",
+              maxWidth: "560px",
               lineHeight: 1.55,
               fontWeight: 400,
             }}
           >
-            The all-in-one conversational AI voice and text agent platform built for
-            SMBs
+            Wir sorgen dafür, dass Ihr Unternehmen mit weniger Aufwand mehr Wirkung erzielt – indem wir Marke, Kommunikation und Prozesse als ganzheitliche Systeme denken und KI gezielt integrieren.
           </p>
 
           {/* CTAs */}
@@ -133,7 +132,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              Start for free
+              Jetzt beraten lassen
             </button>
             <Link
               to="/case-studies"
@@ -159,7 +158,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              Book a Demo
+              Case Studies
             </Link>
           </div>
 
@@ -180,7 +179,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               >
                 ★★★★★
               </span>
-              <span>4.9 on Clutch</span>
+              <span>100% Kundenzufriedenheit</span>
             </div>
             <span className="hidden sm:inline" style={{ color: "#3a3a3a", fontSize: "18px" }}>|</span>
             <div
@@ -189,9 +188,8 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             />
             <div className="flex items-center" style={{ gap: "8px" }}>
               <span>
-                Trusted by{" "}
-                <strong style={{ color: "#e0e0e0", fontWeight: 700 }}>50+</strong>{" "}
-                companies
+                <strong style={{ color: "#e0e0e0", fontWeight: 700 }}>BAFA</strong>{" "}
+                förderfähig
               </span>
             </div>
             <span className="hidden sm:inline" style={{ color: "#3a3a3a", fontSize: "18px" }}>|</span>
@@ -200,10 +198,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               style={{ width: "40px", height: "1px", background: "#3a3a3a" }}
             />
             <div className="flex items-center" style={{ gap: "8px" }}>
-              <span>
-                <strong style={{ color: "#e0e0e0", fontWeight: 700 }}>2 Plätze</strong>{" "}
-                für Q2 verfügbar
-              </span>
+              <span>Schnelle Umsetzung</span>
             </div>
           </div>
         </motion.div>
