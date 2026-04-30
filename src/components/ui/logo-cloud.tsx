@@ -58,7 +58,7 @@ export default function LogoCloud() {
           className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
           style={{
             top: "0",
-            width: "min(520px, 78vw)",
+            width: "min(420px, 70vw)",
             height: "auto",
             zIndex: 0,
           }}
