@@ -233,9 +233,7 @@ const HeroVisualPlaceholder = () => (
         <span className="text-[1.5rem] font-bold" style={{ color: ACCENT_BRIGHT, ...SERIF }}>8.15</span>
       </div>
 
-      <p className="mt-4 text-[10px]" style={{ color: ACCENT_BRIGHT + "99", ...MONO }}>
-        🖼️ Hero Visual Slot: Animiertes Scoring-Dashboard (Mock-Daten). Später durch echte Animation/Mockup ersetzen.
-      </p>
+      {/* 🖼️ Hero Visual Slot: Animiertes Scoring-Dashboard (Mock-Daten) — später ersetzen */}
     </div>
   </div>
 );
