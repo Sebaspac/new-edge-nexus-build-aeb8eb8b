@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { LazySplineScene } from "./LazySplineScene";
 import CyberneticGridShader from "./ui/cybernetic-grid-shader";
 
 interface HeroSectionProps {
@@ -22,24 +21,26 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
         Skip to main content
       </a>
       <section
-        className="relative w-full min-h-[100dvh] bg-black overflow-hidden"
+        className="relative w-full min-h-[100dvh] overflow-hidden"
         id="hero"
         style={{ backgroundColor: "#000000" }}
       >
-        {/* Background Shader */}
-        <div className="absolute inset-0 z-0">
+        {/* Solid black base layer to prevent any white flash */}
+        <div className="absolute inset-0 z-0 bg-black" />
+
+        {/* Background Shader (decorative, optional) */}
+        <div className="absolute inset-0 z-[1] pointer-events-none">
           <CyberneticGridShader />
         </div>
 
-        {/* Optional 3D Spline Scene as ambient background */}
-        <div className="absolute inset-0 z-[1] opacity-40 pointer-events-none">
-          <LazySplineScene
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-            className="w-full h-full"
-            threshold={0.25}
-            rootMargin="50px"
-          />
-        </div>
+        {/* Radial purple glow accent */}
+        <div
+          className="absolute inset-0 z-[2] pointer-events-none opacity-60"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 50% at 50% 40%, rgba(124,58,237,0.25), transparent 70%)",
+          }}
+        />
 
         {/* Centered Content */}
         <div className="relative z-20 min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-[88px] pb-20">
