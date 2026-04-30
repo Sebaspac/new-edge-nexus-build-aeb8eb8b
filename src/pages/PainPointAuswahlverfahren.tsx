@@ -379,21 +379,6 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
               </div>
             </div>
 
-            {/* Step indicators horizontal */}
-            <div className="flex gap-2 mb-4">
-              {stepsData.map((_, i) => (
-                <div
-                  key={i}
-                  className="flex-1 p-2 text-center transition-all duration-500"
-                  style={{
-                    background: mobileStep === i ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.06)",
-                    border: `1px solid ${mobileStep === i ? "rgba(255,255,255,0.6)" : "rgba(255,255,255,0.15)"}`,
-                  }}
-                >
-                  <span className="text-sm font-bold text-white" style={MONO}>0{i + 1}</span>
-                </div>
-              ))}
-            </div>
 
             {/* Card area — scroll-driven swipe */}
             <div className="relative flex-1" style={{ minHeight: 200 }}>
