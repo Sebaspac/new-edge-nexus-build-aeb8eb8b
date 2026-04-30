@@ -128,7 +128,7 @@ export default function LogoCloud() {
                 <div
                   key={`logo-${index}`}
                   className="flex-shrink-0 flex items-center justify-center"
-                  style={{ height: "40px" }}
+                  style={{ height: "32px" }}
                 >
                   <img
                     src={logo.src}
