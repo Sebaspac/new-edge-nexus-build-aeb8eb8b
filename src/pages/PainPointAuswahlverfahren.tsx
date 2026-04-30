@@ -266,13 +266,16 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   return (
     <div
       ref={sectionRef}
-      className="relative"
+      className="relative overflow-hidden"
       style={{
         background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
-        height: "220vh",
+        height: "210vh",
       }}
     >
-      <div className="sticky top-0 h-[100dvh] flex items-center overflow-hidden">
+      <div
+        className={pinMode === "active" ? "fixed inset-x-0 top-0 z-20 h-[100dvh] flex items-center overflow-hidden" : "absolute inset-x-0 h-[100dvh] flex items-center overflow-hidden"}
+        style={{ top: pinMode === "after" ? "calc(100% - 100dvh)" : 0 }}
+      >
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             {/* LEFT */}
