@@ -319,42 +319,8 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
           ))}
         </div>
 
-        {/* 3 Cards stacked, pop-in */}
-        <div className="space-y-4">
-          {stepsData.map((card, i) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="p-6 flex flex-col"
-              style={{
-                background: "rgba(255,255,255,0.98)",
-                boxShadow: "0 16px 50px rgba(0,0,0,0.18)",
-              }}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl">{card.icon}</span>
-                <span
-                  className="text-[0.75rem] font-bold uppercase tracking-widest"
-                  style={{ ...MONO, color: PURPLE }}
-                >
-                  Schritt {i + 1}
-                </span>
-              </div>
-              <h3
-                className="text-[1rem] font-bold mb-2"
-                style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
-              >
-                {card.title}
-              </h3>
-              <p className="text-[0.85rem] leading-[1.65]" style={{ color: L.textMuted, ...MONO }}>
-                {card.desc}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+        {/* Cycling card — one at a time */}
+        <MobileCyclingCards stepsData={stepsData} />
       </div>
     );
   }
