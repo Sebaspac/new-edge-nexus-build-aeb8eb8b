@@ -325,7 +325,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isMobile) return; // no scroll-pin on mobile
+    // scroll-pin logic runs on both mobile and desktop
     const section = sectionRef.current;
     if (!section) return;
 
