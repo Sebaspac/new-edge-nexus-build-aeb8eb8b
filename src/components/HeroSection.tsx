@@ -108,7 +108,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           {/* CTAs */}
           <div
             className="flex flex-wrap justify-center"
-            style={{ marginTop: "32px", gap: "14px" }}
+            style={{ marginTop: "clamp(20px, 4vh, 32px)", gap: "14px" }}
           >
             <button
               onClick={onContactClick}
