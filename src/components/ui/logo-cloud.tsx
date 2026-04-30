@@ -35,9 +35,9 @@ export default function LogoCloud() {
   return (
     <section
       className="relative w-full overflow-hidden"
-      style={{ backgroundColor: "#0a0a0a", padding: "0 0 0px" }}
+      style={{ backgroundColor: "#0a0a0a", padding: "0 0 12px" }}
     >
-      {/* Vertical line on top — fades down toward the heading */}
+      {/* Vertical line on top — fades into the upper arc */}
       <div className="flex justify-center">
         <div
           style={{
@@ -48,27 +48,8 @@ export default function LogoCloud() {
         />
       </div>
 
-      {/* Heading sits BETWEEN the line and the circle */}
-      <div
-        role="heading"
-        aria-level={2}
-        className="text-center px-4"
-        style={{
-          fontFamily: SANS,
-          color: "#fff",
-          fontSize: "clamp(22px, 3vw, 32px)",
-          fontWeight: 700,
-          letterSpacing: "-0.5px",
-          lineHeight: 1.15,
-          marginTop: "20px",
-          marginBottom: "24px",
-        }}
-      >
-        Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
-      </div>
-
-      {/* Stacked stage: circle behind, marquee in front (cuts circle in half) */}
-      <div className="relative w-full">
+      {/* Stacked stage: full circle behind, heading + marquee in front. */}
+      <div className="relative w-full" style={{ marginTop: "-1px" }}>
         {/* Compact circle — minimal stroke with cool purple gradient */}
         <svg
           aria-hidden
@@ -89,6 +70,7 @@ export default function LogoCloud() {
               <stop offset="100%" stopColor="#7e22ce" stopOpacity="0.95" />
             </linearGradient>
           </defs>
+          {/* Glowing gradient ring (no inner fill) */}
           <circle
             cx="400"
             cy="400"
@@ -103,10 +85,26 @@ export default function LogoCloud() {
           />
         </svg>
 
-        {/* Foreground content — push marquee down to circle's mid-line */}
+        {/* Foreground content */}
         <div className="relative" style={{ zIndex: 1 }}>
-          {/* Spacer above marquee = roughly half the circle's rendered height */}
-          <div style={{ height: "clamp(140px, 20vw, 200px)" }} />
+          {/* Heading — sits in the upper part of the circle */}
+          <div
+            role="heading"
+            aria-level={2}
+            className="text-center px-4"
+            style={{
+              fontFamily: SANS,
+              color: "#fff",
+              fontSize: "clamp(22px, 3vw, 32px)",
+              fontWeight: 700,
+              letterSpacing: "-0.5px",
+              lineHeight: 1.15,
+              marginTop: "clamp(40px, 6vw, 70px)",
+              marginBottom: "16px",
+            }}
+          >
+            Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
+          </div>
 
           {/* Marquee strip — masks the circle's horizontal mid-line */}
           <div
@@ -159,7 +157,7 @@ export default function LogoCloud() {
           </div>
 
           {/* Spacer below marquee — just enough for lower circle half */}
-          <div style={{ height: "75px" }} />
+          <div style={{ height: "clamp(80px, 9vw, 110px)" }} />
         </div>
       </div>
     </section>
