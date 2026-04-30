@@ -1,34 +1,26 @@
 
 ## Ziel
 
-Eine fixierte Scroll-Legende (vertikale Navigationsstriche rechts am Bildschirmrand) auf `/loesungen/auswahlverfahren-automatisieren` einbauen. Beim Hovern werden Section-Namen sichtbar, Klick scrollt zur Section. Aktive Section wird hervorgehoben. Die Hero-Section wird ausgenommen.
+Das mobile Layout der `ThreeStepsCTA`-Komponente in `PainPointAuswahlverfahren.tsx` umbauen, damit es dem Referenzbild entspricht:
 
-## Schritte
+1. **Oben**: Headline ("Drei Schritte zum Erfolg") + CTA-Button + Gründer-Info
+2. **Darunter**: Die 3 Schritte horizontal nebeneinander (kompakte Version, kein Scroll-Pin)
+3. **Ganz unten**: Die 3 weißen Info-Karten, die nacheinander aufpoppen (statt übereinander gestapelt)
 
-### 1. ScrollLegend-Komponente erstellen
-- Neue Datei `src/components/ui/scroll-legend.tsx` mit der bereitgestellten Komponente
-- Nutzt nur `cn` aus `@/lib/utils` und `useState`/`useEffect` — keine neuen Dependencies nötig
-- Farben anpassen: Aktiv-Indikator in Primary Purple (#a855f7), Text in Consolas-Font
+## Änderungen
 
-### 2. Sections mit IDs versehen
-Jede Content-Section in `PainPointAuswahlverfahren.tsx` bekommt eine `id`:
-- `definition` — Definition
-- `feature-01` — Dokumenten-Chaos
-- `feature-02` — Jury-Koordination
-- `feature-03` — Analysen & Insights
-- `integrations` — Integrationen
-- `comparison` — Vergleich
-- `features` — Kernfunktionen
-- `testimonial` — Testimonial
-- `faq` — FAQ
-- `cta` — Drei Schritte
+### `src/pages/PainPointAuswahlverfahren.tsx` — ThreeStepsCTA
 
-### 3. ScrollLegend in die Seite einbinden
-- In `PainPointAuswahlverfahren.tsx` die `ScrollLegend` mit den Legend-Items rendern
-- Fixiert rechts, nur auf Desktop sichtbar (`hidden lg:flex`)
-- Erscheint erst nach dem Hero (via Scroll-Position oder innerhalb des Light-Content-Wrappers)
+- **Mobile (< md)**: Scroll-Pin-Mechanismus deaktivieren → feste Höhe statt `280dvh`, kein `position: fixed`
+- Die linke Spalte wird oben angezeigt (Text, Button, Gründer-Info)
+- Die 3 Step-Indikatoren (01, 02, 03) werden horizontal als kompakte Row angezeigt statt vertikal gestapelt
+- Die 3 Karten werden vertikal gestapelt und per `whileInView`-Animation nacheinander eingeblendet (pop-in Effekt)
+- **Desktop (≥ md)**: Bleibt exakt wie bisher (Scroll-Pin + Karten-Wechsel)
 
-### Keine Änderungen an
-- Bestehenden Section-Layouts oder Styles
-- Hero-Section
-- Anderen Seiten
+### Technische Details
+
+- `useIsMobile()` oder `md:`-Breakpoint zur Unterscheidung
+- Mobile: `height: auto` statt `280dvh`, kein `pinnedStyle`
+- Step-Indicators: `flex-row` statt `space-y-2` auf Mobile
+- Karten: Alle 3 sichtbar, vertikal gestapelt, mit staggered fade-in/scale Animation via Framer Motion `whileInView`
+- Progress-Dots entfallen auf Mobile (nicht nötig ohne Scroll-Pin)
