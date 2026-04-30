@@ -1,5 +1,5 @@
 import { lazy, Suspense, useState, useEffect, useRef, useMemo, useCallback } from "react";
-import { AnimatePresence } from "framer-motion";
+
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ScrollLegend } from "@/components/ui/scroll-legend";
