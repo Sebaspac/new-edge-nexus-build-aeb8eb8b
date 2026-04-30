@@ -141,7 +141,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           <div
             className="flex flex-wrap items-center justify-center"
             style={{
-              marginTop: "60px",
+              marginTop: "44px",
               gap: "28px",
               fontFamily: SANS,
               fontSize: "14px",
