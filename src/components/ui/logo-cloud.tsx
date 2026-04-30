@@ -11,6 +11,9 @@ import bayMittelstandspreis from "@/assets/logos/bayerischer-mittelstandspreis-2
 import clubCli from "@/assets/logos/club-cli.webp";
 import becomingYou from "@/assets/logos/becoming-you.png";
 
+const SANS =
+  "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
+
 const logos = [
   { src: sadieKessler, alt: "Sadie Kessler" },
   { src: circlePhoto, alt: "The Circle Photo Studio" },
@@ -31,15 +34,11 @@ export default function LogoCloud() {
 
   return (
     <section
-      className="flex flex-col items-center overflow-hidden"
+      className="relative w-full overflow-hidden"
       style={{ backgroundColor: "#0a0a0a", padding: "0 0 60px" }}
     >
-      {/* Orb wrap — vertical line + half-ellipse arc */}
-      <div
-        className="flex flex-col items-center"
-        style={{ marginBottom: "40px" }}
-      >
-        {/* Vertical line: 1px wide, 80px tall, transparent → #a855f7 */}
+      {/* Vertical line on top — fades into the upper arc */}
+      <div className="flex justify-center">
         <div
           style={{
             width: "1px",
@@ -47,82 +46,119 @@ export default function LogoCloud() {
             background: "linear-gradient(to bottom, transparent, #a855f7)",
           }}
         />
-        {/* Half-ellipse arc — 260x130, gradient border, no fill */}
-        <div
+      </div>
+
+      {/* Stacked stage: full circle behind, heading + marquee in front.
+          The marquee strip cuts the circle exactly in half horizontally. */}
+      <div className="relative w-full" style={{ marginTop: "0px" }}>
+        {/* Full circle SVG — purple gradient stroke, no fill */}
+        <svg
+          aria-hidden
+          viewBox="0 0 800 800"
+          preserveAspectRatio="xMidYMid meet"
+          className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
           style={{
-            width: "260px",
-            height: "130px",
-            borderRadius: "50% 50% 0 0 / 100% 100% 0 0",
-            position: "relative",
+            top: "0",
+            width: "min(820px, 92vw)",
+            height: "auto",
+            zIndex: 0,
           }}
         >
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              borderRadius: "50% 50% 0 0 / 100% 100% 0 0",
-              padding: "1.5px",
-              background:
-                "linear-gradient(90deg, #a855f7 0%, #c084fc 50%, #a855f7 100%)",
-              WebkitMask:
-                "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-              WebkitMaskComposite: "xor",
-              maskComposite: "exclude",
-            }}
+          <defs>
+            <linearGradient id="orb-stroke" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#a855f7" stopOpacity="0.95" />
+              <stop offset="50%" stopColor="#c084fc" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="#a855f7" stopOpacity="0.95" />
+            </linearGradient>
+          </defs>
+          <circle
+            cx="400"
+            cy="400"
+            r="395"
+            fill="none"
+            stroke="url(#orb-stroke)"
+            strokeWidth="1.5"
           />
-        </div>
-      </div>
+        </svg>
 
-      {/* Heading — clamp(28px,4vw,42px), weight 700, mb 40px. Rendered as div to bypass global h1-h6 DM-Serif !important. */}
-      <div
-        role="heading"
-        aria-level={2}
-        className="text-center px-4"
-        style={{
-          fontFamily:
-            "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
-          color: "#fff",
-          fontSize: "clamp(28px, 4vw, 42px)",
-          fontWeight: 700,
-          marginBottom: "40px",
-          letterSpacing: "-0.5px",
-          lineHeight: 1.15,
-        }}
-      >
-        Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
-      </div>
+        {/* Foreground content */}
+        <div className="relative" style={{ zIndex: 1 }}>
+          {/* Heading — sits in the upper half of the circle */}
+          <div
+            role="heading"
+            aria-level={2}
+            className="text-center px-4"
+            style={{
+              fontFamily: SANS,
+              color: "#fff",
+              fontSize: "clamp(28px, 4vw, 42px)",
+              fontWeight: 700,
+              letterSpacing: "-0.5px",
+              lineHeight: 1.15,
+              marginTop: "clamp(120px, 22vw, 220px)",
+              marginBottom: "40px",
+            }}
+          >
+            Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
+          </div>
 
-      {/* Marquee — full width, 1px subtle borders top+bottom, padding 20px 0 */}
-      <div
-        className="w-full overflow-hidden relative"
-        style={{
-          borderTop: "1px solid #222",
-          borderBottom: "1px solid #222",
-          padding: "20px 0",
-        }}
-      >
-        <div
-          className="flex animate-marquee hover:[animation-play-state:paused]"
-          style={{ width: "max-content", gap: "72px" }}
-        >
-          {duplicatedLogos.map((logo, index) => (
+          {/* Marquee strip — covers the circle's horizontal mid-line */}
+          <div
+            className="relative w-full overflow-hidden"
+            style={{
+              borderTop: "1px solid rgba(168,85,247,0.25)",
+              borderBottom: "1px solid rgba(168,85,247,0.25)",
+              padding: "20px 0",
+              backgroundColor: "#0a0a0a",
+            }}
+          >
+            {/* Edge fades */}
             <div
-              key={`logo-${index}`}
-              className="flex-shrink-0 flex items-center justify-center"
-              style={{ height: "44px" }}
+              className="absolute left-0 top-0 bottom-0 pointer-events-none"
+              style={{
+                width: "120px",
+                background:
+                  "linear-gradient(to right, #0a0a0a, transparent)",
+                zIndex: 2,
+              }}
+            />
+            <div
+              className="absolute right-0 top-0 bottom-0 pointer-events-none"
+              style={{
+                width: "120px",
+                background:
+                  "linear-gradient(to left, #0a0a0a, transparent)",
+                zIndex: 2,
+              }}
+            />
+
+            <div
+              className="flex animate-marquee hover:[animation-play-state:paused]"
+              style={{ width: "max-content", gap: "72px" }}
             >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                loading="lazy"
-                className="h-full w-auto object-contain brightness-0 invert"
-                style={{
-                  maxWidth: "180px",
-                  opacity: 0.7,
-                }}
-              />
+              {duplicatedLogos.map((logo, index) => (
+                <div
+                  key={`logo-${index}`}
+                  className="flex-shrink-0 flex items-center justify-center"
+                  style={{ height: "44px" }}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    className="h-full w-auto object-contain brightness-0 invert"
+                    style={{
+                      maxWidth: "180px",
+                      opacity: 0.7,
+                    }}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Spacer below marquee so the lower half of the circle is visible */}
+          <div style={{ height: "clamp(120px, 22vw, 220px)" }} />
         </div>
       </div>
     </section>
