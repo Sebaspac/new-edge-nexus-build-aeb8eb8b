@@ -300,7 +300,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
             </div>
 
             {/* RIGHT — scroll cards */}
-            <div className="flex flex-col gap-[22vh] py-12 md:py-[28vh]" aria-live="polite">
+            <div className="flex flex-col gap-12 py-12 md:py-[24vh]" aria-live="polite">
               {stepsData.map((step, i) => (
                 <div
                   key={i}
@@ -308,11 +308,11 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
                     cardRefs.current[i] = el;
                   }}
                   data-step-index={i}
-                  className="min-h-[280px] p-8 md:p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
+                  className="min-h-[360px] md:min-h-[380px] p-8 md:p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform flex flex-col justify-center"
                   style={{
                     background: "rgba(255,255,255,0.97)",
-                    opacity: activeStep === i ? 1 : 0.42,
-                    transform: activeStep === i ? "translateY(0) rotate(-1deg) scale(1)" : "translateY(18px) rotate(0deg) scale(0.96)",
+                    opacity: activeStep === i ? 1 : 0.68,
+                    transform: activeStep === i ? "translateY(0) rotate(-1deg) scale(1)" : "translateY(12px) rotate(0deg) scale(0.98)",
                     boxShadow: activeStep === i
                       ? "0 25px 60px rgba(0,0,0,0.18)"
                       : "0 10px 30px rgba(0,0,0,0.08)",
