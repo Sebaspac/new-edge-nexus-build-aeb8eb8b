@@ -830,19 +830,23 @@ const PainPointAuswahlverfahren = () => {
                     style={{ background: "#0a0a0a", border: `1px solid ${BORDER}` }}
                   >
                     <div
-                      className="w-12 h-12 flex items-center justify-center text-[1.4rem] mb-5"
-                      style={{ background: TABLE_HIGHLIGHT }}
+                      className="w-14 h-14 flex items-center justify-center mb-5"
+                      style={{ background: TABLE_HIGHLIGHT, border: `1px solid ${ACCENT}55` }}
                     >
-                      {c.icon}
+                      <img
+                        src={c.icon}
+                        alt={c.title}
+                        loading="lazy"
+                        width={32}
+                        height={32}
+                        className="w-8 h-8 object-contain"
+                      />
                     </div>
                     <h3 className="text-[1.1rem] font-bold mb-2.5" style={{ ...SERIF, letterSpacing: "-0.02em" }}>
                       {c.title}
                     </h3>
                     <p className="text-[0.9rem] leading-[1.65]" style={{ color: "#888" }}>
                       {c.desc}
-                    </p>
-                    <p className="mt-3 text-[10px]" style={{ color: ACCENT_BRIGHT + "99" }}>
-                      🖼️ Icon-Slot: animiertes SVG ersetzen
                     </p>
                   </div>
                 ))}
