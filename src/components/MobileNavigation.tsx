@@ -113,7 +113,6 @@ export const MobileNavigation = ({
                       <Link to="/loesungen/auswahlverfahren-automatisieren" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
                         Auswahlverfahren & Awards
                       </Link>
-                      </Link>
                       <Link to="/leistungen/pain-points/kundengewinnung" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
                         Kundengewinnung & Funnel
                       </Link>
