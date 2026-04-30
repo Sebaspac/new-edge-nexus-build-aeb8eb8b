@@ -13,6 +13,7 @@ import iconAnalyse from "@/assets/painpoint-a-icon-analyse.png";
 import iconKoordination from "@/assets/painpoint-a-icon-koordination.png";
 import iconInsights from "@/assets/painpoint-a-icon-insights.png";
 import integrationsLogos from "@/assets/painpoint-a-integrations-logos.png";
+import foundersImg from "@/assets/founders-color.webp";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
