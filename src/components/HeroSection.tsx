@@ -24,7 +24,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
 
       <section
         id="hero"
-        className="relative w-full overflow-hidden flex items-center justify-center"
+        className="relative w-full overflow-hidden flex items-start sm:items-center justify-center"
         style={{ backgroundColor: "#0a0a0a", minHeight: "100dvh" }}
       >
         {/* Soft purple glow behind the headline */}
@@ -59,7 +59,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           className="relative flex flex-col items-center text-center w-full"
-          style={{ padding: "120px 24px 80px", fontFamily: SANS, zIndex: 1 }}
+          style={{ padding: "clamp(100px, 18vh, 120px) 24px clamp(40px, 6vh, 80px)", fontFamily: SANS, zIndex: 1 }}
         >
           {/* Headline — slightly smaller for better fit; rendered as div to bypass global h1 DM-Serif !important */}
           <div
@@ -108,7 +108,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           {/* CTAs */}
           <div
             className="flex flex-wrap justify-center"
-            style={{ marginTop: "32px", gap: "14px" }}
+            style={{ marginTop: "clamp(20px, 4vh, 32px)", gap: "14px" }}
           >
             <button
               onClick={onContactClick}
@@ -165,10 +165,10 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
 
           {/* Social proof */}
           <div
-            className="flex flex-wrap items-center justify-center"
+            className="flex flex-col sm:flex-row flex-wrap items-center justify-center"
             style={{
-              marginTop: "44px",
-              gap: "28px",
+              marginTop: "clamp(28px, 5vh, 44px)",
+              gap: "clamp(12px, 2vh, 28px)",
               fontFamily: SANS,
               fontSize: "14px",
               color: "#a0a0a0",
@@ -182,7 +182,11 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               </span>
               <span>4.9 on Clutch</span>
             </div>
-            <span style={{ color: "#3a3a3a", fontSize: "18px" }}>|</span>
+            <span className="hidden sm:inline" style={{ color: "#3a3a3a", fontSize: "18px" }}>|</span>
+            <div
+              className="sm:hidden"
+              style={{ width: "40px", height: "1px", background: "#3a3a3a" }}
+            />
             <div className="flex items-center" style={{ gap: "8px" }}>
               <span>
                 Trusted by{" "}
@@ -190,7 +194,11 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 companies
               </span>
             </div>
-            <span style={{ color: "#3a3a3a", fontSize: "18px" }}>|</span>
+            <span className="hidden sm:inline" style={{ color: "#3a3a3a", fontSize: "18px" }}>|</span>
+            <div
+              className="sm:hidden"
+              style={{ width: "40px", height: "1px", background: "#3a3a3a" }}
+            />
             <div className="flex items-center" style={{ gap: "8px" }}>
               <span>
                 <strong style={{ color: "#e0e0e0", fontWeight: 700 }}>2 Plätze</strong>{" "}
