@@ -49,7 +49,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             bottom: "0",
             width: "1px",
             height: "60px",
-            background: "linear-gradient(to bottom, transparent, #a855f7)",
+            background: "linear-gradient(to bottom, transparent, #7c3aed)",
             zIndex: 2,
           }}
         />
@@ -112,7 +112,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             <button
               onClick={onContactClick}
               style={{
-                background: "#a855f7",
+                background: "#7c3aed",
                 color: "#fff",
                 fontFamily: SANS,
                 fontSize: "16px",
@@ -124,11 +124,11 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 transition: "background 0.2s, transform 0.15s",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#9333ea";
+                e.currentTarget.style.background = "#6d28d9";
                 e.currentTarget.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "#a855f7";
+                e.currentTarget.style.background = "#7c3aed";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
@@ -138,19 +138,19 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               to="/case-studies"
               style={{
                 background: "transparent",
-                color: "#a855f7",
+                color: "#7c3aed",
                 fontFamily: SANS,
                 fontSize: "16px",
                 fontWeight: 700,
                 padding: "13px 30px",
                 borderRadius: "12px",
-                border: "2px solid #a855f7",
+                border: "2px solid #7c3aed",
                 textDecoration: "none",
                 display: "inline-block",
                 transition: "background 0.2s, transform 0.15s",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(168,85,247,0.06)";
+                e.currentTarget.style.background = "rgba(124,58,237,0.06)";
                 e.currentTarget.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
@@ -175,7 +175,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           >
             <div className="flex items-center" style={{ gap: "8px" }}>
               <span
-                style={{ color: "#a855f7", fontSize: "18px", letterSpacing: "1px" }}
+                style={{ color: "#7c3aed", fontSize: "18px", letterSpacing: "1px" }}
               >
                 ★★★★★
               </span>
