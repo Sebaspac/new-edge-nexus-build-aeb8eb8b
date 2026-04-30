@@ -613,7 +613,7 @@ const PainPointAuswahlverfahren = () => {
           </Reveal>
 
           {/* FEATURE 02 (flipped) */}
-          <div style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+           <div id="feature-02" style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
             <Reveal>
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div className="md:order-2">
