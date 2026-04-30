@@ -159,6 +159,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               }}
             >
               Case Studies
+            </Link>
           </div>
 
           {/* Social proof */}
