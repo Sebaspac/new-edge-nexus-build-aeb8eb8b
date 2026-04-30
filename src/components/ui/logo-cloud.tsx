@@ -69,15 +69,8 @@ export default function LogoCloud() {
               <stop offset="50%" stopColor="#a855f7" stopOpacity="0.85" />
               <stop offset="100%" stopColor="#7e22ce" stopOpacity="0.95" />
             </linearGradient>
-            <radialGradient id="orb-glow" cx="50%" cy="50%" r="50%">
-              <stop offset="55%" stopColor="#a855f7" stopOpacity="0" />
-              <stop offset="92%" stopColor="#a855f7" stopOpacity="0.18" />
-              <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
-            </radialGradient>
           </defs>
-          {/* Soft outer glow */}
-          <circle cx="400" cy="400" r="399" fill="url(#orb-glow)" />
-          {/* Crisp gradient ring */}
+          {/* Glowing gradient ring (no inner fill) */}
           <circle
             cx="400"
             cy="400"
@@ -85,6 +78,10 @@ export default function LogoCloud() {
             fill="none"
             stroke="url(#orb-stroke)"
             strokeWidth="1.4"
+            style={{
+              filter:
+                "drop-shadow(0 0 6px rgba(168,85,247,0.55)) drop-shadow(0 0 14px rgba(168,85,247,0.35))",
+            }}
           />
         </svg>
 
