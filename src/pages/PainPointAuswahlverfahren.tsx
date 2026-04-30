@@ -867,8 +867,9 @@ const PainPointAuswahlverfahren = () => {
                 <SectionH2>New Edge vs. manueller Auswahlprozess</SectionH2>
               </div>
 
-              <div className="overflow-x-auto" style={{ border: `1px solid ${L.border}` }}>
-                <table className="w-full border-collapse min-w-[640px]">
+              {/* Desktop table */}
+              <div className="hidden md:block overflow-x-auto" style={{ border: `1px solid ${L.border}` }}>
+                <table className="w-full border-collapse">
                   <thead>
                     <tr>
                       <th
@@ -942,6 +943,36 @@ const PainPointAuswahlverfahren = () => {
                     ))}
                   </tbody>
                 </table>
+              </div>
+
+              {/* Mobile cards */}
+              <div className="md:hidden flex flex-col gap-4">
+                {compareRows.map(([k, ne, ma], i) => (
+                  <div key={i} style={{ border: `1px solid ${L.border}`, background: L.bg }}>
+                    <div
+                      className="px-4 py-3 text-[0.8rem] font-bold uppercase tracking-wider"
+                      style={{ background: L.bgAlt, color: L.textMuted, borderBottom: `1px solid ${L.border}`, ...MONO }}
+                    >
+                      {k}
+                    </div>
+                    <div className="grid grid-cols-2" style={{ borderTop: "none" }}>
+                      <div
+                        className="px-4 py-3 text-[0.82rem]"
+                        style={{ color: "#16a34a", borderRight: `1px solid ${L.borderLight}`, ...MONO }}
+                      >
+                        <span className="block text-[0.7rem] font-bold uppercase tracking-wider mb-1" style={{ color: PURPLE_DARK }}>New Edge</span>
+                        ✓ {ne}
+                      </div>
+                      <div
+                        className="px-4 py-3 text-[0.82rem]"
+                        style={{ color: "#b91c1c", ...MONO }}
+                      >
+                        <span className="block text-[0.7rem] font-bold uppercase tracking-wider mb-1" style={{ color: "#b91c1c" }}>Manuell</span>
+                        ✗ {ma}
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </Reveal>
