@@ -99,7 +99,7 @@ export default function LogoCloud() {
           <div
             className="relative w-full overflow-hidden"
             style={{
-              padding: "14px 0",
+              padding: "10px 0",
               backgroundColor: "#0a0a0a",
             }}
           >
