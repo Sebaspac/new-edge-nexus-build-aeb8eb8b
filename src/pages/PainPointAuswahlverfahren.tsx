@@ -110,11 +110,12 @@ const BtnFilled = ({ children, large = false, onClick }: { children: React.React
       large ? "px-7 py-3.5 text-[0.9rem]" : "px-5 py-2.5 text-sm"
     }`}
     style={{
-      background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)",
-      color: "#fff",
-      border: "1px solid rgba(139,92,246,0.4)",
-      boxShadow: "0 0 20px rgba(124,58,237,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
-      ...MONO,
+       background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)",
+       color: "#fff",
+       border: "1px solid rgba(139,92,246,0.4)",
+       borderRadius: "6px",
+       boxShadow: "0 0 20px rgba(124,58,237,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
+       ...MONO,
     }}
     onMouseEnter={(e) => {
       e.currentTarget.style.background = "linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)";
@@ -139,10 +140,11 @@ const BtnGhost = ({ children, large = false, dark = false }: { children: React.R
     style={{
       background: dark ? "rgba(139,92,246,0.08)" : "transparent",
       backdropFilter: dark ? "blur(16px)" : undefined,
-      border: `1px solid ${dark ? "rgba(139,92,246,0.25)" : L.border}`,
-      color: dark ? "#c4b5fd" : L.textMuted,
-      boxShadow: dark ? "inset 0 1px 0 rgba(255,255,255,0.05)" : undefined,
-      ...MONO,
+       border: `1px solid ${dark ? "rgba(139,92,246,0.25)" : L.border}`,
+       borderRadius: "6px",
+       color: dark ? "#c4b5fd" : L.textMuted,
+       boxShadow: dark ? "inset 0 1px 0 rgba(255,255,255,0.05)" : undefined,
+       ...MONO,
     }}
     onMouseEnter={(e) => {
       if (dark) {
