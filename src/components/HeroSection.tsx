@@ -58,8 +58,8 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="flex flex-col items-center text-center w-full"
-          style={{ padding: "120px 24px 80px", fontFamily: SANS }}
+          className="relative flex flex-col items-center text-center w-full"
+          style={{ padding: "120px 24px 80px", fontFamily: SANS, zIndex: 1 }}
         >
           {/* Headline — slightly smaller for better fit; rendered as div to bypass global h1 DM-Serif !important */}
           <div
