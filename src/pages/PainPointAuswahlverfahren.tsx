@@ -413,7 +413,7 @@ const PainPointAuswahlverfahren = () => {
         >
           {/* Top: Text links, Visual rechts */}
           <div className="flex-1 flex items-center">
-            <div className="max-w-[1280px] w-full mx-auto px-6 lg:px-10 pt-24 md:pt-24 pb-6 grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="max-w-[1280px] w-full mx-auto px-6 lg:px-10 pt-20 md:pt-20 pb-4 grid md:grid-cols-2 gap-6 lg:gap-10 items-center">
               <Reveal>
                 <p
                   className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] mb-5"
