@@ -89,8 +89,8 @@ export default function LogoCloud() {
               fontWeight: 700,
               letterSpacing: "-0.5px",
               lineHeight: 1.15,
-              marginTop: "clamp(120px, 22vw, 220px)",
-              marginBottom: "40px",
+              marginTop: "clamp(90px, 18vw, 180px)",
+              marginBottom: "32px",
             }}
           >
             Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
