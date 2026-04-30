@@ -216,35 +216,25 @@ const stepsData = [
 ];
 
 const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
-  const [pinMode, setPinMode] = useState<"before" | "active" | "after">("before");
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-    let ticking = false;
-    const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
+        if (visible?.target instanceof HTMLElement) {
+          setActiveStep(Number(visible.target.dataset.stepIndex || 0));
+        }
+      },
+      { threshold: [0.45, 0.6, 0.75], rootMargin: "-20% 0px -20% 0px" }
+    );
 
-      window.requestAnimationFrame(() => {
-        const rect = section.getBoundingClientRect();
-        const pinDistance = Math.max(1, rect.height - window.innerHeight);
-        const progress = Math.min(1, Math.max(0, -rect.top / pinDistance));
-        const nextStep = progress < 0.28 ? 0 : progress < 0.62 ? 1 : 2;
-        const nextMode = rect.top > 0 ? "before" : rect.bottom <= window.innerHeight ? "after" : "active";
-
-        setActiveStep((current) => (current === nextStep ? current : nextStep));
-        setPinMode((current) => (current === nextMode ? current : nextMode));
-        ticking = false;
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    cardRefs.current.forEach((card) => card && observer.observe(card));
+    return () => observer.disconnect();
   }, []);
 
   // Step indicator dots
