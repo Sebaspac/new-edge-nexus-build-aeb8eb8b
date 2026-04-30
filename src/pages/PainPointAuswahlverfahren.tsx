@@ -665,34 +665,7 @@ const PainPointAuswahlverfahren = () => {
             </div>
           </Reveal>
 
-          {/* CLOSING CTA */}
-          <div
-            className="relative overflow-hidden"
-            style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}` }}
-          >
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: "radial-gradient(circle at 50% 50%, rgba(168,85,247,0.08) 0%, transparent 65%)",
-              }}
-            />
-            <div className="max-w-[800px] mx-auto px-6 lg:px-8 py-24 md:py-32 text-center relative z-10">
-              <h2
-                className="text-[clamp(1.8rem,4vw,3rem)] leading-[1.15] mb-5"
-                style={{ ...SERIF, letterSpacing: "-0.02em", color: L.text }}
-              >
-                Hört auf, jedes Jahr dasselbe<br />
-                <span style={{ color: PURPLE }}>Wissen neu zu erzeugen.</span>
-              </h2>
-              <p className="text-[1rem] leading-[1.65] mb-10" style={{ color: L.textMuted }}>
-                Euer nächster Zyklus kann der erste sein, der wirklich skaliert.
-              </p>
-              <div className="flex gap-3.5 justify-center flex-wrap">
-                <BtnFilled large onClick={() => setContactOpen(true)}>Demo buchen</BtnFilled>
-                <BtnGhost large>Case Study herunterladen</BtnGhost>
-              </div>
-            </div>
-          </div>
+          <ThreeStepsCTA onContact={() => setContactOpen(true)} />
 
         </div>
         {/* ── /LIGHT THEME ── */}
