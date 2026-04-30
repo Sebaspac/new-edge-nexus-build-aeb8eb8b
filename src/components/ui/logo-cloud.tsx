@@ -35,14 +35,14 @@ export default function LogoCloud() {
   return (
     <section
       className="relative w-full overflow-hidden"
-      style={{ backgroundColor: "#0a0a0a", padding: "0 0 32px" }}
+      style={{ backgroundColor: "#0a0a0a", padding: "0 0 12px" }}
     >
       {/* Vertical line on top — fades into the upper arc */}
       <div className="flex justify-center">
         <div
           style={{
             width: "1px",
-            height: "110px",
+            height: "60px",
             background: "linear-gradient(to bottom, transparent, #a855f7)",
           }}
         />
