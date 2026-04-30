@@ -218,26 +218,25 @@ const stepsData = [
 const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
-  const [pinComplete, setPinComplete] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
+    let ticking = false;
     const handleScroll = () => {
-      const rect = section.getBoundingClientRect();
-      // The section is 100vh tall. We add scroll-padding via a spacer inside.
-      // Progress based on how far the section top has scrolled above viewport top
-      const scrolledPast = -rect.top;
-      const totalScroll = rect.height - window.innerHeight;
-      if (totalScroll <= 0) return;
-      const progress = scrolledPast / totalScroll;
-      const clamped = Math.max(0, Math.min(1, progress));
+      if (ticking) return;
+      ticking = true;
 
-      // 3 even zones: 0-0.33 = step 0, 0.33-0.66 = step 1, 0.66-1 = step 2
-      const step = clamped < 0.33 ? 0 : clamped < 0.66 ? 1 : 2;
-      setActiveStep(step);
-      setPinComplete(clamped >= 0.98);
+      window.requestAnimationFrame(() => {
+        const rect = section.getBoundingClientRect();
+        const pinDistance = Math.max(1, rect.height - window.innerHeight);
+        const progress = Math.min(1, Math.max(0, -rect.top / pinDistance));
+        const nextStep = progress < 0.28 ? 0 : progress < 0.62 ? 1 : 2;
+
+        setActiveStep((current) => (current === nextStep ? current : nextStep));
+        ticking = false;
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -267,11 +266,10 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
       className="relative"
       style={{
         background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
-        // 100vh visible + 2 * 100vh scroll distance for 3 steps
-        height: "300vh",
+        height: "220vh",
       }}
     >
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+      <div className="sticky top-0 h-[100dvh] flex items-center overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             {/* LEFT */}
