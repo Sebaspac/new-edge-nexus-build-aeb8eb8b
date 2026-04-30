@@ -217,6 +217,7 @@ const stepsData = [
 
 const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   const [activeStep, setActiveStep] = useState(0);
+  const [pinMode, setPinMode] = useState<"before" | "fixed" | "after">("before");
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -226,10 +227,13 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
     let frame = 0;
     const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
     const updateStep = () => {
-      const start = section.getBoundingClientRect().top + window.scrollY;
-      const end = start + section.offsetHeight - window.innerHeight;
-      const progress = clamp((window.scrollY - start) / Math.max(1, end - start), 0, 1);
-      const nextStep = progress < 1 / 3 ? 0 : progress < 2 / 3 ? 1 : 2;
+      const rect = section.getBoundingClientRect();
+      const pinDistance = Math.max(1, section.offsetHeight - window.innerHeight);
+      const progress = clamp(-rect.top / pinDistance, 0, 1);
+      const nextMode = rect.top > 0 ? "before" : rect.bottom <= window.innerHeight ? "after" : "fixed";
+      const nextStep = progress < 0.34 ? 0 : progress < 0.67 ? 1 : 2;
+
+      setPinMode((current) => (current === nextMode ? current : nextMode));
       setActiveStep((current) => (current === nextStep ? current : nextStep));
     };
     const requestStepUpdate = () => {
@@ -247,42 +251,75 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
     };
   }, []);
 
-  const activeCard = stepsData[activeStep];
+  const pinnedStyle: React.CSSProperties = {
+    position: pinMode === "fixed" ? "fixed" : "absolute",
+    top: pinMode === "after" ? "auto" : 0,
+    bottom: pinMode === "after" ? 0 : "auto",
+    left: 0,
+    right: 0,
+    width: "100%",
+    height: "100dvh",
+    zIndex: 1,
+    background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
+  };
 
   return (
     <div
       ref={sectionRef}
       className="relative isolate"
       style={{
-        height: "300dvh",
+        height: "280dvh",
         background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
       }}
     >
-      <div className="sticky top-0 h-[100dvh] overflow-hidden">
+      <div style={pinnedStyle} className="overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8 w-full h-full relative">
-          <div className="absolute inset-0 grid md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-center w-full pt-24 pb-10">
+          <div className="absolute inset-0 grid md:grid-cols-[0.9fr_1.1fr] gap-7 md:gap-12 items-center w-full pt-24 pb-6 md:pt-24 md:pb-8">
             {/* LEFT */}
             <div className="flex flex-col justify-center">
               <h2
-                className="text-[clamp(2.7rem,5.4vw,5rem)] leading-[0.95] mb-8 uppercase"
+                className="text-[clamp(2rem,4.4vw,3.8rem)] leading-[0.94] mb-4 uppercase"
                 style={{ ...SERIF, letterSpacing: "0", color: "#ffffff" }}
               >
                 Drei<br />Schritte<br />zum Erfolg
               </h2>
+              <div className="space-y-2 mb-4" aria-label={`Schritt ${activeStep + 1} von 3`}>
+                {stepsData.map((step, i) => {
+                  const isActive = activeStep === i;
+                  return (
+                    <div
+                      key={step.title}
+                      className="grid grid-cols-[34px_1fr] gap-2.5 p-2.5 transition-all duration-500"
+                      style={{
+                        background: isActive ? "rgba(255,255,255,0.16)" : "rgba(255,255,255,0.06)",
+                        border: `1px solid ${isActive ? "rgba(255,255,255,0.86)" : "rgba(255,255,255,0.22)"}`,
+                        transform: isActive ? "translateX(0)" : "translateX(-6px)",
+                      }}
+                    >
+                      <span className="text-sm font-bold text-white" style={MONO}>0{i + 1}</span>
+                      <div>
+                        <p className="text-[0.8rem] font-bold text-white" style={MONO}>{step.title}</p>
+                        <p className="text-[0.68rem] leading-[1.45] mt-0.5" style={{ color: "rgba(255,255,255,0.72)", ...MONO }}>
+                          {step.desc}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
               <Link to="/kontakt">
                 <button
-                  className="inline-flex items-center gap-2 px-7 py-3.5 text-[0.9rem] font-medium transition-all hover:opacity-90 hover:-translate-y-0.5"
+                  className="inline-flex w-fit items-center gap-2 px-5 py-2.5 text-[0.8rem] font-medium transition-all hover:opacity-90 hover:-translate-y-0.5"
                   style={{ background: "#ffffff", color: PURPLE_DARK, ...MONO, border: "none" }}
                 >
                   Erstgespräch vereinbaren
                 </button>
               </Link>
-              {/* Step indicator dots */}
-              <div className="flex gap-2 mt-8" aria-label={`Schritt ${activeStep + 1} von 3`}>
+              <div className="flex gap-2 mt-4">
                 {[0, 1, 2].map((i) => (
-                  <div
+                  <span
                     key={i}
-                    className="h-2 transition-all duration-500"
+                    className="block h-2 transition-all duration-500"
                     style={{
                       background: activeStep === i ? "#ffffff" : "rgba(255,255,255,0.3)",
                       width: activeStep === i ? "28px" : "10px",
@@ -290,7 +327,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
                   />
                 ))}
               </div>
-              <div className="flex items-center gap-3 mt-12">
+              <div className="flex items-center gap-3 mt-4">
                 <img
                   src={foundersImg}
                   alt="Sebastian Pachon — Gründer New Edge"
@@ -308,36 +345,44 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
               </div>
             </div>
 
-            {/* RIGHT — RAF-synced single pop card */}
-            <div className="relative h-[430px] md:h-[500px] flex items-center" aria-live="polite">
-              <div
-                key={activeStep}
-                className="w-full min-h-[280px] p-8 md:p-12 flex flex-col justify-center animate-scale-in will-change-transform"
-                style={{
-                  background: "rgba(255,255,255,0.97)",
-                  transform: "rotate(-2deg)",
-                  boxShadow: "0 26px 70px rgba(0,0,0,0.2)",
-                }}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl">{activeCard.icon}</span>
-                  <span
-                    className="text-[0.8rem] font-bold uppercase tracking-widest"
-                    style={{ ...MONO, color: PURPLE }}
+            {/* RIGHT — RAF-synced fixed-threshold cards */}
+            <div className="relative h-[300px] md:h-[390px] flex items-center" aria-live="polite">
+              {stepsData.map((card, i) => {
+                const isActive = activeStep === i;
+                return (
+                  <div
+                    key={card.title}
+                    className="absolute inset-x-0 top-1/2 min-h-[230px] p-7 md:p-10 flex flex-col justify-center will-change-transform"
+                    style={{
+                      background: "rgba(255,255,255,0.98)",
+                      opacity: isActive ? 1 : 0,
+                      transform: `translate3d(0, ${isActive ? "-50%" : i < activeStep ? "-64%" : "-36%"}, 0) scale(${isActive ? 1 : 0.94}) rotate(${isActive ? -2 : 0}deg)`,
+                      transition: "opacity 520ms cubic-bezier(0.22,1,0.36,1), transform 520ms cubic-bezier(0.22,1,0.36,1)",
+                      pointerEvents: isActive ? "auto" : "none",
+                      boxShadow: "0 26px 70px rgba(0,0,0,0.22)",
+                    }}
                   >
-                    Schritt {activeStep + 1}
-                  </span>
-                </div>
-                <h3
-                  className="text-[1.1rem] font-bold mb-3"
-                  style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
-                >
-                  {activeCard.title}
-                </h3>
-                <p className="text-[0.9rem] leading-[1.7]" style={{ color: L.textMuted, ...MONO }}>
-                  {activeCard.desc}
-                </p>
-              </div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-3xl">{card.icon}</span>
+                      <span
+                        className="text-[0.8rem] font-bold uppercase tracking-widest"
+                        style={{ ...MONO, color: PURPLE }}
+                      >
+                        Schritt {i + 1}
+                      </span>
+                    </div>
+                    <h3
+                      className="text-[1.1rem] font-bold mb-3"
+                      style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+                    >
+                      {card.title}
+                    </h3>
+                    <p className="text-[0.9rem] leading-[1.7]" style={{ color: L.textMuted, ...MONO }}>
+                      {card.desc}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
