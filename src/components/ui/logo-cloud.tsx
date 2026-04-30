@@ -50,7 +50,7 @@ export default function LogoCloud() {
 
       {/* Stacked stage: full circle behind, heading + marquee in front.
           The marquee strip cuts the circle exactly in half horizontally. */}
-      <div className="relative w-full" style={{ marginTop: "0px" }}>
+      <div className="relative w-full" style={{ marginTop: "-1px" }}>
         {/* Full circle SVG — purple gradient stroke, no fill.
             Top of the circle starts exactly where the line ends (top: 0). */}
         <svg
