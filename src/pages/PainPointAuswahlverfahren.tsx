@@ -135,6 +135,17 @@ const VisualPanel = ({ caption, height = "min-h-[320px]" }: { caption: string; h
 /* ────────────── Hero score-card mockup placeholder ────────────── */
 
 const HeroVisualPlaceholder = () => (
+  <div className="relative w-full max-w-[480px] ml-auto">
+    <img
+      src={painpointAVorherNachher}
+      alt="Vorher: unstrukturierte PDF-Bewerbungen — Nachher: strukturiertes KI-Scoring-Dashboard"
+      className="w-full h-auto"
+      style={{ border: `1px solid ${BORDER}` }}
+    />
+  </div>
+);
+
+const HeroVisualPlaceholderOld = () => (
   <div className="relative w-full max-w-[340px] scale-[0.85] origin-top-right md:scale-90">
     {/* floating chips */}
     <div
