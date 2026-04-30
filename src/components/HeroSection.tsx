@@ -78,120 +78,90 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           }}
         />
 
-        {/* Layout wrapper — content vertically centered, logo cloud peeks at the very bottom */}
-        <div className="relative z-20 min-h-[100dvh] flex flex-col px-4 sm:px-6 lg:px-8 pt-[88px] pb-6">
-          {/* Centered headline block — takes the available space and centers content */}
-          <div className="flex-1 flex items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="w-full max-w-[1200px] mx-auto text-center"
+        {/* Layout 1:1 Dapta — headline starts ~28% from top, large spacing between blocks */}
+        <div className="relative z-20 min-h-[100dvh] flex flex-col items-center px-4 sm:px-6 lg:px-8 pt-[28vh] pb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full max-w-[1200px] mx-auto text-center"
+          >
+            {/* Headline — sized 1:1 to Dapta reference (~96px desktop) */}
+            <h1
+              className="tracking-tight text-white"
+              style={{
+                fontSize: "clamp(2.75rem, 8vw, 6rem)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.02em",
+              }}
             >
-              {/* Headline — sized 1:1 to Dapta reference (~96px desktop) */}
-              <h1
-                className="tracking-tight text-white"
+              <span className="block">Dein Unternehmen braucht mehr</span>
+              <span
+                className="block bg-clip-text text-transparent"
                 style={{
-                  fontSize: "clamp(2.75rem, 8vw, 6rem)",
-                  lineHeight: 1.05,
-                  letterSpacing: "-0.02em",
+                  backgroundImage:
+                    "linear-gradient(90deg, #c084fc 0%, #a855f7 50%, #7e22ce 100%)",
                 }}
               >
-                <span className="block">Dein Unternehmen braucht mehr</span>
-                <span
-                  className="block bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(90deg, #c084fc 0%, #a855f7 50%, #7e22ce 100%)",
-                  }}
-                >
-                  als nur Marketing — Systeme.
-                </span>
-              </h1>
+                als nur Marketing — Systeme.
+              </span>
+            </h1>
 
-              {/* Subheadline */}
-              <p
-                className="mt-6 sm:mt-8 mx-auto max-w-2xl text-[#B0B0B0]"
-                style={{
-                  fontSize: "clamp(1rem, 1.4vw, 1.25rem)",
-                  lineHeight: 1.5,
-                }}
-              >
-                Wir entwickeln KI- und Softwaresysteme, die Marke,
-                <br className="hidden sm:block" />
-                Struktur und Wachstum für den Mittelstand verbinden.
-              </p>
-
-              {/* CTA Buttons — squared (hard-edge CI) */}
-              <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-                <button
-                  onClick={onContactClick}
-                  className="group inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 bg-[#a855f7] text-white font-semibold hover:bg-[#9333ea] transition-all duration-300 text-base sm:text-lg w-full sm:w-auto rounded-none"
-                >
-                  Start for free
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <Link
-                  to="/case-studies"
-                  className="inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 bg-transparent text-white font-semibold border-2 border-[#a855f7] hover:bg-[#a855f7]/10 transition-all duration-300 text-base sm:text-lg w-full sm:w-auto rounded-none"
-                >
-                  Book a Demo
-                </Link>
-              </div>
-
-              {/* Social Proof bar */}
-              <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 text-white/90">
-                <div className="flex items-center gap-2 sm:px-6 text-sm sm:text-[15px]">
-                  <div className="flex items-center gap-0.5" aria-label="5 von 5 Sternen">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 fill-[#a855f7] text-[#a855f7]"
-                      />
-                    ))}
-                  </div>
-                  <span>4.9 on Clutch</span>
-                </div>
-                <span className="hidden sm:block h-4 w-px bg-white/20" aria-hidden />
-                <div className="sm:px-6 text-sm sm:text-[15px]">
-                  Trusted by{" "}
-                  <span className="font-bold text-[#a855f7]">50+</span> companies
-                </div>
-                <span className="hidden sm:block h-4 w-px bg-white/20" aria-hidden />
-                <div className="sm:px-6 text-sm sm:text-[15px]">
-                  <span className="font-bold text-[#a855f7]">2 Plätze</span> für Q2
-                  verfügbar
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Logo Cloud — peeks at the bottom edge so the user senses there's more below */}
-          <div className="w-full">
-            <p className="text-center text-white/50 font-medium mb-4 text-xs uppercase tracking-[0.2em]">
-              Vertraut von führenden Unternehmen
+            {/* Subheadline — generous spacing like Dapta */}
+            <p
+              className="mt-10 sm:mt-12 mx-auto max-w-2xl text-[#B0B0B0]"
+              style={{
+                fontSize: "clamp(1rem, 1.4vw, 1.25rem)",
+                lineHeight: 1.5,
+              }}
+            >
+              Wir entwickeln KI- und Softwaresysteme, die Marke,
+              <br className="hidden sm:block" />
+              Struktur und Wachstum für den Mittelstand verbinden.
             </p>
-            <div className="relative w-full overflow-hidden">
-              <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 md:w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 md:w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
 
-              <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
-                {duplicatedLogos.map((logo, index) => (
-                  <div
-                    key={`hero-logo-${index}`}
-                    className="flex-shrink-0 flex items-center justify-center h-7 sm:h-9 md:h-10 px-4 sm:px-6 md:px-8"
-                  >
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      loading="lazy"
-                      className="h-full w-auto object-contain max-w-[100px] sm:max-w-[130px] md:max-w-[160px] brightness-0 invert opacity-50 hover:opacity-90 transition-opacity duration-300"
+            {/* CTA Buttons — squared (hard-edge CI) */}
+            <div className="mt-14 sm:mt-16 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+              <button
+                onClick={onContactClick}
+                className="group inline-flex items-center justify-center gap-2 px-10 sm:px-12 py-4 sm:py-5 bg-[#a855f7] text-white font-semibold hover:bg-[#9333ea] transition-all duration-300 text-base sm:text-lg w-full sm:w-auto rounded-none"
+              >
+                Start for free
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <Link
+                to="/case-studies"
+                className="inline-flex items-center justify-center px-10 sm:px-12 py-4 sm:py-5 bg-transparent text-white font-semibold border-2 border-[#a855f7] hover:bg-[#a855f7]/10 transition-all duration-300 text-base sm:text-lg w-full sm:w-auto rounded-none"
+              >
+                Book a Demo
+              </Link>
+            </div>
+
+            {/* Social Proof bar — far below CTAs like Dapta */}
+            <div className="mt-16 sm:mt-20 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 text-white/90">
+              <div className="flex items-center gap-2 sm:px-8 text-sm sm:text-[15px]">
+                <div className="flex items-center gap-0.5" aria-label="5 von 5 Sternen">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-4 h-4 fill-[#a855f7] text-[#a855f7]"
                     />
-                  </div>
-                ))}
+                  ))}
+                </div>
+                <span>4.9 on Clutch</span>
+              </div>
+              <span className="hidden sm:block h-5 w-px bg-white/20" aria-hidden />
+              <div className="sm:px-8 text-sm sm:text-[15px]">
+                Trusted by{" "}
+                <span className="font-bold text-[#a855f7]">50+</span> companies
+              </div>
+              <span className="hidden sm:block h-5 w-px bg-white/20" aria-hidden />
+              <div className="sm:px-8 text-sm sm:text-[15px]">
+                <span className="font-bold text-[#a855f7]">2 Plätze</span> für Q2
+                verfügbar
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Scroll Indicator */}
