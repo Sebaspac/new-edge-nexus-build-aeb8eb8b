@@ -827,7 +827,7 @@ const PainPointAuswahlverfahren = () => {
           </div>
 
           {/* TESTIMONIAL HERO */}
-          <div className="py-20 md:py-24">
+          <div id="testimonial" className="py-20 md:py-24">
             <div className="max-w-[800px] mx-auto px-6 lg:px-8 text-center">
               <div className="text-[4.5rem] leading-[0.6] mb-6 opacity-25" style={{ color: PURPLE, ...SERIF }}>
                 „
