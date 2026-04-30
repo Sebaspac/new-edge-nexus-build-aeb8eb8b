@@ -107,7 +107,7 @@ export default function LogoCloud() {
         {/* Foreground content */}
         <div className="relative" style={{ zIndex: 1 }}>
           {/* Spacer above marquee — pushes marquee to circle's vertical center */}
-          <div style={{ height: "clamp(110px, 17vw, 170px)" }} />
+          <div style={{ height: "clamp(70px, 11vw, 110px)" }} />
 
           {/* Marquee strip — masks the circle's horizontal mid-line */}
           <div
