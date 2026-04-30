@@ -601,6 +601,109 @@ const PainPointAuswahlverfahren = () => {
     { icon: iconInsights, title: "Analysen & Insights", desc: "Aus jedem Zyklus entstehen automatisch Muster und Trends — die den nächsten Prozess verbessern." },
   ];
 
+/* ────────────── Section Dot Navigator ────────────── */
+
+const SECTION_IDS = [
+  { id: "hero-section", label: "Hero" },
+  { id: "definition", label: "Definition" },
+  { id: "feature-01", label: "Feature 01" },
+  { id: "feature-02", label: "Feature 02" },
+  { id: "feature-03", label: "Feature 03" },
+  { id: "integrations", label: "Integrationen" },
+  { id: "comparison", label: "Vergleich" },
+  { id: "features", label: "Funktionen" },
+  { id: "testimonial", label: "Testimonial" },
+  { id: "faq", label: "FAQ" },
+  { id: "cta", label: "CTA" },
+];
+
+const SectionDotNav = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show after scrolling past hero
+      setVisible(window.scrollY > 300);
+
+      // Find active section
+      let current = 0;
+      for (let i = SECTION_IDS.length - 1; i >= 0; i--) {
+        const el = document.getElementById(SECTION_IDS[i].id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= window.innerHeight * 0.4) {
+            current = i;
+            break;
+          }
+        }
+      }
+      setActiveIndex(current);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  return (
+    <nav
+      className="fixed right-4 lg:right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-end gap-3 transition-opacity duration-500"
+      style={{ opacity: visible ? 1 : 0, pointerEvents: visible ? "auto" : "none" }}
+    >
+      {SECTION_IDS.map((section, i) => {
+        const isActive = activeIndex === i;
+        const isHovered = hoveredIndex === i;
+        return (
+          <button
+            key={section.id}
+            onClick={() => scrollTo(section.id)}
+            onMouseEnter={() => setHoveredIndex(i)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            className="flex items-center gap-2.5 group cursor-pointer bg-transparent border-none p-0"
+            aria-label={`Zu ${section.label} scrollen`}
+          >
+            {/* Label */}
+            <span
+              className="text-[0.65rem] font-semibold uppercase tracking-wider transition-all duration-300 whitespace-nowrap"
+              style={{
+                ...MONO,
+                opacity: isHovered || isActive ? 1 : 0,
+                transform: isHovered || isActive ? "translateX(0)" : "translateX(8px)",
+                color: isActive ? PURPLE : "#888",
+              }}
+            >
+              {section.label}
+            </span>
+            {/* Dot */}
+            <span
+              className="block transition-all duration-300"
+              style={{
+                width: isActive ? 10 : 6,
+                height: isActive ? 10 : 6,
+                background: isActive
+                  ? `linear-gradient(135deg, ${PURPLE} 0%, ${PURPLE_DARK} 100%)`
+                  : isHovered
+                  ? "#aaa"
+                  : "#ccc",
+                boxShadow: isActive ? `0 0 8px rgba(124,58,237,0.5)` : "none",
+                borderRadius: "0",
+              }}
+            />
+          </button>
+        );
+      })}
+    </nav>
+  );
+};
 
 
   const faqs = [
