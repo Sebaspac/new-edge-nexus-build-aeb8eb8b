@@ -206,9 +206,6 @@ const Index = () => {
           <MethodologyGrid />
         </div>
 
-        {/* Logo Cloud */}
-        <LogoCloud />
-
         {/* Positioned for Impact Section */}
         <div className="bg-surface">
           <PositionedForImpactSection />
