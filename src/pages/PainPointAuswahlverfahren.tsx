@@ -1,4 +1,5 @@
 import { lazy, Suspense, useState, useEffect, useRef } from "react";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Plus, Check } from "lucide-react";
@@ -645,37 +646,7 @@ const PainPointAuswahlverfahren = () => {
           </div>
 
           {/* TESTIMONIAL GRID */}
-          <div style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
-            <Reveal>
-              <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
-                <div className="text-center max-w-[600px] mx-auto mb-12">
-                  <SectionLabel>Stimmen</SectionLabel>
-                  <SectionH2 className="!mb-0">Was Organisationen über New Edge sagen</SectionH2>
-                </div>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                  {testimonials.map((t, i) => (
-                    <div key={i} className="p-6" style={{ background: L.bg, border: `1px solid ${L.border}` }}>
-                      <div className="flex items-center gap-3 mb-4">
-                        <div
-                          className="w-10 h-10 flex items-center justify-center text-sm font-bold text-white"
-                          style={{ background: PURPLE }}
-                        >
-                          {t.initials}
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium" style={{ ...SERIF, color: L.text }}>{t.name}</p>
-                          <p className="text-[11px]" style={{ color: L.textLight }}>{t.role}</p>
-                        </div>
-                      </div>
-                      <p className="text-[0.85rem] leading-[1.65]" style={{ color: L.textMuted }}>
-                        „{t.quote}"
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          </div>
+          <TestimonialsSection />
 
           {/* FAQ */}
           <Reveal>
