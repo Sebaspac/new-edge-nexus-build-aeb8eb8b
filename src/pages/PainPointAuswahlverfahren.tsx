@@ -415,7 +415,7 @@ const PainPointAuswahlverfahren = () => {
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
-      <div className="min-h-screen overflow-x-hidden" style={MONO}>
+      <div className="min-h-screen" style={{ ...MONO, overflowX: "clip" }}>
 
         {/* ═══════════════════════════════════════════
             HERO — Dark (stays dark)
