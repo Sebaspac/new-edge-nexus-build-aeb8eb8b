@@ -135,6 +135,17 @@ const VisualPanel = ({ caption, height = "min-h-[320px]" }: { caption: string; h
 /* ────────────── Hero score-card mockup placeholder ────────────── */
 
 const HeroVisualPlaceholder = () => (
+  <div className="relative w-full max-w-[480px] ml-auto">
+    <img
+      src={painpointAVorherNachher}
+      alt="Vorher: unstrukturierte PDF-Bewerbungen — Nachher: strukturiertes KI-Scoring-Dashboard"
+      className="w-full h-auto"
+      style={{ border: `1px solid ${BORDER}` }}
+    />
+  </div>
+);
+
+const HeroVisualPlaceholderOld = () => (
   <div className="relative w-full max-w-[340px] scale-[0.85] origin-top-right md:scale-90">
     {/* floating chips */}
     <div
@@ -585,13 +596,7 @@ const PainPointAuswahlverfahren = () => {
         <Reveal>
           <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-[72px] items-center">
             <div>
-              <img
-                src={painpointAVorherNachher}
-                alt="Vorher: unstrukturierte PDF-Bewerbungen — Nachher: strukturiertes KI-Scoring-Dashboard"
-                loading="lazy"
-                className="w-full h-auto"
-                style={{ border: `1px solid ${BORDER}` }}
-              />
+              <VisualPanel caption="Vorher/Nachher: PDF-Chaos → strukturiertes KI-Scoring-Dashboard" />
             </div>
             <div>
               <SectionLabel>Feature 01</SectionLabel>
