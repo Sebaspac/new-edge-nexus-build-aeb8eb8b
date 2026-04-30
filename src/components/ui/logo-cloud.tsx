@@ -26,51 +26,96 @@ const logos = [
   { src: seabreeze, alt: "Seabreeze Beach Club" },
 ];
 
-const LogoItem = ({ src, alt }: { src: string; alt: string }) => (
-  <div className="flex-shrink-0 flex items-center justify-center h-10 sm:h-12 md:h-14 lg:h-16 px-6 sm:px-10 md:px-14 lg:px-16">
-    <img
-      src={src}
-      alt={alt}
-      loading="lazy"
-      className="h-full w-auto object-contain max-w-[120px] sm:max-w-[160px] md:max-w-[200px] lg:max-w-[220px] brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
-    />
-  </div>
-);
-
 export default function LogoCloud() {
   const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <section className="bg-black py-20 sm:py-24 md:py-32 overflow-hidden">
-      {/* Headline like Dapta */}
-      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 text-center mb-12 sm:mb-16 md:mb-20">
-        <h2
-          className="text-white tracking-tight"
+    <section
+      className="flex flex-col items-center overflow-hidden"
+      style={{ backgroundColor: "#0a0a0a", padding: "0 0 60px" }}
+    >
+      {/* Orb wrap — vertical line + half-ellipse arc */}
+      <div
+        className="flex flex-col items-center"
+        style={{ marginBottom: "40px" }}
+      >
+        {/* Vertical line: 1px wide, 80px tall, transparent → #a855f7 */}
+        <div
           style={{
-            fontSize: "clamp(2rem, 5vw, 4rem)",
-            lineHeight: 1.1,
-            letterSpacing: "-0.02em",
+            width: "1px",
+            height: "80px",
+            background: "linear-gradient(to bottom, transparent, #a855f7)",
+          }}
+        />
+        {/* Half-ellipse arc — 260x130, gradient border, no fill */}
+        <div
+          style={{
+            width: "260px",
+            height: "130px",
+            borderRadius: "50% 50% 0 0 / 100% 100% 0 0",
+            position: "relative",
           }}
         >
-          Vertraut von <span className="text-[#a855f7]">50+ Unternehmen</span>
-        </h2>
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "50% 50% 0 0 / 100% 100% 0 0",
+              padding: "1.5px",
+              background:
+                "linear-gradient(90deg, #a855f7 0%, #c084fc 50%, #a855f7 100%)",
+              WebkitMask:
+                "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+              WebkitMaskComposite: "xor",
+              maskComposite: "exclude",
+            }}
+          />
+        </div>
       </div>
 
-      {/* Marquee with thin purple lines top/bottom */}
-      <div
-        className="relative w-full py-8 sm:py-10 md:py-12"
+      {/* Heading — clamp(28px,4vw,42px), weight 700, mb 40px */}
+      <h2
+        className="text-white text-center px-4"
         style={{
-          borderTop: "1px solid rgba(168, 85, 247, 0.35)",
-          borderBottom: "1px solid rgba(168, 85, 247, 0.35)",
+          fontSize: "clamp(28px, 4vw, 42px)",
+          fontWeight: 700,
+          marginBottom: "40px",
+          letterSpacing: "-0.5px",
         }}
       >
-        {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 md:w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 md:w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+        Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
+      </h2>
 
-        <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+      {/* Marquee — full width, 1px subtle borders top+bottom, padding 20px 0 */}
+      <div
+        className="w-full overflow-hidden relative"
+        style={{
+          borderTop: "1px solid #222",
+          borderBottom: "1px solid #222",
+          padding: "20px 0",
+        }}
+      >
+        <div
+          className="flex animate-marquee hover:[animation-play-state:paused]"
+          style={{ width: "max-content", gap: "72px" }}
+        >
           {duplicatedLogos.map((logo, index) => (
-            <LogoItem key={`logo-${index}`} src={logo.src} alt={logo.alt} />
+            <div
+              key={`logo-${index}`}
+              className="flex-shrink-0 flex items-center justify-center"
+              style={{ height: "44px" }}
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                loading="lazy"
+                className="h-full w-auto object-contain brightness-0 invert"
+                style={{
+                  maxWidth: "180px",
+                  opacity: 0.7,
+                }}
+              />
+            </div>
           ))}
         </div>
       </div>
