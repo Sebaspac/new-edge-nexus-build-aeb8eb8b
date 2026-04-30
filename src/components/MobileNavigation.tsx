@@ -271,7 +271,7 @@ export const MobileNavigation = ({
                     </div>
                   </motion.div>
                   <div className="pl-3 space-y-0.5">
-                    <Link to="/leistungen/pain-points/auswahlverfahren" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
+                    <Link to="/loesungen/auswahlverfahren-automatisieren" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
                       Auswahlverfahren & Awards
                     </Link>
                     <Link to="/leistungen/pain-points/kundengewinnung" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
