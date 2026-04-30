@@ -310,19 +310,19 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
             </div>
 
             {/* RIGHT — one card at a time */}
-            <div className="relative h-[300px] md:h-[340px]">
+            <div className="relative h-[340px] md:h-[360px]" aria-live="polite">
               {stepsData.map((step, i) => (
                 <div
                   key={i}
-                  className="absolute inset-0 p-8 md:p-10 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  className="absolute inset-0 p-8 md:p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
                   style={{
                     background: "rgba(255,255,255,0.97)",
                     opacity: activeStep === i ? 1 : 0,
                     transform: activeStep === i
-                      ? "translateY(0) rotate(-1.5deg) scale(1)"
+                      ? "translateY(0) rotate(-1deg) scale(1)"
                       : activeStep > i
-                        ? "translateY(-40px) rotate(-3deg) scale(0.92)"
-                        : "translateY(40px) rotate(0deg) scale(0.92)",
+                        ? "translateY(-28px) rotate(-2deg) scale(0.96)"
+                        : "translateY(36px) rotate(0deg) scale(0.96)",
                     boxShadow: activeStep === i
                       ? "0 25px 60px rgba(0,0,0,0.18)"
                       : "0 10px 30px rgba(0,0,0,0.08)",
