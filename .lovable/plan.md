@@ -1,26 +1,25 @@
 
-## Ziel
+## Farbumstellung: Helles Lila → Dunkles Lila (Homepage-Hero-Palette)
 
-Das mobile Layout der `ThreeStepsCTA`-Komponente in `PainPointAuswahlverfahren.tsx` umbauen, damit es dem Referenzbild entspricht:
+### Aktuelle Farben (Pain-Point-Seite)
+- `PURPLE` = `#a855f7` (helles Lila)
+- `PURPLE_DARK` = `#7e22ce`
+- `PURPLE_LIGHT` = `#c084fc` (hellstes Lila)
+- `PURPLE_BG` = `rgba(168,85,247,0.08)`
 
-1. **Oben**: Headline ("Drei Schritte zum Erfolg") + CTA-Button + Gründer-Info
-2. **Darunter**: Die 3 Schritte horizontal nebeneinander (kompakte Version, kein Scroll-Pin)
-3. **Ganz unten**: Die 3 weißen Info-Karten, die nacheinander aufpoppen (statt übereinander gestapelt)
+### Neue Farben (aus Homepage-Hero)
+- `PURPLE` → `#7c3aed` (Haupt-Akzent der Hero-Section)
+- `PURPLE_DARK` → `#4c1d95` (dunkelster Ton)
+- `PURPLE_LIGHT` → wird gelöscht / ersetzt durch `#6d28d9`
+- `PURPLE_BG` → `rgba(124,58,237,0.08)` (basierend auf neuem Primärton)
 
-## Änderungen
+### Betroffene Bereiche (~30 Stellen)
+1. **Design-Tokens** (Zeile 27–30): Alle 4 Konstanten aktualisieren
+2. **Gradient-Sections** (CTA, Hero-Pin): `linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #6d28d9 100%)` — kein helles `#c084fc` mehr
+3. **Buttons, Labels, Akzente**: Überall wo `PURPLE` als Textfarbe, Border oder Hintergrund genutzt wird
+4. **FAQ-Akkordeons**: Highlight-Farbe und Borders
+5. **Mobile CTA-Layout**: Gleiche Gradient-Anpassung
 
-### `src/pages/PainPointAuswahlverfahren.tsx` — ThreeStepsCTA
-
-- **Mobile (< md)**: Scroll-Pin-Mechanismus deaktivieren → feste Höhe statt `280dvh`, kein `position: fixed`
-- Die linke Spalte wird oben angezeigt (Text, Button, Gründer-Info)
-- Die 3 Step-Indikatoren (01, 02, 03) werden horizontal als kompakte Row angezeigt statt vertikal gestapelt
-- Die 3 Karten werden vertikal gestapelt und per `whileInView`-Animation nacheinander eingeblendet (pop-in Effekt)
-- **Desktop (≥ md)**: Bleibt exakt wie bisher (Scroll-Pin + Karten-Wechsel)
-
-### Technische Details
-
-- `useIsMobile()` oder `md:`-Breakpoint zur Unterscheidung
-- Mobile: `height: auto` statt `280dvh`, kein `pinnedStyle`
-- Step-Indicators: `flex-row` statt `space-y-2` auf Mobile
-- Karten: Alle 3 sichtbar, vertikal gestapelt, mit staggered fade-in/scale Animation via Framer Motion `whileInView`
-- Progress-Dots entfallen auf Mobile (nicht nötig ohne Scroll-Pin)
+### Technisch
+- Nur Datei: `src/pages/PainPointAuswahlverfahren.tsx`
+- Reine Token-Änderung an den 4 Konstanten + Entfernung der direkten `#c084fc`-Referenzen in Gradients
