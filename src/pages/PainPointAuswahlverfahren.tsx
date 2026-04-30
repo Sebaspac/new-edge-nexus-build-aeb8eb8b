@@ -195,6 +195,133 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   );
 };
 
+/* ────────────── Three Steps CTA ────────────── */
+
+const stepsData = [
+  {
+    icon: "💬",
+    title: "Unverbindliches Erstgespräch",
+    desc: "Lass uns quatschen! Bei unserem ersten Gespräch wollen wir dich und dein Business kennenlernen. Wähle einfach und bequem online einen Termin aus.",
+  },
+  {
+    icon: "🎯",
+    title: "Gemeinsam Ziele definieren",
+    desc: "Erzähl uns von deinen Wünschen und Zielen! Egal, ob mehr Sichtbarkeit, höhere Umsätze oder eine stärkere Kundenbindung — wir legen eine Strategie fest, um deine Ziele zu rocken!",
+  },
+  {
+    icon: "🚀",
+    title: "Durchstarten",
+    desc: "Let's go! Nachdem wir deine Ziele finalisiert haben, geht's erst richtig los! Mit kreativen Ideen und spannendem Content repräsentieren wir dein Unternehmen als individuelle Brand.",
+  },
+];
+
+const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [activeStep, setActiveStep] = useState(0);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const handleScroll = () => {
+      const rect = section.getBoundingClientRect();
+      const sectionHeight = rect.height;
+      const viewportH = window.innerHeight;
+      // Progress from 0 to 1 as section scrolls through viewport
+      const scrolled = (viewportH - rect.top) / (sectionHeight + viewportH);
+      const clamped = Math.max(0, Math.min(1, scrolled));
+      const step = Math.min(2, Math.floor(clamped * 3));
+      setActiveStep(step);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div
+      ref={sectionRef}
+      className="relative overflow-hidden"
+      style={{
+        background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
+      }}
+    >
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-24 md:py-32">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center min-h-[500px]">
+          {/* LEFT — sticky headline */}
+          <div className="flex flex-col justify-between h-full">
+            <div>
+              <h2
+                className="text-[clamp(2.2rem,5vw,4rem)] leading-[1.05] mb-8 uppercase"
+                style={{ ...SERIF, letterSpacing: "-0.02em", color: "#ffffff" }}
+              >
+                Drei<br />Schritte<br />zum Erfolg
+              </h2>
+              <Link to="/kontakt">
+                <button
+                  className="inline-flex items-center gap-2 px-7 py-3.5 text-[0.9rem] font-medium transition-all hover:opacity-90 hover:-translate-y-0.5"
+                  style={{
+                    background: "#ffffff",
+                    color: PURPLE_DARK,
+                    ...MONO,
+                    border: "none",
+                  }}
+                >
+                  Erstgespräch vereinbaren
+                </button>
+              </Link>
+            </div>
+            <div className="flex items-center gap-3 mt-12">
+              <img
+                src={foundersImg}
+                alt="Sebastian Pachon — Gründer New Edge"
+                className="w-12 h-12 object-cover object-[25%_20%]"
+                style={{ borderRadius: "50%" }}
+              />
+              <div>
+                <p className="text-sm font-bold uppercase tracking-wide text-white" style={MONO}>
+                  Mit Sebastian Pachon
+                </p>
+                <p className="text-xs text-white/70" style={MONO}>
+                  Gründer und Geschäftsführer New Edge
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT — scrolling cards */}
+          <div className="relative flex flex-col gap-6">
+            {stepsData.map((step, i) => (
+              <div
+                key={i}
+                className="p-8 md:p-10 transition-all duration-500"
+                style={{
+                  background: "rgba(255,255,255,0.95)",
+                  opacity: activeStep === i ? 1 : 0.35,
+                  transform: activeStep === i ? "scale(1) rotate(-1deg)" : "scale(0.95) rotate(0deg)",
+                  boxShadow: activeStep === i ? "0 20px 60px rgba(0,0,0,0.15)" : "0 4px 20px rgba(0,0,0,0.05)",
+                }}
+              >
+                <div className="text-3xl mb-4">{step.icon}</div>
+                <h3
+                  className="text-[1.1rem] font-bold mb-3"
+                  style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+                >
+                  {step.title}
+                </h3>
+                <p className="text-[0.9rem] leading-[1.7]" style={{ color: L.textMuted, ...MONO }}>
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 /* ────────────── PAGE ────────────── */
 
 const PainPointAuswahlverfahren = () => {
