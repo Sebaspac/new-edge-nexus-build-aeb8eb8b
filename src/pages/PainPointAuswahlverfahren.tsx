@@ -414,6 +414,19 @@ const PainPointAuswahlverfahren = () => {
     { icon: iconInsights, title: "Analysen & Insights", desc: "Aus jedem Zyklus entstehen automatisch Muster und Trends — die den nächsten Prozess verbessern." },
   ];
 
+  const legendItems = [
+    { id: "definition", name: "Definition" },
+    { id: "feature-01", name: "Dokumenten-Erfassung" },
+    { id: "feature-02", name: "Jury-Koordination" },
+    { id: "feature-03", name: "Analysen & Insights" },
+    { id: "integrations", name: "Integrationen" },
+    { id: "comparison", name: "Vergleich" },
+    { id: "features", name: "Kernfunktionen" },
+    { id: "testimonial", name: "Testimonial" },
+    { id: "faq", name: "FAQ" },
+    { id: "cta", name: "Drei Schritte" },
+  ];
+
 
   const faqs = [
     {
