@@ -217,23 +217,17 @@ const stepsData = [
 
 const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [visibleSteps, setVisibleSteps] = useState(0); // 0 = none visible, 1 = first, 2 = first+second, 3 = all
+  const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
-
     const handleScroll = () => {
       const rect = section.getBoundingClientRect();
-      const viewportH = window.innerHeight;
-      // How far into the section we've scrolled (0 = just entered, 1 = fully past)
-      const progress = (viewportH - rect.top) / (rect.height * 0.75);
+      const progress = (window.innerHeight - rect.top) / rect.height;
       const clamped = Math.max(0, Math.min(1, progress));
-      // Map progress to steps: each step triggers at 0.2, 0.5, 0.8
-      const steps = clamped < 0.15 ? 0 : clamped < 0.4 ? 1 : clamped < 0.65 ? 2 : 3;
-      setVisibleSteps(steps);
+      setActiveStep(Math.min(2, Math.floor(clamped * 3)));
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
@@ -242,74 +236,67 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   return (
     <div
       ref={sectionRef}
-      className="relative overflow-hidden"
+      className="relative"
       style={{
         background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
+        minHeight: "200vh",
       }}
     >
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-24 md:py-32">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center min-h-[500px]">
-          {/* LEFT — sticky headline */}
-          <div className="flex flex-col justify-between h-full">
-            <div>
-              <h2
-                className="text-[clamp(2.2rem,5vw,4rem)] leading-[1.05] mb-8 uppercase"
-                style={{ ...SERIF, letterSpacing: "-0.02em", color: "#ffffff" }}
-              >
-                Drei<br />Schritte<br />zum Erfolg
-              </h2>
-              <Link to="/kontakt">
-                <button
-                  className="inline-flex items-center gap-2 px-7 py-3.5 text-[0.9rem] font-medium transition-all hover:opacity-90 hover:-translate-y-0.5"
-                  style={{
-                    background: "#ffffff",
-                    color: PURPLE_DARK,
-                    ...MONO,
-                    border: "none",
-                  }}
-                >
-                  Erstgespräch vereinbaren
-                </button>
-              </Link>
-            </div>
-            <div className="flex items-center gap-3 mt-12">
-              <img
-                src={foundersImg}
-                alt="Sebastian Pachon — Gründer New Edge"
-                className="w-12 h-12 object-cover object-[25%_20%]"
-                style={{ borderRadius: "50%" }}
-              />
+      <div className="sticky top-0 min-h-screen flex items-center overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-16 md:py-24 w-full">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* LEFT */}
+            <div className="flex flex-col justify-between">
               <div>
-                <p className="text-sm font-bold uppercase tracking-wide text-white" style={MONO}>
-                  Mit Sebastian Pachon
-                </p>
-                <p className="text-xs text-white/70" style={MONO}>
-                  Gründer und Geschäftsführer New Edge
-                </p>
+                <h2
+                  className="text-[clamp(2.2rem,5vw,4rem)] leading-[1.05] mb-8 uppercase"
+                  style={{ ...SERIF, letterSpacing: "-0.02em", color: "#ffffff" }}
+                >
+                  Drei<br />Schritte<br />zum Erfolg
+                </h2>
+                <Link to="/kontakt">
+                  <button
+                    className="inline-flex items-center gap-2 px-7 py-3.5 text-[0.9rem] font-medium transition-all hover:opacity-90 hover:-translate-y-0.5"
+                    style={{ background: "#ffffff", color: PURPLE_DARK, ...MONO, border: "none" }}
+                  >
+                    Erstgespräch vereinbaren
+                  </button>
+                </Link>
+              </div>
+              <div className="flex items-center gap-3 mt-12">
+                <img
+                  src={foundersImg}
+                  alt="Sebastian Pachon — Gründer New Edge"
+                  className="w-12 h-12 object-cover object-[25%_20%]"
+                  style={{ borderRadius: "50%" }}
+                />
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-wide text-white" style={MONO}>
+                    Mit Sebastian Pachon
+                  </p>
+                  <p className="text-xs text-white/70" style={MONO}>
+                    Gründer und Geschäftsführer New Edge
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* RIGHT — scrolling cards */}
-          <div className="relative flex flex-col gap-6">
-            {stepsData.map((step, i) => {
-              const isVisible = visibleSteps > i;
-              const isActive = visibleSteps === i + 1; // the most recently revealed card
-              return (
+            {/* RIGHT — one card at a time */}
+            <div className="relative h-[320px] md:h-[360px]">
+              {stepsData.map((step, i) => (
                 <div
                   key={i}
-                  className="p-8 md:p-10 transition-all duration-700 ease-out"
+                  className="absolute inset-0 p-8 md:p-10 transition-all duration-500 ease-out"
                   style={{
-                    background: "rgba(255,255,255,0.95)",
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible
-                      ? `translateY(0) scale(1) rotate(${isActive ? -1.5 : 0}deg)`
-                      : "translateY(40px) scale(0.92) rotate(0deg)",
-                    boxShadow: isActive
-                      ? "0 20px 60px rgba(0,0,0,0.18)"
-                      : isVisible
-                        ? "0 4px 20px rgba(0,0,0,0.06)"
-                        : "none",
+                    background: "rgba(255,255,255,0.97)",
+                    opacity: activeStep === i ? 1 : 0,
+                    transform: activeStep === i
+                      ? "translateY(0) rotate(-1.5deg) scale(1)"
+                      : activeStep > i
+                        ? "translateY(-30px) rotate(-3deg) scale(0.95)"
+                        : "translateY(30px) rotate(0deg) scale(0.95)",
+                    boxShadow: "0 20px 60px rgba(0,0,0,0.15)",
+                    pointerEvents: activeStep === i ? "auto" : "none",
                   }}
                 >
                   <div className="text-3xl mb-4">{step.icon}</div>
@@ -323,8 +310,8 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
                     {step.desc}
                   </p>
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
       </div>
