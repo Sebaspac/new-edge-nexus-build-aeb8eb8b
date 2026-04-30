@@ -134,7 +134,7 @@ const VisualPanel = ({ caption, height = "min-h-[320px]" }: { caption: string; h
 /* ────────────── Hero score-card mockup placeholder ────────────── */
 
 const HeroVisualPlaceholder = () => (
-  <div className="relative w-full max-w-[460px]">
+  <div className="relative w-full max-w-[340px] scale-[0.85] origin-top-right md:scale-90">
     {/* floating chips */}
     <div
       className="absolute -top-4 left-2.5 px-3.5 py-2 text-[0.75rem] flex items-center gap-1.5 whitespace-nowrap animate-[float_3s_ease-in-out_infinite]"
@@ -233,9 +233,7 @@ const HeroVisualPlaceholder = () => (
         <span className="text-[1.5rem] font-bold" style={{ color: ACCENT_BRIGHT, ...SERIF }}>8.15</span>
       </div>
 
-      <p className="mt-4 text-[10px]" style={{ color: ACCENT_BRIGHT + "99", ...MONO }}>
-        🖼️ Hero Visual Slot: Animiertes Scoring-Dashboard (Mock-Daten). Später durch echte Animation/Mockup ersetzen.
-      </p>
+      {/* 🖼️ Hero Visual Slot: Animiertes Scoring-Dashboard (Mock-Daten) — später ersetzen */}
     </div>
   </div>
 );
@@ -402,80 +400,81 @@ const PainPointAuswahlverfahren = () => {
       <div className="min-h-screen text-white overflow-x-hidden" style={{ background: "#0a0a0a", ...MONO }}>
         <MobileNavigation onContactClick={() => setContactOpen(true)} theme="dark" />
 
-        {/* SECTION 1 — HERO (Dapta-Layout: Text links, Visual rechts, Logo-Badge unten) */}
+        {/* SECTION 1 — HERO (Dapta-Layout, 1-Viewport: Text+Visual oben, Logos im Fold) */}
         <section
-          className="relative overflow-hidden"
+          className="relative overflow-hidden flex flex-col"
           style={{
+            minHeight: "100dvh",
             background:
-              "radial-gradient(ellipse 80% 60% at 20% 30%, rgba(168,85,247,0.18) 0%, transparent 60%), #0a0a0a",
+              "radial-gradient(ellipse 70% 55% at 18% 35%, rgba(168,85,247,0.20) 0%, transparent 60%), #0a0a0a",
           }}
         >
-          <div className="max-w-[1280px] mx-auto px-6 lg:px-10 pt-32 md:pt-36 pb-12 grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <Reveal>
-              <p
-                className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] mb-7"
-                style={{ color: ACCENT_BRIGHT, ...MONO }}
-              >
-                KI-AUTOMATISIERUNG FÜR AUSWAHLVERFAHREN
-              </p>
-              <h1
-                className="text-[clamp(2.25rem,4.2vw,3.5rem)] leading-[1.08] mb-7"
-                style={{ ...SERIF, letterSpacing: "-0.02em" }}
-              >
-                Auswahlverfahren automatisieren —<br />
-                <span style={{ color: ACCENT_BRIGHT }}>
-                  KI-gestützte Bewertungssysteme für Jurys
-                </span>
-              </h1>
-              <p className="text-[1rem] leading-[1.7] mb-9 max-w-[540px]" style={{ color: "#9a9a9a" }}>
-                Unstrukturierte Bewerbungen, überlastete Jurys, verlorenes Wissen. Manuelle Auswahlprozesse kosten
-                Organisationen durchschnittlich 60.000–80.000€ pro Zyklus — und produzieren in 43% der Fälle nicht
-                reproduzierbare Entscheidungen (HR-Tech-Studie, 2024). New Edge strukturiert euren gesamten Prozess:
-                von der ersten Einreichung bis zur revisionssicheren Entscheidung.
-              </p>
-              <div className="flex gap-3 flex-wrap">
-                <BtnFilled large onClick={() => setContactOpen(true)}>Demo buchen</BtnFilled>
-                <BtnGhost large>Case Study ansehen — BMP Award</BtnGhost>
-              </div>
-            </Reveal>
+          {/* Top: Text links, Visual rechts */}
+          <div className="flex-1 flex items-center">
+            <div className="max-w-[1280px] w-full mx-auto px-6 lg:px-10 pt-20 md:pt-20 pb-4 grid md:grid-cols-2 gap-6 lg:gap-10 items-center">
+              <Reveal>
+                <p
+                  className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] mb-5"
+                  style={{ color: ACCENT_BRIGHT, ...MONO }}
+                >
+                  KI-AUTOMATISIERUNG FÜR AUSWAHLVERFAHREN
+                </p>
+                <h1
+                  className="text-[clamp(1.75rem,3.2vw,2.75rem)] leading-[1.08] mb-5"
+                  style={{ ...SERIF, letterSpacing: "-0.02em" }}
+                >
+                  Auswahlverfahren automatisieren —<br />
+                  <span style={{ color: ACCENT_BRIGHT }}>
+                    KI-gestützte Bewertungssysteme für Jurys
+                  </span>
+                </h1>
+                <p className="text-[0.95rem] leading-[1.6] mb-6 max-w-[520px]" style={{ color: "#9a9a9a" }}>
+                  Unstrukturierte Bewerbungen, überlastete Jurys, verlorenes Wissen. New Edge strukturiert euren
+                  gesamten Auswahlprozess — von der ersten Einreichung bis zur revisionssicheren Entscheidung.
+                </p>
+                <div className="flex gap-3 flex-wrap">
+                  <BtnFilled onClick={() => setContactOpen(true)}>Demo buchen</BtnFilled>
+                  <BtnGhost>Case Study — BMP Award</BtnGhost>
+                </div>
+              </Reveal>
 
-            <Reveal delay={0.2}>
-              <div className="flex justify-center md:justify-end">
-                <HeroVisualPlaceholder />
-              </div>
-            </Reveal>
+              <Reveal delay={0.2}>
+                <div className="flex justify-center md:justify-end">
+                  <HeroVisualPlaceholder />
+                </div>
+              </Reveal>
+            </div>
           </div>
 
-          {/* Logo-Badge / Social Proof direkt unter dem Hero */}
-          <div className="max-w-[1280px] mx-auto px-6 lg:px-10 pb-16">
-            <p
-              className="text-center text-[1.5rem] md:text-[1.75rem] mb-2"
-              style={{ ...SERIF, color: "#fff" }}
-            >
-              Vertraut von führenden Organisationen in Deutschland
-            </p>
-            <p className="text-center text-[0.85rem] mb-8" style={{ color: "#888" }}>
-              Reale Ergebnisse aus Auswahlprozessen wie eurem
-            </p>
-            <div className="overflow-hidden" style={{ borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}` }}>
-              <div className="flex w-max py-7" style={{ animation: "marquee 28s linear infinite" }}>
-                {[...Array(2)].flatMap((_, dup) =>
-                  ["BMP Award", "Stiftung", "Förderinstitut", "Verband", "IHK", "Accelerator", "Forschungsinstitut"].map((name, i) => (
-                    <div
-                      key={`hero-${dup}-${i}`}
-                      className="flex items-center gap-2.5 px-10 text-[1rem] font-semibold whitespace-nowrap"
-                      style={{ color: "#888", ...SERIF }}
-                    >
-                      <span>{name}</span>
-                      <span style={{ color: BORDER }}>•</span>
-                    </div>
-                  ))
-                )}
+          {/* Bottom: Trust-Headline + Logo-Marquee (immer im 1. Viewport sichtbar) */}
+          <div className="shrink-0 pb-6 md:pb-8">
+            <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+              <p
+                className="text-center text-[1.25rem] md:text-[1.5rem] mb-1"
+                style={{ ...SERIF, color: "#fff" }}
+              >
+                Vertraut von führenden Organisationen in Deutschland
+              </p>
+              <p className="text-center text-[0.78rem] mb-4" style={{ color: "#888" }}>
+                Reale Ergebnisse aus Auswahlprozessen wie eurem
+              </p>
+              <div className="overflow-hidden" style={{ borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}` }}>
+                <div className="flex w-max py-4" style={{ animation: "marquee 28s linear infinite" }}>
+                  {[...Array(2)].flatMap((_, dup) =>
+                    ["BMP Award", "Stiftung", "Förderinstitut", "Verband", "IHK", "Accelerator", "Forschungsinstitut"].map((name, i) => (
+                      <div
+                        key={`hero-${dup}-${i}`}
+                        className="flex items-center gap-2.5 px-8 text-[0.95rem] font-semibold whitespace-nowrap"
+                        style={{ color: "#888", ...SERIF }}
+                      >
+                        <span>{name}</span>
+                        <span style={{ color: BORDER }}>•</span>
+                      </div>
+                    ))
+                  )}
+                </div>
               </div>
             </div>
-            <p className="text-center mt-3 text-[10px]" style={{ color: ACCENT_BRIGHT + "99" }}>
-              🖼️ Logo-Slot: monochrome SVG-Logos (BMP Award + weitere Referenzen) — später als Bilder ersetzen
-            </p>
           </div>
           <style>{`
             @keyframes marquee {
