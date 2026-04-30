@@ -106,29 +106,29 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
 
           {/* CTAs */}
           <div
-            className="flex flex-wrap justify-center"
-            style={{ marginTop: "clamp(20px, 4vh, 32px)", gap: "14px" }}
+            className="flex items-center justify-center"
+            style={{ marginTop: "clamp(20px, 4vh, 32px)", gap: "10px" }}
           >
             <button
               onClick={onContactClick}
               style={{
-                background: "#c8e64a",
-                color: "#0a0a0a",
+                background: "#6d28d9",
+                color: "#fff",
                 fontFamily: SANS,
-                fontSize: "16px",
+                fontSize: "14px",
                 fontWeight: 700,
-                padding: "14px 32px",
-                borderRadius: "12px",
+                padding: "10px 22px",
+                borderRadius: "0px",
                 border: "none",
                 cursor: "pointer",
                 transition: "all 0.25s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#b8d63a";
+                e.currentTarget.style.background = "#5b21b6";
                 e.currentTarget.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "#c8e64a";
+                e.currentTarget.style.background = "#6d28d9";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
@@ -138,23 +138,25 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               to="/case-studies"
               style={{
                 background: "transparent",
-                color: "#c8e64a",
+                color: "#8b5cf6",
                 fontFamily: SANS,
-                fontSize: "16px",
+                fontSize: "14px",
                 fontWeight: 700,
-                padding: "14px 32px",
-                borderRadius: "12px",
-                border: "2px solid #c8e64a",
+                padding: "10px 22px",
+                borderRadius: "0px",
+                border: "2px solid #6d28d9",
                 textDecoration: "none",
                 display: "inline-block",
                 transition: "all 0.25s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(200,230,74,0.1)";
+                e.currentTarget.style.background = "#6d28d9";
+                e.currentTarget.style.color = "#fff";
                 e.currentTarget.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = "#8b5cf6";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
