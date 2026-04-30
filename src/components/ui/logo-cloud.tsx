@@ -42,7 +42,7 @@ export default function LogoCloud() {
         <div
           style={{
             width: "1px",
-            height: "32px",
+            height: "140px",
             background: "linear-gradient(to bottom, transparent, #a855f7)",
           }}
         />
@@ -50,8 +50,9 @@ export default function LogoCloud() {
 
       {/* Stacked stage: full circle behind, heading + marquee in front.
           The marquee strip cuts the circle exactly in half horizontally. */}
-      <div className="relative w-full" style={{ marginTop: "-2px" }}>
-        {/* Full circle SVG — purple gradient stroke, no fill */}
+      <div className="relative w-full" style={{ marginTop: "0px" }}>
+        {/* Full circle SVG — purple gradient stroke, no fill.
+            Top of the circle starts exactly where the line ends (top: 0). */}
         <svg
           aria-hidden
           viewBox="0 0 800 800"
@@ -89,7 +90,7 @@ export default function LogoCloud() {
               fontWeight: 700,
               letterSpacing: "-0.5px",
               lineHeight: 1.15,
-              marginTop: "clamp(90px, 18vw, 180px)",
+              marginTop: "clamp(110px, 20vw, 200px)",
               marginBottom: "32px",
             }}
           >
