@@ -216,16 +216,6 @@ const PainPointAuswahlverfahren = () => {
     { icon: iconInsights, title: "Analysen & Insights", desc: "Aus jedem Zyklus entstehen automatisch Muster und Trends — die den nächsten Prozess verbessern." },
   ];
 
-  const testimonials = [
-    { name: "BMP Award", role: "Projektleitung", quote: "Was früher 60.000€ und drei Monate Aufwand war, läuft jetzt automatisch.", initials: "BA" },
-    { name: "Award-Org", role: "Geschäftsführung", quote: "Endlich vergleichbare Bewertungen über alle Jury-Mitglieder hinweg.", initials: "AO" },
-    { name: "Förderinstitut", role: "Vorstand", quote: "Revisionssicher, schnell, transparent — genau das, was wir brauchten.", initials: "FI" },
-    { name: "Verband", role: "Leitung Awards", quote: "Die Jury-Koordination läuft seit New Edge wirklich von selbst.", initials: "VB" },
-    { name: "Accelerator", role: "Programm-Director", quote: "Datenbasierte Auswahl statt Bauchgefühl — endlich messbar.", initials: "AC" },
-    { name: "Stiftung", role: "Geschäftsstelle", quote: "Persistente Datenbasis bedeutet: kein Wissensverlust mehr.", initials: "ST" },
-    { name: "IHK", role: "Award-Verantwortlich", quote: "Implementierung in 3 Wochen, ROI im ersten Zyklus.", initials: "IH" },
-    { name: "Forschung", role: "Programm-Leitung", quote: "Aus dem Auswahlprozess wurde eine echte Forschungsplattform.", initials: "FR" },
-  ];
 
   const faqs = [
     {
