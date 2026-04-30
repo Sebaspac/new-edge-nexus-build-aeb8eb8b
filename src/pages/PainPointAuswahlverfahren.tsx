@@ -128,12 +128,11 @@ const BtnGhost = ({ children, large = false, dark = false }: { children: React.R
 
 /* ────────────── FAQ accordion ────────────── */
 
-const FAQItem = ({ q, a, defaultOpen = false }: { q: string; a: string; defaultOpen?: boolean }) => {
-  const [open, setOpen] = useState(defaultOpen);
+const FAQItem = ({ q, a, open, onToggle }: { q: string; a: string; open: boolean; onToggle: () => void }) => {
   return (
     <div className="overflow-hidden" style={{ borderBottom: `1px solid ${L.border}` }}>
       <button
-        onClick={() => setOpen(!open)}
+        onClick={onToggle}
         className="w-full flex justify-between items-center py-5 px-1 text-left text-[0.9rem] font-medium hover:opacity-80 transition-colors gap-4"
         style={{ color: open ? PURPLE : L.text, ...MONO }}
       >
