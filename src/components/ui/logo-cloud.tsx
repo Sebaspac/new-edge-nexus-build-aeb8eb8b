@@ -96,12 +96,12 @@ export default function LogoCloud() {
             Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
           </div>
 
-          {/* Marquee strip — covers the circle's horizontal mid-line */}
+          {/* Marquee strip — masks the circle's horizontal mid-line */}
           <div
             className="relative w-full overflow-hidden"
             style={{
-              padding: "20px 0",
-              backgroundColor: "transparent",
+              padding: "18px 0",
+              backgroundColor: "#0a0a0a",
             }}
           >
             {/* Edge fades */}
