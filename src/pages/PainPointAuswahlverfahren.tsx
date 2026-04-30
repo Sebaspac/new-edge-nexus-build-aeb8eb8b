@@ -140,10 +140,11 @@ const BtnGhost = ({ children, large = false, dark = false }: { children: React.R
     style={{
       background: dark ? "rgba(139,92,246,0.08)" : "transparent",
       backdropFilter: dark ? "blur(16px)" : undefined,
-      border: `1px solid ${dark ? "rgba(139,92,246,0.25)" : L.border}`,
-      color: dark ? "#c4b5fd" : L.textMuted,
-      boxShadow: dark ? "inset 0 1px 0 rgba(255,255,255,0.05)" : undefined,
-      ...MONO,
+       border: `1px solid ${dark ? "rgba(139,92,246,0.25)" : L.border}`,
+       borderRadius: "6px",
+       color: dark ? "#c4b5fd" : L.textMuted,
+       boxShadow: dark ? "inset 0 1px 0 rgba(255,255,255,0.05)" : undefined,
+       ...MONO,
     }}
     onMouseEnter={(e) => {
       if (dark) {
