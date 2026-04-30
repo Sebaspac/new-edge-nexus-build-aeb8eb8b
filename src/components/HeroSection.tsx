@@ -49,7 +49,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             bottom: "0",
             width: "1px",
             height: "60px",
-            background: "linear-gradient(to bottom, transparent, #7c3aed)",
+            background: "linear-gradient(to bottom, transparent, #6d28d9)",
             zIndex: 2,
           }}
         />
@@ -183,7 +183,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           >
             <div className="flex items-center" style={{ gap: "8px" }}>
               <span
-                style={{ color: "#7c3aed", fontSize: "18px", letterSpacing: "1px" }}
+                style={{ color: "#6d28d9", fontSize: "18px", letterSpacing: "1px" }}
               >
                 ★★★★★
               </span>
