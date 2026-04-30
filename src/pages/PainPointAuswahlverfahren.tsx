@@ -748,11 +748,13 @@ const SectionDotNav = () => {
 
       <div className="min-h-screen" style={{ ...MONO, overflowX: "clip" }}>
         
+        <SectionDotNav />
 
         {/* ═══════════════════════════════════════════
             HERO — Dark (stays dark)
         ═══════════════════════════════════════════ */}
         <section
+          id="hero-section"
           className="relative overflow-hidden flex flex-col text-white"
           style={{
             minHeight: "100dvh",
