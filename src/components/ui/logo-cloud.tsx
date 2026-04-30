@@ -73,18 +73,24 @@ export default function LogoCloud() {
         </div>
       </div>
 
-      {/* Heading — clamp(28px,4vw,42px), weight 700, mb 40px */}
-      <h2
-        className="text-white text-center px-4"
+      {/* Heading — clamp(28px,4vw,42px), weight 700, mb 40px. Rendered as div to bypass global h1-h6 DM-Serif !important. */}
+      <div
+        role="heading"
+        aria-level={2}
+        className="text-center px-4"
         style={{
+          fontFamily:
+            "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+          color: "#fff",
           fontSize: "clamp(28px, 4vw, 42px)",
           fontWeight: 700,
           marginBottom: "40px",
           letterSpacing: "-0.5px",
+          lineHeight: 1.15,
         }}
       >
         Vertraut von <span style={{ color: "#a855f7" }}>50+ Unternehmen</span>
-      </h2>
+      </div>
 
       {/* Marquee — full width, 1px subtle borders top+bottom, padding 20px 0 */}
       <div
