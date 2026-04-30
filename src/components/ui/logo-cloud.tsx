@@ -83,10 +83,12 @@ export default function LogoCloud() {
           }}
         >
           <defs>
-            <linearGradient id="orb-stroke" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#c084fc" stopOpacity="0.95" />
-              <stop offset="50%" stopColor="#a855f7" stopOpacity="0.85" />
-              <stop offset="100%" stopColor="#7e22ce" stopOpacity="0.95" />
+            <linearGradient id="orb-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#e9d5ff" stopOpacity="1" />
+              <stop offset="25%" stopColor="#c084fc" stopOpacity="1" />
+              <stop offset="50%" stopColor="#a855f7" stopOpacity="1" />
+              <stop offset="75%" stopColor="#7e22ce" stopOpacity="1" />
+              <stop offset="100%" stopColor="#4c1d95" stopOpacity="0.95" />
             </linearGradient>
           </defs>
           {/* Glowing gradient ring (no inner fill) */}
@@ -96,10 +98,10 @@ export default function LogoCloud() {
             r="397"
             fill="none"
             stroke="url(#orb-stroke)"
-            strokeWidth="1.4"
+            strokeWidth="2"
             style={{
               filter:
-                "drop-shadow(0 0 6px rgba(168,85,247,0.55)) drop-shadow(0 0 14px rgba(168,85,247,0.35))",
+                "drop-shadow(0 0 8px rgba(192,132,252,0.7)) drop-shadow(0 0 20px rgba(168,85,247,0.5)) drop-shadow(0 0 36px rgba(126,34,206,0.35))",
             }}
           />
         </svg>
