@@ -134,7 +134,7 @@ const VisualPanel = ({ caption, height = "min-h-[320px]" }: { caption: string; h
 /* ────────────── Hero score-card mockup placeholder ────────────── */
 
 const HeroVisualPlaceholder = () => (
-  <div className="relative w-full max-w-[460px]">
+  <div className="relative w-full max-w-[400px]">
     {/* floating chips */}
     <div
       className="absolute -top-4 left-2.5 px-3.5 py-2 text-[0.75rem] flex items-center gap-1.5 whitespace-nowrap animate-[float_3s_ease-in-out_infinite]"
