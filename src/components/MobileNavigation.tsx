@@ -99,19 +99,77 @@ export const MobileNavigation = ({
 
           {/* Right: Navigation Links */}
           <div className="flex items-center gap-6">
-            {/* Services Dropdown */}
+            {/* Leistungen Mega Menu */}
             <div className="relative group">
               <button className="text-white hover:text-white/80 transition-all duration-300 font-medium text-sm">
-                Services
+                Leistungen
               </button>
-              <div className="absolute top-full left-0 mt-2 w-52 bg-[#1A1A1A] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 group-hover:delay-150 backdrop-blur-lg z-[60] border border-white/10">
-                <div className="py-2">
-                  <Link to="/studio" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
-                    Studio
-                  </Link>
-                  <Link to="/lab" className="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
-                    Lab
-                  </Link>
+              <div className="absolute top-full right-0 mt-2 w-[820px] max-w-[95vw] bg-[#1A1A1A] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 group-hover:delay-100 backdrop-blur-lg z-[60] border border-white/10">
+                <div className="grid grid-cols-12 gap-0">
+                  {/* Pain Points */}
+                  <div className="col-span-4 p-6 border-r border-white/10">
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-purple-400 mb-4">Pain Points</p>
+                    <div className="space-y-1">
+                      <Link to="/leistungen/pain-points/auswahlverfahren" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
+                        Auswahlverfahren & Awards
+                      </Link>
+                      <Link to="/leistungen/pain-points/kundengewinnung" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
+                        Kundengewinnung & Funnel
+                      </Link>
+                      <Link to="/leistungen/pain-points/compliance" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
+                        Import / Export & Compliance
+                      </Link>
+                      <Link to="/leistungen/pain-points/reporting" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
+                        KPI-Transparenz & Reporting
+                      </Link>
+                      <Link to="/leistungen/pain-points/kundensupport" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
+                        Kundensupport mit KI
+                      </Link>
+                      <div className="my-3 h-px bg-white/10" />
+                      <Link to="/studio" className="block py-2 text-xs text-white/50 hover:text-white transition-all uppercase tracking-wider">
+                        Studio
+                      </Link>
+                      <Link to="/lab" className="block py-2 text-xs text-white/50 hover:text-white transition-all uppercase tracking-wider">
+                        Lab
+                      </Link>
+                    </div>
+                  </div>
+                  {/* Industrien */}
+                  <div className="col-span-4 p-6 border-r border-white/10">
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-purple-400 mb-4">Industrien</p>
+                    <div className="space-y-1">
+                      <Link to="/leistungen/industrien/awards" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
+                        Awards & Jurys
+                      </Link>
+                      <Link to="/leistungen/industrien/gym-spa" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
+                        Gym & Spa
+                      </Link>
+                      <Link to="/leistungen/industrien/handel-logistik" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
+                        Handel & Logistik
+                      </Link>
+                      <Link to="/leistungen/industrien/mittelstand" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
+                        Mittelstand
+                      </Link>
+                      <Link to="/leistungen/industrien/ecommerce" className="block py-2 text-sm text-white/80 hover:text-white hover:translate-x-1 transition-all">
+                        E-Commerce
+                      </Link>
+                    </div>
+                  </div>
+                  {/* Featured Case */}
+                  <div className="col-span-4 p-6 bg-gradient-to-br from-purple-500/10 to-transparent">
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-purple-400 mb-4">Featured Case</p>
+                    <Link to="/leistungen/pain-points/auswahlverfahren" className="block group/card">
+                      <div className="aspect-[4/3] bg-gradient-to-br from-purple-500/30 to-black border border-purple-500/30 mb-3 flex items-end p-3 group-hover/card:border-purple-400 transition-colors">
+                        <p className="text-[10px] text-purple-200/80" style={{ fontFamily: "Consolas, monospace" }}>
+                          🖼️ BMP Award Mockup
+                        </p>
+                      </div>
+                      <p className="text-sm text-white mb-1">BMP Award — Auswahlverfahren mit KI</p>
+                      <p className="text-xs text-purple-300 group-hover/card:translate-x-1 transition-transform inline-block">
+                        Case lesen →
+                      </p>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -206,47 +264,52 @@ export const MobileNavigation = ({
                     
                   </motion.div>
 
-                  {/* Services Section */}
-                  <motion.div initial={{
-                opacity: 0,
-                x: 50
-              }} animate={{
-                opacity: 1,
-                x: 0
-              }} transition={{
-                delay: 0.12
-              }}>
+                  {/* Leistungen — Pain Points */}
+                  <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.12 }}>
                     <div className={`block py-2 px-3 text-sm font-semibold ${textColor} uppercase tracking-wide`}>
-                      Services
+                      Leistungen — Pain Points
                     </div>
                   </motion.div>
                   <div className="pl-3 space-y-0.5">
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.15
-                }}>
-                      <Link to="/studio" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
-                        Studio
-                      </Link>
-                    </motion.div>
-                    <motion.div initial={{
-                  opacity: 0,
-                  x: 50
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.18
-                }}>
-                      <Link to="/lab" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-yellow-500/10 transition-colors min-h-[44px] flex items-center`}>
-                        Lab
-                      </Link>
-                    </motion.div>
+                    <Link to="/leistungen/pain-points/auswahlverfahren" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
+                      Auswahlverfahren & Awards
+                    </Link>
+                    <Link to="/leistungen/pain-points/kundengewinnung" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
+                      Kundengewinnung & Funnel
+                    </Link>
+                    <Link to="/leistungen/pain-points/compliance" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
+                      Import & Compliance
+                    </Link>
+                    <Link to="/leistungen/pain-points/reporting" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
+                      KPI & Reporting
+                    </Link>
+                    <Link to="/leistungen/pain-points/kundensupport" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} hover:${textColor} hover:bg-purple-500/10 transition-colors min-h-[44px] flex items-center`}>
+                      Kundensupport mit KI
+                    </Link>
+                  </div>
+
+                  {/* Leistungen — Industrien */}
+                  <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.18 }}>
+                    <div className={`block py-2 px-3 text-sm font-semibold ${textColor} uppercase tracking-wide mt-2`}>
+                      Leistungen — Industrien
+                    </div>
+                  </motion.div>
+                  <div className="pl-3 space-y-0.5">
+                    <Link to="/leistungen/industrien/awards" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} min-h-[44px] flex items-center`}>Awards & Jurys</Link>
+                    <Link to="/leistungen/industrien/gym-spa" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} min-h-[44px] flex items-center`}>Gym & Spa</Link>
+                    <Link to="/leistungen/industrien/handel-logistik" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} min-h-[44px] flex items-center`}>Handel & Logistik</Link>
+                    <Link to="/leistungen/industrien/mittelstand" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} min-h-[44px] flex items-center`}>Mittelstand</Link>
+                    <Link to="/leistungen/industrien/ecommerce" onClick={handleLinkClick} className={`block py-2.5 px-3 text-sm ${textColorSecondary} min-h-[44px] flex items-center`}>E-Commerce</Link>
+                  </div>
+
+                  {/* Studio / Lab fallback */}
+                  <div className="pl-3 space-y-0.5 mt-2">
+                    <Link to="/studio" onClick={handleLinkClick} className={`block py-2.5 px-3 text-xs uppercase tracking-wider ${textColorSecondary} min-h-[44px] flex items-center`}>
+                      Studio
+                    </Link>
+                    <Link to="/lab" onClick={handleLinkClick} className={`block py-2.5 px-3 text-xs uppercase tracking-wider ${textColorSecondary} min-h-[44px] flex items-center`}>
+                      Lab
+                    </Link>
                   </div>
 
                   {/* Company Section */}
