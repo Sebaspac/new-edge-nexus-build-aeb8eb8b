@@ -218,6 +218,7 @@ const stepsData = [
 const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
+  const [pinMode, setPinMode] = useState<"before" | "active" | "after">("before");
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -233,8 +234,10 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
         const pinDistance = Math.max(1, rect.height - window.innerHeight);
         const progress = Math.min(1, Math.max(0, -rect.top / pinDistance));
         const nextStep = progress < 0.28 ? 0 : progress < 0.62 ? 1 : 2;
+        const nextMode = rect.top > 0 ? "before" : rect.bottom <= window.innerHeight ? "after" : "active";
 
         setActiveStep((current) => (current === nextStep ? current : nextStep));
+        setPinMode((current) => (current === nextMode ? current : nextMode));
         ticking = false;
       });
     };
