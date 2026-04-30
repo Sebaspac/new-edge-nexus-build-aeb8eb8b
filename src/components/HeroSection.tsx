@@ -165,10 +165,10 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
 
           {/* Social proof */}
           <div
-            className="flex flex-wrap items-center justify-center"
+            className="flex flex-col sm:flex-row flex-wrap items-center justify-center"
             style={{
-              marginTop: "44px",
-              gap: "28px",
+              marginTop: "clamp(28px, 5vh, 44px)",
+              gap: "clamp(12px, 2vh, 28px)",
               fontFamily: SANS,
               fontSize: "14px",
               color: "#a0a0a0",
@@ -182,7 +182,11 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               </span>
               <span>4.9 on Clutch</span>
             </div>
-            <span style={{ color: "#3a3a3a", fontSize: "18px" }}>|</span>
+            <span className="hidden sm:inline" style={{ color: "#3a3a3a", fontSize: "18px" }}>|</span>
+            <div
+              className="sm:hidden"
+              style={{ width: "40px", height: "1px", background: "#3a3a3a" }}
+            />
             <div className="flex items-center" style={{ gap: "8px" }}>
               <span>
                 Trusted by{" "}
@@ -190,7 +194,11 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 companies
               </span>
             </div>
-            <span style={{ color: "#3a3a3a", fontSize: "18px" }}>|</span>
+            <span className="hidden sm:inline" style={{ color: "#3a3a3a", fontSize: "18px" }}>|</span>
+            <div
+              className="sm:hidden"
+              style={{ width: "40px", height: "1px", background: "#3a3a3a" }}
+            />
             <div className="flex items-center" style={{ gap: "8px" }}>
               <span>
                 <strong style={{ color: "#e0e0e0", fontWeight: 700 }}>2 Plätze</strong>{" "}
