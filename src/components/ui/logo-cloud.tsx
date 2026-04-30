@@ -64,20 +64,14 @@ export default function LogoCloud() {
             zIndex: 0,
           }}
         >
-          <defs>
-            <linearGradient id="orb-stroke" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#a855f7" stopOpacity="0.95" />
-              <stop offset="50%" stopColor="#c084fc" stopOpacity="0.95" />
-              <stop offset="100%" stopColor="#a855f7" stopOpacity="0.95" />
-            </linearGradient>
-          </defs>
           <circle
             cx="400"
             cy="400"
-            r="395"
+            r="399"
             fill="none"
-            stroke="url(#orb-stroke)"
-            strokeWidth="1.5"
+            stroke="#a855f7"
+            strokeOpacity="0.45"
+            strokeWidth="0.6"
           />
         </svg>
 
