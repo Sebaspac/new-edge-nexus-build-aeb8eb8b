@@ -146,7 +146,7 @@ export default function LogoCloud() {
           </div>
 
           {/* Spacer below marquee — just enough for lower circle half */}
-          <div style={{ height: "clamp(140px, 16vw, 180px)" }} />
+          <div style={{ height: "clamp(80px, 9vw, 110px)" }} />
         </div>
       </div>
     </section>
