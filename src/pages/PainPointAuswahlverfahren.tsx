@@ -1,4 +1,5 @@
 import { lazy, Suspense, useState, useEffect, useRef, useMemo } from "react";
+import { ScrollLegend } from "@/components/ui/scroll-legend";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -265,6 +266,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
 
   return (
     <div
+      id="cta"
       ref={sectionRef}
       className="relative isolate"
       style={{
@@ -413,6 +415,19 @@ const PainPointAuswahlverfahren = () => {
     { icon: iconInsights, title: "Analysen & Insights", desc: "Aus jedem Zyklus entstehen automatisch Muster und Trends — die den nächsten Prozess verbessern." },
   ];
 
+  const legendItems = [
+    { id: "definition", name: "Definition" },
+    { id: "feature-01", name: "Dokumenten-Erfassung" },
+    { id: "feature-02", name: "Jury-Koordination" },
+    { id: "feature-03", name: "Analysen & Insights" },
+    { id: "integrations", name: "Integrationen" },
+    { id: "comparison", name: "Vergleich" },
+    { id: "features", name: "Kernfunktionen" },
+    { id: "testimonial", name: "Testimonial" },
+    { id: "faq", name: "FAQ" },
+    { id: "cta", name: "Drei Schritte" },
+  ];
+
 
   const faqs = [
     {
@@ -455,6 +470,7 @@ const PainPointAuswahlverfahren = () => {
       </Helmet>
 
       <div className="min-h-screen" style={{ ...MONO, overflowX: "clip" }}>
+        <ScrollLegend items={legendItems} />
 
         {/* ═══════════════════════════════════════════
             HERO — Dark (stays dark)
@@ -547,7 +563,7 @@ const PainPointAuswahlverfahren = () => {
         <div style={{ background: L.bg, color: L.text }}>
 
           {/* DEFINITION */}
-          <section className="pt-16 md:pt-20 pb-0">
+          <section id="definition" className="pt-16 md:pt-20 pb-0">
             <div className="max-w-[800px] mx-auto px-6 lg:px-8">
               <div className="border-l-2 pl-5 py-2" style={{ borderColor: PURPLE }}>
                 <p className="text-[0.7rem] uppercase tracking-[0.12em] mb-2" style={{ color: PURPLE }}>
@@ -568,7 +584,7 @@ const PainPointAuswahlverfahren = () => {
 
           {/* FEATURE 01 */}
           <Reveal>
-            <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div id="feature-01" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <img
                   src={painpointASection3}
@@ -598,7 +614,7 @@ const PainPointAuswahlverfahren = () => {
           </Reveal>
 
           {/* FEATURE 02 (flipped) */}
-          <div style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+           <div id="feature-02" style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
             <Reveal>
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div className="md:order-2">
@@ -633,7 +649,7 @@ const PainPointAuswahlverfahren = () => {
 
           {/* FEATURE 03 */}
           <Reveal>
-            <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div id="feature-03" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <img
                   src={painpointAFeature3}
@@ -663,7 +679,7 @@ const PainPointAuswahlverfahren = () => {
           </Reveal>
 
           {/* INTEGRATIONS */}
-          <div style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+          <div id="integrations" style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
             <Reveal>
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
                 <div className="max-w-[600px]">
@@ -687,7 +703,7 @@ const PainPointAuswahlverfahren = () => {
 
           {/* COMPARISON TABLE */}
           <Reveal>
-            <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
+            <div id="comparison" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
               <div className="max-w-[600px] mb-10">
                 <SectionLabel>Vergleich</SectionLabel>
                 <SectionH2>New Edge vs. manueller Auswahlprozess</SectionH2>
@@ -773,7 +789,7 @@ const PainPointAuswahlverfahren = () => {
           </Reveal>
 
           {/* FEATURE CARDS */}
-          <div style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+          <div id="features" style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
             <Reveal>
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
                 <div className="text-center max-w-[600px] mx-auto mb-12">
@@ -812,7 +828,7 @@ const PainPointAuswahlverfahren = () => {
           </div>
 
           {/* TESTIMONIAL HERO */}
-          <div className="py-20 md:py-24">
+          <div id="testimonial" className="py-20 md:py-24">
             <div className="max-w-[800px] mx-auto px-6 lg:px-8 text-center">
               <div className="text-[4.5rem] leading-[0.6] mb-6 opacity-25" style={{ color: PURPLE, ...SERIF }}>
                 „
@@ -837,7 +853,7 @@ const PainPointAuswahlverfahren = () => {
 
           {/* FAQ */}
           <Reveal>
-            <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
+            <div id="faq" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
               <div className="grid md:grid-cols-[1fr,1.5fr] gap-12 md:gap-16 items-start">
                 <div>
                   <SectionLabel>FAQ</SectionLabel>
