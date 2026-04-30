@@ -304,7 +304,9 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
               {stepsData.map((step, i) => (
                 <div
                   key={i}
-                  ref={(el) => (cardRefs.current[i] = el)}
+                  ref={(el) => {
+                    cardRefs.current[i] = el;
+                  }}
                   data-step-index={i}
                   className="min-h-[280px] p-8 md:p-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
                   style={{
@@ -330,7 +332,6 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
               ))}
             </div>
           </div>
-        </div>
       </div>
     </div>
   );
