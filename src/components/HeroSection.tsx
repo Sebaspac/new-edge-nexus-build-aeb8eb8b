@@ -35,7 +35,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             width: "min(900px, 90vw)",
             height: "min(900px, 90vw)",
             background:
-              "radial-gradient(circle, rgba(168,85,247,0.28) 0%, rgba(168,85,247,0.14) 28%, rgba(126,34,206,0.06) 55%, transparent 75%)",
+              "radial-gradient(circle, rgba(124,58,237,0.28) 0%, rgba(124,58,237,0.14) 28%, rgba(91,33,182,0.06) 55%, transparent 75%)",
             filter: "blur(40px)",
             zIndex: 0,
           }}
@@ -80,7 +80,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               className="block bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  "linear-gradient(90deg, #c084fc 0%, #a855f7 50%, #7e22ce 100%)",
+                  "linear-gradient(90deg, #9b7bd4 0%, #7c3aed 50%, #5b21b6 100%)",
                 fontFamily: SANS,
                 fontWeight: 800,
               }}
