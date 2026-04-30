@@ -33,6 +33,8 @@ const Contact = lazy(() => import("./pages/Contact"));
 const KiAudit = lazy(() => import("./pages/KiAudit"));
 const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const PainPointAuswahlverfahren = lazy(() => import("./pages/PainPointAuswahlverfahren"));
+const LeistungenStub = lazy(() => import("./pages/LeistungenStub"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -78,6 +80,10 @@ const App = () => {
                   <Route path="/kontakt" element={<Contact />} />
                   <Route path="/ki-audit" element={<KiAudit />} />
                   <Route path="/unsubscribe" element={<Unsubscribe />} />
+                  <Route path="/leistungen/pain-points/auswahlverfahren" element={<PainPointAuswahlverfahren />} />
+                  <Route path="/leistungen/pain-points/:slug" element={<LeistungenStub />} />
+                  <Route path="/leistungen/industrien/:slug" element={<LeistungenStub />} />
+                  <Route path="/leistungen" element={<LeistungenStub />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
