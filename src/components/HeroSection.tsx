@@ -80,7 +80,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               className="block bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  "linear-gradient(90deg, #c084fc 0%, #a855f7 50%, #7e22ce 100%)",
+                  "linear-gradient(90deg, #9b7bd4 0%, #7c3aed 50%, #5b21b6 100%)",
                 fontFamily: SANS,
                 fontWeight: 800,
               }}
