@@ -8,6 +8,9 @@ import painpointAVorherNachher from "@/assets/painpoint-a-vorher-nachher.png";
 import painpointASection3 from "@/assets/painpoint-a-section3.png";
 import painpointAFeature2 from "@/assets/painpoint-a-feature2.png";
 import painpointAFeature3 from "@/assets/painpoint-a-feature3.png";
+import iconAnalyse from "@/assets/painpoint-a-icon-analyse.png";
+import iconKoordination from "@/assets/painpoint-a-icon-koordination.png";
+import iconInsights from "@/assets/painpoint-a-icon-insights.png";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -350,9 +353,9 @@ const PainPointAuswahlverfahren = () => {
   ];
 
   const featureCards = [
-    { icon: "🤖", title: "KI Bewerbungsanalyse", desc: "Jede Einreichung wird automatisch analysiert, kategorisiert und für die Jury aufbereitet." },
-    { icon: "⚙️", title: "Automatisierte Jury-Koordination", desc: "Briefings, Reminder, Deadlines — läuft automatisch. Euer Team fokussiert sich auf Entscheidungen." },
-    { icon: "📊", title: "Analysen & Insights", desc: "Aus jedem Zyklus entstehen automatisch Muster und Trends — die den nächsten Prozess verbessern." },
+    { icon: iconAnalyse, title: "KI Bewerbungsanalyse", desc: "Jede Einreichung wird automatisch analysiert, kategorisiert und für die Jury aufbereitet." },
+    { icon: iconKoordination, title: "Automatisierte Jury-Koordination", desc: "Briefings, Reminder, Deadlines — läuft automatisch. Euer Team fokussiert sich auf Entscheidungen." },
+    { icon: iconInsights, title: "Analysen & Insights", desc: "Aus jedem Zyklus entstehen automatisch Muster und Trends — die den nächsten Prozess verbessern." },
   ];
 
   const testimonials = [
