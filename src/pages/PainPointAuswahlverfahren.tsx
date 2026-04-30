@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState, useEffect, useRef, useMemo } from "react";
+import { lazy, Suspense, useState, useEffect, useRef, useMemo, type CSSProperties } from "react";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -247,7 +247,7 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
     };
   }, []);
 
-  const getCardStyle = (index: number): React.CSSProperties => {
+  const getCardStyle = (index: number): CSSProperties => {
     const relativeIndex = index - activeStep;
     const visible = Math.abs(relativeIndex) <= 1;
 
