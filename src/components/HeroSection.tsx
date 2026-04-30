@@ -78,98 +78,118 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           }}
         />
 
-        {/* Layout wrapper: content centered, logos pinned bottom */}
-        <div className="relative z-20 min-h-[100dvh] flex flex-col justify-between px-4 sm:px-6 lg:px-8 pt-[88px] pb-10 sm:pb-12">
-          {/* spacer to balance vertical rhythm */}
-          <div aria-hidden className="hidden md:block" />
-
-          {/* Centered Headline Block */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="w-full max-w-6xl mx-auto text-center space-y-7 sm:space-y-9 md:space-y-10"
-          >
-            {/* Clutch-style Rating */}
-            <div className="flex flex-col items-center gap-2">
-              <div className="flex items-center gap-2">
-                <span className="text-white/90 text-sm sm:text-base font-medium tracking-wide">
-                  Clutch
+        {/* Layout wrapper — content vertically centered, logo cloud peeks at the very bottom */}
+        <div className="relative z-20 min-h-[100dvh] flex flex-col px-4 sm:px-6 lg:px-8 pt-[88px] pb-6">
+          {/* Centered headline block — takes the available space and centers content */}
+          <div className="flex-1 flex items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="w-full max-w-[1200px] mx-auto text-center"
+            >
+              {/* Headline — Dapta-style, two lines, second line with gradient */}
+              <h1
+                className="font-sans font-extrabold tracking-tight text-white"
+                style={{
+                  fontSize: "clamp(2.5rem, 7vw, 6rem)",
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.025em",
+                  fontFamily:
+                    "'Inter', 'Geist', 'Satoshi', ui-sans-serif, system-ui, sans-serif",
+                }}
+              >
+                <span className="block">Dein Unternehmen braucht mehr</span>
+                <span
+                  className="block bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(90deg, #c084fc 0%, #a855f7 50%, #7e22ce 100%)",
+                  }}
+                >
+                  als nur Marketing — Systeme.
                 </span>
-                <div className="flex items-center gap-0.5" aria-label="5 von 5 Sternen">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#a855f7] text-[#a855f7]"
-                    />
-                  ))}
+              </h1>
+
+              {/* Subheadline */}
+              <p
+                className="mt-6 sm:mt-8 mx-auto max-w-2xl text-[#B0B0B0]"
+                style={{
+                  fontSize: "clamp(1rem, 1.4vw, 1.25rem)",
+                  lineHeight: 1.5,
+                  fontFamily:
+                    "'Inter', 'Geist', 'Satoshi', ui-sans-serif, system-ui, sans-serif",
+                }}
+              >
+                Wir entwickeln KI- und Softwaresysteme, die Marke,
+                <br className="hidden sm:block" />
+                Struktur und Wachstum für den Mittelstand verbinden.
+              </p>
+
+              {/* CTA Buttons — pill-shaped */}
+              <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+                <button
+                  onClick={onContactClick}
+                  className="group inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 bg-[#a855f7] text-white font-bold hover:bg-[#9333ea] transition-all duration-300 text-base sm:text-lg w-full sm:w-auto rounded-full"
+                  style={{
+                    fontFamily:
+                      "'Inter', 'Geist', 'Satoshi', ui-sans-serif, system-ui, sans-serif",
+                  }}
+                >
+                  Start for free
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <Link
+                  to="/case-studies"
+                  className="inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 bg-transparent text-white font-bold border border-[#a855f7] hover:bg-[#a855f7]/10 transition-all duration-300 text-base sm:text-lg w-full sm:w-auto rounded-full"
+                  style={{
+                    fontFamily:
+                      "'Inter', 'Geist', 'Satoshi', ui-sans-serif, system-ui, sans-serif",
+                  }}
+                >
+                  Book a Demo
+                </Link>
+              </div>
+
+              {/* Social Proof bar */}
+              <div
+                className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 text-white/90"
+                style={{
+                  fontFamily:
+                    "'Inter', 'Geist', 'Satoshi', ui-sans-serif, system-ui, sans-serif",
+                }}
+              >
+                <div className="flex items-center gap-2 sm:px-6 text-sm sm:text-[15px]">
+                  <div className="flex items-center gap-0.5" aria-label="5 von 5 Sternen">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-4 h-4 fill-[#a855f7] text-[#a855f7]"
+                      />
+                    ))}
+                  </div>
+                  <span>4.9 on Clutch</span>
+                </div>
+                <span className="hidden sm:block h-4 w-px bg-white/20" aria-hidden />
+                <div className="sm:px-6 text-sm sm:text-[15px]">
+                  Trusted by{" "}
+                  <span className="font-bold text-[#a855f7]">50+</span> companies
+                </div>
+                <span className="hidden sm:block h-4 w-px bg-white/20" aria-hidden />
+                <div className="sm:px-6 text-sm sm:text-[15px]">
+                  <span className="font-bold text-[#a855f7]">2 Plätze</span> für Q2
+                  verfügbar
                 </div>
               </div>
-              <p className="text-xs sm:text-sm text-white/60">
-                4.9 Bewertung von 50+ zufriedenen Kunden
-              </p>
-            </div>
+            </motion.div>
+          </div>
 
-            {/* Headline - large like reference */}
-            <h1
-              className="text-white tracking-tight"
-              style={{
-                fontSize: "clamp(2.25rem, 5.5vw, 5.5rem)",
-                lineHeight: 1.05,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              Dein Unternehmen braucht mehr
-              <br className="hidden sm:block" />
-              <span className="sm:hidden"> </span>
-              als nur Marketing — es braucht{" "}
-              <span className="text-[#a855f7]">Systeme.</span>
-            </h1>
-
-            {/* Subheadline */}
-            <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-[1.55]">
-              Wir entwickeln KI- und Softwaresysteme, die Marke, Struktur und Wachstum
-              verbinden.
-              <br className="hidden sm:block" />
-              Klare Prozesse, messbare Ergebnisse — in 4 bis 10 Wochen umgesetzt.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-2">
-              <button
-                onClick={onContactClick}
-                className="group inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-4 sm:py-5 min-w-[220px] bg-[#a855f7] text-white font-semibold hover:bg-[#9333ea] transition-all duration-300 text-base sm:text-lg w-full sm:w-auto hover:-translate-y-0.5 rounded-none"
-              >
-                Kostenlose KI-Analyse
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <Link
-                to="/case-studies"
-                className="inline-flex items-center justify-center px-7 sm:px-9 py-4 sm:py-5 min-w-[220px] bg-transparent text-white font-semibold border-2 border-white/40 hover:bg-white/10 hover:border-white/70 transition-all duration-300 text-base sm:text-lg w-full sm:w-auto rounded-none"
-              >
-                Case Studies ansehen
-              </Link>
-            </div>
-
-            {/* Spots Available Indicator - directly under CTAs */}
-            <div className="flex items-center justify-center gap-2 pt-1">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#a855f7] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#a855f7]"></span>
-              </span>
-              <span className="text-xs sm:text-sm text-white/70 font-medium">
-                Aktuell 2 Plätze für Q2 verfügbar
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Logo Cloud — integrated in hero on dark bg */}
-          <div className="w-full mt-12 sm:mt-16">
-            <p className="text-center text-white/50 font-medium mb-5 sm:mb-6 text-xs sm:text-sm uppercase tracking-[0.2em]">
+          {/* Logo Cloud — peeks at the bottom edge so the user senses there's more below */}
+          <div className="w-full">
+            <p className="text-center text-white/50 font-medium mb-4 text-xs uppercase tracking-[0.2em]">
               Vertraut von führenden Unternehmen
             </p>
             <div className="relative w-full overflow-hidden">
-              {/* Fade overlays against black */}
               <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 md:w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
               <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 md:w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
 
@@ -177,13 +197,13 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 {duplicatedLogos.map((logo, index) => (
                   <div
                     key={`hero-logo-${index}`}
-                    className="flex-shrink-0 flex items-center justify-center h-8 sm:h-10 md:h-12 px-4 sm:px-6 md:px-8"
+                    className="flex-shrink-0 flex items-center justify-center h-7 sm:h-9 md:h-10 px-4 sm:px-6 md:px-8"
                   >
                     <img
                       src={logo.src}
                       alt={logo.alt}
                       loading="lazy"
-                      className="h-full w-auto object-contain max-w-[110px] sm:max-w-[140px] md:max-w-[170px] brightness-0 invert opacity-50 hover:opacity-90 transition-opacity duration-300"
+                      className="h-full w-auto object-contain max-w-[100px] sm:max-w-[130px] md:max-w-[160px] brightness-0 invert opacity-50 hover:opacity-90 transition-opacity duration-300"
                     />
                   </div>
                 ))}
