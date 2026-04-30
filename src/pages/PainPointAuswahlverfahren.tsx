@@ -361,66 +361,106 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
     return (
       <div
         id="cta"
-        className="px-6 py-16"
+        ref={sectionRef}
+        className="relative"
         style={{
+          height: "280dvh",
           background: `linear-gradient(135deg, ${PURPLE_DARK} 0%, ${PURPLE} 50%, #c084fc 100%)`,
         }}
       >
-        {/* Headline */}
-        <h2
-          className="text-[2.4rem] leading-[0.94] mb-6 uppercase"
-          style={{ ...SERIF, letterSpacing: "0", color: "#ffffff" }}
+        <div
+          className="sticky top-0 h-[100dvh] overflow-hidden flex flex-col justify-center px-6"
         >
-          Drei<br />Schritte<br />zum Erfolg
-        </h2>
-
-        {/* CTA Button */}
-        <Link to="/kontakt">
-          <button
-            className="inline-flex w-fit items-center gap-2 px-5 py-2.5 text-[0.8rem] font-medium transition-all hover:opacity-90 mb-6"
-            style={{ background: "#ffffff", color: PURPLE_DARK, ...MONO, border: "none" }}
+          {/* Headline */}
+          <h2
+            className="text-[2.4rem] leading-[0.94] mb-4 uppercase"
+            style={{ ...SERIF, letterSpacing: "0", color: "#ffffff" }}
           >
-            Erstgespräch vereinbaren
-          </button>
-        </Link>
+            Drei<br />Schritte<br />zum Erfolg
+          </h2>
 
-        {/* Founder info */}
-        <div className="flex items-center gap-3 mb-10">
-          <img
-            src={foundersImg}
-            alt="Sebastian Pachon — Gründer New Edge"
-            className="w-12 h-12 object-cover object-[25%_20%]"
-            style={{ borderRadius: "50%" }}
-          />
-          <div>
-            <p className="text-sm font-bold uppercase tracking-wide text-white" style={MONO}>
-              Mit Sebastian Pachon
-            </p>
-            <p className="text-xs text-white/70" style={MONO}>
-              Gründer und Geschäftsführer New Edge
-            </p>
+          {/* CTA Button */}
+          <Link to="/kontakt">
+            <button
+              className="inline-flex w-fit items-center gap-2 px-5 py-2.5 text-[0.8rem] font-medium transition-all hover:opacity-90 mb-4"
+              style={{ background: "#ffffff", color: PURPLE_DARK, ...MONO, border: "none" }}
+            >
+              Erstgespräch vereinbaren
+            </button>
+          </Link>
+
+          {/* Founder info */}
+          <div className="flex items-center gap-3 mb-6">
+            <img
+              src={foundersImg}
+              alt="Sebastian Pachon — Gründer New Edge"
+              className="w-10 h-10 object-cover object-[25%_20%]"
+              style={{ borderRadius: "50%" }}
+            />
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-white" style={MONO}>
+                Mit Sebastian Pachon
+              </p>
+              <p className="text-[0.65rem] text-white/70" style={MONO}>
+                Gründer und Geschäftsführer New Edge
+              </p>
+            </div>
+          </div>
+
+          {/* Card area */}
+          <div className="relative" style={{ minHeight: 200 }}>
+            {stepsData.map((card, i) => {
+              const isActive = activeStep === i;
+              return (
+                <div
+                  key={card.title}
+                  className="absolute inset-x-0 top-0 p-5 flex flex-col will-change-transform"
+                  style={{
+                    background: "rgba(255,255,255,0.98)",
+                    opacity: isActive ? 1 : 0,
+                    transform: `translateY(${isActive ? "0" : i < activeStep ? "-20px" : "20px"}) scale(${isActive ? 1 : 0.95})`,
+                    transition: "opacity 450ms cubic-bezier(0.22,1,0.36,1), transform 450ms cubic-bezier(0.22,1,0.36,1)",
+                    pointerEvents: isActive ? "auto" : "none",
+                    boxShadow: "0 16px 50px rgba(0,0,0,0.18)",
+                  }}
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-2xl">{card.icon}</span>
+                    <span
+                      className="text-[0.75rem] font-bold uppercase tracking-widest"
+                      style={{ ...MONO, color: PURPLE }}
+                    >
+                      Schritt {i + 1}
+                    </span>
+                  </div>
+                  <h3
+                    className="text-[1rem] font-bold mb-2"
+                    style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+                  >
+                    {card.title}
+                  </h3>
+                  <p className="text-[0.82rem] leading-[1.6]" style={{ color: L.textMuted, ...MONO }}>
+                    {card.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Progress dots */}
+          <div className="flex justify-center gap-2 mt-auto mb-8">
+            {stepsData.map((_, i) => (
+              <span
+                key={i}
+                className="block h-2 transition-all duration-500"
+                style={{
+                  background: activeStep === i ? "#ffffff" : "rgba(255,255,255,0.3)",
+                  width: activeStep === i ? "28px" : "10px",
+                }}
+              />
+            ))}
           </div>
         </div>
-
-        {/* 3 Steps horizontal */}
-        <div className="flex gap-2 mb-10">
-          {stepsData.map((step, i) => (
-            <div
-              key={step.title}
-              className="flex-1 p-2.5"
-              style={{
-                background: "rgba(255,255,255,0.12)",
-                border: "1px solid rgba(255,255,255,0.3)",
-              }}
-            >
-              <span className="text-xs font-bold text-white block mb-1" style={MONO}>0{i + 1}</span>
-              <p className="text-[0.65rem] font-bold text-white leading-tight" style={MONO}>{step.title}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Cycling card — one at a time */}
-        <MobileCyclingCards stepsData={stepsData} />
       </div>
     );
   }
