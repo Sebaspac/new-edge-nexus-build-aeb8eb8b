@@ -223,11 +223,13 @@ const stepsData = [
 const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
   const isMobile = useIsMobile();
   const [activeStep, setActiveStep] = useState(0);
+  const [mobileStep, setMobileStep] = useState(0);
   const [pinMode, setPinMode] = useState<"before" | "fixed" | "after">("before");
   const sectionRef = useRef<HTMLDivElement>(null);
 
+  // Desktop scroll-pin logic
   useEffect(() => {
-    // scroll-pin logic runs on both mobile and desktop
+    if (isMobile) return;
     const section = sectionRef.current;
     if (!section) return;
 
@@ -258,37 +260,34 @@ const ThreeStepsCTA = ({ onContact }: { onContact: () => void }) => {
     };
   }, [isMobile]);
 
-  /* ── MOBILE LAYOUT ── */
-  if (isMobile) {
-    const mobileRef = useRef<HTMLDivElement>(null);
-    const [mobileStep, setMobileStep] = useState(0);
+  // Mobile auto-cycle logic
+  useEffect(() => {
+    if (!isMobile) return;
+    const el = sectionRef.current;
+    if (!el) return;
+    let running = false;
+    let timer: ReturnType<typeof setInterval>;
 
-    useEffect(() => {
-      const el = mobileRef.current;
-      if (!el) return;
-      let running = false;
-      let timer: ReturnType<typeof setInterval>;
-
-      const obs = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting && !running) {
-            running = true;
-            setMobileStep(0);
-            let step = 0;
-            timer = setInterval(() => {
-              step = (step + 1) % 3;
-              setMobileStep(step);
-            }, 2800);
-          } else if (!entry.isIntersecting && running) {
-            running = false;
-            clearInterval(timer);
-          }
-        },
-        { threshold: 0.3 }
-      );
-      obs.observe(el);
-      return () => { obs.disconnect(); clearInterval(timer); };
-    }, []);
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !running) {
+          running = true;
+          setMobileStep(0);
+          let step = 0;
+          timer = setInterval(() => {
+            step = (step + 1) % 3;
+            setMobileStep(step);
+          }, 2800);
+        } else if (!entry.isIntersecting && running) {
+          running = false;
+          clearInterval(timer);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    obs.observe(el);
+    return () => { obs.disconnect(); clearInterval(timer); };
+  }, [isMobile]);
 
     return (
       <div
