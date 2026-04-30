@@ -927,6 +927,9 @@ const PainPointAuswahlverfahren = () => {
           </div>
         </div>
 
+        </div>
+        {/* ──────────── /LIGHT THEME SCOPE ──────────── */}
+
         <Suspense fallback={<div className="min-h-[200px]" />}>
           <Footer />
         </Suspense>
