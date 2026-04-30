@@ -24,7 +24,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
 
       <section
         id="hero"
-        className="relative w-full overflow-hidden flex items-center justify-center"
+        className="relative w-full overflow-hidden flex items-start sm:items-center justify-center"
         style={{ backgroundColor: "#0a0a0a", minHeight: "100dvh" }}
       >
         {/* Soft purple glow behind the headline */}
