@@ -1,23 +1,17 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Star } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LazySplineScene } from "./LazySplineScene";
 import CyberneticGridShader from "./ui/cybernetic-grid-shader";
+
 interface HeroSectionProps {
   onContactClick: () => void;
 }
+
 export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
   const { t } = useLanguage();
-  const scrollToNext = () => {
-    const nextSection = document.querySelector(".innovation-section");
-    if (nextSection) {
-      nextSection.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
-  };
+
   return (
     <>
       {/* Skip Link for Keyboard Navigation */}
@@ -28,100 +22,110 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
         Skip to main content
       </a>
       <section
-        className="relative w-full min-h-[100dvh] bg-black"
+        className="relative w-full min-h-[100dvh] bg-black overflow-hidden"
         id="hero"
-        style={{
-          backgroundColor: "#000000",
-        }}
+        style={{ backgroundColor: "#000000" }}
       >
-        <div className="w-full min-h-[100dvh] grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden z-10 bg-black">
+        {/* Background Shader */}
+        <div className="absolute inset-0 z-0">
           <CyberneticGridShader />
+        </div>
 
-          {/* Left Side - CTA Content */}
-          <div className="relative flex items-center justify-center lg:items-center lg:justify-start z-20 pt-[72px] lg:pt-[80px]">
-            <div className="w-full px-6 sm:px-8 md:px-12 lg:pl-[calc((100vw-1200px)/2+32px)] xl:pl-[calc((100vw-1200px)/2+32px)] lg:pr-4 lg:max-w-none text-center lg:text-left">
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  duration: 0.8,
-                }}
-                className="block space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-4"
-              >
-                {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 border border-white/20 bg-white/5 backdrop-blur-sm">
-                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-violet-500" aria-hidden="true"></span>
-                  <span className="text-[10px] sm:text-xs font-medium tracking-widest text-white/80 uppercase">
-                    Von der Marke zum System
-                  </span>
+        {/* Optional 3D Spline Scene as ambient background */}
+        <div className="absolute inset-0 z-[1] opacity-40 pointer-events-none">
+          <LazySplineScene
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            className="w-full h-full"
+            threshold={0.25}
+            rootMargin="50px"
+          />
+        </div>
+
+        {/* Centered Content */}
+        <div className="relative z-20 min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-[88px] pb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full max-w-5xl mx-auto text-center space-y-6 sm:space-y-8"
+          >
+            {/* Clutch-style Rating */}
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex items-center gap-2">
+                <span className="text-white/90 text-sm sm:text-base font-medium tracking-wide">
+                  Clutch
+                </span>
+                <div className="flex items-center gap-0.5" aria-label="5 von 5 Sternen">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#7C3AED] text-[#7C3AED]"
+                    />
+                  ))}
                 </div>
-
-                {/* Headline */}
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight uppercase">
-                  <span className="text-white">Unternehmen brauchen mehr</span>
-                  <br />
-                  <span className="text-white">als nur </span>
-                  <span className="text-[#7C3AED]">Marketing.</span>
-                </h1>
-
-                {/* Subheadline */}
-                <h2 className="text-xs sm:text-sm md:text-base text-neutral-400 max-w-lg mx-auto lg:mx-0 font-normal">
-                  KI wird erst dann wirksam, wenn Marke, Struktur und Systeme zusammenspielen. Genau deshalb denkt New
-                  Edge KI nicht als Tool, sondern als Folge einer klaren unternehmerischen Grundlage.
-                </h2>
-
-                {/* Trust Indicators */}
-                <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 border border-white/15 bg-white/5 backdrop-blur-sm text-[10px] sm:text-xs font-medium tracking-wide text-white/70 uppercase">
-                    Förderbar bis 80% über BAFA
-                  </span>
-
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 border border-white/15 bg-white/5 backdrop-blur-sm text-[10px] sm:text-xs font-medium tracking-wide text-white/70 uppercase">
-                    Umsetzung in 4–10 Wochen
-                  </span>
-                </div>
-
-                {/* Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center lg:justify-start items-center lg:items-start">
-                  <button
-                    onClick={onContactClick}
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm w-full sm:w-auto hover:-translate-y-0.5 rounded-none"
-                  >
-                    Kostenlose KI-Analyse
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                  <Link
-                    to="/about"
-                    className="inline-flex items-center justify-center px-6 py-3 bg-transparent text-white font-semibold border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm w-full sm:w-auto rounded-none"
-                  >
-                    Über Uns
-                  </Link>
-                </div>
-              </motion.div>
+              </div>
+              <p className="text-xs sm:text-sm text-white/60">
+                4.9 Bewertung von 50+ zufriedenen Kunden
+              </p>
             </div>
-          </div>
 
-          {/* Right Side - 3D Spline Scene */}
-          <div className="absolute inset-0 lg:relative overflow-hidden z-10 lg:z-20">
-            <LazySplineScene
-              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-              className="w-full h-full"
-              threshold={0.25}
-              rootMargin="50px"
-            />
-          </div>
+            {/* Headline */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.95] tracking-tight text-white">
+              Dein Unternehmen braucht mehr
+              <br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
+              als nur Marketing — es braucht{" "}
+              <span className="text-[#7C3AED]">Systeme.</span>
+            </h1>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30">
-            <span className="text-xs font-medium tracking-widest text-white/50 uppercase">Scroll</span>
-            <ChevronDown className="w-5 h-5 text-white/50 animate-bounce" />
-          </div>
+            {/* Subheadline */}
+            <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+              Wir entwickeln KI- und Softwaresysteme, die Marke, Struktur und Wachstum verbinden.
+              <br className="hidden sm:block" />
+              Klare Prozesse, messbare Ergebnisse — in 4 bis 10 Wochen umgesetzt.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-2">
+              <button
+                onClick={onContactClick}
+                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 bg-[#7C3AED] text-white font-semibold hover:bg-[#6D28D9] transition-all duration-300 text-sm sm:text-base w-full sm:w-auto hover:-translate-y-0.5 rounded-none"
+              >
+                Kostenlose KI-Analyse
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <Link
+                to="/case-studies"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 bg-transparent text-white font-semibold border-2 border-white/40 hover:bg-white/10 hover:border-white/70 transition-all duration-300 text-sm sm:text-base w-full sm:w-auto rounded-none"
+              >
+                Case Studies ansehen
+              </Link>
+            </div>
+
+            {/* Spots Available Indicator */}
+            <div className="flex items-center justify-center gap-2 pt-2">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7C3AED] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#7C3AED]"></span>
+              </span>
+              <span className="text-xs sm:text-sm text-white/70 font-medium">
+                Aktuell 2 Plätze für Q2 verfügbar
+              </span>
+            </div>
+
+            {/* Trust Line */}
+            <div className="pt-6 sm:pt-8">
+              <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-white/40 font-medium">
+                Vertraut von 50+ Unternehmen im DACH-Raum
+              </p>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30">
+          <span className="text-xs font-medium tracking-widest text-white/50 uppercase">Scroll</span>
+          <ChevronDown className="w-5 h-5 text-white/50 animate-bounce" />
         </div>
       </section>
     </>
