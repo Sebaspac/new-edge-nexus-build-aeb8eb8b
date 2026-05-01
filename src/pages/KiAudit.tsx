@@ -5,6 +5,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { Footer } from "@/components/Footer";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import SEOHead from "@/components/SEOHead";
+import { ThreeStepsCTA } from "@/components/ThreeStepsCTA";
 import LogoCloud from "@/components/ui/logo-cloud";
 import KiAuditGate from "@/components/KiAuditGate";
 import { safeSessionStorage, safeGetItem } from "@/utils/safeStorage";
