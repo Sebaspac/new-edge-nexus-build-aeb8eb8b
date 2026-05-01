@@ -198,11 +198,11 @@ const Index = () => {
         {/* Mobile Navigation */}
         <MobileNavigation onContactClick={() => setIsContactSheetOpen(true)} theme="dark" />
 
-        {/* Hero Section */}
-        <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
-
-        {/* Logo Cloud directly under hero */}
-        <LogoCloud />
+        {/* Hero + LogoCloud as one unified dark section */}
+        <div className="relative" style={{ background: "linear-gradient(135deg, #1a0533 0%, #0a0a0a 50%, #0d0a1a 100%)" }}>
+          <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
+          <LogoCloud />
+        </div>
 
         {/* Methodology Grid Section */}
         <div className="bg-surface">
