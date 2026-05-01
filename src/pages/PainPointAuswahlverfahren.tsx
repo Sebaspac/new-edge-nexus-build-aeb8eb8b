@@ -865,6 +865,7 @@ const PainPointAuswahlverfahren = () => {
                       { id: "ms365", description: "Microsoft 365", image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Microsoft_365_%282022%29.svg", className: "h-8 w-auto" },
                     ]}
                   />
+                  </div>
                   <img
                     src={integrationsLogos}
                     alt="Integrationen: Microsoft Teams, SharePoint, Outlook, HubSpot, Zapier, Make, Notion, Google Workspace, Microsoft 365"
