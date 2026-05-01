@@ -610,7 +610,7 @@ const PainPointAuswahlverfahren = () => {
                     className="mb-8"
                     logos={[
                       { id: "ms-teams", description: "Microsoft Teams", image: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg", className: "h-8 w-auto" },
-                      { id: "sharepoint", description: "SharePoint", image: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg", className: "h-8 w-auto" },
+                      { id: "sharepoint", description: "SharePoint", image: "/sharepoint.png", className: "h-8 w-auto" },
                       { id: "outlook", description: "Outlook", image: "/outlook.png", className: "h-8 w-auto" },
                       { id: "hubspot", description: "HubSpot", image: "https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg", className: "h-8 w-auto" },
                       { id: "zapier", description: "Zapier", image: "https://www.vectorlogo.zone/logos/zapier/zapier-icon.svg", className: "h-8 w-auto" },
