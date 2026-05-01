@@ -387,9 +387,7 @@ const PainPointAuswahlverfahren = () => {
               />
             </motion.div>
           </div>
-          <div className="relative z-10">
-            <MobileNavigation onContactClick={() => setContactOpen(true)} theme="dark" />
-          </div>
+          <MobileNavigation onContactClick={() => setContactOpen(true)} theme="dark" />
 
           <div className="flex-1 flex items-center relative z-10">
             <div className="max-w-[1200px] w-full mx-auto px-6 lg:px-8 pt-24 md:pt-20 pb-4 grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
