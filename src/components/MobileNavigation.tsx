@@ -27,10 +27,10 @@ const filterButtons: { key: CategoryFilter; label: string }[] = [
 
 const painPoints = [
   { to: "/loesungen/auswahlverfahren-automatisieren", label: "Auswahlverfahren & Awards", icon: Award },
-  { to: "/leistungen/pain-points/kundengewinnung", label: "Kundengewinnung & Funnel", icon: TrendingUp },
-  { to: "/leistungen/pain-points/compliance", label: "Import / Export & Compliance", icon: ShieldCheck },
-  { to: "/leistungen/pain-points/reporting", label: "KPI-Transparenz & Reporting", icon: BarChart3 },
-  { to: "/leistungen/pain-points/kundensupport", label: "Kundensupport mit KI", icon: Headphones },
+  { to: "/loesungen/kundengewinnung-automatisieren", label: "Kundengewinnung & Funnel", icon: TrendingUp },
+  { to: "/loesungen/compliance-automatisierung", label: "Import / Export & Compliance", icon: ShieldCheck },
+  { to: "/loesungen/kpi-dashboard-echtzeit", label: "KPI-Transparenz & Reporting", icon: BarChart3 },
+  { to: "/loesungen/ki-kundensupport", label: "Kundensupport mit KI", icon: Headphones },
 ];
 
 const industrien = [
