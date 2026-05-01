@@ -1,25 +1,31 @@
-## Plan
+## Plan: Logo-Trimming für einheitliche Größen
 
-### Was sich ändert
+### Problem
+Die Logo-Dateien haben extrem unterschiedlichen Whitespace:
+- Neue PNGs: 1-2% Whitespace → erscheinen groß
+- Alte WebPs: 58-94% Whitespace → erscheinen winzig (z.B. Hyde Official hat 94% leeren Raum!)
 
-**Nur die Marquee-Logos und die neuen Imports** — der Kreis (SVG, Größe, Glow) bleibt exakt wie er ist.
+### Lösung
+**Alle Logo-Bilder automatisch trimmen** — den transparenten Rand abschneiden, sodass nur der eigentliche Logo-Inhalt übrig bleibt. Dann rendern alle bei `height: 56px` gleichmäßig groß.
 
-### Änderungen in `src/components/ui/logo-cloud.tsx`
+### Betroffene Dateien
+Per Python-Skript automatisch trimmen:
+- `sadie-kessler.webp` (79% whitespace)
+- `circle-photo.webp` (58%)
+- `hyde-official.webp` (94%)
+- `darius-company.webp` (84%)
+- `muse-studio.webp` (89%)
+- `dr-aaron-loeb.webp` (76%)
+- `pure-design.webp` (90%)
+- `seabreeze.webp` (67%)
+- `dr-linda-fischer.png` (1% — minimal)
+- `elite-aesthetic.png` (2% — minimal)
+- `meyer-henrich.png` (1% — minimal)
+- `bayerischer-mittelstandspreis-2026.png` (1%)
 
-1. **3 neue Logos importieren und zum Array hinzufügen:**
-   - `dr-linda-fischer.png` → "Dr. Linda Fischer"
-   - `elite-aesthetic.png` → "Elite Aesthetic"  
-   - `meyer-henrich.png` → "Meyer & Henrich"
-
-2. **Logo-Größe erhöhen** (nur im Marquee-Strip):
-   - Container-Höhe: `44px` → `56px`
-   - Bild-Höhe: `44px` → `56px`
-   - Max-Width: `160px` → `180px`
-   - Marquee-Padding: `10px 0` → `16px 0` (damit der Strip die Logos nicht abschneidet)
-
-3. **Weiße Hintergründe entfernen** aus den 3 neuen PNG-Logos (per Python-Skript, wie bei den anderen Logos zuvor).
+Plus kleinen Padding-Rand (8px) nach dem Trim hinzufügen, damit die Logos nicht direkt an der Kante kleben.
 
 ### Was NICHT geändert wird
-- Kreis-SVG (Größe, Position, Glow, Farben)
-- Overflow-Container (Höhe, Cropping links/rechts)
-- Heading und vertikale Linie
+- Kreis (SVG, Größe, Glow) — bleibt exakt
+- Logo-Cloud Komponent-Logik — bleibt
+- Höhe/maxWidth der Logos im Code — bleibt bei 56px/180px
