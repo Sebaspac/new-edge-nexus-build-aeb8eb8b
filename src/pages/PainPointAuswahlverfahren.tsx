@@ -536,27 +536,17 @@ const PainPointAuswahlverfahren = () => {
               <div>
                 <img
                   src={painpointAFeature3}
-                  alt="Einzelscore mit Kategorien-Bewertung und Heatmap zur Bias-Analyse über Jurys und Kategorien"
+                  alt={content.feature3.imageAlt}
                   loading="lazy"
                   className="w-full h-auto max-w-[500px] mx-auto"
                 />
               </div>
               <div>
                 <SectionLabel>Feature 03</SectionLabel>
-                <SectionH2>Erkenntnisse die niemand explizit angefragt hat</SectionH2>
-                <SectionSub>
-                  Das eigentliche Gold liegt in den Daten. Welche Jury-Mitglieder bewerten systematisch zu hart? Welche
-                  Merkmale korrelieren mit späterem Projekterfolg? New Edge generiert diese Analysen automatisch aus
-                  jedem abgeschlossenen Zyklus — der Award wird zur strategischen Forschungsplattform.
-                </SectionSub>
-                <BulletList
-                  items={[
-                    "Jury-Bias-Erkennung — systematische Muster werden sichtbar",
-                    "Bewerber-Clustering — strukturelle Ähnlichkeiten sichtbar machen",
-                    "Markt-Insights — Trendanalysen über Zyklen hinweg",
-                  ]}
-                />
-                <FeatureCTA>Analyse-Demo ansehen</FeatureCTA>
+                <SectionH2>{content.feature3.h2}</SectionH2>
+                <SectionSub>{content.feature3.sub}</SectionSub>
+                <BulletList items={[...content.feature3.bullets]} />
+                <FeatureCTA>{content.feature3.cta}</FeatureCTA>
               </div>
             </div>
           </Reveal>
