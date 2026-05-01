@@ -749,12 +749,11 @@ const PainPointAuswahlverfahren = () => {
                 className="text-[clamp(1.15rem,2.4vw,1.5rem)] font-semibold leading-[1.5] mb-8"
                 style={{ ...SERIF, letterSpacing: "-0.02em", color: L.text }}
               >
-                New Edge hat unseren gesamten Auswahlprozess transformiert. Was früher 60.000€ und drei Monate Aufwand
-                war, läuft jetzt automatisch — und die Qualität unserer Entscheidungen ist nachweislich besser.
+                {content.testimonialHero.quote}
               </p>
               <div className="flex items-center justify-center gap-2.5 text-[0.85rem]" style={{ color: L.textLight }}>
                 <span className="block h-px w-10" style={{ background: L.border }} />
-                BMP Award — Projektleitung
+                {content.testimonialHero.author}
                 <span className="block h-px w-10" style={{ background: L.border }} />
               </div>
             </div>
