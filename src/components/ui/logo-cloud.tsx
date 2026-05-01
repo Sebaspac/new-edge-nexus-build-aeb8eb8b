@@ -143,11 +143,13 @@ export default function LogoCloud() {
             className="flex animate-marquee hover:[animation-play-state:paused]"
             style={{ width: "max-content", gap: "48px", alignItems: "center" }}
           >
-            {duplicatedLogos.map((logo, index) => (
+            {duplicatedLogos.map((logo, index) => {
+              const h = (logo as any).height || 56;
+              return (
               <div
                 key={`logo-${index}`}
                 className="flex-shrink-0 flex items-center justify-center"
-                style={{ height: "56px" }}
+                style={{ height: `${h}px` }}
               >
                 <img
                   src={logo.src}
@@ -155,9 +157,9 @@ export default function LogoCloud() {
                   loading="lazy"
                   className="object-contain brightness-0 invert"
                   style={{
-                    height: "56px",
+                    height: `${h}px`,
                     width: "auto",
-                    maxWidth: "180px",
+                    maxWidth: "220px",
                     opacity: 0.85,
                   }}
                 />
