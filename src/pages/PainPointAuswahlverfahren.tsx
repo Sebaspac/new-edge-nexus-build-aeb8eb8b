@@ -706,7 +706,7 @@ const PainPointAuswahlverfahren = () => {
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
                 <div className="text-center max-w-[600px] mx-auto mb-12">
                   <SectionLabel>Kernfunktionen</SectionLabel>
-                  <SectionH2 className="!mb-0">KI die qualifiziert, koordiniert und entscheidet.</SectionH2>
+                  <SectionH2 className="!mb-0">{content.featureCards.h2}</SectionH2>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-6">
