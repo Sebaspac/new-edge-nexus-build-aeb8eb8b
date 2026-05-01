@@ -4,11 +4,13 @@ import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Plus, Check } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import { MobileNavigation } from "@/components/MobileNavigation";
+import { painPoints, DEFAULT_PAIN_POINT } from "@/content/painPoints";
+// Default-Bildplatzhalter (werden später pro Slug ersetzt — siehe content.*.imageNote)
 import painpointAVorherNachher from "@/assets/painpoint-a-vorher-nachher.png";
 import painpointASection3 from "@/assets/painpoint-a-section3.png";
 import painpointAFeature2 from "@/assets/painpoint-a-feature2.png";
