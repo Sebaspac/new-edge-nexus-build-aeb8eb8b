@@ -358,30 +358,7 @@ const KiAudit = () => {
       {/* ═══════════════════════════════════════════════
                                              6 — FINAL CTA
                                         ═══════════════════════════════════════════════ */}
-      <section className="bg-foreground text-primary-foreground py-16 md:py-32">
-        <div className="container mx-auto px-5 sm:px-8 lg:px-12 max-w-3xl text-center">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>
-            <h2 className="text-2xl sm:text-display-lg mb-4 sm:mb-6">Bereit für das KI-alter?</h2>
-            <p className="text-sm sm:text-body-lg text-primary-foreground/60 mb-8 sm:mb-10 max-w-xl mx-auto">
-              Kein Verkaufsgespräch. 30 Minuten. Wir hören zu.
-            </p>
-
-            <a
-              href="https://calendly.com/wenjamin-z-newedgebrand/30min?month=2026-03"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-primary-foreground text-foreground font-semibold border-2 border-primary-foreground hover:bg-transparent hover:text-primary-foreground transition-all duration-300 group text-xs sm:text-sm uppercase tracking-wider rounded-none">
-              
-              Jetzt Erstgespräch buchen
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-
-            <p className="text-[10px] sm:text-xs text-primary-foreground/30 mt-4 sm:mt-6">
-              Kostenlos & unverbindlich · 30 Minuten
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <ThreeStepsCTA />
 
       <Footer />
 
