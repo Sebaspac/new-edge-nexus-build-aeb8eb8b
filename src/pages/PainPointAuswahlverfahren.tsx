@@ -643,36 +643,87 @@ const PainPointAuswahlverfahren = () => {
         >
           {/* Geometric background shapes */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 50% at 18% 35%, rgba(124,58,237,0.15) 0%, transparent 60%)" }} />
-            <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 40% at 85% 70%, rgba(139,92,246,0.08) 0%, transparent 50%)" }} />
+            <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 50% at 18% 35%, rgba(124,58,237,0.18) 0%, transparent 60%)" }} />
+            <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 40% at 85% 70%, rgba(139,92,246,0.10) 0%, transparent 50%)" }} />
+
+            {/* Top-left shape */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, rotate: -12 }}
-              animate={{ opacity: 1, scale: 1, rotate: -12 }}
-              transition={{ duration: 1.8, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute -top-[15%] -left-[5%] w-[500px] h-[120px]"
-              style={{ background: "linear-gradient(135deg, rgba(139,92,246,0.12) 0%, transparent 70%)", borderRadius: "50%", filter: "blur(1px)" }}
-            />
+              initial={{ opacity: 0, y: -80, rotate: -12 }}
+              animate={{ opacity: 1, y: 0, rotate: -12 }}
+              transition={{ duration: 2.4, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+              className="absolute -top-[10%] -left-[8%]"
+              style={{ width: 600, height: 140 }}
+            >
+              <div className="w-full h-full" style={{
+                borderRadius: "50%",
+                background: "linear-gradient(135deg, rgba(139,92,246,0.15) 0%, transparent 70%)",
+                border: "1px solid rgba(139,92,246,0.20)",
+                backdropFilter: "blur(2px)",
+              }} />
+            </motion.div>
+
+            {/* Top-right shape */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, rotate: 15 }}
-              animate={{ opacity: 1, scale: 1, rotate: 15 }}
-              transition={{ duration: 1.8, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute top-[20%] -right-[10%] w-[600px] h-[140px]"
-              style={{ background: "linear-gradient(135deg, rgba(124,58,237,0.10) 0%, transparent 70%)", borderRadius: "50%", filter: "blur(1px)" }}
-            />
+              initial={{ opacity: 0, y: -60, rotate: 15 }}
+              animate={{ opacity: 1, y: 0, rotate: 15 }}
+              transition={{ duration: 2.4, delay: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+              className="absolute top-[15%] -right-[5%]"
+              style={{ width: 700, height: 160 }}
+            >
+              <div className="w-full h-full" style={{
+                borderRadius: "50%",
+                background: "linear-gradient(135deg, rgba(124,58,237,0.12) 0%, transparent 60%)",
+                border: "1px solid rgba(124,58,237,0.18)",
+                backdropFilter: "blur(2px)",
+              }} />
+            </motion.div>
+
+            {/* Bottom-left shape */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, rotate: -6 }}
-              animate={{ opacity: 1, scale: 1, rotate: -6 }}
-              transition={{ duration: 1.8, delay: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute bottom-[15%] left-[10%] w-[450px] h-[100px]"
-              style={{ background: "linear-gradient(135deg, rgba(168,85,247,0.08) 0%, transparent 70%)", borderRadius: "50%", filter: "blur(1px)" }}
-            />
+              initial={{ opacity: 0, y: 60, rotate: -6 }}
+              animate={{ opacity: 1, y: 0, rotate: -6 }}
+              transition={{ duration: 2.4, delay: 0.9, ease: [0.25, 0.4, 0.25, 1] }}
+              className="absolute bottom-[10%] -left-[3%]"
+              style={{ width: 500, height: 120 }}
+            >
+              <div className="w-full h-full" style={{
+                borderRadius: "50%",
+                background: "linear-gradient(135deg, rgba(168,85,247,0.10) 0%, transparent 60%)",
+                border: "1px solid rgba(168,85,247,0.15)",
+                backdropFilter: "blur(2px)",
+              }} />
+            </motion.div>
+
+            {/* Center-right shape */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, rotate: 20 }}
-              animate={{ opacity: 1, scale: 1, rotate: 20 }}
-              transition={{ duration: 1.8, delay: 1.0, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute top-[60%] right-[5%] w-[350px] h-[90px]"
-              style={{ background: "linear-gradient(135deg, rgba(139,92,246,0.06) 0%, transparent 70%)", borderRadius: "50%", filter: "blur(1px)" }}
-            />
+              initial={{ opacity: 0, y: 40, rotate: 20 }}
+              animate={{ opacity: 1, y: 0, rotate: 20 }}
+              transition={{ duration: 2.4, delay: 1.2, ease: [0.25, 0.4, 0.25, 1] }}
+              className="absolute top-[55%] right-[3%]"
+              style={{ width: 450, height: 110 }}
+            >
+              <div className="w-full h-full" style={{
+                borderRadius: "50%",
+                background: "linear-gradient(135deg, rgba(139,92,246,0.08) 0%, transparent 60%)",
+                border: "1px solid rgba(139,92,246,0.14)",
+                backdropFilter: "blur(2px)",
+              }} />
+            </motion.div>
+
+            {/* Small accent shape */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5, rotate: 35 }}
+              animate={{ opacity: 1, scale: 1, rotate: 35 }}
+              transition={{ duration: 2.4, delay: 1.5, ease: [0.25, 0.4, 0.25, 1] }}
+              className="absolute top-[40%] left-[25%]"
+              style={{ width: 300, height: 80 }}
+            >
+              <div className="w-full h-full" style={{
+                borderRadius: "50%",
+                background: "linear-gradient(135deg, rgba(168,85,247,0.06) 0%, transparent 70%)",
+                border: "1px solid rgba(168,85,247,0.10)",
+              }} />
+            </motion.div>
           </div>
           <MobileNavigation onContactClick={() => setContactOpen(true)} theme="dark" />
 
