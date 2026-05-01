@@ -17,7 +17,7 @@ import iconAnalyse from "@/assets/painpoint-a-icon-analyse.png";
 import iconKoordination from "@/assets/painpoint-a-icon-koordination.png";
 import iconInsights from "@/assets/painpoint-a-icon-insights.png";
 import integrationsLogos from "/lovable-uploads/integrations-logos.png";
-import { Logos3 } from "@/components/ui/logos3";
+
 import foundersImg from "@/assets/founders-color.webp";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
@@ -849,23 +849,6 @@ const PainPointAuswahlverfahren = () => {
                   </SectionSub>
                 </div>
                 <div className="mt-10">
-                  <div style={{ '--fade-color': L.bgAlt } as React.CSSProperties}>
-                  <Logos3
-                    heading=""
-                    className="mb-8"
-                    logos={[
-                      { id: "ms-teams", description: "Microsoft Teams", image: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg", className: "h-8 w-auto" },
-                      { id: "sharepoint", description: "SharePoint", image: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg", className: "h-8 w-auto" },
-                      { id: "outlook", description: "Outlook", image: "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg", className: "h-8 w-auto" },
-                      { id: "hubspot", description: "HubSpot", image: "https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg", className: "h-8 w-auto" },
-                      { id: "zapier", description: "Zapier", image: "https://www.vectorlogo.zone/logos/zapier/zapier-icon.svg", className: "h-8 w-auto" },
-                      { id: "make", description: "Make", image: "https://images.ctfassets.net/qqlj6g4ee76j/2gVVBM0gbkM0SKqu2maOsp/17366bc0a3cc1e2e3a0a0cc8b1959838/make-logo-squeezed.png", className: "h-8 w-auto" },
-                      { id: "notion", description: "Notion", image: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png", className: "h-8 w-auto" },
-                      { id: "google-ws", description: "Google Workspace", image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Google_Workspace_Logo.svg", className: "h-6 w-auto" },
-                      { id: "ms365", description: "Microsoft 365", image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Microsoft_365_%282022%29.svg", className: "h-8 w-auto" },
-                    ]}
-                  />
-                  </div>
                   <img
                     src={integrationsLogos}
                     alt="Integrationen: Microsoft Teams, SharePoint, Outlook, HubSpot, Zapier, Make, Notion, Google Workspace, Microsoft 365"
