@@ -4,11 +4,13 @@ import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Plus, Check } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import { MobileNavigation } from "@/components/MobileNavigation";
+import { painPoints, DEFAULT_PAIN_POINT } from "@/content/painPoints";
+// Default-Bildplatzhalter (werden später pro Slug ersetzt — siehe content.*.imageNote)
 import painpointAVorherNachher from "@/assets/painpoint-a-vorher-nachher.png";
 import painpointASection3 from "@/assets/painpoint-a-section3.png";
 import painpointAFeature2 from "@/assets/painpoint-a-feature2.png";
@@ -245,42 +247,30 @@ const PainPointAuswahlverfahren = () => {
   const [, setContactOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  const compareRows = [
-    ["Bewerbungseingang", "Strukturiert & automatisch", "PDFs, Mails, verschiedene Formate"],
-    ["Jury-Koordination", "Vollautomatisiert", "Endlose E-Mail-Threads"],
-    ["Vergleichbarkeit", "Einheitliches Kategoriensystem", "Keine einheitliche Basis"],
-    ["Entscheidungsdoku", "Revisionssicher & automatisch", "Existiert kaum"],
-    ["Wissen nach Zyklus", "Persistente Datenbasis", "Geht jedes Jahr verloren"],
-    ["Analysen", "Automatisch generiert", "Nicht vorhanden"],
-    ["Kosten", "Planbar & skalierbar", "60–80k€ pro Zyklus"],
-  ];
+  // Slug-basiertes Content-Lookup. Routen:
+  //   /loesungen/:slug
+  //   /leistungen/pain-points/:slug
+  //   /leistungen/industrien/:slug
+  const { slug } = useParams<{ slug: string }>();
+  const content = useMemo(
+    () => (slug && painPoints[slug]) || DEFAULT_PAIN_POINT,
+    [slug]
+  );
 
-  const featureCards = [
-    { icon: iconAnalyse, title: "KI Bewerbungsanalyse", desc: "Jede Einreichung wird automatisch analysiert, kategorisiert und für die Jury aufbereitet." },
-    { icon: iconKoordination, title: "Automatisierte Jury-Koordination", desc: "Briefings, Reminder, Deadlines — läuft automatisch. Euer Team fokussiert sich auf Entscheidungen." },
-    { icon: iconInsights, title: "Analysen & Insights", desc: "Aus jedem Zyklus entstehen automatisch Muster und Trends — die den nächsten Prozess verbessern." },
-  ];
+  const compareRows = useMemo(
+    () => content.compare.rows.map((r) => [r.k, r.ne, r.alt] as const),
+    [content]
+  );
 
+  // Default-Icons als Bildplatzhalter (gleich für alle Slugs, später ersetzbar)
+  const defaultCardIcons = [iconAnalyse, iconKoordination, iconInsights];
+  const featureCards = content.featureCards.cards.map((c, i) => ({
+    icon: defaultCardIcons[i] ?? iconAnalyse,
+    title: c.title,
+    desc: c.desc,
+  }));
 
-
-  const faqs = [
-    {
-      q: "Wie lange dauert die Implementierung eines KI-gestützten Auswahlverfahrens?",
-      a: "In der Regel 2–4 Wochen bis zum ersten produktiven Bewerbungszyklus. Datenmigration und Team-Training sind inklusive.",
-    },
-    {
-      q: "Können wir unser bestehendes Bewertungssystem in die Software übernehmen?",
-      a: "Ja. New Edge baut auf euren bestehenden Kriterien auf und operationalisiert sie. Ihr behaltet die volle Kontrolle über die Bewertungslogik.",
-    },
-    {
-      q: "Wie funktioniert Jury-Anonymität bei digitalen Auswahlverfahren?",
-      a: "Jury-Bewertungen können vollständig anonymisiert werden. Einzelne Scores sind nur für definierte Rollen sichtbar — die Aggregation für alle.",
-    },
-    {
-      q: "Wo werden Bewerberdaten nach dem Auswahlzyklus gespeichert?",
-      a: "Alle Daten verbleiben in eurer Infrastruktur. New Edge kann lokal oder in eurer Cloud gehostet werden — volle Datensouveränität garantiert.",
-    },
-  ];
+  const faqs = content.faq;
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -295,9 +285,9 @@ const PainPointAuswahlverfahren = () => {
   return (
     <>
       <SEOHead
-        title="Auswahlverfahren automatisieren mit KI | New Edge München"
-        description="KI-gestütztes Bewerbungsmanagement für Awards, Jurys und Auswahlprozesse. Automatische Dokumentenprüfung, Jury-Koordination & revisionssichere Entscheidungsdokumentation. Demo buchen."
-        canonical="/loesungen/auswahlverfahren-automatisieren"
+        title={content.seo.title}
+        description={content.seo.description}
+        canonical={content.seo.canonical}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
@@ -408,33 +398,33 @@ const PainPointAuswahlverfahren = () => {
                   className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] mb-5"
                   style={{ color: PURPLE_LIGHT, ...MONO }}
                 >
-                  KI-AUTOMATISIERUNG FÜR AUSWAHLVERFAHREN
+                  {content.hero.overlabel}
                 </p>
                 <h1
                   className="text-[clamp(1.75rem,3.2vw,2.75rem)] leading-[1.08] mb-5"
                   style={{ ...SERIF, letterSpacing: "-0.02em" }}
                 >
-                  Auswahlverfahren automatisieren —<br />
+                  {content.hero.h1Line1}<br />
                   <span style={{ color: PURPLE_LIGHT }}>
-                    KI-gestützte Bewertungssysteme
+                    {content.hero.h1Line2Highlighted}
                   </span>
                 </h1>
                 <p className="text-[0.925rem] leading-[1.65] mb-6 max-w-[500px]" style={{ color: D.textMuted }}>
-                  Unstrukturierte Bewerbungen, überlastete Jurys, verlorenes Wissen. New Edge strukturiert euren
-                  gesamten Auswahlprozess — von der ersten Einreichung bis zur revisionssicheren Entscheidung.
+                  {content.hero.sub}
                 </p>
                 <div className="flex gap-3 flex-wrap">
-                  <BtnFilled onClick={() => setContactOpen(true)}>Demo buchen</BtnFilled>
-                  <BtnGhost dark>Case Study — BMP Award</BtnGhost>
+                  <BtnFilled onClick={() => setContactOpen(true)}>{content.hero.ctaPrimary}</BtnFilled>
+                  <BtnGhost dark>{content.hero.ctaSecondary}</BtnGhost>
                 </div>
               </Reveal>
 
               <Reveal delay={0.2}>
                 <div className="flex justify-center md:justify-end">
                   <div className="relative w-full max-w-[460px]">
+                    {/* Bildplatzhalter — wird später pro Slug ersetzt. Note: {content.hero.imageNote} */}
                     <img
                       src={painpointAVorherNachher}
-                      alt="Vorher: unstrukturierte PDF-Bewerbungen — Nachher: strukturiertes KI-Scoring-Dashboard"
+                      alt={content.hero.imageAlt}
                       className="w-full h-auto"
                       style={{ border: `1px solid ${D.border}` }}
                     />
@@ -448,15 +438,15 @@ const PainPointAuswahlverfahren = () => {
           <div className="shrink-0 pb-6 md:pb-8 relative z-10">
             <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
               <p className="text-center text-[1.15rem] md:text-[1.35rem] mb-1" style={SERIF}>
-                Vertraut von führenden Organisationen in Deutschland
+                {content.trustBar.headline}
               </p>
               <p className="text-center text-[0.75rem] mb-4" style={{ color: D.textMuted }}>
-                Reale Ergebnisse aus Auswahlprozessen wie eurem
+                {content.trustBar.sub}
               </p>
               <div className="overflow-hidden" style={{ borderTop: `1px solid ${D.border}`, borderBottom: `1px solid ${D.border}` }}>
                 <div className="flex w-max py-3.5" style={{ animation: "marquee 28s linear infinite" }}>
                   {[...Array(2)].flatMap((_, dup) =>
-                    ["BMP Award", "Stiftung", "Förderinstitut", "Verband", "IHK", "Accelerator", "Forschungsinstitut"].map((name, i) => (
+                    content.trustBar.logos.map((name, i) => (
                       <div
                         key={`hero-${dup}-${i}`}
                         className="flex items-center gap-2.5 px-8 text-[0.9rem] font-semibold whitespace-nowrap"
@@ -487,13 +477,10 @@ const PainPointAuswahlverfahren = () => {
                   Definition
                 </p>
                 <h2 className="text-lg md:text-xl mb-2" style={{ ...SERIF, color: L.text }}>
-                  Was ist KI-gestützte Auswahlverfahren-Automatisierung?
+                  {content.definition.title}
                 </h2>
                 <p className="text-sm leading-[1.7]" style={{ color: L.textMuted }}>
-                  KI-gestützte Auswahlverfahren-Automatisierung ersetzt manuelle Bewerbungsverarbeitung durch
-                  strukturierte Datenerfassung, automatische Vollständigkeitsprüfung und ein operationalisiertes
-                  Jury-Bewertungssystem. Organisationen reduzieren den Prozessaufwand damit um bis zu 70% — bei
-                  revisionssicherer Entscheidungsdokumentation und nachweislich besserer Entscheidungsqualität.
+                  {content.definition.body}
                 </p>
               </div>
             </div>
@@ -505,27 +492,17 @@ const PainPointAuswahlverfahren = () => {
               <div>
                 <img
                   src={painpointASection3}
-                  alt="KI-gestützte Erfassung: PDF-Dokumente werden via Texterkennung, Klassifizierung, Strukturierung und Validierung in ein strukturiertes Projektdatenblatt überführt"
+                  alt={content.feature1.imageAlt}
                   loading="lazy"
                   className="w-full h-auto max-w-[440px] mx-auto"
                 />
               </div>
               <div>
                 <SectionLabel>Feature 01</SectionLabel>
-                <SectionH2>Schluss mit dem Dokumenten-Chaos</SectionH2>
-                <SectionSub>
-                  Bewerbungen kommen als PDFs, Freitexte und E-Mails — jedes in einem anderen Format. Systematisch
-                  vergleichen lässt sich das nicht. New Edge strukturiert die Datenerfassung, prüft Vollständigkeit
-                  automatisch und führt Bewerber durch einen klaren, geführten Prozess — ohne manuelle Nacharbeit.
-                </SectionSub>
-                <BulletList
-                  items={[
-                    "Automatische Dokumentenprüfung auf Vollständigkeit",
-                    "Guided Application — Schritt-für-Schritt geführt",
-                    "Persistente Datenbasis — kein Wissen geht verloren",
-                  ]}
-                />
-                <FeatureCTA>Wie es funktioniert</FeatureCTA>
+                <SectionH2>{content.feature1.h2}</SectionH2>
+                <SectionSub>{content.feature1.sub}</SectionSub>
+                <BulletList items={[...content.feature1.bullets]} />
+                <FeatureCTA>{content.feature1.cta}</FeatureCTA>
               </div>
             </div>
           </Reveal>
@@ -537,28 +514,17 @@ const PainPointAuswahlverfahren = () => {
                 <div className="md:order-2">
                   <img
                     src={painpointAFeature2}
-                    alt="3-Schritt-Prozess: PDFs hochladen → KI-Erfassung → Strukturiertes Ergebnis"
+                    alt={content.feature2.imageAlt}
                     loading="lazy"
                     className="w-full h-auto max-w-[500px] mx-auto"
                   />
                 </div>
                 <div className="md:order-1">
                   <SectionLabel>Feature 02</SectionLabel>
-                  <SectionH2>Jury-Koordination die sich selbst organisiert</SectionH2>
-                  <SectionSub>
-                    Endlose E-Mail-Threads, vergessene Deadlines, inkonsistente Bewertungen. New Edge automatisiert
-                    Briefings, Reminder und die gesamte Jury-Kommunikation. Teams berichten von einer Reduktion des
-                    Koordinationsaufwands um durchschnittlich 80%. Jedes Mitglied bewertet im eigenen Interface — in
-                    seinem Tempo.
-                  </SectionSub>
-                  <BulletList
-                    items={[
-                      "Automatische Briefings und Reminder ohne manuellen Aufwand",
-                      "Operationalisiertes Bewertungssystem — keine Subjektivität",
-                      "Automatische Konflikt-Erkennung bei abweichenden Urteilen",
-                    ]}
-                  />
-                  <FeatureCTA>Jury-Interface ansehen</FeatureCTA>
+                  <SectionH2>{content.feature2.h2}</SectionH2>
+                  <SectionSub>{content.feature2.sub}</SectionSub>
+                  <BulletList items={[...content.feature2.bullets]} />
+                  <FeatureCTA>{content.feature2.cta}</FeatureCTA>
                 </div>
               </div>
             </Reveal>
@@ -570,27 +536,17 @@ const PainPointAuswahlverfahren = () => {
               <div>
                 <img
                   src={painpointAFeature3}
-                  alt="Einzelscore mit Kategorien-Bewertung und Heatmap zur Bias-Analyse über Jurys und Kategorien"
+                  alt={content.feature3.imageAlt}
                   loading="lazy"
                   className="w-full h-auto max-w-[500px] mx-auto"
                 />
               </div>
               <div>
                 <SectionLabel>Feature 03</SectionLabel>
-                <SectionH2>Erkenntnisse die niemand explizit angefragt hat</SectionH2>
-                <SectionSub>
-                  Das eigentliche Gold liegt in den Daten. Welche Jury-Mitglieder bewerten systematisch zu hart? Welche
-                  Merkmale korrelieren mit späterem Projekterfolg? New Edge generiert diese Analysen automatisch aus
-                  jedem abgeschlossenen Zyklus — der Award wird zur strategischen Forschungsplattform.
-                </SectionSub>
-                <BulletList
-                  items={[
-                    "Jury-Bias-Erkennung — systematische Muster werden sichtbar",
-                    "Bewerber-Clustering — strukturelle Ähnlichkeiten sichtbar machen",
-                    "Markt-Insights — Trendanalysen über Zyklen hinweg",
-                  ]}
-                />
-                <FeatureCTA>Analyse-Demo ansehen</FeatureCTA>
+                <SectionH2>{content.feature3.h2}</SectionH2>
+                <SectionSub>{content.feature3.sub}</SectionSub>
+                <BulletList items={[...content.feature3.bullets]} />
+                <FeatureCTA>{content.feature3.cta}</FeatureCTA>
               </div>
             </div>
           </Reveal>
@@ -601,10 +557,8 @@ const PainPointAuswahlverfahren = () => {
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
                 <div className="max-w-[600px]">
                   <SectionLabel>Integrationen</SectionLabel>
-                  <SectionH2>Verbindet sich mit den Tools die ihr bereits nutzt</SectionH2>
-                  <SectionSub>
-                    Kein neues System das alles ersetzt. New Edge integriert sich in eure bestehende Infrastruktur.
-                  </SectionSub>
+                  <SectionH2>{content.integrations.h2}</SectionH2>
+                  <SectionSub>{content.integrations.sub}</SectionSub>
                 </div>
                 <div className="mt-10" style={{ '--fade-color': L.bgAlt } as React.CSSProperties}>
                   <Logos3
@@ -633,7 +587,7 @@ const PainPointAuswahlverfahren = () => {
             <div id="comparison" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
               <div className="max-w-[600px] mb-10">
                 <SectionLabel>Vergleich</SectionLabel>
-                <SectionH2>New Edge vs. manueller Auswahlprozess</SectionH2>
+                <SectionH2>{content.compare.h2}</SectionH2>
               </div>
 
               {/* Desktop table */}
@@ -669,7 +623,7 @@ const PainPointAuswahlverfahren = () => {
                           ...SERIF,
                         }}
                       >
-                        Manuell
+                        {content.compare.altLabel}
                       </th>
                     </tr>
                   </thead>
@@ -736,7 +690,7 @@ const PainPointAuswahlverfahren = () => {
                         className="px-4 py-3 text-[0.82rem]"
                         style={{ color: "#b91c1c", ...MONO }}
                       >
-                        <span className="block text-[0.7rem] font-bold uppercase tracking-wider mb-1" style={{ color: "#b91c1c" }}>Manuell</span>
+                        <span className="block text-[0.7rem] font-bold uppercase tracking-wider mb-1" style={{ color: "#b91c1c" }}>{content.compare.altLabel}</span>
                         ✗ {ma}
                       </div>
                     </div>
@@ -752,7 +706,7 @@ const PainPointAuswahlverfahren = () => {
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
                 <div className="text-center max-w-[600px] mx-auto mb-12">
                   <SectionLabel>Kernfunktionen</SectionLabel>
-                  <SectionH2 className="!mb-0">KI die qualifiziert, koordiniert und entscheidet.</SectionH2>
+                  <SectionH2 className="!mb-0">{content.featureCards.h2}</SectionH2>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-6">
@@ -795,12 +749,11 @@ const PainPointAuswahlverfahren = () => {
                 className="text-[clamp(1.15rem,2.4vw,1.5rem)] font-semibold leading-[1.5] mb-8"
                 style={{ ...SERIF, letterSpacing: "-0.02em", color: L.text }}
               >
-                New Edge hat unseren gesamten Auswahlprozess transformiert. Was früher 60.000€ und drei Monate Aufwand
-                war, läuft jetzt automatisch — und die Qualität unserer Entscheidungen ist nachweislich besser.
+                {content.testimonialHero.quote}
               </p>
               <div className="flex items-center justify-center gap-2.5 text-[0.85rem]" style={{ color: L.textLight }}>
                 <span className="block h-px w-10" style={{ background: L.border }} />
-                BMP Award — Projektleitung
+                {content.testimonialHero.author}
                 <span className="block h-px w-10" style={{ background: L.border }} />
               </div>
             </div>
