@@ -34,11 +34,10 @@ const painPoints = [
 ];
 
 const industrien = [
-  { to: "/leistungen/industrien/awards", label: "Awards & Jurys", icon: Trophy },
-  { to: "/leistungen/industrien/gym-spa", label: "Gym & Spa", icon: Dumbbell },
-  { to: "/leistungen/industrien/handel-logistik", label: "Handel & Logistik", icon: Truck },
-  { to: "/leistungen/industrien/mittelstand", label: "Mittelstand", icon: Building2 },
-  { to: "/leistungen/industrien/ecommerce", label: "E-Commerce", icon: ShoppingCart },
+  { to: "/industrien/entscheidungsinstanzen", label: "Entscheidungsinstanzen", icon: Trophy },
+  { to: "/industrien/local-digital-commerce", label: "Local & Digital Commerce", icon: ShoppingCart },
+  { to: "/industrien/handel-supply-chain", label: "Handel & Supply Chain", icon: Truck },
+  { to: "/industrien/professional-services", label: "Professional Services", icon: Building2 },
 ];
 
 export const MobileNavigation = ({
