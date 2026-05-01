@@ -42,7 +42,7 @@ export default function LogoCloud() {
     <section
       className="relative w-full overflow-hidden flex flex-col items-center justify-center"
       style={{
-        backgroundColor: "#0a0a0a",
+        background: "transparent",
         padding: "32px 0 24px",
       }}
     >
