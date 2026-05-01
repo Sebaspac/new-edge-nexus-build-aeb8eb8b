@@ -397,9 +397,11 @@ const PainPointAuswahlverfahren = () => {
               />
             </motion.div>
           </div>
-          <MobileNavigation onContactClick={() => setContactOpen(true)} theme="dark" />
+          <div className="relative z-10">
+            <MobileNavigation onContactClick={() => setContactOpen(true)} theme="dark" />
+          </div>
 
-          <div className="flex-1 flex items-center">
+          <div className="flex-1 flex items-center relative z-10">
             <div className="max-w-[1200px] w-full mx-auto px-6 lg:px-8 pt-24 md:pt-20 pb-4 grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
               <Reveal>
                 <p
@@ -443,7 +445,7 @@ const PainPointAuswahlverfahren = () => {
           </div>
 
           {/* Trust bar */}
-          <div className="shrink-0 pb-6 md:pb-8">
+          <div className="shrink-0 pb-6 md:pb-8 relative z-10">
             <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
               <p className="text-center text-[1.15rem] md:text-[1.35rem] mb-1" style={SERIF}>
                 Vertraut von führenden Organisationen in Deutschland
