@@ -42,7 +42,7 @@ export default function LogoCloud() {
     <section
       className="relative w-full overflow-hidden flex flex-col items-center justify-center"
       style={{
-        backgroundColor: "#0a0a0a",
+        background: "linear-gradient(135deg, #130325 0%, #0a0a0a 50%, #0d0a1a 100%)",
         padding: "32px 0 24px",
       }}
     >
