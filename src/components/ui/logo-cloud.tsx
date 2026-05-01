@@ -67,20 +67,20 @@ export default function LogoCloud() {
         }}
       />
 
-      {/* Circle stage — contained within viewport */}
+      {/* Circle stage — contained within viewport, cropped left/right */}
       <div
-        className="relative w-full flex items-center justify-center"
-        style={{ height: "clamp(220px, 36vh, 340px)" }}
+        className="relative w-full flex items-center justify-center overflow-hidden"
+        style={{ height: "clamp(260px, 42vh, 400px)" }}
       >
-        {/* Circle SVG — constrained to never exceed viewport width */}
+        {/* Circle SVG — larger, cropped by parent overflow */}
         <svg
           aria-hidden
           viewBox="0 0 800 800"
           preserveAspectRatio="xMidYMid meet"
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
           style={{
-            width: "min(clamp(220px, 36vh, 340px), 85vw)",
-            height: "min(clamp(220px, 36vh, 340px), 85vw)",
+            width: "clamp(340px, 52vh, 520px)",
+            height: "clamp(340px, 52vh, 520px)",
             zIndex: 0,
           }}
         >
@@ -135,13 +135,13 @@ export default function LogoCloud() {
 
           <div
             className="flex animate-marquee hover:[animation-play-state:paused]"
-            style={{ width: "max-content", gap: "40px", alignItems: "center" }}
+            style={{ width: "max-content", gap: "48px", alignItems: "center" }}
           >
             {duplicatedLogos.map((logo, index) => (
               <div
                 key={`logo-${index}`}
                 className="flex-shrink-0 flex items-center justify-center"
-                style={{ height: "36px" }}
+                style={{ height: "44px" }}
               >
                 <img
                   src={logo.src}
@@ -149,10 +149,10 @@ export default function LogoCloud() {
                   loading="lazy"
                   className="object-contain brightness-0 invert"
                   style={{
-                    height: "36px",
+                    height: "44px",
                     width: "auto",
-                    maxWidth: "140px",
-                    opacity: 0.7,
+                    maxWidth: "160px",
+                    opacity: 0.85,
                   }}
                 />
               </div>
