@@ -849,6 +849,7 @@ const PainPointAuswahlverfahren = () => {
                   </SectionSub>
                 </div>
                 <div className="mt-10">
+                  <div style={{ '--fade-color': L.bgAlt } as React.CSSProperties}>
                   <Logos3
                     heading=""
                     className="mb-8"
