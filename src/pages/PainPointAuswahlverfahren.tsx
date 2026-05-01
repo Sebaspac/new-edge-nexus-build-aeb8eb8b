@@ -17,6 +17,7 @@ import iconAnalyse from "@/assets/painpoint-a-icon-analyse.png";
 import iconKoordination from "@/assets/painpoint-a-icon-koordination.png";
 import iconInsights from "@/assets/painpoint-a-icon-insights.png";
 import integrationsLogos from "/lovable-uploads/integrations-logos.png";
+import { Logos3 } from "@/components/ui/logos3";
 
 import foundersImg from "@/assets/founders-color.webp";
 
@@ -929,7 +930,23 @@ const PainPointAuswahlverfahren = () => {
                     Kein neues System das alles ersetzt. New Edge integriert sich in eure bestehende Infrastruktur.
                   </SectionSub>
                 </div>
-                <div className="mt-10">
+                <div className="mt-10" style={{ '--fade-color': L.bgAlt } as React.CSSProperties}>
+                  <Logos3
+                    heading=""
+                    className="mb-8"
+                    logos={[
+                      { id: "ms-teams", description: "Microsoft Teams", image: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg", className: "h-8 w-auto" },
+                      { id: "sharepoint", description: "SharePoint", image: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg", className: "h-8 w-auto" },
+                      { id: "outlook", description: "Outlook", image: "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg", className: "h-8 w-auto" },
+                      { id: "hubspot", description: "HubSpot", image: "https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg", className: "h-8 w-auto" },
+                      { id: "zapier", description: "Zapier", image: "https://www.vectorlogo.zone/logos/zapier/zapier-icon.svg", className: "h-8 w-auto" },
+                      { id: "notion", description: "Notion", image: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png", className: "h-8 w-auto" },
+                      { id: "google-ws", description: "Google Workspace", image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Google_Workspace_Logo.svg", className: "h-6 w-auto" },
+                      { id: "ms365", description: "Microsoft 365", image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Microsoft_365_%282022%29.svg", className: "h-8 w-auto" },
+                      { id: "slack", description: "Slack", image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg", className: "h-8 w-auto" },
+                      { id: "jira", description: "Jira", image: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Jira_Logo.svg", className: "h-6 w-auto" },
+                    ]}
+                  />
                   <img
                     src={integrationsLogos}
                     alt="Integrationen: Microsoft Teams, SharePoint, Outlook, HubSpot, Zapier, Make, Notion, Google Workspace, Microsoft 365"
