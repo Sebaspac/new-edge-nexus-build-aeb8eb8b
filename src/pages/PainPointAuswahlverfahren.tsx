@@ -514,28 +514,17 @@ const PainPointAuswahlverfahren = () => {
                 <div className="md:order-2">
                   <img
                     src={painpointAFeature2}
-                    alt="3-Schritt-Prozess: PDFs hochladen → KI-Erfassung → Strukturiertes Ergebnis"
+                    alt={content.feature2.imageAlt}
                     loading="lazy"
                     className="w-full h-auto max-w-[500px] mx-auto"
                   />
                 </div>
                 <div className="md:order-1">
                   <SectionLabel>Feature 02</SectionLabel>
-                  <SectionH2>Jury-Koordination die sich selbst organisiert</SectionH2>
-                  <SectionSub>
-                    Endlose E-Mail-Threads, vergessene Deadlines, inkonsistente Bewertungen. New Edge automatisiert
-                    Briefings, Reminder und die gesamte Jury-Kommunikation. Teams berichten von einer Reduktion des
-                    Koordinationsaufwands um durchschnittlich 80%. Jedes Mitglied bewertet im eigenen Interface — in
-                    seinem Tempo.
-                  </SectionSub>
-                  <BulletList
-                    items={[
-                      "Automatische Briefings und Reminder ohne manuellen Aufwand",
-                      "Operationalisiertes Bewertungssystem — keine Subjektivität",
-                      "Automatische Konflikt-Erkennung bei abweichenden Urteilen",
-                    ]}
-                  />
-                  <FeatureCTA>Jury-Interface ansehen</FeatureCTA>
+                  <SectionH2>{content.feature2.h2}</SectionH2>
+                  <SectionSub>{content.feature2.sub}</SectionSub>
+                  <BulletList items={[...content.feature2.bullets]} />
+                  <FeatureCTA>{content.feature2.cta}</FeatureCTA>
                 </div>
               </div>
             </Reveal>
