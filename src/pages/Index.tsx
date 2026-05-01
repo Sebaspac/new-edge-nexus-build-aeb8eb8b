@@ -310,7 +310,7 @@ const Index = () => {
         <div className="bg-surface">
           <TestimonialsSection />
         </div>
-
+import { ThreeStepsCTA } from "@/components/ThreeStepsCTA";
 
         {/* Contact Section */}
         {/* Three Steps CTA */}
