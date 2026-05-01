@@ -623,7 +623,7 @@ const PainPointAuswahlverfahren = () => {
                           ...SERIF,
                         }}
                       >
-                        Manuell
+                        {content.compare.altLabel}
                       </th>
                     </tr>
                   </thead>
