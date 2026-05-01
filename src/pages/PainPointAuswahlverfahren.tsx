@@ -421,9 +421,10 @@ const PainPointAuswahlverfahren = () => {
               <Reveal delay={0.2}>
                 <div className="flex justify-center md:justify-end">
                   <div className="relative w-full max-w-[460px]">
+                    {/* Bildplatzhalter — wird später pro Slug ersetzt. Note: {content.hero.imageNote} */}
                     <img
                       src={painpointAVorherNachher}
-                      alt="Vorher: unstrukturierte PDF-Bewerbungen — Nachher: strukturiertes KI-Scoring-Dashboard"
+                      alt={content.hero.imageAlt}
                       className="w-full h-auto"
                       style={{ border: `1px solid ${D.border}` }}
                     />
