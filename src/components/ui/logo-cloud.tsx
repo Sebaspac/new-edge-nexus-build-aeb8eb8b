@@ -1,13 +1,13 @@
-import sadieKessler from "@/assets/logos/sadie-kessler.webp";
-import circlePhoto from "@/assets/logos/circle-photo.webp";
-import hydeOfficial from "@/assets/logos/hyde-official.webp";
+import sadieKessler from "@/assets/logos/sadie-kessler.png";
+import circlePhoto from "@/assets/logos/circle-photo.png";
+import hydeOfficial from "@/assets/logos/hyde-official.png";
 import dariusCompany from "@/assets/logos/darius-company.webp";
 import museStudio from "@/assets/logos/muse-studio.webp";
 import drAaronLoeb from "@/assets/logos/dr-aaron-loeb.webp";
 import pureDesign from "@/assets/logos/pure-design.webp";
 import seabreeze from "@/assets/logos/seabreeze.webp";
 import albanova from "@/assets/logos/albanova-consulting.png";
-import bayMittelstandspreis from "@/assets/logos/bayerischer-mittelstandspreis-2026.jpg";
+import bayMittelstandspreis from "@/assets/logos/bayerischer-mittelstandspreis-2026.png";
 import clubCli from "@/assets/logos/club-cli.webp";
 import becomingYou from "@/assets/logos/becoming-you.png";
 
