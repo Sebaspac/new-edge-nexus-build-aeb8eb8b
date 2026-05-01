@@ -12,7 +12,7 @@ import clubCli from "@/assets/logos/club-cli.webp";
 import becomingYou from "@/assets/logos/becoming-you.png";
 import drLindaFischer from "@/assets/logos/dr-linda-fischer.png";
 import eliteAesthetic from "@/assets/logos/elite-aesthetic.png";
-import meyerHenrich from "@/assets/logos/meyer-henrich.png";
+
 
 const SANS =
   "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
@@ -32,7 +32,7 @@ const logos = [
   { src: seabreeze, alt: "Seabreeze Beach Club" },
   { src: drLindaFischer, alt: "Dr. Linda Fischer" },
   { src: eliteAesthetic, alt: "Elite Aesthetic" },
-  { src: meyerHenrich, alt: "Meyer & Henrich Orthopädie" },
+  
 ];
 
 export default function LogoCloud() {
