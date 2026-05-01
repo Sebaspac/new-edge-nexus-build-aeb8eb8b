@@ -57,52 +57,107 @@ export default function LogoCloud() {
         Vertraut von <span style={{ color: "#6d28d9" }}>50+ Unternehmen</span>
       </div>
 
-      {/* Marquee strip */}
+      {/* Vertical line between heading and circle */}
       <div
-        className="relative w-full overflow-hidden mt-8"
-        style={{ padding: "10px 0" }}
-      >
-        <div
-          className="absolute left-0 top-0 bottom-0 pointer-events-none"
-          style={{
-            width: "80px",
-            background: "linear-gradient(to right, #0a0a0a, transparent)",
-            zIndex: 2,
-          }}
-        />
-        <div
-          className="absolute right-0 top-0 bottom-0 pointer-events-none"
-          style={{
-            width: "80px",
-            background: "linear-gradient(to left, #0a0a0a, transparent)",
-            zIndex: 2,
-          }}
-        />
+        style={{
+          width: "1px",
+          height: "clamp(30px, 4vh, 50px)",
+          background: "linear-gradient(to bottom, #6d28d9, transparent)",
+          marginTop: "16px",
+        }}
+      />
 
-        <div
-          className="flex animate-marquee hover:[animation-play-state:paused]"
-          style={{ width: "max-content", gap: "56px", alignItems: "center" }}
+      {/* Circle stage — contained within viewport */}
+      <div
+        className="relative w-full flex items-center justify-center"
+        style={{ height: "clamp(220px, 36vh, 340px)" }}
+      >
+        {/* Circle SVG — constrained to never exceed viewport width */}
+        <svg
+          aria-hidden
+          viewBox="0 0 800 800"
+          preserveAspectRatio="xMidYMid meet"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          style={{
+            width: "min(clamp(220px, 36vh, 340px), 85vw)",
+            height: "min(clamp(220px, 36vh, 340px), 85vw)",
+            zIndex: 0,
+          }}
         >
-          {duplicatedLogos.map((logo, index) => (
-            <div
-              key={`logo-${index}`}
-              className="flex-shrink-0 flex items-center justify-center"
-              style={{ height: "48px" }}
-            >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                loading="lazy"
-                className="object-contain brightness-0 invert"
-                style={{
-                  height: "48px",
-                  width: "auto",
-                  maxWidth: "180px",
-                  opacity: 0.7,
-                }}
-              />
-            </div>
-          ))}
+          <defs>
+            <linearGradient id="orb-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#e9d5ff" stopOpacity="1" />
+              <stop offset="25%" stopColor="#c084fc" stopOpacity="1" />
+              <stop offset="50%" stopColor="#7c3aed" stopOpacity="1" />
+              <stop offset="75%" stopColor="#5b21b6" stopOpacity="1" />
+              <stop offset="100%" stopColor="#4c1d95" stopOpacity="0.95" />
+            </linearGradient>
+          </defs>
+          <circle
+            cx="400"
+            cy="400"
+            r="397"
+            fill="none"
+            stroke="url(#orb-stroke)"
+            strokeWidth="2"
+            style={{
+              filter:
+                "drop-shadow(0 0 8px rgba(124,58,237,0.7)) drop-shadow(0 0 20px rgba(109,40,217,0.5)) drop-shadow(0 0 36px rgba(91,33,182,0.35))",
+            }}
+          />
+        </svg>
+
+        {/* Marquee strip — vertically centered on the circle's mid-line */}
+        <div
+          className="absolute left-0 right-0 top-1/2 -translate-y-1/2 w-full overflow-hidden"
+          style={{
+            padding: "10px 0",
+            backgroundColor: "#0a0a0a",
+            zIndex: 1,
+          }}
+        >
+          <div
+            className="absolute left-0 top-0 bottom-0 pointer-events-none"
+            style={{
+              width: "80px",
+              background: "linear-gradient(to right, #0a0a0a, transparent)",
+              zIndex: 2,
+            }}
+          />
+          <div
+            className="absolute right-0 top-0 bottom-0 pointer-events-none"
+            style={{
+              width: "80px",
+              background: "linear-gradient(to left, #0a0a0a, transparent)",
+              zIndex: 2,
+            }}
+          />
+
+          <div
+            className="flex animate-marquee hover:[animation-play-state:paused]"
+            style={{ width: "max-content", gap: "40px", alignItems: "center" }}
+          >
+            {duplicatedLogos.map((logo, index) => (
+              <div
+                key={`logo-${index}`}
+                className="flex-shrink-0 flex items-center justify-center"
+                style={{ height: "36px" }}
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  loading="lazy"
+                  className="object-contain brightness-0 invert"
+                  style={{
+                    height: "36px",
+                    width: "auto",
+                    maxWidth: "140px",
+                    opacity: 0.7,
+                  }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
