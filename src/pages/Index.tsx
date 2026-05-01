@@ -9,6 +9,7 @@ import { AgencyEdgeSection } from "../components/AgencyEdgeSection";
 import { InnovationSection } from "../components/InnovationSection";
 import { InteractiveCore } from "../components/InteractiveCore";
 import { TestimonialsSection } from "../components/TestimonialsSection";
+import { ThreeStepsCTA } from "@/components/ThreeStepsCTA";
 
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { MobileNavigation } from "@/components/MobileNavigation";
@@ -311,73 +312,9 @@ const Index = () => {
           <TestimonialsSection />
         </div>
 
-
         {/* Contact Section */}
-        <section id="contact-section" className="relative section-py-md overflow-hidden bg-primary-foreground">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-            <motion.div className="text-center max-w-4xl mx-auto" initial={{
-            opacity: 0,
-            y: 50
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.8
-          }}>
-              <motion.h2 initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.2,
-              duration: 0.7
-            }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-8 leading-[1.05] text-foreground font-black">
-Bereit für die digitale Revolution?
-              </motion.h2>
-
-              <motion.p initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.4,
-              duration: 0.6
-            }} className="text-base md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-12 leading-relaxed px-4">
-                New Edge unterstützt Unternehmen dabei, KI und Automatisierung kontrolliert & nachhaltig im eigenen Besitz umzusetzen. 
-              
-
-            </motion.p>
-
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.6,
-              duration: 0.6
-            }} className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
-                <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="group bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white transition-all duration-300 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 font-semibold w-full sm:w-auto hover:-translate-y-0.5 rounded-none">
-                  Kontakt aufnehmen
-                  <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
+        {/* Three Steps CTA */}
+        <ThreeStepsCTA />
 
         {/* Contact Form Sheet */}
         <Sheet open={isContactSheetOpen} onOpenChange={handleSheetClose}>
