@@ -35,7 +35,7 @@ const Logos3 = ({
           </p>
         </div>
       )}
-      <div className="relative">
+      <div className="relative max-w-[880px] mx-auto">
         <div className="flex items-center">
           <Carousel
             opts={{ loop: true, align: "start" }}
