@@ -638,9 +638,42 @@ const PainPointAuswahlverfahren = () => {
           className="relative overflow-hidden flex flex-col text-white"
           style={{
             minHeight: "100dvh",
-            background: `radial-gradient(ellipse 70% 55% at 18% 35%, rgba(168,85,247,0.18) 0%, transparent 60%), ${D.bg}`,
+            background: `linear-gradient(135deg, #1a0533 0%, ${D.bg} 50%, #0d0a1a 100%)`,
           }}
         >
+          {/* Geometric background shapes */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 50% at 18% 35%, rgba(124,58,237,0.15) 0%, transparent 60%)" }} />
+            <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 40% at 85% 70%, rgba(139,92,246,0.08) 0%, transparent 50%)" }} />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -12 }}
+              animate={{ opacity: 1, scale: 1, rotate: -12 }}
+              transition={{ duration: 1.8, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
+              className="absolute -top-[15%] -left-[5%] w-[500px] h-[120px]"
+              style={{ background: "linear-gradient(135deg, rgba(139,92,246,0.12) 0%, transparent 70%)", borderRadius: "50%", filter: "blur(1px)" }}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: 15 }}
+              animate={{ opacity: 1, scale: 1, rotate: 15 }}
+              transition={{ duration: 1.8, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
+              className="absolute top-[20%] -right-[10%] w-[600px] h-[140px]"
+              style={{ background: "linear-gradient(135deg, rgba(124,58,237,0.10) 0%, transparent 70%)", borderRadius: "50%", filter: "blur(1px)" }}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -6 }}
+              animate={{ opacity: 1, scale: 1, rotate: -6 }}
+              transition={{ duration: 1.8, delay: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+              className="absolute bottom-[15%] left-[10%] w-[450px] h-[100px]"
+              style={{ background: "linear-gradient(135deg, rgba(168,85,247,0.08) 0%, transparent 70%)", borderRadius: "50%", filter: "blur(1px)" }}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: 20 }}
+              animate={{ opacity: 1, scale: 1, rotate: 20 }}
+              transition={{ duration: 1.8, delay: 1.0, ease: [0.25, 0.4, 0.25, 1] }}
+              className="absolute top-[60%] right-[5%] w-[350px] h-[90px]"
+              style={{ background: "linear-gradient(135deg, rgba(139,92,246,0.06) 0%, transparent 70%)", borderRadius: "50%", filter: "blur(1px)" }}
+            />
+          </div>
           <MobileNavigation onContactClick={() => setContactOpen(true)} theme="dark" />
 
           <div className="flex-1 flex items-center">
