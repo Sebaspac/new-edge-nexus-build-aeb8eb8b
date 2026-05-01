@@ -9,7 +9,7 @@ import { AgencyEdgeSection } from "../components/AgencyEdgeSection";
 import { InnovationSection } from "../components/InnovationSection";
 import { InteractiveCore } from "../components/InteractiveCore";
 import { TestimonialsSection } from "../components/TestimonialsSection";
-import { BlogGridHome } from "@/components/BlogGridHome";
+
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
@@ -311,10 +311,6 @@ const Index = () => {
           <TestimonialsSection />
         </div>
 
-        {/* Blog Section */}
-        <div className="bg-surface">
-          <BlogGridHome />
-        </div>
 
         {/* Contact Section */}
         <section id="contact-section" className="relative section-py-md overflow-hidden bg-primary-foreground">
