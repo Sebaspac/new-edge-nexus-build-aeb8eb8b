@@ -147,7 +147,7 @@ export default function LogoCloud() {
                   src={logo.src}
                   alt={logo.alt}
                   loading="lazy"
-                  className="object-contain brightness-0 invert"
+                  className={`object-contain ${logo.noInvert ? '' : 'brightness-0 invert'}`}
                   style={{
                     height: "44px",
                     width: "auto",
