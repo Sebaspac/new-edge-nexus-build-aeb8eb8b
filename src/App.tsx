@@ -82,10 +82,12 @@ const App = () => {
                   <Route path="/unsubscribe" element={<Unsubscribe />} />
                   <Route path="/loesungen/auswahlverfahren-automatisieren" element={<PainPointAuswahlverfahren />} />
                   <Route path="/leistungen/pain-points/auswahlverfahren" element={<PainPointAuswahlverfahren />} />
-                  <Route path="/leistungen/pain-points/:slug" element={<LeistungenStub />} />
-                  <Route path="/leistungen/industrien/:slug" element={<LeistungenStub />} />
+                  {/* Alle Pain-Point- & Industrie-Unterseiten nutzen dieselbe Struktur wie Auswahlverfahren.
+                      Inhalte werden später pro Slug angepasst. */}
+                  <Route path="/leistungen/pain-points/:slug" element={<PainPointAuswahlverfahren />} />
+                  <Route path="/leistungen/industrien/:slug" element={<PainPointAuswahlverfahren />} />
                   <Route path="/leistungen" element={<LeistungenStub />} />
-                  <Route path="/loesungen/:slug" element={<LeistungenStub />} />
+                  <Route path="/loesungen/:slug" element={<PainPointAuswahlverfahren />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
