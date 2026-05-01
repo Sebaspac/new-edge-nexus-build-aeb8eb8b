@@ -615,7 +615,7 @@ const PainPointAuswahlverfahren = () => {
                       { id: "hubspot", description: "HubSpot", image: "https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg", className: "h-8 w-auto" },
                       { id: "zapier", description: "Zapier", image: "https://www.vectorlogo.zone/logos/zapier/zapier-icon.svg", className: "h-8 w-auto" },
                       { id: "notion", description: "Notion", image: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png", className: "h-8 w-auto" },
-                      { id: "google-ws", description: "Google Workspace", image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Google_Workspace_Logo.svg", className: "h-6 w-auto" },
+                      { id: "google-ws", description: "Google Workspace", image: "/google-workspace.svg", className: "h-6 w-auto" },
                       { id: "ms365", description: "Microsoft 365", image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Microsoft_365_%282022%29.svg", className: "h-8 w-auto" },
                       { id: "slack", description: "Slack", image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg", className: "h-8 w-auto" },
                       { id: "jira", description: "Jira", image: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Jira_Logo.svg", className: "h-6 w-auto" },
