@@ -587,7 +587,7 @@ const PainPointAuswahlverfahren = () => {
             <div id="comparison" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
               <div className="max-w-[600px] mb-10">
                 <SectionLabel>Vergleich</SectionLabel>
-                <SectionH2>New Edge vs. manueller Auswahlprozess</SectionH2>
+                <SectionH2>{content.compare.h2}</SectionH2>
               </div>
 
               {/* Desktop table */}
