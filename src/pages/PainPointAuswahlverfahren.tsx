@@ -1159,7 +1159,7 @@ const PainPointAuswahlverfahren = () => {
             </div>
           </Reveal>
 
-          <ThreeStepsCTA onContact={() => setContactOpen(true)} />
+          <SharedThreeStepsCTA />
 
         </div>
         {/* ── /LIGHT THEME ── */}
