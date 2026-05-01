@@ -247,42 +247,30 @@ const PainPointAuswahlverfahren = () => {
   const [, setContactOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  const compareRows = [
-    ["Bewerbungseingang", "Strukturiert & automatisch", "PDFs, Mails, verschiedene Formate"],
-    ["Jury-Koordination", "Vollautomatisiert", "Endlose E-Mail-Threads"],
-    ["Vergleichbarkeit", "Einheitliches Kategoriensystem", "Keine einheitliche Basis"],
-    ["Entscheidungsdoku", "Revisionssicher & automatisch", "Existiert kaum"],
-    ["Wissen nach Zyklus", "Persistente Datenbasis", "Geht jedes Jahr verloren"],
-    ["Analysen", "Automatisch generiert", "Nicht vorhanden"],
-    ["Kosten", "Planbar & skalierbar", "60–80k€ pro Zyklus"],
-  ];
+  // Slug-basiertes Content-Lookup. Routen:
+  //   /loesungen/:slug
+  //   /leistungen/pain-points/:slug
+  //   /leistungen/industrien/:slug
+  const { slug } = useParams<{ slug: string }>();
+  const content = useMemo(
+    () => (slug && painPoints[slug]) || DEFAULT_PAIN_POINT,
+    [slug]
+  );
 
-  const featureCards = [
-    { icon: iconAnalyse, title: "KI Bewerbungsanalyse", desc: "Jede Einreichung wird automatisch analysiert, kategorisiert und für die Jury aufbereitet." },
-    { icon: iconKoordination, title: "Automatisierte Jury-Koordination", desc: "Briefings, Reminder, Deadlines — läuft automatisch. Euer Team fokussiert sich auf Entscheidungen." },
-    { icon: iconInsights, title: "Analysen & Insights", desc: "Aus jedem Zyklus entstehen automatisch Muster und Trends — die den nächsten Prozess verbessern." },
-  ];
+  const compareRows = useMemo(
+    () => content.compare.rows.map((r) => [r.k, r.ne, r.alt] as const),
+    [content]
+  );
 
+  // Default-Icons als Bildplatzhalter (gleich für alle Slugs, später ersetzbar)
+  const defaultCardIcons = [iconAnalyse, iconKoordination, iconInsights];
+  const featureCards = content.featureCards.cards.map((c, i) => ({
+    icon: defaultCardIcons[i] ?? iconAnalyse,
+    title: c.title,
+    desc: c.desc,
+  }));
 
-
-  const faqs = [
-    {
-      q: "Wie lange dauert die Implementierung eines KI-gestützten Auswahlverfahrens?",
-      a: "In der Regel 2–4 Wochen bis zum ersten produktiven Bewerbungszyklus. Datenmigration und Team-Training sind inklusive.",
-    },
-    {
-      q: "Können wir unser bestehendes Bewertungssystem in die Software übernehmen?",
-      a: "Ja. New Edge baut auf euren bestehenden Kriterien auf und operationalisiert sie. Ihr behaltet die volle Kontrolle über die Bewertungslogik.",
-    },
-    {
-      q: "Wie funktioniert Jury-Anonymität bei digitalen Auswahlverfahren?",
-      a: "Jury-Bewertungen können vollständig anonymisiert werden. Einzelne Scores sind nur für definierte Rollen sichtbar — die Aggregation für alle.",
-    },
-    {
-      q: "Wo werden Bewerberdaten nach dem Auswahlzyklus gespeichert?",
-      a: "Alle Daten verbleiben in eurer Infrastruktur. New Edge kann lokal oder in eurer Cloud gehostet werden — volle Datensouveränität garantiert.",
-    },
-  ];
+  const faqs = content.faq;
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -297,9 +285,9 @@ const PainPointAuswahlverfahren = () => {
   return (
     <>
       <SEOHead
-        title="Auswahlverfahren automatisieren mit KI | New Edge München"
-        description="KI-gestütztes Bewerbungsmanagement für Awards, Jurys und Auswahlprozesse. Automatische Dokumentenprüfung, Jury-Koordination & revisionssichere Entscheidungsdokumentation. Demo buchen."
-        canonical="/loesungen/auswahlverfahren-automatisieren"
+        title={content.seo.title}
+        description={content.seo.description}
+        canonical={content.seo.canonical}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
