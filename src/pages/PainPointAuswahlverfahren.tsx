@@ -947,12 +947,6 @@ const PainPointAuswahlverfahren = () => {
                       { id: "jira", description: "Jira", image: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Jira_Logo.svg", className: "h-6 w-auto" },
                     ]}
                   />
-                  <img
-                    src={integrationsLogos}
-                    alt="Integrationen: Microsoft Teams, SharePoint, Outlook, HubSpot, Zapier, Make, Notion, Google Workspace, Microsoft 365"
-                    loading="lazy"
-                    className="w-full h-auto max-w-[880px] mx-auto"
-                  />
                 </div>
               </div>
             </Reveal>
