@@ -147,12 +147,13 @@ export default function LogoCloud() {
                   src={logo.src}
                   alt={logo.alt}
                   loading="lazy"
-                  className="object-contain brightness-0 invert"
+                  className="object-contain grayscale brightness-[2] contrast-[1.2]"
                   style={{
                     height: "44px",
                     width: "auto",
                     maxWidth: "160px",
-                    opacity: 0.85,
+                    opacity: 0.8,
+                    mixBlendMode: "screen",
                   }}
                 />
               </div>
