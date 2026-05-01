@@ -477,13 +477,10 @@ const PainPointAuswahlverfahren = () => {
                   Definition
                 </p>
                 <h2 className="text-lg md:text-xl mb-2" style={{ ...SERIF, color: L.text }}>
-                  Was ist KI-gestützte Auswahlverfahren-Automatisierung?
+                  {content.definition.title}
                 </h2>
                 <p className="text-sm leading-[1.7]" style={{ color: L.textMuted }}>
-                  KI-gestützte Auswahlverfahren-Automatisierung ersetzt manuelle Bewerbungsverarbeitung durch
-                  strukturierte Datenerfassung, automatische Vollständigkeitsprüfung und ein operationalisiertes
-                  Jury-Bewertungssystem. Organisationen reduzieren den Prozessaufwand damit um bis zu 70% — bei
-                  revisionssicherer Entscheidungsdokumentation und nachweislich besserer Entscheidungsqualität.
+                  {content.definition.body}
                 </p>
               </div>
             </div>
