@@ -10,7 +10,6 @@ import albanova from "@/assets/logos/albanova-consulting.png";
 import bayMittelstandspreis from "@/assets/logos/bayerischer-mittelstandspreis-2026.png";
 import clubCli from "@/assets/logos/club-cli.webp";
 import becomingYou from "@/assets/logos/becoming-you.png";
-import drLindaFischer from "@/assets/logos/dr-linda-fischer.png";
 import eliteAesthetic from "@/assets/logos/elite-aesthetic.png";
 
 
@@ -30,7 +29,6 @@ const logos = [
   { src: pureDesign, alt: "Pure Design Studio" },
   { src: becomingYou, alt: "Becoming You" },
   { src: seabreeze, alt: "Seabreeze Beach Club" },
-  { src: drLindaFischer, alt: "Dr. Linda Fischer" },
   { src: eliteAesthetic, alt: "Elite Aesthetic" },
   
 ];
