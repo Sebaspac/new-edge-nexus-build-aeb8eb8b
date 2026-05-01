@@ -317,7 +317,7 @@ const PainPointAuswahlverfahren = () => {
           }}
         >
           {/* Geometric background shapes — ElegantShape style */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
             {/* Ambient glow */}
             <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 50% at 18% 35%, rgba(124,58,237,0.18) 0%, transparent 60%)" }} />
             <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 40% at 85% 70%, rgba(139,92,246,0.10) 0%, transparent 50%)" }} />
