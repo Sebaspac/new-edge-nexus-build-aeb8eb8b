@@ -557,10 +557,8 @@ const PainPointAuswahlverfahren = () => {
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
                 <div className="max-w-[600px]">
                   <SectionLabel>Integrationen</SectionLabel>
-                  <SectionH2>Verbindet sich mit den Tools die ihr bereits nutzt</SectionH2>
-                  <SectionSub>
-                    Kein neues System das alles ersetzt. New Edge integriert sich in eure bestehende Infrastruktur.
-                  </SectionSub>
+                  <SectionH2>{content.integrations.h2}</SectionH2>
+                  <SectionSub>{content.integrations.sub}</SectionSub>
                 </div>
                 <div className="mt-10" style={{ '--fade-color': L.bgAlt } as React.CSSProperties}>
                   <Logos3
