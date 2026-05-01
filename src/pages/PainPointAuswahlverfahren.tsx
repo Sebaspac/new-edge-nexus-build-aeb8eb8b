@@ -690,7 +690,7 @@ const PainPointAuswahlverfahren = () => {
                         className="px-4 py-3 text-[0.82rem]"
                         style={{ color: "#b91c1c", ...MONO }}
                       >
-                        <span className="block text-[0.7rem] font-bold uppercase tracking-wider mb-1" style={{ color: "#b91c1c" }}>Manuell</span>
+                        <span className="block text-[0.7rem] font-bold uppercase tracking-wider mb-1" style={{ color: "#b91c1c" }}>{content.compare.altLabel}</span>
                         ✗ {ma}
                       </div>
                     </div>
