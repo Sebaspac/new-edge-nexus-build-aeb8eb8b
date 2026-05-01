@@ -398,24 +398,23 @@ const PainPointAuswahlverfahren = () => {
                   className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] mb-5"
                   style={{ color: PURPLE_LIGHT, ...MONO }}
                 >
-                  KI-AUTOMATISIERUNG FÜR AUSWAHLVERFAHREN
+                  {content.hero.overlabel}
                 </p>
                 <h1
                   className="text-[clamp(1.75rem,3.2vw,2.75rem)] leading-[1.08] mb-5"
                   style={{ ...SERIF, letterSpacing: "-0.02em" }}
                 >
-                  Auswahlverfahren automatisieren —<br />
+                  {content.hero.h1Line1}<br />
                   <span style={{ color: PURPLE_LIGHT }}>
-                    KI-gestützte Bewertungssysteme
+                    {content.hero.h1Line2Highlighted}
                   </span>
                 </h1>
                 <p className="text-[0.925rem] leading-[1.65] mb-6 max-w-[500px]" style={{ color: D.textMuted }}>
-                  Unstrukturierte Bewerbungen, überlastete Jurys, verlorenes Wissen. New Edge strukturiert euren
-                  gesamten Auswahlprozess — von der ersten Einreichung bis zur revisionssicheren Entscheidung.
+                  {content.hero.sub}
                 </p>
                 <div className="flex gap-3 flex-wrap">
-                  <BtnFilled onClick={() => setContactOpen(true)}>Demo buchen</BtnFilled>
-                  <BtnGhost dark>Case Study — BMP Award</BtnGhost>
+                  <BtnFilled onClick={() => setContactOpen(true)}>{content.hero.ctaPrimary}</BtnFilled>
+                  <BtnGhost dark>{content.hero.ctaSecondary}</BtnGhost>
                 </div>
               </Reveal>
 
