@@ -153,7 +153,6 @@ export default function LogoCloud() {
                     width: "auto",
                     maxWidth: "160px",
                     opacity: 0.85,
-                    mixBlendMode: "difference",
                   }}
                 />
               </div>
