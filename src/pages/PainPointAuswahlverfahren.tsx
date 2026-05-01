@@ -438,15 +438,15 @@ const PainPointAuswahlverfahren = () => {
           <div className="shrink-0 pb-6 md:pb-8 relative z-10">
             <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
               <p className="text-center text-[1.15rem] md:text-[1.35rem] mb-1" style={SERIF}>
-                Vertraut von führenden Organisationen in Deutschland
+                {content.trustBar.headline}
               </p>
               <p className="text-center text-[0.75rem] mb-4" style={{ color: D.textMuted }}>
-                Reale Ergebnisse aus Auswahlprozessen wie eurem
+                {content.trustBar.sub}
               </p>
               <div className="overflow-hidden" style={{ borderTop: `1px solid ${D.border}`, borderBottom: `1px solid ${D.border}` }}>
                 <div className="flex w-max py-3.5" style={{ animation: "marquee 28s linear infinite" }}>
                   {[...Array(2)].flatMap((_, dup) =>
-                    ["BMP Award", "Stiftung", "Förderinstitut", "Verband", "IHK", "Accelerator", "Forschungsinstitut"].map((name, i) => (
+                    content.trustBar.logos.map((name, i) => (
                       <div
                         key={`hero-${dup}-${i}`}
                         className="flex items-center gap-2.5 px-8 text-[0.9rem] font-semibold whitespace-nowrap"
