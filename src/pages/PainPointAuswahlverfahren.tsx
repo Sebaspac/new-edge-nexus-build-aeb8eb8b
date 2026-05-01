@@ -17,6 +17,7 @@ import iconAnalyse from "@/assets/painpoint-a-icon-analyse.png";
 import iconKoordination from "@/assets/painpoint-a-icon-koordination.png";
 import iconInsights from "@/assets/painpoint-a-icon-insights.png";
 import integrationsLogos from "/lovable-uploads/integrations-logos.png";
+import { Logos3 } from "@/components/ui/logos3";
 
 import foundersImg from "@/assets/founders-color.webp";
 
