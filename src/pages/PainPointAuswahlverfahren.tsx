@@ -492,27 +492,17 @@ const PainPointAuswahlverfahren = () => {
               <div>
                 <img
                   src={painpointASection3}
-                  alt="KI-gestützte Erfassung: PDF-Dokumente werden via Texterkennung, Klassifizierung, Strukturierung und Validierung in ein strukturiertes Projektdatenblatt überführt"
+                  alt={content.feature1.imageAlt}
                   loading="lazy"
                   className="w-full h-auto max-w-[440px] mx-auto"
                 />
               </div>
               <div>
                 <SectionLabel>Feature 01</SectionLabel>
-                <SectionH2>Schluss mit dem Dokumenten-Chaos</SectionH2>
-                <SectionSub>
-                  Bewerbungen kommen als PDFs, Freitexte und E-Mails — jedes in einem anderen Format. Systematisch
-                  vergleichen lässt sich das nicht. New Edge strukturiert die Datenerfassung, prüft Vollständigkeit
-                  automatisch und führt Bewerber durch einen klaren, geführten Prozess — ohne manuelle Nacharbeit.
-                </SectionSub>
-                <BulletList
-                  items={[
-                    "Automatische Dokumentenprüfung auf Vollständigkeit",
-                    "Guided Application — Schritt-für-Schritt geführt",
-                    "Persistente Datenbasis — kein Wissen geht verloren",
-                  ]}
-                />
-                <FeatureCTA>Wie es funktioniert</FeatureCTA>
+                <SectionH2>{content.feature1.h2}</SectionH2>
+                <SectionSub>{content.feature1.sub}</SectionSub>
+                <BulletList items={[...content.feature1.bullets]} />
+                <FeatureCTA>{content.feature1.cta}</FeatureCTA>
               </div>
             </div>
           </Reveal>
