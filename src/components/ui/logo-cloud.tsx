@@ -15,13 +15,13 @@ const SANS =
   "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
 
 const logos = [
-  { src: sadieKessler, alt: "Sadie Kessler" },
-  { src: circlePhoto, alt: "The Circle Photo Studio" },
-  { src: hydeOfficial, alt: "Hyde Official" },
+  { src: sadieKessler, alt: "Sadie Kessler", noInvert: true },
+  { src: circlePhoto, alt: "The Circle Photo Studio", noInvert: true },
+  { src: hydeOfficial, alt: "Hyde Official", noInvert: true },
   { src: albanova, alt: "AlbaNova Consulting" },
   { src: dariusCompany, alt: "Darius Company" },
   { src: museStudio, alt: "Muse Music Studio" },
-  { src: bayMittelstandspreis, alt: "Bayerischer Mittelstandspreis 2026" },
+  { src: bayMittelstandspreis, alt: "Bayerischer Mittelstandspreis 2026", noInvert: true },
   { src: drAaronLoeb, alt: "Dr Aaron Loeb" },
   { src: clubCli, alt: "Club Cli" },
   { src: pureDesign, alt: "Pure Design Studio" },
