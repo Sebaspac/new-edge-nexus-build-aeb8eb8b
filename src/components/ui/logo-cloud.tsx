@@ -10,6 +10,9 @@ import albanova from "@/assets/logos/albanova-consulting.png";
 import bayMittelstandspreis from "@/assets/logos/bayerischer-mittelstandspreis-2026.png";
 import clubCli from "@/assets/logos/club-cli.webp";
 import becomingYou from "@/assets/logos/becoming-you.png";
+import drLindaFischer from "@/assets/logos/dr-linda-fischer.png";
+import eliteAesthetic from "@/assets/logos/elite-aesthetic.png";
+import meyerHenrich from "@/assets/logos/meyer-henrich.png";
 
 const SANS =
   "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
@@ -27,6 +30,9 @@ const logos = [
   { src: pureDesign, alt: "Pure Design Studio" },
   { src: becomingYou, alt: "Becoming You" },
   { src: seabreeze, alt: "Seabreeze Beach Club" },
+  { src: drLindaFischer, alt: "Dr. Linda Fischer" },
+  { src: eliteAesthetic, alt: "Elite Aesthetic" },
+  { src: meyerHenrich, alt: "Meyer & Henrich Orthopädie" },
 ];
 
 export default function LogoCloud() {
@@ -111,7 +117,7 @@ export default function LogoCloud() {
         <div
           className="absolute left-0 right-0 top-1/2 -translate-y-1/2 w-full overflow-hidden"
           style={{
-            padding: "10px 0",
+            padding: "16px 0",
             backgroundColor: "#0a0a0a",
             zIndex: 1,
           }}
@@ -141,7 +147,7 @@ export default function LogoCloud() {
               <div
                 key={`logo-${index}`}
                 className="flex-shrink-0 flex items-center justify-center"
-                style={{ height: "44px" }}
+                style={{ height: "56px" }}
               >
                 <img
                   src={logo.src}
@@ -149,9 +155,9 @@ export default function LogoCloud() {
                   loading="lazy"
                   className="object-contain brightness-0 invert"
                   style={{
-                    height: "44px",
+                    height: "56px",
                     width: "auto",
-                    maxWidth: "160px",
+                    maxWidth: "180px",
                     opacity: 0.85,
                   }}
                 />

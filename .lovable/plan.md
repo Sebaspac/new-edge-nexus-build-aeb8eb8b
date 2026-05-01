@@ -1,25 +1,25 @@
+## Plan
 
-## Farbumstellung: Helles Lila → Dunkles Lila (Homepage-Hero-Palette)
+### Was sich ändert
 
-### Aktuelle Farben (Pain-Point-Seite)
-- `PURPLE` = `#a855f7` (helles Lila)
-- `PURPLE_DARK` = `#7e22ce`
-- `PURPLE_LIGHT` = `#c084fc` (hellstes Lila)
-- `PURPLE_BG` = `rgba(168,85,247,0.08)`
+**Nur die Marquee-Logos und die neuen Imports** — der Kreis (SVG, Größe, Glow) bleibt exakt wie er ist.
 
-### Neue Farben (aus Homepage-Hero)
-- `PURPLE` → `#7c3aed` (Haupt-Akzent der Hero-Section)
-- `PURPLE_DARK` → `#4c1d95` (dunkelster Ton)
-- `PURPLE_LIGHT` → wird gelöscht / ersetzt durch `#6d28d9`
-- `PURPLE_BG` → `rgba(124,58,237,0.08)` (basierend auf neuem Primärton)
+### Änderungen in `src/components/ui/logo-cloud.tsx`
 
-### Betroffene Bereiche (~30 Stellen)
-1. **Design-Tokens** (Zeile 27–30): Alle 4 Konstanten aktualisieren
-2. **Gradient-Sections** (CTA, Hero-Pin): `linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #6d28d9 100%)` — kein helles `#c084fc` mehr
-3. **Buttons, Labels, Akzente**: Überall wo `PURPLE` als Textfarbe, Border oder Hintergrund genutzt wird
-4. **FAQ-Akkordeons**: Highlight-Farbe und Borders
-5. **Mobile CTA-Layout**: Gleiche Gradient-Anpassung
+1. **3 neue Logos importieren und zum Array hinzufügen:**
+   - `dr-linda-fischer.png` → "Dr. Linda Fischer"
+   - `elite-aesthetic.png` → "Elite Aesthetic"  
+   - `meyer-henrich.png` → "Meyer & Henrich"
 
-### Technisch
-- Nur Datei: `src/pages/PainPointAuswahlverfahren.tsx`
-- Reine Token-Änderung an den 4 Konstanten + Entfernung der direkten `#c084fc`-Referenzen in Gradients
+2. **Logo-Größe erhöhen** (nur im Marquee-Strip):
+   - Container-Höhe: `44px` → `56px`
+   - Bild-Höhe: `44px` → `56px`
+   - Max-Width: `160px` → `180px`
+   - Marquee-Padding: `10px 0` → `16px 0` (damit der Strip die Logos nicht abschneidet)
+
+3. **Weiße Hintergründe entfernen** aus den 3 neuen PNG-Logos (per Python-Skript, wie bei den anderen Logos zuvor).
+
+### Was NICHT geändert wird
+- Kreis-SVG (Größe, Position, Glow, Farben)
+- Overflow-Container (Höhe, Cropping links/rechts)
+- Heading und vertikale Linie
