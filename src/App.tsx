@@ -88,6 +88,7 @@ const App = () => {
                   <Route path="/leistungen/industrien/:slug" element={<PainPointAuswahlverfahren />} />
                   <Route path="/leistungen" element={<LeistungenStub />} />
                   <Route path="/loesungen/:slug" element={<PainPointAuswahlverfahren />} />
+                  <Route path="/industrien/:slug" element={<PainPointAuswahlverfahren />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
