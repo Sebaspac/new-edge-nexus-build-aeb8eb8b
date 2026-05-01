@@ -142,7 +142,7 @@ export default function LogoCloud() {
             style={{ width: "max-content", gap: "48px", alignItems: "center" }}
           >
             {duplicatedLogos.map((logo, index) => {
-              const h = (logo as any).height || 56;
+              const h = (logo as any).height || 88;
               return (
               <div
                 key={`logo-${index}`}
