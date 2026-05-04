@@ -68,14 +68,32 @@ const SectionLabel = ({ children }: { children: React.ReactNode }) => (
   </span>
 );
 
-const SectionH2 = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+/** Große Section-Überschrift, die ÜBER der Section steht (semantisch h2). */
+const SectionHeadline = ({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
   <h2
-    className={`text-[clamp(1.6rem,2.8vw,2.25rem)] leading-[1.15] mb-4 text-[#111] ${className}`}
+    className={`text-[clamp(2rem,4.2vw,3.25rem)] leading-[1.05] mb-8 md:mb-12 text-[#111] ${className}`}
     style={{ ...SERIF, letterSpacing: "-0.02em" }}
   >
     {children}
   </h2>
 );
+
+/** Untertitel innerhalb einer Section (semantisch h3 — visuell wie zuvor). */
+const SectionH2 = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+  <h3
+    className={`text-[clamp(1.6rem,2.8vw,2.25rem)] leading-[1.15] mb-4 text-[#111] ${className}`}
+    style={{ ...SERIF, letterSpacing: "-0.02em" }}
+  >
+    {children}
+  </h3>
+);
+
 
 const SectionSub = ({ children }: { children: React.ReactNode }) => (
   <p className="text-[0.925rem] leading-[1.75] mb-8 max-w-[540px]" style={{ color: L.textMuted, ...MONO }}>
