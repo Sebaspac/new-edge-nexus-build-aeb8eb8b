@@ -761,6 +761,9 @@ const PainPointAuswahlverfahren = () => {
           <div id="features" style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
             <Reveal>
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
+                <SectionHeadline className="text-center">
+                  Section Headline Kernfunktionen — Platzhalter
+                </SectionHeadline>
                 <div className="text-center max-w-[600px] mx-auto mb-12">
                   <SectionLabel>Kernfunktionen</SectionLabel>
                   <SectionH2 className="!mb-0">{content.featureCards.h2}</SectionH2>
