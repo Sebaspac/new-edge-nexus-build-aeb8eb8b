@@ -639,6 +639,9 @@ const PainPointAuswahlverfahren = () => {
           {/* COMPARISON TABLE */}
           <Reveal>
             <div id="comparison" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
+              <SectionHeadline>
+                Section Headline Vergleich — Platzhalter
+              </SectionHeadline>
               <div className="max-w-[600px] mb-10">
                 <SectionLabel>Vergleich</SectionLabel>
                 <SectionH2>{content.compare.h2}</SectionH2>
