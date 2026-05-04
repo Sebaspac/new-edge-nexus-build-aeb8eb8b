@@ -913,26 +913,46 @@ const entscheidungsinstanzen: PainPointContent = {
   },
   faq: [
     {
-      q: "Wie lange dauert die Einrichtung bis zum ersten Verfahren?",
-      a: "In der Regel 2–4 Wochen. Einrichtung, Datenmigration und Einführung für alle Beteiligten sind inklusive. Der erste Zyklus läuft produktiv.",
+      q: "Wie lange dauert die Einrichtung eines KI-Bewertungssystems?",
+      a: "Die initiale Einrichtung dauert in der Regel 1–2 Wochen. Darin enthalten: Import bestehender Kriterienkataloge, Konfiguration der Gewichtungen und eine Testphase mit echten Bewerbungsunterlagen. Pilotprojekte starten meist innerhalb von 14 Tagen produktiv.",
     },
     {
-      q: "Können wir unsere bestehenden Bewertungskriterien und Formulare übernehmen?",
-      a: "Ja. New Edge baut auf euren bestehenden Kriterien auf und operationalisiert sie digital. Ihr behaltet die volle Kontrolle über Gewichtung, Kategorien und Entscheidungslogik.",
+      q: "Können wir unsere bestehenden Bewertungskriterien übernehmen?",
+      a: "Ja. Das System übernimmt vorhandene Kriterienkataloge und Gewichtungsmatrizen vollständig. Sie definieren die Logik — der KI-Agent wendet sie konsistent auf alle Einreichungen an, ohne eigene Interpretationsspielräume.",
     },
     {
-      q: "Wie stellen wir sicher dass Bewertungen anonym bleiben?",
-      a: "Individuelle Bewertungen können vollständig anonymisiert werden. Wer was bewertet hat, ist nur für definierte Rollen sichtbar — das aggregierte Ergebnis für alle Beteiligten.",
+      q: "Ist die Bewertung für Bewerber anonym?",
+      a: "Anonymisierung ist konfigurierbar. Namen, Institutionen und persönliche Merkmale können vor der KI-Auswertung maskiert werden. Das reduziert unbewusste Verzerrungen und stärkt die Akzeptanz der Ergebnisse bei allen Beteiligten.",
     },
     {
-      q: "Ist das System DSGVO-konform und kann es lokal gehostet werden?",
-      a: "Ja. New Edge kann vollständig lokal oder in eurer eigenen Cloud-Infrastruktur gehostet werden. Alle Daten verbleiben in eurer Kontrolle — DSGVO-konform by design.",
+      q: "Ist das System DSGVO-konform und lokal hostbar?",
+      a: "Ja. Das System ist vollständig DSGVO-konform und kann auf lokaler Infrastruktur oder in einer deutschen Private Cloud betrieben werden. Keine Daten verlassen Ihre Umgebung. Für öffentliche Einrichtungen stehen BSI-konforme Betriebsmodelle zur Verfügung.",
     },
     {
-      q: "Eignet sich das System auch für staatliche Vergabeverfahren mit strengen Dokumentationspflichten?",
-      a: "Ja. Der vollständige Audit-Trail deckt alle gängigen Anforderungen für öffentliche Vergabe, Widerspruchsverfahren und behördliche Kontrollen ab.",
+      q: "Eignet sich das System auch für staatliche Vergabeverfahren?",
+      a: "Ja. Das System unterstützt strukturierte Vergabeprozesse nach VgV und UVgO. Alle Bewertungsschritte werden lückenlos dokumentiert und sind revisionssicher nachvollziehbar — eine Anforderung, die bei öffentlichen Ausschreibungen zwingend gilt.",
     },
   ],
+  howTo: {
+    name: "KI-Bewertungssystem für Entscheidungsinstanzen einrichten",
+    description:
+      "In drei Schritten zu einem strukturierten, nachvollziehbaren Auswahlprozess — für Jurys, Hochschulen und Vergabestellen.",
+    totalTime: "P14D",
+    steps: [
+      {
+        name: "Kriterienkatalog importieren",
+        text: "Bestehende Bewertungsmatrizen und Gewichtungslogiken werden direkt übernommen. Keine Neuentwicklung notwendig.",
+      },
+      {
+        name: "Pilotlauf mit Testdaten",
+        text: "Der KI-Agent bewertet eine Auswahl historischer Einreichungen. Ergebnisse werden mit manuellen Bewertungen abgeglichen und kalibriert.",
+      },
+      {
+        name: "Produktiver Betrieb & Auditlog",
+        text: "Alle Bewertungen laufen dokumentiert durch das System. Jurymitglieder und Gremien erhalten strukturierte Reports, keine Black-Box-Entscheidungen.",
+      },
+    ],
+  },
   closingCta: {
     h2Line1: "Hört auf, jedes Verfahren",
     h2Line2Highlighted: "neu zu erfinden.",
