@@ -1569,6 +1569,9 @@ export const painPoints: Record<string, PainPointContent> = {
   "local-digital-commerce": localDigitalCommerce,
   "handel-supply-chain": handelSupplyChain,
   "professional-services": professionalServices,
+  agenturen: agenturen,
+  "finance-compliance": financeCompliance,
+  "steuerberater-kanzleien": steuerberaterKanzleien,
 };
 
 export const DEFAULT_PAIN_POINT: PainPointContent = auswahlverfahren;
