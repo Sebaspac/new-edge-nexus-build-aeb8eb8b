@@ -606,6 +606,9 @@ const PainPointAuswahlverfahren = () => {
           <div id="integrations" style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
             <Reveal>
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
+                <SectionHeadline>
+                  Section Headline Integrationen — Platzhalter
+                </SectionHeadline>
                 <div className="max-w-[600px]">
                   <SectionLabel>Integrationen</SectionLabel>
                   <SectionH2>{content.integrations.h2}</SectionH2>
