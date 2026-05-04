@@ -522,67 +522,82 @@ const PainPointAuswahlverfahren = () => {
             </div>
           </section>
 
-          {/* FEATURE 01 */}
+          {/* FEATURE 01 — Bild links → H2 oben über Bild */}
           <Reveal>
-            <div id="feature-01" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <img
-                  src={painpointASection3}
-                  alt={content.feature1.imageAlt}
-                  loading="lazy"
-                  className="w-full h-auto max-w-[440px] mx-auto"
-                />
-              </div>
-              <div>
-                <SectionLabel>Feature 01</SectionLabel>
-                <SectionH2>{content.feature1.h2}</SectionH2>
-                <SectionSub>{content.feature1.sub}</SectionSub>
-                <BulletList items={[...content.feature1.bullets]} />
-                <FeatureCTA>{content.feature1.cta}</FeatureCTA>
+            <div id="feature-01" className="max-w-[1200px] mx-auto px-6 lg:px-8 pt-20 md:pt-24 pb-20 md:pb-24">
+              <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+                <div>
+                  <SectionHeadline>
+                    Section Headline 01 — Platzhalter
+                  </SectionHeadline>
+                  <img
+                    src={painpointASection3}
+                    alt={content.feature1.imageAlt}
+                    loading="lazy"
+                    className="w-full h-auto max-w-[440px] mx-auto"
+                  />
+                </div>
+                <div>
+                  <SectionLabel>Feature 01</SectionLabel>
+                  <SectionH2>{content.feature1.h2}</SectionH2>
+                  <SectionSub>{content.feature1.sub}</SectionSub>
+                  <BulletList items={[...content.feature1.bullets]} />
+                  <FeatureCTA>{content.feature1.cta}</FeatureCTA>
+                </div>
               </div>
             </div>
           </Reveal>
 
-          {/* FEATURE 02 (flipped) */}
+          {/* FEATURE 02 (flipped) — Bild rechts → H2 oben links über Text */}
            <div id="feature-02" style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
             <Reveal>
-              <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div className="md:order-2">
-                  <img
-                    src={painpointAFeature2}
-                    alt={content.feature2.imageAlt}
-                    loading="lazy"
-                    className="w-full h-auto max-w-[500px] mx-auto"
-                  />
-                </div>
-                <div className="md:order-1">
-                  <SectionLabel>Feature 02</SectionLabel>
-                  <SectionH2>{content.feature2.h2}</SectionH2>
-                  <SectionSub>{content.feature2.sub}</SectionSub>
-                  <BulletList items={[...content.feature2.bullets]} />
-                  <FeatureCTA>{content.feature2.cta}</FeatureCTA>
+              <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
+                <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+                  <div className="md:order-1">
+                    <SectionHeadline>
+                      Section Headline 02 — Platzhalter
+                    </SectionHeadline>
+                    <SectionLabel>Feature 02</SectionLabel>
+                    <SectionH2>{content.feature2.h2}</SectionH2>
+                    <SectionSub>{content.feature2.sub}</SectionSub>
+                    <BulletList items={[...content.feature2.bullets]} />
+                    <FeatureCTA>{content.feature2.cta}</FeatureCTA>
+                  </div>
+                  <div className="md:order-2">
+                    <img
+                      src={painpointAFeature2}
+                      alt={content.feature2.imageAlt}
+                      loading="lazy"
+                      className="w-full h-auto max-w-[500px] mx-auto md:mt-[5.5rem]"
+                    />
+                  </div>
                 </div>
               </div>
             </Reveal>
           </div>
 
-          {/* FEATURE 03 */}
+          {/* FEATURE 03 — Bild links → H2 oben über Bild */}
           <Reveal>
-            <div id="feature-03" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <img
-                  src={painpointAFeature3}
-                  alt={content.feature3.imageAlt}
-                  loading="lazy"
-                  className="w-full h-auto max-w-[500px] mx-auto"
-                />
-              </div>
-              <div>
-                <SectionLabel>Feature 03</SectionLabel>
-                <SectionH2>{content.feature3.h2}</SectionH2>
-                <SectionSub>{content.feature3.sub}</SectionSub>
-                <BulletList items={[...content.feature3.bullets]} />
-                <FeatureCTA>{content.feature3.cta}</FeatureCTA>
+            <div id="feature-03" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
+              <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+                <div>
+                  <SectionHeadline>
+                    Section Headline 03 — Platzhalter
+                  </SectionHeadline>
+                  <img
+                    src={painpointAFeature3}
+                    alt={content.feature3.imageAlt}
+                    loading="lazy"
+                    className="w-full h-auto max-w-[500px] mx-auto"
+                  />
+                </div>
+                <div>
+                  <SectionLabel>Feature 03</SectionLabel>
+                  <SectionH2>{content.feature3.h2}</SectionH2>
+                  <SectionSub>{content.feature3.sub}</SectionSub>
+                  <BulletList items={[...content.feature3.bullets]} />
+                  <FeatureCTA>{content.feature3.cta}</FeatureCTA>
+                </div>
               </div>
             </div>
           </Reveal>
