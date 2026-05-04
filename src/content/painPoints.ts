@@ -79,6 +79,14 @@ export interface PainPointContent {
     author: string;
   };
   faq: { q: string; a: string }[];
+  /** Optionales HowTo-Schema (JSON-LD) – wird automatisch in <head> injiziert wenn gesetzt */
+  howTo?: {
+    name: string;
+    description: string;
+    /** ISO 8601 Duration, z.B. "P14D" */
+    totalTime: string;
+    steps: { name: string; text: string }[];
+  };
   closingCta: {
     h2Line1: string;
     h2Line2Highlighted: string;
@@ -795,9 +803,9 @@ const kiKundensupport: PainPointContent = {
 const entscheidungsinstanzen: PainPointContent = {
   slug: "entscheidungsinstanzen",
   seo: {
-    title: "KI für Auswahlverfahren & Entscheidungsinstanzen | New Edge München",
+    title: "KI-gestützte Bewertungssysteme für Entscheidungsinstanzen | New Edge",
     description:
-      "Strukturierte Auswahlverfahren für Awards, Hochschulen, Vergabestellen und staatliche Institutionen. Automatisierte Bewerbungserfassung, Gremien-Koordination und revisionssichere Entscheidungsdokumentation.",
+      "Strukturierte, nachvollziehbare Auswahlprozesse für Jurys, Hochschulen, Vergabestellen und staatliche Institutionen. DSGVO-konform, lokal hostbar.",
     canonical: "/industrien/entscheidungsinstanzen",
   },
   hero: {
@@ -905,26 +913,46 @@ const entscheidungsinstanzen: PainPointContent = {
   },
   faq: [
     {
-      q: "Wie lange dauert die Einrichtung bis zum ersten Verfahren?",
-      a: "In der Regel 2–4 Wochen. Einrichtung, Datenmigration und Einführung für alle Beteiligten sind inklusive. Der erste Zyklus läuft produktiv.",
+      q: "Wie lange dauert die Einrichtung eines KI-Bewertungssystems?",
+      a: "Die initiale Einrichtung dauert in der Regel 1–2 Wochen. Darin enthalten: Import bestehender Kriterienkataloge, Konfiguration der Gewichtungen und eine Testphase mit echten Bewerbungsunterlagen. Pilotprojekte starten meist innerhalb von 14 Tagen produktiv.",
     },
     {
-      q: "Können wir unsere bestehenden Bewertungskriterien und Formulare übernehmen?",
-      a: "Ja. New Edge baut auf euren bestehenden Kriterien auf und operationalisiert sie digital. Ihr behaltet die volle Kontrolle über Gewichtung, Kategorien und Entscheidungslogik.",
+      q: "Können wir unsere bestehenden Bewertungskriterien übernehmen?",
+      a: "Ja. Das System übernimmt vorhandene Kriterienkataloge und Gewichtungsmatrizen vollständig. Sie definieren die Logik — der KI-Agent wendet sie konsistent auf alle Einreichungen an, ohne eigene Interpretationsspielräume.",
     },
     {
-      q: "Wie stellen wir sicher dass Bewertungen anonym bleiben?",
-      a: "Individuelle Bewertungen können vollständig anonymisiert werden. Wer was bewertet hat, ist nur für definierte Rollen sichtbar — das aggregierte Ergebnis für alle Beteiligten.",
+      q: "Ist die Bewertung für Bewerber anonym?",
+      a: "Anonymisierung ist konfigurierbar. Namen, Institutionen und persönliche Merkmale können vor der KI-Auswertung maskiert werden. Das reduziert unbewusste Verzerrungen und stärkt die Akzeptanz der Ergebnisse bei allen Beteiligten.",
     },
     {
-      q: "Ist das System DSGVO-konform und kann es lokal gehostet werden?",
-      a: "Ja. New Edge kann vollständig lokal oder in eurer eigenen Cloud-Infrastruktur gehostet werden. Alle Daten verbleiben in eurer Kontrolle — DSGVO-konform by design.",
+      q: "Ist das System DSGVO-konform und lokal hostbar?",
+      a: "Ja. Das System ist vollständig DSGVO-konform und kann auf lokaler Infrastruktur oder in einer deutschen Private Cloud betrieben werden. Keine Daten verlassen Ihre Umgebung. Für öffentliche Einrichtungen stehen BSI-konforme Betriebsmodelle zur Verfügung.",
     },
     {
-      q: "Eignet sich das System auch für staatliche Vergabeverfahren mit strengen Dokumentationspflichten?",
-      a: "Ja. Der vollständige Audit-Trail deckt alle gängigen Anforderungen für öffentliche Vergabe, Widerspruchsverfahren und behördliche Kontrollen ab.",
+      q: "Eignet sich das System auch für staatliche Vergabeverfahren?",
+      a: "Ja. Das System unterstützt strukturierte Vergabeprozesse nach VgV und UVgO. Alle Bewertungsschritte werden lückenlos dokumentiert und sind revisionssicher nachvollziehbar — eine Anforderung, die bei öffentlichen Ausschreibungen zwingend gilt.",
     },
   ],
+  howTo: {
+    name: "KI-Bewertungssystem für Entscheidungsinstanzen einrichten",
+    description:
+      "In drei Schritten zu einem strukturierten, nachvollziehbaren Auswahlprozess — für Jurys, Hochschulen und Vergabestellen.",
+    totalTime: "P14D",
+    steps: [
+      {
+        name: "Kriterienkatalog importieren",
+        text: "Bestehende Bewertungsmatrizen und Gewichtungslogiken werden direkt übernommen. Keine Neuentwicklung notwendig.",
+      },
+      {
+        name: "Pilotlauf mit Testdaten",
+        text: "Der KI-Agent bewertet eine Auswahl historischer Einreichungen. Ergebnisse werden mit manuellen Bewertungen abgeglichen und kalibriert.",
+      },
+      {
+        name: "Produktiver Betrieb & Auditlog",
+        text: "Alle Bewertungen laufen dokumentiert durch das System. Jurymitglieder und Gremien erhalten strukturierte Reports, keine Black-Box-Entscheidungen.",
+      },
+    ],
+  },
   closingCta: {
     h2Line1: "Hört auf, jedes Verfahren",
     h2Line2Highlighted: "neu zu erfinden.",
@@ -1354,8 +1382,164 @@ const professionalServices: PainPointContent = {
 };
 
 /* ──────────────────────────────────────────────────────────────
-   Slug-Map (alle Aliase zeigen auf denselben Content)
+   INDUSTRIE 5 — Agenturen & Kreativbranche
+   (Layout-Body geklont von localDigitalCommerce; SEO+FAQ+HowTo
+    1:1 nach Audit. Body-Text wird später angepasst.)
 ────────────────────────────────────────────────────────────── */
+const agenturen: PainPointContent = {
+  ...localDigitalCommerce,
+  slug: "agenturen",
+  seo: {
+    title: "KI-Automatisierung für Agenturen & Kreativbetriebe | New Edge",
+    description:
+      "Weniger Overhead, mehr Output. KI-Agenten für Briefing-Auswertung, Content-Produktion und Reporting — ohne technisches Know-how.",
+    canonical: "/industrien/agenturen",
+  },
+  faq: [
+    {
+      q: "Brauchen wir technisches Know-how für die Einführung?",
+      a: "Nein. Das System ist für operative Teams ohne IT-Hintergrund ausgelegt. Onboarding erfolgt geführt, Konfigurationsänderungen nehmen Sie selbst vor — ohne Entwickler.",
+    },
+    {
+      q: "Wann sehen wir erste Ergebnisse?",
+      a: "In der Regel innerhalb der ersten zwei Betriebswochen. KI-Agenten beginnen sofort, Briefings auszuwerten, Content-Drafts zu erstellen und Reportingdaten zu aggregieren — parallel zum laufenden Betrieb.",
+    },
+    {
+      q: "Funktioniert das System mit Instagram und anderen Social Plattformen?",
+      a: "Ja. Native Integrationen für Instagram, LinkedIn, Meta Ads und Google Analytics sind verfügbar. Performance-Daten fließen automatisch in Berichte und Optimierungsvorschläge ein.",
+    },
+    {
+      q: "Was unterscheidet New Edge von einer klassischen KI-Agentur?",
+      a: "New Edge liefert keine einmaligen Prompts oder manuelle KI-Arbeit. Wir implementieren Systeme, die dauerhaft autonom laufen — messbar, skalierbar und ohne wiederkehrende Agenturkosten pro Output.",
+    },
+  ],
+  howTo: {
+    name: "KI-Automatisierung in einer Agentur einführen",
+    description:
+      "In drei Schritten operative KI-Agenten in den Agenturalltag integrieren — ohne Workflow-Unterbrechung.",
+    totalTime: "P10D",
+    steps: [
+      {
+        name: "Workflow-Analyse",
+        text: "Wir identifizieren die drei zeitintensivsten Routineprozesse in Ihrer Agentur: Briefing-Auswertung, Content-Produktion oder Reporting.",
+      },
+      {
+        name: "Agenten konfigurieren & verbinden",
+        text: "KI-Agenten werden auf Ihre Tools (Notion, Slack, Meta Ads, Google Analytics) verbunden und mit Ihrer Tonalität trainiert.",
+      },
+      {
+        name: "Live schalten & skalieren",
+        text: "Nach einem kurzen Testlauf übernehmen die Agenten die Routinearbeit. Ihr Team fokussiert sich auf Strategie und Kreation.",
+      },
+    ],
+  },
+};
+
+/* ──────────────────────────────────────────────────────────────
+   INDUSTRIE 6 — Finance & Compliance
+   (Layout-Body geklont von handelSupplyChain.)
+────────────────────────────────────────────────────────────── */
+const financeCompliance: PainPointContent = {
+  ...handelSupplyChain,
+  slug: "finance-compliance",
+  seo: {
+    title: "KI-Automatisierung für Finance & Compliance | New Edge",
+    description:
+      "Dokumentenprüfung, Regulatorik-Monitoring und Berichtspflichten automatisiert. DSGVO-konform, SAP-integrierbar, auditfähig.",
+    canonical: "/industrien/finance-compliance",
+  },
+  faq: [
+    {
+      q: "Welche Regularien werden vom System abgedeckt?",
+      a: "Das System deckt aktuell DSGVO, GoBD, MaRisk, DORA und ESG-Berichtspflichten ab. Die Regulatorik-Bibliothek wird kontinuierlich aktualisiert. Branchenspezifische Regelwerke können auf Anfrage integriert werden.",
+    },
+    {
+      q: "Kann das System auch Nicht-EU-Dokumente verarbeiten?",
+      a: "Ja. Das System verarbeitet Dokumente in über 40 Sprachen und prüft auf internationale Standards (IFRS, US GAAP, ISO 27001). Nicht-EU-Regularien können als Custom-Regelwerk ergänzt werden.",
+    },
+    {
+      q: "Wie werden Regulatorik-Updates eingespielt?",
+      a: "Änderungen in Gesetzen, Richtlinien und Leitfäden werden automatisch im System hinterlegt. Sie erhalten eine Benachrichtigung, welche Ihrer Prozesse betroffen sind — ohne manuelles Monitoring.",
+    },
+    {
+      q: "Ist eine SAP-Integration möglich?",
+      a: "Ja. Native SAP-Konnektoren stehen für SAP S/4HANA und SAP ERP zur Verfügung. Daten aus Finanzbuchhaltung und Controlling fließen direkt in Compliance-Checks und Berichte ein.",
+    },
+  ],
+  howTo: {
+    name: "Compliance-Prozesse mit KI automatisieren",
+    description:
+      "Strukturierter Einstieg in automatisierte Dokumentenprüfung und Regulatorik-Monitoring.",
+    totalTime: "P21D",
+    steps: [
+      {
+        name: "Compliance-Scope definieren",
+        text: "Gemeinsam werden die relevanten Regelwerke, Dokumententypen und Prüfpflichten erfasst. Bestehende Prozesse werden 1:1 abgebildet.",
+      },
+      {
+        name: "Systemanbindung & Datenmapping",
+        text: "Integration mit bestehenden Systemen (SAP, ERP, DMS). Alle Datenflüsse werden dokumentiert und DSGVO-konform konfiguriert.",
+      },
+      {
+        name: "Automatisierter Betrieb & Audit-Trail",
+        text: "Das System prüft, dokumentiert und meldet — kontinuierlich. Jede Prüfung erzeugt einen revisionssicheren Audit-Trail.",
+      },
+    ],
+  },
+};
+
+/* ──────────────────────────────────────────────────────────────
+   INDUSTRIE 7 — Steuerberater & Kanzleien
+   (Layout-Body geklont von professionalServices.)
+────────────────────────────────────────────────────────────── */
+const steuerberaterKanzleien: PainPointContent = {
+  ...professionalServices,
+  slug: "steuerberater-kanzleien",
+  seo: {
+    title: "KI-Automatisierung für Steuerberater & Kanzleien | New Edge",
+    description:
+      "Mandantenbetreuung, Belegverarbeitung und Fristen automatisiert. DATEV- und LexOffice-kompatibel. DSGVO-konform.",
+    canonical: "/industrien/steuerberater-kanzleien",
+  },
+  faq: [
+    {
+      q: "Wie wird der KI-Agent auf unsere Kanzlei trainiert?",
+      a: "Das Training erfolgt auf Basis Ihrer bestehenden Mandantenkommunikation, Dokumentenvorlagen und internen Prozesse. Der Agent lernt Ihre Tonalität, häufige Anfragen und kanzleispezifische Abläufe — ohne externe Datenweitergabe.",
+    },
+    {
+      q: "Wie ist der Datenschutz für Mandantendaten geregelt?",
+      a: "Alle Daten verbleiben in Ihrer lokalen Umgebung oder einer deutschen Private Cloud. Kein Modell-Training auf Mandantendaten. Das System ist vollständig DSGVO-konform und entspricht den berufsrechtlichen Verschwiegenheitspflichten nach §57 StBerG.",
+    },
+    {
+      q: "Funktioniert das System mit DATEV und LexOffice?",
+      a: "Ja. Native Schnittstellen für DATEV Unternehmen online, DATEV DMS und LexOffice sind verfügbar. Belege, Buchungsdaten und Fristen werden automatisch synchronisiert — kein manueller Export notwendig.",
+    },
+    {
+      q: "Sehen Mandanten, dass KI im Einsatz ist?",
+      a: "Das liegt bei Ihnen. Das System kann vollständig im Hintergrund arbeiten oder transparent als KI-gestützter Service kommuniziert werden. Viele Kanzleien nutzen den KI-Einsatz aktiv als Qualitätsmerkmal gegenüber Mandanten.",
+    },
+  ],
+  howTo: {
+    name: "KI-Automatisierung in einer Steuerkanzlei einführen",
+    description:
+      "Von der Belegerfassung bis zur Mandantenkommunikation — schrittweise Automatisierung ohne Betriebsunterbrechung.",
+    totalTime: "P14D",
+    steps: [
+      {
+        name: "Prozessaufnahme & DATEV-Anbindung",
+        text: "Bestehende DATEV- oder LexOffice-Workflows werden analysiert und die Systemverbindung konfiguriert. Keine Datenmigration notwendig.",
+      },
+      {
+        name: "KI-Agent konfigurieren",
+        text: "Der Agent wird auf Kanzleisprache, Mandantentypen und häufige Anfragen eingestellt. Fristverwaltung und Belegverarbeitung werden als erste Prozesse automatisiert.",
+      },
+      {
+        name: "Übergabe an den laufenden Betrieb",
+        text: "Nach der Testphase übernimmt der KI-Agent Routinekommunikation, Fristreminder und Belegzuordnung. Ihr Team behält volle Kontrolle und Freigabe.",
+      },
+    ],
+  },
+};
 export const painPoints: Record<string, PainPointContent> = {
   // Pain Point A
   auswahlverfahren: auswahlverfahren,
@@ -1385,6 +1569,9 @@ export const painPoints: Record<string, PainPointContent> = {
   "local-digital-commerce": localDigitalCommerce,
   "handel-supply-chain": handelSupplyChain,
   "professional-services": professionalServices,
+  agenturen: agenturen,
+  "finance-compliance": financeCompliance,
+  "steuerberater-kanzleien": steuerberaterKanzleien,
 };
 
 export const DEFAULT_PAIN_POINT: PainPointContent = auswahlverfahren;
