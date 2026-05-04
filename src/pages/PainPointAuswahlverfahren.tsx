@@ -825,16 +825,19 @@ const PainPointAuswahlverfahren = () => {
           {/* FAQ */}
           <Reveal>
             <div id="faq" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
+              <SectionHeadline>
+                Section Headline FAQ — Platzhalter
+              </SectionHeadline>
               <div className="grid md:grid-cols-[1fr,1.5fr] gap-12 md:gap-16 items-start">
                 <div>
                   <SectionLabel>FAQ</SectionLabel>
-                  <h2
+                  <h3
                     className="text-[clamp(1.5rem,2.5vw,2.2rem)] mb-6"
                     style={{ ...SERIF, letterSpacing: "-0.02em", color: L.text }}
                   >
                     Du hast Fragen?<br />
                     <span style={{ color: PURPLE }}>Wir haben Antworten.</span>
-                  </h2>
+                  </h3>
                   <Link to="/kontakt">
                     <BtnFilled large>Kontakt aufnehmen</BtnFilled>
                   </Link>
