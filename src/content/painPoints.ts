@@ -79,6 +79,14 @@ export interface PainPointContent {
     author: string;
   };
   faq: { q: string; a: string }[];
+  /** Optionales HowTo-Schema (JSON-LD) – wird automatisch in <head> injiziert wenn gesetzt */
+  howTo?: {
+    name: string;
+    description: string;
+    /** ISO 8601 Duration, z.B. "P14D" */
+    totalTime: string;
+    steps: { name: string; text: string }[];
+  };
   closingCta: {
     h2Line1: string;
     h2Line2Highlighted: string;
