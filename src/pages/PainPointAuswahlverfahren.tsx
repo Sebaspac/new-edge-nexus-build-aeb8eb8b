@@ -282,6 +282,22 @@ const PainPointAuswahlverfahren = () => {
     })),
   };
 
+  const howToJsonLd = content.howTo
+    ? {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name: content.howTo.name,
+        description: content.howTo.description,
+        totalTime: content.howTo.totalTime,
+        step: content.howTo.steps.map((s, i) => ({
+          "@type": "HowToStep",
+          position: i + 1,
+          name: s.name,
+          text: s.text,
+        })),
+      }
+    : null;
+
   return (
     <>
       <SEOHead
@@ -291,7 +307,11 @@ const PainPointAuswahlverfahren = () => {
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+        {howToJsonLd && (
+          <script type="application/ld+json">{JSON.stringify(howToJsonLd)}</script>
+        )}
       </Helmet>
+
 
       <div className="min-h-screen" style={{ ...MONO, overflowX: "clip" }}>
         
