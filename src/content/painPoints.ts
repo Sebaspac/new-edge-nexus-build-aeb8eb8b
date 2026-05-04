@@ -803,9 +803,9 @@ const kiKundensupport: PainPointContent = {
 const entscheidungsinstanzen: PainPointContent = {
   slug: "entscheidungsinstanzen",
   seo: {
-    title: "KI für Auswahlverfahren & Entscheidungsinstanzen | New Edge München",
+    title: "KI-gestützte Bewertungssysteme für Entscheidungsinstanzen | New Edge",
     description:
-      "Strukturierte Auswahlverfahren für Awards, Hochschulen, Vergabestellen und staatliche Institutionen. Automatisierte Bewerbungserfassung, Gremien-Koordination und revisionssichere Entscheidungsdokumentation.",
+      "Strukturierte, nachvollziehbare Auswahlprozesse für Jurys, Hochschulen, Vergabestellen und staatliche Institutionen. DSGVO-konform, lokal hostbar.",
     canonical: "/industrien/entscheidungsinstanzen",
   },
   hero: {
