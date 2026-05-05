@@ -289,6 +289,9 @@ const Index = () => {
           <PositionedForImpactSection />
         </div>
 
+        {/* Studio Strategy Bento */}
+        <StudioStrategySection />
+
         {/* Problem → Solution Framing */}
         <ProblemSolutionFraming />
 
