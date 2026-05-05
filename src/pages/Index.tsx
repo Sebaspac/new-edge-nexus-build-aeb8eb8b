@@ -4,6 +4,7 @@ import { HeroSection } from "../components/HeroSection";
 import { ServicesOverviewSection } from "../components/ServicesOverviewSection";
 import { MethodologyGrid } from "../components/MethodologyGrid";
 import { PositionedForImpactSection } from "../components/PositionedForImpactSection";
+import { StudioStrategySection } from "../components/StudioStrategySection";
 import { CaseStudiesGrid } from "../components/CaseStudiesGrid";
 import { AgencyEdgeSection } from "../components/AgencyEdgeSection";
 import { InnovationSection } from "../components/InnovationSection";
