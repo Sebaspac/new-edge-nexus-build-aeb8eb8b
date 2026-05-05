@@ -23,7 +23,7 @@ const logos = [
   { src: albanova, alt: "AlbaNova Consulting" },
   { src: dariusCompany, alt: "Darius Company" },
   { src: museStudio, alt: "Muse Music Studio" },
-  { src: bayMittelstandspreis, alt: "Bayerischer Mittelstandspreis 2026", height: 80 },
+  { src: bayMittelstandspreis, alt: "Bayerischer Mittelstandspreis 2026", height: 64 },
   { src: drAaronLoeb, alt: "Dr Aaron Loeb" },
   { src: clubCli, alt: "Club Cli" },
   { src: pureDesign, alt: "Pure Design Studio" },
