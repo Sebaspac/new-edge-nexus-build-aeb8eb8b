@@ -41,21 +41,25 @@ const services: Service[] = [
         title: "Einheitliche Entscheidungslogik",
         description:
           "Marke wird zum steuernden System für Strategie, Prozesse und Technologie.",
+        icon: Compass,
       },
       {
         title: "Klare Prioritäten statt Einzelmaßnahmen",
         description:
           "Alle Initiativen folgen einer gemeinsamen, umsetzbaren Roadmap.",
+        icon: ListChecks,
       },
       {
         title: "Sichere KI- & Technologieentscheidungen",
         description:
           "KI wird nur dort eingesetzt, wo sie echten operativen Hebel hat.",
+        icon: ShieldCheck,
       },
       {
         title: "Grundlage für skalierbare Systeme",
         description:
           "Marke, Daten und Prozesse sind so aufgebaut, dass Systeme darauf aufsetzen können.",
+        icon: Layers,
       },
     ],
   },
