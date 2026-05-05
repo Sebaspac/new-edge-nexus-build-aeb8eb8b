@@ -78,21 +78,25 @@ const services: Service[] = [
         title: "Klare Rolle jedes Kanals",
         description:
           "Jeder Touchpoint erfüllt eine definierte Funktion im Gesamtsystem.",
+        icon: Radio,
       },
       {
         title: "Durchgängige Markenlogik",
         description:
           "Kommunikation folgt einer einheitlichen Struktur über alle Kanäle hinweg.",
+        icon: Network,
       },
       {
         title: "Anschlussfähigkeit für Systeme & KI",
         description:
           "Inhalte, Daten und Touchpoints sind direkt integrierbar in Systeme und Automatisierung.",
+        icon: Plug,
       },
       {
         title: "Sichtbarkeit unter eigener Kontrolle",
         description:
           "Ihre Präsenz folgt Ihrer Logik – nicht der von Plattformen.",
+        icon: Eye,
       },
     ],
     partnerNote:
