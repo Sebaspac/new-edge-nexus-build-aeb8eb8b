@@ -1,6 +1,18 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { X, ArrowRight } from "lucide-react";
+import {
+  X,
+  ArrowRight,
+  Compass,
+  ListChecks,
+  ShieldCheck,
+  Layers,
+  Radio,
+  Network,
+  Plug,
+  Eye,
+  type LucideIcon,
+} from "lucide-react";
 
 type Service = {
   id: string;
@@ -9,7 +21,7 @@ type Service = {
   shortDescription: string;
   problem: string;
   solution: string;
-  points: { title: string; description: string }[];
+  points: { title: string; description: string; icon: LucideIcon }[];
   partnerNote?: string;
 };
 
@@ -29,21 +41,25 @@ const services: Service[] = [
         title: "Einheitliche Entscheidungslogik",
         description:
           "Marke wird zum steuernden System für Strategie, Prozesse und Technologie.",
+        icon: Compass,
       },
       {
         title: "Klare Prioritäten statt Einzelmaßnahmen",
         description:
           "Alle Initiativen folgen einer gemeinsamen, umsetzbaren Roadmap.",
+        icon: ListChecks,
       },
       {
         title: "Sichere KI- & Technologieentscheidungen",
         description:
           "KI wird nur dort eingesetzt, wo sie echten operativen Hebel hat.",
+        icon: ShieldCheck,
       },
       {
         title: "Grundlage für skalierbare Systeme",
         description:
           "Marke, Daten und Prozesse sind so aufgebaut, dass Systeme darauf aufsetzen können.",
+        icon: Layers,
       },
     ],
   },
@@ -62,21 +78,25 @@ const services: Service[] = [
         title: "Klare Rolle jedes Kanals",
         description:
           "Jeder Touchpoint erfüllt eine definierte Funktion im Gesamtsystem.",
+        icon: Radio,
       },
       {
         title: "Durchgängige Markenlogik",
         description:
           "Kommunikation folgt einer einheitlichen Struktur über alle Kanäle hinweg.",
+        icon: Network,
       },
       {
         title: "Anschlussfähigkeit für Systeme & KI",
         description:
           "Inhalte, Daten und Touchpoints sind direkt integrierbar in Systeme und Automatisierung.",
+        icon: Plug,
       },
       {
         title: "Sichtbarkeit unter eigener Kontrolle",
         description:
           "Ihre Präsenz folgt Ihrer Logik – nicht der von Plattformen.",
+        icon: Eye,
       },
     ],
     partnerNote:
@@ -174,19 +194,27 @@ export const StudioStrategySection = () => {
                 {service.shortDescription}
               </p>
 
-              <ul className="mt-auto space-y-3 mb-10">
-                {service.points.map((p) => (
-                  <li
-                    key={p.title}
-                    className="flex items-baseline gap-4 text-sm text-neutral-700"
-                  >
-                    <span className="text-neutral-400 tabular-nums">
-                      0{service.points.indexOf(p) + 1}
-                    </span>
-                    <span>{p.title}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-auto mb-10 grid grid-cols-2 sm:grid-cols-4 gap-px bg-neutral-200">
+                {service.points.map((p, idx) => {
+                  const Icon = p.icon;
+                  return (
+                    <div
+                      key={p.title}
+                      className="bg-white p-4 flex flex-col gap-3 min-h-[130px]"
+                    >
+                      <div className="flex items-center justify-between">
+                        <Icon className="w-5 h-5 text-neutral-900" strokeWidth={1.5} />
+                        <span className="text-[10px] tracking-[0.2em] text-neutral-400 tabular-nums">
+                          0{idx + 1}
+                        </span>
+                      </div>
+                      <span className="text-xs leading-snug text-neutral-700">
+                        {p.title}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
 
               <div className="flex items-center gap-2 text-sm text-neutral-900">
                 <span className="tracking-wide">Mehr erfahren</span>
