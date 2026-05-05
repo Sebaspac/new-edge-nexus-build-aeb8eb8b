@@ -194,19 +194,27 @@ export const StudioStrategySection = () => {
                 {service.shortDescription}
               </p>
 
-              <ul className="mt-auto space-y-3 mb-10">
-                {service.points.map((p) => (
-                  <li
-                    key={p.title}
-                    className="flex items-baseline gap-4 text-sm text-neutral-700"
-                  >
-                    <span className="text-neutral-400 tabular-nums">
-                      0{service.points.indexOf(p) + 1}
-                    </span>
-                    <span>{p.title}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-auto mb-10 grid grid-cols-2 sm:grid-cols-4 gap-px bg-neutral-200">
+                {service.points.map((p, idx) => {
+                  const Icon = p.icon;
+                  return (
+                    <div
+                      key={p.title}
+                      className="bg-white p-4 flex flex-col gap-3 min-h-[130px]"
+                    >
+                      <div className="flex items-center justify-between">
+                        <Icon className="w-5 h-5 text-neutral-900" strokeWidth={1.5} />
+                        <span className="text-[10px] tracking-[0.2em] text-neutral-400 tabular-nums">
+                          0{idx + 1}
+                        </span>
+                      </div>
+                      <span className="text-xs leading-snug text-neutral-700">
+                        {p.title}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
 
               <div className="flex items-center gap-2 text-sm text-neutral-900">
                 <span className="tracking-wide">Mehr erfahren</span>
