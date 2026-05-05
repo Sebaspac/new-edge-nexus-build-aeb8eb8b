@@ -1,6 +1,18 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { X, ArrowRight } from "lucide-react";
+import {
+  X,
+  ArrowRight,
+  Compass,
+  ListChecks,
+  ShieldCheck,
+  Layers,
+  Radio,
+  Network,
+  Plug,
+  Eye,
+  type LucideIcon,
+} from "lucide-react";
 
 type Service = {
   id: string;
@@ -9,7 +21,7 @@ type Service = {
   shortDescription: string;
   problem: string;
   solution: string;
-  points: { title: string; description: string }[];
+  points: { title: string; description: string; icon: LucideIcon }[];
   partnerNote?: string;
 };
 
