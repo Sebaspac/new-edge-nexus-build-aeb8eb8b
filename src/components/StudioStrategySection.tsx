@@ -127,7 +127,7 @@ export const StudioStrategySection = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const expanded = services.find((s) => s.id === expandedId) || null;
+  // expanded computed below from allServices
 
   const supportingCards: (Service & { icon: LucideIcon })[] = [
     {
