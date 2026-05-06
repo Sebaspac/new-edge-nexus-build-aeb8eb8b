@@ -162,8 +162,8 @@ export const StudioStrategySection = () => {
           </div>
         </motion.div>
 
-        {/* Bento grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
+        {/* Bento grid - connected cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-neutral-200 border border-neutral-200">
           {services.map((service, i) => (
             <motion.button
               key={service.id}
@@ -173,8 +173,7 @@ export const StudioStrategySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease: EASE, delay: i * 0.08 }}
-              whileHover={{ y: -2 }}
-              className="group relative text-left bg-white border border-neutral-200 hover:border-neutral-300 transition-colors duration-500 p-8 md:p-10 lg:p-12 flex flex-col min-h-[480px] md:min-h-[560px] shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.12)]"
+              className="group relative text-left bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-8 md:p-10 lg:p-12 flex flex-col min-h-[480px] md:min-h-[560px]"
               style={{ willChange: "transform" }}
             >
               <div className="flex items-start justify-between mb-10 md:mb-12">
@@ -222,6 +221,58 @@ export const StudioStrategySection = () => {
               </div>
             </motion.button>
           ))}
+        </div>
+
+        {/* Supporting bento row - 3 cards */}
+        <div className="mt-px grid grid-cols-1 md:grid-cols-3 gap-px bg-neutral-200 border border-t-0 border-neutral-200">
+          {[
+            {
+              number: "03",
+              title: "Markenfundament & Positionierung",
+              description:
+                "Wir definieren das Fundament, das Marke, Kommunikation und Systeme dauerhaft trägt.",
+              icon: Compass,
+            },
+            {
+              number: "04",
+              title: "Daten- & Prozessanalyse",
+              description:
+                "Wir machen sichtbar, wo Reibung, Lücken und Hebel im operativen System liegen.",
+              icon: Layers,
+            },
+            {
+              number: "05",
+              title: "KI-Readiness & Roadmap",
+              description:
+                "Wir prüfen, wo KI heute echten Hebel hat – und priorisieren die nächsten Schritte.",
+              icon: Network,
+            },
+          ].map((card, i) => {
+            const Icon = card.icon;
+            return (
+              <motion.div
+                key={card.number}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, ease: EASE, delay: i * 0.08 }}
+                className="group bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-8 md:p-10 flex flex-col min-h-[260px]"
+              >
+                <div className="flex items-start justify-between mb-8">
+                  <span className="text-xs tracking-[0.2em] uppercase text-neutral-400">
+                    Service {card.number}
+                  </span>
+                  <Icon className="w-5 h-5 text-neutral-900" strokeWidth={1.5} />
+                </div>
+                <h4 className="text-lg md:text-xl leading-snug text-neutral-900 mb-4 max-w-[24ch]">
+                  {card.title}
+                </h4>
+                <p className="text-sm text-neutral-600 leading-relaxed max-w-[40ch]">
+                  {card.description}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
