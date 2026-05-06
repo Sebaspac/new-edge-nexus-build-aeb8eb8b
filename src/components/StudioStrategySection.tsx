@@ -189,7 +189,7 @@ export const StudioStrategySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease: EASE, delay: i * 0.08 }}
-              className="group relative text-left bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-6 md:p-8 flex flex-col min-h-[300px] lg:min-h-[340px] lg:col-span-3"
+              className="group relative text-left bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-6 md:p-8 flex flex-col min-h-[280px] lg:min-h-[300px] lg:col-span-3"
             >
               <div className="flex items-start justify-between mb-6">
                 <span className="text-xs tracking-[0.2em] uppercase text-neutral-400">
@@ -225,7 +225,7 @@ export const StudioStrategySection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, ease: EASE, delay: (i + 2) * 0.08 }}
-                className="group bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-6 md:p-8 flex flex-col min-h-[260px] lg:min-h-[300px] lg:col-span-2"
+                className="group bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-6 md:p-8 flex flex-col min-h-[280px] lg:min-h-[300px] lg:col-span-2"
               >
                 <div className="flex items-start justify-between mb-6">
                   <span className="text-xs tracking-[0.2em] uppercase text-neutral-400">
