@@ -254,13 +254,15 @@ export const StudioStrategySection = () => {
           {supportingCards.map((card, i) => {
             const Icon = card.icon;
             return (
-              <motion.div
-                key={card.number}
+              <motion.button
+                key={card.id}
+                type="button"
+                onClick={() => setExpandedId(card.id)}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, ease: EASE, delay: (i + 2) * 0.08 }}
-                className="group bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-6 md:p-8 flex flex-col min-h-[280px] lg:min-h-[300px] lg:col-span-2"
+                className="group text-left bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-6 md:p-8 flex flex-col min-h-[280px] lg:min-h-[300px] lg:col-span-2"
               >
                 <div className="flex items-start justify-between mb-6">
                   <span className="text-xs tracking-[0.2em] uppercase text-neutral-400">
@@ -272,9 +274,13 @@ export const StudioStrategySection = () => {
                   {card.title}
                 </h4>
                 <p className="text-sm text-neutral-600 leading-relaxed max-w-[40ch]">
-                  {card.description}
+                  {card.shortDescription}
                 </p>
-              </motion.div>
+                <div className="mt-auto pt-6 flex items-center gap-2 text-sm text-neutral-900">
+                  <span className="tracking-wide">Mehr erfahren</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
+                </div>
+              </motion.button>
             );
           })}
         </div>
