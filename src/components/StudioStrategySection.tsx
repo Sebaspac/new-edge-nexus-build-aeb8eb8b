@@ -129,8 +129,32 @@ export const StudioStrategySection = () => {
 
   const expanded = services.find((s) => s.id === expandedId) || null;
 
+  const supportingCards = [
+    {
+      number: "03",
+      title: "Markenfundament & Positionierung",
+      description:
+        "Wir definieren das Fundament, das Marke, Kommunikation und Systeme dauerhaft trägt.",
+      icon: Compass,
+    },
+    {
+      number: "04",
+      title: "Daten- & Prozessanalyse",
+      description:
+        "Wir machen sichtbar, wo Reibung, Lücken und Hebel im operativen System liegen.",
+      icon: Layers,
+    },
+    {
+      number: "05",
+      title: "KI-Readiness & Roadmap",
+      description:
+        "Wir prüfen, wo KI heute echten Hebel hat – und priorisieren die nächsten Schritte.",
+      icon: Network,
+    },
+  ];
+
   return (
-    <section className="relative py-20 md:py-28 lg:py-36 bg-white overflow-hidden">
+    <section className="relative py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section header */}
         <motion.div
@@ -138,45 +162,36 @@ export const StudioStrategySection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease: EASE }}
-          className="max-w-3xl mb-14 md:mb-20"
+          className="max-w-3xl mb-10 md:mb-14"
         >
-          <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-neutral-500 mb-5">
+          <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-neutral-500 mb-4">
             Strategie — Studio
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl leading-[1.05] text-neutral-900 mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl leading-[1.05] text-neutral-900 mb-5">
             Strategie – die Grundlage für alles, was danach gebaut wird.
           </h2>
-          <div className="space-y-4 text-base md:text-lg text-neutral-600 leading-relaxed">
-            <p>
-              Im Studio entsteht die Systemlogik für Marke, Kommunikation und
-              den sinnvollen Einsatz von KI.
-            </p>
-            <p>
-              Wir analysieren Ihre bestehende Realität, schaffen
-              Entscheidungsfähigkeit im Management und entwickeln die
-              priorisierte Grundlage für steuerbare Systeme.
-            </p>
-            <p className="text-neutral-900">
-              Keine Maßnahmenliste – sondern die Logik dahinter.
-            </p>
-          </div>
+          <p className="text-base md:text-lg text-neutral-600 leading-relaxed">
+            Im Studio entsteht die Systemlogik für Marke, Kommunikation und den
+            sinnvollen Einsatz von KI – keine Maßnahmenliste, sondern die Logik
+            dahinter.
+          </p>
         </motion.div>
 
-        {/* Bento grid - connected cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-neutral-200 border border-neutral-200">
+        {/* Unified bento grid — 5 equal cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 auto-rows-fr gap-px bg-neutral-200 border border-neutral-200">
+          {/* Row 1 — primary services (each spans 3/6) */}
           {services.map((service, i) => (
             <motion.button
               key={service.id}
               type="button"
               onClick={() => setExpandedId(service.id)}
-              initial={{ opacity: 0, y: 32 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease: EASE, delay: i * 0.08 }}
-              className="group relative text-left bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-8 md:p-10 lg:p-12 flex flex-col min-h-[480px] md:min-h-[560px]"
-              style={{ willChange: "transform" }}
+              className="group relative text-left bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-6 md:p-8 flex flex-col min-h-[300px] lg:min-h-[340px] lg:col-span-3"
             >
-              <div className="flex items-start justify-between mb-10 md:mb-12">
+              <div className="flex items-start justify-between mb-6">
                 <span className="text-xs tracking-[0.2em] uppercase text-neutral-400">
                   Service {service.number}
                 </span>
@@ -185,69 +200,23 @@ export const StudioStrategySection = () => {
                 </span>
               </div>
 
-              <h3 className="text-2xl md:text-3xl lg:text-[2.25rem] leading-[1.15] text-neutral-900 mb-6 max-w-[22ch]">
+              <h3 className="text-xl md:text-2xl lg:text-[1.625rem] leading-[1.2] text-neutral-900 mb-4 max-w-[24ch]">
                 {service.title}
               </h3>
 
-              <p className="text-base text-neutral-600 leading-relaxed mb-10 max-w-[44ch]">
+              <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-[44ch]">
                 {service.shortDescription}
               </p>
 
-              <div className="mt-auto mb-10 grid grid-cols-2 sm:grid-cols-4 gap-px bg-neutral-200">
-                {service.points.map((p, idx) => {
-                  const Icon = p.icon;
-                  return (
-                    <div
-                      key={p.title}
-                      className="bg-white p-4 flex flex-col gap-3 min-h-[130px]"
-                    >
-                      <div className="flex items-center justify-between">
-                        <Icon className="w-5 h-5 text-neutral-900" strokeWidth={1.5} />
-                        <span className="text-[10px] tracking-[0.2em] text-neutral-400 tabular-nums">
-                          0{idx + 1}
-                        </span>
-                      </div>
-                      <span className="text-xs leading-snug text-neutral-700">
-                        {p.title}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <div className="flex items-center gap-2 text-sm text-neutral-900">
+              <div className="mt-auto pt-6 flex items-center gap-2 text-sm text-neutral-900">
                 <span className="tracking-wide">Mehr erfahren</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
               </div>
             </motion.button>
           ))}
-        </div>
 
-        {/* Supporting bento row - 3 cards */}
-        <div className="mt-px grid grid-cols-1 md:grid-cols-3 gap-px bg-neutral-200 border border-t-0 border-neutral-200">
-          {[
-            {
-              number: "03",
-              title: "Markenfundament & Positionierung",
-              description:
-                "Wir definieren das Fundament, das Marke, Kommunikation und Systeme dauerhaft trägt.",
-              icon: Compass,
-            },
-            {
-              number: "04",
-              title: "Daten- & Prozessanalyse",
-              description:
-                "Wir machen sichtbar, wo Reibung, Lücken und Hebel im operativen System liegen.",
-              icon: Layers,
-            },
-            {
-              number: "05",
-              title: "KI-Readiness & Roadmap",
-              description:
-                "Wir prüfen, wo KI heute echten Hebel hat – und priorisieren die nächsten Schritte.",
-              icon: Network,
-            },
-          ].map((card, i) => {
+          {/* Row 2 — supporting cards (each spans 2/6) */}
+          {supportingCards.map((card, i) => {
             const Icon = card.icon;
             return (
               <motion.div
@@ -255,16 +224,16 @@ export const StudioStrategySection = () => {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, ease: EASE, delay: i * 0.08 }}
-                className="group bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-8 md:p-10 flex flex-col min-h-[260px]"
+                transition={{ duration: 0.6, ease: EASE, delay: (i + 2) * 0.08 }}
+                className="group bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-6 md:p-8 flex flex-col min-h-[260px] lg:min-h-[300px] lg:col-span-2"
               >
-                <div className="flex items-start justify-between mb-8">
+                <div className="flex items-start justify-between mb-6">
                   <span className="text-xs tracking-[0.2em] uppercase text-neutral-400">
                     Service {card.number}
                   </span>
                   <Icon className="w-5 h-5 text-neutral-900" strokeWidth={1.5} />
                 </div>
-                <h4 className="text-lg md:text-xl leading-snug text-neutral-900 mb-4 max-w-[24ch]">
+                <h4 className="text-lg md:text-xl leading-snug text-neutral-900 mb-3 max-w-[24ch]">
                   {card.title}
                 </h4>
                 <p className="text-sm text-neutral-600 leading-relaxed max-w-[40ch]">
