@@ -129,29 +129,64 @@ export const StudioStrategySection = () => {
 
   const expanded = services.find((s) => s.id === expandedId) || null;
 
-  const supportingCards = [
+  const supportingCards: (Service & { icon: LucideIcon })[] = [
     {
+      id: "03",
       number: "03",
-      title: "Markenfundament & Positionierung",
-      description:
-        "Wir definieren das Fundament, das Marke, Kommunikation und Systeme dauerhaft trägt.",
-      icon: Compass,
-    },
-    {
-      number: "04",
-      title: "Daten- & Prozessanalyse",
-      description:
-        "Wir machen sichtbar, wo Reibung, Lücken und Hebel im operativen System liegen.",
-      icon: Layers,
-    },
-    {
-      number: "05",
-      title: "KI-Readiness & Roadmap",
-      description:
-        "Wir prüfen, wo KI heute echten Hebel hat – und priorisieren die nächsten Schritte.",
+      title: "AI Systems & Automation Architecture",
+      shortDescription:
+        "Wir automatisieren operative Aufgaben end-to-end – pragmatisch, stabil und skalierbar.",
+      problem:
+        "Viele operative Aufgaben sind repetitiv, manuell und über mehrere Tools verteilt. Das führt zu hohem Zeitaufwand, Fehleranfälligkeit, Medienbrüchen und fehlender Skalierbarkeit.",
+      solution:
+        "Wir automatisieren operative Aufgaben und Prozesse end-to-end – pragmatisch, stabil und skalierbar. Dabei setzen wir dort KI ein, wo sie einen echten Mehrwert bringt, und kombinieren sie mit klassischen Automationen.",
       icon: Network,
+      points: [
+        { title: "Operative Entlastung durch End-to-End-Workflows", description: "Manuelle Abläufe werden in stabile Prozesse übersetzt, die systemübergreifend laufen.", icon: Network },
+        { title: "Skalierbare Prozesslogik statt Tool-Flickwerk", description: "Workflows folgen einer klaren Architektur, unabhängig von einzelnen Tools.", icon: Layers },
+        { title: "KI dort, wo sie echten Hebel hat", description: "KI wird gezielt für Klassifikation, Priorisierung und Entscheidungsunterstützung eingesetzt – nicht als Gimmick.", icon: ShieldCheck },
+        { title: "Transparenz & Kontrolle über Ergebnisse", description: "Automatisierungen bleiben nachvollziehbar, steuerbar und auditierbar.", icon: Eye },
+      ],
+    },
+    {
+      id: "04",
+      number: "04",
+      title: "Internal Systems, Data & AI Ownership",
+      shortDescription:
+        "Eigene Systeme, eigene Daten, eigene KI – unter einer kontrollierbaren Architektur.",
+      problem:
+        "SaaS-Stacks und externe KI-APIs erzeugen Abhängigkeiten, steigende Kosten und fragmentierte Datenlandschaften. Unternehmen verlieren Kontrolle über sensible Daten und Prozesse.",
+      solution:
+        "Wir bauen interne Systeme, die Software, Daten und KI unter eine gemeinsame, kontrollierbare Architektur bringen – inklusive eigener LLM- und GPU-Infrastruktur.",
+      icon: Layers,
+      points: [
+        { title: "Eigene Systeme statt SaaS-Abhängigkeit", description: "Kritische Funktionen werden intern kontrollierbar aufgebaut.", icon: ShieldCheck },
+        { title: "Datenhoheit als Grundlage", description: "Datenflüsse, Logik und Zugriff bleiben im Unternehmen.", icon: Layers },
+        { title: "Interne KI für sensible Bereiche", description: "Modelle können isoliert und kontrolliert betrieben werden.", icon: Network },
+        { title: "Planbare Kosten & Unabhängigkeit", description: "Weniger Vendor-Lock-in, weniger laufende Toolkosten.", icon: Compass },
+      ],
+    },
+    {
+      id: "05",
+      number: "05",
+      title: "Web & Platform Architecture",
+      shortDescription:
+        "Websites als funktionale Knotenpunkte innerhalb der Systemarchitektur – skalierbar, integriert, wartbar.",
+      problem:
+        "Websites sind oft isolierte Marketingflächen ohne Verbindung zu Systemen oder Automatisierung.",
+      solution:
+        "Wir bauen Websites als funktionale Knotenpunkte innerhalb der Systemarchitektur – skalierbar, integriert und wartbar.",
+      icon: Network,
+      points: [
+        { title: "Plattform statt Website", description: "Digitale Präsenz wird als System gebaut – nicht als Einzelprojekt.", icon: Layers },
+        { title: "Conversion durch Struktur, nicht durch Hacks", description: "Informationsarchitektur und Journey-Logik reduzieren Reibung und erhöhen Abschlusswahrscheinlichkeit.", icon: Compass },
+        { title: "Messbarkeit als Standard", description: "Tracking- und Datenlogik sind integriert und wartbar.", icon: Eye },
+        { title: "Direkte Anschlussfähigkeit an Systeme", description: "Web wird Einstiegspunkt in CRM, Automationen und Agenten.", icon: Plug },
+      ],
     },
   ];
+
+  const allServices: Service[] = [...services, ...supportingCards];
 
   return (
     <section className="relative py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
