@@ -162,8 +162,8 @@ export const StudioStrategySection = () => {
           </div>
         </motion.div>
 
-        {/* Bento grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
+        {/* Bento grid - connected cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-neutral-200 border border-neutral-200">
           {services.map((service, i) => (
             <motion.button
               key={service.id}
@@ -173,8 +173,7 @@ export const StudioStrategySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease: EASE, delay: i * 0.08 }}
-              whileHover={{ y: -2 }}
-              className="group relative text-left bg-white border border-neutral-200 hover:border-neutral-300 transition-colors duration-500 p-8 md:p-10 lg:p-12 flex flex-col min-h-[480px] md:min-h-[560px] shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.12)]"
+              className="group relative text-left bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-8 md:p-10 lg:p-12 flex flex-col min-h-[480px] md:min-h-[560px]"
               style={{ willChange: "transform" }}
             >
               <div className="flex items-start justify-between mb-10 md:mb-12">
