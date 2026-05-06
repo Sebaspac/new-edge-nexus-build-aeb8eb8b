@@ -187,6 +187,7 @@ export const StudioStrategySection = () => {
   ];
 
   const allServices: Service[] = [...services, ...supportingCards];
+  const expanded = allServices.find((s) => s.id === expandedId) || null;
 
   return (
     <section className="relative py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
