@@ -4,14 +4,12 @@ import { HeroSection } from "../components/HeroSection";
 import { ServicesOverviewSection } from "../components/ServicesOverviewSection";
 import { MethodologyGrid } from "../components/MethodologyGrid";
 import { PositionedForImpactSection } from "../components/PositionedForImpactSection";
-import { StudioStrategySection } from "../components/StudioStrategySection";
 import { CaseStudiesGrid } from "../components/CaseStudiesGrid";
 import { AgencyEdgeSection } from "../components/AgencyEdgeSection";
 import { InnovationSection } from "../components/InnovationSection";
 import { InteractiveCore } from "../components/InteractiveCore";
 import { TestimonialsSection } from "../components/TestimonialsSection";
-import { ThreeStepsCTA } from "@/components/ThreeStepsCTA";
-
+import { BlogGridHome } from "@/components/BlogGridHome";
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
@@ -200,97 +198,21 @@ const Index = () => {
         {/* Mobile Navigation */}
         <MobileNavigation onContactClick={() => setIsContactSheetOpen(true)} theme="dark" />
 
-        {/* Hero + LogoCloud as one unified dark section */}
-        <div className="relative" style={{ background: "linear-gradient(135deg, #1a0533 0%, #0a0a0a 50%, #0d0a1a 100%)" }}>
-          {/* Geometric shapes spanning hero + logo cloud */}
-          <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 1 }}>
-            <motion.div
-              initial={{ opacity: 0, y: -150, rotate: 12 }}
-              animate={{ opacity: 1, y: 0, rotate: 12 }}
-              transition={{ duration: 2.4, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute top-[-8%] left-[-5%]"
-              style={{ width: 600, height: 140 }}
-            >
-              <motion.div
-                animate={{ y: [0, 15, 0] }}
-                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.15] bg-gradient-to-r from-white/[0.08] via-transparent to-transparent shadow-[0_8px_32px_0_rgba(139,92,246,0.25)] backdrop-blur-[2px]"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: -100, rotate: -15 }}
-              animate={{ opacity: 1, y: 0, rotate: -15 }}
-              transition={{ duration: 2.4, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute top-[8%] right-[-10%]"
-              style={{ width: 500, height: 120 }}
-            >
-              <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.12] bg-gradient-to-r from-violet-500/[0.10] via-transparent to-transparent shadow-[0_8px_32px_0_rgba(124,58,237,0.20)] backdrop-blur-[2px]"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -100, rotate: -8 }}
-              animate={{ opacity: 1, x: 0, rotate: -8 }}
-              transition={{ duration: 2.4, delay: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute top-[30%] left-[5%]"
-              style={{ width: 550, height: 130 }}
-            >
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.10] bg-gradient-to-r from-white/[0.06] via-transparent to-transparent shadow-[0_8px_32px_0_rgba(168,85,247,0.15)] backdrop-blur-[2px]"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 100, rotate: 20 }}
-              animate={{ opacity: 1, y: 0, rotate: 20 }}
-              transition={{ duration: 2.4, delay: 0.9, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute bottom-[-5%] right-[0%]"
-              style={{ width: 480, height: 110 }}
-            >
-              <motion.div
-                animate={{ y: [0, -18, 0] }}
-                transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.10] bg-gradient-to-r from-purple-400/[0.08] via-transparent to-transparent shadow-[0_8px_32px_0_rgba(139,92,246,0.18)] backdrop-blur-[2px]"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5, rotate: 35 }}
-              animate={{ opacity: 1, scale: 1, rotate: 35 }}
-              transition={{ duration: 2.4, delay: 1.1, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute bottom-[10%] left-[15%]"
-              style={{ width: 380, height: 90 }}
-            >
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.08] bg-gradient-to-r from-violet-400/[0.06] via-transparent to-transparent shadow-[0_4px_16px_0_rgba(139,92,246,0.12)]"
-              />
-            </motion.div>
-          </div>
-
-          <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
-          <LogoCloud />
-        </div>
+        {/* Hero Section */}
+        <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
 
         {/* Methodology Grid Section */}
         <div className="bg-surface">
           <MethodologyGrid />
         </div>
 
+        {/* Logo Cloud */}
+        <LogoCloud />
+
         {/* Positioned for Impact Section */}
         <div className="bg-surface">
           <PositionedForImpactSection />
         </div>
-
-        {/* Studio Strategy Bento */}
-        <StudioStrategySection />
 
         {/* Problem → Solution Framing */}
         <ProblemSolutionFraming />
@@ -316,9 +238,77 @@ const Index = () => {
           <TestimonialsSection />
         </div>
 
+        {/* Blog Section */}
+        <div className="bg-surface">
+          <BlogGridHome />
+        </div>
+
         {/* Contact Section */}
-        {/* Three Steps CTA */}
-        <ThreeStepsCTA />
+        <section id="contact-section" className="relative section-py-md overflow-hidden bg-primary-foreground">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+            <motion.div className="text-center max-w-4xl mx-auto" initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.8
+          }}>
+              <motion.h2 initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.2,
+              duration: 0.7
+            }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-8 leading-[1.05] text-foreground font-black">
+Bereit für die digitale Revolution?
+              </motion.h2>
+
+              <motion.p initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.4,
+              duration: 0.6
+            }} className="text-base md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-12 leading-relaxed px-4">
+                New Edge unterstützt Unternehmen dabei, KI und Automatisierung kontrolliert & nachhaltig im eigenen Besitz umzusetzen. 
+              
+
+            </motion.p>
+
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.6,
+              duration: 0.6
+            }} className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
+                <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="group bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white transition-all duration-300 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 font-semibold w-full sm:w-auto hover:-translate-y-0.5 rounded-none">
+                  Kontakt aufnehmen
+                  <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
 
         {/* Contact Form Sheet */}
         <Sheet open={isContactSheetOpen} onOpenChange={handleSheetClose}>

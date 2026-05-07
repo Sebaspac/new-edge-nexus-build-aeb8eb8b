@@ -1,218 +1,128 @@
 import { motion } from "framer-motion";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-
+import { LazySplineScene } from "./LazySplineScene";
+import CyberneticGridShader from "./ui/cybernetic-grid-shader";
 interface HeroSectionProps {
   onContactClick: () => void;
 }
-
-const SANS =
-  "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
-
 export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
-  useLanguage();
-
+  const { t } = useLanguage();
+  const scrollToNext = () => {
+    const nextSection = document.querySelector(".innovation-section");
+    if (nextSection) {
+      nextSection.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <>
-      {/* Skip link */}
+      {/* Skip Link for Keyboard Navigation */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"
       >
         Skip to main content
       </a>
-
       <section
+        className="relative w-full min-h-[100dvh] bg-black"
         id="hero"
-        className="relative w-full overflow-hidden flex items-center justify-center"
-        style={{ background: "transparent", minHeight: "100dvh" }}
+        style={{
+          backgroundColor: "#000000",
+        }}
       >
-        {/* Soft purple glow behind the headline */}
-        <div
-          aria-hidden
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-          style={{
-            width: "min(900px, 90vw)",
-            height: "min(900px, 90vw)",
-            background:
-              "radial-gradient(circle, rgba(91,33,182,0.30) 0%, rgba(76,29,149,0.16) 28%, rgba(76,29,149,0.06) 55%, transparent 75%)",
-            filter: "blur(40px)",
-            zIndex: 0,
-          }}
-        />
+        <div className="w-full min-h-[100dvh] grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden z-10 bg-black">
+          <CyberneticGridShader />
 
-
-        {/* Vertical line at bottom of hero — fades down toward LogoCloud */}
-        <div
-          aria-hidden
-          className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
-          style={{
-            bottom: "0",
-            width: "1px",
-            height: "60px",
-            background: "linear-gradient(to bottom, transparent, #6d28d9)",
-            zIndex: 2,
-          }}
-        />
-        {/* Hero — exact Dapta spec */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="relative flex flex-col items-center text-center w-full"
-          style={{ padding: "clamp(100px, 18vh, 120px) 24px clamp(40px, 6vh, 80px)", fontFamily: SANS, zIndex: 1 }}
-        >
-          {/* Headline — slightly smaller for better fit; rendered as div to bypass global h1 DM-Serif !important */}
-          <div
-            role="heading"
-            aria-level={1}
-            style={{
-              fontFamily: SANS,
-              fontSize: "clamp(36px, 5.5vw, 64px)",
-              fontWeight: 800,
-              lineHeight: 1.08,
-              letterSpacing: "-1.5px",
-              color: "#fff",
-              maxWidth: "780px",
-            }}
-          >
-            Mehr Output.
-            <span
-              className="block bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  "linear-gradient(90deg, #8b5cf6 0%, #6d28d9 50%, #4c1d95 100%)",
-                fontFamily: SANS,
-                fontWeight: 800,
-              }}
-            >
-              Weniger Kosten.
-            </span>
-          </div>
-
-          {/* Subline */}
-          <p
-            style={{
-              marginTop: "22px",
-              fontFamily: SANS,
-              fontSize: "clamp(15px, 1.8vw, 18px)",
-              color: "#a0a0a0",
-              maxWidth: "560px",
-              lineHeight: 1.55,
-              fontWeight: 400,
-            }}
-          >
-            Wir sorgen dafür, dass Ihr Unternehmen mit weniger Aufwand mehr Wirkung erzielt – indem wir Marke, Kommunikation und Prozesse als ganzheitliche Systeme denken und KI gezielt integrieren.
-          </p>
-
-          {/* CTAs */}
-          <div
-            className="flex items-center justify-center"
-            style={{ marginTop: "clamp(20px, 4vh, 32px)", gap: "10px" }}
-          >
-            <button
-              onClick={onContactClick}
-              style={{
-                background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)",
-                color: "#fff",
-                fontFamily: SANS,
-                fontSize: "14px",
-                fontWeight: 700,
-                padding: "10px 22px",
-                borderRadius: "6px",
-                border: "1px solid rgba(139,92,246,0.4)",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-                boxShadow: "0 0 20px rgba(124,58,237,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)";
-                e.currentTarget.style.boxShadow = "0 0 30px rgba(124,58,237,0.5), inset 0 1px 0 rgba(255,255,255,0.15)";
-                e.currentTarget.style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)";
-                e.currentTarget.style.boxShadow = "0 0 20px rgba(124,58,237,0.3), inset 0 1px 0 rgba(255,255,255,0.1)";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              Jetzt beraten lassen
-            </button>
-            <Link
-              to="/case-studies"
-              style={{
-                background: "rgba(139,92,246,0.08)",
-                backdropFilter: "blur(16px)",
-                WebkitBackdropFilter: "blur(16px)",
-                color: "#c4b5fd",
-                fontFamily: SANS,
-                fontSize: "14px",
-                fontWeight: 700,
-                padding: "10px 22px",
-                borderRadius: "6px",
-                border: "1px solid rgba(139,92,246,0.25)",
-                textDecoration: "none",
-                display: "inline-block",
-                transition: "all 0.3s ease",
-                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(139,92,246,0.15)";
-                e.currentTarget.style.borderColor = "rgba(139,92,246,0.4)";
-                e.currentTarget.style.color = "#e0d4ff";
-                e.currentTarget.style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(139,92,246,0.08)";
-                e.currentTarget.style.borderColor = "rgba(139,92,246,0.25)";
-                e.currentTarget.style.color = "#c4b5fd";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              Case Studies
-            </Link>
-          </div>
-
-          {/* Social proof */}
-          <div
-            className="flex flex-col sm:flex-row flex-wrap items-center justify-center"
-            style={{
-              marginTop: "clamp(28px, 5vh, 44px)",
-              gap: "clamp(12px, 2vh, 28px)",
-              fontFamily: SANS,
-              fontSize: "14px",
-              color: "#a0a0a0",
-            }}
-          >
-            <div className="flex items-center" style={{ gap: "8px" }}>
-              <span
-                style={{ color: "#6d28d9", fontSize: "18px", letterSpacing: "1px" }}
+          {/* Left Side - CTA Content */}
+          <div className="relative flex items-center justify-center lg:items-center lg:justify-start z-20 pt-[72px] lg:pt-[80px]">
+            <div className="w-full px-6 sm:px-8 md:px-12 lg:pl-[calc((100vw-1200px)/2+32px)] xl:pl-[calc((100vw-1200px)/2+32px)] lg:pr-4 lg:max-w-none text-center lg:text-left">
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.8,
+                }}
+                className="block space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-4"
               >
-                ★★★★★
-              </span>
-              <span>100% Kundenzufriedenheit</span>
-            </div>
-            <span className="hidden sm:inline" style={{ color: "#3a3a3a", fontSize: "18px" }}>|</span>
-            <div
-              className="sm:hidden"
-              style={{ width: "40px", height: "1px", background: "#3a3a3a" }}
-            />
-            <div className="flex items-center" style={{ gap: "8px" }}>
-              <span>
-                <strong style={{ color: "#e0e0e0", fontWeight: 700 }}>BAFA</strong>{" "}
-                förderfähig
-              </span>
-            </div>
-            <span className="hidden sm:inline" style={{ color: "#3a3a3a", fontSize: "18px" }}>|</span>
-            <div
-              className="sm:hidden"
-              style={{ width: "40px", height: "1px", background: "#3a3a3a" }}
-            />
-            <div className="flex items-center" style={{ gap: "8px" }}>
-              <span>Schnelle Umsetzung</span>
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 border border-white/20 bg-white/5 backdrop-blur-sm">
+                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-violet-500" aria-hidden="true"></span>
+                  <span className="text-[10px] sm:text-xs font-medium tracking-widest text-white/80 uppercase">
+                    Von der Marke zum System
+                  </span>
+                </div>
+
+                {/* Headline */}
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight uppercase">
+                  <span className="text-white">Unternehmen brauchen mehr</span>
+                  <br />
+                  <span className="text-white">als nur </span>
+                  <span className="text-[#7C3AED]">Marketing.</span>
+                </h1>
+
+                {/* Subheadline */}
+                <h2 className="text-xs sm:text-sm md:text-base text-neutral-400 max-w-lg mx-auto lg:mx-0 font-normal">
+                  KI wird erst dann wirksam, wenn Marke, Struktur und Systeme zusammenspielen. Genau deshalb denkt New
+                  Edge KI nicht als Tool, sondern als Folge einer klaren unternehmerischen Grundlage.
+                </h2>
+
+                {/* Trust Indicators */}
+                <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 border border-white/15 bg-white/5 backdrop-blur-sm text-[10px] sm:text-xs font-medium tracking-wide text-white/70 uppercase">
+                    Förderbar bis 80% über BAFA
+                  </span>
+
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 border border-white/15 bg-white/5 backdrop-blur-sm text-[10px] sm:text-xs font-medium tracking-wide text-white/70 uppercase">
+                    Umsetzung in 4–10 Wochen
+                  </span>
+                </div>
+
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center lg:justify-start items-center lg:items-start">
+                  <button
+                    onClick={onContactClick}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300 group text-sm w-full sm:w-auto hover:-translate-y-0.5 rounded-none"
+                  >
+                    Kostenlose KI-Analyse
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                  <Link
+                    to="/about"
+                    className="inline-flex items-center justify-center px-6 py-3 bg-transparent text-white font-semibold border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm w-full sm:w-auto rounded-none"
+                  >
+                    Über Uns
+                  </Link>
+                </div>
+              </motion.div>
             </div>
           </div>
-        </motion.div>
+
+          {/* Right Side - 3D Spline Scene */}
+          <div className="absolute inset-0 lg:relative overflow-hidden z-10 lg:z-20">
+            <LazySplineScene
+              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+              className="w-full h-full"
+              threshold={0.25}
+              rootMargin="50px"
+            />
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30">
+            <span className="text-xs font-medium tracking-widest text-white/50 uppercase">Scroll</span>
+            <ChevronDown className="w-5 h-5 text-white/50 animate-bounce" />
+          </div>
+        </div>
       </section>
     </>
   );

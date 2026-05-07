@@ -13,9 +13,6 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
-User-agent: ClaudeBot
-Allow: /
-
 User-agent: Anthropic-AI
 Allow: /
 
