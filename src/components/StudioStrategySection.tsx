@@ -360,23 +360,21 @@ export const StudioStrategySection = () => {
                 <p className="text-xs tracking-[0.2em] uppercase text-neutral-400 mb-8">
                   4 Kernpunkte
                 </p>
-                <div className="space-y-px bg-neutral-100">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-neutral-100 border border-neutral-100">
                   {expanded.points.map((p, idx) => (
                     <div
                       key={p.title}
-                      className="bg-white grid grid-cols-[auto_1fr] gap-6 md:gap-10 py-6 md:py-8"
+                      className="bg-white p-5 md:p-6 flex flex-col h-full"
                     >
-                      <span className="text-sm tabular-nums text-neutral-400 pt-1">
+                      <span className="text-sm tabular-nums text-neutral-400 mb-4">
                         0{idx + 1}
                       </span>
-                      <div>
-                        <h4 className="text-lg md:text-xl text-neutral-900 mb-2">
-                          {p.title}
-                        </h4>
-                        <p className="text-sm md:text-base text-neutral-600 leading-relaxed">
-                          {p.description}
-                        </p>
-                      </div>
+                      <h4 className="text-base md:text-lg leading-snug text-neutral-900 mb-2">
+                        {p.title}
+                      </h4>
+                      <p className="text-sm text-neutral-600 leading-relaxed">
+                        {p.description}
+                      </p>
                     </div>
                   ))}
                 </div>
