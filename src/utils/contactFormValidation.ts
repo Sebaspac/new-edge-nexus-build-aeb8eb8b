@@ -72,35 +72,28 @@ export function validateContactForm(data: Record<string, unknown>): {
   }
 }
 
-// Submit via plain fetch to new-contact edge function — no auth header
+// Submit via Supabase client — handles auth headers automatically
+import { supabase } from "@/integrations/supabase/client";
+
 export async function submitContactForm(data: ContactFormData): Promise<{ success: boolean; error?: string }> {
   try {
-    const response = await fetch(
-      'https://yzmtgxfehvzgobxjivjl.supabase.co/functions/v1/new-contact',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          phone: data.phone || null,
-          company: data.company || null,
-          position: data.position || null,
-          message: data.message,
-        }),
-      }
-    );
+    const { data: result, error } = await supabase.functions.invoke("new-contact", {
+      body: {
+        name: data.name,
+        email: data.email,
+        phone: data.phone || null,
+        company: data.company || null,
+        position: data.position || null,
+        message: data.message,
+      },
+    });
 
-    const result = await response.json().catch(() => ({}));
-
-    if (response.ok && result.ok) {
-      return { success: true };
+    if (error) {
+      const msg = (result as any)?.error || error.message || "Unbekannter Fehler";
+      return { success: false, error: msg };
     }
-
-    return {
-      success: false,
-      error: result.error || `Server antwortete mit Status ${response.status}`,
-    };
+    if (result && (result as any).ok) return { success: true };
+    return { success: false, error: (result as any)?.error || "Unbekannter Serverfehler" };
   } catch {
     return { success: false, error: "Verbindungsfehler. Bitte erneut versuchen." };
   }
