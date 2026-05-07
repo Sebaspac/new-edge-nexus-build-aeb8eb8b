@@ -213,9 +213,9 @@ export const StudioStrategySection = () => {
           </p>
         </motion.div>
 
-        {/* Unified bento grid — 5 equal cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 auto-rows-fr gap-px bg-neutral-200 border border-neutral-200">
-          {/* Row 1 — primary services (each spans 3/6) */}
+        {/* Unified bento grid — editorial, high-contrast */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 auto-rows-fr gap-px bg-neutral-900 border border-neutral-900">
+          {/* Row 1 — primary services (dark, hero treatment, each spans 3/6) */}
           {services.map((service, i) => (
             <motion.button
               key={service.id}
@@ -225,33 +225,73 @@ export const StudioStrategySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease: EASE, delay: i * 0.08 }}
-              className="group relative text-left bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-6 md:p-8 flex flex-col min-h-[280px] lg:min-h-[300px] lg:col-span-3"
+              className="group relative isolate overflow-hidden text-left bg-neutral-950 text-white p-7 md:p-10 lg:p-12 flex flex-col min-h-[320px] lg:min-h-[420px] lg:col-span-3"
             >
-              <div className="flex items-start justify-between mb-6">
-                <span className="text-xs tracking-[0.2em] uppercase text-neutral-400">
-                  Service {service.number}
+              {/* Subtle radial accent */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                style={{
+                  background:
+                    "radial-gradient(closest-side, hsl(var(--primary) / 0.22), transparent 70%)",
+                }}
+              />
+              {/* Hairline grid */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 opacity-[0.06]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
+                  backgroundSize: "56px 56px",
+                }}
+              />
+
+              <div className="relative flex items-start justify-between mb-8">
+                <span className="text-[11px] tracking-[0.28em] uppercase text-neutral-400">
+                  Service — Studio
                 </span>
-                <span className="text-xs tracking-[0.2em] uppercase text-neutral-400">
-                  Studio
+                <span className="text-[11px] tracking-[0.28em] uppercase text-neutral-500">
+                  {String(i + 1).padStart(2, "0")} / 05
                 </span>
               </div>
 
-              <h3 className="text-xl md:text-2xl lg:text-[1.625rem] leading-[1.2] text-neutral-900 mb-4 max-w-[24ch]">
+              <div className="relative flex items-baseline gap-5 mb-7">
+                <span
+                  className="text-[5rem] md:text-[6rem] lg:text-[7rem] leading-none tabular-nums text-transparent"
+                  style={{
+                    WebkitTextStroke: "1px rgba(255,255,255,0.35)",
+                  }}
+                >
+                  {service.number}
+                </span>
+                <span className="h-px flex-1 bg-white/15 mb-3" />
+              </div>
+
+              <h3 className="relative text-2xl md:text-3xl lg:text-[2rem] leading-[1.1] text-white mb-5 max-w-[22ch]">
                 {service.title}
               </h3>
 
-              <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-[44ch]">
+              <p className="relative text-sm md:text-base text-neutral-400 leading-relaxed max-w-[46ch]">
                 {service.shortDescription}
               </p>
 
-              <div className="mt-auto pt-6 flex items-center gap-2 text-sm text-neutral-900">
-                <span className="tracking-wide">Mehr erfahren</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
+              <div className="relative mt-auto pt-8 flex items-center justify-between">
+                <span className="inline-flex items-center gap-3 text-sm tracking-wide text-white">
+                  <span className="relative">
+                    Mehr erfahren
+                    <span className="absolute left-0 -bottom-1 h-px w-full bg-white/30 origin-left scale-x-100 group-hover:scale-x-0 transition-transform duration-500" />
+                  </span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1.5" />
+                </span>
+                <span className="text-[11px] tracking-[0.28em] uppercase text-neutral-500 hidden md:inline">
+                  Strategie-Layer
+                </span>
               </div>
             </motion.button>
           ))}
 
-          {/* Row 2 — supporting cards (each spans 2/6) */}
+          {/* Row 2 — supporting cards (light, refined, each spans 2/6) */}
           {supportingCards.map((card, i) => {
             const Icon = card.icon;
             return (
@@ -263,23 +303,45 @@ export const StudioStrategySection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, ease: EASE, delay: (i + 2) * 0.08 }}
-                className="group text-left bg-white hover:bg-neutral-50/40 transition-colors duration-500 p-6 md:p-8 flex flex-col min-h-[280px] lg:min-h-[300px] lg:col-span-2"
+                className="group relative isolate overflow-hidden text-left bg-white p-6 md:p-8 flex flex-col min-h-[300px] lg:min-h-[360px] lg:col-span-2"
               >
-                <div className="flex items-start justify-between mb-6">
-                  <span className="text-xs tracking-[0.2em] uppercase text-neutral-400">
+                {/* Hover sweep */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-neutral-950 origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                />
+
+                <div className="relative flex items-start justify-between mb-8">
+                  <span className="text-[11px] tracking-[0.28em] uppercase text-neutral-400 group-hover:text-neutral-500 transition-colors duration-500">
                     Service {card.number}
                   </span>
-                  <Icon className="w-5 h-5 text-neutral-900" strokeWidth={1.5} />
+                  <span className="w-10 h-10 flex items-center justify-center border border-neutral-200 group-hover:border-white/20 transition-colors duration-500">
+                    <Icon
+                      className="w-4 h-4 text-neutral-900 group-hover:text-white transition-colors duration-500"
+                      strokeWidth={1.5}
+                    />
+                  </span>
                 </div>
-                <h4 className="text-lg md:text-xl leading-snug text-neutral-900 mb-3 max-w-[24ch]">
+
+                <span
+                  className="relative text-[3.5rem] md:text-[4rem] leading-none tabular-nums text-transparent mb-5"
+                  style={{
+                    WebkitTextStroke: "1px rgba(0,0,0,0.18)",
+                  }}
+                >
+                  {card.number}
+                </span>
+
+                <h4 className="relative text-lg md:text-xl leading-snug text-neutral-900 group-hover:text-white transition-colors duration-500 mb-3 max-w-[24ch]">
                   {card.title}
                 </h4>
-                <p className="text-sm text-neutral-600 leading-relaxed max-w-[40ch]">
+                <p className="relative text-sm text-neutral-600 group-hover:text-neutral-400 transition-colors duration-500 leading-relaxed max-w-[40ch]">
                   {card.shortDescription}
                 </p>
-                <div className="mt-auto pt-6 flex items-center gap-2 text-sm text-neutral-900">
+
+                <div className="relative mt-auto pt-6 flex items-center gap-2 text-sm text-neutral-900 group-hover:text-white transition-colors duration-500">
                   <span className="tracking-wide">Mehr erfahren</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1.5" />
                 </div>
               </motion.button>
             );
