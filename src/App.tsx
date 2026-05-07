@@ -33,6 +33,8 @@ const Contact = lazy(() => import("./pages/Contact"));
 const KiAudit = lazy(() => import("./pages/KiAudit"));
 const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const PainPointAuswahlverfahren = lazy(() => import("./pages/PainPointAuswahlverfahren"));
+const LeistungenStub = lazy(() => import("./pages/LeistungenStub"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -78,6 +80,15 @@ const App = () => {
                   <Route path="/kontakt" element={<Contact />} />
                   <Route path="/ki-audit" element={<KiAudit />} />
                   <Route path="/unsubscribe" element={<Unsubscribe />} />
+                  <Route path="/loesungen/auswahlverfahren-automatisieren" element={<PainPointAuswahlverfahren />} />
+                  <Route path="/leistungen/pain-points/auswahlverfahren" element={<PainPointAuswahlverfahren />} />
+                  {/* Alle Pain-Point- & Industrie-Unterseiten nutzen dieselbe Struktur wie Auswahlverfahren.
+                      Inhalte werden später pro Slug angepasst. */}
+                  <Route path="/leistungen/pain-points/:slug" element={<PainPointAuswahlverfahren />} />
+                  <Route path="/leistungen/industrien/:slug" element={<PainPointAuswahlverfahren />} />
+                  <Route path="/leistungen" element={<LeistungenStub />} />
+                  <Route path="/loesungen/:slug" element={<PainPointAuswahlverfahren />} />
+                  <Route path="/industrien/:slug" element={<PainPointAuswahlverfahren />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

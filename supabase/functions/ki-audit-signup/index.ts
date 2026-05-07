@@ -78,35 +78,6 @@ Deno.serve(async (req: Request) => {
       });
     }
 
-    // Forward to n8n webhook
-    const n8nUrl = Deno.env.get("N8N_WEBHOOK_URL");
-    if (n8nUrl) {
-      try {
-        const n8nUser = Deno.env.get("N8N_BASIC_USER");
-        const n8nPass = Deno.env.get("N8N_BASIC_PASS");
-        const headers: Record<string, string> = { "Content-Type": "application/json" };
-        if (n8nUser && n8nPass) headers["Authorization"] = "Basic " + btoa(`${n8nUser}:${n8nPass}`);
-
-        const n8nRes = await fetch(n8nUrl, {
-          method: "POST",
-          headers,
-          body: JSON.stringify({
-            name: trimmedName,
-            email: trimmedEmail,
-            phone: trimmedPhone,
-            telefon: trimmedPhone,
-            ip: req.headers.get("x-forwarded-for") || req.headers.get("cf-connecting-ip") || null,
-            user_agent: req.headers.get("user-agent") || null,
-            source: "ki-audit-signup",
-          }),
-        });
-        if (!n8nRes.ok) console.error("n8n forward failed:", n8nRes.status, await n8nRes.text());
-        else console.log("n8n forward successful");
-      } catch (err) {
-        console.error("n8n forward error:", err);
-      }
-    }
-
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });

@@ -14,45 +14,6 @@ export type Database = {
   }
   public: {
     Tables: {
-      contact_leads: {
-        Row: {
-          company: string | null
-          created_at: string
-          email: string
-          id: string
-          ip: string | null
-          message: string
-          name: string
-          phone: string | null
-          position: string | null
-          user_agent: string | null
-        }
-        Insert: {
-          company?: string | null
-          created_at?: string
-          email: string
-          id?: string
-          ip?: string | null
-          message: string
-          name: string
-          phone?: string | null
-          position?: string | null
-          user_agent?: string | null
-        }
-        Update: {
-          company?: string | null
-          created_at?: string
-          email?: string
-          id?: string
-          ip?: string | null
-          message?: string
-          name?: string
-          phone?: string | null
-          position?: string | null
-          user_agent?: string | null
-        }
-        Relationships: []
-      }
       ki_audit_leads: {
         Row: {
           created_at: string
