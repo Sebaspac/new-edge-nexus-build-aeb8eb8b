@@ -190,7 +190,7 @@ export const StudioStrategySection = () => {
   const expanded = allServices.find((s) => s.id === expandedId) || null;
 
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
+    <section className="relative py-10 md:py-12 lg:py-14 bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section header */}
         <motion.div
@@ -198,7 +198,7 @@ export const StudioStrategySection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease: EASE }}
-          className="max-w-3xl mb-10 md:mb-14"
+          className="max-w-3xl mb-7 md:mb-9 lg:mb-10"
         >
           <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-neutral-500 mb-4">
             Strategie — Studio
@@ -214,7 +214,7 @@ export const StudioStrategySection = () => {
         </motion.div>
 
         {/* Unified bento grid — all cards identical, refined Framer Motion interactions */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 auto-rows-fr gap-px bg-neutral-900 border border-neutral-900">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 lg:grid-rows-2 auto-rows-fr gap-px bg-neutral-900 border border-neutral-900 lg:h-[clamp(560px,calc(100dvh-7rem),700px)]">
           {allServices.map((service, i) => {
             // Row 1 (services 01–02): col-span-3. Row 2 (03–05): col-span-2.
             const isPrimary = i < 2;
@@ -230,7 +230,7 @@ export const StudioStrategySection = () => {
                 transition={{ duration: 0.7, ease: EASE, delay: i * 0.08 }}
                 whileHover="hover"
                 whileTap={{ scale: 0.985 }}
-                className={`group relative isolate overflow-hidden text-left bg-neutral-950 text-white flex flex-col p-7 md:p-9 lg:p-10 min-h-[clamp(320px,42vh,420px)] ${colSpan} focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40`}
+                className={`group relative isolate overflow-hidden text-left bg-neutral-950 text-white flex flex-col p-6 md:p-7 lg:p-8 min-h-[280px] lg:min-h-0 ${colSpan} focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40`}
               >
                 {/* Radial accent — fades in on hover */}
                 <motion.div
@@ -281,7 +281,7 @@ export const StudioStrategySection = () => {
                     variants={{ hover: { x: 6, color: "rgba(255,255,255,0.55)" } }}
                     initial={{ x: 0 }}
                     transition={{ duration: 0.6, ease: EASE }}
-                    className="text-[4rem] md:text-[5rem] lg:text-[6rem] leading-none tabular-nums text-transparent"
+                    className="text-[3.2rem] md:text-[4.2rem] lg:text-[clamp(4rem,9vh,5.5rem)] leading-none tabular-nums text-transparent"
                     style={{
                       WebkitTextStroke: "1px rgba(255,255,255,0.35)",
                     }}
@@ -301,16 +301,16 @@ export const StudioStrategySection = () => {
                   variants={{ hover: { y: -2 } }}
                   initial={{ y: 0 }}
                   transition={{ duration: 0.5, ease: EASE }}
-                  className="relative text-xl md:text-2xl lg:text-[1.65rem] leading-[1.15] text-white mb-4 max-w-[24ch]"
+                  className="relative text-xl md:text-2xl lg:text-[clamp(1.25rem,2.8vh,1.55rem)] leading-[1.12] text-white mb-3 max-w-[24ch]"
                 >
                   {service.title}
                 </motion.h3>
 
-                <p className="relative text-sm text-neutral-400 leading-relaxed max-w-[46ch]">
+                <p className="relative text-sm lg:text-[0.82rem] xl:text-sm text-neutral-400 leading-relaxed max-w-[46ch] line-clamp-3">
                   {service.shortDescription}
                 </p>
 
-                <div className="relative mt-auto pt-6 flex items-center justify-between">
+                <div className="relative mt-auto pt-4 flex items-center justify-between">
                   <span className="inline-flex items-center gap-3 text-sm tracking-wide text-white">
                     <span className="relative">
                       Mehr erfahren
