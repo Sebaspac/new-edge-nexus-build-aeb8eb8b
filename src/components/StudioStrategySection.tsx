@@ -213,135 +213,133 @@ export const StudioStrategySection = () => {
           </p>
         </motion.div>
 
-        {/* Unified bento grid — editorial, high-contrast */}
+        {/* Unified bento grid — all cards identical, refined Framer Motion interactions */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 auto-rows-fr gap-px bg-neutral-900 border border-neutral-900">
-          {/* Row 1 — primary services (dark, hero treatment, each spans 3/6) */}
-          {services.map((service, i) => (
-            <motion.button
-              key={service.id}
-              type="button"
-              onClick={() => setExpandedId(service.id)}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.7, ease: EASE, delay: i * 0.08 }}
-              className="group relative isolate overflow-hidden text-left bg-neutral-950 text-white p-7 md:p-10 lg:p-12 flex flex-col min-h-[320px] lg:min-h-[420px] lg:col-span-3"
-            >
-              {/* Subtle radial accent */}
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                style={{
-                  background:
-                    "radial-gradient(closest-side, hsl(var(--primary) / 0.22), transparent 70%)",
-                }}
-              />
-              {/* Hairline grid */}
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 opacity-[0.06]"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
-                  backgroundSize: "56px 56px",
-                }}
-              />
-
-              <div className="relative flex items-start justify-between mb-8">
-                <span className="text-[11px] tracking-[0.28em] uppercase text-neutral-400">
-                  Service — Studio
-                </span>
-                <span className="text-[11px] tracking-[0.28em] uppercase text-neutral-500">
-                  {String(i + 1).padStart(2, "0")} / 05
-                </span>
-              </div>
-
-              <div className="relative flex items-baseline gap-5 mb-7">
-                <span
-                  className="text-[5rem] md:text-[6rem] lg:text-[7rem] leading-none tabular-nums text-transparent"
-                  style={{
-                    WebkitTextStroke: "1px rgba(255,255,255,0.35)",
-                  }}
-                >
-                  {service.number}
-                </span>
-                <span className="h-px flex-1 bg-white/15 mb-3" />
-              </div>
-
-              <h3 className="relative text-2xl md:text-3xl lg:text-[2rem] leading-[1.1] text-white mb-5 max-w-[22ch]">
-                {service.title}
-              </h3>
-
-              <p className="relative text-sm md:text-base text-neutral-400 leading-relaxed max-w-[46ch]">
-                {service.shortDescription}
-              </p>
-
-              <div className="relative mt-auto pt-8 flex items-center justify-between">
-                <span className="inline-flex items-center gap-3 text-sm tracking-wide text-white">
-                  <span className="relative">
-                    Mehr erfahren
-                    <span className="absolute left-0 -bottom-1 h-px w-full bg-white/30 origin-left scale-x-100 group-hover:scale-x-0 transition-transform duration-500" />
-                  </span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1.5" />
-                </span>
-                <span className="text-[11px] tracking-[0.28em] uppercase text-neutral-500 hidden md:inline">
-                  Strategie-Layer
-                </span>
-              </div>
-            </motion.button>
-          ))}
-
-          {/* Row 2 — supporting cards (light, refined, each spans 2/6) */}
-          {supportingCards.map((card, i) => {
-            const Icon = card.icon;
+          {allServices.map((service, i) => {
+            // Row 1 (services 01–02): col-span-3. Row 2 (03–05): col-span-2.
+            const isPrimary = i < 2;
+            const colSpan = isPrimary ? "lg:col-span-3" : "lg:col-span-2";
             return (
               <motion.button
-                key={card.id}
+                key={service.id}
                 type="button"
-                onClick={() => setExpandedId(card.id)}
+                onClick={() => setExpandedId(service.id)}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, ease: EASE, delay: (i + 2) * 0.08 }}
-                className="group relative isolate overflow-hidden text-left bg-white p-6 md:p-8 flex flex-col min-h-[300px] lg:min-h-[360px] lg:col-span-2"
+                transition={{ duration: 0.7, ease: EASE, delay: i * 0.08 }}
+                whileHover="hover"
+                whileTap={{ scale: 0.985 }}
+                className={`group relative isolate overflow-hidden text-left bg-neutral-950 text-white flex flex-col p-7 md:p-9 lg:p-10 min-h-[clamp(320px,42vh,420px)] ${colSpan} focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40`}
               >
-                {/* Hover sweep */}
-                <div
+                {/* Radial accent — fades in on hover */}
+                <motion.div
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 bg-neutral-950 origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  variants={{ hover: { opacity: 1 } }}
+                  initial={{ opacity: 0 }}
+                  transition={{ duration: 0.7, ease: EASE }}
+                  className="pointer-events-none absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full"
+                  style={{
+                    background:
+                      "radial-gradient(closest-side, hsl(var(--primary) / 0.22), transparent 70%)",
+                  }}
+                />
+                {/* Hairline grid — intensifies on hover */}
+                <motion.div
+                  aria-hidden
+                  variants={{ hover: { opacity: 0.12 } }}
+                  initial={{ opacity: 0.05 }}
+                  transition={{ duration: 0.6, ease: EASE }}
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
+                    backgroundSize: "56px 56px",
+                  }}
+                />
+                {/* Vertical accent line — sweeps in on hover */}
+                <motion.div
+                  aria-hidden
+                  variants={{ hover: { scaleY: 1 } }}
+                  initial={{ scaleY: 0 }}
+                  transition={{ duration: 0.6, ease: EASE }}
+                  className="pointer-events-none absolute left-0 top-0 bottom-0 w-px origin-bottom"
+                  style={{ background: "hsl(var(--primary))" }}
                 />
 
-                <div className="relative flex items-start justify-between mb-8">
-                  <span className="text-[11px] tracking-[0.28em] uppercase text-neutral-400 group-hover:text-neutral-500 transition-colors duration-500">
-                    Service {card.number}
+                <div className="relative flex items-start justify-between mb-7">
+                  <span className="text-[11px] tracking-[0.28em] uppercase text-neutral-400">
+                    Service — Studio
                   </span>
-                  <span className="w-10 h-10 flex items-center justify-center border border-neutral-200 group-hover:border-white/20 transition-colors duration-500">
-                    <Icon
-                      className="w-4 h-4 text-neutral-900 group-hover:text-white transition-colors duration-500"
-                      strokeWidth={1.5}
-                    />
+                  <span className="text-[11px] tracking-[0.28em] uppercase text-neutral-500">
+                    {String(i + 1).padStart(2, "0")} / 05
                   </span>
                 </div>
 
-                <span
-                  className="relative text-[3.5rem] md:text-[4rem] leading-none tabular-nums text-transparent mb-5"
-                  style={{
-                    WebkitTextStroke: "1px rgba(0,0,0,0.18)",
-                  }}
-                >
-                  {card.number}
-                </span>
+                <div className="relative flex items-baseline gap-5 mb-6">
+                  <motion.span
+                    variants={{ hover: { x: 6, color: "rgba(255,255,255,0.55)" } }}
+                    initial={{ x: 0 }}
+                    transition={{ duration: 0.6, ease: EASE }}
+                    className="text-[4rem] md:text-[5rem] lg:text-[6rem] leading-none tabular-nums text-transparent"
+                    style={{
+                      WebkitTextStroke: "1px rgba(255,255,255,0.35)",
+                    }}
+                  >
+                    {service.number}
+                  </motion.span>
+                  <motion.span
+                    aria-hidden
+                    variants={{ hover: { scaleX: 1 } }}
+                    initial={{ scaleX: 0.4 }}
+                    transition={{ duration: 0.6, ease: EASE }}
+                    className="h-px flex-1 bg-white/20 mb-3 origin-left"
+                  />
+                </div>
 
-                <h4 className="relative text-lg md:text-xl leading-snug text-neutral-900 group-hover:text-white transition-colors duration-500 mb-3 max-w-[24ch]">
-                  {card.title}
-                </h4>
-                <p className="relative text-sm text-neutral-600 group-hover:text-neutral-400 transition-colors duration-500 leading-relaxed max-w-[40ch]">
-                  {card.shortDescription}
+                <motion.h3
+                  variants={{ hover: { y: -2 } }}
+                  initial={{ y: 0 }}
+                  transition={{ duration: 0.5, ease: EASE }}
+                  className="relative text-xl md:text-2xl lg:text-[1.65rem] leading-[1.15] text-white mb-4 max-w-[24ch]"
+                >
+                  {service.title}
+                </motion.h3>
+
+                <p className="relative text-sm text-neutral-400 leading-relaxed max-w-[46ch]">
+                  {service.shortDescription}
                 </p>
 
-                <div className="relative mt-auto pt-6 flex items-center gap-2 text-sm text-neutral-900 group-hover:text-white transition-colors duration-500">
-                  <span className="tracking-wide">Mehr erfahren</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1.5" />
+                <div className="relative mt-auto pt-6 flex items-center justify-between">
+                  <span className="inline-flex items-center gap-3 text-sm tracking-wide text-white">
+                    <span className="relative">
+                      Mehr erfahren
+                      <motion.span
+                        variants={{ hover: { scaleX: 0 } }}
+                        initial={{ scaleX: 1 }}
+                        transition={{ duration: 0.5, ease: EASE }}
+                        className="absolute left-0 -bottom-1 h-px w-full bg-white/40 origin-right"
+                      />
+                      <motion.span
+                        variants={{ hover: { scaleX: 1 } }}
+                        initial={{ scaleX: 0 }}
+                        transition={{ duration: 0.5, ease: EASE, delay: 0.05 }}
+                        className="absolute left-0 -bottom-1 h-px w-full origin-left"
+                        style={{ background: "hsl(var(--primary))" }}
+                      />
+                    </span>
+                    <motion.span
+                      variants={{ hover: { x: 8 } }}
+                      initial={{ x: 0 }}
+                      transition={{ duration: 0.5, ease: EASE }}
+                      className="inline-flex"
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                    </motion.span>
+                  </span>
+                  <span className="text-[11px] tracking-[0.28em] uppercase text-neutral-500 hidden md:inline">
+                    {isPrimary ? "Strategie-Layer" : "Build-Layer"}
+                  </span>
                 </div>
               </motion.button>
             );
