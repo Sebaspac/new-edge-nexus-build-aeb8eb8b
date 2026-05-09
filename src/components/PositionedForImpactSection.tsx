@@ -7,7 +7,7 @@ export const PositionedForImpactSection = () => {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], [-30, 30]);
   const imgScale = useTransform(scrollYProgress, [0, 1], [1.06, 1.12]);
-  return <section className="relative py-12 md:py-20 lg:py-32 bg-white overflow-hidden">
+  return <section ref={ref} className="relative py-12 md:py-20 lg:py-32 bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-24 items-center">
           {/* Left Column - Founders Image */}
@@ -23,7 +23,7 @@ export const PositionedForImpactSection = () => {
           duration: 0.8
         }} className="relative group cursor-pointer order-2 lg:order-1">
             <div className="relative overflow-hidden aspect-[4/3]">
-              <img alt="New Edge Founders" className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" src={foundersColorImage} />
+              <motion.img alt="New Edge Founders" style={{ y: imgY, scale: imgScale }} className="w-full h-full object-cover grayscale transition-[filter] duration-500 group-hover:grayscale-0 will-change-transform" src={foundersColorImage} />
               
               {/* Caption Overlay */}
               <div className="absolute bottom-0 left-0 bg-black px-3 py-1.5 sm:px-4 sm:py-2">
