@@ -274,39 +274,26 @@ const Index = () => {
           <LogoCloud />
         </div>
 
-        {/* Methodology Grid Section */}
+        {/* 3. Deine Prozesse & Leistungen */}
         <div className="bg-surface">
           <MethodologyGrid />
         </div>
 
-        {/* Positioned for Impact Section */}
+        {/* 4. Featured Case · AlbaNova */}
+        <FeaturedCaseAlbaNova />
+
+        {/* 5. How we work — Positioned for Impact */}
         <div className="bg-surface">
           <PositionedForImpactSection />
         </div>
 
-        {/* Studio Strategy Bento */}
+        {/* 6. Unsere Services — Bento (1:1) */}
         <StudioStrategySection />
 
-        {/* Problem → Solution Framing */}
-        <ProblemSolutionFraming />
-
-        {/* Case Studies Grid */}
-        <div className="bg-surface">
-          <CaseStudiesGrid />
-        </div>
-
-        {/* Entry Point CTA */}
-        <EntryPointCTA onContactClick={() => setIsContactSheetOpen(true)} />
-
-        {/* Partner Banner */}
+        {/* 7. BAFA-Akkreditierung */}
         <PartnerBanner />
 
-        {/* Interactive Core */}
-        <div className="bg-surface">
-          <InteractiveCore />
-        </div>
-
-        {/* Testimonials Section */}
+        {/* 8. Rezensionen */}
         <div className="bg-surface">
           <TestimonialsSection />
         </div>
