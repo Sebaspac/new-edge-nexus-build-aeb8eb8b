@@ -42,6 +42,7 @@ const Index = () => {
   const {
     t
   } = useLanguage();
+  useLenis();
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const [contactFormType, setContactFormType] = useState<"kmu" | "agentur" | null>(null);
   const [openAccordionIndex, setOpenAccordionIndex] = useState(0);
