@@ -191,7 +191,10 @@ const Index = () => {
         canonical="/"
       />
 
-      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
+        {/* Global immersive grain — subtle */}
+        <NoiseOverlay opacity={0.035} fixed zIndex={2} />
+
         {/* Mobile Navigation */}
         <MobileNavigation onContactClick={() => setIsContactSheetOpen(true)} theme="dark" />
 
