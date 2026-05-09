@@ -93,7 +93,7 @@ export const FeaturedCaseAlbaNova = () => {
             <div className="flex flex-wrap items-center gap-4 pt-4">
               <MagneticButton>
                 <Link
-                  to="/case-studies/albanova"
+                  to="/case-study/albanova"
                   className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-bold uppercase text-xs tracking-[0.18em] border-2 border-white hover:bg-transparent hover:text-white transition-colors duration-300"
                 >
                   Case ansehen
