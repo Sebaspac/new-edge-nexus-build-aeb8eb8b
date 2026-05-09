@@ -1,30 +1,24 @@
 import SEOHead from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { HeroSection } from "../components/HeroSection";
-import { ServicesOverviewSection } from "../components/ServicesOverviewSection";
 import { MethodologyGrid } from "../components/MethodologyGrid";
 import { PositionedForImpactSection } from "../components/PositionedForImpactSection";
 import { StudioStrategySection } from "../components/StudioStrategySection";
-import { CaseStudiesGrid } from "../components/CaseStudiesGrid";
-import { AgencyEdgeSection } from "../components/AgencyEdgeSection";
-import { InnovationSection } from "../components/InnovationSection";
-import { InteractiveCore } from "../components/InteractiveCore";
+import { FeaturedCaseAlbaNova } from "../components/FeaturedCaseAlbaNova";
 import { TestimonialsSection } from "../components/TestimonialsSection";
 import { ThreeStepsCTA } from "@/components/ThreeStepsCTA";
+import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
+import { useLenis } from "@/hooks/useLenis";
 
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import LogoCloud from "@/components/ui/logo-cloud";
 import { MagicText } from "@/components/ui/magic-text";
-import { TargetAudienceSection } from "@/components/TargetAudienceSection";
-import { ProblemSolutionFraming } from "@/components/ProblemSolutionFraming";
-import { EntryPointCTA } from "@/components/EntryPointCTA";
 import { PartnerBanner } from "@/components/PartnerBanner";
 import { lazy, Suspense, useCallback, useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import newEdgeLogo from "@/assets/new-edge-logo.webp";
-import { ProblemSolutionSection } from "@/components/ProblemSolutionSection";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -48,6 +42,7 @@ const Index = () => {
   const {
     t
   } = useLanguage();
+  useLenis();
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const [contactFormType, setContactFormType] = useState<"kmu" | "agentur" | null>(null);
   const [openAccordionIndex, setOpenAccordionIndex] = useState(0);
@@ -196,7 +191,10 @@ const Index = () => {
         canonical="/"
       />
 
-      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
+        {/* Global immersive grain — subtle */}
+        <NoiseOverlay opacity={0.035} fixed zIndex={2} />
+
         {/* Mobile Navigation */}
         <MobileNavigation onContactClick={() => setIsContactSheetOpen(true)} theme="dark" />
 
@@ -279,39 +277,26 @@ const Index = () => {
           <LogoCloud />
         </div>
 
-        {/* Methodology Grid Section */}
+        {/* 3. Deine Prozesse & Leistungen */}
         <div className="bg-surface">
           <MethodologyGrid />
         </div>
 
-        {/* Positioned for Impact Section */}
+        {/* 4. Featured Case · AlbaNova */}
+        <FeaturedCaseAlbaNova />
+
+        {/* 5. How we work — Positioned for Impact */}
         <div className="bg-surface">
           <PositionedForImpactSection />
         </div>
 
-        {/* Studio Strategy Bento */}
+        {/* 6. Unsere Services — Bento (1:1) */}
         <StudioStrategySection />
 
-        {/* Problem → Solution Framing */}
-        <ProblemSolutionFraming />
-
-        {/* Case Studies Grid */}
-        <div className="bg-surface">
-          <CaseStudiesGrid />
-        </div>
-
-        {/* Entry Point CTA */}
-        <EntryPointCTA onContactClick={() => setIsContactSheetOpen(true)} />
-
-        {/* Partner Banner */}
+        {/* 7. BAFA-Akkreditierung */}
         <PartnerBanner />
 
-        {/* Interactive Core */}
-        <div className="bg-surface">
-          <InteractiveCore />
-        </div>
-
-        {/* Testimonials Section */}
+        {/* 8. Rezensionen */}
         <div className="bg-surface">
           <TestimonialsSection />
         </div>

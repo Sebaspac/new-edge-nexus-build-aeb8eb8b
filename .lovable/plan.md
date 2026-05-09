@@ -1,106 +1,83 @@
 ## Ziel
 
-Die bestehende Pain-Point-Seite `PainPointAuswahlverfahren.tsx` bleibt strukturell **1:1 unverändert** (Layout, Komponenten, Animationen, Bildplatzhalter, Farbsystem). Pro Slug werden ausschließlich **Texte** ausgetauscht — gemäß dem gelieferten SEO-Audit für die 5 Pain Points A–E.
+Die Homepage (`/`) bekommt eine neue, fokussiertere Reihenfolge und ein durchgehend hochwertiges, immersives Look-and-Feel. Hero bleibt 1:1 unverändert (inkl. Logo Badge). Der bestehende Bento Grid (StudioStrategySection) wird 1:1 als „Unsere Services"-Sektion übernommen.
 
-Bilder/Icons werden **nicht** generiert. Die bestehenden Bild-Imports (`painpoint-a-*`, `iconAnalyse`, etc.) bleiben als Platzhalter erhalten und werden später pro Slug ersetzt — markiert per `imagePlaceholder`-Feld im Content-Objekt.
-
----
-
-## Architektur
-
-Ein einziger zentraler Content-Store, eine generische Page-Komponente. Keine Layout-Duplikation.
+## Neue Reihenfolge auf `/`
 
 ```text
-src/
-  content/
-    painPoints.ts            ← NEU: alle 5 Pain-Point-Inhalte als typisiertes Objekt
-  pages/
-    PainPointAuswahlverfahren.tsx  ← wird zur generischen Seite umgebaut
-                                     (liest content[slug] via useParams)
+1. Hero                       (HeroSection — UNVERÄNDERT)
+2. Trust / LogoCloud          (LogoCloud — unverändert, bleibt im dunklen Hero-Block)
+3. Deine Prozesse & Leistungen (MethodologyGrid)
+4. Featured Case: AlbaNova    (NEU — großer angehefteter Case-Block)
+5. How we work                (PositionedForImpactSection)
+6. Unsere Services — Bento    (StudioStrategySection 1:1, jetzt hier verortet)
+7. BAFA-Akkreditierung        (PartnerBanner)
+8. Rezensionen                (TestimonialsSection)
+9. CTA                        (ThreeStepsCTA)
+10. Footer
 ```
 
-### Slug-Mapping (Routen sind bereits in App.tsx vorhanden)
+Entfernt aus `/` (bleiben in den jeweiligen Unterseiten erhalten):
+- ProblemSolutionFraming
+- CaseStudiesGrid (ersetzt durch Featured AlbaNova + Link „Alle Cases ansehen")
+- EntryPointCTA
+- InteractiveCore
 
-```text
-/loesungen/auswahlverfahren-automatisieren     → A  (auswahlverfahren)
-/loesungen/kundengewinnung-automatisieren      → B  (kundengewinnung)
-/loesungen/compliance-automatisierung          → C  (compliance)
-/loesungen/kpi-dashboard-echtzeit              → D  (kpi-dashboard)
-/loesungen/ki-kundensupport                    → E  (ki-kundensupport)
-```
+## Featured Case AlbaNova (neue Komponente)
 
-Zusätzlich Alias über `/leistungen/pain-points/:slug` (bereits geroutet) — gleicher Content.
-Fallback bei unbekanntem Slug: Inhalt von Pain Point A (Auswahlverfahren).
+Neue Datei `src/components/FeaturedCaseAlbaNova.tsx`:
+- Vollbreite, dunkle Sektion mit subtilem Noise-Overlay
+- Linke Spalte: kleines Eyebrow „Featured Case · Bayerischer Mittelstandspreis 2026", H2 „AlbaNova", Kurzbeschreibung, 3 Kennzahlen (Outline-Numbers im Stil der Bento Cards), CTA „Case ansehen" → `/case-studies/albanova`
+- Rechte Spalte: Header-Image aus AlbaNova mit Parallax-Scroll (yRange via `useScroll`/`useTransform`), 4:3 Aspect, hard-edge
+- Sticky-Reveal beim Scrollen (motion `whileInView`, gestaffelt)
 
----
+## High-End Immersion (global)
 
-## Content-Schema (`src/content/painPoints.ts`)
+Neue Utilities + dezenter Einsatz, ohne bestehendes Design zu brechen:
 
-Pro Slug exakt das gleiche Schema, abgebildet auf die bestehenden Sektionen der aktuellen Seite:
+1. **Smooth Scroll (Lenis)**
+   - Paket `lenis` (oder `@studio-freight/lenis`) hinzufügen
+   - Neuer Hook `src/hooks/useLenis.ts` — initialisiert Lenis im `useEffect`, syncs mit `requestAnimationFrame`, deaktiviert bei `prefers-reduced-motion` und auf Touch-Geräten (`useIsMobile`)
+   - Aufruf einmalig in `src/pages/Index.tsx`
 
-```text
-PainPointContent {
-  slug, seo { title, description, canonical },
-  hero { overlabel, h1Line1, h1Line2Highlighted, sub, ctaPrimary, ctaSecondary, imagePlaceholder },
-  trustBar { headline, sub, logos[] },
-  definition { title, body },                 // Section 0 (NEU als sichtbarer Block)
-  feature1 { h2, sub, bullets[3], cta, imagePlaceholder },
-  feature2 { h2, sub, bullets[3], cta, imagePlaceholder },
-  feature3 { h2, sub, bullets[3], cta, imagePlaceholder },
-  integrations { h2, sub, logos[] },
-  compare { h2, columnLabels:[neA, alt], rows:[[krit, neA, alt], …] },
-  featureCards [3] { iconPlaceholder, title, desc },
-  testimonialHero { quote, author },
-  faq [4] { q, a },
-  closingCta { h2, sub, ctaPrimary, ctaSecondary }
-}
-```
+2. **Section Reveals + Parallax**
+   - Neue Wrapper-Komponente `src/components/ui/RevealSection.tsx` (motion.section mit `initial opacity 0 / y:40`, `whileInView` opacity 1 / y:0, viewport once, easing `[0.22,1,0.36,1]`)
+   - Parallax-Bilder via `useScroll` + `useTransform` y `[-40, 40]px`. Eingesetzt für AlbaNova-Bild und Founders-Bild in PositionedForImpact.
 
-Alle Texte, Bullets, FAQs, Vergleichstabellen, Closing-CTAs, Definition Blocks, Title/Meta/Canonical werden **wortwörtlich** aus dem Audit übernommen — für alle 5 Pain Points.
+3. **Magnetische Hover**
+   - Neue Komponente `src/components/ui/MagneticButton.tsx`: nimmt children, trackt Mausposition relativ zur Bounding Box und transformiert via Spring (max 8px). Auf Mobile no-op.
+   - Eingesetzt für die zwei Hero-CTAs (Wrapping ohne Style-Änderung), Featured-Case-CTA, ThreeStepsCTA Buttons.
 
----
+4. **Noise/Grain Overlay**
+   - Neue Komponente `src/components/ui/NoiseOverlay.tsx` — fixed/absolute SVG-feTurbulence Layer mit `opacity 0.04`, `mix-blend-overlay`, `pointer-events-none`
+   - Globaler dezenter Layer als `fixed inset-0 z-[1] pointer-events-none` einmal in `Index.tsx`; zusätzlich verstärkt (opacity 0.06) lokal in dunklen Sektionen (Hero-Block, Featured AlbaNova, ThreeStepsCTA).
 
-## Generische Seite
+5. **MethodologyGrid Polish**
+   - Hairline-Divider zwischen Karten, Outline-Number Hover-Akzent (analog Bento), `whileInView` Stagger, kein strukturelles Redesign.
 
-`PainPointAuswahlverfahren.tsx` wird umgebaut auf:
+## Memory-Konformität
 
-1. `const { slug } = useParams()` → `content = painPoints[slug] ?? painPoints.auswahlverfahren`
-2. Alle hartkodierten Strings (Hero, Bullets, Compare-Tabelle, Feature Cards, FAQ, Closing CTA, SEOHead-Props, Trust-Bar-Logos, Integrations-Logos) → durch `content.*` ersetzt.
-3. JSON-LD `FAQPage` wird aus `content.faq` generiert (bereits vorhanden, nur Quelle wechseln).
-4. Bild-Imports bleiben als **Default-Platzhalter** stehen; pro Sektion wird via `content.*.imagePlaceholder` ein Label/Alt-Text gesetzt. Tatsächliche Bilddateien tauschen wir später.
-5. Section 0 (Definition Block) wird als **neuer schlanker Textblock** zwischen Hero und Feature Block 1 eingefügt — dezent, crawl-priorisiert (semantisches `<section>` + `<h2>` "Was ist …?").
+- `rounded-none` überall (Featured Case, Magnetic Wrapper passt sich an)
+- Container `container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl`
+- DM Serif Display für Headlines, Consolas für Body
+- Bento Grid bleibt 1:1 (keine Änderungen an `StudioStrategySection.tsx`)
 
-Keine Änderungen an Animationen, Hintergrundformen, Marquee-Logik, Buttons, Footer, MobileNavigation, Spacing — nur Text-Bindings.
+## Technische Änderungen — Dateiliste
 
----
+- `src/pages/Index.tsx` — Reihenfolge umbauen, Lenis/Noise einhängen, entfernte Sektionen rauswerfen
+- `src/components/FeaturedCaseAlbaNova.tsx` — NEU
+- `src/components/ui/RevealSection.tsx` — NEU
+- `src/components/ui/MagneticButton.tsx` — NEU
+- `src/components/ui/NoiseOverlay.tsx` — NEU
+- `src/hooks/useLenis.ts` — NEU
+- `src/components/HeroSection.tsx` — CTAs in `<MagneticButton>` wrappen (keine visuellen Änderungen sonst)
+- `src/components/PositionedForImpactSection.tsx` — Bild bekommt Parallax-Transform
+- `src/components/MethodologyGrid.tsx` — kleiner Hover/Reveal-Polish
+- `package.json` — `lenis` als Dependency
 
-## Zu erstellende / ändernde Dateien
+## Out of Scope
 
-```text
-NEU:        src/content/painPoints.ts          (Content für A–E, ~600 Zeilen Text)
-GEÄNDERT:   src/pages/PainPointAuswahlverfahren.tsx
-              - useParams + Content-Lookup
-              - alle hartkodierten Strings durch content.* ersetzt
-              - Section 0 (Definition Block) neu eingefügt
-GEÄNDERT:   public/sitemap.xml                 (5 neue /loesungen/* URLs)
-GEÄNDERT:   public/robots.txt                  (User-agent: ClaudeBot ergänzen)
-```
-
-App.tsx-Routing ist bereits korrekt aufgesetzt — keine Änderung nötig.
-
----
-
-## Was bewusst NICHT Teil dieses Plans ist
-
-- Keine neuen Bilder/Icons/Animationen (Platzhalter bleiben, werden gekennzeichnet).
-- Kein Refactor des Layouts oder Designs.
-- Keine Änderungen an Studio/Lab/Index oder anderen Seiten.
-- Kein neues Mega-Menü, keine neuen Routen — die Routen existieren bereits in `App.tsx`.
-
----
-
-## Ergebnis nach Umsetzung
-
-- 5 vollständig unterschiedliche Pain-Point-Seiten mit identischer Struktur, eigenen Texten, eigenen Title/Meta/Canonical/FAQ-Schemas.
-- Pflege aller 5 Seiten zentral in einer Datei (`painPoints.ts`).
-- Erweiterung um weitere Pain Points oder Industrien später = nur ein neuer Eintrag im Content-Objekt.
+- Hero (HeroSection.tsx) bleibt visuell und strukturell unangetastet
+- Bento Grid (StudioStrategySection.tsx) bleibt 1:1
+- Keine Backend-/Daten-/Routing-Änderungen
+- Andere Seiten (`/studio`, `/lab`, `/case-studies` …) werden nicht angefasst
