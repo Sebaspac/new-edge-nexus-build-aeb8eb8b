@@ -1,137 +1,335 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
-import { ArrowUpRight, Award } from "lucide-react";
+import { Award } from "lucide-react";
 import albanovaWebsite from "@/assets/albanova-website.png";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
-import { MagneticButton } from "@/components/ui/MagneticButton";
 
-const stats = [
-  { value: "01", label: "Markenrelaunch", sub: "Identity, Web & System" },
-  { value: "02", label: "Konversion ↑", sub: "Klare Conversion-Logik" },
-  { value: "03", label: "Sichtbarkeit", sub: "Bayerischer Mittelstandspreis 2026" },
+const INK_DEEP = "#1A0A2E";
+const VIOLET_EDGE = "#5B21B6";
+const VIOLET_GLOW = "#9F7AEA";
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+const CONSOLAS = "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace";
+const DM_SERIF = "'DM Serif Display', Georgia, serif";
+
+const credits: Array<{ k: string; v: string }> = [
+  { k: "CLIENT", v: "ALBANOVA" },
+  { k: "SECTOR", v: "MITTELSTAND, DACH" },
+  { k: "SCOPE", v: "BRAND, WEB, SYSTEM" },
+  { k: "YEAR", v: "2026" },
+  { k: "AWARD", v: "BAYERISCHER MITTELSTANDSPREIS" },
+];
+
+const stats: Array<{ value: string; label: string; sub: string }> = [
+  { value: "01", label: "MARKENRELAUNCH", sub: "Identity, Web, System" },
+  { value: "02", label: "KONVERSION", sub: "Klare Conversion Logik" },
+  { value: "03", label: "SICHTBARKEIT", sub: "Mittelstandspreis 2026" },
 ];
 
 export const FeaturedCaseAlbaNova = () => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const imgY = useTransform(scrollYProgress, [0, 1], [-40, 40]);
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1.05, 1.12]);
 
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-neutral-950 text-white py-20 md:py-28 lg:py-32"
+      className="relative overflow-hidden"
+      style={{
+        backgroundColor: INK_DEEP,
+        color: "#FFFFFF",
+        paddingTop: "clamp(2rem, 4vw, 3.5rem)",
+        paddingBottom: "clamp(2rem, 4vw, 3.5rem)",
+      }}
     >
       <NoiseOverlay opacity={0.06} />
-      {/* Soft purple glow */}
-      <div
+
+      {/* Single Glow Exemption: violet blob behind the headline */}
+      <motion.div
         aria-hidden
-        className="absolute -top-32 -left-32 w-[520px] h-[520px] pointer-events-none"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-120px" }}
+        transition={{ duration: 1.4, ease: EASE }}
+        className="absolute pointer-events-none"
         style={{
+          top: "18%",
+          left: "-8%",
+          width: "780px",
+          height: "780px",
           background:
-            "radial-gradient(circle, rgba(124,58,237,0.20) 0%, rgba(124,58,237,0.06) 40%, transparent 70%)",
-          filter: "blur(60px)",
+            "radial-gradient(circle, rgba(91,33,182,0.20) 0%, rgba(91,33,182,0.08) 45%, transparent 72%)",
+          filter: "blur(100px)",
         }}
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          {/* Left: Copy */}
+        {/* Section Eyebrow signature */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: EASE }}
+          className="flex items-center gap-3 mb-10"
+        >
+          <span
+            aria-hidden
+            style={{
+              display: "inline-block",
+              width: "32px",
+              height: "1px",
+              backgroundColor: VIOLET_GLOW,
+            }}
+          />
+          <span
+            style={{
+              fontFamily: CONSOLAS,
+              fontSize: "11px",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: VIOLET_GLOW,
+            }}
+          >
+            Featured Case, Ausgezeichneter Mittelstand 2025
+          </span>
+        </motion.div>
+
+        {/* Display moment + preview */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          {/* Oversized italic AlbaNova. */}
+          <div className="lg:col-span-8 relative">
+            <motion.h2
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.0, ease: EASE, delay: 0.1 }}
+              style={{
+                fontFamily: DM_SERIF,
+                fontStyle: "italic",
+                fontWeight: 400,
+                fontSize: "clamp(3rem, 7vw, 5.5rem)",
+                lineHeight: 0.9,
+                letterSpacing: "-0.02em",
+                color: "#FFFFFF",
+                margin: 0,
+              }}
+            >
+              AlbaNova.
+            </motion.h2>
+
+            {/* Film credit metadata */}
+            <motion.dl
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: EASE, delay: 0.35 }}
+              className="mt-6"
+              style={{
+                fontFamily: CONSOLAS,
+                fontSize: "11px",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                maxWidth: "560px",
+              }}
+            >
+              {credits.map((c, i) => (
+                <div
+                  key={c.k}
+                  className="grid grid-cols-12 gap-4 py-3"
+                  style={{
+                    borderTop:
+                      i === 0
+                        ? "1px solid rgba(159,122,234,0.18)"
+                        : "1px solid rgba(159,122,234,0.10)",
+                    borderBottom:
+                      i === credits.length - 1
+                        ? "1px solid rgba(159,122,234,0.18)"
+                        : "none",
+                  }}
+                >
+                  <dt
+                    className="col-span-4"
+                    style={{ color: "rgba(255,255,255,0.55)" }}
+                  >
+                    {c.k}
+                  </dt>
+                  <dd
+                    className="col-span-8"
+                    style={{ color: "#FFFFFF", margin: 0 }}
+                  >
+                    {c.v}
+                  </dd>
+                </div>
+              ))}
+            </motion.dl>
+          </div>
+
+          {/* Preview portrait */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 space-y-7"
+            transition={{ duration: 1.0, ease: EASE, delay: 0.25 }}
+            className="lg:col-span-4 relative"
           >
-            <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-white/60">
-              <Award className="w-3.5 h-3.5 text-[#a855f7]" />
-              Featured Case · Bayerischer Mittelstandspreis 2026
-            </div>
-
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-white">
-              AlbaNova.
-              <span className="block text-white/50 text-2xl sm:text-3xl lg:text-4xl mt-3">
-                Marke, Website & System – ausgezeichnet.
-              </span>
-            </h2>
-
-            <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-xl" style={{ fontFamily: "Consolas, monospace" }}>
-              Wir haben AlbaNova von einer fragmentierten Online-Präsenz zu einem
-              kohärenten Marken- und Conversion-System geführt. Das Ergebnis: eine Marke
-              mit Haltung, eine Website mit Wirkung – nominiert für den Bayerischen
-              Mittelstandspreis 2026.
-            </p>
-
-            {/* Stats — outline numbers */}
-            <div className="grid grid-cols-3 gap-4 md:gap-6 pt-4 border-t border-white/10">
-              {stats.map((s) => (
-                <div key={s.value}>
-                  <div
-                    className="text-3xl md:text-4xl font-light text-transparent leading-none"
-                    style={{
-                      WebkitTextStroke: "1px rgba(168,85,247,0.7)",
-                      fontFamily: "'DM Serif Display', serif",
-                    }}
-                  >
-                    {s.value}
-                  </div>
-                  <div className="mt-2 text-[11px] uppercase tracking-[0.15em] text-white/80">
-                    {s.label}
-                  </div>
-                  <div className="text-[11px] text-white/40 mt-1" style={{ fontFamily: "Consolas, monospace" }}>
-                    {s.sub}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap items-center gap-4 pt-4">
-              <MagneticButton>
-                <Link
-                  to="/case-study/albanova"
-                  className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-bold uppercase text-xs tracking-[0.18em] border-2 border-white hover:bg-transparent hover:text-white transition-colors duration-300"
-                >
-                  Case ansehen
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Link>
-              </MagneticButton>
-              <Link
-                to="/case-studies"
-                className="text-xs uppercase tracking-[0.18em] text-white/60 hover:text-white border-b border-white/30 hover:border-white pb-1 transition-colors"
-              >
-                Alle Cases
-              </Link>
-            </div>
-          </motion.div>
-
-          {/* Right: Parallax image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-            className="lg:col-span-7 relative"
-          >
-            <div className="relative aspect-[4/3] overflow-hidden border border-white/10 bg-black">
-              <motion.img
+            <div
+              className="relative w-full"
+              style={{
+                aspectRatio: "4 / 3",
+                border: "1px solid rgba(159,122,234,0.18)",
+                backgroundColor: INK_DEEP,
+                overflow: "hidden",
+              }}
+            >
+              <img
                 src={albanovaWebsite}
-                alt="AlbaNova Website Case Study"
-                style={{ y: imgY, scale: imgScale }}
-                className="absolute inset-0 w-full h-full object-cover will-change-transform"
+                alt="AlbaNova Website, Fallstudie Vorschau"
+                className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-0 left-0 px-3 py-1.5 bg-black text-[10px] uppercase tracking-[0.2em] text-white">
-                AlbaNova · 2026
-              </div>
+            </div>
+
+            {/* Award badge */}
+            <div
+              className="mt-4 inline-flex items-center gap-2"
+              style={{
+                fontFamily: CONSOLAS,
+                fontSize: "11px",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                color: VIOLET_GLOW,
+              }}
+            >
+              <Award
+                className="w-3.5 h-3.5"
+                style={{ color: VIOLET_GLOW }}
+                aria-hidden
+              />
+              Award Issue, 2026
             </div>
           </motion.div>
         </div>
+
+        {/* Lead paragraph */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.45 }}
+          className="mt-8"
+          style={{
+            fontFamily: CONSOLAS,
+            fontSize: "14px",
+            lineHeight: 1.7,
+            color: "rgba(255,255,255,0.55)",
+            maxWidth: "62ch",
+          }}
+        >
+          AlbaNova kam mit einer fragmentierten Online Präsenz. Wir haben Marke,
+          Website und Conversion Logik als ein zusammenhängendes System neu
+          gedacht. Das Ergebnis: eine Marke mit Haltung, eine Website mit
+          Wirkung, nominiert für den Bayerischen Mittelstandspreis 2026.
+        </motion.p>
+
+        {/* Ghost numeral stats row */}
+        <div
+          className="mt-8 pt-6 grid grid-cols-1 sm:grid-cols-3"
+          style={{ borderTop: "1px solid rgba(159,122,234,0.18)" }}
+        >
+          {stats.map((s, i) => (
+            <motion.div
+              key={s.value}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{
+                duration: 0.9,
+                ease: EASE,
+                delay: 0.15 + i * 0.12,
+              }}
+              className="py-2 sm:py-0"
+              style={{
+                paddingLeft: i === 0 ? 0 : "clamp(1rem, 2vw, 2rem)",
+                borderLeft:
+                  i === 0 ? "none" : "1px solid rgba(159,122,234,0.18)",
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: DM_SERIF,
+                  fontStyle: "italic",
+                  fontWeight: 400,
+                  fontSize: "clamp(2.25rem, 4vw, 3.5rem)",
+                  lineHeight: 0.95,
+                  letterSpacing: "-0.02em",
+                  color: "transparent",
+                  WebkitTextStroke: "1.5px rgba(91,33,182,0.85)",
+                }}
+              >
+                {s.value}
+              </div>
+              <div
+                className="mt-4"
+                style={{
+                  fontFamily: CONSOLAS,
+                  fontSize: "11px",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: "#FFFFFF",
+                }}
+              >
+                {s.label}
+              </div>
+              <div
+                className="mt-2"
+                style={{
+                  fontFamily: CONSOLAS,
+                  fontSize: "11px",
+                  letterSpacing: "0.1em",
+                  color: "rgba(255,255,255,0.55)",
+                }}
+              >
+                {s.sub}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Single CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease: EASE, delay: 0.2 }}
+          className="mt-8"
+        >
+          <Link
+            to="/case-study/albanova"
+            className="inline-flex items-center group"
+            style={{
+              fontFamily: CONSOLAS,
+              fontSize: "11px",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "#FFFFFF",
+              backgroundColor: VIOLET_EDGE,
+              padding: "16px 32px",
+              border: `1px solid ${VIOLET_EDGE}`,
+              transition: "background-color 300ms ease-out, color 300ms ease-out",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = INK_DEEP;
+              e.currentTarget.style.color = VIOLET_GLOW;
+              e.currentTarget.style.borderColor = VIOLET_GLOW;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = VIOLET_EDGE;
+              e.currentTarget.style.color = "#FFFFFF";
+              e.currentTarget.style.borderColor = VIOLET_EDGE;
+            }}
+          >
+            Fallstudie lesen
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

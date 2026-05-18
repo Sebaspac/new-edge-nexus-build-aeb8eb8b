@@ -4,9 +4,12 @@ import { HeroSection } from "../components/HeroSection";
 import { MethodologyGrid } from "../components/MethodologyGrid";
 import { PositionedForImpactSection } from "../components/PositionedForImpactSection";
 import { StudioStrategySection } from "../components/StudioStrategySection";
-import { FeaturedCaseAlbaNova } from "../components/FeaturedCaseAlbaNova";
+import { HorizontalScrollSection } from "../components/HorizontalScrollSection";
+import { TickerScrollSection } from "../components/TickerScrollSection";
+import { UseCasesGridSection } from "../components/UseCasesGridSection";
 import { TestimonialsSection } from "../components/TestimonialsSection";
 import { ThreeStepsCTA } from "@/components/ThreeStepsCTA";
+import { AuroraFlow } from "@/components/ui/aurora-flow";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { useLenis } from "@/hooks/useLenis";
 
@@ -15,12 +18,11 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import LogoCloud from "@/components/ui/logo-cloud";
 import { MagicText } from "@/components/ui/magic-text";
-import { PartnerBanner } from "@/components/PartnerBanner";
 import { lazy, Suspense, useCallback, useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, useScroll, useTransform } from "framer-motion";
 import newEdgeLogo from "@/assets/new-edge-logo.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Button } from "@/components/ui/button";
+import { SweepButton } from "@/components/ui/SweepButton";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -39,10 +41,14 @@ const Footer = lazy(() => import("@/components/Footer").then((module) => ({
 import { ArrowRight, Lightbulb, Zap, Palette, Target, Rocket, Star, Users, Code, Globe, Briefcase, Phone, MessageSquare, Eye } from "lucide-react";
 const Index = () => {
   const sessionStorageSafe = safeSessionStorage();
-  const {
-    t
-  } = useLanguage();
+  const { t } = useLanguage();
   useLenis();
+
+  const { scrollY } = useScroll();
+  const blob1Y = useTransform(scrollY, [0, 5000], [0, -200]);
+  const blob2Y = useTransform(scrollY, [0, 5000], [0, 300]);
+  const blob3Y = useTransform(scrollY, [0, 8000], [0, -350]);
+  const blob4Y = useTransform(scrollY, [0, 8000], [0, 250]);
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const [contactFormType, setContactFormType] = useState<"kmu" | "agentur" | null>(null);
   const [openAccordionIndex, setOpenAccordionIndex] = useState(0);
@@ -198,112 +204,55 @@ const Index = () => {
         {/* Mobile Navigation */}
         <MobileNavigation onContactClick={() => setIsContactSheetOpen(true)} theme="dark" />
 
-        {/* Hero + LogoCloud as one unified dark section */}
-        <div className="relative" style={{ background: "linear-gradient(135deg, #1a0533 0%, #0a0a0a 50%, #0d0a1a 100%)" }}>
-          {/* Geometric shapes spanning hero + logo cloud */}
-          <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 1 }}>
-            <motion.div
-              initial={{ opacity: 0, y: -150, rotate: 12 }}
-              animate={{ opacity: 1, y: 0, rotate: 12 }}
-              transition={{ duration: 2.4, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute top-[-8%] left-[-5%]"
-              style={{ width: 600, height: 140 }}
-            >
-              <motion.div
-                animate={{ y: [0, 15, 0] }}
-                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.15] bg-gradient-to-r from-white/[0.08] via-transparent to-transparent shadow-[0_8px_32px_0_rgba(139,92,246,0.25)] backdrop-blur-[2px]"
-              />
-            </motion.div>
+        {/* Hero + LogoCloud — unified dark aurora section */}
+        <div className="relative" style={{ background: "#0A0412" }}>
+          {/* Aurora — covers this entire dark block */}
+          <div aria-hidden style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none" }}>
+            <AuroraFlow />
+          </div>
+          <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column" }}>
+            <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
+            <LogoCloud />
+          </div>
+        </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: -100, rotate: -15 }}
-              animate={{ opacity: 1, y: 0, rotate: -15 }}
-              transition={{ duration: 2.4, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute top-[8%] right-[-10%]"
-              style={{ width: 500, height: 120 }}
-            >
-              <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.12] bg-gradient-to-r from-violet-500/[0.10] via-transparent to-transparent shadow-[0_8px_32px_0_rgba(124,58,237,0.20)] backdrop-blur-[2px]"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -100, rotate: -8 }}
-              animate={{ opacity: 1, x: 0, rotate: -8 }}
-              transition={{ duration: 2.4, delay: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute top-[30%] left-[5%]"
-              style={{ width: 550, height: 130 }}
-            >
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.10] bg-gradient-to-r from-white/[0.06] via-transparent to-transparent shadow-[0_8px_32px_0_rgba(168,85,247,0.15)] backdrop-blur-[2px]"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 100, rotate: 20 }}
-              animate={{ opacity: 1, y: 0, rotate: 20 }}
-              transition={{ duration: 2.4, delay: 0.9, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute bottom-[-5%] right-[0%]"
-              style={{ width: 480, height: 110 }}
-            >
-              <motion.div
-                animate={{ y: [0, -18, 0] }}
-                transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.10] bg-gradient-to-r from-purple-400/[0.08] via-transparent to-transparent shadow-[0_8px_32px_0_rgba(139,92,246,0.18)] backdrop-blur-[2px]"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5, rotate: 35 }}
-              animate={{ opacity: 1, scale: 1, rotate: 35 }}
-              transition={{ duration: 2.4, delay: 1.1, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute bottom-[10%] left-[15%]"
-              style={{ width: 380, height: 90 }}
-            >
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.08] bg-gradient-to-r from-violet-400/[0.06] via-transparent to-transparent shadow-[0_4px_16px_0_rgba(139,92,246,0.12)]"
-              />
-            </motion.div>
+        {/* All post-hero sections — unified light background */}
+        <div
+          style={{
+            position: "relative",
+            background: [
+              "radial-gradient(ellipse 100% 60% at 8% 8%, rgba(91,33,182,0.08) 0%, transparent 55%)",
+              "radial-gradient(ellipse 80% 55% at 92% 92%, rgba(124,58,237,0.06) 0%, transparent 50%)",
+              "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(91,33,182,0.03) 0%, transparent 60%)",
+              "#F8F5FF",
+            ].join(", "),
+          }}
+        >
+          {/* Parallax depth orbs */}
+          <div aria-hidden style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
+            <motion.div style={{ y: blob1Y, position: "absolute", top: "8%", left: "-5%", width: "420px", height: "420px", borderRadius: "50%", background: "radial-gradient(circle, rgba(91,33,182,0.07) 0%, transparent 70%)" }} />
+            <motion.div style={{ y: blob2Y, position: "absolute", top: "22%", right: "-8%", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%)" }} />
+            <motion.div style={{ y: blob3Y, position: "absolute", top: "55%", left: "10%", width: "360px", height: "360px", borderRadius: "50%", background: "radial-gradient(circle, rgba(91,33,182,0.06) 0%, transparent 70%)" }} />
+            <motion.div style={{ y: blob4Y, position: "absolute", top: "72%", right: "5%", width: "440px", height: "440px", borderRadius: "50%", background: "radial-gradient(circle, rgba(124,58,237,0.04) 0%, transparent 70%)" }} />
           </div>
 
-          <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
-          <LogoCloud />
+          <div style={{ position: "relative", zIndex: 1 }}>
+            <div data-ticker-pin-group>
+              <MethodologyGrid />
+              <TickerScrollSection />
+            </div>
+
+            {/* Positioned for Impact — photo + stats + logo proof as one section */}
+            <PositionedForImpactSection />
+
+            <HorizontalScrollSection />
+            <StudioStrategySection />
+            <UseCasesGridSection />
+            <TestimonialsSection />
+            <ThreeStepsCTA />
+          </div>
+
         </div>
-
-        {/* 3. Deine Prozesse & Leistungen */}
-        <div className="bg-surface">
-          <MethodologyGrid />
-        </div>
-
-        {/* 4. Featured Case · AlbaNova */}
-        <FeaturedCaseAlbaNova />
-
-        {/* 5. How we work — Positioned for Impact */}
-        <div className="bg-surface">
-          <PositionedForImpactSection />
-        </div>
-
-        {/* 6. Unsere Services — Bento (1:1) */}
-        <StudioStrategySection />
-
-        {/* 7. BAFA-Akkreditierung */}
-        <PartnerBanner />
-
-        {/* 8. Rezensionen */}
-        <div className="bg-surface">
-          <TestimonialsSection />
-        </div>
-
-        {/* Contact Section */}
-        {/* Three Steps CTA */}
-        <ThreeStepsCTA />
 
         {/* Contact Form Sheet */}
         <Sheet open={isContactSheetOpen} onOpenChange={handleSheetClose}>
@@ -364,10 +313,29 @@ const Index = () => {
                 </div>
               </div>
 
-              <Button type="submit" size="lg" className="w-full btn-primary text-slate-50">
+              <SweepButton
+                type="submit"
+                sweepColor="dark"
+                hoverTextColor="#ffffff"
+                style={{
+                  width: "100%",
+                  background: "#5B21B6",
+                  color: "#ffffff",
+                  fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
+                  fontSize: "12px",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  padding: "16px 28px",
+                  border: "none",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "10px",
+                }}
+              >
                 Nachricht senden
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+                <ArrowRight style={{ width: "16px", height: "16px" }} />
+              </SweepButton>
             </form>
           </SheetContent>
         </Sheet>

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { SweepButton, SweepLink } from "@/components/ui/SweepButton";
 
 interface HeroSectionProps {
   onContactClick: () => void;
@@ -24,66 +25,82 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
 
       <section
         id="hero"
-        className="relative w-full overflow-hidden flex items-center justify-center"
+        className="relative w-full flex items-center justify-center"
         style={{ background: "transparent", minHeight: "100dvh" }}
       >
-        {/* Soft purple glow behind the headline */}
+        {/* Dark vignette — keeps center readable, aurora visible at edges */}
         <div
           aria-hidden
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
           style={{
-            width: "min(900px, 90vw)",
-            height: "min(900px, 90vw)",
-            background:
-              "radial-gradient(circle, rgba(91,33,182,0.30) 0%, rgba(76,29,149,0.16) 28%, rgba(76,29,149,0.06) 55%, transparent 75%)",
-            filter: "blur(40px)",
-            zIndex: 0,
+            position: "absolute",
+            inset: 0,
+            zIndex: 1,
+            pointerEvents: "none",
+            background: "radial-gradient(ellipse 70% 65% at 50% 50%, rgba(4,1,12,0.72) 0%, rgba(4,1,12,0.30) 55%, transparent 80%)",
           }}
         />
 
 
-        {/* Vertical line at bottom of hero — fades down toward LogoCloud */}
-        <div
-          aria-hidden
-          className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
-          style={{
-            bottom: "0",
-            width: "1px",
-            height: "60px",
-            background: "linear-gradient(to bottom, transparent, #6d28d9)",
-            zIndex: 2,
-          }}
-        />
         {/* Hero — exact Dapta spec */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           className="relative flex flex-col items-center text-center w-full"
-          style={{ padding: "clamp(100px, 18vh, 120px) 24px clamp(40px, 6vh, 80px)", fontFamily: SANS, zIndex: 1 }}
+          style={{ padding: "clamp(100px, 18vh, 120px) 24px clamp(40px, 6vh, 80px)", fontFamily: SANS, zIndex: 2 }}
         >
-          {/* Headline — slightly smaller for better fit; rendered as div to bypass global h1 DM-Serif !important */}
+          {/* Premium shimmer — slow left→right pendulum, ease-in-out both ways */}
+          <style>{`
+            @keyframes hs-shimmer {
+              from { background-position: -220% center; }
+              to   { background-position:  220% center; }
+            }
+          `}</style>
+
+          {/* Headline */}
           <div
             role="heading"
             aria-level={1}
             style={{
-              fontFamily: SANS,
-              fontSize: "clamp(36px, 5.5vw, 64px)",
-              fontWeight: 800,
-              lineHeight: 1.08,
-              letterSpacing: "-1.5px",
-              color: "#fff",
+              fontFamily: "'DM Serif Display', Georgia, serif",
+              fontStyle: "italic",
+              fontWeight: 400,
+              fontSize: "clamp(3rem, 7vw, 6rem)",
+              lineHeight: 0.96,
+              letterSpacing: "-0.02em",
               maxWidth: "780px",
             }}
           >
-            Mehr Output.
+            {/* Line 1 — ghost iridescence on white */}
             <span
-              className="block bg-clip-text text-transparent"
               style={{
-                backgroundImage:
-                  "linear-gradient(90deg, #8b5cf6 0%, #6d28d9 50%, #4c1d95 100%)",
-                fontFamily: SANS,
-                fontWeight: 800,
+                display: "block",
+                background: "linear-gradient(115deg, #fff 0%, #fff 24%, #f6f2ff 36%, #ece5ff 44%, #f8f5ff 50%, #f3efff 57%, #fff 68%, #fff 100%)",
+                backgroundSize: "280% auto",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                color: "transparent",
+                animation: "hs-shimmer 18s ease-in-out infinite alternate",
+              }}
+            >
+              Mehr Output.
+            </span>
+            {/* Line 2 — luminous pearl through violet */}
+            <span
+              style={{
+                display: "block",
+                background: "linear-gradient(115deg, #7c3aed 0%, #8b5cf6 22%, #9d70f5 33%, #b89af8 42%, #ddd6fe 50%, #b89af8 58%, #8b5cf6 68%, #4c1d95 100%)",
+                backgroundSize: "280% auto",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                color: "transparent",
+                fontFamily: "'DM Serif Display', Georgia, serif",
+                fontStyle: "italic",
+                fontWeight: 400,
+                animation: "hs-shimmer 18s ease-in-out infinite alternate",
+                animationDelay: "-4s",
               }}
             >
               Weniger Kosten.
@@ -110,67 +127,46 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             className="flex items-center justify-center"
             style={{ marginTop: "clamp(20px, 4vh, 32px)", gap: "10px" }}
           >
-            <button
-              onClick={onContactClick}
+            <SweepButton
+              onClick={() => window.open("https://calendly.com/sebastian-p-newedgebrand/30min", "_blank", "noopener")}
+              sweepColor="dark"
+              hoverTextColor="#ffffff"
+              duration={0.52}
               style={{
-                background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)",
+                background: "#5B21B6",
                 color: "#fff",
-                fontFamily: SANS,
-                fontSize: "14px",
-                fontWeight: 700,
-                padding: "10px 22px",
-                borderRadius: "6px",
-                border: "1px solid rgba(139,92,246,0.4)",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-                boxShadow: "0 0 20px rgba(124,58,237,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)";
-                e.currentTarget.style.boxShadow = "0 0 30px rgba(124,58,237,0.5), inset 0 1px 0 rgba(255,255,255,0.15)";
-                e.currentTarget.style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)";
-                e.currentTarget.style.boxShadow = "0 0 20px rgba(124,58,237,0.3), inset 0 1px 0 rgba(255,255,255,0.1)";
-                e.currentTarget.style.transform = "translateY(0)";
+                fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
+                fontSize: "12px",
+                fontWeight: 400,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                padding: "14px 28px",
+                border: "none",
               }}
             >
               Jetzt beraten lassen
-            </button>
-            <Link
+            </SweepButton>
+            <SweepLink
               to="/case-studies"
+              sweepColor="violet"
+              hoverTextColor="#ffffff"
+              duration={0.52}
               style={{
-                background: "rgba(139,92,246,0.08)",
-                backdropFilter: "blur(16px)",
-                WebkitBackdropFilter: "blur(16px)",
-                color: "#c4b5fd",
-                fontFamily: SANS,
-                fontSize: "14px",
-                fontWeight: 700,
-                padding: "10px 22px",
-                borderRadius: "6px",
-                border: "1px solid rgba(139,92,246,0.25)",
-                textDecoration: "none",
-                display: "inline-block",
-                transition: "all 0.3s ease",
-                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(139,92,246,0.15)";
-                e.currentTarget.style.borderColor = "rgba(139,92,246,0.4)";
-                e.currentTarget.style.color = "#e0d4ff";
-                e.currentTarget.style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(139,92,246,0.08)";
-                e.currentTarget.style.borderColor = "rgba(139,92,246,0.25)";
-                e.currentTarget.style.color = "#c4b5fd";
-                e.currentTarget.style.transform = "translateY(0)";
+                background: "transparent",
+                color: "#C4B5FD",
+                fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
+                fontSize: "12px",
+                fontWeight: 400,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                padding: "14px 28px",
+                border: "1px solid rgba(196,181,253,0.35)",
+                display: "inline-flex",
+                alignItems: "center",
               }}
             >
               Case Studies
-            </Link>
+            </SweepLink>
           </div>
 
           {/* Social proof */}
@@ -212,7 +208,25 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               <span>Schnelle Umsetzung</span>
             </div>
           </div>
+
         </motion.div>
+
+        {/* Scroll indicator — absolute bottom, ends at LogoCloud */}
+        <motion.div
+          animate={{ opacity: [0.35, 1, 0.35] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "2px",
+            height: "clamp(100px, 11vh, 152px)",
+            background: "linear-gradient(to bottom, rgba(196,181,253,0), #C4B5FD 50%, rgba(196,181,253,0.6))",
+            boxShadow: "0 0 10px rgba(196,181,253,0.45)",
+            zIndex: 3,
+          }}
+        />
       </section>
     </>
   );

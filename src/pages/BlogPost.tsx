@@ -294,15 +294,8 @@ const BlogPost = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  const scrollToContact = () => {
-    navigate('/', { replace: true });
-    setTimeout(() => {
-      const contactSection = document.getElementById('contact-section');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
-  };
+  const CALENDLY = "https://calendly.com/sebastian-p-newedgebrand/30min";
+  const scrollToContact = () => window.open(CALENDLY, "_blank", "noopener");
 
   if (!post) {
     return (
@@ -492,6 +485,11 @@ const BlogPost = () => {
                 >
                   Kontakt aufnehmen
                 </button>
+                <div style={{ marginTop: "14px" }}>
+                  <a href="tel:+4917660431467" style={{ fontFamily: "Consolas, monospace", fontSize: "11px", letterSpacing: "0.12em", color: "rgba(26,10,46,0.45)", textDecoration: "none", borderBottom: "1px solid rgba(26,10,46,0.18)", paddingBottom: "1px" }}>
+                    ↗ +49 176 60 431 467
+                  </a>
+                </div>
               </div>
             </motion.article>
           </div>

@@ -2,180 +2,328 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
+
+const VIOLET = "#5B21B6";
+const VIOLET_GLOW = "#9F7AEA";
+const INK_DEEP = "#1A0A2E";
+const INK = "#3A3A3A";
+const PAPER_PURE = "#FFFFFF";
+const HAIRLINE = "#E6E6E6";
+
+const MONO: React.CSSProperties = {
+  fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
+};
+const SERIF: React.CSSProperties = {
+  fontFamily: "'DM Serif Display', Georgia, serif",
+};
+
 export const MethodologyGrid = () => {
   const services = [
     {
-      category: "KLARHEIT",
-      title: "Brand Identity & Brand System",
-      link: "/studio",
-    },
-    {
-      category: "ORIENTIERUNG",
-      title: "KI Workshops & Audit",
-      link: "/studio",
-    },
-    {
+      index: "01",
       category: "STRATEGIE",
-      title: "Digitale Kommunikations- & Systemarchitektur",
+      title: "Systemstrategie für Marke, Daten & KI",
       link: "/studio",
     },
     {
+      index: "02",
+      category: "SICHTBARKEIT",
+      title: "Kommunikations- & Sichtbarkeitsarchitektur",
+      link: "/studio",
+    },
+    {
+      index: "03",
       category: "AUTOMATISIERUNG",
-      title: "KI gestützte Prozessautomatisierung",
+      title: "AI- & Automation Systems",
       link: "/lab",
     },
     {
+      index: "04",
       category: "OWNERSHIP",
-      title: "Interne Software & Datenhoheit",
+      title: "Internal Systems & Ownership",
       link: "/lab",
     },
     {
-      category: "STRUKTUR",
-      title: "Web- & Plattformarchitektur",
+      index: "05",
+      category: "PLATTFORM",
+      title: "Web & Platform Architecture",
       link: "/lab",
     },
   ];
+
   return (
-    <section className="relative py-8 md:py-12 lg:py-16 bg-white overflow-hidden md:min-h-screen md:flex md:items-center">
+    <section
+      className="relative py-12 md:py-16 lg:py-20"
+      style={{ backgroundColor: "transparent" }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-16 items-start">
-          {/* Left Column */}
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: -40,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.8,
-            }}
-            className="space-y-4 sm:space-y-6 md:space-y-8"
-          >
-            {/* Eyebrow */}
-            <div className="mb-0">
-              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#7C3AED]">new edge</span>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-            {/* Main Headline */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black leading-[0.9] text-black">
-              Deine{" "}
-              <AnimatedTextCycle
-                words={["Prozesse.", "Daten.", "KI.", "Plattform.", "Abläufe."]}
-                interval={3000}
-                className="text-[#7C3AED]"
-              />
-              <br />
-              Als System gedacht.
-            </h2>
-
-            {/* Description */}
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 leading-relaxed max-w-md">
-              Wir verbinden Marke, Website und Prozesse zu einem System, in dem Automatisierung und KI sinnvoll,
-              skalierbar und unter eigener Kontrolle eingesetzt werden können.
-            </p>
-
-            {/* CTA Box */}
+          {/* ── LEFT COLUMN — sticky field guide masthead ── */}
+          <div className="lg:col-span-5 lg:sticky lg:top-24 self-start">
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                delay: 0.3,
-                duration: 0.6,
-              }}
-              className="relative bg-black text-white p-4 sm:p-6 md:p-8 overflow-hidden group cursor-pointer hover:scale-[1.02] transition-transform duration-300"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              {/* Purple Circle Decoration */}
-              <div className="absolute -right-8 -bottom-8 sm:-right-12 sm:-bottom-12 w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 bg-[#7C3AED] opacity-80 group-hover:scale-110 transition-transform duration-500" />
+              {/* Section Eyebrow signature */}
+              <div className="flex items-center gap-3 mb-10">
+                <span
+                  className="block flex-shrink-0"
+                  style={{
+                    width: "32px",
+                    height: "1px",
+                    backgroundColor: VIOLET,
+                  }}
+                />
+                <span
+                  style={{
+                    ...MONO,
+                    color: VIOLET,
+                    fontSize: "11px",
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  New Edge, Field Guide
+                </span>
+              </div>
 
-              <div className="relative z-10">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">Web-Perfomance Audit 2026</h3>
-                <p className="text-gray-300 mb-3 sm:mb-4 md:mb-6 text-xs sm:text-sm md:text-base">
-                  Kostenlose Analyse sichern: Performance, Struktur & Conversion kurz durchgecheckt.
+              {/* Display headline — the one italic moment */}
+              <h2
+                style={{
+                  ...SERIF,
+                  fontStyle: "italic",
+                  color: INK_DEEP,
+                  fontSize: "clamp(2rem, 3.8vw, 3rem)",
+                  lineHeight: 0.92,
+                  letterSpacing: "-0.01em",
+                  marginBottom: "32px",
+                }}
+              >
+                Deine{" "}
+                <AnimatedTextCycle
+                  words={["Prozesse.", "Daten.", "KI.", "Plattform.", "Abläufe."]}
+                  interval={3000}
+                  renderWord={(word) => (
+                    <span style={{ color: word === "Prozesse." ? "#3B0D72" : VIOLET }}>
+                      {word}
+                    </span>
+                  )}
+                />
+                <br />
+                Als System gedacht.
+              </h2>
+
+              {/* Body — Consolas, never italic */}
+              <p
+                style={{
+                  ...MONO,
+                  color: INK,
+                  fontSize: "14px",
+                  lineHeight: 1.7,
+                  maxWidth: "42ch",
+                  marginBottom: "40px",
+                }}
+              >
+                Fünf Disziplinen, ein zusammenhängendes System. Marke, Kommunikation,
+                Automatisierung und Plattform werden nicht nebeneinander gebaut, sondern
+                ineinander.
+              </p>
+
+              {/* Audit CTA card — the permitted violet stripe exception */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ delay: 0.25, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="relative group"
+                style={{
+                  backgroundColor: INK_DEEP,
+                  borderLeft: `3px solid ${VIOLET}`,
+                  padding: "20px 24px",
+                }}
+              >
+                {/* Label */}
+                <div
+                  style={{
+                    ...MONO,
+                    fontSize: "11px",
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    color: "rgba(255,255,255,0.45)",
+                    marginBottom: "16px",
+                  }}
+                >
+                  Kostenloses Angebot
+                </div>
+
+                {/* Heading — DM Serif, not italic (only Display is italic) */}
+                <h3
+                  style={{
+                    ...SERIF,
+                    color: PAPER_PURE,
+                    fontSize: "clamp(1.2rem, 2.2vw, 1.6rem)",
+                    lineHeight: 1.2,
+                    marginBottom: "12px",
+                  }}
+                >
+                  Web-Performance Audit
+                </h3>
+
+                {/* Description */}
+                <p
+                  style={{
+                    ...MONO,
+                    fontSize: "15px",
+                    lineHeight: 1.65,
+                    color: "rgba(255,255,255,0.6)",
+                    marginBottom: "24px",
+                  }}
+                >
+                  Kostenlose Analyse: Performance, Struktur, Conversion. Vierundzwanzig
+                  Stunden Bearbeitungszeit, ohne Verkaufsgespräch.
                 </p>
 
+                {/* Link */}
                 <a
                   href="https://seo-audit-pro-1064008039464.us-west1.run.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[#7C3AED] font-bold uppercase text-xs sm:text-sm tracking-wider group-hover:gap-4 transition-all duration-300"
+                  className="inline-flex items-center gap-2 group-hover:gap-3 transition-all duration-300"
+                  style={{
+                    ...MONO,
+                    color: VIOLET_GLOW,
+                    fontSize: "11px",
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                  }}
                 >
-                  Jetzt Check sichern. For Free.
-                  <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                  Jetzt Check sichern
+                  <ArrowUpRight
+                    className="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    strokeWidth={1.5}
+                  />
                 </a>
-              </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
 
-          {/* Right Column - Service Cards */}
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: 40,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.8,
-              delay: 0.2,
-            }}
-            className="space-y-0"
-          >
-            {services.map((service, index) => (
-              <Link key={service.title} to={service.link} className="group">
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
+          {/* ── RIGHT COLUMN — numbered editorial list (table of contents) ── */}
+          <div className="lg:col-span-7">
+            <ol className="list-none p-0 m-0" style={{ borderTop: `1px solid ${INK_DEEP}` }}>
+              {services.map((service, index) => (
+                <motion.li
+                  key={service.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
                   transition={{
-                    duration: 0.5,
-                    delay: 0.3 + index * 0.1,
+                    duration: 0.55,
+                    delay: 0.1 + index * 0.07,
+                    ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="relative py-3 sm:py-4 md:py-5 border-b border-gray-200 hover:bg-gray-50/50 transition-all duration-300 px-2 sm:px-4 md:px-6 -mx-2 sm:-mx-4 md:-mx-6"
+                  style={{ borderBottom: `1px solid ${HAIRLINE}` }}
                 >
-                  <div className="flex items-start justify-between gap-3 sm:gap-4 md:gap-8">
-                    <div className="flex-1">
-                      <span className="text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] mb-1 sm:mb-2 md:mb-3 block text-muted-foreground">
-                        {service.category}
-                      </span>
-                      <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-black group-hover:text-[#7C3AED] transition-colors duration-300">
-                        {service.title}
-                      </h3>
-                    </div>
+                  <Link
+                    to={service.link}
+                    className="group relative block"
+                    style={{ textDecoration: "none" }}
+                  >
+                    {/* Hover hairline underline (1px violet) */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute left-0 right-0 bottom-[-1px] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
+                      style={{
+                        height: "1px",
+                        backgroundColor: VIOLET,
+                        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+                      }}
+                    />
 
-                    <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-300 group-hover:text-[#7C3AED] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 flex-shrink-0 mt-4 sm:mt-6 md:mt-8" />
-                  </div>
-                </motion.div>
-              </Link>
-            ))}
-          </motion.div>
+                    <div
+                      className="flex items-start gap-6 sm:gap-10 py-5 transition-transform duration-500"
+                      style={{
+                        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+                      }}
+                    >
+                      {/* Slide-right wrapper */}
+                      <div
+                        className="flex items-start gap-6 sm:gap-10 flex-1 min-w-0 transition-transform duration-500 group-hover:translate-x-2"
+                        style={{
+                          transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+                        }}
+                      >
+                        {/* Index numeral — Consolas, violet, tabular */}
+                        <span
+                          className="flex-shrink-0"
+                          style={{
+                            ...MONO,
+                            color: VIOLET,
+                            fontSize: "13px",
+                            letterSpacing: "0.1em",
+                            fontVariantNumeric: "tabular-nums",
+                            paddingTop: "8px",
+                            minWidth: "28px",
+                          }}
+                        >
+                          {service.index}
+                        </span>
+
+                        {/* Title block */}
+                        <div className="flex-1 min-w-0">
+                          {/* Category label — Consolas ALL-CAPS */}
+                          <div
+                            style={{
+                              ...MONO,
+                              fontSize: "11px",
+                              letterSpacing: "0.2em",
+                              textTransform: "uppercase",
+                              color: INK,
+                              opacity: 0.55,
+                              marginBottom: "10px",
+                            }}
+                          >
+                            {service.category}
+                          </div>
+
+                          {/* Service title — DM Serif Display, NOT italic */}
+                          <h3
+                            style={{
+                              ...SERIF,
+                              color: INK_DEEP,
+                              fontSize: "clamp(1.2rem, 2.2vw, 1.6rem)",
+                              lineHeight: 1.2,
+                              letterSpacing: "-0.01em",
+                            }}
+                          >
+                            {service.title}
+                          </h3>
+                        </div>
+                      </div>
+
+                      {/* Arrow — hidden until hover */}
+                      <div
+                        className="flex-shrink-0 self-center opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500"
+                        style={{
+                          transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+                        }}
+                      >
+                        <ArrowUpRight
+                          className="w-6 h-6"
+                          strokeWidth={1.25}
+                          style={{ color: VIOLET }}
+                        />
+                      </div>
+                    </div>
+                  </Link>
+                </motion.li>
+              ))}
+            </ol>
+
+          </div>
+
         </div>
       </div>
     </section>

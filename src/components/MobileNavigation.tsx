@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import newEdgeLogoHorizontal from "@/assets/new-edge-logo-horizontal.png";
+import { SweepButton } from "@/components/ui/SweepButton";
 import foundersImg from "@/assets/founders-color.webp";
 
 type CategoryFilter = 'all' | 'studio' | 'lab';
@@ -230,9 +231,24 @@ export const MobileNavigation = ({
               </div>
             </div>
 
-            <Button onClick={onContactClick} className="bg-white text-black hover:bg-white/90 transition-all duration-200 hover:scale-[1.02] font-medium text-sm" size="sm">
+            <SweepButton
+              onClick={() => window.open("https://calendly.com/sebastian-p-newedgebrand/30min", "_blank", "noopener")}
+              sweepColor="violet"
+              hoverTextColor="#ffffff"
+              duration={0.52}
+              style={{
+                background: "#ffffff",
+                color: "#1A0A2E",
+                border: "none",
+                fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
+                fontSize: "11px",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                padding: "10px 20px",
+              }}
+            >
               Kontakt
-            </Button>
+            </SweepButton>
           </div>
         </div>
       </nav>

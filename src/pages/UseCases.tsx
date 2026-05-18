@@ -55,19 +55,8 @@ const UseCases = () => {
 
   // Filtered case studies based on active filter
   const filteredCaseStudies = activeFilter === 'all' ? caseStudies : caseStudies.filter(cs => cs.category === activeFilter);
-  const scrollToContact = () => {
-    navigate("/", {
-      replace: true
-    });
-    setTimeout(() => {
-      const contactSection = document.getElementById("contact-section");
-      if (contactSection) {
-        contactSection.scrollIntoView({
-          behavior: "smooth"
-        });
-      }
-    }, 100);
-  };
+  const CALENDLY = "https://calendly.com/sebastian-p-newedgebrand/30min";
+  const scrollToContact = () => window.open(CALENDLY, "_blank", "noopener");
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setActiveIndex(emblaApi.selectedScrollSnap());

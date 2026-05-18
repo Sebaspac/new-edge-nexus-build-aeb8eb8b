@@ -58,16 +58,17 @@ export default function LogoCloud() {
           lineHeight: 1.15,
         }}
       >
-        Vertraut von <span style={{ color: "#6d28d9" }}>50+ Unternehmen</span>
+        Vertraut von <span style={{ color: "#9F7AEA" }}>50+ Unternehmen</span>
       </div>
 
       {/* Vertical line between heading and circle */}
       <div
         style={{
-          width: "1px",
-          height: "clamp(30px, 4vh, 50px)",
-          background: "linear-gradient(to bottom, #6d28d9, transparent)",
-          marginTop: "16px",
+          width: "2px",
+          height: "clamp(40px, 5vh, 64px)",
+          background: "linear-gradient(to bottom, #C4B5FD, rgba(196,181,253,0))",
+          marginTop: "20px",
+          boxShadow: "0 0 8px rgba(196,181,253,0.6)",
         }}
       />
 
@@ -90,11 +91,11 @@ export default function LogoCloud() {
         >
           <defs>
             <linearGradient id="orb-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#e9d5ff" stopOpacity="1" />
-              <stop offset="25%" stopColor="#c084fc" stopOpacity="1" />
-              <stop offset="50%" stopColor="#7c3aed" stopOpacity="1" />
-              <stop offset="75%" stopColor="#5b21b6" stopOpacity="1" />
-              <stop offset="100%" stopColor="#4c1d95" stopOpacity="0.95" />
+              <stop offset="0%"   stopColor="#C4B5FD" stopOpacity="1" />
+              <stop offset="25%"  stopColor="#9F7AEA" stopOpacity="1" />
+              <stop offset="50%"  stopColor="#7C3AED" stopOpacity="1" />
+              <stop offset="75%"  stopColor="#5B21B6" stopOpacity="1" />
+              <stop offset="100%" stopColor="#3B0D72" stopOpacity="0.95" />
             </linearGradient>
           </defs>
           <circle
@@ -106,7 +107,7 @@ export default function LogoCloud() {
             strokeWidth="2"
             style={{
               filter:
-                "drop-shadow(0 0 8px rgba(124,58,237,0.7)) drop-shadow(0 0 20px rgba(109,40,217,0.5)) drop-shadow(0 0 36px rgba(91,33,182,0.35))",
+                "drop-shadow(0 0 8px rgba(124,58,237,0.7)) drop-shadow(0 0 20px rgba(91,33,182,0.5)) drop-shadow(0 0 36px rgba(59,13,114,0.35))",
             }}
           />
         </svg>
@@ -116,7 +117,7 @@ export default function LogoCloud() {
           className="absolute left-0 right-0 top-1/2 -translate-y-1/2 w-full overflow-hidden"
           style={{
             padding: "16px 0",
-            backgroundColor: "#0a0a0a",
+            backgroundColor: "transparent",
             zIndex: 1,
           }}
         >
@@ -124,7 +125,7 @@ export default function LogoCloud() {
             className="absolute left-0 top-0 bottom-0 pointer-events-none"
             style={{
               width: "80px",
-              background: "linear-gradient(to right, #0a0a0a, transparent)",
+              background: "linear-gradient(to right, rgba(0,0,0,0), transparent)",
               zIndex: 2,
             }}
           />
@@ -132,7 +133,7 @@ export default function LogoCloud() {
             className="absolute right-0 top-0 bottom-0 pointer-events-none"
             style={{
               width: "80px",
-              background: "linear-gradient(to left, #0a0a0a, transparent)",
+              background: "linear-gradient(to left, rgba(0,0,0,0), transparent)",
               zIndex: 2,
             }}
           />

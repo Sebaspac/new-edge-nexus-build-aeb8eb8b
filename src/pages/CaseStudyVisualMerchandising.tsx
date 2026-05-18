@@ -72,19 +72,8 @@ const CaseStudyVisualMerchandising = () => {
     });
   }, []);
 
-  const scrollToContact = () => {
-    navigate("/", {
-      replace: true,
-    });
-    setTimeout(() => {
-      const contactSection = document.getElementById("contact-section");
-      if (contactSection) {
-        contactSection.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
-    }, 100);
-  };
+  const CALENDLY = "https://calendly.com/sebastian-p-newedgebrand/30min";
+  const scrollToContact = () => window.open(CALENDLY, "_blank", "noopener");
 
   const phases = [
     {
@@ -624,6 +613,11 @@ const CaseStudyVisualMerchandising = () => {
                 Jetzt Beratungsgespräch buchen
                 <ArrowRight className="w-5 h-5" />
               </button>
+              <div style={{ marginTop: "16px" }}>
+                <a href="tel:+4917660431467" style={{ fontFamily: "Consolas, monospace", fontSize: "11px", letterSpacing: "0.12em", color: "rgba(26,10,46,0.45)", textDecoration: "none", borderBottom: "1px solid rgba(26,10,46,0.18)", paddingBottom: "1px" }}>
+                  ↗ +49 176 60 431 467
+                </a>
+              </div>
             </div>
           </AnimatedSection>
         </div>

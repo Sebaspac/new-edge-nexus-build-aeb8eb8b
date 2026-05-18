@@ -9,7 +9,6 @@ import { HelmetProvider } from 'react-helmet-async';
 import { useEffect, lazy, Suspense } from "react";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import StructuredData from "@/components/StructuredData";
-import StickyAuditBubble from "@/components/StickyAuditBubble";
 
 // Eager load only critical pages for faster initial load
 import Index from "./pages/Index";
@@ -35,6 +34,7 @@ const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const PainPointAuswahlverfahren = lazy(() => import("./pages/PainPointAuswahlverfahren"));
 const LeistungenStub = lazy(() => import("./pages/LeistungenStub"));
+const KiGlossar = lazy(() => import("./pages/KiGlossar"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -89,10 +89,11 @@ const App = () => {
                   <Route path="/leistungen" element={<LeistungenStub />} />
                   <Route path="/loesungen/:slug" element={<PainPointAuswahlverfahren />} />
                   <Route path="/industrien/:slug" element={<PainPointAuswahlverfahren />} />
+                  <Route path="/ki-glossar" element={<KiGlossar />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
-              <StickyAuditBubble />
+
             </BrowserRouter>
           </TooltipProvider>
         </LanguageProvider>

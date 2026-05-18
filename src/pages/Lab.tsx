@@ -5,7 +5,7 @@ import { Bot, Lightbulb, Phone, FileText, Plus, ArrowUpRight, ChevronDown } from
 import leadGenerationImage from "@/assets/lead-generation.webp";
 import ragDatacenterImage from "@/assets/rag-datacenter.webp";
 import marketingAutomationImage from "@/assets/marketing-automation.webp";
-import { Button } from "@/components/ui/button";
+import { SweepButton } from "@/components/ui/SweepButton";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -40,19 +40,8 @@ const Lab = () => {
   const heroY = useTransform(heroProgress, [0, 1], [0, 120]);
   const heroOpacity = useTransform(heroProgress, [0, 0.6], [1, 0]);
 
-  const scrollToContact = () => {
-    navigate("/", {
-      replace: true
-    });
-    setTimeout(() => {
-      const contactSection = document.getElementById("contact-section");
-      if (contactSection) {
-        contactSection.scrollIntoView({
-          behavior: "smooth"
-        });
-      }
-    }, 100);
-  };
+  const CALENDLY = "https://calendly.com/sebastian-p-newedgebrand/30min";
+  const scrollToContact = () => window.open(CALENDLY, "_blank", "noopener");
   const scrollToProjectButton = () => {
     const projectButton = document.getElementById("projekt-besprechen-btn");
     if (projectButton) {
@@ -811,14 +800,29 @@ const Lab = () => {
             <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 text-gray-600">
               Gemeinsam entwickeln wir die operative Infrastruktur & automatisierte Systeme, die deine Daten unter Kontrolle bringen und deine KI produktiver machen.
             </p>
-            <Button
+            <SweepButton
               id="projekt-besprechen-btn"
-              size="lg"
-              className="bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white font-semibold text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 transition-all duration-300 hover:-translate-y-0.5 rounded-none"
-              onClick={() => setIsModalOpen(true)}>
-
+              sweepColor="violet"
+              hoverTextColor="#ffffff"
+              onClick={() => window.open(CALENDLY, "_blank", "noopener")}
+              style={{
+                background: "transparent",
+                color: "#1A0A2E",
+                border: "2px solid rgba(26,10,46,0.3)",
+                fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
+                fontSize: "12px",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                padding: "14px 32px",
+              }}
+            >
               Kontakt aufnehmen
-            </Button>
+            </SweepButton>
+            <div style={{ marginTop: "20px" }}>
+              <a href="tel:+4917660431467" style={{ fontFamily: "Consolas, monospace", fontSize: "12px", letterSpacing: "0.12em", color: "rgba(26,10,46,0.45)", textDecoration: "none", borderBottom: "1px solid rgba(26,10,46,0.18)", paddingBottom: "1px" }}>
+                ↗ +49 176 60 431 467
+              </a>
+            </div>
           </div>
         </section>
 

@@ -20,7 +20,7 @@ import iconKoordination from "@/assets/painpoint-a-icon-koordination.png";
 import iconInsights from "@/assets/painpoint-a-icon-insights.png";
 import integrationsLogos from "/lovable-uploads/integrations-logos.png";
 import { Logos3 } from "@/components/ui/logos3";
-import { ThreeStepsCTA as SharedThreeStepsCTA } from "@/components/ThreeStepsCTA";
+import { FloatingConsultButton } from "@/components/ui/FloatingConsultButton";
 
 import foundersImg from "@/assets/founders-color.webp";
 
@@ -838,9 +838,9 @@ const PainPointAuswahlverfahren = () => {
                     Du hast Fragen?<br />
                     <span style={{ color: PURPLE }}>Wir haben Antworten.</span>
                   </h3>
-                  <Link to="/kontakt">
+                  <a href="https://calendly.com/sebastian-p-newedgebrand/30min" target="_blank" rel="noopener noreferrer">
                     <BtnFilled large>Kontakt aufnehmen</BtnFilled>
-                  </Link>
+                  </a>
                 </div>
                 <div style={{ borderTop: `1px solid ${L.border}` }}>
                   {faqs.map((f, i) => (
@@ -851,7 +851,69 @@ const PainPointAuswahlverfahren = () => {
             </div>
           </Reveal>
 
-          <SharedThreeStepsCTA />
+          {/* ── CTA (About-style) ── */}
+          <div style={{
+            background: "#1A0A2E",
+            padding: "clamp(64px,8vw,100px) 24px",
+            position: "relative",
+            overflow: "hidden",
+          }}>
+            <div aria-hidden style={{
+              position: "absolute", inset: 0, pointerEvents: "none",
+              background: "radial-gradient(ellipse 70% 60% at 0% 100%, rgba(91,33,182,0.28) 0%, transparent 65%)",
+            }} />
+            <div style={{
+              position: "relative",
+              zIndex: 1,
+              maxWidth: "900px",
+              margin: "0 auto",
+              display: "grid",
+              gridTemplateColumns: "1fr auto",
+              gap: "clamp(32px, 6vw, 80px)",
+              alignItems: "center",
+            }}>
+              {/* LEFT */}
+              <div>
+                <p style={{ fontFamily: "Consolas, monospace", fontSize: "11px", letterSpacing: "0.22em", color: "#C4B5FD", textTransform: "uppercase" as const, marginBottom: "20px" }}>
+                  Bereit loszulegen?
+                </p>
+                <h2 style={{
+                  fontFamily: "'DM Serif Display', Georgia, serif",
+                  fontStyle: "italic",
+                  fontWeight: 400,
+                  fontSize: "clamp(2rem, 4vw, 3.4rem)",
+                  color: "#fff",
+                  lineHeight: 1.0,
+                  marginBottom: "32px",
+                  letterSpacing: "-0.01em",
+                }}>
+                  Sprechen Sie<br />direkt mit uns.
+                </h2>
+                <a
+                  href="tel:+4917660431467"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    fontFamily: "Consolas, monospace",
+                    fontSize: "13px",
+                    letterSpacing: "0.1em",
+                    color: "rgba(196,181,253,0.75)",
+                    textDecoration: "none",
+                    borderBottom: "1px solid rgba(196,181,253,0.2)",
+                    paddingBottom: "2px",
+                  }}
+                >
+                  <span style={{ fontSize: "16px", opacity: 0.7 }}>↗</span>
+                  +49 176 60 431 467
+                </a>
+              </div>
+              {/* RIGHT */}
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <FloatingConsultButton textColor="#ffffff" />
+              </div>
+            </div>
+          </div>
 
         </div>
         {/* ── /LIGHT THEME ── */}
