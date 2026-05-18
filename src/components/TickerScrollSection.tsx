@@ -118,18 +118,39 @@ export const TickerScrollSection = () => {
     // GSAP trigger wrapper — transparent, just provides the scroll space
     <div ref={sectionRef} style={{ overflow: "hidden" }}>
 
-      {/* Skewed visual stripe */}
+      {/* Stripe at ~178° — same form + cracks, very slight tilt */}
       <div
         style={{
-          transform: "skewY(-2.5deg)",
           background: BG,
-          borderTop:    "1px solid rgba(124,58,237,0.32)",
-          borderBottom: "1px solid rgba(124,58,237,0.32)",
-          padding: "clamp(24px, 3.5vh, 44px) 0",
-          margin: "0 -4%",
-          width: "108%",
+          padding: "clamp(20px, 2.8vh, 36px) 0",
           position: "relative",
           overflow: "hidden",
+          transform: "skewY(-1.5deg)",
+          margin: "8px -3% -8px",
+          width: "106%",
+          /* Polygon with small rectangular notches cut into top & bottom edges */
+          clipPath: `polygon(
+            0% 0%,
+            6.5% 0%, 6.8% 5px, 7.1% 0%,
+            18% 0%, 18.3% 7px, 18.6% 0%,
+            31% 0%, 31.3% 4px, 31.6% 0%,
+            44% 0%, 44.3% 6px, 44.6% 0%,
+            57% 0%, 57.3% 3px, 57.6% 0%,
+            70% 0%, 70.3% 7px, 70.6% 0%,
+            83% 0%, 83.3% 4px, 83.6% 0%,
+            93% 0%, 93.3% 6px, 93.6% 0%,
+            100% 0%,
+            100% 100%,
+            94% 100%, 93.7% calc(100% - 5px), 93.4% 100%,
+            80% 100%, 79.7% calc(100% - 7px), 79.4% 100%,
+            67% 100%, 66.7% calc(100% - 4px), 66.4% 100%,
+            54% 100%, 53.7% calc(100% - 6px), 53.4% 100%,
+            41% 100%, 40.7% calc(100% - 3px), 40.4% 100%,
+            28% 100%, 27.7% calc(100% - 7px), 27.4% 100%,
+            15% 100%, 14.7% calc(100% - 5px), 14.4% 100%,
+            4% 100%, 3.7% calc(100% - 4px), 3.4% 100%,
+            0% 100%
+          )`,
         }}
       >
         {/* Left fade */}

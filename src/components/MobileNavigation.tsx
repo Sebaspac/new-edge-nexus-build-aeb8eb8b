@@ -7,7 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import newEdgeLogoHorizontal from "@/assets/new-edge-logo-horizontal.png";
 import { SweepButton } from "@/components/ui/SweepButton";
-import foundersImg from "@/assets/founders-color.webp";
+import foundersImg from "@/assets/team-sebastian.png";
 
 type CategoryFilter = 'all' | 'studio' | 'lab';
 

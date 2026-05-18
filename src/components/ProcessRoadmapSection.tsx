@@ -52,7 +52,7 @@ export const ProcessRoadmapSection = () => {
     >
       <NoiseOverlay opacity={0.04} blendMode="overlay" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center min-h-[70vh]">
 
           {/* ── LEFT: sticky heading ─────────────────────────────────────── */}
           <div className="lg:col-span-6 lg:sticky lg:top-24 self-start">
@@ -119,7 +119,6 @@ export const ProcessRoadmapSection = () => {
           {/* ── RIGHT: numbered steps list ───────────────────────────────── */}
           <div
             className="lg:col-span-6"
-            style={{ borderTop: `1px solid ${HAIRLINE}` }}
           >
             {steps.map(({ index, title, desc }, i) => {
               const isActive = active === i;

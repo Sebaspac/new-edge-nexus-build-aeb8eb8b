@@ -9,6 +9,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { useEffect, lazy, Suspense } from "react";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import StructuredData from "@/components/StructuredData";
+import LayoutEditor from "./components/editor/LayoutEditor";
 
 // Eager load only critical pages for faster initial load
 import Index from "./pages/Index";
@@ -60,6 +61,7 @@ const App = () => {
             <Sonner />
             <BrowserRouter>
               <StructuredData />
+              <LayoutEditor />
               <Suspense fallback={<LoadingScreen progress={100} />}>
                 <Routes>
                 <Route path="/" element={<Index />} />

@@ -5,7 +5,8 @@ import SEOHead from "@/components/SEOHead";
 import { AuroraFlow } from "@/components/ui/aurora-flow";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { FloatingConsultButton } from "@/components/ui/FloatingConsultButton";
-import { useState } from "react";
+import { CursorLine } from "@/components/ui/CursorLine";
+import { useState, useRef } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { SweepButton } from "@/components/ui/SweepButton";
 import { Input } from "@/components/ui/input";
@@ -14,6 +15,9 @@ import { Label } from "@/components/ui/label";
 import { ArrowRight } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import foundersImg from "@/assets/founders-color.webp";
+import sebastianImg from "@/assets/team-sebastian.png";
+import ivanImg from "@/assets/team-ivan.png";
+import wenjaminImg from "@/assets/team-wenjamin.png";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
@@ -29,43 +33,46 @@ const team = [
   {
     name: "Sebastian Pachon",
     role: "CEO & Gründer",
-    img: foundersImg,
-    imgPos: "25% 20%",
+    img: sebastianImg,
+    imgPos: "center top",
     facts: [
       "Strategie, Marke & Systemarchitektur",
       "7+ Jahre B2B-Beratung & Digitalprojekte",
       "KI-Implementierungen im DACH-Raum & USA",
     ],
-    linkedin: "https://linkedin.com/in/sebastianpachon",
+    linkedin: "https://www.linkedin.com/in/sebastian-pachón-a7504b24b",
   },
   {
-    name: "Wenjamin Löw",
+    name: "Wenjamin Zabezhanskiy",
     role: "COO",
-    img: null,
-    initials: "WL",
+    img: wenjaminImg,
+    imgPos: "center 20%",
+    initials: "WZ",
     facts: [
       "Operations, Prozessdesign & Skalierung",
       "Operative Systemintegration & Workflows",
       "Cross-funktionale Projektsteuerung",
     ],
-    linkedin: null,
+    linkedin: "https://www.linkedin.com/in/wenjamin-zabezhanskiy-7138b7231/",
   },
   {
-    name: "Ivan Petrov",
+    name: "Ivan Jovanovic",
     role: "CTO",
-    img: null,
-    initials: "IP",
+    img: ivanImg,
+    imgPos: "center top",
+    initials: "IJ",
     facts: [
       "KI-Architektur & ML-Engineering",
       "LLM-Deployment & RAG-Systeme",
       "Full-Stack & Cloud-Infrastruktur",
     ],
-    linkedin: null,
+    linkedin: "https://www.linkedin.com/in/ivan-jovanovic-51b319187/",
   },
 ];
 
 const About = () => {
   const [contactOpen, setContactOpen] = useState(false);
+  const ctaBtnRef = useRef<HTMLDivElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -182,20 +189,19 @@ const About = () => {
             <div style={{ marginTop: "36px", display: "flex", justifyContent: "center" }}>
               <SweepButton
                 onClick={() => window.open("https://calendly.com/sebastian-p-newedgebrand/30min", "_blank", "noopener")}
-                sweepColor="violet"
-                hoverTextColor="#ffffff"
-                duration={0.42}
-                exitDuration={0.15}
+                sweepColor="white"
+                hoverTextColor="#5B21B6"
                 style={{
-                  background: "transparent",
-                  color: "#C4B5FD",
+                  background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)",
+                  color: "#fff",
                   fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
                   fontSize: "12px",
-                  fontWeight: 400,
+                  fontWeight: 700,
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
                   padding: "14px 32px",
-                  border: "1px solid rgba(196,181,253,0.35)",
+                  border: "1px solid rgba(139,92,246,0.4)",
+                  boxShadow: "0 0 20px rgba(124,58,237,0.3)",
                 }}
               >
                 Erstgespräch buchen
@@ -325,19 +331,26 @@ const About = () => {
                           marginTop: "24px",
                           display: "inline-flex",
                           alignItems: "center",
-                          gap: "6px",
-                          ...MONO,
-                          fontSize: "11px",
-                          letterSpacing: "0.16em",
-                          textTransform: "uppercase",
-                          color: VIOLET,
+                          gap: "8px",
                           textDecoration: "none",
-                          borderBottom: `1px solid rgba(91,33,182,0.25)`,
-                          paddingBottom: "2px",
-                          alignSelf: "flex-start",
+                          color: VIOLET,
+                          opacity: 0.75,
+                          transition: "opacity 0.2s",
                         }}
+                        onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+                        onMouseLeave={e => (e.currentTarget.style.opacity = "0.75")}
+                        aria-label={`${member.name} auf LinkedIn`}
                       >
-                        LinkedIn ↗
+                        {/* LinkedIn official logo */}
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect width="24" height="24" rx="4" fill={VIOLET}/>
+                          <path d="M7.5 9.5H5V19H7.5V9.5Z" fill="white"/>
+                          <circle cx="6.25" cy="6.75" r="1.5" fill="white"/>
+                          <path d="M13 13.5C13 12.4 13.9 11.5 15 11.5C16.1 11.5 17 12.4 17 13.5V19H19.5V13.5C19.5 11 17.5 9 15 9C13.8 9 12.7 9.5 12 10.3V9.5H9.5V19H12V13.5H13Z" fill="white"/>
+                        </svg>
+                        <span style={{ ...MONO, fontSize: "11px", letterSpacing: "0.14em", textTransform: "uppercase" }}>
+                          LinkedIn
+                        </span>
                       </a>
                     )}
                   </div>
@@ -348,11 +361,11 @@ const About = () => {
         </div>
 
         {/* ── CTA ───────────────────────────────────────────────── */}
+        <CursorLine buttonRef={ctaBtnRef} buttonRadius={76}>
         <div style={{
           background: INK_DEEP,
           padding: "clamp(64px,8vw,100px) 24px",
           position: "relative",
-          overflow: "hidden",
         }}>
           {/* subtle glow */}
           <div aria-hidden style={{
@@ -416,11 +429,12 @@ const About = () => {
             </div>
 
             {/* RIGHT — circle button */}
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div ref={ctaBtnRef} style={{ display: "flex", justifyContent: "center" }}>
               <FloatingConsultButton textColor="#ffffff" />
             </div>
           </motion.div>
         </div>
+        </CursorLine>
 
         {/* Footer */}
         <Suspense fallback={<div style={{ minHeight: 200 }} />}>
@@ -451,7 +465,7 @@ const About = () => {
                 <Label htmlFor="nachricht">Nachricht *</Label>
                 <Textarea id="nachricht" name="nachricht" placeholder="Erzählen Sie uns von Ihrem Projekt..." required className="min-h-[120px] resize-none" />
               </div>
-              <SweepButton type="submit" sweepColor="dark" hoverTextColor="#fff" style={{ width: "100%", background: VIOLET, color: "#fff", ...MONO, fontSize: "12px", letterSpacing: "0.18em", textTransform: "uppercase", padding: "16px 28px", border: "none", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" }}>
+              <SweepButton type="submit" sweepColor="white" hoverTextColor="#5B21B6" style={{ width: "100%", background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)", color: "#fff", ...MONO, fontSize: "12px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", padding: "16px 28px", border: "1px solid rgba(139,92,246,0.4)", boxShadow: "0 0 20px rgba(124,58,237,0.3)", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" }}>
                 Nachricht senden <ArrowRight style={{ width: 16, height: 16 }} />
               </SweepButton>
             </form>

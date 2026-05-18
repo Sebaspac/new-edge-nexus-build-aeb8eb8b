@@ -11,8 +11,9 @@ import {
 import { Link } from "react-router-dom";
 import React, { useRef, useState } from "react";
 import { useMagnetic, useMouseParallax } from "@/hooks/useMagnetic";
-import foundersImg from "@/assets/founders-color.webp";
+import foundersImg from "@/assets/team-sebastian.png";
 import { FloatingConsultButton } from "@/components/ui/FloatingConsultButton";
+import { CursorLine } from "@/components/ui/CursorLine";
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
 const VIOLET = "#5B21B6";
@@ -571,6 +572,7 @@ const ServiceCell = ({ service, delay, className = "" }: ServiceCellProps) => {
 // ─── Section ──────────────────────────────────────────────────────────────────
 export const StudioStrategySection = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const ctaBtnRef  = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -578,6 +580,7 @@ export const StudioStrategySection = () => {
   const blobY = useTransform(scrollYProgress, [0, 1], [-30, 60]);
 
   return (
+    <CursorLine buttonRef={ctaBtnRef} buttonRadius={76}>
     <section
       ref={sectionRef}
       className="relative overflow-hidden py-14 md:py-20"
@@ -652,6 +655,7 @@ export const StudioStrategySection = () => {
             transition={{ duration: 0.6, ease: EASE, delay: 0.45 }}
             className="flex-shrink-0"
             style={{ alignSelf: "flex-end" }}
+            ref={ctaBtnRef}
           >
             <FloatingConsultButton />
           </motion.div>
@@ -677,5 +681,6 @@ export const StudioStrategySection = () => {
 
       </div>
     </section>
+    </CursorLine>
   );
 };

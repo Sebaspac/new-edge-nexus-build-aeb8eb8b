@@ -51,7 +51,6 @@ const CaseStudyEcommerce = () => {
   }, []);
   const CALENDLY = "https://calendly.com/sebastian-p-newedgebrand/30min";
   const scrollToContact = () => window.open(CALENDLY, "_blank", "noopener");
-  };
   const phases = [{
     number: "PHASE 1",
     title: "Strategie & Konzeption",

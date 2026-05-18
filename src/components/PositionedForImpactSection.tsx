@@ -96,30 +96,32 @@ export const PositionedForImpactSection = () => {
                 style={{ y: imageY, position: "absolute", inset: "-12% 0", height: "124%" }}
               >
                 <img
-                  alt="Santiago Pace und Sebastian Pace, Gründer von New Edge"
+                  alt="Sebastian Pachon, Gründer von New Edge"
                   src={foundersColorImage}
                   className="w-full h-full object-cover"
                   style={{ display: "block", borderRadius: 0 }}
                 />
               </motion.div>
-              {/* Caption bar, single violet stripe */}
+              {/* Caption — bottom-right, minimal */}
               <figcaption
                 style={{
                   position: "absolute",
-                  left: 0,
                   right: 0,
                   bottom: 0,
-                  backgroundColor: "#5B21B6",
-                  color: "#FFFFFF",
-                  padding: "12px 16px",
+                  padding: "8px 12px",
+                  backgroundColor: "rgba(91,33,182,0.55)",
+                  backdropFilter: "blur(6px)",
                   fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
-                  fontSize: "11px",
-                  letterSpacing: "0.2em",
+                  fontSize: "9px",
+                  letterSpacing: "0.18em",
                   textTransform: "uppercase",
-                  lineHeight: 1.4,
+                  color: "rgba(255,255,255,0.75)",
+                  lineHeight: 1.5,
+                  textAlign: "right",
                 }}
               >
-                Santiago Pace und Sebastian Pace, Gründer, New Edge
+                Sebastian & Wenjamin<br />
+                <span style={{ opacity: 0.5 }}>New Edge Founders</span>
               </figcaption>
             </div>
           </motion.figure>
@@ -127,21 +129,12 @@ export const PositionedForImpactSection = () => {
           {/* Right: Manifesto + stats */}
           <div className="flex flex-col">
             <motion.blockquote
-              style={{ y: quoteY }}
+              style={{ y: quoteY, fontFamily: "'DM Serif Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, fontSize: "clamp(2rem, 3.8vw, 3rem)", lineHeight: 0.95, letterSpacing: "-0.01em", color: "#1A0A2E" }}
               initial={{ opacity: 0, x: 32 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
               className="m-0 p-0"
-              style={{
-                fontFamily: "'DM Serif Display', Georgia, serif",
-                fontStyle: "italic",
-                fontWeight: 400,
-                fontSize: "clamp(2rem, 3.8vw, 3rem)",
-                lineHeight: 0.95,
-                letterSpacing: "-0.01em",
-                color: "#1A0A2E",
-              }}
             >
               Wir bauen Systeme, wo
               <br />
@@ -167,13 +160,12 @@ export const PositionedForImpactSection = () => {
 
             {/* Stats row, hairline separators, no cards */}
             <motion.div
-              style={{ y: statsY }}
+              style={{ y: statsY, borderRadius: 0 }}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
               className="mt-6 md:mt-8 grid grid-cols-3"
-              style={{ borderRadius: 0 }}
             >
               {[
                 { value: "5,150", label: "Mitarbeitende, Sweet Spot" },

@@ -21,6 +21,8 @@ import iconInsights from "@/assets/painpoint-a-icon-insights.png";
 import integrationsLogos from "/lovable-uploads/integrations-logos.png";
 import { Logos3 } from "@/components/ui/logos3";
 import { FloatingConsultButton } from "@/components/ui/FloatingConsultButton";
+import { CursorLine } from "@/components/ui/CursorLine";
+import { SweepButton } from "@/components/ui/SweepButton";
 
 import foundersImg from "@/assets/founders-color.webp";
 
@@ -127,67 +129,42 @@ const FeatureCTA = ({ children }: { children: React.ReactNode }) => (
 );
 
 const BtnFilled = ({ children, large = false, onClick }: { children: React.ReactNode; large?: boolean; onClick?: () => void }) => (
-  <button
+  <SweepButton
     onClick={onClick}
-    className={`inline-flex items-center gap-1.5 font-bold transition-all cursor-pointer ${
-      large ? "px-7 py-3.5 text-[0.9rem]" : "px-5 py-2.5 text-sm"
-    }`}
+    hoverTextColor="#ffffff"
     style={{
-       background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)",
-       color: "#fff",
-       border: "1px solid rgba(139,92,246,0.4)",
-       borderRadius: "6px",
-       boxShadow: "0 0 20px rgba(124,58,237,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
-       ...MONO,
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.background = "linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)";
-      e.currentTarget.style.boxShadow = "0 0 30px rgba(124,58,237,0.5), inset 0 1px 0 rgba(255,255,255,0.15)";
-      e.currentTarget.style.transform = "translateY(-1px)";
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.background = "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)";
-      e.currentTarget.style.boxShadow = "0 0 20px rgba(124,58,237,0.3), inset 0 1px 0 rgba(255,255,255,0.1)";
-      e.currentTarget.style.transform = "translateY(0)";
+      display: "inline-flex", alignItems: "center", gap: "6px",
+      padding: large ? "14px 28px" : "10px 20px",
+      fontSize: large ? "0.9rem" : "0.875rem",
+      fontWeight: 700,
+      background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)",
+      color: "#fff",
+      border: "1px solid rgba(139,92,246,0.4)",
+      boxShadow: "0 0 20px rgba(124,58,237,0.3)",
+      ...MONO,
     }}
   >
     {children}
-  </button>
+  </SweepButton>
 );
 
 const BtnGhost = ({ children, large = false, dark = false }: { children: React.ReactNode; large?: boolean; dark?: boolean }) => (
-  <button
-    className={`inline-flex items-center gap-1.5 font-bold transition-all cursor-pointer ${
-      large ? "px-7 py-3.5 text-[0.9rem]" : "px-5 py-2.5 text-sm"
-    }`}
+  <SweepButton
+    hoverTextColor="#ffffff"
     style={{
+      display: "inline-flex", alignItems: "center", gap: "6px",
+      padding: large ? "14px 28px" : "10px 20px",
+      fontSize: large ? "0.9rem" : "0.875rem",
+      fontWeight: 700,
       background: dark ? "rgba(139,92,246,0.08)" : "transparent",
       backdropFilter: dark ? "blur(16px)" : undefined,
-       border: `1px solid ${dark ? "rgba(139,92,246,0.25)" : L.border}`,
-       borderRadius: "6px",
-       color: dark ? "#c4b5fd" : L.textMuted,
-       boxShadow: dark ? "inset 0 1px 0 rgba(255,255,255,0.05)" : undefined,
-       ...MONO,
-    }}
-    onMouseEnter={(e) => {
-      if (dark) {
-        e.currentTarget.style.background = "rgba(139,92,246,0.15)";
-        e.currentTarget.style.borderColor = "rgba(139,92,246,0.4)";
-        e.currentTarget.style.color = "#e0d4ff";
-      }
-      e.currentTarget.style.transform = "translateY(-1px)";
-    }}
-    onMouseLeave={(e) => {
-      if (dark) {
-        e.currentTarget.style.background = "rgba(139,92,246,0.08)";
-        e.currentTarget.style.borderColor = "rgba(139,92,246,0.25)";
-        e.currentTarget.style.color = "#c4b5fd";
-      }
-      e.currentTarget.style.transform = "translateY(0)";
+      border: `1px solid ${dark ? "rgba(139,92,246,0.25)" : L.border}`,
+      color: dark ? "#c4b5fd" : L.textMuted,
+      ...MONO,
     }}
   >
     {children}
-  </button>
+  </SweepButton>
 );
 
 /* ────────────── FAQ accordion ────────────── */
@@ -264,6 +241,7 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 const PainPointAuswahlverfahren = () => {
   const [, setContactOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const ctaBtnRef = useRef<HTMLDivElement>(null);
 
   // Slug-basiertes Content-Lookup. Routen:
   //   /loesungen/:slug
@@ -852,11 +830,11 @@ const PainPointAuswahlverfahren = () => {
           </Reveal>
 
           {/* ── CTA (About-style) ── */}
+          <CursorLine buttonRef={ctaBtnRef} buttonRadius={76}>
           <div style={{
             background: "#1A0A2E",
             padding: "clamp(64px,8vw,100px) 24px",
             position: "relative",
-            overflow: "hidden",
           }}>
             <div aria-hidden style={{
               position: "absolute", inset: 0, pointerEvents: "none",
@@ -909,11 +887,12 @@ const PainPointAuswahlverfahren = () => {
                 </a>
               </div>
               {/* RIGHT */}
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div ref={ctaBtnRef} style={{ display: "flex", justifyContent: "center" }}>
                 <FloatingConsultButton textColor="#ffffff" />
               </div>
             </div>
           </div>
+          </CursorLine>
 
         </div>
         {/* ── /LIGHT THEME ── */}

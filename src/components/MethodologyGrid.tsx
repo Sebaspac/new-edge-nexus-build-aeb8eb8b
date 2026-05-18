@@ -57,36 +57,28 @@ export const MethodologyGrid = () => {
       style={{ backgroundColor: "transparent" }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center min-h-[70vh]">
 
           {/* ── LEFT COLUMN — sticky field guide masthead ── */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24 self-start">
+          <div className="lg:col-span-5">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              {/* Section Eyebrow signature */}
-              <div className="flex items-center gap-3 mb-10">
-                <span
-                  className="block flex-shrink-0"
-                  style={{
-                    width: "32px",
-                    height: "1px",
-                    backgroundColor: VIOLET,
-                  }}
-                />
+              {/* Section Eyebrow */}
+              <div className="mb-4">
                 <span
                   style={{
                     ...MONO,
-                    color: VIOLET,
                     fontSize: "11px",
-                    letterSpacing: "0.2em",
+                    letterSpacing: "0.22em",
                     textTransform: "uppercase",
+                    color: VIOLET,
                   }}
                 >
-                  New Edge, Field Guide
+                  NEW EDGE, FIELD GUIDE
                 </span>
               </div>
 
@@ -212,7 +204,7 @@ export const MethodologyGrid = () => {
 
           {/* ── RIGHT COLUMN — numbered editorial list (table of contents) ── */}
           <div className="lg:col-span-7">
-            <ol className="list-none p-0 m-0" style={{ borderTop: `1px solid ${INK_DEEP}` }}>
+            <ol className="list-none p-0 m-0">
               {services.map((service, index) => (
                 <motion.li
                   key={service.title}

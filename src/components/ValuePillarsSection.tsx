@@ -42,12 +42,12 @@ export const ValuePillarsSection = () => {
       style={{ backgroundColor: "transparent" }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center min-h-[70vh]">
 
           {/* ── LEFT: pillar list ────────────────────────────────────────── */}
           <div
             className="lg:col-span-5 order-2 lg:order-1"
-            style={{ borderTop: `1px solid ${INK_DEEP}` }}
+            style={{ borderTop: "none" }}
           >
             {pillars.map(({ Icon, title, desc }, i) => (
               <motion.div
@@ -57,7 +57,10 @@ export const ValuePillarsSection = () => {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.55, ease: EASE, delay: 0.1 + i * 0.08 }}
                 className="grid grid-cols-12 gap-6 py-8"
-                style={{ borderBottom: `1px solid ${HAIRLINE}` }}
+                style={{
+                  borderTop: i === 0 ? "none" : `1px solid ${HAIRLINE}`,
+                  borderBottom: `1px solid ${HAIRLINE}`,
+                }}
               >
                 {/* Icon */}
                 <div className="col-span-2 flex items-start pt-1">

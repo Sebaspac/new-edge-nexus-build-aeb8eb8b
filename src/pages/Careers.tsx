@@ -1,10 +1,12 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
 import { AuroraFlow } from "@/components/ui/aurora-flow";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { CursorLine } from "@/components/ui/CursorLine";
+import wenjaminImg from "@/assets/team-wenjamin.png";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
@@ -194,6 +196,7 @@ const values = [
 
 const Careers = () => {
   useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, []);
+  const ctaBtnRef = useRef<HTMLDivElement>(null);
 
   const CALENDLY = "https://calendly.com/sebastian-p-newedgebrand/30min";
   const scrollToContact = () => window.open(CALENDLY, "_blank", "noopener");
@@ -474,16 +477,15 @@ const Careers = () => {
         </div>
 
         {/* ── INITIATIVBEWERBUNG CTA ── */}
+        <CursorLine buttonRef={ctaBtnRef} buttonRadius={8}>
         <div style={{
           background: INK_DEEP,
           padding: "clamp(64px,8vw,100px) 24px",
           position: "relative",
-          overflow: "hidden",
-          textAlign: "center",
         }}>
           <div aria-hidden style={{
             position: "absolute", inset: 0, pointerEvents: "none",
-            background: "radial-gradient(ellipse 60% 70% at 50% 100%, rgba(91,33,182,0.22) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 70% 60% at 0% 100%, rgba(91,33,182,0.28) 0%, transparent 65%)",
           }} />
 
           <motion.div
@@ -491,46 +493,101 @@ const Careers = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, ease: EASE }}
-            style={{ position: "relative", zIndex: 1, maxWidth: "580px", margin: "0 auto" }}
+            style={{
+              position: "relative",
+              zIndex: 1,
+              maxWidth: "900px",
+              margin: "0 auto",
+              display: "grid",
+              gridTemplateColumns: "1fr auto",
+              gap: "clamp(32px, 6vw, 80px)",
+              alignItems: "center",
+            }}
           >
-            <p style={{ ...MONO, fontSize: "11px", letterSpacing: "0.22em", color: "#C4B5FD", textTransform: "uppercase", marginBottom: "20px" }}>
-              Kein passendes Angebot?
-            </p>
-            <h2 style={{
-              ...SERIF,
-              fontStyle: "italic",
-              fontWeight: 400,
-              fontSize: "clamp(2rem, 4vw, 3.2rem)",
-              color: "#fff",
-              lineHeight: 1.0,
-              marginBottom: "20px",
-              letterSpacing: "-0.01em",
-            }}>
-              Initiativbewerbung.
-            </h2>
-            <p style={{ fontFamily: SANS, fontSize: "15px", color: "rgba(196,181,253,0.65)", lineHeight: 1.65, marginBottom: "36px" }}>
-              Wir sind immer auf der Suche nach talentierten Menschen. Schreib uns einfach.
-            </p>
-            <a
-              href="mailto:info@newedgebrand.com?subject=Initiativbewerbung"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                ...MONO,
-                fontSize: "11px",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#C4B5FD",
-                padding: "14px 32px",
-                textDecoration: "none",
-                border: "1px solid rgba(196,181,253,0.35)",
-              }}
-            >
-              info@newedgebrand.com ↗
-            </a>
+            {/* LEFT — text */}
+            <div>
+              <p style={{ ...MONO, fontSize: "11px", letterSpacing: "0.22em", color: "#C4B5FD", textTransform: "uppercase", marginBottom: "20px" }}>
+                Kein passendes Angebot?
+              </p>
+              <h2 style={{
+                ...SERIF,
+                fontStyle: "italic",
+                fontWeight: 400,
+                fontSize: "clamp(2rem, 4vw, 3.4rem)",
+                color: "#fff",
+                lineHeight: 1.0,
+                marginBottom: "20px",
+                letterSpacing: "-0.01em",
+              }}>
+                Initiativ­<br />bewerbung.
+              </h2>
+              <p style={{
+                fontFamily: SANS,
+                fontSize: "14px",
+                color: "rgba(196,181,253,0.60)",
+                lineHeight: 1.7,
+                marginBottom: "32px",
+                maxWidth: "380px",
+              }}>
+                Kein passendes Stellenangebot gefunden? Kein Problem — schreib Wenjamin Zabezhanskiy direkt an und erzähl uns, was dich antreibt.
+              </p>
+              <a
+                ref={ctaBtnRef as React.RefObject<HTMLAnchorElement>}
+                href="mailto:info@newedgebrand.com?subject=Initiativbewerbung"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  ...MONO,
+                  fontSize: "13px",
+                  letterSpacing: "0.1em",
+                  color: "rgba(196,181,253,0.75)",
+                  textDecoration: "none",
+                  borderBottom: "1px solid rgba(196,181,253,0.2)",
+                  paddingBottom: "2px",
+                  transition: "color 0.2s",
+                  cursor: "pointer",
+                }}
+              >
+                <span style={{ fontSize: "16px", opacity: 0.7 }}>↗</span>
+                info@newedgebrand.com
+              </a>
+            </div>
+
+            {/* RIGHT — Wenjamin circle */}
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <motion.div
+                style={{ position: "relative", width: "152px", height: "152px" }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.28 }}
+              >
+                {/* Revolving text ring */}
+                <div style={{ position: "absolute", inset: 0, animation: "careers-spin 12s linear infinite" }}>
+                  <svg viewBox="0 0 200 200" style={{ width: "100%", height: "100%" }}>
+                    <defs>
+                      <path id="careers-circle" d="M 100,100 m -72,0 a 72,72 0 1,1 144,0 a 72,72 0 1,1 -144,0" />
+                    </defs>
+                    <text style={{ fontSize: "17px", fill: "#ffffff", fontFamily: "Consolas, ui-monospace, monospace", letterSpacing: "0.04em" }}>
+                      <textPath href="#careers-circle" startOffset="0%">JETZT BEWERBEN · JETZT BEWERBEN · </textPath>
+                    </text>
+                  </svg>
+                  <style>{`@keyframes careers-spin { to { transform: rotate(360deg); } }`}</style>
+                </div>
+                {/* Center image */}
+                <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ width: "96px", height: "96px", borderRadius: "50%", overflow: "hidden", border: "2.5px solid #5B21B6", boxShadow: "0 4px 20px rgba(91,33,182,0.28)" }}>
+                    <img
+                      src={wenjaminImg}
+                      alt="Wenjamin Zabezhanskiy — Initiativbewerbung"
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%" }}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
+        </CursorLine>
 
         <Suspense fallback={<div style={{ minHeight: 200 }} />}>
           <Footer />

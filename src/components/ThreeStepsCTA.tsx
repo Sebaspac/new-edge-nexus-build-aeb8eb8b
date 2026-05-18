@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
-import foundersImg from "@/assets/founders-color.webp";
+import foundersImg from "@/assets/team-sebastian.png";
 import { SweepLink } from "@/components/ui/SweepButton";
 import { FloatingConsultButton } from "@/components/ui/FloatingConsultButton";
 

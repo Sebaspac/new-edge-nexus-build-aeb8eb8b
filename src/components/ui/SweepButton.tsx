@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
-
-const EASE = [0.16, 1, 0.3, 1] as const;
+import React, { useState, useEffect } from "react";
 
 type SweepColor = "violet" | "dark" | "white";
 
@@ -15,11 +13,13 @@ interface SweepProps {
   style?: React.CSSProperties;
 }
 
-// ── Sweep overlay — always rises from bottom, falls back down on exit
+// ── Sweep overlay
+// Enter: scaleY 0→1 from bottom (transformOrigin bottom)
+// Exit:  scaleY 1→0 from top    (transformOrigin top → bottom disappears first = wipes upward)
 const SweepOverlay = ({
   hovered,
   sweepColor = "violet",
-  duration = 0.52,
+  duration = 0.48,
   exitDuration,
 }: {
   hovered: boolean;
@@ -28,11 +28,25 @@ const SweepOverlay = ({
   exitDuration?: number;
 }) => {
   const bg =
-    sweepColor === "dark"
-      ? "#2D1060"
-      : sweepColor === "white"
-      ? "#ffffff"
-      : "#5B21B6";
+    sweepColor === "white"
+      ? "linear-gradient(to top, #f0eeff 0%, #ffffff 100%)"
+      : sweepColor === "dark"
+      ? "linear-gradient(to top, #160833 0%, #7c3aed 100%)"
+      : "linear-gradient(to top, #1e0654 0%, #7c3aed 100%)";
+
+  const [phase, setPhase] = useState<"idle" | "in" | "out">("idle");
+
+  useEffect(() => {
+    if (hovered) {
+      setPhase("in");
+    } else if (phase === "in") {
+      setPhase("out");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hovered]);
+
+  // transformOrigin: bottom for enter, top for exit (so bottom edge rises on exit)
+  const transformOrigin = phase === "out" ? "50% 0%" : "50% 100%";
 
   return (
     <motion.span
@@ -40,15 +54,19 @@ const SweepOverlay = ({
       style={{
         position: "absolute",
         inset: 0,
-        backgroundColor: bg,
-        transformOrigin: "50% 100%", // always bottom — rises up, falls back down
+        background: bg,
         pointerEvents: "none",
         zIndex: 0,
+        transformOrigin,
       }}
-      animate={{ scaleY: hovered ? 1 : 0 }}
+      animate={{ scaleY: phase === "in" ? 1 : 0 }}
+      initial={{ scaleY: 0 }}
       transition={{
-        duration: hovered ? duration : (exitDuration ?? duration),
-        ease: hovered ? [0.16, 1, 0.3, 1] : [0.55, 0, 0.45, 1],
+        duration: phase === "out" ? (exitDuration ?? duration) : duration,
+        ease: phase === "in" ? [0.16, 1, 0.3, 1] : [0.55, 0, 0.45, 1],
+      }}
+      onAnimationComplete={() => {
+        if (phase === "out") setPhase("idle");
       }}
     />
   );
@@ -68,7 +86,7 @@ export const SweepButton: React.FC<SweepButtonProps> = ({
   children,
   sweepColor = "violet",
   hoverTextColor = "#ffffff",
-  duration = 0.52,
+  duration = 0.48,
   exitDuration,
   style,
   className = "",
@@ -94,14 +112,7 @@ export const SweepButton: React.FC<SweepButtonProps> = ({
     >
       <SweepOverlay hovered={hovered} sweepColor={sweepColor} duration={duration} exitDuration={exitDuration} />
       <motion.span
-        style={{
-          position: "relative",
-          zIndex: 1,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "inherit",
-        }}
+        style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: "inherit" }}
         animate={{ color: hovered ? hoverTextColor : undefined }}
         transition={{ duration: 0.15 }}
       >
@@ -123,7 +134,7 @@ export const SweepLink: React.FC<SweepLinkProps> = ({
   children,
   sweepColor = "violet",
   hoverTextColor = "#ffffff",
-  duration = 0.52,
+  duration = 0.48,
   style,
   className = "",
   onClick,
@@ -135,26 +146,13 @@ export const SweepLink: React.FC<SweepLinkProps> = ({
       to={to}
       onClick={onClick}
       className={`relative overflow-hidden ${className}`}
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        textDecoration: "none",
-        borderRadius: 0,
-        ...style,
-      }}
+      style={{ position: "relative", overflow: "hidden", textDecoration: "none", borderRadius: 0, ...style }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       <SweepOverlay hovered={hovered} sweepColor={sweepColor} duration={duration} />
       <motion.span
-        style={{
-          position: "relative",
-          zIndex: 1,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "inherit",
-        }}
+        style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: "inherit" }}
         animate={{ color: hovered ? hoverTextColor : undefined }}
         transition={{ duration: 0.15 }}
       >
@@ -179,7 +177,7 @@ export const SweepAnchor: React.FC<SweepAnchorProps> = ({
   children,
   sweepColor = "violet",
   hoverTextColor = "#ffffff",
-  duration = 0.52,
+  duration = 0.48,
   style,
   className = "",
 }) => {
@@ -191,26 +189,13 @@ export const SweepAnchor: React.FC<SweepAnchorProps> = ({
       target={target}
       rel={rel}
       className={`relative overflow-hidden ${className}`}
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        textDecoration: "none",
-        borderRadius: 0,
-        ...style,
-      }}
+      style={{ position: "relative", overflow: "hidden", textDecoration: "none", borderRadius: 0, ...style }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       <SweepOverlay hovered={hovered} sweepColor={sweepColor} duration={duration} />
       <motion.span
-        style={{
-          position: "relative",
-          zIndex: 1,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "inherit",
-        }}
+        style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: "inherit" }}
         animate={{ color: hovered ? hoverTextColor : undefined }}
         transition={{ duration: 0.15 }}
       >

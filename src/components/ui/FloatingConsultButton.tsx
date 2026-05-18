@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { X } from "lucide-react";
-import foundersImg from "@/assets/founders-color.webp";
+import foundersImg from "@/assets/team-sebastian.png";
 
 const VIOLET   = "#5B21B6";
 const INK_DEEP = "#1A0A2E";
