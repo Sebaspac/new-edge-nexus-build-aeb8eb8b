@@ -72,7 +72,7 @@ export interface PainPointContent {
   };
   featureCards: {
     h2: string;
-    cards: [FeatureCard, FeatureCard, FeatureCard];
+    cards: FeatureCard[];
   };
   testimonialHero: {
     quote: string;
@@ -523,22 +523,22 @@ const compliance: PainPointContent = {
 const kpiDashboard: PainPointContent = {
   slug: "kpi-dashboard",
   seo: {
-    title: "KPI Dashboard Echtzeit — CSRD Reporting & KI-Output messen | New Edge",
+    title: "KPI Dashboard Echtzeit für den Mittelstand — Setup in unter einer Woche | New Edge",
     description:
-      "Alle Unternehmensdaten in einem Dashboard: Umsatz, KI-Output, CO₂ und Team-Performance in Echtzeit. CSRD-konform, lokal gehostet, nativ in Microsoft Teams.",
+      "Alle Unternehmensdaten in einem Echtzeit-Cockpit: ERP, CRM und Finance verbunden, ohne IT-Projekt. Rollenspezifische Ansichten, KI-Empfehlungen und Schwellenwert-Alerts. 20-Minuten-Call buchen.",
     canonical: "/loesungen/kpi-dashboard-echtzeit",
   },
   hero: {
-    overlabel: "KI-GESTÜTZTES UNTERNEHMENS-COCKPIT",
-    h1Line1: "Ein Bild. Alle Daten.",
-    h1Line2Highlighted: "Entscheidungen in Minuten.",
+    overlabel: "FÜR MITTELSTAND-GESCHÄFTSFÜHRER",
+    h1Line1: "Ihr Dashboard zeigt euch, was gestern war.",
+    h1Line2Highlighted: "Nicht was gerade passiert.",
     sub:
-      "Montagsmeeting. Jeder hat andere Zahlen. Niemand hat aktuelle. Führungskräfte verbringen durchschnittlich 2,5 Stunden pro Woche mit dem manuellen Zusammenstellen von Berichten (McKinsey, 2024). New Edge gibt eurem Team ein vollständiges Bild in Echtzeit — Umsatz, KI-Output, CO₂, Teams-Performance — lokal gehostet, vollständig gebrandet.",
-    ctaPrimary: "Dashboard-Demo anfragen",
+      "New Edge verbindet ERP, CRM und Finance zu einem Echtzeit-Cockpit — individuell konfiguriert, live in unter einer Woche. Kein neues System. Keine IT-Projekte.",
+    ctaPrimary: "20 Minuten Call — kostenlos buchen",
     ctaSecondary: "Beispiel-Dashboard ansehen",
     imageNote:
-      "Vollständiges Dashboard-Mockup: Umsatz-Chart + KI-Output + CO₂-Gauge + Teams-Heatmap. Lila Akzente, Echtzeit-Puls.",
-    imageAlt: "Echtzeit-Unternehmens-Cockpit mit Umsatz, KI-Output, CO₂ und Team-Performance",
+      "Vollständiges Dashboard-Mockup: Umsatz-Chart, Pipeline-KPIs, Finance-Übersicht und Alert-Feed. Lila Akzente, Echtzeit-Puls-Animation.",
+    imageAlt: "Echtzeit-KPI-Dashboard: ERP, CRM und Finance in einem zentralen Cockpit",
   },
   trustBar: {
     headline: "Vertraut von Mittelständlern und Konzernen im DACH-Raum",
@@ -546,114 +546,144 @@ const kpiDashboard: PainPointContent = {
     logos: ["Mittelstand", "Industrie", "Konzern", "Handel", "Dienstleister", "Beratung", "Produktion"],
   },
   definition: {
-    title: "Was ist ein KI-gestütztes Echtzeit-Unternehmens-Cockpit?",
+    title: "Was ist ein KPI-Dashboard?",
     body:
-      "Ein KI-gestütztes Unternehmens-Cockpit verbindet alle Datenquellen — SAP, HubSpot, Excel, Personio — in einem einzigen Echtzeit-Dashboard. Führungskräfte verbringen laut McKinsey (2024) durchschnittlich 2,5 Stunden pro Woche mit dem manuellen Zusammenstellen von Berichten. Echtzeit-Dashboards reduzieren diese Zeit auf nahezu null — und liefern KI-generierte Handlungsempfehlungen direkt dazu.",
+      "Ein KPI-Dashboard ist eine zentrale digitale Ansicht aller geschäftskritischen Kennzahlen eines Unternehmens — aggregiert aus ERP, CRM, Finance-Tool und weiteren Quellen, aktualisiert in Echtzeit, ohne manuelle Eingabe. Mittelständische Unternehmen mit 20–500 Mitarbeitern nutzen KPI-Dashboards, um operative und strategische Entscheidungen auf aktueller Datenbasis zu treffen — anstatt auf wöchentliche Reporting-Meetings angewiesen zu sein. Führungskräfte im Mittelstand verbringen im Schnitt 4,5 Stunden pro Woche mit manuellem Reporting (McKinsey Digital, 2023). Unternehmen mit Echtzeit-KPI-Monitoring erkennen kritische Abweichungen 3,1 Tage früher (Aberdeen Group, 2024).",
   },
   feature1: {
-    h2: "Alle Datenquellen. Ein zentrales Bild.",
+    h2: "Wer hat euch gesagt, dass diese KPIs wichtig sind?",
     sub:
-      "SAP, HubSpot, Google Analytics, Personio, Excel-Tabellen — alle reden eine andere Sprache. New Edge übersetzt alle Quellen in ein einheitliches Echtzeit-Dashboard. Kein manuelles Zusammenführen. Kein Warten auf Reports. Keine veralteten Zahlen im nächsten Meeting.",
+      "Angepasste KPIs statt generischer Templates — Ein KPI-Dashboard ist nur so nützlich wie die Kennzahlen, die es zeigt. Generische Templates bilden ab, was technisch möglich ist — nicht was für das jeweilige Unternehmen entscheidungsrelevant ist. New Edge analysiert gemeinsam mit der Führungsebene, welche Kennzahlen für Betrieb, Wachstum und Steuerung tatsächlich zählen. Das Dashboard wird auf GF-Ebene, Teamleitung und Controlling zugeschnitten — jede Rolle sieht genau, was sie braucht.",
     bullets: [
-      "Anbindung aller Datenquellen ohne Systemwechsel",
-      "Echtzeit-Daten — nicht von voriger Woche",
-      "Vollständig gebrandet — euer Cockpit, nicht ein generisches BI-Tool",
+      "KPIs für Betrieb und Wachstum — individuell definiert, nicht von der Stange",
+      "Alle relevanten Datenquellen verbunden — kein manueller Import, kein CSV-Export",
+      "Rollenspezifische Ansichten für GF, Management und Controlling",
     ],
-    cta: "Integrationen ansehen",
-    imageNote: "Datenquellen fließen in ein zentrales Dashboard zusammen.",
-    imageAlt: "Unified Data Layer: SAP, HubSpot, Personio, Excel in einem Dashboard",
+    cta: "KPI-Dashboard Case ansehen",
+    imageNote: "Dashboard-Mockup mit individuellen KPI-Kategorien und rollenspezifischen Ansichten.",
+    imageAlt: "Individuell konfiguriertes KPI-Dashboard mit rollenspezifischen Ansichten",
   },
   feature2: {
-    h2: "KI-Output und CO₂ — endlich messbar.",
+    h2: "Du erfährst es immer eine Woche zu spät.",
     sub:
-      "Ihr investiert in KI-Tools — aber niemand weiß was sie wirtschaftlich bringen. New Edge macht KI-Output messbar: eingesparte Stunden, automatisierte Prozesse, Fehlerreduktion — in Euro. Dazu vollständiges CO₂-Tracking für CSRD-Compliance. Ab dem Geschäftsjahr 2025 sind Unternehmen ab 250 Mitarbeitern zur CSRD-Berichterstattung verpflichtet.",
+      "Echtzeit-Daten: KPI-Abweichungen erkennen, bevor sie Geld kosten — Bei manuellem Reporting vergehen zwischen Entstehen einer Abweichung und ihrer Entdeckung im Schnitt 3–7 Tage. Ein Echtzeit-KPI-Dashboard schließt dieses Fenster auf Minuten. Sobald neue Daten in den angebundenen Systemen vorliegen, aktualisiert sich das Dashboard automatisch — und meldet Abweichungen sofort per Alert.",
     bullets: [
-      "KI-Output-Tracking — wirtschaftlicher Impact in Euro",
-      "Automatisiertes CO₂-Reporting — CSRD-konform ab 2025",
-      "Team-Performance sichtbar — auf Abteilungsebene",
+      "Automatische Datenaktualisierung — keine manuelle Eingabe, kein Verzug",
+      "Schwellenwert-Alerts direkt an die zuständige Person — per E-Mail, Slack oder Teams",
+      "Eine Datenbasis für alle Abteilungen — keine parallelen Wahrheiten mehr",
     ],
-    cta: "CSRD-Modul ansehen",
-    imageNote: "CO₂-Gauge + KI-Output-Chart in Euro pulsieren live.",
-    imageAlt: "CSRD-konformes CO₂-Reporting und KI-Output-Tracking in Euro",
+    cta: "KPIs direkt in Teams",
+    imageNote: "Alert-Feed und Schwellenwert-Konfiguration im Dashboard-Mockup.",
+    imageAlt: "Echtzeit-Alerts bei KPI-Abweichungen — sofort per E-Mail, Slack oder Teams",
   },
   feature3: {
-    h2: "Microsoft Teams — KPIs direkt im Chat.",
+    h2: "Messen reicht nicht. Was jetzt?",
     sub:
-      "Kein Dashboard öffnen müssen. Jeden Montag kommt das KPI-Briefing automatisch in euren Teams-Channel — mit KI-generierten Handlungsempfehlungen direkt dabei. Euer Team weiß wo es steht. Ohne Meeting.",
+      "KI-gestützte KPI-Analyse: nicht nur messen, sondern verbessern — Ein KPI-Dashboard der zweiten Generation zeigt nicht nur Ist-Werte — es erkennt Muster, identifiziert Optimierungspotenziale und schlägt priorisierte Maßnahmen vor. Das New Edge KPI-Dashboard nutzt KI-Analyse, um aus Kennzahlen konkrete Handlungsgrundlagen zu machen — und misst automatisch, ob eingeleitete Maßnahmen wirken.",
     bullets: [
-      "Native Microsoft Teams Integration",
-      "Automatisierte KPI-Briefings mit KI-Analyse",
-      "Lokal gehostet — volle Datensouveränität",
+      "KI-Empfehlungen für konkrete Verbesserungsmaßnahmen — mit Priorität",
+      "Automatisches Wirksamkeits-Tracking: Maßnahme gestartet — Effekt gemessen",
+      "Integration in bestehende Workflows — kein Systemwechsel nötig",
     ],
-    cta: "Teams-Briefing ansehen",
-    imageNote: "Teams-Channel mit automatisiertem KPI-Briefing und KI-Empfehlungen.",
-    imageAlt: "Microsoft Teams Integration mit wöchentlichem KPI-Briefing",
+    cta: "KI-Output messen",
+    imageNote: "KI-Empfehlungen-Panel mit priorisierten Maßnahmen und Wirksamkeits-Tracking.",
+    imageAlt: "KI-gestützte Analyse: priorisierte Handlungsempfehlungen aus KPI-Daten",
   },
   integrations: {
-    h2: "Verbindet sich mit den Tools die ihr bereits nutzt",
-    sub: "Kein Systemwechsel. New Edge integriert sich in eure bestehende Daten-Infrastruktur.",
+    h2: "Ihr wechselt kein einziges System.",
+    sub:
+      "Kein Systemwechsel. New Edge integriert sich in eure bestehende Infrastruktur — über 200 Systeme per API. ERP, CRM, Finance, Cloud und Shop-Plattformen. Dein System nicht dabei? Über REST API und Webhooks lässt sich jede strukturierte Datenquelle anbinden. Standardintegrationen sind in 1–2 Werktagen live.",
   },
   compare: {
-    h2: "New Edge vs. manuelles Reporting",
-    altLabel: "Manuell/Excel",
+    h2: "Wie lange macht ihr das noch mit Excel?",
+    altLabel: "Manuelles Reporting",
     rows: [
-      { k: "Aktualität", ne: "Echtzeit", alt: "2–4 Wochen alt" },
-      { k: "Datenquellen", ne: "Alle integriert", alt: "Manuell zusammengeführt" },
-      { k: "KI-Output messbar", ne: "Automatisch in Euro", alt: "Nicht vorhanden" },
-      { k: "CO₂-Reporting", ne: "CSRD-konform, automatisch", alt: "Manuell, fehleranfällig" },
-      { k: "Führungsentscheid.", ne: "Datenbasiert, in Minuten", alt: "Auf Basis veralteter Zahlen" },
-      { k: "Teams-Integration", ne: "Nativ", alt: "Separate Tools nötig" },
+      { k: "Datenaktualität",              ne: "Echtzeit",                       alt: "3–7 Tage alt" },
+      { k: "Aufwand pro Woche",            ne: "< 30 Minuten",                   alt: "4–6 Stunden" },
+      { k: "Frühwarnung bei Abweichungen", ne: "Sofort per Alert",               alt: "Nächste Woche" },
+      { k: "Konsistenz der Datenbasis",    ne: "Eine Quelle für alle",           alt: "Unterschiedlich je Team" },
+      { k: "Skalierbarkeit",               ne: "Konstant",                       alt: "Aufwand wächst mit Größe" },
+      { k: "Rollenspezifische Ansichten",  ne: "Automatisch konfiguriert",       alt: "Manuell aufgebaut" },
+      { k: "KI-Empfehlungen",              ne: "Automatisch, mit Priorität",     alt: "Nicht vorhanden" },
+      { k: "Setup-Aufwand",                ne: "Einmalig, < 1 Woche",            alt: "Laufend" },
     ],
   },
   featureCards: {
-    h2: "Echtzeit-Intelligence für euer Führungsteam.",
+    h2: "Was sich tatsächlich ändert — nach Woche eins.",
     cards: [
       {
-        title: "Unified Data Layer",
-        desc: "Alle Quellen. Ein System. Echtzeit.",
-        iconNote: "Animation: Daten-Streams fließen zusammen",
+        title: "Keine veralteten Zahlen mehr",
+        desc: "Alle KPIs aktualisieren sich automatisch — sobald neue Daten in den angebundenen Systemen vorliegen. Keine manuelle Zusammenführung, kein Warten auf den Wochenbericht.",
+        iconNote: "Icon: Echtzeit-Puls / Live-Indikator",
       },
       {
-        title: "KI & ESG Monitoring",
-        desc: "KI-Output und CO₂-Footprint — beides messbar, beides compliant.",
-        iconNote: "Animation: CO₂-Gauge + KI-Output pulsieren",
+        title: "Frühwarnung statt Überraschungen",
+        desc: "Ihr definiert Schwellenwerte — das Dashboard meldet sich automatisch. Laut McKinsey (2023) reagieren Unternehmen mit automatisierten Alerts 2,4× schneller auf kritische KPI-Abweichungen.",
+        iconNote: "Icon: Alert-Glocke / Frühwarnsystem",
       },
       {
-        title: "Automatisierte KPI-Briefings",
-        desc: "Euer Team weiß jeden Montag wo es steht. Ohne Meeting.",
-        iconNote: "Animation: Teams-Message mit KPI-Briefing erscheint",
+        title: "Jede Rolle sieht, was sie braucht",
+        desc: "Rollenbasierte Ansichten liefern jedem Nutzer genau die Kennzahlen, die für seine Entscheidungen relevant sind — ohne Information Overload.",
+        iconNote: "Icon: Nutzerrollen / Personas",
+      },
+      {
+        title: "KI zeigt, was sich lohnt zu ändern",
+        desc: "Das System erkennt Muster in euren Daten: saisonale Anomalien, Kostenausreißer, Effizienzlücken zwischen Teams. KI-gestützte Empfehlungen werden mit Priorität ausgegeben.",
+        iconNote: "Icon: KI-Glühbirne / Empfehlungen",
+      },
+      {
+        title: "Setup in unter einer Woche",
+        desc: "New Edge übernimmt die gesamte Konfiguration — von der API-Anbindung bis zur rollenspezifischen Ansicht. Die Team-Einführung dauert 60 Minuten. Standard-Setups sind in 3–5 Werktagen live.",
+        iconNote: "Icon: Kalender / Schnell-Setup",
+      },
+      {
+        title: "Eine Datenbasis für alle",
+        desc: "Finance hat andere Zahlen als Vertrieb? Damit ist Schluss. Alle Abteilungen greifen auf dieselbe, automatisch synchronisierte Datenquelle zu. Diskussionen über Datenqualität entfallen.",
+        iconNote: "Icon: Vereinte Datenbank / Single Source of Truth",
       },
     ],
   },
   testimonialHero: {
     quote:
-      "Wir haben unser Montags-Reporting von 4 Stunden Vorbereitung auf null reduziert. Das Cockpit zeigt alles in Echtzeit — und die KI-Empfehlungen sind ehrlich gesagt besser als das was wir vorher diskutiert haben.",
-    author: "Mittelstandskonzern — CFO",
+      "Wir haben montags immer 90 Minuten damit verbracht, Zahlen zusammenzutragen. Jetzt schaue ich morgens kurz ins Dashboard — und weiß mehr als vorher nach dem halben Vormittag.",
+    author: "Geschäftsführer — Mittelstandsunternehmen, Deutschland",
   },
   faq: [
     {
-      q: "Welche Datenquellen können an das Echtzeit-Dashboard angebunden werden?",
-      a: "SAP, HubSpot, Salesforce, Google Analytics, Personio, Microsoft 365, Excel und eigene Datenbanken via API — ohne Systemwechsel.",
+      q: "Was ist der Unterschied zwischen einem KPI-Dashboard und Power BI oder Tableau?",
+      a: "Power BI und Tableau sind allgemeine BI-Tools, die technisches Know-how für Konfiguration und Pflege erfordern. Das New Edge KPI-Dashboard ist fertig konfiguriert, auf das Unternehmen zugeschnitten und wird laufend betreut — ohne interne BI-Expertise, ohne IT-Projekt, ohne Lizenzkosten pro Nutzer.",
     },
     {
-      q: "Wie erfüllt New Edge die CSRD-Berichtspflicht automatisch?",
-      a: "New Edge erfasst alle relevanten CO₂-Daten aus euren Systemen und generiert CSRD-konforme Reports — bereit für die Berichtspflicht ab dem Geschäftsjahr 2025.",
+      q: "Welche Systeme können an ein KPI-Dashboard angebunden werden?",
+      a: "Ein professionelles KPI-Dashboard verbindet sich per API mit ERP-Systemen (SAP, Navision, Lexware), CRM-Systemen (Salesforce, HubSpot, Pipedrive), Finance-Tools (DATEV, Agenda), Cloud-Diensten (Microsoft 365, Google Workspace) und Shop-Systemen (Shopify, Shopware). New Edge unterstützt über 200 Systeme ohne Datenmigration.",
     },
     {
-      q: "Kann das KPI-Dashboard auf unseren eigenen Servern gehostet werden?",
-      a: "Ja. Für Unternehmen mit höchsten Datenschutzanforderungen bieten wir vollständig lokales Hosting — keine Daten verlassen eure Infrastruktur.",
+      q: "Wie lange dauert die Einrichtung eines KPI-Dashboards?",
+      a: "Standard-Konfigurationen mit zwei bis drei Datenquellen sind in 3–5 Werktagen live. Setups mit Custom-KPIs und mehreren Standorten dauern 2–4 Wochen. Fester Ansprechpartner während des gesamten Setups.",
     },
     {
-      q: "Müssen wir bestehende Systeme ersetzen um das Dashboard zu nutzen?",
-      a: "Nein. New Edge verbindet sich über API-Integration mit eurer bestehenden Infrastruktur — kein Systemwechsel, kein Datenverlust.",
+      q: "Kann jede Rolle eigene KPI-Ansichten bekommen?",
+      a: "Ja — rollenbasierte Ansichten sind Standard ohne Aufpreis. Geschäftsführung sieht strategische KPIs, Teamleitungen operative Zahlen, Controlling alle Rohdaten mit Drill-Downs. Zugriffsrechte werden granular pro Nutzer vergeben.",
+    },
+    {
+      q: "Was kostet ein Echtzeit-KPI-Dashboard?",
+      a: "Die Kosten hängen von Datenquellen, Nutzerzahl und Konfigurationsumfang ab. Nach dem kostenlosen Setup-Gespräch gibt es ein individuelles Angebot — ohne versteckte Lizenzkosten pro Nutzer.",
+    },
+    {
+      q: "Wer betreut das Dashboard nach dem Go-live?",
+      a: "New Edge übernimmt laufende Wartung, Updates und Anpassungen. Ein fester Ansprechpartner — kein Ticket-System.",
+    },
+    {
+      q: "Wie unterscheidet sich ein KPI-Dashboard für den Mittelstand von Konzern-BI-Lösungen?",
+      a: "Konzern-BI-Lösungen wie SAP Analytics Cloud oder Microsoft Fabric sind auf große IT-Abteilungen ausgelegt. Das New Edge KPI-Dashboard ist für den Mittelstand: Setup unter einer Woche, fixer Monatsbetrag, kein eigenes BI-Team nötig.",
     },
   ],
   closingCta: {
-    h2Line1: "Hört auf, Entscheidungen",
-    h2Line2Highlighted: "im Dunkeln zu treffen.",
-    sub: "Euer Cockpit ist in 4 Wochen live.",
-    ctaPrimary: "Dashboard-Demo anfragen",
-    ctaSecondary: "Beispiel ansehen",
+    h2Line1: "30 Minuten. Dann wisst ihr,",
+    h2Line2Highlighted: "ob es passt.",
+    sub: "Kein Vertrag. Kein IT-Projekt. Setup inklusive laufender Betreuung.",
+    ctaPrimary: "Demo buchen",
+    ctaSecondary: "Beispiel-Dashboard ansehen",
   },
 };
 

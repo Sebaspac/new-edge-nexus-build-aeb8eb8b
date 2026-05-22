@@ -259,9 +259,9 @@ const PainPointAuswahlverfahren = () => {
   );
 
   // Default-Icons als Bildplatzhalter (gleich für alle Slugs, später ersetzbar)
-  const defaultCardIcons = [iconAnalyse, iconKoordination, iconInsights];
+  const defaultCardIcons = [iconAnalyse, iconKoordination, iconInsights, iconInsights, iconAnalyse, iconKoordination];
   const featureCards = content.featureCards.cards.map((c, i) => ({
-    icon: defaultCardIcons[i] ?? iconAnalyse,
+    icon: defaultCardIcons[i % defaultCardIcons.length] ?? iconAnalyse,
     title: c.title,
     desc: c.desc,
   }));
@@ -747,29 +747,40 @@ const PainPointAuswahlverfahren = () => {
                   <SectionH2 className="!mb-0">{content.featureCards.h2}</SectionH2>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
-                  {featureCards.map((c) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {featureCards.map((c, idx) => (
                     <div
                       key={c.title}
-                      className="p-8 transition-all hover:-translate-y-1"
-                      style={{ background: L.bg, border: `1px solid ${L.border}` }}
+                      className="group relative p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                      style={{
+                        background: idx % 2 === 0 ? L.bg : L.bgAlt,
+                        border: `1px solid ${L.border}`,
+                      }}
                     >
-                      <div className="flex justify-center mb-6">
+                      {/* Icon */}
+                      <div className="flex items-center justify-center w-11 h-11 mb-5 rounded-full"
+                        style={{ background: `rgba(91,33,182,0.08)` }}>
                         <img
                           src={c.icon}
                           alt={c.title}
                           loading="lazy"
-                          width={64}
-                          height={64}
-                          className="w-16 h-16 object-contain"
+                          width={24}
+                          height={24}
+                          className="w-6 h-6 object-contain"
                         />
                       </div>
-                      <h3 className="text-[1.05rem] font-bold mb-2.5 text-center" style={{ ...SERIF, letterSpacing: "-0.02em", color: L.text }}>
+                      <h3 className="text-[1rem] font-bold mb-2.5 leading-[1.25]" style={{ ...SERIF, letterSpacing: "-0.02em", color: L.text }}>
                         {c.title}
                       </h3>
-                      <p className="text-[0.875rem] leading-[1.65] text-center" style={{ color: L.textMuted }}>
+                      <p className="text-[0.85rem] leading-[1.65]" style={{ color: L.textMuted }}>
                         {c.desc}
                       </p>
+                      {/* Bottom accent line on hover */}
+                      <span
+                        className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-300"
+                        style={{ background: PURPLE }}
+                        aria-hidden
+                      />
                     </div>
                   ))}
                 </div>
