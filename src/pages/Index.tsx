@@ -1,28 +1,30 @@
 import SEOHead from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { HeroSection } from "../components/HeroSection";
+import { ServicesOverviewSection } from "../components/ServicesOverviewSection";
 import { MethodologyGrid } from "../components/MethodologyGrid";
 import { PositionedForImpactSection } from "../components/PositionedForImpactSection";
-import { StudioStrategySection } from "../components/StudioStrategySection";
-import { HorizontalScrollSection } from "../components/HorizontalScrollSection";
-import { TickerScrollSection } from "../components/TickerScrollSection";
-import { UseCasesGridSection } from "../components/UseCasesGridSection";
+import { CaseStudiesGrid } from "../components/CaseStudiesGrid";
+import { AgencyEdgeSection } from "../components/AgencyEdgeSection";
+import { InnovationSection } from "../components/InnovationSection";
+import { InteractiveCore } from "../components/InteractiveCore";
 import { TestimonialsSection } from "../components/TestimonialsSection";
-import { ThreeStepsCTA } from "@/components/ThreeStepsCTA";
-import { AuroraFlow } from "@/components/ui/aurora-flow";
-import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
-import { useLenis } from "@/hooks/useLenis";
-
+import { BlogGridHome } from "@/components/BlogGridHome";
 import { ScrollAnimation } from "../hooks/useScrollAnimation";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import CookieConsent from "@/components/CookieConsent";
 import LogoCloud from "@/components/ui/logo-cloud";
 import { MagicText } from "@/components/ui/magic-text";
+import { TargetAudienceSection } from "@/components/TargetAudienceSection";
+import { ProblemSolutionFraming } from "@/components/ProblemSolutionFraming";
+import { EntryPointCTA } from "@/components/EntryPointCTA";
+import { PartnerBanner } from "@/components/PartnerBanner";
 import { lazy, Suspense, useCallback, useState, useEffect } from "react";
-import { AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import newEdgeLogo from "@/assets/new-edge-logo.webp";
+import { ProblemSolutionSection } from "@/components/ProblemSolutionSection";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { SweepButton } from "@/components/ui/SweepButton";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -32,7 +34,6 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { toast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
-import { safeGetItem, safeSessionStorage, safeSetItem } from "@/utils/safeStorage";
 
 // Lazy load Footer
 const Footer = lazy(() => import("@/components/Footer").then((module) => ({
@@ -40,22 +41,16 @@ const Footer = lazy(() => import("@/components/Footer").then((module) => ({
 })));
 import { ArrowRight, Lightbulb, Zap, Palette, Target, Rocket, Star, Users, Code, Globe, Briefcase, Phone, MessageSquare, Eye } from "lucide-react";
 const Index = () => {
-  const sessionStorageSafe = safeSessionStorage();
-  const { t } = useLanguage();
-  useLenis();
-
-  const { scrollY } = useScroll();
-  const blob1Y = useTransform(scrollY, [0, 5000], [0, -200]);
-  const blob2Y = useTransform(scrollY, [0, 5000], [0, 300]);
-  const blob3Y = useTransform(scrollY, [0, 8000], [0, -350]);
-  const blob4Y = useTransform(scrollY, [0, 8000], [0, 250]);
+  const {
+    t
+  } = useLanguage();
   const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
   const [contactFormType, setContactFormType] = useState<"kmu" | "agentur" | null>(null);
   const [openAccordionIndex, setOpenAccordionIndex] = useState(0);
   const [showInitialLoading, setShowInitialLoading] = useState(() => {
     // Only show loading on first visit in this session
     if (typeof window !== "undefined") {
-      return !safeGetItem(sessionStorageSafe, "hasVisited");
+      return !sessionStorage.getItem("hasVisited");
     }
     return false;
   });
@@ -65,11 +60,11 @@ const Index = () => {
     if (showInitialLoading) {
       const timer = setTimeout(() => {
         setShowInitialLoading(false);
-        safeSetItem(sessionStorageSafe, "hasVisited", "true");
+        sessionStorage.setItem("hasVisited", "true");
       }, 2000); // Show logo for 2 seconds
       return () => clearTimeout(timer);
     }
-  }, [sessionStorageSafe, showInitialLoading]);
+  }, [showInitialLoading]);
 
   // Auto-focus und Reset-Logik für Kontaktformular
   useEffect(() => {
@@ -197,62 +192,121 @@ const Index = () => {
         canonical="/"
       />
 
-      <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
-        {/* Global immersive grain — subtle */}
-        <NoiseOverlay opacity={0.035} fixed zIndex={2} />
-
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
         {/* Mobile Navigation */}
         <MobileNavigation onContactClick={() => setIsContactSheetOpen(true)} theme="dark" />
 
-        {/* Hero + LogoCloud — unified dark aurora section */}
-        <div className="relative" style={{ background: "#0A0412" }}>
-          {/* Aurora — covers this entire dark block */}
-          <div aria-hidden style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none" }}>
-            <AuroraFlow />
-          </div>
-          <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column" }}>
-            <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
-            <LogoCloud />
-          </div>
+        {/* Hero Section */}
+        <HeroSection onContactClick={() => setIsContactSheetOpen(true)} />
+
+        {/* Methodology Grid Section */}
+        <div className="bg-surface">
+          <MethodologyGrid />
         </div>
 
-        {/* All post-hero sections — unified light background */}
-        <div
-          style={{
-            position: "relative",
-            background: [
-              "radial-gradient(ellipse 100% 60% at 8% 8%, rgba(91,33,182,0.08) 0%, transparent 55%)",
-              "radial-gradient(ellipse 80% 55% at 92% 92%, rgba(124,58,237,0.06) 0%, transparent 50%)",
-              "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(91,33,182,0.03) 0%, transparent 60%)",
-              "#F8F5FF",
-            ].join(", "),
-          }}
-        >
-          {/* Parallax depth orbs */}
-          <div aria-hidden style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
-            <motion.div style={{ y: blob1Y, position: "absolute", top: "8%", left: "-5%", width: "420px", height: "420px", borderRadius: "50%", background: "radial-gradient(circle, rgba(91,33,182,0.07) 0%, transparent 70%)" }} />
-            <motion.div style={{ y: blob2Y, position: "absolute", top: "22%", right: "-8%", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%)" }} />
-            <motion.div style={{ y: blob3Y, position: "absolute", top: "55%", left: "10%", width: "360px", height: "360px", borderRadius: "50%", background: "radial-gradient(circle, rgba(91,33,182,0.06) 0%, transparent 70%)" }} />
-            <motion.div style={{ y: blob4Y, position: "absolute", top: "72%", right: "5%", width: "440px", height: "440px", borderRadius: "50%", background: "radial-gradient(circle, rgba(124,58,237,0.04) 0%, transparent 70%)" }} />
-          </div>
+        {/* Logo Cloud */}
+        <LogoCloud />
 
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <div data-ticker-pin-group>
-              <MethodologyGrid />
-              <TickerScrollSection />
-            </div>
-
-            {/* Positioned for Impact — photo + stats + logo proof as one section */}
-            <PositionedForImpactSection />
-
-            <HorizontalScrollSection />
-            <StudioStrategySection />
-            <UseCasesGridSection />
-            <TestimonialsSection />
-            <ThreeStepsCTA />
-          </div>
-
+        {/* Positioned for Impact Section */}
+        <div className="bg-surface">
+          <PositionedForImpactSection />
         </div>
+
+        {/* Problem → Solution Framing */}
+        <ProblemSolutionFraming />
+
+        {/* Case Studies Grid */}
+        <div className="bg-surface">
+          <CaseStudiesGrid />
+        </div>
+
+        {/* Entry Point CTA */}
+        <EntryPointCTA onContactClick={() => setIsContactSheetOpen(true)} />
+
+        {/* Partner Banner */}
+        <PartnerBanner />
+
+        {/* Interactive Core */}
+        <div className="bg-surface">
+          <InteractiveCore />
+        </div>
+
+        {/* Testimonials Section */}
+        <div className="bg-surface">
+          <TestimonialsSection />
+        </div>
+
+        {/* Blog Section */}
+        <div className="bg-surface">
+          <BlogGridHome />
+        </div>
+
+        {/* Contact Section */}
+        <section id="contact-section" className="relative section-py-md overflow-hidden bg-primary-foreground">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+            <motion.div className="text-center max-w-4xl mx-auto" initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.8
+          }}>
+              <motion.h2 initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.2,
+              duration: 0.7
+            }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-8 leading-[1.05] text-foreground font-black">
+Bereit für die digitale Revolution?
+              </motion.h2>
+
+              <motion.p initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.4,
+              duration: 0.6
+            }} className="text-base md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-12 leading-relaxed px-4">
+                New Edge unterstützt Unternehmen dabei, KI und Automatisierung kontrolliert & nachhaltig im eigenen Besitz umzusetzen. 
+              
+
+            </motion.p>
+
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.6,
+              duration: 0.6
+            }} className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
+                <Button size="lg" onClick={() => setIsContactSheetOpen(true)} className="group bg-transparent backdrop-blur-md text-black border-2 border-black hover:bg-black hover:text-white transition-all duration-300 text-base md:text-lg px-6 md:px-8 py-4 md:py-6 font-semibold w-full sm:w-auto hover:-translate-y-0.5 rounded-none">
+                  Kontakt aufnehmen
+                  <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
 
         {/* Contact Form Sheet */}
         <Sheet open={isContactSheetOpen} onOpenChange={handleSheetClose}>
@@ -313,29 +367,10 @@ const Index = () => {
                 </div>
               </div>
 
-              <SweepButton
-                type="submit"
-                sweepColor="dark"
-                hoverTextColor="#ffffff"
-                style={{
-                  width: "100%",
-                  background: "#5B21B6",
-                  color: "#ffffff",
-                  fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
-                  fontSize: "12px",
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  padding: "16px 28px",
-                  border: "none",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "10px",
-                }}
-              >
+              <Button type="submit" size="lg" className="w-full btn-primary text-slate-50">
                 Nachricht senden
-                <ArrowRight style={{ width: "16px", height: "16px" }} />
-              </SweepButton>
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
             </form>
           </SheetContent>
         </Sheet>

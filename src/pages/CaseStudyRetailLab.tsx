@@ -49,8 +49,19 @@ const CaseStudyRetailLab = () => {
       behavior: "smooth"
     });
   }, []);
-  const CALENDLY = "https://calendly.com/sebastian-p-newedgebrand/30min";
-  const scrollToContact = () => window.open(CALENDLY, "_blank", "noopener");
+  const scrollToContact = () => {
+    navigate("/", {
+      replace: true
+    });
+    setTimeout(() => {
+      const contactSection = document.getElementById("contact-section");
+      if (contactSection) {
+        contactSection.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+    }, 100);
+  };
   const phases = [{
     number: "PHASE 1",
     title: "Strategie & Konzeption",
@@ -184,13 +195,10 @@ const CaseStudyRetailLab = () => {
                 Wie wir für einen KMU im produzierenden Gewerbe einen RAG-Wissensagenten entwickelt haben, der technisches 
                 Know-how instant verfügbar macht.
               </p>
-              <div className="flex flex-col items-center gap-3">
+              <div className="flex justify-center">
                 <button onClick={scrollToContact} className="px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold rounded-none text-base md:text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50 active:scale-95">
                   Jetzt Kontakt aufnehmen
                 </button>
-                <a href="tel:+4917660431467" style={{ fontFamily: "Consolas, monospace", fontSize: "11px", letterSpacing: "0.12em", color: "rgba(196,181,253,0.7)", textDecoration: "none", borderBottom: "1px solid rgba(196,181,253,0.25)", paddingBottom: "1px" }}>
-                  ↗ +49 176 60 431 467
-                </a>
               </div>
             </AnimatedSection>
           </div>

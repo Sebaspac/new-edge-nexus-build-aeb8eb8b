@@ -48,8 +48,19 @@ const Blog = () => {
       behavior: 'smooth'
     });
   }, []);
-  const CALENDLY = "https://calendly.com/sebastian-p-newedgebrand/30min";
-  const scrollToContact = () => window.open(CALENDLY, "_blank", "noopener");
+  const scrollToContact = () => {
+    navigate('/', {
+      replace: true
+    });
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact-section');
+      if (contactSection) {
+        contactSection.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  };
   const featuredPost = blogPostsData[0];
   const otherPosts = blogPostsData.slice(1);
   return <>
@@ -148,12 +159,6 @@ const Blog = () => {
             </div>
           </div>
         </section>
-
-        <div className="text-center py-10 border-t border-gray-100">
-          <a href="tel:+4917660431467" style={{ fontFamily: "Consolas, monospace", fontSize: "11px", letterSpacing: "0.16em", color: "rgba(26,10,46,0.38)", textDecoration: "none", borderBottom: "1px solid rgba(26,10,46,0.14)", paddingBottom: "1px" }}>
-            ↗ +49 176 60 431 467
-          </a>
-        </div>
 
         <Footer />
       </div>

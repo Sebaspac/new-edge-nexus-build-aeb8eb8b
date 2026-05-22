@@ -26,17 +26,17 @@
 
 @layer base {
   :root {
-    /* 🎨 CORE COLORS - New Edge brand */
-    --background: 0 0% 99%; /* near-white */
-    --foreground: 0 0% 23%; /* #3A3A3A ink */
-    --surface: 0 0% 100%; /* white for cards/elevated surfaces */
+    /* 🎨 CORE COLORS - Clean white background theme */
+    --background: 0 0% 100%; /* Pure white */
+    --foreground: 0 0% 13%; /* Dark gray for text */
+    --surface: 0 0% 98%; /* Very light gray for cards */
     --surface-elevated: 0 0% 100%;
 
-    /* 🔮 BRAND COLORS - New Edge deep violet */
-    --primary: 263 69% 42%; /* #5B21B6 deep violet */
-    --primary-foreground: 0 0% 100%; /* white on primary */
-    --primary-glow: 263 60% 55%;
-    --primary-subtle: 263 50% 35%;
+    /* 🔮 BRAND COLORS - Vibrant, modern palette */
+    --primary: 270 91% 65%; /* Electric purple */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+    --primary-glow: 280 100% 70%;
+    --primary-subtle: 270 70% 50%;
     
     --secondary: 210 100% 60%; /* Vivid blue */
     --secondary-foreground: 0 0% 100%; /* White text on secondary */

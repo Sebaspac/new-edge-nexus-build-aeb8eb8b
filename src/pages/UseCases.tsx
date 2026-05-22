@@ -1,6 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { SweepLink } from "@/components/ui/SweepButton";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
 import { LazyVideo } from "@/components/LazyVideo";
@@ -56,8 +55,19 @@ const UseCases = () => {
 
   // Filtered case studies based on active filter
   const filteredCaseStudies = activeFilter === 'all' ? caseStudies : caseStudies.filter(cs => cs.category === activeFilter);
-  const CALENDLY = "https://calendly.com/sebastian-p-newedgebrand/30min";
-  const scrollToContact = () => window.open(CALENDLY, "_blank", "noopener");
+  const scrollToContact = () => {
+    navigate("/", {
+      replace: true
+    });
+    setTimeout(() => {
+      const contactSection = document.getElementById("contact-section");
+      if (contactSection) {
+        contactSection.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+    }, 100);
+  };
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setActiveIndex(emblaApi.selectedScrollSnap());
@@ -178,9 +188,9 @@ const UseCases = () => {
 
                       {/* CTA Button */}
                       <div className="pt-4 sm:pt-6">
-                        <SweepLink to={caseStudy.route} hoverTextColor="#ffffff" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 32px", background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)", color: "#fff", fontWeight: 700, fontSize: "0.9rem", border: "1px solid rgba(139,92,246,0.4)", boxShadow: "0 0 20px rgba(124,58,237,0.3)" }}>
+                        <Link to={caseStudy.route} className="inline-flex items-center gap-2 px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-full transition-all duration-300 hover:scale-105 text-sm sm:text-base">
                           Jetzt mehr erfahren
-                        </SweepLink>
+                        </Link>
                       </div>
                     </div>
                   </div>

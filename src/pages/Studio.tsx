@@ -1,7 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ChevronDown, ArrowRight, ArrowUpRight } from "lucide-react";
-import { SweepButton } from "@/components/ui/SweepButton";
+import { Button } from "@/components/ui/button";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -80,8 +80,12 @@ const Studio = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const CALENDLY = "https://calendly.com/sebastian-p-newedgebrand/30min";
-  const scrollToContact = () => window.open(CALENDLY, "_blank", "noopener");
+  const scrollToContact = () => {
+    navigate("/", { replace: true });
+    setTimeout(() => {
+      document.getElementById("contact-section")?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
 
   /* Parallax for hero */
   const heroRef = useRef<HTMLDivElement>(null);
@@ -441,33 +445,13 @@ const Studio = () => {
                 
 Im Studio schaffen wir Klarheit,  für die nächsten technologischen Entscheidungen und entwickeln die Systemlogik für Marke, Kommunikation & KI.     
               </p>
-              <SweepButton
-                sweepColor="violet"
-                hoverTextColor="#ffffff"
-                onClick={() => window.open(CALENDLY, "_blank", "noopener")}
-                style={{
-                  marginTop: "40px",
-                  background: "transparent",
-                  color: "#1A0A2E",
-                  border: "2px solid rgba(26,10,46,0.3)",
-                  fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
-                  fontSize: "12px",
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  padding: "14px 32px",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "10px",
-                }}
-              >
+              <Button size="lg"
+              className="mt-10 bg-transparent backdrop-blur-md text-black border-2 border-black/30 hover:bg-black hover:text-white font-semibold text-base sm:text-lg px-10 sm:px-14 py-4 transition-all duration-300 hover:-translate-y-0.5 rounded-none"
+              onClick={() => setIsModalOpen(true)}>
+
                 Kontakt aufnehmen
-                <ArrowRight style={{ width: "16px", height: "16px" }} />
-              </SweepButton>
-              <div style={{ marginTop: "20px" }}>
-                <a href="tel:+4917660431467" style={{ fontFamily: "Consolas, monospace", fontSize: "12px", letterSpacing: "0.12em", color: "rgba(26,10,46,0.45)", textDecoration: "none", borderBottom: "1px solid rgba(26,10,46,0.18)", paddingBottom: "1px" }}>
-                  ↗ +49 176 60 431 467
-                </a>
-              </div>
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
             </motion.div>
           </div>
         </section>

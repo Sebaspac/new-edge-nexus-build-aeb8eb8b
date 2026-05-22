@@ -72,9 +72,9 @@ export const ProblemSolutionFraming = () => {
               <CheckCircle className="w-5 h-5" /> So schaffen wir die Grundlage
             </h3>
             {solutions.map((sol, i) => (
-              <div key={i} className="p-4 sm:p-5 border border-primary/20 bg-primary/5 flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
-                <span className="text-xl sm:text-2xl font-black text-primary">{sol.metric}</span>
-                <span className="text-sm text-muted-foreground leading-relaxed">{sol.label}</span>
+              <div key={i} className="p-5 border border-primary/20 bg-primary/5 flex items-start gap-4">
+                <span className="text-2xl font-black text-primary whitespace-nowrap">{sol.metric}</span>
+                <span className="text-sm text-muted-foreground leading-relaxed pt-1">{sol.label}</span>
               </div>
             ))}
           </motion.div>

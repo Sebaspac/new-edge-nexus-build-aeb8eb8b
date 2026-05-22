@@ -10,75 +10,51 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "14.5"
+    PostgrestVersion: "13.0.5"
   }
   public: {
     Tables: {
-      contact_leads: {
+      contact_messages: {
         Row: {
+          agents: string | null
           company: string | null
           created_at: string
           email: string
-          id: string
+          id: number
           ip: string | null
           message: string
           name: string
+          package: string | null
           phone: string | null
           position: string | null
           user_agent: string | null
         }
         Insert: {
+          agents?: string | null
           company?: string | null
           created_at?: string
           email: string
-          id?: string
+          id?: number
           ip?: string | null
           message: string
           name: string
+          package?: string | null
           phone?: string | null
           position?: string | null
           user_agent?: string | null
         }
         Update: {
+          agents?: string | null
           company?: string | null
           created_at?: string
           email?: string
-          id?: string
+          id?: number
           ip?: string | null
           message?: string
           name?: string
+          package?: string | null
           phone?: string | null
           position?: string | null
-          user_agent?: string | null
-        }
-        Relationships: []
-      }
-      ki_audit_leads: {
-        Row: {
-          created_at: string
-          email: string
-          id: string
-          ip: string | null
-          name: string
-          phone: string
-          user_agent: string | null
-        }
-        Insert: {
-          created_at?: string
-          email: string
-          id?: string
-          ip?: string | null
-          name: string
-          phone: string
-          user_agent?: string | null
-        }
-        Update: {
-          created_at?: string
-          email?: string
-          id?: string
-          ip?: string | null
-          name?: string
-          phone?: string
           user_agent?: string | null
         }
         Relationships: []
