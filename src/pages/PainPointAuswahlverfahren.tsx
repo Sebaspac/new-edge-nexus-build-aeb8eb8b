@@ -70,7 +70,7 @@ const SectionLabel = ({ children }: { children: React.ReactNode }) => (
   </span>
 );
 
-/** Große Section-Überschrift, die ÜBER der Section steht (semantisch h2). */
+/** Erste Headline jeder Section — provokant/catchy, etwas kleiner skaliert */
 const SectionHeadline = ({
   children,
   className = "",
@@ -79,33 +79,25 @@ const SectionHeadline = ({
   className?: string;
 }) => (
   <h2
-    className={`text-[clamp(2rem,4.2vw,3.25rem)] leading-[1.05] mb-8 md:mb-12 text-[#111] ${className}`}
+    className={`text-[clamp(1.65rem,2.8vw,2.35rem)] leading-[1.1] mb-3 text-[#111] ${className}`}
     style={{ ...SERIF, letterSpacing: "-0.02em" }}
   >
     {children}
   </h2>
 );
 
-/** Untertitel innerhalb einer Section (semantisch h3 — visuell wie zuvor). */
-const SectionH2 = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <h3
-    className={`text-[clamp(1.6rem,2.8vw,2.25rem)] leading-[1.15] mb-4 text-[#111] ${className}`}
-    style={{ ...SERIF, letterSpacing: "-0.02em" }}
-  >
-    {children}
-  </h3>
-);
-
-
-/** Beschreibender Untertitel direkt unter der provokanten h2 */
-const SectionH3 = ({ children }: { children: React.ReactNode }) => (
+/** Zweite Headline — beschreibender Untertitel, kursiv, muted. Einheitlich überall. */
+const SectionH3 = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
   <p
-    className="text-[1.05rem] font-semibold leading-[1.35] mb-4 max-w-[500px]"
+    className={`text-[1.05rem] leading-[1.4] mb-5 max-w-[500px] ${className}`}
     style={{ color: L.textMuted, ...SERIF, fontStyle: "italic" }}
   >
     {children}
   </p>
 );
+
+/** Interner Alias — wird wo nötig noch verwendet */
+const SectionH2 = SectionH3;
 
 const SectionSub = ({ children }: { children: React.ReactNode }) => (
   <p className="text-[0.925rem] leading-[1.75] mb-8 max-w-[540px]" style={{ color: L.textMuted, ...MONO }}>
@@ -527,10 +519,7 @@ const PainPointAuswahlverfahren = () => {
                 </div>
                 <div>
                   <SectionLabel>Feature 01</SectionLabel>
-                  {content.feature1.h3
-                    ? <SectionH2>{content.feature1.h3}</SectionH2>
-                    : <SectionH2>{content.feature1.h2}</SectionH2>
-                  }
+                  {content.feature1.h3 && <SectionH3>{content.feature1.h3}</SectionH3>}
                   <SectionSub>{content.feature1.sub}</SectionSub>
                   <BulletList items={[...content.feature1.bullets]} />
                   <FeatureCTA>{content.feature1.cta}</FeatureCTA>
@@ -584,10 +573,7 @@ const PainPointAuswahlverfahren = () => {
                 </div>
                 <div>
                   <SectionLabel>Feature 03</SectionLabel>
-                  {content.feature3.h3
-                    ? <SectionH2>{content.feature3.h3}</SectionH2>
-                    : <SectionH2>{content.feature3.h2}</SectionH2>
-                  }
+                  {content.feature3.h3 && <SectionH3>{content.feature3.h3}</SectionH3>}
                   <SectionSub>{content.feature3.sub}</SectionSub>
                   <BulletList items={[...content.feature3.bullets]} />
                   <FeatureCTA>{content.feature3.cta}</FeatureCTA>
@@ -605,10 +591,7 @@ const PainPointAuswahlverfahren = () => {
                 </SectionHeadline>
                 <div className="max-w-[600px]">
                   <SectionLabel>Integrationen</SectionLabel>
-                  {content.integrations.h3
-                    ? <SectionH2>{content.integrations.h3}</SectionH2>
-                    : null
-                  }
+                  {content.integrations.h3 && <SectionH3>{content.integrations.h3}</SectionH3>}
                   <SectionSub>{content.integrations.sub}</SectionSub>
                 </div>
                 <div className="mt-10" style={{ '--fade-color': L.bgAlt } as React.CSSProperties}>
@@ -641,10 +624,7 @@ const PainPointAuswahlverfahren = () => {
               </SectionHeadline>
               <div className="max-w-[600px] mb-10">
                 <SectionLabel>Vergleich</SectionLabel>
-                {content.compare.h3
-                  ? <SectionH2>{content.compare.h3}</SectionH2>
-                  : null
-                }
+                {content.compare.h3 && <SectionH3>{content.compare.h3}</SectionH3>}
               </div>
 
               {/* Desktop table */}
