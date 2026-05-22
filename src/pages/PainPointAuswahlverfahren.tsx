@@ -97,6 +97,16 @@ const SectionH2 = ({ children, className = "" }: { children: React.ReactNode; cl
 );
 
 
+/** Beschreibender Untertitel direkt unter der provokanten h2 */
+const SectionH3 = ({ children }: { children: React.ReactNode }) => (
+  <p
+    className="text-[1.05rem] font-semibold leading-[1.35] mb-4 max-w-[500px]"
+    style={{ color: L.textMuted, ...SERIF, fontStyle: "italic" }}
+  >
+    {children}
+  </p>
+);
+
 const SectionSub = ({ children }: { children: React.ReactNode }) => (
   <p className="text-[0.925rem] leading-[1.75] mb-8 max-w-[540px]" style={{ color: L.textMuted, ...MONO }}>
     {children}
@@ -518,6 +528,7 @@ const PainPointAuswahlverfahren = () => {
                 <div>
                   <SectionLabel>Feature 01</SectionLabel>
                   <SectionH2>{content.feature1.h2}</SectionH2>
+                  {content.feature1.h3 && <SectionH3>{content.feature1.h3}</SectionH3>}
                   <SectionSub>{content.feature1.sub}</SectionSub>
                   <BulletList items={[...content.feature1.bullets]} />
                   <FeatureCTA>{content.feature1.cta}</FeatureCTA>
@@ -537,6 +548,7 @@ const PainPointAuswahlverfahren = () => {
                     </SectionHeadline>
                     <SectionLabel>Feature 02</SectionLabel>
                     <SectionH2>{content.feature2.h2}</SectionH2>
+                    {content.feature2.h3 && <SectionH3>{content.feature2.h3}</SectionH3>}
                     <SectionSub>{content.feature2.sub}</SectionSub>
                     <BulletList items={[...content.feature2.bullets]} />
                     <FeatureCTA>{content.feature2.cta}</FeatureCTA>
@@ -572,6 +584,7 @@ const PainPointAuswahlverfahren = () => {
                 <div>
                   <SectionLabel>Feature 03</SectionLabel>
                   <SectionH2>{content.feature3.h2}</SectionH2>
+                  {content.feature3.h3 && <SectionH3>{content.feature3.h3}</SectionH3>}
                   <SectionSub>{content.feature3.sub}</SectionSub>
                   <BulletList items={[...content.feature3.bullets]} />
                   <FeatureCTA>{content.feature3.cta}</FeatureCTA>
@@ -590,6 +603,7 @@ const PainPointAuswahlverfahren = () => {
                 <div className="max-w-[600px]">
                   <SectionLabel>Integrationen</SectionLabel>
                   <SectionH2>{content.integrations.h2}</SectionH2>
+                  {content.integrations.h3 && <SectionH3>{content.integrations.h3}</SectionH3>}
                   <SectionSub>{content.integrations.sub}</SectionSub>
                 </div>
                 <div className="mt-10" style={{ '--fade-color': L.bgAlt } as React.CSSProperties}>
@@ -623,6 +637,7 @@ const PainPointAuswahlverfahren = () => {
               <div className="max-w-[600px] mb-10">
                 <SectionLabel>Vergleich</SectionLabel>
                 <SectionH2>{content.compare.h2}</SectionH2>
+                {content.compare.h3 && <SectionH3>{content.compare.h3}</SectionH3>}
               </div>
 
               {/* Desktop table */}
@@ -744,7 +759,8 @@ const PainPointAuswahlverfahren = () => {
                 </SectionHeadline>
                 <div className="text-center max-w-[600px] mx-auto mb-12">
                   <SectionLabel>Kernfunktionen</SectionLabel>
-                  <SectionH2 className="!mb-0">{content.featureCards.h2}</SectionH2>
+                  <SectionH2>{content.featureCards.h2}</SectionH2>
+                  {content.featureCards.h3 && <SectionH3>{content.featureCards.h3}</SectionH3>}
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

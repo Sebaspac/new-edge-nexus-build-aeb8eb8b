@@ -17,8 +17,10 @@ export interface CompareRow {
 
 export interface FeatureBlock {
   h2: string;
+  /** Optionaler beschreibender Untertitel direkt unter h2 */
+  h3?: string;
   sub: string;
-  bullets: [string, string, string];
+  bullets: string[];
   cta: string;
   /** Beschreibung des geplanten Bildes — Placeholder bleibt erhalten */
   imageNote: string;
@@ -63,15 +65,18 @@ export interface PainPointContent {
   feature3: FeatureBlock;
   integrations: {
     h2: string;
+    h3?: string;
     sub: string;
   };
   compare: {
     h2: string;
+    h3?: string;
     altLabel: string; // "Manuell", "Klassische Agentur", etc.
     rows: CompareRow[];
   };
   featureCards: {
     h2: string;
+    h3?: string;
     cards: FeatureCard[];
   };
   testimonialHero: {
@@ -552,12 +557,14 @@ const kpiDashboard: PainPointContent = {
   },
   feature1: {
     h2: "Wer hat euch gesagt, dass diese KPIs wichtig sind?",
+    h3: "Angepasste KPIs statt generischer Templates",
     sub:
-      "Angepasste KPIs statt generischer Templates — Ein KPI-Dashboard ist nur so nützlich wie die Kennzahlen, die es zeigt. Generische Templates bilden ab, was technisch möglich ist — nicht was für das jeweilige Unternehmen entscheidungsrelevant ist. New Edge analysiert gemeinsam mit der Führungsebene, welche Kennzahlen für Betrieb, Wachstum und Steuerung tatsächlich zählen. Das Dashboard wird auf GF-Ebene, Teamleitung und Controlling zugeschnitten — jede Rolle sieht genau, was sie braucht.",
+      "Ein KPI-Dashboard ist nur so nützlich wie die Kennzahlen, die es zeigt. Generische Templates bilden ab, was technisch möglich ist — nicht was für das jeweilige Unternehmen entscheidungsrelevant ist. New Edge analysiert gemeinsam mit der Führungsebene, welche Kennzahlen für Betrieb, Wachstum und Steuerung tatsächlich zählen. Das Dashboard wird auf GF-Ebene, Teamleitung und Controlling zugeschnitten — jede Rolle sieht genau, was sie braucht.",
     bullets: [
       "KPIs für Betrieb und Wachstum — individuell definiert, nicht von der Stange",
       "Alle relevanten Datenquellen verbunden — kein manueller Import, kein CSV-Export",
       "Rollenspezifische Ansichten für GF, Management und Controlling",
+      "Neue KPIs messbar machen: eingesparte Stunden, automatisierte Prozesse, Fehlerquoten",
     ],
     cta: "KPI-Dashboard Case ansehen",
     imageNote: "Dashboard-Mockup mit individuellen KPI-Kategorien und rollenspezifischen Ansichten.",
@@ -565,10 +572,12 @@ const kpiDashboard: PainPointContent = {
   },
   feature2: {
     h2: "Du erfährst es immer eine Woche zu spät.",
+    h3: "Echtzeit-Daten: KPI-Abweichungen erkennen, bevor sie Geld kosten",
     sub:
-      "Echtzeit-Daten: KPI-Abweichungen erkennen, bevor sie Geld kosten — Bei manuellem Reporting vergehen zwischen Entstehen einer Abweichung und ihrer Entdeckung im Schnitt 3–7 Tage. Ein Echtzeit-KPI-Dashboard schließt dieses Fenster auf Minuten. Sobald neue Daten in den angebundenen Systemen vorliegen, aktualisiert sich das Dashboard automatisch — und meldet Abweichungen sofort per Alert.",
+      "Bei manuellem Reporting vergehen zwischen Entstehen einer Abweichung und ihrer Entdeckung im Schnitt 3–7 Tage. Ein Echtzeit-KPI-Dashboard schließt dieses Fenster auf Minuten. Sobald neue Daten in den angebundenen Systemen vorliegen, aktualisiert sich das Dashboard automatisch — und meldet Abweichungen sofort per Alert.",
     bullets: [
       "Automatische Datenaktualisierung — keine manuelle Eingabe, kein Verzug",
+      "Visualisierungen nach Ebene — strategisch für GF, operativ für Teams",
       "Schwellenwert-Alerts direkt an die zuständige Person — per E-Mail, Slack oder Teams",
       "Eine Datenbasis für alle Abteilungen — keine parallelen Wahrheiten mehr",
     ],
@@ -578,12 +587,14 @@ const kpiDashboard: PainPointContent = {
   },
   feature3: {
     h2: "Messen reicht nicht. Was jetzt?",
+    h3: "KI-gestützte KPI-Analyse: nicht nur messen, sondern verbessern",
     sub:
-      "KI-gestützte KPI-Analyse: nicht nur messen, sondern verbessern — Ein KPI-Dashboard der zweiten Generation zeigt nicht nur Ist-Werte — es erkennt Muster, identifiziert Optimierungspotenziale und schlägt priorisierte Maßnahmen vor. Das New Edge KPI-Dashboard nutzt KI-Analyse, um aus Kennzahlen konkrete Handlungsgrundlagen zu machen — und misst automatisch, ob eingeleitete Maßnahmen wirken.",
+      "Ein KPI-Dashboard der zweiten Generation zeigt nicht nur Ist-Werte — es erkennt Muster, identifiziert Optimierungspotenziale und schlägt priorisierte Maßnahmen vor. Das New Edge KPI-Dashboard nutzt KI-Analyse, um aus Kennzahlen konkrete Handlungsgrundlagen zu machen — und misst automatisch, ob eingeleitete Maßnahmen wirken.",
     bullets: [
       "KI-Empfehlungen für konkrete Verbesserungsmaßnahmen — mit Priorität",
       "Automatisches Wirksamkeits-Tracking: Maßnahme gestartet — Effekt gemessen",
       "Integration in bestehende Workflows — kein Systemwechsel nötig",
+      "Regelmäßige Review-Termine mit dokumentierten nächsten Schritten",
     ],
     cta: "KI-Output messen",
     imageNote: "KI-Empfehlungen-Panel mit priorisierten Maßnahmen und Wirksamkeits-Tracking.",
@@ -591,11 +602,13 @@ const kpiDashboard: PainPointContent = {
   },
   integrations: {
     h2: "Ihr wechselt kein einziges System.",
+    h3: "Welche Systeme lassen sich an ein KPI-Dashboard anbinden?",
     sub:
-      "Kein Systemwechsel. New Edge integriert sich in eure bestehende Infrastruktur — über 200 Systeme per API. ERP, CRM, Finance, Cloud und Shop-Plattformen. Dein System nicht dabei? Über REST API und Webhooks lässt sich jede strukturierte Datenquelle anbinden. Standardintegrationen sind in 1–2 Werktagen live.",
+      "Ein KPI-Dashboard ist nur so stark wie seine Datenquellen. New Edge verbindet sich mit über 200 Systemen per API — ERP, CRM, Finance, Cloud und Shop-Plattformen. Kein Systemwechsel, keine Datenmigration, keine Doppelpflege. Dein System nicht dabei? Über REST API und Webhooks lässt sich jede strukturierte Datenquelle anbinden.",
   },
   compare: {
     h2: "Wie lange macht ihr das noch mit Excel?",
+    h3: "KPI-Dashboard vs. manuelles Reporting — der direkte Vergleich",
     altLabel: "Manuelles Reporting",
     rows: [
       { k: "Datenaktualität",              ne: "Echtzeit",                       alt: "3–7 Tage alt" },
@@ -610,6 +623,7 @@ const kpiDashboard: PainPointContent = {
   },
   featureCards: {
     h2: "Was sich tatsächlich ändert — nach Woche eins.",
+    h3: "Was bringt ein Echtzeit-KPI-Dashboard konkret?",
     cards: [
       {
         title: "Keine veralteten Zahlen mehr",
