@@ -14,6 +14,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { ArrowRight } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import foundersImg from "@/assets/founders-color.webp";
+import sebastianImg from "@/assets/team-sebastian.png";
+import ivanImg from "@/assets/team-ivan.png";
+import wenjaminImg from "@/assets/team-wenjamin.png";
+
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
 const SANS  = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
@@ -21,7 +26,49 @@ const SERIF: React.CSSProperties = { fontFamily: "'DM Serif Display', Georgia, s
 const MONO: React.CSSProperties  = { fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace" };
 const VIOLET   = "#5B21B6";
 const INK_DEEP = "#1A0A2E";
+const HAIRLINE = "rgba(91,33,182,0.12)";
 const EASE     = [0.22, 1, 0.36, 1] as const;
+
+const team = [
+  {
+    name: "Sebastian Pachon",
+    role: "CEO & Gründer",
+    img: sebastianImg,
+    imgPos: "center top",
+    facts: [
+      "Strategie, Marke & Systemarchitektur",
+      "7+ Jahre B2B-Beratung & Digitalprojekte",
+      "KI-Implementierungen im DACH-Raum & USA",
+    ],
+    linkedin: "https://www.linkedin.com/in/sebastian-pachón-a7504b24b",
+  },
+  {
+    name: "Wenjamin Zabezhanskiy",
+    role: "COO",
+    img: wenjaminImg,
+    imgPos: "center 20%",
+    initials: "WZ",
+    facts: [
+      "Operations, Prozessdesign & Skalierung",
+      "Operative Systemintegration & Workflows",
+      "Cross-funktionale Projektsteuerung",
+    ],
+    linkedin: "https://www.linkedin.com/in/wenjamin-zabezhanskiy-7138b7231/",
+  },
+  {
+    name: "Ivan Jovanovic",
+    role: "CTO",
+    img: ivanImg,
+    imgPos: "center top",
+    initials: "IJ",
+    facts: [
+      "KI-Architektur & ML-Engineering",
+      "LLM-Deployment & RAG-Systeme",
+      "Full-Stack & Cloud-Infrastruktur",
+    ],
+    linkedin: "https://www.linkedin.com/in/ivan-jovanovic-51b319187/",
+  },
+];
 
 const About = () => {
   const [contactOpen, setContactOpen] = useState(false);
@@ -178,6 +225,139 @@ const About = () => {
               zIndex: 3,
             }}
           />
+        </div>
+
+        {/* ── TEAM CARDS ─────────────────────────────────────────── */}
+        <div style={{ background: "#F8F5FF", padding: "clamp(64px,8vw,112px) 24px clamp(80px,10vw,128px)" }}>
+          <div style={{ maxWidth: "1040px", margin: "0 auto" }}>
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "28px",
+            }}>
+              {team.map((member, i) => (
+                <motion.div
+                  key={member.name}
+                  initial={{ opacity: 0, y: 32 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.6, ease: EASE, delay: i * 0.1 }}
+                  style={{
+                    background: "#FFFFFF",
+                    border: `1px solid ${HAIRLINE}`,
+                    overflow: "hidden",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  {/* Photo / Avatar */}
+                  <div style={{ height: "320px", background: "#EDE9FF", overflow: "hidden", position: "relative" }}>
+                    {member.img ? (
+                      <img
+                        src={member.img}
+                        alt={member.name}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          objectPosition: member.imgPos || "center top",
+                        }}
+                      />
+                    ) : (
+                      <div style={{
+                        width: "100%",
+                        height: "100%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        background: `linear-gradient(135deg, #EDE9FF 0%, #DDD6FE 100%)`,
+                      }}>
+                        <span style={{
+                          ...SERIF,
+                          fontSize: "5rem",
+                          color: VIOLET,
+                          opacity: 0.35,
+                          fontStyle: "italic",
+                        }}>
+                          {member.initials}
+                        </span>
+                      </div>
+                    )}
+                    {/* Role badge */}
+                    <div style={{
+                      position: "absolute",
+                      top: "16px",
+                      left: "16px",
+                      background: "rgba(91,33,182,0.88)",
+                      backdropFilter: "blur(8px)",
+                      padding: "5px 12px",
+                    }}>
+                      <span style={{ ...MONO, fontSize: "10px", letterSpacing: "0.18em", color: "#fff", textTransform: "uppercase" }}>
+                        {member.role}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Info */}
+                  <div style={{ padding: "28px 24px 32px", flex: 1, display: "flex", flexDirection: "column" }}>
+                    <h2 style={{ ...SERIF, fontStyle: "italic", fontSize: "1.5rem", color: INK_DEEP, marginBottom: "20px", lineHeight: 1.1 }}>
+                      {member.name}
+                    </h2>
+
+                    {/* Facts */}
+                    <ul style={{ listStyle: "none", margin: 0, padding: 0, flex: 1 }}>
+                      {member.facts.map((f, fi) => (
+                        <li key={fi} style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "10px",
+                          paddingBottom: "10px",
+                          marginBottom: fi < member.facts.length - 1 ? "10px" : 0,
+                          borderBottom: fi < member.facts.length - 1 ? `1px solid ${HAIRLINE}` : "none",
+                        }}>
+                          <span style={{ color: VIOLET, fontSize: "10px", marginTop: "4px", flexShrink: 0 }}>▸</span>
+                          <span style={{ ...MONO, fontSize: "12.5px", color: "rgba(26,10,46,0.65)", lineHeight: 1.6 }}>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* LinkedIn */}
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          marginTop: "24px",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          textDecoration: "none",
+                          color: VIOLET,
+                          opacity: 0.75,
+                          transition: "opacity 0.2s",
+                        }}
+                        onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+                        onMouseLeave={e => (e.currentTarget.style.opacity = "0.75")}
+                        aria-label={`${member.name} auf LinkedIn`}
+                      >
+                        {/* LinkedIn official logo */}
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect width="24" height="24" rx="4" fill={VIOLET}/>
+                          <path d="M7.5 9.5H5V19H7.5V9.5Z" fill="white"/>
+                          <circle cx="6.25" cy="6.75" r="1.5" fill="white"/>
+                          <path d="M13 13.5C13 12.4 13.9 11.5 15 11.5C16.1 11.5 17 12.4 17 13.5V19H19.5V13.5C19.5 11 17.5 9 15 9C13.8 9 12.7 9.5 12 10.3V9.5H9.5V19H12V13.5H13Z" fill="white"/>
+                        </svg>
+                        <span style={{ ...MONO, fontSize: "11px", letterSpacing: "0.14em", textTransform: "uppercase" }}>
+                          LinkedIn
+                        </span>
+                      </a>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* ── CTA ───────────────────────────────────────────────── */}
