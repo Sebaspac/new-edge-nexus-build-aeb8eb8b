@@ -205,8 +205,8 @@ const Impressum = () => {
               <div className="border border-foreground/10 p-5 md:p-6">
                 <p className="text-foreground/70">New Edge Brand</p>
                 <p className="text-foreground/70">Inhaber: Wenjamin Zabezhanskiy</p>
-                <p className="text-foreground/70">Mädelegabelstraße 31</p>
-                <p className="text-foreground/70">81825 München</p>
+                <p className="text-foreground/70">{"\n"}</p>
+                <p className="text-foreground/70">München</p>
                 <p className="text-foreground/70">Deutschland</p>
                 <p className="text-foreground/70 mt-3">
                   E-Mail:{" "}
