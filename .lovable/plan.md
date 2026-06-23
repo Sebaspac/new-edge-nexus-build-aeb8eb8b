@@ -1,20 +1,26 @@
-# Team-Sektion auf "Über uns" entfernen (auf Basis des Live-Stands)
+## Ziel
+Apollo Website-Tracker (`appId: 69f08fb34c69250011068113`) einbauen, **gekoppelt an die Marketing-Zustimmung im Cookie-Banner**.
 
-## Ablauf
+## Änderungen
 
-1. **Du** stellst über **History** die aktuell live Version wieder her (Restore beim Eintrag, der dem letzten Publish entspricht). Die "neuen" Änderungen werden dadurch archiviert, aber nicht gelöscht — sie können später jederzeit wieder geholt werden.
-2. **Ich** entferne anschließend die Team-Sektion auf der Seite `/ueber-uns`.
-3. **Du** klickst **Publish → Update**, damit der neue Live-Stand (= alter Stand ohne Team-Sektion) live geht.
+### 1. Neue Komponente `src/components/ApolloTracker.tsx`
+- Liest beim Mount `cookie-consent` aus `localStorage`.
+- Lauscht auf ein neues Event `cookie-consent-changed`, um auf späteres Akzeptieren zu reagieren.
+- Wenn `preferences.marketing === true`:
+  - Lädt `https://assets.apollo.io/micro/website-tracker/tracker.iife.js` einmalig dynamisch (mit `async`/`defer`, Cache-Bust wie im Snippet).
+  - Ruft `window.trackingFunctions.onLoad({ appId: "69f08fb34c69250011068113" })` im `onload`.
+- Schutz gegen Doppel-Injection via `data-apollo-tracker` Attribut am `<script>`.
 
-## Was genau entfernt wird (in `src/pages/About.tsx`)
+### 2. `src/components/CookieConsent.tsx`
+- In `saveConsent()` zusätzlich `window.dispatchEvent(new CustomEvent('cookie-consent-changed', { detail: prefs }))` feuern, damit ApolloTracker sofort reagiert (ohne Reload).
 
-- **Team-Karten-Sektion** (Zeilen ~230–362): kompletter Block `{/* ── TEAM CARDS ── */}` inkl. Grid, Karten, Foto/Avatar, Rolle, Facts.
-- **`team`-Array-Definition** (ab Zeile 32) inkl. der Mitglieder-Einträge.
-- **Ungenutzte Imports** der Team-Bilder (`team-sebastian.png`, `team-ivan.png`, `team-wenjamin.png`, Zeilen 18–20).
-- **Hero-Headline-Text "Unser Team."** bleibt vorerst erhalten — falls dieser auch weg soll, bitte kurz Bescheid geben (Zeile 171 + zugehörige Beschreibung Zeile 185 und SEO-Title/Description Zeilen 107–108).
+### 3. `src/App.tsx`
+- `<ApolloTracker />` einmal global mounten (neben dem bestehenden `<CookieConsent />`).
 
-Hero, Werte, Units-Links und CTA-Sektion bleiben unverändert.
+## Nicht enthalten
+- Keine Änderungen an `index.html` (Apollo wird bewusst NICHT statisch geladen, sondern consent-gesteuert).
+- GTM/GA bleiben unverändert.
+- Keine Erweiterung des Cookie-Banner-Texts (Apollo fällt unter „Marketing-Cookies", was bereits aufgeführt ist).
 
-## Wichtig
-
-- Solange Schritt 1 (History-Restore) nicht passiert ist, würde mein Edit auf dem aktuellen Editor-Stand (= die "neue" Version, die du verwerfen willst) landen. Bitte zuerst restoren, dann gib mir Bescheid — ich entferne die Sektion dann sofort.
+## Hinweis Datenschutz
+Du solltest Apollo zusätzlich in deiner Datenschutzerklärung erwähnen (separater Task, nicht Teil dieser Implementierung).

@@ -51,6 +51,7 @@ const CookieConsent = () => {
       timestamp: Date.now(),
       preferences: prefs
     }));
+    window.dispatchEvent(new CustomEvent('cookie-consent-changed', { detail: prefs }));
   };
   const handlePreferenceChange = (key: keyof typeof preferences, value: boolean) => {
     if (key === 'necessary') return; // Necessary cookies can't be disabled
