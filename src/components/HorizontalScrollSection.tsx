@@ -177,7 +177,7 @@ const ProcessPanel = () => {
                         WebkitTextStroke: isActive
                           ? "1.5px rgba(91,33,182,0.7)"
                           : "1.5px rgba(91,33,182,0.18)",
-                      }}
+                      } as any}
                       transition={{ duration: 0.2 }}
                       style={{
                         ...SERIF,
