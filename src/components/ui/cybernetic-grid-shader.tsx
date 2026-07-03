@@ -1,21 +1,30 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { shouldDisableHeavyPreviewEffects } from '@/utils/runtimeEnvironment';
 
 const CyberneticGridShader = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const disableHeavyEffects = shouldDisableHeavyPreviewEffects();
 
   useEffect(() => {
     // Disable on mobile for performance
-    if (isMobile) return;
+    if (isMobile || disableHeavyEffects) return;
     const container = containerRef.current;
     if (!container) return;
 
+    let renderer: THREE.WebGLRenderer | null = null;
+
     // 1) Renderer, Scene, Camera, Clock
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    container.appendChild(renderer.domElement);
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+    } catch (error) {
+      console.warn('Cybernetic grid disabled:', error);
+      return;
+    }
 
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
@@ -108,7 +117,7 @@ const CyberneticGridShader = () => {
       const rect = container.getBoundingClientRect();
       const width  = rect.width;
       const height = rect.height;
-      renderer.setSize(width, height);
+      renderer?.setSize(width, height);
       uniforms.iResolution.value.set(width * window.devicePixelRatio, height * window.devicePixelRatio);
     };
     window.addEventListener('resize', onResize);
@@ -127,7 +136,7 @@ const CyberneticGridShader = () => {
     // 6) Animation loop
     renderer.setAnimationLoop(() => {
       uniforms.iTime.value = clock.getElapsedTime();
-      renderer.render(scene, camera);
+      renderer?.render(scene, camera);
     });
 
     // 7) Cleanup on unmount
@@ -135,18 +144,18 @@ const CyberneticGridShader = () => {
       window.removeEventListener('resize', onResize);
       window.removeEventListener('mousemove', onMouseMove);
 
-      renderer.setAnimationLoop(null);
+      renderer?.setAnimationLoop(null);
 
-      const canvas = renderer.domElement;
-      if (canvas.parentNode) {
+      const canvas = renderer?.domElement;
+      if (canvas?.parentNode) {
         canvas.parentNode.removeChild(canvas);
       }
 
       material.dispose();
       geometry.dispose();
-      renderer.dispose();
+      renderer?.dispose();
     };
-  }, [isMobile]);
+  }, [disableHeavyEffects, isMobile]);
 
   return (
     <div

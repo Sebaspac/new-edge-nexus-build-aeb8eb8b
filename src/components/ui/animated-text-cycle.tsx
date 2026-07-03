@@ -67,8 +67,8 @@ export default function AnimatedTextCycle({
       </div>
 
       <span
-        className="inline-flex overflow-hidden relative align-baseline"
-        style={{ width, transition: "width 0.3s ease" }}
+        className="inline-flex relative align-baseline"
+        style={{ width, transition: "width 0.3s ease", overflow: "visible", whiteSpace: "nowrap" }}
       >
         <AnimatePresence mode="wait">
           <motion.span

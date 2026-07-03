@@ -2,10 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { X } from "lucide-react";
-import foundersImg from "@/assets/team-sebastian.png";
+import { img } from "@/content";
 
-const VIOLET   = "#5B21B6";
-const INK_DEEP = "#1A0A2E";
+const VIOLET   = "#5658DF";
+const INK_DEEP = "#17172E";
 const MONO: React.CSSProperties = {
   fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
 };
@@ -38,8 +38,8 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
               right: 0,
               zIndex: 60,
               background: "#FFFFFF",
-              border: "1.5px solid rgba(91,33,182,0.18)",
-              boxShadow: "0 8px 40px rgba(91,33,182,0.18), 0 2px 8px rgba(0,0,0,0.12)",
+              border: "1.5px solid rgba(86,88,223,0.18)",
+              boxShadow: "0 8px 40px rgba(86,88,223,0.18), 0 2px 8px rgba(0,0,0,0.12)",
               padding: "28px 24px 24px",
               width: "300px",
             }}
@@ -54,7 +54,7 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
                 background: "transparent",
                 border: "none",
                 cursor: "pointer",
-                color: "rgba(26,10,46,0.35)",
+                color: "rgba(23,23,46,0.35)",
                 padding: "4px",
                 display: "flex",
               }}
@@ -66,7 +66,7 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
             {/* Author row */}
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
               <img
-                src={foundersImg}
+                src={img("team-sebastian")}
                 alt="Sebastian Pachon"
                 style={{
                   width: "44px",
@@ -75,21 +75,21 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
                   objectFit: "cover",
                   objectPosition: "25% 20%",
                   flexShrink: 0,
-                  border: "2px solid rgba(91,33,182,0.20)",
+                  border: "2px solid rgba(86,88,223,0.20)",
                 }}
               />
               <div>
-                <div style={{ ...SERIF, fontSize: "14px", color: INK_DEEP, lineHeight: 1.2, marginBottom: "2px" }}>
+                <div style={{ ...SERIF, fontSize: "15px", color: INK_DEEP, lineHeight: 1.2, marginBottom: "2px" }}>
                   Sebastian Pachon
                 </div>
-                <div style={{ ...MONO, fontSize: "9.5px", letterSpacing: "0.16em", textTransform: "uppercase" as const, color: "rgba(26,10,46,0.45)" }}>
+                <div style={{ ...MONO, fontSize: "10px", letterSpacing: "0.16em", textTransform: "uppercase" as const, color: "rgba(23,23,46,0.45)" }}>
                   Gründer & Geschäftsführer
                 </div>
               </div>
             </div>
 
             {/* Divider */}
-            <div style={{ height: "1px", background: "rgba(26,10,46,0.08)", marginBottom: "16px" }} />
+            <div style={{ height: "1px", background: "rgba(23,23,46,0.08)", marginBottom: "16px" }} />
 
             {/* Heading + badge */}
             <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "8px", marginBottom: "10px" }}>
@@ -112,7 +112,7 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
             </div>
 
             {/* Description */}
-            <p style={{ ...MONO, fontSize: "12px", lineHeight: 1.72, color: "rgba(26,10,46,0.62)", marginBottom: "20px" }}>
+            <p style={{ ...MONO, fontSize: "12px", lineHeight: 1.72, color: "rgba(23,23,46,0.62)", marginBottom: "20px" }}>
               Ein kurzes, unverbindliches Gespräch mit Sebastian — wir besprechen Ihre
               Situation und prüfen, wie KI oder Prozessautomatisierung bei Ihnen wirkt.
             </p>
@@ -176,10 +176,10 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
             borderRadius: "50%",
             overflow: "hidden",
             border: `2.5px solid ${VIOLET}`,
-            boxShadow: "0 4px 20px rgba(91,33,182,0.28)",
+            boxShadow: "0 4px 20px rgba(86,88,223,0.28)",
           }}>
             <img
-              src={foundersImg}
+              src={img("team-sebastian")}
               alt="Sebastian Pachon — Erstgespräch buchen"
               style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "25% 20%" }}
             />

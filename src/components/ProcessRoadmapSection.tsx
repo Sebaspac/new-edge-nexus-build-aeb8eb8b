@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 
-const VIOLET = "#5B21B6";
-const VIOLET_GLOW = "#7C3AED";
-const INK_DEEP = "#1A0A2E";
+const VIOLET = "#5658DF";
+const VIOLET_GLOW = "#5658DF";
+const INK_DEEP = "#17172E";
 const PAPER_PURE = "#FFFFFF";
-const HAIRLINE = "rgba(91,33,182,0.12)";
+const HAIRLINE = "rgba(86,88,223,0.12)";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -82,7 +82,7 @@ export const ProcessRoadmapSection = () => {
                   ...SERIF,
                   fontStyle: "italic",
                   fontWeight: 400,
-                  fontSize: "clamp(2rem, 3.8vw, 3.25rem)",
+                  fontSize: "clamp(2.25rem, 4.5vw, 3.4rem)",
                   lineHeight: 1.0,
                   letterSpacing: "-0.01em",
                   color: INK_DEEP,
@@ -106,7 +106,7 @@ export const ProcessRoadmapSection = () => {
                   ...MONO,
                   fontSize: "15px",
                   lineHeight: 1.75,
-                  color: "rgba(26,10,46,0.55)",
+                  color: "rgba(23,23,46,0.55)",
                   maxWidth: "36ch",
                 }}
               >
@@ -135,7 +135,7 @@ export const ProcessRoadmapSection = () => {
                   className="grid grid-cols-12 gap-6 py-8 cursor-default transition-colors duration-300"
                   style={{
                     borderBottom: `1px solid ${HAIRLINE}`,
-                    backgroundColor: isActive ? "rgba(91,33,182,0.06)" : "transparent",
+                    backgroundColor: isActive ? "rgba(86,88,223,0.06)" : "transparent",
                   }}
                 >
                   {/* Large index numeral */}
@@ -143,14 +143,14 @@ export const ProcessRoadmapSection = () => {
                     <motion.span
                       animate={{
                         WebkitTextStroke: isActive
-                          ? "1.5px rgba(91,33,182,0.7)"
-                          : "1.5px rgba(91,33,182,0.18)",
+                          ? "1.5px rgba(86,88,223,0.7)"
+                          : "1.5px rgba(86,88,223,0.18)",
                       }}
                       transition={{ duration: 0.2 }}
                       style={{
                         ...SERIF,
                         fontStyle: "italic",
-                        fontSize: "clamp(3rem, 5vw, 4rem)",
+                        fontSize: "clamp(2.25rem, 4.5vw, 3.4rem)",
                         color: "transparent",
                         lineHeight: 1,
                         userSelect: "none",
@@ -164,11 +164,11 @@ export const ProcessRoadmapSection = () => {
                   {/* Title + desc */}
                   <div className="col-span-9 flex flex-col justify-center">
                     <motion.h3
-                      animate={{ color: isActive ? INK_DEEP : "rgba(26,10,46,0.60)" }}
+                      animate={{ color: isActive ? INK_DEEP : "rgba(23,23,46,0.60)" }}
                       transition={{ duration: 0.2 }}
                       style={{
                         ...SERIF,
-                        fontSize: "clamp(1.05rem, 1.7vw, 1.35rem)",
+                        fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)",
                         lineHeight: 1.2,
                         letterSpacing: "-0.01em",
                         marginBottom: "10px",
@@ -184,7 +184,7 @@ export const ProcessRoadmapSection = () => {
                         ...MONO,
                         fontSize: "15px",
                         lineHeight: 1.75,
-                        color: "rgba(26,10,46,0.65)",
+                        color: "rgba(23,23,46,0.65)",
                       }}
                     >
                       {desc}

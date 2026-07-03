@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import SEOHead from "@/components/SEOHead";
+import { contact as CONTACT_STATIC } from "@/content/pages/contact";
+import { useCms } from "@/hooks/useCms";
 
 const Contact = () => {
+  // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
+  const contact = useCms("kontakt", CONTACT_STATIC);
   const navigate = useNavigate();
 
   const handleClose = () => {
@@ -16,9 +20,9 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Kontakt | KI-Beratung & Prozessautomatisierung München | New Edge"
-        description="Kontaktieren Sie New Edge für KI-Beratung, Prozessautomatisierung und Marketing-Automation in München."
-        canonical="/kontakt"
+        title={contact.seo.title}
+        description={contact.seo.description}
+        canonical={contact.seo.canonical}
       />
       <ContactFormModal
         isOpen={true}

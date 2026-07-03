@@ -43,7 +43,7 @@ const SEOHead = ({
       <meta property="og:url" content={fullCanonical} />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content="de_DE" />
-      <meta property="og:site_name" content="New Edge Brand" />
+      <meta property="og:site_name" content="NEWEDGE Brand" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={ogTitle || title} />

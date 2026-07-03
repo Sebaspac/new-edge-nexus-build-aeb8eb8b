@@ -112,7 +112,7 @@ export const ContentCreationAnimation: React.FC = () => {
           <motion.div
             className="w-36 h-36 md:w-44 md:h-44 rounded-full"
             style={{
-              background: `conic-gradient(from ${colorRotation}deg, #ec4899, #8b5cf6, #3b82f6, #06b6d4, #10b981, #eab308, #ef4444, #ec4899)`,
+              background: `conic-gradient(from ${colorRotation}deg, #ec4899, #8476EF, #3b82f6, #06b6d4, #10b981, #eab308, #ef4444, #ec4899)`,
               opacity: 0.3,
             }}
           />

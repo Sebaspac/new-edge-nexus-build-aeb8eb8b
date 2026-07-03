@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { Target, Layers, ShieldCheck } from "lucide-react";
 import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 
-const VIOLET = "#5B21B6";
-const INK_DEEP = "#1A0A2E";
-const INK = "#3A3A3A";
+const VIOLET = "#5658DF";
+const INK_DEEP = "#17172E";
+const INK = "#3C3C47";
 const PAPER_PURE = "#FFFFFF";
-const HAIRLINE = "rgba(26,10,46,0.08)";
+const HAIRLINE = "rgba(23,23,46,0.08)";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -68,8 +68,8 @@ export const ValuePillarsSection = () => {
                     style={{
                       width: "40px",
                       height: "40px",
-                      border: `1.5px solid rgba(91,33,182,0.25)`,
-                      backgroundColor: "rgba(91,33,182,0.06)",
+                      border: `1.5px solid rgba(86,88,223,0.25)`,
+                      backgroundColor: "rgba(86,88,223,0.06)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -85,7 +85,7 @@ export const ValuePillarsSection = () => {
                   <h3
                     style={{
                       ...SERIF,
-                      fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)",
+                      fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)",
                       lineHeight: 1.2,
                       color: INK_DEEP,
                       letterSpacing: "-0.01em",
@@ -127,7 +127,7 @@ export const ValuePillarsSection = () => {
                   className="uppercase"
                   style={{ ...MONO, fontSize: "11px", letterSpacing: "0.2em", color: VIOLET }}
                 >
-                  Warum New Edge
+                  Warum NEWEDGE
                 </span>
               </div>
 
@@ -136,7 +136,7 @@ export const ValuePillarsSection = () => {
                   ...SERIF,
                   fontStyle: "italic",
                   fontWeight: 400,
-                  fontSize: "clamp(2rem, 3.8vw, 3rem)",
+                  fontSize: "clamp(1.85rem, 3.4vw, 2.75rem)",
                   lineHeight: 1.0,
                   letterSpacing: "-0.01em",
                   color: INK_DEEP,

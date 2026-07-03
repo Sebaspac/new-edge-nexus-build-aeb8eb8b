@@ -1,833 +1,583 @@
-import { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { motion } from "framer-motion";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
-import { motion, AnimatePresence, useMotionValue, useTransform, animate } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import {
-  Users,
-  Code,
-  Palette,
-  Globe,
-  Briefcase,
-  ChevronDown,
-  ArrowRight,
-  Sparkles,
-  Zap,
-  Heart,
-  Target,
-  Network,
-  Building2,
-  Lightbulb,
-  Rocket,
-  ShieldCheck,
-  TrendingUp,
-  Handshake,
-  FlaskConical,
-  Fingerprint,
-  Eye,
-  Cog,
-  Brain,
-  Shield,
-  Compass,
-} from "lucide-react";
-import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
+import { AuroraFlow } from "@/components/ui/aurora-flow";
+import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
+import { FloatingConsultButton } from "@/components/ui/FloatingConsultButton";
+import { CursorLine } from "@/components/ui/CursorLine";
+import { useState, useRef } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import { SweepButton } from "@/components/ui/SweepButton";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { ArrowRight } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-import newEdgeHubLogo from "@/assets/new-edge-hub-logo.png";
+import { about as ABOUT_STATIC } from "@/content/pages/about";
+import { img } from "@/content";
+import { useCms } from "@/hooks/useCms";
+
+const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
+
+const SANS  = "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace";
+const SERIF: React.CSSProperties = { fontFamily: "'DM Serif Display', Georgia, serif" };
+const MONO: React.CSSProperties  = { fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace" };
+const VIOLET   = "#5658DF";
+const INK_DEEP = "#17172E";
+const HAIRLINE = "rgba(86,88,223,0.12)";
+const EASE     = [0.22, 1, 0.36, 1] as const;
 
 const About = () => {
-  const navigate = useNavigate();
-  const [isContactSheetOpen, setIsContactSheetOpen] = useState(false);
-  const [isPartnerRequest, setIsPartnerRequest] = useState(false);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
-
-  const scrollToContact = (asPartner: boolean = false) => {
-    setIsPartnerRequest(asPartner);
-    setIsContactSheetOpen(true);
-  };
+  // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
+  const about = useCms("about", ABOUT_STATIC);
+  const [contactOpen, setContactOpen] = useState(false);
+  const ctaBtnRef = useRef<HTMLDivElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-
     const { validateContactForm, submitContactForm } = await import("@/utils/contactFormValidation");
-
-    const rawData = {
-      name: formData.get('name')?.toString() || '',
-      email: formData.get('email')?.toString() || '',
-      message: formData.get('message')?.toString() || formData.get('nachricht')?.toString() || '',
+    const raw = {
+      name: formData.get("name")?.toString() || "",
+      email: formData.get("email")?.toString() || "",
+      phone: formData.get("telefon")?.toString() || "",
+      company: formData.get("firma")?.toString() || "",
+      position: formData.get("position")?.toString() || "",
+      message: formData.get("nachricht")?.toString() || "",
     };
-    const validation = validateContactForm(rawData);
-    if (!validation.success) {
-      const firstError = validation.fieldErrors ? Object.values(validation.fieldErrors)[0] : "Validierungsfehler";
-      toast({
-        title: "Validierungsfehler",
-        description: firstError,
-        variant: "destructive",
-        duration: 5000,
-      });
+    const v = validateContactForm(raw);
+    if (!v.success) {
+      toast({ title: about.contact.toast.validationTitle, description: Object.values(v.fieldErrors ?? {})[0], variant: "destructive", duration: 5000 });
       return;
     }
-    const result = await submitContactForm(validation.data!);
-    if (result.success) {
-      toast({
-        title: "Wir designen für dich",
-        description: "Vielen Dank für deine Anfrage! Wir melden uns bald bei dir.",
-        duration: 5000,
-      });
+    const r = await submitContactForm(v.data!);
+    if (r.success) {
+      toast({ title: about.contact.toast.successTitle, description: about.contact.toast.successBody, duration: 5000 });
       form.reset();
-      setIsContactSheetOpen(false);
-      setIsPartnerRequest(false);
     } else {
-      toast({
-        title: "Fehler",
-        description: result.error || "Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.",
-        variant: "destructive",
-        duration: 5000,
-      });
+      toast({ title: about.contact.toast.errorTitle, description: r.error || about.contact.toast.errorFallback, variant: "destructive", duration: 5000 });
     }
   };
 
   return (
     <>
       <SEOHead
-        title="Über New Edge | KI-Agentur München für Marke, Digital & AI"
-        description="New Edge Brand ist eine KI-Agentur aus München. Wir arbeiten an der Schnittstelle von Marke, Digital und KI – für Unternehmen, die Verantwortung übernehmen wollen."
-        canonical="/about"
+        title={about.seo.title}
+        description={about.seo.description}
+        canonical={about.seo.canonical}
       />
 
-      <div className="min-h-screen bg-background">
-        <MobileNavigation onContactClick={() => scrollToContact(false)} theme="dark" />
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+        <NoiseOverlay opacity={0.03} fixed zIndex={2} />
+        <MobileNavigation onContactClick={() => setContactOpen(true)} theme="dark" />
 
-        {/* 1️⃣ Hero Section */}
-        <section className="relative w-full h-[100dvh]">
-          <div className="absolute inset-0 overflow-hidden">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/assets/hero-video.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-
-            <div className="absolute bottom-0 left-0 p-6 pb-24 sm:p-12 sm:pb-28 lg:p-16 lg:pb-32 max-w-full sm:max-w-4xl">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white">
-                Über uns
-              </h1>
-            </div>
+        {/* ── HERO ──────────────────────────────────────────────── */}
+        <div className="relative" style={{ background: "#0A0A18", minHeight: "100dvh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          {/* Aurora */}
+          <div aria-hidden style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none" }}>
+            <AuroraFlow />
           </div>
+          {/* Vignette */}
+          <div aria-hidden style={{
+            position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
+            background: "radial-gradient(ellipse 70% 65% at 50% 50%, rgba(4,1,12,0.72) 0%, rgba(4,1,12,0.28) 55%, transparent 82%)",
+          }} />
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30">
-            <span className="text-xs font-medium tracking-widest text-white/50 uppercase">Scroll</span>
-            <ChevronDown className="w-5 h-5 text-white/50 animate-bounce" />
-          </div>
-        </section>
-
-        {/* 2️⃣ Mission & Vision – UPDATED */}
-        <section id="mission" className="relative py-12 sm:py-16 md:section-padding bg-surface">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -60 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="text-center lg:text-left"
-              >
-                <h2 className="text-3xl sm:text-4xl mb-4 sm:mb-6 md:mb-8 text-foreground text-left font-bold md:text-6xl">
-                  Unser Auftrag für den{" "}
-                  <span className="bg-gradient-primary bg-clip-text text-transparent">Mittelstand</span>
-                </h2>
-
-                <div className="space-y-4 sm:space-y-6 md:space-y-8">
-                  <div>
-                    <h3 className="text-lg sm:text-xl mb-2 sm:mb-3 md:mb-4 text-foreground flex items-center gap-2 sm:gap-3 font-semibold md:text-2xl">
-                      <Target className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                      Mission
-                    </h3>
-                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed text-left">
-                      Innovationszugang für KMU – wirtschaftlich, strukturiert, praxisnah. Wir bringen keine Showcases, sondern Lösungen, die in Prozessen, Budget und Realität eines KMU funktionieren.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-lg sm:text-xl mb-2 sm:mb-3 md:mb-4 text-foreground flex items-center gap-2 sm:gap-3 font-semibold md:text-2xl">
-                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
-                      Vision
-                    </h3>
-                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed text-left">
-                      Ganzheitlicher Aufbau von Marken & digitaler Ökosysteme im KI-Zeitalter – der Mittelstand als Triebfeder für echte, messbare Innovation.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 60 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative"
-              >
-                <div className="relative aspect-square">
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-primary rounded-3xl"
-                    animate={{ rotate: [0, 180, 360] }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    style={{ opacity: 0.1 }}
-                  />
-                  <div className="absolute inset-8 grid grid-cols-3 gap-4">
-                    {[Network, Building2, Lightbulb, Code, Palette, Rocket, Users, Globe, Zap].map((Icon, i) => (
-                      <motion.div
-                        key={i}
-                        className="bg-background rounded-2xl flex items-center justify-center shadow-lg"
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.1, duration: 0.5 }}
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                      >
-                        <Icon className="w-8 h-8 text-primary" />
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: EASE }}
+            style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "clamp(100px,16vh,140px) 24px clamp(60px,8vh,100px)", fontFamily: SANS }}
+          >
+            {/* Eyebrow */}
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "28px" }}>
+              <span style={{ width: "32px", height: "1px", background: "#C2C3F6", display: "block" }} />
+              <span style={{ ...MONO, fontSize: "11px", letterSpacing: "0.22em", color: "#C2C3F6", textTransform: "uppercase" }}>
+                {about.hero.eyebrow}
+              </span>
+              <span style={{ width: "32px", height: "1px", background: "#C2C3F6", display: "block" }} />
             </div>
-          </div>
-        </section>
 
-        {/* 3️⃣ Unsere DNA – NEW Bento Grid */}
-        <section className="relative py-12 sm:py-16 md:section-padding bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-8 sm:mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground text-left mb-3">
-                Unsere <span className="bg-gradient-primary bg-clip-text text-transparent">DNA</span>
-              </h2>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl text-left">
-                Drei Prinzipien treiben alles an, was wir tun – von der Strategie bis zum letzten Deployment.
-              </p>
-            </motion.div>
+            {/* Premium shimmer — slow left→right pendulum */}
+            <style>{`
+              @keyframes ab-shimmer {
+                from { background-position: -220% center; }
+                to   { background-position:  220% center; }
+              }
+            `}</style>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 grid-rows-[auto_auto_auto] gap-3 sm:gap-4">
-              {/* Featured Card – Smart Execution */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="col-span-2 row-span-2 bg-emerald-50 p-6 lg:p-10 relative overflow-hidden group hover:bg-emerald-100/80 transition-colors duration-300"
-              >
-                <div
-                  className="absolute top-4 right-4 text-[80px] lg:text-[120px] font-black leading-none select-none pointer-events-none"
-                  style={{
-                    WebkitTextStroke: '2px rgba(16,185,129,0.2)',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                >
-                  01
-                </div>
-                <div className="relative z-10 h-full flex flex-col justify-between">
-                  <div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 mb-4">
-                      <Zap className="w-3.5 h-3.5 text-emerald-600" />
-                      <span className="text-[10px] sm:text-xs font-semibold tracking-wider text-emerald-700 uppercase">
-                        Prinzip
-                      </span>
-                    </div>
-                    <h4 className="text-xl lg:text-3xl font-black text-gray-900 mb-3 leading-tight">
-                      Smart Execution
-                    </h4>
-                    <p className="text-sm lg:text-base text-gray-600 leading-relaxed max-w-md">
-                      Wir liefern schnell verwertbare Ergebnisse – pragmatisch, umsetzungsstark und konsequent auf Wirkung ausgerichtet. Wir nutzen KI, um Output zu skalieren, Qualität zu sichern und Umsetzung zu beschleunigen.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
+            {/* Headline */}
+            <h1 style={{
+              ...SERIF,
+              fontStyle: "italic",
+              fontWeight: 400,
+              fontSize: "clamp(2.75rem, 6vw, 5.5rem)",
+              lineHeight: 0.96,
+              letterSpacing: "-0.02em",
+              marginBottom: "32px",
+            }}>
+              <span style={{
+                background: "linear-gradient(115deg, #fff 0%, #fff 24%, #f6f2ff 36%, #ece5ff 44%, #f8f5ff 50%, #f3efff 57%, #fff 68%, #fff 100%)",
+                backgroundSize: "280% auto",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                color: "transparent",
+                animation: "ab-shimmer 18s ease-in-out infinite alternate",
+                display: "inline",
+              }}>
+                {about.hero.headline}
+              </span>
+            </h1>
 
-              {/* Next-Gen Thinking */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="col-span-1 bg-violet-50 p-4 lg:p-6 relative overflow-hidden group hover:bg-violet-100/80 transition-colors duration-300"
-              >
-                <div
-                  className="absolute top-2 right-3 text-[50px] lg:text-[70px] font-black leading-none select-none pointer-events-none"
-                  style={{
-                    WebkitTextStroke: '1.5px rgba(139,92,246,0.2)',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                >
-                  02
-                </div>
-                <div className="relative z-10">
-                  <Brain className="w-5 h-5 text-violet-500 mb-3" />
-                  <h4 className="text-sm lg:text-lg font-bold text-gray-900 mb-1.5 leading-tight">
-                    Next-Gen Thinking
-                  </h4>
-                  <p className="text-xs lg:text-sm text-gray-600 leading-relaxed">
-                    Frische Konzepte, moderne Technologien und visionäre Perspektive – wir prüfen, welche Lösung heute wirklich vorne liegt.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Operate Safe Systems */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="col-span-1 bg-sky-50 p-4 lg:p-6 relative overflow-hidden group hover:bg-sky-100/80 transition-colors duration-300"
-              >
-                <div
-                  className="absolute top-2 right-3 text-[50px] lg:text-[70px] font-black leading-none select-none pointer-events-none"
-                  style={{
-                    WebkitTextStroke: '1.5px rgba(14,165,233,0.2)',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                >
-                  03
-                </div>
-                <div className="relative z-10">
-                  <Shield className="w-5 h-5 text-sky-500 mb-3" />
-                  <h4 className="text-sm lg:text-lg font-bold text-gray-900 mb-1.5 leading-tight">
-                    Operate Safe Systems
-                  </h4>
-                  <p className="text-xs lg:text-sm text-gray-600 leading-relaxed">
-                    Datenhoheit, Security by Design, auditierbar & stabil betreibbar – Kontrolle und Schutz von Anfang an.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Partnerschaft auf Augenhöhe */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="col-span-1 bg-amber-50 p-4 lg:p-6 relative overflow-hidden group hover:bg-amber-100/80 transition-colors duration-300"
-              >
-                <div
-                  className="absolute top-2 right-3 text-[50px] lg:text-[70px] font-black leading-none select-none pointer-events-none"
-                  style={{
-                    WebkitTextStroke: '1.5px rgba(251,191,36,0.2)',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                >
-                  04
-                </div>
-                <div className="relative z-10">
-                  <Handshake className="w-5 h-5 text-amber-500 mb-3" />
-                  <h4 className="text-sm lg:text-lg font-bold text-gray-900 mb-1.5 leading-tight">
-                    Partnerschaft auf Augenhöhe
-                  </h4>
-                  <p className="text-xs lg:text-sm text-gray-600 leading-relaxed">
-                    Wie ein internes Team – offen, direkt, transparent. Keine Blackbox, nachvollziehbare Entscheidungen.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Edge Mentality */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="col-span-1 bg-rose-50 p-4 lg:p-6 relative overflow-hidden group hover:bg-rose-100/80 transition-colors duration-300"
-              >
-                <div
-                  className="absolute top-2 right-3 text-[50px] lg:text-[70px] font-black leading-none select-none pointer-events-none"
-                  style={{
-                    WebkitTextStroke: '1.5px rgba(244,63,94,0.2)',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                >
-                  05
-                </div>
-                <div className="relative z-10">
-                  <Compass className="w-5 h-5 text-rose-500 mb-3" />
-                  <h4 className="text-sm lg:text-lg font-bold text-gray-900 mb-1.5 leading-tight">
-                    Edge Mentality
-                  </h4>
-                  <p className="text-xs lg:text-sm text-gray-600 leading-relaxed">
-                    Visionär mit Bodenhaftung. Der beste Weg für jede Situation – passgenau statt Standardschablone.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* 4️⃣ Warum New Edge keine gewöhnliche Agentur ist – UPDATED TEXT */}
-        <section className="relative py-12 sm:py-16 md:section-padding bg-surface">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="relative order-2 lg:order-1"
-              >
-                <div className="relative">
-                  <motion.div
-                    className="absolute -inset-4 bg-gradient-primary rounded-3xl blur-2xl opacity-20"
-                    animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
-                    transition={{ duration: 8, repeat: Infinity }}
-                  />
-                  <div className="relative bg-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl border border-border">
-                    <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4">
-                      {[
-                        { icon: Network, label: "Netzwerk" },
-                        { icon: Zap, label: "Automation" },
-                        { icon: Users, label: "Partnerschaften" },
-                        { icon: Rocket, label: "Innovation" },
-                      ].map((item, i) => (
-                        <motion.div
-                          key={item.label}
-                          className="bg-surface rounded-2xl p-6 text-center"
-                          initial={{ opacity: 0, scale: 0 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: i * 0.1 }}
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          <item.icon className="w-8 h-8 mx-auto mb-3 text-primary" />
-                          <div className="text-sm font-medium">{item.label}</div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 60 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="order-1 lg:order-2"
-              >
-                <h2 className="sm:text-4xl mb-4 sm:mb-6 md:mb-8 text-foreground text-5xl md:text-4xl font-semibold">
-                  Warum New Edge keine gewöhnliche{" "}
-                  <span className="bg-gradient-primary bg-clip-text text-transparent">Agentur ist</span>
-                </h2>
-
-                <div className="space-y-3 sm:space-y-4 md:space-y-6 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
-                  <p>
-                    Wir verstehen uns nicht als Agentur, sondern als{" "}
-                    <strong className="text-foreground">langfristiger Innovationspartner</strong>. Wir arbeiten auf Augenhöhe wie ein internes Team – verbindlich, transparent und nah dran.
-                  </p>
-
-                  <p>
-                    Unsere Lösungen passen zu eurem Reifegrad, euren Prozessen und Ressourcen. Keine Standardschablonen, sondern{" "}
-                    <strong className="text-foreground">der beste Weg für eure Situation</strong> – wirtschaftlich tragfähig und im Alltag nutzbar.
-                  </p>
-
-                  <p>
-                    Von Strategie über Prototyp bis Rollout – durchgängig. Wir beraten nicht nur, wir liefern. End-to-End: {" "}
-                    <strong className="text-foreground">Richtung + Umsetzung</strong>.
-                  </p>
-                </div>
-
-                {/* Studio & Lab Links */}
-                <motion.div
-                  className="mt-8 flex flex-col sm:flex-row gap-3"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.6 }}
-                >
-                  <a
-                    href="/studio"
-                    className="group flex items-center gap-3 px-4 py-3 border border-purple-200 hover:border-purple-400 bg-purple-50/50 hover:bg-purple-50 transition-all duration-300"
-                  >
-                    <div className="w-8 h-8 flex items-center justify-center bg-purple-100 group-hover:bg-purple-500 transition-colors">
-                      <Fingerprint className="w-4 h-4 text-purple-500 group-hover:text-white transition-colors" />
-                    </div>
-                    <span className="text-sm font-medium text-foreground">Studio entdecken</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-purple-400 group-hover:translate-x-1 transition-transform ml-auto" />
-                  </a>
-                  <a
-                    href="/lab"
-                    className="group flex items-center gap-3 px-4 py-3 border border-yellow-200 hover:border-yellow-400 bg-yellow-50/50 hover:bg-yellow-50 transition-all duration-300"
-                  >
-                    <div className="w-8 h-8 flex items-center justify-center bg-yellow-100 group-hover:bg-yellow-500 transition-colors">
-                      <FlaskConical className="w-4 h-4 text-yellow-600 group-hover:text-white transition-colors" />
-                    </div>
-                    <span className="text-sm font-medium text-foreground">Lab entdecken</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-yellow-500 group-hover:translate-x-1 transition-transform ml-auto" />
-                  </a>
-                </motion.div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* 5️⃣ Unsere Geschichte – Timeline */}
-        <section id="geschichte" className="relative py-12 sm:py-16 md:section-padding bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12 sm:mb-16 md:mb-20"
-            >
-              <h2 className="text-3xl sm:text-4xl mb-4 sm:mb-6 text-foreground lg:text-left text-left font-semibold md:text-5xl">
-                Von der Idee zum <span className="bg-gradient-primary bg-clip-text text-transparent">Ökosystem</span>
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl text-left mb-6">
-                Seit August 2025 liefert New Edge als Innovationspartner &amp; Connector – aufgebaut mit modernster KI &amp; Automation.
-              </p>
-            </motion.div>
-
-            {/* Timeline */}
-            <div className="max-w-4xl mx-auto relative">
-              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent" />
-
-              {[
-                {
-                  year: "08/2025",
-                  title: "Start mit Tech-Vorsprung",
-                  subtitle: "Launch",
-                  description: "Go-Live von New Edge als Innovationspartner & Connector für KMU und Agenturen.",
-                },
-                {
-                  year: "09-10/2025",
-                  title: "Aufbauen. Testen. Liefern.",
-                  subtitle: "Build & Proof",
-                  description:
-                    "Aufbau und Onboarding geprüfter Partner-Agenturen – mit ersten vernetzten Projekten für KMU aus unterschiedlichen Branchen.",
-                },
-                {
-                  year: "11–12/2025",
-                  title: "Partner- & Netzwerkerweiterung",
-                  subtitle: "Scale",
-                  description:
-                    "Neue Partnerschaften, neue Branchen, neue Perspektiven – wir verbinden kreative Expertise mit systemischer Präzision.",
-                },
-                {
-                  year: "2026+",
-                  title: "Von Prozessen zu Produkten",
-                  subtitle: "Expansion & Impact",
-                  description:
-                    "Wir übersetzen Erfahrung in Technologie – und gestalten daraus smarte Module, die Unternehmen messbar effizienter machen.",
-                },
-              ].map((milestone, i) => (
-                <motion.div
-                  key={milestone.year}
-                  className={`relative grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16`}
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.2 }}
-                >
-                  {i % 2 === 0 ? (
-                    <>
-                      <div className="text-right pr-2 sm:pr-4 md:pr-8">
-                        <Card className="inline-block text-left hover:shadow-xl transition-all">
-                          <CardContent className="p-3 sm:p-4 md:p-6">
-                            <div className="text-lg sm:text-xl font-semibold text-primary mb-1">
-                              {milestone.year} – {milestone.subtitle}
-                            </div>
-                            <h3 className="text-base sm:text-lg md:text-xl mb-2 sm:mb-3 font-bold">
-                              {milestone.title}
-                            </h3>
-                            <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
-                              {milestone.description}
-                            </p>
-                          </CardContent>
-                        </Card>
-                      </div>
-                      <div className="relative flex items-center">
-                        <motion.div
-                          className="absolute left-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-primary border-2 sm:border-4 border-background shadow-lg"
-                          whileInView={{ scale: [0, 1.2, 1] }}
-                          transition={{ duration: 0.5 }}
-                        />
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="relative flex items-center justify-end">
-                        <motion.div
-                          className="absolute right-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-secondary border-2 sm:border-4 border-background shadow-lg"
-                          whileInView={{ scale: [0, 1.2, 1] }}
-                          transition={{ duration: 0.5 }}
-                        />
-                      </div>
-                      <div className="pl-2 sm:pl-4 md:pl-8">
-                        <Card className="hover:shadow-xl transition-all">
-                          <CardContent className="p-3 sm:p-4 md:p-6">
-                            <div className="text-lg sm:text-xl font-semibold text-secondary mb-1">
-                              {milestone.year} – {milestone.subtitle}
-                            </div>
-                            <h3 className="text-base sm:text-lg md:text-xl mb-2 sm:mb-3 font-bold">
-                              {milestone.title}
-                            </h3>
-                            <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
-                              {milestone.description}
-                            </p>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </>
-                  )}
-                </motion.div>
-              ))}
-            </div>
+            {/* Subline */}
+            <p style={{
+              fontFamily: SANS,
+              fontSize: "15px",
+              color: "#a8a3b3",
+              maxWidth: "560px",
+              margin: "0 auto",
+              lineHeight: 1.7,
+              fontWeight: 400,
+            }}>
+              {about.hero.subline}
+            </p>
 
             {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center mt-12 sm:mt-16"
-            >
-              <Button
-                size="lg"
-                onClick={() => {
-                  setIsPartnerRequest(false);
-                  setIsContactSheetOpen(true);
+            <div style={{ marginTop: "36px", display: "flex", justifyContent: "center" }}>
+              <SweepButton
+                onClick={() => window.open(about.hero.cta.href, "_blank", "noopener")}
+                sweepColor="violet"
+                hoverTextColor="#ffffff"
+                style={{
+                  background: "#5658DF",
+                  color: "#fff",
+                  fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  padding: "14px 32px",
+                  border: "1px solid rgba(132,118,239,0.4)",
+                  boxShadow: "0 0 20px rgba(132,118,239,0.3)",
                 }}
-                className="group rounded-none border-2 border-black bg-transparent text-black backdrop-blur-sm transition-all hover:bg-black hover:text-white"
               >
-                Projekt anfragen
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </motion.div>
+                {about.hero.cta.label}
+              </SweepButton>
+            </div>
+          </motion.div>
+
+          {/* Scroll indicator */}
+          <motion.div
+            animate={{ opacity: [0.35, 1, 0.35] }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "2px",
+              height: "clamp(80px, 10vh, 130px)",
+              background: "linear-gradient(to bottom, rgba(194,195,246,0), #C2C3F6 50%, rgba(194,195,246,0.6))",
+              boxShadow: "0 0 10px rgba(194,195,246,0.45)",
+              zIndex: 3,
+            }}
+          />
+        </div>
+
+        {/* ── MAGAZIN-HINTERGRUND: Helllila + Spaltenraster (wie ursprünglich auf Über uns) ── */}
+        <div style={{ position: "relative", background: "#F8F5FF" }}>
+          {/* Editorial-Hintergrund: 12-Spalten-Raster + dezenter Marken-Schimmer */}
+          <div aria-hidden style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none", overflow: "hidden" }}>
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: [
+                  "radial-gradient(ellipse 60% 38% at 100% 0%, rgba(86,88,223,0.05) 0%, transparent 55%)",
+                  "radial-gradient(ellipse 55% 42% at 0% 100%, rgba(132,118,239,0.04) 0%, transparent 55%)",
+                ].join(", "),
+              }}
+            />
+            <div className="h-full w-full flex justify-center">
+              <div className="w-full max-w-[1280px] px-4 sm:px-6 lg:px-8 h-full">
+                <div
+                  style={{
+                    height: "100%",
+                    backgroundImage:
+                      "linear-gradient(to right, rgba(23,23,46,0.07) 0 1px, transparent 1px)",
+                    backgroundSize: "calc(100% / 12) 100%",
+                    borderRight: "1px solid rgba(23,23,46,0.07)",
+                  }}
+                />
+              </div>
+            </div>
           </div>
-        </section>
 
-        {/* 6️⃣ Für wen wir arbeiten – NEW */}
-        <section className="relative py-12 sm:py-16 md:section-padding bg-surface">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-8 sm:mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground text-left mb-3">
-                Unsere Kunden & <span className="bg-gradient-primary bg-clip-text text-transparent">Partner</span>
-              </h2>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl text-left">
-                Unsere Kunden haben eines gemeinsam: Sie brauchen mehr Sichtbarkeit, haben manuelle Prozesse und kein internes Marketing- oder Automatisierungsteam.
-              </p>
-            </motion.div>
+          {/* Inhalt — über dem Raster */}
+          <div style={{ position: "relative", zIndex: 1 }}>
 
-            <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
-              {[
-                {
-                  icon: Eye,
-                  title: "Sichtbarkeit ohne eigenes Team",
-                  description: "Unternehmen, die online wachsen wollen – aber kein internes Marketing-Team haben. Social Media, Branding und digitale Präsenz, die Vertrauen aufbaut und Anfragen generiert.",
-                  tags: ["Handwerk", "Architektur", "Immobilien"],
-                  color: "bg-violet-50",
-                  iconColor: "text-violet-500",
-                  tagBg: "bg-violet-100 text-violet-700",
-                },
-                {
-                  icon: Cog,
-                  title: "Prozesse, die skalieren sollen",
-                  description: "Betriebe mit vielen manuellen Abläufen – von Terminen über Leads bis Dokumentation. KI und Automatisierung für operativen Entlastung und strukturiertes Wachstum.",
-                  tags: ["Kliniken", "Praxen", "Hausverwaltungen"],
-                  color: "bg-amber-50",
-                  iconColor: "text-amber-500",
-                  tagBg: "bg-amber-100 text-amber-700",
-                },
-                {
-                  icon: ShieldCheck,
-                  title: "KI nutzen – strukturiert & sicher",
-                  description: "KMU, die KI einsetzen wollen, aber Wert auf Kontrolle, Datenhoheit und Nachvollziehbarkeit legen. Keine Experimente, sondern produktive Systeme mit klarer Governance.",
-                  tags: ["Consultants", "Agenturen", "Institutionen"],
-                  color: "bg-sky-50",
-                  iconColor: "text-sky-500",
-                  tagBg: "bg-sky-100 text-sky-700",
-                },
-              ].map((profile, i) => (
+        {/* ── TEAM CARDS ─────────────────────────────────────────── */}
+        <div style={{ background: "transparent", padding: "clamp(64px,8vw,112px) 24px clamp(80px,10vw,128px)" }}>
+          <div style={{ maxWidth: "1040px", margin: "0 auto" }}>
+            <style>{`
+              .team-photo .team-img {
+                position: absolute; inset: 0; width: 100%; height: 100%;
+                object-fit: cover; display: block;
+                transition: opacity 0.55s ease, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+                will-change: opacity, transform;
+              }
+              .team-img-hover { opacity: 0; }
+              .team-card--swap:hover .team-img-base { opacity: 0; transform: scale(1.05); }
+              .team-card--swap:hover .team-img-hover { opacity: 1; transform: scale(1.05); }
+              @media (prefers-reduced-motion: reduce) {
+                .team-photo .team-img { transition: opacity 0.2s ease; }
+                .team-card--swap:hover .team-img-base,
+                .team-card--swap:hover .team-img-hover { transform: none; }
+              }
+            `}</style>
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "28px",
+            }}>
+              {about.team.map((member, i) => (
                 <motion.div
-                  key={profile.title}
-                  initial={{ opacity: 0, y: 40 }}
+                  key={member.name}
+                  className={member.imgHover ? "team-card team-card--swap" : "team-card"}
+                  initial={{ opacity: 0, y: 32 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.15 }}
-                  className={`${profile.color} p-6 sm:p-8 relative overflow-hidden group hover:shadow-lg transition-all duration-300`}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.6, ease: EASE, delay: i * 0.1 }}
+                  style={{
+                    background: "#FFFFFF",
+                    border: `1px solid ${HAIRLINE}`,
+                    boxShadow: "0 2px 16px rgba(86,88,223,0.07)",
+                    overflow: "hidden",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
                 >
-                  <profile.icon className={`w-8 h-8 ${profile.iconColor} mb-4`} />
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
-                    {profile.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-5">
-                    {profile.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {profile.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className={`px-2.5 py-1 text-[10px] sm:text-xs font-medium ${profile.tagBg} rounded-none`}
-                      >
-                        {tag}
+                  {/* Photo / Avatar */}
+                  <div className="team-photo" style={{ aspectRatio: "3 / 4", background: "#EDE9FF", overflow: "hidden", position: "relative" }}>
+                    {member.img ? (
+                      <>
+                        <img
+                          className="team-img team-img-base"
+                          src={img(member.img)}
+                          alt={member.name}
+                          style={{ objectPosition: member.imgPos || "center top" }}
+                        />
+                        {member.imgHover && (
+                          <img
+                            className="team-img team-img-hover"
+                            src={img(member.imgHover)}
+                            alt=""
+                            aria-hidden
+                            loading="lazy"
+                            style={{ objectPosition: member.imgHoverPos || member.imgPos || "center top" }}
+                          />
+                        )}
+                      </>
+                    ) : (
+                      <div style={{
+                        width: "100%",
+                        height: "100%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        background: `linear-gradient(135deg, #EDE9FF 0%, #DDD6FE 100%)`,
+                      }}>
+                        <span style={{
+                          ...SERIF,
+                          fontSize: "5rem",
+                          color: VIOLET,
+                          opacity: 0.35,
+                          fontStyle: "italic",
+                        }}>
+                          {member.initials}
+                        </span>
+                      </div>
+                    )}
+                    {/* Role badge */}
+                    <div style={{
+                      position: "absolute",
+                      top: "16px",
+                      left: "16px",
+                      background: "rgba(86,88,223,0.88)",
+                      backdropFilter: "blur(8px)",
+                      padding: "5px 12px",
+                    }}>
+                      <span style={{ ...MONO, fontSize: "10px", letterSpacing: "0.18em", color: "#fff", textTransform: "uppercase" }}>
+                        {member.role}
                       </span>
-                    ))}
+                    </div>
+                  </div>
+
+                  {/* Info */}
+                  <div style={{ padding: "28px 24px 32px", flex: 1, display: "flex", flexDirection: "column" }}>
+                    <h2 style={{ ...SERIF, fontStyle: "italic", fontSize: "1.5rem", color: INK_DEEP, marginBottom: "20px", lineHeight: 1.1 }}>
+                      {member.name}
+                    </h2>
+
+                    {/* Facts */}
+                    <ul style={{ listStyle: "none", margin: 0, padding: 0, flex: 1 }}>
+                      {member.facts.map((f, fi) => (
+                        <li key={fi} style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "10px",
+                          paddingBottom: "10px",
+                          marginBottom: fi < member.facts.length - 1 ? "10px" : 0,
+                          borderBottom: fi < member.facts.length - 1 ? `1px solid ${HAIRLINE}` : "none",
+                        }}>
+                          <span style={{ color: VIOLET, fontSize: "10px", marginTop: "4px", flexShrink: 0 }}>▸</span>
+                          <span style={{ ...MONO, fontSize: "12px", color: "rgba(23,23,46,0.65)", lineHeight: 1.6 }}>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* LinkedIn */}
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          marginTop: "24px",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          textDecoration: "none",
+                          color: VIOLET,
+                          opacity: 0.75,
+                          transition: "opacity 0.2s",
+                        }}
+                        onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+                        onMouseLeave={e => (e.currentTarget.style.opacity = "0.75")}
+                        aria-label={`${member.name} auf LinkedIn`}
+                      >
+                        {/* LinkedIn official logo */}
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect width="24" height="24" rx="4" fill={VIOLET}/>
+                          <path d="M7.5 9.5H5V19H7.5V9.5Z" fill="white"/>
+                          <circle cx="6.25" cy="6.75" r="1.5" fill="white"/>
+                          <path d="M13 13.5C13 12.4 13.9 11.5 15 11.5C16.1 11.5 17 12.4 17 13.5V19H19.5V13.5C19.5 11 17.5 9 15 9C13.8 9 12.7 9.5 12 10.3V9.5H9.5V19H12V13.5H13Z" fill="white"/>
+                        </svg>
+                        <span style={{ ...MONO, fontSize: "11px", letterSpacing: "0.14em", textTransform: "uppercase" }}>
+                          LinkedIn
+                        </span>
+                      </a>
+                    )}
                   </div>
                 </motion.div>
               ))}
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* 8️⃣ CTA Kontakt */}
-        <section
-          id="kontakt"
-          className="relative py-16 sm:py-24 bg-gradient-to-br from-white via-gray-50/50 to-white overflow-hidden"
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="text-center max-w-4xl mx-auto"
-            >
-              <motion.h2
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.7 }}
-                className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-5 md:mb-6 leading-[1.25] text-black font-semibold lg:text-5xl"
-              >
-                Jetzt Kontakt aufnehmen
-              </motion.h2>
+        {/* ── WERKBANK — System-Manifest ──────────────────────────── */}
+        <div style={{ background: "transparent", borderTop: "1px solid rgba(86,88,223,0.12)", padding: "clamp(64px,8vw,112px) 24px" }}>
+          <style>{`
+            .wb-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+            .wb-row {
+              position: relative; display: grid; grid-template-columns: 64px 1fr; gap: 20px;
+              align-items: baseline; padding: clamp(18px, 2.4vw, 26px) 18px;
+              border: 1px solid ${HAIRLINE}; overflow: hidden;
+              background: #ffffff;
+              margin-bottom: 6px;
+            }
+            .wb-row:last-child { margin-bottom: 0; }
+            .wb-row::before {
+              content: ""; position: absolute; inset: 0; background: ${VIOLET};
+              transform: scaleY(0); transform-origin: bottom; z-index: 0;
+              transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .wb-row:hover::before { transform: scaleY(1); }
+            .wb-row > * { position: relative; z-index: 1; transition: color 0.35s ease, -webkit-text-stroke-color 0.35s ease; }
+            .wb-num {
+              font-family: 'DM Serif Display', Georgia, serif; font-style: italic;
+              font-size: clamp(1.9rem, 3vw, 2.6rem); line-height: 1; color: transparent;
+              -webkit-text-stroke: 1px rgba(86,88,223,0.32);
+            }
+            .wb-row:hover .wb-num { -webkit-text-stroke-color: rgba(255,255,255,0.6); }
+            .wb-label {
+              color: ${VIOLET};
+              font-family: 'DM Serif Display', Georgia, serif;
+              font-style: italic;
+              font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+              letter-spacing: -0.01em;
+              line-height: 1.1;
+            }
+            .wb-desc { color: #26263A; }
+            .wb-row:hover .wb-label,
+            .wb-row:hover .wb-desc { color: #fff; }
+            .wb-photo { position: relative; border: 1px solid ${HAIRLINE}; overflow: hidden; min-height: clamp(360px, 46vw, 520px); }
+            @media (max-width: 860px) {
+              .wb-grid { grid-template-columns: 1fr; }
+              .wb-photo { min-height: 320px; }
+            }
+            @media (prefers-reduced-motion: reduce) {
+              .wb-row::before { transition: none; }
+            }
+          `}</style>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-base lg:text-xl text-gray-600 mb-10 leading-[1.5] max-w-3xl mx-auto"
-              >
-                New Edge steht für Innovation und nachhaltige Entwicklung. Gemeinsam gestalten wir die Zukunft von Marken und Prozessen.
-              </motion.p>
+          <div style={{ maxWidth: "1160px", margin: "0 auto" }}>
+            <p style={{ ...MONO, display: "flex", alignItems: "center", gap: "12px", fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: VIOLET, marginBottom: "16px" }}>
+              <span aria-hidden style={{ display: "inline-block", width: "32px", height: "1px", background: VIOLET }} />
+              {about.werkbank.eyebrow}
+            </p>
+            <h2 style={{ ...SERIF, fontStyle: "italic", fontSize: "clamp(1.85rem, 3.4vw, 2.75rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: INK_DEEP, marginBottom: "12px" }}>
+              {about.werkbank.heading}
+            </h2>
+            <p style={{ ...MONO, fontSize: "15px", lineHeight: 1.7, color: "#3C3C47", maxWidth: "62ch", marginBottom: "clamp(40px, 5vw, 64px)" }}>
+              {about.werkbank.intro}
+            </p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="flex flex-col sm:flex-row items-center justify-center gap-4"
-              >
-                <Button
-                  size="lg"
-                  onClick={() => scrollToContact(false)}
-                  className="group bg-transparent backdrop-blur-sm border-2 border-black text-black hover:bg-black hover:text-white rounded-none transition-all duration-300"
-                >
-                  Kontakt aufnehmen
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Contact Form Sheet */}
-        <Sheet
-          open={isContactSheetOpen}
-          onOpenChange={(open) => {
-            setIsContactSheetOpen(open);
-            if (!open) setIsPartnerRequest(false);
-          }}
-        >
-          <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
-            <SheetHeader className="mb-6">
-              <SheetTitle className="text-2xl font-bold">
-                {isPartnerRequest ? "Partner werden" : "Projekt besprechen"}
-              </SheetTitle>
-              <SheetDescription>
-                {isPartnerRequest
-                  ? "Werden Sie Teil unseres Netzwerks - wir freuen uns auf die Zusammenarbeit."
-                  : "Erzählen Sie uns von Ihrem Projekt - wir melden uns zeitnah bei Ihnen."}
-              </SheetDescription>
-            </SheetHeader>
-
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="space-y-5">
-                {[
-                  { id: "name", label: "Name *", type: "text", placeholder: "Ihr Name", required: true },
-                  { id: "email", label: "E-Mail *", type: "email", placeholder: "ihre@email.com", required: true },
-                  { id: "position", label: "Position *", type: "text", placeholder: "Ihre Position", required: true },
-                  { id: "firma", label: "Firma *", type: "text", placeholder: "Ihr Unternehmen", required: true },
-                  { id: "telefon", label: "Telefon", type: "tel", placeholder: "Ihre Telefonnummer", required: false },
-                ].map((field) => (
-                  <div key={field.id} className="space-y-2">
-                    <Label htmlFor={field.id} className="text-foreground font-medium">
-                      {field.label}
-                    </Label>
-                    <Input
-                      id={field.id}
-                      name={field.id}
-                      type={field.type}
-                      placeholder={field.placeholder}
-                      required={field.required}
-                      className="bg-background/50 border-border focus:border-primary transition-colors"
-                    />
+            <div className="wb-grid">
+              {/* Manifest */}
+              <div>
+                {about.werkbank.manifest.map((row, i) => (
+                  <div key={row.k} className="wb-row">
+                    <span className="wb-num" aria-hidden>{String(i + 1).padStart(2, "0")}</span>
+                    <div>
+                      <span className="wb-label" style={{ display: "block", marginBottom: "8px" }}>{row.k}</span>
+                      <span className="wb-desc" style={{ ...MONO, display: "block", fontSize: "13px", lineHeight: 1.65 }}>{row.v}</span>
+                    </div>
                   </div>
                 ))}
-
-                <div className="space-y-2">
-                  <Label htmlFor="nachricht" className="text-foreground font-medium">
-                    Nachricht *
-                  </Label>
-                  <Textarea
-                    id="nachricht"
-                    name="nachricht"
-                    placeholder={
-                      isPartnerRequest
-                        ? "Erzählen Sie uns über Ihr Unternehmen und warum Sie Partner werden möchten..."
-                        : "Erzählen Sie uns von Ihrem Projekt..."
-                    }
-                    defaultValue={isPartnerRequest ? "Wir möchten ein Partner von New Edge werden.\n\n" : ""}
-                    required
-                    className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none"
-                  />
-                </div>
               </div>
 
-              <Button type="submit" size="lg" className="w-full btn-primary text-slate-50">
-                Nachricht senden
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+              {/* Video als dokumentiertes Artefakt */}
+              <div
+                className="wb-photo"
+                style={{ aspectRatio: "16 / 9", minHeight: 0 }}
+              >
+                <iframe
+                  src={`https://www.youtube.com/embed/${about.werkbank.video.youtubeId}?rel=0&modestbranding=1&color=white`}
+                  title={about.werkbank.video.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none", display: "block" }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+          </div>{/* /Inhalt */}
+        </div>{/* /Magazin-Hintergrund */}
+
+        {/* ── CTA ───────────────────────────────────────────────── */}
+        <CursorLine buttonRef={ctaBtnRef} buttonRadius={76}>
+        <div style={{
+          background: INK_DEEP,
+          padding: "clamp(64px,8vw,100px) 24px",
+          position: "relative",
+        }}>
+          {/* subtle glow */}
+          <div aria-hidden style={{
+            position: "absolute", inset: 0, pointerEvents: "none",
+            background: "radial-gradient(ellipse 70% 60% at 0% 100%, rgba(86,88,223,0.28) 0%, transparent 65%)",
+          }} />
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease: EASE }}
+            style={{
+              position: "relative",
+              zIndex: 1,
+              maxWidth: "900px",
+              margin: "0 auto",
+              display: "grid",
+              gridTemplateColumns: "1fr auto",
+              gap: "clamp(32px, 6vw, 80px)",
+              alignItems: "center",
+            }}
+          >
+            {/* LEFT — text */}
+            <div>
+              <p style={{ ...MONO, fontSize: "11px", letterSpacing: "0.22em", color: "#C2C3F6", textTransform: "uppercase", marginBottom: "20px" }}>
+                {about.cta.eyebrow}
+              </p>
+              <h2 style={{
+                ...SERIF,
+                fontStyle: "italic",
+                fontWeight: 400,
+                fontSize: "clamp(2.25rem, 4.5vw, 3.4rem)",
+                color: "#fff",
+                lineHeight: 1.0,
+                marginBottom: "32px",
+                letterSpacing: "-0.01em",
+              }}>
+                {about.cta.headingLine1}<br />{about.cta.headingLine2}
+              </h2>
+              {/* Phone */}
+              <a
+                href={about.cta.phone.href}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  ...MONO,
+                  fontSize: "13px",
+                  letterSpacing: "0.1em",
+                  color: "rgba(194,195,246,0.75)",
+                  textDecoration: "none",
+                  borderBottom: "1px solid rgba(194,195,246,0.2)",
+                  paddingBottom: "2px",
+                  transition: "color 0.2s",
+                }}
+              >
+                <span style={{ fontSize: "15px", opacity: 0.7 }}>↗</span>
+                {about.cta.phone.label}
+              </a>
+            </div>
+
+            {/* RIGHT — circle button */}
+            <div ref={ctaBtnRef} style={{ display: "flex", justifyContent: "center" }}>
+              <FloatingConsultButton textColor="#ffffff" />
+            </div>
+          </motion.div>
+        </div>
+        </CursorLine>
+
+        {/* Footer */}
+        <Suspense fallback={<div style={{ minHeight: 200 }} />}>
+          <Footer />
+        </Suspense>
+
+        {/* Contact Sheet */}
+        <Sheet open={contactOpen} onOpenChange={setContactOpen}>
+          <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
+            <SheetHeader className="mb-6">
+              <SheetTitle className="text-2xl font-bold">{about.contact.title}</SheetTitle>
+              <SheetDescription>{about.contact.description}</SheetDescription>
+            </SheetHeader>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {about.contact.fields.map(f => (
+                <div key={f.id} className="space-y-2">
+                  <Label htmlFor={f.id}>{f.label}</Label>
+                  <Input id={f.id} name={f.id} type={f.type} placeholder={f.placeholder} required={f.required} />
+                </div>
+              ))}
+              <div className="space-y-2">
+                <Label htmlFor="nachricht">{about.contact.message.label}</Label>
+                <Textarea id="nachricht" name="nachricht" placeholder={about.contact.message.placeholder} required className="min-h-[120px] resize-none" />
+              </div>
+              <SweepButton type="submit" sweepColor="violet" hoverTextColor="#ffffff" style={{ width: "100%", background: "#5658DF", color: "#fff", ...MONO, fontSize: "12px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", padding: "16px 28px", border: "none", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" }}>
+                {about.contact.submit} <ArrowRight style={{ width: 16, height: 16 }} />
+              </SweepButton>
             </form>
           </SheetContent>
         </Sheet>
-
-        <Footer />
       </div>
     </>
   );
 };
+
 export default About;

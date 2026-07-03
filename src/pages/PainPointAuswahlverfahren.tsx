@@ -6,54 +6,49 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Plus, Check } from "lucide-react";
+import { Plus, Check, ArrowRight } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { painPoints, DEFAULT_PAIN_POINT } from "@/content/painPoints";
-// Default-Bildplatzhalter (werden später pro Slug ersetzt — siehe content.*.imageNote)
-import painpointAVorherNachher from "@/assets/painpoint-a-vorher-nachher.png";
-import painpointASection3 from "@/assets/painpoint-a-section3.png";
-import painpointAFeature2 from "@/assets/painpoint-a-feature2.png";
-import painpointAFeature3 from "@/assets/painpoint-a-feature3.png";
-import iconAnalyse from "@/assets/painpoint-a-icon-analyse.png";
-import iconKoordination from "@/assets/painpoint-a-icon-koordination.png";
-import iconInsights from "@/assets/painpoint-a-icon-insights.png";
-import integrationsLogos from "/lovable-uploads/integrations-logos.png";
+import { img } from "@/content";
+import { painPointPage as PPP_STATIC } from "@/content/pages/painPointAuswahlverfahren";
+import { useCms } from "@/hooks/useCms";
+import { usePainPoints } from "@/hooks/usePainPoints";
 import { Logos3 } from "@/components/ui/logos3";
+import { clientLogos } from "@/components/ui/logo-cloud";
 import { FloatingConsultButton } from "@/components/ui/FloatingConsultButton";
+import { AuroraFlow } from "@/components/ui/aurora-flow";
 import { CursorLine } from "@/components/ui/CursorLine";
 import { SweepButton } from "@/components/ui/SweepButton";
-
-import foundersImg from "@/assets/founders-color.webp";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
 /* ──────────────────────────────────────────────
    Design tokens
 ────────────────────────────────────────────── */
-const PURPLE = "#7c3aed";
-const PURPLE_DARK = "#4c1d95";
-const PURPLE_LIGHT = "#6d28d9";
-const PURPLE_BG = "rgba(124,58,237,0.08)";
+/* Brand tokens — aligned with DESIGN.md (Ink & Edge) */
+const PURPLE = "#5658DF";            // Violet Edge — light surfaces
+const PURPLE_DARK = "#5658DF";       // labels on light surfaces
+const PURPLE_LIGHT = "#9A85F6";      // Violet Glow — dark surfaces only
+const PURPLE_BG = "rgba(86,88,223,0.08)";
 
 // Light theme
 const L = {
-  bg: "#ffffff",
-  bgAlt: "#f8f8fa",
-  text: "#111111",
-  textMuted: "#555555",
-  textLight: "#888888",
-  border: "#e5e5e5",
-  borderLight: "#f0f0f0",
+  bg: "#F8F5FF",
+  bgAlt: "#FFFFFF",
+  text: "#17172E",
+  textMuted: "#3C3C47",
+  textLight: "#8A8494",
+  border: "#E6E6E6",
+  borderLight: "#F0EFF2",
 };
 
 // Dark theme (hero only)
 const D = {
-  bg: "#0a0a0a",
-  surface: "#141414",
-  border: "#252525",
-  text: "#ffffff",
-  textMuted: "#9a9a9a",
+  bg: "#0C0C1C",
+  surface: "#160B26",
+  border: "#2A1F3D",
+  text: "#FBF9FF",
+  textMuted: "#A8A3B3",
 };
 
 const SERIF: React.CSSProperties = { fontFamily: "'DM Serif Display', serif", fontWeight: 400 };
@@ -89,7 +84,7 @@ const SectionHeadline = ({
 /** Zweite Headline — beschreibender Untertitel, kursiv, muted. Einheitlich überall. */
 const SectionH3 = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
   <p
-    className={`text-[1.05rem] leading-[1.4] mb-5 max-w-[500px] ${className}`}
+    className={`text-[clamp(1.4rem,2.2vw,1.75rem)] leading-[1.3] mb-5 max-w-[520px] ${className}`}
     style={{ color: L.textMuted, ...SERIF, fontStyle: "italic" }}
   >
     {children}
@@ -121,28 +116,19 @@ const BulletList = ({ items }: { items: string[] }) => (
   </ul>
 );
 
-const FeatureCTA = ({ children }: { children: React.ReactNode }) => (
-  <button
-    className="inline-flex items-center gap-1.5 text-[0.9rem] font-medium hover:gap-2.5 transition-all bg-transparent border-none p-0 cursor-pointer"
-    style={{ color: PURPLE, ...MONO }}
-  >
-    {children} <ArrowRight className="w-4 h-4" />
-  </button>
-);
-
 const BtnFilled = ({ children, large = false, onClick }: { children: React.ReactNode; large?: boolean; onClick?: () => void }) => (
   <SweepButton
     onClick={onClick}
+    sweepColor="silver"
     hoverTextColor="#ffffff"
     style={{
       display: "inline-flex", alignItems: "center", gap: "6px",
       padding: large ? "14px 28px" : "10px 20px",
       fontSize: large ? "0.9rem" : "0.875rem",
       fontWeight: 700,
-      background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)",
+      background: PURPLE,
       color: "#fff",
-      border: "1px solid rgba(139,92,246,0.4)",
-      boxShadow: "0 0 20px rgba(124,58,237,0.3)",
+      border: "1px solid rgba(154,133,246,0.4)",
       ...MONO,
     }}
   >
@@ -152,16 +138,17 @@ const BtnFilled = ({ children, large = false, onClick }: { children: React.React
 
 const BtnGhost = ({ children, large = false, dark = false }: { children: React.ReactNode; large?: boolean; dark?: boolean }) => (
   <SweepButton
+    sweepColor="silver"
     hoverTextColor="#ffffff"
     style={{
       display: "inline-flex", alignItems: "center", gap: "6px",
       padding: large ? "14px 28px" : "10px 20px",
       fontSize: large ? "0.9rem" : "0.875rem",
       fontWeight: 700,
-      background: dark ? "rgba(139,92,246,0.08)" : "transparent",
+      background: dark ? "rgba(154,133,246,0.08)" : "transparent",
       backdropFilter: dark ? "blur(16px)" : undefined,
-      border: `1px solid ${dark ? "rgba(139,92,246,0.25)" : L.border}`,
-      color: dark ? "#c4b5fd" : L.textMuted,
+      border: `1px solid ${dark ? "rgba(154,133,246,0.25)" : L.border}`,
+      color: dark ? "#C2C3F6" : L.textMuted,
       ...MONO,
     }}
   >
@@ -173,7 +160,7 @@ const BtnGhost = ({ children, large = false, dark = false }: { children: React.R
 
 const FAQItem = ({ q, a, open, onToggle }: { q: string; a: string; open: boolean; onToggle: () => void }) => {
   return (
-    <div className="overflow-hidden" style={{ borderBottom: `1px solid ${L.border}` }}>
+    <div className="overflow-hidden" style={{ borderBottom: `1px solid ${L.border}`, background: "#FFFFFF", padding: "0 16px" }}>
       <button
         onClick={onToggle}
         className="w-full flex justify-between items-center py-5 px-1 text-left text-[0.9rem] font-medium hover:opacity-80 transition-colors gap-4"
@@ -245,14 +232,18 @@ const PainPointAuswahlverfahren = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const ctaBtnRef = useRef<HTMLDivElement>(null);
 
+  // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
+  const painPointPage = useCms("pain-point-page", PPP_STATIC);
+  const { map: painPoints, defaultPainPoint } = usePainPoints();
+
   // Slug-basiertes Content-Lookup. Routen:
   //   /loesungen/:slug
   //   /leistungen/pain-points/:slug
   //   /leistungen/industrien/:slug
   const { slug } = useParams<{ slug: string }>();
   const content = useMemo(
-    () => (slug && painPoints[slug]) || DEFAULT_PAIN_POINT,
-    [slug]
+    () => (slug && painPoints[slug]) || defaultPainPoint,
+    [slug, painPoints, defaultPainPoint]
   );
 
   const compareRows = useMemo(
@@ -261,12 +252,16 @@ const PainPointAuswahlverfahren = () => {
   );
 
   // Default-Icons als Bildplatzhalter (gleich für alle Slugs, später ersetzbar)
-  const defaultCardIcons = [iconAnalyse, iconKoordination, iconInsights, iconInsights, iconAnalyse, iconKoordination];
+  const iconAnalyse = img(painPointPage.images.cardIconAnalyse);
+  const defaultCardIcons = [iconAnalyse, img(painPointPage.images.cardIconKoordination), img(painPointPage.images.cardIconInsights), img(painPointPage.images.cardIconInsights), iconAnalyse, img(painPointPage.images.cardIconKoordination)];
   const featureCards = content.featureCards.cards.map((c, i) => ({
     icon: defaultCardIcons[i % defaultCardIcons.length] ?? iconAnalyse,
     title: c.title,
     desc: c.desc,
   }));
+
+  // Bilder für die Mini-Case-Übersicht — 1:1 zu den 3 Phasen (Platzhalter, pro Slug ersetzbar)
+  const caseImages = [img(painPointPage.images.feature1), img(painPointPage.images.feature2), img(painPointPage.images.feature3)];
 
   const faqs = content.faq;
 
@@ -321,89 +316,12 @@ const PainPointAuswahlverfahren = () => {
           className="relative overflow-hidden flex flex-col text-white"
           style={{
             minHeight: "100dvh",
-            background: `linear-gradient(135deg, #1a0533 0%, ${D.bg} 50%, #0d0a1a 100%)`,
+            background: "#0A0A18",
           }}
         >
-          {/* Geometric background shapes — ElegantShape style */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-            {/* Ambient glow */}
-            <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 50% at 18% 35%, rgba(124,58,237,0.18) 0%, transparent 60%)" }} />
-            <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 40% at 85% 70%, rgba(139,92,246,0.10) 0%, transparent 50%)" }} />
-
-            {/* Shape 1 — top-left, large */}
-            <motion.div
-              initial={{ opacity: 0, y: -150, rotate: 12 }}
-              animate={{ opacity: 1, y: 0, rotate: 12 }}
-              transition={{ duration: 2.4, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute top-[-15%] left-[-5%]"
-              style={{ width: 600, height: 140 }}
-            >
-              <motion.div
-                animate={{ y: [0, 15, 0] }}
-                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.15] bg-gradient-to-r from-white/[0.08] via-transparent to-transparent shadow-[0_8px_32px_0_rgba(139,92,246,0.25)] backdrop-blur-[2px]"
-              />
-            </motion.div>
-
-            {/* Shape 2 — right side */}
-            <motion.div
-              initial={{ opacity: 0, y: -100, rotate: -15 }}
-              animate={{ opacity: 1, y: 0, rotate: -15 }}
-              transition={{ duration: 2.4, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute top-[10%] right-[-10%]"
-              style={{ width: 500, height: 120 }}
-            >
-              <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.12] bg-gradient-to-r from-violet-500/[0.10] via-transparent to-transparent shadow-[0_8px_32px_0_rgba(124,58,237,0.20)] backdrop-blur-[2px]"
-              />
-            </motion.div>
-
-            {/* Shape 3 — center-left, crossing content */}
-            <motion.div
-              initial={{ opacity: 0, x: -100, rotate: -8 }}
-              animate={{ opacity: 1, x: 0, rotate: -8 }}
-              transition={{ duration: 2.4, delay: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute top-[35%] left-[5%]"
-              style={{ width: 550, height: 130 }}
-            >
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.10] bg-gradient-to-r from-white/[0.06] via-transparent to-transparent shadow-[0_8px_32px_0_rgba(168,85,247,0.15)] backdrop-blur-[2px]"
-              />
-            </motion.div>
-
-            {/* Shape 4 — bottom-right */}
-            <motion.div
-              initial={{ opacity: 0, y: 100, rotate: 20 }}
-              animate={{ opacity: 1, y: 0, rotate: 20 }}
-              transition={{ duration: 2.4, delay: 0.9, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute bottom-[5%] right-[0%]"
-              style={{ width: 480, height: 110 }}
-            >
-              <motion.div
-                animate={{ y: [0, -18, 0] }}
-                transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.10] bg-gradient-to-r from-purple-400/[0.08] via-transparent to-transparent shadow-[0_8px_32px_0_rgba(139,92,246,0.18)] backdrop-blur-[2px]"
-              />
-            </motion.div>
-
-            {/* Shape 5 — small bottom-left accent */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5, rotate: 35 }}
-              animate={{ opacity: 1, scale: 1, rotate: 35 }}
-              transition={{ duration: 2.4, delay: 1.1, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute bottom-[20%] left-[15%]"
-              style={{ width: 380, height: 90 }}
-            >
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full rounded-full border border-white/[0.08] bg-gradient-to-r from-violet-400/[0.06] via-transparent to-transparent shadow-[0_4px_16px_0_rgba(139,92,246,0.12)]"
-              />
-            </motion.div>
+          {/* Aurora — identical to homepage */}
+          <div aria-hidden style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none" }}>
+            <AuroraFlow />
           </div>
           <MobileNavigation onContactClick={() => setContactOpen(true)} theme="dark" />
 
@@ -439,7 +357,7 @@ const PainPointAuswahlverfahren = () => {
                   <div className="relative w-full max-w-[460px]">
                     {/* Bildplatzhalter — wird später pro Slug ersetzt. Note: {content.hero.imageNote} */}
                     <img
-                      src={painpointAVorherNachher}
+                      src={img(painPointPage.images.hero)}
                       alt={content.hero.imageAlt}
                       className="w-full h-auto"
                       style={{ border: `1px solid ${D.border}` }}
@@ -460,16 +378,21 @@ const PainPointAuswahlverfahren = () => {
                 {content.trustBar.sub}
               </p>
               <div className="overflow-hidden" style={{ borderTop: `1px solid ${D.border}`, borderBottom: `1px solid ${D.border}` }}>
-                <div className="flex w-max py-3.5" style={{ animation: "marquee 28s linear infinite" }}>
+                <div className="flex w-max py-3.5 items-center" style={{ animation: "marquee 28s linear infinite" }}>
                   {[...Array(2)].flatMap((_, dup) =>
-                    content.trustBar.logos.map((name, i) => (
+                    clientLogos.map((logo, i) => (
                       <div
                         key={`hero-${dup}-${i}`}
-                        className="flex items-center gap-2.5 px-8 text-[0.9rem] font-semibold whitespace-nowrap"
-                        style={{ color: "#666", ...SERIF }}
+                        className="flex items-center px-8 shrink-0"
+                        style={{ height: "34px" }}
                       >
-                        {name}
-                        <span style={{ color: D.border }}>·</span>
+                        <img
+                          src={img(logo.src)}
+                          alt={logo.alt}
+                          loading="lazy"
+                          className="object-contain brightness-0 invert"
+                          style={{ height: "30px", width: "auto", maxWidth: "150px", opacity: 0.6 }}
+                        />
                       </div>
                     ))
                   )}
@@ -488,11 +411,12 @@ const PainPointAuswahlverfahren = () => {
           {/* DEFINITION */}
           <section id="definition" className="pt-16 md:pt-20 pb-0">
             <div className="max-w-[800px] mx-auto px-6 lg:px-8">
-              <div className="border-l-2 pl-5 py-2" style={{ borderColor: PURPLE }}>
-                <p className="text-[0.7rem] uppercase tracking-[0.12em] mb-2" style={{ color: PURPLE }}>
-                  Definition
+              <div>
+                <p className="flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.2em] mb-3" style={{ color: PURPLE, ...MONO }}>
+                  <span aria-hidden style={{ display: "inline-block", width: "32px", height: "1px", background: PURPLE }} />
+                  {painPointPage.labels.definition}
                 </p>
-                <h2 className="text-lg md:text-xl mb-2" style={{ ...SERIF, color: L.text }}>
+                <h2 className="text-lg md:text-xl mb-2 italic" style={{ ...SERIF, color: L.text }}>
                   {content.definition.title}
                 </h2>
                 <p className="text-sm leading-[1.7]" style={{ color: L.textMuted }}>
@@ -506,50 +430,56 @@ const PainPointAuswahlverfahren = () => {
           <Reveal>
             <div id="feature-01" className="max-w-[1200px] mx-auto px-6 lg:px-8 pt-20 md:pt-24 pb-20 md:pb-24">
               <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
-                <div>
+                <div className="flex flex-col">
                   <SectionHeadline>
                     {content.feature1.h2}
                   </SectionHeadline>
                   <img
-                    src={painpointASection3}
+                    src={img(painPointPage.images.feature1)}
                     alt={content.feature1.imageAlt}
                     loading="lazy"
                     className="w-full h-auto max-w-[440px] mx-auto"
                   />
                 </div>
                 <div>
-                  <SectionLabel>Feature 01</SectionLabel>
-                  {content.feature1.h3 && <SectionH3>{content.feature1.h3}</SectionH3>}
+                  <SectionLabel>{painPointPage.labels.feature01}</SectionLabel>
+                  {content.feature1.h3 && (
+                    <SectionH3 className="max-w-[440px]">
+                      {content.feature1.h3}
+                    </SectionH3>
+                  )}
                   <SectionSub>{content.feature1.sub}</SectionSub>
                   <BulletList items={[...content.feature1.bullets]} />
-                  <FeatureCTA>{content.feature1.cta}</FeatureCTA>
                 </div>
               </div>
             </div>
           </Reveal>
 
           {/* FEATURE 02 (flipped) — Bild rechts → H2 oben links über Text */}
-           <div id="feature-02" style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+           <div id="feature-02" style={{ background: L.bg, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
             <Reveal>
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
                 <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
                   <div className="md:order-1">
-                    <SectionLabel>Feature 02</SectionLabel>
+                    <SectionLabel>{painPointPage.labels.feature02}</SectionLabel>
                     <SectionHeadline>
                       {content.feature2.h2}
                     </SectionHeadline>
-                    {content.feature2.h3 && <SectionH3>{content.feature2.h3}</SectionH3>}
                     <SectionSub>{content.feature2.sub}</SectionSub>
                     <BulletList items={[...content.feature2.bullets]} />
-                    <FeatureCTA>{content.feature2.cta}</FeatureCTA>
                   </div>
-                  <div className="md:order-2">
+                  <div className="md:order-2 flex flex-col">
                     <img
-                      src={painpointAFeature2}
+                      src={img(painPointPage.images.feature2)}
                       alt={content.feature2.imageAlt}
                       loading="lazy"
                       className="w-full h-auto max-w-[500px] mx-auto md:mt-[5.5rem]"
                     />
+                    {content.feature2.h3 && (
+                      <SectionH3 className="mt-5 md:mt-6 max-w-[500px] mx-auto text-center">
+                        {content.feature2.h3}
+                      </SectionH3>
+                    )}
                   </div>
                 </div>
               </div>
@@ -560,56 +490,50 @@ const PainPointAuswahlverfahren = () => {
           <Reveal>
             <div id="feature-03" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
               <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
-                <div>
+                <div className="flex flex-col">
                   <SectionHeadline>
                     {content.feature3.h2}
                   </SectionHeadline>
                   <img
-                    src={painpointAFeature3}
+                    src={img(painPointPage.images.feature3)}
                     alt={content.feature3.imageAlt}
                     loading="lazy"
                     className="w-full h-auto max-w-[500px] mx-auto"
                   />
                 </div>
                 <div>
-                  <SectionLabel>Feature 03</SectionLabel>
-                  {content.feature3.h3 && <SectionH3>{content.feature3.h3}</SectionH3>}
+                  <SectionLabel>{painPointPage.labels.feature03}</SectionLabel>
+                  {content.feature3.h3 && (
+                    <SectionH3 className="max-w-[500px]">
+                      {content.feature3.h3}
+                    </SectionH3>
+                  )}
                   <SectionSub>{content.feature3.sub}</SectionSub>
                   <BulletList items={[...content.feature3.bullets]} />
-                  <FeatureCTA>{content.feature3.cta}</FeatureCTA>
                 </div>
               </div>
             </div>
           </Reveal>
 
           {/* INTEGRATIONS */}
-          <div id="integrations" style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+          <div id="integrations" style={{ background: L.bg, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
             <Reveal>
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
-                <SectionHeadline>
-                  {content.integrations.h2}
-                </SectionHeadline>
                 <div className="max-w-[600px]">
-                  <SectionLabel>Integrationen</SectionLabel>
+                  <SectionLabel>{painPointPage.labels.integrationen}</SectionLabel>
                   {content.integrations.h3 && <SectionH3>{content.integrations.h3}</SectionH3>}
                   <SectionSub>{content.integrations.sub}</SectionSub>
                 </div>
-                <div className="mt-10" style={{ '--fade-color': L.bgAlt } as React.CSSProperties}>
+                <div className="mt-10" style={{ '--fade-color': L.bg } as React.CSSProperties}>
                   <Logos3
                     heading=""
                     className="mb-8"
-                    logos={[
-                      { id: "ms-teams", description: "Microsoft Teams", image: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg", className: "h-8 w-auto" },
-                      { id: "sharepoint", description: "SharePoint", image: "/sharepoint.png", className: "h-8 w-auto" },
-                      { id: "outlook", description: "Outlook", image: "/outlook.png", className: "h-8 w-auto" },
-                      { id: "hubspot", description: "HubSpot", image: "https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg", className: "h-8 w-auto" },
-                      { id: "zapier", description: "Zapier", image: "https://www.vectorlogo.zone/logos/zapier/zapier-icon.svg", className: "h-8 w-auto" },
-                      { id: "notion", description: "Notion", image: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png", className: "h-8 w-auto" },
-                      { id: "google-ws", description: "Google Workspace", image: "/google-workspace.svg", className: "h-6 w-auto" },
-                      { id: "ms365", description: "Microsoft 365", image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Microsoft_365_%282022%29.svg", className: "h-8 w-auto" },
-                      { id: "slack", description: "Slack", image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg", className: "h-8 w-auto" },
-                      { id: "jira", description: "Jira", image: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Jira_Logo.svg", className: "h-6 w-auto" },
-                    ]}
+                    logos={(content.integrations.logos ?? []).map((logo) => ({
+                      id: logo.id,
+                      description: logo.label,
+                      image: logo.src,
+                      className: logo.className ?? "h-8 w-auto",
+                    }))}
                   />
                 </div>
               </div>
@@ -623,7 +547,7 @@ const PainPointAuswahlverfahren = () => {
                 {content.compare.h2}
               </SectionHeadline>
               <div className="max-w-[600px] mb-10">
-                <SectionLabel>Vergleich</SectionLabel>
+                <SectionLabel>{painPointPage.labels.vergleich}</SectionLabel>
                 {content.compare.h3 && <SectionH3>{content.compare.h3}</SectionH3>}
               </div>
 
@@ -636,7 +560,7 @@ const PainPointAuswahlverfahren = () => {
                         className="text-left p-5 text-[0.8rem] font-bold uppercase tracking-wider w-[26%]"
                         style={{ background: L.bgAlt, color: L.textLight, borderBottom: `1px solid ${L.border}`, ...MONO }}
                       >
-                        Kriterium
+                        {painPointPage.compare.headCriterion}
                       </th>
                       <th
                         className="text-left p-5 text-[0.8rem] font-bold w-[37%]"
@@ -648,7 +572,7 @@ const PainPointAuswahlverfahren = () => {
                           ...SERIF,
                         }}
                       >
-                        New Edge
+                        {painPointPage.compare.headNewEdge}
                       </th>
                       <th
                         className="text-left p-5 text-[0.8rem] font-bold w-[37%]"
@@ -720,7 +644,7 @@ const PainPointAuswahlverfahren = () => {
                         className="px-4 py-3 text-[0.82rem]"
                         style={{ color: "#16a34a", borderRight: `1px solid ${L.borderLight}`, ...MONO }}
                       >
-                        <span className="block text-[0.7rem] font-bold uppercase tracking-wider mb-1" style={{ color: PURPLE_DARK }}>New Edge</span>
+                        <span className="block text-[0.7rem] font-bold uppercase tracking-wider mb-1" style={{ color: PURPLE_DARK }}>{painPointPage.compare.headNewEdge}</span>
                         ✓ {ne}
                       </div>
                       <div
@@ -738,11 +662,11 @@ const PainPointAuswahlverfahren = () => {
           </Reveal>
 
           {/* FEATURE CARDS */}
-          <div id="features" style={{ background: L.bgAlt, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
+          <div id="features" style={{ background: L.bg, borderTop: `1px solid ${L.border}`, borderBottom: `1px solid ${L.border}` }}>
             <Reveal>
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
                 <div className="text-center max-w-[700px] mx-auto mb-12">
-                  <SectionLabel>Kernfunktionen</SectionLabel>
+                  <SectionLabel>{painPointPage.labels.kernfunktionen}</SectionLabel>
                   <SectionHeadline className="!mb-4">
                     {content.featureCards.h2}
                   </SectionHeadline>
@@ -759,13 +683,13 @@ const PainPointAuswahlverfahren = () => {
                       key={c.title}
                       className="group relative p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                       style={{
-                        background: idx % 2 === 0 ? L.bg : L.bgAlt,
+                        background: "#FFFFFF",
                         border: `1px solid ${L.border}`,
                       }}
                     >
                       {/* Icon */}
                       <div className="flex items-center justify-center w-11 h-11 mb-5 rounded-full"
-                        style={{ background: `rgba(91,33,182,0.08)` }}>
+                        style={{ background: `rgba(86,88,223,0.08)` }}>
                         <img
                           src={c.icon}
                           alt={c.title}
@@ -794,6 +718,50 @@ const PainPointAuswahlverfahren = () => {
             </Reveal>
           </div>
 
+          {/* DATENSOUVERÄNITÄT */}
+          <Reveal>
+            <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
+              <div className="grid md:grid-cols-[1fr_1.1fr] gap-px" style={{ border: `1px solid ${L.border}`, background: L.border }}>
+                {/* Statement */}
+                <div style={{ background: "#FFFFFF", padding: "clamp(28px, 4vw, 56px)" }}>
+                  <p className="flex items-center gap-3 uppercase mb-5" style={{ ...MONO, fontSize: "11px", letterSpacing: "0.2em", color: PURPLE }}>
+                    <span aria-hidden style={{ display: "inline-block", width: "32px", height: "1px", background: PURPLE }} />
+                    {painPointPage.labels.datensouveraenitaet}
+                  </p>
+                  <h2 className="italic mb-4" style={{ ...SERIF, fontSize: "clamp(1.35rem, 2.2vw, 1.85rem)", lineHeight: 1.12, letterSpacing: "-0.02em", color: L.text }}>
+                    {painPointPage.datensouveraenitaet.heading}
+                  </h2>
+                  <p style={{ ...MONO, fontSize: "13px", lineHeight: 1.7, color: L.textMuted, maxWidth: "48ch" }}>
+                    {painPointPage.datensouveraenitaet.body}
+                  </p>
+                </div>
+                {/* Fakten + Schema */}
+                <div style={{ background: "#FFFFFF", padding: "clamp(28px, 4vw, 56px)" }}>
+                  <ul className="m-0 p-0 mb-8" style={{ listStyle: "none" }}>
+                    {painPointPage.datensouveraenitaet.facts.map((f) => (
+                      <li key={f} className="flex items-start gap-3 py-2" style={{ ...MONO, fontSize: "13px", lineHeight: 1.6, color: L.text }}>
+                        <span aria-hidden style={{ color: PURPLE, flexShrink: 0 }}>✓</span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  {/* Schema: Daten bleiben im Haus */}
+                  <svg viewBox="0 0 420 120" aria-label={painPointPage.datensouveraenitaet.schema.ariaLabel} style={{ width: "100%", maxWidth: "420px", height: "auto", display: "block" }}>
+                    <rect x="8" y="8" width="244" height="104" fill="none" stroke={L.text} strokeWidth="1" />
+                    <text x="22" y="30" style={{ font: "10px Consolas, monospace", letterSpacing: "0.15em", fill: L.textLight }}>{painPointPage.datensouveraenitaet.schema.infrastruktur}</text>
+                    <rect x="22" y="44" width="100" height="32" fill="rgba(86,88,223,0.06)" stroke={PURPLE} strokeWidth="1" />
+                    <text x="72" y="64" textAnchor="middle" style={{ font: "10px Consolas, monospace", letterSpacing: "0.1em", fill: PURPLE }}>{painPointPage.datensouveraenitaet.schema.ihreDaten}</text>
+                    <rect x="138" y="44" width="100" height="32" fill="none" stroke={L.text} strokeWidth="1" />
+                    <text x="188" y="64" textAnchor="middle" style={{ font: "10px Consolas, monospace", letterSpacing: "0.1em", fill: L.text }}>{painPointPage.datensouveraenitaet.schema.kiAgent}</text>
+                    <line x1="122" y1="60" x2="138" y2="60" stroke={PURPLE} strokeWidth="1" />
+                    <line x1="252" y1="60" x2="330" y2="60" stroke={L.border} strokeWidth="1" strokeDasharray="4 4" />
+                    <text x="334" y="64" style={{ font: "10px Consolas, monospace", letterSpacing: "0.1em", fill: L.textLight }}>{painPointPage.datensouveraenitaet.schema.extern}</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
           {/* TESTIMONIAL HERO */}
           <div id="testimonial" className="py-20 md:py-24">
             <div className="max-w-[800px] mx-auto px-6 lg:px-8 text-center">
@@ -817,24 +785,105 @@ const PainPointAuswahlverfahren = () => {
           {/* TESTIMONIAL GRID */}
           <TestimonialsSection />
 
+          {/* MINI-CASES — eine Detailseite pro Phase (illustrativ). Vor den FAQs. */}
+          {content.miniCases && content.miniCases.length > 0 && (
+            <Reveal>
+              <div id="cases" style={{ background: L.bg, borderTop: `1px solid ${L.border}` }}>
+                <div className="py-20 md:py-24">
+                  <div className="text-center max-w-[700px] mx-auto mb-12 px-6 lg:px-8">
+                    <SectionLabel>{painPointPage.labels.casesProPhase}</SectionLabel>
+                    <SectionHeadline>{painPointPage.miniCases.headline}</SectionHeadline>
+                    <p className="text-[1rem]" style={{ color: L.textMuted, fontStyle: "italic", ...SERIF }}>
+                      {painPointPage.miniCases.sub}
+                    </p>
+                  </div>
+
+                  {/* Randloses Bild-Grid — keine Lücken, kein horizontaler Weißraum. Text erscheint beim Hover. */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+                    {content.miniCases.map((c, i) => (
+                      <Link
+                        key={c.id}
+                        to={`case/${c.id}`}
+                        className="group relative block overflow-hidden aspect-[3/2]"
+                      >
+                        <img
+                          src={caseImages[i % caseImages.length]}
+                          alt={c.title}
+                          loading="lazy"
+                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        {/* dezenter Grund-Verlauf — signalisiert Klickbarkeit ohne Text */}
+                        <div
+                          aria-hidden
+                          className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-0"
+                          style={{ background: "linear-gradient(to top, rgba(10,10,24,0.45) 0%, rgba(10,10,24,0.05) 45%, transparent 100%)" }}
+                        />
+                        {/* Hover-Overlay mit Text */}
+                        <div
+                          className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                          style={{ background: "rgba(10,10,24,0.82)" }}
+                        >
+                          <span className="flex flex-wrap items-center gap-2 mb-3">
+                            <span
+                              className="inline-block text-[0.7rem] font-semibold uppercase tracking-[0.14em]"
+                              style={{ color: PURPLE_LIGHT, ...MONO }}
+                            >
+                              {c.phaseLabel}
+                            </span>
+                            {c.badge && (
+                              <span
+                                className="inline-block text-[0.62rem] font-semibold uppercase tracking-[0.12em] px-2 py-0.5"
+                                style={{
+                                  color: PURPLE_LIGHT,
+                                  border: "1px solid rgba(154,133,246,0.4)",
+                                  background: "rgba(154,133,246,0.1)",
+                                  ...MONO,
+                                }}
+                              >
+                                {c.badge}
+                              </span>
+                            )}
+                          </span>
+                          <h3
+                            className="text-[1.2rem] font-bold mb-2.5 leading-[1.2]"
+                            style={{ ...SERIF, letterSpacing: "-0.02em", color: "#FBF9FF" }}
+                          >
+                            {c.title}
+                          </h3>
+                          <p className="text-[0.85rem] leading-[1.6] mb-5" style={{ color: "#C8C4D4" }}>
+                            {c.teaser}
+                          </p>
+                          <span
+                            className="inline-flex items-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.12em] group-hover:gap-3 transition-all"
+                            style={{ color: PURPLE_LIGHT, ...MONO }}
+                          >
+                            {painPointPage.miniCases.cta}
+                            <ArrowRight className="w-4 h-4" />
+                          </span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          )}
+
           {/* FAQ */}
           <Reveal>
             <div id="faq" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-20 md:py-24">
-              <SectionHeadline>
-                Was ihr euch fragt, bevor ihr anruft.
-              </SectionHeadline>
               <div className="grid md:grid-cols-[1fr,1.5fr] gap-12 md:gap-16 items-start">
                 <div>
-                  <SectionLabel>FAQ</SectionLabel>
+                  <SectionLabel>{painPointPage.labels.faq}</SectionLabel>
                   <h3
                     className="text-[clamp(1.5rem,2.5vw,2.2rem)] mb-6"
                     style={{ ...SERIF, letterSpacing: "-0.02em", color: L.text }}
                   >
-                    Du hast Fragen?<br />
-                    <span style={{ color: PURPLE }}>Wir haben Antworten.</span>
+                    {painPointPage.faq.headingLine1}<br />
+                    <span style={{ color: PURPLE }}>{painPointPage.faq.headingLine2}</span>
                   </h3>
-                  <a href="https://calendly.com/sebastian-p-newedgebrand/30min" target="_blank" rel="noopener noreferrer">
-                    <BtnFilled large>Kontakt aufnehmen</BtnFilled>
+                  <a href={painPointPage.faq.ctaHref} target="_blank" rel="noopener noreferrer">
+                    <BtnFilled large>{painPointPage.faq.cta}</BtnFilled>
                   </a>
                 </div>
                 <div style={{ borderTop: `1px solid ${L.border}` }}>
@@ -849,13 +898,13 @@ const PainPointAuswahlverfahren = () => {
           {/* ── CTA (About-style) ── */}
           <CursorLine buttonRef={ctaBtnRef} buttonRadius={76}>
           <div style={{
-            background: "#1A0A2E",
+            background: "#17172E",
             padding: "clamp(64px,8vw,100px) 24px",
             position: "relative",
           }}>
             <div aria-hidden style={{
               position: "absolute", inset: 0, pointerEvents: "none",
-              background: "radial-gradient(ellipse 70% 60% at 0% 100%, rgba(91,33,182,0.28) 0%, transparent 65%)",
+              background: "radial-gradient(ellipse 70% 60% at 0% 100%, rgba(86,88,223,0.28) 0%, transparent 65%)",
             }} />
             <div style={{
               position: "relative",
@@ -869,23 +918,23 @@ const PainPointAuswahlverfahren = () => {
             }}>
               {/* LEFT */}
               <div>
-                <p style={{ fontFamily: "Consolas, monospace", fontSize: "11px", letterSpacing: "0.22em", color: "#C4B5FD", textTransform: "uppercase" as const, marginBottom: "20px" }}>
-                  Bereit loszulegen?
+                <p style={{ fontFamily: "Consolas, monospace", fontSize: "11px", letterSpacing: "0.22em", color: "#C2C3F6", textTransform: "uppercase" as const, marginBottom: "20px" }}>
+                  {painPointPage.cta.eyebrow}
                 </p>
                 <h2 style={{
                   fontFamily: "'DM Serif Display', Georgia, serif",
                   fontStyle: "italic",
                   fontWeight: 400,
-                  fontSize: "clamp(2rem, 4vw, 3.4rem)",
+                  fontSize: "clamp(2.25rem, 4.5vw, 3.4rem)",
                   color: "#fff",
                   lineHeight: 1.0,
                   marginBottom: "32px",
                   letterSpacing: "-0.01em",
                 }}>
-                  Sprechen Sie<br />direkt mit uns.
+                  {painPointPage.cta.headingLine1}<br />{painPointPage.cta.headingLine2}
                 </h2>
                 <a
-                  href="tel:+4917660431467"
+                  href={painPointPage.cta.phone.href}
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -893,14 +942,14 @@ const PainPointAuswahlverfahren = () => {
                     fontFamily: "Consolas, monospace",
                     fontSize: "13px",
                     letterSpacing: "0.1em",
-                    color: "rgba(196,181,253,0.75)",
+                    color: "rgba(194,195,246,0.75)",
                     textDecoration: "none",
-                    borderBottom: "1px solid rgba(196,181,253,0.2)",
+                    borderBottom: "1px solid rgba(194,195,246,0.2)",
                     paddingBottom: "2px",
                   }}
                 >
-                  <span style={{ fontSize: "16px", opacity: 0.7 }}>↗</span>
-                  +49 176 60 431 467
+                  <span style={{ fontSize: "15px", opacity: 0.7 }}>↗</span>
+                  {painPointPage.cta.phone.label}
                 </a>
               </div>
               {/* RIGHT */}
