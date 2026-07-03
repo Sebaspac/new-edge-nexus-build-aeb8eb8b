@@ -11,13 +11,13 @@ import type { LucideIcon } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 /* ── Tokens ── */
-const VIOLET = "#5B21B6";
-const INK_DEEP = "#1A0A2E";
+const VIOLET = "#5658DF";
+const INK_DEEP = "#17172E";
 const SERIF: React.CSSProperties = { fontFamily: "'DM Serif Display', Georgia, serif" };
 const MONO: React.CSSProperties = { fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace" };
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-type Phase = "Unser Prozess" | "Warum New Edge";
+type Phase = "Unser Prozess" | "Warum NEWEDGE";
 type Item = { phase: Phase; index: string; title: string; desc: string; Icon?: LucideIcon };
 
 const items: Item[] = [
@@ -46,21 +46,21 @@ const items: Item[] = [
     desc: "Produktiver Einsatz, Monitoring und kontinuierliche Verbesserung. Wir bleiben dabei — auch nach dem Launch.",
   },
   {
-    phase: "Warum New Edge",
+    phase: "Warum NEWEDGE",
     index: "01",
     title: "Strategie & Klarheit",
     desc: "Von der KI-Strategie bis zur konkreten Umsetzung. Wir analysieren Ihre Prozesse, identifizieren echte Hebel und bauen Systeme, die wirken — nicht bloß beeindrucken.",
     Icon: Target,
   },
   {
-    phase: "Warum New Edge",
+    phase: "Warum NEWEDGE",
     index: "02",
     title: "Nahtlose Integration",
     desc: "KI wird direkt in Ihre bestehenden Tools und Systeme eingebaut — ERP, CRM, interne Plattformen. Kein Bruch, kein Parallelbetrieb, keine Reibung.",
     Icon: Layers,
   },
   {
-    phase: "Warum New Edge",
+    phase: "Warum NEWEDGE",
     index: "03",
     title: "Datenhoheit & Sicherheit",
     desc: "DSGVO-konforme Architekturen, bei denen Sie die volle Kontrolle behalten. Ihre Daten bleiben Ihre Daten — intern, sicher, auditierbar.",
@@ -105,7 +105,7 @@ const DesktopLayout = () => {
         <div
           style={{
             height: "2px",
-            backgroundColor: "rgba(91,33,182,0.10)",
+            backgroundColor: "rgba(86,88,223,0.10)",
             flexShrink: 0,
             position: "relative",
           }}
@@ -138,7 +138,7 @@ const DesktopLayout = () => {
               flexDirection: "column",
               justifyContent: "space-between",
               padding: "clamp(2.5rem, 4vw, 4.5rem) clamp(2rem, 3vw, 3rem)",
-              borderRight: "1px solid rgba(91,33,182,0.10)",
+              borderRight: "1px solid rgba(86,88,223,0.10)",
               overflow: "hidden",
             }}
           >
@@ -187,10 +187,10 @@ const DesktopLayout = () => {
                       ...SERIF,
                       fontStyle: "italic",
                       display: "block",
-                      fontSize: "clamp(5rem, 10vw, 9rem)",
+                      fontSize: "clamp(2.75rem, 6vw, 5.5rem)",
                       lineHeight: 1,
                       color: "transparent",
-                      WebkitTextStroke: "1.5px rgba(91,33,182,0.22)",
+                      WebkitTextStroke: "1.5px rgba(86,88,223,0.22)",
                       userSelect: "none",
                     }}
                   >
@@ -211,7 +211,7 @@ const DesktopLayout = () => {
                     ...MONO,
                     fontSize: "13px",
                     lineHeight: 1.8,
-                    color: "rgba(26,10,46,0.58)",
+                    color: "rgba(23,23,46,0.58)",
                     maxWidth: "34ch",
                   }}
                 >
@@ -227,7 +227,7 @@ const DesktopLayout = () => {
                   ...MONO,
                   fontSize: "11px",
                   letterSpacing: "0.14em",
-                  color: "rgba(26,10,46,0.30)",
+                  color: "rgba(23,23,46,0.30)",
                 }}
               >
                 {String(activeIdx + 1).padStart(2, "0")} — {String(TOTAL).padStart(2, "0")}
@@ -246,8 +246,8 @@ const DesktopLayout = () => {
                         backgroundColor: isActive
                           ? VIOLET
                           : samePhase
-                          ? "rgba(91,33,182,0.28)"
-                          : "rgba(91,33,182,0.10)",
+                          ? "rgba(86,88,223,0.28)"
+                          : "rgba(86,88,223,0.10)",
                         transition: "all 380ms cubic-bezier(0.22,1,0.36,1)",
                       }}
                     />
@@ -290,7 +290,7 @@ const DesktopLayout = () => {
               )}
             </AnimatePresence>
 
-            {/* Icon — only for Warum New Edge */}
+            {/* Icon — only for Warum NEWEDGE */}
             <div style={{ height: "64px", marginBottom: "20px", display: "flex", alignItems: "flex-end" }}>
               <AnimatePresence mode="wait">
                 {item.Icon ? (
@@ -303,8 +303,8 @@ const DesktopLayout = () => {
                     style={{
                       width: "52px",
                       height: "52px",
-                      border: "1.5px solid rgba(91,33,182,0.22)",
-                      backgroundColor: "rgba(91,33,182,0.06)",
+                      border: "1.5px solid rgba(86,88,223,0.22)",
+                      backgroundColor: "rgba(86,88,223,0.06)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -331,7 +331,7 @@ const DesktopLayout = () => {
                     ...SERIF,
                     fontStyle: "italic",
                     fontWeight: 400,
-                    fontSize: "clamp(2.8rem, 5.5vw, 5.2rem)",
+                    fontSize: "clamp(2.75rem, 6vw, 5.5rem)",
                     lineHeight: 1.0,
                     letterSpacing: "-0.02em",
                     color: INK_DEEP,
@@ -351,7 +351,7 @@ const DesktopLayout = () => {
                 left: "clamp(2.5rem, 4vw, 4rem)",
                 right: "clamp(2.5rem, 4vw, 4rem)",
                 height: "1px",
-                backgroundColor: "rgba(91,33,182,0.10)",
+                backgroundColor: "rgba(86,88,223,0.10)",
               }}
             >
               <motion.div
@@ -369,7 +369,7 @@ const DesktopLayout = () => {
         </div>
 
         {/* Bottom border */}
-        <div style={{ height: "1px", backgroundColor: "rgba(91,33,182,0.08)", flexShrink: 0 }} />
+        <div style={{ height: "1px", backgroundColor: "rgba(86,88,223,0.08)", flexShrink: 0 }} />
       </div>
     </div>
   );
@@ -378,7 +378,7 @@ const DesktopLayout = () => {
 /* ── Mobile stacked layout ── */
 const MobileLayout = () => (
   <section style={{ padding: "4rem 1.5rem" }}>
-    {(["Unser Prozess", "Warum New Edge"] as Phase[]).map((phase) => (
+    {(["Unser Prozess", "Warum NEWEDGE"] as Phase[]).map((phase) => (
       <div key={phase} style={{ marginBottom: "3rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "2rem" }}>
           <span style={{ display: "block", width: "28px", height: "1px", backgroundColor: VIOLET, flexShrink: 0 }} />
@@ -386,7 +386,7 @@ const MobileLayout = () => (
             {phase}
           </span>
         </div>
-        <div style={{ borderTop: "1px solid rgba(91,33,182,0.12)" }}>
+        <div style={{ borderTop: "1px solid rgba(86,88,223,0.12)" }}>
           {items
             .filter((it) => it.phase === phase)
             .map((item, i) => (
@@ -394,7 +394,7 @@ const MobileLayout = () => (
                 key={item.title}
                 style={{
                   padding: "1.5rem 0",
-                  borderBottom: "1px solid rgba(91,33,182,0.10)",
+                  borderBottom: "1px solid rgba(86,88,223,0.10)",
                   display: "grid",
                   gridTemplateColumns: "2.5rem 1fr",
                   gap: "1rem",
@@ -407,8 +407,8 @@ const MobileLayout = () => (
                       style={{
                         width: "36px",
                         height: "36px",
-                        border: "1.5px solid rgba(91,33,182,0.22)",
-                        backgroundColor: "rgba(91,33,182,0.06)",
+                        border: "1.5px solid rgba(86,88,223,0.22)",
+                        backgroundColor: "rgba(86,88,223,0.06)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -423,7 +423,7 @@ const MobileLayout = () => (
                         ...MONO,
                         fontSize: "11px",
                         letterSpacing: "0.12em",
-                        color: "rgba(91,33,182,0.50)",
+                        color: "rgba(86,88,223,0.50)",
                         paddingTop: "4px",
                         display: "block",
                       }}
@@ -437,7 +437,7 @@ const MobileLayout = () => (
                     style={{
                       ...SERIF,
                       fontStyle: "italic",
-                      fontSize: "clamp(1.15rem, 4vw, 1.5rem)",
+                      fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)",
                       lineHeight: 1.15,
                       color: INK_DEEP,
                       marginBottom: "10px",
@@ -451,7 +451,7 @@ const MobileLayout = () => (
                       ...MONO,
                       fontSize: "12px",
                       lineHeight: 1.75,
-                      color: "rgba(26,10,46,0.58)",
+                      color: "rgba(23,23,46,0.58)",
                     }}
                   >
                     {item.desc}

@@ -23,8 +23,8 @@ export const InlineLogoSVG: React.FC<InlineLogoSVGProps> = ({
       {/* NE Logo design matching the uploaded PNG */}
       <defs>
         <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#6366f1" />
-          <stop offset="100%" stopColor="#a855f7" />
+          <stop offset="0%" stopColor="#5658DF" />
+          <stop offset="100%" stopColor="#8476EF" />
         </linearGradient>
       </defs>
       

@@ -19,7 +19,7 @@ const content: Record<StateType, ContentState> = {
     subtitle: "Klare Strategie",
     description: "Studio schafft Entscheidungsfähigkeit: Struktur, Systemlogik und strategische Klarheit als Grundlage für jede technische Umsetzung.",
     tags: ["Kommunikationsstrategie", "Workshops", "Brand Identity"],
-    color: "#a855f7",
+    color: "#8476EF",
     icon: Fingerprint
   },
   fusion: {
@@ -256,7 +256,7 @@ export const InteractiveCore = () => {
             className="order-1 lg:order-2">
 
             <div className="mb-3 sm:mb-4 md:mb-6">
-              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#7C3AED]">
+              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#8476EF]">
                 UNSERE SERVICES
               </span>
             </div>
@@ -279,44 +279,6 @@ export const InteractiveCore = () => {
         </div>
 
         {/* Quick Navigation Grid */}
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="mt-12 md:mt-16 lg:mt-20">
-
-          <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-4 md:mb-6">Hier geht's zu:</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
-            <a href="/studio" className="group relative p-4 sm:p-5 md:p-6 bg-gradient-to-br from-purple-50 to-white border border-purple-200 hover:border-purple-400 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 flex items-center justify-center group-hover:bg-purple-500 transition-colors">
-                  <Palette className="w-5 h-5 sm:w-6 sm:h-6 text-purple-500 group-hover:text-white transition-colors" />
-                </div>
-                <div className="flex-1">
-                  <span className="text-[10px] sm:text-xs font-medium text-purple-500 tracking-wider">01</span>
-                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-black group-hover:text-purple-600 transition-colors">STUDIO</h4>
-                  <p className="text-xs sm:text-sm text-gray-500">Branding & Strategie</p>
-                </div>
-                <ArrowRight className="w-5 h-5 text-purple-400 group-hover:translate-x-1 transition-transform" />
-              </div>
-              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-500 group-hover:w-full transition-all duration-300" />
-            </a>
-
-            <a href="/lab" className="group relative p-4 sm:p-5 md:p-6 bg-gradient-to-br from-yellow-50 to-white border border-yellow-300 hover:border-yellow-500 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/10">
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-100 flex items-center justify-center group-hover:bg-yellow-500 transition-colors">
-                  <FlaskConical className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-600 group-hover:text-white transition-colors" />
-                </div>
-                <div className="flex-1">
-                  <span className="text-[10px] sm:text-xs font-medium text-yellow-600 tracking-wider">02</span>
-                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-black group-hover:text-yellow-600 transition-colors">LAB</h4>
-                  <p className="text-xs sm:text-sm text-gray-500">Automation & KI</p>
-                </div>
-                <ArrowRight className="w-5 h-5 text-yellow-500 group-hover:translate-x-1 transition-transform" />
-              </div>
-              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-yellow-500 group-hover:w-full transition-all duration-300" />
-            </a>
-          </div>
-        </motion.div>
       </div>
     </section>);
 

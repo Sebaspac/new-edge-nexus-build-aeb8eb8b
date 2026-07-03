@@ -3,45 +3,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ⚡ FONT LOADING OPTIMIZATION - Prevent FOIT (Flash of Invisible Text) */
-@font-face {
-  font-family: 'Inter Variable';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap; /* Show fallback font immediately, then swap when loaded */
-  src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Epilogue Variable';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap; /* Show fallback font immediately, then swap when loaded */
-  src: url('https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXMDLiDJXVigHPVA.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
 /* ✨ MODERN MOTION-FIRST DESIGN SYSTEM ✨ */
 
 @layer base {
   :root {
-    /* 🎨 CORE COLORS - Clean white background theme */
-    --background: 0 0% 100%; /* Pure white */
-    --foreground: 0 0% 13%; /* Dark gray for text */
-    --surface: 0 0% 98%; /* Very light gray for cards */
+    /* 🎨 CORE COLORS - New Edge brand */
+    --background: 258 100% 98%; /* #F8F5FF helllila — Magazin-Grundton */
+    --foreground: 240 8% 26%; /* #3C3C47 brand ink */
+    --surface: 0 0% 100%; /* white for cards/elevated surfaces */
     --surface-elevated: 0 0% 100%;
 
-    /* 🔮 BRAND COLORS - Vibrant, modern palette */
-    --primary: 270 91% 65%; /* Electric purple */
-    --primary-foreground: 0 0% 100%; /* White text on primary */
-    --primary-glow: 280 100% 70%;
-    --primary-subtle: 270 70% 50%;
-    
-    --secondary: 210 100% 60%; /* Vivid blue */
+    /* 🔮 BRAND COLORS - NEWEDGE violet (#5658DF) */
+    --primary: 239 68% 61%; /* #5658DF brand violet */
+    --primary-foreground: 0 0% 100%; /* white on primary */
+    --primary-glow: 245 79% 70%; /* #8476EF */
+    --primary-subtle: 239 50% 48%;
+
+    --secondary: 251 86% 74%; /* #9A85F6 light brand violet */
     --secondary-foreground: 0 0% 100%; /* White text on secondary */
-    --secondary-glow: 200 100% 65%;
-    --secondary-subtle: 210 80% 50%;
+    --secondary-glow: 251 86% 78%;
+    --secondary-subtle: 245 60% 60%;
     
     --accent: 50 100% 60%; /* Electric yellow */
     --accent-foreground: 0 0% 13%; /* Dark text on accent */
@@ -173,17 +154,22 @@
     height: auto;
   }
 
-  /* 🎯 MODERN TYPOGRAPHY SCALE */
-  .text-display-xl { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 8vw, 8rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.04em; }
-  .text-display-lg { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 6vw, 6rem); font-weight: 400; line-height: 0.95; letter-spacing: -0.03em; }
-  .text-display { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 4rem); font-weight: 400; line-height: 1; letter-spacing: -0.02em; }
-  .text-h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.75rem, 4vw, 3rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; }
-  .text-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; }
-  .text-h3 { font-family: 'DM Serif Display', serif; font-size: clamp(1.25rem, 2.5vw, 1.875rem); font-weight: 400; line-height: 1.3; }
-  .text-body-xl { font-size: clamp(1.125rem, 2vw, 1.5rem); font-weight: 400; line-height: 1.4; }
-  .text-body-lg { font-size: clamp(1rem, 1.5vw, 1.25rem); font-weight: 400; line-height: 1.5; }
-  .text-body { font-size: 1rem; font-weight: 400; line-height: 1.6; }
-  .text-body-sm { font-size: 0.875rem; font-weight: 400; line-height: 1.6; }
+  /* 🎯 NEWEDGE CANONICAL TYPE SCALE — single source of truth.
+     Keep in sync with inline fontSize usage across components.
+     HERO 2.75→5.5rem · H1 2.25→3.4rem · H2 1.85→2.75rem · H3 1.35→1.85rem
+     H4 1.1→1.4rem · LEAD 16→19px · BODY 15px · BODY-SM 13px · LABEL 11px  */
+  .text-hero,
+  .text-display-xl,
+  .text-display-lg,
+  .text-display { font-family: 'DM Serif Display', serif; font-size: clamp(2.75rem, 6vw, 5.5rem); font-weight: 400; line-height: 0.96; letter-spacing: -0.02em; }
+  .text-h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.25rem, 4.5vw, 3.4rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; }
+  .text-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.85rem, 3.4vw, 2.75rem); font-weight: 400; line-height: 1.12; letter-spacing: -0.01em; }
+  .text-h3 { font-family: 'DM Serif Display', serif; font-size: clamp(1.35rem, 2.2vw, 1.85rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; }
+  .text-h4 { font-family: 'DM Serif Display', serif; font-size: clamp(1.1rem, 1.6vw, 1.4rem); font-weight: 400; line-height: 1.25; }
+  .text-lead, .text-body-xl, .text-body-lg { font-size: clamp(16px, 1.5vw, 19px); font-weight: 400; line-height: 1.6; }
+  .text-body { font-size: 15px; font-weight: 400; line-height: 1.7; }
+  .text-body-sm { font-size: 13px; font-weight: 400; line-height: 1.6; }
+  .text-label { font-family: 'Consolas', ui-monospace, monospace; font-size: 11px; font-weight: 400; line-height: 1.4; letter-spacing: 0.2em; text-transform: uppercase; }
   
   /* Mobile-optimized touch targets */
   @media (max-width: 768px) {
@@ -196,23 +182,9 @@
     /* Improved mobile spacing */
     .container-xl { padding: 0 1rem; }
     .section-padding { padding: 2rem 0; }
-    
-    /* Display sizes for hero sections */
-    .text-display-xl { font-size: clamp(2.5rem, 8vw, 3.5rem); }
-    .text-display-lg { font-size: clamp(2.25rem, 7vw, 3rem); }
-    .text-display { font-size: clamp(2rem, 6vw, 2.5rem); }
-    
-    /* Heading hierarchy - significantly larger on mobile */
-    .text-h1 { font-size: clamp(1.75rem, 5.5vw, 2.25rem); }
-    .text-h2 { font-size: clamp(1.5rem, 4.5vw, 1.875rem); }
-    .text-h3 { font-size: clamp(1.25rem, 3.5vw, 1.5rem); }
-    
-    /* Body text - smaller for better contrast */
-    .text-body-xl { font-size: clamp(1rem, 2vw, 1.125rem); }
-    .text-body-lg { font-size: clamp(0.9375rem, 1.5vw, 1rem); }
-    .text-body { font-size: 0.9375rem; }
-    .text-body-sm { font-size: 0.875rem; }
-    
+
+    /* Type scale is fully responsive via clamp() — no per-class mobile overrides needed. */
+
     /* Allow CSS classes to control sizing */
     h1, h2, h3 { font-size: inherit; line-height: inherit; }
     

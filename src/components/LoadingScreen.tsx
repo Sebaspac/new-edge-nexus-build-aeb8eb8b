@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import newEdgeLogo from "@/assets/new-edge-logo.webp";
+import { img } from "@/content";
 
 interface LoadingScreenProps {
   progress: number;
@@ -22,8 +22,8 @@ export const LoadingScreen = ({ progress }: LoadingScreenProps) => {
     >
       {/* Nur das Logo */}
       <motion.img
-        src={newEdgeLogo}
-        alt="New Edge"
+        src={img("new-edge-logo")}
+        alt="NEWEDGE"
         className="w-32 h-32 md:w-40 md:h-40"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ 

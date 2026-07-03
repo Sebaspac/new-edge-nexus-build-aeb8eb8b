@@ -1,0 +1,72 @@
+import { useCountUp } from "@/hooks/useCountUp";
+import { impactCounter as IMPACT_STATIC, type Metric as MetricData } from "@/content/sections/impactCounter";
+import { useHomeContent } from "@/hooks/useHomeContent";
+
+/* ── Design tokens (Ink & Edge) ── */
+const VIOLET = "#5658DF";
+const INK_DEEP = "#17172E";
+const HAIRLINE = "#E6E6E6";
+const SERIF: React.CSSProperties = { fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400 };
+const MONO: React.CSSProperties = { fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace" };
+
+/* KPI BAR — NEWEDGE in Zahlen (Struktur V2, 02).
+   `value` zählt hoch; `prefix`/`suffix` bleiben statisch. */
+
+function Metric({ prefix, value, suffix, label }: MetricData) {
+  const [ref, current] = useCountUp(value, 1100);
+  return (
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className="flex flex-col items-start py-7 md:py-9 px-6 md:px-10"
+      style={{ background: "#FFFFFF" }}
+    >
+      <span
+        className="italic"
+        style={{
+          ...SERIF,
+          fontSize: "clamp(1.85rem, 3.4vw, 2.75rem)",
+          lineHeight: 1,
+          color: INK_DEEP,
+          fontVariantNumeric: "tabular-nums",
+          letterSpacing: "-0.01em",
+        }}
+      >
+        {prefix}
+        {current}
+        {suffix}
+      </span>
+      <span
+        className="mt-2 uppercase"
+        style={{ ...MONO, fontSize: "10px", letterSpacing: "0.2em", color: "#8A8494" }}
+      >
+        {label}
+      </span>
+    </div>
+  );
+}
+
+export const ImpactCounterBand = () => {
+  // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
+  const impactCounter = useHomeContent().impactCounter ?? IMPACT_STATIC;
+
+  return (
+    <section aria-label={impactCounter.ariaLabel} className="relative">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8 pt-14 md:pt-20">
+        {/* Eyebrow */}
+        <p className="flex items-center gap-3 uppercase mb-0" style={{ ...MONO, fontSize: "11px", letterSpacing: "0.2em", color: VIOLET }}>
+          <span aria-hidden style={{ display: "inline-block", width: "32px", height: "1px", background: VIOLET }} />
+          {impactCounter.eyebrow}
+        </p>
+
+        <div
+          className="mt-5 grid grid-cols-2 lg:grid-cols-4 gap-px"
+          style={{ border: `1px solid ${HAIRLINE}`, background: HAIRLINE }}
+        >
+          {impactCounter.metrics.map((m) => (
+            <Metric key={m.label} {...m} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};

@@ -40,7 +40,7 @@ export default {
 				surface: 'hsl(var(--surface))',
 				'surface-elevated': 'hsl(var(--surface-elevated))',
 				'edge-black': '#0a0a0a',
-				'edge-purple': '#a855f7',
+				'edge-purple': '#5658DF',
 				'edge-panel': 'rgba(255, 255, 255, 0.03)',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',

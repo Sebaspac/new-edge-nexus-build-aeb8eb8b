@@ -15,7 +15,7 @@ interface DataPoint {
   color: string;
 }
 
-const colors = ["#a855f7", "#8b5cf6", "#7c3aed", "#6d28d9", "#22d3ee"];
+const colors = ["#8476EF", "#8476EF", "#8476EF", "#5658DF", "#22d3ee"];
 
 export const DataScanningAnimation: React.FC = () => {
   const [scanLines, setScanLines] = useState<ScanLine[]>([]);

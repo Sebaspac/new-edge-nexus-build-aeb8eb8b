@@ -13,6 +13,9 @@ import {
   recordSubmission,
   isHoneypotTriggered,
 } from "@/utils/contactFormValidation";
+import { startAuditSla } from "@/components/AuditSlaStatus";
+import { contactFormModal as CFM_STATIC } from "@/content/sections/contactFormModal";
+import { useCms } from "@/hooks/useCms";
 
 interface ContactFormModalProps {
   isOpen: boolean;
@@ -21,6 +24,8 @@ interface ContactFormModalProps {
   gradientFrom: string;
   gradientTo: string;
   theme: 'studio' | 'media' | 'lab';
+  /** Startet nach erfolgreichem Submit die 24h-Audit-SLA-Uhr (AuditSlaStatus). */
+  sla?: boolean;
 }
 
 export const ContactFormModal = ({
@@ -30,7 +35,10 @@ export const ContactFormModal = ({
   gradientFrom,
   gradientTo,
   theme,
+  sla = false,
 }: ContactFormModalProps) => {
+  // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
+  const contactFormModal = useCms("contact-form-modal", CFM_STATIC);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [fieldErrors, setFieldErrors] = React.useState<Record<string, string>>({});
   const [formStatus, setFormStatus] = React.useState<{ type: 'success' | 'error'; message: string } | null>(null);
@@ -47,7 +55,7 @@ export const ContactFormModal = ({
     // Honeypot check
     const honeypot = formData.get('website_url')?.toString();
     if (isHoneypotTriggered(honeypot)) {
-      setFormStatus({ type: 'success', message: 'Nachricht gesendet! Wir melden uns bald.' });
+      setFormStatus({ type: 'success', message: contactFormModal.messages.honeypotSuccess });
       form.reset();
       setIsSubmitting(false);
       return;
@@ -83,10 +91,15 @@ export const ContactFormModal = ({
 
     if (result.success) {
       recordSubmission();
-      setFormStatus({ type: 'success', message: 'Nachricht gesendet! Wir melden uns bald.' });
+      if (sla) {
+        startAuditSla();
+        setFormStatus({ type: 'success', message: contactFormModal.messages.slaSuccess });
+      } else {
+        setFormStatus({ type: 'success', message: contactFormModal.messages.success });
+      }
       form.reset();
     } else {
-      setFormStatus({ type: 'error', message: result.error || 'Ein Fehler ist aufgetreten.' });
+      setFormStatus({ type: 'error', message: result.error || contactFormModal.messages.errorFallback });
     }
 
     setIsSubmitting(false);
@@ -120,11 +133,11 @@ export const ContactFormModal = ({
               }}
               className="text-3xl font-semibold"
             >
-              Get in touch!
+              {contactFormModal.header.title}
             </span>
           </DialogTitle>
           <p className="text-muted-foreground text-left">
-            Erzählen Sie uns von Ihrem Projekt – wir melden uns zeitnah bei Ihnen
+            {contactFormModal.header.description}
           </p>
         </DialogHeader>
 
@@ -140,50 +153,50 @@ export const ContactFormModal = ({
         >
           {/* Honeypot */}
           <div style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
-            <label htmlFor="website_url">Website URL (leave empty)</label>
+            <label htmlFor="website_url">{contactFormModal.honeypot.label}</label>
             <input type="text" id="website_url" name="website_url" tabIndex={-1} autoComplete="off" />
           </div>
 
           <motion.div className="space-y-4" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.08 } } }}>
             {/* Name */}
             <motion.div className="space-y-2" variants={fieldVariants}>
-              <Label htmlFor="name" className="text-foreground font-medium">Name *</Label>
-              <Input id="name" name="name" type="text" placeholder="Ihr Name" required maxLength={120} className="bg-background/50 border-border focus:border-primary transition-colors" />
+              <Label htmlFor="name" className="text-foreground font-medium">{contactFormModal.fields.name.label}</Label>
+              <Input id="name" name="name" type="text" placeholder={contactFormModal.fields.name.placeholder} required maxLength={120} className="bg-background/50 border-border focus:border-primary transition-colors" />
               {fieldErrors.name && <p className="text-sm text-destructive">{fieldErrors.name}</p>}
             </motion.div>
 
             {/* Email */}
             <motion.div className="space-y-2" variants={fieldVariants}>
-              <Label htmlFor="email" className="text-foreground font-medium">E-Mail *</Label>
-              <Input id="email" name="email" type="email" placeholder="ihre@email.com" required maxLength={200} className="bg-background/50 border-border focus:border-primary transition-colors" />
+              <Label htmlFor="email" className="text-foreground font-medium">{contactFormModal.fields.email.label}</Label>
+              <Input id="email" name="email" type="email" placeholder={contactFormModal.fields.email.placeholder} required maxLength={200} className="bg-background/50 border-border focus:border-primary transition-colors" />
               {fieldErrors.email && <p className="text-sm text-destructive">{fieldErrors.email}</p>}
             </motion.div>
 
             {/* Phone */}
             <motion.div className="space-y-2" variants={fieldVariants}>
-              <Label htmlFor="phone" className="text-foreground font-medium">Telefon</Label>
-              <Input id="phone" name="phone" type="tel" placeholder="+49 123 456789" maxLength={30} className="bg-background/50 border-border focus:border-primary transition-colors" />
+              <Label htmlFor="phone" className="text-foreground font-medium">{contactFormModal.fields.phone.label}</Label>
+              <Input id="phone" name="phone" type="tel" placeholder={contactFormModal.fields.phone.placeholder} maxLength={30} className="bg-background/50 border-border focus:border-primary transition-colors" />
               {fieldErrors.phone && <p className="text-sm text-destructive">{fieldErrors.phone}</p>}
             </motion.div>
 
             {/* Company */}
             <motion.div className="space-y-2" variants={fieldVariants}>
-              <Label htmlFor="company" className="text-foreground font-medium">Firma</Label>
-              <Input id="company" name="company" type="text" placeholder="Ihre Firma" maxLength={120} className="bg-background/50 border-border focus:border-primary transition-colors" />
+              <Label htmlFor="company" className="text-foreground font-medium">{contactFormModal.fields.company.label}</Label>
+              <Input id="company" name="company" type="text" placeholder={contactFormModal.fields.company.placeholder} maxLength={120} className="bg-background/50 border-border focus:border-primary transition-colors" />
               {fieldErrors.company && <p className="text-sm text-destructive">{fieldErrors.company}</p>}
             </motion.div>
 
             {/* Position */}
             <motion.div className="space-y-2" variants={fieldVariants}>
-              <Label htmlFor="position" className="text-foreground font-medium">Position</Label>
-              <Input id="position" name="position" type="text" placeholder="Ihre Position" maxLength={120} className="bg-background/50 border-border focus:border-primary transition-colors" />
+              <Label htmlFor="position" className="text-foreground font-medium">{contactFormModal.fields.position.label}</Label>
+              <Input id="position" name="position" type="text" placeholder={contactFormModal.fields.position.placeholder} maxLength={120} className="bg-background/50 border-border focus:border-primary transition-colors" />
               {fieldErrors.position && <p className="text-sm text-destructive">{fieldErrors.position}</p>}
             </motion.div>
 
             {/* Message */}
             <motion.div className="space-y-2" variants={fieldVariants}>
-              <Label htmlFor="message" className="text-foreground font-medium">Nachricht *</Label>
-              <Textarea id="message" name="message" placeholder="Erzählen Sie uns von Ihrem Projekt..." required maxLength={5000} className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none" />
+              <Label htmlFor="message" className="text-foreground font-medium">{contactFormModal.fields.message.label}</Label>
+              <Textarea id="message" name="message" placeholder={contactFormModal.fields.message.placeholder} required maxLength={5000} className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none" />
               {fieldErrors.message && <p className="text-sm text-destructive">{fieldErrors.message}</p>}
             </motion.div>
           </motion.div>
@@ -218,11 +231,11 @@ export const ContactFormModal = ({
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                  Wird gesendet...
+                  {contactFormModal.submit.submitting}
                 </>
               ) : (
                 <>
-                  Nachricht senden
+                  {contactFormModal.submit.idle}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </>
               )}

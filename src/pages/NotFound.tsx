@@ -3,8 +3,12 @@ import { useEffect } from "react";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEOHead from "@/components/SEOHead";
+import { notFound as NOTFOUND_STATIC } from "@/content/pages/notFound";
+import { useCms } from "@/hooks/useCms";
 
 const NotFound = () => {
+  // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
+  const notFound = useCms("not-found", NOTFOUND_STATIC);
   const { t } = useLanguage();
   const location = useLocation();
 
@@ -17,7 +21,7 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <SEOHead title="Seite nicht gefunden | New Edge" description="Die angeforderte Seite wurde nicht gefunden." noindex />
+      <SEOHead title={notFound.seo.title} description={notFound.seo.description} noindex />
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">{t('notFound.title')}</h1>
         <p className="text-xl text-gray-600 mb-4">{t('notFound.subtitle')}</p>

@@ -14,7 +14,7 @@ export const OptimizedLogo: React.FC<OptimizedLogoProps> = ({
   return (
     <img
       src="/assets/7081eb62-a5ae-4260-97c8-e5b31dc0040e.png"
-      alt="New Edge Logo"
+      alt="NEWEDGE Logo"
       width={width}
       height={height}
       className={`${className} object-contain`}

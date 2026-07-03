@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { SplineScene } from './ui/splite';
+import { shouldDisableHeavyPreviewEffects } from '@/utils/runtimeEnvironment';
 
 interface LazySplineSceneProps {
   scene: string;
@@ -23,9 +24,11 @@ export const LazySplineScene = ({
   const [shouldLoad, setShouldLoad] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const disableHeavyEffects = shouldDisableHeavyPreviewEffects();
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    if (disableHeavyEffects) return;
 
     // Check if mobile for potential styling differences
     const checkMobile = () => window.innerWidth < 768;
@@ -57,7 +60,7 @@ export const LazySplineScene = ({
     };
 
     return cleanup;
-  }, []);
+  }, [disableHeavyEffects]);
 
   // Transparent placeholder for mobile - allows grid to show through
   const GradientPlaceholder = () => (
@@ -81,7 +84,9 @@ export const LazySplineScene = ({
       className={`relative ${className}`}
       style={{ minHeight: '400px', aspectRatio: '1/1' }}
     >
-      {shouldLoad ? (
+      {disableHeavyEffects ? (
+        <GradientPlaceholder />
+      ) : shouldLoad ? (
         <SplineScene scene={scene} className="w-full h-full" />
       ) : (
         <LoadingPlaceholder />

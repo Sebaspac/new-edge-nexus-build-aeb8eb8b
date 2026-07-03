@@ -1,14 +1,18 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, ChevronDown, Clock, FileText, Presentation, Quote, Shield, Zap, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Quote, X } from "lucide-react";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { Footer } from "@/components/Footer";
 import { ContactFormModal } from "@/components/ContactFormModal";
+import { AuditSlaStatus } from "@/components/AuditSlaStatus";
 import SEOHead from "@/components/SEOHead";
+import { ThreeStepsCTA } from "@/components/ThreeStepsCTA";
 import LogoCloud from "@/components/ui/logo-cloud";
-import heroImage from "@/assets/ki-audit-hero.webp";
-import processImage from "@/assets/ki-audit-process.webp";
-
+import KiAuditGate from "@/components/KiAuditGate";
+import { safeSessionStorage, safeGetItem } from "@/utils/safeStorage";
+import { img, Icon } from "@/content";
+import { kiAudit as KIAUDIT_STATIC } from "@/content/pages/kiAudit";
+import { useCms } from "@/hooks/useCms";
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i: number = 0) => ({
@@ -19,14 +23,24 @@ const fadeUp = {
 };
 
 const KiAudit = () => {
+  // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
+  const kiAudit = useCms("ki-audit", KIAUDIT_STATIC);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [hasAccess, setHasAccess] = useState(() => {
+    const storage = safeSessionStorage();
+    return safeGetItem(storage, "ki-audit-access") === "true";
+  });
+
+  if (!hasAccess) {
+    return <KiAuditGate onSuccess={() => setHasAccess(true)} />;
+  }
 
   return (
     <>
       <SEOHead
-        title="KI-Audit für den Mittelstand | BAFA-förderfähig ab €448 | New Edge"
-        description="Strukturierter KI Audit für den Mittelstand. IST-Analyse, Roadmap, BAFA-förderfähig. Ab €448 mit Förderung."
-        canonical="/ki-audit"
+        title={kiAudit.seo.title}
+        description={kiAudit.seo.description}
+        canonical={kiAudit.seo.canonical}
       />
 
       <MobileNavigation onContactClick={() => setIsContactOpen(true)} theme="dark" />
@@ -48,7 +62,7 @@ const KiAudit = () => {
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-primary-foreground/20 bg-primary-foreground/5 backdrop-blur-sm mb-6">
                   <span className="w-1.5 h-1.5 bg-primary" />
                   <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-primary-foreground/70">
-                    Kostenloser KI Audit
+                    {kiAudit.hero.badge}
                   </span>
                 </div>
               </motion.div>
@@ -59,8 +73,8 @@ const KiAudit = () => {
                 animate="visible"
                 custom={1}
                 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] mb-5 sm:mb-8">
-                
-                Schon mal an KI & Automationen gedacht?
+
+                {kiAudit.hero.headline}
               </motion.h1>
 
               <motion.p
@@ -69,18 +83,18 @@ const KiAudit = () => {
                 animate="visible"
                 custom={2}
                 className="text-sm sm:text-body-lg text-primary-foreground/60 mb-8 whitespace-pre-line">
-                Erfahren Sie in 30 Minuten welche Prozesse sich in Ihrem Unternehemen automatisieren lassen. {"\n"}
-                Jetzt kostenlosen KI Audit sichern – strukturiert, punktuell, BAFA-gefördert.
+                {kiAudit.hero.sublineLine1}{"\n"}
+                {kiAudit.hero.sublineLine2}
               </motion.p>
 
               <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={3}>
                 <a
-                  href="https://calendly.com/wenjamin-z-newedgebrand/30min?month=2026-03"
+                  href={kiAudit.hero.cta.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-7 py-3.5 bg-primary-foreground text-foreground font-semibold border-2 border-primary-foreground hover:bg-transparent hover:text-primary-foreground transition-all duration-300 group text-xs sm:text-sm uppercase tracking-wider rounded-none">
-                  
-                   Termin sichern
+
+                  {kiAudit.hero.cta.label}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </motion.div>
@@ -96,8 +110,8 @@ const KiAudit = () => {
               
               <div className="relative overflow-hidden rounded-none">
                 <img
-                  src={heroImage}
-                  alt="Professionelle Beratung am Arbeitsplatz"
+                  src={img(kiAudit.hero.image.src)}
+                  alt={kiAudit.hero.image.alt}
                   className="w-full h-[280px] sm:h-[360px] lg:h-[520px] object-cover object-center"
                   loading="eager" />
                 
@@ -109,10 +123,13 @@ const KiAudit = () => {
 
          {/* Scroll Indicator */}
          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20">
-           <span className="text-[10px] font-medium tracking-[0.3em] text-primary-foreground/50 uppercase">Scroll</span>
-           <ChevronDown className="w-5 h-5 text-primary-foreground/50 animate-bounce" />
+           <span className="text-[10px] font-medium tracking-[0.3em] text-primary-foreground/50 uppercase">{kiAudit.hero.scroll}</span>
+           <ChevronDown className="w-5 h-5 text-primary-foreground/50 animate-pulse" />
          </div>
        </section>
+
+      {/* SLA-Status: erscheint nur, wenn eine Audit-Anfrage läuft */}
+      <AuditSlaStatus />
 
       {/* ═══════════════════════════════════════════════
                                              2 — PROBLEM / PAIN POINTS
@@ -120,17 +137,14 @@ const KiAudit = () => {
       <section className="bg-primary-foreground py-14 md:py-28">
         <div className="container mx-auto px-5 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-10 md:mb-16">
-            <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-primary mb-3 block">Das Problem</span>
+            <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-primary mb-3 block">{kiAudit.problem.eyebrow}</span>
             <h2 className="text-2xl sm:text-display max-w-2xl">
-              Kommt euch das bekannt vor?
+              {kiAudit.problem.heading}
             </h2>
           </motion.div>
 
           <div className="grid gap-4 md:grid-cols-3 md:gap-6">
-            {[
-            { q: "Wir haben 20 Mitarbeiter die täglich dieselben Aufgaben manuell abarbeiten — das muss doch smarter gehen." },
-            { q: "Erste Automationen laufen, aber eigentlich läuft alles noch manuell." },
-            { q: "Unser Team verbringt 40 % der Zeit mit Aufgaben, die eine KI bestimmt erledigen könnte — wir wissen es, aber haben keinen Plan." }].
+            {kiAudit.problem.items.
             map(({ q }, i) =>
             <motion.div
               key={i}
@@ -155,20 +169,16 @@ const KiAudit = () => {
       <section className="bg-muted py-14 md:py-28">
         <div className="container mx-auto px-5 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-10 md:mb-16">
-            <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-primary mb-3 block">Leistung</span>
+            <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-primary mb-3 block">{kiAudit.leistung.eyebrow}</span>
             <h2 className="text-2xl sm:text-display max-w-3xl">
-              Was ist der KI Enablement & Audit?
+              {kiAudit.leistung.heading}
             </h2>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             {/* What it is */}
             <div className="space-y-3 sm:space-y-4">
-              {[
-              { icon: FileText, text: "Strukturierte IST-Analyse eurer Prozesse und Tools" },
-              { icon: Zap, text: "Bewertung: Wo lohnt sich KI, wo noch nicht" },
-              { icon: CheckCircle2, text: "Konkrete Maßnahmen-Roadmap für die nächsten 90 Tage" },
-              { icon: Shield, text: "Kein Bericht der in der Schublade landet — sondern Aktionsplan" }].
+              {kiAudit.leistung.items.
               map((item, i) =>
               <motion.div
                 key={i}
@@ -180,7 +190,7 @@ const KiAudit = () => {
                 className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 border-2 border-foreground/[0.08] bg-primary-foreground hover:border-primary/30 transition-colors duration-300 rounded-none">
                 
                   <div className="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 flex items-center justify-center bg-primary/10">
-                    <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                    <Icon name={item.icon} className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   </div>
                   <p className="text-sm sm:text-body text-foreground/80 pt-1">{item.text}</p>
                 </motion.div>
@@ -196,9 +206,9 @@ const KiAudit = () => {
               custom={2}
               className="border-2 border-foreground/10 p-6 sm:p-8 md:p-10 bg-primary-foreground rounded-none">
               
-              <h3 className="text-lg sm:text-h3 mb-5">Kein:</h3>
+              <h3 className="text-lg sm:text-h3 mb-5">{kiAudit.leistung.notHeading}</h3>
               <ul className="space-y-3 sm:space-y-4">
-                {["Tool-Demo", "Theorie-Workshop", "Framework-Folien"].map((item, i) =>
+                {kiAudit.leistung.notItems.map((item, i) =>
                 <li key={i} className="flex items-center gap-3 text-sm sm:text-body text-foreground/60">
                     <X className="w-4 h-4 text-foreground/30 flex-shrink-0" />
                     {item}
@@ -216,9 +226,9 @@ const KiAudit = () => {
       <section className="bg-primary-foreground py-14 md:py-28">
         <div className="container mx-auto px-5 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-10 md:mb-16">
-            <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-primary mb-3 block">Prozess</span>
+            <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-primary mb-3 block">{kiAudit.prozess.eyebrow}</span>
             <h2 className="text-2xl sm:text-display max-w-2xl">
-              Von der Anfrage zum Aktionsplan
+              {kiAudit.prozess.heading}
             </h2>
           </motion.div>
 
@@ -232,8 +242,8 @@ const KiAudit = () => {
             className="mb-8 md:mb-12 overflow-hidden rounded-none">
             
             <img
-              src={processImage}
-              alt="Strategische Planung und Analyse im Team"
+              src={img(kiAudit.prozess.image.src)}
+              alt={kiAudit.prozess.image.alt}
               className="w-full h-[200px] sm:h-[280px] md:h-[360px] object-cover object-center"
               loading="lazy" />
             
@@ -241,25 +251,7 @@ const KiAudit = () => {
 
           {/* Steps — horizontal scroll on mobile, grid on desktop */}
           <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0 -mx-5 px-5 md:mx-0 md:px-0">
-            {[
-            {
-              step: "01",
-              title: "30-Min Erstgespräch",
-              desc: "Kostenlos & unverbindlich — wir analysieren gemeinsam eure Prozesse, Tools und KI-Potenziale.",
-              icon: Clock
-            },
-            {
-              step: "02",
-              title: "Sofort-Audit in 30 Min",
-              desc: "Direkt im Gespräch: Potenzialanalyse, priorisierte Roadmap und klare Entscheidungsgrundlagen — kein Warten.",
-              icon: FileText
-            },
-            {
-              step: "03",
-              title: "Implementierung & Klarheit",
-              desc: "Ihr wisst genau, wo KI euch weiterbringt — mit konkretem Aktionsplan für die nächsten 90 Tage.",
-              icon: Presentation
-            }].
+            {kiAudit.prozess.steps.
             map((item, i) =>
             <motion.div
               key={i}
@@ -273,7 +265,7 @@ const KiAudit = () => {
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
                   <span className="text-3xl sm:text-display text-primary/20 group-hover:text-primary/40 transition-colors font-bold">{item.step}</span>
                   <div className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-primary/10 group-hover:bg-primary transition-colors duration-300">
-                    <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                    <Icon name={item.icon} className="w-4 h-4 sm:w-5 sm:h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                   </div>
                 </div>
                 <h3 className="text-base sm:text-h3 mb-2 sm:mb-3 font-semibold">{item.title}</h3>
@@ -302,9 +294,9 @@ const KiAudit = () => {
       <section className="bg-muted py-14 md:py-28">
         <div className="container mx-auto px-5 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} className="mb-10 md:mb-16">
-            <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-primary mb-3 block">Referenz</span>
+            <span className="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-primary mb-3 block">{kiAudit.trust.eyebrow}</span>
             <h2 className="text-2xl sm:text-display max-w-2xl">
-              Ergebnisse, keine Versprechen
+              {kiAudit.trust.heading}
             </h2>
           </motion.div>
 
@@ -318,10 +310,7 @@ const KiAudit = () => {
             className="border-2 border-foreground/10 p-6 sm:p-8 md:p-12 mb-8 md:mb-12 rounded-none bg-primary-foreground">
             
             <div className="grid grid-cols-3 gap-4 sm:gap-8 mb-6 sm:mb-8">
-              {[
-              { value: "30%", label: "Zeitersparnis bei Routineaufgaben" },
-              { value: "5×", label: "Schnellere Angebotserstellung" },
-              { value: "90", label: "Tage bis ganzheitliche Automatisierung " }].
+              {kiAudit.trust.stats.
               map((stat, i) =>
               <div key={i} className="text-center">
                   <p className="text-2xl sm:text-4xl md:text-display text-primary mb-1 sm:mb-2 font-bold">{stat.value}</p>
@@ -333,10 +322,10 @@ const KiAudit = () => {
             <div className="border-t border-foreground/10 pt-6 sm:pt-8">
               <Quote className="w-4 h-4 sm:w-5 sm:h-5 text-primary/40 mb-2 sm:mb-3" />
               <p className="text-sm sm:text-body-lg text-foreground/70 italic max-w-3xl mb-3 sm:mb-4 leading-relaxed">
-                „New Edge hat uns in 3 Wochen gezeigt, wo KI bei uns wirklich Hebel hat — und wo wir besser die Finger davon lassen. Das hat uns Monate an Fehlversuchen erspart."
+                {kiAudit.trust.quote}
               </p>
               <p className="text-xs sm:text-body-sm text-foreground/50">
-                — Geschäftsführer, mittelständisches Industrieunternehmen
+                {kiAudit.trust.quoteAuthor}
               </p>
             </div>
           </motion.div>
@@ -348,30 +337,7 @@ const KiAudit = () => {
       {/* ═══════════════════════════════════════════════
                                              6 — FINAL CTA
                                         ═══════════════════════════════════════════════ */}
-      <section className="bg-foreground text-primary-foreground py-16 md:py-32">
-        <div className="container mx-auto px-5 sm:px-8 lg:px-12 max-w-3xl text-center">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>
-            <h2 className="text-2xl sm:text-display-lg mb-4 sm:mb-6">Bereit für das KI-alter?</h2>
-            <p className="text-sm sm:text-body-lg text-primary-foreground/60 mb-8 sm:mb-10 max-w-xl mx-auto">
-              Kein Verkaufsgespräch. 30 Minuten. Wir hören zu.
-            </p>
-
-            <a
-              href="https://calendly.com/wenjamin-z-newedgebrand/30min?month=2026-03"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-primary-foreground text-foreground font-semibold border-2 border-primary-foreground hover:bg-transparent hover:text-primary-foreground transition-all duration-300 group text-xs sm:text-sm uppercase tracking-wider rounded-none">
-              
-              Jetzt Erstgespräch buchen
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-
-            <p className="text-[10px] sm:text-xs text-primary-foreground/30 mt-4 sm:mt-6">
-              Kostenlos & unverbindlich · 30 Minuten
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <ThreeStepsCTA />
 
       <Footer />
 
@@ -381,7 +347,8 @@ const KiAudit = () => {
         accentColor="#ffffff"
         gradientFrom="#333333"
         gradientTo="#000000"
-        theme="studio" />
+        theme="studio"
+        sla />
       
     </>);
 
