@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import newEdgeLogo from "@/assets/new-edge-logo.webp";
 import SEOHead from "@/components/SEOHead";
 
 const TARGET = new Date("2026-08-01T00:00:00+02:00").getTime();
@@ -46,7 +45,7 @@ const RebrandCountdown = () => {
     <>
       <SEOHead
         title="Rebrand incoming — New Edge"
-        description="Something new is coming. Countdown to 01.07."
+        description="Something new is coming. Countdown to 01.08."
         canonical="/"
       />
       <main className="relative min-h-[100dvh] w-full overflow-hidden bg-black text-white flex flex-col items-center justify-center px-6">
@@ -64,9 +63,6 @@ const RebrandCountdown = () => {
               "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>\")",
           }}
         />
-
-
-        {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -97,7 +93,7 @@ const RebrandCountdown = () => {
           transition={{ delay: 0.9, duration: 0.6 }}
           className="relative z-10 mt-12 md:mt-20 text-xs md:text-sm uppercase tracking-[0.4em] text-white/40"
         >
-          01 · 07
+          01 · 08
         </motion.div>
       </main>
     </>
