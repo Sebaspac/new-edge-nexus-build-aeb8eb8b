@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import newEdgeLogo from "@/assets/new-edge-logo.webp";
 import SEOHead from "@/components/SEOHead";
 
-const TARGET = new Date("2026-07-01T00:00:00+02:00").getTime();
+const TARGET = new Date("2026-08-01T00:00:00+02:00").getTime();
 
 function getRemaining() {
   const diff = Math.max(0, TARGET - Date.now());
@@ -65,31 +65,6 @@ const RebrandCountdown = () => {
           }}
         />
 
-        {/* Logo pulse */}
-        <motion.img
-          src={newEdgeLogo}
-          alt="New Edge"
-          className="relative z-10 w-14 h-14 md:w-20 md:h-20 mb-10 md:mb-14"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: [1, 1.08, 1] }}
-          transition={{
-            opacity: { duration: 0.6 },
-            scale: { duration: 2.4, repeat: Infinity, ease: "easeInOut" },
-          }}
-        />
-
-        {/* Label */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="relative z-10 mb-3 md:mb-5"
-        >
-          <span className="inline-flex items-center gap-2 border border-white/20 px-3 py-1 text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/70 backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 bg-primary animate-pulse" />
-            Rebrand Incoming
-          </span>
-        </motion.div>
 
         {/* Headline */}
         <motion.h1
