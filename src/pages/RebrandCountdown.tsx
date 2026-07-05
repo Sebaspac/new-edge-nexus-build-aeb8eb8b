@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import newEdgeLogo from "@/assets/new-edge-logo.webp";
 import SEOHead from "@/components/SEOHead";
 
-const TARGET = new Date("2027-07-01T00:00:00+02:00").getTime();
+const TARGET = new Date("2026-07-01T00:00:00+02:00").getTime();
 
 function getRemaining() {
   const diff = Math.max(0, TARGET - Date.now());
