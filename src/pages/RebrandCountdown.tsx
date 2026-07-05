@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import newEdgeLogo from "@/assets/new-edge-logo.webp";
 import SEOHead from "@/components/SEOHead";
 
-const TARGET = new Date("2026-07-01T00:00:00+02:00").getTime();
+const TARGET = new Date("2026-08-01T00:00:00+02:00").getTime();
 
 function getRemaining() {
   const diff = Math.max(0, TARGET - Date.now());
@@ -46,7 +45,7 @@ const RebrandCountdown = () => {
     <>
       <SEOHead
         title="Rebrand incoming — New Edge"
-        description="Something new is coming. Countdown to 01.07."
+        description="Something new is coming. Countdown to 01.08."
         canonical="/"
       />
       <main className="relative min-h-[100dvh] w-full overflow-hidden bg-black text-white flex flex-col items-center justify-center px-6">
@@ -64,38 +63,10 @@ const RebrandCountdown = () => {
               "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>\")",
           }}
         />
-
-        {/* Logo pulse */}
-        <motion.img
-          src={newEdgeLogo}
-          alt="New Edge"
-          className="relative z-10 w-14 h-14 md:w-20 md:h-20 mb-10 md:mb-14"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: [1, 1.08, 1] }}
-          transition={{
-            opacity: { duration: 0.6 },
-            scale: { duration: 2.4, repeat: Infinity, ease: "easeInOut" },
-          }}
-        />
-
-        {/* Label */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="relative z-10 mb-3 md:mb-5"
-        >
-          <span className="inline-flex items-center gap-2 border border-white/20 px-3 py-1 text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/70 backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 bg-primary animate-pulse" />
-            Rebrand Incoming
-          </span>
-        </motion.div>
-
-        {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ delay: 0.35, duration: 0.8 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
           className="relative z-10 text-center text-4xl md:text-6xl lg:text-7xl mb-10 md:mb-16 leading-[1.05]"
           style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 400 }}
         >
@@ -122,7 +93,7 @@ const RebrandCountdown = () => {
           transition={{ delay: 0.9, duration: 0.6 }}
           className="relative z-10 mt-12 md:mt-20 text-xs md:text-sm uppercase tracking-[0.4em] text-white/40"
         >
-          01 · 07
+          01 · 08
         </motion.div>
       </main>
     </>
