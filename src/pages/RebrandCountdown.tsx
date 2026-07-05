@@ -95,6 +95,17 @@ const RebrandCountdown = () => {
         >
           01 · 08
         </motion.div>
+
+        {/* CTA */}
+        <motion.a
+          href="mailto:wenjamin.z@newedgebrand.com"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.05, duration: 0.6 }}
+          className="relative z-10 mt-6 md:mt-8 inline-flex items-center justify-center border-2 border-white/40 bg-white/5 px-7 py-3 text-[10px] md:text-xs uppercase tracking-[0.4em] text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-black"
+        >
+          anfragen?
+        </motion.a>
       </main>
     </>
   );
