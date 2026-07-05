@@ -13,7 +13,7 @@ import StickyAuditBubble from "@/components/StickyAuditBubble";
 import ApolloTracker from "@/components/ApolloTracker";
 
 // Eager load only critical pages for faster initial load
-import Index from "./pages/Index";
+import Index from "./pages/RebrandCountdown";
 import OptimizedStudio from "./components/OptimizedStudio";
 import OptimizedLab from "./components/OptimizedLab";
 
