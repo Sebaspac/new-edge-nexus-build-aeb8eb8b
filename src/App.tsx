@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { HelmetProvider } from 'react-helmet-async';
 import { useEffect } from "react";
-import { LoadingScreen } from "@/components/LoadingScreen";
 import StructuredData from "@/components/StructuredData";
 import ApolloTracker from "@/components/ApolloTracker";
 import RebrandCountdown from "./pages/RebrandCountdown";
