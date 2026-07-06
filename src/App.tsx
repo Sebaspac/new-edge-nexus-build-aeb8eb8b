@@ -34,11 +34,9 @@ const App = () => {
             <Sonner />
             <BrowserRouter>
               <StructuredData />
-              <Suspense fallback={<LoadingScreen progress={100} />}>
-                <Routes>
-                  <Route path="*" element={<RebrandCountdown />} />
-                </Routes>
-              </Suspense>
+              <Routes>
+                <Route path="*" element={<RebrandCountdown />} />
+              </Routes>
               <ApolloTracker />
             </BrowserRouter>
           </TooltipProvider>
