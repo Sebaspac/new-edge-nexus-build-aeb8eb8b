@@ -1,20 +1,71 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
+import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { impressum as IMPRESSUM_STATIC } from "@/content/pages/impressum";
 import { useCms } from "@/hooks/useCms";
 
+const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
+
+const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+const VIOLET = "#5658DF";
+const INK_DEEP = "#17172E";
+const INK = "#3C3C47";
+const PAPER = "#F8F5FF";
+const HAIRLINE = "rgba(86,88,223,0.15)";
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+/** Rechtstext-Grundschrift — erbt Größe/Zeilenhöhe vom globalen Fließtext-System. */
+const BODY: React.CSSProperties = {
+  fontFamily: OUTFIT,
+  fontWeight: 400,
+  color: INK,
+  maxWidth: "72ch",
+};
+
+/** Hervorgehobene Begriffe/Box-Titel innerhalb des Rechtstexts. */
+const STRONG: React.CSSProperties = { fontWeight: 600, color: INK_DEEP };
+
+/** Weiße Abschnitts-Karte: 16px Radius, Hairline, subtiler Schatten. */
+const CARD: React.CSSProperties = {
+  background: "#fff",
+  borderRadius: "16px",
+  border: `1px solid ${HAIRLINE}`,
+  boxShadow: "0 1px 2px rgba(23,23,46,0.06)",
+  padding: "clamp(20px, 3vw, 28px)",
+};
+
+/** Violetter Textlink mit dezentem Hover. */
+const linkClass = "underline underline-offset-4 transition-opacity hover:opacity-70";
+const linkStyle: React.CSSProperties = { color: VIOLET };
+
 const SectionDivider = () => (
-  <div className="w-full border-t border-foreground/10 my-10 md:my-14" />
+  <div aria-hidden className="my-10 md:my-14" style={{ borderTop: `1px solid ${HAIRLINE}` }} />
 );
 
 const SectionHeading = ({ children }: { children: React.ReactNode }) => (
-  <h3 className="text-base md:text-lg font-semibold text-foreground/80 tracking-wide mb-4">
+  <h3
+    style={{
+      color: INK_DEEP,
+    }}
+  >
     {children}
   </h3>
+);
+
+const ChapterHeading = ({ children }: { children: React.ReactNode }) => (
+  <h2
+    style={{
+      color: INK_DEEP,
+      marginBottom: "32px",
+    }}
+  >
+    {children}
+  </h2>
 );
 
 const Impressum = () => {
@@ -37,69 +88,91 @@ const Impressum = () => {
   const { page, impressumSection: imp, datenschutzSection: ds } = impressum;
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen" style={{ background: PAPER, fontFamily: OUTFIT }}>
       <SEOHead
         title={impressum.seo.title}
         description={impressum.seo.description}
         canonical={impressum.seo.canonical}
         noindex
       />
-      {/* Header */}
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="container mx-auto px-6 pt-10 pb-4 max-w-4xl"
-      >
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-foreground/50 hover:text-foreground transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          {t("legal.backToHome")}
-        </Link>
-      </motion.header>
+      <NoiseOverlay opacity={0.03} fixed zIndex={2} />
+      <MobileNavigation onContactClick={() => {}} theme="dark" />
 
       {/* Main Content */}
-      <main className="container mx-auto px-6 pb-24 max-w-4xl">
+      <main
+        className="mx-auto px-6 lg:px-8"
+        style={{ maxWidth: "820px", paddingTop: "clamp(120px, 14vh, 152px)", paddingBottom: "clamp(64px, 8vw, 100px)" }}
+      >
+        {/* Zurück zur Startseite */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4, ease: EASE }}
+          style={{ marginBottom: "clamp(32px, 5vw, 48px)" }}
+        >
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 transition-opacity hover:opacity-70"
+            style={{
+              fontFamily: OUTFIT,
+              fontWeight: 600,
+              fontSize: "13px",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "#6E6880",
+            }}
+          >
+            <ArrowLeft className="w-4 h-4" />
+            {t("legal.backToHome")}
+          </Link>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: EASE }}
         >
           {/* Title */}
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-3xl md:text-5xl lg:text-6xl mb-4 leading-[0.95]"
+            transition={{ delay: 0.1, duration: 0.4, ease: EASE }}
+            style={{
+              color: INK_DEEP,
+            }}
           >
             {page.titleLine1}<br />
             {page.titleLine2}
           </motion.h1>
 
-          <p className="text-foreground/40 text-xs uppercase tracking-widest mb-16 md:mb-20">
+          <p
+            style={{
+              fontFamily: OUTFIT,
+              fontWeight: 600,
+              fontSize: "13px",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: VIOLET,
+              marginBottom: "clamp(56px, 8vw, 80px)",
+            }}
+          >
             {page.stand}
           </p>
 
           {/* ═══════════════ IMPRESSUM ═══════════════ */}
           <section>
-            <h2 className="text-xl md:text-2xl lg:text-3xl mb-8">
-              {imp.title}
-            </h2>
+            <ChapterHeading>{imp.title}</ChapterHeading>
 
             {/* Angaben gemäß § 5 TMG */}
             <div className="mb-8">
               <SectionHeading>{imp.angaben.heading}</SectionHeading>
-              <div className="border border-foreground/10 p-5 md:p-6">
-                <p className="font-medium text-foreground">{imp.angaben.company}</p>
-                <p className="text-foreground/60 mt-1">{imp.angaben.owner}</p>
-                <p className="text-foreground/60">{imp.angaben.country}</p>
-                <p className="text-foreground/60 mt-3">
+              <div style={CARD}>
+                <p style={{ ...BODY, ...STRONG }}>{imp.angaben.company}</p>
+                <p style={{ ...BODY, marginTop: "4px" }}>{imp.angaben.owner}</p>
+                <p style={BODY}>{imp.angaben.country}</p>
+                <p style={{ ...BODY, marginTop: "12px" }}>
                   {imp.angaben.emailLabel}{" "}
-                  <a
-                    href={imp.angaben.email.href}
-                    className="text-foreground underline underline-offset-4 hover:text-primary transition-colors"
-                  >
+                  <a href={imp.angaben.email.href} className={linkClass} style={linkStyle}>
                     {imp.angaben.email.label}
                   </a>
                 </p>
@@ -111,17 +184,18 @@ const Impressum = () => {
             {/* Geltungsbereich */}
             <div className="mb-8">
               <SectionHeading>{imp.geltungsbereich.heading}</SectionHeading>
-              <p className="text-foreground/70 leading-relaxed mb-3">
+              <p style={{ ...BODY, marginBottom: "12px" }}>
                 {imp.geltungsbereich.intro}
               </p>
-              <ul className="list-disc list-inside text-foreground/70 space-y-1">
+              <ul className="list-disc list-inside space-y-1" style={BODY}>
                 {imp.geltungsbereich.links.map((link) => (
                   <li key={link.href}>
                     <a
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline underline-offset-4 hover:text-primary transition-colors"
+                      className={linkClass}
+                      style={linkStyle}
                     >
                       {link.label}
                     </a>
@@ -135,7 +209,7 @@ const Impressum = () => {
             {/* Haftungsbeschränkung */}
             <div className="mb-8">
               <SectionHeading>{imp.sections[0].heading}</SectionHeading>
-              <div className="space-y-4 text-foreground/70 leading-relaxed">
+              <div className="space-y-4" style={BODY}>
                 {imp.sections[0].body.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
@@ -147,7 +221,7 @@ const Impressum = () => {
             {/* Externe Links */}
             <div className="mb-8">
               <SectionHeading>{imp.sections[1].heading}</SectionHeading>
-              <div className="space-y-4 text-foreground/70 leading-relaxed">
+              <div className="space-y-4" style={BODY}>
                 {imp.sections[1].body.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
@@ -159,7 +233,7 @@ const Impressum = () => {
             {/* Urheberrecht */}
             <div>
               <SectionHeading>{imp.sections[2].heading}</SectionHeading>
-              <div className="space-y-4 text-foreground/70 leading-relaxed">
+              <div className="space-y-4" style={BODY}>
                 {imp.sections[2].body.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
@@ -168,29 +242,24 @@ const Impressum = () => {
           </section>
 
           {/* ═══════════════ DATENSCHUTZ ═══════════════ */}
-          <div className="w-full border-t-2 border-foreground/20 my-16 md:my-24" />
+          <div aria-hidden className="my-16 md:my-24" style={{ borderTop: "2px solid rgba(86,88,223,0.22)" }} />
 
-          <section id="datenschutz">
-            <h2 className="text-xl md:text-2xl lg:text-3xl mb-8">
-              {ds.title}
-            </h2>
+          <section id="datenschutz" style={{ scrollMarginTop: "96px" }}>
+            <ChapterHeading>{ds.title}</ChapterHeading>
 
             {/* 1. Verantwortlicher */}
             <div className="mb-8">
               <SectionHeading>{ds.verantwortlicher.heading}</SectionHeading>
-              <p className="text-foreground/70 leading-relaxed mb-4">
+              <p style={{ ...BODY, marginBottom: "16px" }}>
                 {ds.verantwortlicher.intro}
               </p>
-              <div className="border border-foreground/10 p-5 md:p-6">
+              <div style={CARD}>
                 {ds.verantwortlicher.address.map((line, i) => (
-                  <p key={i} className="text-foreground/70">{line}</p>
+                  <p key={i} style={BODY}>{line}</p>
                 ))}
-                <p className="text-foreground/70 mt-3">
+                <p style={{ ...BODY, marginTop: "12px" }}>
                   {ds.verantwortlicher.emailLabel}{" "}
-                  <a
-                    href={ds.verantwortlicher.email.href}
-                    className="text-foreground underline underline-offset-4 hover:text-primary transition-colors"
-                  >
+                  <a href={ds.verantwortlicher.email.href} className={linkClass} style={linkStyle}>
                     {ds.verantwortlicher.email.label}
                   </a>
                 </p>
@@ -202,7 +271,7 @@ const Impressum = () => {
             {/* 2. Erhebung */}
             <div className="mb-8">
               <SectionHeading>{ds.erhebung.heading}</SectionHeading>
-              <div className="space-y-4 text-foreground/70 leading-relaxed">
+              <div className="space-y-4" style={BODY}>
                 {ds.erhebung.body.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
@@ -214,18 +283,18 @@ const Impressum = () => {
             {/* 3. Server-Logfiles */}
             <div className="mb-8">
               <SectionHeading>{ds.serverLogfiles.heading}</SectionHeading>
-              <p className="text-foreground/70 leading-relaxed mb-4">
+              <p style={{ ...BODY, marginBottom: "16px" }}>
                 {ds.serverLogfiles.intro}
               </p>
-              <ul className="list-disc list-inside text-foreground/70 space-y-1 mb-4">
+              <ul className="list-disc list-inside space-y-1" style={{ ...BODY, marginBottom: "16px" }}>
                 {ds.serverLogfiles.items.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
               </ul>
-              <p className="text-foreground/70 leading-relaxed mb-2">
+              <p style={{ ...BODY, marginBottom: "8px" }}>
                 {ds.serverLogfiles.after1}
               </p>
-              <p className="text-foreground/70 leading-relaxed">
+              <p style={BODY}>
                 {ds.serverLogfiles.after2}
               </p>
             </div>
@@ -235,7 +304,7 @@ const Impressum = () => {
             {/* 4. Kontaktaufnahme */}
             <div className="mb-8">
               <SectionHeading>{ds.kontaktaufnahme.heading}</SectionHeading>
-              <div className="space-y-4 text-foreground/70 leading-relaxed">
+              <div className="space-y-4" style={BODY}>
                 {ds.kontaktaufnahme.body.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
@@ -247,7 +316,7 @@ const Impressum = () => {
             {/* 5. Meta Pixel */}
             <div className="mb-8">
               <SectionHeading>{ds.metaPixel.heading}</SectionHeading>
-              <div className="space-y-4 text-foreground/70 leading-relaxed">
+              <div className="space-y-4" style={BODY}>
                 {ds.metaPixel.body.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
@@ -255,7 +324,8 @@ const Impressum = () => {
                   {ds.metaPixel.moreInfoLabel}{" "}
                   <a
                     href={ds.metaPixel.moreInfoLink.href}
-                    className="underline underline-offset-4 hover:text-primary transition-colors"
+                    className={linkClass}
+                    style={linkStyle}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -263,9 +333,9 @@ const Impressum = () => {
                   </a>
                 </p>
               </div>
-              <div className="border border-foreground/10 p-5 md:p-6 mt-4">
-                <p className="font-medium text-foreground text-sm mb-2">{ds.metaPixel.box.title}</p>
-                <p className="text-foreground/70 leading-relaxed">
+              <div style={{ ...CARD, marginTop: "16px" }}>
+                <p style={{ ...BODY, ...STRONG, fontSize: "14px", marginBottom: "8px" }}>{ds.metaPixel.box.title}</p>
+                <p style={BODY}>
                   {ds.metaPixel.box.body}
                 </p>
               </div>
@@ -276,24 +346,25 @@ const Impressum = () => {
             {/* 6. Google Tag Manager */}
             <div className="mb-8">
               <SectionHeading>{ds.googleTagManager.heading}</SectionHeading>
-              <div className="space-y-4 text-foreground/70 leading-relaxed">
+              <div className="space-y-4" style={BODY}>
                 {ds.googleTagManager.body.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
               </div>
-              <div className="border border-foreground/10 p-5 md:p-6 mt-4">
-                <p className="font-medium text-foreground text-sm mb-2">{ds.googleTagManager.box.title}</p>
-                <ul className="list-disc list-inside text-foreground/70 space-y-1">
+              <div style={{ ...CARD, marginTop: "16px" }}>
+                <p style={{ ...BODY, ...STRONG, fontSize: "14px", marginBottom: "8px" }}>{ds.googleTagManager.box.title}</p>
+                <ul className="list-disc list-inside space-y-1" style={BODY}>
                   {ds.googleTagManager.box.items.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
               </div>
-              <p className="text-foreground/70 leading-relaxed mt-4">
+              <p style={{ ...BODY, marginTop: "16px" }}>
                 {ds.googleTagManager.moreInfoLabel}{" "}
                 <a
                   href={ds.googleTagManager.moreInfoLink.href}
-                  className="underline underline-offset-4 hover:text-primary transition-colors"
+                  className={linkClass}
+                  style={linkStyle}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -307,15 +378,15 @@ const Impressum = () => {
             {/* 7. Google Analytics */}
             <div className="mb-8">
               <SectionHeading>{ds.googleAnalytics.heading}</SectionHeading>
-              <div className="space-y-4 text-foreground/70 leading-relaxed">
+              <div className="space-y-4" style={BODY}>
                 {ds.googleAnalytics.intro.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
               </div>
 
               <div className="mt-6 mb-6">
-                <p className="font-medium text-foreground text-sm mb-3">{ds.googleAnalytics.purpose.title}</p>
-                <div className="space-y-2 text-foreground/70 leading-relaxed">
+                <p style={{ ...BODY, ...STRONG, fontSize: "14px", marginBottom: "12px" }}>{ds.googleAnalytics.purpose.title}</p>
+                <div className="space-y-2" style={BODY}>
                   {ds.googleAnalytics.purpose.body.map((para, i) => (
                     <p key={i}>{para}</p>
                   ))}
@@ -323,26 +394,27 @@ const Impressum = () => {
               </div>
 
               <div className="mb-6">
-                <p className="font-medium text-foreground text-sm mb-3">{ds.googleAnalytics.data.title}</p>
-                <ul className="list-disc list-inside text-foreground/70 space-y-1">
+                <p style={{ ...BODY, ...STRONG, fontSize: "14px", marginBottom: "12px" }}>{ds.googleAnalytics.data.title}</p>
+                <ul className="list-disc list-inside space-y-1" style={BODY}>
                   {ds.googleAnalytics.data.items.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
               </div>
 
-              <div className="border border-foreground/10 p-5 md:p-6 mb-4">
-                <p className="font-medium text-foreground text-sm mb-2">{ds.googleAnalytics.box.title}</p>
-                <p className="text-foreground/70 leading-relaxed">
+              <div style={{ ...CARD, marginBottom: "16px" }}>
+                <p style={{ ...BODY, ...STRONG, fontSize: "14px", marginBottom: "8px" }}>{ds.googleAnalytics.box.title}</p>
+                <p style={BODY}>
                   {ds.googleAnalytics.box.body}
                 </p>
               </div>
 
-              <p className="text-foreground/70 leading-relaxed">
+              <p style={BODY}>
                 {ds.googleAnalytics.moreInfoLabel}{" "}
                 <a
                   href={ds.googleAnalytics.moreInfoLink.href}
-                  className="underline underline-offset-4 hover:text-primary transition-colors"
+                  className={linkClass}
+                  style={linkStyle}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -356,22 +428,22 @@ const Impressum = () => {
             {/* 8. Cookies */}
             <div className="mb-8">
               <SectionHeading>{ds.cookies.heading}</SectionHeading>
-              <p className="text-foreground/70 leading-relaxed mb-4">
+              <p style={{ ...BODY, marginBottom: "16px" }}>
                 {ds.cookies.intro}
               </p>
 
               <div className="mb-6">
-                <p className="font-medium text-foreground text-sm mb-3">{ds.cookies.types.title}</p>
-                <ul className="list-disc list-inside text-foreground/70 space-y-2">
+                <p style={{ ...BODY, ...STRONG, fontSize: "14px", marginBottom: "12px" }}>{ds.cookies.types.title}</p>
+                <ul className="list-disc list-inside space-y-2" style={BODY}>
                   {ds.cookies.types.items.map((item, i) => (
-                    <li key={i}><span className="font-medium text-foreground">{item.term}</span>{item.rest}</li>
+                    <li key={i}><span style={STRONG}>{item.term}</span>{item.rest}</li>
                   ))}
                 </ul>
               </div>
 
-              <div className="border border-foreground/10 p-5 md:p-6">
-                <p className="font-medium text-foreground text-sm mb-2">{ds.cookies.box.title}</p>
-                <p className="text-foreground/70 leading-relaxed">
+              <div style={CARD}>
+                <p style={{ ...BODY, ...STRONG, fontSize: "14px", marginBottom: "8px" }}>{ds.cookies.box.title}</p>
+                <p style={BODY}>
                   {ds.cookies.box.body}
                 </p>
               </div>
@@ -382,20 +454,17 @@ const Impressum = () => {
             {/* 9. Ihre Rechte */}
             <div className="mb-8">
               <SectionHeading>{ds.rechte.heading}</SectionHeading>
-              <p className="text-foreground/70 leading-relaxed mb-4">
+              <p style={{ ...BODY, marginBottom: "16px" }}>
                 {ds.rechte.intro}
               </p>
-              <ul className="list-disc list-inside text-foreground/70 space-y-1 mb-4">
+              <ul className="list-disc list-inside space-y-1" style={{ ...BODY, marginBottom: "16px" }}>
                 {ds.rechte.items.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
               </ul>
-              <p className="text-foreground/70 leading-relaxed">
+              <p style={BODY}>
                 {ds.rechte.contactLabel}{" "}
-                <a
-                  href={ds.rechte.email.href}
-                  className="text-foreground underline underline-offset-4 hover:text-primary transition-colors"
-                >
+                <a href={ds.rechte.email.href} className={linkClass} style={linkStyle}>
                   {ds.rechte.email.label}
                 </a>
               </p>
@@ -406,7 +475,7 @@ const Impressum = () => {
             {/* 10. Datensicherheit */}
             <div className="mb-8">
               <SectionHeading>{ds.datensicherheit.heading}</SectionHeading>
-              <div className="space-y-4 text-foreground/70 leading-relaxed">
+              <div className="space-y-4" style={BODY}>
                 {ds.datensicherheit.body.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
@@ -418,7 +487,7 @@ const Impressum = () => {
             {/* 11. Änderungen */}
             <div className="mb-8">
               <SectionHeading>{ds.aenderungen.heading}</SectionHeading>
-              <div className="space-y-4 text-foreground/70 leading-relaxed">
+              <div className="space-y-4" style={BODY}>
                 {ds.aenderungen.body.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
@@ -430,11 +499,11 @@ const Impressum = () => {
             {/* 12. Cookie-Consent */}
             <div>
               <SectionHeading>{ds.cookieConsent.heading}</SectionHeading>
-              <p className="text-foreground/70 leading-relaxed mb-4">
+              <p style={{ ...BODY, marginBottom: "16px" }}>
                 {ds.cookieConsent.intro}
               </p>
-              <div className="border border-foreground/10 p-5 md:p-6">
-                <ul className="list-disc list-inside text-foreground/70 space-y-2">
+              <div style={CARD}>
+                <ul className="list-disc list-inside space-y-2" style={BODY}>
                   {ds.cookieConsent.box.items.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
@@ -444,6 +513,10 @@ const Impressum = () => {
           </section>
         </motion.div>
       </main>
+
+      <Suspense fallback={<div style={{ minHeight: 200 }} />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };

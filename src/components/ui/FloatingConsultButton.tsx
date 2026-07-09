@@ -14,7 +14,6 @@ const SERIF: React.CSSProperties = {
 };
 
 const REVOLVING_TEXT = "KOSTENLOSES ERSTGESPRÄCH · JETZT BUCHEN · ";
-const CALENDLY = "https://calendly.com/sebastian-p-newedgebrand/30min";
 
 export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -93,7 +92,7 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
 
             {/* Heading + badge */}
             <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "8px", marginBottom: "10px" }}>
-              <h3 style={{ ...SERIF, fontStyle: "italic", fontSize: "1.35rem", color: INK_DEEP, lineHeight: 1.1, margin: 0 }}>
+              <h3 style={{ fontStyle: "italic", color: INK_DEEP }}>
                 30-Min Erstgespräch
               </h3>
               <span style={{
@@ -112,14 +111,14 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
             </div>
 
             {/* Description */}
-            <p style={{ ...MONO, fontSize: "12px", lineHeight: 1.72, color: "rgba(23,23,46,0.62)", marginBottom: "20px" }}>
+            <p style={{ ...MONO, color: "rgba(23,23,46,0.62)", marginBottom: "20px" }}>
               Ein kurzes, unverbindliches Gespräch mit Sebastian — wir besprechen Ihre
               Situation und prüfen, wie KI oder Prozessautomatisierung bei Ihnen wirkt.
             </p>
 
             {/* CTA */}
             <button
-              onClick={() => { setIsOpen(false); window.open(CALENDLY, "_blank", "noopener"); }}
+              onClick={() => { setIsOpen(false); navigate("/kontakt"); }}
               style={{
                 width: "100%",
                 background: VIOLET,
@@ -144,7 +143,7 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
         style={{ position: "relative", cursor: "pointer", width: "152px", height: "152px" }}
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.28 }}
-        onClick={() => window.open(CALENDLY, "_blank", "noopener")}
+        onClick={() => navigate("/kontakt")}
       >
         {/* Revolving text ring — CSS animation, no Framer overhead */}
         <div style={{

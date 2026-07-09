@@ -41,6 +41,9 @@ export const hero = {
   /** Skip-Link (Barrierefreiheit, oben links). */
   skipLink: "Skip to main content",
 
+  /** Kleines Begrüßungs-Pill über der Headline (Referenz-Layout). */
+  greeting: "Hey, wir sind NEWEDGE",
+
   headline: {
     line1: "Wir bauen die KI-Abteilung",
     line2: "für den Mittelstand.",
@@ -65,4 +68,17 @@ export const hero = {
     youtubeId: "4TU1CdVskP8",
     title: "NEWEDGE Brand — Erklärvideo",
   } as HeroVideo,
+
+  /**
+   * Founder-Badge unten rechts auf der Video-Canvas (Rebrush-Chrome 2026-07).
+   * Bewusst NICHT CMS-geschattet — die Komponente liest diese Felder direkt
+   * aus dem statischen Modul (der Strapi-Hero kennt sie noch nicht).
+   */
+  founderBadge: {
+    title: "Realtalk von Sebastian",
+    subtitle: "Co-Founder NEWEDGE",
+    to: "/kontakt",
+    image: "team-sebastian",
+    imageAlt: "Sebastian Pachon, Co-Founder NEWEDGE",
+  },
 };

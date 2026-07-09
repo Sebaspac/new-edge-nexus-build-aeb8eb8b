@@ -2,7 +2,7 @@
  * Page: Methodik  — Single Type
  * --------------------------------------------------------------
  * Inhalte der Methodik-Seite (`pages/Methodik.tsx`): Hero, Manifest,
- * die sieben Entwicklungsstufen, das Ziel und der CTA-Block.
+ * die drei Phasen, das Ziel und der CTA-Block.
  * Das animierte „NEWEDGE System" ist eine eigene Section-Komponente.
  * Alle Felder sind serialisierbar (CMS-tauglich): nur Strings/Arrays/
  * Objects — kein JSX, keine Funktionen.
@@ -36,7 +36,7 @@ export const methodik = {
   seo: {
     title: "Methodik | NEWEDGE — Die KI-Abteilung für den Mittelstand",
     description:
-      "Wir bauen die KI-Abteilung für den Mittelstand. In sieben Stufen — von der ersten Analyse bis zum laufenden Betrieb — wird KI bei Ihnen zur dauerhaften Unternehmensfähigkeit.",
+      "Wir bauen die KI-Abteilung für den Mittelstand. In drei Phasen — von der Analyse über die Umsetzung bis zur Skalierung — wird KI bei Ihnen zur dauerhaften Unternehmensfähigkeit.",
     canonical: "/methodik",
   } satisfies SEOContent,
 
@@ -47,9 +47,9 @@ export const methodik = {
     headlineLine1: "Wir bauen die KI-Abteilung",
     headlineLine2: "für den Mittelstand.",
     subline:
-      "Nicht einzelne KI-Tools. Eine eigene KI-Abteilung — als dauerhafte Fähigkeit in Ihrem Unternehmen. Diese Methodik zeigt den Weg dorthin, Stufe für Stufe.",
+      "Nicht einzelne KI-Tools. Eine eigene KI-Abteilung — als dauerhafte Fähigkeit in Ihrem Unternehmen. Diese Methodik zeigt den Weg dorthin — in drei Phasen.",
     ctaLabel: "Erstgespräch buchen",
-    ctaHref: "https://calendly.com/sebastian-p-newedgebrand/30min",
+    ctaHref: "/kontakt",
   },
 
   /** MANIFEST — Warum eine Methodik. */
@@ -58,14 +58,14 @@ export const methodik = {
     lead: "Die meisten Unternehmen scheitern nicht an Technologie. Sie scheitern daran, dass KI isoliert eingeführt wird.",
     body: [
       "Tools werden gekauft, einzelne Automatisierungen umgesetzt — doch ohne Verantwortung, Struktur und ein Fundament, auf dem alles zusammenläuft, bleibt der Effekt klein.",
-      "Deshalb gehen wir jede KI-Transformation in festen Stufen — damit aus Einzelteilen eine Abteilung wird, die Ihnen gehört.",
+      "Deshalb gehen wir jede KI-Transformation in drei festen Phasen — damit aus Einzelteilen eine Abteilung wird, die Ihnen gehört.",
     ],
   },
 
   /** ENTWICKLUNGSSTUFEN — Die Methodik. */
   stufenSection: {
     eyebrow: "Die Methodik",
-    headingLine1: "Die Entwicklungsstufen",
+    headingLine1: "Die drei Phasen",
     headingLine2: "einer KI-Abteilung.",
     /** Ergebnis-Block-Überschrift je Stufe. */
     ergebnisLabel: "Ergebnis",
@@ -77,86 +77,37 @@ export const methodik = {
       title: "Analyse",
       frage: "Wo lohnt sich KI wirklich?",
       intro: [
-        "Sie wissen am Ende genau, wo KI in Ihrem Unternehmen den größten Hebel hat — bevor ein Euro in die Umsetzung fließt.",
-        "Dafür schauen wir auf das, was bei Ihnen täglich läuft, und machen Potenziale sichtbar, die oft längst da sind, aber ungenutzt bleiben.",
+        "Sie wissen am Ende genau, wo KI in Ihrem Unternehmen den größten Hebel hat — und in welcher Reihenfolge sich die Umsetzung lohnt, bevor ein Euro fließt.",
+        "Dafür schauen wir auf das, was bei Ihnen täglich läuft, machen ungenutzte Potenziale sichtbar und übersetzen jeden Hebel in eine priorisierte Roadmap.",
       ],
-      listLabel: "Wir analysieren",
-      list: ["Prozesse", "Datenflüsse", "Wissensstrukturen", "Entscheidungswege", "Wiederkehrende Aufgaben"],
-      ergebnis: ["ROI-Prognosen", "Potenzialanalyse", "Priorisierte Handlungsfelder", "Erste Transformations-Roadmap"],
+      listLabel: "Wir analysieren & bewerten",
+      list: ["Prozesse", "Datenflüsse", "Wissensstrukturen", "Entscheidungswege", "Wiederkehrende Aufgaben", "Wirtschaftlichkeit"],
+      ergebnis: ["Potenzialanalyse & ROI-Prognosen", "Priorisierte Handlungsfelder", "Business Cases", "Transformations-Roadmap"],
     },
     {
       index: "02",
-      title: "Cortex",
-      frage: "Der sichere Einstiegspunkt für KI",
+      title: "Umsetzung",
+      frage: "Aus der Analyse wird ein laufendes System.",
       intro: [
-        "Ab hier nutzen Sie KI kontrolliert, sicher und transparent — statt verstreuter Tools, über die niemand den Überblick hat.",
-        "Cortex ist der eine Ort, an dem Mitarbeiter, Daten, Prozesse und Agenten zusammenlaufen. So sehen Sie erstmals, wo KI bei Ihnen wirklich genutzt wird — und schaffen das Fundament für alles, was darauf aufbaut.",
+        "Jetzt entsteht das Fundament: Cortex — der eine Ort, an dem Mitarbeiter, Daten, Prozesse und Agenten zusammenlaufen. Kontrolliert, sicher und transparent statt verstreuter Tools.",
+        "Darauf bauen wir die digitalen Systeme und automatisieren genau die Abläufe, die den größten Mehrwert bringen — auf Basis der Prioritäten aus der Analyse.",
       ],
-      listLabel: "Cortex verbindet",
-      list: ["Mitarbeiter", "Daten", "Prozesse", "Agenten", "Governance"],
-      ergebnis: ["Zentrale Steuerung", "Transparenz über Nutzung", "Kontrollierte Einführung von KI", "Fundament für Automatisierung", "Grundlage für digitale Arbeitskräfte"],
+      listLabel: "Wir bauen & automatisieren",
+      list: ["Cortex als Infrastruktur", "Kundenportale & Plattformen", "Web-Applikationen", "Dokumentenverarbeitung", "Kundenservice", "Reporting & Backoffice"],
+      ergebnis: ["Zentrale Steuerung & Transparenz", "Skalierbare digitale Produkte", "Reduzierter manueller Aufwand", "Mehr operative Kapazität"],
     },
     {
       index: "03",
-      title: "Audit",
-      frage: "Die Prozesse mit dem größten Einfluss",
-      intro: [
-        "Sie bekommen eine klare Reihenfolge: Womit zuerst starten, weil es am meisten bringt — und was warten kann.",
-        "Denn nicht jede Automatisierung zahlt sich gleich aus. Wir prüfen jeden Hebel und übersetzen ihn in eine priorisierte Roadmap für die nächsten Schritte.",
-      ],
-      listLabel: "Wir bewerten",
-      list: ["Aufwand", "Wirtschaftlichkeit", "Umsetzbarkeit", "Strategische Relevanz"],
-      ergebnis: ["Business Cases", "Priorisierte Maßnahmen", "Umsetzungsplan", "Entscheidungsgrundlage"],
-    },
-    {
-      index: "04",
-      title: "Digitale Systeme & Plattformen",
-      frage: "Die Außenwirkung, die Ihr Unternehmen verdient",
-      intro: [
-        "Nach außen treten Sie so auf, wie es Ihrem Anspruch entspricht — professionell, eigenständig, skalierbar.",
-        "Dafür bauen wir die digitalen Produkte, über die Ihr Unternehmen sichtbar wird: von der Website bis zum eigenen SaaS-Produkt.",
-      ],
-      listLabel: "Wir bauen",
-      list: ["Unternehmenswebsites", "Kundenportale", "SaaS-Produkte", "Self-Service-Plattformen", "Landingpages & Funnels", "Web-Applikationen"],
-      outro: "Das ist keine Marketingmaßnahme, sondern Infrastruktur, die Ihnen gehört und mit Ihnen wächst.",
-      ergebnis: ["Professionelle Außenwirkung", "Skalierbare digitale Produkte", "Unabhängigkeit von Agenturen", "Volle Datenkontrolle"],
-    },
-    {
-      index: "05",
-      title: "Automatisierung",
-      frage: "Was Ihr Wachstum bremst, läuft von selbst",
-      intro: [
-        "Ihr Team gewinnt Zeit zurück und Ihre Abläufe werden schneller, weil wiederkehrende Arbeit nicht mehr von Hand passiert.",
-        "Wir automatisieren genau dort, wo es messbaren Mehrwert bringt — auf dem Fundament und den Prioritäten aus den Stufen davor.",
-      ],
-      listLabel: "Typische Einsatzbereiche",
-      list: ["Dokumentenverarbeitung", "Kundenservice", "Angebotsprozesse", "Wissensmanagement", "Reporting", "Backoffice-Prozesse", "Datenaufbereitung"],
-      ergebnis: ["Reduzierter manueller Aufwand", "Höhere Geschwindigkeit", "Weniger Fehler", "Mehr operative Kapazität"],
-    },
-    {
-      index: "06",
-      title: "Ownership & Infrastruktur",
-      frage: "Ihre Daten. Ihre Systeme. Ihre Kontrolle.",
-      intro: [
-        "Sie bleiben unabhängig: Was wir aufbauen, gehört Ihnen — nachvollziehbar, kontrollierbar und jederzeit erweiterbar.",
-        "Wo KI sonst neue Abhängigkeiten schafft, gehen wir den umgekehrten Weg und legen Datenhoheit und Souveränität in Ihre Hand.",
-      ],
-      listLabel: "Dazu gehören",
-      list: ["Datenhoheit", "Governance", "Sicherheitskonzepte", "Integrationen", "Infrastrukturarchitektur"],
-      ergebnis: ["Langfristige Unabhängigkeit", "Höhere Sicherheit", "Kontrollierte Skalierung", "Nachhaltige Systemlandschaft"],
-    },
-    {
-      index: "07",
-      title: "Embedded AI",
+      title: "Skalierung",
       frage: "Kein Recruiting. Kein Onboarding. Kein Risiko.",
       intro: [
-        "Sie bekommen eine voll arbeitsfähige KI-Abteilung — ohne selbst einzustellen, einzuarbeiten oder das Ausfallrisiko einer einzelnen Stelle zu tragen.",
-        "Eine Ansprechperson bei Ihnen koordiniert intern. Dahinter steht unser Team mit fünffacher Kapazität: spezialisiert, sofort einsatzbereit, dauerhaft an Ihrer Seite.",
+        "Sie bekommen eine voll arbeitsfähige KI-Abteilung — ohne selbst einzustellen oder einzuarbeiten. Eine Ansprechperson bei Ihnen koordiniert, dahinter steht unser Team mit fünffacher Kapazität.",
+        "Alles, was wir aufbauen, gehört Ihnen: nachvollziehbar, kontrollierbar und jederzeit erweiterbar. Mit Embedded AI übernehmen wir die kontinuierliche Weiterentwicklung.",
       ],
       listLabel: "Was wir übernehmen",
-      list: ["Strategische Priorisierung", "Laufende Systempflege", "Potenzialerkennung & Weiterentwicklung", "Team-Enablement & Schulung", "Governance & Qualitätssicherung", "Infrastruktur-Weiterentwicklung"],
-      outro: "Sie erhalten die Schlagkraft eines ganzen Teams zum Preis einer einzigen Stelle — die intern nur einen Bruchteil davon abdecken würde.",
-      ergebnis: ["Kein Recruiting-Aufwand", "Keine Einarbeitungszeit", "5× Kapazität zum Preis einer Stelle", "Kontinuierliche Transformation"],
+      list: ["Strategische Priorisierung", "Laufende Systempflege", "Potenzialerkennung & Weiterentwicklung", "Governance & Datenhoheit", "Team-Enablement", "Infrastruktur-Weiterentwicklung"],
+      outro: "Sie erhalten die Schlagkraft eines ganzen Teams zum Preis einer einzigen Stelle — dauerhaft an Ihrer Seite.",
+      ergebnis: ["5× Kapazität zum Preis einer Stelle", "Kein Recruiting, keine Einarbeitung", "Langfristige Unabhängigkeit & Datenhoheit", "Kontinuierliche Transformation"],
     },
   ] as Stufe[],
 
@@ -178,7 +129,7 @@ export const methodik = {
 
   /** CTA-Block. */
   cta: {
-    eyebrow: "Bereit für Stufe 01?",
+    eyebrow: "Bereit für Phase 01?",
     headingLine1: "Sprechen Sie",
     headingLine2: "direkt mit uns.",
     phoneHref: "tel:+4917660431467",

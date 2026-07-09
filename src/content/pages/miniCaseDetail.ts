@@ -2,8 +2,8 @@
  * Page: Mini-Case-Detail  — Single Type
  * --------------------------------------------------------------
  * Eigene Inline-Texte der Mini-Case-Detailseite (`pages/MiniCaseDetail.tsx`):
- * SEO-Titel-Suffix, Beispiel-Badge, Back-Link, Szenario-/Disclaimer-Band,
- * Sektions-Labels, „Nicht verfügbar"-Fallback.
+ * SEO-Titel-Suffix, Beispiel-Badge, Back-Link, Sektions-Labels,
+ * „Nicht verfügbar"-Fallback.
  *
  * WICHTIG: Die eigentlichen Case-Daten (Titel, Teaser, Szenario, Metriken,
  * Vorgehen, Ergebnis, Zitat, Phasen-Label) stammen aus `@/content/painPoints`
@@ -35,10 +35,6 @@ export const miniCaseDetail = {
     /** Sonst. */
     toOverview: "der Übersicht",
   },
-
-  /** Szenario-/Disclaimer-Band — Text folgt (mit Leerzeichen) auf `miniCase.scenario`. */
-  scenarioDisclaimer:
-    "Dies ist ein illustratives Beispiel-Szenario zur Veranschaulichung — keine realen Kundendaten.",
 
   /** Sektions-Labels (Eyebrow-Style). */
   labels: {

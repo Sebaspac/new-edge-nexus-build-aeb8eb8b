@@ -84,12 +84,7 @@ export const ValuePillarsSection = () => {
                 <div className="col-span-10">
                   <h3
                     style={{
-                      ...SERIF,
-                      fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)",
-                      lineHeight: 1.2,
                       color: INK_DEEP,
-                      letterSpacing: "-0.01em",
-                      marginBottom: "10px",
                     }}
                   >
                     {title}
@@ -97,8 +92,6 @@ export const ValuePillarsSection = () => {
                   <p
                     style={{
                       ...MONO,
-                      fontSize: "15px",
-                      lineHeight: 1.75,
                       color: INK,
                       opacity: 0.65,
                     }}
@@ -118,29 +111,10 @@ export const ValuePillarsSection = () => {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease: EASE }}
             >
-              <div className="flex items-center gap-3 mb-8">
-                <span
-                  className="block flex-shrink-0"
-                  style={{ width: "32px", height: "1px", backgroundColor: VIOLET }}
-                />
-                <span
-                  className="uppercase"
-                  style={{ ...MONO, fontSize: "11px", letterSpacing: "0.2em", color: VIOLET }}
-                >
-                  Warum NEWEDGE
-                </span>
-              </div>
-
               <h2
                 style={{
-                  ...SERIF,
                   fontStyle: "italic",
-                  fontWeight: 400,
-                  fontSize: "clamp(1.85rem, 3.4vw, 2.75rem)",
-                  lineHeight: 1.0,
-                  letterSpacing: "-0.01em",
                   color: INK_DEEP,
-                  marginBottom: "20px",
                 }}
               >
                 Wir nutzen KI als{" "}
@@ -158,8 +132,6 @@ export const ValuePillarsSection = () => {
               <p
                 style={{
                   ...MONO,
-                  fontSize: "15px",
-                  lineHeight: 1.75,
                   color: INK,
                   opacity: 0.65,
                   maxWidth: "38ch",

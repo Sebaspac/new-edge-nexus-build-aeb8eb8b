@@ -2,25 +2,25 @@ import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
-import { AuroraFlow } from "@/components/ui/aurora-flow";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
+import { EdgePillButton } from "@/components/ui/EdgeCta";
+import { EdgeRip } from "@/components/ui/EdgeRip";
 import { kiGlossar as GLOSSAR_STATIC, type GlossaryTerm } from "@/content/pages/kiGlossar";
 import { useCms } from "@/hooks/useCms";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
-const SANS  = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
-const SERIF: React.CSSProperties = { fontFamily: "'DM Serif Display', Georgia, serif" };
-const MONO: React.CSSProperties  = { fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace" };
-const EASE = [0.22, 1, 0.36, 1] as const;
-
-/* ── NEWEDGE CI ── */
-const VIOLET = "#5658DF";
-const ACCENT = "#8476EF";
-const INK = "#17172E";
-const INK_BODY = "#4A4458";
-const LIGHT_BG = "#F8F5FF";
-const HAIRLINE = "rgba(86,88,223,0.14)";
+/* ── NEWEDGE CI (Rebrush 2026-07) ── */
+const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+const VIOLET       = "#5658DF";
+const VIOLET_LIGHT = "#8B8DF0";
+const INK_DEEP     = "#17172E";
+const INK_DEEPER   = "#100E1E";
+const PAPER        = "#F8F5FF";
+const HAIRLINE     = "rgba(86,88,223,0.14)";
+/** Dunkler Ink-Verlauf der Footer-Karte — für dunkle Flächen. */
+const INK_GRADIENT = "linear-gradient(160deg, #1D1B38 0%, #17172E 45%, #100E1E 100%)";
+const EASE         = [0.22, 1, 0.36, 1] as const;
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
@@ -89,48 +89,48 @@ const KiGlossar = () => {
 
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <NoiseOverlay opacity={0.03} fixed zIndex={2} />
-        <MobileNavigation onContactClick={() => window.open(kiGlossar.calendlyUrl, "_blank", "noopener")} theme="dark" />
+        <MobileNavigation onContactClick={() => {}} theme="dark" />
 
         {/* ── HERO ── */}
-        <div className="relative" style={{ background: "#0A0A18", minHeight: "100dvh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <div aria-hidden style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none" }}>
-            <AuroraFlow />
-          </div>
+        <div className="relative" style={{ background: INK_DEEPER, minHeight: "100dvh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <div aria-hidden style={{
             position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
             background: "radial-gradient(ellipse 70% 65% at 50% 50%, rgba(4,1,12,0.72) 0%, rgba(4,1,12,0.28) 55%, transparent 82%)",
           }} />
 
-          <style>{`@keyframes kg-shimmer { from { background-position: -220% center; } to { background-position: 220% center; } }`}</style>
-
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EASE }}
-            style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "clamp(100px,16vh,140px) 24px clamp(60px,8vh,100px)", fontFamily: SANS }}
+            style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "clamp(100px,16vh,140px) 24px clamp(60px,8vh,100px)" }}
           >
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "28px" }}>
-              <span style={{ width: "32px", height: "1px", background: "#C2C3F6", display: "block" }} />
-              <span style={{ ...MONO, fontSize: "11px", letterSpacing: "0.22em", color: "#C2C3F6", textTransform: "uppercase" }}>{kiGlossar.hero.eyebrow}</span>
-              <span style={{ width: "32px", height: "1px", background: "#C2C3F6", display: "block" }} />
-            </div>
-
-            <h1 style={{ ...SERIF, fontStyle: "italic", fontWeight: 400, fontSize: "clamp(2.75rem, 6vw, 5.5rem)", lineHeight: 0.96, letterSpacing: "-0.02em", marginBottom: "32px" }}>
-              <span style={{
-                background: "linear-gradient(115deg, #fff 0%, #fff 24%, #f6f2ff 36%, #ece5ff 44%, #f8f5ff 50%, #f3efff 57%, #fff 68%, #fff 100%)",
-                backgroundSize: "280% auto",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                color: "transparent",
-                animation: "kg-shimmer 18s ease-in-out infinite alternate",
-                display: "inline",
+            {/* Kicker */}
+            {kiGlossar.hero.eyebrow && (
+              <p style={{
+                fontFamily: OUTFIT,
+                fontWeight: 700,
+                fontSize: "13px",
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
+                color: VIOLET_LIGHT,
+                marginBottom: "18px",
               }}>
-                {kiGlossar.hero.headline}
-              </span>
+                {kiGlossar.hero.eyebrow}
+              </p>
+            )}
+
+            <h1 style={{
+              color: "#fff",
+            }}>
+              {kiGlossar.hero.headline}
             </h1>
 
-            <p style={{ fontFamily: SANS, fontSize: "clamp(16px, 1.5vw, 19px)", color: "#a0a0a0", maxWidth: "560px", margin: "0 auto", lineHeight: 1.62, fontWeight: 400 }}>
+            <p style={{
+              fontFamily: OUTFIT,
+              color: "rgba(255,255,255,0.78)",
+              maxWidth: "560px",
+              margin: "0 auto",
+            }}>
               {kiGlossar.hero.sublineTemplate.replace("{total}", String(TOTAL))}
             </p>
           </motion.div>
@@ -148,7 +148,7 @@ const KiGlossar = () => {
         </div>
 
         {/* ── GLOSSAR ── */}
-        <div style={{ background: LIGHT_BG, position: "relative" }}>
+        <div style={{ background: PAPER, position: "relative" }}>
           {/* Sticky Toolbar: Suche + Alphabet */}
           <div
             style={{
@@ -171,19 +171,21 @@ const KiGlossar = () => {
                     aria-label={kiGlossar.toolbar.searchAriaLabel}
                     style={{
                       width: "100%",
-                      padding: "11px 38px 11px 16px",
-                      ...MONO,
-                      fontSize: "13px",
-                      color: INK,
+                      padding: "11px 38px 11px 18px",
+                      fontFamily: OUTFIT,
+                      fontWeight: 400,
+                      fontSize: "14px",
+                      color: INK_DEEP,
                       background: "#fff",
-                      border: `1px solid ${HAIRLINE}`,
-                      borderRadius: "10px",
+                      border: `1.5px solid ${HAIRLINE}`,
+                      borderRadius: "999px",
                       outline: "none",
+                      transition: "border-color 0.2s ease",
                     }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = ACCENT)}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = VIOLET)}
                     onBlur={(e) => (e.currentTarget.style.borderColor = HAIRLINE)}
                   />
-                  <span aria-hidden style={{ position: "absolute", right: "14px", top: "50%", transform: "translateY(-50%)", color: VIOLET, fontSize: "15px", pointerEvents: "none" }}>{kiGlossar.toolbar.searchGlyph}</span>
+                  <span aria-hidden style={{ position: "absolute", right: "16px", top: "50%", transform: "translateY(-50%)", color: VIOLET, fontSize: "15px", pointerEvents: "none" }}>{kiGlossar.toolbar.searchGlyph}</span>
                 </div>
               </div>
 
@@ -199,14 +201,14 @@ const KiGlossar = () => {
                       disabled={!has}
                       aria-label={kiGlossar.toolbar.letterAriaTemplate.replace("{letter}", L)}
                       style={{
-                        ...MONO,
+                        fontFamily: OUTFIT,
                         width: "30px", height: "30px",
                         display: "inline-flex", alignItems: "center", justifyContent: "center",
-                        fontSize: "12px", fontWeight: 600,
-                        borderRadius: "8px",
+                        fontSize: "12.5px", fontWeight: 600,
+                        borderRadius: "999px",
                         border: "1px solid transparent",
                         cursor: has ? "pointer" : "default",
-                        transition: "all 0.18s ease",
+                        transition: "background-color 0.18s ease, color 0.18s ease",
                         background: isActive ? VIOLET : "transparent",
                         color: isActive ? "#fff" : has ? VIOLET : "rgba(86,88,223,0.22)",
                       }}
@@ -222,9 +224,9 @@ const KiGlossar = () => {
           </div>
 
           {/* Begriffe */}
-          <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "clamp(48px,7vw,88px) 24px clamp(80px,10vw,130px)" }}>
+          <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "clamp(48px,7vw,88px) 24px clamp(56px,7vw,96px)" }}>
             {resultCount === 0 ? (
-              <p style={{ ...MONO, textAlign: "center", color: INK_BODY, fontSize: "15px", padding: "60px 0" }}>
+              <p style={{ fontFamily: OUTFIT, textAlign: "center", color: "rgba(23,23,46,0.68)", padding: "60px 0" }}>
                 {kiGlossar.emptyTemplate.split("{query}")[0]}{query}{kiGlossar.emptyTemplate.split("{query}")[1]}
               </p>
             ) : (
@@ -235,21 +237,39 @@ const KiGlossar = () => {
                   style={{ scrollMarginTop: "150px", marginBottom: "clamp(48px,6vw,72px)" }}
                 >
                   {/* Buchstaben-Überschrift */}
-                  <div style={{ display: "flex", alignItems: "baseline", gap: "16px", marginBottom: "28px", paddingBottom: "14px", borderBottom: `1px solid ${HAIRLINE}` }}>
-                    <span style={{ ...SERIF, fontStyle: "italic", fontSize: "clamp(2.25rem, 4.5vw, 3.4rem)", lineHeight: 1, color: VIOLET }}>{L}</span>
-                    <span style={{ ...MONO, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(86,88,223,0.4)" }}>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: "16px", marginBottom: "24px", paddingBottom: "14px", borderBottom: `1px solid ${HAIRLINE}` }}>
+                    <span style={{
+                      fontFamily: OUTFIT,
+                      fontWeight: 800,
+                      fontSize: "clamp(2rem, 4vw, 2.9rem)",
+                      lineHeight: 1,
+                      letterSpacing: "-0.01em",
+                      color: VIOLET,
+                    }}>{L}</span>
+                    <span style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "11px", letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(23,23,46,0.45)" }}>
                       {filtered[L].length} {filtered[L].length === 1 ? kiGlossar.countLabel.singular : kiGlossar.countLabel.plural}
                     </span>
                   </div>
 
-                  {/* Begriffs-Grid */}
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "2px 40px" }}>
+                  {/* Begriffs-Karten */}
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "14px" }}>
                     {filtered[L].map((e) => (
-                      <div key={e.term} style={{ padding: "16px 0", borderBottom: `1px solid rgba(86,88,223,0.07)` }}>
-                        <h3 style={{ ...SERIF, fontSize: "1.18rem", lineHeight: 1.25, color: INK, marginBottom: "7px" }}>
+                      <div
+                        key={e.term}
+                        style={{
+                          background: "#FFFFFF",
+                          borderRadius: "16px",
+                          border: `1px solid ${HAIRLINE}`,
+                          boxShadow: "0 1px 2px rgba(23,23,46,0.06)",
+                          padding: "20px 22px",
+                        }}
+                      >
+                        <h3 style={{
+                          color: INK_DEEP,
+                        }}>
                           {e.term}
                         </h3>
-                        <p style={{ fontFamily: SANS, fontSize: "15px", lineHeight: 1.65, color: INK_BODY }}>
+                        <p style={{ fontFamily: OUTFIT, color: "rgba(23,23,46,0.68)" }}>
                           {e.def}
                         </p>
                       </div>
@@ -259,28 +279,54 @@ const KiGlossar = () => {
               ))
             )}
 
-            {/* Abschluss-CTA */}
-            <div style={{ marginTop: "clamp(40px,5vw,64px)", paddingTop: "clamp(40px,5vw,56px)", borderTop: `1px solid ${HAIRLINE}`, textAlign: "center" }}>
-              <p style={{ ...SERIF, fontStyle: "italic", fontSize: "clamp(1.35rem, 2.2vw, 1.85rem)", color: INK, lineHeight: 1.25, marginBottom: "10px" }}>
-                {kiGlossar.cta.heading}
-              </p>
-              <p style={{ fontFamily: SANS, fontSize: "15px", color: INK_BODY, maxWidth: "480px", margin: "0 auto 26px", lineHeight: 1.6 }}>
-                {kiGlossar.cta.body}
-              </p>
-              <button
-                onClick={() => window.open(kiGlossar.calendlyUrl, "_blank", "noopener")}
-                style={{
-                  ...MONO, fontSize: "12px", letterSpacing: "0.16em", textTransform: "uppercase",
-                  color: "#fff", background: VIOLET, border: "none",
-                  padding: "14px 30px", borderRadius: "10px", cursor: "pointer",
-                  transition: "background 0.2s ease",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = ACCENT)}
-                onMouseLeave={(e) => (e.currentTarget.style.background = VIOLET)}
-              >
-                {kiGlossar.cta.button}
-              </button>
-            </div>
+            {/* Abschluss-CTA — dunkle Ink-Karte */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, ease: EASE }}
+              style={{
+                position: "relative",
+                marginTop: "clamp(48px,6vw,72px)",
+                background: INK_GRADIENT,
+                borderRadius: "24px",
+                border: "1px solid rgba(139,141,240,0.18)",
+                padding: "clamp(40px, 6vw, 64px) clamp(24px, 4vw, 48px)",
+                textAlign: "center",
+                overflow: "hidden",
+              }}
+            >
+              {/* Violetter Schein unten links */}
+              <div aria-hidden style={{
+                position: "absolute", inset: 0, pointerEvents: "none",
+                background: "radial-gradient(ellipse 70% 60% at 0% 100%, rgba(86,88,223,0.28) 0%, transparent 65%)",
+              }} />
+              {/* Edge-Riss an der Oberkante — das Markenzeichen */}
+              <EdgeRip style={{ top: "-1px", right: "14%", width: "28px", height: "66px", zIndex: 1 }} />
+
+              <div style={{ position: "relative", zIndex: 1 }}>
+                <p style={{
+                  fontFamily: OUTFIT,
+                  fontWeight: 700,
+                  letterSpacing: "-0.01em",
+                  color: "#fff",
+                  marginBottom: "12px",
+                }}>
+                  {kiGlossar.cta.heading}
+                </p>
+                <p style={{
+                  fontFamily: OUTFIT,
+                  color: "rgba(255,255,255,0.78)",
+                  maxWidth: "480px",
+                  margin: "0 auto 28px",
+                }}>
+                  {kiGlossar.cta.body}
+                </p>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <EdgePillButton to="/kontakt">{kiGlossar.cta.button}</EdgePillButton>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
 

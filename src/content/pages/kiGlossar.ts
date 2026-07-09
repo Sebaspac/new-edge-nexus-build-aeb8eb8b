@@ -83,8 +83,8 @@ export const kiGlossar = {
     button: "Gespräch buchen",
   },
 
-  /** Calendly-Link (Hero/Nav-Kontakt + Abschluss-CTA). */
-  calendlyUrl: "https://calendly.com/sebastian-p-newedgebrand/30min",
+  /** Kontakt-Link (Hero/Nav-Kontakt + Abschluss-CTA). */
+  calendlyUrl: "/kontakt",
 
   /**
    * Vollständiges Begriffsverzeichnis, gruppiert nach Anfangsbuchstabe.

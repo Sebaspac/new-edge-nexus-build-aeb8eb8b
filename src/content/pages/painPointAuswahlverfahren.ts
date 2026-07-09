@@ -85,7 +85,7 @@ export const painPointPage = {
   /** Mini-Cases — fixer Rahmen (Einträge selbst kommen aus painPoints). */
   miniCases: {
     headline: "So sieht das in der Praxis aus.",
-    sub: "Drei Cases aus diesem Anwendungsfeld — fahr über ein Bild und klick rein.",
+    sub: "Drei Cases aus diesem Anwendungsfeld — vom realen Projekt bis zum Beispiel-Szenario.",
     cta: "Case ansehen",
   },
 
@@ -95,7 +95,7 @@ export const painPointPage = {
     headingLine1: "Sie haben Fragen?",
     headingLine2: "Wir haben Antworten.",
     cta: "Kontakt aufnehmen",
-    ctaHref: "https://calendly.com/sebastian-p-newedgebrand/30min",
+    ctaHref: "/kontakt",
   },
 
   /** Abschluss-CTA (dunkel). */

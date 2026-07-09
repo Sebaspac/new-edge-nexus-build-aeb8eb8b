@@ -26,7 +26,12 @@ export const MaschinenraumTicker = () => {
     <div
       aria-label={maschinenraumTicker.ariaLabel}
       className="relative overflow-hidden"
-      style={{ background: "#0A0A18", borderTop: "1px solid rgba(194,195,246,0.13)", borderBottom: "1px solid rgba(194,195,246,0.13)" }}
+      style={{
+        // Gleicher Verlauf wie die Footer-Karte darunter — nahtloser Übergang.
+        background: "linear-gradient(160deg, #1D1B38 0%, #17172E 45%, #100E1E 100%)",
+        borderTop: "1px solid rgba(194,195,246,0.13)",
+        borderBottom: "1px solid rgba(194,195,246,0.13)",
+      }}
     >
       <div
         className="flex w-max items-center py-2 hover:[animation-play-state:paused] motion-reduce:animate-none"

@@ -3,9 +3,10 @@ import { motion, useReducedMotion } from "framer-motion";
 import { newEdgeSystem as SYSTEM_STATIC } from "@/content/sections/newEdgeSystem";
 import { useCms } from "@/hooks/useCms";
 
-/* ── Tokens ─────────────────────────────────────────────── */
-const SERIF: CSSProperties = { fontFamily: "'DM Serif Display', Georgia, serif" };
-const MONO: CSSProperties = { fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace" };
+/* ── Tokens (Rebrush 2026-07: Outfit statt Serif/Mono) ──── */
+const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+const SERIF: CSSProperties = { fontFamily: OUTFIT, fontWeight: 700 };
+const MONO: CSSProperties = { fontFamily: OUTFIT, fontWeight: 500 };
 const INK_DEEP = "#17172E";
 const VIOLET = "#5658DF";
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -186,12 +187,9 @@ type Card = {
 };
 
 const cardLayout: { accent: string; Icon: (p: IconProps) => JSX.Element }[] = [
-  { accent: LAVENDER, Icon: CortexIcon },
   { accent: YELLOW, Icon: StrategieIcon },
-  { accent: CYAN, Icon: DigitalIcon },
   { accent: GREEN, Icon: AutomationIcon },
-  { accent: VIOLET_GLOW, Icon: OwnershipIcon },
-  { accent: YELLOW, Icon: EmbeddedIcon },
+  { accent: VIOLET_GLOW, Icon: EmbeddedIcon },
 ];
 
 const NOTCH = "polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%)";
@@ -214,15 +212,23 @@ export const NewEdgeSystemAnimated = () => {
   const reduce = useReducedMotion();
   const still = !!reduce;
 
-  // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
+  // Inhalt live aus dem CMS (Strapi); Fallback: statischer Content-Layer.
+  // Das Layout gibt die Kartenanzahl vor; der Merge (cardLayout.flatMap unten)
+  // ignoriert überzählige CMS-Karten robust.
   const newEdgeSystem = useCms("new-edge-system", SYSTEM_STATIC);
-  const cards: Card[] = newEdgeSystem.cards.map((c: { index: string; title: string; sub: string }, i: number) => ({
-    index: c.index,
-    title: c.title,
-    sub: c.sub,
-    accent: cardLayout[i].accent,
-    Icon: cardLayout[i].Icon,
-  }));
+  // Layout gibt die Kartenanzahl vor (genau 3 Phasen). Content-Karten werden per
+  // Index gemergt; überzählige CMS-Karten werden ignoriert, fehlende übersprungen.
+  const cards: Card[] = cardLayout.flatMap((layout, i) => {
+    const c = newEdgeSystem.cards[i];
+    if (!c) return [];
+    return [{
+      index: c.index,
+      title: c.title,
+      sub: c.sub,
+      accent: layout.accent,
+      Icon: layout.Icon,
+    }];
+  });
 
   return (
     <section
@@ -246,7 +252,7 @@ export const NewEdgeSystemAnimated = () => {
         }
         @media (min-width: 1024px) {
           .ne-grid {
-            grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
             gap: 0;
           }
           .ne-chevron {
@@ -276,19 +282,13 @@ export const NewEdgeSystemAnimated = () => {
       }} />
 
       <div style={{ maxWidth: "1180px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-        {/* Eyebrow */}
-        <p style={{ ...MONO, display: "flex", alignItems: "center", gap: "12px", fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: VIOLET, marginBottom: "16px" }}>
-          <span aria-hidden style={{ display: "inline-block", width: "32px", height: "1px", background: VIOLET }} />
-          {newEdgeSystem.eyebrow}
-        </p>
-
         {/* Headline */}
-        <h2 style={{ ...SERIF, fontStyle: "italic", fontSize: "clamp(1.85rem, 3.4vw, 2.75rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: INK_DEEP, marginBottom: "12px" }}>
+        <h2 style={{ color: INK_DEEP }}>
           {newEdgeSystem.headingLines[0]}<br />{newEdgeSystem.headingLines[1]}
         </h2>
 
         {/* Subline */}
-        <p style={{ ...MONO, fontSize: "15px", lineHeight: 1.7, color: "#3C3C47", maxWidth: "62ch", marginBottom: "clamp(40px,6vw,64px)" }}>
+        <p style={{ fontFamily: MONO.fontFamily, fontWeight: MONO.fontWeight, color: "#3C3C47", maxWidth: "62ch", marginBottom: "clamp(40px,6vw,64px)" }}>
           {newEdgeSystem.subline}
         </p>
 
@@ -336,8 +336,8 @@ export const NewEdgeSystemAnimated = () => {
                 </div>
 
                 {/* Titel */}
-                <p style={{ ...SERIF, fontStyle: "italic", fontSize: "1.15rem", color: INK_DEEP, margin: "0 0 4px" }}>{c.title}</p>
-                <p style={{ ...MONO, fontSize: "11px", lineHeight: 1.55, color: "rgba(23,23,46,0.55)", margin: 0 }}>{c.sub}</p>
+                <p style={{ ...SERIF, fontSize: "14px", color: INK_DEEP, margin: "0 0 4px" }}>{c.title}</p>
+                <p style={{ ...MONO, fontSize: "14px", lineHeight: 1.55, color: "rgba(23,23,46,0.55)", margin: 0 }}>{c.sub}</p>
               </motion.div>
             );
             return i < cards.length - 1

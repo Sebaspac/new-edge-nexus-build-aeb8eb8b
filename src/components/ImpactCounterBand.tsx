@@ -3,7 +3,6 @@ import { impactCounter as IMPACT_STATIC, type Metric as MetricData } from "@/con
 import { useHomeContent } from "@/hooks/useHomeContent";
 
 /* ── Design tokens (Ink & Edge) ── */
-const VIOLET = "#5658DF";
 const INK_DEEP = "#17172E";
 const HAIRLINE = "#E6E6E6";
 const SERIF: React.CSSProperties = { fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400 };
@@ -52,9 +51,7 @@ export const ImpactCounterBand = () => {
   return (
     <section aria-label={impactCounter.ariaLabel} className="relative">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8 pt-14 md:pt-20">
-        {/* Eyebrow */}
-        <p className="flex items-center gap-3 uppercase mb-0" style={{ ...MONO, fontSize: "11px", letterSpacing: "0.2em", color: VIOLET }}>
-          <span aria-hidden style={{ display: "inline-block", width: "32px", height: "1px", background: VIOLET }} />
+        <p className="uppercase mb-0" style={{ ...MONO, fontSize: "14px", letterSpacing: "0.16em", color: INK_DEEP, opacity: 0.6 }}>
           {impactCounter.eyebrow}
         </p>
 

@@ -20,11 +20,14 @@ const Methodik = lazy(() => import("./pages/Methodik"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const Contact = lazy(() => import("./pages/Contact"));
 const KiAudit = lazy(() => import("./pages/KiAudit"));
+const Cortex = lazy(() => import("./pages/Cortex"));
+const WebDesign = lazy(() => import("./pages/WebDesign"));
 const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const PainPointAuswahlverfahren = lazy(() => import("./pages/PainPointAuswahlverfahren"));
 const MiniCaseDetail = lazy(() => import("./pages/MiniCaseDetail"));
 const KiGlossar = lazy(() => import("./pages/KiGlossar"));
+const RoiRechner = lazy(() => import("./pages/RoiRechner"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -81,6 +84,8 @@ const App = () => {
                   <Route path="/impressum" element={<Impressum />} />
                   <Route path="/kontakt" element={<Contact />} />
                   <Route path="/ki-audit" element={<KiAudit />} />
+                  <Route path="/cortex" element={<Cortex />} />
+                  <Route path="/websites" element={<WebDesign />} />
                   <Route path="/unsubscribe" element={<Unsubscribe />} />
                   <Route path="/loesungen/auswahlverfahren" element={<PainPointAuswahlverfahren />} />
                   <Route path="/leistungen/pain-points/auswahlverfahren" element={<PainPointAuswahlverfahren />} />
@@ -94,6 +99,7 @@ const App = () => {
                   <Route path="/loesungen/:slug/case/:caseId" element={<MiniCaseDetail />} />
                   <Route path="/industrien/:slug/case/:caseId" element={<MiniCaseDetail />} />
                   <Route path="/ki-glossar" element={<KiGlossar />} />
+                  <Route path="/roi-rechner" element={<RoiRechner />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

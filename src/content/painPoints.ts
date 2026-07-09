@@ -9,6 +9,7 @@
  * --------------------------------------------------------------
  */
 import { miniCasesBySlug } from "./collections/miniCases";
+import type { ImageKey } from "./assets";
 
 export interface CompareRow {
   /** Kriterium */ k: string;
@@ -25,6 +26,8 @@ export interface FeatureBlock {
   /** Beschreibung des geplanten Bildes — Placeholder bleibt erhalten */
   imageNote: string;
   imageAlt: string;
+  /** Seiteneigenes Bild, falls vorhanden — sonst Fallback auf die geteilte Chrome-Grafik. */
+  image?: ImageKey;
 }
 
 export interface FeatureCard {
@@ -32,6 +35,8 @@ export interface FeatureCard {
   desc: string;
   /** Beschreibung des geplanten Icons */
   iconNote: string;
+  /** Seiteneigenes Icon, falls vorhanden — sonst Fallback auf die generischen Chrome-Icons. */
+  icon?: ImageKey;
 }
 
 /** Eine ROI-/Erfolgs-Kennzahl eines Mini-Cases */
@@ -134,6 +139,8 @@ export interface PainPointContent {
     ctaSecondary: string;
     imageNote: string;
     imageAlt: string;
+    /** Seiteneigenes Hero-Bild, falls vorhanden — sonst Fallback auf die geteilte Chrome-Grafik. */
+    image?: ImageKey;
   };
   trustBar: {
     headline: string;
@@ -290,16 +297,19 @@ const auswahlverfahren: PainPointContent = {
         title: "Automatische Einreichungserfassung",
         desc: "Jede Bewerbung wird automatisch erfasst, auf Vollständigkeit geprüft und als vergleichbares Datenblatt für die Jury aufbereitet.",
         iconNote: "Animation: Dokumente → strukturierte Daten",
+        icon: "ppa-icon-form",
       },
       {
         title: "Selbstlaufende Jury-Koordination",
         desc: "Briefings, Erinnerungen, Deadlines — alles automatisch. Ihre Juroren bewerten, statt Mails zu beantworten.",
         iconNote: "Animation: Automatische Briefings erscheinen",
+        icon: "ppa-icon-bell",
       },
       {
         title: "Revisionssichere Dokumentation",
         desc: "Jede Bewertung und Entscheidung wird automatisch protokolliert — nachvollziehbar für Vorstand, Bewerber und Prüfer.",
         iconNote: "Animation: Audit-Trail / Schloss",
+        icon: "ppa-icon-db",
       },
     ],
   },
@@ -357,6 +367,7 @@ const compliance: PainPointContent = {
     ctaSecondary: "Demo ansehen",
     imageNote: "Dokument-Flow: Verschiedene Handels- und Zolldokumente → KI-Engine → strukturierter Sendungsstatus.",
     imageAlt: "KI automatisiert Handelsdokumente, Sendungstracking und Compliance-Prüfung",
+    image: "pain-point-compliance-hero",
   },
   trustBar: {
     headline: "Vertraut von Importeuren und Exporteuren in der DACH-Region",
@@ -434,16 +445,19 @@ const compliance: PainPointContent = {
         title: "Dokumenten-Automatisierung",
         desc: "Alle Formate, alle Sprachen — automatisch erfasst, zugeordnet, validiert. Bevor die Ware das Lager verlässt.",
         iconNote: "Animation: Mehrsprachige Dokumente werden gescannt und zugeordnet",
+        icon: "ppc-icon-scan",
       },
       {
         title: "Echtzeit-Transparenz",
         desc: "Spediteur, Zoll, Lager, Lieferant — ein Dashboard, ein Status, automatisch synchronisiert.",
         iconNote: "Animation: Sendungsstatus aller Beteiligten in Echtzeit",
+        icon: "ppc-icon-globe",
       },
       {
         title: "Compliance & Kostenoptimierung",
         desc: "Sanktionen geprüft. Dual-Use klassifiziert. Präferenzen genutzt. Absicherung und Ersparnis in einem.",
         iconNote: "Animation: Compliance-Check mit Präferenzprüfung",
+        icon: "ppc-icon-shield",
       },
     ],
   },
@@ -505,6 +519,7 @@ const kpiDashboard: PainPointContent = {
     imageNote:
       "Vollständiges Dashboard-Mockup: Umsatz-Chart, Pipeline-KPIs, Finance-Übersicht und Alert-Feed. Lila Akzente, Echtzeit-Puls-Animation.",
     imageAlt: "Echtzeit-KPI-Dashboard: ERP, CRM und Finance in einem zentralen Cockpit",
+    image: "pain-point-kpi-dashboard-hero",
   },
   trustBar: {
     headline: "Vertraut von Mittelständlern und Konzernen im DACH-Raum",
@@ -682,6 +697,7 @@ const kiKundensupport: PainPointContent = {
     imageNote:
       "Chat-Interface: Anfrage → KI antwortet (2 Sek) → 'Gelöst' | komplexe Anfrage → Routing mit Kontext-Badge.",
     imageAlt: "KI-Support-Agent löst Anfragen in unter 30 Sekunden mit intelligentem Routing",
+    image: "pain-point-kundensupport-hero",
   },
   trustBar: {
     headline: "Vertraut von Support-Teams in DACH",
@@ -731,6 +747,7 @@ const kiKundensupport: PainPointContent = {
     ],
     imageNote: "Heatmap der häufigsten Probleme + CSAT-Trendline.",
     imageAlt: "Support-Daten als Produkt-Intelligence mit Trend-Analyse und CSAT-Tracking",
+    image: "pain-point-kundensupport-feature3",
   },
   integrations: {
     h2: "Verbindet sich mit Ihrer Support-Software",
@@ -759,16 +776,19 @@ const kiKundensupport: PainPointContent = {
         title: "KI Support-Agent",
         desc: "Löst 80% aller Anfragen. Sofort. In Ihrer Sprache.",
         iconNote: "Animation: KI antwortet sofort",
+        icon: "ppe-icon-speed",
       },
       {
         title: "Intelligentes Routing",
         desc: "Komplexe Fälle mit vollem Kontext an den richtigen Menschen.",
         iconNote: "Animation: Chat → Agent mit Kontext-Badge",
+        icon: "ppe-icon-route",
       },
       {
         title: "Support Intelligence",
         desc: "Ihr Support wird zur Produktforschung.",
         iconNote: "Animation: Häufigste Probleme als Heatmap",
+        icon: "ppe-icon-analytics",
       },
     ],
   },
@@ -826,6 +846,7 @@ const entscheidungsinstanzen: PainPointContent = {
     imageNote:
       "Visual: Stapel unstrukturierter Einreichungen → strukturiertes Gremien-Cockpit mit Scoring, Audit-Trail und Vergleichbarkeit.",
     imageAlt: "Vorher: Einreichungs-Chaos — Nachher: strukturiertes Entscheidungs-Cockpit",
+    image: "pain-point-entscheidungsinstanzen-hero",
   },
   trustBar: {
     headline: "Vertraut von Entscheidungsinstanzen in Deutschland",
@@ -862,6 +883,7 @@ const entscheidungsinstanzen: PainPointContent = {
     ],
     imageNote: "Visual: Bewertungsinterface mit individuellen Scores + automatischer Aggregation.",
     imageAlt: "Bewertungsinterface mit Aggregation und Konflikt-Erkennung",
+    image: "pain-point-entscheidungsinstanzen-feature2",
   },
   feature3: {
     h2: "Jede Entscheidung hält jeder Prüfung stand.",
@@ -904,16 +926,19 @@ const entscheidungsinstanzen: PainPointContent = {
         title: "Einheitliche Bewertung",
         desc: "Jede Einreichung wird nach denselben Kriterien bewertet — vergleichbar, anonymisierbar und für jeden Bewerber fair.",
         iconNote: "Icon: Dokumente → strukturiertes Datenblatt",
+        icon: "i1-icon-erfassung",
       },
       {
         title: "Selbstlaufende Gremien-Koordination",
         desc: "Briefings, Fristen und Bewertungsrunden laufen automatisch. Ihr Gremium urteilt, statt zu verwalten.",
         iconNote: "Icon: Kalender + Personen-Netzwerk",
+        icon: "i1-icon-aggreg",
       },
       {
         title: "Revisionssichere Dokumentation",
         desc: "Jeder Schritt ist nachvollziehbar gespeichert — VgV/UVgO-konform und bereit für Widerspruch, Aufsicht und Rechnungshof.",
         iconNote: "Icon: Audit-Trail / Schloss",
+        icon: "i1-icon-audit",
       },
     ],
   },
@@ -994,6 +1019,7 @@ const localDigitalCommerce: PainPointContent = {
     ctaSecondary: "Demo ansehen",
     imageNote: "Visual: Praxis-Dashboard mit Terminplanung, No-Show-Rate und Abrechnungsstatus.",
     imageAlt: "Automatisiertes Praxismanagement: Terminplanung und Abrechnung in einem Cockpit",
+    image: "pain-point-health-care-hero",
   },
   trustBar: {
     headline: "Vertraut von Arztpraxen, MVZ und Therapeuten im DACH-Raum",
@@ -1186,6 +1212,7 @@ const handelSupplyChain: PainPointContent = {
     ctaSecondary: "Demo ansehen",
     imageNote: "Visual: Bestelleingang → KI-Verarbeitung → ERP-Übergabe und Lieferanten-Scoring.",
     imageAlt: "KI automatisiert Bestellverarbeitung, Lieferantenbewertung und Wareneingang",
+    image: "pain-point-handel-supply-chain-hero",
   },
   trustBar: {
     headline: "Vertraut von mittelständischen Handels- und Logistikunternehmen in DACH",
@@ -1333,6 +1360,7 @@ const professionalServices: PainPointContent = {
     ctaSecondary: "Demo ansehen",
     imageNote: "Visual: KI-Agent übernimmt Recherche, Mandantenkommunikation und Reports — Berater fokussiert auf Mandatsarbeit.",
     imageAlt: "KI-Automatisierung für Berater, Kanzleien und Steuerberater: Recherche, Kommunikation und Reports",
+    image: "pain-point-professional-services-hero",
   },
   trustBar: {
     headline: "Vertraut von Beratungs- und Professional-Services-Unternehmen in DACH",
@@ -1371,6 +1399,7 @@ const professionalServices: PainPointContent = {
     ],
     imageNote: "Visual: Automatisierte Mandantenkommunikation",
     imageAlt: "KI-gestützte Mandantenkommunikation für Kanzleien",
+    image: "pain-point-professional-services-feature2",
   },
   feature3: {
     h2: "Reports schreiben kann auch die KI.",
@@ -1421,11 +1450,13 @@ const professionalServices: PainPointContent = {
         title: "Mandantenkommunikation ohne Reaktionsverzug",
         desc: "Standardanfragen werden sofort beantwortet, E-Mails kategorisiert, Termine koordiniert — in Ihrer Tonalität, rund um die Uhr.",
         iconNote: "Icon: Chat mit Haken",
+        icon: "i4-icon-followup",
       },
       {
         title: "Reports auf Basis aktueller Daten — nicht in Tagen",
         desc: "Automatische Datenkonsolidierung, Template-Befüllung und Qualitätsprüfung — Reports in Minuten statt in Stunden.",
         iconNote: "Icon: Dokument + Blitz",
+        icon: "i4-icon-report",
       },
     ],
   },

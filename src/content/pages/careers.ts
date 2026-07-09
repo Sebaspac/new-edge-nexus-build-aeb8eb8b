@@ -95,6 +95,6 @@ export const careers = {
     ringText: "JETZT BEWERBEN · JETZT BEWERBEN · ",
   },
 
-  /** Calendly-Link für den Kontakt-Trigger der Mobile-Navigation. */
-  calendly: "https://calendly.com/sebastian-p-newedgebrand/30min",
+  /** Kontakt-Link für den Kontakt-Trigger der Mobile-Navigation. */
+  calendly: "/kontakt",
 } as const;

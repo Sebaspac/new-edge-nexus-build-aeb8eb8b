@@ -1,141 +1,148 @@
 /**
  * Page: KI-Audit  — Single Type
  * --------------------------------------------------------------
- * Inhalte der KI-Audit-Landingpage (`pages/KiAudit.tsx`): Hero,
- * Problem/Pain-Points, Leistung, Prozess und Trust/Social-Proof.
- * Bilder werden per stabilem `ImageKey` referenziert (→ `img(key)`),
- * content-gebundene Icons per `IconName` (→ `<Icon name=… />`).
- * Dekorative Inline-Glyphen (ArrowRight, ChevronDown, Quote, X) bleiben
- * direkte lucide-Imports in der Komponente.
+ * Landingpage für das einzige extern kommunizierte Angebot:
+ * „KI-Readiness & ROI-Analyse" (Track A der Customer Journey).
+ * Direkter Funnel Hero → Fahrplan-Gespräch, kein E-Mail-Gate.
  * Strapi-Mapping: Single Type `ki-audit`.
  * --------------------------------------------------------------
  */
 import type { SEOContent, ImageRef } from "../types";
-import type { IconName } from "../icons";
 
-/** Eine Pain-Point-Karte (Zitat). */
-interface PainPoint {
-  q: string;
-}
-
-/** Ein Leistungspunkt (Icon + Text). */
-interface LeistungItem {
-  icon: IconName;
-  text: string;
-}
-
-/** Ein Prozessschritt (Nummer, Titel, Beschreibung, Icon). */
 interface ProcessStep {
   step: string;
   title: string;
   desc: string;
-  icon: IconName;
-}
-
-/** Eine Kennzahl (Wert + Label). */
-interface Stat {
-  value: string;
-  label: string;
 }
 
 export const kiAudit = {
   seo: {
-    title: "KI-Audit für den Mittelstand | BAFA-förderfähig ab €448 | NEWEDGE",
+    title: "KI-Readiness & ROI-Analyse für den Mittelstand | NEWEDGE",
     description:
-      "Strukturierter KI Audit für den Mittelstand. IST-Analyse, Roadmap, BAFA-förderfähig. Ab €448 mit Förderung.",
+      "In 5–10 Werktagen zeigen wir, welche drei Prozesse den höchsten KI-ROI haben — inkl. Aufwand-Nutzen-Schätzung, Roadmap und Förderhinweis. Garantiert mindestens 3 umsetzbare Use Cases.",
     canonical: "/ki-audit",
   } satisfies SEOContent,
 
   /** 1 — Hero. */
   hero: {
-    badge: "Kostenloser KI Audit",
-    headline: "Schon mal an KI & Automationen gedacht?",
-    /**
-     * Subline mit hartem Zeilenumbruch (`{"\n"}`) zwischen den beiden
-     * Teilen; `whitespace-pre-line` rendert den Umbruch. Teil 1 endet
-     * mit einem Leerzeichen (verhaltenserhaltend).
-     */
-    sublineLine1:
-      "Erfahren Sie in 30 Minuten welche Prozesse sich in Ihrem Unternehemen automatisieren lassen. ",
-    sublineLine2:
-      "Jetzt kostenlosen KI Audit sichern – strukturiert, punktuell, BAFA-gefördert.",
-    cta: {
-      label: "Termin sichern",
-      href: "https://calendly.com/wenjamin-z-newedgebrand/30min?month=2026-03",
-    },
+    headline: "KI wollt ihr längst. Der erste Schritt fehlt.",
+    sub:
+      "Wir bauen die KI-Abteilung für den Mittelstand — mit einer Analyse, die zeigt, welche drei Prozesse sich zuerst lohnen. Kein Tool-Verkauf, kein Seminar: ein klarer Fahrplan.",
+    ctaPrimary: "Fahrplan-Gespräch buchen",
+    ctaSecondary: "Prüfen, ob's passt",
     image: {
       src: "ki-audit-hero",
-      alt: "Professionelle Beratung am Arbeitsplatz",
+      alt: "Prozessaufnahme-Gespräch zwischen NEWEDGE und einem Mittelstandsunternehmen",
     } satisfies ImageRef,
-    scroll: "Scroll",
   },
 
-  /** 2 — Problem / Pain Points. */
+  /** 2 — Problem. */
   problem: {
-    eyebrow: "Das Problem",
-    heading: "Kommt euch das bekannt vor?",
-    items: [
-      { q: "Wir haben 20 Mitarbeiter die täglich dieselben Aufgaben manuell abarbeiten — das muss doch smarter gehen." },
-      { q: "Erste Automationen laufen, aber eigentlich läuft alles noch manuell." },
-      { q: "Unser Team verbringt 40 % der Zeit mit Aufgaben, die eine KI bestimmt erledigen könnte — wir wissen es, aber haben keinen Plan." },
-    ] as PainPoint[],
+    heading: "Diese drei Sätze hören wir am häufigsten.",
+    situations: [
+      "ChatGPT läuft, Zapier auch — trotzdem kein System, das der ganzen Firma hilft.",
+      "Wir wissen, dass KI wichtig ist. Uns fehlt nur der richtige erste Schritt.",
+      "Niemand im Haus trägt die Verantwortung für KI — jede Initiative versandet im Tagesgeschäft.",
+    ],
   },
 
-  /** 3 — Leistung. */
-  leistung: {
-    eyebrow: "Leistung",
-    heading: "Was ist der KI Enablement & Audit?",
-    items: [
-      { icon: "FileText", text: "Strukturierte IST-Analyse eurer Prozesse und Tools" },
-      { icon: "Zap", text: "Bewertung: Wo lohnt sich KI, wo noch nicht" },
-      { icon: "CheckCircle2", text: "Konkrete Maßnahmen-Roadmap für die nächsten 90 Tage" },
-      { icon: "Shield", text: "Kein Bericht der in der Schublade landet — sondern Aktionsplan" },
-    ] as LeistungItem[],
-    notHeading: "Kein:",
-    notItems: ["Tool-Demo", "Theorie-Workshop", "Framework-Folien"],
+  /** 3 — Lösung / Mechanismus. */
+  solution: {
+    heading: "Eine Analyse. Drei priorisierte Use Cases. Ein Fahrplan.",
+    intro:
+      "In rund 25 Stunden, verteilt über 5 bis 10 Werktage, zeigen wir euch, welche drei Prozesse in eurem Unternehmen den höchsten KI- und Automatisierungs-ROI haben — mit grober Aufwand-Nutzen-Schätzung, damit ihr die Priorität selbst setzen könnt.",
+    bullets: [
+      "Drei priorisierte KI-Use-Cases — keine Liste mit fünfzig Ideen, sondern die, die sich wirklich lohnen.",
+      "Grobe Aufwand-Nutzen-Schätzung pro Use Case, als Grundlage für eure interne Entscheidung.",
+      "Ein Report, den ihr intern weiterreichen könnt — keine Blackbox, keine Beratersprache.",
+      "Förderhinweis: Das Audit kann BAFA-förderfähig sein — das senkt euren Einstieg spürbar.",
+    ],
   },
 
-  /** 4 — Prozess. */
-  prozess: {
-    eyebrow: "Prozess",
-    heading: "Von der Anfrage zum Aktionsplan",
+  /** 4 — Ablauf. */
+  ablauf: {
+    heading: "Der Ablauf in vier Schritten.",
     image: {
       src: "ki-audit-process",
-      alt: "Strategische Planung und Analyse im Team",
+      alt: "Strategische Planung und Priorisierung im Team",
     } satisfies ImageRef,
     steps: [
       {
         step: "01",
-        title: "30-Min Erstgespräch",
-        desc: "Kostenlos & unverbindlich — wir analysieren gemeinsam eure Prozesse, Tools und KI-Potenziale.",
-        icon: "Clock",
+        title: "Intake",
+        desc: "Kurzer Fragebogen vorab, damit wir das Gespräch direkt auf eure Prozesse ausrichten.",
       },
       {
         step: "02",
-        title: "Sofort-Audit in 30 Min",
-        desc: "Direkt im Gespräch: Potenzialanalyse, priorisierte Roadmap und klare Entscheidungsgrundlagen — kein Warten.",
-        icon: "FileText",
+        title: "Prozessaufnahme-Call",
+        desc: "Rund 60–90 Minuten mit den Leuten, die eure Abläufe wirklich kennen. Wir hören zu, bevor wir urteilen.",
       },
       {
         step: "03",
-        title: "Implementierung & Klarheit",
-        desc: "Ihr wisst genau, wo KI euch weiterbringt — mit konkretem Aktionsplan für die nächsten 90 Tage.",
-        icon: "Presentation",
+        title: "Use-Case-Mapping & ROI",
+        desc: "Wir bewerten jeden identifizierten Prozess nach Aufwand und Nutzen und priorisieren die drei mit dem höchsten Hebel.",
+      },
+      {
+        step: "04",
+        title: "Report & Roadmap-Übergabe",
+        desc: "Ihr bekommt den vollständigen Report plus ein Gespräch, in dem wir die Roadmap gemeinsam durchgehen.",
       },
     ] as ProcessStep[],
   },
 
-  /** 5 — Trust & Social Proof. */
-  trust: {
-    eyebrow: "Referenz",
-    heading: "Ergebnisse, keine Versprechen",
-    stats: [
-      { value: "30%", label: "Zeitersparnis bei Routineaufgaben" },
-      { value: "5×", label: "Schnellere Angebotserstellung" },
-      { value: "90", label: "Tage bis ganzheitliche Automatisierung " },
-    ] as Stat[],
-    quote:
-      "„NEWEDGE hat uns in 3 Wochen gezeigt, wo KI bei uns wirklich Hebel hat — und wo wir besser die Finger davon lassen. Das hat uns Monate an Fehlversuchen erspart.\"",
-    quoteAuthor: "— Geschäftsführer, mittelständisches Industrieunternehmen",
+  /** 5 — Warum NEWEDGE. */
+  warum: {
+    heading: "Warum mit uns.",
+    points: [
+      "Wir sagen auch, wenn der Zeitpunkt nicht passt. Nicht jedes Unternehmen ist reif für den nächsten Schritt — das sagen wir direkt, auch wenn aus dem Audit dann kein Auftrag wird.",
+      "Wir verkaufen kein Tool. Die Analyse ist herstellerunabhängig — das Ergebnis ist eure Priorität, nicht unser Produktkatalog.",
+      "Wir sprechen mit euch auf Augenhöhe. Keine Folienschlacht, kein Fachchinesisch — ein Gespräch zwischen Leuten, die liefern müssen.",
+    ],
+  },
+
+  /** 6 — Garantie. */
+  garantie: {
+    heading: "Die Garantie.",
+    text:
+      "Mindestens drei umsetzbare KI-Use-Cases aus eurem Audit. Garantiert — oder ihr zahlt nicht.",
+    sub: "Liefern wir das nicht, entstehen euch keine Kosten.",
+  },
+
+  /** 7 — Für wen / nicht. */
+  fit: {
+    heading: "Für wen das ist — und für wen nicht.",
+    passtLabel: "Das passt, wenn:",
+    passt: [
+      "Ihr 10 bis 150 Mitarbeitende habt und wissen wollt, wo KI bei euch konkret ansetzt.",
+      "Ihr ChatGPT oder Zapier bereits ausprobiert habt, aber ohne System dahinter.",
+      "Ihr eine Entscheidungsgrundlage wollt, keine weitere Meinung.",
+    ],
+    passtNichtLabel: "Das passt nicht, wenn:",
+    passtNicht: [
+      "Ihr ein fertiges Tool zum sofort Kaufen sucht — das liefern wir nicht.",
+      "Ihr nur unverbindlich reinschnuppern wollt, ohne eigene Zeit zu investieren — der Prozessaufnahme-Call braucht eure Leute.",
+      "Ihr schon eine fertige KI-Strategie habt und nur Umsetzung sucht — dann sprecht uns direkt auf den nächsten Schritt an.",
+    ],
+  },
+
+  /** FAQ — Landing-Page-Fragen (Voice: informell „ihr/euch"). */
+  faq: {
+    heading: "Häufige Fragen",
+    items: [
+      { q: "Was kostet das Audit?", a: "Das Erstgespräch ist kostenlos und unverbindlich. Das Audit selbst ist an unsere Garantie geknüpft: Finden wir keine drei umsetzbaren KI-Use-Cases, zahlt ihr nichts." },
+      { q: "Wie lange dauert das Ganze?", a: "Vom Erstgespräch bis zum fertigen Fahrplan vergehen in der Regel ein bis zwei Wochen — abhängig davon, wie schnell wir Einblick in eure Prozesse bekommen." },
+      { q: "Müssen wir schon KI im Einsatz haben?", a: "Nein. Es reicht, wenn ihr wisst, dass Potenzial da ist. Ob ihr ChatGPT schon ausprobiert habt oder bei null startet, spielt keine Rolle." },
+      { q: "Was bekommen wir am Ende konkret?", a: "Eine priorisierte Liste umsetzbarer Use-Cases mit ROI-Einschätzung und einen konkreten Fahrplan — eine Entscheidungsgrundlage, keine weitere Meinung." },
+      { q: "Ist das ein Verkaufsgespräch?", a: "Nein. Wir hören zu und prüfen, ob es passt. Ob wir zusammenarbeiten, entscheiden am Ende beide Seiten." },
+      { q: "Für welche Unternehmensgröße lohnt sich das?", a: "Am meisten für Unternehmen mit 10 bis 150 Mitarbeitenden, die genug Prozesse für echten Hebel haben, aber noch keine eigene KI-Abteilung." },
+    ],
+  },
+
+  /** 8 — CTA / Kontakt. */
+  cta: {
+    heading: "Fahrplan-Gespräch buchen.",
+    sub: "Ein Gespräch, keine Verkaufsshow. Wir hören zu und prüfen, ob's passt — die Entscheidung treffen am Ende beide Seiten.",
+    transparency: "Erstkontakt → Gespräch → Entscheidung auf beiden Seiten.",
+    calendlyUrl: "",
   },
 } as const;

@@ -40,8 +40,8 @@ export const positionedForImpact = {
   /** Manifest-Zitat (rechts). `cycleWords` durchläuft `AnimatedTextCycle`. */
   quote: {
     line1: "Wir bauen Systeme, in denen",
-    line2Prefix: "Prozesse, Daten und",
-    cycleWords: ["KI", "Automatisierung", "Menschen", "Agenten"],
+    line2Prefix: "Prozesse und",
+    cycleWords: ["Daten", "KI", "Menschen", "Agenten"],
     line3: "aufeinander hören.",
   },
 

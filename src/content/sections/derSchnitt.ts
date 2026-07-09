@@ -1,9 +1,9 @@
 /**
  * Section-Text: Der Schnitt (Vorher-Nachher-Vergleich)
  * --------------------------------------------------------------
- * Split-Panel auf der Startseite: links das Unternehmen ohne NEWEDGE,
- * rechts dasselbe Unternehmen mit System; die Schnittkante lässt sich
- * ziehen (Komponente `DerSchnitt`).
+ * Vergleichs-Modul auf der Startseite: links das Unternehmen ohne
+ * NEWEDGE (kurze graue Balken), rechts dasselbe Unternehmen mit System
+ * (voll ladende Verlaufs-Balken) — Komponente `DerSchnitt`.
  *
  * Reiner Text-Content (keine Bilder, keine content-gebundenen Icons —
  * die × ✓ ↔ Glyphen sind dekorative Inline-Zeichen der Komponente).
@@ -32,7 +32,7 @@ export const derSchnitt = {
 
   /** Einleitungstext unter der Überschrift. */
   intro:
-    "Links das Unternehmen ohne NEWEDGE. Rechts dasselbe Unternehmen mit System. Die Kante lässt sich ziehen.",
+    "Links das Unternehmen ohne NEWEDGE. Rechts dasselbe Unternehmen mit System.",
 
   /** Linke Spalte (vorher / ohne NEWEDGE). */
   before: {

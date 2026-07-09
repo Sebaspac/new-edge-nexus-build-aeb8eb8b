@@ -11,11 +11,13 @@ const INK_DEEP = "#0D0D12";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const SERIF: React.CSSProperties = {
-  fontFamily: "'DM Serif Display', Georgia, serif",
+const HEAD: React.CSSProperties = {
+  fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+  fontWeight: 700,
 };
-const MONO: React.CSSProperties = {
-  fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
+const BODY: React.CSSProperties = {
+  fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+  fontWeight: 400,
 };
 
 const VISIBLE  = 2.5;
@@ -68,26 +70,11 @@ export const TestimonialsSection = () => {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, ease: EASE }}
           >
-            <div className="flex items-center gap-3 mb-5">
-              <span
-                className="block h-px flex-shrink-0"
-                style={{ width: "32px", backgroundColor: VIOLET }}
-              />
-              <span
-                className="uppercase"
-                style={{ ...MONO, fontSize: "11px", letterSpacing: "0.22em", color: VIOLET }}
-              >
-                {testimonialsSection.eyebrow}
-              </span>
-            </div>
-
             <h2
               style={{
-                ...SERIF,
-                fontStyle:     "italic",
-                fontWeight:    400,
-                fontSize:      "clamp(1.85rem, 3.4vw, 2.75rem)",
-                lineHeight:    1.0,
+                ...HEAD,
+                fontSize:      "clamp(1.9rem, 3.4vw, 2.75rem)",
+                lineHeight:    1.1,
                 letterSpacing: "-0.01em",
                 color:         INK_DEEP,
                 maxWidth:      "20ch",
@@ -115,7 +102,7 @@ export const TestimonialsSection = () => {
               style={{
                 width:        "52px",
                 height:       "52px",
-                borderRadius: "0",
+                borderRadius: "50%",
                 background:   "transparent",
                 border:       `1px solid ${current === 0 ? "rgba(86,88,223,0.18)" : VIOLET}`,
                 color:        current === 0 ? "rgba(86,88,223,0.28)" : INK_DEEP,
@@ -133,7 +120,7 @@ export const TestimonialsSection = () => {
               style={{
                 width:        "52px",
                 height:       "52px",
-                borderRadius: "0",
+                borderRadius: "50%",
                 background:   current === MAX_INDEX ? "transparent" : VIOLET,
                 border:       `1px solid ${current === MAX_INDEX ? "rgba(86,88,223,0.18)" : VIOLET}`,
                 color:        current === MAX_INDEX ? "rgba(86,88,223,0.28)" : "#FFFFFF",
@@ -193,7 +180,7 @@ export const TestimonialsSection = () => {
                   style={{
                     width:           i === current ? "24px" : "6px",
                     height:          "6px",
-                    borderRadius:    "0",
+                    borderRadius:    "3px",
                     backgroundColor: i === current ? VIOLET : "rgba(86,88,223,0.18)",
                   }}
                 />
@@ -240,7 +227,7 @@ const TestimonialCard = ({ testimonial, mobile = false }: CardProps) => (
         "0 4px 12px rgba(0,0,0,0.08)",
         "0 1px 3px rgba(0,0,0,0.06)",
       ].join(", "),
-      borderRadius: "0",
+      borderRadius: "16px",
       position:     "relative",
     }}
   >
@@ -260,9 +247,9 @@ const TestimonialCard = ({ testimonial, mobile = false }: CardProps) => (
     {/* Quote */}
     <p
       style={{
-        ...MONO,
-        fontSize:     "14px",
-        lineHeight:   1.74,
+        ...BODY,
+        fontSize:     "14.5px",
+        lineHeight:   1.7,
         color:        "rgba(13,13,18,0.82)",
         paddingRight: "24px",
         flex:         1,
@@ -275,10 +262,10 @@ const TestimonialCard = ({ testimonial, mobile = false }: CardProps) => (
     {/* Author */}
     <div>
       <div style={{ height: "1px", backgroundColor: "rgba(13,13,18,0.10)", marginBottom: "14px" }} />
-      <div style={{ ...SERIF, fontWeight: 700, fontSize: "15px", color: INK_DEEP, lineHeight: 1.2, marginBottom: "3px" }}>
+      <div style={{ ...HEAD, fontSize: "15px", color: INK_DEEP, lineHeight: 1.2, marginBottom: "3px" }}>
         {testimonial.name}
       </div>
-      <div style={{ ...MONO, fontSize: "10px", letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(13,13,18,0.5)" }}>
+      <div style={{ ...BODY, fontWeight: 600, fontSize: "11.5px", letterSpacing: "0.04em", textTransform: "uppercase", color: "rgba(13,13,18,0.5)" }}>
         {testimonial.role}
       </div>
     </div>

@@ -58,3 +58,8 @@ export { structuredData } from "./sections/structuredData";
 export { maschinenraumTicker } from "./sections/maschinenraumTicker";
 export { newEdgeSystem } from "./sections/newEdgeSystem";
 export { auditSlaStatus } from "./sections/auditSlaStatus";
+export { videoShowcase } from "./sections/videoShowcase";
+export { caseSpotlight } from "./sections/caseSpotlight";
+export { statementStats } from "./sections/statementStats";
+export { teamSupport } from "./sections/teamSupport";
+export { aiVoices } from "./sections/aiVoices";

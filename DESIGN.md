@@ -133,20 +133,20 @@ A restrained palette: paper, ink, and one violet. The rarity of the violet is th
 **Display Font:** DM Serif Display (Georgia fallback)
 **Body & Label Font:** Consolas (ui-monospace fallback)
 
-**Character:** A pairing of confidence and procedure. DM Serif Display italic is voice — it speaks for the agency in statements no other type could carry. Consolas is the supporting cast: metadata, ALL-CAPS eyebrows, code-adjacent confidence. The combination signals "we write the language and we build the system."
+**Character:** A pairing of confidence and procedure. DM Serif Display italic is voice — it speaks for the agency in statements no other type could carry. Consolas is the supporting cast: metadata, small caps captions, code-adjacent confidence. The combination signals "we write the language and we build the system."
 
 ### Hierarchy
 - **Display** (400 italic, `clamp(2.75rem, 6vw, 4.5rem)`, line-height 0.92): the one oversized statement per section. Used for "Was unsere Kunden sagen", "Deine Prozesse. Als System gedacht.", section openers. Always italic.
 - **Headline** (400, `clamp(1.75rem, 4vw, 3rem)`, line-height 1.1): secondary statements inside sections (case study titles, founder quotes).
 - **Title** (400, `clamp(1.2rem, 2.2vw, 1.6rem)`, line-height 1.2): card and list-item titles (service names, testimonial author roles).
 - **Body** (400, 14px Consolas, line-height 1.7, max 65ch): all running text. Monospace makes the prose feel typed, not designed.
-- **Label** (400, 11px Consolas, ALL-CAPS, letter-spacing 0.2em): eyebrows, category tags, metadata. Always preceded by a 32px violet hairline rule when used as a section eyebrow.
+- **Label** (400, 11px Consolas, ALL-CAPS, letter-spacing 0.2em): category tags, metadata, small captions. Not used to announce a section ahead of its own headline (see No-Eyebrow Rule).
 
 ### Named Rules
 
 **The One-Italic Rule.** Display is always italic; nothing else is. Italic earns gravity because it is rare. If two sections both italicize their bodies, the device dies.
 
-**The Eyebrow Rule.** Every section announces itself with a Label-cased eyebrow preceded by a 32px violet hairline. Format: `─── NEW EDGE — SYSTEM`. Never used inside body content.
+**The No-Eyebrow Rule (2026-07-04):** Sections open directly with their headline. No Label-cased announcement + hairline rule ahead of it. The former "Eyebrow Rule" (`─── NEW EDGE — SYSTEM` before every headline) read as templated when repeated down a long page and was removed sitewide. Exception: where a section has no headline of its own (e.g. a pure stat band or numbered list), a single small muted caption may stand alone — undecorated, no rule, no violet, just quietly labeled.
 
 **The Monospace-for-Voice Rule.** Body copy is Consolas, not a sans-serif. This is a brand commitment, not an oversight. If the project ever switches body to Inter / sans, the editorial register collapses.
 
@@ -195,10 +195,9 @@ The legacy `--shadow-soft` / `--shadow-strong` tokens in `src/index.css` exist b
 - **Hover / Active:** Underline appears via a 1px Violet Edge bottom rule animated from left.
 - **Mobile:** Full-screen overlay panel in Paper, items stacked at Headline scale (clamp 1.75-3rem), italic.
 
-### Section Eyebrow (signature pattern)
-- **Composition:** 32px × 1px violet rule, 12px gap, Label-cased copy in Violet Edge.
-- **Placement:** Always above the section's Display headline, left-aligned with the headline.
-- **Purpose:** Visual signature; every section uses one, never two.
+### Section opener (retired: Section Eyebrow)
+- Sections open directly with their Display/Headline. No rule-plus-label announcement ahead of it (removed sitewide 2026-07-04 — see No-Eyebrow Rule).
+- **Standalone caption exception:** where a section has no headline of its own (stat band, numbered list intro), one small muted caption may sit alone — plain color (Ink Deep at reduced opacity), no rule, no Violet Edge.
 
 ### Testimonial Column
 - **Layout:** Vertical scrolling column, gentle infinite loop, fade-mask at top and bottom that blends to Paper.
@@ -208,7 +207,7 @@ The legacy `--shadow-soft` / `--shadow-strong` tokens in `src/index.css` exist b
 
 ### Do:
 - **Do** treat each section as a magazine spread: one Display moment, one supporting passage, one CTA or visual anchor. No more.
-- **Do** lead every section with the Section Eyebrow signature (32px violet rule + Label-cased text in Violet Edge).
+- **Do** lead every section with its headline directly. No eyebrow announcement ahead of it (see No-Eyebrow Rule).
 - **Do** keep DM Serif Display italic large. Display sits at `clamp(2.75rem, 6vw, 4.5rem)` minimum. Smaller and it stops being a statement.
 - **Do** use 1px Hairline borders for separation. Both inside bento grids (via the gap trick) and between sections.
 - **Do** flatten everything. If a surface needs hierarchy, change its background to Paper Pure or Ink Deep, not its shadow.
@@ -229,3 +228,5 @@ The legacy `--shadow-soft` / `--shadow-strong` tokens in `src/index.css` exist b
 - **Don't** introduce a new font. DM Serif Display + Consolas is the entire family. Inter Variable and Epilogue Variable are loaded as legacy and must not be referenced in new components.
 - **Don't** decorate KI/AI references with neon, glow orbs, or "Powered by AI" badges. The buzzword-cosplay anti-pattern.
 - **Don't** use stock photos of laughing teams in front of laptops. Founder portraits, case-study screenshots, real artifacts only.
+- **Don't** precede a section's headline with a Label-cased "eyebrow" (rule + small caps announcement). Removed sitewide 2026-07-04; it reads as templated when every section does it. Let the headline open the section.
+- **Don't** embed a bare YouTube `<iframe>` where the raw thumbnail is user-facing. Use a branded click-to-play facade (dark card, Violet Edge play button, real video title as caption) and only mount the iframe on click — see `HeroSection.tsx` / `About.tsx` werkbank video.

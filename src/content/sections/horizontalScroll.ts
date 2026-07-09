@@ -34,32 +34,22 @@ export const horizontalScroll = {
     /** Überschrift: statischer Teil + zyklisch animierte Wörter. */
     headingLead: "So entsteht eine",
     headingWords: ["KI-Abteilung.", "Betriebsstruktur.", "KI-Roadmap."],
-    body: "Fünf Phasen, ein klares Ziel. Kein Wasserfallmodell, sondern iterative Zusammenarbeit mit vollem Einblick in jeden Schritt.",
+    body: "Drei Schritte, ein klares Ziel. Kein Wasserfallmodell, sondern iterative Zusammenarbeit mit vollem Einblick in jeden Schritt.",
     steps: [
       {
         index: "01",
-        title: "Verstehen",
-        desc: "Analyse und Audit schaffen Transparenz. Wir identifizieren Potenziale, Engpässe und Prioritäten.",
+        title: "Analyse",
+        desc: "Wir schaffen Transparenz über Prozesse, Potenziale und Prioritäten.",
       },
       {
         index: "02",
-        title: "Fundament schaffen",
-        desc: "Mit Cortex entsteht die zentrale Infrastruktur. Mitarbeiter, Prozesse und KI arbeiten erstmals auf einer gemeinsamen Ebene.",
+        title: "Umsetzung",
+        desc: "Wir implementieren Cortex, integrieren KI und automatisieren die wichtigsten Abläufe.",
       },
       {
         index: "03",
-        title: "Produktivität steigern",
-        desc: "Automatisierungen reduzieren manuelle Arbeit und schaffen messbare Effizienzgewinne.",
-      },
-      {
-        index: "04",
-        title: "Verantwortung etablieren",
-        desc: "Mit Embedded AI entsteht kontinuierliche Weiterentwicklung statt Einzelprojekte.",
-      },
-      {
-        index: "05",
-        title: "Skalieren",
-        desc: "Die Organisation entwickelt sich schrittweise zu einer KI-gestützten Betriebsstruktur.",
+        title: "Skalierung",
+        desc: "Wir entwickeln Ihr Unternehmen kontinuierlich zu einer KI-gestützten Organisation mit messbaren Effizienzgewinnen weiter.",
       },
     ] as ProcessStep[],
   },

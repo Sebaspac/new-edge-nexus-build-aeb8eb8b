@@ -57,7 +57,12 @@ function MarqueeAnimation({
     <div className="overflow-hidden max-w-[100vw] whitespace-nowrap flex relative">
       <motion.div
         className={cn(
-          "flex whitespace-nowrap *:block *:me-10",
+          // marquee-track + *:shrink-0 halten jede Kopie auf ihrer Content-Breite (nowrap).
+          // Ohne das schrumpfen die Flex-Items auf Container-/Viewport-Breite und ihr
+          // überlaufender Text überlappt die Nachbar-Kopie (v. a. auf Mobile, wo die
+          // globale Regel `* { max-width: 100% }` sonst greift — .marquee-track ist davon
+          // in index.css ausgenommen).
+          "marquee-track flex whitespace-nowrap *:shrink-0 *:me-10",
           className
         )}
         style={{ x, ...style }}

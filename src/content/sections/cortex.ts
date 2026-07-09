@@ -22,7 +22,7 @@ export const cortex = {
   eyebrow: "Cortex",
   heading: "Das Betriebssystem Ihrer KI-Abteilung.",
   subtitle:
-    "Bevor Unternehmen KI skalieren können, brauchen sie einen Ort, an dem KI gesteuert werden kann.",
+    "Genau das entsteht auf der Reise: Ab Station 02 hat Ihre KI einen Ort, an dem sie gesteuert wird, bevor sie skaliert.",
 
   /** Linke Mini-Spalte: Status quo. */
   today: {

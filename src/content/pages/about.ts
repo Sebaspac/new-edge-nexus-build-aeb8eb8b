@@ -60,7 +60,7 @@ export const about = {
       "Dahinter steht ein Team, das KI im DACH-Raum und in den USA produktiv gemacht hat. Technische Tiefe und Verständnis fürs Geschäft in einer Hand — damit aus KI in Ihrem Unternehmen ein Ergebnis wird, kein Projekt.",
     cta: {
       label: "Erstgespräch buchen",
-      href: "https://calendly.com/sebastian-p-newedgebrand/30min",
+      href: "/kontakt",
     },
   },
 

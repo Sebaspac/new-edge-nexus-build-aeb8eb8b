@@ -40,6 +40,7 @@ export const footer = {
     ressourcen: {
       label: "Ressourcen",
       links: [
+        { label: "ROI-Rechner", to: "/roi-rechner" },
         { label: "KI Glossar", to: "/ki-glossar" },
         { label: "KI Audit", to: "/ki-audit" },
       ] as NavLink[],
@@ -49,9 +50,23 @@ export const footer = {
       items: [
         { label: "info@newedgebrand.com", href: "mailto:info@newedgebrand.com" },
         { label: "+49 176 60 431 467", href: "tel:+4917660431467" },
-        { label: "LinkedIn\u2009↗", href: "https://www.linkedin.com/company/new-edge-brand/", external: true },
+        { label: "Am Moosfeld 13, 81829 München", href: "https://maps.google.com/?q=Am+Moosfeld+13,+81829+M%C3%BCnchen", external: true },
       ] as ContactItem[],
     },
+  },
+
+  /**
+   * Rebrush-Chrome (2026-07): neue Footer-Komposition nach Referenz-Layout.
+   * Bewusst NICHT CMS-geschattet — die Komponente liest diese Felder direkt
+   * aus dem statischen Modul (der Strapi-Footer kennt sie noch nicht).
+   */
+  rebrush: {
+    backTop: "Zu weit gescrollt? Zurück nach oben",
+    headingLine1: "Gefällt Ihnen,",
+    headingLine2: "was Sie sehen?",
+    ctaLabel: "Projekt starten",
+    ctaTo: "/kontakt",
+    giantText: "Innovating since 2026",
   },
 
   /** `{year}` wird zur Laufzeit ersetzt. */

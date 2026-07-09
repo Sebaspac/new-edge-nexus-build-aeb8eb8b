@@ -6,7 +6,7 @@ import { useHomeContent } from "@/hooks/useHomeContent";
 export { LOGOS_STATIC as clientLogos };
 
 const SANS =
-  "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
+  "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
 
 /* Gemeinsame SVG-Gradient-Definition */
 const ARC_GRADIENT_ID = "orb-stroke-split";

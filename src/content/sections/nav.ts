@@ -72,8 +72,8 @@ export const nav = {
     ] as NavLinkItem[],
   },
 
-  /** Desktop-CTA-Button + Calendly-Link. */
-  cta: { label: "Kontakt", calendly: "https://calendly.com/sebastian-p-newedgebrand/30min" },
+  /** Desktop-CTA-Button + Kontakt-Link. */
+  cta: { label: "Kontakt", calendly: "/kontakt" },
 
   mobile: {
     toggleAria: "Toggle menu",

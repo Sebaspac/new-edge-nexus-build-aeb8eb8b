@@ -80,12 +80,8 @@ export const AuditSlaStatus = () => {
   return (
     <section aria-label={auditSlaStatus.sectionAriaLabel} className="max-w-[1200px] mx-auto px-6 lg:px-8 py-10">
       <div style={{ background: INK_DEEP, border: "1px solid rgba(154,133,246,0.25)", padding: "clamp(24px, 4vw, 40px)" }}>
-        <p className="uppercase mb-3" style={{ ...MONO, fontSize: "10px", letterSpacing: "0.2em", color: GLOW }}>
-          {delivered ? auditSlaStatus.eyebrow.delivered : auditSlaStatus.eyebrow.pending}
-        </p>
-
         <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 mb-6">
-          <h2 className="italic m-0" style={{ ...SERIF, fontSize: "clamp(1.35rem, 2.2vw, 1.85rem)", lineHeight: 1.15, color: "#FBF9FF" }}>
+          <h2 className="italic m-0" style={{ color: "#FBF9FF" }}>
             {delivered ? auditSlaStatus.heading.delivered : auditSlaStatus.heading.pending}
           </h2>
           {!delivered && (

@@ -51,7 +51,7 @@ const Unsubscribe = () => {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
       <div className="max-w-md w-full text-center space-y-6">
-        <h1 className="font-serif text-3xl font-normal">{unsubscribe.title}</h1>
+        <h1>{unsubscribe.title}</h1>
 
         {state === "loading" && <p className="text-muted-foreground">{unsubscribe.messages.loading}</p>}
 

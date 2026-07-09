@@ -2,7 +2,7 @@
  * Section-Text: Das NEWEDGE System (Methodik)
  * --------------------------------------------------------------
  * Animiertes System-Diagramm „Dieselben Bausteine. Jede
- * Transformation." — eine Reihe aus sechs Ebenen-Karten mit
+ * Transformation." — eine Reihe aus drei Phasen-Karten mit
  * Chevron-Konnektoren (Komponente `NewEdgeSystemAnimated`).
  *
  * NUR Text-Labels liegen hier (Eyebrow, Headline, Subline, je Karte
@@ -47,16 +47,13 @@ export interface NewEdgeSystemContent {
 
 export const newEdgeSystem: NewEdgeSystemContent = {
   eyebrow: "Das NEWEDGE System",
-  headingLines: ["Dieselben Bausteine.", "Jede Transformation."],
+  headingLines: ["Drei Phasen.", "Eine KI-Abteilung."],
   subline:
-    "Jede erfolgreiche KI-Transformation basiert auf denselben Bausteinen. Gemeinsam bilden diese Ebenen die Grundlage einer modernen KI-Abteilung.",
+    "Jede KI-Transformation folgt demselben Weg: von der Analyse über die Umsetzung bis zur Skalierung — bis KI zur dauerhaften Unternehmensfähigkeit in Ihrem Unternehmen wird.",
   cards: [
-    { index: "01", title: "Cortex", sub: "bildet die Infrastruktur." },
-    { index: "02", title: "Strategie", sub: "schafft Orientierung." },
-    { index: "03", title: "Digitale Systeme", sub: "schaffen Arbeitsräume." },
-    { index: "04", title: "Automatisierung", sub: "steigert Produktivität." },
-    { index: "05", title: "Ownership", sub: "sichert Kontrolle." },
-    { index: "06", title: "Embedded AI", sub: "übernimmt Verantwortung." },
+    { index: "01", title: "Analyse", sub: "findet die Hebel." },
+    { index: "02", title: "Umsetzung", sub: "baut das System." },
+    { index: "03", title: "Skalierung", sub: "übernimmt Verantwortung." },
   ],
   footer: {
     left: "Left-to-right transformation flow",
