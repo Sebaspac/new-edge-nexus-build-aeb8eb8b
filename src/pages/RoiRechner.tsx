@@ -81,13 +81,14 @@ const inputStyle: React.CSSProperties = {
   fontSize: "15px", fontFamily: OUTFIT, color: INK_DEEP, background: PAPER_PURE, outline: "none",
 };
 
-type Field = { pf: (typeof PAINFIELDS)[number]; rep: RoiUseCase };
+type Field = { pf: (typeof PAINFIELDS)[number]; rep: RoiUseCase; apps: string[] };
 
 const RoiRechner = () => {
   const [step, setStep] = useState(1);
   const [brancheId, setBrancheId] = useState<string | null>(null);
   const [team, setTeam] = useState(12);
   const [selected, setSelected] = useState<Set<PainId>>(new Set());
+  const [usedApps, setUsedApps] = useState<Set<string>>(new Set());
   const [maturity, setMaturity] = useState<Maturity | null>(null);
   const [realism, setRealism] = useState(45);
   const [lens, setLens] = useState<"geld" | "zeit" | "wachstum">("geld");
@@ -109,7 +110,11 @@ const RoiRechner = () => {
       const cands = pooled.filter((u) => NR_TO_PAIN[u.nr] === pf.id);
       if (!cands.length) return null;
       const rep = cands.slice().sort((a, b) => b.score - a.score || b.roiMax - a.roiMax)[0];
-      return { pf, rep };
+      // Alle Tools/Apps der Use-Cases dieses Feldes, dedupliziert → anklickbar
+      const apps = Array.from(
+        new Set(cands.flatMap((u) => u.tools.split(",").map((s) => s.trim()).filter(Boolean))),
+      );
+      return { pf, rep, apps };
     }).filter(Boolean) as Field[];
   }, [branche]);
 
@@ -138,13 +143,15 @@ const RoiRechner = () => {
 
   const toggle = (id: PainId) =>
     setSelected((prev) => { const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n; });
+  const toggleApp = (app: string) =>
+    setUsedApps((prev) => { const n = new Set(prev); n.has(app) ? n.delete(app) : n.add(app); return n; });
   const chooseMaturity = (m: Maturity) => { setMaturity(m); setRealism(REALISM_DEFAULT[m]); };
 
   const submitLead = async () => {
     setSending(true);
     const payload = {
       ...lead, branche: branche?.label, team,
-      felder: calc?.sel.map((f) => f.pf.name), maturity, potentialNet: Math.round(calc?.totalNet || 0),
+      felder: calc?.sel.map((f) => f.pf.name), apps: Array.from(usedApps), maturity, potentialNet: Math.round(calc?.totalNet || 0),
     };
     try {
       if (ROI_WEBHOOK_URL) await fetch(ROI_WEBHOOK_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
@@ -228,26 +235,46 @@ const RoiRechner = () => {
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
                     <StepHead title="Ihre KI-Abteilung" sub={`Welche Rollen würden Ihnen in „${branche.label}" am meisten Arbeit abnehmen? Mehrfachauswahl.`} />
                     <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "24px" }}>
-                      {fields.map(({ pf, rep }) => {
+                      {fields.map(({ pf, rep, apps }) => {
                         const active = selected.has(pf.id);
                         return (
-                          <button key={pf.id} type="button" onClick={() => toggle(pf.id)}
-                            style={{ textAlign: "left", border: `1.5px solid ${active ? VIOLET : HAIRLINE}`, background: active ? "rgba(86,88,223,0.06)" : PAPER_PURE, borderRadius: "12px", padding: "14px 16px", cursor: "pointer", transition: "border-color .18s, background .18s" }}>
-                            <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "10px" }}>
-                              <div>
-                                <span style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: active ? VIOLET : INK_DEEP }}>{pf.name}</span>
-                                <span style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#8A85A0", marginLeft: "8px" }}>{pf.sub}</span>
+                          <div key={pf.id}
+                            style={{ border: `1.5px solid ${active ? VIOLET : HAIRLINE}`, background: active ? "rgba(86,88,223,0.06)" : PAPER_PURE, borderRadius: "12px", overflow: "hidden", transition: "border-color .18s, background .18s" }}>
+                            <button type="button" onClick={() => toggle(pf.id)}
+                              style={{ display: "block", width: "100%", textAlign: "left", border: "none", background: "transparent", padding: "14px 16px", cursor: "pointer" }}>
+                              <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "10px" }}>
+                                <div>
+                                  <span style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: active ? VIOLET : INK_DEEP }}>{pf.name}</span>
+                                  <span style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#8A85A0", marginLeft: "8px" }}>{pf.sub}</span>
+                                </div>
+                                <span style={{ width: "20px", height: "20px", flex: "none", borderRadius: "6px", border: `1.5px solid ${active ? VIOLET : HAIRLINE}`, background: active ? VIOLET : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                  {active && <Check style={{ width: "13px", height: "13px", color: "#fff" }} strokeWidth={3} />}
+                                </span>
                               </div>
-                              <span style={{ width: "20px", height: "20px", flex: "none", borderRadius: "6px", border: `1.5px solid ${active ? VIOLET : HAIRLINE}`, background: active ? VIOLET : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                {active && <Check style={{ width: "13px", height: "13px", color: "#fff" }} strokeWidth={3} />}
-                              </span>
-                            </div>
-                            <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: INK, marginTop: "5px", lineHeight: 1.5 }}>z. B. {rep.prozess}</div>
-                            <div style={{ display: "flex", gap: "12px", marginTop: "8px", fontFamily: OUTFIT, fontSize: "12px", color: "#8A85A0" }}>
-                              <span>~{String(rep.hours).replace(".", ",")} Std./Woche</span>
-                              {rep.quickWin && <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", color: VIOLET }}><Zap style={{ width: "12px", height: "12px" }} strokeWidth={2.4} /> Quick Win</span>}
-                            </div>
-                          </button>
+                              <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: INK, marginTop: "5px", lineHeight: 1.5 }}>z. B. {rep.prozess}</div>
+                              <div style={{ display: "flex", gap: "12px", marginTop: "8px", fontFamily: OUTFIT, fontSize: "12px", color: "#8A85A0" }}>
+                                <span>~{String(rep.hours).replace(".", ",")} Std./Woche</span>
+                                {rep.quickWin && <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", color: VIOLET }}><Zap style={{ width: "12px", height: "12px" }} strokeWidth={2.4} /> Quick Win</span>}
+                              </div>
+                            </button>
+                            {/* Tools, die man je nach Anwendungsfeld schon nutzt — anklickbar */}
+                            {active && apps.length > 0 && (
+                              <div style={{ padding: "0 16px 14px" }}>
+                                <div style={{ fontFamily: OUTFIT, fontSize: "11.5px", fontWeight: 600, color: "#8A85A0", margin: "0 0 8px" }}>Welche dieser Tools nutzen Sie schon?</div>
+                                <div style={{ display: "flex", flexWrap: "wrap", gap: "7px" }}>
+                                  {apps.map((app) => {
+                                    const on = usedApps.has(app);
+                                    return (
+                                      <button key={app} type="button" onClick={() => toggleApp(app)}
+                                        style={{ fontFamily: OUTFIT, fontSize: "12px", fontWeight: 500, padding: "5px 11px", borderRadius: "99px", cursor: "pointer", transition: "all .15s", border: `1px solid ${on ? VIOLET : HAIRLINE}`, background: on ? VIOLET : PAPER_PURE, color: on ? "#fff" : INK }}>
+                                        {app}
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            )}
+                          </div>
                         );
                       })}
                     </div>
@@ -325,6 +352,23 @@ const RoiRechner = () => {
                         <div className="lk-fill" style={{ height: "100%", width: `${clamp(calc.share, 2, 100)}%`, background: "#fff", borderRadius: "99px" }} />
                       </div>
                     </div>
+
+                    {/* Aktueller Tool-Stack — aus den Anwendungsfeldern angeklickt */}
+                    {usedApps.size > 0 && (
+                      <div style={{ background: "rgba(255,255,255,0.08)", borderRadius: "12px", padding: "14px 16px", marginBottom: "20px" }}>
+                        <div style={{ fontFamily: OUTFIT, fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", opacity: 0.6, marginBottom: "10px" }}>
+                          Ihr Stack · {usedApps.size} {usedApps.size === 1 ? "Tool" : "Tools"}
+                        </div>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "10px" }}>
+                          {Array.from(usedApps).map((app) => (
+                            <span key={app} style={{ fontFamily: OUTFIT, fontSize: "11.5px", fontWeight: 500, padding: "4px 9px", borderRadius: "99px", background: "rgba(255,255,255,0.14)", color: "#fff" }}>{app}</span>
+                          ))}
+                        </div>
+                        <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", lineHeight: 1.5, opacity: 0.82 }}>
+                          Diese Tools binden wir direkt an — Ihre KI-Abteilung baut auf dem auf, was schon läuft, statt es zu ersetzen.
+                        </div>
+                      </div>
+                    )}
 
                     {/* Wachstums-Hebel — nur in der Wachstums-Lens */}
                     {lens === "wachstum" && calc.topField && (
