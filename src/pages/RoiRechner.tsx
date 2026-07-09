@@ -96,6 +96,7 @@ const RoiRechner = () => {
   const [lead, setLead] = useState({ name: "", email: "", company: "" });
   const [leadDone, setLeadDone] = useState(false);
   const [sending, setSending] = useState(false);
+  const [revealed, setRevealed] = useState(false); // Analyse erst nach den Fragen zeigen
 
   const branche = useMemo(() => BRANCHES.find((b) => b.id === brancheId) || null, [brancheId]);
   const teamFactor = clamp(team / 20, 0.7, 2.0);
@@ -173,14 +174,20 @@ const RoiRechner = () => {
         .roi-range::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:${VIOLET};border:2px solid #fff;cursor:pointer}
         .roi-input:focus{border-color:${VIOLET} !important;box-shadow:0 0 0 3px rgba(86,88,223,.14)}
         .lk-fill{transition:width .35s cubic-bezier(.22,1,.36,1)}
+        @media print {
+          @page { margin: 14mm; }
+          body { background:#fff !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+          nav, .roi-noprint { display:none !important; }
+          #roi-report { box-shadow:none !important; }
+        }
       `}</style>
 
       <div className="min-h-screen overflow-x-hidden" style={{ background: PAPER, color: INK }}>
         <NoiseOverlay opacity={0.03} fixed zIndex={2} />
         <MobileNavigation onContactClick={() => {}} theme="dark" />
 
-        {/* ── HERO ── */}
-        <section style={{ maxWidth: "1140px", margin: "0 auto", padding: "clamp(104px,15vh,150px) clamp(20px,4vw,40px) clamp(20px,3vw,32px)", textAlign: "center" }}>
+        {/* ── HERO (nur Phase 1) ── */}
+        <section className="roi-noprint" style={{ display: revealed ? "none" : "block", maxWidth: "1140px", margin: "0 auto", padding: "clamp(104px,15vh,150px) clamp(20px,4vw,40px) clamp(20px,3vw,32px)", textAlign: "center" }}>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "13px", letterSpacing: "0.08em", textTransform: "uppercase", color: VIOLET, marginBottom: "16px" }}>KI-Hebel-Audit</p>
             <h1 style={{ color: INK_DEEP, textWrap: "balance", maxWidth: "20ch", margin: "0 auto" }}>
@@ -193,11 +200,11 @@ const RoiRechner = () => {
         </section>
 
         {/* ── MAIN ── */}
-        <section style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 clamp(20px,4vw,40px) clamp(72px,9vw,112px)" }}>
-          <div className="grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr]" style={{ gap: "clamp(20px,3vw,32px)" }}>
+        <section style={{ maxWidth: "1140px", margin: "0 auto", padding: `${revealed ? "clamp(104px,15vh,150px)" : "0"} clamp(20px,4vw,40px) clamp(72px,9vw,112px)` }}>
+          <div className="max-w-[900px] mx-auto">
 
-            {/* LEFT — Wizard */}
-            <div className="order-2 lg:order-1">
+            {/* PHASE 1 — Fragen (Analyse verborgen) */}
+            <div style={{ display: revealed ? "none" : "block" }}>
               <div style={{ background: PAPER_PURE, borderRadius: "18px", border: `1px solid ${HAIRLINE}`, boxShadow: "0 18px 50px -30px rgba(23,23,46,0.35)", padding: "clamp(24px,3vw,40px)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "28px" }}>
                   {[1, 2, 3].map((i) => (
@@ -297,15 +304,21 @@ const RoiRechner = () => {
                         );
                       })}
                     </div>
-                    <PrimaryButton disabled={!canNext} onClick={() => { const el = document.getElementById("audit"); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }}>Audit ansehen</PrimaryButton>
+                    <PrimaryButton disabled={!canNext} onClick={() => { setRevealed(true); setTimeout(() => { const el = document.getElementById("audit"); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 60); }}>Analyse ansehen</PrimaryButton>
                     <BackLink onClick={() => setStep(2)} />
                   </motion.div>
                 )}
               </div>
             </div>
 
-            {/* RIGHT — Live-Audit */}
-            <div className="order-1 lg:order-2" id="audit">
+            {/* PHASE 2 — nur die Analyse (nach den Fragen) */}
+            <div id="audit" style={{ display: revealed ? "block" : "none" }}>
+              {revealed && (
+                <button type="button" onClick={() => setRevealed(false)}
+                  style={{ border: "none", background: "transparent", cursor: "pointer", fontFamily: OUTFIT, fontSize: "13px", fontWeight: 600, color: "#8A85A0", padding: "0 0 14px", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                  ← Antworten ändern
+                </button>
+              )}
               <div style={{ background: ROI_GRADIENT, borderRadius: "18px", padding: "clamp(24px,3vw,36px)", color: "#fff", boxShadow: "0 20px 50px -24px rgba(86,88,223,0.5)" }}>
                 <div style={{ fontFamily: OUTFIT, fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.72, marginBottom: "16px" }}>
                   {branche ? `Ihr Kurz-Audit · ${branche.cool}` : "Ihr Kurz-Audit"}
@@ -419,8 +432,8 @@ const RoiRechner = () => {
             </div>
           </div>
 
-          {/* ── VOLL-AUDIT: KI-Abteilung im Einsatz + Einstieg + Lead-Gate ── */}
-          {branche && calc && calc.sel.length > 0 && (
+          {/* ── VOLL-AUDIT / Tool-Roadmap + Report (nur nach den Fragen) ── */}
+          {revealed && branche && calc && calc.sel.length > 0 && (
             <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.5, ease: EASE }} style={{ marginTop: "clamp(24px,3vw,36px)" }}>
               <div style={{ background: PAPER_PURE, borderRadius: "18px", border: `1px solid ${HAIRLINE}`, padding: "clamp(24px,3vw,40px)" }}>
                 <h2 style={{ color: INK_DEEP, marginBottom: "6px" }}>Ihre KI-Abteilung im Einsatz</h2>
@@ -437,7 +450,7 @@ const RoiRechner = () => {
                           <span style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#8A85A0" }}>{r.pf.sub}</span>
                           {r.rep.quickWin && <span style={{ fontFamily: OUTFIT, fontSize: "11px", fontWeight: 600, color: VIOLET, background: "rgba(86,88,223,0.10)", padding: "2px 8px", borderRadius: "6px" }}>Quick Win</span>}
                         </div>
-                        <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#8A85A0" }}>z. B. {r.rep.prozess} · Aufwand {effortLabel(r.rep.effort)} · Tools: {r.rep.tools}</div>
+                        <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#8A85A0" }}>z. B. {r.rep.prozess} · Aufwand {effortLabel(r.rep.effort)}{r.apps.length > 0 ? ` · Tools: ${r.apps.slice(0, 5).join(" · ")}` : ""}</div>
                       </div>
                       <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: VIOLET, whiteSpace: "nowrap" }}>{fmtEur(r.net)}<span style={{ fontSize: "12px", fontWeight: 400, color: "#8A85A0" }}>/J</span></div>
                     </div>
@@ -454,11 +467,14 @@ const RoiRechner = () => {
                 </div>
 
                 {/* Lead-Gate: PDF-Report */}
-                <div style={{ borderTop: `1px solid ${HAIRLINE}`, marginTop: "26px", paddingTop: "24px" }}>
+                <div className="roi-noprint" style={{ borderTop: `1px solid ${HAIRLINE}`, marginTop: "26px", paddingTop: "24px" }}>
+                  <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "16px", color: INK_DEEP, marginBottom: "4px" }}>Report als PDF + Tool-Roadmap</div>
+                  <p style={{ fontFamily: OUTFIT, fontSize: "13.5px", color: INK, marginBottom: "16px" }}>Speichern Sie Ihr Audit inkl. Tool-Roadmap direkt als PDF — oder lassen Sie es sich persönlich per E-Mail schicken.</p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center", marginBottom: "18px" }}>
+                    <PrimaryButton inline onClick={() => window.print()}>Als PDF speichern</PrimaryButton>
+                  </div>
                   {!leadDone ? (
                     <>
-                      <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "16px", color: INK_DEEP, marginBottom: "4px" }}>Report als PDF + Tool-Roadmap</div>
-                      <p style={{ fontFamily: OUTFIT, fontSize: "13.5px", color: INK, marginBottom: "16px" }}>Ihr Audit inkl. Umsetzungs-Roadmap und Tool-Empfehlungen, persönlich per E-Mail. Kein Spam.</p>
                       <div className="grid grid-cols-1 sm:grid-cols-3" style={{ gap: "12px", marginBottom: "14px" }}>
                         <input className="roi-input" style={inputStyle} placeholder="Name" value={lead.name} onChange={(e) => setLead({ ...lead, name: e.target.value })} />
                         <input className="roi-input" style={inputStyle} placeholder="Unternehmen" value={lead.company} onChange={(e) => setLead({ ...lead, company: e.target.value })} />
@@ -483,9 +499,11 @@ const RoiRechner = () => {
           )}
         </section>
 
-        <Suspense fallback={<div style={{ minHeight: 200 }} />}>
-          <Footer />
-        </Suspense>
+        <div className="roi-noprint">
+          <Suspense fallback={<div style={{ minHeight: 200 }} />}>
+            <Footer />
+          </Suspense>
+        </div>
       </div>
     </>
   );
