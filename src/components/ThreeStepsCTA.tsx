@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { FloatingConsultButton } from "@/components/ui/FloatingConsultButton";
 import { threeStepsCTA as TSC_STATIC } from "@/content/sections/threeStepsCTA";
-import { useHomeContent } from "@/hooks/useHomeContent";
+import { threeStepsCTA as threeStepsCTAEn } from "@/content/en/sections/threeStepsCTA";
+import { useHomeSection } from "@/hooks/useHomeContent";
 
 /* ── Design tokens ── */
 const VIOLET = "#5658DF";
@@ -22,7 +23,7 @@ export const ThreeStepsCTA = () => {
   const isMobile = useIsMobile();
 
   // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const threeStepsCTA = useHomeContent().threeStepsCTA ?? TSC_STATIC;
+  const threeStepsCTA = useHomeSection("threeStepsCTA", TSC_STATIC, threeStepsCTAEn);
   const stepsData = threeStepsCTA.steps;
   // Desktop: Anzahl der bereits eingeflogenen Stack-Karten (0–3)
   const [visibleCards, setVisibleCards] = useState(0);

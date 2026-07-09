@@ -2,14 +2,16 @@ import { lazy, Suspense, useState, useEffect, useRef, useMemo } from "react";
 
 import { AiVoicesSection } from "@/components/AiVoicesSection";
 import { VideoShowcaseSection } from "@/components/VideoShowcaseSection";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { Helmet } from "react-helmet-async";
 import { Plus, Check, ArrowRight, X } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { img } from "@/content";
 import { painPointPage as PPP_STATIC } from "@/content/pages/painPointAuswahlverfahren";
-import { useCms } from "@/hooks/useCms";
+import { painPointPage as painPointPageEn } from "@/content/en/pages/painPointAuswahlverfahren";
+import { useLocalized } from "@/hooks/useLocalized";
 import { usePainPoints } from "@/hooks/usePainPoints";
 import { Logos3 } from "@/components/ui/logos3";
 import { clientLogos } from "@/components/ui/logo-cloud";
@@ -279,7 +281,7 @@ const PainPointAuswahlverfahren = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const painPointPage = useCms("pain-point-page", PPP_STATIC);
+  const painPointPage = useLocalized("pain-point-page", PPP_STATIC, painPointPageEn);
   const { map: painPoints, defaultPainPoint } = usePainPoints();
 
   // Slug-basiertes Content-Lookup. Routen:

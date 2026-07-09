@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { X } from "lucide-react";
 import { img } from "@/content";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { localizePath } from "@/utils/localePath";
 
 const VIOLET   = "#5658DF";
 const INK_DEEP = "#17172E";
@@ -18,6 +20,7 @@ const REVOLVING_TEXT = "KOSTENLOSES ERSTGESPRÄCH · JETZT BUCHEN · ";
 export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const { language } = useLanguage();
 
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
@@ -118,7 +121,7 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
 
             {/* CTA */}
             <button
-              onClick={() => { setIsOpen(false); navigate("/kontakt"); }}
+              onClick={() => { setIsOpen(false); navigate(localizePath("/kontakt", language)); }}
               style={{
                 width: "100%",
                 background: VIOLET,
@@ -143,7 +146,7 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
         style={{ position: "relative", cursor: "pointer", width: "152px", height: "152px" }}
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.28 }}
-        onClick={() => navigate("/kontakt")}
+        onClick={() => navigate(localizePath("/kontakt", language))}
       >
         {/* Revolving text ring — CSS animation, no Framer overhead */}
         <div style={{

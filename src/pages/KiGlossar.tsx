@@ -6,7 +6,8 @@ import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { EdgePillButton } from "@/components/ui/EdgeCta";
 import { EdgeRip } from "@/components/ui/EdgeRip";
 import { kiGlossar as GLOSSAR_STATIC, type GlossaryTerm } from "@/content/pages/kiGlossar";
-import { useCms } from "@/hooks/useCms";
+import { kiGlossar as kiGlossarEn } from "@/content/en/pages/kiGlossar";
+import { useLocalized } from "@/hooks/useLocalized";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
@@ -26,7 +27,7 @@ const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 const KiGlossar = () => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const kiGlossar = useCms("ki-glossar", GLOSSAR_STATIC);
+  const kiGlossar = useLocalized("ki-glossar", GLOSSAR_STATIC, kiGlossarEn);
   const GLOSSARY: Record<string, GlossaryTerm[]> = kiGlossar.glossary;
   const TOTAL = Object.values(GLOSSARY).reduce((n, arr) => n + arr.length, 0);
 

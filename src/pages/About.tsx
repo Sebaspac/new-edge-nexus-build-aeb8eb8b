@@ -8,8 +8,9 @@ import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { EdgePillButton, EdgeTextButton } from "@/components/ui/EdgeCta";
 import { EdgeRip } from "@/components/ui/EdgeRip";
 import { about as ABOUT_STATIC } from "@/content/pages/about";
+import { about as aboutEn } from "@/content/en/pages/about";
 import { img } from "@/content";
-import { useCms } from "@/hooks/useCms";
+import { useLocalized } from "@/hooks/useLocalized";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
@@ -34,7 +35,7 @@ const KICKER: React.CSSProperties = {
 
 const About = () => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const about = useCms("about", ABOUT_STATIC);
+  const about = useLocalized("about", ABOUT_STATIC, aboutEn);
   const [videoPlaying, setVideoPlaying] = useState(false);
 
   return (

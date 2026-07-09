@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { MapPin, Quote } from "lucide-react";
 import { EdgePillButton } from "@/components/ui/EdgeCta";
 import { caseSpotlight as caseSpotlightStatic, img } from "@/content";
-import { miniCasesBySlug } from "@/content/collections/miniCases";
-import { useCms } from "@/hooks/useCms";
+import { caseSpotlight as caseSpotlightEn } from "@/content/en/sections/caseSpotlight";
+import { miniCasesBySlug as miniCasesBySlugStatic } from "@/content/collections/miniCases";
+import { miniCasesBySlug as miniCasesBySlugEn } from "@/content/en/collections/miniCases";
+import { useLocalized, useLocalizedStatic } from "@/hooks/useLocalized";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 const VIOLET_LIGHT = "#8B8DF0";
@@ -17,8 +19,9 @@ const EASE = [0.22, 1, 0.36, 1] as const;
  * Nur Homepage-Spotlight — die Case-Detailseite behält result/metrics.
  */
 export const CaseSpotlightSection = () => {
+  const miniCasesBySlug = useLocalizedStatic(miniCasesBySlugStatic, miniCasesBySlugEn);
   // Inhalt live aus dem CMS (Strapi Single-Type „case-spotlight"); Fallback: statisch
-  const caseSpotlight = useCms("case-spotlight", caseSpotlightStatic);
+  const caseSpotlight = useLocalized("case-spotlight", caseSpotlightStatic, caseSpotlightEn);
   const c = miniCasesBySlug[caseSpotlight.painPointSlug]?.find((m) => m.id === caseSpotlight.caseId);
   if (!c) return null;
 

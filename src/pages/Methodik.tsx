@@ -8,7 +8,8 @@ import { SpeakWithUsCta } from "@/components/SpeakWithUsCta";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { EdgePillButton, EdgeTextButton } from "@/components/ui/EdgeCta";
 import { methodik as METHODIK_STATIC } from "@/content/pages/methodik";
-import { useCms } from "@/hooks/useCms";
+import { methodik as methodikEn } from "@/content/en/pages/methodik";
+import { useLocalized } from "@/hooks/useLocalized";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
@@ -46,7 +47,7 @@ const HEADLINE: React.CSSProperties = {
 
 const Methodik = () => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const methodik = useCms("methodik", METHODIK_STATIC);
+  const methodik = useLocalized("methodik", METHODIK_STATIC, methodikEn);
 
   return (
     <>

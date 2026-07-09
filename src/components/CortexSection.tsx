@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { Eye, ShieldCheck, LayoutGrid, Workflow } from "lucide-react";
 import { cortex as CORTEX_STATIC } from "@/content/sections/cortex";
+import { cortex as cortexEn } from "@/content/en/sections/cortex";
 import { EdgePillButton } from "@/components/ui/EdgeCta";
-import { cortexFeatureDescs } from "@/content/sections/cortexFeatures";
-import { useHomeContent } from "@/hooks/useHomeContent";
+import { cortexFeatureDescs as cortexFeatureDescsStatic } from "@/content/sections/cortexFeatures";
+import { cortexFeatureDescs as cortexFeatureDescsEn } from "@/content/en/sections/cortexFeatures";
+import { useLocalizedStatic } from "@/hooks/useLocalized";
+import { useHomeSection } from "@/hooks/useHomeContent";
 
 /* ── Design tokens ── */
 const VIOLET = "#5658DF";
@@ -26,8 +29,9 @@ const SPOKE_POS = [
 const CENTER = { x: 300, y: 232 };
 
 export const CortexSection = () => {
+  const cortexFeatureDescs = useLocalizedStatic(cortexFeatureDescsStatic, cortexFeatureDescsEn);
   // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const cortex = useHomeContent().cortex ?? CORTEX_STATIC;
+  const cortex = useHomeSection("cortex", CORTEX_STATIC, cortexEn);
   const FEATURES = cortex.results.items.map((title: string, i: number) => ({
     title,
     desc: cortexFeatureDescs[i] ?? "",

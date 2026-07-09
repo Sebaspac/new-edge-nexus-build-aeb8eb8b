@@ -8,7 +8,8 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { Icon, img } from "@/content";
 import { EdgeRip } from "@/components/ui/EdgeRip";
 import { horizontalScroll as HS_STATIC } from "@/content/sections/horizontalScroll";
-import { useHomeContent } from "@/hooks/useHomeContent";
+import { horizontalScroll as horizontalScrollEn } from "@/content/en/sections/horizontalScroll";
+import { useHomeSection } from "@/hooks/useHomeContent";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,7 +47,7 @@ const cardStyle: React.CSSProperties = {
 const ProcessPanel = () => {
   const isMobile = useIsMobile();
   // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const horizontalScroll = useHomeContent().horizontalScroll ?? HS_STATIC;
+  const horizontalScroll = useHomeSection("horizontalScroll", HS_STATIC, horizontalScrollEn);
   return (
     <div
       style={{
@@ -126,7 +127,7 @@ const ProcessPanel = () => {
                 marginBottom: "20px",
               }}
             >
-              {HS_STATIC.process.body}
+              {horizontalScroll.process.body}
             </p>
 
             <EdgeTextButton to="/methodik">Unsere Methodik</EdgeTextButton>
@@ -134,7 +135,7 @@ const ProcessPanel = () => {
 
           {/* RIGHT: Schritte als weiße Karten mit Kreis-Badges + ↓-Verbinder */}
           <div className="lg:col-span-7 flex flex-col">
-            {HS_STATIC.process.steps.map(({ index, title, desc }, i, arr) => (
+            {horizontalScroll.process.steps.map(({ index, title, desc }, i, arr) => (
               <div key={title}>
                 <div style={cardStyle}>
                   <span
@@ -191,7 +192,7 @@ const ProcessPanel = () => {
 const PillarsPanel = () => {
   const isMobile = useIsMobile();
   // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const horizontalScroll = useHomeContent().horizontalScroll ?? HS_STATIC;
+  const horizontalScroll = useHomeSection("horizontalScroll", HS_STATIC, horizontalScrollEn);
   return (
   <div
     style={{

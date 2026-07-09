@@ -1,7 +1,8 @@
 import type { CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { newEdgeSystem as SYSTEM_STATIC } from "@/content/sections/newEdgeSystem";
-import { useCms } from "@/hooks/useCms";
+import { newEdgeSystem as newEdgeSystemEn } from "@/content/en/sections/newEdgeSystem";
+import { useLocalized } from "@/hooks/useLocalized";
 
 /* ── Tokens (Rebrush 2026-07: Outfit statt Serif/Mono) ──── */
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
@@ -215,7 +216,7 @@ export const NewEdgeSystemAnimated = () => {
   // Inhalt live aus dem CMS (Strapi); Fallback: statischer Content-Layer.
   // Das Layout gibt die Kartenanzahl vor; der Merge (cardLayout.flatMap unten)
   // ignoriert überzählige CMS-Karten robust.
-  const newEdgeSystem = useCms("new-edge-system", SYSTEM_STATIC);
+  const newEdgeSystem = useLocalized("new-edge-system", SYSTEM_STATIC, newEdgeSystemEn);
   // Layout gibt die Kartenanzahl vor (genau 3 Phasen). Content-Karten werden per
   // Index gemergt; überzählige CMS-Karten werden ignoriert, fehlende übersprungen.
   const cards: Card[] = cardLayout.flatMap((layout, i) => {

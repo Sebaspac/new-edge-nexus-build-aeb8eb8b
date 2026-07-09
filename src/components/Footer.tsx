@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ArrowUpRight, Linkedin, Mail, Phone, MapPin, Instagram, Github } from "lucide-react";
 import { footer as FOOTER_STATIC } from "@/content";
-import { useCms } from "@/hooks/useCms";
+import { footer as footerEn } from "@/content/en/sections/footer";
+import { useLocalized } from "@/hooks/useLocalized";
 import { MaschinenraumTicker } from "@/components/MaschinenraumTicker";
 
 /* ── Design tokens (Rebrush) ── */
@@ -47,8 +48,8 @@ const SOCIAL_LINKS = [
 export const Footer = () => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer.
   // Die Rebrush-Chrome-Felder kommen bewusst direkt aus dem statischen Modul.
-  const footer = useCms("footer", FOOTER_STATIC);
-  const rb = FOOTER_STATIC.rebrush;
+  const footer = useLocalized("footer", FOOTER_STATIC, footerEn);
+  const rb = footer.rebrush;
 
   // ROI-Rechner garantiert in der Ressourcen-Spalte zeigen — auch wenn die Spalte
   // aus dem CMS kommt und den Eintrag (noch) nicht enthält.

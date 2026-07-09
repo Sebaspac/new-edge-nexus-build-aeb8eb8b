@@ -1,13 +1,15 @@
 import { lazy, Suspense, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ArrowLeft } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { impressum as IMPRESSUM_STATIC } from "@/content/pages/impressum";
-import { useCms } from "@/hooks/useCms";
+import { impressum as impressumEn } from "@/content/en/pages/impressum";
+import { useLocalized } from "@/hooks/useLocalized";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -70,7 +72,7 @@ const ChapterHeading = ({ children }: { children: React.ReactNode }) => (
 
 const Impressum = () => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const impressum = useCms("impressum", IMPRESSUM_STATIC);
+  const impressum = useLocalized("impressum", IMPRESSUM_STATIC, impressumEn);
   const { t } = useLanguage();
   const location = useLocation();
 

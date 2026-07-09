@@ -11,7 +11,8 @@ import { VideoShowcaseSection } from "@/components/VideoShowcaseSection";
 import { CaseSpotlightSection } from "@/components/CaseSpotlightSection";
 import { img } from "@/content";
 import { kiAudit as KIAUDIT_STATIC } from "@/content/pages/kiAudit";
-import { useCms } from "@/hooks/useCms";
+import { kiAudit as kiAuditEn } from "@/content/en/pages/kiAudit";
+import { useLocalized } from "@/hooks/useLocalized";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -124,7 +125,7 @@ const FaqAccordion = ({ items }: { items: { q: string; a: string }[] }) => {
 };
 
 const KiAudit = () => {
-  const kiAudit = useCms("ki-audit", KIAUDIT_STATIC);
+  const kiAudit = useLocalized("ki-audit", KIAUDIT_STATIC, kiAuditEn);
   const faqs = kiAudit.faq ?? KIAUDIT_STATIC.faq;
   const [isContactOpen, setIsContactOpen] = useState(false);
 

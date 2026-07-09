@@ -3,8 +3,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { LanguageProvider } from "@/contexts/LanguageContext";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { LanguageProvider, useLanguage } from "@/contexts/LanguageContext";
 import { HelmetProvider } from 'react-helmet-async';
 import { useEffect, lazy, Suspense } from "react";
 import { LoadingScreen } from "@/components/LoadingScreen";
@@ -38,11 +38,47 @@ const queryClient = new QueryClient({
   },
 });
 
-const App = () => {
+/** Setzt die Sprache passend zum URL-Präfix (`/en` = EN, sonst DE) und rendert die Route. */
+const LocaleLayout = ({ lang }: { lang: "de" | "en" }) => {
+  const { language, setLanguage } = useLanguage();
   useEffect(() => {
-    // Set document language for SEO
-    document.documentElement.lang = 'de';
-  }, []);
+    if (language !== lang) setLanguage(lang);
+    document.documentElement.lang = lang;
+  }, [lang, language, setLanguage]);
+  return <Outlet />;
+};
+
+/** Ein einziges Routen-Set — unter `/` (DE) und `/en` (EN) identisch gemountet. */
+const appRoutes = () => (
+  <>
+    <Route index element={<Index />} />
+    <Route path="careers" element={<Careers />} />
+    <Route path="about" element={<About />} />
+    <Route path="methodik" element={<Methodik />} />
+    <Route path="impressum" element={<Impressum />} />
+    <Route path="kontakt" element={<Contact />} />
+    <Route path="ki-audit" element={<KiAudit />} />
+    <Route path="cortex" element={<Cortex />} />
+    <Route path="websites" element={<WebDesign />} />
+    <Route path="unsubscribe" element={<Unsubscribe />} />
+    <Route path="loesungen/auswahlverfahren" element={<PainPointAuswahlverfahren />} />
+    <Route path="leistungen/pain-points/auswahlverfahren" element={<PainPointAuswahlverfahren />} />
+    {/* Alle Pain-Point- & Industrie-Unterseiten nutzen dieselbe Struktur wie Auswahlverfahren. */}
+    <Route path="leistungen/pain-points/:slug" element={<PainPointAuswahlverfahren />} />
+    <Route path="leistungen/industrien/:slug" element={<PainPointAuswahlverfahren />} />
+    <Route path="loesungen/:slug" element={<PainPointAuswahlverfahren />} />
+    <Route path="industrien/:slug" element={<PainPointAuswahlverfahren />} />
+    {/* Mini-Case Detailseiten — eine Phase je Case (illustrativ) */}
+    <Route path="loesungen/:slug/case/:caseId" element={<MiniCaseDetail />} />
+    <Route path="industrien/:slug/case/:caseId" element={<MiniCaseDetail />} />
+    <Route path="ki-glossar" element={<KiGlossar />} />
+    <Route path="roi-rechner" element={<RoiRechner />} />
+    <Route path="*" element={<NotFound />} />
+  </>
+);
+
+const App = () => {
+  // `document.documentElement.lang` wird pro Route von `LocaleLayout` gesetzt (de/en).
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -77,30 +113,12 @@ const App = () => {
 
               <Suspense fallback={<LoadingScreen progress={100} />}>
                 <Routes>
-                <Route path="/" element={<Index />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/methodik" element={<Methodik />} />
-                  <Route path="/impressum" element={<Impressum />} />
-                  <Route path="/kontakt" element={<Contact />} />
-                  <Route path="/ki-audit" element={<KiAudit />} />
-                  <Route path="/cortex" element={<Cortex />} />
-                  <Route path="/websites" element={<WebDesign />} />
-                  <Route path="/unsubscribe" element={<Unsubscribe />} />
-                  <Route path="/loesungen/auswahlverfahren" element={<PainPointAuswahlverfahren />} />
-                  <Route path="/leistungen/pain-points/auswahlverfahren" element={<PainPointAuswahlverfahren />} />
-                  {/* Alle Pain-Point- & Industrie-Unterseiten nutzen dieselbe Struktur wie Auswahlverfahren.
-                      Inhalte werden später pro Slug angepasst. */}
-                  <Route path="/leistungen/pain-points/:slug" element={<PainPointAuswahlverfahren />} />
-                  <Route path="/leistungen/industrien/:slug" element={<PainPointAuswahlverfahren />} />
-                  <Route path="/loesungen/:slug" element={<PainPointAuswahlverfahren />} />
-                  <Route path="/industrien/:slug" element={<PainPointAuswahlverfahren />} />
-                  {/* Mini-Case Detailseiten — eine Phase je Case (illustrativ) */}
-                  <Route path="/loesungen/:slug/case/:caseId" element={<MiniCaseDetail />} />
-                  <Route path="/industrien/:slug/case/:caseId" element={<MiniCaseDetail />} />
-                  <Route path="/ki-glossar" element={<KiGlossar />} />
-                  <Route path="/roi-rechner" element={<RoiRechner />} />
-                  <Route path="*" element={<NotFound />} />
+                  <Route path="/en" element={<LocaleLayout lang="en" />}>
+                    {appRoutes()}
+                  </Route>
+                  <Route path="/" element={<LocaleLayout lang="de" />}>
+                    {appRoutes()}
+                  </Route>
                 </Routes>
               </Suspense>
 

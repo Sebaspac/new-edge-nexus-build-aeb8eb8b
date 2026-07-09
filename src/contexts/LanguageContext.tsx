@@ -269,6 +269,13 @@ const translations = {
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const storage = safeLocalStorage();
   const [language, setLanguage] = useState<Language>(() => {
+    // URL ist maßgeblich: `/en/…` → EN (kein Flash bei Direktaufruf). Sonst DE;
+    // die `/en`- bzw. `/`-LocaleLayout hält die Sprache clientseitig synchron.
+    if (typeof window !== "undefined") {
+      const p = window.location.pathname;
+      if (p === "/en" || p.startsWith("/en/")) return "en";
+      return "de";
+    }
     const saved = safeGetItem(storage, "language");
     return (saved as Language) || "de";
   });

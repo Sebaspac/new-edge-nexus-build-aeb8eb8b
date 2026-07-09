@@ -1,12 +1,13 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { EdgePillButton, EdgeTextButton } from "@/components/ui/EdgeCta";
 import { EdgeRip } from "@/components/ui/EdgeRip";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { hero as HERO_STATIC } from "@/content/sections/hero";
+import { hero as heroEn } from "@/content/en/sections/hero";
 import { img } from "@/content";
-import { useHomeContent } from "@/hooks/useHomeContent";
+import { useHomeSection } from "@/hooks/useHomeContent";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 const VIOLET = "#5658DF";
@@ -62,7 +63,7 @@ export const HeroSection = () => {
   const reduced = useReducedMotion();
 
   // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const hero = useHomeContent().hero ?? HERO_STATIC;
+  const hero = useHomeSection("hero", HERO_STATIC, heroEn);
 
   const greeting = (
     <p
@@ -188,7 +189,7 @@ export const HeroSection = () => {
                 Maße für die Slide-Distanzen: PadL 8 + Avatar 48 + Gap 14 | Text | PadR 26
                 → Avatar-Ziel left = 100% − 56px, Text-Shift = −(70 − 26) = −44px. */}
             <Link
-              to={HERO_STATIC.founderBadge.to}
+              to={hero.founderBadge.to}
               className="group absolute overflow-hidden transition-transform duration-200 hover:scale-[1.02]"
               style={{
                 bottom: "20px",
@@ -225,8 +226,8 @@ export const HeroSection = () => {
                 }}
               >
                 <img
-                  src={img(HERO_STATIC.founderBadge.image)}
-                  alt={HERO_STATIC.founderBadge.imageAlt}
+                  src={img(hero.founderBadge.image)}
+                  alt={hero.founderBadge.imageAlt}
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "25% 20%", display: "block" }}
                   loading="lazy"
                 />
@@ -238,13 +239,13 @@ export const HeroSection = () => {
                   className="block text-[#17172E] transition-colors duration-300 group-hover:text-white"
                   style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "14.5px", lineHeight: 1.25 }}
                 >
-                  {HERO_STATIC.founderBadge.title}
+                  {hero.founderBadge.title}
                 </span>
                 <span
                   className="block text-[#5B566B] transition-colors duration-300 group-hover:text-white/80"
                   style={{ fontFamily: OUTFIT, fontWeight: 400, fontSize: "12.5px", lineHeight: 1.3 }}
                 >
-                  {HERO_STATIC.founderBadge.subtitle}
+                  {hero.founderBadge.subtitle}
                 </span>
               </span>
             </Link>

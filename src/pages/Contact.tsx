@@ -9,9 +9,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { EdgePillButton } from "@/components/ui/EdgeCta";
 import { contact as CONTACT_STATIC } from "@/content/pages/contact";
+import { contact as contactEn } from "@/content/en/pages/contact";
 import { contactFormModal as CFM_STATIC } from "@/content/sections/contactFormModal";
+import { contactFormModal as contactFormModalEn } from "@/content/en/sections/contactFormModal";
 import { img } from "@/content";
-import { useCms } from "@/hooks/useCms";
+import { useLocalized } from "@/hooks/useLocalized";
 import {
   validateContactForm,
   submitContactForm,
@@ -40,8 +42,8 @@ const inputStyle: React.CSSProperties = {
 const Contact = () => {
   // SEO ist live CMS-fähig; Hero-/Video-Copy (noch kein Strapi-Feld) kommt bewusst
   // direkt aus dem statischen Fallback, siehe Kommentar in content/pages/contact.ts.
-  const contact = useCms("kontakt", CONTACT_STATIC);
-  const cfm = useCms("contact-form-modal", CFM_STATIC);
+  const contact = useLocalized("kontakt", CONTACT_STATIC, contactEn);
+  const cfm = useLocalized("contact-form-modal", CFM_STATIC, contactFormModalEn);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});

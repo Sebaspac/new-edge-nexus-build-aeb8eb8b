@@ -9,8 +9,10 @@ import { ContactFormModal } from "@/components/ContactFormModal";
 import { img } from "@/content";
 import { clientLogos } from "@/content/sections/clientLogos";
 import { webDesign as WEBDESIGN_STATIC } from "@/content/pages/webDesign";
+import { webDesign as webDesignEn } from "@/content/en/pages/webDesign";
 import { hero as HERO_STATIC } from "@/content/sections/hero";
-import { useCms } from "@/hooks/useCms";
+import { hero as heroEn } from "@/content/en/sections/hero";
+import { useLocalized, useLocalizedStatic } from "@/hooks/useLocalized";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -42,8 +44,8 @@ const TrustChip = ({ label }: { label: string }) => (
 );
 
 const WebDesign = () => {
-  const c = useCms("web-design", WEBDESIGN_STATIC);
-  const video = HERO_STATIC.video;
+  const c = useLocalized("web-design", WEBDESIGN_STATIC, webDesignEn);
+  const video = useLocalizedStatic(HERO_STATIC, heroEn).video;
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(false);
 

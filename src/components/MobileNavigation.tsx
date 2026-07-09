@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X, ChevronDown, ArrowUpRight, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -7,8 +8,10 @@ import { EdgeRip } from "@/components/ui/EdgeRip";
 import { EdgePillButton } from "@/components/ui/EdgeCta";
 import { NavHoverItem } from "@/components/ui/menu-hover-effects";
 import { MenuVertical } from "@/components/ui/menu-vertical";
+import { LanguageToggle } from "@/components/ui/LanguageToggle";
 import { nav as NAV_STATIC, img, Icon, type CategoryFilter } from "@/content";
-import { useCms } from "@/hooks/useCms";
+import { nav as navEn } from "@/content/en/sections/nav";
+import { useLocalized } from "@/hooks/useLocalized";
 
 /* ── NEWEDGE CI tokens (Mobile-Menü, Rebrush 2026-07) ── */
 const VIOLET = "#5658DF";
@@ -36,7 +39,7 @@ export const MobileNavigation = ({
   onFilterChange
 }: MobileNavigationProps) => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const nav = useCms("nav", NAV_STATIC);
+  const nav = useLocalized("nav", NAV_STATIC, navEn);
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileLeistungenOpen, setMobileLeistungenOpen] = useState(false);
@@ -222,6 +225,8 @@ export const MobileNavigation = ({
               </div>
             </div>
 
+            <LanguageToggle />
+
             <Link
               to="/kontakt"
               className="group relative inline-flex items-center gap-2.5 overflow-hidden transition-transform duration-200 hover:scale-[1.03]"
@@ -340,14 +345,17 @@ export const MobileNavigation = ({
                 <Link to="/" onClick={handleLinkClick} className="flex items-center gap-2">
                   <img src={img("new-edge-logo-wordmark")} alt={nav.logo.alt} className="h-7 w-auto" />
                 </Link>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="min-h-[44px] min-w-[44px] -mr-2 flex items-center justify-center rounded-full active:bg-[#5658DF]/10 transition-colors"
-                  style={{ color: INK_DEEP }}
-                  aria-label={nav.mobile.toggleAria}
-                >
-                  <X size={22} />
-                </button>
+                <div className="flex items-center gap-2">
+                  <LanguageToggle onSwitch={handleLinkClick} />
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="min-h-[44px] min-w-[44px] -mr-2 flex items-center justify-center rounded-full active:bg-[#5658DF]/10 transition-colors"
+                    style={{ color: INK_DEEP }}
+                    aria-label={nav.mobile.toggleAria}
+                  >
+                    <X size={22} />
+                  </button>
+                </div>
               </div>
 
               <div className="flex-1 px-6 py-6 overflow-y-auto">

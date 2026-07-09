@@ -1,9 +1,12 @@
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
-import { structuredData } from "@/content/sections/structuredData";
+import { structuredData as structuredDataStatic } from "@/content/sections/structuredData";
+import { structuredData as structuredDataEn } from "@/content/en/sections/structuredData";
+import { useLocalizedStatic } from "@/hooks/useLocalized";
 
 const StructuredData = () => {
+  const structuredData = useLocalizedStatic(structuredDataStatic, structuredDataEn);
   const location = useLocation();
   const isHomepage = location.pathname === '/';
   const currentPath = location.pathname;

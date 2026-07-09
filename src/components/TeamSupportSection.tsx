@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Headset, Users, Workflow } from "lucide-react";
-import { teamSupport, img } from "@/content";
+import { teamSupport as teamSupportStatic, img } from "@/content";
+import { teamSupport as teamSupportEn } from "@/content/en/sections/teamSupport";
+import { useLocalizedStatic } from "@/hooks/useLocalized";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 const VIOLET = "#5658DF";
@@ -22,7 +24,9 @@ interface TeamSupportSectionProps {
  * die Manpower einer ganzen Agentur — Kicker, zentrierte Headline, Absatz,
  * dunkle Team-Banner-Pill mit echten Avataren, drei Feature-Spalten.
  */
-export const TeamSupportSection = ({ sectionRef }: TeamSupportSectionProps = {}) => (
+export const TeamSupportSection = ({ sectionRef }: TeamSupportSectionProps = {}) => {
+  const teamSupport = useLocalizedStatic(teamSupportStatic, teamSupportEn);
+  return (
   <section ref={sectionRef as React.RefObject<HTMLElement>} aria-label={teamSupport.kicker}>
     <div
       className="max-w-[1200px] mx-auto px-6 lg:px-8 text-center"
@@ -153,4 +157,5 @@ export const TeamSupportSection = ({ sectionRef }: TeamSupportSectionProps = {})
       </div>
     </div>
   </section>
-);
+  );
+};

@@ -10,7 +10,8 @@ import { EdgePillButton } from "@/components/ui/EdgeCta";
 import { img } from "@/content";
 import { useJobs } from "@/hooks/useJobs";
 import { careers as CAREERS_STATIC } from "@/content/pages/careers";
-import { useCms } from "@/hooks/useCms";
+import { careers as careersEn } from "@/content/en/pages/careers";
+import { useLocalized } from "@/hooks/useLocalized";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
@@ -42,7 +43,7 @@ const Careers = () => {
   const ctaBtnRef = useRef<HTMLDivElement>(null);
 
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const careers = useCms("careers", CAREERS_STATIC);
+  const careers = useLocalized("careers", CAREERS_STATIC, careersEn);
   const jobs = useJobs();
 
 

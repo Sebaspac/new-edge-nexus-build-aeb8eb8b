@@ -11,7 +11,8 @@ import { VideoShowcaseSection } from "@/components/VideoShowcaseSection";
 import { CaseSpotlightSection } from "@/components/CaseSpotlightSection";
 import { img } from "@/content";
 import { cortexPage as CORTEX_STATIC } from "@/content/pages/cortex";
-import { useCms } from "@/hooks/useCms";
+import { cortexPage as cortexPageEn } from "@/content/en/pages/cortex";
+import { useLocalized } from "@/hooks/useLocalized";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -124,7 +125,7 @@ const FaqAccordion = ({ items }: { items: { q: string; a: string }[] }) => {
 };
 
 const Cortex = () => {
-  const cortex = useCms("cortex-page", CORTEX_STATIC);
+  const cortex = useLocalized("cortex-page", CORTEX_STATIC, cortexPageEn);
   const faqs = cortex.faq ?? CORTEX_STATIC.faq;
   const [isContactOpen, setIsContactOpen] = useState(false);
 

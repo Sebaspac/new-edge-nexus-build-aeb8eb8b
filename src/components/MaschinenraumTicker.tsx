@@ -1,7 +1,8 @@
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { maschinenraumTicker as TICKER_STATIC } from "@/content/sections/maschinenraumTicker";
-import { useCms } from "@/hooks/useCms";
+import { maschinenraumTicker as maschinenraumTickerEn } from "@/content/en/sections/maschinenraumTicker";
+import { useLocalized } from "@/hooks/useLocalized";
 
 /* ── Design tokens ── */
 const GLOW = "#9A85F6";
@@ -13,7 +14,7 @@ function fmt(d: Date) {
 
 export const MaschinenraumTicker = () => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const maschinenraumTicker = useCms("maschinenraum-ticker", TICKER_STATIC);
+  const maschinenraumTicker = useLocalized("maschinenraum-ticker", TICKER_STATIC, maschinenraumTickerEn);
   const items = useMemo(() => {
     const now = Date.now();
     return maschinenraumTicker.events.map((e) => ({

@@ -27,9 +27,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Link } from "react-router-dom";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { safeGetItem, safeSessionStorage, safeSetItem } from "@/utils/safeStorage";
 import { home as HOME_STATIC, img } from "@/content";
+import { home as HOME_EN } from "@/content/en/pages/home";
 import { useHomeContent } from "@/hooks/useHomeContent";
 
 // Lazy load Footer
@@ -38,7 +39,7 @@ const Footer = lazy(() => import("@/components/Footer").then((module) => ({
 })));
 const Index = () => {
   const sessionStorageSafe = safeSessionStorage();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   useLenis();
 
   // Trigger-Anker für den schwebenden Founder-Badge: ein-/ausgeblendet zwischen
@@ -48,9 +49,10 @@ const Index = () => {
 
   // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
   const cms = useHomeContent();
+  const HOME_FB = language === "en" ? HOME_EN : HOME_STATIC;
   const home = {
-    seo: cms.seo ?? HOME_STATIC.seo,
-    loadingAlt: cms.loadingAlt ?? HOME_STATIC.loadingAlt,
+    seo: cms.seo ?? HOME_FB.seo,
+    loadingAlt: cms.loadingAlt ?? HOME_FB.loadingAlt,
   };
 
   const [openAccordionIndex, setOpenAccordionIndex] = useState(0);

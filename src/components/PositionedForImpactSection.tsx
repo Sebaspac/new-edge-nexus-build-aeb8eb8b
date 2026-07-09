@@ -2,7 +2,8 @@ import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { img } from "@/content";
 import { positionedForImpact as PFI_STATIC } from "@/content/sections/positionedForImpact";
-import { useHomeContent } from "@/hooks/useHomeContent";
+import { positionedForImpact as positionedForImpactEn } from "@/content/en/sections/positionedForImpact";
+import { useHomeSection } from "@/hooks/useHomeContent";
 import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 import { EdgeRip } from "@/components/ui/EdgeRip";
 
@@ -19,7 +20,7 @@ interface PositionedForImpactSectionProps {
 
 export const PositionedForImpactSection = ({ sectionRef }: PositionedForImpactSectionProps = {}) => {
   // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const positionedForImpact = useHomeContent().positionedForImpact ?? PFI_STATIC;
+  const positionedForImpact = useHomeSection("positionedForImpact", PFI_STATIC, positionedForImpactEn);
   const partners = positionedForImpact.proof.partners.map((p: { src: string; alt: string }) => ({
     src: img(p.src as Parameters<typeof img>[0]),
     alt: p.alt,

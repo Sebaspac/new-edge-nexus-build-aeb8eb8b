@@ -2,10 +2,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Zap } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { localizePath } from "@/utils/localePath";
 
 const StickyAuditBubble = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { language } = useLanguage();
   const dragStartPos = useRef({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [pastHero, setPastHero] = useState(false);
@@ -67,7 +70,7 @@ const StickyAuditBubble = () => {
             const dx = Math.abs(info.point.x - dragStartPos.current.x);
             const dy = Math.abs(info.point.y - dragStartPos.current.y);
             if (dx < 5 && dy < 5) {
-              navigate("/ki-audit");
+              navigate(localizePath("/ki-audit", language));
               window.scrollTo(0, 0);
             }
             document.body.style.userSelect = "";
@@ -75,7 +78,7 @@ const StickyAuditBubble = () => {
             setTimeout(() => setIsDragging(false), 50);
           }}
           onClick={() => {
-            if (!isDragging) { navigate("/ki-audit"); window.scrollTo(0, 0); }
+            if (!isDragging) { navigate(localizePath("/ki-audit", language)); window.scrollTo(0, 0); }
           }}
           className="fixed bottom-8 right-8 z-[9999] cursor-grab active:cursor-grabbing flex flex-col items-center gap-2"
           style={{ touchAction: "none", userSelect: "none", WebkitUserSelect: "none" }}

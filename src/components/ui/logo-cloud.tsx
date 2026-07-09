@@ -1,6 +1,7 @@
 import { clientLogos as LOGOS_STATIC, clientLogosHeading as HEADING_STATIC } from "@/content/sections/clientLogos";
+import { clientLogos as clientLogosEn, clientLogosHeading as clientLogosHeadingEn } from "@/content/en/sections/clientLogos";
 import { img } from "@/content";
-import { useHomeContent } from "@/hooks/useHomeContent";
+import { useHomeSection } from "@/hooks/useHomeContent";
 
 /** Re-export für Bestandsimporte (z. B. PainPoint-Hero-Ticker) — bewusst statisch. */
 export { LOGOS_STATIC as clientLogos };
@@ -85,10 +86,9 @@ const BottomArc = ({ size }: { size: string }) => (
 );
 
 export default function LogoCloud() {
-  // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const cms = useHomeContent();
-  const clientLogos = cms.clientLogos ?? LOGOS_STATIC;
-  const clientLogosHeading = cms.clientLogosHeading ?? HEADING_STATIC;
+  // Inhalte live aus dem CMS (locale-fähig); Fallback: sprachrichtiger Content-Layer
+  const clientLogos = useHomeSection("clientLogos", LOGOS_STATIC, clientLogosEn);
+  const clientLogosHeading = useHomeSection("clientLogosHeading", HEADING_STATIC, clientLogosHeadingEn);
 
   const duplicatedLogos = [...clientLogos, ...clientLogos];
   const arcSize = "clamp(340px, 52vh, 520px)";

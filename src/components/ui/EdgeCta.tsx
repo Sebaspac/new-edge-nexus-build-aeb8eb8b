@@ -10,7 +10,7 @@
  * Rendert je nach Prop als <Link> (`to`), <a> (`href`) oder <button> (`onClick`).
  */
 import { ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { EdgeRip } from "@/components/ui/EdgeRip";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";

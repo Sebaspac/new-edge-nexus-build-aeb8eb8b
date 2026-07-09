@@ -1,10 +1,13 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { statementStats, img } from "@/content";
+import { statementStats as statementStatsStatic, img } from "@/content";
+import { statementStats as statementStatsEn } from "@/content/en/sections/statementStats";
+import { useLocalizedStatic } from "@/hooks/useLocalized";
 import { EdgePillButton, EdgeTextButton } from "@/components/ui/EdgeCta";
 import { EdgeRip } from "@/components/ui/EdgeRip";
 import { impactCounter as IMPACT_STATIC } from "@/content/sections/impactCounter";
-import { useHomeContent } from "@/hooks/useHomeContent";
+import { impactCounter as impactCounterEn } from "@/content/en/sections/impactCounter";
+import { useHomeSection } from "@/hooks/useHomeContent";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 const VIOLET = "#5658DF";
@@ -37,8 +40,9 @@ const TITLE_STYLE: React.CSSProperties = {
  * Kennzahlen über die volle Breite.
  */
 export const StatementStatsSection = () => {
+  const statementStats = useLocalizedStatic(statementStatsStatic, statementStatsEn);
   // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const impact = useHomeContent().impactCounter ?? IMPACT_STATIC;
+  const impact = useHomeSection("impactCounter", IMPACT_STATIC, impactCounterEn);
 
   /* ── Zoom-Settle + Parallax (scroll-getrieben, nur Transforms — kein Scroll-Jacking) ──
      Der Bild-RAHMEN bleibt statisch (Ghost-Clip bleibt dadurch immer bündig);

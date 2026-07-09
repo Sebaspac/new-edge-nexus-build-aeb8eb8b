@@ -7,11 +7,12 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { safeGetItem, safeLocalStorage, safeSetItem } from "@/utils/safeStorage";
 import { cookieConsent as CC_STATIC } from "@/content/sections/cookieConsent";
-import { useCms } from "@/hooks/useCms";
+import { cookieConsent as cookieConsentEn } from "@/content/en/sections/cookieConsent";
+import { useLocalized } from "@/hooks/useLocalized";
 
 const CookieConsent = () => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const cookieConsent = useCms("cookie-consent", CC_STATIC);
+  const cookieConsent = useLocalized("cookie-consent", CC_STATIC, cookieConsentEn);
   const storage = safeLocalStorage();
   const [showBanner, setShowBanner] = useState(false);
   const [showSettings, setShowSettings] = useState(false);

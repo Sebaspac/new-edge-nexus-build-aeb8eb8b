@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { derSchnitt as DS_STATIC } from "@/content/sections/derSchnitt";
-import { useHomeContent } from "@/hooks/useHomeContent";
+import { derSchnitt as derSchnittEn } from "@/content/en/sections/derSchnitt";
+import { useHomeSection } from "@/hooks/useHomeContent";
 
 /* ── Design tokens ── */
 const VIOLET_LIGHT = "#8B8DF0";
@@ -51,7 +52,7 @@ const CompareRow = ({ label, filled, index }: { label: string; filled: boolean; 
 
 export const DerSchnitt = () => {
   // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const derSchnitt = useHomeContent().derSchnitt ?? DS_STATIC;
+  const derSchnitt = useHomeSection("derSchnitt", DS_STATIC, derSchnittEn);
 
   const pillStyle: React.CSSProperties = {
     ...BODY,

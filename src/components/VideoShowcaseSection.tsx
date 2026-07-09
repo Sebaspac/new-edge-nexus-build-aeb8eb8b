@@ -3,9 +3,11 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { EdgePillButton, EdgeTextButton } from "@/components/ui/EdgeCta";
 import { videoShowcase as videoShowcaseStatic } from "@/content";
+import { videoShowcase as videoShowcaseEn } from "@/content/en/sections/videoShowcase";
 import { hero as HERO_STATIC } from "@/content/sections/hero";
-import { useHomeContent } from "@/hooks/useHomeContent";
-import { useCms } from "@/hooks/useCms";
+import { hero as heroEn } from "@/content/en/sections/hero";
+import { useHomeSection } from "@/hooks/useHomeContent";
+import { useLocalized } from "@/hooks/useLocalized";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 const VIOLET = "#5658DF";
@@ -18,8 +20,8 @@ const EASE = [0.22, 1, 0.36, 1] as const;
  */
 export const VideoShowcaseSection = () => {
   // Text/CTAs live aus dem CMS (Strapi Single-Type „video-showcase"); Fallback: statisch
-  const videoShowcase = useCms("video-showcase", videoShowcaseStatic);
-  const video = useHomeContent().hero?.video ?? HERO_STATIC.video;
+  const videoShowcase = useLocalized("video-showcase", videoShowcaseStatic, videoShowcaseEn);
+  const video = useHomeSection("hero", HERO_STATIC, heroEn)?.video;
   const [videoPlaying, setVideoPlaying] = useState(false);
 
   return (

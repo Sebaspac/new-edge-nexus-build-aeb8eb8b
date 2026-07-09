@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { withCmsParams } from "@/utils/cmsPreview";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 /**
  * Startseiten-Inhalte live aus dem CMS (Strapi Single-Type „Home") laden.
@@ -72,31 +73,41 @@ function mapHome(raw: any): HomeContent {
   };
 }
 
-let cache: HomeContent | null = null;
-let inflight: Promise<HomeContent | null> | null = null;
-function load(): Promise<HomeContent | null> {
-  if (cache) return Promise.resolve(cache);
+const caches: Record<string, HomeContent | null> = {};
+const inflights: Record<string, Promise<HomeContent | null> | null> = {};
+function load(api: string): Promise<HomeContent | null> {
+  if (caches[api]) return Promise.resolve(caches[api]);
   if (!STRAPI_URL) return Promise.resolve(null);
-  if (!inflight) {
-    inflight = fetch(withCmsParams(`${STRAPI_URL}/api/home`))
+  if (!inflights[api]) {
+    inflights[api] = fetch(withCmsParams(`${STRAPI_URL}/api/${api}`))
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`HTTP ${res.status}`))))
-      .then((json) => (json?.data ? (cache = mapHome(json.data)) : null))
+      .then((json) => (json?.data ? (caches[api] = mapHome(json.data)) : null))
       .catch(() => null);
   }
-  return inflight;
+  return inflights[api]!;
 }
 
-/** Home-Inhalte aus dem CMS; leeres Objekt, solange (oder falls) nichts geladen ist. */
+/** Home-Inhalte aus dem CMS (locale-fähig: `home` / `home-en`); leeres Objekt bis geladen. */
 export function useHomeContent(): HomeContent {
-  const [data, setData] = useState<HomeContent | null>(cache);
+  const { language } = useLanguage();
+  const api = language === "en" ? "home-en" : "home";
+  const [data, setData] = useState<HomeContent | null>(caches[api] ?? null);
   useEffect(() => {
     let alive = true;
-    load().then((d) => {
+    load(api).then((d) => {
       if (alive && d) setData(d);
     });
     return () => {
       alive = false;
     };
-  }, []);
+  }, [api]);
   return data ?? {};
+}
+
+/** Eine Home-Sektion mit sprachrichtigem statischem Fallback (Prod = statisch). */
+export function useHomeSection<T>(key: keyof HomeContent, deStatic: T, enStatic: unknown): T {
+  const { language } = useLanguage();
+  const cms = useHomeContent();
+  // EN/DE strukturgleich → EN als `unknown` annehmen, auf DE-Form casten.
+  return (cms[key] as T | undefined) ?? ((language === "en" ? enStatic : deStatic) as T);
 }

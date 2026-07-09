@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { aiVoices, img } from "@/content";
+import { aiVoices as aiVoicesStatic, img } from "@/content";
+import { aiVoices as aiVoicesEn } from "@/content/en/sections/aiVoices";
+import { useLocalizedStatic } from "@/hooks/useLocalized";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 const VIOLET = "#5658DF";
@@ -24,6 +26,7 @@ const PHOTO_LAYOUT: React.CSSProperties[] = [
  * schwebende Studio-Fotos drumherum.
  */
 export const AiVoicesSection = () => {
+  const aiVoices = useLocalizedStatic(aiVoicesStatic, aiVoicesEn);
   const [hiddenIcons, setHiddenIcons] = useState<Record<string, boolean>>({});
   const q = encodeURIComponent(aiVoices.prompt);
 

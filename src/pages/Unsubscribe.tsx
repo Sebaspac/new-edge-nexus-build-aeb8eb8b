@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { unsubscribe as UNSUB_STATIC } from "@/content/pages/unsubscribe";
-import { useCms } from "@/hooks/useCms";
+import { unsubscribe as unsubscribeEn } from "@/content/en/pages/unsubscribe";
+import { useLocalized } from "@/hooks/useLocalized";
 
 const SUPABASE_URL = "https://yzmtgxfehvzgobxjivjl.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl6bXRneGZlaHZ6Z29ieGppdmpsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3NjY0MDMsImV4cCI6MjA1ODM0MjQwM30.0wMIGxbEZvqkjbzJEG0N2OjIl3fzLsakd3cPhqrFpjQ";
@@ -11,7 +12,7 @@ type PageState = "loading" | "valid" | "already" | "invalid" | "confirming" | "s
 
 const Unsubscribe = () => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const unsubscribe = useCms("unsubscribe", UNSUB_STATIC);
+  const unsubscribe = useLocalized("unsubscribe", UNSUB_STATIC, unsubscribeEn);
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
   const [state, setState] = useState<PageState>("loading");

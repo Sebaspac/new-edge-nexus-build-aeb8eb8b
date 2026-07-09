@@ -1,9 +1,13 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { EdgePillButton } from "@/components/ui/EdgeCta";
 import { embeddedAI as EAI_STATIC } from "@/content/sections/embeddedAI";
+import { embeddedAI as embeddedAiEn } from "@/content/en/sections/embeddedAI";
 import { problemJourney as PJ_STATIC } from "@/content/sections/problemJourney";
-import { videoShowcase } from "@/content";
-import { useHomeContent } from "@/hooks/useHomeContent";
+import { problemJourney as problemJourneyEn } from "@/content/en/sections/problemJourney";
+import { videoShowcase as videoShowcaseStatic } from "@/content";
+import { videoShowcase as videoShowcaseEn } from "@/content/en/sections/videoShowcase";
+import { useHomeSection } from "@/hooks/useHomeContent";
+import { useLocalized } from "@/hooks/useLocalized";
 
 /* ── Design tokens ── */
 const VIOLET = "#5658DF";
@@ -22,11 +26,11 @@ const EASE = [0.22, 1, 0.36, 1] as const;
  * als dunkle Visual-Karte (5 Stationen).
  */
 export const EmbeddedAI = () => {
-  // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const cms = useHomeContent();
-  const embeddedAI = cms.embeddedAI ?? EAI_STATIC;
-  // Reise-Stationen live aus dem CMS (Strapi „Home"); Fallback: statischer Content
-  const journey = (cms.problemJourney ?? PJ_STATIC).right;
+  // Inhalte live aus dem CMS (locale-fähig); Fallback: sprachrichtiger Content-Layer
+  const embeddedAI = useHomeSection("embeddedAI", EAI_STATIC, embeddedAiEn);
+  // Reise-Stationen live aus dem CMS; Fallback: statischer Content
+  const journey = useHomeSection("problemJourney", PJ_STATIC, problemJourneyEn).right;
+  const videoShowcase = useLocalized("video-showcase", videoShowcaseStatic, videoShowcaseEn);
   const reduceMotion = useReducedMotion();
 
   return (

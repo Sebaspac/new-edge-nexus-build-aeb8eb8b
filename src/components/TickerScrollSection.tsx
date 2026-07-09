@@ -1,7 +1,8 @@
 import { MarqueeAnimation } from "@/components/ui/marquee-effect";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { tickerScroll as TICKER_STATIC } from "@/content/sections/tickerScroll";
-import { useHomeContent } from "@/hooks/useHomeContent";
+import { tickerScroll as tickerScrollEn } from "@/content/en/sections/tickerScroll";
+import { useHomeSection } from "@/hooks/useHomeContent";
 
 const HEAD: React.CSSProperties = {
   fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
@@ -16,7 +17,7 @@ export const TickerScrollSection = () => {
   const isMobile = useIsMobile();
 
   // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const tickerScroll = useHomeContent().tickerScroll ?? TICKER_STATIC;
+  const tickerScroll = useHomeSection("tickerScroll", TICKER_STATIC, tickerScrollEn);
 
   // On mobile the skewY overhang (each full-width band is rotated, pushing its
   // corners ~2-3px past its box) eats the tiny 6px gap and makes the two lines

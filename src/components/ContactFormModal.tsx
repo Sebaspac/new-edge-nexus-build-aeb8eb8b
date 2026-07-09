@@ -15,7 +15,8 @@ import {
 } from "@/utils/contactFormValidation";
 import { startAuditSla } from "@/components/AuditSlaStatus";
 import { contactFormModal as CFM_STATIC } from "@/content/sections/contactFormModal";
-import { useCms } from "@/hooks/useCms";
+import { contactFormModal as contactFormModalEn } from "@/content/en/sections/contactFormModal";
+import { useLocalized } from "@/hooks/useLocalized";
 
 interface ContactFormModalProps {
   isOpen: boolean;
@@ -38,7 +39,7 @@ export const ContactFormModal = ({
   sla = false,
 }: ContactFormModalProps) => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const contactFormModal = useCms("contact-form-modal", CFM_STATIC);
+  const contactFormModal = useLocalized("contact-form-modal", CFM_STATIC, contactFormModalEn);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [fieldErrors, setFieldErrors] = React.useState<Record<string, string>>({});
   const [formStatus, setFormStatus] = React.useState<{ type: 'success' | 'error'; message: string } | null>(null);

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import React, { useState, useEffect } from "react";
 
 type SweepColor = "violet" | "dark" | "white" | "silver";

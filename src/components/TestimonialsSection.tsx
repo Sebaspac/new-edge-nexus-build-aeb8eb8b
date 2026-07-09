@@ -3,8 +3,9 @@ import { motion, useInView } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { testimonialsSection as TS_STATIC, type Testimonial } from "@/content";
+import { testimonialsSection as testimonialsSectionEn } from "@/content/en/sections/testimonials";
 import { useTestimonials } from "@/hooks/useTestimonials";
-import { useHomeContent } from "@/hooks/useHomeContent";
+import { useHomeSection } from "@/hooks/useHomeContent";
 
 const VIOLET  = "#5658DF";
 const INK_DEEP = "#0D0D12";
@@ -30,7 +31,7 @@ export const TestimonialsSection = () => {
 
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
   const testimonials = useTestimonials();
-  const testimonialsSection = useHomeContent().testimonialsSection ?? TS_STATIC;
+  const testimonialsSection = useHomeSection("testimonialsSection", TS_STATIC, testimonialsSectionEn);
   const MAX_INDEX = Math.max(0, testimonials.length - 3);
 
   const sectionRef = useRef<HTMLElement>(null);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { auditSlaStatus as SLA_STATIC } from "@/content/sections/auditSlaStatus";
-import { useCms } from "@/hooks/useCms";
+import { auditSlaStatus as auditSlaStatusEn } from "@/content/en/sections/auditSlaStatus";
+import { useLocalized } from "@/hooks/useLocalized";
 
 /* ── Design tokens (Ink & Edge) ── */
 const VIOLET = "#5658DF";
@@ -48,7 +49,7 @@ function fmtRemaining(ms: number) {
  */
 export const AuditSlaStatus = () => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const auditSlaStatus = useCms("audit-sla-status", SLA_STATIC);
+  const auditSlaStatus = useLocalized("audit-sla-status", SLA_STATIC, auditSlaStatusEn);
   const [deadline, setDeadline] = useState<number | null>(null);
   const [now, setNow] = useState(Date.now());
 

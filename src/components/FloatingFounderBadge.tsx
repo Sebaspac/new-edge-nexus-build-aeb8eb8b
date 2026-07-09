@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { hero as HERO_STATIC } from "@/content/sections/hero";
+import { hero as heroEn } from "@/content/en/sections/hero";
+import { useLocalizedStatic } from "@/hooks/useLocalized";
 import { img } from "@/content";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
@@ -22,6 +24,7 @@ interface FloatingFounderBadgeProps {
  * HorizontalScrollSection, da `getBoundingClientRect()` transform-aware ist.
  */
 export const FloatingFounderBadge = ({ startRef, endRef }: FloatingFounderBadgeProps) => {
+  const hero = useLocalizedStatic(HERO_STATIC, heroEn);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -65,7 +68,7 @@ export const FloatingFounderBadge = ({ startRef, endRef }: FloatingFounderBadgeP
           className="hidden md:block"
         >
           <Link
-            to={HERO_STATIC.founderBadge.to}
+            to={hero.founderBadge.to}
             className="group relative inline-flex items-center overflow-hidden transition-transform duration-200 hover:scale-[1.02]"
             style={{
               gap: "14px",
@@ -97,8 +100,8 @@ export const FloatingFounderBadge = ({ startRef, endRef }: FloatingFounderBadgeP
               }}
             >
               <img
-                src={img(HERO_STATIC.founderBadge.image)}
-                alt={HERO_STATIC.founderBadge.imageAlt}
+                src={img(hero.founderBadge.image)}
+                alt={hero.founderBadge.imageAlt}
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "25% 20%", display: "block" }}
                 loading="lazy"
               />
@@ -109,13 +112,13 @@ export const FloatingFounderBadge = ({ startRef, endRef }: FloatingFounderBadgeP
                 className="block text-[#17172E] transition-colors duration-300 group-hover:text-white"
                 style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "14.5px", lineHeight: 1.25 }}
               >
-                {HERO_STATIC.founderBadge.title}
+                {hero.founderBadge.title}
               </span>
               <span
                 className="block text-[#5B566B] transition-colors duration-300 group-hover:text-white/80"
                 style={{ fontFamily: OUTFIT, fontWeight: 400, fontSize: "12.5px", lineHeight: 1.3 }}
               >
-                {HERO_STATIC.founderBadge.subtitle}
+                {hero.founderBadge.subtitle}
               </span>
             </span>
           </Link>

@@ -4,11 +4,12 @@ import { useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEOHead from "@/components/SEOHead";
 import { notFound as NOTFOUND_STATIC } from "@/content/pages/notFound";
-import { useCms } from "@/hooks/useCms";
+import { notFound as notFoundEn } from "@/content/en/pages/notFound";
+import { useLocalized } from "@/hooks/useLocalized";
 
 const NotFound = () => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const notFound = useCms("not-found", NOTFOUND_STATIC);
+  const notFound = useLocalized("not-found", NOTFOUND_STATIC, notFoundEn);
   const { t } = useLanguage();
   const location = useLocation();
 

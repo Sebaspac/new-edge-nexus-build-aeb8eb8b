@@ -1,5 +1,6 @@
 import { lazy, Suspense, useMemo } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import { MobileNavigation } from "@/components/MobileNavigation";
@@ -7,9 +8,11 @@ import { ThreeStepsCTA } from "@/components/ThreeStepsCTA";
 import { EdgePillButton, EdgeTextButton } from "@/components/ui/EdgeCta";
 import { EdgeRip } from "@/components/ui/EdgeRip";
 import { miniCaseDetail as T_STATIC } from "@/content/pages/miniCaseDetail";
+import { miniCaseDetail as miniCaseDetailEn } from "@/content/en/pages/miniCaseDetail";
 import { painPointPage as PPP_STATIC } from "@/content/pages/painPointAuswahlverfahren";
+import { painPointPage as painPointPageEn } from "@/content/en/pages/painPointAuswahlverfahren";
 import { img } from "@/content";
-import { useCms } from "@/hooks/useCms";
+import { useLocalized } from "@/hooks/useLocalized";
 import { usePainPoints } from "@/hooks/usePainPoints";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
@@ -60,8 +63,8 @@ const MiniCaseDetail = () => {
   const basePath = pathname.startsWith("/industrien") ? "/industrien" : "/loesungen";
 
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const t = useCms("mini-case-detail", T_STATIC);
-  const painPointPage = useCms("pain-point-page", PPP_STATIC);
+  const t = useLocalized("mini-case-detail", T_STATIC, miniCaseDetailEn);
+  const painPointPage = useLocalized("pain-point-page", PPP_STATIC, painPointPageEn);
   const { map: painPoints, defaultPainPoint } = usePainPoints();
 
   const content = useMemo(() => (slug && painPoints[slug]) || defaultPainPoint, [slug, painPoints, defaultPainPoint]);

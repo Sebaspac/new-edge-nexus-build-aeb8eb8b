@@ -1,6 +1,7 @@
 import { useCountUp } from "@/hooks/useCountUp";
 import { impactCounter as IMPACT_STATIC, type Metric as MetricData } from "@/content/sections/impactCounter";
-import { useHomeContent } from "@/hooks/useHomeContent";
+import { impactCounter as impactCounterEn } from "@/content/en/sections/impactCounter";
+import { useHomeSection } from "@/hooks/useHomeContent";
 
 /* ── Design tokens (Ink & Edge) ── */
 const INK_DEEP = "#17172E";
@@ -46,7 +47,7 @@ function Metric({ prefix, value, suffix, label }: MetricData) {
 
 export const ImpactCounterBand = () => {
   // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const impactCounter = useHomeContent().impactCounter ?? IMPACT_STATIC;
+  const impactCounter = useHomeSection("impactCounter", IMPACT_STATIC, impactCounterEn);
 
   return (
     <section aria-label={impactCounter.ariaLabel} className="relative">
