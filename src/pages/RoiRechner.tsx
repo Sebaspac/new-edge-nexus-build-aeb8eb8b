@@ -5,7 +5,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { EdgePillButton } from "@/components/ui/EdgeCta";
-import { ROI_INDUSTRIES, ROI_ENTRY, BRANCHES, PAINFIELDS, NR_TO_PAIN, type RoiUseCase, type PainId } from "@/content/roiAudit";
+import { ROI_INDUSTRIES, ROI_ENTRY, BRANCHES, PAINFIELDS, NR_TO_PAIN, ROI_APPS, type RoiUseCase, type PainId } from "@/content/roiAudit";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -110,10 +110,8 @@ const RoiRechner = () => {
       const cands = pooled.filter((u) => NR_TO_PAIN[u.nr] === pf.id);
       if (!cands.length) return null;
       const rep = cands.slice().sort((a, b) => b.score - a.score || b.roiMax - a.roiMax)[0];
-      // Alle Tools/Apps der Use-Cases dieses Feldes, dedupliziert → anklickbar
-      const apps = Array.from(
-        new Set(cands.flatMap((u) => u.tools.split(",").map((s) => s.trim()).filter(Boolean))),
-      );
+      // Kuratierte, real in DE je Branche genutzte Apps für dieses Feld (anklickbar)
+      const apps = ROI_APPS[branche.id]?.[pf.id] ?? [];
       return { pf, rep, apps };
     }).filter(Boolean) as Field[];
   }, [branche]);

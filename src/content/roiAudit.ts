@@ -169,3 +169,52 @@ export const ROI_INDUSTRIES: RoiIndustry[] = [
     ],
   },
 ];
+
+/**
+ * Kuratierte, real in Deutschland je Branche genutzte Business-Apps pro
+ * Anwendungsfeld (recherchiert 2026-07, Subagent-Recherche). Konsolidiert:
+ * austauschbare Äquivalente je Kategorie auf ~1 reduziert; generische
+ * Automatisierung (Zapier/Make/n8n) und generische KI (ChatGPT) bewusst
+ * weggelassen — das sind die Konnektoren, nicht die Fach-Apps, die ein Betrieb
+ * wirklich nutzt. Reihenfolge = Verbreitung, häufigstes zuerst.
+ * Key = BRANCHES.id → PainId → App-Namen (Chips im ROI-Rechner, Step 2).
+ */
+export const ROI_APPS: Record<string, Partial<Record<PainId, string[]>>> = {
+  handel: {
+    tueroeffner: ["HubSpot", "Pipedrive", "Salesforce", "CAS genesisWorld", "Zoho CRM", "Dynamics 365"],
+    verstaerker: ["Brevo", "CleverReach", "Mailchimp", "Klaviyo", "Meta Business Suite", "Canva"],
+    kassenwart: ["DATEV", "Lexware Office", "sevDesk", "SAP", "Klarna", "PayPal"],
+    maschinenraum: ["JTL-Wawi", "plentymarkets", "Xentral", "Shopware", "SAP Business One", "CargoWise", "Timocom", "pds"],
+    cockpit: ["Power BI", "Qlik Sense", "Tableau", "Google Analytics 4"],
+    concierge: ["Zendesk", "Freshdesk", "Zammad", "HubSpot Service Hub", "Microsoft Teams"],
+    waechter: ["AEB (ATLAS)", "DAKOSY", "DocuWare", "DATEV DMS", "ecoDMS"],
+  },
+  professional: {
+    tueroeffner: ["onOffice", "Propstack", "FlowFact", "ImmoScout24", "HubSpot", "Salesforce"],
+    verstaerker: ["CleverReach", "Mailchimp", "LinkedIn", "Canva"],
+    kassenwart: ["DATEV", "RA-MICRO", "Lexware Office", "sevDesk"],
+    maschinenraum: ["RA-MICRO", "Advoware", "DATEV Anwalt", "WinMACS", "Allplan", "ORCA AVA", "Projekt Pro"],
+    cockpit: ["DATEV", "Power BI", "Excel"],
+    concierge: ["DATEV Meine Steuern", "Casavi", "etg24", "Calendly", "beA"],
+    waechter: ["beA", "DATEV DMS", "FP Sign", "DocuSign", "ELSTER"],
+  },
+  health: {
+    tueroeffner: ["Doctolib", "jameda", "samedi", "Dr. Flex", "Google Bewertungen"],
+    verstaerker: ["Praxis-Website", "Google Ads", "Meta", "jameda"],
+    kassenwart: ["PVS Verrechnungsstelle", "BFS health finance", "DZR", "DATEV", "Optica"],
+    maschinenraum: ["CGM", "medatixx", "tomedo", "Dampsoft DS-Win", "Solutio CHARLY", "THEORG", "RED Medical"],
+    cockpit: ["PVS-Controlling", "DATEV", "KV-Statistik"],
+    concierge: ["Doctolib", "RED connect", "arztkonsultation", "aaron.ai", "KIM"],
+    waechter: ["medatixx QM", "dios", "Vismed / neoQM", "KIM"],
+  },
+  instanzen: {
+    tueroeffner: ["Deutsches Vergabeportal (DTVP)", "Vergabe24", "Deutsches Ausschreibungsblatt", "service.bund.de", "evergabe.de", "TED / eForms"],
+    verstaerker: ["TYPO3", "WordPress", "CleverReach", "LinkedIn", "Canva"],
+    kassenwart: ["DATEV", "DATEVkommunal", "Lexware Office", "SAP", "sevDesk"],
+    maschinenraum: ["Session / SessionNet", "ALLRIS", "SD.NET", "more Rubin", "Sdui", "Microsoft 365"],
+    cockpit: ["Power BI", "Excel", "DATEV", "Tableau"],
+    concierge: ["Microsoft Outlook", "Zammad", "Microsoft Teams", "CleverReach"],
+    waechter: ["d.velop", "enaio", "nscale", "cosinex VMS", "DocuSign / D-Trust"],
+    schiedsrichter: ["Award Force", "OpenWater", "Evalato", "cosinex VMS", "DTVP", "evergabe.de", "DFG elan / easy-Online", "ConfTool / EasyChair"],
+  },
+};
