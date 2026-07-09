@@ -54,6 +54,8 @@ const MODULES = {
   jobs: "./collections/jobs.ts#jobs",
   painPoints: "./painPoints.ts#painPoints",
   defaultPainPoint: "./painPoints.ts#DEFAULT_PAIN_POINT",
+  painPointsEn: "./en/painPoints.ts#painPoints",
+  defaultPainPointEn: "./en/painPoints.ts#DEFAULT_PAIN_POINT",
   // ── EN-Mirror: locale-Single-Types (<type>-en) ──
   homeEn: "./en/pages/home.ts#home",
   aboutEn: "./en/pages/about.ts#about",
