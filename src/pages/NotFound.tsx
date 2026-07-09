@@ -6,6 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import { notFound as NOTFOUND_STATIC } from "@/content/pages/notFound";
 import { notFound as notFoundEn } from "@/content/en/pages/notFound";
 import { useLocalized } from "@/hooks/useLocalized";
+import { LocaleLink as Link } from "@/components/LocaleLink";
 
 const NotFound = () => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
@@ -26,9 +27,9 @@ const NotFound = () => {
       <div className="text-center">
         <h1>{t('notFound.title')}</h1>
         <p className="text-gray-600 mb-4">{t('notFound.subtitle')}</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
+        <Link to="/" className="text-blue-500 hover:text-blue-700 underline">
           {t('notFound.backToHome')}
-        </a>
+        </Link>
       </div>
     </div>
   );

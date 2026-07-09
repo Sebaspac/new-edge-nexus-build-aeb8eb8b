@@ -85,6 +85,10 @@ const PillInner = ({ children, variant = "ink" }: { children: React.ReactNode; v
   </>
 );
 
+/** Interner Pfad (`/…`) → geroutet + lokalisiert (LocaleLink); Anker (`#`) / extern (`http`, `//`) bleiben harte `<a>`-Links. */
+const routeHref = (to?: string, href?: string): string | undefined =>
+  to ?? (href && href.startsWith("/") && !href.startsWith("//") ? href : undefined);
+
 export const EdgePillButton = ({ children, to, href, onClick, type = "button", disabled, variant = "ink" }: EdgeCtaProps) => {
   const inner = <PillInner variant={variant}>{children}</PillInner>;
   const bg = variant === "violet" ? VIOLET : variant === "frost" ? "rgba(255,255,255,0.12)" : INK_GRADIENT;
@@ -93,9 +97,10 @@ export const EdgePillButton = ({ children, to, href, onClick, type = "button", d
     background: bg,
     border: variant === "frost" ? "1px solid rgba(255,255,255,0.30)" : "none",
   };
-  if (to)
+  const routeTo = routeHref(to, href);
+  if (routeTo)
     return (
-      <Link to={to} className={PILL_CLASS} style={style}>
+      <Link to={routeTo} className={PILL_CLASS} style={style}>
         {inner}
       </Link>
     );
@@ -132,9 +137,10 @@ export const EdgeTextButton = ({ children, to, href, onClick, tone = "dark" }: E
       <ArrowUpRight style={{ width: "15px", height: "15px" }} />
     </>
   );
-  if (to)
+  const routeTo = routeHref(to, href);
+  if (routeTo)
     return (
-      <Link to={to} className={cls} style={style}>
+      <Link to={routeTo} className={cls} style={style}>
         {inner}
       </Link>
     );
