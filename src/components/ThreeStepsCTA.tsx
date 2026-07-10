@@ -27,7 +27,6 @@ export const ThreeStepsCTA = () => {
   const stepsData = threeStepsCTA.steps;
   // Desktop: Anzahl der bereits eingeflogenen Stack-Karten (0–3)
   const [visibleCards, setVisibleCards] = useState(0);
-  const [mobileStep, setMobileStep] = useState(0);
   const [pinMode, setPinMode] = useState<"before" | "fixed" | "after">("before");
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -65,137 +64,62 @@ export const ThreeStepsCTA = () => {
     };
   }, [isMobile]);
 
-  // Mobile scroll-driven logic
-  useEffect(() => {
-    if (!isMobile) return;
-    const section = sectionRef.current;
-    if (!section) return;
-
-    let frame = 0;
-    const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
-    const update = () => {
-      const rect = section.getBoundingClientRect();
-      const pinDist = Math.max(1, section.offsetHeight - window.innerHeight);
-      const progress = clamp(-rect.top / pinDist, 0, 1);
-      const nextMode = rect.top > 0 ? "before" : rect.bottom <= window.innerHeight ? "after" : "fixed";
-      const nextStep = progress < 0.34 ? 0 : progress < 0.67 ? 1 : 2;
-      setPinMode((c) => (c === nextMode ? c : nextMode));
-      setMobileStep((c) => (c === nextStep ? c : nextStep));
-    };
-    const onScroll = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(update); };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    onScroll();
-    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); cancelAnimationFrame(frame); };
-  }, [isMobile]);
-
-  /* ── MOBILE LAYOUT ── */
+  /* ── MOBILE LAYOUT — einfach gestapelt, kein Scroll-Pin (robust, kein Überlauf) ── */
   if (isMobile) {
-    const mobilePinStyle: React.CSSProperties = {
-      position: pinMode === "fixed" ? "fixed" : "absolute",
-      top: pinMode === "after" ? "auto" : 0,
-      bottom: pinMode === "after" ? 0 : "auto",
-      left: 0, right: 0, width: "100%", height: "100dvh", zIndex: 1,
-      background: "transparent",
-    };
-
     return (
-      <div
-        id="cta"
-        ref={sectionRef}
-        className="relative isolate"
-        style={{
-          height: "350dvh",
-          background: "transparent",
-          }}
-      >
-        <div style={mobilePinStyle} className="overflow-hidden">
-          <div className="px-6 pt-16 pb-8 h-full flex flex-col">
-            <h2
-              style={{ color: INK_DEEP }}
+      <div id="cta" ref={sectionRef} className="relative" style={{ background: "transparent" }}>
+        <div className="px-6 pt-14 pb-16">
+          <h2 style={{ color: INK_DEEP }}>
+            {threeStepsCTA.heading.line1}<br />{threeStepsCTA.heading.line2}<br />{threeStepsCTA.heading.line3}
+          </h2>
+
+          <div className="mt-6">
+            <FloatingConsultButton />
+          </div>
+
+          <div className="mt-6 mb-9">
+            <p className="uppercase tracking-wide" style={{ ...BODY, fontWeight: 700, fontSize: "14px", color: INK_DEEP }}>
+              {threeStepsCTA.person.name}
+            </p>
+            <p style={{ ...BODY, fontSize: "14px", color: "rgba(23,23,46,0.55)" }}>
+              {threeStepsCTA.person.role}
+            </p>
+            <a
+              href={threeStepsCTA.person.phoneHref}
+              style={{ ...BODY, fontWeight: 600, fontSize: "13px", color: VIOLET, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "6px" }}
             >
-              {threeStepsCTA.heading.line1}<br />{threeStepsCTA.heading.line2}<br />{threeStepsCTA.heading.line3}
-            </h2>
+              {threeStepsCTA.person.phoneLabel}
+            </a>
+          </div>
 
-            <div className="mb-3">
-              <FloatingConsultButton />
-            </div>
-
-            <div className="flex items-center mb-5">
-              <div>
-                <p className="uppercase tracking-wide" style={{ ...BODY, fontWeight: 700, fontSize: "14px", color: INK_DEEP }}>
-                  {threeStepsCTA.person.name}
-                </p>
-                <p style={{ ...BODY, fontSize: "14px", color: "rgba(23,23,46,0.55)" }}>
-                  {threeStepsCTA.person.role}
-                </p>
-                <a
-                  href={threeStepsCTA.person.phoneHref}
-                  style={{ ...BODY, fontWeight: 600, fontSize: "12px", color: VIOLET, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "5px", marginTop: "6px" }}
-                >
-                  {threeStepsCTA.person.phoneLabel}
-                </a>
-              </div>
-            </div>
-
-            <div className="relative flex-1" style={{ minHeight: 200 }}>
-              {stepsData.map((card, i) => {
-                const isActive = mobileStep === i;
-                const isPast = mobileStep > i;
-                return (
-                  <div
-                    key={card.title}
-                    className="absolute inset-x-0 top-0 p-5 flex flex-col will-change-transform"
-                    style={{
-                      background: "rgba(255,255,255,0.98)",
-                      opacity: isActive ? 1 : 0,
-                      transform: isPast
-                        ? "translateX(-120%) rotate(-8deg) scale(0.9)"
-                        : isActive
-                          ? "translateX(0) rotate(0deg) scale(1)"
-                          : "translateX(60px) scale(0.92)",
-                      transition: "opacity 500ms ease, transform 600ms cubic-bezier(0.4,0,0.2,1)",
-                      pointerEvents: isActive ? "auto" : "none",
-                      borderRadius: "16px",
-                      boxShadow: "0 16px 50px rgba(0,0,0,0.18)",
-                    }}
+          <div className="flex flex-col gap-4">
+            {stepsData.map((card, i) => (
+              <div
+                key={card.title}
+                className="p-5"
+                style={{
+                  background: "rgba(255,255,255,0.98)",
+                  borderRadius: "16px",
+                  boxShadow: "0 12px 36px rgba(23,23,46,0.12)",
+                }}
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span aria-hidden style={{ ...HEAD, fontSize: "13px", color: "#fff", background: VIOLET, width: "30px", height: "30px", borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span>
+                  <span
+                    className="text-[0.75rem] font-bold uppercase"
+                    style={{ ...BODY, fontWeight: 700, letterSpacing: "0.04em", color: VIOLET }}
                   >
-                    <div className="flex items-center gap-3 mb-2">
-                      <span aria-hidden style={{ ...HEAD, fontSize: "13px", color: "#fff", background: VIOLET, width: "30px", height: "30px", borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span>
-                      <span
-                        className="text-[0.75rem] font-bold uppercase"
-                        style={{ ...BODY, fontWeight: 700, letterSpacing: "0.04em", color: VIOLET }}
-                      >
-                        {threeStepsCTA.stepLabelPrefix} {i + 1}
-                      </span>
-                    </div>
-                    <h3
-                      style={{ color: L.text }}
-                    >
-                      {card.title}
-                    </h3>
-                    <p style={{ color: L.textMuted }}>
-                      {card.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="flex justify-center gap-2 mt-auto pt-4">
-              {stepsData.map((_, i) => (
-                <span
-                  key={i}
-                  className="block h-2 transition-all duration-500"
-                  style={{
-                    background: mobileStep === i ? VIOLET : "rgba(86,88,223,0.25)",
-                    width: mobileStep === i ? "28px" : "10px",
-                    borderRadius: "4px",
-                  }}
-                />
-              ))}
-            </div>
+                    {threeStepsCTA.stepLabelPrefix} {i + 1}
+                  </span>
+                </div>
+                <h3 style={{ color: L.text }}>
+                  {card.title}
+                </h3>
+                <p style={{ color: L.textMuted }}>
+                  {card.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
