@@ -25,9 +25,9 @@ export const kiAudit = {
 
   /** 1 — Hero. */
   hero: {
-    headline: "KI wollt ihr längst. Der erste Schritt fehlt.",
+    headline: "KI wollen Sie längst. Der erste Schritt fehlt.",
     sub:
-      "Wir bauen die KI-Abteilung für den Mittelstand — mit einer Analyse, die zeigt, welche drei Prozesse sich zuerst lohnen. Kein Tool-Verkauf, kein Seminar: ein klarer Fahrplan.",
+      "Wir bauen die KI-Abteilung für den Mittelstand. Die Analyse zeigt, welche drei Prozesse sich bei Ihnen zuerst lohnen — kein Tool-Verkauf, kein Seminar, ein klarer Fahrplan.",
     ctaPrimary: "Fahrplan-Gespräch buchen",
     ctaSecondary: "Prüfen, ob's passt",
     image: {
@@ -50,12 +50,12 @@ export const kiAudit = {
   solution: {
     heading: "Eine Analyse. Drei priorisierte Use Cases. Ein Fahrplan.",
     intro:
-      "In rund 25 Stunden, verteilt über 5 bis 10 Werktage, zeigen wir euch, welche drei Prozesse in eurem Unternehmen den höchsten KI- und Automatisierungs-ROI haben — mit grober Aufwand-Nutzen-Schätzung, damit ihr die Priorität selbst setzen könnt.",
+      "In rund 25 Stunden, verteilt über 5 bis 10 Werktage, finden wir die drei Prozesse mit dem höchsten KI- und Automatisierungs-ROI in Ihrem Unternehmen — mit Aufwand-Nutzen-Schätzung. Die Priorität setzen Sie selbst.",
     bullets: [
       "Drei priorisierte KI-Use-Cases — keine Liste mit fünfzig Ideen, sondern die, die sich wirklich lohnen.",
-      "Grobe Aufwand-Nutzen-Schätzung pro Use Case, als Grundlage für eure interne Entscheidung.",
-      "Ein Report, den ihr intern weiterreichen könnt — keine Blackbox, keine Beratersprache.",
-      "Förderhinweis: Das Audit kann BAFA-förderfähig sein — das senkt euren Einstieg spürbar.",
+      "Aufwand-Nutzen-Schätzung pro Use Case — die Grundlage für Ihre interne Entscheidung.",
+      "Ein Report, den Sie intern weiterreichen können — keine Blackbox, keine Beratersprache.",
+      "Förderhinweis: Das Audit kann BAFA-förderfähig sein — das senkt Ihren Einstieg spürbar.",
     ],
   },
 
@@ -70,12 +70,12 @@ export const kiAudit = {
       {
         step: "01",
         title: "Intake",
-        desc: "Kurzer Fragebogen vorab, damit wir das Gespräch direkt auf eure Prozesse ausrichten.",
+        desc: "Kurzer Fragebogen vorab, damit wir das Gespräch direkt auf Ihre Prozesse ausrichten.",
       },
       {
         step: "02",
         title: "Prozessaufnahme-Call",
-        desc: "Rund 60–90 Minuten mit den Leuten, die eure Abläufe wirklich kennen. Wir hören zu, bevor wir urteilen.",
+        desc: "Rund 60–90 Minuten mit den Leuten, die Ihre Abläufe wirklich kennen. Wir hören zu, bevor wir urteilen.",
       },
       {
         step: "03",
@@ -85,7 +85,7 @@ export const kiAudit = {
       {
         step: "04",
         title: "Report & Roadmap-Übergabe",
-        desc: "Ihr bekommt den vollständigen Report plus ein Gespräch, in dem wir die Roadmap gemeinsam durchgehen.",
+        desc: "Sie bekommen den vollständigen Report — und ein Gespräch, in dem wir die Roadmap gemeinsam durchgehen.",
       },
     ] as ProcessStep[],
   },
@@ -94,9 +94,9 @@ export const kiAudit = {
   warum: {
     heading: "Warum mit uns.",
     points: [
-      "Wir sagen auch, wenn der Zeitpunkt nicht passt. Nicht jedes Unternehmen ist reif für den nächsten Schritt — das sagen wir direkt, auch wenn aus dem Audit dann kein Auftrag wird.",
-      "Wir verkaufen kein Tool. Die Analyse ist herstellerunabhängig — das Ergebnis ist eure Priorität, nicht unser Produktkatalog.",
-      "Wir sprechen mit euch auf Augenhöhe. Keine Folienschlacht, kein Fachchinesisch — ein Gespräch zwischen Leuten, die liefern müssen.",
+      "Wir sagen auch, wenn der Zeitpunkt nicht passt — direkt, auch wenn aus dem Audit dann kein Auftrag wird.",
+      "Wir verkaufen kein Tool. Die Analyse ist herstellerunabhängig — das Ergebnis ist Ihre Priorität, nicht unser Produktkatalog.",
+      "Wir sprechen auf Augenhöhe. Keine Folienschlacht, kein Fachchinesisch — ein Gespräch zwischen Leuten, die liefern müssen.",
     ],
   },
 
@@ -104,8 +104,12 @@ export const kiAudit = {
   garantie: {
     heading: "Die Garantie.",
     text:
-      "Mindestens drei umsetzbare KI-Use-Cases aus eurem Audit. Garantiert — oder ihr zahlt nicht.",
-    sub: "Liefern wir das nicht, entstehen euch keine Kosten.",
+      "Mindestens drei umsetzbare KI-Use-Cases aus Ihrem Audit. Garantiert — oder Sie zahlen nicht.",
+    sub: "Liefern wir das nicht, entstehen Ihnen keine Kosten.",
+    image: {
+      src: "team-presentation-color",
+      alt: "NEWEDGE Gründer im Austausch mit dem Team",
+    },
   },
 
   /** 7 — Für wen / nicht. */
@@ -113,25 +117,25 @@ export const kiAudit = {
     heading: "Für wen das ist — und für wen nicht.",
     passtLabel: "Das passt, wenn:",
     passt: [
-      "Ihr 10 bis 150 Mitarbeitende habt und wissen wollt, wo KI bei euch konkret ansetzt.",
-      "Ihr ChatGPT oder Zapier bereits ausprobiert habt, aber ohne System dahinter.",
-      "Ihr eine Entscheidungsgrundlage wollt, keine weitere Meinung.",
+      "Sie 10 bis 150 Mitarbeitende haben und wissen wollen, wo KI bei Ihnen konkret ansetzt.",
+      "Sie ChatGPT oder Zapier bereits ausprobiert haben — aber ohne System dahinter.",
+      "Sie eine Entscheidungsgrundlage wollen, keine weitere Meinung.",
     ],
     passtNichtLabel: "Das passt nicht, wenn:",
     passtNicht: [
-      "Ihr ein fertiges Tool zum sofort Kaufen sucht — das liefern wir nicht.",
-      "Ihr nur unverbindlich reinschnuppern wollt, ohne eigene Zeit zu investieren — der Prozessaufnahme-Call braucht eure Leute.",
-      "Ihr schon eine fertige KI-Strategie habt und nur Umsetzung sucht — dann sprecht uns direkt auf den nächsten Schritt an.",
+      "Sie ein fertiges Tool zum Sofort-Kaufen suchen — das liefern wir nicht.",
+      "Sie nur reinschnuppern wollen, ohne eigene Zeit zu investieren — der Prozessaufnahme-Call braucht Ihre Leute.",
+      "Sie schon eine KI-Strategie haben und nur Umsetzung suchen — dann sprechen Sie uns direkt auf den nächsten Schritt an.",
     ],
   },
 
-  /** FAQ — Landing-Page-Fragen (Voice: informell „ihr/euch"). */
+  /** FAQ — Landing-Page-Fragen (Voice: „Sie"). */
   faq: {
     heading: "Häufige Fragen",
     items: [
-      { q: "Was kostet das Audit?", a: "Das Erstgespräch ist kostenlos und unverbindlich. Das Audit selbst ist an unsere Garantie geknüpft: Finden wir keine drei umsetzbaren KI-Use-Cases, zahlt ihr nichts." },
-      { q: "Wie lange dauert das Ganze?", a: "Vom Erstgespräch bis zum fertigen Fahrplan vergehen in der Regel ein bis zwei Wochen — abhängig davon, wie schnell wir Einblick in eure Prozesse bekommen." },
-      { q: "Müssen wir schon KI im Einsatz haben?", a: "Nein. Es reicht, wenn ihr wisst, dass Potenzial da ist. Ob ihr ChatGPT schon ausprobiert habt oder bei null startet, spielt keine Rolle." },
+      { q: "Was kostet das Audit?", a: "Das Erstgespräch ist kostenlos und unverbindlich. Das Audit selbst ist an unsere Garantie geknüpft: Finden wir keine drei umsetzbaren KI-Use-Cases, zahlen Sie nichts." },
+      { q: "Wie lange dauert das Ganze?", a: "Vom Erstgespräch bis zum fertigen Fahrplan vergehen in der Regel ein bis zwei Wochen — abhängig davon, wie schnell wir Einblick in Ihre Prozesse bekommen." },
+      { q: "Müssen wir schon KI im Einsatz haben?", a: "Nein. Ob Sie ChatGPT schon ausprobiert haben oder bei null starten, spielt keine Rolle." },
       { q: "Was bekommen wir am Ende konkret?", a: "Eine priorisierte Liste umsetzbarer Use-Cases mit ROI-Einschätzung und einen konkreten Fahrplan — eine Entscheidungsgrundlage, keine weitere Meinung." },
       { q: "Ist das ein Verkaufsgespräch?", a: "Nein. Wir hören zu und prüfen, ob es passt. Ob wir zusammenarbeiten, entscheiden am Ende beide Seiten." },
       { q: "Für welche Unternehmensgröße lohnt sich das?", a: "Am meisten für Unternehmen mit 10 bis 150 Mitarbeitenden, die genug Prozesse für echten Hebel haben, aber noch keine eigene KI-Abteilung." },

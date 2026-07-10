@@ -36,7 +36,7 @@ export const embeddedAI: EmbeddedAIContent = {
     highlight: "Head of AI.",
   },
   paragraphs: [
-    "Die meisten Unternehmen benötigen keinen Vollzeit Chief AI Officer. Sie benötigen jemanden, der Verantwortung übernimmt.",
+    "Die meisten Unternehmen brauchen keinen Chief AI Officer in Vollzeit. Sie brauchen jemanden, der Verantwortung übernimmt.",
     "Wir liefern nicht nur Projekte. Wir sorgen dafür, dass Ihre KI-Abteilung langfristig wächst.",
   ],
   uebernahmeLabel: "Wir übernehmen",

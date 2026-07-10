@@ -21,11 +21,12 @@ export const home = {
   seo: {
     title: "KI-Agentur München | Prozessautomatisierung & Markenaufbau für KMU | NEWEDGE",
     description:
-      "NEWEDGE ist eure KI-Agentur in München. Wir verbinden Markenaufbau, Prozessautomatisierung und KI-Systeme – für KMU, die konsequent wachsen wollen.",
+      "NEWEDGE ist Ihre KI-Agentur in München. Wir verbinden Prozessautomatisierung, KI-Systeme und Markenaufbau — für den Mittelstand, der konsequent wachsen will.",
     canonical: "/",
   } satisfies SEOContent,
 
-  /** Alt-Text des Lade-Logos. */
+  /** Lade-Logo (Bild-Key oder CMS-Upload-URL) + Alt-Text. */
+  loadingLogo: "new-edge-logo",
   loadingAlt: "NEWEDGE",
 
   /** Kontakt-Formular (Sheet). */

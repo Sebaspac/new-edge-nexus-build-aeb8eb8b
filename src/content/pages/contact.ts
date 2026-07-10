@@ -22,7 +22,6 @@ export const contact = {
   } satisfies SEOContent,
 
   hero: {
-    eyebrow: "Kontakt",
     headline: "Lassen Sie uns sprechen.",
     sub: "Erzählen Sie uns von Ihrem Unternehmen — wir melden uns innerhalb eines Werktags mit den nächsten Schritten.",
   },

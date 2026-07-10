@@ -63,7 +63,7 @@ export const problemJourney = {
     heading: "Die Reise zur KI-Abteilung",
     /** Die 3 Stationen (Karten-Stack). */
     journey: [
-      { index: "01", category: "ANALYSE", title: "Wir identifizieren Potenziale, wirtschaftliche Hebel und priorisieren die Prozesse mit dem größten ROI." },
+      { index: "01", category: "ANALYSE", title: "Wir finden die wirtschaftlichen Hebel und priorisieren die Prozesse mit dem größten ROI." },
       { index: "02", category: "UMSETZUNG", title: "Wir bauen Cortex als zentrale Infrastruktur und automatisieren die wichtigsten Abläufe." },
       { index: "03", category: "SKALIERUNG", title: "Mit Embedded AI übernehmen wir Verantwortung für die kontinuierliche Weiterentwicklung." },
     ] as JourneyStation[],

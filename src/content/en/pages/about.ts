@@ -54,7 +54,6 @@ export const about = {
 
   /** Hero-Bereich (Aurora). */
   hero: {
-    eyebrow: "NEWEDGE",
     headline: "The AI department for mid-sized companies.",
     subline:
       "Behind it stands a team that has made AI productive across the DACH region and in the US. Technical depth and business sense in one place — so AI turns into a result in your company, not a project.",

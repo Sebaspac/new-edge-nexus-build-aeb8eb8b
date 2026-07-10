@@ -200,9 +200,6 @@ const Contact = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.08, ease: EASE }}
               >
-                <p style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "13px", letterSpacing: "0.04em", textTransform: "uppercase", color: VIOLET, marginBottom: "8px" }}>
-                  {contact.hero.eyebrow}
-                </p>
                 <h1
                   style={{
                     color: INK_DEEP,

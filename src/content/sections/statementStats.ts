@@ -22,7 +22,7 @@ export const statementStats = {
 
   statement: "Kein weiteres Tool — eine Abteilung.",
   paragraph:
-    "KI ist überall — im Mittelstand bleibt sie aber zu oft Insellösung oder Risiko. Wir geben Ihrem Unternehmen eine eigene KI-Fähigkeit: von der ersten Analyse, die zeigt wo sie sich lohnt, bis zum laufenden Betrieb.",
+    "KI ist überall — im Mittelstand bleibt sie zu oft Insellösung oder Risiko. Wir bauen Ihre eigene KI-Fähigkeit auf: von der Analyse, die zeigt, wo KI sich lohnt, bis zum laufenden Betrieb.",
   /** Primärer CTA → öffnet Kontakt-Dialog. */
   ctaPrimary: { label: "Kostenlose Analyse" },
   /** Sekundärer CTA → /about. */

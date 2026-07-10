@@ -25,7 +25,8 @@ export const home = {
     canonical: "/en",
   } satisfies SEOContent,
 
-  /** Alt-Text des Lade-Logos. */
+  /** Loading logo (image key or CMS upload URL) + alt text. */
+  loadingLogo: "new-edge-logo",
   loadingAlt: "NEWEDGE",
 
   /** Kontakt-Formular (Sheet). */

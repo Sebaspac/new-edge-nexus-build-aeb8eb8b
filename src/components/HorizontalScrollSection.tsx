@@ -7,6 +7,8 @@ import { EdgeTextButton } from "@/components/ui/EdgeCta";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Icon, img } from "@/content";
 import { EdgeRip } from "@/components/ui/EdgeRip";
+import { MitStudyGrid } from "@/components/ui/MitStudyGrid";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { horizontalScroll as HS_STATIC } from "@/content/sections/horizontalScroll";
 import { horizontalScroll as horizontalScrollEn } from "@/content/en/sections/horizontalScroll";
 import { useHomeSection } from "@/hooks/useHomeContent";
@@ -46,6 +48,7 @@ const cardStyle: React.CSSProperties = {
 // ── Panel 1 — Process Roadmap ─────────────────────────────────────────────────
 const ProcessPanel = () => {
   const isMobile = useIsMobile();
+  const { language } = useLanguage();
   // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
   const horizontalScroll = useHomeSection("horizontalScroll", HS_STATIC, horizontalScrollEn);
   return (
@@ -69,39 +72,13 @@ const ProcessPanel = () => {
         style={{ position: "relative", zIndex: 1, width: "100%" }}
       >
         <div
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center"
+          className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 lg:gap-10 items-center"
           style={{ width: "100%" }}
         >
-          {/* LEFT: Bild (edgy geschnittener Rahmen) + heading + body */}
-          <div className="lg:col-span-5">
-            <div style={{ position: "relative", width: "min(100%, 400px)", marginBottom: "clamp(24px, 4vh, 40px)" }}>
-              {/* Versetzter Outline-Rahmen hinter dem Bild */}
-              <div
-                aria-hidden
-                style={{
-                  position: "absolute",
-                  inset: "-12px -12px 12px 12px",
-                  border: "1.5px solid rgba(139,141,240,0.5)",
-                  borderRadius: "64px 16px 64px 16px",
-                  transform: "rotate(-2deg)",
-                  pointerEvents: "none",
-                }}
-              />
-              <img
-                src={img("ki-audit-process")}
-                alt="Strategische Planung und Priorisierung im Team"
-                loading="lazy"
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  height: "clamp(180px, 24vh, 240px)",
-                  objectFit: "cover",
-                  borderRadius: "64px 16px 64px 16px",
-                  display: "block",
-                }}
-              />
-              {/* Kleiner Riss von der Oberkante — die „Edge" der Marke */}
-              <EdgeRip style={{ top: "-1px", right: "22%", width: "30px", height: "72px", zIndex: 2 }} />
+          {/* LEFT (60%): MIT-Studie-Grafik (100 Kästchen, 5 beleuchtet, kompakt — gleiche Grafik wie auf /methodik) + heading + Grafik-Beschreibung */}
+          <div>
+            <div className="mx-auto" style={{ width: "min(100%, 300px)", marginBottom: "clamp(20px, 3.4vh, 34px)" }}>
+              <MitStudyGrid lang={language} compact />
             </div>
 
             <h2
@@ -123,21 +100,33 @@ const ProcessPanel = () => {
               style={{
                 ...BODY,
                 color: INK,
-                maxWidth: "38ch",
+                maxWidth: "42ch",
                 marginBottom: "20px",
               }}
             >
-              {horizontalScroll.process.body}
+              {language === "en" ? (
+                <>
+                  Of 100 companies that adopt AI, only 5 achieve a measurable return according to the{" "}
+                  <strong style={{ fontWeight: 700, color: INK_DEEP }}>MIT Study 2025</strong>.{" "}
+                  <strong style={{ fontWeight: 700, color: INK_DEEP }}>We make sure you&rsquo;re one of them.</strong>
+                </>
+              ) : (
+                <>
+                  Von 100 Betrieben, die KI einführen, erzielen laut{" "}
+                  <strong style={{ fontWeight: 700, color: INK_DEEP }}>MIT-Studie 2025</strong> nur 5 einen messbaren
+                  Return. <strong style={{ fontWeight: 700, color: INK_DEEP }}>Wir sorgen dafür, dass Sie dazugehören.</strong>
+                </>
+              )}
             </p>
 
             <EdgeTextButton to="/methodik">Unsere Methodik</EdgeTextButton>
           </div>
 
-          {/* RIGHT: Schritte als weiße Karten mit Kreis-Badges + ↓-Verbinder */}
-          <div className="lg:col-span-7 flex flex-col">
+          {/* RIGHT (40%): Schritte als weiße Karten mit Kreis-Badges + ↓-Verbinder */}
+          <div className="flex flex-col">
             {horizontalScroll.process.steps.map(({ index, title, desc }, i, arr) => (
               <div key={title}>
-                <div style={cardStyle}>
+                <div style={{ ...cardStyle, padding: "20px 22px" }}>
                   <span
                     style={{
                       ...HEAD,
@@ -160,6 +149,9 @@ const ProcessPanel = () => {
                     <h3
                       style={{
                         color: VIOLET,
+                        fontSize: "clamp(19px, 1.8vw, 22px)",
+                        lineHeight: 1.3,
+                        marginBottom: "6px",
                       }}
                     >
                       {title}
@@ -168,6 +160,8 @@ const ProcessPanel = () => {
                       style={{
                         ...BODY,
                         color: "rgba(23,23,46,0.68)",
+                        fontSize: "16px",
+                        lineHeight: 1.55,
                       }}
                     >
                       {desc}
@@ -175,7 +169,7 @@ const ProcessPanel = () => {
                   </div>
                 </div>
                 {i < arr.length - 1 && (
-                  <div aria-hidden style={{ display: "flex", justifyContent: "center", padding: "8px 0" }}>
+                  <div aria-hidden style={{ display: "flex", justifyContent: "center", padding: "14px 0" }}>
                     <ArrowDown style={{ width: "20px", height: "20px", color: VIOLET, opacity: 0.45 }} strokeWidth={2.2} />
                   </div>
                 )}
@@ -233,8 +227,8 @@ const PillarsPanel = () => {
               }}
             />
             <img
-              src={img("pain-point-kpi-dashboard-hero")}
-              alt="Zentrale Steuerung und Kennzahlen: KI als System im Einsatz"
+              src={img(horizontalScroll.pillarsPanel.image.src)}
+              alt={horizontalScroll.pillarsPanel.image.alt}
               loading="lazy"
               style={{
                 position: "relative",

@@ -7,9 +7,11 @@ import SEOHead from "@/components/SEOHead";
 import { SpeakWithUsCta } from "@/components/SpeakWithUsCta";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { EdgePillButton, EdgeTextButton } from "@/components/ui/EdgeCta";
+import { MitStudyGrid } from "@/components/ui/MitStudyGrid";
 import { methodik as METHODIK_STATIC } from "@/content/pages/methodik";
 import { methodik as methodikEn } from "@/content/en/pages/methodik";
 import { useLocalized } from "@/hooks/useLocalized";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
@@ -48,6 +50,7 @@ const HEADLINE: React.CSSProperties = {
 const Methodik = () => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
   const methodik = useLocalized("methodik", METHODIK_STATIC, methodikEn);
+  const { language } = useLanguage();
 
   return (
     <>
@@ -62,10 +65,10 @@ const Methodik = () => {
         <MobileNavigation onContactClick={() => {}} theme="dark" />
 
         {/* ── HERO ──────────────────────────────────────────────── */}
-        <div className="relative" style={{ background: INK_DEEPER, minHeight: "100dvh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <div className="relative" style={{ background: PAPER, minHeight: "clamp(460px, 66vh, 680px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <div aria-hidden style={{
             position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
-            background: "radial-gradient(ellipse 70% 65% at 50% 50%, rgba(4,1,12,0.72) 0%, rgba(4,1,12,0.28) 55%, transparent 82%)",
+            background: "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(86,88,223,0.10) 0%, transparent 62%)",
           }} />
 
           <motion.div
@@ -74,26 +77,19 @@ const Methodik = () => {
             transition={{ duration: 0.7, ease: EASE }}
             style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "clamp(100px,16vh,140px) 24px clamp(60px,8vh,100px)" }}
           >
-            {/* Kicker */}
-            {methodik.hero.eyebrow && (
-              <p style={{ ...KICKER, color: VIOLET_LIGHT, marginBottom: "18px" }}>
-                {methodik.hero.eyebrow}
-              </p>
-            )}
-
             {/* Headline */}
             <h1 style={{
-              color: "#fff",
+              color: INK_DEEP,
             }}>
               {methodik.hero.headlineLine1}
               <br />
-              <span style={{ color: VIOLET_LIGHT }}>{methodik.hero.headlineLine2}</span>
+              <span style={{ color: VIOLET }}>{methodik.hero.headlineLine2}</span>
             </h1>
 
             {/* Subline */}
             <p style={{
               fontFamily: OUTFIT,
-              color: "rgba(255,255,255,0.78)",
+              color: INK,
               maxWidth: "560px",
               margin: "0 auto",
             }}>
@@ -117,34 +113,33 @@ const Methodik = () => {
               transform: "translateX(-50%)",
               width: "2px",
               height: "clamp(80px, 10vh, 130px)",
-              background: "linear-gradient(to bottom, rgba(194,195,246,0), #C2C3F6 50%, rgba(194,195,246,0.6))",
-              boxShadow: "0 0 10px rgba(194,195,246,0.45)",
+              background: "linear-gradient(to bottom, rgba(86,88,223,0), rgba(86,88,223,0.5) 50%, rgba(86,88,223,0.2))",
+              boxShadow: "0 0 10px rgba(86,88,223,0.22)",
               zIndex: 3,
             }}
           />
         </div>
 
-        {/* ── MANIFEST ──────────────────────────────────────────── */}
+        {/* ── INTRO — Kernaussage (Akzentkante) links + „5/100"-Stat rechts ── */}
         <div style={{ background: PAPER, padding: "clamp(56px,7vw,96px) 24px" }}>
-          <div style={{ maxWidth: "760px", margin: "0 auto" }}>
+          <div className="max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-12 items-center">
+            {/* LINKS — Kernaussage mit violetter Akzentkante */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease: EASE }}
+              className="relative order-2 lg:order-1"
+              style={{ paddingLeft: "clamp(20px, 3vw, 28px)" }}
             >
-              {methodik.manifest.eyebrow && (
-                <p style={{ ...KICKER, marginBottom: "14px" }}>{methodik.manifest.eyebrow}</p>
-              )}
-              <p style={{
-                fontFamily: OUTFIT,
-                fontWeight: 700,
-                letterSpacing: "-0.01em",
-                color: INK_DEEP,
-                marginBottom: "24px",
-              }}>
+              <span
+                aria-hidden
+                className="absolute left-0 top-1 bottom-1 w-[3px] rounded-full"
+                style={{ background: `linear-gradient(180deg, ${VIOLET_LIGHT}, ${VIOLET})` }}
+              />
+              <h2 style={{ color: INK_DEEP, marginBottom: "24px" }}>
                 {methodik.manifest.lead}
-              </p>
+              </h2>
               <p style={{ ...BODY, marginBottom: "16px" }}>
                 {methodik.manifest.body[0]}
               </p>
@@ -152,6 +147,11 @@ const Methodik = () => {
                 {methodik.manifest.body[1]}
               </p>
             </motion.div>
+
+            {/* Desktop rechts / Mobile oben — „5/100"-Stat (MIT-Studie 2025) */}
+            <div className="order-1 lg:order-2 w-full max-w-[330px] lg:max-w-[400px] mx-auto">
+              <MitStudyGrid lang={language} />
+            </div>
           </div>
         </div>
 

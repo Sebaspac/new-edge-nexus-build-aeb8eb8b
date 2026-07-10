@@ -26,7 +26,7 @@ export interface SlaStep {
 
 export const auditSlaStatus = {
   /** aria-label der Status-Section. */
-  sectionAriaLabel: "Status eurer Audit-Anfrage",
+  sectionAriaLabel: "Status Ihrer Audit-Anfrage",
 
   /** Eyebrow (Mono-Label) oben in der Karte. */
   eyebrow: {
@@ -36,8 +36,8 @@ export const auditSlaStatus = {
 
   /** Überschrift der Karte. */
   heading: {
-    pending: "Euer Audit läuft.",
-    delivered: "Prüft euer Postfach.",
+    pending: "Ihr Audit läuft.",
+    delivered: "Prüfen Sie Ihr Postfach.",
   } as SlaState,
 
   /** Fortschritts-Stationen (Reihenfolge = Render-Reihenfolge). */

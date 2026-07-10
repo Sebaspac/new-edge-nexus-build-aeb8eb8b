@@ -30,7 +30,7 @@ export interface NavLinkItem {
 }
 
 export const nav = {
-  logo: { src: "new-edge-logo-horizontal" as ImageKey, alt: "NEWEDGE" },
+  logo: { src: "new-edge-logo-wordmark" as ImageKey, alt: "NEWEDGE" },
 
   filterButtons: [{ key: "all", label: "Alle" }] as FilterButton[],
 
@@ -68,7 +68,7 @@ export const nav = {
     links: [
       { to: "/methodik", label: "Methodik" },
       { to: "/about", label: "Über uns" },
-      { to: "/careers", label: "Karriere" },
+      // Karriere vorerst deaktiviert — Content bleibt im CMS, nur der Link ist raus
     ] as NavLinkItem[],
   },
 

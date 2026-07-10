@@ -93,8 +93,8 @@ const FAQItem = ({ q, a, open, onToggle }: { q: string; a: string; open: boolean
     >
       <button
         onClick={onToggle}
-        className="w-full flex justify-between items-center py-5 px-6 text-left hover:opacity-80 transition-opacity gap-4"
-        style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "15px", color: open ? VIOLET : INK_DEEP }}
+        className="w-full flex justify-between items-center py-4 px-5 md:py-5 md:px-6 text-left hover:opacity-80 transition-opacity gap-4 text-[14px] md:text-[15px]"
+        style={{ fontFamily: OUTFIT, fontWeight: 600, color: open ? VIOLET : INK_DEEP }}
       >
         <span>{q}</span>
         <span
@@ -115,7 +115,7 @@ const FAQItem = ({ q, a, open, onToggle }: { q: string; a: string; open: boolean
           transition: PREFERS_REDUCED_MOTION ? "none" : "max-height 0.3s cubic-bezier(0.22,1,0.36,1)",
         }}
       >
-        <div className="px-6 pb-5 text-[14.5px] leading-[1.7]" style={{ ...BODY, color: BODY_MUTED }}>
+        <div className="px-5 pb-4 md:px-6 md:pb-5 text-[13.5px] md:text-[14.5px] leading-[1.7]" style={{ ...BODY, color: BODY_MUTED }}>
           {a}
         </div>
       </div>
@@ -371,51 +371,33 @@ const PainPointAuswahlverfahren = () => {
           <MobileNavigation onContactClick={() => {}} theme="dark" />
 
           <div className="mx-auto" style={{ maxWidth: "1720px", padding: "clamp(72px, 9vh, 96px) clamp(12px, 1.5vw, 24px) 0" }}>
-            {/* Ink-Canvas — Radius wie die Hero-Bühne der Homepage */}
+            {/* Helle Papier-Bühne — Radius wie die Hero-Bühne der Homepage, sanfter Violett-Glow */}
             <div
               className="relative"
               style={{
                 borderRadius: "40px",
-                background: INK_GRADIENT,
-                border: "1px solid rgba(139,141,240,0.16)",
+                background: PAPER,
                 paddingBottom: "clamp(96px, 14vw, 200px)", // Platz für den Fenster-Overhang
               }}
             >
-              {/* Aurora + Marken-Glow, im Canvas geclippt */}
+              {/* Sanfter Violett-Glow, im Canvas geclippt */}
               <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none" style={{ borderRadius: "40px" }}>
-                <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 75% 55% at 50% 0%, rgba(86,88,223,0.32) 0%, transparent 60%)" }} />
-                <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 45% at 50% 110%, rgba(139,141,240,0.18) 0%, transparent 65%)" }} />
+                <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 75% 55% at 50% 0%, rgba(86,88,223,0.10) 0%, transparent 60%)" }} />
+                <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 45% at 50% 110%, rgba(139,141,240,0.06) 0%, transparent 65%)" }} />
               </div>
 
               <div className="relative z-10 max-w-[880px] mx-auto px-6 lg:px-8 text-center" style={{ paddingTop: "clamp(72px, 10vh, 120px)" }}>
-                {/* Badge-Pill statt nacktem Kicker */}
-                <Reveal>
-                  <p
-                    className="inline-flex items-center gap-2.5 text-[12.5px] font-semibold uppercase tracking-[0.06em] px-4 py-2 mb-7"
-                    style={{
-                      fontFamily: OUTFIT,
-                      color: LILAC,
-                      background: "rgba(139,141,240,0.12)",
-                      border: "1px solid rgba(139,141,240,0.32)",
-                      borderRadius: "999px",
-                    }}
-                  >
-                    <span aria-hidden className="w-1.5 h-1.5 rounded-full" style={{ background: VIOLET_LIGHT }} />
-                    {content.hero.overlabel}
-                  </p>
-                </Reveal>
-
                 <Reveal delay={0.06}>
                   <h1
-                    style={{ color: "#fff" }}
+                    style={{ color: INK_DEEP }}
                   >
                     {content.hero.h1Line1}<br />
-                    <span style={{ color: VIOLET_LIGHT }}>{content.hero.h1Line2Highlighted}</span>
+                    <span style={{ color: VIOLET }}>{content.hero.h1Line2Highlighted}</span>
                   </h1>
                 </Reveal>
 
                 <Reveal delay={0.12}>
-                  <p className="mb-9 max-w-[560px] mx-auto" style={{ ...BODY, color: "rgba(255,255,255,0.78)" }}>
+                  <p className="mb-9 max-w-[560px] mx-auto" style={{ ...BODY, color: "#3C3C47" }}>
                     {content.hero.sub}
                   </p>
                 </Reveal>
@@ -423,7 +405,7 @@ const PainPointAuswahlverfahren = () => {
                 <Reveal delay={0.18}>
                   <div className="flex items-center justify-center gap-x-7 gap-y-4 flex-wrap">
                     <EdgePillButton to="/kontakt">{content.hero.ctaPrimary}</EdgePillButton>
-                    <EdgeTextButton href="#cases" tone="light">{content.hero.ctaSecondary}</EdgeTextButton>
+                    <EdgeTextButton href="#cases">{content.hero.ctaSecondary}</EdgeTextButton>
                   </div>
                 </Reveal>
               </div>
@@ -527,12 +509,13 @@ const PainPointAuswahlverfahren = () => {
           {/* FEATURE 01 — Bild links → H2 oben über Bild */}
           <Reveal>
             <div id="feature-01" className="max-w-[1200px] mx-auto px-6 lg:px-8 pt-[clamp(56px,7vw,96px)] pb-[clamp(56px,7vw,96px)]">
-              {/* Headline auf Modulbreite — bricht erst bei 3/4 um, nicht an der Spaltengrenze */}
-              <SectionHeadline className="md:max-w-[75%] !mb-8">
-                {content.feature1.h2}
-              </SectionHeadline>
-              <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
-                <div className="flex flex-col">
+              {/* Mobile-Reihenfolge: Bild → Überschrift → Text; Desktop: H2 volle Breite oben, Bild links | Text rechts */}
+              <div className="grid md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-8 items-start">
+                {/* Headline auf Modulbreite — bricht erst bei 3/4 um, nicht an der Spaltengrenze */}
+                <SectionHeadline className="md:max-w-[75%] !mb-0 order-2 md:order-1 md:col-span-2">
+                  {content.feature1.h2}
+                </SectionHeadline>
+                <div className="flex flex-col order-1 md:order-2">
                   <div className="relative w-full max-w-[440px] mx-auto mt-4">
                     {/* Versetzter Outline-Rahmen + Edge-Riss — Marken-Detail, bewusst nur an diesem Bild */}
                     <div
@@ -557,7 +540,7 @@ const PainPointAuswahlverfahren = () => {
                     </div>
                   </div>
                 </div>
-                <div>
+                <div className="order-3">
                   <SectionSub>{content.feature1.sub}</SectionSub>
                   <BulletList items={[...content.feature1.bullets]} />
                 </div>
@@ -569,16 +552,21 @@ const PainPointAuswahlverfahren = () => {
            <div id="feature-02" style={{ background: PAPER, borderTop: `1px solid ${HAIRLINE}`, borderBottom: `1px solid ${HAIRLINE}` }}>
             <Reveal>
               <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-[clamp(56px,7vw,96px)]">
-                {/* Headline auf Modulbreite — bricht erst bei 3/4 um */}
-                <SectionHeadline className="md:max-w-[75%] !mb-8">
-                  {content.feature2.h2}
-                </SectionHeadline>
-                <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
-                  <div className="md:order-1">
+                {/* Mobile: Bild → Überschrift → Text; Desktop: H2 volle Breite oben, Text links | Bild rechts */}
+                <div className="grid md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-8 items-start">
+                  {/* Headline auf Modulbreite — bricht erst bei 3/4 um */}
+                  <SectionHeadline className="md:max-w-[75%] !mb-0 order-2 md:order-1 md:col-span-2">
+                    {content.feature2.h2}
+                  </SectionHeadline>
+                  <div className="order-3 md:order-2">
                     <SectionSub>{content.feature2.sub}</SectionSub>
                     <BulletList items={[...content.feature2.bullets]} />
+                    {/* Farbloser CTA → Kontaktseite (Muster wie die übrigen Text-CTAs der Seite) */}
+                    <div style={{ marginTop: "28px" }}>
+                      <EdgeTextButton to="/kontakt">{content.hero.ctaPrimary}</EdgeTextButton>
+                    </div>
                   </div>
-                  <div className="md:order-2 flex flex-col">
+                  <div className="order-1 md:order-3 flex flex-col">
                     <div
                       className="w-full max-w-[500px] mx-auto md:mt-[5.5rem] overflow-hidden"
                       style={{ borderRadius: "20px", background: "#FFFFFF", border: `1px solid ${HAIRLINE}`, boxShadow: "0 24px 56px -18px rgba(23,23,46,0.18)", padding: "10px" }}
@@ -600,12 +588,13 @@ const PainPointAuswahlverfahren = () => {
           {/* FEATURE 03 — Bild links → H2 oben über Bild */}
           <Reveal>
             <div id="feature-03" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-[clamp(56px,7vw,96px)]">
-              {/* Headline auf Modulbreite — bricht erst bei 3/4 um */}
-              <SectionHeadline className="md:max-w-[75%] !mb-8">
-                {content.feature3.h2}
-              </SectionHeadline>
-              <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
-                <div className="flex flex-col">
+              {/* Mobile: Bild → Überschrift → Text; Desktop: H2 volle Breite oben, Bild links | Text rechts */}
+              <div className="grid md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-8 items-start">
+                {/* Headline auf Modulbreite — bricht erst bei 3/4 um */}
+                <SectionHeadline className="md:max-w-[75%] !mb-0 order-2 md:order-1 md:col-span-2">
+                  {content.feature3.h2}
+                </SectionHeadline>
+                <div className="flex flex-col order-1 md:order-2">
                   <div
                     className="w-full max-w-[500px] mx-auto mt-4 overflow-hidden"
                     style={{ borderRadius: "20px", background: "#FFFFFF", border: `1px solid ${HAIRLINE}`, boxShadow: "0 24px 56px -18px rgba(23,23,46,0.18)", padding: "10px" }}
@@ -619,7 +608,7 @@ const PainPointAuswahlverfahren = () => {
                     />
                   </div>
                 </div>
-                <div>
+                <div className="order-3">
                   <SectionSub>{content.feature3.sub}</SectionSub>
                   <BulletList items={[...content.feature3.bullets]} />
                 </div>
@@ -936,7 +925,7 @@ const PainPointAuswahlverfahren = () => {
                           boxShadow: CARD_SHADOW,
                         }}
                       >
-                        <div className="relative overflow-hidden aspect-[3/2]">
+                        <div className="relative overflow-hidden aspect-[16/10]">
                           <img
                             src={caseImages[i % caseImages.length]}
                             alt={c.title}
@@ -959,23 +948,24 @@ const PainPointAuswahlverfahren = () => {
                             </span>
                           )}
                         </div>
-                        <div className="flex flex-col flex-1 p-6">
+                        <div className="flex flex-col flex-1 p-5">
                           <span
-                            className="text-[12px] font-semibold uppercase tracking-[0.05em] mb-2.5"
+                            className="text-[11px] font-semibold uppercase tracking-[0.05em] mb-2"
                             style={{ fontFamily: OUTFIT, color: VIOLET }}
                           >
                             {c.phaseLabel}
                           </span>
                           <h3
-                            style={{ color: INK_DEEP }}
+                            className="text-[18px] md:text-[19px]"
+                            style={{ color: INK_DEEP, lineHeight: 1.25 }}
                           >
                             {c.title}
                           </h3>
-                          <p className="mb-5 flex-1" style={{ ...BODY, color: BODY_MUTED }}>
+                          <p className="mb-4 flex-1 text-[14px]" style={{ ...BODY, color: BODY_MUTED, lineHeight: 1.55 }}>
                             {c.teaser}
                           </p>
                           <span
-                            className="inline-flex items-center gap-2 text-[14px] font-semibold group-hover:gap-3 transition-all"
+                            className="inline-flex items-center gap-2 text-[13px] font-semibold group-hover:gap-3 transition-all"
                             style={{ fontFamily: OUTFIT, color: VIOLET }}
                           >
                             {painPointPage.miniCases.cta}
@@ -993,10 +983,10 @@ const PainPointAuswahlverfahren = () => {
           {/* FAQ */}
           <Reveal>
             <div id="faq" className="max-w-[1200px] mx-auto px-6 lg:px-8 py-[clamp(56px,7vw,96px)]">
-              <div className="grid md:grid-cols-[1fr,1.5fr] gap-12 md:gap-16 items-start">
+              <div className="grid md:grid-cols-[1fr,1.5fr] gap-8 md:gap-16 items-start">
                 <div>
                   <h3
-                    className="mb-6"
+                    className="mb-5 md:mb-6 max-md:text-[19px]"
                     style={{ color: INK_DEEP }}
                   >
                     {painPointPage.faq.headingLine1}<br />

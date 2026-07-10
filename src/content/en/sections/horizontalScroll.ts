@@ -62,6 +62,11 @@ export const horizontalScroll = {
     headingWords: ["success factor", "engine", "helper", "advantage"],
     headingTail: "for your company.",
     body: "AI only delivers its full value when it's integrated strategically into your business goals. As a specialized partner, we combine consulting, development and integration.",
+    /** Panel image (edgy cropped frame). */
+    image: {
+      src: "pain-point-kpi-dashboard-hero",
+      alt: "Central steering and KPIs: AI running as a system",
+    },
     pillars: [
       {
         icon: "Target",

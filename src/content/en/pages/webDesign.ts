@@ -24,7 +24,6 @@ export const webDesign = {
 
   /** HERO — hell, zentriert (Referenz-Layout), Violett-Akzent. */
   hero: {
-    eyebrow: "Web Development & Design",
     headlinePrefix: "Websites that ",
     headlineAccent: "sell",
     headlineSuffix: " — before you even speak.",
@@ -38,7 +37,7 @@ export const webDesign = {
   showreel: {
     logosHeading: "Trusted by growing brands",
     videoCaption: "NEWEDGE — Showreel",
-    founder: { name: "Sebastian", role: "Co-Founder NEWEDGE" },
+    founder: { name: "Sebastian", role: "Co-Founder NEWEDGE", image: "team-sebastian" as ImageKey },
   },
 
   /** PROJEKTABLAUF — 3 Schritte. */

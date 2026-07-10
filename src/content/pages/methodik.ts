@@ -42,23 +42,21 @@ export const methodik = {
 
   /** HERO. */
   hero: {
-    eyebrow: "NEWEDGE Methodik",
     /** Headline, zweizeilig (Zeilenumbruch via <br/>). */
     headlineLine1: "Wir bauen die KI-Abteilung",
     headlineLine2: "für den Mittelstand.",
     subline:
-      "Nicht einzelne KI-Tools. Eine eigene KI-Abteilung — als dauerhafte Fähigkeit in Ihrem Unternehmen. Diese Methodik zeigt den Weg dorthin — in drei Phasen.",
+      "Nicht einzelne KI-Tools — eine eigene KI-Abteilung als dauerhafte Fähigkeit in Ihrem Unternehmen. Der Weg dorthin: drei Phasen.",
     ctaLabel: "Erstgespräch buchen",
     ctaHref: "/kontakt",
   },
 
   /** MANIFEST — Warum eine Methodik. */
   manifest: {
-    eyebrow: "Warum eine Methodik",
     lead: "Die meisten Unternehmen scheitern nicht an Technologie. Sie scheitern daran, dass KI isoliert eingeführt wird.",
     body: [
-      "Tools werden gekauft, einzelne Automatisierungen umgesetzt — doch ohne Verantwortung, Struktur und ein Fundament, auf dem alles zusammenläuft, bleibt der Effekt klein.",
-      "Deshalb gehen wir jede KI-Transformation in drei festen Phasen — damit aus Einzelteilen eine Abteilung wird, die Ihnen gehört.",
+      "Tools werden gekauft, einzelne Automatisierungen umgesetzt. Ohne Verantwortung, Struktur und ein gemeinsames Fundament bleibt der Effekt klein.",
+      "Deshalb läuft jede KI-Transformation bei uns in drei festen Phasen — damit aus Einzelteilen eine Abteilung wird, die Ihnen gehört.",
     ],
   },
 
@@ -77,8 +75,8 @@ export const methodik = {
       title: "Analyse",
       frage: "Wo lohnt sich KI wirklich?",
       intro: [
-        "Sie wissen am Ende genau, wo KI in Ihrem Unternehmen den größten Hebel hat — und in welcher Reihenfolge sich die Umsetzung lohnt, bevor ein Euro fließt.",
-        "Dafür schauen wir auf das, was bei Ihnen täglich läuft, machen ungenutzte Potenziale sichtbar und übersetzen jeden Hebel in eine priorisierte Roadmap.",
+        "Sie wissen, wo KI in Ihrem Unternehmen den größten Hebel hat — und in welcher Reihenfolge sich die Umsetzung lohnt. Bevor ein Euro fließt.",
+        "Dafür schauen wir auf Ihr Tagesgeschäft, machen ungenutzte Potenziale sichtbar und übersetzen jeden Hebel in eine priorisierte Roadmap.",
       ],
       listLabel: "Wir analysieren & bewerten",
       list: ["Prozesse", "Datenflüsse", "Wissensstrukturen", "Entscheidungswege", "Wiederkehrende Aufgaben", "Wirtschaftlichkeit"],
@@ -89,8 +87,8 @@ export const methodik = {
       title: "Umsetzung",
       frage: "Aus der Analyse wird ein laufendes System.",
       intro: [
-        "Jetzt entsteht das Fundament: Cortex — der eine Ort, an dem Mitarbeiter, Daten, Prozesse und Agenten zusammenlaufen. Kontrolliert, sicher und transparent statt verstreuter Tools.",
-        "Darauf bauen wir die digitalen Systeme und automatisieren genau die Abläufe, die den größten Mehrwert bringen — auf Basis der Prioritäten aus der Analyse.",
+        "Jetzt entsteht das Fundament: Cortex — der eine Ort, an dem Mitarbeiter, Daten, Prozesse und Agenten zusammenlaufen. Kontrolliert, sicher, transparent.",
+        "Darauf bauen wir die digitalen Systeme und automatisieren die Abläufe mit dem größten Mehrwert — nach den Prioritäten aus der Analyse.",
       ],
       listLabel: "Wir bauen & automatisieren",
       list: ["Cortex als Infrastruktur", "Kundenportale & Plattformen", "Web-Applikationen", "Dokumentenverarbeitung", "Kundenservice", "Reporting & Backoffice"],
@@ -124,7 +122,7 @@ export const methodik = {
       "Automatisierung systematisch vorantreibt",
       "langfristig digitale Arbeitskräfte integrieren kann",
     ],
-    closing: "Aus einzelnen Projekten entsteht dadurch eine dauerhafte Unternehmensfähigkeit. Das ist die KI-Abteilung.",
+    closing: "Aus einzelnen Projekten wird eine dauerhafte Unternehmensfähigkeit. Das ist die KI-Abteilung.",
   },
 
   /** CTA-Block. */

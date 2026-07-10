@@ -74,7 +74,7 @@ export const jobs: Job[] = [
       {
         label: "Mission",
         items: [
-          "Gewinne mit uns neue Kunden im DACH-Raum und baue langfristige Geschäftsbeziehungen auf – an der Schnittstelle von Kreation, Technologie und KI.",
+          "Gewinne neue B2B-Kunden im DACH-Raum und baue langfristige Geschäftsbeziehungen auf — rund um Marke, Technologie und KI.",
         ],
       },
       {
@@ -92,7 +92,7 @@ export const jobs: Job[] = [
         items: [
           "≥2 Jahre Erfahrung im B2B-Vertrieb, idealerweise im Agentur-, SaaS- oder Tech-Umfeld",
           "Starke Kommunikations- und Verhandlungsfähigkeiten; sicheres Auftreten in Kundengesprächen",
-          "Verständnis für digitale Produkte, Branding und/oder KI-Lösungen – kein tiefes Tech-Wissen nötig, aber Interesse an Innovation",
+          "Verständnis für digitale Produkte, Branding oder KI-Lösungen — kein tiefes Tech-Wissen nötig",
           "Eigeninitiative, Abschlussstärke und CRM-Erfahrung (z. B. HubSpot, Pipedrive)",
           "Sehr gutes Deutsch (C2) und gutes Englisch; DACH-Netzwerk von Vorteil",
         ],

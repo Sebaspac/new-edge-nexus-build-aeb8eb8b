@@ -17,7 +17,7 @@ export const teamSupport = {
   headingLead: "Ein Ansprechpartner. ",
   headingHighlight: "Eine ganze Agentur dahinter.",
   paragraph:
-    "Wir liefern keine Software und verschwinden. Sie arbeiten mit einem festen Ansprechpartner, hinter dem das komplette NEWEDGE-Team steht: Strategie, Entwicklung, Design und Automatisierung für Ihre Digitalisierungs- und KI-Projekte.",
+    "Wir liefern nicht ab und verschwinden. Sie arbeiten mit einem festen Ansprechpartner — dahinter steht das komplette NEWEDGE-Team: Strategie, Entwicklung, Design und Automatisierung.",
 
   banner: {
     avatars: [

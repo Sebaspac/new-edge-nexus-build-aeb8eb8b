@@ -38,11 +38,11 @@ export const derSchnitt = {
   before: {
     label: "Unternehmen ohne NEWEDGE",
     rows: [
-      "Informationen liegen verteilt vor",
-      "Aufgaben werden manuell bearbeitet",
-      "KI wird vereinzelt genutzt",
-      "Prozesse sind personenabhängig",
-      "Entscheidungen erfolgen reaktiv",
+      "Informationen liegen verstreut",
+      "Aufgaben laufen manuell",
+      "KI nur vereinzelt im Einsatz",
+      "Prozesse hängen an Personen",
+      "Entscheidungen fallen reaktiv",
     ],
   } satisfies SchnittColumn,
 

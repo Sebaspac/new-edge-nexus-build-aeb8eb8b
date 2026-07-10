@@ -50,7 +50,6 @@ export const kiGlossar = {
 
   /** Hero-Bereich (Aurora). */
   hero: {
-    eyebrow: "NEWEDGE",
     headline: "KI Glossar.",
     /** `{total}` → Gesamtzahl der Begriffe (Laufzeit). */
     sublineTemplate:
@@ -79,7 +78,7 @@ export const kiGlossar = {
   /** Abschluss-CTA. */
   cta: {
     heading: "Von Begriffen zur KI-Abteilung.",
-    body: "Wir übersetzen diese Konzepte in Systeme, die euer Unternehmen wirklich besitzt.",
+    body: "Wir übersetzen diese Begriffe in Systeme, die Ihr Unternehmen wirklich besitzt.",
     button: "Gespräch buchen",
   },
 
@@ -118,14 +117,14 @@ export const kiGlossar = {
     ],
     D: [
       { term: "Data Augmentation", def: "Künstliches Erweitern eines Datensatzes durch Variationen, um Modelle robuster zu machen." },
-      { term: "Dataset (Datensatz)", def: "Eine Sammlung von Daten, die für das Training und Testen von KI-Modellen verwendet wird." },
+      { term: "Dataset (Datensatz)", def: "Eine Sammlung von Daten für Training und Test von KI-Modellen." },
       { term: "Deep Learning", def: "Eine Unterkategorie des maschinellen Lernens, die auf tiefen neuronalen Netzwerken basiert." },
       { term: "Diffusion Model", def: "Generatives Modell, das aus Rauschen schrittweise Bilder erzeugt — Grundlage von Tools wie Midjourney." },
       { term: "Domain Adaptation", def: "Die Fähigkeit eines Modells, von einer Domäne (z. B. Bildern) auf eine andere zu generalisieren." },
     ],
     E: [
       { term: "Edge Computing", def: "Verarbeitung von Daten an dezentralen Standorten, nahe am Ort ihrer Entstehung." },
-      { term: "Embedding", def: "Eine Methode, um Daten wie Wörter oder Bilder in Vektoren umzuwandeln, die von Maschinen verstanden werden." },
+      { term: "Embedding", def: "Wandelt Daten wie Wörter oder Bilder in Vektoren um, mit denen Maschinen rechnen können." },
       { term: "Ensemble Learning", def: "Kombination mehrerer Modelle, um genauere und stabilere Vorhersagen zu erzielen." },
       { term: "Epoch (Epoche)", def: "Ein vollständiger Durchlauf des gesamten Trainingsdatensatzes während des Trainings." },
       { term: "Explainable AI (XAI)", def: "Ansätze, um die Entscheidungen von KI-Modellen nachvollziehbar und transparent zu machen." },

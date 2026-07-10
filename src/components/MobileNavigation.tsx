@@ -84,7 +84,7 @@ export const MobileNavigation = ({
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center gap-2.5">
-              <img src={img("new-edge-logo-wordmark")} alt={nav.logo.alt} className={`transition-all duration-500 ${isScrolled ? 'h-7' : 'h-8'} w-auto`} />
+              <img src={img(nav.logo.src)} alt={nav.logo.alt} className={`transition-all duration-500 ${isScrolled ? 'h-7' : 'h-8'} w-auto`} />
             </motion.div>
           </Link>
 
@@ -294,7 +294,7 @@ export const MobileNavigation = ({
         <div className="flex items-center justify-between">
           <Link to="/" onClick={handleLinkClick} className="flex items-center">
             <motion.div whileTap={{ scale: 0.98 }} className="flex items-center gap-2">
-              <img src={img("new-edge-logo-wordmark")} alt={nav.logo.alt} className="h-7 w-auto" />
+              <img src={img(nav.logo.src)} alt={nav.logo.alt} className="h-7 w-auto" />
             </motion.div>
           </Link>
           <motion.button
@@ -343,7 +343,7 @@ export const MobileNavigation = ({
               {/* Kopf: Logo + Schließen */}
               <div className="flex items-center justify-between px-6 pb-4" style={{ borderBottom: `1px solid ${HAIRLINE}` }}>
                 <Link to="/" onClick={handleLinkClick} className="flex items-center gap-2">
-                  <img src={img("new-edge-logo-wordmark")} alt={nav.logo.alt} className="h-7 w-auto" />
+                  <img src={img(nav.logo.src)} alt={nav.logo.alt} className="h-7 w-auto" />
                 </Link>
                 <div className="flex items-center gap-2">
                   <LanguageToggle onSwitch={handleLinkClick} />

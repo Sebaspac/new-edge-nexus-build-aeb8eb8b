@@ -40,17 +40,17 @@ export const threeStepsCTA = {
     {
       icon: "💬",
       title: "Unverbindliches Erstgespräch",
-      desc: "In einem kurzen Gespräch verstehen wir, wo Ihr Unternehmen steht — und ob sich KI bei Ihnen überhaupt schon lohnt. Termin online wählen, ohne Verpflichtung.",
+      desc: "Ein kurzes Gespräch zeigt, wo Ihr Unternehmen steht — und ob sich KI bei Ihnen schon lohnt. Termin online wählen, ohne Verpflichtung.",
     },
     {
       icon: "🎯",
       title: "KI-Readiness & ROI-Analyse",
-      desc: "Wir zeigen Ihnen in wenigen Werktagen die drei Prozesse mit dem höchsten KI-ROI — inklusive grober Aufwand-Nutzen-Schätzung und Förderhinweis. Oft förderfähig.",
+      desc: "In wenigen Werktagen zeigen wir Ihnen die drei Prozesse mit dem höchsten KI-ROI — inklusive Aufwand-Nutzen-Schätzung und Förderhinweis. Oft förderfähig.",
     },
     {
       icon: "🚀",
       title: "Ihre KI-Abteilung entsteht",
-      desc: "Auf Basis der Analyse bauen wir Schritt für Schritt Ihre eigene KI-Fähigkeit — vom sicheren Einstiegspunkt bis zum laufenden Betrieb. Die Kontrolle bleibt bei Ihnen.",
+      desc: "Auf Basis der Analyse bauen wir Ihre eigene KI-Fähigkeit — vom sicheren Einstiegspunkt bis zum laufenden Betrieb. Die Kontrolle bleibt bei Ihnen.",
     },
   ] as ThreeStepsCTAStep[],
 };

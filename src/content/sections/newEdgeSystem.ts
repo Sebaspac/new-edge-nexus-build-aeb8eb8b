@@ -49,7 +49,7 @@ export const newEdgeSystem: NewEdgeSystemContent = {
   eyebrow: "Das NEWEDGE System",
   headingLines: ["Drei Phasen.", "Eine KI-Abteilung."],
   subline:
-    "Jede KI-Transformation folgt demselben Weg: von der Analyse über die Umsetzung bis zur Skalierung — bis KI zur dauerhaften Unternehmensfähigkeit in Ihrem Unternehmen wird.",
+    "Jede KI-Transformation folgt demselben Weg: Analyse, Umsetzung, Skalierung — bis KI zur dauerhaften Fähigkeit Ihres Unternehmens wird.",
   cards: [
     { index: "01", title: "Analyse", sub: "findet die Hebel." },
     { index: "02", title: "Umsetzung", sub: "baut das System." },

@@ -1,6 +1,5 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
 import { SpeakWithUsCta } from "@/components/SpeakWithUsCta";
@@ -11,6 +10,7 @@ import { about as ABOUT_STATIC } from "@/content/pages/about";
 import { about as aboutEn } from "@/content/en/pages/about";
 import { img } from "@/content";
 import { useLocalized } from "@/hooks/useLocalized";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
@@ -36,7 +36,7 @@ const KICKER: React.CSSProperties = {
 const About = () => {
   // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
   const about = useLocalized("about", ABOUT_STATIC, aboutEn);
-  const [videoPlaying, setVideoPlaying] = useState(false);
+  const { language } = useLanguage();
 
   return (
     <>
@@ -51,11 +51,11 @@ const About = () => {
         <MobileNavigation onContactClick={() => {}} theme="dark" />
 
         {/* ── HERO ──────────────────────────────────────────────── */}
-        <div className="relative" style={{ background: INK_DEEPER, minHeight: "100dvh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          {/* Vignette */}
+        <div className="relative" style={{ background: PAPER, minHeight: "clamp(460px, 66vh, 680px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          {/* Sanfter Violett-Glow von oben (statt dunkler Vignette) */}
           <div aria-hidden style={{
             position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
-            background: "radial-gradient(ellipse 70% 65% at 50% 50%, rgba(16,14,30,0.72) 0%, rgba(16,14,30,0.28) 55%, transparent 82%)",
+            background: "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(86,88,223,0.10) 0%, transparent 62%)",
           }} />
 
           <motion.div
@@ -64,16 +64,9 @@ const About = () => {
             transition={{ duration: 0.4, ease: EASE }}
             style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "clamp(100px,16vh,140px) 24px clamp(60px,8vh,100px)" }}
           >
-            {/* Eyebrow — guarded: CMS-Antwort ersetzt den Fallback komplett */}
-            {about.hero.eyebrow && (
-              <p style={{ ...KICKER, color: VIOLET_LIGHT, marginBottom: "16px" }}>
-                {about.hero.eyebrow}
-              </p>
-            )}
-
             {/* Headline */}
             <h1 style={{
-              color: "#fff",
+              color: INK_DEEP,
               maxWidth: "22ch",
               margin: "0 auto",
             }}>
@@ -83,7 +76,7 @@ const About = () => {
             {/* Subline */}
             <p style={{
               fontFamily: OUTFIT,
-              color: "rgba(255,255,255,0.78)",
+              color: INK,
               maxWidth: "560px",
               margin: "0 auto",
             }}>
@@ -107,8 +100,8 @@ const About = () => {
               transform: "translateX(-50%)",
               width: "2px",
               height: "clamp(80px, 10vh, 130px)",
-              background: "linear-gradient(to bottom, rgba(194,195,246,0), #C2C3F6 50%, rgba(194,195,246,0.6))",
-              boxShadow: "0 0 10px rgba(194,195,246,0.45)",
+              background: "linear-gradient(to bottom, rgba(86,88,223,0), rgba(86,88,223,0.5) 50%, rgba(86,88,223,0.2))",
+              boxShadow: "0 0 10px rgba(86,88,223,0.22)",
               zIndex: 3,
             }}
           />
@@ -117,6 +110,21 @@ const About = () => {
         {/* ── TEAM CARDS ─────────────────────────────────────────── */}
         <div style={{ background: PAPER, padding: "clamp(56px,7vw,96px) 24px" }}>
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+            {/* Team-Titel — violetter Eyebrow + Überschrift */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, ease: EASE }}
+              style={{ marginBottom: "clamp(36px, 5vw, 56px)" }}
+            >
+              <p style={{ ...KICKER, color: VIOLET, marginBottom: "14px" }}>
+                {language === "en" ? "Our Team" : "Unser Team"}
+              </p>
+              <h2 style={{ color: INK_DEEP }}>
+                {language === "en" ? "Your AI Department" : "Deine KI-Abteilung"}
+              </h2>
+            </motion.div>
             <style>{`
               .team-photo .team-img {
                 position: absolute; inset: 0; width: 100%; height: 100%;
@@ -364,55 +372,14 @@ const About = () => {
                   }}
                 />
                 <div className="wb-photo" style={{ aspectRatio: "16 / 9" }}>
-                  {videoPlaying ? (
-                    <iframe
-                      src={`https://www.youtube.com/embed/${about.werkbank.video.youtubeId}?rel=0&modestbranding=1&color=white&autoplay=1`}
-                      title={about.werkbank.video.title}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none", display: "block" }}
-                    />
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => setVideoPlaying(true)}
-                      aria-label={about.werkbank.video.title}
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        width: "100%",
-                        height: "100%",
-                        border: "none",
-                        cursor: "pointer",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "16px",
-                        background:
-                          "radial-gradient(ellipse 90% 80% at 50% 30%, rgba(86,88,223,0.28) 0%, transparent 65%), linear-gradient(160deg, #1D1B38 0%, #17172E 45%, #100E1E 100%)",
-                      }}
-                    >
-                      <span
-                        style={{
-                          width: "56px",
-                          height: "56px",
-                          borderRadius: "50%",
-                          background: VIOLET,
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          transition: "transform 0.25s ease-out",
-                        }}
-                        className="hover:scale-110"
-                      >
-                        <Play fill="#fff" color="#fff" style={{ width: "20px", height: "20px", marginLeft: "2px" }} />
-                      </span>
-                      <span style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "12.5px", letterSpacing: "0.02em", color: "#C2C3F6" }}>
-                        {about.werkbank.video.title}
-                      </span>
-                    </button>
-                  )}
+                  {/* Native YouTube-Vorschau (kein Custom-Facade) */}
+                  <iframe
+                    src={`https://www.youtube.com/embed/${about.werkbank.video.youtubeId}?rel=0&modestbranding=1&color=white`}
+                    title={about.werkbank.video.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none", display: "block" }}
+                  />
                   {/* Kleiner Riss von der Oberkante — die „Edge" der Marke */}
                   <EdgeRip style={{ top: "-1px", left: "20%", width: "30px", height: "72px", zIndex: 2 }} />
                 </div>

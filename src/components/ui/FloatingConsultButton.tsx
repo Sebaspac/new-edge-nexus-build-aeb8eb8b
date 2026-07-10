@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { X } from "lucide-react";
 import { img } from "@/content";
+import { brandAssets as BA_STATIC } from "@/content/sections/brandAssets";
+import { brandAssets as brandAssetsEn } from "@/content/en/sections/brandAssets";
+import { useLocalized } from "@/hooks/useLocalized";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { localizePath } from "@/utils/localePath";
 
@@ -21,6 +24,8 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const { language } = useLanguage();
+  // Foto aus dem Content-Layer (CMS-austauschbar); Fallback: statisch
+  const assets = useLocalized("brand-assets", BA_STATIC, brandAssetsEn);
 
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
@@ -68,8 +73,8 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
             {/* Author row */}
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
               <img
-                src={img("team-sebastian")}
-                alt="Sebastian Pachon"
+                src={img(assets.consultAvatar.src)}
+                alt={assets.consultAvatar.alt}
                 style={{
                   width: "44px",
                   height: "44px",
@@ -181,8 +186,8 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
             boxShadow: "0 4px 20px rgba(86,88,223,0.28)",
           }}>
             <img
-              src={img("team-sebastian")}
-              alt="Sebastian Pachon — Erstgespräch buchen"
+              src={img(assets.consultAvatar.src)}
+              alt={assets.consultAvatar.alt}
               style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "25% 20%" }}
             />
           </div>

@@ -93,10 +93,10 @@ const KiGlossar = () => {
         <MobileNavigation onContactClick={() => {}} theme="dark" />
 
         {/* ── HERO ── */}
-        <div className="relative" style={{ background: INK_DEEPER, minHeight: "100dvh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <div className="relative" style={{ background: PAPER, minHeight: "clamp(460px, 66vh, 680px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <div aria-hidden style={{
             position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
-            background: "radial-gradient(ellipse 70% 65% at 50% 50%, rgba(4,1,12,0.72) 0%, rgba(4,1,12,0.28) 55%, transparent 82%)",
+            background: "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(86,88,223,0.10) 0%, transparent 62%)",
           }} />
 
           <motion.div
@@ -105,30 +105,15 @@ const KiGlossar = () => {
             transition={{ duration: 0.7, ease: EASE }}
             style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "clamp(100px,16vh,140px) 24px clamp(60px,8vh,100px)" }}
           >
-            {/* Kicker */}
-            {kiGlossar.hero.eyebrow && (
-              <p style={{
-                fontFamily: OUTFIT,
-                fontWeight: 700,
-                fontSize: "13px",
-                letterSpacing: "0.05em",
-                textTransform: "uppercase",
-                color: VIOLET_LIGHT,
-                marginBottom: "18px",
-              }}>
-                {kiGlossar.hero.eyebrow}
-              </p>
-            )}
-
             <h1 style={{
-              color: "#fff",
+              color: INK_DEEP,
             }}>
               {kiGlossar.hero.headline}
             </h1>
 
             <p style={{
               fontFamily: OUTFIT,
-              color: "rgba(255,255,255,0.78)",
+              color: "#3C3C47",
               maxWidth: "560px",
               margin: "0 auto",
             }}>
@@ -142,8 +127,8 @@ const KiGlossar = () => {
             style={{
               position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)",
               width: "2px", height: "clamp(80px, 10vh, 130px)",
-              background: "linear-gradient(to bottom, rgba(194,195,246,0), #C2C3F6 50%, rgba(194,195,246,0.6))",
-              boxShadow: "0 0 10px rgba(194,195,246,0.45)", zIndex: 3,
+              background: "linear-gradient(to bottom, rgba(86,88,223,0), rgba(86,88,223,0.5) 50%, rgba(86,88,223,0.2))",
+              boxShadow: "0 0 10px rgba(86,88,223,0.22)", zIndex: 3,
             }}
           />
         </div>

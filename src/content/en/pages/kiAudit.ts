@@ -106,6 +106,10 @@ export const kiAudit = {
     text:
       "At least three actionable AI use cases out of your audit. Guaranteed — or you don't pay.",
     sub: "If we don't deliver that, it costs you nothing.",
+    image: {
+      src: "team-presentation-color",
+      alt: "NEWEDGE founders working with the team",
+    },
   },
 
   /** 7 — Für wen / nicht. */

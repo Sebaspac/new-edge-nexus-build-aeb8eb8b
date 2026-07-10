@@ -5,8 +5,6 @@ import { aiVoices as aiVoicesEn } from "@/content/en/sections/aiVoices";
 import { useLocalizedStatic } from "@/hooks/useLocalized";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
-const LILAC = "#C2C3F6";
 const INK_DEEP = "#17172E";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -93,32 +91,39 @@ export const AiVoicesSection = () => {
           {/* Provider-Pills */}
           <div className="flex flex-wrap items-center justify-center gap-3">
             {aiVoices.providers.map((prov) => (
+              /* Farben als Klassen (nicht inline) — sonst überstimmt der Inline-Style die hover:-Varianten */
               <a
                 key={prov.label}
                 href={`${prov.hrefBase}${q}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 transition-all duration-200 hover:bg-[#5658DF] hover:text-white group"
+                className="inline-flex items-center gap-2.5 transition-all duration-200 bg-[#C2C3F6] text-[#17172E] hover:bg-[#17172E] hover:text-white group"
                 style={{
                   fontFamily: OUTFIT,
                   fontWeight: 600,
                   fontSize: "16px",
-                  color: INK_DEEP,
-                  background: LILAC,
                   borderRadius: "999px",
                   padding: "13px 26px",
                 }}
               >
                 {!hiddenIcons[prov.iconSlug] && (
-                  <img
-                    src={`https://cdn.simpleicons.org/${prov.iconSlug}/17172E`}
-                    alt=""
-                    aria-hidden
-                    loading="lazy"
-                    onError={() => setHiddenIcons((prev) => ({ ...prev, [prov.iconSlug]: true }))}
-                    style={{ width: "19px", height: "19px", display: "block" }}
-                    className="group-hover:invert group-hover:brightness-0"
-                  />
+                  <span aria-hidden style={{ position: "relative", width: "19px", height: "19px", display: "block", flexShrink: 0 }}>
+                    <img
+                      src={`https://cdn.simpleicons.org/${prov.iconSlug}/17172E`}
+                      alt=""
+                      loading="lazy"
+                      onError={() => setHiddenIcons((prev) => ({ ...prev, [prov.iconSlug]: true }))}
+                      style={{ position: "absolute", inset: 0, width: "19px", height: "19px", display: "block" }}
+                      className="transition-opacity duration-200 group-hover:opacity-0"
+                    />
+                    <img
+                      src={`https://cdn.simpleicons.org/${prov.iconSlug}/FFFFFF`}
+                      alt=""
+                      loading="lazy"
+                      style={{ position: "absolute", inset: 0, width: "19px", height: "19px", display: "block" }}
+                      className="opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                    />
+                  </span>
                 )}
                 {prov.label}
               </a>

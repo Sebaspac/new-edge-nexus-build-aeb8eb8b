@@ -29,7 +29,7 @@ export const CaseSpotlightSection = () => {
     <section aria-label={caseSpotlight.headlineClient}>
       <div
         className="max-w-[1080px] mx-auto px-4 sm:px-6 lg:px-8"
-        style={{ paddingTop: "clamp(48px,6vw,80px)", paddingBottom: "clamp(48px,6vw,80px)" }}
+        style={{ paddingTop: "clamp(32px,6vw,80px)", paddingBottom: "clamp(32px,6vw,80px)" }}
       >
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -40,14 +40,14 @@ export const CaseSpotlightSection = () => {
           style={{
             borderRadius: "24px",
             overflow: "hidden",
-            background: "linear-gradient(115deg, #1D1B38 0%, #14131F 55%, #101018 100%)",
+            background: "linear-gradient(120deg, #17172E 0%, #2B2A6E 45%, #5658DF 80%, #8B8DF0 100%)",
             border: "1px solid rgba(139,141,240,0.18)",
           }}
         >
           {/* ── Text links ── */}
           <div
             style={{
-              padding: "clamp(16px,1.8vw,24px) clamp(32px,4.5vw,60px)",
+              padding: "clamp(14px,1.8vw,24px) clamp(24px,4.5vw,60px)",
               display: "flex",
               flexDirection: "column",
             }}
@@ -76,7 +76,7 @@ export const CaseSpotlightSection = () => {
             </div>
 
             {/* Headline mit Akzent-Kundenname */}
-            <h2 style={{ color: "#fff", maxWidth: "26ch", fontSize: "clamp(22px, 2.3vw, 30px)", lineHeight: 1.12 }}>
+            <h2 style={{ color: "#fff", maxWidth: "26ch", fontSize: "clamp(19px, 2.3vw, 30px)", lineHeight: 1.1 }}>
               {caseSpotlight.headlinePrefix}
               <span style={{ color: VIOLET_LIGHT }}>{caseSpotlight.headlineClient}</span>
               {caseSpotlight.headlineSuffix}
@@ -94,8 +94,8 @@ export const CaseSpotlightSection = () => {
                   margin: 0,
                   fontFamily: OUTFIT,
                   fontWeight: 400,
-                  fontSize: "clamp(17px,1.4vw,19px)",
-                  lineHeight: 1.4,
+                  fontSize: "clamp(15px,1.4vw,19px)",
+                  lineHeight: 1.35,
                   color: "#E9E7F3",
                   maxWidth: "46ch",
                 }}
@@ -106,7 +106,7 @@ export const CaseSpotlightSection = () => {
 
             {/* Autor unten links + CTA unten rechts — auf Bildhöhe gezogen */}
             <div
-              className="flex flex-wrap items-center justify-between gap-x-6 gap-y-5"
+              className="flex flex-wrap items-center justify-between gap-x-6 gap-y-5 max-md:flex-col max-md:items-start"
               style={{ marginTop: "auto", paddingTop: "clamp(14px,1.6vw,20px)" }}
             >
               {/* Autor — Monogramm-Avatar + Name + Rolle */}
@@ -142,20 +142,21 @@ export const CaseSpotlightSection = () => {
                 </span>
               </div>
 
-              {/* CTA */}
-              <EdgePillButton to={caseSpotlight.href}>{caseSpotlight.ctaLabel}</EdgePillButton>
+              {/* CTA — mobil einzeln zentriert; Autor (Avatar + Name) bleibt links */}
+              <div className="max-md:self-center">
+                <EdgePillButton to={caseSpotlight.href}>{caseSpotlight.ctaLabel}</EdgePillButton>
+              </div>
             </div>
           </div>
 
-          {/* ── Bild rechts (Querformat, als Figur mit Bildunterschrift) ── */}
+          {/* ── Bild (Querformat, als Figur mit Bildunterschrift) — Desktop rechts, Mobile unten unter Titel+Text ── */}
           <figure
-            className="hidden lg:flex flex-col justify-center"
-            style={{ margin: 0, padding: "clamp(20px,2vw,34px)", gap: "14px" }}
+            className="flex flex-col justify-center"
+            style={{ margin: 0, padding: "clamp(14px,2vw,34px)", gap: "14px" }}
           >
             <div
-              className="relative w-full"
+              className="relative w-full aspect-[16/9] md:aspect-[4/3]"
               style={{
-                aspectRatio: "4 / 3",
                 borderRadius: "16px",
                 overflow: "hidden",
                 border: "1px solid rgba(139,141,240,0.2)",
@@ -170,18 +171,18 @@ export const CaseSpotlightSection = () => {
               />
             </div>
             <figcaption
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 max-md:hidden"
               style={{
                 fontFamily: OUTFIT,
                 fontWeight: 500,
                 fontSize: "13px",
                 letterSpacing: "0.01em",
-                color: "#9A94AC",
+                color: "rgba(255,255,255,0.85)",
               }}
             >
               <span
                 aria-hidden
-                style={{ width: "18px", height: "1px", background: "rgba(139,141,240,0.5)", flexShrink: 0 }}
+                style={{ width: "18px", height: "1px", background: "rgba(255,255,255,0.6)", flexShrink: 0 }}
               />
               {caseSpotlight.image.alt}
             </figcaption>

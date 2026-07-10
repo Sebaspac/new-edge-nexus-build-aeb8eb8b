@@ -48,16 +48,15 @@ export const about = {
   seo: {
     title: "Über uns | NEWEDGE — Ihre KI-Abteilung für den Mittelstand",
     description:
-      "Wir bauen die KI-Abteilung für den Mittelstand. Das Team dahinter hat KI im DACH-Raum und in den USA produktiv gemacht — technische Tiefe und Verständnis fürs Geschäft in einer Hand.",
+      "Wir bauen die KI-Abteilung für den Mittelstand — mit einem Team, das KI im DACH-Raum und in den USA produktiv gemacht hat. Technische Tiefe und Geschäftsverständnis in einer Hand.",
     canonical: "/about",
   } satisfies SEOContent,
 
   /** Hero-Bereich (Aurora). */
   hero: {
-    eyebrow: "NEWEDGE",
     headline: "Die KI-Abteilung für den Mittelstand.",
     subline:
-      "Dahinter steht ein Team, das KI im DACH-Raum und in den USA produktiv gemacht hat. Technische Tiefe und Verständnis fürs Geschäft in einer Hand — damit aus KI in Ihrem Unternehmen ein Ergebnis wird, kein Projekt.",
+      "Dahinter steht ein Team, das KI im DACH-Raum und in den USA produktiv gemacht hat. Technische Tiefe und Geschäftsverständnis in einer Hand — damit aus KI bei Ihnen ein Ergebnis wird, kein Projekt.",
     cta: {
       label: "Erstgespräch buchen",
       href: "/kontakt",
@@ -117,7 +116,7 @@ export const about = {
     eyebrow: "NEWEDGE, die Werkbank",
     heading: "Womit wir bauen.",
     intro:
-      "Keine Blackbox. Das ist die Werkbank hinter den Systemen, die bei unseren Kunden produktiv laufen — Sie sehen jederzeit, wie und womit gebaut wird.",
+      "Keine Blackbox. Das ist die Werkbank hinter den Systemen, die bei unseren Kunden produktiv laufen. Sie sehen jederzeit, womit gebaut wird.",
     manifest: [
       { k: "MODELLE", v: "Claude, GPT und Open-Source-Modelle. Je Use Case das passende, nie aus Prinzip nur eines." },
       { k: "INFRASTRUKTUR", v: "EU-Rechenzentren, private Cloud oder on-premise. Sie entscheiden, wo Ihre Daten liegen." },

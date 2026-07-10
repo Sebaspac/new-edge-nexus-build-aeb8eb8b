@@ -9,10 +9,12 @@ import { ContactFormModal } from "@/components/ContactFormModal";
 import { SpeakWithUsCta } from "@/components/SpeakWithUsCta";
 import { VideoShowcaseSection } from "@/components/VideoShowcaseSection";
 import { CaseSpotlightSection } from "@/components/CaseSpotlightSection";
+import { MitStudyGrid } from "@/components/ui/MitStudyGrid";
 import { img } from "@/content";
 import { cortexPage as CORTEX_STATIC } from "@/content/pages/cortex";
 import { cortexPage as cortexPageEn } from "@/content/en/pages/cortex";
 import { useLocalized } from "@/hooks/useLocalized";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -24,7 +26,6 @@ const INK_DEEPER  = "#100E1E";
 const PAPER       = "#F8F5FF";
 const RADIUS      = 16;
 const EASE        = [0.22, 1, 0.36, 1] as const;
-const CORNER      = "1.5px solid rgba(139,141,240,0.55)"; // Scan-Ecken im Garantie-Visual
 
 /** Torn-paper jagged divider — signature transition between full-bleed blocks. */
 const JaggedDivider = ({ color, flip = false }: { color: string; flip?: boolean }) => (
@@ -127,6 +128,7 @@ const FaqAccordion = ({ items }: { items: { q: string; a: string }[] }) => {
 const Cortex = () => {
   const cortex = useLocalized("cortex-page", CORTEX_STATIC, cortexPageEn);
   const faqs = cortex.faq ?? CORTEX_STATIC.faq;
+  const { language } = useLanguage();
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   const stats = [
@@ -148,12 +150,12 @@ const Cortex = () => {
         <MobileNavigation onContactClick={() => setIsContactOpen(true)} theme="dark" />
 
         {/* ═══ 1 — HERO ═══ */}
-        <div className="relative" style={{ background: INK_DEEPER, minHeight: "94dvh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <div className="relative" style={{ background: PAPER, minHeight: "94dvh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <div
             aria-hidden
             style={{
               position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
-              background: "radial-gradient(ellipse 70% 65% at 50% 40%, rgba(4,1,12,0.7) 0%, rgba(4,1,12,0.25) 55%, transparent 82%)",
+              background: "radial-gradient(ellipse 90% 70% at 50% -8%, rgba(86,88,223,0.10) 0%, transparent 60%)",
             }}
           />
 
@@ -166,17 +168,17 @@ const Cortex = () => {
               >
                 <h1
                   style={{
-                    color: "#FBF9FF",
+                    color: INK_DEEP,
                   }}
                 >
-                  {withAccent(cortex.hero.headline, "Cortex macht sie steuerbar.", "#8B8DF0")}
+                  {withAccent(cortex.hero.headline, "Cortex macht sie steuerbar.", VIOLET)}
                 </h1>
-                <p style={{ ...OUTFIT, color: "#B0ABC0", maxWidth: "48ch", marginBottom: "36px" }}>
+                <p style={{ ...OUTFIT, color: "#3C3C47", maxWidth: "48ch", marginBottom: "36px" }}>
                   {cortex.hero.sub}
                 </p>
                 <div className="flex flex-wrap items-center gap-x-8 gap-y-4" style={{ marginBottom: "48px" }}>
                   <EdgePillButton href="#kontakt">{cortex.hero.ctaPrimary}</EdgePillButton>
-                  <EdgeTextButton href="#fuer-wen" tone="light">
+                  <EdgeTextButton href="#fuer-wen">
                     {cortex.hero.ctaSecondary}
                   </EdgeTextButton>
                 </div>
@@ -187,14 +189,15 @@ const Cortex = () => {
                     <div
                       key={s.label}
                       style={{
-                        background: "rgba(255,255,255,0.04)",
-                        border: "1px solid rgba(255,255,255,0.08)",
+                        background: "#FFFFFF",
+                        border: "1px solid rgba(86,88,223,0.14)",
                         borderRadius: RADIUS,
                         padding: "14px 14px",
+                        boxShadow: "0 1px 2px rgba(23,23,46,0.06)",
                       }}
                     >
-                      <div style={{ ...OUTFIT, fontWeight: 700, fontSize: "1.35rem", color: "#fff" }}>{s.value}</div>
-                      <div style={{ ...OUTFIT, fontWeight: 400, fontSize: "11.5px", color: "#8A84A0", marginTop: "2px", lineHeight: 1.3 }}>{s.label}</div>
+                      <div style={{ ...OUTFIT, fontWeight: 700, fontSize: "1.35rem", color: INK_DEEP }}>{s.value}</div>
+                      <div style={{ ...OUTFIT, fontWeight: 400, fontSize: "11.5px", color: "#6B6680", marginTop: "2px", lineHeight: 1.3 }}>{s.label}</div>
                     </div>
                   ))}
                 </div>
@@ -208,9 +211,9 @@ const Cortex = () => {
               >
                 <div aria-hidden style={{
                   position: "absolute", inset: "-16px", zIndex: 0, pointerEvents: "none",
-                  background: "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(86,88,223,0.22) 0%, transparent 70%)",
+                  background: "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(86,88,223,0.16) 0%, transparent 70%)",
                 }} />
-                <div style={{ position: "relative", zIndex: 1, borderRadius: RADIUS, overflow: "hidden", boxShadow: "0 0 0 1px rgba(194,195,246,0.15), 0 32px 80px rgba(0,0,0,0.5)" }}>
+                <div style={{ position: "relative", zIndex: 1, borderRadius: RADIUS, overflow: "hidden", boxShadow: "0 0 0 1px rgba(86,88,223,0.14), 0 30px 70px -22px rgba(23,23,46,0.28)" }}>
                   <img
                     src={img(cortex.hero.image.src)}
                     alt={cortex.hero.image.alt}
@@ -225,28 +228,38 @@ const Cortex = () => {
 
         <JaggedDivider color={PAPER} />
 
-        {/* ═══ 2 — PROBLEM ═══ */}
+        {/* ═══ 2 — PROBLEM (Intro) — Text links, MIT-Studie-Grafik rechts ═══ */}
         <section style={{ background: PAPER }}>
           <div className="max-w-[1100px] mx-auto px-6 lg:px-8" style={{ paddingTop: "clamp(24px,4vw,40px)", paddingBottom: "clamp(64px,8vw,100px)" }}>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.6, ease: EASE }} style={{ marginBottom: "clamp(40px,5vw,56px)" }}>
-              <SectionHeadline>{cortex.problem.heading}</SectionHeadline>
-            </motion.div>
-            <div className="grid md:grid-cols-3 gap-5">
-              {cortex.problem.situations.map((q, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
-                  style={{ background: INK_DEEP, borderRadius: RADIUS, padding: "clamp(28px,3vw,34px)" }}
-                >
-                  <span style={{ ...OUTFIT, fontWeight: 800, fontSize: "1.8rem", color: VIOLET, lineHeight: 1 }}>„</span>
-                  <p style={{ ...OUTFIT, fontWeight: 500, color: "#E4E1F0", marginTop: "8px" }}>
-                    {q}
-                  </p>
+            <div className="grid lg:grid-cols-[3fr_2fr] gap-10 lg:gap-14 items-start">
+              {/* TEXT — links (Desktop), unten (Mobile) */}
+              <div className="order-2 lg:order-1">
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.6, ease: EASE }} style={{ marginBottom: "clamp(28px,3.4vw,40px)" }}>
+                  <SectionHeadline>{cortex.problem.heading}</SectionHeadline>
                 </motion.div>
-              ))}
+                <div className="flex flex-col gap-4">
+                  {cortex.problem.situations.map((q, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-60px" }}
+                      transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
+                      style={{ background: INK_DEEP, borderRadius: RADIUS, padding: "clamp(24px,2.8vw,30px)" }}
+                    >
+                      <span style={{ ...OUTFIT, fontWeight: 800, fontSize: "1.8rem", color: VIOLET, lineHeight: 1 }}>„</span>
+                      <p style={{ ...OUTFIT, fontWeight: 500, color: "#E4E1F0", marginTop: "8px" }}>
+                        {q}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* GRAFIK — rechts (Desktop), oben (Mobile) — MIT-Studie, hochwertige Variante */}
+              <div className="order-1 lg:order-2 w-full max-w-[420px] mx-auto lg:mx-0">
+                <MitStudyGrid lang={language} />
+              </div>
             </div>
           </div>
         </section>
@@ -370,9 +383,9 @@ const Cortex = () => {
           </div>
         </section>
 
-        {/* ═══ 6 — GARANTIE — Trust-Karte (CI: Ink-Gradient, Shield-Badge, Violett-Glow) ═══ */}
+        {/* ═══ 6 — GARANTIE — Trust-Karte (auffälliger Violett-Gradient, Text | Founder-Bild) ═══ */}
         <section style={{ background: PAPER }}>
-          <div className="max-w-[1000px] mx-auto px-6 lg:px-8" style={{ paddingTop: "clamp(56px,7vw,88px)", paddingBottom: "clamp(56px,7vw,88px)" }}>
+          <div className="max-w-[1100px] mx-auto px-6 lg:px-8" style={{ paddingTop: "clamp(56px,7vw,88px)", paddingBottom: "clamp(56px,7vw,88px)" }}>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -382,102 +395,57 @@ const Cortex = () => {
                 position: "relative",
                 overflow: "hidden",
                 borderRadius: "24px",
-                background: "linear-gradient(160deg, #1D1B38 0%, #17172E 45%, #100E1E 100%)",
-                border: "1px solid rgba(139,141,240,0.18)",
-                boxShadow: "0 30px 80px -32px rgba(23,23,46,0.5)",
-                padding: "clamp(40px,6vw,72px) clamp(28px,5vw,64px)",
-                textAlign: "center",
+                background: "linear-gradient(150deg, #6B4FE0 0%, #5658DF 50%, #3B2F9E 100%)",
+                border: "1px solid rgba(255,255,255,0.14)",
+                boxShadow: "0 30px 80px -32px rgba(58,46,150,0.55)",
+                padding: "clamp(32px,4.2vw,52px) clamp(28px,4.5vw,52px)",
               }}
             >
-              {/* Radialer Violett-Glow (oben mittig) */}
-              <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "radial-gradient(ellipse 62% 55% at 50% 0%, rgba(86,88,223,0.28) 0%, transparent 62%)" }} />
+              {/* Helles Glanzlicht (oben mittig) — Shine statt dunklem Glow */}
+              <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "radial-gradient(ellipse 62% 55% at 50% 0%, rgba(255,255,255,0.20) 0%, transparent 62%)" }} />
 
-              <div style={{ position: "relative", zIndex: 1, maxWidth: "640px", margin: "0 auto" }}>
-                {/* Cooles Garantie-Visual im Rahmen (Ink-Panel + „≥3"-Siegel, Scan-Ecken) */}
-                <div
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    maxWidth: "540px",
-                    margin: "0 auto 30px",
-                    borderRadius: "18px",
-                    padding: "1px",
-                    background:
-                      "linear-gradient(135deg, rgba(139,141,240,0.6) 0%, rgba(86,88,223,0.12) 42%, rgba(139,141,240,0.45) 100%)",
-                    boxShadow: "0 24px 60px -26px rgba(86,88,223,0.55)",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "relative",
-                      borderRadius: "17px",
-                      overflow: "hidden",
-                      background: "linear-gradient(160deg, #221F42 0%, #17172E 55%, #100E1E 100%)",
-                    }}
-                  >
-                    {/* Weicher Violett-Glow hinter dem schwebenden Dashboard */}
-                    <div
-                      aria-hidden
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        background: "radial-gradient(ellipse 60% 70% at 50% 42%, rgba(86,88,223,0.35) 0%, transparent 62%)",
-                      }}
-                    />
-                    <img
-                      src={img("pain-point-compliance-hero")}
-                      alt="KI-Dashboard — garantierte, umsetzbare Use-Cases aus dem Audit"
-                      style={{
-                        position: "relative",
-                        display: "block",
-                        width: "100%",
-                        aspectRatio: "16 / 9",
-                        objectFit: "contain",
-                        padding: "clamp(10px,1.6vw,18px)",
-                      }}
-                      loading="lazy"
-                    />
-                    {/* Scan-Ecken */}
-                    {([
-                      { top: 12, left: 12, borderTop: CORNER, borderLeft: CORNER },
-                      { top: 12, right: 12, borderTop: CORNER, borderRight: CORNER },
-                      { bottom: 12, left: 12, borderBottom: CORNER, borderLeft: CORNER },
-                      { bottom: 12, right: 12, borderBottom: CORNER, borderRight: CORNER },
-                    ] as React.CSSProperties[]).map((c, i) => (
-                      <span
-                        key={i}
-                        aria-hidden
-                        style={{ position: "absolute", width: "14px", height: "14px", pointerEvents: "none", ...c }}
-                      />
-                    ))}
-                  </div>
-                </div>
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center" style={{ position: "relative", zIndex: 1 }}>
+                {/* TEXT — links (Desktop), oben (Mobile) */}
+                <div className="order-1">
+                  <p style={{ ...OUTFIT, fontWeight: 700, fontSize: "13px", letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(255,255,255,0.85)", marginBottom: "12px" }}>
+                    Unser Versprechen
+                  </p>
 
-                {/* Eyebrow */}
-                <p style={{ ...OUTFIT, fontWeight: 700, fontSize: "13px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#8B8DF0", marginBottom: "14px" }}>
-                  Unser Versprechen
-                </p>
+                  <h2 style={{ color: "#fff", marginBottom: "14px" }}>
+                    {cortex.garantie.heading}
+                  </h2>
 
-                {/* Heading */}
-                <h2 style={{ color: "#fff", marginBottom: "18px" }}>
-                  {cortex.garantie.heading}
-                </h2>
+                  <p style={{ ...OUTFIT, fontWeight: 500, fontSize: "clamp(16px,1.3vw,18px)", lineHeight: 1.5, color: "rgba(255,255,255,0.72)", marginBottom: "12px" }}>
+                    {withAccent(cortex.garantie.text, "DSGVO-konform und jederzeit auditierbar.", "#FFFFFF")}
+                  </p>
 
-                {/* Promise — Kernaussage prominent */}
-                <p style={{ ...OUTFIT, fontWeight: 500, fontSize: "clamp(17px,1.6vw,20px)", lineHeight: 1.5, color: "rgba(255,255,255,0.9)", maxWidth: "48ch", margin: "0 auto 18px" }}>
-                  {withAccent(cortex.garantie.text, "DSGVO-konform und jederzeit auditierbar.", "#8B8DF0")}
-                </p>
+                  <p style={{ ...OUTFIT, fontWeight: 400, fontSize: "13.5px", color: "rgba(255,255,255,0.6)", marginBottom: "24px" }}>
+                    {cortex.garantie.sub}
+                  </p>
 
-                {/* Sub — Disclaimer */}
-                <p style={{ ...OUTFIT, fontWeight: 400, fontSize: "13.5px", color: "#8A84A0" }}>
-                  {cortex.garantie.sub}
-                </p>
-
-                {/* Farbiger CTA — violett (Kontrast auf der dunklen Karte) */}
-                <div style={{ marginTop: "clamp(26px,3.2vw,38px)", display: "flex", justifyContent: "center" }}>
                   <EdgePillButton variant="frost" onClick={() => setIsContactOpen(true)}>
                     Kostenloses Erstgespräch buchen
                   </EdgePillButton>
+                </div>
+
+                {/* BILD — rechts (Desktop), unten (Mobile) — Founder bei der Arbeit (erstmal) */}
+                <div
+                  className="order-2"
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    aspectRatio: "4 / 3",
+                    borderRadius: "16px",
+                    overflow: "hidden",
+                    boxShadow: "0 24px 64px rgba(23,15,70,0.4)",
+                  }}
+                >
+                  <img
+                    src={img(cortex.garantie.image.src)}
+                    alt={cortex.garantie.image.alt}
+                    loading="lazy"
+                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                  />
                 </div>
               </div>
             </motion.div>

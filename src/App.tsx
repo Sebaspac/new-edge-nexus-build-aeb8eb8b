@@ -14,7 +14,7 @@ import StructuredData from "@/components/StructuredData";
 import Index from "./pages/Index";
 
 // Lazy load all secondary pages for better performance
-const Careers = lazy(() => import("./pages/Careers"));
+// Careers-Import bewusst entfernt — Seite ist vorerst deaktiviert (Route → NotFound), Content bleibt im CMS.
 const About = lazy(() => import("./pages/About"));
 const Methodik = lazy(() => import("./pages/Methodik"));
 const Impressum = lazy(() => import("./pages/Impressum"));
@@ -52,7 +52,8 @@ const LocaleLayout = ({ lang }: { lang: "de" | "en" }) => {
 const appRoutes = () => (
   <>
     <Route index element={<Index />} />
-    <Route path="careers" element={<Careers />} />
+    {/* Karriere-Seite vorerst deaktiviert (nicht erreichbar) — Content bleibt im CMS erhalten */}
+    <Route path="careers" element={<NotFound />} />
     <Route path="about" element={<About />} />
     <Route path="methodik" element={<Methodik />} />
     <Route path="impressum" element={<Impressum />} />

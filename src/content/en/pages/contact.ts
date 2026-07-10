@@ -22,7 +22,6 @@ export const contact = {
   } satisfies SEOContent,
 
   hero: {
-    eyebrow: "Contact",
     headline: "Let's talk.",
     sub: "Tell us about your company — we'll get back to you within one business day with the next steps.",
   },

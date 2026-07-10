@@ -33,7 +33,6 @@ export const careers = {
 
   /** Hero-Bereich (Aurora). */
   hero: {
-    eyebrow: "NEWEDGE",
     headline: "Careers.",
     subline:
       "We're looking for designers, developers and strategists who want to make real impact at the intersection of brand, technology and AI.",

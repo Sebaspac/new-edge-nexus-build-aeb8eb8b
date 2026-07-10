@@ -22,7 +22,7 @@ export const cortex = {
   eyebrow: "Cortex",
   heading: "Das Betriebssystem Ihrer KI-Abteilung.",
   subtitle:
-    "Genau das entsteht auf der Reise: Ab Station 02 hat Ihre KI einen Ort, an dem sie gesteuert wird, bevor sie skaliert.",
+    "Ab Station 02 entsteht der Ort, an dem Ihre KI gesteuert wird — bevor sie skaliert.",
 
   /** Linke Mini-Spalte: Status quo. */
   today: {
@@ -48,7 +48,7 @@ export const cortex = {
 
   /** Erklärungs-Absatz unter dem Divider. */
   body:
-    "Cortex wird zum zentralen Einstiegspunkt für KI im Unternehmen: Mitarbeiter erhalten Zugriff auf produktive KI. Unternehmen erhalten Kontrolle über Nutzung, Prozesse und Automatisierungen.",
+    "Cortex ist der zentrale Einstiegspunkt für KI im Unternehmen: Mitarbeiter erhalten produktive KI. Sie behalten die Kontrolle über Nutzung, Prozesse und Automatisierungen.",
 
   /** Text-Button (scrollt zur CTA-Section). */
   cta: "Cortex kennenlernen →",

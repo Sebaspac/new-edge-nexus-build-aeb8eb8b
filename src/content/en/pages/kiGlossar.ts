@@ -50,7 +50,6 @@ export const kiGlossar = {
 
   /** Hero-Bereich (Aurora). */
   hero: {
-    eyebrow: "NEWEDGE",
     headline: "AI Glossary.",
     /** `{total}` → Gesamtzahl der Begriffe (Laufzeit). */
     sublineTemplate:

@@ -109,6 +109,10 @@ export const cortexPage = {
     text:
       "Your data stays in-house — GDPR-compliant and auditable at any time.",
     sub: "No black box, no unwanted data outflow. You stay in control.",
+    image: {
+      src: "team-presentation-color",
+      alt: "NEWEDGE founders working with the team",
+    },
   },
 
   /** 7 — Für wen / nicht. */

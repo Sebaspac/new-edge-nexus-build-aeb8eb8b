@@ -4,8 +4,8 @@
  * Standalone-Landing (Struktur wie `pages/kiAudit.ts`): Hero, Showreel
  * (Video + Logo-Grid), Projektablauf (3 Schritte), Projekteinblicke
  * (Case-Karten) und Erstgespräch-CTA. Layout am Referenz-Design
- * orientiert, Optik in NEWEDGE-CI. Voice: informell „ihr/euch" (wie
- * die KI-Audit-Landing).
+ * orientiert, Optik in NEWEDGE-CI. Voice: Sie-Form (wie die
+ * KI-Audit-Landing).
  * Bilder = vorhandene NEWEDGE-Assets (Platzhalter für echte Projekte,
  * im CMS austauschbar). Serialisierbar (nur Strings/Arrays) — CMS-tauglich.
  * Strapi-Mapping: Single Type `web-design`.
@@ -24,11 +24,10 @@ export const webDesign = {
 
   /** HERO — hell, zentriert (Referenz-Layout), Violett-Akzent. */
   hero: {
-    eyebrow: "Webentwicklung & Design",
     headlinePrefix: "Websites, die ",
     headlineAccent: "verkaufen",
-    headlineSuffix: " — bevor ihr überhaupt sprecht.",
-    sub: "Eure Website ist eure erste Verkaufskraft. Wir bauen digitale Auftritte, die euch von der Masse abheben, Vertrauen schaffen und qualifizierte Anfragen bringen — nicht nur gut aussehen.",
+    headlineSuffix: " — bevor Sie überhaupt sprechen.",
+    sub: "Ihre Website ist Ihre erste Verkaufskraft. Wir bauen Auftritte, die Vertrauen schaffen und qualifizierte Anfragen bringen — nicht nur gut aussehen.",
     trustChips: ["Höhere Conversion", "Mehr qualifizierte Anfragen", "Ein Ansprechpartner"],
     ctaPrimary: "Erstgespräch anfragen",
     note: "100% kostenlos & unverbindlich.",
@@ -38,7 +37,7 @@ export const webDesign = {
   showreel: {
     logosHeading: "Vertraut von wachsenden Marken",
     videoCaption: "NEWEDGE — Showreel",
-    founder: { name: "Sebastian", role: "Co-Founder NEWEDGE" },
+    founder: { name: "Sebastian", role: "Co-Founder NEWEDGE", image: "team-sebastian" as ImageKey },
   },
 
   /** PROJEKTABLAUF — 3 Schritte. */
@@ -48,7 +47,7 @@ export const webDesign = {
     steps: [
       {
         title: "Strategie & Branding",
-        desc: "Wir definieren, wofür ihr steht und für wen — und bauen ein visuelles System, das eure Qualität auf den ersten Blick sichtbar macht.",
+        desc: "Wir definieren, wofür Sie stehen und für wen — und bauen ein visuelles System, das Ihre Qualität auf den ersten Blick zeigt.",
         image: "painpoint-a-vorher-nachher" as ImageKey,
       },
       {
@@ -58,7 +57,7 @@ export const webDesign = {
       },
       {
         title: "Entwicklung",
-        desc: "Skalierbar und sauber gebaut: schnell, flexibel und wartbar — am Ende gehört alles euch, ohne Agentur-Abhängigkeit.",
+        desc: "Skalierbar und sauber gebaut: schnell, flexibel, wartbar — am Ende gehört alles Ihnen, ohne Agentur-Abhängigkeit.",
         image: "painpoint-a-feature2" as ImageKey,
       },
     ],
@@ -99,7 +98,7 @@ export const webDesign = {
   finalCta: {
     eyebrow: "Los geht's",
     heading: "Erstgespräch buchen",
-    sub: "In einem kurzen Kennenlern-Call schauen wir gemeinsam, ob und wo ein Projekt Sinn macht. Basierend auf eurer Situation und euren Zielen, komplett unverbindlich.",
+    sub: "In einem kurzen Kennenlern-Call schauen wir gemeinsam, ob und wo ein Projekt Sinn ergibt — auf Basis Ihrer Situation und Ziele. Komplett unverbindlich.",
     ctaPrimary: "Erstgespräch anfragen",
     note: "100% kostenlos & unverbindlich.",
   },

@@ -47,7 +47,7 @@ export const positionedForImpact = {
 
   /** Fließtext unter dem Zitat. */
   body:
-    "Die meisten Unternehmen optimieren einzelne Bereiche. Wir betrachten das Unternehmen als zusammenhängendes System. Nur wenn Prozesse, Infrastruktur und KI zusammenspielen, entstehen nachhaltige Wettbewerbsvorteile.",
+    "Die meisten Unternehmen optimieren einzelne Bereiche. Wir betrachten das Unternehmen als System. Erst wenn Prozesse, Infrastruktur und KI zusammenspielen, entsteht ein Vorsprung, der bleibt.",
 
   /** Stats-Raster (3 Spalten). */
   stats: [
@@ -66,7 +66,7 @@ export const positionedForImpact = {
     headline: "Warum es NEWEDGE gibt.",
     paragraphs: [
       "Wir haben NEWEDGE gegründet, weil uns ein Widerspruch nicht losgelassen hat: Jede Agentur redet über KI. Fast keine baut damit Systeme, die ein Unternehmen wirklich besitzt.",
-      "Wir kommen aus Projekten in den USA und im DACH-Raum. Wir haben gesehen, was passiert, wenn Marke, Kommunikation und Prozesse getrennt eingekauft werden: dreimal bezahlt, und nichts spricht miteinander. Der Mittelstand hat keine Zeit für dieses Modell.",
+      "In Projekten in den USA und im DACH-Raum haben wir gesehen, was passiert, wenn Marke, Kommunikation und Prozesse getrennt eingekauft werden: dreimal bezahlt, nichts spricht miteinander. Der Mittelstand hat keine Zeit für dieses Modell.",
       "Deshalb bauen wir anders. Ohne Fremdkapital, ohne Wachstum um des Wachstums willen. Jedes System, das wir liefern, gehört am Ende dem Kunden: Daten, Prozesse, Wissensbasis. Wenn wir morgen verschwinden, läuft es weiter.",
       "Das ist unser Maßstab. Daran dürfen Sie uns messen.",
     ],

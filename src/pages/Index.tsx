@@ -52,6 +52,7 @@ const Index = () => {
   const HOME_FB = language === "en" ? HOME_EN : HOME_STATIC;
   const home = {
     seo: cms.seo ?? HOME_FB.seo,
+    loadingLogo: cms.loadingLogo ?? HOME_FB.loadingLogo,
     loadingAlt: cms.loadingAlt ?? HOME_FB.loadingAlt,
   };
 
@@ -86,7 +87,7 @@ const Index = () => {
         duration: 0.4,
         ease: [0.4, 0, 0.2, 1]
       }}>
-            <motion.img src={img("new-edge-logo")} alt={home.loadingAlt} className="w-24 h-24 md:w-32 md:h-32" initial={{
+            <motion.img src={img(home.loadingLogo)} alt={home.loadingAlt} className="w-24 h-24 md:w-32 md:h-32" initial={{
           opacity: 0,
           scale: 0.8
         }} animate={{

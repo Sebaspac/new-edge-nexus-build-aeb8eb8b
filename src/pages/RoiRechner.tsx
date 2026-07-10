@@ -189,7 +189,6 @@ const RoiRechner = () => {
         {/* ── HERO (nur Phase 1) ── */}
         <section className="roi-noprint" style={{ display: revealed ? "none" : "block", maxWidth: "1140px", margin: "0 auto", padding: "clamp(104px,15vh,150px) clamp(20px,4vw,40px) clamp(20px,3vw,32px)", textAlign: "center" }}>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
-            <p style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "13px", letterSpacing: "0.08em", textTransform: "uppercase", color: VIOLET, marginBottom: "16px" }}>KI-Hebel-Audit</p>
             <h1 style={{ color: INK_DEEP, textWrap: "balance", maxWidth: "20ch", margin: "0 auto" }}>
               Welche Rollen Ihre <span style={{ color: VIOLET }}>KI-Abteilung</span> zuerst braucht.
             </h1>

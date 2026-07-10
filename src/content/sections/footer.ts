@@ -34,7 +34,7 @@ export const footer = {
       links: [
         { label: "Methodik", to: "/methodik" },
         { label: "Über uns", to: "/about" },
-        { label: "Karriere", to: "/careers" },
+        // Karriere vorerst deaktiviert — Content bleibt im CMS, nur der Link ist raus
       ] as NavLink[],
     },
     ressourcen: {

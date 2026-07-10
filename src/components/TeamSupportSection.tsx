@@ -32,51 +32,18 @@ export const TeamSupportSection = ({ sectionRef }: TeamSupportSectionProps = {})
       className="max-w-[1200px] mx-auto px-6 lg:px-8 text-center"
       style={{ paddingTop: "clamp(56px,7vw,96px)", paddingBottom: "clamp(56px,7vw,96px)" }}
     >
-      {/* Kicker + Headline + Absatz */}
+      {/* Team-Banner-Pill: echte Avatare + Zusage — jetzt vor der Headline, zentriert (kein Eyebrow mehr) */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.7, ease: EASE }}
-      >
-        <p
-          className="uppercase"
-          style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "14px", letterSpacing: "0.06em", color: VIOLET, marginBottom: "14px" }}
-        >
-          {teamSupport.kicker}
-        </p>
-        <h2
-          style={{
-            color: INK_DEEP,
-          }}
-        >
-          {teamSupport.headingLead}
-          <span style={{ color: VIOLET }}>{teamSupport.headingHighlight}</span>
-        </h2>
-        <p
-          className="mx-auto"
-          style={{
-            color: INK,
-            maxWidth: "62ch",
-            marginBottom: "clamp(36px, 5vh, 52px)",
-          }}
-        >
-          {teamSupport.paragraph}
-        </p>
-      </motion.div>
-
-      {/* Team-Banner-Pill: echte Avatare + Zusage */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
         className="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-3"
         style={{
           background: `linear-gradient(120deg, #1D1B38 0%, ${INK_DEEP} 60%, #100E1E 100%)`,
           borderRadius: "999px",
           padding: "14px clamp(24px, 3vw, 40px)",
-          marginBottom: "clamp(48px, 7vh, 72px)",
+          marginBottom: "clamp(28px, 4vh, 40px)",
         }}
       >
         <div className="flex items-center">
@@ -103,6 +70,33 @@ export const TeamSupportSection = ({ sectionRef }: TeamSupportSectionProps = {})
         <p style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "clamp(15px, 1.4vw, 18px)", color: "#fff", textAlign: "left" }}>
           {teamSupport.banner.textLead}
           <span style={{ color: VIOLET_LIGHT }}>{teamSupport.banner.textHighlight}</span>
+        </p>
+      </motion.div>
+
+      {/* Headline + Absatz */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
+      >
+        <h2
+          style={{
+            color: INK_DEEP,
+          }}
+        >
+          {teamSupport.headingLead}
+          <span style={{ color: VIOLET }}>{teamSupport.headingHighlight}</span>
+        </h2>
+        <p
+          className="mx-auto"
+          style={{
+            color: INK,
+            maxWidth: "62ch",
+            marginBottom: "clamp(36px, 5vh, 52px)",
+          }}
+        >
+          {teamSupport.paragraph}
         </p>
       </motion.div>
 

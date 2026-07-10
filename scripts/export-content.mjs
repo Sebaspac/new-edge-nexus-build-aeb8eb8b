@@ -34,6 +34,7 @@ const MODULES = {
   auditSlaStatus: "./sections/auditSlaStatus.ts#auditSlaStatus",
   caseSpotlight: "./sections/caseSpotlight.ts#caseSpotlight",
   videoShowcase: "./sections/videoShowcase.ts#videoShowcase",
+  brandAssets: "./sections/brandAssets.ts#brandAssets",
   // sections (Bestandteile von home)
   hero: "./sections/hero.ts#hero",
   impactCounter: "./sections/impactCounter.ts#impactCounter",
@@ -80,6 +81,7 @@ const MODULES = {
   auditSlaStatusEn: "./en/sections/auditSlaStatus.ts#auditSlaStatus",
   caseSpotlightEn: "./en/sections/caseSpotlight.ts#caseSpotlight",
   videoShowcaseEn: "./en/sections/videoShowcase.ts#videoShowcase",
+  brandAssetsEn: "./en/sections/brandAssets.ts#brandAssets",
   heroEn: "./en/sections/hero.ts#hero",
   impactCounterEn: "./en/sections/impactCounter.ts#impactCounter",
   problemJourneyEn: "./en/sections/problemJourney.ts#problemJourney",

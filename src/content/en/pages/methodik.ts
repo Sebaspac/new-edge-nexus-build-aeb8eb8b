@@ -42,7 +42,6 @@ export const methodik = {
 
   /** HERO. */
   hero: {
-    eyebrow: "NEWEDGE Methodology",
     /** Headline, zweizeilig (Zeilenumbruch via <br/>). */
     headlineLine1: "We build the AI department",
     headlineLine2: "for mid-sized companies.",
@@ -54,7 +53,6 @@ export const methodik = {
 
   /** MANIFEST — Warum eine Methodik. */
   manifest: {
-    eyebrow: "Why a methodology",
     lead: "Most companies don't fail because of technology. They fail because AI is introduced in isolation.",
     body: [
       "Tools get bought, individual automations get built — but without ownership, structure and a foundation where everything comes together, the impact stays small.",

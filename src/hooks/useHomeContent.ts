@@ -56,7 +56,7 @@ export function fromStrapi(v: unknown): any {
 }
 
 export interface HomeContent {
-  seo?: any; loadingAlt?: string; contact?: any; toast?: any;
+  seo?: any; loadingLogo?: string; loadingAlt?: string; contact?: any; toast?: any;
   hero?: any; clientLogos?: any[]; clientLogosHeading?: any;
   impactCounter?: any; problemJourney?: any; tickerScroll?: any; cortex?: any;
   positionedForImpact?: any; horizontalScroll?: any; derSchnitt?: any;

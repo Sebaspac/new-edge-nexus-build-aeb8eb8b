@@ -27,23 +27,22 @@ export const careers = {
   seo: {
     title: "Karriere bei NEWEDGE München | Jobs in KI, Brand & Digital",
     description:
-      "Du willst an der Schnittstelle von Marke, Digital und KI arbeiten? NEWEDGE Brand sucht Gestalter, Entwickler und KI-Strategen für München.",
+      "Du willst an der Schnittstelle von Marke, Digital und KI arbeiten? NEWEDGE sucht Gestalter, Entwickler und KI-Strategen in München.",
     canonical: "/careers",
   } satisfies SEOContent,
 
   /** Hero-Bereich (Aurora). */
   hero: {
-    eyebrow: "NEWEDGE",
     headline: "Karriere.",
     subline:
-      "Wir suchen Gestalter, Entwickler und Strategen, die an der Schnittstelle von Marke, Technologie und KI echte Wirkung erzeugen wollen.",
+      "Wir suchen Gestalter, Entwickler und Strategen, die mit Marke, Technologie und KI echte Wirkung erzeugen wollen.",
   },
 
   /** „Über uns"-Absatz. */
   about: {
     eyebrow: "Über uns",
     body:
-      "NEWEDGE ist eine Creative-Tech-Agentur an der Schnittstelle von Kreation und Technologie. Wir verbinden Marke, Strategie und KI in integrierten Prozessen – mit klaren Verantwortlichkeiten und messbaren Ergebnissen.",
+      "NEWEDGE baut die KI-Abteilung für den Mittelstand. Wir verbinden Marke, Strategie und KI — mit klaren Verantwortlichkeiten und messbaren Ergebnissen.",
   },
 
   /** „Warum NEWEDGE"-Block + Werte-Karten. */
@@ -54,7 +53,7 @@ export const careers = {
       {
         label: "01",
         title: "Innovation First",
-        desc: "Arbeite mit cutting-edge KI-Technologien und gestalte die Zukunft aktiv mit.",
+        desc: "Arbeite vom ersten Tag an mit aktuellen KI-Technologien — an echten Kundenprojekten.",
       },
       {
         label: "02",
@@ -84,7 +83,7 @@ export const careers = {
     eyebrow: "Kein passendes Angebot?",
     heading: "Initiativbewerbung.",
     body:
-      "Kein passendes Stellenangebot gefunden? Kein Problem — schreib Wenjamin Zabezhanskiy direkt an und erzähl uns, was dich antreibt.",
+      "Schreib Wenjamin Zabezhanskiy direkt an und erzähl uns, was dich antreibt.",
     /** Kontaktperson im Kreis-Button. */
     person: {
       src: "team-wenjamin" as ImageKey,

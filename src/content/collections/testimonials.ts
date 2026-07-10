@@ -17,17 +17,17 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    text: "NEWEDGE hat unsere internen Abläufe komplett neu gedacht. Durch die KI-gestützten Workflows sparen wir unglaublich viel Zeit im Projektgeschäft.",
+    text: "NEWEDGE hat unsere internen Abläufe komplett neu gedacht. Mit den KI-Workflows sparen wir im Projektgeschäft enorm viel Zeit.",
     name: "Kathrin Mertens",
     role: "Geschäftsführerin, Eventlogistik",
   },
   {
-    text: "Die Automatisierungslösungen von NEWEDGE haben unsere Effizienz massiv gesteigert. Besonders das zentrale Dashboard gibt uns endlich einen klaren Blick auf unsere KPIs.",
+    text: "Die Automatisierungen von NEWEDGE haben unsere Effizienz massiv gesteigert. Das zentrale Dashboard gibt uns endlich einen klaren Blick auf unsere KPIs.",
     name: "Emre Yılmaz",
     role: "CEO, Automobilzulieferer",
   },
   {
-    text: "Die Implementierung lief erstaunlich reibungslos. Das Team hat unsere Anforderungen schnell verstanden und die Übergabe so vorbereitet, dass unser Team ohne Frust weiterarbeiten konnte.",
+    text: "Die Implementierung lief erstaunlich reibungslos. Das Team hat schnell verstanden, was wir brauchen — und die Übergabe so vorbereitet, dass wir ohne Frust weiterarbeiten konnten.",
     name: "Anna Kowalski",
     role: "Head of Marketing, E-Commerce",
   },

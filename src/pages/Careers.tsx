@@ -64,10 +64,10 @@ const Careers = () => {
         <MobileNavigation onContactClick={() => {}} theme="dark" />
 
         {/* ── HERO ── */}
-        <div className="relative" style={{ background: INK_DEEPER, minHeight: "100dvh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <div className="relative" style={{ background: PAPER, minHeight: "clamp(460px, 66vh, 680px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <div aria-hidden style={{
             position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
-            background: "radial-gradient(ellipse 70% 65% at 50% 50%, rgba(16,14,30,0.72) 0%, rgba(16,14,30,0.28) 55%, transparent 82%)",
+            background: "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(86,88,223,0.10) 0%, transparent 62%)",
           }} />
 
           <motion.div
@@ -76,16 +76,9 @@ const Careers = () => {
             transition={{ duration: 0.4, ease: EASE }}
             style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "clamp(100px,16vh,140px) 24px clamp(60px,8vh,100px)" }}
           >
-            {/* Eyebrow — guarded: CMS-Antwort ersetzt den Fallback komplett */}
-            {careers.hero.eyebrow && (
-              <p style={{ ...KICKER, color: VIOLET_LIGHT, marginBottom: "16px" }}>
-                {careers.hero.eyebrow}
-              </p>
-            )}
-
             {/* Headline */}
             <h1 style={{
-              color: "#fff",
+              color: INK_DEEP,
             }}>
               {careers.hero.headline}
             </h1>
@@ -93,7 +86,7 @@ const Careers = () => {
             {/* Subline */}
             <p style={{
               fontFamily: OUTFIT,
-              color: "rgba(255,255,255,0.78)",
+              color: INK,
               maxWidth: "600px",
               margin: "0 auto",
             }}>
@@ -112,8 +105,8 @@ const Careers = () => {
               transform: "translateX(-50%)",
               width: "2px",
               height: "clamp(80px, 10vh, 130px)",
-              background: "linear-gradient(to bottom, rgba(194,195,246,0), #C2C3F6 50%, rgba(194,195,246,0.6))",
-              boxShadow: "0 0 10px rgba(194,195,246,0.45)",
+              background: "linear-gradient(to bottom, rgba(86,88,223,0), rgba(86,88,223,0.5) 50%, rgba(86,88,223,0.2))",
+              boxShadow: "0 0 10px rgba(86,88,223,0.22)",
               zIndex: 3,
             }}
           />
@@ -123,24 +116,24 @@ const Careers = () => {
         <div style={{ background: PAPER, padding: "clamp(56px,7vw,96px) 24px" }}>
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
 
-            {/* Über uns */}
+            {/* Über uns — Statement-Callout mit violetter Akzentkante (Layout wie Definition) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.4, ease: EASE }}
-              style={{ marginBottom: "clamp(56px, 7vw, 96px)" }}
+              className="relative max-w-[800px]"
+              style={{ marginBottom: "clamp(56px, 7vw, 96px)", paddingLeft: "clamp(20px, 3vw, 28px)" }}
             >
-              {careers.about.eyebrow && (
-                <p style={{ ...KICKER, color: VIOLET, marginBottom: "14px" }}>
-                  {careers.about.eyebrow}
-                </p>
-              )}
-              <p style={{
-                fontFamily: OUTFIT,
-                color: "rgba(23,23,46,0.68)",
-                maxWidth: "760px",
-              }}>
+              <span
+                aria-hidden
+                className="absolute left-0 top-1 bottom-1 w-[3px] rounded-full"
+                style={{ background: `linear-gradient(180deg, ${VIOLET_LIGHT}, ${VIOLET})` }}
+              />
+              <h2 style={{ color: INK_DEEP, marginBottom: "20px" }}>
+                {careers.about.eyebrow}
+              </h2>
+              <p style={{ fontFamily: OUTFIT, fontWeight: 400, color: "rgba(23,23,46,0.68)" }}>
                 {careers.about.body}
               </p>
             </motion.div>

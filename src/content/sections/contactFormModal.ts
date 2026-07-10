@@ -55,7 +55,7 @@ export const contactFormModal = {
   /** Inline-/Toast-Statusmeldungen nach Submit. */
   messages: {
     honeypotSuccess: "Nachricht gesendet! Wir melden uns bald.",
-    slaSuccess: "Audit angenommen. Die 24-Stunden-Uhr läuft — Status siehst du auf dieser Seite.",
+    slaSuccess: "Audit angenommen. Die 24-Stunden-Uhr läuft — den Status sehen Sie auf dieser Seite.",
     success: "Nachricht gesendet! Wir melden uns bald.",
     errorFallback: "Ein Fehler ist aufgetreten.",
   },

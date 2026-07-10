@@ -51,7 +51,7 @@ export const hero = {
 
   /** Lead-Subline (em-dashes = U+2014). */
   subline:
-    "KI ist überall — im Mittelstand bleibt sie aber zu oft Insellösung oder Risiko. Wir geben Ihrem Unternehmen eine eigene KI-Fähigkeit: von der ersten Analyse, die zeigt wo sie sich lohnt, bis zum laufenden Betrieb. Kein weiteres Tool — eine Abteilung.",
+    "KI ist überall — im Mittelstand bleibt sie zu oft Insellösung oder Risiko. Wir bauen Ihre eigene KI-Fähigkeit auf: von der Analyse, die zeigt, wo KI sich lohnt, bis zum laufenden Betrieb. Kein weiteres Tool — eine Abteilung.",
 
   /** Primärer CTA → /ki-audit. */
   primaryCta: { label: "KI-Potenzial berechnen" } as HeroCta,

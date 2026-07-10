@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
 import { EdgePillButton, EdgeTextButton } from "@/components/ui/EdgeCta";
 import { videoShowcase as videoShowcaseStatic } from "@/content";
 import { videoShowcase as videoShowcaseEn } from "@/content/en/sections/videoShowcase";
@@ -22,7 +20,6 @@ export const VideoShowcaseSection = () => {
   // Text/CTAs live aus dem CMS (Strapi Single-Type „video-showcase"); Fallback: statisch
   const videoShowcase = useLocalized("video-showcase", videoShowcaseStatic, videoShowcaseEn);
   const video = useHomeSection("hero", HERO_STATIC, heroEn)?.video;
-  const [videoPlaying, setVideoPlaying] = useState(false);
 
   return (
     <section aria-label={videoShowcase.heading}>
@@ -54,7 +51,7 @@ export const VideoShowcaseSection = () => {
               {videoShowcase.heading}
             </h2>
             {/* Subtitle bewusst entfernt — nur der Titel bleibt. */}
-            <div className="flex flex-wrap items-center gap-x-7 gap-y-4" style={{ marginTop: "24px" }}>
+            <div className="flex flex-wrap items-center gap-x-7 gap-y-4 max-md:justify-center" style={{ marginTop: "24px" }}>
               <EdgePillButton to={videoShowcase.ctaPrimary.to}>{videoShowcase.ctaPrimary.label}</EdgePillButton>
               {/* Heller Text-Button — die Karte ist dunkel */}
               <EdgeTextButton to="/kontakt" tone="light">
@@ -63,7 +60,7 @@ export const VideoShowcaseSection = () => {
             </div>
           </div>
 
-          {/* ── Video rechts — Click-to-Play-Facade, nie rohes Thumbnail ── */}
+          {/* ── Video rechts — native YouTube-Vorschau (kein Custom-Facade) ── */}
           <div
             style={{
               position: "relative",
@@ -77,60 +74,13 @@ export const VideoShowcaseSection = () => {
               boxShadow: "0 24px 64px rgba(0,0,0,0.4)",
             }}
           >
-            {videoPlaying ? (
-              <iframe
-                src={`https://www.youtube.com/embed/${video.youtubeId}?rel=0&modestbranding=1&color=white&autoplay=1`}
-                title={video.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
-              />
-            ) : (
-              <button
-                type="button"
-                onClick={() => setVideoPlaying(true)}
-                aria-label={video.title}
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  width: "100%",
-                  height: "100%",
-                  border: "none",
-                  cursor: "pointer",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "18px",
-                  backgroundImage: [
-                    "linear-gradient(180deg, rgba(12,12,28,0.15) 0%, rgba(12,12,28,0.75) 100%)",
-                    `url(https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg)`,
-                  ].join(", "),
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <span
-                  className="hover:scale-110"
-                  style={{
-                    width: "68px",
-                    height: "68px",
-                    borderRadius: "50%",
-                    background: "#fff",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    transition: "transform 0.25s ease-out",
-                    boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
-                  }}
-                >
-                  <Play fill={VIOLET} color={VIOLET} style={{ width: "24px", height: "24px", marginLeft: "3px" }} />
-                </span>
-                <span style={{ fontFamily: OUTFIT, fontWeight: 500, fontSize: "13px", color: "#fff", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
-                  {video.title}
-                </span>
-              </button>
-            )}
+            <iframe
+              src={`https://www.youtube.com/embed/${video.youtubeId}?rel=0&modestbranding=1&color=white`}
+              title={video.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+            />
           </div>
         </motion.div>
       </div>

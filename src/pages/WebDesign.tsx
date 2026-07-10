@@ -1,6 +1,6 @@
 import { lazy, Suspense, useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Play, ArrowUpRight } from "lucide-react";
+import { Check, ArrowUpRight } from "lucide-react";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
@@ -47,7 +47,6 @@ const WebDesign = () => {
   const c = useLocalized("web-design", WEBDESIGN_STATIC, webDesignEn);
   const video = useLocalizedStatic(HERO_STATIC, heroEn).video;
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [videoPlaying, setVideoPlaying] = useState(false);
 
   // Marken-Logos (transparente Logos, keine Fotos) für Dark-Grids — auf Ink weiß invertiert.
   const brandLogos = clientLogos.filter((l) =>
@@ -66,9 +65,6 @@ const WebDesign = () => {
         <section style={{ background: PAPER }}>
           <div className="max-w-[900px] mx-auto px-6 lg:px-8 text-center" style={{ paddingTop: "clamp(116px,16vh,158px)", paddingBottom: "clamp(44px,6vw,64px)" }}>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
-              <p style={{ ...OUTFIT, fontWeight: 700, fontSize: "13px", letterSpacing: "0.08em", textTransform: "uppercase", color: VIOLET, marginBottom: "18px" }}>
-                {c.hero.eyebrow}
-              </p>
               <h1 style={{ color: INK_DEEP, marginBottom: "22px" }}>
                 {c.hero.headlinePrefix}
                 <span style={{ color: VIOLET }}>{c.hero.headlineAccent}</span>
@@ -101,48 +97,14 @@ const WebDesign = () => {
               style={{ position: "relative", overflow: "hidden", borderRadius: "24px", background: INK_GRADIENT, border: "1px solid rgba(139,141,240,0.18)", boxShadow: "0 30px 80px -32px rgba(23,23,46,0.5)" }}
             >
               <div style={{ position: "relative", aspectRatio: "16 / 9", width: "100%" }}>
-                {videoPlaying ? (
-                  <iframe
-                    src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
-                    title={video.title}
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
-                  />
-                ) : (
-                  <>
-                    {/* Logo-Grid im Hintergrund (Referenz-Detail) — weiß invertiert */}
-                    <div aria-hidden style={{ position: "absolute", inset: 0, padding: "clamp(28px,5vw,60px)", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", alignContent: "center", alignItems: "center", justifyItems: "center", gap: "clamp(18px,3.5vw,44px)" }}>
-                      {brandLogos.map((l) => (
-                        <img key={l.src} src={img(l.src)} alt="" loading="lazy" style={{ maxHeight: "24px", maxWidth: "96px", width: "auto", objectFit: "contain", opacity: 0.42, filter: "brightness(0) invert(1)" }} />
-                      ))}
-                    </div>
-                    {/* Vignette für Play-Kontrast */}
-                    <div aria-hidden style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 48% 52% at 50% 50%, rgba(16,14,30,0.78) 0%, transparent 72%)" }} />
-
-                    <button
-                      onClick={() => setVideoPlaying(true)}
-                      aria-label={`${video.title} abspielen`}
-                      className="group"
-                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", cursor: "pointer", border: 0, background: "transparent" }}
-                    >
-                      <span
-                        className="transition-transform duration-300 group-hover:scale-110"
-                        style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "76px", height: "76px", borderRadius: "50%", background: VIOLET, display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 12px 40px rgba(86,88,223,0.5)" }}
-                      >
-                        <Play className="w-7 h-7" style={{ color: "#fff", marginLeft: "3px" }} fill="#fff" />
-                      </span>
-                    </button>
-                    {/* Founder-Chip unten links (Referenz-Detail) */}
-                    <div style={{ position: "absolute", bottom: "18px", left: "20px", display: "flex", alignItems: "center", gap: "10px", background: "rgba(16,14,30,0.55)", backdropFilter: "blur(6px)", border: "1px solid rgba(139,141,240,0.3)", borderRadius: "999px", padding: "6px 14px 6px 6px" }}>
-                      <img src={img("team-sebastian")} alt={c.showreel.founder.name} className="w-8 h-8 rounded-full object-cover" loading="lazy" />
-                      <span style={{ ...OUTFIT, fontWeight: 600, fontSize: "12px", color: "#fff" }}>
-                        {c.showreel.founder.name}
-                        <span style={{ color: "rgba(255,255,255,0.6)", fontWeight: 400 }}> · {c.showreel.founder.role}</span>
-                      </span>
-                    </div>
-                  </>
-                )}
+                {/* Native YouTube-Vorschau (kein Custom-Facade) */}
+                <iframe
+                  src={`https://www.youtube.com/embed/${video.youtubeId}?rel=0&modestbranding=1`}
+                  title={video.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
+                />
               </div>
             </motion.div>
           </div>
@@ -255,7 +217,7 @@ const WebDesign = () => {
         <section id="kontakt" style={{ background: INK_DEEPER }}>
           <div className="max-w-[820px] mx-auto px-6 lg:px-8 text-center" style={{ paddingTop: "clamp(72px,9vw,112px)", paddingBottom: "clamp(72px,9vw,112px)" }}>
             <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.7, ease: EASE }}>
-              <img src={img("team-sebastian")} alt={c.showreel.founder.name} loading="lazy" className="rounded-full object-cover mx-auto" style={{ width: "72px", height: "72px", border: "1px solid rgba(139,141,240,0.4)", marginBottom: "22px" }} />
+              <img src={img(c.showreel.founder.image)} alt={c.showreel.founder.name} loading="lazy" className="rounded-full object-cover mx-auto" style={{ width: "72px", height: "72px", border: "1px solid rgba(139,141,240,0.4)", marginBottom: "22px" }} />
               <p style={{ ...OUTFIT, fontWeight: 700, fontSize: "13px", letterSpacing: "0.08em", textTransform: "uppercase", color: VIOLET_LIGHT, marginBottom: "14px" }}>{c.finalCta.eyebrow}</p>
               <h2 style={{ color: "#fff", marginBottom: "18px" }}>{c.finalCta.heading}</h2>
               <p style={{ ...OUTFIT, color: "#B0ABC0", maxWidth: "52ch", margin: "0 auto 32px" }}>{c.finalCta.sub}</p>

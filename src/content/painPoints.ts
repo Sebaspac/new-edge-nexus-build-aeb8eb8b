@@ -228,13 +228,13 @@ const auswahlverfahren: PainPointContent = {
   definition: {
     title: "Was ist automatisierte Auswahlverfahren-Software?",
     body:
-      "Ein Auswahlverfahren bindet Wochen, in denen niemand fachlich entscheidet, sondern alle nur verwalten: Einreichungen sichten, die Jury koordinieren, jede Begründung dokumentieren. Automatisierte Auswahlverfahren-Software dreht das um — sie übernimmt genau diese drei zeitintensivsten Schritte, damit Ihr Gremium urteilt statt sortiert. Organisationen sparen so bis zu 70 % Aufwand pro Zyklus und treffen Entscheidungen, die jeder Nachfrage und jeder Prüfung standhalten.",
+      "Ein Auswahlverfahren bindet Wochen, in denen niemand entscheidet, sondern alle verwalten: Einreichungen sichten, Jury koordinieren, Begründungen dokumentieren. Automatisierte Auswahlverfahren-Software übernimmt genau diese drei Schritte — Ihr Gremium urteilt statt sortiert. Das spart bis zu 70 % Aufwand pro Zyklus und liefert Entscheidungen, die jeder Prüfung standhalten.",
   },
   feature1: {
     h2: "Nie wieder PDF-Stapel sortieren.",
     h3: "Jede Einreichung kommt strukturiert rein — egal in welchem Format",
     sub:
-      "Heute landen Bewerbungen als PDF, Word-Datei und E-Mail-Anhang bei Ihnen — und jemand im Team verbringt Tage damit, sie überhaupt vergleichbar zu machen. NEWEDGE erfasst jede Einreichung automatisch, prüft sie auf Vollständigkeit und legt sie als sauberes, vergleichbares Datenblatt ab. Vom ersten Tag an.",
+      "Bewerbungen landen als PDF, Word-Datei und Mail-Anhang bei Ihnen — und jemand verbringt Tage damit, sie vergleichbar zu machen. NEWEDGE erfasst jede Einreichung automatisch, prüft die Vollständigkeit und legt sie als vergleichbares Datenblatt ab. Vom ersten Tag an.",
     bullets: [
       "Automatische Vollständigkeitsprüfung — fehlende Unterlagen fallen sofort auf",
       "Geführtes Einreichungsformular — Bewerber liefern direkt die richtigen Daten",
@@ -247,7 +247,7 @@ const auswahlverfahren: PainPointContent = {
     h2: "Schluss mit dem Juroren-Hinterhertelefonieren.",
     h3: "Die Jury bewertet — die Koordination läuft von selbst",
     sub:
-      "12 Juroren, 4 Wochen, ein Postfach voller Rückfragen: So sieht Jury-Koordination heute aus. NEWEDGE übernimmt Briefings, Erinnerungen und das Zusammenführen aller Bewertungen — der Aufwand sinkt um bis zu 80 %. Jedes Mitglied bewertet online im eigenen Tempo, und Sie sehen in Echtzeit, wer fertig ist und wo die Urteile auseinandergehen.",
+      "12 Juroren, 4 Wochen, ein Postfach voller Rückfragen — so sieht Jury-Koordination heute aus. NEWEDGE übernimmt Briefings, Erinnerungen und das Zusammenführen der Bewertungen: bis zu 80 % weniger Aufwand. Jeder bewertet online im eigenen Tempo. Sie sehen in Echtzeit, wer fertig ist und wo Urteile auseinandergehen.",
     bullets: [
       "Automatische Erinnerungen — keine verpassten Deadlines mehr",
       "Einheitliches Punktesystem — vergleichbare Bewertungen statt Bauchgefühl",
@@ -260,7 +260,7 @@ const auswahlverfahren: PainPointContent = {
     h2: "Jede Entscheidung ist begründet — automatisch.",
     h3: "Revisionssichere Dokumentation, ohne dass jemand sie schreiben muss",
     sub:
-      "Ein abgelehnter Bewerber fragt nach. Der Vorstand will die Auswahl nachvollziehen. Eine Prüfung steht an. In diesem Moment zählt nur eins: Können Sie lückenlos zeigen, wie und warum entschieden wurde? Mit NEWEDGE ist die Antwort schon fertig — jeder Score, jeder Kommentar, jede Entscheidung automatisch dokumentiert und nachvollziehbar für jeden, der fragen darf.",
+      "Ein abgelehnter Bewerber fragt nach. Der Vorstand will die Auswahl nachvollziehen. Dann zählt nur eins: Können Sie lückenlos zeigen, wie entschieden wurde? Mit NEWEDGE ist die Antwort schon fertig — jeder Score, jeder Kommentar, jede Entscheidung automatisch dokumentiert.",
     bullets: [
       "Lückenloser Audit-Trail — wer hat wann auf welcher Grundlage bewertet",
       "Begründung auf Knopfdruck — für jeden Bewerber, jede Entscheidung",
@@ -270,9 +270,9 @@ const auswahlverfahren: PainPointContent = {
     imageAlt: "Revisionssichere Entscheidungsdokumentation mit lückenlosem Audit-Trail",
   },
   integrations: {
-    h2: "Verbindet sich mit den Tools die Sie bereits nutzen",
+    h2: "Verbindet sich mit den Tools, die Sie bereits nutzen",
     h3: "Welche Tools lassen sich in Ihr Auswahlverfahren integrieren?",
-    sub: "Kein neues System das alles ersetzt. NEWEDGE integriert sich in Ihre bestehende Infrastruktur.",
+    sub: "Kein neues System, das alles ersetzt. NEWEDGE integriert sich in Ihre bestehende Infrastruktur.",
     logos: [LOGO.docusign, LOGO.teams, LOGO.outlook, LOGO.sharepoint, LOGO.googleWorkspace, LOGO.notion, LOGO.calendly, LOGO.zoom, LOGO.zapier],
   },
   compare: {
@@ -377,13 +377,13 @@ const compliance: PainPointContent = {
   definition: {
     title: "Was ist KI-gestützte Außenhandelsautomatisierung?",
     body:
-      "Im Mittelstand läuft Außenhandel meistens fragmentiert: Dokumente in fünf Sprachen, Spediteur per Mail, Zollagent per Telefon, Compliance in Excel. Laut DIHK-Außenwirtschaftsreport 2025 fühlen sich europäische Unternehmen „erdrückt von der Vielzahl an Regulierungen“ — von CBAM über das Lieferkettensorgfaltspflichtengesetz bis zu ständig wechselnden Sanktionsvorschriften. Allein 2024 wurden in Deutschland 1,08 Millionen Ursprungszeugnisse ausgestellt. Bei Verstößen gegen das Außenwirtschaftsgesetz drohen Bußgelder bis zu 500.000€ pro Vorfall — mit der AWG-Novelle 2026 sogar Verbandsgeldbüßen bis zu 40 Mio.€. KI-gestützte Außenhandelsautomatisierung bringt hier Ordnung hinein: Sie erfasst jedes Dokument, hält jeden Sendungsstatus zentral nach und prüft Compliance automatisch — bevor die Ware rollt.",
+      "Außenhandel im Mittelstand läuft fragmentiert: Dokumente in fünf Sprachen, Spediteur per Mail, Zollagent per Telefon, Compliance in Excel. Laut DIHK-Außenwirtschaftsreport 2025 fühlen sich europäische Unternehmen „erdrückt von der Vielzahl an Regulierungen“ — von CBAM über das Lieferkettensorgfaltspflichtengesetz bis zu wechselnden Sanktionsvorschriften. Allein 2024 wurden in Deutschland 1,08 Millionen Ursprungszeugnisse ausgestellt. Verstöße gegen das Außenwirtschaftsgesetz kosten bis zu 500.000€ Bußgeld pro Vorfall — mit der AWG-Novelle 2026 drohen Verbandsgeldbußen bis zu 40 Mio.€. KI-gestützte Außenhandelsautomatisierung erfasst jedes Dokument, hält jeden Sendungsstatus zentral nach und prüft Compliance automatisch — bevor die Ware rollt.",
   },
   feature1: {
     h2: "Kein Dokument geht mehr unter — egal in welcher Sprache.",
     h3: "Von der Handelsrechnung bis zum Ursprungszeugnis — mehrsprachig, automatisch, in Sekunden verarbeitet.",
     sub:
-      "Handelsrechnung auf Englisch, Packliste auf Chinesisch, Ursprungszeugnis auf Französisch, Zollanmeldung auf Deutsch — im Außenhandel kommen Dokumente in jedem Format und jeder Sprache. NEWEDGE erfasst alles automatisch, ordnet es der richtigen Sendung zu und validiert auf Vollständigkeit, Widersprüche und fehlende Felder. Unstimmigkeiten werden sofort eskaliert — nicht erst wenn der Container am Hafen steht.",
+      "Handelsrechnung auf Englisch, Packliste auf Chinesisch, Zollanmeldung auf Deutsch. NEWEDGE erfasst jedes Dokument automatisch, ordnet es der richtigen Sendung zu und prüft auf Vollständigkeit und Widersprüche. Unstimmigkeiten eskaliert das System sofort — nicht erst, wenn der Container am Hafen steht.",
     bullets: [
       "Automatische Erfassung aller Handels- und Zolldokumente",
       "Sprachunabhängige Erkennung und Zuordnung",
@@ -396,7 +396,7 @@ const compliance: PainPointContent = {
     h2: "Ein Dashboard statt zehn Excel-Tabellen.",
     h3: "Spediteur, Zoll, Lager, Lieferant — alle auf demselben Stand, ohne Hinterhertelefonieren.",
     sub:
-      "Wo steht die Sendung? Hat der Spediteur die Dokumente? Ist die Zollanmeldung durch? Wer diese Fragen heute klären will, telefoniert, mailt und scrollt durch Tabellen. NEWEDGE zentralisiert den gesamten Sendungsstatus — Spediteur, Zollagent, Lager, Lieferant — in einem Echtzeit-Dashboard. Alle Beteiligten sehen denselben Stand, automatisch aktualisiert. Kein Hinterhertelefonieren, kein Informationsverlust, keine Überraschungen.",
+      "Wo steht die Sendung? Hat der Spediteur die Dokumente? Ist die Zollanmeldung durch? Wer diese Fragen heute klären will, telefoniert, mailt und scrollt durch Tabellen. NEWEDGE zentralisiert den gesamten Sendungsstatus — Spediteur, Zollagent, Lager, Lieferant — in einem Echtzeit-Dashboard. Alle Beteiligten sehen denselben Stand, automatisch aktualisiert.",
     bullets: [
       "Echtzeit-Sendungstracking über alle Beteiligten",
       "Automatische Statusupdates an Spediteur, Zoll & internes Team",
@@ -409,7 +409,7 @@ const compliance: PainPointContent = {
     h2: "Compliance gesichert. Zollkosten gesenkt.",
     h3: "Sanktionslisten, Dual-Use, Präferenzen — geprüft und optimiert, bevor die Ware rollt.",
     sub:
-      "Sanktionslisten ändern sich monatlich. Dual-Use-Verordnungen variieren je Zielland. Präferenzabkommen werden regelmäßig übersehen — und kosten Sie bares Geld. NEWEDGE prüft jeden Vorgang automatisch gegen EU-, UN- und OFAC-Listen, klassifiziert Dual-Use-Güter und erkennt, welche Freihandelsabkommen anwendbar sind. Das System schützt vor Verstößen, die laut AWG mit bis zu 500.000€ Bußgeld oder bei schweren Embargoverstößen mit bis zu 15 Jahren Freiheitsstrafe geahndet werden — und findet gleichzeitig die günstigste legale Tarifierung.",
+      "Sanktionslisten ändern sich monatlich. Dual-Use-Verordnungen variieren je Zielland. Übersehene Präferenzabkommen kosten bares Geld. NEWEDGE prüft jeden Vorgang automatisch gegen EU-, UN- und OFAC-Listen, klassifiziert Dual-Use-Güter und erkennt anwendbare Freihandelsabkommen. Das schützt vor Verstößen — laut AWG bis zu 500.000€ Bußgeld, bei schweren Embargoverstößen bis zu 15 Jahre Freiheitsstrafe — und findet zugleich die günstigste legale Tarifierung.",
     bullets: [
       "Echtzeit-Prüfung gegen Sanktionslisten, Embargos & Dual-Use",
       "Automatische Präferenzprüfung und Zollkostenoptimierung",
@@ -419,9 +419,9 @@ const compliance: PainPointContent = {
     imageAlt: "Automatische Compliance-Prüfung gegen Sanktionslisten mit Zollkostenoptimierung",
   },
   integrations: {
-    h2: "Verbindet sich mit den Tools die Sie bereits nutzen",
+    h2: "Verbindet sich mit den Tools, die Sie bereits nutzen",
     h3: "SAP, ATLAS, Oracle, Dynamics, BEX, Descartes, CargoWise — nahtlos integriert.",
-    sub: "SAP, ATLAS, Oracle, Microsoft Dynamics, BEX, Descartes, CargoWise — NEWEDGE integriert sich in Ihre bestehende Zoll-, ERP- und Logistikinfrastruktur. Kein Systemwechsel, kein Parallelbetrieb. Das System dockt an, liest mit, synchronisiert und prüft im Hintergrund — ohne Ihren Ablauf zu verändern.",
+    sub: "SAP, ATLAS, Oracle, Microsoft Dynamics, BEX, Descartes, CargoWise — NEWEDGE integriert sich in Ihre bestehende Zoll-, ERP- und Logistikinfrastruktur. Kein Systemwechsel, kein Parallelbetrieb: Das System dockt an und prüft im Hintergrund, ohne Ihren Ablauf zu verändern.",
     logos: [LOGO.sap, LOGO.datev, LOGO.docusign, LOGO.outlook, LOGO.sharepoint, LOGO.lexoffice, LOGO.salesforce, LOGO.zapier, LOGO.make],
   },
   compare: {
@@ -463,7 +463,7 @@ const compliance: PainPointContent = {
   },
   testimonialHero: {
     quote:
-      "Wir exportieren in 23 Länder — früher war jede Sendung ein Blindflug. Seit NEWEDGE sehen wir in Echtzeit wo jedes Dokument steht, die Compliance läuft automatisch und wir sparen im Schnitt 14% Zollkosten durch Präferenzen, die wir vorher übersehen haben.",
+      "Wir exportieren in 23 Länder — früher war jede Sendung ein Blindflug. Seit NEWEDGE sehen wir in Echtzeit, wo jedes Dokument steht, die Compliance läuft automatisch und wir sparen im Schnitt 14% Zollkosten durch Präferenzen, die wir vorher übersehen haben.",
     author: "Maschinenbau DACH — Head of Export & Logistics",
   },
   faq: [
@@ -489,7 +489,7 @@ const compliance: PainPointContent = {
     },
   ],
   closingCta: {
-    h2Line1: "Jeder Verstoß den Sie nicht verhindern,",
+    h2Line1: "Jeder Verstoß, den Sie nicht verhindern,",
     h2Line2Highlighted: "kostet mehr als NEWEDGE für ein ganzes Jahr.",
     sub: "In einem kostenlosen KI-Audit zeigen wir, wo Ihre Außenhandelsprozesse Zeit und Rechtssicherheit verlieren.",
     ctaPrimary: "KI-Audit anfragen",
@@ -529,13 +529,13 @@ const kpiDashboard: PainPointContent = {
   definition: {
     title: "Was ist ein KPI-Dashboard?",
     body:
-      "Ein KPI-Dashboard ist eine zentrale digitale Ansicht aller geschäftskritischen Kennzahlen eines Unternehmens — aggregiert aus ERP, CRM, Finance-Tool und weiteren Quellen, aktualisiert in Echtzeit, ohne manuelle Eingabe. Mittelständische Unternehmen mit 20–500 Mitarbeitern nutzen KPI-Dashboards, um operative und strategische Entscheidungen auf aktueller Datenbasis zu treffen — anstatt auf wöchentliche Reporting-Meetings angewiesen zu sein. Führungskräfte im Mittelstand verbringen im Schnitt 4,5 Stunden pro Woche mit manuellem Reporting (McKinsey Digital, 2023). Unternehmen mit Echtzeit-KPI-Monitoring erkennen kritische Abweichungen 3,1 Tage früher (Aberdeen Group, 2024).",
+      "Ein KPI-Dashboard zeigt alle geschäftskritischen Kennzahlen in einer zentralen Ansicht — aggregiert aus ERP, CRM und Finance-Tool, aktualisiert in Echtzeit, ohne manuelle Eingabe. Mittelständler mit 20–500 Mitarbeitern treffen damit Entscheidungen auf aktueller Datenbasis statt im wöchentlichen Reporting-Meeting. Der Hebel ist messbar: Führungskräfte im Mittelstand verbringen im Schnitt 4,5 Stunden pro Woche mit manuellem Reporting (McKinsey Digital, 2023). Unternehmen mit Echtzeit-KPI-Monitoring erkennen kritische Abweichungen 3,1 Tage früher (Aberdeen Group, 2024).",
   },
   feature1: {
     h2: "Wer hat Ihnen gesagt, dass diese KPIs wichtig sind?",
     h3: "Angepasste KPIs statt generischer Templates",
     sub:
-      "Ein KPI-Dashboard ist nur so nützlich wie die Kennzahlen, die es zeigt. Generische Templates bilden ab, was technisch möglich ist — nicht was für das jeweilige Unternehmen entscheidungsrelevant ist. NEWEDGE analysiert gemeinsam mit der Führungsebene, welche Kennzahlen für Betrieb, Wachstum und Steuerung tatsächlich zählen. Das Dashboard wird auf GF-Ebene, Teamleitung und Controlling zugeschnitten — jede Rolle sieht genau, was sie braucht.",
+      "Generische Templates zeigen, was technisch möglich ist — nicht, was Ihr Unternehmen steuert. NEWEDGE definiert mit Ihrer Führungsebene die Kennzahlen, die für Betrieb, Wachstum und Steuerung tatsächlich zählen. Jede Rolle — GF, Teamleitung, Controlling — sieht genau das, was sie braucht.",
     bullets: [
       "KPIs für Betrieb und Wachstum — individuell definiert, nicht von der Stange",
       "Alle relevanten Datenquellen verbunden — kein manueller Import, kein CSV-Export",
@@ -549,7 +549,7 @@ const kpiDashboard: PainPointContent = {
     h2: "Sie erfahren es immer eine Woche zu spät.",
     h3: "Echtzeit-Daten: KPI-Abweichungen erkennen, bevor sie Geld kosten",
     sub:
-      "Bei manuellem Reporting vergehen zwischen Entstehen einer Abweichung und ihrer Entdeckung im Schnitt 3–7 Tage. Ein Echtzeit-KPI-Dashboard schließt dieses Fenster auf Minuten. Sobald neue Daten in den angebundenen Systemen vorliegen, aktualisiert sich das Dashboard automatisch — und meldet Abweichungen sofort per Alert.",
+      "Bei manuellem Reporting vergehen zwischen Abweichung und Entdeckung im Schnitt 3–7 Tage. Ein Echtzeit-KPI-Dashboard schließt dieses Fenster auf Minuten: Sobald neue Daten vorliegen, aktualisiert sich das Dashboard automatisch — und meldet Abweichungen sofort per Alert.",
     bullets: [
       "Automatische Datenaktualisierung — keine manuelle Eingabe, kein Verzug",
       "Visualisierungen nach Ebene — strategisch für GF, operativ für Teams",
@@ -563,7 +563,7 @@ const kpiDashboard: PainPointContent = {
     h2: "Messen reicht nicht. Was jetzt?",
     h3: "KI-gestützte KPI-Analyse: nicht nur messen, sondern verbessern",
     sub:
-      "Ein KPI-Dashboard der zweiten Generation zeigt nicht nur Ist-Werte — es erkennt Muster, identifiziert Optimierungspotenziale und schlägt priorisierte Maßnahmen vor. Das NEWEDGE KPI-Dashboard nutzt KI-Analyse, um aus Kennzahlen konkrete Handlungsgrundlagen zu machen — und misst automatisch, ob eingeleitete Maßnahmen wirken.",
+      "Ist-Werte allein ändern nichts. Das NEWEDGE KPI-Dashboard erkennt Muster, macht aus Kennzahlen priorisierte Maßnahmen — und misst automatisch, ob sie wirken.",
     bullets: [
       "KI-Empfehlungen für konkrete Verbesserungsmaßnahmen — mit Priorität",
       "Automatisches Wirksamkeits-Tracking: Maßnahme gestartet — Effekt gemessen",
@@ -577,7 +577,7 @@ const kpiDashboard: PainPointContent = {
     h2: "Sie wechseln kein einziges System.",
     h3: "Welche Systeme lassen sich an ein KPI-Dashboard anbinden?",
     sub:
-      "Ein KPI-Dashboard ist nur so stark wie seine Datenquellen. NEWEDGE verbindet sich mit über 200 Systemen per API — ERP, CRM, Finance, Cloud und Shop-Plattformen. Kein Systemwechsel, keine Datenmigration, keine Doppelpflege. Ihr System nicht dabei? Über REST API und Webhooks lässt sich jede strukturierte Datenquelle anbinden.",
+      "NEWEDGE verbindet sich per API mit über 200 Systemen — ERP, CRM, Finance, Cloud und Shop-Plattformen. Kein Systemwechsel, keine Datenmigration, keine Doppelpflege. Ihr System nicht dabei? REST API und Webhooks binden jede strukturierte Datenquelle an.",
     logos: [LOGO.sap, LOGO.salesforce, LOGO.hubspot, LOGO.googleAnalytics, LOGO.datev, LOGO.shopify, LOGO.stripe, LOGO.zapier, LOGO.make],
   },
   compare: {
@@ -601,22 +601,22 @@ const kpiDashboard: PainPointContent = {
     cards: [
       {
         title: "Keine veralteten Zahlen mehr",
-        desc: "Alle KPIs aktualisieren sich automatisch — sobald neue Daten in den angebundenen Systemen vorliegen. Keine manuelle Zusammenführung, kein Warten auf den Wochenbericht.",
+        desc: "Alle KPIs aktualisieren sich automatisch, sobald neue Daten vorliegen. Kein Zusammenkopieren, kein Warten auf den Wochenbericht.",
         iconNote: "Icon: Echtzeit-Puls / Live-Indikator",
       },
       {
         title: "Frühwarnung statt Überraschungen",
-        desc: "Sie definieren Schwellenwerte — das Dashboard meldet sich automatisch. Laut McKinsey (2023) reagieren Unternehmen mit automatisierten Alerts 2,4× schneller auf kritische KPI-Abweichungen.",
+        desc: "Sie definieren Schwellenwerte — das Dashboard meldet sich von selbst. Unternehmen mit automatisierten Alerts reagieren 2,4× schneller auf kritische KPI-Abweichungen (McKinsey, 2023).",
         iconNote: "Icon: Alert-Glocke / Frühwarnsystem",
       },
       {
         title: "Jede Rolle sieht, was sie braucht",
-        desc: "Rollenbasierte Ansichten liefern jedem Nutzer genau die Kennzahlen, die für seine Entscheidungen relevant sind — ohne Information Overload.",
+        desc: "Rollenbasierte Ansichten zeigen jedem Nutzer genau die Kennzahlen, die er für Entscheidungen braucht — nicht mehr.",
         iconNote: "Icon: Nutzerrollen / Personas",
       },
       {
         title: "KI zeigt, was sich lohnt zu ändern",
-        desc: "Das System erkennt Muster in Ihren Daten: saisonale Anomalien, Kostenausreißer, Effizienzlücken zwischen Teams. KI-gestützte Empfehlungen werden mit Priorität ausgegeben.",
+        desc: "Das System erkennt Muster in Ihren Daten — saisonale Anomalien, Kostenausreißer, Effizienzlücken — und gibt Empfehlungen mit Priorität aus.",
         iconNote: "Icon: KI-Glühbirne / Empfehlungen",
       },
       {
@@ -639,7 +639,7 @@ const kpiDashboard: PainPointContent = {
   faq: [
     {
       q: "Was ist der Unterschied zwischen einem KPI-Dashboard und Power BI oder Tableau?",
-      a: "Power BI und Tableau sind allgemeine BI-Tools, die technisches Know-how für Konfiguration und Pflege erfordern. Das NEWEDGE KPI-Dashboard ist fertig konfiguriert, auf das Unternehmen zugeschnitten und wird laufend betreut — ohne interne BI-Expertise, ohne IT-Projekt, ohne Lizenzkosten pro Nutzer.",
+      a: "Power BI und Tableau sind allgemeine BI-Tools und brauchen technisches Know-how für Aufbau und Pflege. Das NEWEDGE KPI-Dashboard kommt fertig konfiguriert, zugeschnitten und laufend betreut — ohne BI-Expertise, ohne IT-Projekt, ohne Lizenzkosten pro Nutzer.",
     },
     {
       q: "Welche Systeme können an ein KPI-Dashboard angebunden werden?",
@@ -713,7 +713,7 @@ const kiKundensupport: PainPointContent = {
     h2: "80% gelöst. Sofort. Ohne menschliche Intervention.",
     h3: "KI-Support-Agent: Standard-Anfragen automatisch lösen, rund um die Uhr",
     sub:
-      "Bestellstatus, Rücksendungen, FAQ, Standard-Reklamationen — das sind 80% aller Anfragen. NEWEDGE löst sie automatisch, in unter 30 Sekunden, in Ihrer Markenstimme. Ihr Team bekommt nur noch die 20% die wirklich menschliche Expertise brauchen.",
+      "Bestellstatus, Rücksendungen, FAQ, Standard-Reklamationen — das sind 80% aller Anfragen. NEWEDGE löst sie automatisch, in unter 30 Sekunden, in Ihrer Markenstimme. Ihr Team bekommt nur noch die 20%, die wirklich menschliche Expertise brauchen.",
     bullets: [
       "Antwortzeit unter 30 Sekunden — rund um die Uhr",
       "Trainiert auf Ihre Markensprache und Wissensbasis",
@@ -739,7 +739,7 @@ const kiKundensupport: PainPointContent = {
     h2: "Support als Produktintelligenz.",
     h3: "Jede Anfrage ist ein Signal: Support-Daten als strategische Ressource",
     sub:
-      "Jede Support-Anfrage ist ein Signal. NEWEDGE analysiert automatisch welche Probleme sich häufen — und was das über Ihr Produkt aussagt. Unternehmen die Support-Daten systematisch auswerten, reduzieren wiederkehrende Fehler um durchschnittlich 40% innerhalb eines Quartals.",
+      "Jede Support-Anfrage ist ein Signal. NEWEDGE analysiert automatisch, welche Probleme sich häufen — und was das über Ihr Produkt aussagt. Unternehmen, die Support-Daten systematisch auswerten, reduzieren wiederkehrende Fehler um durchschnittlich 40% innerhalb eines Quartals.",
     bullets: [
       "Automatische Trend-Analyse — welche Probleme häufen sich",
       "Direkte Produkt-Insights aus Support-Daten",
@@ -840,7 +840,7 @@ const entscheidungsinstanzen: PainPointContent = {
     h1Line1: "Sie entscheiden über andere.",
     h1Line2Highlighted: "Wer entscheidet für Sie?",
     sub:
-      "Hunderte Einreichungen, ein ehrenamtliches Gremium, Kriterien die jeder anders auslegt — und am Ende eine Entscheidung, die Sie verteidigen müssen. NEWEDGE gibt Awards, Hochschulen, Förderinstitutionen und Vergabestellen die Infrastruktur, die ihrer Verantwortung entspricht: strukturiert, fair, revisionssicher. Bis zu 70 % weniger Aufwand pro Verfahren.",
+      "Hunderte Einreichungen, ein ehrenamtliches Gremium, Kriterien, die jeder anders auslegt — und am Ende eine Entscheidung, die Sie verteidigen müssen. NEWEDGE gibt Awards, Hochschulen, Förderinstitutionen und Vergabestellen die Infrastruktur, die ihrer Verantwortung entspricht: strukturiert, fair, revisionssicher. Bis zu 70 % weniger Aufwand pro Verfahren.",
     ctaPrimary: "Demo buchen",
     ctaSecondary: "Case: BMP Award ansehen",
     imageNote:
@@ -862,7 +862,7 @@ const entscheidungsinstanzen: PainPointContent = {
     h2: "Gleiche Maßstäbe für jede Einreichung.",
     h3: "Schluss mit „das sieht jeder Juror anders“",
     sub:
-      "Wenn zwölf Menschen bewerten, bewertet jeder ein bisschen anders — der eine streng, der andere großzügig, jeder nach eigenem Bauchgefühl. NEWEDGE legt für alle dieselbe Bewertungslogik fest: dieselben Kriterien, dieselbe Gewichtung, dieselbe Skala. Das Ergebnis ist vergleichbar, nachvollziehbar — und für jeden Bewerber fair.",
+      "Zwölf Bewerter, zwölf Maßstäbe — der eine streng, der andere großzügig, jeder nach Bauchgefühl. NEWEDGE legt für alle dieselbe Bewertungslogik fest: gleiche Kriterien, gleiche Gewichtung, gleiche Skala. Das Ergebnis ist vergleichbar, nachvollziehbar — und für jeden Bewerber fair.",
     bullets: [
       "Einheitliche Kriterien & Gewichtung — für alle Einreichungen identisch",
       "Abweichungen sichtbar — wo Juroren stark differieren, fällt es sofort auf",
@@ -875,7 +875,7 @@ const entscheidungsinstanzen: PainPointContent = {
     h2: "Ihr Gremium bewertet. Den Rest übernehmen wir.",
     h3: "Ihre Experten sollen urteilen — nicht Termine jonglieren",
     sub:
-      "Ihre Gutachter und Juroren sind Fachleute, keine Projektmanager. Trotzdem geht ihre Zeit für das Suchen von Unterlagen, das Nachhalten von Fristen und das Zusammentragen von Bewertungen drauf. NEWEDGE erledigt all das automatisch — damit Ihre Experten genau das tun, wofür Sie sie geholt haben: fachlich urteilen.",
+      "Ihre Gutachter und Juroren sind Fachleute, keine Projektmanager. Trotzdem geht ihre Zeit dafür drauf, Unterlagen zu suchen, Fristen nachzuhalten und Bewertungen zusammenzutragen. NEWEDGE erledigt das automatisch — Ihre Experten tun, wofür Sie sie geholt haben: fachlich urteilen.",
     bullets: [
       "Automatische Briefings & Fristen-Erinnerungen für alle Beteiligten",
       "Jedes Mitglied bewertet online, ortsunabhängig, im eigenen Tempo",
@@ -899,9 +899,9 @@ const entscheidungsinstanzen: PainPointContent = {
     imageAlt: "Revisionssichere Entscheidungsdokumentation mit Audit-Trail",
   },
   integrations: {
-    h2: "Verbindet sich mit den Systemen die Sie bereits nutzen.",
+    h2: "Verbindet sich mit den Systemen, die Sie bereits nutzen.",
     h3: "Welche Systeme lassen sich in Entscheidungsverfahren integrieren?",
-    sub: "Kein System das alles ersetzt. NEWEDGE integriert sich in Ihre bestehende Infrastruktur.",
+    sub: "Kein System, das alles ersetzt. NEWEDGE integriert sich in Ihre bestehende Infrastruktur.",
     logos: [LOGO.docusign, LOGO.teams, LOGO.outlook, LOGO.sharepoint, LOGO.googleWorkspace, LOGO.notion, LOGO.calendly, LOGO.zoom, LOGO.personio],
   },
   compare: {
@@ -950,7 +950,7 @@ const entscheidungsinstanzen: PainPointContent = {
   faq: [
     {
       q: "Wie lange dauert die Einrichtung eines KI-Bewertungssystems?",
-      a: "Die initiale Einrichtung dauert in der Regel 1–2 Wochen. Darin enthalten: Import bestehender Kriterienkataloge, Konfiguration der Gewichtungen und eine Testphase mit echten Bewerbungsunterlagen. Pilotprojekte starten meist innerhalb von 14 Tagen produktiv.",
+      a: "In der Regel 1–2 Wochen — inklusive Import bestehender Kriterienkataloge, Konfiguration der Gewichtungen und Testphase mit echten Bewerbungsunterlagen. Pilotprojekte starten meist innerhalb von 14 Tagen produktiv.",
     },
     {
       q: "Können wir unsere bestehenden Bewertungskriterien übernehmen?",
@@ -958,7 +958,7 @@ const entscheidungsinstanzen: PainPointContent = {
     },
     {
       q: "Ist die Bewertung für Bewerber anonym?",
-      a: "Anonymisierung ist konfigurierbar. Namen, Institutionen und persönliche Merkmale können vor der KI-Auswertung maskiert werden. Das reduziert unbewusste Verzerrungen und stärkt die Akzeptanz der Ergebnisse bei allen Beteiligten.",
+      a: "Anonymisierung ist konfigurierbar. Namen, Institutionen und persönliche Merkmale werden vor der Auswertung maskiert. Das reduziert unbewusste Verzerrungen und stärkt die Akzeptanz der Ergebnisse.",
     },
     {
       q: "Ist das System DSGVO-konform und lokal hostbar?",
@@ -1035,7 +1035,7 @@ const localDigitalCommerce: PainPointContent = {
     h2: "Leere Stühle kosten Geld. Jeden Tag.",
     h3: "Terminplanung in Arztpraxen automatisieren — No-Shows systematisch senken",
     sub:
-      "Ein leerer Behandlungsstuhl ist kein Zufall — er ist das Ergebnis eines fehlenden Systems. Verpasste Termine und kurzfristige Absagen kosten Arztpraxen mit drei oder mehr Behandlern im Schnitt 2.000–4.000 € pro Monat. Das Terminplanungssystem von NEWEDGE reduziert No-Shows um 25–30 % und liefert per Echtzeit-Auswertung Überblick über Auslastung und Optimierungspotenziale. Das System konfiguriert sich für jeden Behandler und jede Leistungsart — und bindet sich per API in Ihr bestehendes EHR/EMR ein.",
+      "Verpasste Termine und kurzfristige Absagen kosten Praxen mit drei oder mehr Behandlern im Schnitt 2.000–4.000 € pro Monat. NEWEDGE reduziert No-Shows um 25–30 % und zeigt Auslastung und Optimierungspotenziale in Echtzeit. Konfiguriert pro Behandler und Leistungsart, per API in Ihr bestehendes EHR/EMR eingebunden.",
     bullets: [
       "Automatische Terminerinnerungen per SMS, E-Mail und Sprachnachricht",
       "Echtzeit-Termintracking und Auslastungsauswertung",
@@ -1049,7 +1049,7 @@ const localDigitalCommerce: PainPointContent = {
     h2: "Abrechnungsfehler merkt man meistens erst am Jahresende.",
     h3: "Abrechnung in Arztpraxen automatisieren — GKV/PKV-konform, unter 2 % Fehlerquote",
     sub:
-      "Krankenkassen-Abrechnungscodes sind komplex, anforderungsreich und fehleranfällig. Jeder manuelle Schritt erhöht das Fehlerrisiko — und senkt den tatsächlich ausgezahlten Erstattungsbetrag. NEWEDGE automatisiert den Abrechnungsprozess von der Leistungserbringung bis zur Zahlung: regelbasiert, compliant, ohne manuelle Nacharbeit.",
+      "Krankenkassen-Abrechnungscodes sind komplex, jeder manuelle Schritt erhöht das Fehlerrisiko — und senkt den ausgezahlten Erstattungsbetrag. NEWEDGE automatisiert die Abrechnung von der Leistungserbringung bis zur Zahlung: regelbasiert, konform, ohne Nacharbeit.",
     bullets: [
       "Automatische Codierung und Abrechnung nach Terminart und -dauer",
       "Echtzeit-Leistungsabgleich und Vorab-Autorisierung",
@@ -1063,7 +1063,7 @@ const localDigitalCommerce: PainPointContent = {
     h2: "Keine Praxis ist wie die andere. Ihre auch nicht.",
     h3: "Praxismanagement individuell konfigurieren — für Arztpraxis, MVZ und Therapeuten",
     sub:
-      "Jede Praxis hat ihre eigene Kombination aus Leistungen, Terminarten und Überweisungsprozessen. Ein Standardsystem deckt nie jeden Prozess ab. NEWEDGE konfiguriert eine Lösung nach Ihren Anforderungen — integriert in bestehende Abläufe, skalierbar ohne Systemwechsel.",
+      "Jede Praxis hat ihren eigenen Mix aus Leistungen, Terminarten und Überweisungsprozessen — ein Standardsystem deckt das nie ab. NEWEDGE konfiguriert die Lösung nach Ihren Anforderungen: integriert in bestehende Abläufe, skalierbar ohne Systemwechsel.",
     bullets: [
       "Individuelle Terminarten und -dauern (Einzeltermine, Behandlungen, Erstgespräche, Folgetermine)",
       "Überweisungsmanagement intern und extern, inkl. Kooperation mit anderen Praxen",
@@ -1077,7 +1077,7 @@ const localDigitalCommerce: PainPointContent = {
     h2: "Sie wechseln kein einziges System.",
     h3: "Mit welchen Praxissoftware- und Abrechnungssystemen funktioniert automatisiertes Praxismanagement?",
     sub:
-      "Eine Automatisierungslösung ist nur so stark wie ihre Anbindung an bestehende Systeme. NEWEDGE integriert sich per API in gängige EHR/EMR-Systeme, Abrechnungsplattformen und Kommunikationstools — ohne Datenmigration, ohne IT-Projekt, ohne Doppelpflege.",
+      "NEWEDGE integriert sich per API in gängige EHR/EMR-Systeme, Abrechnungsplattformen und Kommunikationstools — ohne Datenmigration, ohne IT-Projekt, ohne Doppelpflege.",
     logos: [LOGO.calendly, LOGO.outlook, LOGO.googleWorkspace, LOGO.docusign, LOGO.zoom, LOGO.datev, LOGO.personio, LOGO.notion, LOGO.zapier],
   },
   compare: {
@@ -1170,7 +1170,7 @@ const localDigitalCommerce: PainPointContent = {
     steps: [
       {
         name: "Praxis-Check: Systeme und Prozesse analysieren",
-        text: "Kostenloser 20-Minuten-Call. Bestandsaufnahme der vorhandenen EHR/EMR-Systeme, Terminplanungsabläufe und Abrechnungsprozesse. Identifikation von No-Show-Quellen und Fehlerpotenzialen in der Abrechnung. Ergebnis: klares Bild des Ist-Zustands + sofortiges Feedback.",
+        text: "Kostenloser 20-Minuten-Call: Bestandsaufnahme von EHR/EMR-Systemen, Terminplanung und Abrechnung. Ergebnis: klares Bild des Ist-Zustands, No-Show-Quellen und Fehlerpotenziale — mit sofortigem Feedback.",
       },
       {
         name: "Konfiguration und API-Integration",
@@ -1222,13 +1222,13 @@ const handelSupplyChain: PainPointContent = {
   definition: {
     title: "Wie KI die Wertschöpfungskette im Handel absichert",
     body:
-      "Im Handel entscheiden Geschwindigkeit, Genauigkeit und Transparenz über Marge und Kundenzufriedenheit. Trotzdem sehen laut BME/Onventis Einkaufsbarometer 2024 ganze 71% der KMU im Lieferantenmanagement und 56% im Bestellabwicklungsprozess den größten Digitalisierungsbedarf. 33% der Unternehmen verfügen über keine digitalen Prozesse zur Lieferantenqualifizierung. Die Folge: Über 75% der Befragten berichten von erheblichen Mehrkosten infolge gestörter Lieferketten (BME/Onventis Einkaufsbarometer 2025). KI-Automatisierung im Handel bedeutet: Bestellprozesse, Lieferantenkommunikation und Wareneingangsprüfung laufen datengetrieben — in Echtzeit und ohne Medienbrüche.",
+      "Im Handel entscheiden Geschwindigkeit, Genauigkeit und Transparenz über die Marge. Trotzdem sehen laut BME/Onventis Einkaufsbarometer 2024 71% der KMU im Lieferantenmanagement und 56% in der Bestellabwicklung den größten Digitalisierungsbedarf; 33% haben keine digitalen Prozesse zur Lieferantenqualifizierung. Über 75% berichten von erheblichen Mehrkosten durch gestörte Lieferketten (BME/Onventis Einkaufsbarometer 2025). KI-Automatisierung schließt diese Lücke: Bestellprozesse, Lieferantenkommunikation und Wareneingangsprüfung laufen datengetrieben — in Echtzeit, ohne Medienbrüche.",
   },
   feature1: {
     h2: "Bestellungen verarbeitet, bevor jemand die Mail öffnet.",
     h3: "Mail, Portal, EDI oder PDF — jede Order erfasst, extrahiert, übergeben. Ohne Tippfehler.",
     sub:
-      "Bestellungen kommen per Mail, Portal, EDI oder PDF. NEWEDGE erfasst jede eingehende Order automatisch, extrahiert Artikelnummern, Mengen, Liefertermine und Konditionen — und spielt sie direkt ins ERP. Keine manuelle Eingabe, keine Tippfehler, keine vergessene Bestellung. Laut BME sehen 56% der KMU im Bestellabwicklungsprozess dringenden Digitalisierungsbedarf — genau hier setzt die Automatisierung an.",
+      "Bestellungen kommen per Mail, Portal, EDI oder PDF. NEWEDGE erfasst jede Order automatisch, extrahiert Artikelnummern, Mengen, Liefertermine und Konditionen — und spielt sie direkt ins ERP. Keine manuelle Eingabe, keine Tippfehler, keine vergessene Bestellung.",
     bullets: [
       "Automatische Erfassung aller Bestellformate",
       "Datenextraktion und ERP-Übergabe in Echtzeit",
@@ -1241,7 +1241,7 @@ const handelSupplyChain: PainPointContent = {
     h2: "Lieferanten bewerten. Automatisch. Objektiv.",
     h3: "Alle Lieferantendaten aus Wareneingang, Qualität und Reklamationen — ein laufendes, objektives Scoring.",
     sub:
-      "Welcher Lieferant liefert zuverlässig? Wer hat steigende Reklamationsquoten? Das Einkaufsbarometer 2025 zeigt: 80,6% der KMU erkennen im Lieferantenmanagement den größten Digitalisierungsbedarf — doch nur 25% nutzen eine digitale Plattform dafür. NEWEDGE aggregiert alle Lieferantendaten aus Wareneingang, Qualitätsprüfung und Reklamationen und erstellt ein laufendes Scoring. Entscheidungen basieren auf Daten statt Bauchgefühl.",
+      "Welcher Lieferant liefert zuverlässig? Wer hat steigende Reklamationsquoten? 80,6% der KMU sehen im Lieferantenmanagement den größten Digitalisierungsbedarf — nur 25% nutzen eine digitale Plattform dafür (Einkaufsbarometer 2025). NEWEDGE aggregiert Wareneingang, Qualitätsprüfung und Reklamationen zu einem laufenden Scoring. Sie entscheiden auf Daten statt Bauchgefühl.",
     bullets: [
       "Automatisches Lieferanten-Scoring aus Echtzeitdaten",
       "Frühwarnung bei Qualitäts- oder Lieferproblemen",
@@ -1254,7 +1254,7 @@ const handelSupplyChain: PainPointContent = {
     h2: "Wareneingang prüfen — ohne Klemmbrett.",
     h3: "Bestellung, Lieferschein, Wareneingang automatisch abgeglichen — jede Abweichung sofort erkannt.",
     sub:
-      "Lieferschein stimmt nicht mit Bestellung überein. Menge weicht ab. Charge fehlt. Im manuellen Prozess merkt das jemand — oder eben nicht. NEWEDGE gleicht Wareneingang, Bestellung und Lieferschein automatisch ab, erkennt Abweichungen sofort und eskaliert an die richtige Person. 88,9% der Unternehmen sehen die schnelle Integration neuer Lieferanten als Wachstumstreiber — das geht nur mit durchgängig digitalisierten Prozessen.",
+      "Lieferschein stimmt nicht mit Bestellung überein. Menge weicht ab. Charge fehlt. Im manuellen Prozess merkt das jemand — oder eben nicht. NEWEDGE gleicht Bestellung, Lieferschein und Wareneingang automatisch ab und eskaliert Abweichungen sofort an die richtige Person. 88,9% der Unternehmen sehen die schnelle Integration neuer Lieferanten als Wachstumstreiber — das geht nur digital.",
     bullets: [
       "Automatischer Abgleich: Bestellung vs. Lieferschein vs. Wareneingang",
       "Sofort-Eskalation bei Mengen-, Qualitäts- oder Chargenabweichungen",
@@ -1264,9 +1264,9 @@ const handelSupplyChain: PainPointContent = {
     imageAlt: "Automatische Wareneingangsprüfung mit Drei-Wege-Abgleich",
   },
   integrations: {
-    h2: "Verbindet sich mit den Tools die Sie bereits nutzen",
+    h2: "Verbindet sich mit den Tools, die Sie bereits nutzen",
     h3: "SAP, Dynamics, Oracle, Shopify, WooCommerce, EDI — egal ob Großhandel oder D2C.",
-    sub: "SAP, Microsoft Dynamics, Oracle, Shopify, WooCommerce, EDI-Systeme — NEWEDGE integriert sich in Ihre bestehende Handels- und Logistik-Infrastruktur. Egal ob Großhandel mit SAP oder D2C mit Shopify: Das System dockt an und arbeitet im Hintergrund — ohne Systemwechsel, ohne Parallelbetrieb.",
+    sub: "SAP, Microsoft Dynamics, Oracle, Shopify, WooCommerce, EDI-Systeme — NEWEDGE integriert sich in Ihre bestehende Handels- und Logistik-Infrastruktur. Großhandel oder D2C: Das System dockt an und arbeitet im Hintergrund. Kein Systemwechsel, kein Parallelbetrieb.",
     logos: [LOGO.sap, LOGO.shopify, LOGO.woocommerce, LOGO.stripe, LOGO.salesforce, LOGO.datev, LOGO.outlook, LOGO.zapier, LOGO.make],
   },
   compare: {
@@ -1331,8 +1331,8 @@ const handelSupplyChain: PainPointContent = {
     },
   ],
   closingCta: {
-    h2Line1: "Jede Bestellung die manuell landet,",
-    h2Line2Highlighted: "kostet Ihr Team Zeit die Sie nicht haben.",
+    h2Line1: "Jede Bestellung, die manuell landet,",
+    h2Line2Highlighted: "kostet Ihr Team Zeit, die Sie nicht haben.",
     sub: "Im kostenlosen KI-Audit zeigen wir, wo Ihre Supply Chain Prozesse Zeit und Marge verlieren.",
     ctaPrimary: "KI-Audit anfragen",
     ctaSecondary: "Demo ansehen",
@@ -1355,7 +1355,7 @@ const professionalServices: PainPointContent = {
     h1Line1: "Ihre Expertise ist Ihr Geschäft.",
     h1Line2Highlighted: "35–40 % Ihrer Zeit zahlt kein Mandat.",
     sub:
-      "Ihre Expertise ist Ihr Geschäft. Aber 35–40 % Ihrer Arbeitszeit fließt in Aufgaben, für die kein Mandat zahlt: Recherche, Reports, Rückfragen, Dokumentenvorbereitung. NEWEDGE automatisiert genau diese Aufgaben — damit Sie sich auf das konzentrieren, wofür Mandanten tatsächlich bezahlen.",
+      "35–40 % Ihrer Arbeitszeit fließt in Aufgaben, für die kein Mandat zahlt: Recherche, Reports, Rückfragen, Dokumentenvorbereitung. NEWEDGE automatisiert genau diese Aufgaben — Sie konzentrieren sich auf das, wofür Mandanten bezahlen.",
     ctaPrimary: "Kostenlosen Professional-Services-Check buchen",
     ctaSecondary: "Demo ansehen",
     imageNote: "Visual: KI-Agent übernimmt Recherche, Mandantenkommunikation und Reports — Berater fokussiert auf Mandatsarbeit.",
@@ -1370,7 +1370,7 @@ const professionalServices: PainPointContent = {
   definition: {
     title: "Was ist KI-Automatisierung für Professional Services?",
     body:
-      "KI-Automatisierung für Professional Services bedeutet: wiederkehrende, regelbasierte Aufgaben werden von KI-Agenten übernommen — Recherche, Dokumentenanalyse, Mandantenkommunikation, Report-Erstellung, Compliance-Monitoring. Laut McKinsey Global Institute (2023) verbringen Wissensarbeiter 1,8 Stunden täglich mit dem Suchen und Sammeln von Informationen — das sind über 20 % der Arbeitszeit. Eine Studie von Deloitte (2024) zeigt: Kanzleien und Beratungsunternehmen, die KI-gestützte Automatisierung einsetzen, reduzieren ihren administrativen Aufwand um durchschnittlich 35–40 %. Das entspricht bei einer 5-köpfigen Beratung fast zwei vollständigen Arbeitstagen pro Woche.",
+      "KI-Agenten übernehmen wiederkehrende, regelbasierte Aufgaben: Recherche, Dokumentenanalyse, Mandantenkommunikation, Report-Erstellung, Compliance-Monitoring. Wissensarbeiter verbringen 1,8 Stunden täglich mit Suchen und Sammeln von Informationen — über 20 % der Arbeitszeit (McKinsey Global Institute, 2023). Kanzleien und Beratungsunternehmen mit KI-Automatisierung senken ihren administrativen Aufwand um durchschnittlich 35–40 % (Deloitte, 2024) — bei einer 5-köpfigen Beratung fast zwei volle Arbeitstage pro Woche.",
   },
   feature1: {
     h2: "Ihr beratet — aber wer bereitet vor?",
@@ -1473,7 +1473,7 @@ const professionalServices: PainPointContent = {
     steps: [
       {
         name: "Schritt 1: Prozessanalyse und Priorisierung",
-        text: "Wir analysieren Ihre wiederkehrenden Aufgaben und identifizieren, welche Prozesse den größten Zeitverlust verursachen — Recherche, Kommunikation oder Reporting. Ergebnis: priorisierte Automatisierungsliste mit konkreten Zeitersparnis-Schätzungen.",
+        text: "Wir analysieren Ihre wiederkehrenden Aufgaben und finden die größten Zeitfresser — Recherche, Kommunikation oder Reporting. Ergebnis: eine priorisierte Automatisierungsliste mit Zeitersparnis-Schätzung.",
       },
       {
         name: "Schritt 2: Integration und Konfiguration",
@@ -1481,14 +1481,14 @@ const professionalServices: PainPointContent = {
       },
       {
         name: "Schritt 3: Go-live und laufende Optimierung",
-        text: "Nach 5 Werktagen läuft das System produktiv. Sie sehen sofort, welche Aufgaben automatisch erledigt werden und wie viele Stunden eingespart werden. KI-Agenten lernen aus Feedback und verbessern sich kontinuierlich.",
+        text: "Nach 5 Werktagen läuft das System produktiv. Sie sehen, welche Aufgaben automatisch laufen und wie viele Stunden Sie sparen. Die KI-Agenten lernen aus Feedback weiter.",
       },
     ],
   },
   faq: [
     {
       q: "Für welche Professional Services Unternehmen ist NEWEDGE geeignet?",
-      a: "NEWEDGE ist für Beratungsunternehmen (Management, Strategie, Finanzen), Coaches, Anwaltskanzleien, Architektur- und Stadtplanungsbüros, Steuerberater und Wirtschaftsprüfer sowie HR-Consultants und Recruiter geeignet — überall dort, wo wiederkehrende, regelbasierte Aufgaben Zeit fressen.",
+      a: "Beratungsunternehmen (Management, Strategie, Finanzen), Coaches, Anwaltskanzleien, Architektur- und Stadtplanungsbüros, Steuerberater, Wirtschaftsprüfer, HR-Consultants und Recruiter — überall, wo wiederkehrende, regelbasierte Aufgaben Zeit fressen.",
     },
     {
       q: "Wie viel Zeit spare ich tatsächlich ein?",
@@ -1508,7 +1508,7 @@ const professionalServices: PainPointContent = {
     },
     {
       q: "Merken Mandanten, dass ein KI-Agent antwortet?",
-      a: "Das liegt bei Ihnen. NEWEDGE kann transparent als KI-Assistent kommunizieren oder nahtlos in Ihren Markenauftritt integriert werden. Sie entscheiden den Grad der Transparenz.",
+      a: "Das entscheiden Sie. NEWEDGE kommuniziert transparent als KI-Assistent oder fügt sich nahtlos in Ihren Markenauftritt ein.",
     },
     {
       q: "Kann NEWEDGE auch mandantenspezifische Reports generieren?",
