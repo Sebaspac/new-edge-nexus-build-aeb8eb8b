@@ -4,7 +4,7 @@ import { Check, ShieldCheck, Zap, ArrowRight } from "lucide-react";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
-import { EdgePillButton } from "@/components/ui/EdgeCta";
+import { SpeakWithUsCta } from "@/components/SpeakWithUsCta";
 import { ROI_INDUSTRIES, ROI_ENTRY, BRANCHES, PAINFIELDS, NR_TO_PAIN, ROI_APPS, type RoiUseCase, type PainId } from "@/content/roiAudit";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
@@ -457,15 +457,6 @@ const RoiRechner = () => {
                   ))}
                 </div>
 
-                {/* Empfohlener Einstieg */}
-                <div style={{ background: PAPER, borderRadius: "14px", padding: "20px 22px", marginTop: "24px", display: "flex", flexWrap: "wrap", gap: "16px", alignItems: "center", justifyContent: "space-between" }}>
-                  <div style={{ maxWidth: "46ch" }}>
-                    <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "16px", color: INK_DEEP, marginBottom: "4px" }}>Ihr Einstieg: {ROI_ENTRY.label} · {fmtEurExact(ROI_ENTRY.price)} <span style={{ color: VIOLET }}>({ROI_ENTRY.note})</span></div>
-                    <div style={{ fontFamily: OUTFIT, fontSize: "13.5px", color: INK }}>Daraus wird die konkrete Roadmap für Ihre KI-Abteilung — mit fixem Angebot statt Schätzung.</div>
-                  </div>
-                  <EdgePillButton to="/kontakt">Gespräch anfragen</EdgePillButton>
-                </div>
-
                 {/* Lead-Gate: PDF-Report */}
                 <div className="roi-noprint" style={{ borderTop: `1px solid ${HAIRLINE}`, marginTop: "26px", paddingTop: "24px" }}>
                   <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "16px", color: INK_DEEP, marginBottom: "4px" }}>Report als PDF + Tool-Roadmap</div>
@@ -498,6 +489,19 @@ const RoiRechner = () => {
             </motion.div>
           )}
         </section>
+
+        {/* CTA — Standard „Sprechen Sie direkt mit uns" (direkt nach dem PDF-Report) */}
+        {revealed && branche && calc && calc.sel.length > 0 && (
+          <div id="kontakt" className="roi-noprint">
+            <SpeakWithUsCta
+              eyebrow="Bereit loszulegen?"
+              headingLine1="Sprechen Sie"
+              headingLine2="direkt mit uns."
+              phoneHref="tel:+4917660431467"
+              phoneLabel="+49 176 60 431 467"
+            />
+          </div>
+        )}
 
         <div className="roi-noprint">
           <Suspense fallback={<div style={{ minHeight: 200 }} />}>
