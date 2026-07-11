@@ -1,8 +1,37 @@
 # NEWEDGE — Server-Deployment (Website + CMS)
 
-Runbook für das Produktions-Setup auf einem eigenen Server (Ubuntu/Debian
-angenommen). Ergebnis: statische Website + live editierbares Strapi-CMS
-(Texte **und** Bilder) unter einer Domain.
+Runbook für das Produktions-Setup auf einem eigenen Server (Ubuntu/Debian).
+Ergebnis: statische Website + live editierbares Strapi-CMS (Texte **und**
+Bilder) unter einer Domain.
+
+---
+
+## 🚀 Schnellstart — 3 Befehle
+
+Frischer Ubuntu/Debian-Server, DNS zeigt auf die Server-IP, Zugriff auf dieses
+(private) Repo eingerichtet. Dann:
+
+```bash
+git clone git@github.com:Sebaspac/new-edge-strapi.git /opt/newedge/cms
+cd /opt/newedge/cms
+sudo ./deploy/setup.sh newedgebrand.com admin@newedgebrand.com
+```
+
+Das Skript erledigt **alles**: Docker/nginx/Node installieren, Secrets
+generieren, CMS-Stack bauen + Content-Seed, Website klonen/bauen/ausrollen,
+nginx konfigurieren, HTTPS via certbot. Am Ende steht die fertige URL im
+Terminal. Einziger manueller Schritt danach: unter `https://<domain>/admin`
+den ersten Admin-Benutzer anlegen.
+
+**Danach:**
+```bash
+sudo ./deploy/update.sh website   # neues Website-Release ausrollen
+sudo ./deploy/update.sh cms       # CMS-Update (Inhalte bleiben)
+sudo ./deploy/backup.sh           # DB + Uploads sichern (Cron-Zeile im Skript)
+```
+
+Der Rest dieses Dokuments ist das **manuelle Referenz-Runbook** — nur nötig,
+wenn man verstehen oder abweichen will.
 
 ---
 
