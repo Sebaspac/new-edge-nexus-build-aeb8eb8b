@@ -1,0 +1,46 @@
+# NEWEDGE CMS — Produktions-Stack: Strapi 5 + Postgres 16
+#
+#   Erststart (inkl. Content-Seed):  SEED=1 docker compose up -d --build
+#   Normaler Betrieb / Update:       docker compose up -d --build
+#
+# Strapi ist bewusst NUR an 127.0.0.1 gebunden — nach außen geht alles über nginx
+# (siehe deploy/nginx.conf). Secrets kommen aus .env (Vorlage: .env.production.example).
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME:-strapi}
+      POSTGRES_USER: ${DATABASE_USERNAME:-strapi}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:?DATABASE_PASSWORD fehlt in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USERNAME:-strapi} -d ${DATABASE_NAME:-strapi}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  strapi:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: "5432"
+      # SEED=1 nur beim Erststart / nach neuem gen-schemas-Lauf setzen —
+      # überschreibt redaktionelle CMS-Änderungen mit dem Code-Stand!
+      SEED: ${SEED:-0}
+    ports:
+      - "127.0.0.1:1337:1337"
+    volumes:
+      - uploads:/app/public/uploads
+
+volumes:
+  pgdata:
+  uploads:
