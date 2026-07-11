@@ -5,7 +5,10 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { SpeakWithUsCta } from "@/components/SpeakWithUsCta";
-import { ROI_INDUSTRIES, ROI_ENTRY, BRANCHES, PAINFIELDS, NR_TO_PAIN, ROI_APPS, type RoiUseCase, type PainId } from "@/content/roiAudit";
+import { useLanguage } from "@/contexts/LanguageContext";
+import * as ROI_DE from "@/content/roiAudit";
+import * as ROI_EN from "@/content/en/roiAudit";
+import type { RoiUseCase, PainId } from "@/content/roiAudit";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -25,12 +28,17 @@ const ROI_GRADIENT = "linear-gradient(150deg, #2B2A6E 0%, #4244C9 45%, #5658DF 1
 /** n8n-Webhook für die Lead-Zustellung. Leer = Test-Modus (zeigt Erfolg, sendet nicht). */
 const ROI_WEBHOOK_URL = "";
 
-const MATURITY = [
+const MATURITY_DE = [
   { id: "none", t: "Noch gar nicht", d: "Fast alles läuft manuell" },
   { id: "some", t: "Erste Tools", d: "ChatGPT, Zapier o. Ä. im Einsatz" },
   { id: "advanced", t: "Schon einige Automationen", d: "Läuft, aber unsystematisch" },
 ] as const;
-type Maturity = (typeof MATURITY)[number]["id"];
+const MATURITY_EN = [
+  { id: "none", t: "Not yet", d: "Almost everything runs manually" },
+  { id: "some", t: "First tools", d: "ChatGPT, Zapier or similar in use" },
+  { id: "advanced", t: "Some automations already", d: "Running, but unsystematic" },
+] as const;
+type Maturity = (typeof MATURITY_DE)[number]["id"];
 const READINESS: Record<Maturity, number> = { none: 0.85, some: 1.0, advanced: 1.1 };
 const REALISM_DEFAULT: Record<Maturity, number> = { none: 32, some: 45, advanced: 55 };
 const HOURS_PER_FTE = 1600;
@@ -44,16 +52,22 @@ function ucValue(uc: RoiUseCase, t: number, readiness: number, teamFactor: numbe
 }
 const netOf = (v: number) => v * 0.85;
 const leverImpl = (uc: RoiUseCase) => 1500 + (10 - uc.effort) * 900;
-const effortLabel = (e: number) => (e >= 8 ? "niedrig" : e >= 6 ? "mittel" : "hoch");
 
-function fmtEur(n: number) {
-  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(".", ",") + " Mio. €";
-  if (n >= 1000) return Math.round(n / 1000) + " Tsd. €";
-  return Math.round(n) + " €";
-}
-const fmtEurExact = (n: number) => n.toLocaleString("de-DE") + " €";
-const fmtNum = (n: number) => Math.round(n).toLocaleString("de-DE");
-const fmtDec = (n: number) => n.toFixed(1).replace(".", ",");
+/* Locale-abhängige Zahlformate — Rechenwerte bleiben identisch, nur die Darstellung wechselt. */
+const makeFmt = (en: boolean) => {
+  const loc = en ? "en-US" : "de-DE";
+  const dec = (s: string) => (en ? s : s.replace(".", ","));
+  return {
+    fmtEur(n: number) {
+      if (n >= 1_000_000) return dec((n / 1_000_000).toFixed(1)) + (en ? "M €" : " Mio. €");
+      if (n >= 1000) return Math.round(n / 1000) + (en ? "k €" : " Tsd. €");
+      return Math.round(n) + " €";
+    },
+    fmtEurExact: (n: number) => n.toLocaleString(loc) + " €",
+    fmtNum: (n: number) => Math.round(n).toLocaleString(loc),
+    fmtDec: (n: number) => dec(n.toFixed(1)),
+  };
+};
 
 function useAnimatedNumber(target: number) {
   const [display, setDisplay] = useState(target);
@@ -81,9 +95,168 @@ const inputStyle: React.CSSProperties = {
   fontSize: "15px", fontFamily: OUTFIT, color: INK_DEEP, background: PAPER_PURE, outline: "none",
 };
 
-type Field = { pf: (typeof PAINFIELDS)[number]; rep: RoiUseCase; apps: string[] };
+type Field = { pf: (typeof ROI_DE.PAINFIELDS)[number]; rep: RoiUseCase; apps: string[] };
+
+/* ── UI-Wörterbuch: DE 1:1 aus dem Original, EN als Spiegel ── */
+const T_DE = {
+  seoTitle: "KI-Hebel-Audit — Ihre KI-Abteilung nach Branche | NEWEDGE",
+  seoDescription: "Branchenspezifisches Kurz-Audit: welche Rollen Ihrer KI-Abteilung sich zuerst auszahlen — in Euro, freigesetzten Stunden und Wachstums-Kapazität. Kostenlos.",
+  seoCanonical: "/roi-rechner",
+  heroTitle: <>Welche Rollen Ihre <span style={{ color: VIOLET }}>KI-Abteilung</span> zuerst braucht.</>,
+  heroSub: "Wählen Sie Ihre Branche und die Mitglieder Ihrer künftigen KI-Abteilung. Sie sehen das Potenzial in Euro, freigesetzten Stunden und Wachstums-Kapazität — pro Rolle, aus über 40 realen Automatisierungen.",
+  stepOf: (n: number) => `Schritt ${n} von 3`,
+  s1Title: "Ihre Branche",
+  s1Sub: "Wir gleichen mit realen Automatisierungs-Werten aus Ihrem Anwendungsfeld ab.",
+  teamLabel: (n: number) => `Teamgröße · ${n} Mitarbeitende`,
+  next: "Weiter",
+  s2Title: "Ihre KI-Abteilung",
+  s2Sub: (label: string) => `Welche Rollen würden Ihnen in „${label}" am meisten Arbeit abnehmen? Mehrfachauswahl.`,
+  eg: "z. B. ",
+  hoursWeek: (h: number) => `~${String(h).replace(".", ",")} Std./Woche`,
+  toolsQuestion: "Welche dieser Tools nutzen Sie schon?",
+  back: "← Zurück",
+  s3Title: "Ihr Startpunkt",
+  s3Sub: "Wie weit sind Sie mit Automatisierung? Das kalibriert, wie schnell Sie den Wert heben.",
+  viewAnalysis: "Analyse ansehen",
+  changeAnswers: "← Antworten ändern",
+  auditEyebrow: "Ihr Kurz-Audit",
+  emptyNoBranche: "Wählen Sie Ihre Branche. Wir gleichen mit realen Automatisierungs-Werten aus über 40 Use Cases ab.",
+  emptyNoRoles: "Wählen Sie die Rollen Ihrer KI-Abteilung. Ihr Potenzial erscheint hier sofort.",
+  lensMoney: "Geld",
+  lensTime: "Zeit",
+  lensGrowth: "Wachstum",
+  hrsUnit: "Std.",
+  moneySub: "Netto-Einsparpotenzial / Jahr",
+  timeSub: "freigesetzte Arbeitszeit / Jahr",
+  growthSub: "Kapazität, die frei wird",
+  moneyRange: (lo: string, hi: string) => `konservativ ${lo} … ambitioniert ${hi}`,
+  timeRange: (fte: string) => `≈ ${fte} Vollzeitkräfte, die Sie für anderes einsetzen können`,
+  growthRange: (hours: string) => `${hours} Std./Jahr — reinvestierbar statt Neueinstellung`,
+  benchmark: (label: string, full: string, share: number) => (
+    <>Betriebe in „{label}" heben mit einer vollen KI-Abteilung typischerweise <strong>{full}/Jahr</strong>. Sie adressieren gerade <strong>{share}%</strong> davon.</>
+  ),
+  stackTitle: (n: number) => `Ihr Stack · ${n} ${n === 1 ? "Tool" : "Tools"}`,
+  stackNote: "Diese Tools binden wir direkt an — Ihre KI-Abteilung baut auf dem auf, was schon läuft, statt es zu ersetzen.",
+  growthLever: (fte: string, sub: string) => (
+    <><strong>{fte} Vollzeitkräfte</strong> frei — genug, um z. B. „{sub}" auszubauen, Durchlaufzeiten zu senken oder mehr Aufträge zu stemmen, ohne einzustellen.</>
+  ),
+  byRole: "Nach Rolle",
+  realismTitle: "Realitäts-Regler",
+  realismValue: (r: number): string => (r < 33 ? "sehr konservativ" : r < 67 ? "ausgewogen" : "ambitioniert"),
+  payback: (p: number) => (p < 1 ? "< 1 Mon." : `${Math.round(p)} Mon.`),
+  paybackLab: "Amortisation",
+  entryVal: (price: string) => `ab ${price}`,
+  entryLab: (note: string) => `Einstieg · ${note}`,
+  footnoteModeled: "Modellierte Richtwerte für Entscheidungsinstanzen, skaliert auf Reifegrad und Teamgröße, minus ~15 % laufende Kosten.",
+  footnoteReal: "Spannen aus realen Automatisierungen, skaliert auf Reifegrad und Teamgröße, minus ~15 % laufende Kosten. Investition = KI-Audit + geschätzte Umsetzung.",
+  roadmapTitle: "Ihre KI-Abteilung im Einsatz",
+  roadmapSub: "Sortiert nach Wirkung × Aufwand. Quick Wins zuerst — inklusive des Tool-Stacks, mit dem wir jede Rolle bauen.",
+  effortWord: "Aufwand",
+  effortLow: "niedrig",
+  effortMid: "mittel",
+  effortHigh: "hoch",
+  perYearShort: "/J",
+  reportTitle: "Report als PDF + Tool-Roadmap",
+  reportSub: "Speichern Sie Ihr Audit inkl. Tool-Roadmap direkt als PDF — oder lassen Sie es sich persönlich per E-Mail schicken.",
+  savePdf: "Als PDF speichern",
+  phName: "Name",
+  phCompany: "Unternehmen",
+  phEmail: "E-Mail",
+  sendingLabel: "Wird gesendet …",
+  requestReport: "Report anfordern",
+  noSharing: "Keine Weitergabe.",
+  leadSuccess: (email: string) => (
+    <>Unterwegs an <strong>{email}</strong>. Wir melden uns mit Ihrer Roadmap.</>
+  ),
+  ctaEyebrow: "Bereit loszulegen?",
+  ctaLine1: "Sprechen Sie",
+  ctaLine2: "direkt mit uns.",
+};
+
+const T_EN: typeof T_DE = {
+  seoTitle: "AI Leverage Audit — Your AI Department by Industry | NEWEDGE",
+  seoDescription: "Industry-specific quick audit: which roles of your AI department pay off first — in euros, freed-up hours and growth capacity. Free.",
+  seoCanonical: "/en/roi-rechner",
+  heroTitle: <>Which roles your <span style={{ color: VIOLET }}>AI department</span> needs first.</>,
+  heroSub: "Choose your industry and the members of your future AI department. You'll see the potential in euros, freed-up hours and growth capacity — per role, from over 40 real automations.",
+  stepOf: (n) => `Step ${n} of 3`,
+  s1Title: "Your industry",
+  s1Sub: "We benchmark against real automation values from your field.",
+  teamLabel: (n) => `Team size · ${n} employees`,
+  next: "Next",
+  s2Title: "Your AI department",
+  s2Sub: (label) => `Which roles would take the most work off your plate in “${label}”? Select as many as you like.`,
+  eg: "e.g. ",
+  hoursWeek: (h) => `~${h} hrs/week`,
+  toolsQuestion: "Which of these tools do you already use?",
+  back: "← Back",
+  s3Title: "Your starting point",
+  s3Sub: "How far along are you with automation? This calibrates how fast you unlock the value.",
+  viewAnalysis: "View analysis",
+  changeAnswers: "← Change answers",
+  auditEyebrow: "Your quick audit",
+  emptyNoBranche: "Choose your industry. We benchmark against real automation values from over 40 use cases.",
+  emptyNoRoles: "Choose the roles of your AI department. Your potential shows up here instantly.",
+  lensMoney: "Money",
+  lensTime: "Time",
+  lensGrowth: "Growth",
+  hrsUnit: "hrs",
+  moneySub: "Net savings potential / year",
+  timeSub: "freed-up working time / year",
+  growthSub: "Capacity you free up",
+  moneyRange: (lo, hi) => `conservative ${lo} … ambitious ${hi}`,
+  timeRange: (fte) => `≈ ${fte} full-time equivalents you can deploy elsewhere`,
+  growthRange: (hours) => `${hours} hrs/year — reinvestable instead of a new hire`,
+  benchmark: (label, full, share) => (
+    <>Businesses in “{label}” typically unlock <strong>{full}/year</strong> with a full AI department. You're currently addressing <strong>{share}%</strong> of that.</>
+  ),
+  stackTitle: (n) => `Your stack · ${n} ${n === 1 ? "tool" : "tools"}`,
+  stackNote: "We connect these tools directly — your AI department builds on what's already running instead of replacing it.",
+  growthLever: (fte, sub) => (
+    <><strong>{fte} full-time equivalents</strong> freed up — enough to e.g. grow “{sub}”, cut turnaround times or take on more orders without hiring.</>
+  ),
+  byRole: "By role",
+  realismTitle: "Reality slider",
+  realismValue: (r) => (r < 33 ? "very conservative" : r < 67 ? "balanced" : "ambitious"),
+  payback: (p) => (p < 1 ? "< 1 mo." : `${Math.round(p)} mo.`),
+  paybackLab: "Payback",
+  entryVal: (price) => `from ${price}`,
+  entryLab: (note) => `Entry · ${note}`,
+  footnoteModeled: "Modeled benchmark values for decision-making bodies, scaled to maturity and team size, minus ~15% running costs.",
+  footnoteReal: "Ranges from real automations, scaled to maturity and team size, minus ~15% running costs. Investment = AI audit + estimated implementation.",
+  roadmapTitle: "Your AI department at work",
+  roadmapSub: "Sorted by impact × effort. Quick wins first — including the tool stack we build each role with.",
+  effortWord: "Effort",
+  effortLow: "low",
+  effortMid: "medium",
+  effortHigh: "high",
+  perYearShort: "/yr",
+  reportTitle: "Report as PDF + tool roadmap",
+  reportSub: "Save your audit incl. the tool roadmap straight to PDF — or have it sent to you personally by email.",
+  savePdf: "Save as PDF",
+  phName: "Name",
+  phCompany: "Company",
+  phEmail: "Email",
+  sendingLabel: "Sending …",
+  requestReport: "Request report",
+  noSharing: "Never shared.",
+  leadSuccess: (email) => (
+    <>On its way to <strong>{email}</strong>. We'll follow up with your roadmap.</>
+  ),
+  ctaEyebrow: "Ready to get started?",
+  ctaLine1: "Talk to us",
+  ctaLine2: "directly.",
+};
 
 const RoiRechner = () => {
+  const { language } = useLanguage();
+  const en = language === "en";
+  const C = en ? ROI_EN : ROI_DE; // Content-Modul (DE-Original / EN-Mirror, strukturidentisch)
+  const T = en ? T_EN : T_DE;
+  const MATURITY = en ? MATURITY_EN : MATURITY_DE;
+  const { fmtEur, fmtEurExact, fmtNum, fmtDec } = makeFmt(en);
+  const effortLabel = (e: number) => (e >= 8 ? T.effortLow : e >= 6 ? T.effortMid : T.effortHigh);
+
   const [step, setStep] = useState(1);
   const [brancheId, setBrancheId] = useState<string | null>(null);
   const [team, setTeam] = useState(12);
@@ -98,7 +271,7 @@ const RoiRechner = () => {
   const [sending, setSending] = useState(false);
   const [revealed, setRevealed] = useState(false); // Analyse erst nach den Fragen zeigen
 
-  const branche = useMemo(() => BRANCHES.find((b) => b.id === brancheId) || null, [brancheId]);
+  const branche = useMemo(() => C.BRANCHES.find((b) => b.id === brancheId) || null, [brancheId, C]);
   const teamFactor = clamp(team / 20, 0.7, 2.0);
   const readiness = maturity ? READINESS[maturity] : 1.0;
   const t = realism / 100;
@@ -106,20 +279,20 @@ const RoiRechner = () => {
   // Ein repräsentativer Use Case je Persona für die gewählte Branche (bester Score aus den gebündelten Industrien)
   const fields = useMemo<Field[]>(() => {
     if (!branche) return [];
-    const pooled = branche.industryIds.flatMap((iid) => ROI_INDUSTRIES.find((i) => i.id === iid)?.useCases || []);
-    return PAINFIELDS.map((pf) => {
-      const cands = pooled.filter((u) => NR_TO_PAIN[u.nr] === pf.id);
+    const pooled = branche.industryIds.flatMap((iid) => C.ROI_INDUSTRIES.find((i) => i.id === iid)?.useCases || []);
+    return C.PAINFIELDS.map((pf) => {
+      const cands = pooled.filter((u) => C.NR_TO_PAIN[u.nr] === pf.id);
       if (!cands.length) return null;
       const rep = cands.slice().sort((a, b) => b.score - a.score || b.roiMax - a.roiMax)[0];
       // Kuratierte, real in DE je Branche genutzte Apps für dieses Feld (anklickbar)
-      const apps = ROI_APPS[branche.id]?.[pf.id] ?? [];
+      const apps = C.ROI_APPS[branche.id]?.[pf.id] ?? [];
       return { pf, rep, apps };
     }).filter(Boolean) as Field[];
-  }, [branche]);
+  }, [branche, C]);
 
   const estimated = useMemo(
-    () => !!branche && branche.industryIds.some((iid) => ROI_INDUSTRIES.find((i) => i.id === iid)?.estimated),
-    [branche]
+    () => !!branche && branche.industryIds.some((iid) => C.ROI_INDUSTRIES.find((i) => i.id === iid)?.estimated),
+    [branche, C]
   );
 
   const calc = useMemo(() => {
@@ -129,14 +302,14 @@ const RoiRechner = () => {
     const totalNet = rows.reduce((s, r) => s + r.net, 0);
     const netLo = sel.reduce((s, f) => s + netOf(ucValue(f.rep, 0, readiness, teamFactor)), 0);
     const netHi = sel.reduce((s, f) => s + netOf(ucValue(f.rep, 1, readiness, teamFactor)), 0);
-    const invest = ROI_ENTRY.price + sel.reduce((s, f) => s + leverImpl(f.rep), 0);
+    const invest = C.ROI_ENTRY.price + sel.reduce((s, f) => s + leverImpl(f.rep), 0);
     const payback = totalNet > 0 ? invest / (totalNet / 12) : 0;
     const fullNet = fields.reduce((s, f) => s + netOf(ucValue(f.rep, t, readiness, teamFactor)), 0);
     const share = fullNet > 0 ? Math.round((totalNet / fullNet) * 100) : 0;
     const hoursYear = sel.reduce((s, f) => s + f.rep.hours * 46 * teamFactor, 0);
     const fte = hoursYear / HOURS_PER_FTE;
     return { sel, rows, totalNet, netLo, netHi, invest, payback, fullNet, share, hoursYear, fte, maxNet: rows[0]?.net || 1, topField: rows[0] };
-  }, [branche, fields, selected, t, readiness, teamFactor]);
+  }, [branche, fields, selected, t, readiness, teamFactor, C]);
 
   const animatedNet = useAnimatedNumber(calc?.totalNet || 0);
 
@@ -164,9 +337,9 @@ const RoiRechner = () => {
   return (
     <>
       <SEOHead
-        title="KI-Hebel-Audit — Ihre KI-Abteilung nach Branche | NEWEDGE"
-        description="Branchenspezifisches Kurz-Audit: welche Rollen Ihrer KI-Abteilung sich zuerst auszahlen — in Euro, freigesetzten Stunden und Wachstums-Kapazität. Kostenlos."
-        canonical="/roi-rechner"
+        title={T.seoTitle}
+        description={T.seoDescription}
+        canonical={T.seoCanonical}
       />
       <style>{`
         .roi-range{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;outline:none;cursor:pointer}
@@ -190,10 +363,10 @@ const RoiRechner = () => {
         <section className="roi-noprint" style={{ display: revealed ? "none" : "block", maxWidth: "1140px", margin: "0 auto", padding: "clamp(104px,15vh,150px) clamp(20px,4vw,40px) clamp(20px,3vw,32px)", textAlign: "center" }}>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <h1 style={{ color: INK_DEEP, textWrap: "balance", maxWidth: "20ch", margin: "0 auto" }}>
-              Welche Rollen Ihre <span style={{ color: VIOLET }}>KI-Abteilung</span> zuerst braucht.
+              {T.heroTitle}
             </h1>
             <p style={{ fontFamily: OUTFIT, color: INK, maxWidth: "62ch", margin: "20px auto 0", fontSize: "17px" }}>
-              Wählen Sie Ihre Branche und die Mitglieder Ihrer künftigen KI-Abteilung. Sie sehen das Potenzial in Euro, freigesetzten Stunden und Wachstums-Kapazität — pro Rolle, aus über 40 realen Automatisierungen.
+              {T.heroSub}
             </p>
           </motion.div>
         </section>
@@ -209,15 +382,15 @@ const RoiRechner = () => {
                   {[1, 2, 3].map((i) => (
                     <span key={i} style={{ width: i === step ? "22px" : "8px", height: "8px", borderRadius: "99px", background: i === step ? VIOLET : i < step ? VIOLET_LIGHT : HAIRLINE, transition: "all .3s ease" }} />
                   ))}
-                  <span style={{ marginLeft: "auto", fontFamily: OUTFIT, fontSize: "13px", fontWeight: 500, color: "#8A85A0" }}>Schritt {step} von 3</span>
+                  <span style={{ marginLeft: "auto", fontFamily: OUTFIT, fontSize: "13px", fontWeight: 500, color: "#8A85A0" }}>{T.stepOf(step)}</span>
                 </div>
 
                 {/* STEP 1 — Branche + Team */}
                 {step === 1 && (
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
-                    <StepHead title="Ihre Branche" sub="Wir gleichen mit realen Automatisierungs-Werten aus Ihrem Anwendungsfeld ab." />
+                    <StepHead title={T.s1Title} sub={T.s1Sub} />
                     <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "24px" }}>
-                      {BRANCHES.map((b) => {
+                      {C.BRANCHES.map((b) => {
                         const active = brancheId === b.id;
                         return (
                           <button key={b.id} type="button" onClick={() => { setBrancheId(b.id); setSelected(new Set()); }}
@@ -229,15 +402,15 @@ const RoiRechner = () => {
                         );
                       })}
                     </div>
-                    <RangeField label={`Teamgröße · ${team} Mitarbeitende`} min={1} max={150} value={team} onChange={setTeam} />
-                    <PrimaryButton disabled={!canNext} onClick={() => setStep(2)}>Weiter</PrimaryButton>
+                    <RangeField label={T.teamLabel(team)} min={1} max={150} value={team} onChange={setTeam} />
+                    <PrimaryButton disabled={!canNext} onClick={() => setStep(2)}>{T.next}</PrimaryButton>
                   </motion.div>
                 )}
 
                 {/* STEP 2 — KI-Abteilung (Personas) */}
                 {step === 2 && branche && (
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
-                    <StepHead title="Ihre KI-Abteilung" sub={`Welche Rollen würden Ihnen in „${branche.label}" am meisten Arbeit abnehmen? Mehrfachauswahl.`} />
+                    <StepHead title={T.s2Title} sub={T.s2Sub(branche.label)} />
                     <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "24px" }}>
                       {fields.map(({ pf, rep, apps }) => {
                         const active = selected.has(pf.id);
@@ -255,16 +428,16 @@ const RoiRechner = () => {
                                   {active && <Check style={{ width: "13px", height: "13px", color: "#fff" }} strokeWidth={3} />}
                                 </span>
                               </div>
-                              <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: INK, marginTop: "5px", lineHeight: 1.5 }}>z. B. {rep.prozess}</div>
+                              <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: INK, marginTop: "5px", lineHeight: 1.5 }}>{T.eg}{rep.prozess}</div>
                               <div style={{ display: "flex", gap: "12px", marginTop: "8px", fontFamily: OUTFIT, fontSize: "12px", color: "#8A85A0" }}>
-                                <span>~{String(rep.hours).replace(".", ",")} Std./Woche</span>
+                                <span>{T.hoursWeek(rep.hours)}</span>
                                 {rep.quickWin && <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", color: VIOLET }}><Zap style={{ width: "12px", height: "12px" }} strokeWidth={2.4} /> Quick Win</span>}
                               </div>
                             </button>
                             {/* Tools, die man je nach Anwendungsfeld schon nutzt — anklickbar */}
                             {active && apps.length > 0 && (
                               <div style={{ padding: "0 16px 14px" }}>
-                                <div style={{ fontFamily: OUTFIT, fontSize: "11.5px", fontWeight: 600, color: "#8A85A0", margin: "0 0 8px" }}>Welche dieser Tools nutzen Sie schon?</div>
+                                <div style={{ fontFamily: OUTFIT, fontSize: "11.5px", fontWeight: 600, color: "#8A85A0", margin: "0 0 8px" }}>{T.toolsQuestion}</div>
                                 <div style={{ display: "flex", flexWrap: "wrap", gap: "7px" }}>
                                   {apps.map((app) => {
                                     const on = usedApps.has(app);
@@ -282,15 +455,15 @@ const RoiRechner = () => {
                         );
                       })}
                     </div>
-                    <PrimaryButton disabled={!canNext} onClick={() => setStep(3)}>Weiter</PrimaryButton>
-                    <BackLink onClick={() => setStep(1)} />
+                    <PrimaryButton disabled={!canNext} onClick={() => setStep(3)}>{T.next}</PrimaryButton>
+                    <BackLink onClick={() => setStep(1)} label={T.back} />
                   </motion.div>
                 )}
 
                 {/* STEP 3 — Reifegrad */}
                 {step === 3 && (
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
-                    <StepHead title="Ihr Startpunkt" sub="Wie weit sind Sie mit Automatisierung? Das kalibriert, wie schnell Sie den Wert heben." />
+                    <StepHead title={T.s3Title} sub={T.s3Sub} />
                     <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "24px" }}>
                       {MATURITY.map((m) => {
                         const active = maturity === m.id;
@@ -303,8 +476,8 @@ const RoiRechner = () => {
                         );
                       })}
                     </div>
-                    <PrimaryButton disabled={!canNext} onClick={() => { setRevealed(true); setTimeout(() => { const el = document.getElementById("audit"); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 60); }}>Analyse ansehen</PrimaryButton>
-                    <BackLink onClick={() => setStep(2)} />
+                    <PrimaryButton disabled={!canNext} onClick={() => { setRevealed(true); setTimeout(() => { const el = document.getElementById("audit"); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 60); }}>{T.viewAnalysis}</PrimaryButton>
+                    <BackLink onClick={() => setStep(2)} label={T.back} />
                   </motion.div>
                 )}
               </div>
@@ -315,23 +488,23 @@ const RoiRechner = () => {
               {revealed && (
                 <button type="button" onClick={() => setRevealed(false)}
                   style={{ border: "none", background: "transparent", cursor: "pointer", fontFamily: OUTFIT, fontSize: "13px", fontWeight: 600, color: "#8A85A0", padding: "0 0 14px", display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                  ← Antworten ändern
+                  {T.changeAnswers}
                 </button>
               )}
               <div style={{ background: ROI_GRADIENT, borderRadius: "18px", padding: "clamp(24px,3vw,36px)", color: "#fff", boxShadow: "0 20px 50px -24px rgba(86,88,223,0.5)" }}>
                 <div style={{ fontFamily: OUTFIT, fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.72, marginBottom: "16px" }}>
-                  {branche ? `Ihr Kurz-Audit · ${branche.cool}` : "Ihr Kurz-Audit"}
+                  {branche ? `${T.auditEyebrow} · ${branche.cool}` : T.auditEyebrow}
                 </div>
 
                 {!branche || !calc || calc.sel.length === 0 ? (
                   <div style={{ fontFamily: OUTFIT, fontSize: "15px", opacity: 0.8, lineHeight: 1.6, padding: "8px 0 6px" }}>
-                    {branche ? "Wählen Sie die Rollen Ihrer KI-Abteilung. Ihr Potenzial erscheint hier sofort." : "Wählen Sie Ihre Branche. Wir gleichen mit realen Automatisierungs-Werten aus über 40 Use Cases ab."}
+                    {branche ? T.emptyNoRoles : T.emptyNoBranche}
                   </div>
                 ) : (
                   <>
                     {/* Lens-Umschalter: Geld · Zeit · Wachstum */}
                     <div style={{ display: "inline-flex", background: "rgba(255,255,255,0.10)", borderRadius: "99px", padding: "3px", marginBottom: "16px" }}>
-                      {([["geld", "Geld"], ["zeit", "Zeit"], ["wachstum", "Wachstum"]] as const).map(([id, lbl]) => (
+                      {([["geld", T.lensMoney], ["zeit", T.lensTime], ["wachstum", T.lensGrowth]] as const).map(([id, lbl]) => (
                         <button key={id} type="button" onClick={() => setLens(id)}
                           style={{ border: "none", cursor: "pointer", fontFamily: OUTFIT, fontSize: "12.5px", fontWeight: 600, padding: "6px 15px", borderRadius: "99px", background: lens === id ? "#fff" : "transparent", color: lens === id ? INK_DEEP : "rgba(255,255,255,0.8)", transition: "background .18s" }}>
                           {lbl}
@@ -340,23 +513,23 @@ const RoiRechner = () => {
                     </div>
 
                     <div style={{ fontFamily: OUTFIT, fontSize: "clamp(38px,6vw,52px)", fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1, fontVariantNumeric: "tabular-nums", marginBottom: "4px" }}>
-                      {lens === "geld" ? fmtEur(animatedNet) : lens === "zeit" ? `${fmtNum(calc.hoursYear)} Std.` : `${fmtDec(calc.fte)} FTE`}
+                      {lens === "geld" ? fmtEur(animatedNet) : lens === "zeit" ? `${fmtNum(calc.hoursYear)} ${T.hrsUnit}` : `${fmtDec(calc.fte)} FTE`}
                     </div>
                     <div style={{ fontFamily: OUTFIT, fontSize: "13px", opacity: 0.72, marginBottom: "6px" }}>
-                      {lens === "geld" ? "Netto-Einsparpotenzial / Jahr" : lens === "zeit" ? "freigesetzte Arbeitszeit / Jahr" : "Kapazität, die frei wird"}
+                      {lens === "geld" ? T.moneySub : lens === "zeit" ? T.timeSub : T.growthSub}
                     </div>
                     <div style={{ fontFamily: OUTFIT, fontSize: "12px", opacity: 0.62, marginBottom: "22px" }}>
                       {lens === "geld"
-                        ? `konservativ ${fmtEur(calc.netLo)} … ambitioniert ${fmtEur(calc.netHi)}`
+                        ? T.moneyRange(fmtEur(calc.netLo), fmtEur(calc.netHi))
                         : lens === "zeit"
-                        ? `≈ ${fmtDec(calc.fte)} Vollzeitkräfte, die Sie für anderes einsetzen können`
-                        : `${fmtNum(calc.hoursYear)} Std./Jahr — reinvestierbar statt Neueinstellung`}
+                        ? T.timeRange(fmtDec(calc.fte))
+                        : T.growthRange(fmtNum(calc.hoursYear))}
                     </div>
 
                     {/* Benchmark-Verdikt */}
                     <div style={{ background: "rgba(255,255,255,0.08)", borderRadius: "12px", padding: "14px 16px", marginBottom: "20px" }}>
                       <div style={{ fontFamily: OUTFIT, fontSize: "13px", lineHeight: 1.55, opacity: 0.92 }}>
-                        Betriebe in „{branche.label}" heben mit einer vollen KI-Abteilung typischerweise <strong>{fmtEur(calc.fullNet)}/Jahr</strong>. Sie adressieren gerade <strong>{calc.share}%</strong> davon.
+                        {T.benchmark(branche.label, fmtEur(calc.fullNet), calc.share)}
                       </div>
                       <div style={{ position: "relative", height: "6px", borderRadius: "99px", background: "rgba(255,255,255,0.18)", marginTop: "10px", overflow: "hidden" }}>
                         <div className="lk-fill" style={{ height: "100%", width: `${clamp(calc.share, 2, 100)}%`, background: "#fff", borderRadius: "99px" }} />
@@ -367,7 +540,7 @@ const RoiRechner = () => {
                     {usedApps.size > 0 && (
                       <div style={{ background: "rgba(255,255,255,0.08)", borderRadius: "12px", padding: "14px 16px", marginBottom: "20px" }}>
                         <div style={{ fontFamily: OUTFIT, fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", opacity: 0.6, marginBottom: "10px" }}>
-                          Ihr Stack · {usedApps.size} {usedApps.size === 1 ? "Tool" : "Tools"}
+                          {T.stackTitle(usedApps.size)}
                         </div>
                         <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "10px" }}>
                           {Array.from(usedApps).map((app) => (
@@ -375,7 +548,7 @@ const RoiRechner = () => {
                           ))}
                         </div>
                         <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", lineHeight: 1.5, opacity: 0.82 }}>
-                          Diese Tools binden wir direkt an — Ihre KI-Abteilung baut auf dem auf, was schon läuft, statt es zu ersetzen.
+                          {T.stackNote}
                         </div>
                       </div>
                     )}
@@ -384,13 +557,13 @@ const RoiRechner = () => {
                     {lens === "wachstum" && calc.topField && (
                       <div style={{ background: "rgba(194,195,246,0.16)", borderRadius: "12px", padding: "14px 16px", marginBottom: "20px" }}>
                         <div style={{ fontFamily: OUTFIT, fontSize: "13px", lineHeight: 1.55, opacity: 0.95 }}>
-                          <strong>{fmtDec(calc.fte)} Vollzeitkräfte</strong> frei — genug, um z. B. „{calc.topField.pf.sub}" auszubauen, Durchlaufzeiten zu senken oder mehr Aufträge zu stemmen, ohne einzustellen.
+                          {T.growthLever(fmtDec(calc.fte), calc.topField.pf.sub)}
                         </div>
                       </div>
                     )}
 
                     {/* Nach Rolle (KI-Abteilung) */}
-                    <div style={{ fontFamily: OUTFIT, fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", opacity: 0.6, marginBottom: "10px" }}>Nach Rolle</div>
+                    <div style={{ fontFamily: OUTFIT, fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", opacity: 0.6, marginBottom: "10px" }}>{T.byRole}</div>
                     <div style={{ marginBottom: "22px" }}>
                       {calc.rows.map((r) => (
                         <div key={r.pf.id} style={{ marginBottom: "10px" }}>
@@ -408,8 +581,8 @@ const RoiRechner = () => {
                     {/* Realitäts-Regler */}
                     <div style={{ background: "rgba(255,255,255,0.08)", borderRadius: "12px", padding: "12px 14px", marginBottom: "20px" }}>
                       <div style={{ display: "flex", justifyContent: "space-between", fontFamily: OUTFIT, fontSize: "12.5px", marginBottom: "6px", opacity: 0.9 }}>
-                        <span>Realitäts-Regler</span>
-                        <span style={{ fontWeight: 500 }}>{realism < 33 ? "sehr konservativ" : realism < 67 ? "ausgewogen" : "ambitioniert"}</span>
+                        <span>{T.realismTitle}</span>
+                        <span style={{ fontWeight: 500 }}>{T.realismValue(realism)}</span>
                       </div>
                       <input type="range" className="roi-range" min={0} max={100} step={1} value={realism}
                         style={{ background: `linear-gradient(to right,#fff ${realism}%, rgba(255,255,255,0.22) ${realism}%)` }}
@@ -417,13 +590,11 @@ const RoiRechner = () => {
                     </div>
 
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "6px" }}>
-                      <Mini val={calc.payback < 1 ? "< 1 Mon." : `${Math.round(calc.payback)} Mon.`} lab="Amortisation" />
-                      <Mini val={`ab ${fmtEurExact(ROI_ENTRY.price)}`} lab={`Einstieg · ${ROI_ENTRY.note}`} />
+                      <Mini val={T.payback(calc.payback)} lab={T.paybackLab} />
+                      <Mini val={T.entryVal(fmtEurExact(C.ROI_ENTRY.price))} lab={T.entryLab(C.ROI_ENTRY.note)} />
                     </div>
                     <div style={{ fontFamily: OUTFIT, fontSize: "11.5px", opacity: 0.55, lineHeight: 1.5, marginTop: "8px" }}>
-                      {estimated
-                        ? "Modellierte Richtwerte für Entscheidungsinstanzen, skaliert auf Reifegrad und Teamgröße, minus ~15 % laufende Kosten."
-                        : "Spannen aus realen Automatisierungen, skaliert auf Reifegrad und Teamgröße, minus ~15 % laufende Kosten. Investition = KI-Audit + geschätzte Umsetzung."}
+                      {estimated ? T.footnoteModeled : T.footnoteReal}
                     </div>
                   </>
                 )}
@@ -435,9 +606,9 @@ const RoiRechner = () => {
           {revealed && branche && calc && calc.sel.length > 0 && (
             <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.5, ease: EASE }} style={{ marginTop: "clamp(24px,3vw,36px)" }}>
               <div style={{ background: PAPER_PURE, borderRadius: "18px", border: `1px solid ${HAIRLINE}`, padding: "clamp(24px,3vw,40px)" }}>
-                <h2 style={{ color: INK_DEEP, marginBottom: "6px" }}>Ihre KI-Abteilung im Einsatz</h2>
+                <h2 style={{ color: INK_DEEP, marginBottom: "6px" }}>{T.roadmapTitle}</h2>
                 <p style={{ fontFamily: OUTFIT, color: INK, fontSize: "15px", marginBottom: "24px" }}>
-                  Sortiert nach Wirkung × Aufwand. Quick Wins zuerst — inklusive des Tool-Stacks, mit dem wir jede Rolle bauen.
+                  {T.roadmapSub}
                 </p>
                 <div>
                   {calc.rows.map((r, i) => (
@@ -449,30 +620,30 @@ const RoiRechner = () => {
                           <span style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#8A85A0" }}>{r.pf.sub}</span>
                           {r.rep.quickWin && <span style={{ fontFamily: OUTFIT, fontSize: "11px", fontWeight: 600, color: VIOLET, background: "rgba(86,88,223,0.10)", padding: "2px 8px", borderRadius: "6px" }}>Quick Win</span>}
                         </div>
-                        <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#8A85A0" }}>z. B. {r.rep.prozess} · Aufwand {effortLabel(r.rep.effort)}{r.apps.length > 0 ? ` · Tools: ${r.apps.slice(0, 5).join(" · ")}` : ""}</div>
+                        <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#8A85A0" }}>{T.eg}{r.rep.prozess} · {T.effortWord} {effortLabel(r.rep.effort)}{r.apps.length > 0 ? ` · Tools: ${r.apps.slice(0, 5).join(" · ")}` : ""}</div>
                       </div>
-                      <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: VIOLET, whiteSpace: "nowrap" }}>{fmtEur(r.net)}<span style={{ fontSize: "12px", fontWeight: 400, color: "#8A85A0" }}>/J</span></div>
+                      <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: VIOLET, whiteSpace: "nowrap" }}>{fmtEur(r.net)}<span style={{ fontSize: "12px", fontWeight: 400, color: "#8A85A0" }}>{T.perYearShort}</span></div>
                     </div>
                   ))}
                 </div>
 
                 {/* Lead-Gate: PDF-Report */}
                 <div className="roi-noprint" style={{ borderTop: `1px solid ${HAIRLINE}`, marginTop: "26px", paddingTop: "24px" }}>
-                  <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "16px", color: INK_DEEP, marginBottom: "4px" }}>Report als PDF + Tool-Roadmap</div>
-                  <p style={{ fontFamily: OUTFIT, fontSize: "13.5px", color: INK, marginBottom: "16px" }}>Speichern Sie Ihr Audit inkl. Tool-Roadmap direkt als PDF — oder lassen Sie es sich persönlich per E-Mail schicken.</p>
+                  <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "16px", color: INK_DEEP, marginBottom: "4px" }}>{T.reportTitle}</div>
+                  <p style={{ fontFamily: OUTFIT, fontSize: "13.5px", color: INK, marginBottom: "16px" }}>{T.reportSub}</p>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center", marginBottom: "18px" }}>
-                    <PrimaryButton inline onClick={() => window.print()}>Als PDF speichern</PrimaryButton>
+                    <PrimaryButton inline onClick={() => window.print()}>{T.savePdf}</PrimaryButton>
                   </div>
                   {!leadDone ? (
                     <>
                       <div className="grid grid-cols-1 sm:grid-cols-3" style={{ gap: "12px", marginBottom: "14px" }}>
-                        <input className="roi-input" style={inputStyle} placeholder="Name" value={lead.name} onChange={(e) => setLead({ ...lead, name: e.target.value })} />
-                        <input className="roi-input" style={inputStyle} placeholder="Unternehmen" value={lead.company} onChange={(e) => setLead({ ...lead, company: e.target.value })} />
-                        <input className="roi-input" type="email" style={inputStyle} placeholder="E-Mail" value={lead.email} onChange={(e) => setLead({ ...lead, email: e.target.value })} />
+                        <input className="roi-input" style={inputStyle} placeholder={T.phName} value={lead.name} onChange={(e) => setLead({ ...lead, name: e.target.value })} />
+                        <input className="roi-input" style={inputStyle} placeholder={T.phCompany} value={lead.company} onChange={(e) => setLead({ ...lead, company: e.target.value })} />
+                        <input className="roi-input" type="email" style={inputStyle} placeholder={T.phEmail} value={lead.email} onChange={(e) => setLead({ ...lead, email: e.target.value })} />
                       </div>
                       <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", alignItems: "center" }}>
-                        <PrimaryButton inline disabled={sending || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)} onClick={submitLead}>{sending ? "Wird gesendet …" : "Report anfordern"}</PrimaryButton>
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: OUTFIT, fontSize: "12.5px", color: "#948FA8" }}><ShieldCheck style={{ width: "14px", height: "14px" }} strokeWidth={1.8} /> Keine Weitergabe.</span>
+                        <PrimaryButton inline disabled={sending || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)} onClick={submitLead}>{sending ? T.sendingLabel : T.requestReport}</PrimaryButton>
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: OUTFIT, fontSize: "12.5px", color: "#948FA8" }}><ShieldCheck style={{ width: "14px", height: "14px" }} strokeWidth={1.8} /> {T.noSharing}</span>
                       </div>
                     </>
                   ) : (
@@ -480,7 +651,7 @@ const RoiRechner = () => {
                       <span style={{ width: "40px", height: "40px", flex: "none", borderRadius: "50%", background: "rgba(86,88,223,0.10)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <Check style={{ width: "20px", height: "20px", color: VIOLET }} strokeWidth={3} />
                       </span>
-                      <div style={{ fontFamily: OUTFIT, fontSize: "15px", color: INK_DEEP }}>Unterwegs an <strong>{lead.email}</strong>. Wir melden uns mit Ihrer Roadmap.</div>
+                      <div style={{ fontFamily: OUTFIT, fontSize: "15px", color: INK_DEEP }}>{T.leadSuccess(lead.email)}</div>
                     </div>
                   )}
                 </div>
@@ -493,9 +664,9 @@ const RoiRechner = () => {
         {revealed && branche && calc && calc.sel.length > 0 && (
           <div id="kontakt" className="roi-noprint">
             <SpeakWithUsCta
-              eyebrow="Bereit loszulegen?"
-              headingLine1="Sprechen Sie"
-              headingLine2="direkt mit uns."
+              eyebrow={T.ctaEyebrow}
+              headingLine1={T.ctaLine1}
+              headingLine2={T.ctaLine2}
               phoneHref="tel:+4917660431467"
               phoneLabel="+49 176 60 431 467"
             />
@@ -546,9 +717,9 @@ function PrimaryButton({ children, onClick, disabled, inline }: { children: Reac
   );
 }
 
-function BackLink({ onClick }: { onClick: () => void }) {
+function BackLink({ onClick, label }: { onClick: () => void; label: string }) {
   return (
-    <button type="button" onClick={onClick} style={{ display: "inline-block", marginTop: "14px", background: "none", border: "none", cursor: "pointer", fontFamily: OUTFIT, fontSize: "13px", color: "#8A85A0" }}>← Zurück</button>
+    <button type="button" onClick={onClick} style={{ display: "inline-block", marginTop: "14px", background: "none", border: "none", cursor: "pointer", fontFamily: OUTFIT, fontSize: "13px", color: "#8A85A0" }}>{label}</button>
   );
 }
 
