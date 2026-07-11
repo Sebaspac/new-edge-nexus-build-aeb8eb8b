@@ -37,19 +37,19 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       disclaimer: REAL_DISCLAIMER,
       title: "BMP Award — From 400 applications in Excel to an automated jury pipeline",
       teaser:
-        "How one of Bavaria's most prestigious SME awards captures, structures and presents hundreds of applications to the jury, ready for a decision.",
+        "70 % less effort: hundreds of applications are captured, structured and presented to the jury, decision-ready.",
       scenario:
-        "Real project: Bayerischer Mittelstandspreis · hundreds of applications per year · several jury categories.",
+        "Real project: Bayerischer Mittelstandspreis (Bavarian SME award) · hundreds of applications per year · several jury categories.",
       situation:
-        "Applications arrived through various channels and were prepared for the jury manually in Excel lists: reviewing documents one by one, assigning categories by hand, emailing scoring sheets back and forth between jurors — a process that took weeks and was hard to trace.",
+        "Applications arrived through various channels and were prepared manually in Excel: reviewing, assigning, emailing scoring sheets back and forth. That took weeks and was hard to trace.",
       approach: [
-        "Incoming applications are captured, structured and assigned to the right jury category automatically.",
-        "An AI-powered scoring system builds a structured evaluation profile and summary for each application.",
+        "Applications are captured, structured and assigned to the right jury category automatically.",
+        "AI scoring builds an evaluation profile and summary for each application.",
         "Jurors work directly from a decision-ready basis instead of raw data.",
         "Every scoring decision is documented in an audit-proof way.",
       ],
       result:
-        "The jury works faster and more transparently: 70% less effort with audit-proof documentation, 60% higher jury efficiency and a complete audit trail for every single decision.",
+        "70 % less effort, 60 % higher jury efficiency — every decision documented in an audit-proof trail.",
       metrics: [
         { value: "70 %", label: "less effort — audit-proof documentation" },
         { value: "60 %", label: "higher jury efficiency" },
@@ -63,18 +63,18 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       disclaimer: BEISPIEL_DISCLAIMER,
       title: "University — Admissions process for 3,000 applications automated",
       teaser:
-        "How a private university cut the formal pre-check per application from 25 to under 3 minutes.",
+        "Formal pre-check in under 3 minutes instead of 25 — admission decisions go out 18 days earlier.",
       scenario:
         "Example scenario: private university · ~3,000 master's applications per semester · formal pre-check by the admissions team.",
       situation:
-        "Every application had to be checked manually for completeness and compared against formal criteria — transcripts, language certificates, motivation letters, letters of recommendation. That meant 20 to 30 minutes of checking per application before it even reached the academic pre-selection.",
+        "Every application was checked manually — grades, language certificates, motivation and recommendation letters. 20 to 30 minutes per application before the academic pre-selection even began.",
       approach: [
         "Documents are captured automatically, checked for completeness and compared against the admission criteria.",
-        "Incomplete applications immediately receive automatic feedback with a specific note.",
+        "Incomplete applications receive immediate feedback with a specific note.",
         "Complete applications move into academic review, prioritized by suitability score.",
       ],
       result:
-        "The formal review runs almost entirely automatically: admission decisions go out 18 days earlier on average, and processing errors from overlooked documents are a thing of the past.",
+        "Admission decisions go out 18 days earlier on average. The formal review runs almost fully automatically — with no errors from overlooked documents.",
       metrics: [
         { value: "<3 min.", label: "formal check time instead of 25 minutes" },
         { value: "18 days", label: "earlier admission decisions sent" },
@@ -88,18 +88,18 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       disclaimer: BEISPIEL_DISCLAIMER,
       title: "Development bank — Application review for regional economic funding automated",
       teaser:
-        "How a regional development bank cut processing time per application from 3 hours to 45 minutes.",
+        "45 minutes per application instead of 3 hours — the approval committee meets monthly instead of quarterly.",
       scenario:
         "Example scenario: regional development bank · complex rulebook of funding guidelines, thresholds and industry exclusions · rising application volume.",
       situation:
-        "Case handlers checked applications manually against the rulebook and spent most of their time on formal review instead of the actual assessment of funding eligibility — a growing bottleneck as application volume rose.",
+        "Case handlers checked every application manually against funding guidelines, thresholds and industry exclusions. The formal review ate up the time for the actual assessment — a growing bottleneck as volume rose.",
       approach: [
-        "Incoming applications are automatically checked against the current funding rulebook.",
+        "Applications are automatically checked against the current funding rulebook.",
         "Missing documentation is flagged immediately.",
-        "A prioritized decision brief with all relevant figures is created automatically for the approval committee.",
+        "The approval committee automatically receives a prioritized decision brief with all key figures.",
       ],
       result:
-        "The formal review is no longer a bottleneck: the approval committee meets monthly instead of quarterly, and the error rate in the criteria check is close to zero.",
+        "The formal review is no longer a bottleneck: the committee meets monthly instead of quarterly, and the error rate in the criteria check is close to zero.",
       metrics: [
         { value: "45 min.", label: "per application instead of 3 hours" },
         { value: "Monthly", label: "committee meetings instead of quarterly" },
@@ -121,7 +121,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       scenario:
         "Real project: gynecology practice in Munich · website relaunch with automated Doctolib integration.",
       situation:
-        "The practice ran an outdated, hard-to-maintain website with no clear path to an appointment — patients had to call, often during consultation hours, which led to missed calls and unnecessary admin work. The range of services was fragmented into small, hard-to-find sections.",
+        "An outdated website with no clear path to an appointment: patients had to call — often during consultation hours. The result: missed calls and unnecessary admin work. The service offering was fragmented into short, hard-to-find sections.",
       approach: [
         "Migrated the entire web presence to a maintainable WordPress structure.",
         "Organized the service offering into seven clear categories with their own subpages.",
@@ -129,7 +129,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         "Automatic notice when time slots are fully booked, so no patient hits a dead end.",
       ],
       result:
-        "Patients book online end to end instead of by phone: the practice sees noticeably fewer admin calls, and the offering is clearly structured and easy to find.",
+        "Patients book online around the clock instead of by phone. Admin calls drop noticeably, and the offering is clearly structured and easy to find.",
       metrics: [
         { value: "24/7", label: "booking path without a phone detour" },
         { value: "7", label: "structured service pages instead of short texts" },
@@ -143,18 +143,18 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       disclaimer: BEISPIEL_DISCLAIMER,
       title: "Therapy center — First inquiries handled automatically around the clock",
       teaser:
-        "How a therapy center cut response time from 18 hours to under 5 minutes — and closed 35% more first consultations.",
+        "How a therapy center cut response time from 18 hours to under 5 minutes — and closed 35 % more first consultations.",
       scenario:
         "Example scenario: therapy center with several treatment areas · first inquiries previously only by phone during opening hours.",
       situation:
-        "Prospective patients often called outside opening hours or gave up after several failed attempts. The administration also had no structured overview of which inquiry matched which treatment area.",
+        "Prospective patients called outside opening hours or gave up after several attempts. Which inquiry belonged to which treatment area, the administration did not know.",
       approach: [
         "Automated WhatsApp onboarding takes first inquiries around the clock.",
         "Inquiries are automatically assigned to the right treatment area.",
-        "Available capacity is checked and concrete appointment suggestions are sent back directly — with no manual intervention from the team.",
+        "Available capacity is checked and concrete appointment suggestions are sent directly — with no manual intervention from the team.",
       ],
       result:
-        "First inquiries come in around the clock in a structured way and are answered within minutes — with significantly more first consultations closed.",
+        "First inquiries are answered in minutes instead of hours, around the clock — 35 % more first consultations closed.",
       metrics: [
         { value: "+35 %", label: "first consultations closed" },
         { value: "<5 min.", label: "response time instead of 18 hours" },
@@ -172,7 +172,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       scenario:
         "Example scenario: network of several specialist practices · decentralized appointment lists per location.",
       situation:
-        "There was no central overview of utilization, waiting times and no-show rates — each location kept its own lists. Bottlenecks at one location went unnoticed even when another had free capacity; shifting patients happened purely by chance through staff recommendations.",
+        "Each location kept its own lists — a central overview of utilization, waiting times and no-show rates was missing. Bottlenecks went unnoticed even though neighboring locations had free capacity.",
       approach: [
         "An automated real-time dashboard brings all locations together.",
         "Utilization patterns are detected automatically.",
@@ -201,17 +201,17 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       scenario:
         "Example scenario: wholesaler in the DACH region · ~400 orders daily via email, customer portal and EDI interfaces.",
       situation:
-        "Three employees were occupied solely with entering order data manually and transferring it into the ERP system — at peak times this regularly led to delays and typos that later had to be corrected at great effort.",
+        "Three employees did nothing but capture order data and transfer it manually into the ERP system. At peak times: delays and typos that had to be corrected at great effort.",
       approach: [
         "Every incoming order is captured automatically, regardless of format.",
         "Item numbers and quantities are extracted, checked against stock and passed straight into the ERP.",
         "Discrepancies or unclear details are flagged automatically and escalated to the responsible employee.",
       ],
       result:
-        "Order processing runs virtually without manual entry: faster, error-free — and two of the three employees were able to move into customer service.",
+        "Order processing runs virtually without manual entry — faster, nearly error-free. Two of the three employees moved into customer service.",
       metrics: [
         { value: "<30 sec.", label: "per order instead of 12 minutes" },
-        { value: "<0.5 %", label: "error rate instead of 6%" },
+        { value: "<0.5 %", label: "error rate instead of 6 %" },
         { value: "2 of 3", label: "employees moved into customer service" },
       ],
     },
@@ -233,7 +233,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         "The check happens before the goods leave the warehouse.",
       ],
       result:
-        "Since rollout, no shipment has been delayed by missing documents; phone status checks have nearly disappeared, and customs costs drop thanks to automatically detected preferential trade agreements.",
+        "Since rollout: not a single shipment delayed by missing documents. Phone status checks have nearly disappeared, and automatically detected preferential agreements cut customs costs.",
       metrics: [
         { value: "0", label: "shipments delayed by missing documents" },
         { value: "~14 %", label: "customs costs saved via preferential agreements" },
@@ -251,14 +251,14 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       scenario:
         "Example scenario: specialist retailer with ~80 active suppliers · supplier assessment previously informal, based on experience.",
       situation:
-        "Quality problems or a creeping rise in complaint rates were often only noticed once several faulty deliveries had already arrived. There was no structured data basis for supplier conversations, and negotiations ran on the experience of individual buyers.",
+        "Quality problems often only surfaced once several faulty deliveries had arrived. Negotiations ran on the experience of individual buyers — a structured data basis did not exist.",
       approach: [
         "An automated supplier score continuously combines incoming-goods inspection, on-time delivery and complaints.",
         "Conspicuous patterns automatically trigger an early warning to the responsible buyer.",
         "A data-based negotiation basis is ready for every supplier conversation.",
       ],
       result:
-        "Purchasing spots quality decline weeks earlier and negotiates on a data basis for the first time — the complaint rate of the most important suppliers drops measurably.",
+        "Purchasing spots quality decline three weeks earlier and negotiates on a data basis for the first time — the complaint rate of top suppliers drops measurably.",
       metrics: [
         { value: "3 weeks", label: "earlier warning of quality decline" },
         { value: "−19 %", label: "complaint rate for top-10 suppliers" },
@@ -280,14 +280,14 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       scenario:
         "Real project: AESKON GmbH · BAFA-funded digitalization · process documentation as the foundation.",
       situation:
-        "The business wanted to drive its own digitalization forward in a BAFA-eligible way, but had no structured process documentation as a basis — internal workflows existed only in the heads of individual employees. Without clean documentation, neither the funding application nor a later implementation could be planned properly.",
+        "The business wanted to drive its digitalization forward in a BAFA-eligible way — but its workflows existed only in the heads of individual employees. Without structured documentation: no funding application, no plannable implementation.",
       approach: [
         "Created complete process diagrams with automation potential clearly marked.",
         "Developed a detailed specification document as the technical basis.",
-        "Facilitated an architecture workshop that prioritized the automation steps for frontend, AI components and backend.",
+        "Facilitated an architecture workshop: automation steps for frontend, AI components and backend prioritized.",
       ],
       result:
-        "The BAFA funding application went out on time and complete — with a process map documented in writing for the first time and a clear, prioritized implementation plan for the next automation steps.",
+        "The BAFA funding application went out on time and complete — with a process map documented for the first time and a prioritized implementation plan for the next automation steps.",
       metrics: [
         { value: "On time", label: "BAFA application fully prepared" },
         { value: "For the first time", label: "complete process map documented" },
@@ -301,7 +301,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       disclaimer: BEISPIEL_DISCLAIMER,
       title: "Tax advisory firm — Client communication automated during peak season",
       teaser:
-        "How a firm with 600 clients answers 40% of standard inquiries automatically.",
+        "How a firm with 600 clients answers 40 % of standard inquiries automatically.",
       scenario:
         "Example scenario: tax firm with ~600 clients · recurring standard questions during tax season.",
       situation:
@@ -330,14 +330,14 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       scenario:
         "Example scenario: recruitment consultancy · ~200 applications per advertised role · manual comparison against the client profile.",
       situation:
-        "Recruiters had to compare every application manually against the client's requirements profile before the first conversations could even take place — a process that often took a full working week.",
+        "Recruiters compared every application manually against the client's requirements profile before the first conversations started — often a full working week per role.",
       approach: [
         "Incoming applications are automatically compared against the defined requirements profile.",
         "Relevant experience and qualifications are extracted.",
         "A structured, comparable summary is created for the recruiter for each candidate.",
       ],
       result:
-        "Recruiters spend their time in conversation instead of in review — the shortlist is ready three times faster, and client satisfaction with shortlist quality rises noticeably.",
+        "The shortlist is ready after 3 days instead of 9. Recruiters spend their time in conversation instead of review — client satisfaction with shortlist quality rises noticeably.",
       metrics: [
         { value: "3 days", label: "time-to-shortlist instead of 9" },
         { value: "More time", label: "for conversations instead of review" },
@@ -355,18 +355,18 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       disclaimer: REAL_DISCLAIMER,
       title: "BMP — Application evaluation for a Bavaria-wide award automated",
       teaser:
-        "How one of Bavaria's best-known SME awards made its jury work 60% more efficient.",
+        "How one of Bavaria's best-known SME awards makes its jury work 60 % more efficient.",
       scenario:
         "Real project: Bayerischer Mittelstandspreis · applications across several channels · multiple jury categories.",
       situation:
-        "Applications were prepared for the jury entirely by hand — scoring sheets went back and forth by email between individual jurors, and a central overview of the processing status was completely missing.",
+        "Applications were prepared for the jury entirely by hand, and scoring sheets went back and forth between jurors by email. A central overview of the processing status was missing.",
       approach: [
         "Applications are captured and structured automatically.",
         "An AI-powered system builds an evaluation summary for each application.",
         "The jury works from a comparable score overview across all categories.",
       ],
       result:
-        "The entire selection process is digitized: more efficient, audit-proof and traceable for every single scoring decision.",
+        "The entire selection process is digitized: 60 % more efficient, audit-proof, every scoring decision traceable.",
       metrics: [
         { value: "60 %", label: "higher jury efficiency" },
         { value: "70 %", label: "less effort — audit-proof documentation" },
@@ -380,18 +380,18 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       disclaimer: BEISPIEL_DISCLAIMER,
       title: "Innovation award — Scoring bias uncovered through automated analysis",
       teaser:
-        "How a committee made systematic scoring patterns visible and cut the spread between jurors by 35%.",
+        "How a committee made systematic scoring patterns visible and cut the spread between jurors by 35 %.",
       scenario:
         "Example scenario: innovation award committee · recurring scoring patterns across several jury rounds.",
       situation:
-        "Certain categories or submission types systematically scored better or worse without this ever being recorded or questioned — a manual analysis across several years would hardly have been practical.",
+        "Certain categories and submission types systematically scored better or worse — this was never recorded or questioned. A manual analysis across several years was not practical.",
       approach: [
         "Automated bias analysis continuously evaluates all scores.",
         "Deviation patterns between individual jurors are made visible.",
         "A guidance report is provided automatically before each jury session.",
       ],
       result:
-        "The committee discusses on a data basis for the first time — the shortlist emerges more objectively and transparently.",
+        "The scoring spread between jurors drops by 35 % — the committee discusses on a data basis for the first time, and the shortlist emerges more objectively.",
       metrics: [
         { value: "−35 %", label: "scoring spread between jurors" },
         { value: "More objective", label: "and more transparent shortlisting" },
@@ -409,14 +409,14 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       scenario:
         "Example scenario: regional startup competition · ~600 applications per year · small organizing team.",
       situation:
-        "Far more applications came in than the team could review manually before formally invalid or incomplete submissions were sorted out — valuable time was lost to pure formal checking instead of content assessment.",
+        "More applications came in than the team could review manually. Time went into formal checking instead of content assessment.",
       approach: [
         "Submitted concepts are automatically checked against the entry criteria.",
         "Missing mandatory information is flagged immediately.",
         "A list prioritized by suitability is created for the first jury review.",
       ],
       result:
-        "The organizing team assesses content instead of formalities — the jury starts with a clean, prioritized field of applicants.",
+        "The first shortlist is ready after 3 days instead of 12. The organizing team assesses content instead of formalities — the jury starts with a clean, prioritized field of applicants.",
       metrics: [
         { value: "−65 %", label: "review time for the organizing team" },
         { value: "0", label: "formally invalid applications in the jury round" },
@@ -438,14 +438,14 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       scenario:
         "Example scenario: exporter with shipments to 23 countries · trade documents in five languages · communication via email, phone and Teams.",
       situation:
-        "Every shipment had to be pieced together by hand — the freight forwarder communicated by email, the customs agent by phone, internal approvals ran through Teams. Inconsistencies were often only noticed once the container was already at the destination port.",
+        "Every shipment was pieced together by hand: freight forwarder by email, customs agent by phone, internal approvals via Teams. Inconsistencies often only surfaced once the container was at the destination port.",
       approach: [
         "Incoming documents are recognized automatically, regardless of language and format.",
         "Documents are assigned to the right shipment and checked for completeness.",
         "Missing or contradictory details are escalated immediately, before the goods leave the warehouse.",
       ],
       result:
-        "The document situation is complete and transparent per shipment at all times — delays from missing paperwork are a thing of the past.",
+        "The document situation is complete and transparent per shipment at all times — no more delays from missing paperwork.",
       metrics: [
         { value: "<60 sec.", label: "document assignment instead of 45 minutes" },
         { value: "0", label: "shipments delayed by missing documents" },
@@ -463,14 +463,14 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       scenario:
         "Real project: AESKON GmbH · BAFA funding procedure · strict requirements on the order of application and contract.",
       situation:
-        "Funding applications and consulting contracts had to follow exactly the order prescribed by BAFA — a single wrong step, such as a contract signed too early, would have jeopardized the entire funding eligibility and, in the worst case, led to legal consequences.",
+        "Funding application and consulting contract had to follow exactly the order prescribed by BAFA. A contract signed too early would have jeopardized the entire funding eligibility — in the worst case with legal consequences.",
       approach: [
         "A structured, documented workflow logs every step of the application in a traceable way.",
-        "An automatic check ensures no action is taken before the required official approval.",
+        "An automatic check blocks every action before the required official approval.",
         "The next phase is only unlocked after approval.",
       ],
       result:
-        "The funding application went out on time, complete and compliant — without a single procedural error in the entire application phase.",
+        "The funding application went out on time, complete and compliant — without a single procedural error.",
       metrics: [
         { value: "0", label: "procedural errors in the entire application phase" },
         { value: "On time", label: "and submitted in compliance" },
@@ -484,18 +484,18 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       disclaimer: BEISPIEL_DISCLAIMER,
       title: "Wholesaler — Customs preferences used systematically and automatically for the first time",
       teaser:
-        "How a wholesaler saves around 14% in customs costs through automatically detected free-trade agreements.",
+        "How a wholesaler saves around 14 % in customs costs through automatically detected free-trade agreements.",
       scenario:
         "Example scenario: wholesaler with high import volume · preferential origins previously checked only on a sample basis.",
       situation:
-        "On a significant share of imports, more customs duty was paid than necessary because preferential origins were not consistently documented and used — a systematic check was barely feasible manually given the number of shipments.",
+        "On many imports, more customs duty was paid than necessary because preferential origins were not consistently documented and used. At that shipment volume, a manual check was not feasible.",
       approach: [
         "For each shipment, it is automatically detected which free-trade agreements apply.",
         "The matching preference proofs are generated automatically.",
         "All proofs are filed in an audit-proof way.",
       ],
       result:
-        "No preference case is overlooked anymore — customs costs drop systematically, and the documentation withstands any tax audit.",
+        "Around 14 % lower customs costs: no preference case is overlooked anymore, and the documentation withstands any tax audit.",
       metrics: [
         { value: "~14 %", label: "customs-cost savings via free-trade agreements" },
         { value: "100 %", label: "audit-proof documentation" },
@@ -517,7 +517,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       scenario:
         "Example scenario: network of several specialist practices · location data previously merged manually only once a week.",
       situation:
-        "No central view of utilization, waiting times and no-show rates — bottlenecks at one location were often only spotted once patients already had to be turned away, even though another location had free capacity.",
+        "No central view of utilization, waiting times and no-show rates. Bottlenecks only surfaced once patients had to be turned away — even though neighboring locations had free capacity.",
       approach: [
         "An automated real-time dashboard continuously merges all location data.",
         "Utilization patterns are detected automatically.",
@@ -549,7 +549,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         "The management dashboard is created automatically — with no manual Excel upkeep.",
       ],
       result:
-        "Management decides on up-to-date instead of week-old numbers for the first time; the team wins back hours every week.",
+        "Management decides on up-to-date instead of week-old numbers — the team saves 5 hours of reporting per week.",
       metrics: [
         { value: "−5 hrs.", label: "reporting effort per week" },
         { value: "Up to date", label: "numbers instead of week-old reports" },
@@ -567,9 +567,9 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       scenario:
         "Example scenario: logistics provider · supplier assessment previously in the quarterly review.",
       situation:
-        "Quality problems with suppliers were regularly only noticed in the quarterly review — by then several deliveries with defects had already gone through, and short-term corrective action was barely possible.",
+        "Quality problems with suppliers only surfaced in the quarterly review — by then several defective deliveries had already gone through. Short-term corrective action was barely possible.",
       approach: [
-        "Automated continuous KPI scoring evaluates on-time delivery, quality data and complaints on an ongoing basis.",
+        "Automated KPI scoring continuously evaluates on-time delivery, quality data and complaints.",
         "Conspicuous patterns automatically trigger an early warning to the responsible buyer.",
         "No more waiting for the next reporting cycle.",
       ],
@@ -600,10 +600,10 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       approach: [
         "Automated WhatsApp onboarding takes first inquiries around the clock.",
         "Inquiries are automatically assigned to the right treatment area.",
-        "Available capacity is checked and concrete appointment suggestions are made directly — entirely without manual intervention from the team.",
+        "Available capacity is checked and concrete appointment suggestions are made directly — with no manual intervention from the team.",
       ],
       result:
-        "Reachability is guaranteed independently of opening hours for the first time — with significantly more first consultations closed.",
+        "Response time under 5 minutes instead of 18 hours. Reachability is independent of opening hours for the first time — with significantly more first consultations closed.",
       metrics: [
         { value: "<5 min.", label: "response time instead of 18 hours" },
         { value: "24/7", label: "reachability independent of opening hours" },
@@ -615,7 +615,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
-      title: "Online retailer — 55% of all support inquiries resolved fully automatically",
+      title: "Online retailer — 55 % of all support inquiries resolved fully automatically",
       teaser:
         "How an online retailer cut response time from 6 hours to 2 minutes.",
       scenario:
@@ -625,10 +625,10 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       approach: [
         "An AI-powered support assistant automatically classifies incoming inquiries.",
         "Shipping status and order data are pulled directly from the system.",
-        "Standard cases are resolved fully on their own — only genuinely individual or complex matters go to staff.",
+        "Standard cases are resolved autonomously — only individual or complex matters go to staff.",
       ],
       result:
-        "More than half of all inquiries resolve without human involvement — the team focuses on complex individual cases instead of routine questions.",
+        "55 % of all inquiries resolve without human involvement — the team focuses on complex individual cases instead of routine questions.",
       metrics: [
         { value: "55 %", label: "of all inquiries resolved fully automatically" },
         { value: "2 min.", label: "response time instead of 6 hours" },
@@ -642,7 +642,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
       disclaimer: BEISPIEL_DISCLAIMER,
       title: "Tax advisory firm — Deadline questions answered automatically during peak season",
       teaser:
-        "How a firm keeps 40% of standard inquiries out of the advisor inbox.",
+        "How a firm keeps 40 % of standard inquiries out of the advisor inbox.",
       scenario:
         "Example scenario: tax firm · recurring questions about deadlines, documents and processing status during tax season.",
       situation:
@@ -680,14 +680,14 @@ export const unassignedMiniCases: MiniCase[] = [
     scenario:
       "Real project: 340 Consultancy · website relaunch with structured lead guidance.",
     situation:
-      "The website had no clear customer journey — visitors found relevant information but no clear path to the contact form, and inquiries that did come in had to be sorted manually by topic and urgency.",
+      "The website had no clear customer journey: visitors found relevant information but no path to the contact form. Incoming inquiries had to be sorted manually by topic and urgency.",
     approach: [
       "Ran a structured workshop process to realign the site.",
       "Rebuilt the sitemap and page structure with clear lead guidance.",
-      "Set up automated initial sorting of incoming inquiries — each inquiry is immediately assigned to the right contact person.",
+      "Set up automated initial sorting: every inquiry goes straight to the right contact person.",
     ],
     result:
-      "From first contact to qualified inquiry, a clear, automated funnel now leads the way — with a significantly shorter response time to new inquiries.",
+      "From first contact to qualified inquiry, a clear, automated funnel now leads the way — with a significantly shorter response time.",
     metrics: [
       { value: "End-to-end", label: "automated funnel through to qualified inquiry" },
       { value: "59", label: "prioritized feedback points for the developer handover" },
@@ -701,20 +701,20 @@ export const unassignedMiniCases: MiniCase[] = [
     disclaimer: BEISPIEL_DISCLAIMER,
     title: "B2B service provider — Lead qualification automated before sales",
     teaser:
-      "How a B2B service provider raised its qualified-lead rate from 18% to 47%.",
+      "How a B2B service provider raised its qualified-lead rate from 18 % to 47 %.",
     scenario:
       "Example scenario: B2B service provider · steady inquiries via the contact form · first conversations often with unsuitable leads.",
     situation:
-      "The sales team spent most of its time on first conversations that only turned out to be unsuitable once underway — wrong budget, wrong timeframe, no real need.",
+      "The sales team spent most of its time on first conversations that turned out to be unsuitable — wrong budget, wrong timeframe, no real need.",
     approach: [
       "Automated pre-qualification built directly into the inquiry process.",
-      "Inquiries are automatically assessed by budget, timeframe and concrete need before they land in the sales inbox.",
+      "Inquiries are automatically assessed by budget, timeframe and need before they land in the sales inbox.",
       "Qualified leads automatically receive appointment suggestions.",
     ],
     result:
-      "Sales now speaks almost exclusively with suitable prospects — and needs a third less time per deal closed.",
+      "Sales now speaks almost exclusively with suitable prospects — and needs a third less time per closed deal.",
     metrics: [
-      { value: "47 %", label: "qualified-lead rate instead of 18%" },
+      { value: "47 %", label: "qualified-lead rate instead of 18 %" },
       { value: "−33 %", label: "sales time per closed deal" },
       { value: "More time", label: "for genuinely promising conversations" },
     ],
@@ -730,11 +730,11 @@ export const unassignedMiniCases: MiniCase[] = [
     scenario:
       "Example scenario: regional trades business · steady website traffic, but hardly any inquiries.",
     situation:
-      "The site explained the service offering in detail without guiding the visitor to take action — requesting a quote meant several clicks and a long form for prospects.",
+      "The site explained the offering in detail but did not lead to action: requesting a quote meant several clicks and a long form.",
     approach: [
       "Rebuilt the entire funnel: clearly structured service pages with consistent calls to action.",
       "An automated short form replaces the long inquiry form.",
-      "Incoming inquiries are immediately sorted by trade and urgency and automatically forwarded to the right employee.",
+      "Inquiries are immediately sorted by trade and urgency and automatically routed to the right employee.",
     ],
     result:
       "Twice as many inquiries at the same traffic — and the office saves the manual sorting work every day.",

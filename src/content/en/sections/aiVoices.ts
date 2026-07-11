@@ -17,7 +17,7 @@ export const aiVoices = {
 
   /** Vorbefüllter Prompt (wird URL-kodiert an die Provider übergeben). */
   prompt:
-    "As the managing director of a mid-sized company, I want to know what makes NEWEDGE the right partner for building our own AI department and why their approach reliably delivers professional results. Summarize the highlights of the NEWEDGE website: https://newedgebrand.com",
+    "I run a mid-sized company. What makes NEWEDGE the right partner for building our own AI department? Summarize the highlights of the NEWEDGE website: https://newedgebrand.com",
 
   /** Provider-Pills: Label + Chat-URL-Präfix (Prompt wird angehängt) + Simple-Icons-Slug. */
   providers: [

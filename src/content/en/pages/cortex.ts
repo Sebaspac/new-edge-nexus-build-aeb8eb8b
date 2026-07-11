@@ -30,7 +30,7 @@ export const cortexPage = {
   hero: {
     headline: "You already use AI. Cortex makes it controllable.",
     sub:
-      "Cortex is the operating system of your AI department: one central entry point for your people — and full control over usage, data and automations. GDPR-compliant, in-house, auditable.",
+      "Cortex is the operating system of your AI department: one entry point for your people, full control over usage, data and automations. GDPR-compliant, in-house, auditable.",
     ctaPrimary: "Book a Cortex demo",
     ctaSecondary: "Check if it fits",
     image: {
@@ -53,12 +53,12 @@ export const cortexPage = {
   solution: {
     heading: "One entry point. One layer. Full control.",
     intro:
-      "Cortex becomes the central entry point for AI in your company: your employees get access to productive, approved AI — and you get transparency and control over usage, data, processes and automations.",
+      "Cortex becomes the central entry point for AI in your company: your employees work with approved, productive AI — you keep control over usage, data, processes and automations.",
     bullets: [
       "Transparency over AI usage — instead of shadow IT, you see who uses AI for what.",
-      "GDPR-compliant infrastructure — your data stays under your control: internal, secure, auditable.",
+      "GDPR-compliant infrastructure — your data stays internal, secure, auditable.",
       "Central control — one entry point for your people instead of ten point tools running on the side.",
-      "A foundation for automations — processes, agents and automations all run on one shared layer.",
+      "A foundation for automations — processes and agents run on one shared layer.",
     ],
   },
 
@@ -137,7 +137,7 @@ export const cortexPage = {
     heading: "FAQ",
     items: [
       { q: "Does Cortex replace ChatGPT or Copilot?", a: "No. Cortex is the layer above: it bundles and controls access to AI — which models you use stays flexible." },
-      { q: "Does our data really stay in-house?", a: "Yes. Cortex is built for GDPR-compliant, controlled infrastructure — your data is internal, secure and auditable." },
+      { q: "Does our data really stay in-house?", a: "Yes. Cortex runs on GDPR-compliant, controlled infrastructure — your data is internal, secure and auditable." },
       { q: "How quickly is Cortex ready to use?", a: "The basic setup is usually in place within a few days. From there, Cortex grows with your processes and automations." },
       { q: "Do we have to switch off existing tools?", a: "No. Cortex layers over what's already running and brings it under shared control." },
       { q: "What company size does Cortex make sense for?", a: "It pays off most for companies with 10 to 150 employees where AI is already used in scattered ways." },

@@ -171,7 +171,7 @@ const Cortex = () => {
                     color: INK_DEEP,
                   }}
                 >
-                  {withAccent(cortex.hero.headline, "Cortex macht sie steuerbar.", VIOLET)}
+                  {withAccent(cortex.hero.headline, language === "en" ? "Cortex makes it controllable." : "Cortex macht sie steuerbar.", VIOLET)}
                 </h1>
                 <p style={{ ...OUTFIT, color: "#3C3C47", maxWidth: "48ch", marginBottom: "36px" }}>
                   {cortex.hero.sub}
@@ -416,7 +416,7 @@ const Cortex = () => {
                   </h2>
 
                   <p style={{ ...OUTFIT, fontWeight: 500, fontSize: "clamp(16px,1.3vw,18px)", lineHeight: 1.5, color: "rgba(255,255,255,0.72)", marginBottom: "12px" }}>
-                    {withAccent(cortex.garantie.text, "DSGVO-konform und jederzeit auditierbar.", "#FFFFFF")}
+                    {withAccent(cortex.garantie.text, language === "en" ? "GDPR-compliant and auditable at any time." : "DSGVO-konform und jederzeit auditierbar.", "#FFFFFF")}
                   </p>
 
                   <p style={{ ...OUTFIT, fontWeight: 400, fontSize: "13.5px", color: "rgba(255,255,255,0.6)", marginBottom: "24px" }}>

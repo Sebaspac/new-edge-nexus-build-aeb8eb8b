@@ -27,7 +27,7 @@ export const webDesign = {
     headlinePrefix: "Websites that ",
     headlineAccent: "sell",
     headlineSuffix: " — before you even speak.",
-    sub: "Your website is your first salesperson. We build digital presences that set you apart from the crowd, build trust and generate qualified enquiries — not just look good.",
+    sub: "Your website is your first salesperson. We build sites that create trust and bring in qualified enquiries — not just look good.",
     trustChips: ["Higher conversion", "More qualified enquiries", "One point of contact"],
     ctaPrimary: "Request an intro call",
     note: "100% free & no obligation.",
@@ -98,7 +98,7 @@ export const webDesign = {
   finalCta: {
     eyebrow: "Let's get started",
     heading: "Book an intro call",
-    sub: "In a short get-to-know call, we look together at whether and where a project makes sense. Based on your situation and your goals, entirely without obligation.",
+    sub: "In a short get-to-know call, we look together at whether and where a project makes sense — based on your situation and goals. Entirely without obligation.",
     ctaPrimary: "Request an intro call",
     note: "100% free & no obligation.",
   },

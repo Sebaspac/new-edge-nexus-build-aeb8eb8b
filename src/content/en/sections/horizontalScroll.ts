@@ -34,7 +34,7 @@ export const horizontalScroll = {
     /** Überschrift: statischer Teil + zyklisch animierte Wörter. */
     headingLead: "This is how you build an",
     headingWords: ["AI department.", "operating structure.", "AI roadmap."],
-    body: "Three steps, one clear goal. No waterfall model — iterative collaboration with full visibility into every step.",
+    body: "Three steps, one clear goal. We work iteratively — with full visibility into every step.",
     steps: [
       {
         index: "01",
@@ -49,7 +49,7 @@ export const horizontalScroll = {
       {
         index: "03",
         title: "Scaling",
-        desc: "We continuously grow your company into an AI-powered organization with measurable efficiency gains.",
+        desc: "We develop your company step by step into an AI-driven organization — with measurable efficiency gains.",
       },
     ] as ProcessStep[],
   },
@@ -61,7 +61,7 @@ export const horizontalScroll = {
     headingLead: "We use AI as a",
     headingWords: ["success factor", "engine", "helper", "advantage"],
     headingTail: "for your company.",
-    body: "AI only delivers its full value when it's integrated strategically into your business goals. As a specialized partner, we combine consulting, development and integration.",
+    body: "AI only delivers results when it serves your business goals. We combine consulting, development and integration — all from one team.",
     /** Panel image (edgy cropped frame). */
     image: {
       src: "pain-point-kpi-dashboard-hero",
@@ -71,12 +71,12 @@ export const horizontalScroll = {
       {
         icon: "Target",
         title: "Strategy & clarity",
-        desc: "From AI strategy to concrete implementation. We analyze your processes, identify real levers and build systems that work — not just impress.",
+        desc: "We analyze your processes, find the real levers and build systems that work — not just impress.",
       },
       {
         icon: "Layers",
         title: "Seamless integration",
-        desc: "AI is built directly into your existing tools and systems — ERP, CRM, internal platforms. No disruption, no parallel setup, no friction.",
+        desc: "AI runs directly in your existing systems — ERP, CRM, internal platforms. No disruption, no parallel setup, no friction.",
       },
       {
         icon: "ShieldCheck",

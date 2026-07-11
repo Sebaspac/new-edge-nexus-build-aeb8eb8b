@@ -17,7 +17,7 @@ export const teamSupport = {
   headingLead: "One point of contact. ",
   headingHighlight: "A whole agency behind them.",
   paragraph:
-    "We don't ship software and disappear. You work with a dedicated point of contact backed by the full NEWEDGE team: strategy, development, design and automation for your digitalization and AI projects.",
+    "We don't deliver and disappear. You work with one dedicated point of contact — behind them, the full NEWEDGE team: strategy, development, design and automation.",
 
   banner: {
     avatars: [

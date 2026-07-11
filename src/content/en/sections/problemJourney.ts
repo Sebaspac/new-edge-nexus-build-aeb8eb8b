@@ -63,7 +63,7 @@ export const problemJourney = {
     heading: "The journey to your AI department",
     /** Die 3 Stationen (Karten-Stack). */
     journey: [
-      { index: "01", category: "ANALYSIS", title: "We identify potential and economic levers and prioritize the processes with the highest ROI." },
+      { index: "01", category: "ANALYSIS", title: "We find the economic levers and prioritize the processes with the highest ROI." },
       { index: "02", category: "IMPLEMENTATION", title: "We build Cortex as the central infrastructure and automate the most important workflows." },
       { index: "03", category: "SCALING", title: "With Embedded AI we take ownership of the ongoing development." },
     ] as JourneyStation[],

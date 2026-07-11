@@ -74,7 +74,7 @@ export const jobs: Job[] = [
       {
         label: "Mission",
         items: [
-          "Win new clients with us across the DACH region and build long-term business relationships – at the intersection of creation, technology and AI.",
+          "Win new B2B clients across the DACH region and build long-term business relationships — around brand, technology and AI.",
         ],
       },
       {
@@ -92,7 +92,7 @@ export const jobs: Job[] = [
         items: [
           "≥2 years of experience in B2B sales, ideally in an agency, SaaS or tech environment",
           "Strong communication and negotiation skills; confident presence in client conversations",
-          "An understanding of digital products, branding and/or AI solutions – no deep technical knowledge required, but an interest in innovation",
+          "An understanding of digital products, branding or AI solutions — no deep technical knowledge required",
           "Initiative, closing strength and CRM experience (e.g. HubSpot, Pipedrive)",
           "Excellent German (C2) and good English; a DACH network is a plus",
         ],

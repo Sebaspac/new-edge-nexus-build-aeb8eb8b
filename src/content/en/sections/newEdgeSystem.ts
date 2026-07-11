@@ -49,7 +49,7 @@ export const newEdgeSystem: NewEdgeSystemContent = {
   eyebrow: "The NEWEDGE System",
   headingLines: ["Three phases.", "One AI department."],
   subline:
-    "Every AI transformation follows the same path: from analysis through implementation to scaling — until AI becomes a lasting capability inside your company.",
+    "Every AI transformation follows the same path: analysis, implementation, scaling — until AI becomes a lasting capability of your company.",
   cards: [
     { index: "01", title: "Analysis", sub: "finds the levers." },
     { index: "02", title: "Implementation", sub: "builds the system." },

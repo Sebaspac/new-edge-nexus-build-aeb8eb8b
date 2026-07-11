@@ -21,7 +21,7 @@ export const home = {
   seo: {
     title: "AI Agency Munich | Process Automation & Brand Building for SMEs | NEWEDGE",
     description:
-      "NEWEDGE is your AI agency in Munich. We combine brand building, process automation and AI systems — for mid-sized companies determined to grow.",
+      "NEWEDGE is your AI agency in Munich. We combine process automation, AI systems and brand building — for mid-sized companies determined to grow.",
     canonical: "/en",
   } satisfies SEOContent,
 

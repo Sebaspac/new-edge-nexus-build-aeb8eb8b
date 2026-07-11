@@ -116,7 +116,7 @@ export const about = {
     eyebrow: "NEWEDGE, the workbench",
     heading: "What we build with.",
     intro:
-      "No black box. This is the workbench behind the systems running in production at our clients — you can see at any time how and with what we build.",
+      "No black box. This is the workbench behind the systems running in production at our clients. You can see at any time what we build with.",
     manifest: [
       { k: "MODELS", v: "Claude, GPT and open-source models. The right one for each use case, never just one on principle." },
       { k: "INFRASTRUCTURE", v: "EU data centers, private cloud or on-premise. You decide where your data lives." },

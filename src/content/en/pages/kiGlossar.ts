@@ -73,7 +73,7 @@ export const kiGlossar = {
   },
 
   /** Leerzustand bei erfolgloser Suche. `{query}` → Suchbegriff. */
-  emptyTemplate: "No terms found for „{query}“.",
+  emptyTemplate: "No terms found for “{query}”.",
 
   /** Abschluss-CTA. */
   cta: {

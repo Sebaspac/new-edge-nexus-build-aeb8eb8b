@@ -27,7 +27,7 @@ export const careers = {
   seo: {
     title: "Careers at NEWEDGE Munich | Jobs in AI, Brand & Digital",
     description:
-      "Want to work at the intersection of brand, digital and AI? NEWEDGE Brand is looking for designers, developers and AI strategists in Munich.",
+      "Want to work at the intersection of brand, digital and AI? NEWEDGE is looking for designers, developers and AI strategists in Munich.",
     canonical: "/en/careers",
   } satisfies SEOContent,
 
@@ -35,14 +35,14 @@ export const careers = {
   hero: {
     headline: "Careers.",
     subline:
-      "We're looking for designers, developers and strategists who want to make real impact at the intersection of brand, technology and AI.",
+      "We're looking for designers, developers and strategists who want to create real impact with brand, technology and AI.",
   },
 
   /** „Über uns"-Absatz. */
   about: {
     eyebrow: "About us",
     body:
-      "NEWEDGE is a creative-tech agency at the intersection of creation and technology. We connect brand, strategy and AI in integrated processes – with clear ownership and measurable results.",
+      "NEWEDGE builds the AI department for mid-sized companies. We connect brand, strategy and AI — with clear ownership and measurable results.",
   },
 
   /** „Warum NEWEDGE"-Block + Werte-Karten. */
@@ -53,7 +53,7 @@ export const careers = {
       {
         label: "01",
         title: "Innovation First",
-        desc: "Work with cutting-edge AI technologies and actively help shape the future.",
+        desc: "Work with current AI technologies from day one — on real client projects.",
       },
       {
         label: "02",
@@ -83,7 +83,7 @@ export const careers = {
     eyebrow: "Nothing that fits?",
     heading: "Speculative application.",
     body:
-      "Didn't find a role that fits? No problem — write to Wenjamin Zabezhanskiy directly and tell us what drives you.",
+      "Write to Wenjamin Zabezhanskiy directly and tell us what drives you.",
     /** Kontaktperson im Kreis-Button. */
     person: {
       src: "team-wenjamin" as ImageKey,

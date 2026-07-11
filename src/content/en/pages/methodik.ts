@@ -46,7 +46,7 @@ export const methodik = {
     headlineLine1: "We build the AI department",
     headlineLine2: "for mid-sized companies.",
     subline:
-      "Not individual AI tools. Your own AI department — as a lasting capability within your company. This methodology shows the way there — in three phases.",
+      "Not individual AI tools — your own AI department as a lasting capability in your company. The way there: three phases.",
     ctaLabel: "Book an intro call",
     ctaHref: "/kontakt",
   },
@@ -55,8 +55,8 @@ export const methodik = {
   manifest: {
     lead: "Most companies don't fail because of technology. They fail because AI is introduced in isolation.",
     body: [
-      "Tools get bought, individual automations get built — but without ownership, structure and a foundation where everything comes together, the impact stays small.",
-      "That's why we run every AI transformation in three fixed phases — so scattered parts become a department that's truly yours.",
+      "Tools get bought, individual automations get built. Without ownership, structure and a shared foundation, the impact stays small.",
+      "That's why we run every AI transformation in three fixed phases — so scattered parts become a department that's yours.",
     ],
   },
 
@@ -75,8 +75,8 @@ export const methodik = {
       title: "Analysis",
       frage: "Where does AI really pay off?",
       intro: [
-        "By the end, you'll know exactly where AI has the greatest leverage in your company — and in what order it's worth implementing, before a single euro is spent.",
-        "To get there, we look at what runs in your business every day, surface untapped potential, and translate every point of leverage into a prioritized roadmap.",
+        "You know where AI has the greatest leverage in your company — and in what order implementation pays off. Before a single euro is spent.",
+        "To get there, we look at your day-to-day business, surface untapped potential and translate every lever into a prioritized roadmap.",
       ],
       listLabel: "We analyze & assess",
       list: ["Processes", "Data flows", "Knowledge structures", "Decision paths", "Recurring tasks", "Economics"],
@@ -87,8 +87,8 @@ export const methodik = {
       title: "Implementation",
       frage: "The analysis turns into a running system.",
       intro: [
-        "Now the foundation takes shape: Cortex — the one place where employees, data, processes and agents come together. Controlled, secure and transparent instead of scattered tools.",
-        "On top of that we build the digital systems and automate exactly the workflows that add the most value — based on the priorities from the analysis.",
+        "Now the foundation takes shape: Cortex — the one place where employees, data, processes and agents come together. Controlled, secure, transparent.",
+        "On top of it, we build the digital systems and automate the workflows that add the most value — following the priorities from the analysis.",
       ],
       listLabel: "We build & automate",
       list: ["Cortex as infrastructure", "Customer portals & platforms", "Web applications", "Document processing", "Customer service", "Reporting & back office"],
@@ -114,7 +114,7 @@ export const methodik = {
     eyebrow: "The goal",
     headingLine1: "The AI department as",
     headingLine2: "a company capability.",
-    intro: "In the end there's no single tool, but an organization that puts AI to productive use for good. A company that:",
+    intro: "The end result isn't a single tool, but an organization that puts AI to productive use permanently. A company that:",
     punkte: [
       "Makes knowledge usable faster",
       "Continuously improves processes",

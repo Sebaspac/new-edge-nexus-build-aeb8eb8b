@@ -22,7 +22,7 @@ export const cortex = {
   eyebrow: "Cortex",
   heading: "The operating system of your AI department.",
   subtitle:
-    "That's exactly what takes shape along the journey: from station 02 on, your AI has a place where it's governed before it scales.",
+    "From station 02 on, your AI gets a place where it's governed — before it scales.",
 
   /** Linke Mini-Spalte: Status quo. */
   today: {
@@ -48,7 +48,7 @@ export const cortex = {
 
   /** Erklärungs-Absatz unter dem Divider. */
   body:
-    "Cortex becomes the central entry point for AI across the company: employees get access to productive AI. Companies get control over usage, processes and automation.",
+    "Cortex is the central entry point for AI in your company: employees get productive AI. You keep control over usage, processes and automation.",
 
   /** Text-Button (scrollt zur CTA-Section). */
   cta: "Discover Cortex →",

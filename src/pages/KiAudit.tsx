@@ -171,7 +171,7 @@ const KiAudit = () => {
                     color: INK_DEEP,
                   }}
                 >
-                  {withAccent(kiAudit.hero.headline, "Der erste Schritt fehlt", VIOLET)}
+                  {withAccent(kiAudit.hero.headline, language === "en" ? "What's missing is the first step." : "Der erste Schritt fehlt", VIOLET)}
                 </h1>
                 <p style={{ ...OUTFIT, color: "#3C3C47", maxWidth: "48ch", marginBottom: "36px" }}>
                   {kiAudit.hero.sub}
@@ -402,7 +402,7 @@ const KiAudit = () => {
                   </h2>
 
                   <p style={{ ...OUTFIT, fontWeight: 500, fontSize: "clamp(16px,1.3vw,18px)", lineHeight: 1.5, color: "rgba(255,255,255,0.72)", marginBottom: "12px" }}>
-                    {withAccent(kiAudit.garantie.text, "Garantiert — oder Sie zahlen nicht.", "#FFFFFF")}
+                    {withAccent(kiAudit.garantie.text, language === "en" ? "Guaranteed — or you don't pay." : "Garantiert — oder Sie zahlen nicht.", "#FFFFFF")}
                   </p>
 
                   <p style={{ ...OUTFIT, fontWeight: 400, fontSize: "13.5px", color: "rgba(255,255,255,0.6)", marginBottom: "24px" }}>

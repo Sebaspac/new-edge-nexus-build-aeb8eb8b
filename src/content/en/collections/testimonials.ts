@@ -17,7 +17,7 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    text: "NEWEDGE completely rethought our internal processes. The AI-powered workflows save us an incredible amount of time in our project work.",
+    text: "NEWEDGE completely rethought our internal processes. The AI workflows save us an enormous amount of time in our project work.",
     name: "Kathrin Mertens",
     role: "Managing Director, Event Logistics",
   },
