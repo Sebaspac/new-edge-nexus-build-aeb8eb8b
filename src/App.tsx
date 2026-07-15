@@ -10,6 +10,7 @@ import { useEffect, lazy, Suspense } from "react";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import ScrollToTop from "@/components/ScrollToTop";
 import StructuredData from "@/components/StructuredData";
+import ApolloTracker from "@/components/ApolloTracker";
 // Eager load only critical pages for faster initial load
 import Index from "./pages/Index";
 
@@ -123,6 +124,7 @@ const App = () => {
                 </Routes>
               </Suspense>
 
+              <ApolloTracker />
             </BrowserRouter>
           </TooltipProvider>
         </LanguageProvider>
