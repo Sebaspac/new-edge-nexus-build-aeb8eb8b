@@ -1,53 +1,37 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
-import foundersImg from "@/assets/team-sebastian.png";
-import { SweepLink } from "@/components/ui/SweepButton";
 import { FloatingConsultButton } from "@/components/ui/FloatingConsultButton";
+import { threeStepsCTA as TSC_STATIC } from "@/content/sections/threeStepsCTA";
+import { threeStepsCTA as threeStepsCTAEn } from "@/content/en/sections/threeStepsCTA";
+import { useHomeSection } from "@/hooks/useHomeContent";
 
 /* ── Design tokens ── */
-const VIOLET = "#5B21B6";
+const VIOLET = "#5658DF";
 const VIOLET_DARK = "#2D1060";
-const VIOLET_MID = "#7C3AED";
-const INK_DEEP = "#1A0A2E";
+const VIOLET_MID = "#5658DF";
+const INK_DEEP = "#17172E";
 
-/* ── Light violet mesh background ── */
-const MESH_BG = [
-  "radial-gradient(ellipse 90% 70% at 5% 10%, rgba(91,33,182,0.09) 0%, transparent 60%)",
-  "radial-gradient(ellipse 70% 60% at 95% 90%, rgba(124,58,237,0.07) 0%, transparent 58%)",
-  "radial-gradient(ellipse 50% 40% at 55% 45%, rgba(91,33,182,0.04) 0%, transparent 55%)",
-  "#F8F5FF",
-].join(", ");
-const SERIF: React.CSSProperties = { fontFamily: "'DM Serif Display', serif", fontWeight: 400 };
-const MONO: React.CSSProperties = { fontFamily: "Consolas, monospace" };
-const L = { text: "#3A3A3A", textMuted: "#555555" };
+const HEAD: React.CSSProperties = { fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: 700 };
+const BODY: React.CSSProperties = { fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: 400 };
+const L = { text: "#3C3C47", textMuted: "#555555" };
 
-const stepsData = [
-  {
-    icon: "💬",
-    title: "Unverbindliches Erstgespräch",
-    desc: "Lass uns quatschen! Bei unserem ersten Gespräch wollen wir dich und dein Business kennenlernen. Wähle einfach und bequem online einen Termin aus.",
-  },
-  {
-    icon: "🎯",
-    title: "Gemeinsam Ziele definieren",
-    desc: "Erzähl uns von deinen Wünschen und Zielen! Egal, ob mehr Sichtbarkeit, höhere Umsätze oder eine stärkere Kundenbindung — wir legen eine Strategie fest, um deine Ziele zu rocken!",
-  },
-  {
-    icon: "🚀",
-    title: "Durchstarten",
-    desc: "Let's go! Nachdem wir deine Ziele finalisiert haben, geht's erst richtig los! Mit kreativen Ideen und spannendem Content repräsentieren wir dein Unternehmen als individuelle Brand.",
-  },
-];
+/** OS-Einstellung „Bewegung reduzieren": Karten erscheinen dann ohne Einflug-Animation. */
+const PREFERS_REDUCED_MOTION =
+  typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
 export const ThreeStepsCTA = () => {
   const isMobile = useIsMobile();
-  const [activeStep, setActiveStep] = useState(0);
+
+  // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
+  const threeStepsCTA = useHomeSection("threeStepsCTA", TSC_STATIC, threeStepsCTAEn);
+  const stepsData = threeStepsCTA.steps;
+  // Desktop: Anzahl der bereits eingeflogenen Stack-Karten (0–3)
+  const [visibleCards, setVisibleCards] = useState(0);
   const [mobileStep, setMobileStep] = useState(0);
   const [pinMode, setPinMode] = useState<"before" | "fixed" | "after">("before");
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Desktop scroll-pin logic
+  // Desktop scroll-pin logic — Karten stapeln sich nacheinander von unten
   useEffect(() => {
     if (isMobile) return;
     const section = sectionRef.current;
@@ -60,10 +44,11 @@ export const ThreeStepsCTA = () => {
       const pinDistance = Math.max(1, section.offsetHeight - window.innerHeight);
       const progress = clamp(-rect.top / pinDistance, 0, 1);
       const nextMode = rect.top > 0 ? "before" : rect.bottom <= window.innerHeight ? "after" : "fixed";
-      const nextStep = progress < 0.34 ? 0 : progress < 0.67 ? 1 : 2;
+      // Einflug-Schwellen: Karte 1 direkt beim Pinnen, 2 und 3 gestaffelt dahinter
+      const nextVisible = progress >= 0.62 ? 3 : progress >= 0.32 ? 2 : progress >= 0.02 ? 1 : 0;
 
       setPinMode((current) => (current === nextMode ? current : nextMode));
-      setActiveStep((current) => (current === nextStep ? current : nextStep));
+      setVisibleCards((current) => (current === nextVisible ? current : nextVisible));
     };
     const requestStepUpdate = () => {
       cancelAnimationFrame(frame);
@@ -126,12 +111,11 @@ export const ThreeStepsCTA = () => {
           }}
       >
         <div style={mobilePinStyle} className="overflow-hidden">
-          <div className="px-6 pt-16 pb-8 h-full flex flex-col">
+          <div className="px-6 pt-24 pb-8 h-full flex flex-col">
             <h2
-              className="text-[2rem] leading-[0.94] mb-3 uppercase"
-              style={{ ...SERIF, fontStyle: "italic", letterSpacing: "0", color: INK_DEEP }}
+              style={{ color: INK_DEEP }}
             >
-              Drei<br />Schritte<br />zum Erfolg
+              {threeStepsCTA.heading.line1}<br />{threeStepsCTA.heading.line2}<br />{threeStepsCTA.heading.line3}
             </h2>
 
             <div className="mb-3">
@@ -140,17 +124,17 @@ export const ThreeStepsCTA = () => {
 
             <div className="flex items-center mb-5">
               <div>
-                <p className="text-xs font-bold uppercase tracking-wide" style={{ ...MONO, color: INK_DEEP }}>
-                  Mit Sebastian Pachon
+                <p className="uppercase tracking-wide" style={{ ...BODY, fontWeight: 700, fontSize: "14px", color: INK_DEEP }}>
+                  {threeStepsCTA.person.name}
                 </p>
-                <p className="text-[0.65rem]" style={{ ...MONO, color: "rgba(26,10,46,0.55)" }}>
-                  Gründer und Geschäftsführer New Edge
+                <p style={{ ...BODY, fontSize: "14px", color: "rgba(23,23,46,0.55)" }}>
+                  {threeStepsCTA.person.role}
                 </p>
                 <a
-                  href="tel:+4917660431467"
-                  style={{ ...MONO, fontSize: "10px", letterSpacing: "0.1em", color: VIOLET, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "5px", marginTop: "6px", borderBottom: "1px solid rgba(91,33,182,0.25)", paddingBottom: "1px" }}
+                  href={threeStepsCTA.person.phoneHref}
+                  style={{ ...BODY, fontWeight: 600, fontSize: "12px", color: VIOLET, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "5px", marginTop: "6px" }}
                 >
-                  ↗ +49 176 60 431 467
+                  {threeStepsCTA.person.phoneLabel}
                 </a>
               </div>
             </div>
@@ -173,25 +157,25 @@ export const ThreeStepsCTA = () => {
                           : "translateX(60px) scale(0.92)",
                       transition: "opacity 500ms ease, transform 600ms cubic-bezier(0.4,0,0.2,1)",
                       pointerEvents: isActive ? "auto" : "none",
+                      borderRadius: "16px",
                       boxShadow: "0 16px 50px rgba(0,0,0,0.18)",
                     }}
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-2xl">{card.icon}</span>
+                      <span aria-hidden style={{ ...HEAD, fontSize: "13px", color: "#fff", background: VIOLET, width: "30px", height: "30px", borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span>
                       <span
-                        className="text-[0.75rem] font-bold uppercase tracking-widest"
-                        style={{ ...MONO, color: VIOLET }}
+                        className="text-[0.75rem] font-bold uppercase"
+                        style={{ ...BODY, fontWeight: 700, letterSpacing: "0.04em", color: VIOLET }}
                       >
-                        Schritt {i + 1}
+                        {threeStepsCTA.stepLabelPrefix} {i + 1}
                       </span>
                     </div>
                     <h3
-                      className="text-[1rem] font-bold mb-2"
-                      style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+                      style={{ color: L.text }}
                     >
                       {card.title}
                     </h3>
-                    <p className="text-[0.82rem] leading-[1.6]" style={{ color: L.textMuted, ...MONO }}>
+                    <p style={{ color: L.textMuted }}>
                       {card.desc}
                     </p>
                   </div>
@@ -205,8 +189,9 @@ export const ThreeStepsCTA = () => {
                   key={i}
                   className="block h-2 transition-all duration-500"
                   style={{
-                    background: mobileStep === i ? VIOLET : "rgba(91,33,182,0.25)",
+                    background: mobileStep === i ? VIOLET : "rgba(86,88,223,0.25)",
                     width: mobileStep === i ? "28px" : "10px",
+                    borderRadius: "4px",
                   }}
                 />
               ))}
@@ -227,7 +212,7 @@ export const ThreeStepsCTA = () => {
     width: "100%",
     height: "100dvh",
     zIndex: 1,
-    background: MESH_BG,
+    background: "transparent", // zeigt das durchgehende Magazin-Papier der Seite
   };
 
   return (
@@ -246,10 +231,9 @@ export const ThreeStepsCTA = () => {
             {/* LEFT */}
             <div className="flex flex-col justify-center">
               <h2
-                className="text-[clamp(2rem,3.8vw,3rem)] leading-[0.94] mb-4 uppercase"
-                style={{ ...SERIF, fontStyle: "italic", letterSpacing: "0", color: INK_DEEP }}
+                style={{ color: INK_DEEP }}
               >
-                Drei<br />Schritte<br />zum Erfolg
+                {threeStepsCTA.heading.line1}<br />{threeStepsCTA.heading.line2}<br />{threeStepsCTA.heading.line3}
               </h2>
 
               <FloatingConsultButton />
@@ -259,63 +243,74 @@ export const ThreeStepsCTA = () => {
                     key={i}
                     className="block h-2 transition-all duration-500"
                     style={{
-                      background: activeStep === i ? VIOLET : "rgba(91,33,182,0.25)",
-                      width: activeStep === i ? "28px" : "10px",
+                      background: visibleCards > i ? VIOLET : "rgba(86,88,223,0.25)",
+                      width: Math.max(0, visibleCards - 1) === i ? "28px" : "10px",
+                      borderRadius: "4px",
                     }}
                   />
                 ))}
               </div>
               <div className="flex items-center mt-4">
                 <div>
-                  <p className="text-sm font-bold uppercase tracking-wide" style={{ ...MONO, color: INK_DEEP }}>
-                    Mit Sebastian Pachon
+                  <p className="uppercase tracking-wide" style={{ ...BODY, fontWeight: 700, fontSize: "14px", color: INK_DEEP }}>
+                    {threeStepsCTA.person.name}
                   </p>
-                  <p className="text-xs" style={{ ...MONO, color: "rgba(26,10,46,0.55)" }}>
-                    Gründer und Geschäftsführer New Edge
+                  <p style={{ ...BODY, fontSize: "14px", color: "rgba(23,23,46,0.55)" }}>
+                    {threeStepsCTA.person.role}
                   </p>
                   <a
-                    href="tel:+4917660431467"
-                    style={{ ...MONO, fontSize: "11px", letterSpacing: "0.1em", color: VIOLET, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "8px", borderBottom: "1px solid rgba(91,33,182,0.25)", paddingBottom: "1px" }}
+                    href={threeStepsCTA.person.phoneHref}
+                    style={{ ...BODY, fontWeight: 600, fontSize: "13px", color: VIOLET, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "8px" }}
                   >
-                    ↗ +49 176 60 431 467
+                    {threeStepsCTA.person.phoneLabel}
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* RIGHT — scroll-driven cards */}
-            <div className="relative h-[390px] flex items-center" aria-live="polite">
+            {/* RIGHT — Scroll-Stack: Karten fliegen nacheinander von unten ein und
+                stapeln sich (Schritt 1 oben, 2 und 3 leicht überlappend darunter).
+                Nur transform/opacity animiert — kein Layout-Shift, Slots stehen fest. */}
+            <div className="flex flex-col justify-center" aria-live="polite">
               {stepsData.map((card, i) => {
-                const isActive = activeStep === i;
+                const entered = visibleCards > i;
                 return (
                   <div
                     key={card.title}
-                    className="absolute inset-x-0 top-1/2 min-h-[230px] p-7 md:p-10 flex flex-col justify-center will-change-transform"
+                    className="relative p-6 md:p-7 will-change-transform"
                     style={{
                       background: "rgba(255,255,255,0.98)",
-                      opacity: isActive ? 1 : 0,
-                      transform: `translate3d(0, ${isActive ? "-50%" : i < activeStep ? "-64%" : "-36%"}, 0) scale(${isActive ? 1 : 0.94}) rotate(${isActive ? -2 : 0}deg)`,
-                      transition: "opacity 520ms cubic-bezier(0.22,1,0.36,1), transform 520ms cubic-bezier(0.22,1,0.36,1)",
-                      pointerEvents: isActive ? "auto" : "none",
-                      boxShadow: "0 26px 70px rgba(0,0,0,0.22)",
+                      borderRadius: "16px",
+                      boxShadow: "0 18px 44px rgba(23,23,46,0.16)",
+                      // Leichte Überlappung — spätere Karte legt sich oben auf die Kante
+                      marginTop: i === 0 ? 0 : "-14px",
+                      zIndex: i + 1,
+                      // Edgy-Versatz der Marke: minimal alternierende Rotation im Stapel
+                      transform: entered
+                        ? `translate3d(0, 0, 0) rotate(${[-1.2, 0.9, -0.7][i]}deg) scale(1)`
+                        : "translate3d(0, 56vh, 0) rotate(0deg) scale(0.96)",
+                      opacity: entered ? 1 : 0,
+                      transition: PREFERS_REDUCED_MOTION
+                        ? "none"
+                        : "transform 520ms cubic-bezier(0.22,1,0.36,1), opacity 380ms ease-out",
+                      pointerEvents: entered ? "auto" : "none",
                     }}
                   >
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="text-3xl">{card.icon}</span>
+                    <div className="flex items-center gap-3 mb-2.5">
+                      <span aria-hidden style={{ ...HEAD, fontSize: "14px", color: "#fff", background: VIOLET, width: "32px", height: "32px", borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span>
                       <span
-                        className="text-[0.8rem] font-bold uppercase tracking-widest"
-                        style={{ ...MONO, color: VIOLET }}
+                        className="text-[0.8rem] font-bold uppercase"
+                        style={{ ...BODY, fontWeight: 700, letterSpacing: "0.04em", color: VIOLET }}
                       >
-                        Schritt {i + 1}
+                        {threeStepsCTA.stepLabelPrefix} {i + 1}
                       </span>
                     </div>
                     <h3
-                      className="text-[1.1rem] font-bold mb-3"
-                      style={{ ...SERIF, letterSpacing: "-0.01em", color: L.text }}
+                      style={{ color: L.text }}
                     >
                       {card.title}
                     </h3>
-                    <p className="text-[0.9rem] leading-[1.7]" style={{ color: L.textMuted, ...MONO }}>
+                    <p style={{ color: L.textMuted }}>
                       {card.desc}
                     </p>
                   </div>

@@ -3,45 +3,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ⚡ FONT LOADING OPTIMIZATION - Prevent FOIT (Flash of Invisible Text) */
-@font-face {
-  font-family: 'Inter Variable';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap; /* Show fallback font immediately, then swap when loaded */
-  src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Epilogue Variable';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap; /* Show fallback font immediately, then swap when loaded */
-  src: url('https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXMDLiDJXVigHPVA.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
 /* ✨ MODERN MOTION-FIRST DESIGN SYSTEM ✨ */
 
 @layer base {
   :root {
-    /* 🎨 CORE COLORS - Clean white background theme */
-    --background: 0 0% 100%; /* Pure white */
-    --foreground: 0 0% 13%; /* Dark gray for text */
-    --surface: 0 0% 98%; /* Very light gray for cards */
+    /* 🎨 CORE COLORS - New Edge brand */
+    --background: 258 100% 98%; /* #F8F5FF helllila — Magazin-Grundton */
+    --foreground: 240 8% 26%; /* #3C3C47 brand ink */
+    --surface: 0 0% 100%; /* white for cards/elevated surfaces */
     --surface-elevated: 0 0% 100%;
 
-    /* 🔮 BRAND COLORS - Vibrant, modern palette */
-    --primary: 270 91% 65%; /* Electric purple */
-    --primary-foreground: 0 0% 100%; /* White text on primary */
-    --primary-glow: 280 100% 70%;
-    --primary-subtle: 270 70% 50%;
-    
-    --secondary: 210 100% 60%; /* Vivid blue */
+    /* 🔮 BRAND COLORS - NEWEDGE violet (#5658DF) */
+    --primary: 239 68% 61%; /* #5658DF brand violet */
+    --primary-foreground: 0 0% 100%; /* white on primary */
+    --primary-glow: 245 79% 70%; /* #8476EF */
+    --primary-subtle: 239 50% 48%;
+
+    --secondary: 251 86% 74%; /* #9A85F6 light brand violet */
     --secondary-foreground: 0 0% 100%; /* White text on secondary */
-    --secondary-glow: 200 100% 65%;
-    --secondary-subtle: 210 80% 50%;
+    --secondary-glow: 251 86% 78%;
+    --secondary-subtle: 245 60% 60%;
     
     --accent: 50 100% 60%; /* Electric yellow */
     --accent-foreground: 0 0% 13%; /* Dark text on accent */
@@ -151,103 +132,143 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Consolas', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Liberation Mono', 'Courier New', monospace;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 400;
     font-display: swap;
     font-optical-sizing: auto;
-    line-height: 1.6;
+    line-height: var(--lh-body);
     letter-spacing: -0.01em;
     overflow-x: hidden;
     max-width: 100vw;
   }
 
-  /* 🔤 HEADING TYPOGRAPHY - DM Serif Display for all headings */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'DM Serif Display', serif;
-    font-weight: 400 !important;
-  }
-  
   /* 🖼️ MEDIA MAX-WIDTH PROTECTION */
   img, video, iframe, embed, object, svg {
     max-width: 100%;
     height: auto;
   }
 
-  /* 🎯 MODERN TYPOGRAPHY SCALE */
-  .text-display-xl { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 8vw, 8rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.04em; }
-  .text-display-lg { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 6vw, 6rem); font-weight: 400; line-height: 0.95; letter-spacing: -0.03em; }
-  .text-display { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 4rem); font-weight: 400; line-height: 1; letter-spacing: -0.02em; }
-  .text-h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.75rem, 4vw, 3rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; }
-  .text-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; }
-  .text-h3 { font-family: 'DM Serif Display', serif; font-size: clamp(1.25rem, 2.5vw, 1.875rem); font-weight: 400; line-height: 1.3; }
-  .text-body-xl { font-size: clamp(1.125rem, 2vw, 1.5rem); font-weight: 400; line-height: 1.4; }
-  .text-body-lg { font-size: clamp(1rem, 1.5vw, 1.25rem); font-weight: 400; line-height: 1.5; }
-  .text-body { font-size: 1rem; font-weight: 400; line-height: 1.6; }
-  .text-body-sm { font-size: 0.875rem; font-weight: 400; line-height: 1.6; }
-  
+  /* 🎯 NEWEDGE GLOBAL TYPE SCALE — einzige Quelle der Wahrheit für Schriftgröße,
+     -stärke, Zeilenhöhe und Laufweite. Breakpoints: Mobile <768px · Tablet
+     768–1023px · Desktop ≥1024px (deckungsgleich mit den Tailwind-Breakpoints
+     md/lg, die im restlichen Layout bereits verwendet werden).
+     Jede Komponente erbt automatisch von h1/h2/h3/p — keine Inline-Overrides
+     für fontSize/fontWeight/lineHeight/letterSpacing mehr nötig. Für Text, der
+     visuell wie eine Überschrift wirkt, aber semantisch keine ist (z. B. ein
+     <span> als Riesen-Zahl), stehen die .text-h1/.text-h2/.text-h3-Klassen
+     zur Verfügung — gleiche Werte, andere Selektoren. */
+  :root {
+    --font-h1: 2rem;      /* 32px Mobile */
+    --font-h2: 1.75rem;   /* 28px Mobile */
+    --font-h3: 1.375rem;  /* 22px Mobile */
+    --font-body: 1rem;    /* 16px Mobile */
+    --font-small: 0.875rem; /* 14px — breakpoint-invariant */
+    --lh-heading: 1.15;
+    --lh-body: 1.7;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --font-h1: 2.5rem;    /* 40px Tablet */
+      --font-h2: 2rem;      /* 32px Tablet */
+      --font-h3: 1.5rem;    /* 24px Tablet */
+      --font-body: 1.0625rem; /* 17px Tablet */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --font-h1: 3.5rem;    /* 56px Desktop */
+      --font-h2: 2.5rem;    /* 40px Desktop */
+      --font-h3: 1.75rem;   /* 28px Desktop */
+      --font-body: 1.125rem;  /* 18px Desktop */
+    }
+  }
+
+  h1, .text-h1 {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: var(--font-h1);
+    font-weight: 800;
+    line-height: var(--lh-heading);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5em;
+  }
+  h2, .text-h2 {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: var(--font-h2);
+    font-weight: 700;
+    line-height: var(--lh-heading);
+    letter-spacing: -0.015em;
+    margin-bottom: 0.5em;
+  }
+  h3, .text-h3 {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: var(--font-h3);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.4em;
+  }
+  p, .text-body {
+    font-size: var(--font-body);
+    font-weight: 400;
+    line-height: var(--lh-body);
+  }
+  small, .text-small {
+    font-size: var(--font-small);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
   /* Mobile-optimized touch targets */
   @media (max-width: 768px) {
+    /* Nur Tap-Delay entfernen — KEINE global erzwungene Mindesthöhe/-breite mehr
+       (die brach Footer-Notch + Akkordeon-Höhen). Touch-Ziele lösen die
+       Komponenten über Padding/Höhe. */
     button, a[role="button"] {
-      min-height: 48px;
-      min-width: 48px;
-      touch-action: manipulation; /* Eliminate tap delay */
+      touch-action: manipulation;
     }
-    
+
     /* Improved mobile spacing */
     .container-xl { padding: 0 1rem; }
     .section-padding { padding: 2rem 0; }
-    
-    /* Display sizes for hero sections */
-    .text-display-xl { font-size: clamp(2.5rem, 8vw, 3.5rem); }
-    .text-display-lg { font-size: clamp(2.25rem, 7vw, 3rem); }
-    .text-display { font-size: clamp(2rem, 6vw, 2.5rem); }
-    
-    /* Heading hierarchy - significantly larger on mobile */
-    .text-h1 { font-size: clamp(1.75rem, 5.5vw, 2.25rem); }
-    .text-h2 { font-size: clamp(1.5rem, 4.5vw, 1.875rem); }
-    .text-h3 { font-size: clamp(1.25rem, 3.5vw, 1.5rem); }
-    
-    /* Body text - smaller for better contrast */
-    .text-body-xl { font-size: clamp(1rem, 2vw, 1.125rem); }
-    .text-body-lg { font-size: clamp(0.9375rem, 1.5vw, 1rem); }
-    .text-body { font-size: 0.9375rem; }
-    .text-body-sm { font-size: 0.875rem; }
-    
-    /* Allow CSS classes to control sizing */
-    h1, h2, h3 { font-size: inherit; line-height: inherit; }
-    
-    /* Prevent horizontal overflow */
+
+    /* Horizontalen Overflow verhindern — gezielt auf overflow-anfällige Elemente
+       statt `* { max-width: 100% }`. Der Universal-Selektor klemmte JEDES Element
+       auf Containerbreite und brach Marquee/Footer-Notch/Ticker. */
     body { overflow-x: hidden; }
-    * { max-width: 100%; }
-    
+    img, svg, video, canvas, table, pre { max-width: 100%; }
+    /* Marquee-Kopien dürfen breiter als der Viewport bleiben (sonst kein Scroll). */
+    .marquee-track, .marquee-track > * { max-width: none; }
+
     /* Mobile grid improvements */
     .grid { gap: 0.75rem; }
-    
+
     /* Mobile card adjustments */
     .card-modern {
       padding: 1rem;
       border-radius: var(--radius);
     }
-    
+
     /* Smaller interactive modules on mobile */
     .hover-lift { transform: none; }
     .hover-lift:active { transform: translateY(-2px) scale(1.01); }
-    
+
     /* Reduced motion on mobile for better performance */
     .animate-float, .animate-rotate, .animate-parallax {
       animation: none;
     }
-    
+
     /* Better mobile navigation */
     nav { padding: 0.75rem 0; }
-    
+
     /* Touch-friendly buttons */
     .btn-primary, .btn-secondary, .btn-ghost {
       padding: 0.875rem 1.5rem;
       font-size: 0.9375rem;
     }
   }
-  
+
   /* Tablet optimizations */
   @media (min-width: 768px) and (max-width: 1024px) {
     .container-xl { padding: 0 1.5rem; }

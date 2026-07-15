@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { safeGetItem, safeLocalStorage, safeSetItem } from "@/utils/safeStorage";
 
 type Language = "de" | "en";
 
@@ -30,14 +31,14 @@ const translations = {
     "common.exploreServices": "Services erkunden",
 
     // Homepage
-    "home.hero.title": "New Edge",
+    "home.hero.title": "NEWEDGE",
     "home.hero.subtitle": "For strategy. aesthetics.\n& tech.",
     "home.hero.description":
       "Wir helfen Marken, sichtbar zu werden, Prozesse zu automatisieren – und den Wandel durch Innovation aktiv zu gestalten.",
     "home.hero.descriptionSecond": "Von strategischer Beratung bis hin zu cutting-edge Technologie.",
     "home.about.title": "Über uns",
     "home.about.description":
-      "New Edge ist ein kreatives Tech-Studio, das sich auf innovative digitale Lösungen spezialisiert hat. Wir verbinden strategisches Denken mit ästhetischem Design und modernster Technologie.",
+      "NEWEDGE ist ein kreatives Tech-Studio, das sich auf innovative digitale Lösungen spezialisiert hat. Wir verbinden strategisches Denken mit ästhetischem Design und modernster Technologie.",
     "home.services.title": "Unsere Services",
     "home.contact.title": "Bereit durchzustarten?",
     "home.contact.description":
@@ -95,7 +96,7 @@ const translations = {
     "studio.cta.description": "Lassen Sie uns gemeinsam Designs entwickeln, die Ihre Nutzer begeistern.",
 
     // Lab
-    "lab.hero.title": "New Edge Lab",
+    "lab.hero.title": "NEWEDGE Lab",
     "lab.hero.subtitle": "For strategy. aesthetics. & tech.",
     "lab.hero.description":
       "Unser Experimentierfeld für cutting-edge Technologien. Hier erforschen wir die Zukunft der digitalen Innovation und entwickeln bahnbrechende Lösungen.",
@@ -109,7 +110,7 @@ const translations = {
     "lab.ar.description": "Immersive Erfahrungen, die die Grenzen zwischen digital und physisch verschwimmen lassen.",
     "lab.iot.title": "IoT Integration",
     "lab.iot.description": "Vernetzte Lösungen für eine intelligentere und effizientere Zukunft.",
-    "lab.agentHub.title": "New Edge Agent Hub",
+    "lab.agentHub.title": "NEWEDGE Agent Hub",
     "lab.agentHub.subtitle": "KI-gestützte Automatisierungslösungen",
     "lab.agentHub.description":
       "Revolutionäre KI-Agenten, die komplexe Aufgaben autonom bewältigen und Ihr Unternehmen in die Zukunft führen.",
@@ -158,13 +159,13 @@ const translations = {
     "common.exploreServices": "Explore Services",
 
     // Homepage
-    "home.hero.title": "New Edge",
+    "home.hero.title": "NEWEDGE",
     "home.hero.subtitle": "For strategy. aesthetics. & tech.",
     "home.hero.description":
       "We develop digital solutions that go beyond the ordinary. From strategic consulting to cutting-edge technology - we bring your vision to life.",
     "home.about.title": "About Us",
     "home.about.description":
-      "New Edge is a creative tech studio specializing in innovative digital solutions. We connect strategic thinking with aesthetic design and cutting-edge technology.",
+      "NEWEDGE is a creative tech studio specializing in innovative digital solutions. We connect strategic thinking with aesthetic design and cutting-edge technology.",
     "home.services.title": "Our Services",
     "home.contact.title": "Ready to get started?",
     "home.contact.description": "Let's talk about your next project and create something extraordinary together.",
@@ -234,7 +235,7 @@ const translations = {
     "lab.ar.description": "Immersive experiences that blur the boundaries between digital and physical.",
     "lab.iot.title": "IoT Integration",
     "lab.iot.description": "Connected solutions for a smarter and more efficient future.",
-    "lab.agentHub.title": "New Edge Agent Hub",
+    "lab.agentHub.title": "NEWEDGE Agent Hub",
     "lab.agentHub.subtitle": "AI-powered automation solutions",
     "lab.agentHub.description":
       "Revolutionary AI agents that autonomously handle complex tasks and lead your business into the future.",
@@ -266,14 +267,22 @@ const translations = {
 };
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const storage = safeLocalStorage();
   const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem("language");
+    // URL ist maßgeblich: `/en/…` → EN (kein Flash bei Direktaufruf). Sonst DE;
+    // die `/en`- bzw. `/`-LocaleLayout hält die Sprache clientseitig synchron.
+    if (typeof window !== "undefined") {
+      const p = window.location.pathname;
+      if (p === "/en" || p.startsWith("/en/")) return "en";
+      return "de";
+    }
+    const saved = safeGetItem(storage, "language");
     return (saved as Language) || "de";
   });
 
   useEffect(() => {
-    localStorage.setItem("language", language);
-  }, [language]);
+    safeSetItem(storage, "language", language);
+  }, [language, storage]);
 
   const t = (key: string): string => {
     return translations[language][key] || key;

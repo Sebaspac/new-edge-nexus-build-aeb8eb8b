@@ -131,7 +131,7 @@ const KiAuditGate = ({ onSuccess }: KiAuditGateProps) => {
                   Zugang anfordern
                 </h1>
                 <p className="text-sm text-primary-foreground/50">
-                  Trage deine Daten ein, um den KI-Audit Inhalt freizuschalten.
+                  Tragen Sie Ihre Daten ein, um die KI-Audit-Inhalte freizuschalten.
                 </p>
               </motion.div>
 

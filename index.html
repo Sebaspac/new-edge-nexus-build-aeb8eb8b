@@ -27,10 +27,11 @@
     <meta name="google-site-verification" content="XtuEeSbCDu8Kudt1pr8BEw0Lixm1iuaGkC-hcpwlSiA" />
 
     <!-- SEO Meta-Tags -->
+    <!-- description & canonical werden PRO SEITE von SEOHead (react-helmet) gesetzt.
+         Hier bewusst KEINE statische canonical/description (die statische canonical="/"
+         wäre auf allen Unterseiten falsch und doppelte sich mit Helmet). -->
     <title>KI Agentur München | Prozessautomatisierung & Marketing | New Edge</title>
-    <meta name="description" content="New Edge ist Ihre KI Agentur in München für Prozessautomatisierung, Marketing-Automation und KI-Lösungen für KMU. Jetzt Beratung anfragen!">
     <meta name="keywords" content="KI Agentur München, Prozessautomatisierung, KI Automatisierung, Marketing Automation, KI für KMU, Digitalisierung Mittelstand, München, Prozessautomatisierung München">
-    <link rel="canonical" href="https://newedgebrand.com/" />
     <meta name="author" content="New Edge - KI Agentur München für Prozessautomatisierung und Marketing" />
       
     <!-- Open Graph (Facebook, LinkedIn) -->
@@ -70,9 +71,7 @@
     <link rel="preload" as="image" href="/assets/c19dc1d8-e93c-4d25-a965-34dbef5d9fe1.png" type="image/png" />
     
     <!-- Load Fonts - preloaded above, now apply with swap -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     
   
   
@@ -91,5 +90,6 @@
     
     <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script src="http://localhost:3000/editor.js" defer></script>
   </body>
 </html>

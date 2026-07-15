@@ -1,145 +1,350 @@
-import { Link } from "react-router-dom";
-import { Linkedin, Mail } from "lucide-react";
-import newEdgeLogoHorizontal from "@/assets/new-edge-logo-horizontal.png";
+import { LocaleLink as Link } from "@/components/LocaleLink";
+import { ArrowUpRight, Linkedin, Mail, Phone, MapPin, Instagram, Github } from "lucide-react";
+import { footer as FOOTER_STATIC } from "@/content";
+import { footer as footerEn } from "@/content/en/sections/footer";
+import { useLocalized } from "@/hooks/useLocalized";
+import { MaschinenraumTicker } from "@/components/MaschinenraumTicker";
+
+/* ── Design tokens (Rebrush) ── */
+const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+const VIOLET = "#5658DF";
+const VIOLET_LIGHT = "#8B8DF0";
+const LILAC = "#C2C3F6";
+const INK_DEEP = "#17172E";
+const PAPER = "#F8F5FF";
+const MUTED = "rgba(255,255,255,0.55)";
+const R = 32; // Karten-/Notch-Radius
+
+/** Konkave Übergangs-Ecke (Paper → Karte) für den Back-to-top-Notch. */
+const Scoop = ({ flip = false, style }: { flip?: boolean; style: React.CSSProperties }) => (
+  <div
+    aria-hidden
+    style={{
+      position: "absolute",
+      width: `${R}px`,
+      height: `${R}px`,
+      background: `radial-gradient(circle at ${flip ? "0% 100%" : "100% 100%"}, transparent ${R}px, ${PAPER} ${R}px)`,
+      pointerEvents: "none",
+      ...style,
+    }}
+  />
+);
+
+/** Icon je Kontakt-Link (mailto → Mail, tel → Phone, sonst Adresse/Pin). */
+const contactIcon = (href: string) => {
+  if (href.startsWith("mailto:")) return Mail;
+  if (href.startsWith("tel:")) return Phone;
+  return MapPin;
+};
+
+/** Social-Icons für den schwebenden Notch oben links — getrennt von der Kontakt-Spalte unten. */
+const SOCIAL_LINKS = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/new-edge-brand/", Icon: Linkedin },
+  // TODO: echte Instagram-/GitHub-URL eintragen, sobald bekannt.
+  { label: "Instagram", href: "#", Icon: Instagram },
+  { label: "GitHub", href: "#", Icon: Github },
+];
+
 export const Footer = () => {
+  // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer.
+  // Die Rebrush-Chrome-Felder kommen bewusst direkt aus dem statischen Modul.
+  const footer = useLocalized("footer", FOOTER_STATIC, footerEn);
+  const rb = footer.rebrush;
+
+  // ROI-Rechner garantiert in der Ressourcen-Spalte zeigen — auch wenn die Spalte
+  // aus dem CMS kommt und den Eintrag (noch) nicht enthält.
+  const ressourcenLinks = [...footer.columns.ressourcen.links];
+  if (!ressourcenLinks.some((l) => l.to === "/roi-rechner")) {
+    ressourcenLinks.unshift({ label: "ROI-Rechner", to: "/roi-rechner" });
+  }
+  const year = new Date().getFullYear();
+  const copyright = footer.copyrightTemplate.replace("{year}", String(year));
+
+  const linkStyle: React.CSSProperties = {
+    fontFamily: OUTFIT,
+    fontWeight: 500,
+    fontSize: "16px",
+    color: "#fff",
+    textDecoration: "none",
+    lineHeight: 1,
+    transition: "color 0.18s ease",
+  };
+  const colLabelStyle: React.CSSProperties = {
+    fontFamily: OUTFIT,
+    fontWeight: 400,
+    fontSize: "14px",
+    color: MUTED,
+    marginBottom: "22px",
+  };
+
   return (
-    <footer className="bg-black text-white border-t border-white/10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
-        {/* Main Footer Content */}
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-16">
-          {/* Logo & Tagline */}
-          <div className="lg:max-w-xs">
-            <Link to="/" className="group">
-              <img
-                src={newEdgeLogoHorizontal}
-                alt="New Edge"
-                className="h-8 w-auto transition-transform group-hover:scale-105" />
-              
-            </Link>
-            <p className="text-sm text-gray-400 mt-3 leading-relaxed">Design the Future. Drive Innovation.</p>
-          </div>
+    <footer style={{ background: PAPER }}>
+      <MaschinenraumTicker />
 
-          {/* Navigation Columns */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
-            {/* Services */}
-            <div className="space-y-4">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Services</h3>
-              <ul className="space-y-3">
-              <li>
-                  <Link
-                    to="/studio"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
-                    
-                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      Studio
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/lab"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
-                    
-                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      Lab
-                    </span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Company */}
-            <div className="space-y-4">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Company</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link
-                    to="/about"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
-                    
-                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      Über uns
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/case-studies"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
-                    
-                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      Use Cases
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/careers"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center group">
-                    
-                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      Careers
-                    </span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Ressourcen */}
-
-            {/* Kontakt */}
-            <div className="space-y-4">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Kontakt</h3>
-              <ul className="space-y-3">
-                <li>
+      <div style={{ padding: "clamp(12px, 1.5vw, 24px)" }}>
+        <div>
+          {/* ── Dunkle Footer-Karte (volle Breite, Notches oben links + rechts) ── */}
+          <div
+            className="relative"
+            style={{
+              background: `linear-gradient(160deg, #1D1B38 0%, ${INK_DEEP} 45%, #100E1E 100%)`,
+              borderRadius: `${R + 8}px`,
+              overflow: "hidden",
+            }}
+          >
+            {/* Social-Kreise-Notch oben links (Paper-Ausschnitt, Desktop) */}
+            <div
+              className="hidden lg:block"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                zIndex: 2,
+                background: PAPER,
+                borderRadius: `0 0 ${R}px 0`,
+                padding: "0 16px 16px 0",
+              }}
+            >
+              <div className="flex flex-col gap-3">
+                {SOCIAL_LINKS.map(({ label, href, Icon }) => (
                   <a
-                    href="mailto:info@newedgebrand.com"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group">
-                    
-                    <Mail className="w-4 h-4 text-gray-500 group-hover:text-white transition-colors" />
-                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      E-Mail
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/new-edge-brand/"
+                    key={label}
+                    href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group">
-                    
-                    <Linkedin className="w-4 h-4 text-gray-500 group-hover:text-white transition-colors" />
-                    <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all group-hover:after:w-full">
-                      LinkedIn
-                    </span>
+                    aria-label={label}
+                    className="transition-colors duration-200"
+                    style={{
+                      width: "46px",
+                      height: "46px",
+                      borderRadius: "50%",
+                      background: LILAC,
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = INK_DEEP;
+                      const svg = e.currentTarget.querySelector("svg");
+                      if (svg) svg.style.color = LILAC;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = LILAC;
+                      const svg = e.currentTarget.querySelector("svg");
+                      if (svg) svg.style.color = INK_DEEP;
+                    }}
+                  >
+                    <Icon strokeWidth={1.8} style={{ width: "19px", height: "19px", color: INK_DEEP }} />
                   </a>
-                </li>
-              </ul>
+                ))}
+              </div>
+              <Scoop style={{ top: 0, right: `-${R}px` }} />
+              <Scoop style={{ top: "100%", left: 0 }} />
             </div>
-          </div>
-        </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-10 md:mt-12 lg:mt-16 pt-6 md:pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs md:text-sm text-gray-500">
-            © {new Date().getFullYear()} New Edge. Alle Rechte vorbehalten.
-          </p>
+            {/* Back-to-top-Notch oben rechts (Paper-Ausschnitt) */}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+                zIndex: 2,
+                background: PAPER,
+                borderRadius: `0 0 0 ${R}px`,
+                padding: "0 6px 14px 26px",
+                whiteSpace: "nowrap",
+                maxWidth: "none", // globale Mobile-Regel `* { max-width:100% }` würde den shrink-to-fit-Notch sonst umbrechen
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="transition-colors duration-200 hover:text-[#5658DF]"
+                style={{
+                  fontFamily: OUTFIT,
+                  fontWeight: 600,
+                  fontSize: "15px",
+                  color: INK_DEEP,
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  minHeight: 0, // globale Mobile-Regel `button { min-height:48px }` würde die Notch sonst aufblähen
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "5px",
+                  lineHeight: 1,
+                  whiteSpace: "nowrap",
+                  maxWidth: "none",
+                }}
+              >
+                {/* Mobile: kurzer Text; geschütztes Leerzeichen vor dem Emoji → nie 2 Zeilen (Notch bleibt flach) */}
+                <span className="hidden lg:inline">{rb.backTop}</span>
+                <span className="lg:hidden">Nach oben</span>
+                <span aria-hidden style={{ fontSize: "14px" }}>👆</span>
+              </button>
+              <Scoop flip style={{ top: 0, left: `-${R}px` }} />
+              <Scoop flip style={{ top: "100%", right: 0 }} />
+            </div>
 
-          <div className="flex items-center gap-6">
-            <Link to="/impressum" className="text-xs md:text-sm text-gray-500 hover:text-white transition-colors">
-              Impressum
-            </Link>
-            <span className="text-gray-700">|</span>
-            <Link
-              to="/impressum#datenschutz"
-              className="text-xs md:text-sm text-gray-500 hover:text-white transition-colors">
-              
-              Datenschutz
-            </Link>
+            <div className="lg:pl-[120px]" style={{ padding: "clamp(26px, 5vw, 80px) clamp(24px, 4vw, 72px) clamp(20px, 2.5vw, 36px)" }}>
+              {/* ── Obere Zeile: Heading + CTA | Linkspalten | Kontakt ── */}
+              <div className="grid gap-y-12 lg:grid-cols-[1.4fr_0.8fr_0.8fr_1fr] lg:gap-x-10">
+                {/* Heading + CTA */}
+                <div className="lg:pl-12">
+                  <h2
+                    style={{
+                      color: "#fff",
+                    }}
+                  >
+                    {rb.headingLine1}
+                    <br />
+                    {rb.headingLine2}
+                  </h2>
+                  <Link
+                    to={rb.ctaTo}
+                    className="inline-flex items-center gap-3 transition-transform duration-200 hover:scale-[1.03]"
+                    style={{
+                      fontFamily: OUTFIT,
+                      fontWeight: 600,
+                      fontSize: "15px",
+                      background: VIOLET,
+                      color: "#fff",
+                      borderRadius: "999px",
+                      padding: "10px 10px 10px 24px",
+                    }}
+                  >
+                    {rb.ctaLabel}
+                    <span
+                      style={{
+                        width: "34px",
+                        height: "34px",
+                        borderRadius: "50%",
+                        background: "rgba(255,255,255,0.18)",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                      }}
+                    >
+                      <ArrowUpRight style={{ width: "16px", height: "16px", color: "#fff" }} />
+                    </span>
+                  </Link>
+                  <p style={{ fontFamily: OUTFIT, fontWeight: 500, fontSize: "13px", color: LILAC, marginTop: "22px" }}>
+                    {footer.meta}
+                  </p>
+                </div>
+
+                {/* Unternehmen */}
+                <div>
+                  <p style={colLabelStyle}>{footer.columns.unternehmen.label}</p>
+                  <ul className="m-0 p-0 flex flex-col gap-4" style={{ listStyle: "none" }}>
+                    {footer.columns.unternehmen.links.map((l) => (
+                      <li key={l.to}>
+                        <Link
+                          to={l.to}
+                          style={linkStyle}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = LILAC)}
+                          onMouseLeave={(e) => (e.currentTarget.style.color = "#fff")}
+                        >
+                          {l.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Ressourcen */}
+                <div>
+                  <p style={colLabelStyle}>{footer.columns.ressourcen.label}</p>
+                  <ul className="m-0 p-0 flex flex-col gap-4" style={{ listStyle: "none" }}>
+                    {ressourcenLinks.map((l) => (
+                      <li key={l.to}>
+                        <Link
+                          to={l.to}
+                          style={linkStyle}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = LILAC)}
+                          onMouseLeave={(e) => (e.currentTarget.style.color = "#fff")}
+                        >
+                          {l.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Kontakt */}
+                <div>
+                  <p style={colLabelStyle}>{footer.columns.kontakt.label}</p>
+                  <ul className="m-0 p-0 flex flex-col gap-4" style={{ listStyle: "none" }}>
+                    {footer.columns.kontakt.items.map((item) => {
+                      const Icon = contactIcon(item.href);
+                      return (
+                        <li key={item.href} className="flex items-center gap-3">
+                          <Icon strokeWidth={1.8} style={{ width: "17px", height: "17px", color: VIOLET_LIGHT, flexShrink: 0 }} />
+                          <a
+                            href={item.href}
+                            target={item.external ? "_blank" : undefined}
+                            rel={item.external ? "noopener noreferrer" : undefined}
+                            style={linkStyle}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = LILAC)}
+                            onMouseLeave={(e) => (e.currentTarget.style.color = "#fff")}
+                          >
+                            {item.label}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+
+              {/* ── Riesige Marken-Typo ── */}
+              <div
+                aria-hidden
+                className="select-none"
+                style={{
+                  fontFamily: OUTFIT,
+                  fontWeight: 700,
+                  fontSize: "clamp(2.2rem, 7vw, 7.5rem)",
+                  lineHeight: 0.95,
+                  letterSpacing: "-0.04em",
+                  color: "#fff",
+                  textAlign: "center",
+                  marginTop: "clamp(48px, 7vw, 110px)",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {rb.giantText}
+              </div>
+
+              {/* ── Bottom-Bar ── */}
+              <div
+                className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3"
+                style={{
+                  borderTop: "1px solid rgba(194,195,246,0.14)",
+                  marginTop: "clamp(24px, 3vw, 40px)",
+                  paddingTop: "clamp(16px, 2vw, 24px)",
+                }}
+              >
+                <p style={{ fontFamily: OUTFIT, fontWeight: 500, fontSize: "13px", color: MUTED }}>{copyright}</p>
+                <div className="flex items-center gap-6">
+                  {footer.legalLinks.map((l) => (
+                    <Link
+                      key={l.to}
+                      to={l.to}
+                      style={{ fontFamily: OUTFIT, fontWeight: 500, fontSize: "13px", color: MUTED, textDecoration: "none" }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = LILAC)}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = MUTED)}
+                    >
+                      {l.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </footer>);
-
+    </footer>
+  );
 };

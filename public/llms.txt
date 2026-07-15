@@ -34,8 +34,8 @@ New Edge Brand ist eine spezialisierte KI-Agentur mit Sitz in München. Wir arbe
 ## Weiterführende Informationen
 
 - Über uns: https://newedgebrand.com/about
-- Cases: https://newedgebrand.com/case-studies
-- Blog: https://newedgebrand.com/blog
+- Methodik: https://newedgebrand.com/methodik
 - KI-Audit: https://newedgebrand.com/ki-audit
+- KI-Glossar: https://newedgebrand.com/ki-glossar
 - Kontakt: https://newedgebrand.com/kontakt
 - Detaillierte Informationen: https://newedgebrand.com/llms-full.txt

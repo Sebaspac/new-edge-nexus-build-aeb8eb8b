@@ -1,59 +1,205 @@
-import sadieKessler from "@/assets/logos/sadie-kessler.webp";
-import circlePhoto from "@/assets/logos/circle-photo.webp";
-import hydeOfficial from "@/assets/logos/hyde-official.webp";
-import dariusCompany from "@/assets/logos/darius-company.webp";
-import museStudio from "@/assets/logos/muse-studio.webp";
-import drAaronLoeb from "@/assets/logos/dr-aaron-loeb.webp";
-import pureDesign from "@/assets/logos/pure-design.webp";
-import seabreeze from "@/assets/logos/seabreeze.webp";
+import { clientLogos as LOGOS_STATIC, clientLogosHeading as HEADING_STATIC } from "@/content/sections/clientLogos";
+import { clientLogos as clientLogosEn, clientLogosHeading as clientLogosHeadingEn } from "@/content/en/sections/clientLogos";
+import { img } from "@/content";
+import { useHomeSection } from "@/hooks/useHomeContent";
 
-// ✅ Einfach neue Logos hier hinzufügen - die Marquee passt sich automatisch an
-const logos = [
-  { src: sadieKessler, alt: "Sadie Kessler" },
-  { src: circlePhoto, alt: "The Circle Photo Studio" },
-  { src: hydeOfficial, alt: "Hyde Official" },
-  { src: dariusCompany, alt: "Darius Company" },
-  { src: museStudio, alt: "Muse Music Studio" },
-  { src: drAaronLoeb, alt: "Dr Aaron Loeb" },
-  { src: pureDesign, alt: "Pure Design Studio" },
-  { src: seabreeze, alt: "Seabreeze Beach Club" },
-  // Neue Logos einfach hier hinzufügen:
-  // { src: neuesLogo, alt: "Neuer Kunde" },
-];
+/** Re-export für Bestandsimporte (z. B. PainPoint-Hero-Ticker) — bewusst statisch. */
+export { LOGOS_STATIC as clientLogos };
 
-const LogoItem = ({ src, alt }: { src: string; alt: string }) => (
-  <div className="flex-shrink-0 flex items-center justify-center h-12 sm:h-16 md:h-20 lg:h-24 px-4 sm:px-6 md:px-8">
-    <img
-      src={src}
-      alt={alt}
-      className="h-full w-auto object-contain max-w-[100px] sm:max-w-[140px] md:max-w-[180px] lg:max-w-[200px] grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+const SANS =
+  "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
+
+/* Gemeinsame SVG-Gradient-Definition */
+const ARC_GRADIENT_ID = "orb-stroke-split";
+
+/* SVG-Bogen: obere Hälfte (erscheint VOR den Logos) */
+const TopArc = ({ size }: { size: string }) => (
+  <svg
+    aria-hidden
+    viewBox="0 0 800 800"
+    preserveAspectRatio="xMidYMid meet"
+    style={{
+      position: "absolute",
+      left: "50%", top: "50%",
+      transform: "translate(-50%, -50%)",
+      width: size, height: size,
+      zIndex: 3, // vor den Logos
+      pointerEvents: "none",
+      overflow: "visible",
+    }}
+  >
+    <defs>
+      <linearGradient id={ARC_GRADIENT_ID} x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%"   stopColor="#C2C3F6" stopOpacity="1" />
+        <stop offset="25%"  stopColor="#9A85F6" stopOpacity="1" />
+        <stop offset="50%"  stopColor="#8476EF" stopOpacity="1" />
+        <stop offset="75%"  stopColor="#5658DF" stopOpacity="1" />
+        <stop offset="100%" stopColor="#2E2F6E" stopOpacity="0.95" />
+      </linearGradient>
+    </defs>
+    {/* Oberer Bogen: endet ÜBER der Mittellinie → lässt einen Kanal für die Logos frei.
+        Endpunkte bei y=330 (= 70 Einheiten über Mitte 400), x≈9 / x≈791. */}
+    <path
+      d="M 9,330 A 397,397 0 0 1 791,330"
+      fill="none"
+      stroke={`url(#${ARC_GRADIENT_ID})`}
+      strokeWidth="2"
+      strokeLinecap="round"
+      style={{
+        filter:
+          "drop-shadow(0 0 8px rgba(132,118,239,0.7)) drop-shadow(0 0 20px rgba(86,88,223,0.5)) drop-shadow(0 0 36px rgba(59,13,114,0.35))",
+      }}
     />
-  </div>
+  </svg>
+);
+
+/* SVG-Bogen: untere Hälfte (erscheint HINTER den Logos) */
+const BottomArc = ({ size }: { size: string }) => (
+  <svg
+    aria-hidden
+    viewBox="0 0 800 800"
+    preserveAspectRatio="xMidYMid meet"
+    style={{
+      position: "absolute",
+      left: "50%", top: "50%",
+      transform: "translate(-50%, -50%)",
+      width: size, height: size,
+      zIndex: 0, // hinter den Logos
+      pointerEvents: "none",
+      overflow: "visible",
+    }}
+  >
+    {/* Unterer Bogen: beginnt UNTER der Mittellinie → spiegelt den Kanal.
+        Endpunkte bei y=470 (= 70 Einheiten unter Mitte 400), x≈791 / x≈9. */}
+    <path
+      d="M 791,470 A 397,397 0 0 1 9,470"
+      fill="none"
+      stroke={`url(#${ARC_GRADIENT_ID})`}
+      strokeWidth="2"
+      strokeLinecap="round"
+      style={{
+        filter:
+          "drop-shadow(0 0 8px rgba(132,118,239,0.5)) drop-shadow(0 0 16px rgba(86,88,223,0.35))",
+      }}
+    />
+  </svg>
 );
 
 export default function LogoCloud() {
-  // Logos für nahtlosen Loop duplizieren
-  const duplicatedLogos = [...logos, ...logos];
+  // Inhalte live aus dem CMS (locale-fähig); Fallback: sprachrichtiger Content-Layer
+  const clientLogos = useHomeSection("clientLogos", LOGOS_STATIC, clientLogosEn);
+  const clientLogosHeading = useHomeSection("clientLogosHeading", HEADING_STATIC, clientLogosHeadingEn);
+
+  const duplicatedLogos = [...clientLogos, ...clientLogos];
+  const arcSize = "clamp(340px, 52vh, 520px)";
+  const BG = "#0A0A18"; // muss zur Hintergrundfarbe des Hero-Blocks passen
 
   return (
-    <section className="py-10 sm:py-12 md:py-16 lg:py-24 overflow-hidden bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <p className="text-center text-muted-foreground font-medium mb-6 sm:mb-8 md:mb-10 text-sm sm:text-base md:text-lg">
-          Vertraut von führenden Unternehmen
-        </p>
+    <section
+      className="relative w-full overflow-hidden flex flex-col items-center justify-center"
+      style={{
+        background: "transparent",
+        padding: "32px 0 24px",
+      }}
+    >
+      {/* Heading */}
+      <div
+        role="heading"
+        aria-level={2}
+        className="text-center px-4"
+        style={{
+          fontFamily: SANS,
+          color: "#fff",
+          fontSize: "clamp(16px, 1.5vw, 19px)",
+          fontWeight: 700,
+          letterSpacing: "-0.5px",
+          lineHeight: 1.15,
+        }}
+      >
+        {clientLogosHeading.lead} <span style={{ color: "#9A85F6" }}>{clientLogosHeading.highlight}</span>
       </div>
-      
-      <div className="relative w-full">
-        {/* Gradient overlays für seamless fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-16 md:w-24 lg:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 md:w-24 lg:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-        
-        {/* Marquee container mit CSS Animation */}
-        <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
-          {duplicatedLogos.map((logo, index) => (
-            <LogoItem key={`logo-${index}`} src={logo.src} alt={logo.alt} />
-          ))}
+
+      {/* Verbindungslinie zum Kreis */}
+      <div
+        style={{
+          width: "2px",
+          height: "clamp(40px, 5vh, 64px)",
+          background: "linear-gradient(to bottom, #C2C3F6, rgba(194,195,246,0))",
+          marginTop: "20px",
+          boxShadow: "0 0 8px rgba(194,195,246,0.6)",
+        }}
+      />
+
+      {/* Kreis-Bühne */}
+      <div
+        className="relative w-full flex items-center justify-center overflow-hidden"
+        style={{ height: "clamp(260px, 42vh, 400px)" }}
+      >
+        {/* ─── Unterer Bogen — hinter Logos (z:0) ─── */}
+        <BottomArc size={arcSize} />
+
+        {/* ─── Logos-Strip — mittlere Ebene (z:1) ─── */}
+        <div
+          style={{
+            position: "absolute",
+            left: 0, right: 0,
+            top: "50%",
+            transform: "translateY(-50%)",
+            padding: "16px 0",
+            zIndex: 1,
+            overflow: "hidden",
+          }}
+        >
+          {/* Edge-Fades mit Hero-Hintergrundfarbe */}
+          <div
+            aria-hidden
+            style={{
+              position: "absolute", left: 0, top: 0, bottom: 0,
+              width: "120px", zIndex: 2, pointerEvents: "none",
+              background: `linear-gradient(to right, ${BG}, transparent)`,
+            }}
+          />
+          <div
+            aria-hidden
+            style={{
+              position: "absolute", right: 0, top: 0, bottom: 0,
+              width: "120px", zIndex: 2, pointerEvents: "none",
+              background: `linear-gradient(to left, ${BG}, transparent)`,
+            }}
+          />
+
+          <div
+            className="flex animate-marquee hover:[animation-play-state:paused]"
+            style={{ width: "max-content", gap: "48px", alignItems: "center" }}
+          >
+            {duplicatedLogos.map((logo, index) => {
+              const h = logo.height || 56;
+              return (
+                <div
+                  key={`logo-${index}`}
+                  className="flex-shrink-0 flex items-center justify-center"
+                  style={{ height: `${h}px` }}
+                >
+                  <img
+                    src={img(logo.src)}
+                    alt={logo.alt}
+                    loading="lazy"
+                    className="object-contain brightness-0 invert"
+                    style={{
+                      height: `${h}px`,
+                      width: "auto",
+                      maxWidth: "220px",
+                      opacity: 0.85,
+                    }}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
+
+        {/* ─── Oberer Bogen — vor Logos (z:3) ─── */}
+        <TopArc size={arcSize} />
       </div>
     </section>
   );

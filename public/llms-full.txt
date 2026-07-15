@@ -106,12 +106,8 @@ Wir arbeiten mit LLMs (Large Language Models), RAG-Systemen, Custom AI Agents, A
 ## Seitenübersicht
 
 - Startseite: https://newedgebrand.com
-- Studio: https://newedgebrand.com/studio
-- Lab: https://newedgebrand.com/lab
-- KI-Audit: https://newedgebrand.com/ki-audit
-- Cases: https://newedgebrand.com/case-studies
-- Use Cases: https://newedgebrand.com/use-cases
 - Über uns: https://newedgebrand.com/about
-- Blog: https://newedgebrand.com/blog
-- Karriere: https://newedgebrand.com/careers
+- Methodik: https://newedgebrand.com/methodik
+- KI-Audit: https://newedgebrand.com/ki-audit
+- KI-Glossar: https://newedgebrand.com/ki-glossar
 - Kontakt: https://newedgebrand.com/kontakt

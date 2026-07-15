@@ -2,122 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://newedgebrand.com/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://newedgebrand.com/studio</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://newedgebrand.com/about</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://newedgebrand.com/lab</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://newedgebrand.com/methodik</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://newedgebrand.com/ki-audit</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://newedgebrand.com/services</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://newedgebrand.com/use-cases</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://newedgebrand.com/about</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://newedgebrand.com/ki-glossar</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://newedgebrand.com/case-studies</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://newedgebrand.com/blog</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://newedgebrand.com/careers</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://newedgebrand.com/kontakt</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://newedgebrand.com/case-study/albanova</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://newedgebrand.com/loesungen/auswahlverfahren</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://newedgebrand.com/case-study/ecommerce</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://newedgebrand.com/loesungen/compliance</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://newedgebrand.com/case-study/visual-merchandising</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://newedgebrand.com/loesungen/kpi-dashboard</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://newedgebrand.com/case-study/social-media</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://newedgebrand.com/loesungen/ki-kundensupport</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://newedgebrand.com/case-study/retail-lab</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://newedgebrand.com/industrien/entscheidungsinstanzen</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://newedgebrand.com/blog/automatisierung-2024</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://newedgebrand.com/industrien/health-care</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://newedgebrand.com/blog/markenaufbau-guide</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://newedgebrand.com/industrien/handel-supply-chain</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://newedgebrand.com/blog/social-media-marketing</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://newedgebrand.com/industrien/professional-services</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://newedgebrand.com/blog/ki-agenten-2025</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
   </url>
 </urlset>
