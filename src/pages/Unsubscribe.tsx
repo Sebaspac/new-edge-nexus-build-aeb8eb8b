@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { unsubscribe as UNSUB_STATIC } from "@/content/pages/unsubscribe";
-import { unsubscribe as unsubscribeEn } from "@/content/en/pages/unsubscribe";
-import { useLocalized } from "@/hooks/useLocalized";
 
 const SUPABASE_URL = "https://yzmtgxfehvzgobxjivjl.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl6bXRneGZlaHZ6Z29ieGppdmpsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3NjY0MDMsImV4cCI6MjA1ODM0MjQwM30.0wMIGxbEZvqkjbzJEG0N2OjIl3fzLsakd3cPhqrFpjQ";
@@ -11,8 +8,6 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 type PageState = "loading" | "valid" | "already" | "invalid" | "confirming" | "success" | "error";
 
 const Unsubscribe = () => {
-  // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const unsubscribe = useLocalized("unsubscribe", UNSUB_STATIC, unsubscribeEn);
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
   const [state, setState] = useState<PageState>("loading");
@@ -52,42 +47,42 @@ const Unsubscribe = () => {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
       <div className="max-w-md w-full text-center space-y-6">
-        <h1>{unsubscribe.title}</h1>
+        <h1 className="font-serif text-3xl font-normal">E-Mail-Abmeldung</h1>
 
-        {state === "loading" && <p className="text-muted-foreground">{unsubscribe.messages.loading}</p>}
+        {state === "loading" && <p className="text-muted-foreground">Wird geprüft…</p>}
 
         {state === "valid" && (
           <>
             <p className="text-muted-foreground">
-              {unsubscribe.messages.valid}
+              Möchten Sie sich von zukünftigen E-Mails abmelden?
             </p>
             <button
               onClick={handleUnsubscribe}
               className="px-6 py-3 bg-foreground text-background border-2 border-foreground hover:bg-background hover:text-foreground transition-colors font-mono text-sm tracking-wide"
             >
-              {unsubscribe.confirmButton}
+              Abmelden bestätigen
             </button>
           </>
         )}
 
-        {state === "confirming" && <p className="text-muted-foreground">{unsubscribe.messages.confirming}</p>}
+        {state === "confirming" && <p className="text-muted-foreground">Wird verarbeitet…</p>}
 
         {state === "success" && (
           <p className="text-muted-foreground">
-            {unsubscribe.messages.success}
+            Sie wurden erfolgreich abgemeldet. Sie erhalten keine weiteren E-Mails mehr.
           </p>
         )}
 
         {state === "already" && (
-          <p className="text-muted-foreground">{unsubscribe.messages.already}</p>
+          <p className="text-muted-foreground">Sie sind bereits abgemeldet.</p>
         )}
 
         {state === "invalid" && (
-          <p className="text-muted-foreground">{unsubscribe.messages.invalid}</p>
+          <p className="text-muted-foreground">Ungültiger oder abgelaufener Link.</p>
         )}
 
         {state === "error" && (
-          <p className="text-destructive">{unsubscribe.messages.error}</p>
+          <p className="text-destructive">Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.</p>
         )}
       </div>
     </div>

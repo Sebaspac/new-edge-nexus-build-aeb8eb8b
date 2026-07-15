@@ -10,11 +10,11 @@ interface DocumentTile {
 }
 
 const documentTypes: DocumentTile[] = [
-  { id: "pdf", icon: <FileText className="w-4 h-4" />, label: "PDF", color: "#8476EF" },
-  { id: "cad", icon: <FileCode className="w-4 h-4" />, label: "CAD", color: "#8476EF" },
-  { id: "sop", icon: <ClipboardList className="w-4 h-4" />, label: "SOP", color: "#8476EF" },
-  { id: "ticket", icon: <Wrench className="w-4 h-4" />, label: "Ticket", color: "#5658DF" },
-  { id: "sheet", icon: <Sheet className="w-4 h-4" />, label: "Sheet", color: "#5658DF" },
+  { id: "pdf", icon: <FileText className="w-4 h-4" />, label: "PDF", color: "#a855f7" },
+  { id: "cad", icon: <FileCode className="w-4 h-4" />, label: "CAD", color: "#8b5cf6" },
+  { id: "sop", icon: <ClipboardList className="w-4 h-4" />, label: "SOP", color: "#7c3aed" },
+  { id: "ticket", icon: <Wrench className="w-4 h-4" />, label: "Ticket", color: "#6d28d9" },
+  { id: "sheet", icon: <Sheet className="w-4 h-4" />, label: "Sheet", color: "#5b21b6" },
 ];
 
 interface AnimatingDoc {

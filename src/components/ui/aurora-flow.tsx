@@ -142,19 +142,6 @@ const AuroraScene = ({ hoverRef }: { hoverRef: React.MutableRefObject<HoverState
     // Subtle camera drift
     camera.position.x = Math.sin(t * 0.025) * 1.0;
     camera.position.y = Math.cos(t * 0.033) * 0.7;
-
-    // Always cover the full viewport — no black bars at any aspect ratio.
-    // Scale the (200×200) plane to the visible frustum at the plane's depth.
-    const mesh = meshRef.current;
-    if (mesh) {
-      const cam = camera as THREE.PerspectiveCamera;
-      const dist = cam.position.z - mesh.position.z;          // 30 − (−50) = 80
-      const vH = 2 * Math.tan((cam.fov * Math.PI) / 180 / 2) * dist;
-      const vW = vH * cam.aspect;
-      const BASE = 200;
-      const MARGIN = 1.15;                                     // covers camera drift
-      mesh.scale.set((vW / BASE) * MARGIN, (vH / BASE) * MARGIN, 1);
-    }
   });
 
   return null;

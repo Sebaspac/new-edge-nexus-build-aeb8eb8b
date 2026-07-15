@@ -125,7 +125,7 @@ export const BrandIdentityAnimation = () => {
           transition={{ opacity: { duration: 0.6, delay: 0.4, ease: elegantEase } }}
           className="absolute w-20 h-20 md:w-44 md:h-44 rounded-full"
           style={{
-            background: `conic-gradient(from ${colorRotation}deg, #5658DF, #8476EF, #5658DF, transparent, #5658DF)`,
+            background: `conic-gradient(from ${colorRotation}deg, #6366f1, #a855f7, #6366f1, transparent, #6366f1)`,
           }}
         />
 

@@ -201,23 +201,6 @@ export default defineConfig(({ mode }) => {
   server: {
     host: "::",
     port: Number(process.env.PORT) || 8081,
-    // ── CMS unter derselben Adresse wie die Website ──────────────────────
-    // localhost:8081/admin → Strapi-Adminpanel, /api → Content-API usw.
-    // Vite reicht diese Pfade intern an Strapi (:1337) weiter; nach außen
-    // gibt es nur eine Origin. In Produktion übernimmt nginx dieses Mapping.
-    proxy: Object.fromEntries(
-      [
-        "/admin",                // Adminpanel + Admin-API
-        "/api",                  // Content-API (public)
-        "/uploads",              // Medien-Dateien
-        "/upload",               // Upload-Plugin-API
-        "/content-manager",      // Admin: Content Manager
-        "/content-type-builder", // Admin: Content-Type Builder
-        "/users-permissions",    // Admin: Rollen & Rechte
-        "/i18n",                 // Admin: Lokalisierung
-        "/_health",              // Strapi-Healthcheck
-      ].map((p) => [p, { target: "http://localhost:1337", changeOrigin: true, ws: true }])
-    ),
   },
   plugins: [
     react(),

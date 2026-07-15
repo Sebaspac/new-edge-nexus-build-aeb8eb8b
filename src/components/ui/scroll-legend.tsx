@@ -70,8 +70,8 @@ export function ScrollLegend({ items, className }: ScrollLegendProps) {
               className={cn(
                 "transition-all duration-300",
                 activeSection === item.id
-                  ? "w-8 h-[2px] bg-[#9A85F6]"
-                  : "w-4 h-[1px] bg-[#999] group-hover:w-6 group-hover:bg-[#9A85F6]"
+                  ? "w-8 h-[2px] bg-[#a855f7]"
+                  : "w-4 h-[1px] bg-[#999] group-hover:w-6 group-hover:bg-[#a855f7]"
               )}
             />
 
@@ -83,7 +83,7 @@ export function ScrollLegend({ items, className }: ScrollLegendProps) {
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 translate-x-2 pointer-events-none",
                 activeSection === item.id
-                  ? "text-[#9A85F6] font-semibold"
+                  ? "text-[#a855f7] font-semibold"
                   : "text-[#888]"
               )}
               style={{ fontFamily: "Consolas, monospace" }}

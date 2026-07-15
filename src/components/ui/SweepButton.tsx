@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { LocaleLink as Link } from "@/components/LocaleLink";
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
-type SweepColor = "violet" | "dark" | "white" | "silver";
+type SweepColor = "violet" | "dark" | "white";
 
 interface SweepProps {
   sweepColor?: SweepColor;
@@ -28,10 +28,11 @@ const SweepOverlay = ({
   exitDuration?: number;
 }) => {
   const bg =
-    sweepColor === "white"  ? "#E8E7FF"   // helles Violet-Tint für weiße Buttons
-    : sweepColor === "dark" ? "#5658DF"   // Primary Violet für Ghost/Dark-Buttons
-    : sweepColor === "silver" ? "#5658DF" // Primary Violet für Light-BG-Buttons
-    : "#8476EF";                          // Accent Violet für Hover auf Violet-Buttons
+    sweepColor === "white"
+      ? "linear-gradient(to top, #f0eeff 0%, #ffffff 100%)"
+      : sweepColor === "dark"
+      ? "linear-gradient(to top, #160833 0%, #7c3aed 100%)"
+      : "linear-gradient(to top, #1e0654 0%, #7c3aed 100%)";
 
   const [phase, setPhase] = useState<"idle" | "in" | "out">("idle");
 

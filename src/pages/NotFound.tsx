@@ -3,14 +3,8 @@ import { useEffect } from "react";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEOHead from "@/components/SEOHead";
-import { notFound as NOTFOUND_STATIC } from "@/content/pages/notFound";
-import { notFound as notFoundEn } from "@/content/en/pages/notFound";
-import { useLocalized } from "@/hooks/useLocalized";
-import { LocaleLink as Link } from "@/components/LocaleLink";
 
 const NotFound = () => {
-  // Inhalte live aus dem CMS (Strapi); Fallback: statischer Content-Layer
-  const notFound = useLocalized("not-found", NOTFOUND_STATIC, notFoundEn);
   const { t } = useLanguage();
   const location = useLocation();
 
@@ -23,13 +17,13 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <SEOHead title={notFound.seo.title} description={notFound.seo.description} noindex />
+      <SEOHead title="Seite nicht gefunden | New Edge" description="Die angeforderte Seite wurde nicht gefunden." noindex />
       <div className="text-center">
-        <h1>{t('notFound.title')}</h1>
-        <p className="text-gray-600 mb-4">{t('notFound.subtitle')}</p>
-        <Link to="/" className="text-blue-500 hover:text-blue-700 underline">
+        <h1 className="text-4xl font-bold mb-4">{t('notFound.title')}</h1>
+        <p className="text-xl text-gray-600 mb-4">{t('notFound.subtitle')}</p>
+        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
           {t('notFound.backToHome')}
-        </Link>
+        </a>
       </div>
     </div>
   );

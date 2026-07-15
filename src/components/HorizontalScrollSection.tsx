@@ -1,180 +1,229 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { Target, Layers, ShieldCheck } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
-import { EdgeTextButton } from "@/components/ui/EdgeCta";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { Icon, img } from "@/content";
-import { EdgeRip } from "@/components/ui/EdgeRip";
-import { MitStudyGrid } from "@/components/ui/MitStudyGrid";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { horizontalScroll as HS_STATIC } from "@/content/sections/horizontalScroll";
-import { horizontalScroll as horizontalScrollEn } from "@/content/en/sections/horizontalScroll";
-import { useHomeSection } from "@/hooks/useHomeContent";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const VIOLET   = "#5658DF";
-const INK_DEEP = "#17172E";
-const INK      = "#3C3C47";
+const VIOLET      = "#5B21B6";
+const VIOLET_GLOW = "#7C3AED";
+const INK_DEEP    = "#1A0A2E";
+const HAIRLINE    = "rgba(91,33,182,0.12)";
+const HAIRLINE_INK = "rgba(26,10,46,0.08)";
 
-const HEAD: React.CSSProperties = {
-  fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-  fontWeight: 700,
+const SERIF: React.CSSProperties = {
+  fontFamily: "'DM Serif Display', Georgia, serif",
 };
-const BODY: React.CSSProperties = {
-  fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-  fontWeight: 400,
+const MONO: React.CSSProperties = {
+  fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
 };
 
-/* Gemeinsamer Papier-Hintergrund für BEIDE Panels — clean, ohne Spaltenraster */
-const PANEL_BG = [
-  "radial-gradient(ellipse 120% 80% at 60% 40%, rgba(86,88,223,0.05) 0%, transparent 60%)",
+const PAGE_BG = [
+  "radial-gradient(ellipse 120% 80% at 60% 40%, rgba(91,33,182,0.06) 0%, transparent 60%)",
   "#F8F5FF",
 ].join(", ");
 
-/* Weiße Feature-Karte — gleiche Optik wie die Ablauf-Cards des Rebrush */
-const cardStyle: React.CSSProperties = {
-  background: "#FFFFFF",
-  borderRadius: "16px",
-  boxShadow: "0 1px 2px rgba(23,23,46,0.06)",
-  padding: "18px 22px",
-  display: "flex",
-  alignItems: "flex-start",
-  gap: "16px",
-};
+const ACCENT_BG = [
+  "radial-gradient(ellipse 90% 80% at 30% 50%, rgba(91,33,182,0.09) 0%, transparent 65%)",
+  "#F2ECFF",
+].join(", ");
+
+const steps = [
+  {
+    index: "01",
+    title: "Analyse & Zieldefinition",
+    desc: "Gemeinsame Identifikation geeigneter Use Cases, Datenquellen und wirtschaftlicher Potenziale. Wir stellen die richtigen Fragen, bevor wir eine Zeile Code schreiben.",
+  },
+  {
+    index: "02",
+    title: "Konzept & Systemarchitektur",
+    desc: "Auswahl der passenden Modelle, Tools und Integrationspunkte — abgestimmt auf Ihre IT-Landschaft und Ihre Compliance-Anforderungen.",
+  },
+  {
+    index: "03",
+    title: "Entwicklung & Integration",
+    desc: "Umsetzung der Lösung inkl. Schnittstellen, Workflows und Benutzeroberflächen. Iterativ, transparent, mit wöchentlichem Statusupdate.",
+  },
+  {
+    index: "04",
+    title: "Go-Live & Optimierung",
+    desc: "Produktiver Einsatz, Monitoring und kontinuierliche Verbesserung. Wir bleiben dabei — auch nach dem Launch.",
+  },
+];
+
+const pillars: { Icon: LucideIcon; title: string; desc: string }[] = [
+  {
+    Icon: Target,
+    title: "Strategie & Klarheit",
+    desc: "Von der KI-Strategie bis zur konkreten Umsetzung. Wir analysieren Ihre Prozesse, identifizieren echte Hebel und bauen Systeme, die wirken — nicht bloß beeindrucken.",
+  },
+  {
+    Icon: Layers,
+    title: "Nahtlose Integration",
+    desc: "KI wird direkt in Ihre bestehenden Tools und Systeme eingebaut — ERP, CRM, interne Plattformen. Kein Bruch, kein Parallelbetrieb, keine Reibung.",
+  },
+  {
+    Icon: ShieldCheck,
+    title: "Datenhoheit & Sicherheit",
+    desc: "DSGVO-konforme Architekturen, bei denen Sie die volle Kontrolle behalten. Ihre Daten bleiben Ihre Daten — intern, sicher, auditierbar.",
+  },
+];
 
 // ── Panel 1 — Process Roadmap ─────────────────────────────────────────────────
 const ProcessPanel = () => {
-  const isMobile = useIsMobile();
-  const { language } = useLanguage();
-  // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const horizontalScroll = useHomeSection("horizontalScroll", HS_STATIC, horizontalScrollEn);
+  const [active, setActive] = useState<number | null>(null);
+
   return (
     <div
       style={{
-        width: isMobile ? "100%" : "100vw",
-        height: isMobile ? "auto" : "100dvh",
+        width: "100vw",
+        height: "100dvh",
         flexShrink: 0,
         display: "flex",
         alignItems: "center",
-        boxSizing: "border-box",
-        paddingTop: isMobile ? "clamp(56px, 9vw, 80px)" : "clamp(96px, 12vh, 124px)",
-        paddingBottom: isMobile ? "clamp(40px, 8vw, 64px)" : "clamp(28px, 5vh, 52px)",
-        background: PANEL_BG,
+        background: PAGE_BG,
         position: "relative",
         overflow: "hidden",
       }}
     >
+      <NoiseOverlay opacity={0.04} blendMode="overlay" />
       <div
         className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl"
         style={{ position: "relative", zIndex: 1, width: "100%" }}
       >
         <div
-          className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 lg:gap-10 items-center"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start"
           style={{ width: "100%" }}
         >
-          {/* LEFT (60%): MIT-Studie-Grafik (100 Kästchen, 5 beleuchtet, kompakt — gleiche Grafik wie auf /methodik) + heading + Grafik-Beschreibung */}
-          <div>
-            <div className="mx-auto" style={{ width: "min(100%, 300px)", marginBottom: "clamp(20px, 3.4vh, 34px)" }}>
-              <MitStudyGrid lang={language} compact />
+          {/* LEFT: sticky heading */}
+          <div className="lg:col-span-6">
+            <div className="flex items-center gap-3 mb-5">
+              <span
+                className="block flex-shrink-0"
+                style={{ width: "32px", height: "1px", backgroundColor: VIOLET_GLOW }}
+              />
+              <span
+                className="uppercase"
+                style={{ ...MONO, fontSize: "11px", letterSpacing: "0.2em", color: VIOLET_GLOW }}
+              >
+                Unser Prozess
+              </span>
             </div>
 
             <h2
               style={{
+                ...SERIF,
+                fontStyle: "italic",
+                fontWeight: 400,
+                fontSize: "clamp(2rem, 3.8vw, 3rem)",
+                lineHeight: 1.0,
+                letterSpacing: "-0.01em",
                 color: INK_DEEP,
+                marginBottom: "12px",
               }}
             >
-              {horizontalScroll.process.headingLead}{" "}
+              So bringen wir{" "}
               <AnimatedTextCycle
-                words={horizontalScroll.process.headingWords}
+                words={["KI", "Prozesse", "Zukunft", "Output"]}
                 interval={2800}
                 renderWord={(word) => (
                   <span style={{ color: VIOLET }}>{word}</span>
                 )}
               />
+              <br />
+              in Ihr Unternehmen.
             </h2>
 
             <p
               style={{
-                ...BODY,
-                color: INK,
-                maxWidth: "42ch",
-                marginBottom: "20px",
+                ...MONO,
+                fontSize: "13.5px",
+                lineHeight: 1.75,
+                color: "rgba(26,10,46,0.55)",
+                maxWidth: "36ch",
               }}
             >
-              {language === "en" ? (
-                <>
-                  Of 100 companies that adopt AI, only 5 achieve a measurable return according to the{" "}
-                  <strong style={{ fontWeight: 700, color: INK_DEEP }}>MIT Study 2025</strong>.{" "}
-                  <strong style={{ fontWeight: 700, color: INK_DEEP }}>We make sure you&rsquo;re one of them.</strong>
-                </>
-              ) : (
-                <>
-                  Von 100 Betrieben, die KI einführen, erzielen laut{" "}
-                  <strong style={{ fontWeight: 700, color: INK_DEEP }}>MIT-Studie 2025</strong> nur 5 einen messbaren
-                  Return. <strong style={{ fontWeight: 700, color: INK_DEEP }}>Wir sorgen dafür, dass Sie dazugehören.</strong>
-                </>
-              )}
+              Vier Phasen, ein klares Ziel. Kein Wasserfallmodell, sondern
+              iterative Zusammenarbeit — mit vollem Einblick in jeden Schritt.
             </p>
-
-            <EdgeTextButton to="/methodik">Unsere Methodik</EdgeTextButton>
           </div>
 
-          {/* RIGHT (40%): Schritte als weiße Karten mit Kreis-Badges + ↓-Verbinder */}
-          <div className="flex flex-col">
-            {horizontalScroll.process.steps.map(({ index, title, desc }, i, arr) => (
-              <div key={title}>
-                <div style={{ ...cardStyle, padding: "20px 22px" }}>
-                  <span
-                    style={{
-                      ...HEAD,
-                      fontSize: "13px",
-                      color: "#fff",
-                      background: VIOLET,
-                      width: "34px",
-                      height: "34px",
-                      borderRadius: "50%",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      marginTop: "2px",
-                    }}
-                  >
-                    {index}
-                  </span>
-                  <div>
-                    <h3
+          {/* RIGHT: numbered steps */}
+          <div
+            className="lg:col-span-6"
+            style={{ borderTop: `1px solid ${HAIRLINE}` }}
+          >
+            {steps.map(({ index, title, desc }, i) => {
+              const isActive = active === i;
+              return (
+                <motion.div
+                  key={title}
+                  onHoverStart={() => setActive(i)}
+                  onHoverEnd={() => setActive(null)}
+                  className="grid grid-cols-12 gap-4 py-5 cursor-default"
+                  style={{
+                    borderBottom: `1px solid ${HAIRLINE}`,
+                    backgroundColor: isActive ? "rgba(91,33,182,0.06)" : "transparent",
+                    transition: "background-color 0.3s ease",
+                  }}
+                >
+                  <div className="col-span-3 flex items-start">
+                    <motion.span
+                      animate={{
+                        WebkitTextStroke: isActive
+                          ? "1.5px rgba(91,33,182,0.7)"
+                          : "1.5px rgba(91,33,182,0.18)",
+                      } as any}
+                      transition={{ duration: 0.2 }}
                       style={{
-                        color: VIOLET,
-                        fontSize: "clamp(19px, 1.8vw, 22px)",
-                        lineHeight: 1.3,
+                        ...SERIF,
+                        fontStyle: "italic",
+                        fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
+                        color: "transparent",
+                        lineHeight: 1,
+                        userSelect: "none",
+                        display: "block",
+                      }}
+                    >
+                      {index}
+                    </motion.span>
+                  </div>
+
+                  <div className="col-span-9 flex flex-col justify-center">
+                    <motion.h3
+                      animate={{ color: isActive ? INK_DEEP : "rgba(26,10,46,0.60)" }}
+                      transition={{ duration: 0.2 }}
+                      style={{
+                        ...SERIF,
+                        fontSize: "clamp(1.05rem, 1.7vw, 1.35rem)",
+                        lineHeight: 1.2,
+                        letterSpacing: "-0.01em",
                         marginBottom: "6px",
                       }}
                     >
                       {title}
-                    </h3>
-                    <p
+                    </motion.h3>
+
+                    <motion.p
+                      animate={{ opacity: isActive ? 0.75 : 0.45 }}
+                      transition={{ duration: 0.2 }}
                       style={{
-                        ...BODY,
-                        color: "rgba(23,23,46,0.68)",
-                        fontSize: "16px",
-                        lineHeight: 1.55,
+                        ...MONO,
+                        fontSize: "13.5px",
+                        lineHeight: 1.65,
+                        color: "rgba(26,10,46,0.65)",
                       }}
                     >
                       {desc}
-                    </p>
+                    </motion.p>
                   </div>
-                </div>
-                {i < arr.length - 1 && (
-                  <div aria-hidden style={{ display: "flex", justifyContent: "center", padding: "14px 0" }}>
-                    <ArrowDown style={{ width: "20px", height: "20px", color: VIOLET, opacity: 0.45 }} strokeWidth={2.2} />
-                  </div>
-                )}
-              </div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -183,24 +232,16 @@ const ProcessPanel = () => {
 };
 
 // ── Panel 2 — Value Pillars (title LEFT, pillars RIGHT) ───────────────────────
-const PillarsPanel = () => {
-  const isMobile = useIsMobile();
-  // Inhalte live aus dem CMS (Strapi „Home"); Fallback: statischer Content-Layer
-  const horizontalScroll = useHomeSection("horizontalScroll", HS_STATIC, horizontalScrollEn);
-  return (
+const PillarsPanel = () => (
   <div
     style={{
-      width: isMobile ? "100%" : "100vw",
-      height: isMobile ? "auto" : "100dvh",
+      width: "100vw",
+      height: "100dvh",
       flexShrink: 0,
       display: "flex",
       alignItems: "center",
-      boxSizing: "border-box",
-      paddingTop: isMobile ? "clamp(56px, 9vw, 80px)" : "clamp(96px, 12vh, 124px)",
-      paddingBottom: isMobile ? "clamp(40px, 8vw, 64px)" : "clamp(28px, 5vh, 52px)",
-      background: PANEL_BG,
+      background: ACCENT_BG,
       overflow: "hidden",
-      position: "relative",
     }}
   >
     <div
@@ -208,103 +249,110 @@ const PillarsPanel = () => {
       style={{ width: "100%" }}
     >
       <div
-        className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center"
+        className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start"
         style={{ width: "100%" }}
       >
-        {/* LEFT: Bild (edgy geschnittener Rahmen, gespiegelt) + heading + text */}
-        <div className="lg:col-span-6 order-1">
-          <div style={{ position: "relative", width: "min(100%, 400px)", marginBottom: "clamp(24px, 4vh, 40px)" }}>
-            {/* Versetzter Outline-Rahmen hinter dem Bild (gespiegelte Rotation) */}
-            <div
-              aria-hidden
-              style={{
-                position: "absolute",
-                inset: "-12px 12px 12px -12px",
-                border: "1.5px solid rgba(139,141,240,0.5)",
-                borderRadius: "16px 64px 16px 64px",
-                transform: "rotate(2deg)",
-                pointerEvents: "none",
-              }}
+        {/* LEFT: heading + text */}
+        <div className="lg:col-span-7 order-1">
+          <div className="flex items-center gap-3 mb-5">
+            <span
+              className="block flex-shrink-0"
+              style={{ width: "32px", height: "1px", backgroundColor: VIOLET }}
             />
-            <img
-              src={img(horizontalScroll.pillarsPanel.image.src)}
-              alt={horizontalScroll.pillarsPanel.image.alt}
-              loading="lazy"
-              style={{
-                position: "relative",
-                width: "100%",
-                height: "clamp(180px, 24vh, 240px)",
-                objectFit: "cover",
-                borderRadius: "16px 64px 16px 64px",
-                display: "block",
-              }}
-            />
-            {/* Kleiner Riss von der Oberkante — die „Edge" der Marke */}
-            <EdgeRip style={{ top: "-1px", left: "24%", width: "30px", height: "72px", zIndex: 2 }} />
+            <span
+              className="uppercase"
+              style={{ ...MONO, fontSize: "11px", letterSpacing: "0.2em", color: VIOLET }}
+            >
+              Warum New Edge
+            </span>
           </div>
 
           <h2
             style={{
+              ...SERIF,
+              fontStyle: "italic",
+              fontWeight: 400,
+              fontSize: "clamp(2rem, 3.8vw, 3rem)",
+              lineHeight: 1.0,
+              letterSpacing: "-0.01em",
               color: INK_DEEP,
+              marginBottom: "12px",
             }}
           >
-            {horizontalScroll.pillarsPanel.headingLead}{" "}
+            Wir nutzen KI als{" "}
             <AnimatedTextCycle
-              words={horizontalScroll.pillarsPanel.headingWords}
+              words={["Erfolgsfaktor", "Motor", "Helfer", "Vorteil"]}
               interval={2800}
               renderWord={(word) => (
                 <span style={{ color: VIOLET }}>{word}</span>
               )}
             />
             <br />
-            {horizontalScroll.pillarsPanel.headingTail}
+            für Ihr Unternehmen.
           </h2>
 
           <p
             style={{
-              ...BODY,
-              color: INK,
-              maxWidth: "40ch",
-              marginBottom: "20px",
+              ...MONO,
+              fontSize: "15px",
+              lineHeight: 1.75,
+              color: "rgba(26,10,46,0.55)",
+              maxWidth: "38ch",
             }}
           >
-            {horizontalScroll.pillarsPanel.body}
+            KI entfaltet ihren vollen Mehrwert nur, wenn sie strategisch
+            in Ihre Geschäftsziele integriert wird. Als spezialisierter
+            Partner verbinden wir Beratung, Entwicklung und Integration.
           </p>
-
-          <EdgeTextButton to="/about">Über uns</EdgeTextButton>
         </div>
 
-        {/* RIGHT: Pillars als weiße Karten mit Icon-Badges */}
-        <div className="lg:col-span-6 order-2 flex flex-col" style={{ gap: "12px" }}>
-          {horizontalScroll.pillarsPanel.pillars.map(({ icon, title, desc }) => (
-            <div key={title} style={cardStyle}>
-              <div
-                style={{
-                  width: "34px",
-                  height: "34px",
-                  borderRadius: "10px",
-                  backgroundColor: "rgba(86,88,223,0.1)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                  marginTop: "2px",
-                }}
-              >
-                <Icon name={icon} style={{ color: VIOLET, width: "16px", height: "16px" }} strokeWidth={1.6} />
+        {/* RIGHT: pillars list */}
+        <div
+          className="lg:col-span-5 order-2"
+          style={{ borderTop: `1px solid ${INK_DEEP}` }}
+        >
+          {pillars.map(({ Icon, title, desc }, i) => (
+            <div
+              key={title}
+              className="grid grid-cols-12 gap-4 py-5"
+              style={{ borderBottom: `1px solid ${HAIRLINE_INK}` }}
+            >
+              <div className="col-span-2 flex items-start pt-1">
+                <div
+                  style={{
+                    width: "34px",
+                    height: "34px",
+                    border: `1.5px solid rgba(91,33,182,0.25)`,
+                    backgroundColor: "rgba(91,33,182,0.06)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <Icon style={{ color: VIOLET, width: "15px", height: "15px" }} strokeWidth={1.5} />
+                </div>
               </div>
-              <div>
+
+              <div className="col-span-10">
                 <h3
                   style={{
-                    color: VIOLET,
+                    ...SERIF,
+                    fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)",
+                    lineHeight: 1.2,
+                    color: INK_DEEP,
+                    letterSpacing: "-0.01em",
+                    marginBottom: "6px",
                   }}
                 >
                   {title}
                 </h3>
                 <p
                   style={{
-                    ...BODY,
-                    color: "rgba(23,23,46,0.68)",
+                    ...MONO,
+                    fontSize: "13.5px",
+                    lineHeight: 1.65,
+                    color: "rgba(26,10,46,0.65)",
                   }}
                 >
                   {desc}
@@ -316,19 +364,15 @@ const PillarsPanel = () => {
       </div>
     </div>
   </div>
-  );
-};
+);
 
 // ── Main export ───────────────────────────────────────────────────────────────
 export const HorizontalScrollSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef   = useRef<HTMLDivElement>(null);
   const ctxRef     = useRef<gsap.Context | null>(null);
-  const isMobile   = useIsMobile();
 
   useLayoutEffect(() => {
-    // Mobile: kein horizontales Scroll-Jacking — die beiden Panels stapeln vertikal.
-    if (isMobile) return;
     const raf = requestAnimationFrame(() => {
       const tid = setTimeout(() => {
         const section = sectionRef.current;
@@ -336,27 +380,19 @@ export const HorizontalScrollSection = () => {
         if (!section || !track) return;
 
         ctxRef.current = gsap.context(() => {
-          const distance = () => -(track.scrollWidth - window.innerWidth);
-          // Timeline mit Verweilzeit (Dwell) auf jedem Panel: erst Panel 1 halten
-          // (Lesezeit), dann sanft zu Panel 2 gleiten, dann Panel 2 halten.
-          const tl = gsap.timeline({
-            defaults: { ease: "none" },
+          gsap.to(track, {
+            x: () => -(track.scrollWidth - window.innerWidth),
+            ease: "none",
             scrollTrigger: {
               trigger: section,
               start: "top top",
-              // Mehr Scroll-Distanz = mehr Zeit. Der Slide selbst + 1.9 Viewport-
-              // Höhen an Dwell verteilt auf beide Panels.
-              end: () =>
-                `+=${(track.scrollWidth - window.innerWidth) + window.innerHeight * 1.9}`,
-              scrub: 1.2,
+              end: () => `+=${track.scrollWidth - window.innerWidth + window.innerWidth * 0.6}`,
+              scrub: 1.4,
               pin: true,
               anticipatePin: 1,
               invalidateOnRefresh: true,
             },
           });
-          tl.to(track, { x: 0, duration: 0.55 })      // Dwell Panel 1 (Lesezeit)
-            .to(track, { x: distance, duration: 1 })  // Übergang zu Panel 2
-            .to(track, { x: distance, duration: 0.6 }); // Dwell Panel 2 (Lesezeit)
         }, section);
       }, 50);
 
@@ -367,13 +403,13 @@ export const HorizontalScrollSection = () => {
       cancelAnimationFrame(raf);
       ctxRef.current?.revert();
     };
-  }, [isMobile]);
+  }, []);
 
   return (
-    <div id="prozess" ref={sectionRef} style={{ overflow: "hidden" }}>
+    <div ref={sectionRef} style={{ overflow: "hidden" }}>
       <div
         ref={trackRef}
-        style={{ display: "flex", flexDirection: isMobile ? "column" : "row", willChange: "transform" }}
+        style={{ display: "flex", willChange: "transform" }}
       >
         <ProcessPanel />
         <PillarsPanel />
