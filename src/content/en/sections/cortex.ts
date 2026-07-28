@@ -69,8 +69,8 @@ export const cortex = {
       { label: "AI ASSISTANTS" },
       { label: "CONTROL" },
     ] as CortexSpoke[],
-    /** Central node. */
-    centerLabel: "CORTEX",
-    centerSublabel: "CENTRAL LAYER",
+    /** Central node — two lines, reads as one term. */
+    centerLabel: "CENTRAL",
+    centerSublabel: "INFRASTRUCTURE",
   },
 };

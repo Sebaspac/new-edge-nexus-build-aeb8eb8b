@@ -88,7 +88,7 @@ export const CortexSection = () => {
               ))}
               <rect x={CENTER.x - 84} y={CENTER.y - 30} width="168" height="60" rx="8" fill={VIOLET} stroke={GLOW} strokeWidth="1" />
               <text x={CENTER.x} y={CENTER.y - 2} textAnchor="middle" style={{ font: "700 14px Outfit, sans-serif", letterSpacing: "0.14em", fill: INK_DEEP }}>{cortex.diagram.centerLabel}</text>
-              <text x={CENTER.x} y={CENTER.y + 16} textAnchor="middle" style={{ font: "500 9px Outfit, sans-serif", letterSpacing: "0.1em", fill: "rgba(23,23,23,0.65)" }}>{cortex.diagram.centerSublabel}</text>
+              <text x={CENTER.x} y={CENTER.y + 17} textAnchor="middle" style={{ font: "600 11px Outfit, sans-serif", letterSpacing: "0.1em", fill: "rgba(23,23,23,0.8)" }}>{cortex.diagram.centerSublabel}</text>
             </svg>
           </div>
 

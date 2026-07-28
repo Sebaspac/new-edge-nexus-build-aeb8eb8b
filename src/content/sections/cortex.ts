@@ -73,8 +73,8 @@ export const cortex = {
       { label: "KI-ASSISTENTEN" },
       { label: "KONTROLLE" },
     ] as CortexSpoke[],
-    /** Zentraler Knoten. */
-    centerLabel: "CORTEX",
-    centerSublabel: "ZENTRALE EBENE",
+    /** Zentraler Knoten — zweizeilig, liest sich als ein Begriff. */
+    centerLabel: "ZENTRALE",
+    centerSublabel: "INFRASTRUKTUR",
   },
 };
