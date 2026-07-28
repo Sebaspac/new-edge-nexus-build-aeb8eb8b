@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "unsubscribe_entries",
+  "info": {
+    "singularName": "unsubscribe",
+    "pluralName": "unsubscribe-entries",
+    "displayName": "Unsubscribe",
+    "description": "Generiert aus src/content (Website-Content-Layer)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "confirmButton": {
+      "type": "string"
+    },
+    "messages": {
+      "type": "json"
+    }
+  }
+}
