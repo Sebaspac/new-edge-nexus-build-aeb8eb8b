@@ -12,9 +12,10 @@
 import type { ImageKey } from "../assets";
 
 export const brandAssets = {
-  /** Logo im Lade-Screen (dunkler Hintergrund). */
+  /** Logo im Lade-Screen (schwarzer Hintergrund → weiße Variante).
+      Identisch zum Loader der Startseite (`home.loadingLogo`). */
   loadingLogo: {
-    src: "new-edge-logo" as ImageKey,
+    src: "newedge-logo-white" as ImageKey,
     alt: "NEWEDGE",
   },
   /** Foto im schwebenden „Kostenloses Erstgespräch"-Button. */

@@ -27,9 +27,9 @@ export const impactCounter = {
   eyebrow: "NEWEDGE in Zahlen",
 
   metrics: [
-    { prefix: "5–", value: 150, label: "Mitarbeitende im Sweet Spot" },
+    { prefix: "5–", value: 150, label: "Mitarbeitende — Unternehmen wie Ihres" },
     { value: 30, suffix: " %", label: "Zeit zurück im Tagesgeschäft" },
-    { value: 4, suffix: "×", label: "ROI auf Systemarbeit" },
+    { value: 4, suffix: "×", label: "zahlt sich Ihre Investition aus" },
     { value: 50, suffix: "+", label: "Unternehmen begleitet" },
   ] as Metric[],
 };

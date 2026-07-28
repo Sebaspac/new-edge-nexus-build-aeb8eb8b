@@ -25,8 +25,8 @@ export interface ContactModalField {
 
 export const contactFormModal = {
   header: {
-    title: "Get in touch!",
-    description: "Erzählen Sie uns von Ihrem Projekt – wir melden uns zeitnah bei Ihnen",
+    title: "Sprechen wir!",
+    description: "Erzählen Sie uns von Ihrem Projekt – wir melden uns schnell bei Ihnen",
   },
 
   /** Versteckter Honeypot (Spam-Schutz, optisch ausgeblendet). */
@@ -47,6 +47,14 @@ export const contactFormModal = {
     },
   } satisfies Record<string, ContactModalField>,
 
+  /** Pflicht-Einwilligung (DSGVO Art. 6 Abs. 1 lit. a) — Text vor, Link, Text nach. */
+  consent: {
+    before: "Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet werden. Details in der ",
+    linkLabel: "Datenschutzerklärung",
+    linkHref: "/impressum#datenschutz",
+    after: ". Die Einwilligung kann jederzeit widerrufen werden.",
+  },
+
   submit: {
     idle: "Nachricht senden",
     submitting: "Wird gesendet...",
@@ -57,6 +65,6 @@ export const contactFormModal = {
     honeypotSuccess: "Nachricht gesendet! Wir melden uns bald.",
     slaSuccess: "Audit angenommen. Die 24-Stunden-Uhr läuft — den Status sehen Sie auf dieser Seite.",
     success: "Nachricht gesendet! Wir melden uns bald.",
-    errorFallback: "Ein Fehler ist aufgetreten.",
+    errorFallback: "Da ist etwas schiefgelaufen.",
   },
 } as const;

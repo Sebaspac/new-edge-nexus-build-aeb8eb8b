@@ -11,12 +11,12 @@ export const EdgeRip = ({ style }: { style: React.CSSProperties }) => (
   >
     <path
       d="M 12 0 L 27 0 L 19 15 L 28 32 L 15 50 L 21 64 L 9 84 L 13 60 L 7 46 L 19 30 L 11 14 Z"
-      fill="#F8F5FF"
+      fill="#F2F2F2"
     />
     <path
       d="M 27 0 L 19 15 L 28 32 L 15 50 L 21 64 L 9 84"
       fill="none"
-      stroke="#5658DF"
+      stroke="#171717"
       strokeWidth="2"
       strokeLinejoin="round"
       strokeLinecap="round"

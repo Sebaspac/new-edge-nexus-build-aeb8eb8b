@@ -8,7 +8,7 @@
 @layer base {
   :root {
     /* 🎨 CORE COLORS - New Edge brand */
-    --background: 258 100% 98%; /* #F8F5FF helllila — Magazin-Grundton */
+    --background: 0 0% 95%; /* #F2F2F2 Light Gray — Brandboard 2026-07 */
     --foreground: 240 8% 26%; /* #3C3C47 brand ink */
     --surface: 0 0% 100%; /* white for cards/elevated surfaces */
     --surface-elevated: 0 0% 100%;
@@ -936,3 +936,68 @@ video {
   }
 }
 
+
+
+/* ── Edge-Mark: handgemalter Lime-Strich hinter Akzentwörtern (Brandboard 2026-07).
+   Zeichnet sich scroll-getrieben von unten nach oben ein (Chromium); Browser ohne
+   animation-timeline zeigen den fertigen Strich. Text bleibt dabei immer lesbar. ── */
+.edge-mark {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20200%2060'%20preserveAspectRatio%3D'none'%3E%3Cpath%20d%3D'M5%2037%20C28%2030%2068%2022%20118%2015%20C152%2010%20182%207%20193%209%20C199%2011%20197%2016%20192%2020%20C168%2028%20128%2037%2084%2044%20C52%2049%2022%2052%209%2049%20C2%2047%201%2041%205%2037%20Z'%20fill%3D'%23CCFF00'%2F%3E%3Cpath%20d%3D'M18%2040%20C52%2032%20120%2020%20172%2014%20C182%2013%20186%2016%20181%2020%20C150%2030%2092%2040%2040%2046%20C26%2047%2012%2044%2018%2040%20Z'%20fill%3D'%23B4E600'%20opacity%3D'0.55'%2F%3E%3Cpath%20d%3D'M186%205%20L199%202%20L191%2013%20L193%207%20Z'%20fill%3D'%23CCFF00'%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: 100% 100%;
+  color: #171717;
+  padding: 0.08em 0.28em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+@supports (animation-timeline: view()) {
+  .edge-mark {
+    animation: edge-mark-in linear both;
+    animation-timeline: view();
+    animation-range: entry 15% entry 70%;
+  }
+}
+@keyframes edge-mark-in {
+  from { background-size: 100% 0%; }
+  to { background-size: 100% 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .edge-mark { animation: none; }
+}
+
+/* Statische Edge-Mark-Variante für die fixe Navigation (Logo): gleicher
+   Lime-Strich, aber ohne Scroll-Animation — animation-timeline: view()
+   liefert in fixed-Elementen keinen Fortschritt, der Strich bliebe unsichtbar. */
+.edge-mark-static {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20200%2060'%20preserveAspectRatio%3D'none'%3E%3Cpath%20d%3D'M5%2037%20C28%2030%2068%2022%20118%2015%20C152%2010%20182%207%20193%209%20C199%2011%20197%2016%20192%2020%20C168%2028%20128%2037%2084%2044%20C52%2049%2022%2052%209%2049%20C2%2047%201%2041%205%2037%20Z'%20fill%3D'%23CCFF00'%2F%3E%3Cpath%20d%3D'M18%2040%20C52%2032%20120%2020%20172%2014%20C182%2013%20186%2016%20181%2020%20C150%2030%2092%2040%2040%2046%20C26%2047%2012%2044%2018%2040%20Z'%20fill%3D'%23B4E600'%20opacity%3D'0.55'%2F%3E%3Cpath%20d%3D'M186%205%20L199%202%20L191%2013%20L193%207%20Z'%20fill%3D'%23CCFF00'%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: 100% 100%;
+  padding: 0.32em 0.55em 0.38em;
+}
+
+/* Handgemalter Lime-Unterstrich für reine Text-CTAs (EdgeTextButton).
+   Zeichnet sich scroll-getrieben von links nach rechts ein (Chromium);
+   Browser ohne animation-timeline zeigen den fertigen Strich. */
+.edge-underline {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20120%2010'%20preserveAspectRatio%3D'none'%3E%3Cpath%20d%3D'M2%206%20C30%203%2070%203%20118%205%20C119%205.5%20119%207%20117%207%20C70%208%2030%208%203%208%20C1%207.5%201%206.5%202%206%20Z'%20fill%3D'%23CCFF00'%20fill-opacity%3D'0.92'%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.3em;
+  padding-bottom: 0.16em;
+}
+@supports (animation-timeline: view()) {
+  .edge-underline {
+    animation: edge-underline-in linear both;
+    animation-timeline: view();
+    animation-range: entry 20% entry 75%;
+  }
+}
+@keyframes edge-underline-in {
+  from { background-size: 0% 0.3em; }
+  to { background-size: 100% 0.3em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .edge-underline { animation: none; }
+}

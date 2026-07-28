@@ -30,13 +30,13 @@ export interface NavLinkItem {
 }
 
 export const nav = {
-  logo: { src: "new-edge-logo-wordmark" as ImageKey, alt: "NEWEDGE" },
+  logo: { src: "newedge-wordmark" as ImageKey, alt: "NEWEDGE" },
 
   filterButtons: [{ key: "all", label: "Alle" }] as FilterButton[],
 
   megaMenu: {
-    trigger: "Anwendungsfelder",
-    painPointsHeading: "Nach Pain Points",
+    trigger: "Lösungen",
+    painPointsHeading: "Nach Herausforderung",
     industrienHeading: "Nach Branche",
     featuredHeading: "Success Story",
   },
@@ -60,14 +60,14 @@ export const nav = {
     image: { src: "team-sebastian" as ImageKey, alt: "NEWEDGE Team" },
     title: "BMP Award — Auswahlverfahren mit KI",
     desc: "70% weniger Aufwand bei revisionssicherer Dokumentation.",
-    cta: "Case lesen →",
+    cta: "Beispiel lesen →",
   },
 
   company: {
-    trigger: "Company",
+    trigger: "Unternehmen",
     links: [
       { to: "/methodik", label: "Methodik" },
-      { to: "/about", label: "Über uns" },
+      // Über uns vorerst deaktiviert — Content bleibt im CMS, nur der Link ist raus
       // Karriere vorerst deaktiviert — Content bleibt im CMS, nur der Link ist raus
     ] as NavLinkItem[],
   },

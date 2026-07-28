@@ -97,9 +97,9 @@ Wir arbeiten mit LLMs (Large Language Models), RAG-Systemen, Custom AI Agents, A
 ## Kontaktinformationen
 
 - Website: https://newedgebrand.com
-- E-Mail: hello@newedgebrand.com
+- E-Mail: info@newedgebrand.com
 - Standort: München, Deutschland
-- LinkedIn: https://www.linkedin.com/company/newedgebrand
+- LinkedIn: https://www.linkedin.com/company/new-edge-brand/
 - KI-Audit anfragen: https://newedgebrand.com/ki-audit
 - Kontaktformular: https://newedgebrand.com/kontakt
 

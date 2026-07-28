@@ -78,6 +78,7 @@ export const ContactFormModal = ({
       company: formData.get('company')?.toString() || '',
       position: formData.get('position')?.toString() || '',
       message: formData.get('message')?.toString() || '',
+      consent: formData.get('consent') === 'on',
     };
 
     const validation = validateContactForm(rawData);
@@ -199,6 +200,27 @@ export const ContactFormModal = ({
               <Label htmlFor="message" className="text-foreground font-medium">{contactFormModal.fields.message.label}</Label>
               <Textarea id="message" name="message" placeholder={contactFormModal.fields.message.placeholder} required maxLength={5000} className="min-h-[120px] bg-background/50 border-border focus:border-primary transition-colors resize-none" />
               {fieldErrors.message && <p className="text-sm text-destructive">{fieldErrors.message}</p>}
+            </motion.div>
+
+            {/* Pflicht-Einwilligung (DSGVO) — der Service prüft sie ebenfalls */}
+            <motion.div className="space-y-2" variants={fieldVariants}>
+              <label htmlFor="consent-modal" className="flex items-start gap-2.5 cursor-pointer">
+                <input
+                  id="consent-modal"
+                  name="consent"
+                  type="checkbox"
+                  required
+                  className="mt-[3px] h-4 w-4 shrink-0 cursor-pointer accent-current"
+                />
+                <span className="text-[13px] leading-relaxed text-muted-foreground">
+                  {contactFormModal.consent.before}
+                  <a href={contactFormModal.consent.linkHref} className="text-foreground underline">
+                    {contactFormModal.consent.linkLabel}
+                  </a>
+                  {contactFormModal.consent.after}
+                </span>
+              </label>
+              {fieldErrors.consent && <p className="text-sm text-destructive">{fieldErrors.consent}</p>}
             </motion.div>
           </motion.div>
 

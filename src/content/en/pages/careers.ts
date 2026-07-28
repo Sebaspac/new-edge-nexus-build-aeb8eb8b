@@ -25,9 +25,9 @@ interface ValueCard {
 
 export const careers = {
   seo: {
-    title: "Careers at NEWEDGE Munich | Jobs in AI, Brand & Digital",
+    title: "AI Jobs & Careers in the Mittelstand | NEWEDGE Munich",
     description:
-      "Want to work at the intersection of brand, digital and AI? NEWEDGE is looking for designers, developers and AI strategists in Munich.",
+      "Work at NEWEDGE, the AI department for mid-sized companies in Munich: roles for designers, developers and AI strategists — speculative applications welcome.",
     canonical: "/en/careers",
   } satisfies SEOContent,
 

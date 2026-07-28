@@ -16,9 +16,9 @@ import type { ImageKey } from "../assets";
 
 export const webDesign = {
   seo: {
-    title: "Websites & Web-Plattformen | NEWEDGE — Webentwicklung & Design",
+    title: "Website für den Mittelstand entwickeln | NEWEDGE München",
     description:
-      "Wir bauen Websites und digitale Plattformen für den Mittelstand, die verkaufen: Strategie, Design und Entwicklung aus einer Hand — performant, individuell, skalierbar.",
+      "NEWEDGE entwickelt individuelle Websites für den Mittelstand, die Ihnen qualifizierte Anfragen bringen — Strategie, Design und Entwicklung aus einer Hand.",
     canonical: "/websites",
   } satisfies SEOContent,
 
@@ -28,21 +28,21 @@ export const webDesign = {
     headlineAccent: "verkaufen",
     headlineSuffix: " — bevor Sie überhaupt sprechen.",
     sub: "Ihre Website ist Ihre erste Verkaufskraft. Wir bauen Auftritte, die Vertrauen schaffen und qualifizierte Anfragen bringen — nicht nur gut aussehen.",
-    trustChips: ["Höhere Conversion", "Mehr qualifizierte Anfragen", "Ein Ansprechpartner"],
+    trustChips: ["Besucher werden Kunden", "Mehr qualifizierte Anfragen", "Ein Ansprechpartner"],
     ctaPrimary: "Erstgespräch anfragen",
     note: "100% kostenlos & unverbindlich.",
   },
 
   /** SHOWREEL — dunkle Karte mit Video-Facade + Logo-Grid + Founder-Avatar. */
   showreel: {
-    logosHeading: "Vertraut von wachsenden Marken",
-    videoCaption: "NEWEDGE — Showreel",
+    logosHeading: "Wachsende Marken vertrauen NEWEDGE",
+    videoCaption: "NEWEDGE — Projekte im Video",
     founder: { name: "Sebastian", role: "Co-Founder NEWEDGE", image: "team-sebastian" as ImageKey },
   },
 
   /** PROJEKTABLAUF — 3 Schritte. */
   prozess: {
-    eyebrow: "Schnell. Effizient. Ergebnisorientiert.",
+    eyebrow: "In drei Schritten zur Website, die verkauft.",
     heading: "Der Projektablauf",
     steps: [
       {
@@ -52,12 +52,12 @@ export const webDesign = {
       },
       {
         title: "Webdesign",
-        desc: "Ein performantes, individuelles Design, das Besucher überzeugt und gezielt zu Anfragen führt — nicht nur gefällt.",
+        desc: "Ein schnelles, individuelles Design, das Besucher überzeugt und gezielt zu Anfragen führt — nicht nur gefällt.",
         image: "albanova-website" as ImageKey,
       },
       {
         title: "Entwicklung",
-        desc: "Skalierbar und sauber gebaut: schnell, flexibel, wartbar — am Ende gehört alles Ihnen, ohne Agentur-Abhängigkeit.",
+        desc: "Sauber gebaut und wächst mit Ihnen mit: schnell, flexibel, leicht zu pflegen — am Ende gehört alles Ihnen, ohne Agentur-Abhängigkeit.",
         image: "painpoint-a-feature2" as ImageKey,
       },
     ],
@@ -73,21 +73,21 @@ export const webDesign = {
       {
         logo: "logo-albanova-consulting" as ImageKey,
         name: "AlbaNova Consulting",
-        desc: "Von der Vision zur Marktpräsenz: neue Website und Brand-System für die Consulting-Marke — klar positioniert, hochwertig, auf Anfragen ausgerichtet.",
+        desc: "Von der Vision zur Marktpräsenz: neue Website und durchgängiger Markenauftritt — klar positioniert, hochwertig, auf Anfragen ausgerichtet.",
         imageDesktop: "albanova-website" as ImageKey,
         imagePhone: "pain-point-kundensupport-hero" as ImageKey,
       },
       {
         logo: "logo-elite-aesthetic" as ImageKey,
         name: "Elite Aesthetic",
-        desc: "Ein digitaler Auftritt, der die Premium-Positionierung widerspiegelt — Design und Buchungsstrecke greifen ineinander und wirken sofort professionell.",
+        desc: "Ein digitaler Auftritt, der die Premium-Positionierung widerspiegelt — Design und Online-Buchung greifen ineinander und wirken sofort professionell.",
         imageDesktop: "pain-point-professional-services-hero" as ImageKey,
         imagePhone: "pain-point-health-care-hero" as ImageKey,
       },
       {
         logo: "logo-becoming-you" as ImageKey,
         name: "Becoming You",
-        desc: "Eine Plattform, die skaliert: individuelles Interface, sauberes Fundament und ein System, das das Team eigenständig weiterpflegen kann.",
+        desc: "Eine Plattform, die mitwächst: individuelle Oberfläche, sauberes Fundament und ein System, das das Team selbst weiterpflegen kann.",
         imageDesktop: "painpoint-a-section3" as ImageKey,
         imagePhone: "pain-point-kpi-dashboard-hero" as ImageKey,
       },
@@ -98,7 +98,7 @@ export const webDesign = {
   finalCta: {
     eyebrow: "Los geht's",
     heading: "Erstgespräch buchen",
-    sub: "In einem kurzen Kennenlern-Call schauen wir gemeinsam, ob und wo ein Projekt Sinn ergibt — auf Basis Ihrer Situation und Ziele. Komplett unverbindlich.",
+    sub: "In einem kurzen Kennenlerngespräch schauen wir gemeinsam, ob und wo ein Projekt Sinn ergibt — auf Basis Ihrer Situation und Ziele.",
     ctaPrimary: "Erstgespräch anfragen",
     note: "100% kostenlos & unverbindlich.",
   },

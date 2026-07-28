@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { CONTACT_ENDPOINT } from './apiConfig';
 
 // Rate limiting configuration
 const RATE_LIMIT_WINDOW_MS = 60000;
@@ -23,6 +24,10 @@ export const contactFormSchema = z.object({
     .trim()
     .min(10, { message: "Nachricht muss mindestens 10 Zeichen lang sein" })
     .max(5000, { message: "Nachricht darf maximal 5000 Zeichen lang sein" }),
+  // DSGVO Art. 6 Abs. 1 lit. a — Einwilligung ist Pflicht, der Server prüft sie ebenfalls
+  consent: z.literal(true, {
+    errorMap: () => ({ message: "Bitte stimmen Sie der Verarbeitung Ihrer Daten zu" }),
+  }),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -72,36 +77,52 @@ export function validateContactForm(data: Record<string, unknown>): {
   }
 }
 
-// Submit via plain fetch to new-contact edge function — no auth header
+/** Fehlertexte des Services (server.py) → verständliche deutsche Meldung. */
+const SERVER_ERRORS: Record<string, string> = {
+  rate_limited: "Zu viele Anfragen. Bitte versuchen Sie es in ein paar Minuten erneut.",
+  invalid_email: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+  invalid_fields: "Bitte prüfen Sie Ihre Eingaben.",
+  consent_required: "Bitte stimmen Sie der Verarbeitung Ihrer Daten zu.",
+};
+
+/**
+ * Sendet die Anfrage an den NEWEDGE Lead-Service (VPS).
+ * Ohne konfigurierte `VITE_API_URL` läuft die Funktion im Test-Modus:
+ * sie meldet Erfolg, sendet aber nichts (nur für lokale Entwicklung).
+ */
 export async function submitContactForm(data: ContactFormData): Promise<{ success: boolean; error?: string }> {
+  if (!CONTACT_ENDPOINT) {
+    await new Promise((r) => setTimeout(r, 600));
+    return { success: true };
+  }
+
   try {
-    const response = await fetch(
-      'https://yzmtgxfehvzgobxjivjl.supabase.co/functions/v1/new-contact',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          phone: data.phone || null,
-          company: data.company || null,
-          position: data.position || null,
-          message: data.message,
-        }),
-      }
-    );
+    const response = await fetch(CONTACT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        phone: data.phone || null,
+        company: data.company || null,
+        position: data.position || null,
+        message: data.message,
+        consent: data.consent,
+        sourcePage: typeof window !== 'undefined' ? window.location.pathname : null,
+      }),
+    });
 
-    const result = await response.json().catch(() => ({}));
+    const result = await response.json().catch(() => ({} as { success?: boolean; error?: string }));
 
-    if (response.ok && result.ok) {
+    if (response.ok && result.success) {
       return { success: true };
     }
 
     return {
       success: false,
-      error: result.error || `Server antwortete mit Status ${response.status}`,
+      error: SERVER_ERRORS[result.error as string] || "Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie an info@newedgebrand.com.",
     };
   } catch {
-    return { success: false, error: "Verbindungsfehler. Bitte erneut versuchen." };
+    return { success: false, error: "Verbindungsfehler. Bitte erneut versuchen oder schreiben Sie an info@newedgebrand.com." };
   }
 }

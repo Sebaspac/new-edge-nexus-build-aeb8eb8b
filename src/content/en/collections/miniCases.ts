@@ -32,6 +32,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   entscheidungsinstanzen: [
     {
       id: "bmp-award",
+      industries: ["Awards", "Jury"],
       phaseLabel: "Case 01",
       badge: "Real project · Bayerischer Mittelstandspreis",
       disclaimer: REAL_DISCLAIMER,
@@ -55,9 +56,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "60 %", label: "higher jury efficiency" },
         { value: "100 %", label: "audit trail for every decision" },
       ],
+      image: { src: "bmp-award-case", alt: "NEWEDGE at the Bayerischer Mittelstandspreis" },
     },
     {
       id: "hochschul-zulassung",
+      industries: ["Higher Education", "Admissions Offices", "Master's Programs"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -83,6 +86,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "foerderbank-antragspruefung",
+      industries: ["Development Banks", "Economic Development", "Public Sector"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -112,6 +116,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   "health-care": [
     {
       id: "gyn-praxis-muenchen",
+      industries: ["Gynecology", "Medical Practices", "Healthcare"],
       phaseLabel: "Case 01",
       badge: "Real project · Gynecology Practice Munich",
       disclaimer: REAL_DISCLAIMER,
@@ -138,6 +143,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "therapiezentrum-onboarding",
+      industries: ["Therapy Centers", "Healthcare"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -163,6 +169,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "praxisverbund-kapazitaeten",
+      industries: ["Specialist Practices", "Practice Networks", "Scheduling"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -192,6 +199,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   "handel-supply-chain": [
     {
       id: "grosshandel-bestelleingabe",
+      industries: ["Wholesale", "B2B Sales", "DACH"],
       phaseLabel: "Case 01",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -217,6 +225,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "maschinenbau-sendungstransparenz",
+      industries: ["Machinery", "Export", "Logistics", "Customs"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -242,6 +251,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "fachhaendler-fruehwarnsystem",
+      industries: ["Specialty Retail", "Procurement", "Supply Chain"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -271,6 +281,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   "professional-services": [
     {
       id: "aeskon-prozesslandkarte",
+      industries: ["Industrial Consulting", "Grant Funding", "Technology Firms"],
       phaseLabel: "Case 01",
       badge: "Real project · AESKON GmbH",
       disclaimer: REAL_DISCLAIMER,
@@ -296,6 +307,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "steuerkanzlei-mandantenkommunikation",
+      industries: ["Tax Firms", "Tax Season"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -321,6 +333,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "personalberatung-screening",
+      industries: ["Recruiting", "High-Volume Recruiting"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -350,6 +363,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   auswahlverfahren: [
     {
       id: "bmp-jury-pipeline",
+      industries: ["Associations", "Awards", "Jury"],
       phaseLabel: "Case 01",
       badge: "Real project · Bayerischer Mittelstandspreis",
       disclaimer: REAL_DISCLAIMER,
@@ -375,6 +389,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "innovationspreis-bias",
+      industries: ["Innovation Awards", "Juries", "Competitions"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -400,6 +415,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "gruenderwettbewerb-vorsortierung",
+      industries: ["Startup Competitions", "Economic Development", "Jury"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -429,6 +445,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   compliance: [
     {
       id: "maschinenbau-dokumente",
+      industries: ["Machinery", "Exporters", "Customs"],
       phaseLabel: "Case 01",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -454,6 +471,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "aeskon-bafa-compliance",
+      industries: ["Industrial Consulting", "Grants", "Compliance"],
       phaseLabel: "Case 02",
       badge: "Real project · AESKON GmbH (BAFA compliance)",
       disclaimer: REAL_DISCLAIMER,
@@ -479,6 +497,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "grosshaendler-zollpraeferenzen",
+      industries: ["Wholesale", "Customs", "Foreign Trade"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -508,6 +527,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   "kpi-dashboard": [
     {
       id: "mehrstandort-dashboard",
+      industries: ["Specialist Clinics", "Multi-Site Practices"],
       phaseLabel: "Case 01",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -533,6 +553,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "vertrieb-pipeline-reporting",
+      industries: ["Sales Teams", "CRM Pipelines", "B2B Sales"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -558,6 +579,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "logistik-lieferanten-kpi",
+      industries: ["Logistics", "Procurement", "Supplier Management"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -587,6 +609,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   "ki-kundensupport": [
     {
       id: "eos-therapiezentrum",
+      industries: ["Therapy Centers", "Physiotherapy", "Healthcare"],
       phaseLabel: "Case 01",
       badge: "Real project · EOS Therapiezentrum",
       disclaimer: REAL_DISCLAIMER,
@@ -612,6 +635,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "onlinehaendler-support",
+      industries: ["Online Retail", "Customer Service", "Returns"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -637,6 +661,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "steuerkanzlei-fristen",
+      industries: ["Tax Firms", "Tax Season"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -671,6 +696,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
 export const unassignedMiniCases: MiniCase[] = [
   {
     id: "340-consultancy-funnel",
+      industries: ["Consultancies", "B2B Sales"],
     phaseLabel: "Case 01",
     badge: "Real project · 340 Consultancy",
     disclaimer: REAL_DISCLAIMER,
@@ -696,6 +722,7 @@ export const unassignedMiniCases: MiniCase[] = [
   },
   {
     id: "b2b-lead-qualifizierung",
+      industries: ["B2B Services", "Sales", "Inbound Inquiries"],
     phaseLabel: "Case 02",
     badge: BEISPIEL_BADGE,
     disclaimer: BEISPIEL_DISCLAIMER,
@@ -721,6 +748,7 @@ export const unassignedMiniCases: MiniCase[] = [
   },
   {
     id: "handwerk-funnel",
+      industries: ["Trades", "Local Business", "B2C"],
     phaseLabel: "Case 03",
     badge: BEISPIEL_BADGE,
     disclaimer: BEISPIEL_DISCLAIMER,

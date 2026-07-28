@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { TrendingDown, TrendingUp } from "lucide-react";
+import { IconTrendingDown, IconTrendingUp } from "@tabler/icons-react";
 import { derSchnitt as DS_STATIC } from "@/content/sections/derSchnitt";
 import { derSchnitt as derSchnittEn } from "@/content/en/sections/derSchnitt";
 import { useHomeSection } from "@/hooks/useHomeContent";
 
 /* ── Design tokens ── */
-const VIOLET_LIGHT = "#8B8DF0";
+const VIOLET_LIGHT = "#CCFF00";
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 const HEAD: React.CSSProperties = { fontFamily: OUTFIT, fontWeight: 700 };
 const BODY: React.CSSProperties = { fontFamily: OUTFIT, fontWeight: 400 };
@@ -18,8 +18,8 @@ const CompareBar = ({ filled, delay }: { filled: boolean; delay: number }) => (
     style={{
       height: "13px",
       borderRadius: "999px",
-      background: "rgba(23,23,46,0.06)",
-      border: "1px solid rgba(23,23,46,0.05)",
+      background: "rgba(23,23,23,0.06)",
+      border: "1px solid rgba(23,23,23,0.05)",
       overflow: "hidden",
     }}
   >
@@ -33,8 +33,8 @@ const CompareBar = ({ filled, delay }: { filled: boolean; delay: number }) => (
         transformOrigin: "left",
         borderRadius: "999px",
         background: filled
-          ? "linear-gradient(90deg, #5658DF 0%, #8B8DF0 55%, #C2C3F6 100%)"
-          : "linear-gradient(90deg, #C6C2CE 0%, #A8A3B3 100%)",
+          ? "linear-gradient(90deg, #CCFF00 0%, #CCFF00 55%, #FFF7B2 100%)"
+          : "linear-gradient(90deg, #C4C6C0 0%, #A6A6A2 100%)",
       }}
     />
   </div>
@@ -43,7 +43,7 @@ const CompareBar = ({ filled, delay }: { filled: boolean; delay: number }) => (
 /** Eine Vergleichs-Zeile: Label + animierter Balken. */
 const CompareRow = ({ label, filled, index }: { label: string; filled: boolean; index: number }) => (
   <div style={{ marginBottom: "12px" }}>
-    <p style={{ ...BODY, fontWeight: 500, fontSize: "13px", color: "#17172E", marginBottom: "5px" }}>
+    <p style={{ ...BODY, fontWeight: 500, fontSize: "13px", color: "#171717", marginBottom: "5px" }}>
       {label}
     </p>
     <CompareBar filled={filled} delay={0.1 + index * 0.07} />
@@ -58,9 +58,9 @@ export const DerSchnitt = () => {
     ...BODY,
     fontWeight: 600,
     fontSize: "13px",
-    color: "#17172E",
+    color: "#171717",
     background: "#FFFFFF",
-    border: "1px solid rgba(23,23,46,0.1)",
+    border: "1px solid rgba(23,23,23,0.1)",
     borderRadius: "8px",
     padding: "8px 16px",
     display: "inline-flex",
@@ -84,11 +84,11 @@ export const DerSchnitt = () => {
         >
           {/* Header — zentriert wie in der Referenz */}
           <div className="text-center" style={{ marginBottom: "clamp(18px,2.5vh,28px)" }}>
-            <h2 style={{ color: "#17172E" }}>
+            <h2 style={{ color: "#171717" }}>
               {derSchnitt.heading.lead}
-              <span style={{ color: "#5658DF" }}>{derSchnitt.heading.brand}</span>
+              <span className="edge-mark">{derSchnitt.heading.brand}</span>
             </h2>
-            <p style={{ color: "#3C3C47", maxWidth: "58ch", margin: "0 auto" }}>
+            <p style={{ color: "#3C3C3C", maxWidth: "58ch", margin: "0 auto" }}>
               {derSchnitt.intro}
             </p>
           </div>
@@ -97,7 +97,7 @@ export const DerSchnitt = () => {
           <div className="grid md:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-6">
             <div>
               <span style={pillStyle}>
-                <TrendingDown style={{ width: "18px", height: "18px", color: "#8A84A0" }} />
+                <IconTrendingDown size={18} color="#888884" aria-hidden />
                 {derSchnitt.before.label}
               </span>
               {derSchnitt.before.rows.map((row, i) => (
@@ -107,7 +107,7 @@ export const DerSchnitt = () => {
 
             <div>
               <span style={pillStyle}>
-                <TrendingUp style={{ width: "18px", height: "18px", color: VIOLET_LIGHT }} />
+                <IconTrendingUp size={18} color="#171717" aria-hidden />
                 {derSchnitt.after.label}
               </span>
               {derSchnitt.after.rows.map((row, i) => (

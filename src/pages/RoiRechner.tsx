@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Check, ShieldCheck, Zap, ArrowRight } from "lucide-react";
+import { IconArrowRight, IconBolt, IconCheck, IconShieldCheck } from "@tabler/icons-react";
+import { EdgeIconBadge } from "@/components/ui/EdgeIconBadge";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import SEOHead from "@/components/SEOHead";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
@@ -9,24 +10,28 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import * as ROI_DE from "@/content/roiAudit";
 import * as ROI_EN from "@/content/en/roiAudit";
 import type { RoiUseCase, PainId } from "@/content/roiAudit";
+import { ROI_ENDPOINT } from "@/utils/apiConfig";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
 /* ── NEWEDGE CI (Rebrush 2026-07) ── */
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
-const VIOLET_DARK = "#4446C4";
-const VIOLET_LIGHT = "#8B8DF0";
-const INK_DEEP = "#17172E";
-const INK = "#3C3C47";
-const PAPER = "#F8F5FF";
+const VIOLET = "#CCFF00";
+const FLASH       = "#FF1E00";
+const VIOLET_DARK = "#B4E600";
+const VIOLET_LIGHT = "#CCFF00";
+const INK_DEEP = "#171717";
+const INK = "#3C3C3C";
+const PAPER = "#F2F2F2";
 const PAPER_PURE = "#FFFFFF";
-const HAIRLINE = "rgba(86,88,223,0.16)";
+const HAIRLINE = "rgba(23,23,23,0.16)";
 const EASE = [0.22, 1, 0.36, 1] as const;
-const ROI_GRADIENT = "linear-gradient(150deg, #2B2A6E 0%, #4244C9 45%, #5658DF 100%)";
+const ROI_GRADIENT = "linear-gradient(150deg, #171717 0%, #333A00 45%, #CCFF00 100%)";
 
-/** n8n-Webhook für die Lead-Zustellung. Leer = Test-Modus (zeigt Erfolg, sendet nicht). */
-const ROI_WEBHOOK_URL = "";
+/** ROI-Report-Service (VPS, FastAPI): Lead speichern, PDF erzeugen, versenden.
+    Kommt aus der gemeinsamen Netlify-Env `VITE_API_URL` (siehe utils/apiConfig).
+    Leer = Test-Modus (zeigt Erfolg, sendet nicht) — für lokale Entwicklung. */
+const ROI_WEBHOOK_URL = ROI_ENDPOINT;
 
 const MATURITY_DE = [
   { id: "none", t: "Noch gar nicht", d: "Fast alles läuft manuell" },
@@ -99,10 +104,10 @@ type Field = { pf: (typeof ROI_DE.PAINFIELDS)[number]; rep: RoiUseCase; apps: st
 
 /* ── UI-Wörterbuch: DE 1:1 aus dem Original, EN als Spiegel ── */
 const T_DE = {
-  seoTitle: "KI-Hebel-Audit — Ihre KI-Abteilung nach Branche | NEWEDGE",
-  seoDescription: "Branchenspezifisches Kurz-Audit: welche Rollen Ihrer KI-Abteilung sich zuerst auszahlen — in Euro, freigesetzten Stunden und Wachstums-Kapazität. Kostenlos.",
+  seoTitle: "KI-ROI berechnen — Potenzial für den Mittelstand | NEWEDGE",
+  seoDescription: "Berechnen Sie kostenlos, was KI Ihrem Betrieb bringt — in Euro, freigesetzten Stunden und Wachstum. Branchenspezifisch, aus über 40 realen Automatisierungen.",
   seoCanonical: "/roi-rechner",
-  heroTitle: <>Welche Rollen Ihre <span style={{ color: VIOLET }}>KI-Abteilung</span> zuerst braucht.</>,
+  heroTitle: <>Welche Rollen Ihre <span className="edge-mark">KI-Abteilung</span> zuerst braucht.</>,
   heroSub: "Wählen Sie Ihre Branche und die Mitglieder Ihrer künftigen KI-Abteilung. Sie sehen das Potenzial in Euro, freigesetzten Stunden und Wachstums-Kapazität — pro Rolle, aus über 40 realen Automatisierungen.",
   stepOf: (n: number) => `Schritt ${n} von 3`,
   s1Title: "Ihre Branche",
@@ -116,57 +121,63 @@ const T_DE = {
   toolsQuestion: "Welche dieser Tools nutzen Sie schon?",
   back: "← Zurück",
   s3Title: "Ihr Startpunkt",
-  s3Sub: "Wie weit sind Sie mit Automatisierung? Das kalibriert, wie schnell Sie den Wert heben.",
+  s3Sub: "Wie weit sind Sie mit Automatisierung? Danach richtet sich, wie schnell sich das Potenzial für Sie auszahlt.",
   viewAnalysis: "Analyse ansehen",
   changeAnswers: "← Antworten ändern",
   auditEyebrow: "Ihr Kurz-Audit",
-  emptyNoBranche: "Wählen Sie Ihre Branche. Wir gleichen mit realen Automatisierungs-Werten aus über 40 Use Cases ab.",
+  benefitTitle: "Das bekommen Sie zurück.",
+  benefitSub: "Alle Werte sind Ihr jährlicher Rückfluss aus Automatisierung — nicht Ihre Kosten.",
+  emptyNoBranche: "Wählen Sie Ihre Branche. Wir gleichen mit Werten aus über 40 realen Automatisierungen ab.",
   emptyNoRoles: "Wählen Sie die Rollen Ihrer KI-Abteilung. Ihr Potenzial erscheint hier sofort.",
   lensMoney: "Geld",
   lensTime: "Zeit",
   lensGrowth: "Wachstum",
   hrsUnit: "Std.",
-  moneySub: "Netto-Einsparpotenzial / Jahr",
+  fteUnit: "Vollzeitkräfte",
+  quickWinLabel: "Schneller Erfolg",
+  moneySub: "Das sparen Sie pro Jahr — nach Abzug der laufenden Kosten",
   timeSub: "freigesetzte Arbeitszeit / Jahr",
   growthSub: "Kapazität, die frei wird",
   moneyRange: (lo: string, hi: string) => `konservativ ${lo} … ambitioniert ${hi}`,
   timeRange: (fte: string) => `≈ ${fte} Vollzeitkräfte, die Sie für anderes einsetzen können`,
-  growthRange: (hours: string) => `${hours} Std./Jahr — reinvestierbar statt Neueinstellung`,
+  growthRange: (hours: string) => `${hours} Std./Jahr — Zeit für Wachstum, ohne neu einzustellen`,
+  benchmarkShort: "Genutztes Potenzial",
   benchmark: (label: string, full: string, share: number) => (
-    <>Betriebe in „{label}" heben mit einer vollen KI-Abteilung typischerweise <strong>{full}/Jahr</strong>. Sie adressieren gerade <strong>{share}%</strong> davon.</>
+    <>Betriebe in „{label}" holen mit einer vollen KI-Abteilung typischerweise <strong>{full}/Jahr</strong> heraus. Ihre Auswahl deckt davon <strong>{share}%</strong> ab.</>
   ),
-  stackTitle: (n: number) => `Ihr Stack · ${n} ${n === 1 ? "Tool" : "Tools"}`,
+  stackTitle: (n: number) => `Ihre Tools · ${n} im Einsatz`,
   stackNote: "Diese Tools binden wir direkt an — Ihre KI-Abteilung baut auf dem auf, was schon läuft, statt es zu ersetzen.",
   growthLever: (fte: string, sub: string) => (
     <><strong>{fte} Vollzeitkräfte</strong> frei — genug, um z. B. „{sub}" auszubauen, Durchlaufzeiten zu senken oder mehr Aufträge zu stemmen, ohne einzustellen.</>
   ),
   byRole: "Nach Rolle",
-  realismTitle: "Realitäts-Regler",
+  realismTitle: "Wie vorsichtig rechnen wir?",
   realismValue: (r: number): string => (r < 33 ? "sehr konservativ" : r < 67 ? "ausgewogen" : "ambitioniert"),
   payback: (p: number) => (p < 1 ? "< 1 Mon." : `${Math.round(p)} Mon.`),
-  paybackLab: "Amortisation",
+  paybackLab: "Investition wieder drin nach",
   entryVal: (price: string) => `ab ${price}`,
   entryLab: (note: string) => `Einstieg · ${note}`,
-  footnoteModeled: "Modellierte Richtwerte für Entscheidungsinstanzen, skaliert auf Reifegrad und Teamgröße, minus ~15 % laufende Kosten.",
-  footnoteReal: "Spannen aus realen Automatisierungen, skaliert auf Reifegrad und Teamgröße, minus ~15 % laufende Kosten. Investition = KI-Audit + geschätzte Umsetzung.",
+  footnoteModeled: "Geschätzte Richtwerte für diese Branche, angepasst an Ihren Stand und Ihre Teamgröße, abzüglich ~15 % laufender Kosten.",
+  footnoteReal: "Spannen aus realen Automatisierungen, angepasst an Ihren Stand und Ihre Teamgröße, abzüglich ~15 % laufender Kosten. Die Investition umfasst das KI-Audit plus die geschätzte Umsetzung.",
   roadmapTitle: "Ihre KI-Abteilung im Einsatz",
-  roadmapSub: "Sortiert nach Wirkung × Aufwand. Quick Wins zuerst — inklusive des Tool-Stacks, mit dem wir jede Rolle bauen.",
+  roadmapSub: "Sortiert nach dem besten Verhältnis von Wirkung zu Aufwand. Die schnellsten Erfolge zuerst — inklusive der Programme, mit denen wir jede Rolle aufbauen.",
   effortWord: "Aufwand",
   effortLow: "niedrig",
   effortMid: "mittel",
   effortHigh: "hoch",
   perYearShort: "/J",
-  reportTitle: "Report als PDF + Tool-Roadmap",
-  reportSub: "Speichern Sie Ihr Audit inkl. Tool-Roadmap direkt als PDF — oder lassen Sie es sich persönlich per E-Mail schicken.",
+  reportTitle: "Report als PDF + Umsetzungsplan",
+  reportSub: "Speichern Sie Ihr Audit inkl. Umsetzungsplan direkt als PDF — oder lassen Sie es sich persönlich per E-Mail schicken.",
   savePdf: "Als PDF speichern",
   phName: "Name",
   phCompany: "Unternehmen",
   phEmail: "E-Mail",
   sendingLabel: "Wird gesendet …",
   requestReport: "Report anfordern",
-  noSharing: "Keine Weitergabe.",
+  noSharing: "Ihre Daten bleiben bei uns.",
+  sendError: "Senden fehlgeschlagen — bitte versuchen Sie es erneut oder schreiben Sie direkt an info@newedgebrand.com.",
   leadSuccess: (email: string) => (
-    <>Unterwegs an <strong>{email}</strong>. Wir melden uns mit Ihrer Roadmap.</>
+    <>Unterwegs an <strong>{email}</strong>. Ihr Report kommt in wenigen Minuten per E-Mail.</>
   ),
   ctaEyebrow: "Bereit loszulegen?",
   ctaLine1: "Sprechen Sie",
@@ -174,10 +185,10 @@ const T_DE = {
 };
 
 const T_EN: typeof T_DE = {
-  seoTitle: "AI Leverage Audit — Your AI Department by Industry | NEWEDGE",
-  seoDescription: "Industry-specific quick audit: which roles of your AI department pay off first — in euros, freed-up hours and growth capacity. Free.",
+  seoTitle: "Calculate AI ROI — potential for mid-sized firms | NEWEDGE",
+  seoDescription: "Calculate for free what AI can do for your business — the value in euros, freed-up hours and growth. Industry-specific, from 40+ real automations.",
   seoCanonical: "/en/roi-rechner",
-  heroTitle: <>Which roles your <span style={{ color: VIOLET }}>AI department</span> needs first.</>,
+  heroTitle: <>Which roles your <span className="edge-mark">AI department</span> needs first.</>,
   heroSub: "Choose your industry and the members of your future AI department. You'll see the potential in euros, freed-up hours and growth capacity — per role, from over 40 real automations.",
   stepOf: (n) => `Step ${n} of 3`,
   s1Title: "Your industry",
@@ -191,57 +202,63 @@ const T_EN: typeof T_DE = {
   toolsQuestion: "Which of these tools do you already use?",
   back: "← Back",
   s3Title: "Your starting point",
-  s3Sub: "How far along are you with automation? This calibrates how fast you unlock the value.",
+  s3Sub: "How far along are you with automation? That determines how fast the potential pays off for you.",
   viewAnalysis: "View analysis",
   changeAnswers: "← Change answers",
   auditEyebrow: "Your quick audit",
-  emptyNoBranche: "Choose your industry. We benchmark against real automation values from over 40 use cases.",
+  benefitTitle: "This is what you get back.",
+  benefitSub: "Every number is your annual return from automation — not your cost.",
+  emptyNoBranche: "Choose your industry. We benchmark against values from over 40 real automations.",
   emptyNoRoles: "Choose the roles of your AI department. Your potential shows up here instantly.",
   lensMoney: "Money",
   lensTime: "Time",
   lensGrowth: "Growth",
   hrsUnit: "hrs",
-  moneySub: "Net savings potential / year",
+  fteUnit: "FTEs",
+  quickWinLabel: "Quick win",
+  moneySub: "What you save per year — after running costs",
   timeSub: "freed-up working time / year",
   growthSub: "Capacity you free up",
   moneyRange: (lo, hi) => `conservative ${lo} … ambitious ${hi}`,
   timeRange: (fte) => `≈ ${fte} full-time equivalents you can deploy elsewhere`,
-  growthRange: (hours) => `${hours} hrs/year — reinvestable instead of a new hire`,
+  growthRange: (hours) => `${hours} hrs/year — time to grow, without hiring`,
+  benchmarkShort: "Potential used",
   benchmark: (label, full, share) => (
-    <>Businesses in “{label}” typically unlock <strong>{full}/year</strong> with a full AI department. You're currently addressing <strong>{share}%</strong> of that.</>
+    <>Businesses in “{label}” typically get <strong>{full}/year</strong> out of a full AI department. Your selection covers <strong>{share}%</strong> of that.</>
   ),
-  stackTitle: (n) => `Your stack · ${n} ${n === 1 ? "tool" : "tools"}`,
+  stackTitle: (n) => `Your tools · ${n} in use`,
   stackNote: "We connect these tools directly — your AI department builds on what's already running instead of replacing it.",
   growthLever: (fte, sub) => (
     <><strong>{fte} full-time equivalents</strong> freed up — enough to e.g. grow “{sub}”, cut turnaround times or take on more orders without hiring.</>
   ),
   byRole: "By role",
-  realismTitle: "Reality slider",
+  realismTitle: "How cautiously do we calculate?",
   realismValue: (r) => (r < 33 ? "very conservative" : r < 67 ? "balanced" : "ambitious"),
   payback: (p) => (p < 1 ? "< 1 mo." : `${Math.round(p)} mo.`),
-  paybackLab: "Payback",
+  paybackLab: "Investment recovered after",
   entryVal: (price) => `from ${price}`,
   entryLab: (note) => `Entry · ${note}`,
-  footnoteModeled: "Modeled benchmark values for decision-making bodies, scaled to maturity and team size, minus ~15% running costs.",
-  footnoteReal: "Ranges from real automations, scaled to maturity and team size, minus ~15% running costs. Investment = AI audit + estimated implementation.",
+  footnoteModeled: "Estimated benchmark values for this industry, adjusted to your stage and team size, minus ~15% running costs.",
+  footnoteReal: "Ranges from real automations, adjusted to your stage and team size, minus ~15% running costs. The investment covers the AI audit plus the estimated implementation.",
   roadmapTitle: "Your AI department at work",
-  roadmapSub: "Sorted by impact × effort. Quick wins first — including the tool stack we build each role with.",
+  roadmapSub: "Sorted by the best ratio of impact to effort. The fastest wins first — including the tools we build each role with.",
   effortWord: "Effort",
   effortLow: "low",
   effortMid: "medium",
   effortHigh: "high",
   perYearShort: "/yr",
-  reportTitle: "Report as PDF + tool roadmap",
-  reportSub: "Save your audit incl. the tool roadmap straight to PDF — or have it sent to you personally by email.",
+  reportTitle: "Report as PDF + implementation plan",
+  reportSub: "Save your audit incl. the implementation plan straight to PDF — or have it sent to you personally by email.",
   savePdf: "Save as PDF",
   phName: "Name",
   phCompany: "Company",
   phEmail: "Email",
   sendingLabel: "Sending …",
   requestReport: "Request report",
-  noSharing: "Never shared.",
+  noSharing: "Your data stays with us.",
+  sendError: "Sending failed — please try again or write to us directly at info@newedgebrand.com.",
   leadSuccess: (email) => (
-    <>On its way to <strong>{email}</strong>. We'll follow up with your roadmap.</>
+    <>On its way to <strong>{email}</strong>. Your report will arrive by email in a few minutes.</>
   ),
   ctaEyebrow: "Ready to get started?",
   ctaLine1: "Talk to us",
@@ -268,7 +285,9 @@ const RoiRechner = () => {
 
   const [lead, setLead] = useState({ name: "", email: "", company: "" });
   const [leadDone, setLeadDone] = useState(false);
+  const [leadError, setLeadError] = useState(false);
   const [sending, setSending] = useState(false);
+  const [honeypot, setHoneypot] = useState(""); // verstecktes Bot-Feld — Menschen lassen es leer
   const [revealed, setRevealed] = useState(false); // Analyse erst nach den Fragen zeigen
 
   const branche = useMemo(() => C.BRANCHES.find((b) => b.id === brancheId) || null, [brancheId, C]);
@@ -320,16 +339,57 @@ const RoiRechner = () => {
   const chooseMaturity = (m: Maturity) => { setMaturity(m); setRealism(REALISM_DEFAULT[m]); };
 
   const submitLead = async () => {
+    if (!calc || !branche) return;
     setSending(true);
+    setLeadError(false);
+    // Voller berechneter Stand — Kontrakt: roi-report-service/sample_roi_lead.json.
+    // Alle Zahlen kommen von hier (eine Rechen-Wahrheit, Service rechnet nichts nach).
     const payload = {
-      ...lead, branche: branche?.label, team,
-      felder: calc?.sel.map((f) => f.pf.name), apps: Array.from(usedApps), maturity, potentialNet: Math.round(calc?.totalNet || 0),
+      ...lead,
+      website: honeypot,
+      lang: language,
+      branche: branche.label,
+      brancheCool: branche.cool,
+      team,
+      maturity,
+      realism,
+      usedApps: Array.from(usedApps),
+      totalNet: Math.round(calc.totalNet),
+      netLo: Math.round(calc.netLo),
+      netHi: Math.round(calc.netHi),
+      fullNet: Math.round(calc.fullNet),
+      share: calc.share,
+      hoursYear: Math.round(calc.hoursYear),
+      fte: Math.round(calc.fte * 100) / 100,
+      invest: Math.round(calc.invest),
+      payback: Math.round(calc.payback * 10) / 10,
+      entryPrice: C.ROI_ENTRY.price,
+      entryNote: C.ROI_ENTRY.note,
+      estimated,
+      rows: calc.rows.map((r) => ({
+        name: r.pf.name,
+        sub: r.pf.sub,
+        prozess: r.rep.prozess,
+        net: Math.round(r.net),
+        hoursWeek: r.rep.hours,
+        effort: r.rep.effort,
+        quickWin: r.rep.quickWin,
+        tools: r.apps,
+      })),
+      submittedAt: new Date().toISOString(),
     };
     try {
-      if (ROI_WEBHOOK_URL) await fetch(ROI_WEBHOOK_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-      else await new Promise((r) => setTimeout(r, 800));
-    } catch { /* serverseitig erneut versuchbar */ }
-    setSending(false); setLeadDone(true);
+      if (ROI_WEBHOOK_URL) {
+        const res = await fetch(ROI_WEBHOOK_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      } else {
+        await new Promise((r) => setTimeout(r, 800)); // Test-Modus ohne konfigurierten Endpoint
+      }
+      setLeadDone(true);
+    } catch {
+      setLeadError(true); // Erfolg NUR bei echtem Erfolg — kein stilles Verschlucken mehr
+    }
+    setSending(false);
   };
 
   const canNext = (step === 1 && !!brancheId) || (step === 2 && selected.size > 0) || (step === 3 && !!maturity);
@@ -343,9 +403,9 @@ const RoiRechner = () => {
       />
       <style>{`
         .roi-range{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;outline:none;cursor:pointer}
-        .roi-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:${VIOLET};cursor:pointer;box-shadow:0 2px 8px rgba(86,88,223,.4);border:2px solid #fff}
+        .roi-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:${VIOLET};cursor:pointer;box-shadow:0 2px 8px rgba(23,23,23,0.22);border:2px solid #fff}
         .roi-range::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:${VIOLET};border:2px solid #fff;cursor:pointer}
-        .roi-input:focus{border-color:${VIOLET} !important;box-shadow:0 0 0 3px rgba(86,88,223,.14)}
+        .roi-input:focus{border-color:${VIOLET} !important;box-shadow:0 0 0 3px rgba(204,255,0,0.25)}
         .lk-fill{transition:width .35s cubic-bezier(.22,1,.36,1)}
         @media print {
           @page { margin: 14mm; }
@@ -377,12 +437,12 @@ const RoiRechner = () => {
 
             {/* PHASE 1 — Fragen (Analyse verborgen) */}
             <div style={{ display: revealed ? "none" : "block" }}>
-              <div style={{ background: PAPER_PURE, borderRadius: "18px", border: `1px solid ${HAIRLINE}`, boxShadow: "0 18px 50px -30px rgba(23,23,46,0.35)", padding: "clamp(24px,3vw,40px)" }}>
+              <div style={{ background: PAPER_PURE, borderRadius: "18px", border: `1px solid ${HAIRLINE}`, boxShadow: "0 18px 50px -30px rgba(23,23,23,0.35)", padding: "clamp(24px,3vw,40px)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "28px" }}>
                   {[1, 2, 3].map((i) => (
                     <span key={i} style={{ width: i === step ? "22px" : "8px", height: "8px", borderRadius: "99px", background: i === step ? VIOLET : i < step ? VIOLET_LIGHT : HAIRLINE, transition: "all .3s ease" }} />
                   ))}
-                  <span style={{ marginLeft: "auto", fontFamily: OUTFIT, fontSize: "13px", fontWeight: 500, color: "#8A85A0" }}>{T.stepOf(step)}</span>
+                  <span style={{ marginLeft: "auto", fontFamily: OUTFIT, fontSize: "13px", fontWeight: 500, color: "#6B6B66" }}>{T.stepOf(step)}</span>
                 </div>
 
                 {/* STEP 1 — Branche + Team */}
@@ -394,10 +454,10 @@ const RoiRechner = () => {
                         const active = brancheId === b.id;
                         return (
                           <button key={b.id} type="button" onClick={() => { setBrancheId(b.id); setSelected(new Set()); }}
-                            style={{ textAlign: "left", border: `1.5px solid ${active ? VIOLET : HAIRLINE}`, background: active ? "rgba(86,88,223,0.06)" : PAPER_PURE, borderRadius: "12px", padding: "14px 16px", cursor: "pointer", transition: "border-color .18s, background .18s" }}>
-                            <div style={{ fontFamily: OUTFIT, fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: VIOLET, marginBottom: "3px" }}>{b.cool}</div>
-                            <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: active ? VIOLET : INK_DEEP }}>{b.label}</div>
-                            <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#8A85A0", marginTop: "2px" }}>{b.sub}</div>
+                            style={{ textAlign: "left", border: `1.5px solid ${active ? VIOLET : HAIRLINE}`, background: active ? "rgba(204,255,0,0.10)" : PAPER_PURE, borderRadius: "12px", padding: "14px 16px", cursor: "pointer", transition: "border-color .18s, background .18s" }}>
+                            <div style={{ fontFamily: OUTFIT, fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: INK_DEEP, marginBottom: "3px" }}>{b.cool}</div>
+                            <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: INK_DEEP }}>{b.label}</div>
+                            <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#6B6B66", marginTop: "2px" }}>{b.sub}</div>
                           </button>
                         );
                       })}
@@ -416,34 +476,34 @@ const RoiRechner = () => {
                         const active = selected.has(pf.id);
                         return (
                           <div key={pf.id}
-                            style={{ border: `1.5px solid ${active ? VIOLET : HAIRLINE}`, background: active ? "rgba(86,88,223,0.06)" : PAPER_PURE, borderRadius: "12px", overflow: "hidden", transition: "border-color .18s, background .18s" }}>
+                            style={{ border: `1.5px solid ${active ? VIOLET : HAIRLINE}`, background: active ? "rgba(204,255,0,0.10)" : PAPER_PURE, borderRadius: "12px", overflow: "hidden", transition: "border-color .18s, background .18s" }}>
                             <button type="button" onClick={() => toggle(pf.id)}
                               style={{ display: "block", width: "100%", textAlign: "left", border: "none", background: "transparent", padding: "14px 16px", cursor: "pointer" }}>
                               <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "10px" }}>
                                 <div>
-                                  <span style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: active ? VIOLET : INK_DEEP }}>{pf.name}</span>
-                                  <span style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#8A85A0", marginLeft: "8px" }}>{pf.sub}</span>
+                                  <span style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: INK_DEEP }}>{pf.name}</span>
+                                  <span style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#6B6B66", marginLeft: "8px" }}>{pf.sub}</span>
                                 </div>
                                 <span style={{ width: "20px", height: "20px", flex: "none", borderRadius: "6px", border: `1.5px solid ${active ? VIOLET : HAIRLINE}`, background: active ? VIOLET : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                  {active && <Check style={{ width: "13px", height: "13px", color: "#fff" }} strokeWidth={3} />}
+                                  {active && <IconCheck size={13} stroke={3} color={INK_DEEP} />}
                                 </span>
                               </div>
                               <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: INK, marginTop: "5px", lineHeight: 1.5 }}>{T.eg}{rep.prozess}</div>
-                              <div style={{ display: "flex", gap: "12px", marginTop: "8px", fontFamily: OUTFIT, fontSize: "12px", color: "#8A85A0" }}>
+                              <div style={{ display: "flex", gap: "12px", marginTop: "8px", fontFamily: OUTFIT, fontSize: "12px", color: "#6B6B66" }}>
                                 <span>{T.hoursWeek(rep.hours)}</span>
-                                {rep.quickWin && <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", color: VIOLET }}><Zap style={{ width: "12px", height: "12px" }} strokeWidth={2.4} /> Quick Win</span>}
+                                {rep.quickWin && <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", color: INK_DEEP }}><IconBolt size={12} stroke={2.4} /> {T.quickWinLabel}</span>}
                               </div>
                             </button>
                             {/* Tools, die man je nach Anwendungsfeld schon nutzt — anklickbar */}
                             {active && apps.length > 0 && (
                               <div style={{ padding: "0 16px 14px" }}>
-                                <div style={{ fontFamily: OUTFIT, fontSize: "11.5px", fontWeight: 600, color: "#8A85A0", margin: "0 0 8px" }}>{T.toolsQuestion}</div>
+                                <div style={{ fontFamily: OUTFIT, fontSize: "11.5px", fontWeight: 600, color: "#6B6B66", margin: "0 0 8px" }}>{T.toolsQuestion}</div>
                                 <div style={{ display: "flex", flexWrap: "wrap", gap: "7px" }}>
                                   {apps.map((app) => {
                                     const on = usedApps.has(app);
                                     return (
                                       <button key={app} type="button" onClick={() => toggleApp(app)}
-                                        style={{ fontFamily: OUTFIT, fontSize: "12px", fontWeight: 500, padding: "5px 11px", borderRadius: "99px", cursor: "pointer", transition: "all .15s", border: `1px solid ${on ? VIOLET : HAIRLINE}`, background: on ? VIOLET : PAPER_PURE, color: on ? "#fff" : INK }}>
+                                        style={{ fontFamily: OUTFIT, fontSize: "12px", fontWeight: 500, padding: "5px 11px", borderRadius: "99px", cursor: "pointer", transition: "all .15s", border: `1px solid ${on ? VIOLET : HAIRLINE}`, background: on ? VIOLET : PAPER_PURE, color: on ? INK_DEEP : INK }}>
                                         {app}
                                       </button>
                                     );
@@ -469,8 +529,8 @@ const RoiRechner = () => {
                         const active = maturity === m.id;
                         return (
                           <button key={m.id} type="button" onClick={() => chooseMaturity(m.id)}
-                            style={{ textAlign: "left", border: `1.5px solid ${active ? VIOLET : HAIRLINE}`, background: active ? "rgba(86,88,223,0.06)" : PAPER_PURE, borderRadius: "12px", padding: "15px 18px", cursor: "pointer", transition: "border-color .18s, background .18s" }}>
-                            <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: active ? VIOLET : INK_DEEP, marginBottom: "2px" }}>{m.t}</div>
+                            style={{ textAlign: "left", border: `1.5px solid ${active ? VIOLET : HAIRLINE}`, background: active ? "rgba(204,255,0,0.10)" : PAPER_PURE, borderRadius: "12px", padding: "15px 18px", cursor: "pointer", transition: "border-color .18s, background .18s" }}>
+                            <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: INK_DEEP, marginBottom: "2px" }}>{m.t}</div>
                             <div style={{ fontFamily: OUTFIT, fontSize: "13px", color: INK }}>{m.d}</div>
                           </button>
                         );
@@ -487,11 +547,11 @@ const RoiRechner = () => {
             <div id="audit" style={{ display: revealed ? "block" : "none" }}>
               {revealed && (
                 <button type="button" onClick={() => setRevealed(false)}
-                  style={{ border: "none", background: "transparent", cursor: "pointer", fontFamily: OUTFIT, fontSize: "13px", fontWeight: 600, color: "#8A85A0", padding: "0 0 14px", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                  style={{ border: "none", background: "transparent", cursor: "pointer", fontFamily: OUTFIT, fontSize: "13px", fontWeight: 600, color: "#6B6B66", padding: "0 0 14px", display: "inline-flex", alignItems: "center", gap: "6px" }}>
                   {T.changeAnswers}
                 </button>
               )}
-              <div style={{ background: ROI_GRADIENT, borderRadius: "18px", padding: "clamp(24px,3vw,36px)", color: "#fff", boxShadow: "0 20px 50px -24px rgba(86,88,223,0.5)" }}>
+              <div style={{ background: ROI_GRADIENT, borderRadius: "18px", padding: "clamp(24px,3vw,36px)", color: "#fff", boxShadow: "0 20px 50px -24px rgba(23,23,23,0.5)" }}>
                 <div style={{ fontFamily: OUTFIT, fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.72, marginBottom: "16px" }}>
                   {branche ? `${T.auditEyebrow} · ${branche.cool}` : T.auditEyebrow}
                 </div>
@@ -502,6 +562,14 @@ const RoiRechner = () => {
                   </div>
                 ) : (
                   <>
+                    {/* Benefit-Headline: stellt klar, dass die Werte Rückflüsse sind, keine Kosten */}
+                    <div style={{ fontFamily: OUTFIT, fontSize: "clamp(20px,2.2vw,26px)", fontWeight: 700, letterSpacing: "-0.01em", lineHeight: 1.15, marginBottom: "6px" }}>
+                      {T.benefitTitle}
+                    </div>
+                    <div style={{ fontFamily: OUTFIT, fontSize: "13px", lineHeight: 1.5, opacity: 0.78, marginBottom: "18px" }}>
+                      {T.benefitSub}
+                    </div>
+
                     {/* Lens-Umschalter: Geld · Zeit · Wachstum */}
                     <div style={{ display: "inline-flex", background: "rgba(255,255,255,0.10)", borderRadius: "99px", padding: "3px", marginBottom: "16px" }}>
                       {([["geld", T.lensMoney], ["zeit", T.lensTime], ["wachstum", T.lensGrowth]] as const).map(([id, lbl]) => (
@@ -513,7 +581,7 @@ const RoiRechner = () => {
                     </div>
 
                     <div style={{ fontFamily: OUTFIT, fontSize: "clamp(38px,6vw,52px)", fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1, fontVariantNumeric: "tabular-nums", marginBottom: "4px" }}>
-                      {lens === "geld" ? fmtEur(animatedNet) : lens === "zeit" ? `${fmtNum(calc.hoursYear)} ${T.hrsUnit}` : `${fmtDec(calc.fte)} FTE`}
+                      {lens === "geld" ? fmtEur(animatedNet) : lens === "zeit" ? `${fmtNum(calc.hoursYear)} ${T.hrsUnit}` : `${fmtDec(calc.fte)} ${T.fteUnit}`}
                     </div>
                     <div style={{ fontFamily: OUTFIT, fontSize: "13px", opacity: 0.72, marginBottom: "6px" }}>
                       {lens === "geld" ? T.moneySub : lens === "zeit" ? T.timeSub : T.growthSub}
@@ -526,13 +594,18 @@ const RoiRechner = () => {
                         : T.growthRange(fmtNum(calc.hoursYear))}
                     </div>
 
-                    {/* Benchmark-Verdikt */}
+                    {/* Benchmark — entschärft: EINE Zahl (genutztes Potenzial) + Balken oben,
+                        die volle Euro/Prozent-Rechnung nur dezent darunter (kein Kopfrechnen im ersten Blick) */}
                     <div style={{ background: "rgba(255,255,255,0.08)", borderRadius: "12px", padding: "14px 16px", marginBottom: "20px" }}>
-                      <div style={{ fontFamily: OUTFIT, fontSize: "13px", lineHeight: 1.55, opacity: 0.92 }}>
-                        {T.benchmark(branche.label, fmtEur(calc.fullNet), calc.share)}
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: "10px", fontFamily: OUTFIT, fontSize: "13px", opacity: 0.92, marginBottom: "10px" }}>
+                        <span>{T.benchmarkShort}</span>
+                        <span style={{ fontWeight: 700, fontSize: "16px" }}>{calc.share}%</span>
                       </div>
-                      <div style={{ position: "relative", height: "6px", borderRadius: "99px", background: "rgba(255,255,255,0.18)", marginTop: "10px", overflow: "hidden" }}>
+                      <div style={{ position: "relative", height: "6px", borderRadius: "99px", background: "rgba(255,255,255,0.18)", overflow: "hidden" }}>
                         <div className="lk-fill" style={{ height: "100%", width: `${clamp(calc.share, 2, 100)}%`, background: "#fff", borderRadius: "99px" }} />
+                      </div>
+                      <div style={{ fontFamily: OUTFIT, fontSize: "11.5px", lineHeight: 1.5, opacity: 0.55, marginTop: "10px" }}>
+                        {T.benchmark(branche.label, fmtEur(calc.fullNet), calc.share)}
                       </div>
                     </div>
 
@@ -568,11 +641,11 @@ const RoiRechner = () => {
                       {calc.rows.map((r) => (
                         <div key={r.pf.id} style={{ marginBottom: "10px" }}>
                           <div style={{ display: "flex", justifyContent: "space-between", fontFamily: OUTFIT, fontSize: "13px", marginBottom: "4px" }}>
-                            <span style={{ opacity: 0.92 }}>{r.pf.name}</span>
+                            <span style={{ opacity: 0.92 }}>{r.pf.sub}</span>
                             <span style={{ fontWeight: 500 }}>{fmtEur(r.net)}</span>
                           </div>
                           <div style={{ height: "8px", borderRadius: "99px", background: "rgba(255,255,255,0.14)", overflow: "hidden" }}>
-                            <div className="lk-fill" style={{ height: "100%", width: `${clamp(Math.round((r.net / calc.maxNet) * 100), 6, 100)}%`, background: r.rep.quickWin ? "#C2C3F6" : "rgba(255,255,255,0.85)", borderRadius: "99px" }} />
+                            <div className="lk-fill" style={{ height: "100%", width: `${clamp(Math.round((r.net / calc.maxNet) * 100), 6, 100)}%`, background: r.rep.quickWin ? "#CCFF00" : "rgba(255,255,255,0.85)", borderRadius: "99px" }} />
                           </div>
                         </div>
                       ))}
@@ -613,16 +686,15 @@ const RoiRechner = () => {
                 <div>
                   {calc.rows.map((r, i) => (
                     <div key={r.pf.id} style={{ display: "flex", gap: "14px", alignItems: "flex-start", padding: "16px 0", borderTop: `1px solid ${HAIRLINE}` }}>
-                      <span style={{ width: "26px", height: "26px", flex: "none", borderRadius: "50%", background: "rgba(86,88,223,0.10)", color: VIOLET, fontFamily: OUTFIT, fontSize: "13px", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" }}>{i + 1}</span>
+                      <span style={{ width: "26px", height: "26px", flex: "none", borderRadius: "50%", background: VIOLET, color: INK_DEEP, fontFamily: OUTFIT, fontSize: "13px", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" }}>{i + 1}</span>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px", marginBottom: "3px" }}>
-                          <span style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: INK_DEEP }}>{r.pf.name}</span>
-                          <span style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#8A85A0" }}>{r.pf.sub}</span>
-                          {r.rep.quickWin && <span style={{ fontFamily: OUTFIT, fontSize: "11px", fontWeight: 600, color: VIOLET, background: "rgba(86,88,223,0.10)", padding: "2px 8px", borderRadius: "6px" }}>Quick Win</span>}
+                          <span style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: INK_DEEP }}>{r.pf.sub}</span>
+                          {r.rep.quickWin && <span style={{ fontFamily: OUTFIT, fontSize: "11px", fontWeight: 600, color: INK_DEEP, background: "rgba(23,23,23,0.06)", padding: "2px 8px", borderRadius: "6px" }}>{T.quickWinLabel}</span>}
                         </div>
-                        <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#8A85A0" }}>{T.eg}{r.rep.prozess} · {T.effortWord} {effortLabel(r.rep.effort)}{r.apps.length > 0 ? ` · Tools: ${r.apps.slice(0, 5).join(" · ")}` : ""}</div>
+                        <div style={{ fontFamily: OUTFIT, fontSize: "12.5px", color: "#6B6B66" }}>{T.eg}{r.rep.prozess} · {T.effortWord} {effortLabel(r.rep.effort)}{r.apps.length > 0 ? ` · Tools: ${r.apps.slice(0, 5).join(" · ")}` : ""}</div>
                       </div>
-                      <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: VIOLET, whiteSpace: "nowrap" }}>{fmtEur(r.net)}<span style={{ fontSize: "12px", fontWeight: 400, color: "#8A85A0" }}>{T.perYearShort}</span></div>
+                      <div style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "15px", color: INK_DEEP, whiteSpace: "nowrap" }}>{fmtEur(r.net)}<span style={{ fontSize: "12px", fontWeight: 400, color: "#6B6B66" }}>{T.perYearShort}</span></div>
                     </div>
                   ))}
                 </div>
@@ -641,16 +713,21 @@ const RoiRechner = () => {
                         <input className="roi-input" style={inputStyle} placeholder={T.phCompany} value={lead.company} onChange={(e) => setLead({ ...lead, company: e.target.value })} />
                         <input className="roi-input" type="email" style={inputStyle} placeholder={T.phEmail} value={lead.email} onChange={(e) => setLead({ ...lead, email: e.target.value })} />
                       </div>
+                      {/* Honeypot — unsichtbar für Menschen, Bots füllen es aus */}
+                      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true"
+                        style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
+                        value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
                       <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", alignItems: "center" }}>
                         <PrimaryButton inline disabled={sending || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)} onClick={submitLead}>{sending ? T.sendingLabel : T.requestReport}</PrimaryButton>
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: OUTFIT, fontSize: "12.5px", color: "#948FA8" }}><ShieldCheck style={{ width: "14px", height: "14px" }} strokeWidth={1.8} /> {T.noSharing}</span>
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: OUTFIT, fontSize: "12.5px", color: "#948FA8" }}><IconShieldCheck size={14} stroke={1.8} /> {T.noSharing}</span>
                       </div>
+                      {leadError && (
+                        <div style={{ fontFamily: OUTFIT, fontSize: "13px", color: FLASH, marginTop: "12px" }}>{T.sendError}</div>
+                      )}
                     </>
                   ) : (
                     <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                      <span style={{ width: "40px", height: "40px", flex: "none", borderRadius: "50%", background: "rgba(86,88,223,0.10)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <Check style={{ width: "20px", height: "20px", color: VIOLET }} strokeWidth={3} />
-                      </span>
+                      <EdgeIconBadge icon={IconCheck} size="md" tone="ink" />
                       <div style={{ fontFamily: OUTFIT, fontSize: "15px", color: INK_DEEP }}>{T.leadSuccess(lead.email)}</div>
                     </div>
                   )}
@@ -710,16 +787,16 @@ function PrimaryButton({ children, onClick, disabled, inline }: { children: Reac
     <button type="button" onClick={onClick} disabled={disabled}
       onMouseEnter={(e) => !disabled && (e.currentTarget.style.background = VIOLET_DARK)}
       onMouseLeave={(e) => (e.currentTarget.style.background = VIOLET)}
-      style={{ width: inline ? "auto" : "100%", marginTop: inline ? 0 : "8px", padding: "14px 26px", background: VIOLET, color: "#fff", border: "none", borderRadius: "12px", fontFamily: OUTFIT, fontSize: "16px", fontWeight: 700, cursor: disabled ? "not-allowed" : "pointer", opacity: disabled ? 0.55 : 1, display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px", boxShadow: "0 10px 26px -12px rgba(86,88,223,0.7)", transition: "background .18s" }}>
+      style={{ width: inline ? "auto" : "100%", marginTop: inline ? 0 : "8px", padding: "14px 26px", background: VIOLET, color: INK_DEEP, border: "none", borderRadius: "12px", fontFamily: OUTFIT, fontSize: "16px", fontWeight: 700, cursor: disabled ? "not-allowed" : "pointer", opacity: disabled ? 0.55 : 1, display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px", boxShadow: "0 10px 26px -12px rgba(23,23,23,0.28)", transition: "background .18s" }}>
       {children}
-      <ArrowRight style={{ width: "18px", height: "18px" }} strokeWidth={2.4} />
+      <IconArrowRight size={18} stroke={2.4} />
     </button>
   );
 }
 
 function BackLink({ onClick, label }: { onClick: () => void; label: string }) {
   return (
-    <button type="button" onClick={onClick} style={{ display: "inline-block", marginTop: "14px", background: "none", border: "none", cursor: "pointer", fontFamily: OUTFIT, fontSize: "13px", color: "#8A85A0" }}>{label}</button>
+    <button type="button" onClick={onClick} style={{ display: "inline-block", marginTop: "14px", background: "none", border: "none", cursor: "pointer", fontFamily: OUTFIT, fontSize: "13px", color: "#6B6B66" }}>{label}</button>
   );
 }
 

@@ -33,7 +33,7 @@ export const footer = {
       label: "Unternehmen",
       links: [
         { label: "Methodik", to: "/methodik" },
-        { label: "Über uns", to: "/about" },
+        // Über uns vorerst deaktiviert — Content bleibt im CMS, nur der Link ist raus
         // Karriere vorerst deaktiviert — Content bleibt im CMS, nur der Link ist raus
       ] as NavLink[],
     },
@@ -64,7 +64,7 @@ export const footer = {
     backTop: "Zu weit gescrollt? Zurück nach oben",
     headingLine1: "Gefällt Ihnen,",
     headingLine2: "was Sie sehen?",
-    ctaLabel: "Projekt starten",
+    ctaLabel: "KI-Analyse starten",
     ctaTo: "/kontakt",
     giantText: "Innovating since 2026",
   },

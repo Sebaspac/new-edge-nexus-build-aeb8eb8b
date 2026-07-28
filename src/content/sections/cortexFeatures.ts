@@ -1,19 +1,19 @@
 /**
- * Section-Text: Cortex-Feature-Beschreibungen (Startseite, Rebrush 2026-07)
+ * Section-Text: Feature-Beschreibungen zur lokalen Infrastruktur (Startseite)
  * --------------------------------------------------------------
  * Kurzbeschreibungen zu den vier `cortex.results.items`-Titeln —
- * für die Feature-Listen-Komposition (Icon + Akzent-Titel + Text)
- * der Referenz. Inhaltlich abgeleitet aus `cortex.body` und den
- * `cortex.today.items` (Schatten-IT, Einzeltools, unklare
- * Verantwortlichkeiten) — keine neuen Claims.
+ * für die Feature-Listen-Komposition (Icon + Akzent-Titel + Text).
  * Reihenfolge = Reihenfolge von `cortex.results.items`.
+ *
+ * Der letzte Punkt leitet bewusst zum Folge-Modul (`builtOnTop`) über:
+ * erst das Fundament, dann was darauf läuft.
  * Noch NICHT als Strapi-Feld angelegt (statischer Fallback greift).
  * --------------------------------------------------------------
  */
 
 export const cortexFeatureDescs: string[] = [
-  "Statt Schatten-IT: Sie sehen, wer KI wofür einsetzt.",
-  "Ihre Daten bleiben unter Kontrolle — intern, sicher, auditierbar.",
-  "Ein zentraler Einstiegspunkt für Mitarbeiter statt Einzeltools nebenher.",
-  "Prozesse, Agenten und Automatisierungen laufen auf einer gemeinsamen Ebene.",
+  "Leistungsfähige KI-Modelle laufen auf Ihrer eigenen Hardware — kein Datenabfluss an externe Anbieter.",
+  "Keine Auftragsverarbeitung mit US-Diensten, keine Grauzone — Ihre Daten bleiben rechtssicher bei Ihnen.",
+  "Statt Wildwuchs an Einzeltools: ein Einstiegspunkt, klare Rechte, nachvollziehbare Nutzung.",
+  "Was darauf aufsetzt — Agenten, Automatisierungen, eigene Chat-Lösungen — steht auf sicherem Grund.",
 ];

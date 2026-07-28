@@ -58,19 +58,19 @@ export const structuredData = {
     url: "https://newedgebrand.com",
     logo: "https://newedgebrand.com/logo.png",
     description:
-      "AI agency from Munich – brand strategy, digital development and AI implementation for mid-sized companies and corporations across the DACH region.",
+      "NEWEDGE builds the AI department for mid-sized companies – from the first analysis through Cortex, the secure entry point for AI, to running automations day to day. From Munich, for the DACH region.",
     foundingLocation: "Munich, Germany",
     knowsAbout: [
-      "Artificial Intelligence",
+      "Artificial Intelligence for mid-sized companies",
+      "AI department",
+      "AI readiness and ROI analysis",
       "AI Automation",
+      "Process Automation",
       "Large Language Models",
       "RAG Systems",
-      "Brand Identity",
-      "Web Development",
-      "Marketing Automation",
-      "Process Automation",
       "Custom AI Agents",
-      "LLM Deployment",
+      "Data sovereignty and GDPR-compliant AI",
+      "Government-eligible AI consulting",
     ],
     address: {
       addressLocality: "München",
@@ -82,42 +82,42 @@ export const structuredData = {
       { type: "State", name: "Bavaria" },
       { type: "Country", name: "Germany" },
     ],
-    email: "hello@newedgebrand.com",
-    sameAs: ["https://www.linkedin.com/company/newedgebrand"],
+    email: "info@newedgebrand.com",
+    sameAs: ["https://www.linkedin.com/company/new-edge-brand/"],
     offerCatalogName: "Services",
     /** Verschachtelte OfferCatalogs (Studio / Lab) mit Services. */
     offerCatalogs: [
       {
-        name: "Studio – Brand & Digital",
+        name: "Build your AI department",
         services: [
           {
-            name: "Brand Identity & Brand Development",
-            description: "Logo development, visual identity and brand guidelines for strong corporate brands.",
+            name: "AI Readiness & ROI Analysis",
+            description: "A free analysis that shows where AI pays off first in your company – with effort-benefit estimates and a funding note.",
           },
           {
-            name: "Web Design & Web Development",
-            description: "Responsive websites, landing pages and web applications.",
+            name: "Cortex – secure AI entry point",
+            description: "One central, GDPR-compliant access point to AI for your staff – with full control over usage, data and automations.",
           },
           {
-            name: "Content Strategy & Social Media",
-            description: "Editorial planning, storytelling and social media management.",
+            name: "AI Audit",
+            description: "A deep audit of your biggest levers: the three processes with the highest AI value, prioritized with a clear plan. Often eligible for funding.",
           },
         ],
       },
       {
-        name: "Lab – Website, Automation & Ownership",
+        name: "Run & scale AI",
         services: [
           {
-            name: "AI Automation",
-            description: "Process optimization through intelligent AI workflows and automation.",
+            name: "Process Automation",
+            description: "We automate the workflows that slow your growth – from quoting to customer support.",
           },
           {
-            name: "LLM Deployment & Custom AI Agents",
-            description: "Custom language models and tailored AI agents for companies.",
+            name: "Embedded AI & digital workers",
+            description: "We anchor AI in your processes for the long term and take ownership of running it.",
           },
           {
             name: "RAG Systems & Knowledge Management",
-            description: "Retrieval Augmented Generation for company-wide knowledge bases.",
+            description: "Your company knowledge becomes searchable and usable for AI – securely, in-house.",
           },
         ],
       },
@@ -127,17 +127,17 @@ export const structuredData = {
   /** WebSite (nur Homepage). */
   website: {
     url: "https://newedgebrand.com",
-    name: "NEWEDGE Brand – AI Agency Munich",
+    name: "NEWEDGE – The AI department for mid-sized companies",
     description:
-      "AI agency in Munich for process automation, marketing automation and intelligent AI solutions for SMEs and corporations.",
+      "NEWEDGE builds the AI department for mid-sized companies: from a free AI analysis through Cortex, the secure entry point, to running automations. From Munich.",
     inLanguage: "en-US",
   },
 
   /** FAQPage (nur Homepage). */
   faq: [
     {
-      question: "What is NEWEDGE Brand?",
-      answer: "NEWEDGE Brand is an AI agency from Munich that helps companies with brand strategy, digital development and AI implementation. We work at the intersection of brand, digital and AI.",
+      question: "What is NEWEDGE?",
+      answer: "NEWEDGE builds the AI department for mid-sized companies. We help companies with 5–150 employees put AI to productive use – from the first free analysis through Cortex, the secure entry point, to running automations day to day. From Munich.",
     },
     {
       question: "How much does a website cost at NEWEDGE Brand?",
@@ -149,7 +149,7 @@ export const structuredData = {
     },
     {
       question: "What is an AI audit?",
-      answer: "A free analysis process in which we identify AI potential in your company, evaluate automation opportunities and create a prioritized strategic AI roadmap.",
+      answer: "In an AI audit we find the processes where AI pays off first, estimate the effort and benefit, and deliver a clear plan of the biggest levers. The entry point is often eligible for funding.",
     },
     {
       question: "Which AI technologies does NEWEDGE Brand use?",
@@ -164,13 +164,24 @@ export const structuredData = {
   serviceSchemas: {
     "/ki-audit": {
       name: "AI Audit for mid-sized companies",
-      description: "Structured AI audit: current-state analysis, potential analysis and strategic roadmap. BAFA-eligible from €448.",
+      description: "Structured AI audit: we find the processes with the highest AI value, estimate effort and benefit, and deliver a clear plan. Often eligible for funding (BAFA) from €448.",
       serviceType: "ProfessionalService",
-      category: ["AI Audit", "AI Consulting", "Process Analysis"],
+      category: ["AI Audit", "AI Consulting", "Process Analysis", "AI Readiness"],
       offer: {
         priceCurrency: "EUR",
         price: "448",
         description: "From €448 with BAFA funding (up to 80% eligible)",
+      },
+    },
+    "/cortex": {
+      name: "Cortex – secure AI entry point for mid-sized companies",
+      description: "Cortex is the central, GDPR-compliant access point to AI for your company: one entry point for all employees, with full control over usage, data and automations.",
+      serviceType: "ProfessionalService",
+      category: ["AI Platform", "AI Infrastructure", "GDPR-compliant AI", "Data Sovereignty"],
+      offer: {
+        priceCurrency: "EUR",
+        price: "0",
+        description: "Free setup, then monthly operation",
       },
     },
   } as Record<string, ServiceSchemaText>,

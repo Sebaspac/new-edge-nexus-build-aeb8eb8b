@@ -32,6 +32,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   entscheidungsinstanzen: [
     {
       id: "bmp-award",
+      industries: ["Awards", "Jury"],
       phaseLabel: "Case 01",
       badge: "Reales Projekt · Bayerischer Mittelstandspreis",
       disclaimer: REAL_DISCLAIMER,
@@ -55,9 +56,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "60 %", label: "höhere Jury-Effizienz" },
         { value: "100 %", label: "Audit-Trail für jede Entscheidung" },
       ],
+      image: { src: "bmp-award-case", alt: "NEWEDGE beim Bayerischen Mittelstandspreis" },
     },
     {
       id: "hochschul-zulassung",
+      industries: ["Hochschulen", "Zulassungsstellen", "Masterprogramme"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -80,9 +83,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "18 Tage", label: "früher versendete Zulassungsbescheide" },
         { value: "0", label: "Fehler durch übersehene Unterlagen" },
       ],
+      image: { src: "hochschul-zulassung-case", alt: "Hochschule — Zulassungsverfahren für 3.000 Bewerbungen automatisiert" },
     },
     {
       id: "foerderbank-antragspruefung",
+      industries: ["Förderbanken", "Wirtschaftsförderung", "Öffentlicher Sektor"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -105,6 +110,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "Monatlich", label: "Gremiumssitzungen statt quartalsweise" },
         { value: "~0", label: "Fehler beim Förderkriterien-Abgleich" },
       ],
+      image: { src: "foerderbank-antragspruefung-case", alt: "Förderbank — Antragsprüfung für regionale Wirtschaftsförderung automatisiert" },
     },
   ],
 
@@ -112,6 +118,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   "health-care": [
     {
       id: "gyn-praxis-muenchen",
+      industries: ["Gynäkologie", "Arztpraxen", "Gesundheitswesen"],
       phaseLabel: "Case 01",
       badge: "Reales Projekt · Gynäkologische Praxis München",
       disclaimer: REAL_DISCLAIMER,
@@ -135,9 +142,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "7", label: "strukturierte Leistungsseiten statt Kurztexte" },
         { value: "Spürbar", label: "weniger administrative Anrufe in der Praxis" },
       ],
+      image: { src: "gyn-praxis-muenchen-case", alt: "Gynäkologische Praxis München — Digitaler Auftritt mit automatisiertem Buchungsweg" },
     },
     {
       id: "therapiezentrum-onboarding",
+      industries: ["Therapiezentren", "Gesundheitswesen"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -160,9 +169,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "<5 Min.", label: "Antwortzeit statt 18 Stunden" },
         { value: "Automatisch", label: "Zuordnung zum Behandlungsbereich" },
       ],
+      image: { src: "therapiezentrum-onboarding-case", alt: "Therapiezentrum — Erstanfragen automatisiert rund um die Uhr bearbeitet" },
     },
     {
       id: "praxisverbund-kapazitaeten",
+      industries: ["Facharztpraxen", "Praxisverbünde", "Terminmanagement"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -185,6 +196,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "+15 %", label: "Terminauslastung standortübergreifend" },
         { value: "1 Woche", label: "Vorlauf bei der Engpass-Erkennung" },
       ],
+      image: { src: "praxisverbund-kapazitaeten-case", alt: "Facharztpraxis-Verbund — Standortübergreifendes Kapazitäts-Management automatisiert" },
     },
   ],
 
@@ -192,6 +204,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   "handel-supply-chain": [
     {
       id: "grosshandel-bestelleingabe",
+      industries: ["Großhandel", "B2B-Vertrieb", "DACH"],
       phaseLabel: "Case 01",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -214,9 +227,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "<0,5 %", label: "Fehlerquote statt 6 %" },
         { value: "2 von 3", label: "Mitarbeitenden in den Kundenservice gewechselt" },
       ],
+      image: { src: "grosshandel-bestelleingabe-case", alt: "Großhandel DACH — Drei Vollzeitstellen für Bestelleingabe durch Automatisierung ersetzt" },
     },
     {
       id: "maschinenbau-sendungstransparenz",
+      industries: ["Maschinenbau", "Export", "Logistik", "Zoll"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -239,9 +254,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "~14 %", label: "Zollkosten durch Präferenzabkommen gespart" },
         { value: "~0", label: "Statusabfragen per Telefon" },
       ],
+      image: { src: "maschinenbau-sendungstransparenz-case", alt: "Maschinenbau-Exporteur — Sendungstransparenz über 23 Länder automatisiert" },
     },
     {
       id: "fachhaendler-fruehwarnsystem",
+      industries: ["Fachhandel", "Einkauf", "Lieferkette"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -264,6 +281,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "−19 %", label: "Reklamationsquote bei Top-10-Lieferanten" },
         { value: "Erstmals", label: "datenbasierte Verhandlungsgrundlage" },
       ],
+      image: { src: "fachhaendler-fruehwarnsystem-case", alt: "Fachhändler — Lieferanten-Frühwarnsystem statt Bauchgefühl" },
     },
   ],
 
@@ -271,6 +289,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   "professional-services": [
     {
       id: "aeskon-prozesslandkarte",
+      industries: ["Industrieberatung", "Fördermittel", "Technologieunternehmen"],
       phaseLabel: "Case 01",
       badge: "Reales Projekt · AESKON GmbH",
       disclaimer: REAL_DISCLAIMER,
@@ -293,9 +312,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "Erstmals", label: "komplette Prozesslandkarte dokumentiert" },
         { value: "Priorisiert", label: "Umsetzungsplan für die nächsten Schritte" },
       ],
+      image: { src: "aeskon-prozesslandkarte-case", alt: "Industrieberatung — Prozesslandkarte und BAFA-Fahrplan automatisiert dokumentiert" },
     },
     {
       id: "steuerkanzlei-mandantenkommunikation",
+      industries: ["Steuerkanzleien", "Steuersaison"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -318,9 +339,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "3 Min.", label: "Antwortzeit statt 6 Stunden" },
         { value: "Spürbar", label: "weniger Überstunden in der Hochsaison" },
       ],
+      image: { src: "steuerkanzlei-mandantenkommunikation-case", alt: "Steuerberatungskanzlei — Mandantenkommunikation in der Hochsaison automatisiert" },
     },
     {
       id: "personalberatung-screening",
+      industries: ["Personalberatung", "Volumenrecruiting"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -343,6 +366,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "Mehr Zeit", label: "für Gespräche statt Sichtung" },
         { value: "Spürbar", label: "höhere Zufriedenheit mit der Shortlist-Qualität" },
       ],
+      image: { src: "personalberatung-screening-case", alt: "Personalberatung — Bewerber-Screening für 200 Kandidaten pro Stelle automatisiert" },
     },
   ],
 
@@ -350,6 +374,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   auswahlverfahren: [
     {
       id: "bmp-jury-pipeline",
+      industries: ["Verbände", "Awards", "Jury"],
       phaseLabel: "Case 01",
       badge: "Reales Projekt · Bayerischer Mittelstandspreis",
       disclaimer: REAL_DISCLAIMER,
@@ -375,6 +400,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "innovationspreis-bias",
+      industries: ["Innovationspreise", "Jury", "Wettbewerbe"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -400,6 +426,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
     },
     {
       id: "gruenderwettbewerb-vorsortierung",
+      industries: ["Gründerwettbewerbe", "Wirtschaftsförderung", "Jury"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -429,6 +456,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   compliance: [
     {
       id: "maschinenbau-dokumente",
+      industries: ["Maschinenbau", "Exporteure", "Zoll"],
       phaseLabel: "Case 01",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -451,9 +479,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "0", label: "verzögerte Sendungen durch fehlende Dokumente" },
         { value: "100 %", label: "automatisierte Statusübersicht für alle Beteiligten" },
       ],
+      image: { src: "maschinenbau-dokumente-case", alt: "Maschinenbau-Exporteur — Dokumentenchaos in 23 Ländern automatisiert beseitigt" },
     },
     {
       id: "aeskon-bafa-compliance",
+      industries: ["Industrieberatung", "Fördermittel", "Compliance"],
       phaseLabel: "Case 02",
       badge: "Reales Projekt · AESKON GmbH (BAFA-Compliance)",
       disclaimer: REAL_DISCLAIMER,
@@ -476,9 +506,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "Fristgerecht", label: "und compliancekonform eingereicht" },
         { value: "Lückenlos", label: "dokumentiert für eventuelle Prüfungen" },
       ],
+      image: { src: "aeskon-bafa-compliance-case", alt: "Industrieberatung — Förderfähigkeit durch automatisierte Prozessführung gesichert" },
     },
     {
       id: "grosshaendler-zollpraeferenzen",
+      industries: ["Großhandel", "Zoll", "Außenhandel"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -501,6 +533,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "100 %", label: "revisionssichere Dokumentation" },
         { value: "0", label: "übersehene Präferenzfälle seit Einführung" },
       ],
+      image: { src: "grosshaendler-zollpraeferenzen-case", alt: "Großhändler — Zollpräferenzen erstmals automatisiert systematisch genutzt" },
     },
   ],
 
@@ -508,6 +541,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   "kpi-dashboard": [
     {
       id: "mehrstandort-dashboard",
+      industries: ["Facharztpraxen", "Praxisverbund"],
       phaseLabel: "Case 01",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -530,9 +564,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "+15 %", label: "Terminauslastung standortübergreifend" },
         { value: "1 Woche", label: "Vorlauf bei der Engpass-Erkennung" },
       ],
+      image: { src: "mehrstandort-dashboard-case", alt: "Mehrstandort-Praxis — Automatisiertes Echtzeit-Dashboard für alle Standorte" },
     },
     {
       id: "vertrieb-pipeline-reporting",
+      industries: ["Vertriebsteams", "CRM-Pipelines", "B2B-Vertrieb"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -555,9 +591,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "Tagesaktuell", label: "Zahlen statt wochenalte Reports" },
         { value: "Spürbar", label: "höhere Forecast-Genauigkeit" },
       ],
+      image: { src: "vertrieb-pipeline-reporting-case", alt: "Vertriebsteam — Pipeline-Reporting ohne manuelle Excel-Pflege automatisiert" },
     },
     {
       id: "logistik-lieferanten-kpi",
+      industries: ["Logistik", "Einkauf", "Lieferantenmanagement"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -580,6 +618,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "Erstmals", label: "datenbasierte Verhandlungsgrundlage" },
         { value: "Deutlich", label: "weniger Eskalationen im Tagesgeschäft" },
       ],
+      image: { src: "logistik-lieferanten-kpi-case", alt: "Logistikdienstleister — Lieferanten-KPIs automatisiert statt im Quartalsbericht" },
     },
   ],
 
@@ -587,6 +626,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
   "ki-kundensupport": [
     {
       id: "eos-therapiezentrum",
+      industries: ["Therapiezentren", "Physiotherapie", "Gesundheitswesen"],
       phaseLabel: "Case 01",
       badge: "Reales Projekt · EOS Therapiezentrum",
       disclaimer: REAL_DISCLAIMER,
@@ -609,9 +649,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "24/7", label: "Erreichbarkeit unabhängig von Sprechzeiten" },
         { value: "Deutlich", label: "mehr abgeschlossene Erstgespräche" },
       ],
+      image: { src: "eos-therapiezentrum-case", alt: "Therapiezentrum — Erstanfragen automatisiert rund um die Uhr beantwortet" },
     },
     {
       id: "onlinehaendler-support",
+      industries: ["Onlinehandel", "Kundenservice", "Retouren"],
       phaseLabel: "Case 02",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -634,9 +676,11 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "2 Min.", label: "Antwortzeit statt 6 Stunden" },
         { value: "Fokus", label: "auf komplexe Einzelfälle statt Routine" },
       ],
+      image: { src: "onlinehaendler-support-case", alt: "Online-Händler — 55 % aller Supportanfragen vollautomatisch gelöst" },
     },
     {
       id: "steuerkanzlei-fristen",
+      industries: ["Steuerkanzleien", "Steuersaison"],
       phaseLabel: "Case 03",
       badge: BEISPIEL_BADGE,
       disclaimer: BEISPIEL_DISCLAIMER,
@@ -659,6 +703,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
         { value: "3 Min.", label: "Antwortzeit statt 6 Stunden" },
         { value: "Spürbar", label: "weniger Überstunden in der Hochsaison" },
       ],
+      image: { src: "steuerkanzlei-fristen-case", alt: "Steuerberatungskanzlei — Fristen-Fragen automatisiert in der Hochsaison beantwortet" },
     },
   ],
 };
@@ -671,6 +716,7 @@ export const miniCasesBySlug: Record<string, MiniCase[]> = {
 export const unassignedMiniCases: MiniCase[] = [
   {
     id: "340-consultancy-funnel",
+      industries: ["Beratungsagenturen", "B2B-Vertrieb"],
     phaseLabel: "Case 01",
     badge: "Reales Projekt · 340 Consultancy",
     disclaimer: REAL_DISCLAIMER,
@@ -693,9 +739,11 @@ export const unassignedMiniCases: MiniCase[] = [
       { value: "59", label: "priorisierte Feedback-Punkte für die Entwicklerübergabe" },
       { value: "Deutlich", label: "kürzere Reaktionszeit auf neue Anfragen" },
     ],
+    image: { src: "340-consultancy-funnel-case", alt: "340 Consultancy — Website-Funnel mit automatisierter Lead-Übergabe neu aufgebaut" },
   },
   {
     id: "b2b-lead-qualifizierung",
+      industries: ["B2B-Dienstleister", "Vertrieb", "Kontaktanfragen"],
     phaseLabel: "Case 02",
     badge: BEISPIEL_BADGE,
     disclaimer: BEISPIEL_DISCLAIMER,
@@ -718,9 +766,11 @@ export const unassignedMiniCases: MiniCase[] = [
       { value: "−33 %", label: "Vertriebszeit pro abgeschlossenem Deal" },
       { value: "Mehr Zeit", label: "für tatsächlich aussichtsreiche Gespräche" },
     ],
+    image: { src: "b2b-lead-qualifizierung-case", alt: "B2B-Dienstleister — Lead-Qualifizierung automatisch vor dem Vertrieb" },
   },
   {
     id: "handwerk-funnel",
+      industries: ["Handwerk", "Regionalbusiness", "B2C"],
     phaseLabel: "Case 03",
     badge: BEISPIEL_BADGE,
     disclaimer: BEISPIEL_DISCLAIMER,
@@ -743,5 +793,6 @@ export const unassignedMiniCases: MiniCase[] = [
       { value: "−28 %", label: "Absprungrate auf der Startseite" },
       { value: "Täglich", label: "manuelle Sortierarbeit im Büro gespart" },
     ],
+    image: { src: "handwerk-funnel-case", alt: "Regionaler Handwerksbetrieb — Anfragen durch automatisierten Funnel verdoppelt" },
   },
 ];

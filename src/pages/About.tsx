@@ -15,13 +15,14 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
-const VIOLET_LIGHT = "#8B8DF0";
-const INK_DEEP = "#17172E";
-const INK = "#3C3C47";
-const INK_DEEPER = "#100E1E";
-const PAPER = "#F8F5FF";
-const HAIRLINE = "rgba(86,88,223,0.14)";
+const VIOLET = "#CCFF00";
+const FLASH       = "#FF1E00";
+const VIOLET_LIGHT = "#CCFF00";
+const INK_DEEP = "#171717";
+const INK = "#3C3C3C";
+const INK_DEEPER = "#101010";
+const PAPER = "#F2F2F2";
+const HAIRLINE = "rgba(23,23,23,0.14)";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /** Kicker/Eyebrow-Grundstil (Farbe je Fläche: VIOLET hell / VIOLET_LIGHT dunkel). */
@@ -55,7 +56,7 @@ const About = () => {
           {/* Sanfter Violett-Glow von oben (statt dunkler Vignette) */}
           <div aria-hidden style={{
             position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
-            background: "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(86,88,223,0.10) 0%, transparent 62%)",
+            background: "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(204,255,0,0.10) 0%, transparent 62%)",
           }} />
 
           <motion.div
@@ -100,8 +101,8 @@ const About = () => {
               transform: "translateX(-50%)",
               width: "2px",
               height: "clamp(80px, 10vh, 130px)",
-              background: "linear-gradient(to bottom, rgba(86,88,223,0), rgba(86,88,223,0.5) 50%, rgba(86,88,223,0.2))",
-              boxShadow: "0 0 10px rgba(86,88,223,0.22)",
+              background: "linear-gradient(to bottom, rgba(23,23,23,0), rgba(23,23,23,0.5) 50%, rgba(23,23,23,0.2))",
+              boxShadow: "0 0 10px rgba(23,23,23,0.22)",
               zIndex: 3,
             }}
           />
@@ -118,7 +119,7 @@ const About = () => {
               transition={{ duration: 0.5, ease: EASE }}
               style={{ marginBottom: "clamp(36px, 5vw, 56px)" }}
             >
-              <p style={{ ...KICKER, color: VIOLET, marginBottom: "14px" }}>
+              <p style={{ ...KICKER, color: INK_DEEP, marginBottom: "14px" }}>
                 {language === "en" ? "Our Team" : "Unser Team"}
               </p>
               <h2 style={{ color: INK_DEEP }}>
@@ -158,7 +159,7 @@ const About = () => {
                     background: "#FFFFFF",
                     border: `1px solid ${HAIRLINE}`,
                     borderRadius: "16px",
-                    boxShadow: "0 1px 2px rgba(23,23,46,0.06)",
+                    boxShadow: "0 1px 2px rgba(23,23,23,0.06)",
                     overflow: "hidden",
                     display: "flex",
                     flexDirection: "column",
@@ -199,7 +200,7 @@ const About = () => {
                           fontWeight: 800,
                           fontSize: "4rem",
                           letterSpacing: "-0.02em",
-                          color: VIOLET,
+                          color: INK_DEEP,
                           opacity: 0.35,
                         }}>
                           {member.initials}
@@ -211,7 +212,7 @@ const About = () => {
                       position: "absolute",
                       top: "14px",
                       left: "14px",
-                      background: "rgba(86,88,223,0.92)",
+                      background: "rgba(23,23,23,0.92)",
                       backdropFilter: "blur(8px)",
                       borderRadius: "999px",
                       padding: "6px 14px",
@@ -239,8 +240,8 @@ const About = () => {
                           marginBottom: fi < member.facts.length - 1 ? "10px" : 0,
                           borderBottom: fi < member.facts.length - 1 ? `1px solid ${HAIRLINE}` : "none",
                         }}>
-                          <span aria-hidden style={{ color: VIOLET, fontSize: "10px", marginTop: "4px", flexShrink: 0 }}>▸</span>
-                          <span style={{ fontFamily: OUTFIT, fontWeight: 400, fontSize: "13.5px", color: "rgba(23,23,46,0.68)", lineHeight: 1.6 }}>{f}</span>
+                          <span aria-hidden style={{ color: INK_DEEP, fontSize: "10px", marginTop: "4px", flexShrink: 0 }}>▸</span>
+                          <span style={{ fontFamily: OUTFIT, fontWeight: 400, fontSize: "13.5px", color: "rgba(23,23,23,0.68)", lineHeight: 1.6 }}>{f}</span>
                         </li>
                       ))}
                     </ul>
@@ -257,7 +258,7 @@ const About = () => {
                           alignItems: "center",
                           gap: "8px",
                           textDecoration: "none",
-                          color: VIOLET,
+                          color: INK_DEEP,
                           opacity: 0.8,
                           transition: "opacity 0.2s",
                         }}
@@ -267,7 +268,7 @@ const About = () => {
                       >
                         {/* LinkedIn official logo */}
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect width="24" height="24" rx="5" fill={VIOLET}/>
+                          <rect width="24" height="24" rx="5" fill={INK_DEEP}/>
                           <path d="M7.5 9.5H5V19H7.5V9.5Z" fill="white"/>
                           <circle cx="6.25" cy="6.75" r="1.5" fill="white"/>
                           <path d="M13 13.5C13 12.4 13.9 11.5 15 11.5C16.1 11.5 17 12.4 17 13.5V19H19.5V13.5C19.5 11 17.5 9 15 9C13.8 9 12.7 9.5 12 10.3V9.5H9.5V19H12V13.5H13Z" fill="white"/>
@@ -293,7 +294,7 @@ const About = () => {
               align-items: baseline; padding: clamp(18px, 2.4vw, 26px) 20px;
               border: 1px solid ${HAIRLINE}; border-radius: 16px; overflow: hidden;
               background: #ffffff;
-              box-shadow: 0 1px 2px rgba(23,23,46,0.06);
+              box-shadow: 0 1px 2px rgba(23,23,23,0.06);
               margin-bottom: 10px;
             }
             .wb-row:last-child { margin-bottom: 0; }
@@ -308,11 +309,11 @@ const About = () => {
               font-family: ${OUTFIT}; font-weight: 800;
               font-size: clamp(1.8rem, 2.8vw, 2.4rem); line-height: 1; letter-spacing: -0.01em;
               color: transparent;
-              -webkit-text-stroke: 1px rgba(86,88,223,0.35);
+              -webkit-text-stroke: 1px rgba(23,23,23,0.35);
             }
-            .wb-row:hover .wb-num { -webkit-text-stroke-color: rgba(255,255,255,0.65); }
+            .wb-row:hover .wb-num { -webkit-text-stroke-color: rgba(23,23,23,0.7); }
             .wb-label {
-              color: ${VIOLET};
+              color: ${INK_DEEP};
               font-family: ${OUTFIT};
               font-weight: 700;
               font-size: clamp(1.1rem, 1.9vw, 1.35rem);
@@ -333,7 +334,7 @@ const About = () => {
 
           <div style={{ maxWidth: "1160px", margin: "0 auto" }}>
             {about.werkbank.eyebrow && (
-              <p style={{ ...KICKER, color: VIOLET, marginBottom: "14px" }}>
+              <p style={{ ...KICKER, color: INK_DEEP, marginBottom: "14px" }}>
                 {about.werkbank.eyebrow}
               </p>
             )}
@@ -365,7 +366,7 @@ const About = () => {
                   style={{
                     position: "absolute",
                     inset: "-12px 12px 12px -12px",
-                    border: "1.5px solid rgba(139,141,240,0.5)",
+                    border: "1.5px solid rgba(204,255,0,0.5)",
                     borderRadius: "16px 64px 16px 64px",
                     transform: "rotate(-1.5deg)",
                     pointerEvents: "none",

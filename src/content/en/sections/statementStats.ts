@@ -22,9 +22,9 @@ export const statementStats = {
 
   statement: "Not another tool — a department.",
   paragraph:
-    "AI is everywhere — but in mid-sized companies it too often stays a siloed tool or a liability. We give your company its own AI capability: from the first analysis that shows where it pays off, all the way to running operations.",
+    "Behind NEWEDGE stand Sebastian & Wenjamin — and a team that doesn't hand over projects, but builds your own AI capability. Step by step, until AI is no longer a siloed tool for you, but a department.",
   /** Primärer CTA → öffnet Kontakt-Dialog. */
   ctaPrimary: { label: "Free analysis" },
   /** Sekundärer CTA → /about. */
-  ctaSecondary: { label: "About NEWEDGE", to: "/about" },
+  // ctaSecondary: { label: "About NEWEDGE", to: "/about" },  ← Über uns vorerst ausgeblendet
 } as const;

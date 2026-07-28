@@ -15,9 +15,9 @@ import type { SEOContent } from "@/content/types";
 
 export const contact = {
   seo: {
-    title: "Contact | AI Consulting & Process Automation Munich | NEWEDGE",
+    title: "Contact & Free AI Intro Call | NEWEDGE Munich",
     description:
-      "Get in touch with NEWEDGE for AI consulting, process automation and marketing automation in Munich.",
+      "Get in touch with NEWEDGE, the AI department for German Mittelstand: a free, no-obligation AI intro call in Munich — reply within one business day.",
     canonical: "/en/kontakt",
   } satisfies SEOContent,
 
@@ -28,6 +28,10 @@ export const contact = {
 
   /** Portrait-Video links (Poster + Play, echtes Video folgt separat). */
   video: {
+    /** Medien-Slot: wird im CMS unter „Bild austauschen" → contact-reel
+        befüllt. Solange kein Video hochgeladen ist, zeigt die Seite das
+        Standbild (poster) mit Play-Badge. */
+    src: "contact-reel",
     poster: "team-sebastian",
     posterAlt: "Sebastian Pachon, Founder & Managing Director NEWEDGE",
     caption: "A short, straight-talk clip from Sebastian, Co-Founder.",

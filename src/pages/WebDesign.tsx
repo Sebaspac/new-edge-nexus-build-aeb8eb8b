@@ -18,14 +18,15 @@ const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: 
 
 /* ── NEWEDGE CI (Rebrush 2026-07) ── */
 const OUTFIT: React.CSSProperties = { fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" };
-const VIOLET       = "#5658DF";
-const VIOLET_LIGHT = "#8B8DF0";
-const VIOLET_SOFT  = "rgba(86,88,223,0.12)";
-const INK_DEEP     = "#17172E";
-const INK_DEEPER   = "#100E1E";
-const PAPER        = "#F8F5FF";
-const HAIRLINE     = "rgba(86,88,223,0.14)";
-const INK_GRADIENT = "linear-gradient(160deg, #1D1B38 0%, #17172E 45%, #100E1E 100%)";
+const VIOLET       = "#CCFF00";
+const FLASH       = "#FF1E00";
+const VIOLET_LIGHT = "#CCFF00";
+const VIOLET_SOFT  = "rgba(23,23,23,0.12)";
+const INK_DEEP     = "#171717";
+const INK_DEEPER   = "#101010";
+const PAPER        = "#F2F2F2";
+const HAIRLINE     = "rgba(23,23,23,0.14)";
+const INK_GRADIENT = "linear-gradient(160deg, #1F1F1F 0%, #171717 45%, #101010 100%)";
 const RADIUS       = 16;
 const EASE         = [0.22, 1, 0.36, 1] as const;
 
@@ -37,7 +38,7 @@ const SectionHeadline = ({ children }: { children: React.ReactNode }) => (
 const TrustChip = ({ label }: { label: string }) => (
   <span className="inline-flex items-center gap-2" style={{ ...OUTFIT, fontWeight: 500, fontSize: "14px", color: INK_DEEP }}>
     <span className="shrink-0 w-5 h-5 flex items-center justify-center rounded-full" style={{ background: VIOLET_SOFT }}>
-      <Check className="w-3 h-3" style={{ color: VIOLET }} />
+      <Check className="w-3 h-3" style={{ color: INK_DEEP }} />
     </span>
     {label}
   </span>
@@ -67,10 +68,10 @@ const WebDesign = () => {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
               <h1 style={{ color: INK_DEEP, marginBottom: "22px" }}>
                 {c.hero.headlinePrefix}
-                <span style={{ color: VIOLET }}>{c.hero.headlineAccent}</span>
+                <span className="edge-mark">{c.hero.headlineAccent}</span>
                 {c.hero.headlineSuffix}
               </h1>
-              <p style={{ ...OUTFIT, color: "#3C3C47", maxWidth: "620px", margin: "0 auto 28px" }}>
+              <p style={{ ...OUTFIT, color: "#3C3C3C", maxWidth: "620px", margin: "0 auto 28px" }}>
                 {c.hero.sub}
               </p>
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3" style={{ marginBottom: "32px" }}>
@@ -94,7 +95,7 @@ const WebDesign = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease: EASE }}
-              style={{ position: "relative", overflow: "hidden", borderRadius: "24px", background: INK_GRADIENT, border: "1px solid rgba(139,141,240,0.18)", boxShadow: "0 30px 80px -32px rgba(23,23,46,0.5)" }}
+              style={{ position: "relative", overflow: "hidden", borderRadius: "24px", background: INK_GRADIENT, border: "1px solid rgba(204,255,0,0.18)", boxShadow: "0 30px 80px -32px rgba(23,23,23,0.5)" }}
             >
               <div style={{ position: "relative", aspectRatio: "16 / 9", width: "100%" }}>
                 {/* Native YouTube-Vorschau (kein Custom-Facade) */}
@@ -134,7 +135,7 @@ const WebDesign = () => {
         <section style={{ background: "#fff", borderTop: `1px solid ${HAIRLINE}`, borderBottom: `1px solid ${HAIRLINE}` }}>
           <div className="max-w-[1200px] mx-auto px-6 lg:px-8" style={{ paddingTop: "clamp(64px,8vw,100px)", paddingBottom: "clamp(64px,8vw,100px)" }}>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.6, ease: EASE }} className="text-center" style={{ marginBottom: "clamp(40px,5vw,56px)" }}>
-              <p style={{ ...OUTFIT, fontWeight: 700, fontSize: "13px", letterSpacing: "0.06em", textTransform: "uppercase", color: VIOLET, marginBottom: "12px" }}>
+              <p style={{ ...OUTFIT, fontWeight: 700, fontSize: "13px", letterSpacing: "0.06em", textTransform: "uppercase", color: INK_DEEP, marginBottom: "12px" }}>
                 {c.prozess.eyebrow}
               </p>
               <SectionHeadline>{c.prozess.heading}</SectionHeadline>
@@ -149,17 +150,17 @@ const WebDesign = () => {
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.55, delay: i * 0.08, ease: EASE }}
                   className="flex flex-col overflow-hidden"
-                  style={{ background: "#fff", borderRadius: RADIUS, border: `1px solid ${HAIRLINE}`, boxShadow: "0 1px 2px rgba(23,23,46,0.06)" }}
+                  style={{ background: "#fff", borderRadius: RADIUS, border: `1px solid ${HAIRLINE}`, boxShadow: "0 1px 2px rgba(23,23,23,0.06)" }}
                 >
                   <div className="relative overflow-hidden" style={{ aspectRatio: "4 / 3", background: PAPER }}>
                     <img src={img(s.image)} alt={s.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
                   </div>
                   <div style={{ padding: "24px 24px 28px" }}>
                     <div className="flex items-center gap-3" style={{ marginBottom: "10px" }}>
-                      <span style={{ ...OUTFIT, fontWeight: 700, fontSize: "13px", color: "#fff", background: VIOLET, width: "28px", height: "28px", borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>{i + 1}</span>
+                      <span style={{ ...OUTFIT, fontWeight: 700, fontSize: "13px", color: INK_DEEP, background: VIOLET, width: "28px", height: "28px", borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>{i + 1}</span>
                       <h3 style={{ color: INK_DEEP, margin: 0 }}>{s.title}</h3>
                     </div>
-                    <p style={{ ...OUTFIT, fontWeight: 400, fontSize: "14.5px", lineHeight: 1.65, color: "#5B566B", margin: 0 }}>{s.desc}</p>
+                    <p style={{ ...OUTFIT, fontWeight: 400, fontSize: "14.5px", lineHeight: 1.65, color: "#5E5E5A", margin: 0 }}>{s.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -176,7 +177,7 @@ const WebDesign = () => {
         <section style={{ background: PAPER }}>
           <div className="max-w-[1200px] mx-auto px-6 lg:px-8" style={{ paddingTop: "clamp(64px,8vw,100px)", paddingBottom: "clamp(64px,8vw,100px)" }}>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.6, ease: EASE }} style={{ marginBottom: "clamp(40px,5vw,56px)" }}>
-              <p style={{ ...OUTFIT, fontWeight: 700, fontSize: "13px", letterSpacing: "0.06em", textTransform: "uppercase", color: VIOLET, marginBottom: "12px" }}>
+              <p style={{ ...OUTFIT, fontWeight: 700, fontSize: "13px", letterSpacing: "0.06em", textTransform: "uppercase", color: INK_DEEP, marginBottom: "12px" }}>
                 {c.cases.eyebrow}
               </p>
               <SectionHeadline>{c.cases.heading}</SectionHeadline>
@@ -199,12 +200,12 @@ const WebDesign = () => {
                   </div>
 
                   {/* Bild 1 (breiter) — Mockup-Slot */}
-                  <div className="overflow-hidden" style={{ borderRadius: "16px", height: "clamp(240px,30vw,380px)", background: PAPER, boxShadow: "0 24px 56px -24px rgba(23,23,46,0.22)" }}>
+                  <div className="overflow-hidden" style={{ borderRadius: "16px", height: "clamp(240px,30vw,380px)", background: PAPER, boxShadow: "0 24px 56px -24px rgba(23,23,23,0.22)" }}>
                     <img src={img(item.imageDesktop)} alt={item.name} loading="lazy" className="w-full h-full object-cover" />
                   </div>
 
                   {/* Bild 2 — Mockup-Slot */}
-                  <div className="overflow-hidden" style={{ borderRadius: "16px", height: "clamp(240px,30vw,380px)", background: INK_DEEP, boxShadow: "0 24px 56px -24px rgba(23,23,46,0.22)" }}>
+                  <div className="overflow-hidden" style={{ borderRadius: "16px", height: "clamp(240px,30vw,380px)", background: INK_DEEP, boxShadow: "0 24px 56px -24px rgba(23,23,23,0.22)" }}>
                     <img src={img(item.imagePhone)} alt={item.name} loading="lazy" className="w-full h-full object-cover" />
                   </div>
                 </motion.div>
@@ -217,7 +218,7 @@ const WebDesign = () => {
         <section id="kontakt" style={{ background: INK_DEEPER }}>
           <div className="max-w-[820px] mx-auto px-6 lg:px-8 text-center" style={{ paddingTop: "clamp(72px,9vw,112px)", paddingBottom: "clamp(72px,9vw,112px)" }}>
             <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.7, ease: EASE }}>
-              <img src={img(c.showreel.founder.image)} alt={c.showreel.founder.name} loading="lazy" className="rounded-full object-cover mx-auto" style={{ width: "72px", height: "72px", border: "1px solid rgba(139,141,240,0.4)", marginBottom: "22px" }} />
+              <img src={img(c.showreel.founder.image)} alt={c.showreel.founder.name} loading="lazy" className="rounded-full object-cover mx-auto" style={{ width: "72px", height: "72px", border: "1px solid rgba(204,255,0,0.4)", marginBottom: "22px" }} />
               <p style={{ ...OUTFIT, fontWeight: 700, fontSize: "13px", letterSpacing: "0.08em", textTransform: "uppercase", color: VIOLET_LIGHT, marginBottom: "14px" }}>{c.finalCta.eyebrow}</p>
               <h2 style={{ color: "#fff", marginBottom: "18px" }}>{c.finalCta.heading}</h2>
               <p style={{ ...OUTFIT, color: "#B0ABC0", maxWidth: "52ch", margin: "0 auto 32px" }}>{c.finalCta.sub}</p>
@@ -246,7 +247,7 @@ const WebDesign = () => {
         onClose={() => setIsContactOpen(false)}
         accentColor={VIOLET}
         gradientFrom={INK_DEEP}
-        gradientTo="#100E1E"
+        gradientTo="#101010"
         theme="studio"
       />
     </>

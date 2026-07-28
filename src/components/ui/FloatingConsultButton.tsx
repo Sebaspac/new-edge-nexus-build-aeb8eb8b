@@ -9,8 +9,8 @@ import { useLocalized } from "@/hooks/useLocalized";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { localizePath } from "@/utils/localePath";
 
-const VIOLET   = "#5658DF";
-const INK_DEEP = "#17172E";
+const VIOLET   = "#CCFF00";
+const INK_DEEP = "#171717";
 const MONO: React.CSSProperties = {
   fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace",
 };
@@ -45,8 +45,8 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
               right: 0,
               zIndex: 60,
               background: "#FFFFFF",
-              border: "1.5px solid rgba(86,88,223,0.18)",
-              boxShadow: "0 8px 40px rgba(86,88,223,0.18), 0 2px 8px rgba(0,0,0,0.12)",
+              border: "1.5px solid rgba(204,255,0,0.18)",
+              boxShadow: "0 8px 40px rgba(204,255,0,0.18), 0 2px 8px rgba(0,0,0,0.12)",
               padding: "28px 24px 24px",
               width: "300px",
             }}
@@ -61,7 +61,7 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
                 background: "transparent",
                 border: "none",
                 cursor: "pointer",
-                color: "rgba(23,23,46,0.35)",
+                color: "rgba(23,23,23,0.35)",
                 padding: "4px",
                 display: "flex",
               }}
@@ -82,21 +82,21 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
                   objectFit: "cover",
                   objectPosition: "25% 20%",
                   flexShrink: 0,
-                  border: "2px solid rgba(86,88,223,0.20)",
+                  border: "2px solid rgba(204,255,0,0.20)",
                 }}
               />
               <div>
                 <div style={{ ...SERIF, fontSize: "15px", color: INK_DEEP, lineHeight: 1.2, marginBottom: "2px" }}>
                   Sebastian Pachon
                 </div>
-                <div style={{ ...MONO, fontSize: "10px", letterSpacing: "0.16em", textTransform: "uppercase" as const, color: "rgba(23,23,46,0.45)" }}>
+                <div style={{ ...MONO, fontSize: "10px", letterSpacing: "0.16em", textTransform: "uppercase" as const, color: "rgba(23,23,23,0.45)" }}>
                   Gründer & Geschäftsführer
                 </div>
               </div>
             </div>
 
             {/* Divider */}
-            <div style={{ height: "1px", background: "rgba(23,23,46,0.08)", marginBottom: "16px" }} />
+            <div style={{ height: "1px", background: "rgba(23,23,23,0.08)", marginBottom: "16px" }} />
 
             {/* Heading + badge */}
             <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "8px", marginBottom: "10px" }}>
@@ -108,7 +108,8 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
                 fontSize: "9px",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase" as const,
-                color: VIOLET,
+                color: INK_DEEP,
+                background: VIOLET,
                 border: `1px solid ${VIOLET}`,
                 padding: "3px 7px",
                 flexShrink: 0,
@@ -119,7 +120,7 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
             </div>
 
             {/* Description */}
-            <p style={{ ...MONO, color: "rgba(23,23,46,0.62)", marginBottom: "20px" }}>
+            <p style={{ ...MONO, color: "rgba(23,23,23,0.62)", marginBottom: "20px" }}>
               Ein kurzes, unverbindliches Gespräch mit Sebastian — wir besprechen Ihre
               Situation und prüfen, wie KI oder Prozessautomatisierung bei Ihnen wirkt.
             </p>
@@ -130,7 +131,7 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
               style={{
                 width: "100%",
                 background: VIOLET,
-                color: "#FFFFFF",
+                color: "#171717",
                 ...MONO,
                 fontSize: "11px",
                 letterSpacing: "0.2em",
@@ -162,7 +163,7 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
             <defs>
               <path id="fcb-circle" d="M 100,100 m -72,0 a 72,72 0 1,1 144,0 a 72,72 0 1,1 -144,0" />
             </defs>
-            <text style={{ fontSize: "17px", fill: textColor ?? VIOLET, fontFamily: "Consolas, ui-monospace, monospace", letterSpacing: "0.04em" }}>
+            <text style={{ fontSize: "17px", fill: textColor ?? "#171717", fontFamily: "Consolas, ui-monospace, monospace", letterSpacing: "0.04em" }}>
               <textPath href="#fcb-circle" startOffset="0%">{REVOLVING_TEXT}</textPath>
             </text>
           </svg>
@@ -183,7 +184,7 @@ export const FloatingConsultButton = ({ textColor }: { textColor?: string } = {}
             borderRadius: "50%",
             overflow: "hidden",
             border: `2.5px solid ${VIOLET}`,
-            boxShadow: "0 4px 20px rgba(86,88,223,0.28)",
+            boxShadow: "0 4px 20px rgba(204,255,0,0.28)",
           }}>
             <img
               src={img(assets.consultAvatar.src)}

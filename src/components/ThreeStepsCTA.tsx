@@ -6,14 +6,14 @@ import { threeStepsCTA as threeStepsCTAEn } from "@/content/en/sections/threeSte
 import { useHomeSection } from "@/hooks/useHomeContent";
 
 /* ── Design tokens ── */
-const VIOLET = "#5658DF";
-const VIOLET_DARK = "#2D1060";
-const VIOLET_MID = "#5658DF";
-const INK_DEEP = "#17172E";
+const VIOLET = "#CCFF00";
+const VIOLET_DARK = "#333A00";
+const VIOLET_MID = "#CCFF00";
+const INK_DEEP = "#171717";
 
 const HEAD: React.CSSProperties = { fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: 700 };
 const BODY: React.CSSProperties = { fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: 400 };
-const L = { text: "#3C3C47", textMuted: "#555555" };
+const L = { text: "#3C3C3C", textMuted: "#555555" };
 
 /** OS-Einstellung „Bewegung reduzieren": Karten erscheinen dann ohne Einflug-Animation. */
 const PREFERS_REDUCED_MOTION =
@@ -127,12 +127,12 @@ export const ThreeStepsCTA = () => {
                 <p className="uppercase tracking-wide" style={{ ...BODY, fontWeight: 700, fontSize: "14px", color: INK_DEEP }}>
                   {threeStepsCTA.person.name}
                 </p>
-                <p style={{ ...BODY, fontSize: "14px", color: "rgba(23,23,46,0.55)" }}>
+                <p style={{ ...BODY, fontSize: "14px", color: "rgba(23,23,23,0.55)" }}>
                   {threeStepsCTA.person.role}
                 </p>
                 <a
                   href={threeStepsCTA.person.phoneHref}
-                  style={{ ...BODY, fontWeight: 600, fontSize: "12px", color: VIOLET, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "5px", marginTop: "6px" }}
+                  style={{ ...BODY, fontWeight: 600, fontSize: "12px", color: INK_DEEP, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "5px", marginTop: "6px" }}
                 >
                   {threeStepsCTA.person.phoneLabel}
                 </a>
@@ -162,10 +162,10 @@ export const ThreeStepsCTA = () => {
                     }}
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <span aria-hidden style={{ ...HEAD, fontSize: "13px", color: "#fff", background: VIOLET, width: "30px", height: "30px", borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span>
+                      <span aria-hidden style={{ ...HEAD, fontSize: "13px", color: INK_DEEP, background: VIOLET, width: "30px", height: "30px", borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span>
                       <span
                         className="text-[0.75rem] font-bold uppercase"
-                        style={{ ...BODY, fontWeight: 700, letterSpacing: "0.04em", color: VIOLET }}
+                        style={{ ...BODY, fontWeight: 700, letterSpacing: "0.04em", color: INK_DEEP }}
                       >
                         {threeStepsCTA.stepLabelPrefix} {i + 1}
                       </span>
@@ -189,7 +189,7 @@ export const ThreeStepsCTA = () => {
                   key={i}
                   className="block h-2 transition-all duration-500"
                   style={{
-                    background: mobileStep === i ? VIOLET : "rgba(86,88,223,0.25)",
+                    background: mobileStep === i ? VIOLET : "rgba(204,255,0,0.25)",
                     width: mobileStep === i ? "28px" : "10px",
                     borderRadius: "4px",
                   }}
@@ -243,7 +243,7 @@ export const ThreeStepsCTA = () => {
                     key={i}
                     className="block h-2 transition-all duration-500"
                     style={{
-                      background: visibleCards > i ? VIOLET : "rgba(86,88,223,0.25)",
+                      background: visibleCards > i ? VIOLET : "rgba(204,255,0,0.25)",
                       width: Math.max(0, visibleCards - 1) === i ? "28px" : "10px",
                       borderRadius: "4px",
                     }}
@@ -255,12 +255,12 @@ export const ThreeStepsCTA = () => {
                   <p className="uppercase tracking-wide" style={{ ...BODY, fontWeight: 700, fontSize: "14px", color: INK_DEEP }}>
                     {threeStepsCTA.person.name}
                   </p>
-                  <p style={{ ...BODY, fontSize: "14px", color: "rgba(23,23,46,0.55)" }}>
+                  <p style={{ ...BODY, fontSize: "14px", color: "rgba(23,23,23,0.55)" }}>
                     {threeStepsCTA.person.role}
                   </p>
                   <a
                     href={threeStepsCTA.person.phoneHref}
-                    style={{ ...BODY, fontWeight: 600, fontSize: "13px", color: VIOLET, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "8px" }}
+                    style={{ ...BODY, fontWeight: 600, fontSize: "13px", color: INK_DEEP, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "8px" }}
                   >
                     {threeStepsCTA.person.phoneLabel}
                   </a>
@@ -281,7 +281,7 @@ export const ThreeStepsCTA = () => {
                     style={{
                       background: "rgba(255,255,255,0.98)",
                       borderRadius: "16px",
-                      boxShadow: "0 18px 44px rgba(23,23,46,0.16)",
+                      boxShadow: "0 18px 44px rgba(23,23,23,0.16)",
                       // Leichte Überlappung — spätere Karte legt sich oben auf die Kante
                       marginTop: i === 0 ? 0 : "-14px",
                       zIndex: i + 1,
@@ -297,10 +297,10 @@ export const ThreeStepsCTA = () => {
                     }}
                   >
                     <div className="flex items-center gap-3 mb-2.5">
-                      <span aria-hidden style={{ ...HEAD, fontSize: "14px", color: "#fff", background: VIOLET, width: "32px", height: "32px", borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span>
+                      <span aria-hidden style={{ ...HEAD, fontSize: "14px", color: INK_DEEP, background: VIOLET, width: "32px", height: "32px", borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span>
                       <span
                         className="text-[0.8rem] font-bold uppercase"
-                        style={{ ...BODY, fontWeight: 700, letterSpacing: "0.04em", color: VIOLET }}
+                        style={{ ...BODY, fontWeight: 700, letterSpacing: "0.04em", color: INK_DEEP }}
                       >
                         {threeStepsCTA.stepLabelPrefix} {i + 1}
                       </span>

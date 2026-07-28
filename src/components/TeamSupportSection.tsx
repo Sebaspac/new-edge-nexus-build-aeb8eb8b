@@ -1,18 +1,19 @@
 import { motion } from "framer-motion";
-import { Headset, Users, Workflow } from "lucide-react";
+import { IconHeadset, IconUsers, IconTopologyStar3 } from "@tabler/icons-react";
+import { EdgeIconBadge } from "@/components/ui/EdgeIconBadge";
 import { teamSupport as teamSupportStatic, img } from "@/content";
 import { teamSupport as teamSupportEn } from "@/content/en/sections/teamSupport";
 import { useLocalizedStatic } from "@/hooks/useLocalized";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
-const VIOLET_LIGHT = "#8B8DF0";
-const INK_DEEP = "#17172E";
-const INK = "#3C3C47";
+const VIOLET = "#CCFF00";
+const VIOLET_LIGHT = "#CCFF00";
+const INK_DEEP = "#171717";
+const INK = "#3C3C3C";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /** Dekorative Icons je Feature-Spalte (Reihenfolge = Content-Reihenfolge). */
-const FEATURE_ICONS = [Headset, Users, Workflow];
+const FEATURE_ICONS = [IconHeadset, IconUsers, IconTopologyStar3];
 
 interface TeamSupportSectionProps {
   /** Trigger-Anker für den schwebenden Founder-Badge (Index.tsx) — hier blendet er wieder aus. */
@@ -40,7 +41,7 @@ export const TeamSupportSection = ({ sectionRef }: TeamSupportSectionProps = {})
         transition={{ duration: 0.7, ease: EASE }}
         className="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-3"
         style={{
-          background: `linear-gradient(120deg, #1D1B38 0%, ${INK_DEEP} 60%, #100E1E 100%)`,
+          background: `linear-gradient(120deg, #1F1F1F 0%, ${INK_DEEP} 60%, #101010 100%)`,
           borderRadius: "999px",
           padding: "14px clamp(24px, 3vw, 40px)",
           marginBottom: "clamp(28px, 4vh, 40px)",
@@ -86,7 +87,7 @@ export const TeamSupportSection = ({ sectionRef }: TeamSupportSectionProps = {})
           }}
         >
           {teamSupport.headingLead}
-          <span style={{ color: VIOLET }}>{teamSupport.headingHighlight}</span>
+          <span className="edge-mark">{teamSupport.headingHighlight}</span>
         </h2>
         <p
           className="mx-auto"
@@ -113,25 +114,14 @@ export const TeamSupportSection = ({ sectionRef }: TeamSupportSectionProps = {})
               transition={{ duration: 0.6, delay: 0.15 + i * 0.1, ease: EASE }}
               className="flex flex-col items-center"
             >
-              <span
-                style={{
-                  width: "68px",
-                  height: "68px",
-                  borderRadius: "50%",
-                  background: "#fff",
-                  border: "1px solid rgba(86,88,223,0.25)",
-                  boxShadow: "0 12px 32px rgba(86,88,223,0.14)",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginBottom: "22px",
-                }}
-              >
-                <Icon strokeWidth={1.7} style={{ width: "26px", height: "26px", color: VIOLET }} />
-              </span>
+              <EdgeIconBadge
+                icon={Icon}
+                size="xl"
+                style={{ marginBottom: "22px", boxShadow: "0 12px 32px rgba(204,255,0,0.2)" }}
+              />
               <h3
                 style={{
-                  color: VIOLET,
+                  color: INK_DEEP,
                   maxWidth: "16ch",
                 }}
               >

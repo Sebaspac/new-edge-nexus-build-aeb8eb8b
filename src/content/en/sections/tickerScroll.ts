@@ -15,7 +15,7 @@ export const tickerScroll = {
   sentence: "We build your AI department — from the first analysis to ongoing operations ·",
 
   /** Band 2 — Mono-Hashtag-Zeile, scrollt nach rechts. */
-  hashtags: "#boldinOutput · #realinImpact · #NEWEDGE · #AIStrategy · #Mittelstand · #Cortex · #Automation · #inHouse ·",
+  hashtags: "#AIDepartment · #Mittelstand · #NEWEDGE · #DataSovereignty · #Cortex · #Automation · #GrantEligible · #inHouse ·",
 } satisfies TickerScroll;
 
 /** Inhalt der beiden Marquee-Bänder (reine Lauftexte). */

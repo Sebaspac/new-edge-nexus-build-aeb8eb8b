@@ -20,9 +20,9 @@ interface ProcessStep {
 
 export const cortexPage = {
   seo: {
-    title: "Cortex — The Operating System for Your AI Department | NEWEDGE",
+    title: "Cortex: Secure AI Platform for Midsize Companies | NEWEDGE",
     description:
-      "Cortex is the central layer for AI in mid-sized companies: one entry point for your people, full control over usage, data and automations — GDPR-compliant and auditable.",
+      "Cortex is the central AI platform for midsize companies: one secure access point for your team, full control over usage and data — GDPR-compliant and in-house.",
     canonical: "/en/cortex",
   } satisfies SEOContent,
 
@@ -30,8 +30,8 @@ export const cortexPage = {
   hero: {
     headline: "You already use AI. Cortex makes it controllable.",
     sub:
-      "Cortex is the operating system of your AI department: one entry point for your people, full control over usage, data and automations. GDPR-compliant, in-house, auditable.",
-    ctaPrimary: "Book a Cortex demo",
+      "Cortex is the operating system of your AI department: one entry point for your people, full control over usage, data and automations. GDPR-compliant, in-house, traceable at any time.",
+    ctaPrimary: "Get to know Cortex",
     ctaSecondary: "Check if it fits",
     image: {
       src: "pain-point-kpi-dashboard-hero",
@@ -56,9 +56,9 @@ export const cortexPage = {
       "Cortex becomes the central entry point for AI in your company: your employees work with approved, productive AI — you keep control over usage, data, processes and automations.",
     bullets: [
       "Transparency over AI usage — instead of shadow IT, you see who uses AI for what.",
-      "GDPR-compliant infrastructure — your data stays internal, secure, auditable.",
+      "Run GDPR-compliant — your data stays in-house, secure and traceable at any time.",
       "Central control — one entry point for your people instead of ten point tools running on the side.",
-      "A foundation for automations — processes and agents run on one shared layer.",
+      "A foundation for automations — every new automation builds on the same base instead of starting as an isolated one-off.",
     ],
   },
 
@@ -73,7 +73,7 @@ export const cortexPage = {
       {
         step: "01",
         title: "Setup",
-        desc: "Cortex is set up in your environment — GDPR-compliant, with your roles and permissions.",
+        desc: "We set Cortex up for you — GDPR-compliant and with clear rules on who's allowed to do what.",
       },
       {
         step: "02",
@@ -88,7 +88,7 @@ export const cortexPage = {
       {
         step: "04",
         title: "Automation",
-        desc: "On the shared layer, you build out processes and agents — step by step.",
+        desc: "Step by step, you build out automations that take real work off your plate — all on the same base.",
       },
     ] as ProcessStep[],
   },
@@ -98,7 +98,7 @@ export const cortexPage = {
     heading: "Why Cortex.",
     points: [
       "Cortex isn't another AI — it's the layer above them. You don't have to throw away anything that already works.",
-      "Your data stays your data. No black box, no unwanted outflows — everything is auditable.",
+      "Your data stays your data. No black box, no unwanted data outflow — you can trace what happens at any time.",
       "We build the AI department for mid-sized companies. Cortex is the foundation, not the finished product.",
     ],
   },
@@ -107,7 +107,7 @@ export const cortexPage = {
   garantie: {
     heading: "The guarantee.",
     text:
-      "Your data stays in-house — GDPR-compliant and auditable at any time.",
+      "Your data stays in-house — GDPR-compliant and traceable at any time.",
     sub: "No black box, no unwanted data outflow. You stay in control.",
     image: {
       src: "team-presentation-color",
@@ -121,12 +121,12 @@ export const cortexPage = {
     passtLabel: "It fits if:",
     passt: [
       "Several people already use AI at your company — but no one has the full picture.",
-      "You want to keep AI in-house: GDPR-compliant, controlled, auditable.",
+      "You want to keep AI in-house: GDPR-compliant, controlled, traceable at any time.",
       "You want a foundation for automations to grow on — not yet another point tool.",
     ],
     passtNichtLabel: "It doesn't fit if:",
     passtNicht: [
-      "You're looking for a single feature tool to try out — Cortex is the layer beneath it.",
+      "You're looking for a single tool to try out — Cortex is the control layer above your tools.",
       "No one at your company uses AI and no one is meant to — then the basis is missing.",
       "You deliberately want to push data into arbitrary external tools — that's exactly what Cortex prevents.",
     ],
@@ -136,8 +136,8 @@ export const cortexPage = {
   faq: {
     heading: "FAQ",
     items: [
-      { q: "Does Cortex replace ChatGPT or Copilot?", a: "No. Cortex is the layer above: it bundles and controls access to AI — which models you use stays flexible." },
-      { q: "Does our data really stay in-house?", a: "Yes. Cortex runs on GDPR-compliant, controlled infrastructure — your data is internal, secure and auditable." },
+      { q: "Does Cortex replace ChatGPT or Copilot?", a: "No. Cortex is the layer above: it bundles and controls access to AI — which AI services you use, such as ChatGPT or Copilot, stays flexible." },
+      { q: "Does our data really stay in-house?", a: "Yes. Cortex runs on GDPR-compliant systems we control — your data stays in-house, secure and traceable at any time." },
       { q: "How quickly is Cortex ready to use?", a: "The basic setup is usually in place within a few days. From there, Cortex grows with your processes and automations." },
       { q: "Do we have to switch off existing tools?", a: "No. Cortex layers over what's already running and brings it under shared control." },
       { q: "What company size does Cortex make sense for?", a: "It pays off most for companies with 10 to 150 employees where AI is already used in scattered ways." },

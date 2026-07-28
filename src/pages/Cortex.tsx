@@ -19,11 +19,13 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
 const OUTFIT: React.CSSProperties = { fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" };
-const VIOLET      = "#5658DF";
-const VIOLET_SOFT = "rgba(86,88,223,0.12)";
-const INK_DEEP    = "#17172E";
-const INK_DEEPER  = "#100E1E";
-const PAPER       = "#F8F5FF";
+const VIOLET      = "#CCFF00";
+const VIOLET_SOFT = "rgba(204,255,0,0.14)";
+const INK_DEEP    = "#171717";
+const INK         = "#3C3C3C";
+const FLASH       = "#FF1E00";
+const INK_DEEPER  = "#101010";
+const PAPER       = "#F2F2F2";
 const RADIUS      = 16;
 const EASE        = [0.22, 1, 0.36, 1] as const;
 
@@ -52,7 +54,7 @@ const NumberBadge = ({ n }: { n: string }) => (
       height: "40px",
       borderRadius: "50%",
       background: VIOLET,
-      color: "#fff",
+      color: INK_DEEP,
       fontWeight: 700,
       fontSize: "15px",
       flexShrink: 0,
@@ -73,13 +75,13 @@ const SectionHeadline = ({ children, dark = false }: { children: React.ReactNode
 );
 
 /** Splits `text` on `phrase` and wraps it in the violet accent color. Falls back to plain text if not found. */
-const withAccent = (text: string, phrase: string, color = VIOLET) => {
+const withAccent = (text: string, phrase: string) => {
   const idx = text.indexOf(phrase);
   if (idx === -1) return text;
   return (
     <>
       {text.slice(0, idx)}
-      <span style={{ color }}>{phrase}</span>
+      <span className="edge-mark">{phrase}</span>
       {text.slice(idx + phrase.length)}
     </>
   );
@@ -96,25 +98,25 @@ const FaqAccordion = ({ items }: { items: { q: string; a: string }[] }) => {
           <div
             key={i}
             className="overflow-hidden"
-            style={{ background: "#fff", borderRadius: RADIUS, border: "1px solid rgba(86,88,223,0.14)", boxShadow: "0 1px 2px rgba(23,23,46,0.06)" }}
+            style={{ background: "#fff", borderRadius: RADIUS, border: "1px solid rgba(23,23,23,0.10)", boxShadow: "0 1px 2px rgba(23,23,23,0.06)" }}
           >
             <button
               onClick={() => setOpen(isOpen ? -1 : i)}
               aria-expanded={isOpen}
               className="w-full flex justify-between items-center gap-4 text-left hover:opacity-80 transition-opacity"
-              style={{ ...OUTFIT, fontWeight: 600, fontSize: "16px", color: isOpen ? VIOLET : INK_DEEP, padding: "20px 24px" }}
+              style={{ ...OUTFIT, fontWeight: 600, fontSize: "16px", color: INK_DEEP, padding: "20px 24px" }}
             >
               <span>{f.q}</span>
               <span
                 aria-hidden
                 className={`shrink-0 w-7 h-7 flex items-center justify-center rounded-full transition-transform duration-200 ${isOpen ? "rotate-45" : ""}`}
-                style={{ border: `1px solid ${isOpen ? VIOLET : "rgba(23,23,46,0.18)"}`, background: isOpen ? VIOLET_SOFT : "transparent", color: isOpen ? VIOLET : "rgba(23,23,46,0.45)" }}
+                style={{ border: `1px solid ${isOpen ? VIOLET : "rgba(23,23,23,0.18)"}`, background: isOpen ? VIOLET_SOFT : "transparent", color: isOpen ? INK_DEEP : "rgba(23,23,23,0.45)" }}
               >
                 <Plus className="w-4 h-4" />
               </span>
             </button>
             <div className="overflow-hidden" style={{ maxHeight: isOpen ? "340px" : "0px", transition: "max-height 0.32s cubic-bezier(0.22,1,0.36,1)" }}>
-              <p style={{ ...OUTFIT, fontWeight: 400, fontSize: "15px", lineHeight: 1.7, color: "#5B566B", padding: "0 24px 22px" }}>
+              <p style={{ ...OUTFIT, fontWeight: 400, fontSize: "15px", lineHeight: 1.7, color: "#5E5E5A", padding: "0 24px 22px" }}>
                 {f.a}
               </p>
             </div>
@@ -155,7 +157,7 @@ const Cortex = () => {
             aria-hidden
             style={{
               position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
-              background: "radial-gradient(ellipse 90% 70% at 50% -8%, rgba(86,88,223,0.10) 0%, transparent 60%)",
+              background: "radial-gradient(ellipse 90% 70% at 50% -8%, rgba(204,255,0,0.12) 0%, transparent 60%)",
             }}
           />
 
@@ -171,9 +173,9 @@ const Cortex = () => {
                     color: INK_DEEP,
                   }}
                 >
-                  {withAccent(cortex.hero.headline, language === "en" ? "Cortex makes it controllable." : "Cortex macht sie steuerbar.", VIOLET)}
+                  {withAccent(cortex.hero.headline, language === "en" ? "Cortex makes it controllable." : "Cortex macht sie steuerbar.")}
                 </h1>
-                <p style={{ ...OUTFIT, color: "#3C3C47", maxWidth: "48ch", marginBottom: "36px" }}>
+                <p style={{ ...OUTFIT, color: "#3C3C3C", maxWidth: "48ch", marginBottom: "36px" }}>
                   {cortex.hero.sub}
                 </p>
                 <div className="flex flex-wrap items-center gap-x-8 gap-y-4" style={{ marginBottom: "48px" }}>
@@ -190,14 +192,14 @@ const Cortex = () => {
                       key={s.label}
                       style={{
                         background: "#FFFFFF",
-                        border: "1px solid rgba(86,88,223,0.14)",
+                        border: "1px solid rgba(23,23,23,0.10)",
                         borderRadius: RADIUS,
                         padding: "14px 14px",
-                        boxShadow: "0 1px 2px rgba(23,23,46,0.06)",
+                        boxShadow: "0 1px 2px rgba(23,23,23,0.06)",
                       }}
                     >
                       <div style={{ ...OUTFIT, fontWeight: 700, fontSize: "1.35rem", color: INK_DEEP }}>{s.value}</div>
-                      <div style={{ ...OUTFIT, fontWeight: 400, fontSize: "11.5px", color: "#6B6680", marginTop: "2px", lineHeight: 1.3 }}>{s.label}</div>
+                      <div style={{ ...OUTFIT, fontWeight: 400, fontSize: "11.5px", color: "#6B6B66", marginTop: "2px", lineHeight: 1.3 }}>{s.label}</div>
                     </div>
                   ))}
                 </div>
@@ -211,9 +213,9 @@ const Cortex = () => {
               >
                 <div aria-hidden style={{
                   position: "absolute", inset: "-16px", zIndex: 0, pointerEvents: "none",
-                  background: "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(86,88,223,0.16) 0%, transparent 70%)",
+                  background: "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(204,255,0,0.14) 0%, transparent 70%)",
                 }} />
-                <div style={{ position: "relative", zIndex: 1, borderRadius: RADIUS, overflow: "hidden", boxShadow: "0 0 0 1px rgba(86,88,223,0.14), 0 30px 70px -22px rgba(23,23,46,0.28)" }}>
+                <div style={{ position: "relative", zIndex: 1, borderRadius: RADIUS, overflow: "hidden", boxShadow: "0 0 0 1px rgba(23,23,23,0.10), 0 30px 70px -22px rgba(23,23,23,0.28)" }}>
                   <img
                     src={img(cortex.hero.image.src)}
                     alt={cortex.hero.image.alt}
@@ -248,7 +250,7 @@ const Cortex = () => {
                       style={{ background: INK_DEEP, borderRadius: RADIUS, padding: "clamp(24px,2.8vw,30px)" }}
                     >
                       <span style={{ ...OUTFIT, fontWeight: 800, fontSize: "1.8rem", color: VIOLET, lineHeight: 1 }}>„</span>
-                      <p style={{ ...OUTFIT, fontWeight: 500, color: "#E4E1F0", marginTop: "8px" }}>
+                      <p style={{ ...OUTFIT, fontWeight: 500, color: "#E8E8E4", marginTop: "8px" }}>
                         {q}
                       </p>
                     </motion.div>
@@ -265,7 +267,7 @@ const Cortex = () => {
         </section>
 
         {/* ═══ 3 — LÖSUNG / MECHANISMUS — full-bleed violet ═══ */}
-        <section style={{ background: VIOLET }}>
+        <section style={{ background: INK_DEEP }}>
           <div className="max-w-[1100px] mx-auto px-6 lg:px-8 grid md:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-start" style={{ paddingTop: "clamp(64px,8vw,100px)", paddingBottom: "clamp(64px,8vw,100px)" }}>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.6, ease: EASE }}>
               <SectionHeadline dark>{cortex.solution.heading}</SectionHeadline>
@@ -314,11 +316,11 @@ const Cortex = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
-                  style={{ background: "#fff", borderRadius: RADIUS, padding: "clamp(24px,3vw,28px)", border: "1px solid rgba(86,88,223,0.12)", boxShadow: "0 1px 2px rgba(23,23,46,0.06)" }}
+                  style={{ background: "#fff", borderRadius: RADIUS, padding: "clamp(24px,3vw,28px)", border: "1px solid rgba(23,23,23,0.10)", boxShadow: "0 1px 2px rgba(23,23,23,0.06)" }}
                 >
                   <NumberBadge n={s.step} />
                   <h3 style={{ color: INK_DEEP, marginTop: "16px" }}>{s.title}</h3>
-                  <p style={{ ...OUTFIT, color: "#5B566B" }}>{s.desc}</p>
+                  <p style={{ ...OUTFIT, color: "#5E5E5A" }}>{s.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -395,7 +397,7 @@ const Cortex = () => {
                 position: "relative",
                 overflow: "hidden",
                 borderRadius: "24px",
-                background: "linear-gradient(150deg, #6B4FE0 0%, #5658DF 50%, #3B2F9E 100%)",
+                background: "linear-gradient(150deg, #1F1F1F 0%, #171717 50%, #101010 100%)",
                 border: "1px solid rgba(255,255,255,0.14)",
                 boxShadow: "0 30px 80px -32px rgba(58,46,150,0.55)",
                 padding: "clamp(32px,4.2vw,52px) clamp(28px,4.5vw,52px)",
@@ -416,7 +418,7 @@ const Cortex = () => {
                   </h2>
 
                   <p style={{ ...OUTFIT, fontWeight: 500, fontSize: "clamp(16px,1.3vw,18px)", lineHeight: 1.5, color: "rgba(255,255,255,0.72)", marginBottom: "12px" }}>
-                    {withAccent(cortex.garantie.text, language === "en" ? "GDPR-compliant and auditable at any time." : "DSGVO-konform und jederzeit auditierbar.", "#FFFFFF")}
+                    {withAccent(cortex.garantie.text, language === "en" ? "GDPR-compliant and auditable at any time." : "DSGVO-konform und jederzeit auditierbar.")}
                   </p>
 
                   <p style={{ ...OUTFIT, fontWeight: 400, fontSize: "13.5px", color: "rgba(255,255,255,0.6)", marginBottom: "24px" }}>
@@ -459,15 +461,15 @@ const Cortex = () => {
               <SectionHeadline>{cortex.fit.heading}</SectionHeadline>
             </motion.div>
             <div className="grid md:grid-cols-2 gap-5">
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.6, ease: EASE }} style={{ background: "#fff", borderRadius: RADIUS, padding: "clamp(28px,3vw,34px)", border: "1px solid rgba(86,88,223,0.12)", boxShadow: "0 1px 2px rgba(23,23,46,0.06)" }}>
-                <h3 style={{ fontWeight: 700, fontSize: "14px", letterSpacing: "0.02em", textTransform: "uppercase", color: VIOLET, marginBottom: "20px" }}>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.6, ease: EASE }} style={{ background: "#fff", borderRadius: RADIUS, padding: "clamp(28px,3vw,34px)", border: "1px solid rgba(23,23,23,0.10)", boxShadow: "0 1px 2px rgba(23,23,23,0.06)" }}>
+                <h3 style={{ fontWeight: 700, fontSize: "14px", letterSpacing: "0.02em", textTransform: "uppercase", color: INK_DEEP, marginBottom: "20px" }}>
                   {cortex.fit.passtLabel}
                 </h3>
                 <ul className="flex flex-col gap-4 list-none">
                   {cortex.fit.passt.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <span className="shrink-0 w-5 h-5 flex items-center justify-center mt-0.5" style={{ background: VIOLET_SOFT, borderRadius: "50%" }}>
-                        <Check className="w-3 h-3" style={{ color: VIOLET }} />
+                        <Check className="w-3 h-3" style={{ color: INK_DEEP }} />
                       </span>
                       <span style={{ ...OUTFIT, fontWeight: 400, fontSize: "14px", lineHeight: 1.6, color: INK_DEEP }}>{item}</span>
                     </li>
@@ -484,7 +486,7 @@ const Cortex = () => {
                       <span className="shrink-0 w-5 h-5 flex items-center justify-center mt-0.5" style={{ background: "rgba(90,86,107,0.1)", borderRadius: "50%" }}>
                         <X className="w-3 h-3" style={{ color: "#8A84A0" }} />
                       </span>
-                      <span style={{ ...OUTFIT, fontWeight: 400, fontSize: "14px", lineHeight: 1.6, color: "#5B566B" }}>{item}</span>
+                      <span style={{ ...OUTFIT, fontWeight: 400, fontSize: "14px", lineHeight: 1.6, color: "#5E5E5A" }}>{item}</span>
                     </li>
                   ))}
                 </ul>

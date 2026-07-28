@@ -22,9 +22,9 @@ export const statementStats = {
 
   statement: "Kein weiteres Tool — eine Abteilung.",
   paragraph:
-    "KI ist überall — im Mittelstand bleibt sie zu oft Insellösung oder Risiko. Wir bauen Ihre eigene KI-Fähigkeit auf: von der Analyse, die zeigt, wo KI sich lohnt, bis zum laufenden Betrieb.",
+    "Hinter NEWEDGE stehen Sebastian & Wenjamin — und ein Team, das nicht Projekte abliefert, sondern Ihre eigene KI-Fähigkeit aufbaut. Schritt für Schritt, bis KI bei Ihnen keine Insellösung mehr ist, sondern eine Abteilung.",
   /** Primärer CTA → öffnet Kontakt-Dialog. */
   ctaPrimary: { label: "Kostenlose Analyse" },
   /** Sekundärer CTA → /about. */
-  ctaSecondary: { label: "Über NEWEDGE", to: "/about" },
+  // ctaSecondary: { label: "Über NEWEDGE", to: "/about" },  ← Über uns vorerst ausgeblendet
 } as const;

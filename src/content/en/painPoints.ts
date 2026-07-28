@@ -204,7 +204,7 @@ const auswahlverfahren: PainPointContent = {
   seo: {
     title: "Automate your selection process with AI | NEWEDGE Munich",
     description:
-      "From PDF chaos to an audit-proof decision — in weeks instead of months. NEWEDGE automates intake, jury scoring and documentation for awards and selection processes. 70% less effort per cycle. Book a demo.",
+      "NEWEDGE automates your award or selection process — intake, jury scoring and audit-proof documentation. 70% less effort per cycle, live in 2–4 weeks.",
     canonical: "/en/loesungen/auswahlverfahren",
   },
   hero: {
@@ -284,9 +284,9 @@ const auswahlverfahren: PainPointContent = {
       { k: "Jury coordination", ne: "Fully automated", alt: "Endless email threads" },
       { k: "Comparability", ne: "One consistent category system", alt: "No common basis" },
       { k: "Decision documentation", ne: "Audit-proof & automatic", alt: "Barely exists" },
-      { k: "Knowledge after the cycle", ne: "Persistent data foundation", alt: "Lost every year" },
+      { k: "Knowledge after the cycle", ne: "Retained permanently", alt: "Lost every year" },
       { k: "Analytics", ne: "Generated automatically", alt: "Not available" },
-      { k: "Effort per cycle", ne: "Predictable & scalable", alt: "Weeks of manual work" },
+      { k: "Effort per cycle", ne: "Predictable & constant", alt: "Weeks of manual work" },
     ],
   },
   featureCards: {
@@ -325,7 +325,7 @@ const auswahlverfahren: PainPointContent = {
     },
     {
       q: "Can we bring our existing scoring system into the software?",
-      a: "Yes. NEWEDGE builds on your existing criteria and operationalizes them. You keep full control over the scoring logic.",
+      a: "Yes. NEWEDGE builds on your existing criteria and makes them directly usable in the system. You keep full control over the scoring logic.",
     },
     {
       q: "How does jury anonymity work in digital selection processes?",
@@ -352,9 +352,9 @@ const auswahlverfahren: PainPointContent = {
 const compliance: PainPointContent = {
   slug: "compliance",
   seo: {
-    title: "Automate import / export & compliance with AI | NEWEDGE",
+    title: "Automate foreign trade & compliance with AI | NEWEDGE",
     description:
-      "AI-powered foreign trade automation: capture documents, track shipments, screen sanctions lists — fully automatic. DIHK Foreign Trade Report 2025: companies crushed by regulation. NEWEDGE solves it.",
+      "NEWEDGE automates your foreign trade documents, shipment tracking and compliance screening against EU, UN and OFAC sanctions lists — before the goods roll.",
     canonical: "/en/loesungen/compliance",
   },
   hero: {
@@ -377,7 +377,7 @@ const compliance: PainPointContent = {
   definition: {
     title: "What is AI-powered foreign trade automation?",
     body:
-      "Foreign trade in mid-sized companies runs fragmented: documents in five languages, the freight forwarder by email, the customs agent by phone, compliance in Excel. According to the DIHK Foreign Trade Report 2025, European companies feel \"crushed by the sheer volume of regulation\" — from CBAM to the Supply Chain Due Diligence Act to shifting sanctions rules. In 2024 alone, 1.08 million certificates of origin were issued in Germany. Violations of the Foreign Trade and Payments Act (AWG) carry fines of up to €500,000 per incident — and with the 2026 AWG amendment, corporate fines of up to €40 million. AI-powered foreign trade automation captures every document, tracks every shipment status centrally and checks compliance automatically — before the goods roll.",
+      "Foreign trade in mid-sized companies runs fragmented: documents in five languages, the freight forwarder by email, the customs agent by phone, compliance in Excel. On top of that, a flood of regulation is crushing you — from CBAM to the Supply Chain Due Diligence Act to constantly shifting sanctions rules. And mistakes are expensive: violations of the Foreign Trade and Payments Act (AWG) carry fines of up to €500,000 per incident — and with the 2026 AWG amendment, corporate fines of up to €40 million. AI-powered foreign trade automation captures every document, tracks every shipment status centrally and checks compliance automatically — before the goods roll.",
   },
   feature1: {
     h2: "No document slips through anymore — no matter the language.",
@@ -409,7 +409,7 @@ const compliance: PainPointContent = {
     h2: "Compliance secured. Customs costs cut.",
     h3: "Sanctions lists, dual-use, preferences — checked and optimized before the goods roll.",
     sub:
-      "Sanctions lists change monthly. Dual-use regulations vary by destination country. Overlooked preferential agreements cost real money. NEWEDGE checks every transaction automatically against EU, UN and OFAC lists, classifies dual-use goods and detects applicable free trade agreements. That protects against violations — under the AWG up to €500,000 in fines, up to 15 years in prison for serious embargo breaches — and at the same time finds the cheapest legal tariff classification.",
+      "Sanctions lists change monthly. Dual-use regulations vary by destination country. Overlooked preferential agreements cost real money. NEWEDGE checks every transaction automatically against EU, UN and OFAC lists, classifies dual-use goods and detects applicable free trade agreements. That protects against violations — up to €500,000 in fines, up to 15 years in prison for serious embargo breaches — and at the same time finds the cheapest legal tariff classification.",
     bullets: [
       "Real-time screening against sanctions lists, embargoes & dual-use",
       "Automatic preference check and customs cost optimization",
@@ -420,7 +420,7 @@ const compliance: PainPointContent = {
   },
   integrations: {
     h2: "Connects with the tools you already use",
-    h3: "SAP, ATLAS, Oracle, Dynamics, BEX, Descartes, CargoWise — seamlessly integrated.",
+    h3: "SAP, ATLAS, Oracle, Dynamics, BEX, Descartes, CargoWise — directly connected.",
     sub: "SAP, ATLAS, Oracle, Microsoft Dynamics, BEX, Descartes, CargoWise — NEWEDGE integrates into your existing customs, ERP and logistics infrastructure. No system switch, no parallel operation: the system plugs in and checks in the background — without changing your workflow.",
     logos: [LOGO.sap, LOGO.datev, LOGO.docusign, LOGO.outlook, LOGO.sharepoint, LOGO.lexoffice, LOGO.salesforce, LOGO.zapier, LOGO.make],
   },
@@ -503,9 +503,9 @@ const compliance: PainPointContent = {
 const kpiDashboard: PainPointContent = {
   slug: "kpi-dashboard",
   seo: {
-    title: "Real-time KPI dashboard for mid-sized companies — set up in under a week | NEWEDGE",
+    title: "Real-time KPI dashboard for mid-sized companies | NEWEDGE",
     description:
-      "All your company data in one real-time cockpit: ERP, CRM and finance connected, without an IT project. Role-specific views, AI recommendations and threshold alerts. Book a 20-minute call.",
+      "All your metrics in one real-time cockpit: ERP, CRM and finance connected — without an IT project. Role-specific views and alerts, live in under a week.",
     canonical: "/en/loesungen/kpi-dashboard",
   },
   hero: {
@@ -529,7 +529,7 @@ const kpiDashboard: PainPointContent = {
   definition: {
     title: "What is a KPI dashboard?",
     body:
-      "A KPI dashboard shows all business-critical metrics in one central view — aggregated from ERP, CRM and finance tools, updated in real time, without manual entry. Mid-sized companies with 20–500 employees use it to make decisions on current data instead of in the weekly reporting meeting. The leverage is measurable: mid-market leaders spend an average of 4.5 hours per week on manual reporting (McKinsey Digital, 2023). Companies with real-time KPI monitoring detect critical deviations 3.1 days earlier (Aberdeen Group, 2024).",
+      "A KPI dashboard shows all business-critical metrics in one central view — aggregated from ERP, CRM and finance tools, updated in real time, without manual entry. Mid-sized companies with 20–500 employees use it to make decisions on current data instead of in the weekly reporting meeting. The leverage is measurable: mid-market leaders spend an average of 4.5 hours per week on manual reporting. With a real-time dashboard, you catch critical deviations days earlier — not in next week's meeting.",
   },
   feature1: {
     h2: "Who told you these KPIs are the important ones?",
@@ -589,7 +589,7 @@ const kpiDashboard: PainPointContent = {
       { k: "Effort per week",             ne: "< 30 minutes",                   alt: "4–6 hours" },
       { k: "Early warning on deviations", ne: "Instantly via alert",            alt: "Next week" },
       { k: "Consistency of data basis",   ne: "One source for everyone",        alt: "Differs by team" },
-      { k: "Scalability",                 ne: "Constant",                       alt: "Effort grows with size" },
+      { k: "Effort as you grow",          ne: "Stays constant",                 alt: "Grows with company size" },
       { k: "Role-specific views",         ne: "Configured automatically",       alt: "Built manually" },
       { k: "AI recommendations",          ne: "Automatic, with priority",       alt: "Not available" },
       { k: "Setup effort",                ne: "One-time, < 1 week",             alt: "Ongoing" },
@@ -606,7 +606,7 @@ const kpiDashboard: PainPointContent = {
       },
       {
         title: "Early warning instead of surprises",
-        desc: "You define thresholds — the dashboard speaks up on its own. Companies with automated alerts respond 2.4× faster to critical KPI deviations (McKinsey, 2023).",
+        desc: "You define thresholds — the dashboard speaks up on its own. With automated alerts, you react far faster when a metric goes off track.",
         iconNote: "Icon: alert bell / early-warning system",
       },
       {
@@ -681,9 +681,9 @@ const kpiDashboard: PainPointContent = {
 const kiKundensupport: PainPointContent = {
   slug: "ki-kundensupport",
   seo: {
-    title: "AI customer support — 80% solved automatically, 24/7 | NEWEDGE Munich",
+    title: "AI customer support: 80% solved in seconds | NEWEDGE Munich",
     description:
-      "AI agent solves 80% of all support requests in under 30 seconds. Intelligent routing for complex cases. Integration with Zendesk, Freshdesk, Intercom & more.",
+      "The AI agent solves 80% of all support requests in under 30 seconds — cutting cost per request from €12 to under €1. Complex cases routed with full context.",
     canonical: "/en/loesungen/ki-kundensupport",
   },
   hero: {
@@ -691,7 +691,7 @@ const kiKundensupport: PainPointContent = {
     h1Line1: "80% of requests solved.",
     h1Line2Highlighted: "Instantly. Automatically.",
     sub:
-      "Support doesn't scale with your growth — and neither do headcounts. NEWEDGE builds your complete support funnel: AI solves 80% of all requests in under 30 seconds, the rest lands with the right person with full context. Cost per ticket drops from €12 to under €1 (Gartner, 2024). 24/7, in your brand voice.",
+      "Support doesn't scale with your growth — and neither do headcounts. NEWEDGE builds your complete support funnel: AI solves 80% of all requests in under 30 seconds, the rest lands with the right person with full context. Cost per request drops from €12 to under €1. Around the clock, in your brand voice.",
     ctaPrimary: "Request a support audit",
     ctaSecondary: "Test the AI agent",
     imageNote:
@@ -707,7 +707,7 @@ const kiKundensupport: PainPointContent = {
   definition: {
     title: "What is an AI-powered customer support funnel?",
     body:
-      "An AI-powered customer support funnel solves simple requests automatically (up to 80% of all tickets) and routes complex cases with full context to human agents. Cost per support ticket drops from an average of €12 to under €1 — with 23% higher customer satisfaction at the same time (Gartner, 2024).",
+      "An AI-powered customer support funnel solves simple requests automatically (up to 80% of all tickets) and routes complex cases with full context to human agents. Cost per support request drops from an average of €12 to under €1 — with higher customer satisfaction at the same time.",
   },
   feature1: {
     h2: "80% solved. Instantly. Without human intervention.",
@@ -830,9 +830,9 @@ const kiKundensupport: PainPointContent = {
 const entscheidungsinstanzen: PainPointContent = {
   slug: "entscheidungsinstanzen",
   seo: {
-    title: "Evaluation software for juries, awarding bodies & universities | NEWEDGE",
+    title: "Evaluation software for juries & awarding bodies | NEWEDGE",
     description:
-      "Structured, audit-proof selection and awarding processes for juries, universities and awarding bodies. GDPR-compliant, VgV/UVgO-ready, locally hostable. 70% less effort per process. Book a demo.",
+      "Audit-proof selection and awarding processes for juries, universities and awarding bodies — GDPR-compliant, VgV/UVgO-ready, locally hostable. 70% less effort.",
     canonical: "/en/industrien/entscheidungsinstanzen",
   },
   hero: {
@@ -913,9 +913,9 @@ const entscheidungsinstanzen: PainPointContent = {
       { k: "Panel coordination", ne: "Fully automated", alt: "Endless email threads" },
       { k: "Evaluation standard", ne: "Consistent for everyone involved", alt: "Each person interprets differently" },
       { k: "Decision documentation", ne: "Audit-proof, automatic", alt: "Barely present or full of gaps" },
-      { k: "Knowledge after the cycle", ne: "Persistent data foundation", alt: "Lost every time" },
+      { k: "Knowledge after the cycle", ne: "Retained permanently", alt: "Lost every time" },
       { k: "Ability to handle objections", ne: "Complete audit trail", alt: "Hard to reconstruct" },
-      { k: "Effort per process", ne: "Predictable, scalable", alt: "Weeks of manual coordination" },
+      { k: "Effort per process", ne: "Predictable, constant", alt: "Weeks of manual coordination" },
     ],
   },
   featureCards: {
@@ -1004,9 +1004,9 @@ const entscheidungsinstanzen: PainPointContent = {
 const localDigitalCommerce: PainPointContent = {
   slug: "health-care",
   seo: {
-    title: "Automate practice management — NEWEDGE for medical practices",
+    title: "Automate practice management for medical practices | NEWEDGE",
     description:
-      "Automate practice management: cut no-shows by 25–30%, keep the billing error rate under 2%. EHR integration in 1–2 business days. Free practice check.",
+      "NEWEDGE automates your practice's scheduling and billing: cut no-shows by 25–30%, keep billing errors under 2%, EHR integration in 1–2 business days.",
     canonical: "/en/industrien/health-care",
   },
   hero: {
@@ -1063,7 +1063,7 @@ const localDigitalCommerce: PainPointContent = {
     h2: "No practice is like any other. Neither is yours.",
     h3: "Configure practice management individually — for medical practices, medical centers and therapists",
     sub:
-      "Every practice has its own mix of services, appointment types and referral processes — a standard system never covers that. NEWEDGE configures the solution to your requirements: integrated into existing workflows, scalable without a system switch.",
+      "Every practice has its own mix of services, appointment types and referral processes — a standard system never covers that. NEWEDGE configures the solution to your requirements: integrated into existing workflows, growing with your practice, without a system switch.",
     bullets: [
       "Individual appointment types and durations (single appointments, treatments, initial consultations, follow-ups)",
       "Referral management internal and external, incl. cooperation with other practices",
@@ -1139,7 +1139,7 @@ const localDigitalCommerce: PainPointContent = {
   faq: [
     {
       q: "What is automated practice management — and what is it not?",
-      a: "Automated practice management replaces manual steps in scheduling and billing with rule-based, AI-powered processes. Not a new practice management system — but an automation layer embedded into your existing EHR/EMR.",
+      a: "Automated practice management replaces manual steps in scheduling and billing with rule-based, AI-powered processes. Not a new practice management system — but automation that plugs into your existing EHR/EMR.",
     },
     {
       q: "Does this work with our existing practice management system?",
@@ -1199,7 +1199,7 @@ const handelSupplyChain: PainPointContent = {
   seo: {
     title: "Automate trade & supply chain with AI | NEWEDGE",
     description:
-      "AI-powered automation for order processing, supplier evaluation and goods receipt inspection. BME/Onventis 2025: 71% of SMEs see an urgent need to digitize. NEWEDGE closes that gap.",
+      "NEWEDGE automates order processing, supplier scoring and goods receipt inspection — from email, EDI or portal straight into your ERP, without media breaks.",
     canonical: "/en/industrien/handel-supply-chain",
   },
   hero: {
@@ -1222,7 +1222,7 @@ const handelSupplyChain: PainPointContent = {
   definition: {
     title: "How AI secures the value chain in trade",
     body:
-      "In trade, speed, accuracy and transparency decide the margin. Yet according to the BME/Onventis Procurement Barometer 2024, 71% of SMEs see the greatest need to digitize in supplier management and 56% in order fulfillment; 33% have no digital processes for supplier qualification. Over 75% report significant additional costs from disrupted supply chains (BME/Onventis Procurement Barometer 2025). AI automation closes that gap: ordering processes, supplier communication and goods receipt inspection run data-driven — in real time, without media breaks.",
+      "In trade, speed, accuracy and transparency decide the margin. Yet most mid-sized companies see the greatest need to digitize in supplier management and order fulfillment — many still have no digital processes for it at all. And disrupted supply chains drive up costs. AI automation closes that gap: ordering processes, supplier communication and goods receipt inspection run data-driven — in real time, without media breaks.",
   },
   feature1: {
     h2: "Orders processed before anyone opens the email.",
@@ -1241,7 +1241,7 @@ const handelSupplyChain: PainPointContent = {
     h2: "Evaluate suppliers. Automatically. Objectively.",
     h3: "All supplier data from goods receipt, quality and complaints — one ongoing, objective score.",
     sub:
-      "Which supplier delivers reliably? Who has rising complaint rates? 80.6% of SMEs see the greatest need to digitize in supplier management — only 25% use a digital platform for it (Procurement Barometer 2025). NEWEDGE aggregates goods receipt, quality inspection and complaints into an ongoing score. You decide on data instead of gut feeling.",
+      "Which supplier delivers reliably? Who has rising complaint rates? Most mid-sized companies see the greatest need to digitize in supplier management — only a fraction use a digital platform for it. NEWEDGE aggregates goods receipt, quality inspection and complaints into an ongoing score. You decide on data instead of gut feeling.",
     bullets: [
       "Automatic supplier scoring from real-time data",
       "Early warning on quality or delivery problems",
@@ -1254,7 +1254,7 @@ const handelSupplyChain: PainPointContent = {
     h2: "Inspect goods receipt — without a clipboard.",
     h3: "Order, delivery note, goods receipt matched automatically — every discrepancy detected instantly.",
     sub:
-      "The delivery note doesn't match the order. The quantity is off. The batch is missing. In a manual process someone notices — or doesn't. NEWEDGE matches order, delivery note and goods receipt automatically and escalates discrepancies straight to the right person. 88.9% of companies see fast onboarding of new suppliers as a growth driver — that only works digitally.",
+      "The delivery note doesn't match the order. The quantity is off. The batch is missing. In a manual process someone notices — or doesn't. NEWEDGE matches order, delivery note and goods receipt automatically and escalates discrepancies straight to the right person. Most companies see fast onboarding of new suppliers as a growth driver — that only works digitally.",
     bullets: [
       "Automatic matching: order vs. delivery note vs. goods receipt",
       "Instant escalation on quantity, quality or batch discrepancies",
@@ -1277,9 +1277,9 @@ const handelSupplyChain: PainPointContent = {
       { k: "Order processing",      ne: "Automatic, in seconds",           alt: "Manual, error-prone" },
       { k: "Supplier evaluation",   ne: "Real-time scoring, data-based",    alt: "Gut feeling, Excel lists" },
       { k: "Goods receipt inspection", ne: "Automatic matching",             alt: "Spot checks, clipboard" },
-      { k: "Data quality",          ne: "Validated end to end",             alt: "Media breaks, typos" },
+      { k: "Data quality",          ne: "Validated throughout",             alt: "Media breaks, typos" },
       { k: "Transparency",          ne: "Real-time dashboard",              alt: "Follow-up questions, callbacks" },
-      { k: "Digital platform",      ne: "Fully integrated",                 alt: "Only 25% of SMEs (BME)" },
+      { k: "Digital platform",      ne: "Fully integrated",                 alt: "Only a handful of firms" },
     ],
   },
   featureCards: {
@@ -1319,7 +1319,7 @@ const handelSupplyChain: PainPointContent = {
     },
     {
       q: "How is the supplier score calculated?",
-      a: "The score aggregates delivery reliability, complaint rate, quality deviations and price compliance from real-time data. According to the BME/Onventis Procurement Barometer 2025, 80.6% of SMEs see the greatest need to digitize here — NEWEDGE closes that gap.",
+      a: "The score aggregates delivery reliability, complaint rate, quality deviations and price compliance from real-time data. This is exactly where most mid-sized companies see the greatest need to digitize — NEWEDGE closes that gap.",
     },
     {
       q: "Can the system be connected to Shopify or WooCommerce for D2C retailers?",
@@ -1347,7 +1347,7 @@ const professionalServices: PainPointContent = {
   seo: {
     title: "AI for consultants, law firms and tax advisors | NEWEDGE",
     description:
-      "AI automation for consultants, law firms and tax advisors: produce reports 70–80% faster, automate client communication, delegate compliance monitoring — without a system switch.",
+      "NEWEDGE automates research, reports and client communication for law firms and consultants — 70–80% faster reports, no system switch, live in 5 business days.",
     canonical: "/en/industrien/professional-services",
   },
   hero: {
@@ -1370,7 +1370,7 @@ const professionalServices: PainPointContent = {
   definition: {
     title: "What is AI automation for professional services?",
     body:
-      "AI agents take over recurring, rule-based tasks: research, document analysis, client communication, report creation, compliance monitoring. Knowledge workers spend 1.8 hours a day searching for and gathering information — over 20% of their working time (McKinsey Global Institute, 2023). Law firms and consultancies with AI automation cut their administrative effort by an average of 35–40% (Deloitte, 2024) — for a five-person consultancy, almost two full working days per week.",
+      "AI agents take over recurring, rule-based tasks: research, document analysis, client communication, report creation, compliance monitoring. Knowledge workers spend nearly two hours a day searching for and gathering information — over a fifth of their working time. Law firms and consultancies with AI automation cut their administrative effort by roughly a third — for a five-person consultancy, almost two full working days per week.",
   },
   feature1: {
     h2: "You advise — but who prepares?",
@@ -1381,7 +1381,7 @@ const professionalServices: PainPointContent = {
       "Automatic data gathering from multiple sources: specialist databases, client documents, public registers",
       "AI-powered pattern recognition and relevance filtering",
       "Configurable dashboards for client-specific insights",
-      "Seamless integration into existing document management systems",
+      "Direct integration into existing document management systems",
     ],
     imageNote: "Visual: AI agent analyzes documents and delivers structured results",
     imageAlt: "AI-powered research and data analysis for professional services",
@@ -1492,7 +1492,7 @@ const professionalServices: PainPointContent = {
     },
     {
       q: "How much time do I actually save?",
-      a: "According to Deloitte (2024), law firms and consultancies reduce their administrative effort through AI automation by an average of 35–40%. For a five-person consultancy, that's almost two full working days per week.",
+      a: "Law firms and consultancies reduce their administrative effort through AI automation by roughly a third. For a five-person consultancy, that's almost two full working days per week.",
     },
     {
       q: "Do I have to switch my existing systems?",
@@ -1508,7 +1508,7 @@ const professionalServices: PainPointContent = {
     },
     {
       q: "Do clients notice that an AI agent is answering?",
-      a: "That's up to you. NEWEDGE communicates transparently as an AI assistant or blends seamlessly into your brand presence.",
+      a: "That's up to you. NEWEDGE communicates transparently as an AI assistant or operates entirely under your own brand.",
     },
     {
       q: "Can NEWEDGE also generate client-specific reports?",
@@ -1530,7 +1530,10 @@ const professionalServices: PainPointContent = {
 
 // Mini-cases (custom posts) — maintained centrally in collections/miniCases.ts,
 // assigned here per use case (map key = primary slug).
-auswahlverfahren.miniCases = miniCasesBySlug["auswahlverfahren"];
+// Auswahlverfahren & Entscheidungsinstanzen zeigen bewusst dieselben 3 Cases
+// (identische Zielgruppe/Thematik: Jury-/Gremiumsentscheidungen) — eine Quelle,
+// zwei Anwendungsfeld-Seiten.
+auswahlverfahren.miniCases = miniCasesBySlug["entscheidungsinstanzen"];
 compliance.miniCases = miniCasesBySlug["compliance"];
 kpiDashboard.miniCases = miniCasesBySlug["kpi-dashboard"];
 kiKundensupport.miniCases = miniCasesBySlug["ki-kundensupport"];

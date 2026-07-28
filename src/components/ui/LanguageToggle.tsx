@@ -2,7 +2,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { switchLocalePath } from "@/utils/localePath";
 
-const VIOLET = "#5658DF";
+const VIOLET = "#CCFF00";
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
 /**
@@ -42,8 +42,8 @@ export const LanguageToggle = ({
         gap: "2px",
         padding: "3px",
         borderRadius: "999px",
-        background: light ? "rgba(255,255,255,0.10)" : "rgba(23,23,46,0.055)",
-        border: `1px solid ${light ? "rgba(255,255,255,0.18)" : "rgba(23,23,46,0.10)"}`,
+        background: light ? "rgba(255,255,255,0.10)" : "rgba(23,23,23,0.055)",
+        border: `1px solid ${light ? "rgba(255,255,255,0.18)" : "rgba(23,23,23,0.10)"}`,
       }}
     >
       {(["de", "en"] as const).map((l) => {
@@ -68,7 +68,7 @@ export const LanguageToggle = ({
               cursor: "pointer",
               transition: "background 0.2s ease-out, color 0.2s ease-out",
               background: active ? VIOLET : "transparent",
-              color: active ? "#fff" : light ? "rgba(255,255,255,0.72)" : "#3A3A47",
+              color: active ? "#171717" : light ? "rgba(255,255,255,0.72)" : "#3A3A47",
             }}
           >
             {l}

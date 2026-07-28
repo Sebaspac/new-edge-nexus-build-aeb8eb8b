@@ -1,22 +1,71 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5LPQ2DT7');</script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9JCE208Q8L"></script>
+    <!-- Google Tag Manager & GA4 — Consent-Gate (DSGVO/TTDSG)
+         Vor der Einwilligung im Cookie-Banner geht KEINE Anfrage an Google.
+         Die Skripte werden erst nachgeladen, wenn der Nutzer Statistik- oder
+         Marketing-Cookies akzeptiert hat; Consent Mode v2 steht bis dahin auf
+         "denied". Der Banner (src/components/CookieConsent.tsx) schreibt die
+         Auswahl nach localStorage und feuert 'cookie-consent-changed'. -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      (function () {
+        var GTM_ID = 'GTM-5LPQ2DT7';
+        var GA_ID = 'G-9JCE208Q8L';
+        var injected = false;
 
-      gtag('config', 'G-9JCE208Q8L');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { window.dataLayer.push(arguments); }
+        window.gtag = gtag;
+
+        // Consent Mode v2: Standard ist Ablehnung — gilt auch für alles,
+        // was später über den GTM-Container nachgeladen wird.
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted'
+        });
+
+        function readConsent() {
+          try {
+            var raw = window.localStorage.getItem('cookie-consent');
+            return raw ? JSON.parse(raw).preferences : null;
+          } catch (e) { return null; }
+        }
+
+        function injectGoogle() {
+          if (injected) return;
+          injected = true;
+          window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var gtm = document.createElement('script');
+          gtm.async = true;
+          gtm.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+          document.head.appendChild(gtm);
+
+          var ga = document.createElement('script');
+          ga.async = true;
+          ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          document.head.appendChild(ga);
+          gtag('js', new Date());
+          gtag('config', GA_ID);
+        }
+
+        function apply(prefs) {
+          if (!prefs) return;
+          gtag('consent', 'update', {
+            ad_storage: prefs.marketing ? 'granted' : 'denied',
+            ad_user_data: prefs.marketing ? 'granted' : 'denied',
+            ad_personalization: prefs.marketing ? 'granted' : 'denied',
+            analytics_storage: prefs.analytics ? 'granted' : 'denied'
+          });
+          if (prefs.analytics || prefs.marketing) injectGoogle();
+        }
+
+        apply(readConsent());
+        window.addEventListener('cookie-consent-changed', function (e) { apply(e.detail); });
+      })();
     </script>
 
     <meta charset="UTF-8" />
@@ -30,9 +79,9 @@
     <!-- description & canonical werden PRO SEITE von SEOHead (react-helmet) gesetzt.
          Hier bewusst KEINE statische canonical/description (die statische canonical="/"
          wäre auf allen Unterseiten falsch und doppelte sich mit Helmet). -->
-    <title>KI Agentur München | Prozessautomatisierung & Marketing | New Edge</title>
-    <meta name="keywords" content="KI Agentur München, Prozessautomatisierung, KI Automatisierung, Marketing Automation, KI für KMU, Digitalisierung Mittelstand, München, Prozessautomatisierung München">
-    <meta name="author" content="New Edge - KI Agentur München für Prozessautomatisierung und Marketing" />
+    <title>Die KI-Abteilung für den Mittelstand | NEWEDGE München</title>
+    <meta name="keywords" content="KI-Abteilung, KI für den Mittelstand, KI-Analyse, Prozessautomatisierung, Cortex, Datenhoheit, DSGVO-konforme KI, München, NEWEDGE">
+    <meta name="author" content="NEWEDGE — die KI-Abteilung für den Mittelstand" />
       
     <!-- Open Graph (Facebook, LinkedIn) -->
     
@@ -40,16 +89,19 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://newedgebrand.com/" />
     <meta property="og:site_name" content="newedgebrand" />
-    <meta property="og:image" content="https://newedgebrand.com/lovable-uploads/198e2b1f-64ac-4570-82fe-278fb98b54ef.png" />
+    <meta property="og:image" content="https://newedgebrand.com/og-default.jpg" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     
     
-    <meta name="twitter:image" content="https://newedgebrand.com/lovable-uploads/198e2b1f-64ac-4570-82fe-278fb98b54ef.png" />
+    <meta name="twitter:image" content="https://newedgebrand.com/og-default.jpg" />
 
-    <!-- Favicon & Fonts -->
-    <link rel="icon" href="/lovable-uploads/954e86a5-f49d-4abb-baf0-c57e233bbae5.png" type="image/png" />
+    <!-- Favicon & App-Icons — erzeugt aus der Wortmarke:
+         python3 scripts/gen-brand-icons.py -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icons/icon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
     
     <!-- Apple/Safari specific meta tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -76,20 +128,29 @@
   
   
   
-  <meta property="og:title" content="KI Agentur München | Prozessautomatisierung & Marketing | New Edge">
-  <meta name="twitter:title" content="KI Agentur München | Prozessautomatisierung & Marketing | New Edge">
-  <meta property="og:description" content="New Edge ist Ihre KI Agentur in München für Prozessautomatisierung, Marketing-Automation und KI-Lösungen für KMU. Jetzt Beratung anfragen!">
-  <meta name="twitter:description" content="New Edge ist Ihre KI Agentur in München für Prozessautomatisierung, Marketing-Automation und KI-Lösungen für KMU. Jetzt Beratung anfragen!">
+  <meta property="og:title" content="Die KI-Abteilung für den Mittelstand | NEWEDGE München">
+  <meta name="twitter:title" content="Die KI-Abteilung für den Mittelstand | NEWEDGE München">
+  <meta property="og:description" content="NEWEDGE baut Ihre eigene KI-Abteilung auf: von der kostenlosen Analyse über Cortex bis zu laufenden Automatisierungen. DSGVO-konform, oft förderfähig.">
+  <meta name="twitter:description" content="NEWEDGE baut Ihre eigene KI-Abteilung auf: von der kostenlosen Analyse über Cortex bis zu laufenden Automatisierungen. DSGVO-konform, oft förderfähig.">
 </head>
 
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5LPQ2DT7"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    
+    <!-- Kein GTM-noscript-iframe: der würde ohne Einwilligung laden und lässt
+         sich nicht per Consent Mode steuern. -->
+
     <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script src="http://localhost:3000/editor.js" defer></script>
+
+    <!-- Visueller Editor nur lokal — im Live-Build würde dieser Aufruf auf dem
+         localhost des BESUCHERS landen (fehlschlagender Request, unter HTTPS
+         zusätzlich eine Mixed-Content-Warnung). -->
+    <script>
+      if (['localhost', '127.0.0.1'].indexOf(location.hostname) !== -1) {
+        var neEditor = document.createElement('script');
+        neEditor.src = 'http://localhost:3000/editor.js';
+        neEditor.defer = true;
+        document.body.appendChild(neEditor);
+      }
+    </script>
   </body>
 </html>

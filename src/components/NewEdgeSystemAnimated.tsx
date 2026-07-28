@@ -8,17 +8,17 @@ import { useLocalized } from "@/hooks/useLocalized";
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 const SERIF: CSSProperties = { fontFamily: OUTFIT, fontWeight: 700 };
 const MONO: CSSProperties = { fontFamily: OUTFIT, fontWeight: 500 };
-const INK_DEEP = "#17172E";
-const VIOLET = "#5658DF";
+const INK_DEEP = "#171717";
+const VIOLET = "#CCFF00";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /* ── Card accent palette (1:1 aus dem Mockup) ──────────── */
-const LAVENDER = "#8476EF";
+const LAVENDER = "#CCFF00";
 const YELLOW = "#FACC15";
 const YELLOW_DK = "#EAB308";
 const CYAN = "#22D3EE";
 const GREEN = "#34D399";
-const VIOLET_GLOW = "#8476EF";
+const VIOLET_GLOW = "#CCFF00";
 
 type IconProps = { still: boolean };
 
@@ -137,7 +137,7 @@ const OwnershipIcon = ({ still }: IconProps) => (
       animate={still ? {} : { opacity: [0.4, 0.85, 0.4], scaleX: [1, 1.12, 1] }}
       transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }} />
     {/* Slot */}
-    <motion.rect x="46" y="48" width="28" height="14" rx="2" fill="#8476EF"
+    <motion.rect x="46" y="48" width="28" height="14" rx="2" fill="#CCFF00"
       style={{ transformOrigin: "60px 55px", transformBox: "view-box" }}
       animate={still ? {} : { opacity: [0.7, 1, 0.7] }}
       transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }} />
@@ -270,7 +270,7 @@ export const NewEdgeSystemAnimated = () => {
       <div aria-hidden style={{
         position: "absolute", inset: 0, pointerEvents: "none",
         backgroundImage:
-          "linear-gradient(rgba(86,88,223,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(86,88,223,0.05) 1px, transparent 1px)",
+          "linear-gradient(rgba(23,23,23,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(23,23,23,0.05) 1px, transparent 1px)",
         backgroundSize: "48px 48px",
         maskImage: "radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 80%)",
         WebkitMaskImage: "radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 80%)",
@@ -303,15 +303,15 @@ export const NewEdgeSystemAnimated = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.55, ease: EASE, delay: i * 0.09 }}
-                whileHover={{ y: -4, borderColor: "rgba(86,88,223,0.4)", boxShadow: "0 12px 32px rgba(86,88,223,0.14)" }}
+                whileHover={{ y: -4, borderColor: "rgba(23,23,23,0.4)", boxShadow: "0 12px 32px rgba(23,23,23,0.14)" }}
                 style={{
                   position: "relative",
                   display: "flex",
                   flexDirection: "column",
                   minHeight: "262px",
                   background: "#FFFFFF",
-                  border: "1px solid rgba(86,88,223,0.14)",
-                  boxShadow: "0 2px 16px rgba(86,88,223,0.06)",
+                  border: "1px solid rgba(23,23,23,0.14)",
+                  boxShadow: "0 2px 16px rgba(23,23,23,0.06)",
                   padding: "20px 18px",
                   clipPath: NOTCH,
                 }}
@@ -319,13 +319,13 @@ export const NewEdgeSystemAnimated = () => {
                 {/* gefaltete Ecke */}
                 <div aria-hidden style={{
                   position: "absolute", top: 0, right: 0, width: "18px", height: "18px",
-                  background: "rgba(86,88,223,0.12)",
+                  background: "rgba(23,23,23,0.12)",
                   clipPath: "polygon(0 0, 100% 100%, 0 100%)",
                 }} />
 
                 {/* Header */}
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
-                  <span style={{ ...MONO, fontSize: "11px", letterSpacing: "0.2em", color: "rgba(23,23,46,0.45)" }}>{c.index}</span>
+                  <span style={{ ...MONO, fontSize: "11px", letterSpacing: "0.2em", color: "rgba(23,23,23,0.45)" }}>{c.index}</span>
                   <motion.span aria-hidden style={{ width: "7px", height: "7px", borderRadius: "50%", background: c.accent, display: "block" }}
                     animate={still ? {} : { scale: [1, 1.4, 1], opacity: [0.6, 0.2, 0.6] }}
                     transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }} />
@@ -338,7 +338,7 @@ export const NewEdgeSystemAnimated = () => {
 
                 {/* Titel */}
                 <p style={{ ...SERIF, fontSize: "14px", color: INK_DEEP, margin: "0 0 4px" }}>{c.title}</p>
-                <p style={{ ...MONO, fontSize: "14px", lineHeight: 1.55, color: "rgba(23,23,46,0.55)", margin: 0 }}>{c.sub}</p>
+                <p style={{ ...MONO, fontSize: "14px", lineHeight: 1.55, color: "rgba(23,23,23,0.55)", margin: 0 }}>{c.sub}</p>
               </motion.div>
             );
             return i < cards.length - 1
@@ -349,12 +349,12 @@ export const NewEdgeSystemAnimated = () => {
 
         {/* Footer */}
         <div style={{ marginTop: "clamp(36px,5vw,56px)" }}>
-          <div aria-hidden style={{ height: "1px", background: "linear-gradient(to right, rgba(86,88,223,0.25), transparent)" }} />
+          <div aria-hidden style={{ height: "1px", background: "linear-gradient(to right, rgba(23,23,23,0.25), transparent)" }} />
           <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", justifyContent: "space-between", paddingTop: "16px" }}>
-            <span style={{ ...MONO, fontSize: "10px", letterSpacing: "0.26em", textTransform: "uppercase", color: "rgba(23,23,46,0.35)" }}>
+            <span style={{ ...MONO, fontSize: "10px", letterSpacing: "0.26em", textTransform: "uppercase", color: "rgba(23,23,23,0.35)" }}>
               {newEdgeSystem.footer.left}
             </span>
-            <span style={{ ...MONO, fontSize: "10px", letterSpacing: "0.26em", textTransform: "uppercase", color: "rgba(23,23,46,0.35)" }}>
+            <span style={{ ...MONO, fontSize: "10px", letterSpacing: "0.26em", textTransform: "uppercase", color: "rgba(23,23,23,0.35)" }}>
               {newEdgeSystem.footer.right}
             </span>
           </div>

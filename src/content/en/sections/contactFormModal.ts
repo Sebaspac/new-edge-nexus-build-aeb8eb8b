@@ -47,6 +47,14 @@ export const contactFormModal = {
     },
   } satisfies Record<string, ContactModalField>,
 
+  /** Pflicht-Einwilligung (DSGVO Art. 6 Abs. 1 lit. a) — Text vor, Link, Text nach. */
+  consent: {
+    before: "I agree that my details may be processed to handle my enquiry. Details in the ",
+    linkLabel: "privacy policy",
+    linkHref: "/impressum#datenschutz",
+    after: ". This consent can be withdrawn at any time.",
+  },
+
   submit: {
     idle: "Send message",
     submitting: "Sending...",

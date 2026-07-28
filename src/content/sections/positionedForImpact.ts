@@ -27,7 +27,7 @@ export interface Stat {
 
 export const positionedForImpact = {
   /** Eyebrow über dem Split-Spread. */
-  eyebrow: "Positioned for Impact, Wie wir arbeiten",
+  eyebrow: "Wie wir arbeiten",
 
   /** Gründer-Portrait (paper-stock) inkl. Bildunterschrift. */
   portrait: {
@@ -47,13 +47,13 @@ export const positionedForImpact = {
 
   /** Fließtext unter dem Zitat. */
   body:
-    "Die meisten Unternehmen optimieren einzelne Bereiche. Wir betrachten das Unternehmen als System. Erst wenn Prozesse, Infrastruktur und KI zusammenspielen, entsteht ein Vorsprung, der bleibt.",
+    "Die meisten Unternehmen optimieren einzelne Bereiche. Wir betrachten das Unternehmen als System. Erst wenn Prozesse, Technik und KI zusammenspielen, entsteht ein Vorsprung, der bleibt.",
 
   /** Stats-Raster (3 Spalten). */
   stats: [
-    { value: "5–150", label: "Mitarbeitende, Sweet Spot" },
+    { value: "5–150", label: "Mitarbeitende — Unternehmen wie Ihres" },
     { value: "30%", label: "Zeit zurück im Tagesgeschäft" },
-    { value: "4x", label: "ROI auf Systemarbeit" },
+    { value: "4x", label: "zahlt sich Ihre Investition aus" },
   ] as Stat[],
 
   /** CTA-Button, der das Founder-Letter-Overlay öffnet. */

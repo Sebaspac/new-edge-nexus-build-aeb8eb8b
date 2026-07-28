@@ -7,7 +7,7 @@ import { useLocalizedStatic } from "@/hooks/useLocalized";
 import { img } from "@/content";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
+const VIOLET = "#CCFF00";
 
 interface FloatingFounderBadgeProps {
   /** Anker, ab dessen Sichtbarkeit der Badge einblendet (z. B. PositionedForImpactSection). */
@@ -75,7 +75,7 @@ export const FloatingFounderBadge = ({ startRef, endRef }: FloatingFounderBadgeP
               background: "#fff",
               borderRadius: "999px",
               padding: "8px 26px 8px 8px",
-              boxShadow: "0 10px 34px rgba(12,12,28,0.35)",
+              boxShadow: "0 10px 34px rgba(13,13,13,0.35)",
             }}
           >
             {/* Violett-Sweep — blendet beim Hover von links nach rechts über die ganze Pill ein */}
@@ -109,13 +109,13 @@ export const FloatingFounderBadge = ({ startRef, endRef }: FloatingFounderBadgeP
             {/* Text — rückt beim Hover nach links, wird auf dem Violett-Sweep weiß */}
             <span className="relative transition-transform duration-300 ease-out group-hover:translate-x-[-44px]">
               <span
-                className="block text-[#17172E] transition-colors duration-300 group-hover:text-white"
+                className="block text-[#171717] transition-colors duration-300"
                 style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "14.5px", lineHeight: 1.25 }}
               >
                 {hero.founderBadge.title}
               </span>
               <span
-                className="block text-[#5B566B] transition-colors duration-300 group-hover:text-white/80"
+                className="block text-[#5E5E5A] transition-colors duration-300 group-hover:text-[#3C3C3C]"
                 style={{ fontFamily: OUTFIT, fontWeight: 400, fontSize: "12.5px", lineHeight: 1.3 }}
               >
                 {hero.founderBadge.subtitle}

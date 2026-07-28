@@ -25,14 +25,14 @@ import {
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
-const INK_DEEP = "#17172E";
-const PAPER = "#F8F5FF";
-const HAIRLINE = "rgba(23,23,46,0.14)";
+const VIOLET = "#CCFF00";
+const INK_DEEP = "#171717";
+const PAPER = "#F2F2F2";
+const HAIRLINE = "rgba(23,23,23,0.14)";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const inputClass =
-  "h-auto rounded-xl border-[1.5px] bg-white px-4 py-3 text-[15px] shadow-none transition-colors focus-visible:outline-none focus-visible:ring-0 focus-visible:border-[#5658DF]";
+  "h-auto rounded-xl border-[1.5px] bg-white px-4 py-3 text-[15px] shadow-none transition-colors focus-visible:outline-none focus-visible:ring-0 focus-visible:border-[#171717]";
 const inputStyle: React.CSSProperties = {
   fontFamily: OUTFIT,
   color: INK_DEEP,
@@ -44,6 +44,11 @@ const Contact = () => {
   // direkt aus dem statischen Fallback, siehe Kommentar in content/pages/contact.ts.
   const contact = useLocalized("kontakt", CONTACT_STATIC, contactEn);
   const cfm = useLocalized("contact-form-modal", CFM_STATIC, contactFormModalEn);
+
+  // Reel: `img()` löst den Medien-Slot auf. Liegt im CMS ein Video, kommt eine
+  // URL zurück; sonst der Slot-Name selbst → dann bleibt das Standbild stehen.
+  const reelUrl = contact.video.src ? img(contact.video.src) : "";
+  const hasReel = !!reelUrl && reelUrl !== contact.video.src;
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
@@ -80,6 +85,7 @@ const Contact = () => {
       company: formData.get("company")?.toString() || "",
       position: formData.get("position")?.toString() || "",
       message: formData.get("message")?.toString() || "",
+      consent: formData.get("consent") === "on",
     };
 
     const validation = validateContactForm(rawData);
@@ -139,21 +145,36 @@ const Contact = () => {
                     background: INK_DEEP,
                   }}
                 >
-                  <img
-                    src={img(contact.video.poster)}
-                    alt={contact.video.posterAlt}
-                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
-                    loading="lazy"
-                  />
+                  {hasReel ? (
+                    /* Im CMS hochgeladenes Reel — Standbild bleibt als poster */
+                    <video
+                      src={reelUrl}
+                      poster={img(contact.video.poster)}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                    />
+                  ) : (
+                    <img
+                      src={img(contact.video.poster)}
+                      alt={contact.video.posterAlt}
+                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                      loading="lazy"
+                    />
+                  )}
                   <div
                     aria-hidden
                     style={{
                       position: "absolute",
                       inset: 0,
-                      background: "linear-gradient(180deg, rgba(16,14,30,0) 55%, rgba(16,14,30,0.92) 100%)",
+                      background: "linear-gradient(180deg, rgba(16,16,16,0) 55%, rgba(16,16,16,0.92) 100%)",
+                      pointerEvents: "none",
                     }}
                   />
-                  {/* Play-Badge — rein visuell, das Video folgt separat */}
+                  {/* Play-Badge nur ohne Video — sobald ein Reel im CMS liegt,
+                      übernehmen die nativen Video-Controls. */}
+                  {!hasReel && (
                   <span
                     aria-hidden
                     style={{
@@ -168,11 +189,12 @@ const Contact = () => {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      boxShadow: "0 8px 22px rgba(86,88,223,0.45)",
+                      boxShadow: "0 8px 22px rgba(23,23,23,0.45)",
                     }}
                   >
-                    <Play fill="#fff" color="#fff" style={{ width: "18px", height: "18px", marginLeft: "2px" }} />
+                    <Play fill={INK_DEEP} color={INK_DEEP} style={{ width: "18px", height: "18px", marginLeft: "2px" }} />
                   </span>
+                  )}
                   {/* Caption — kleines Overlay auf dunklem Scrim, unten im Bild */}
                   <p
                     style={{
@@ -215,7 +237,7 @@ const Contact = () => {
                   style={{
                     fontFamily: OUTFIT,
                     fontWeight: 400,
-                    color: "#3C3C47",
+                    color: "#3C3C3C",
                     marginBottom: "10px",
                     maxWidth: "48ch",
                   }}
@@ -285,6 +307,27 @@ const Contact = () => {
                       style={inputStyle}
                     />
                     {fieldErrors.message && <p className="text-sm text-destructive">{fieldErrors.message}</p>}
+                  </div>
+
+                  {/* Pflicht-Einwilligung (DSGVO) — der Service prüft sie ebenfalls */}
+                  <div className="space-y-2" style={{ paddingTop: "4px" }}>
+                    <label htmlFor="consent" className="flex items-start gap-2.5 cursor-pointer">
+                      <input
+                        id="consent"
+                        name="consent"
+                        type="checkbox"
+                        required
+                        className="mt-[3px] h-4 w-4 shrink-0 cursor-pointer accent-[#171717]"
+                      />
+                      <span style={{ fontFamily: OUTFIT, fontSize: "13px", lineHeight: 1.5, color: "rgba(23,23,23,0.72)" }}>
+                        {cfm.consent.before}
+                        <a href={cfm.consent.linkHref} style={{ color: INK_DEEP, textDecoration: "underline" }}>
+                          {cfm.consent.linkLabel}
+                        </a>
+                        {cfm.consent.after}
+                      </span>
+                    </label>
+                    {fieldErrors.consent && <p className="text-sm text-destructive">{fieldErrors.consent}</p>}
                   </div>
 
                   {formStatus && (

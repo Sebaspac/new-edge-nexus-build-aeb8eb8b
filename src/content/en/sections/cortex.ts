@@ -1,72 +1,75 @@
 /**
- * Section-Text: Cortex (Home)
+ * Section-Text: Local AI infrastructure (Home) — EN mirror of sections/cortex.ts
  * --------------------------------------------------------------
- * "Das Betriebssystem Ihrer KI-Abteilung" — Hub-Diagramm mit
- * Heute/Ergebnis-Vergleich (Komponente `CortexSection`).
- * Reiner Text — Layout-Koordinaten, Farben und SVG-Geometrie
- * bleiben in der Komponente. Alle Felder sind serialisierbar
- * (CMS-tauglich): nur Strings/Arrays — kein JSX, keine Funktionen.
- * Strapi-Mapping: Single Type `cortex` (bzw. Teil der Home-Page).
+ * "Your AI. Your servers. Your data." — hub diagram with feature
+ * list (component `CortexSection`).
+ *
+ * Content focus (plan change 2026-07-28): the module no longer explains
+ * Cortex as a product only, but the LOCAL INFRASTRUCTURE as a whole —
+ * everything needed to run AI models in-house. What is built on top of
+ * it is covered by the following module (`builtOnTop`).
+ *
+ * Text only — layout coordinates, colours and SVG geometry stay in the
+ * component. All fields are serialisable (CMS-ready): strings/arrays
+ * only — no JSX, no functions.
+ * Strapi mapping: single type `cortex-en` (or part of the home page).
  * --------------------------------------------------------------
  */
 
-/** Beschrifteter Knoten im Hub-Diagramm (Label = Inhalt, Position = Layout). */
-export interface CortexSpoke {
-  label: string;
-}
+import type { CortexSpoke } from "../../sections/cortex";
 
 export const cortex = {
-  /** Section-`aria-label`. */
-  ariaLabel: "Cortex, the operating system of your AI department",
+  /** Section `aria-label`. */
+  ariaLabel: "Local AI infrastructure — your AI runs in-house",
 
-  eyebrow: "Cortex",
-  heading: "The operating system of your AI department.",
+  eyebrow: "Local infrastructure",
+  heading: "Your AI. Your servers. Your data.",
   subtitle:
-    "From station 02 on, your AI gets a place where it's governed — before it scales.",
+    "We build the complete infrastructure that runs capable AI models inside your own company — GDPR-compliant, without a single record leaving the building.",
 
-  /** Linke Mini-Spalte: Status quo. */
+  /** Left mini column: status quo. */
   today: {
-    label: "Today you usually have",
+    label: "Today you often find",
     items: [
-      "ChatGPT & Copilot",
-      "Standalone tools",
-      "Shadow IT",
-      "Unclear ownership",
+      "Company data in ChatGPT & Copilot",
+      "Point tools without control",
+      "Tool sprawl (shadow IT)",
+      "Unresolved GDPR questions",
     ],
   },
 
-  /** Rechte Mini-Spalte: Zielzustand. */
+  /** Right mini column: target state (= feature list titles). */
   results: {
     label: "The result",
     items: [
-      "Transparency over AI usage",
-      "GDPR-compliant infrastructure",
-      "Central control",
-      "A foundation for automation",
+      "Your data never leaves the building",
+      "Legally sound instead of grey area",
+      "One access point for every employee",
+      "The foundation for everything else",
     ],
   },
 
-  /** Erklärungs-Absatz unter dem Divider. */
+  /** Explanatory paragraph below the divider. */
   body:
-    "Cortex is the central entry point for AI in your company: employees get productive AI. You keep control over usage, processes and automation.",
+    "From hardware to models to access rights: we provide everything your company needs to use AI productively — while keeping control over data, access and cost.",
 
-  /** Text-Button (scrollt zur CTA-Section). */
-  cta: "Discover Cortex →",
+  /** Text button (scrolls to the CTA section). */
+  cta: "Explore the infrastructure →",
 
-  /** Hub-Diagramm. */
+  /** Hub diagram. */
   diagram: {
-    /** SVG-`aria-label`. */
+    /** SVG `aria-label`. */
     ariaLabel:
-      "Cortex connects people, data, processes, agents and governance",
-    /** Beschriftungen der äußeren Knoten (Reihenfolge = Layout-Reihenfolge). */
+      "The local infrastructure connects people, data, processes, AI assistants and control",
+    /** Labels of the outer nodes (order = layout order). */
     spokes: [
       { label: "PEOPLE" },
       { label: "DATA" },
       { label: "PROCESSES" },
-      { label: "AGENTS" },
-      { label: "GOVERNANCE" },
+      { label: "AI ASSISTANTS" },
+      { label: "CONTROL" },
     ] as CortexSpoke[],
-    /** Zentraler Knoten. */
+    /** Central node. */
     centerLabel: "CORTEX",
     centerSublabel: "CENTRAL LAYER",
   },

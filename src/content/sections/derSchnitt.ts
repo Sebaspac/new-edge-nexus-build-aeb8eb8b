@@ -55,7 +55,7 @@ export const derSchnitt = {
       "Klare Verantwortlichkeiten",
       "Transparente Daten",
       "KI als tägliches Werkzeug",
-      "Skalierbare Infrastruktur",
+      "Technik, die mitwächst",
     ],
   } satisfies SchnittColumn,
 

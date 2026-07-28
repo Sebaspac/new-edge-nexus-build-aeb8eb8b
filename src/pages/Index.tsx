@@ -2,8 +2,8 @@ import SEOHead from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { HeroSection } from "../components/HeroSection";
 import { StatementStatsSection } from "@/components/StatementStatsSection";
+import { DiamondModelSection } from "@/components/DiamondModelSection";
 import { PositionedForImpactSection } from "../components/PositionedForImpactSection";
-import { HorizontalScrollSection } from "../components/HorizontalScrollSection";
 import { TickerScrollSection } from "../components/TickerScrollSection";
 import { AiVoicesSection } from "@/components/AiVoicesSection";
 import { ThreeStepsCTA } from "@/components/ThreeStepsCTA";
@@ -11,6 +11,7 @@ import { VideoShowcaseSection } from "@/components/VideoShowcaseSection";
 import { TeamSupportSection } from "@/components/TeamSupportSection";
 import { CaseSpotlightSection } from "@/components/CaseSpotlightSection";
 import { CortexSection } from "@/components/CortexSection";
+import { BuiltOnTopSection } from "@/components/BuiltOnTopSection";
 import { EmbeddedAI } from "@/components/EmbeddedAI";
 import { DerSchnitt } from "@/components/DerSchnitt";
 import { FloatingFounderBadge } from "@/components/FloatingFounderBadge";
@@ -37,6 +38,11 @@ import { useHomeContent } from "@/hooks/useHomeContent";
 const Footer = lazy(() => import("@/components/Footer").then((module) => ({
   default: module.Footer
 })));
+
+/** Temporärer Schalter: Case-Spotlight-Sektion auf der Homepage aus-/einblenden,
+    ohne Komponente oder Content-Layer (caseSpotlight.ts, miniCases.ts) zu ändern. */
+const SHOW_CASE_SPOTLIGHT = false;
+
 const Index = () => {
   const sessionStorageSafe = safeSessionStorage();
   const { t, language } = useLanguage();
@@ -44,6 +50,8 @@ const Index = () => {
 
   // Trigger-Anker für den schwebenden Founder-Badge: ein-/ausgeblendet zwischen
   // PositionedForImpactSection und der TeamSupportSection ("Ihr Team").
+  // Founder-Badge startet bereits beim „Externer Head of AI"-Modul
+  const embeddedAiSectionRef = useRef<HTMLElement>(null);
   const impactSectionRef = useRef<HTMLElement>(null);
   const teamSectionRef = useRef<HTMLElement>(null);
 
@@ -124,60 +132,29 @@ const Index = () => {
         <HeroSection />
         <StatementStatsSection />
 
-        {/* All post-hero sections — ein durchgehendes „Magazin": Papier + Spaltenraster */}
-        <div
-          style={{
-            position: "relative",
-            background: "#F8F5FF", // helllila — Magazin-Grundton, einheitlich mit ganzer Website
-          }}
-        >
-          {/* ── Editorial-Hintergrund: 12-Spalten-Raster + dezenter Marken-Schimmer (statisch) ── */}
-          <div aria-hidden style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none", overflow: "hidden" }}>
-            {/* Sehr feiner Marken-Schimmer in den Ecken — gibt Tiefe ohne Bewegung */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background: [
-                  "radial-gradient(ellipse 60% 38% at 100% 0%, rgba(86,88,223,0.05) 0%, transparent 55%)",
-                  "radial-gradient(ellipse 55% 42% at 0% 100%, rgba(132,118,239,0.04) 0%, transparent 55%)",
-                ].join(", "),
-              }}
-            />
-            {/* Spaltenspiegel: 12 feine vertikale Linien, an der Inhaltsbreite ausgerichtet */}
-            <div className="h-full w-full flex justify-center">
-              <div className="w-full max-w-[1280px] px-4 sm:px-6 lg:px-8 h-full">
-                <div
-                  style={{
-                    height: "100%",
-                    backgroundImage:
-                      "linear-gradient(to right, rgba(23,23,46,0.07) 0 1px, transparent 1px)",
-                    backgroundSize: "calc(100% / 12) 100%",
-                    borderRight: "1px solid rgba(23,23,46,0.07)",
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-
-          <div style={{ position: "relative", zIndex: 1 }}>
+        {/* All post-hero sections — einheitlicher Seiten-Hintergrund, kein eigener Ton mehr */}
+        <div>
+          <div>
             {/* 02 — Lila Marquee, direkt nach den Kennzahlen */}
             <TickerScrollSection />
 
-            {/* 03 — Was wir machen: externer Head of AI + Reise zur KI-Abteilung */}
-            <EmbeddedAI />
+            {/* 02b — KI-Diamant-Modell: Aus Pyramide wird Diamant (nach dem Lime/Gelb-Ticker) */}
+            <DiamondModelSection />
 
-            {/* 04 — Cortex: das Betriebssystem der KI-Abteilung */}
+            {/* 03 — Was wir machen: externer Head of AI + Reise zur KI-Abteilung */}
+            <EmbeddedAI sectionRef={embeddedAiSectionRef} />
+
+            {/* 04 — Lokale Infrastruktur: das Fundament (Cortex-Hub) */}
             <CortexSection />
 
-            {/* 04 — Case-Spotlight: reales Projekt (BMP) */}
-            <CaseSpotlightSection />
+            {/* 04b — Darauf aufgebaut: Firmen-GPT, Agenten, Prozesse, Dashboards */}
+            <BuiltOnTopSection />
+
+            {/* 04 — Case-Spotlight: reales Projekt (BMP) — temporär ausgeblendet */}
+            {SHOW_CASE_SPOTLIGHT && <CaseSpotlightSection />}
 
             {/* 05 — Positioned for Impact: Wie wir arbeiten */}
             <PositionedForImpactSection sectionRef={impactSectionRef} />
-
-            {/* 06 — Unser Prozess: So entsteht eine KI-Abteilung */}
-            <HorizontalScrollSection />
 
             {/* 07 — Ihr Team: ein Ansprechpartner, eine ganze Agentur */}
             <TeamSupportSection sectionRef={teamSectionRef} />
@@ -203,7 +180,7 @@ const Index = () => {
         </Suspense>
 
         {/* Schwebender Founder-CTA — nur zwischen den beiden Trigger-Sections sichtbar */}
-        <FloatingFounderBadge startRef={impactSectionRef} endRef={teamSectionRef} />
+        <FloatingFounderBadge startRef={embeddedAiSectionRef} endRef={teamSectionRef} />
 
         {/* Cookie Consent */}
         <CookieConsent />

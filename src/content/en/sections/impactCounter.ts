@@ -27,9 +27,9 @@ export const impactCounter = {
   eyebrow: "NEWEDGE by the numbers",
 
   metrics: [
-    { prefix: "5–", value: 150, label: "Employees in the sweet spot" },
+    { prefix: "5–", value: 150, label: "Employees — companies like yours" },
     { value: 30, suffix: " %", label: "Time back in day-to-day work" },
-    { value: 4, suffix: "×", label: "ROI on systems work" },
+    { value: 4, suffix: "×", label: "your investment pays off" },
     { value: 50, suffix: "+", label: "Companies supported" },
   ] as Metric[],
 };

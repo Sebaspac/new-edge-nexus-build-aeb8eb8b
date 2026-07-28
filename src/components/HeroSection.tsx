@@ -10,9 +10,9 @@ import { img } from "@/content";
 import { useHomeSection } from "@/hooks/useHomeContent";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
-const INK_DEEP = "#17172E";
-const PAPER = "#F8F5FF";
+const VIOLET = "#CCFF00";
+const INK_DEEP = "#171717";
+const PAPER = "#F2F2F2";
 const R = 40; // Eck-Radius der Video-Canvas
 /** Radius der einen freien Panel-Ecke (oben rechts) — dort hebt sich das Papier großzügig ins Video. */
 const PANEL_R = 88;
@@ -25,9 +25,9 @@ const GRAIN =
     (Video wirkt vertieft) + 1px Kantenlicht oben (Papier-Bevel). */
 const PANEL_SHADOW = [
   "inset 0 1.5px 0 rgba(255,255,255,0.6)",
-  "0 -12px 44px -22px rgba(23,23,46,0.42)",
-  "16px 0 44px -22px rgba(23,23,46,0.36)",
-  "0 0 22px -10px rgba(23,23,46,0.24)",
+  "0 -12px 44px -22px rgba(23,23,23,0.42)",
+  "16px 0 44px -22px rgba(23,23,23,0.36)",
+  "0 0 22px -10px rgba(23,23,23,0.24)",
 ].join(", ");
 
 /** Ambient laufendes YouTube-Video als Canvas-Hintergrund (stumm, geloopt, ohne Controls). */
@@ -94,7 +94,7 @@ export const HeroSection = () => {
         textWrap: "balance",
       }}
     >
-      {nbHyphen(hero.headline.line1)} <span style={{ color: VIOLET }}>{nbHyphen(hero.headline.line2)}</span>
+      {nbHyphen(hero.headline.line1)} <span className="edge-mark">{nbHyphen(hero.headline.line2)}</span>
     </h1>
   );
 
@@ -124,7 +124,7 @@ export const HeroSection = () => {
               aspectRatio: "16 / 10",
               borderRadius: "24px",
               overflow: "hidden",
-              background: "#0C0C1C",
+              background: "#0D0D0D",
             }}
           >
             <AmbientVideo youtubeId={hero.video.youtubeId} title={hero.video.title} />
@@ -178,7 +178,7 @@ export const HeroSection = () => {
               minHeight: "540px",
               borderRadius: `${R}px`,
               overflow: "hidden",
-              background: "#0C0C1C",
+              background: "#0D0D0D",
             }}
           >
             <AmbientVideo youtubeId={hero.video.youtubeId} title={hero.video.title} />
@@ -201,7 +201,7 @@ export const HeroSection = () => {
                 background: "#fff",
                 borderRadius: "999px",
                 padding: "8px 26px 8px 8px",
-                boxShadow: "0 10px 34px rgba(12,12,28,0.35)",
+                boxShadow: "0 10px 34px rgba(13,13,13,0.35)",
               }}
             >
               {/* Violett-Sweep — blendet beim Hover von links nach rechts über die ganze Pill ein */}
@@ -236,13 +236,13 @@ export const HeroSection = () => {
               <span className="relative transition-transform duration-300 ease-out group-hover:translate-x-[-44px]">
                 {/* Ink im Ruhezustand, auf dem Violett-Sweep wird der Text weiß */}
                 <span
-                  className="block text-[#17172E] transition-colors duration-300 group-hover:text-white"
+                  className="block text-[#171717] transition-colors duration-300"
                   style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "14.5px", lineHeight: 1.25 }}
                 >
                   {hero.founderBadge.title}
                 </span>
                 <span
-                  className="block text-[#5B566B] transition-colors duration-300 group-hover:text-white/80"
+                  className="block text-[#5E5E5A] transition-colors duration-300 group-hover:text-[#3C3C3C]"
                   style={{ fontFamily: OUTFIT, fontWeight: 400, fontSize: "12.5px", lineHeight: 1.3 }}
                 >
                   {hero.founderBadge.subtitle}
@@ -268,7 +268,7 @@ export const HeroSection = () => {
                 background: PAPER,
                 clipPath: "url(#heroPanelWave)",
                 WebkitClipPath: "url(#heroPanelWave)",
-                filter: "drop-shadow(14px 0 34px rgba(23,23,46,0.30)) drop-shadow(0 -10px 30px rgba(23,23,46,0.22))",
+                filter: "drop-shadow(14px 0 34px rgba(23,23,23,0.30)) drop-shadow(0 -10px 30px rgba(23,23,23,0.22))",
                 willChange: "transform, opacity",
                 padding:
                   "clamp(36px, 4.4vh, 52px) clamp(72px, 6.5vw, 108px) clamp(34px, 4vh, 48px) clamp(40px, 3.6vw, 60px)",

@@ -26,6 +26,12 @@ const Logos3 = ({
   logos = [],
   className,
 }: Logos3Props) => {
+  // Genug Wiederholungen, damit der Track bei jeder Scroll-Position gefuellt
+  // bleibt (sonst reisst die Endlosschleife bei wenigen Logos sichtbar ab).
+  const loopedLogos = logos.length > 0
+    ? Array.from({ length: 4 }, (_, i) => logos.map((logo) => ({ ...logo, key: `${logo.id}-${i}` }))).flat()
+    : [];
+
   return (
     <section className={className}>
       {heading && (
@@ -47,10 +53,10 @@ const Logos3 = ({
               }),
             ]}
           >
-            <CarouselContent className="-ml-4">
-              {logos.map((logo) => (
+            <CarouselContent className="-ml-4 justify-center">
+              {loopedLogos.map((logo) => (
                 <CarouselItem
-                  key={logo.id}
+                  key={logo.key}
                   className="basis-1/4 md:basis-1/5 lg:basis-1/6 pl-4"
                 >
                   <div className="flex items-center justify-center h-12">

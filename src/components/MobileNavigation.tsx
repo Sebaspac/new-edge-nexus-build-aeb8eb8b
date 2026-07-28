@@ -14,11 +14,11 @@ import { nav as navEn } from "@/content/en/sections/nav";
 import { useLocalized } from "@/hooks/useLocalized";
 
 /* ── NEWEDGE CI tokens (Mobile-Menü, Rebrush 2026-07) ── */
-const VIOLET = "#5658DF";
-const INK_DEEP = "#17172E";
-const INK = "#3C3C47";
-const PAPER = "#F8F5FF";
-const HAIRLINE = "rgba(86,88,223,0.14)";
+const VIOLET = "#CCFF00";
+const INK_DEEP = "#171717";
+const INK = "#3C3C3C";
+const PAPER = "#F2F2F2";
+const HAIRLINE = "rgba(204,255,0,0.14)";
 
 
 interface MobileNavigationProps {
@@ -77,14 +77,14 @@ export const MobileNavigation = ({
           backdropFilter: 'blur(24px) saturate(1.8)',
           WebkitBackdropFilter: 'blur(24px) saturate(1.8)',
           border: '1px solid rgba(255,255,255,0.7)',
-          boxShadow: '0 8px 32px rgba(23,23,46,0.12), inset 0 1px 0 rgba(255,255,255,0.8)',
+          boxShadow: '0 8px 32px rgba(23,23,23,0.12), inset 0 1px 0 rgba(255,255,255,0.8)',
         }}
       >
         <div className="flex items-center justify-between w-full relative">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="flex items-center gap-2.5">
-              <img src={img(nav.logo.src)} alt={nav.logo.alt} className={`transition-all duration-500 ${isScrolled ? 'h-7' : 'h-8'} w-auto`} />
+              <img src={img(nav.logo.src)} alt={nav.logo.alt} className={`edge-mark-static transition-all duration-500 ${isScrolled ? 'h-7' : 'h-8'} w-auto`} />
             </motion.div>
           </Link>
 
@@ -97,7 +97,7 @@ export const MobileNavigation = ({
                   <button
                     key={filter.key}
                     onClick={() => onFilterChange?.(filter.key)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider transition-all duration-300 ${isActive ? 'bg-[#5658DF] text-white' : 'text-[#17172E]/60 hover:text-[#17172E] hover:bg-[#17172E]/5'}`}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider transition-all duration-300 ${isActive ? 'bg-[#CCFF00] text-[#171717]' : 'text-[#171717]/60 hover:text-[#171717] hover:bg-[#171717]/5'}`}
                   >
                     {filter.label}
                   </button>
@@ -122,25 +122,25 @@ export const MobileNavigation = ({
                 {/* Invisible bridge to maintain hover */}
                 <div className="absolute -top-5 left-0 right-0 h-5" />
 
-                <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(24px) saturate(1.8)', WebkitBackdropFilter: 'blur(24px) saturate(1.8)', border: '1px solid rgba(23,23,46,0.08)', boxShadow: '0 25px 80px -12px rgba(23,23,46,0.25)' }}>
+                <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(24px) saturate(1.8)', WebkitBackdropFilter: 'blur(24px) saturate(1.8)', border: '1px solid rgba(23,23,23,0.08)', boxShadow: '0 25px 80px -12px rgba(23,23,23,0.25)' }}>
                   <div className="grid grid-cols-12 gap-0">
 
                     {/* Pain Points Column */}
                     <div className="col-span-4 p-7">
                       <div className="mb-5">
-                        <p className="font-bold uppercase tracking-[0.04em] text-[#5658DF]" style={{ fontFamily: "'Outfit', sans-serif", fontSize: "14px" }}>
+                        <p className="font-bold uppercase tracking-[0.04em] text-[#171717]" style={{ fontFamily: "'Outfit', sans-serif", fontSize: "14px" }}>
                           {nav.megaMenu.painPointsHeading}
                         </p>
-                        <div className="mt-2 h-px bg-gradient-to-r from-[#5658DF]/40 to-transparent" />
+                        <div className="mt-2 h-px bg-gradient-to-r from-[#CCFF00]/40 to-transparent" />
                       </div>
                       <div className="space-y-0.5">
                         {nav.painPoints.map((item) => (
                           <Link
                             key={item.to}
                             to={item.to}
-                            className="flex items-center gap-3 py-2.5 px-2 rounded-lg text-[13px] text-[#3C3C47] hover:text-[#17172E] hover:bg-[#5658DF]/[0.07] transition-all group/item"
+                            className="flex items-center gap-3 py-2.5 px-2 rounded-lg text-[13px] text-[#3C3C3C] hover:text-[#171717] hover:bg-[#CCFF00]/[0.07] transition-all group/item"
                           >
-                            <Icon name={item.icon} className="w-4 h-4 text-[#5658DF]/40 group-hover/item:text-[#5658DF] transition-colors shrink-0" />
+                            <Icon name={item.icon} className="w-4 h-4 text-[#171717]/40 group-hover/item:text-[#171717] transition-colors shrink-0" />
                             {item.label}
                           </Link>
                         ))}
@@ -148,21 +148,21 @@ export const MobileNavigation = ({
                     </div>
 
                     {/* Industrien Column */}
-                    <div className="col-span-4 p-7 border-x border-[#17172E]/[0.06]">
+                    <div className="col-span-4 p-7 border-x border-[#171717]/[0.06]">
                       <div className="mb-5">
-                        <p className="font-bold uppercase tracking-[0.04em] text-[#5658DF]" style={{ fontFamily: "'Outfit', sans-serif", fontSize: "14px" }}>
+                        <p className="font-bold uppercase tracking-[0.04em] text-[#171717]" style={{ fontFamily: "'Outfit', sans-serif", fontSize: "14px" }}>
                           {nav.megaMenu.industrienHeading}
                         </p>
-                        <div className="mt-2 h-px bg-gradient-to-r from-[#5658DF]/40 to-transparent" />
+                        <div className="mt-2 h-px bg-gradient-to-r from-[#CCFF00]/40 to-transparent" />
                       </div>
                       <div className="space-y-0.5">
                         {nav.industrien.map((item) => (
                           <Link
                             key={item.to}
                             to={item.to}
-                            className="flex items-center gap-3 py-2.5 px-2 rounded-lg text-[13px] text-[#3C3C47] hover:text-[#17172E] hover:bg-[#5658DF]/[0.07] transition-all group/item"
+                            className="flex items-center gap-3 py-2.5 px-2 rounded-lg text-[13px] text-[#3C3C3C] hover:text-[#171717] hover:bg-[#CCFF00]/[0.07] transition-all group/item"
                           >
-                            <Icon name={item.icon} className="w-4 h-4 text-[#5658DF]/40 group-hover/item:text-[#5658DF] transition-colors shrink-0" />
+                            <Icon name={item.icon} className="w-4 h-4 text-[#171717]/40 group-hover/item:text-[#171717] transition-colors shrink-0" />
                             {item.label}
                           </Link>
                         ))}
@@ -170,28 +170,28 @@ export const MobileNavigation = ({
                     </div>
 
                     {/* Featured Case Column */}
-                    <div className="col-span-4 p-7 bg-gradient-to-br from-[#5658DF]/[0.05] to-transparent">
+                    <div className="col-span-4 p-7 bg-gradient-to-br from-[#CCFF00]/[0.05] to-transparent">
                       <div className="mb-5">
-                        <p className="font-bold uppercase tracking-[0.04em] text-[#5658DF]" style={{ fontFamily: "'Outfit', sans-serif", fontSize: "14px" }}>
+                        <p className="font-bold uppercase tracking-[0.04em] text-[#171717]" style={{ fontFamily: "'Outfit', sans-serif", fontSize: "14px" }}>
                           {nav.megaMenu.featuredHeading}
                         </p>
-                        <div className="mt-2 h-px bg-gradient-to-r from-[#5658DF]/40 to-transparent" />
+                        <div className="mt-2 h-px bg-gradient-to-r from-[#CCFF00]/40 to-transparent" />
                       </div>
                       <Link to={nav.featured.to} className="block group/card">
-                        <div className="aspect-[4/3] rounded-xl bg-gradient-to-br from-[#5658DF]/15 to-[#17172E]/10 border border-[#17172E]/10 mb-4 flex items-end p-3 group-hover/card:border-[#5658DF]/40 transition-all overflow-hidden relative">
+                        <div className="aspect-[4/3] rounded-xl bg-gradient-to-br from-[#CCFF00]/15 to-[#171717]/10 border border-[#171717]/10 mb-4 flex items-end p-3 group-hover/card:border-[#CCFF00]/40 transition-all overflow-hidden relative">
                           <img
                             src={img(nav.featured.image.src)}
                             alt={nav.featured.image.alt}
                             className="absolute inset-0 w-full h-full object-cover object-[25%_20%] opacity-90 group-hover/card:opacity-100 transition-opacity"
                           />
                         </div>
-                        <p className="font-semibold text-[#17172E] mb-1.5 group-hover/card:text-[#5658DF] transition-colors" style={{ fontFamily: "'Outfit', sans-serif", fontSize: "14px" }}>
+                        <p className="font-semibold text-[#171717] mb-1.5" style={{ fontFamily: "'Outfit', sans-serif", fontSize: "14px" }}>
                           {nav.featured.title}
                         </p>
-                        <p className="text-[#3C3C47]/70 leading-relaxed mb-3" style={{ fontFamily: "'Outfit', sans-serif", fontSize: "14px" }}>
+                        <p className="text-[#3C3C3C]/70 leading-relaxed mb-3" style={{ fontFamily: "'Outfit', sans-serif", fontSize: "14px" }}>
                           {nav.featured.desc}
                         </p>
-                        <span className="text-[12px] font-semibold text-[#5658DF] transition-colors inline-flex items-center gap-1" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                        <span className="text-[12px] font-semibold text-[#171717] transition-colors inline-flex items-center gap-1" style={{ fontFamily: "'Outfit', sans-serif" }}>
                           {nav.featured.cta}
                         </span>
                       </Link>
@@ -213,10 +213,10 @@ export const MobileNavigation = ({
               <div className="absolute top-full right-0 mt-2 w-56 opacity-0 invisible group-hover/comp:opacity-100 group-hover/comp:visible transition-all duration-300 group-hover/comp:delay-75 z-[60]">
                 {/* Invisible bridge */}
                 <div className="absolute -top-3 left-0 right-0 h-3" />
-                <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(24px) saturate(1.8)', WebkitBackdropFilter: 'blur(24px) saturate(1.8)', border: '1px solid rgba(23,23,46,0.08)', boxShadow: '0 25px 60px -12px rgba(23,23,46,0.25)' }}>
+                <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(24px) saturate(1.8)', WebkitBackdropFilter: 'blur(24px) saturate(1.8)', border: '1px solid rgba(23,23,23,0.08)', boxShadow: '0 25px 60px -12px rgba(23,23,23,0.25)' }}>
                   <div className="py-2">
                     {nav.company.links.map(({ to, label }) => (
-                      <Link key={to} to={to} className="flex items-center gap-3 px-5 py-3 text-[13px] text-[#3C3C47] hover:text-[#17172E] hover:bg-[#5658DF]/[0.07] transition-all" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                      <Link key={to} to={to} className="flex items-center gap-3 px-5 py-3 text-[13px] text-[#3C3C3C] hover:text-[#171717] hover:bg-[#CCFF00]/[0.07] transition-all" style={{ fontFamily: "'Outfit', sans-serif" }}>
                         {label}
                       </Link>
                     ))}
@@ -232,7 +232,7 @@ export const MobileNavigation = ({
               className="group relative inline-flex items-center gap-2.5 overflow-hidden transition-transform duration-200 hover:scale-[1.03]"
               style={{
                 // Ruhezustand: derselbe Ink-Verlauf wie die Footer-Karte (analog Hero-CTA)
-                background: "linear-gradient(160deg, #1D1B38 0%, #17172E 45%, #100E1E 100%)",
+                background: "linear-gradient(160deg, #1F1F1F 0%, #171717 45%, #101010 100%)",
                 color: "#ffffff",
                 border: "none",
                 borderRadius: "999px",
@@ -249,23 +249,23 @@ export const MobileNavigation = ({
               <span
                 aria-hidden
                 className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-                style={{ background: "#5658DF" }}
+                style={{ background: "#CCFF00" }}
               />
-              <span style={{ position: "relative" }}>{nav.cta.label}</span>
+              <span className="transition-colors duration-200 group-hover:text-[#171717]" style={{ position: "relative" }}>{nav.cta.label}</span>
               <span
                 style={{
                   position: "relative",
                   width: "28px",
                   height: "28px",
                   borderRadius: "50%",
-                  background: "#5658DF",
+                  background: "#CCFF00",
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
                   flexShrink: 0,
                 }}
               >
-                <ArrowUpRight style={{ width: "14px", height: "14px", color: "#fff" }} />
+                <ArrowUpRight style={{ width: "14px", height: "14px", color: INK_DEEP }} />
               </span>
               {/* Kleiner Edge-Riss in der Lücke zwischen Label und Kreis — berührt keine Buchstaben */}
               <span
@@ -288,19 +288,19 @@ export const MobileNavigation = ({
           backdropFilter: 'blur(24px) saturate(1.8)',
           WebkitBackdropFilter: 'blur(24px) saturate(1.8)',
           border: '1px solid rgba(255,255,255,0.7)',
-          boxShadow: '0 8px 32px rgba(23,23,46,0.12), inset 0 1px 0 rgba(255,255,255,0.8)',
+          boxShadow: '0 8px 32px rgba(23,23,23,0.12), inset 0 1px 0 rgba(255,255,255,0.8)',
         }}
       >
         <div className="flex items-center justify-between">
           <Link to="/" onClick={handleLinkClick} className="flex items-center">
             <motion.div whileTap={{ scale: 0.98 }} className="flex items-center gap-2">
-              <img src={img(nav.logo.src)} alt={nav.logo.alt} className="h-7 w-auto" />
+              <img src={img(nav.logo.src)} alt={nav.logo.alt} className="edge-mark-static h-7 w-auto" />
             </motion.div>
           </Link>
           <motion.button
             whileTap={{ scale: 0.92 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="text-[#17172E] z-50 relative min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full active:bg-[#5658DF]/10 transition-colors"
+            className="text-[#171717] z-50 relative min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full active:bg-[#CCFF00]/10 transition-colors"
             aria-label={nav.mobile.toggleAria}
             aria-expanded={isOpen}
           >
@@ -320,7 +320,7 @@ export const MobileNavigation = ({
               transition={{ duration: reduceMotion ? 0 : 0.2 }}
               onClick={() => setIsOpen(false)}
               className="fixed inset-0 z-40 lg:hidden"
-              style={{ background: "rgba(16,14,30,0.5)", backdropFilter: "blur(4px)", WebkitBackdropFilter: "blur(4px)" }}
+              style={{ background: "rgba(16,16,16,0.5)", backdropFilter: "blur(4px)", WebkitBackdropFilter: "blur(4px)" }}
               data-mobile-menu="open"
             />
 
@@ -335,7 +335,7 @@ export const MobileNavigation = ({
               style={{
                 background: PAPER,
                 borderRadius: "24px 0 0 24px",
-                boxShadow: "-16px 0 48px rgba(16,14,30,0.28)",
+                boxShadow: "-16px 0 48px rgba(16,16,16,0.28)",
                 paddingTop: "max(20px, calc(env(safe-area-inset-top, 0px) + 16px))",
                 paddingBottom: "max(20px, calc(env(safe-area-inset-bottom, 0px) + 16px))",
               }}
@@ -343,13 +343,13 @@ export const MobileNavigation = ({
               {/* Kopf: Logo + Schließen */}
               <div className="flex items-center justify-between px-6 pb-4" style={{ borderBottom: `1px solid ${HAIRLINE}` }}>
                 <Link to="/" onClick={handleLinkClick} className="flex items-center gap-2">
-                  <img src={img(nav.logo.src)} alt={nav.logo.alt} className="h-7 w-auto" />
+                  <img src={img(nav.logo.src)} alt={nav.logo.alt} className="edge-mark-static h-7 w-auto" />
                 </Link>
                 <div className="flex items-center gap-2">
                   <LanguageToggle onSwitch={handleLinkClick} />
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="min-h-[44px] min-w-[44px] -mr-2 flex items-center justify-center rounded-full active:bg-[#5658DF]/10 transition-colors"
+                    className="min-h-[44px] min-w-[44px] -mr-2 flex items-center justify-center rounded-full active:bg-[#CCFF00]/10 transition-colors"
                     style={{ color: INK_DEEP }}
                     aria-label={nav.mobile.toggleAria}
                   >
@@ -372,7 +372,7 @@ export const MobileNavigation = ({
                       <motion.span
                         aria-hidden
                         className="inline-flex"
-                        style={{ color: VIOLET }}
+                        style={{ color: INK_DEEP }}
                         animate={mobileLeistungenOpen ? { x: 0, opacity: 1 } : { x: "-100%", opacity: 0 }}
                         transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeOut" }}
                       >
@@ -380,7 +380,7 @@ export const MobileNavigation = ({
                       </motion.span>
                       <motion.span
                         className="font-semibold text-3xl transition-colors duration-300"
-                        style={{ color: mobileLeistungenOpen ? VIOLET : INK_DEEP }}
+                        style={{ color: INK_DEEP }}
                         animate={{ x: mobileLeistungenOpen ? 0 : -40 }}
                         transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeOut" }}
                       >
@@ -398,7 +398,7 @@ export const MobileNavigation = ({
                           className="overflow-hidden"
                         >
                           <div className="pt-4">
-                            <p className="pb-1.5 uppercase" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: "12px", letterSpacing: "0.06em", color: VIOLET }}>
+                            <p className="pb-1.5 uppercase" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: "12px", letterSpacing: "0.06em", color: INK_DEEP }}>
                               {nav.megaMenu.painPointsHeading}
                             </p>
                             {nav.painPoints.map((item) => (
@@ -406,15 +406,15 @@ export const MobileNavigation = ({
                                 key={item.to}
                                 to={item.to}
                                 onClick={handleLinkClick}
-                                className="flex items-center gap-3 py-2.5 min-h-[44px] rounded-lg active:bg-[#5658DF]/[0.08] transition-colors"
+                                className="flex items-center gap-3 py-2.5 min-h-[44px] rounded-lg active:bg-[#CCFF00]/[0.08] transition-colors"
                                 style={{ fontFamily: "'Outfit', sans-serif", fontSize: "16px", color: INK }}
                               >
-                                <Icon name={item.icon} className="w-4 h-4 shrink-0" style={{ color: VIOLET }} />
+                                <Icon name={item.icon} className="w-4 h-4 shrink-0" style={{ color: INK_DEEP }} />
                                 {item.label}
                               </Link>
                             ))}
 
-                            <p className="pt-4 pb-1.5 uppercase" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: "12px", letterSpacing: "0.06em", color: VIOLET }}>
+                            <p className="pt-4 pb-1.5 uppercase" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: "12px", letterSpacing: "0.06em", color: INK_DEEP }}>
                               {nav.megaMenu.industrienHeading}
                             </p>
                             {nav.industrien.map((item) => (
@@ -422,10 +422,10 @@ export const MobileNavigation = ({
                                 key={item.to}
                                 to={item.to}
                                 onClick={handleLinkClick}
-                                className="flex items-center gap-3 py-2.5 min-h-[44px] rounded-lg active:bg-[#5658DF]/[0.08] transition-colors"
+                                className="flex items-center gap-3 py-2.5 min-h-[44px] rounded-lg active:bg-[#CCFF00]/[0.08] transition-colors"
                                 style={{ fontFamily: "'Outfit', sans-serif", fontSize: "16px", color: INK }}
                               >
-                                <Icon name={item.icon} className="w-4 h-4 shrink-0" style={{ color: VIOLET }} />
+                                <Icon name={item.icon} className="w-4 h-4 shrink-0" style={{ color: INK_DEEP }} />
                                 {item.label}
                               </Link>
                             ))}

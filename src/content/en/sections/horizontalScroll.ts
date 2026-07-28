@@ -59,7 +59,7 @@ export const horizontalScroll = {
     eyebrow: "Why NEWEDGE",
     /** Überschrift: statischer Teil + animierte Wörter + Zeile danach. */
     headingLead: "We use AI as a",
-    headingWords: ["success factor", "engine", "helper", "advantage"],
+    headingWords: ["friend", "engine", "helper", "advantage"],
     headingTail: "for your company.",
     body: "AI only delivers results when it serves your business goals. We combine consulting, development and integration — all from one team.",
     /** Panel image (edgy cropped frame). */

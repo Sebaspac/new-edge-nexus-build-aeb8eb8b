@@ -58,19 +58,19 @@ export const structuredData = {
     url: "https://newedgebrand.com",
     logo: "https://newedgebrand.com/logo.png",
     description:
-      "KI-Agentur aus München – Markenstrategie, Digitalentwicklung und KI-Implementierung für mittelständische Unternehmen und Konzerne im DACH-Raum.",
+      "NEWEDGE baut die KI-Abteilung für den Mittelstand – von der ersten Analyse über den sicheren KI-Einstiegspunkt Cortex bis zum laufenden Betrieb von Automatisierungen. Aus München, für den DACH-Raum.",
     foundingLocation: "München, Deutschland",
     knowsAbout: [
-      "Künstliche Intelligenz",
+      "Künstliche Intelligenz im Mittelstand",
+      "KI-Abteilung",
+      "KI-Readiness und ROI-Analyse",
       "KI-Automatisierung",
+      "Prozessautomatisierung",
       "Large Language Models",
       "RAG-Systeme",
-      "Brand Identity",
-      "Webentwicklung",
-      "Marketing-Automation",
-      "Prozessautomatisierung",
       "Custom AI Agents",
-      "LLM-Deployment",
+      "Datenhoheit und DSGVO-konforme KI",
+      "Förderfähige KI-Beratung",
     ],
     address: {
       addressLocality: "München",
@@ -82,42 +82,42 @@ export const structuredData = {
       { type: "State", name: "Bayern" },
       { type: "Country", name: "Deutschland" },
     ],
-    email: "hello@newedgebrand.com",
-    sameAs: ["https://www.linkedin.com/company/newedgebrand"],
+    email: "info@newedgebrand.com",
+    sameAs: ["https://www.linkedin.com/company/new-edge-brand/"],
     offerCatalogName: "Leistungen",
     /** Verschachtelte OfferCatalogs (Studio / Lab) mit Services. */
     offerCatalogs: [
       {
-        name: "Studio – Brand & Digital",
+        name: "KI-Abteilung aufbauen",
         services: [
           {
-            name: "Brand Identity & Markenentwicklung",
-            description: "Logoentwicklung, Visual Identity und Brand Guidelines für starke Unternehmensmarken.",
+            name: "KI-Readiness & ROI-Analyse",
+            description: "Kostenlose Analyse, die zeigt, wo sich KI in Ihrem Unternehmen zuerst lohnt – mit Aufwand-Nutzen-Schätzung und Förderhinweis.",
           },
           {
-            name: "Webdesign & Webentwicklung",
-            description: "Responsive Websites, Landing Pages und Web-Applikationen.",
+            name: "Cortex – sicherer KI-Einstiegspunkt",
+            description: "Ein zentraler, DSGVO-konformer Zugang zu KI für Ihre Mitarbeiter – mit voller Kontrolle über Nutzung, Daten und Automatisierungen.",
           },
           {
-            name: "Content-Strategie & Social Media",
-            description: "Redaktionsplanung, Storytelling und Social Media Management.",
+            name: "KI-Audit",
+            description: "Tiefen-Audit der größten Hebel: die drei Prozesse mit dem höchsten KI-Nutzen, priorisiert und mit klarem Fahrplan. Oft förderfähig.",
           },
         ],
       },
       {
-        name: "Lab – Website, Automation & Ownership",
+        name: "KI betreiben & skalieren",
         services: [
           {
-            name: "KI-Automatisierung",
-            description: "Prozessoptimierung durch intelligente KI-Workflows und Automatisierung.",
+            name: "Prozessautomatisierung",
+            description: "Wir automatisieren die Abläufe, die Ihr Wachstum bremsen – von der Angebotserstellung bis zum Kundensupport.",
           },
           {
-            name: "LLM-Deployment & Custom AI Agents",
-            description: "Eigene Sprachmodelle und maßgeschneiderte KI-Agenten für Unternehmen.",
+            name: "Embedded AI & digitale Arbeitskräfte",
+            description: "Wir verankern KI dauerhaft in Ihren Prozessen und übernehmen Verantwortung für den laufenden Betrieb.",
           },
           {
             name: "RAG-Systeme & Wissensmanagement",
-            description: "Retrieval Augmented Generation für unternehmensweite Wissensdatenbanken.",
+            description: "Ihr Firmenwissen wird durchsuchbar und für KI nutzbar – sicher im eigenen Haus.",
           },
         ],
       },
@@ -127,17 +127,17 @@ export const structuredData = {
   /** WebSite (nur Homepage). */
   website: {
     url: "https://newedgebrand.com",
-    name: "NEWEDGE Brand – KI Agentur München",
+    name: "NEWEDGE – Die KI-Abteilung für den Mittelstand",
     description:
-      "KI-Agentur in München für Prozessautomatisierung, Marketing-Automation und intelligente KI-Lösungen für KMU und Konzerne.",
+      "NEWEDGE baut die KI-Abteilung für den Mittelstand: von der kostenlosen KI-Analyse über den sicheren Einstiegspunkt Cortex bis zu laufenden Automatisierungen. Aus München.",
     inLanguage: "de-DE",
   },
 
   /** FAQPage (nur Homepage). */
   faq: [
     {
-      question: "Was ist NEWEDGE Brand?",
-      answer: "NEWEDGE Brand ist eine KI-Agentur aus München, die Unternehmen bei Markenstrategie, Digitalentwicklung und KI-Implementierung unterstützt. Wir arbeiten an der Schnittstelle von Brand, Digital und AI.",
+      question: "Was ist NEWEDGE?",
+      answer: "NEWEDGE baut die KI-Abteilung für den Mittelstand. Wir helfen Unternehmen mit 5–150 Mitarbeitenden, KI produktiv einzusetzen – von der ersten kostenlosen Analyse über den sicheren Einstiegspunkt Cortex bis zum laufenden Betrieb von Automatisierungen. Aus München.",
     },
     {
       question: "Was kostet eine Website bei NEWEDGE Brand?",
@@ -149,7 +149,7 @@ export const structuredData = {
     },
     {
       question: "Was ist ein KI-Audit?",
-      answer: "Ein kostenloser Analyse-Prozess, bei dem wir KI-Potenziale in Ihrem Unternehmen identifizieren, Automatisierungsmöglichkeiten bewerten und eine priorisierte strategische KI-Roadmap erstellen.",
+      answer: "Beim KI-Audit finden wir die Prozesse in Ihrem Unternehmen, bei denen sich KI zuerst lohnt, schätzen Aufwand und Nutzen und liefern einen klaren Fahrplan mit den größten Hebeln. Der Einstieg ist oft förderfähig.",
     },
     {
       question: "Welche KI-Technologien setzt NEWEDGE Brand ein?",
@@ -164,13 +164,24 @@ export const structuredData = {
   serviceSchemas: {
     "/ki-audit": {
       name: "KI-Audit für den Mittelstand",
-      description: "Strukturierter KI-Audit: IST-Analyse, Potenzialanalyse und strategische Roadmap. BAFA-förderfähig ab €448.",
+      description: "Strukturierter KI-Audit: Wir finden die Prozesse mit dem größten KI-Nutzen, schätzen Aufwand und Nutzen und liefern einen klaren Fahrplan. Oft förderfähig (BAFA) ab 448 €.",
       serviceType: "ProfessionalService",
-      category: ["KI-Audit", "KI-Beratung", "Prozessanalyse"],
+      category: ["KI-Audit", "KI-Beratung", "Prozessanalyse", "KI-Readiness"],
       offer: {
         priceCurrency: "EUR",
         price: "448",
-        description: "Ab €448 mit BAFA-Förderung (bis 80% förderfähig)",
+        description: "Ab 448 € mit BAFA-Förderung (bis 80 % förderfähig)",
+      },
+    },
+    "/cortex": {
+      name: "Cortex – sicherer KI-Einstiegspunkt für den Mittelstand",
+      description: "Cortex ist der zentrale, DSGVO-konforme Zugang zu KI für Ihr Unternehmen: ein Einstiegspunkt für alle Mitarbeiter, mit voller Kontrolle über Nutzung, Daten und Automatisierungen.",
+      serviceType: "ProfessionalService",
+      category: ["KI-Plattform", "KI-Infrastruktur", "DSGVO-konforme KI", "Datenhoheit"],
+      offer: {
+        priceCurrency: "EUR",
+        price: "0",
+        description: "Einrichtung kostenlos, danach monatlicher Betrieb",
       },
     },
   } as Record<string, ServiceSchemaText>,

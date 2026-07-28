@@ -55,7 +55,7 @@ export const derSchnitt = {
       "Clear ownership",
       "Transparent data",
       "AI as a daily tool",
-      "Scalable infrastructure",
+      "Technology that grows with you",
     ],
   } satisfies SchnittColumn,
 

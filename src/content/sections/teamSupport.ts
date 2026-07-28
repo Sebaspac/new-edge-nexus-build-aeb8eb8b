@@ -15,7 +15,7 @@
 export const teamSupport = {
   kicker: "Ihr Team",
   headingLead: "Ein Ansprechpartner. ",
-  headingHighlight: "Eine ganze Agentur dahinter.",
+  headingHighlight: "Ein ganzes Team dahinter.",
   paragraph:
     "Wir liefern nicht ab und verschwinden. Sie arbeiten mit einem festen Ansprechpartner — dahinter steht das komplette NEWEDGE-Team: Strategie, Entwicklung, Design und Automatisierung.",
 
@@ -35,7 +35,7 @@ export const teamSupport = {
       desc: "Kurze Wege, klare Verantwortung: Sie sprechen immer mit jemandem, der Ihr Projekt kennt.",
     },
     {
-      title: "Volle Agentur-Manpower",
+      title: "Volle Team-Stärke",
       desc: "Strategie, Design, Entwicklung und Automatisierung kommen aus einem Haus, ohne Übergabeverluste.",
     },
     {

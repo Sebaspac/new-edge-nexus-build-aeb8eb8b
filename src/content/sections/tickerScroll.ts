@@ -15,7 +15,7 @@ export const tickerScroll = {
   sentence: "Wir bauen Ihre KI-Abteilung — von der ersten Analyse bis zum laufenden Betrieb ·",
 
   /** Band 2 — Mono-Hashtag-Zeile, scrollt nach rechts. */
-  hashtags: "#boldimOutput · #realimImpact · #NEWEDGE · #KIStrategie · #Mittelstand · #Cortex · #Automatisierung · #firmeneigen ·",
+  hashtags: "#KIAbteilung · #Mittelstand · #NEWEDGE · #Datenhoheit · #Cortex · #Automatisierung · #förderfähig · #firmeneigen ·",
 } satisfies TickerScroll;
 
 /** Inhalt der beiden Marquee-Bänder (reine Lauftexte). */

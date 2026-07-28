@@ -12,7 +12,7 @@
  */
 
 export const aiVoices = {
-  kicker: "Don't buy the hype?",
+  kicker: "Don't take our word for it?",
   heading: "What AI says about us",
 
   /** Vorbefüllter Prompt (wird URL-kodiert an die Provider übergeben). */

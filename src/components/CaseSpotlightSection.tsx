@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, Quote } from "lucide-react";
+import { IconMapPin, IconQuote } from "@tabler/icons-react";
 import { EdgePillButton } from "@/components/ui/EdgeCta";
 import { caseSpotlight as caseSpotlightStatic, img } from "@/content";
 import { caseSpotlight as caseSpotlightEn } from "@/content/en/sections/caseSpotlight";
@@ -8,7 +8,7 @@ import { miniCasesBySlug as miniCasesBySlugEn } from "@/content/en/collections/m
 import { useLocalized, useLocalizedStatic } from "@/hooks/useLocalized";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET_LIGHT = "#8B8DF0";
+const VIOLET_LIGHT = "#CCFF00";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /**
@@ -40,8 +40,8 @@ export const CaseSpotlightSection = () => {
           style={{
             borderRadius: "24px",
             overflow: "hidden",
-            background: "linear-gradient(120deg, #17172E 0%, #2B2A6E 45%, #5658DF 80%, #8B8DF0 100%)",
-            border: "1px solid rgba(139,141,240,0.18)",
+            background: "radial-gradient(150% 150% at 100% 100%, #CCFF00 0%, #6B7A00 26%, #2E3300 48%, #171717 70%)",
+            border: "1px solid rgba(204,255,0,0.18)",
           }}
         >
           {/* ── Text links ── */}
@@ -55,12 +55,12 @@ export const CaseSpotlightSection = () => {
             {/* Standort + „Reales Projekt"-Eyebrow */}
             <div className="flex items-center gap-3" style={{ marginBottom: "12px" }}>
               <span className="flex items-center gap-2">
-                <MapPin style={{ width: "16px", height: "16px", color: VIOLET_LIGHT }} />
-                <span style={{ fontFamily: OUTFIT, fontWeight: 500, fontSize: "14.5px", color: "#D5D2E2" }}>
+                <IconMapPin size={16} color={VIOLET_LIGHT} aria-hidden />
+                <span style={{ fontFamily: OUTFIT, fontWeight: 500, fontSize: "14.5px", color: "#D4D6D0" }}>
                   {caseSpotlight.location}
                 </span>
               </span>
-              <span aria-hidden style={{ width: "1px", height: "13px", background: "rgba(213,210,226,0.3)" }} />
+              <span aria-hidden style={{ width: "1px", height: "13px", background: "rgba(212,214,208,0.3)" }} />
               <span
                 className="uppercase"
                 style={{
@@ -84,10 +84,12 @@ export const CaseSpotlightSection = () => {
 
             {/* Testimonial-Zitat */}
             <figure style={{ margin: 0, marginTop: "clamp(12px,1.4vw,18px)" }}>
-              <Quote
+              <IconQuote
                 aria-hidden
-                strokeWidth={1.5}
-                style={{ width: "22px", height: "22px", color: VIOLET_LIGHT, opacity: 0.55, marginBottom: "6px" }}
+                size={22}
+                stroke={1.5}
+                color={VIOLET_LIGHT}
+                style={{ opacity: 0.55, marginBottom: "6px" }}
               />
               <blockquote
                 style={{
@@ -96,7 +98,7 @@ export const CaseSpotlightSection = () => {
                   fontWeight: 400,
                   fontSize: "clamp(15px,1.4vw,19px)",
                   lineHeight: 1.35,
-                  color: "#E9E7F3",
+                  color: "#E6E9E3",
                   maxWidth: "46ch",
                 }}
               >
@@ -121,8 +123,8 @@ export const CaseSpotlightSection = () => {
                     display: "inline-flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: "rgba(139,141,240,0.14)",
-                    border: "1px solid rgba(139,141,240,0.34)",
+                    background: "rgba(204,255,0,0.14)",
+                    border: "1px solid rgba(204,255,0,0.34)",
                     fontFamily: OUTFIT,
                     fontWeight: 700,
                     fontSize: "12.5px",
@@ -133,10 +135,10 @@ export const CaseSpotlightSection = () => {
                   {caseSpotlight.authorInitials}
                 </span>
                 <span style={{ display: "flex", flexDirection: "column", lineHeight: 1.3 }}>
-                  <span style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "15.5px", color: "#F1EFFA" }}>
+                  <span style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "15.5px", color: "#EFEFED" }}>
                     {caseSpotlight.authorName}
                   </span>
-                  <span style={{ fontFamily: OUTFIT, fontWeight: 400, fontSize: "14px", color: "#9A94AC" }}>
+                  <span style={{ fontFamily: OUTFIT, fontWeight: 400, fontSize: "14px", color: "#989894" }}>
                     {caseSpotlight.authorRole}
                   </span>
                 </span>
@@ -159,7 +161,7 @@ export const CaseSpotlightSection = () => {
               style={{
                 borderRadius: "16px",
                 overflow: "hidden",
-                border: "1px solid rgba(139,141,240,0.2)",
+                border: "1px solid rgba(204,255,0,0.2)",
                 boxShadow: "0 26px 64px -26px rgba(0,0,0,0.55)",
               }}
             >

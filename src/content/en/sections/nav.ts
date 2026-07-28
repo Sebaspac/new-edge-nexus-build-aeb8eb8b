@@ -30,13 +30,13 @@ export interface NavLinkItem {
 }
 
 export const nav = {
-  logo: { src: "new-edge-logo-wordmark" as ImageKey, alt: "NEWEDGE" },
+  logo: { src: "newedge-wordmark" as ImageKey, alt: "NEWEDGE" },
 
   filterButtons: [{ key: "all", label: "All" }] as FilterButton[],
 
   megaMenu: {
     trigger: "Solutions",
-    painPointsHeading: "By pain point",
+    painPointsHeading: "By challenge",
     industrienHeading: "By industry",
     featuredHeading: "Success Story",
   },
@@ -67,7 +67,7 @@ export const nav = {
     trigger: "Company",
     links: [
       { to: "/methodik", label: "Methodology" },
-      { to: "/about", label: "About" },
+      // About temporarily disabled — content stays in the CMS, only the link is gone
       // Careers temporarily disabled — content stays in the CMS, only the link is removed
     ] as NavLinkItem[],
   },

@@ -61,5 +61,6 @@ export { auditSlaStatus } from "./sections/auditSlaStatus";
 export { videoShowcase } from "./sections/videoShowcase";
 export { caseSpotlight } from "./sections/caseSpotlight";
 export { statementStats } from "./sections/statementStats";
+export { diamondModel } from "./sections/diamondModel";
 export { teamSupport } from "./sections/teamSupport";
 export { aiVoices } from "./sections/aiVoices";

@@ -14,6 +14,10 @@
 import newEdgeLogo from "@/assets/new-edge-logo.webp";
 import newEdgeLogoHorizontal from "@/assets/new-edge-logo-horizontal.png";
 import newEdgeLogoWordmark from "@/assets/new-edge-logo-wordmark.png";
+import newedgeWordmark from "@/assets/newedge-wordmark.webp";
+import newedgeWordmarkWhite from "@/assets/newedge-wordmark-white.webp";
+import newedgeLogoWhite from "@/assets/newedge-logo-white.png";
+import newedgeCharacterPresenting from "@/assets/newedge-character-presenting.webp";
 
 // — Team —
 import teamSebastian from "@/assets/team-sebastian.webp";
@@ -27,6 +31,9 @@ import teamWenjamin2 from "@/assets/team-wenjamin-2.webp";
 import teamPresentation from "@/assets/team-presentation.webp";
 import teamPresentationColor from "@/assets/team-presentation-color.webp";
 import foundersColor from "@/assets/founders-color.webp";
+import systemsFounder1 from "@/assets/systems-founder-1.jpg";
+import systemsFounder2 from "@/assets/systems-founder-2.jpg";
+import bmpAwardCase from "@/assets/bmp-award-case.jpg";
 
 // — Case Studies / Cards —
 import albanovaBuilding from "@/assets/albanova-building.webp";
@@ -34,6 +41,29 @@ import albanovaWebsite from "@/assets/albanova-website.webp";
 import leadGeneration from "@/assets/lead-generation.webp";
 import marketingAutomation from "@/assets/marketing-automation.webp";
 import ragDatacenter from "@/assets/rag-datacenter.webp";
+import hochschulZulassungCase from "@/assets/hochschul-zulassung-case.webp";
+import foerderbankAntragspruefungCase from "@/assets/foerderbank-antragspruefung-case.webp";
+import gynPraxisMuenchenCase from "@/assets/gyn-praxis-muenchen-case.webp";
+import therapiezentrumOnboardingCase from "@/assets/therapiezentrum-onboarding-case.webp";
+import praxisverbundKapazitaetenCase from "@/assets/praxisverbund-kapazitaeten-case.webp";
+import grosshandelBestelleingabeCase from "@/assets/grosshandel-bestelleingabe-case.webp";
+import maschinenbauSendungstransparenzCase from "@/assets/maschinenbau-sendungstransparenz-case.webp";
+import fachhaendlerFruehwarnsystemCase from "@/assets/fachhaendler-fruehwarnsystem-case.webp";
+import aeskonProzesslandkarteCase from "@/assets/aeskon-prozesslandkarte-case.webp";
+import steuerkanzleiMandantenkommunikationCase from "@/assets/steuerkanzlei-mandantenkommunikation-case.webp";
+import personalberatungScreeningCase from "@/assets/personalberatung-screening-case.webp";
+import maschinenbauDokumenteCase from "@/assets/maschinenbau-dokumente-case.webp";
+import aeskonBafaComplianceCase from "@/assets/aeskon-bafa-compliance-case.webp";
+import grosshaendlerZollpraeferenzenCase from "@/assets/grosshaendler-zollpraeferenzen-case.webp";
+import mehrstandortDashboardCase from "@/assets/mehrstandort-dashboard-case.webp";
+import vertriebPipelineReportingCase from "@/assets/vertrieb-pipeline-reporting-case.webp";
+import logistikLieferantenKpiCase from "@/assets/logistik-lieferanten-kpi-case.webp";
+import eosTherapiezentrumCase from "@/assets/eos-therapiezentrum-case.webp";
+import onlinehaendlerSupportCase from "@/assets/onlinehaendler-support-case.webp";
+import steuerkanzleiFristenCase from "@/assets/steuerkanzlei-fristen-case.webp";
+import consultancy340FunnelCase from "@/assets/340-consultancy-funnel-case.webp";
+import b2bLeadQualifizierungCase from "@/assets/b2b-lead-qualifizierung-case.webp";
+import handwerkFunnelCase from "@/assets/handwerk-funnel-case.webp";
 
 // — KI-Audit —
 import kiAuditHero from "@/assets/ki-audit-hero.webp";
@@ -60,6 +90,27 @@ import painPointEntscheidungsinstanzenFeature2 from "@/assets/pain-point-entsche
 import painPointProfessionalServicesFeature2 from "@/assets/pain-point-professional-services-feature2.webp";
 import painPointKundensupportFeature3 from "@/assets/pain-point-kundensupport-feature3.webp";
 import painPointKundengewinnungHero from "@/assets/pain-point-kundengewinnung-hero.webp";
+import painPointComplianceFeature1 from "@/assets/pain-point-compliance-feature1.webp";
+import painPointComplianceFeature2 from "@/assets/pain-point-compliance-feature2.webp";
+import painPointComplianceFeature3 from "@/assets/pain-point-compliance-feature3.webp";
+import painPointKpiDashboardFeature1 from "@/assets/pain-point-kpi-dashboard-feature1.webp";
+import painPointKpiDashboardFeature2 from "@/assets/pain-point-kpi-dashboard-feature2.webp";
+import painPointKpiDashboardFeature3 from "@/assets/pain-point-kpi-dashboard-feature3.webp";
+import painPointKundensupportFeature1 from "@/assets/pain-point-kundensupport-feature1.webp";
+import painPointKundensupportFeature2 from "@/assets/pain-point-kundensupport-feature2.webp";
+import painPointEntscheidungsinstanzenFeature1 from "@/assets/pain-point-entscheidungsinstanzen-feature1.webp";
+import painPointEntscheidungsinstanzenFeature3 from "@/assets/pain-point-entscheidungsinstanzen-feature3.webp";
+import painPointHealthCareFeature1 from "@/assets/pain-point-health-care-feature1.webp";
+import painPointHealthCareFeature2 from "@/assets/pain-point-health-care-feature2.webp";
+import painPointHealthCareFeature3 from "@/assets/pain-point-health-care-feature3.webp";
+import painPointHandelSupplyChainFeature1 from "@/assets/pain-point-handel-supply-chain-feature1.webp";
+import painPointHandelSupplyChainFeature2 from "@/assets/pain-point-handel-supply-chain-feature2.webp";
+import painPointHandelSupplyChainFeature3 from "@/assets/pain-point-handel-supply-chain-feature3.webp";
+import painPointProfessionalServicesFeature1 from "@/assets/pain-point-professional-services-feature1.webp";
+import painPointProfessionalServicesFeature3 from "@/assets/pain-point-professional-services-feature3.webp";
+import painPointAuswahlverfahrenFeature1 from "@/assets/pain-point-auswahlverfahren-feature1.webp";
+import painPointAuswahlverfahrenFeature2 from "@/assets/pain-point-auswahlverfahren-feature2.webp";
+import painPointAuswahlverfahrenFeature3 from "@/assets/pain-point-auswahlverfahren-feature3.webp";
 
 // — Anwendungsfelder: Feature-Card-Icons (SVG) —
 import iconI1IconAggreg from "@/assets/pain-point-icons/i1-icon-aggreg__icon-aggregation-zusammenf-hrung.svg";
@@ -154,6 +205,10 @@ export const IMAGES = {
   "new-edge-logo": newEdgeLogo,
   "new-edge-logo-horizontal": newEdgeLogoHorizontal,
   "new-edge-logo-wordmark": newEdgeLogoWordmark,
+  "newedge-wordmark": newedgeWordmark,
+  "newedge-wordmark-white": newedgeWordmarkWhite,
+  "newedge-logo-white": newedgeLogoWhite,
+  "newedge-character-presenting": newedgeCharacterPresenting,
   // Team
   "team-sebastian": teamSebastian,
   "team-sebastian-1": teamSebastian1,
@@ -166,12 +221,38 @@ export const IMAGES = {
   "team-presentation": teamPresentation,
   "team-presentation-color": teamPresentationColor,
   "founders-color": foundersColor,
+  "systems-founder-1": systemsFounder1,
+  "systems-founder-2": systemsFounder2,
+  "bmp-award-case": bmpAwardCase,
   // Case Studies
   "albanova-building": albanovaBuilding,
   "albanova-website": albanovaWebsite,
   "lead-generation": leadGeneration,
   "marketing-automation": marketingAutomation,
   "rag-datacenter": ragDatacenter,
+  "hochschul-zulassung-case": hochschulZulassungCase,
+  "foerderbank-antragspruefung-case": foerderbankAntragspruefungCase,
+  "gyn-praxis-muenchen-case": gynPraxisMuenchenCase,
+  "therapiezentrum-onboarding-case": therapiezentrumOnboardingCase,
+  "praxisverbund-kapazitaeten-case": praxisverbundKapazitaetenCase,
+  "grosshandel-bestelleingabe-case": grosshandelBestelleingabeCase,
+  "maschinenbau-sendungstransparenz-case": maschinenbauSendungstransparenzCase,
+  "fachhaendler-fruehwarnsystem-case": fachhaendlerFruehwarnsystemCase,
+  "aeskon-prozesslandkarte-case": aeskonProzesslandkarteCase,
+  "steuerkanzlei-mandantenkommunikation-case": steuerkanzleiMandantenkommunikationCase,
+  "personalberatung-screening-case": personalberatungScreeningCase,
+  "maschinenbau-dokumente-case": maschinenbauDokumenteCase,
+  "aeskon-bafa-compliance-case": aeskonBafaComplianceCase,
+  "grosshaendler-zollpraeferenzen-case": grosshaendlerZollpraeferenzenCase,
+  "mehrstandort-dashboard-case": mehrstandortDashboardCase,
+  "vertrieb-pipeline-reporting-case": vertriebPipelineReportingCase,
+  "logistik-lieferanten-kpi-case": logistikLieferantenKpiCase,
+  "eos-therapiezentrum-case": eosTherapiezentrumCase,
+  "onlinehaendler-support-case": onlinehaendlerSupportCase,
+  "steuerkanzlei-fristen-case": steuerkanzleiFristenCase,
+  "340-consultancy-funnel-case": consultancy340FunnelCase,
+  "b2b-lead-qualifizierung-case": b2bLeadQualifizierungCase,
+  "handwerk-funnel-case": handwerkFunnelCase,
   // KI-Audit
   "ki-audit-hero": kiAuditHero,
   "ki-audit-process": kiAuditProcess,
@@ -195,6 +276,27 @@ export const IMAGES = {
   "pain-point-professional-services-feature2": painPointProfessionalServicesFeature2,
   "pain-point-kundensupport-feature3": painPointKundensupportFeature3,
   "pain-point-kundengewinnung-hero": painPointKundengewinnungHero,
+  "pain-point-compliance-feature1": painPointComplianceFeature1,
+  "pain-point-compliance-feature2": painPointComplianceFeature2,
+  "pain-point-compliance-feature3": painPointComplianceFeature3,
+  "pain-point-kpi-dashboard-feature1": painPointKpiDashboardFeature1,
+  "pain-point-kpi-dashboard-feature2": painPointKpiDashboardFeature2,
+  "pain-point-kpi-dashboard-feature3": painPointKpiDashboardFeature3,
+  "pain-point-kundensupport-feature1": painPointKundensupportFeature1,
+  "pain-point-kundensupport-feature2": painPointKundensupportFeature2,
+  "pain-point-entscheidungsinstanzen-feature1": painPointEntscheidungsinstanzenFeature1,
+  "pain-point-entscheidungsinstanzen-feature3": painPointEntscheidungsinstanzenFeature3,
+  "pain-point-health-care-feature1": painPointHealthCareFeature1,
+  "pain-point-health-care-feature2": painPointHealthCareFeature2,
+  "pain-point-health-care-feature3": painPointHealthCareFeature3,
+  "pain-point-handel-supply-chain-feature1": painPointHandelSupplyChainFeature1,
+  "pain-point-handel-supply-chain-feature2": painPointHandelSupplyChainFeature2,
+  "pain-point-handel-supply-chain-feature3": painPointHandelSupplyChainFeature3,
+  "pain-point-professional-services-feature1": painPointProfessionalServicesFeature1,
+  "pain-point-professional-services-feature3": painPointProfessionalServicesFeature3,
+  "pain-point-auswahlverfahren-feature1": painPointAuswahlverfahrenFeature1,
+  "pain-point-auswahlverfahren-feature2": painPointAuswahlverfahrenFeature2,
+  "pain-point-auswahlverfahren-feature3": painPointAuswahlverfahrenFeature3,
   // Anwendungsfelder: Feature-Card-Icons
 "i1-icon-aggreg": iconI1IconAggreg,
   "i1-icon-audit": iconI1IconAudit,
@@ -280,9 +382,25 @@ export const IMAGES = {
 export type ImageKey = keyof typeof IMAGES;
 
 /**
- * Löst einen Bild-Key zur finalen (gehashten) URL auf.
- * Nicht-Registry-Werte (CMS-Upload-URLs, /public-Pfade) werden unverändert
- * durchgereicht — so gewinnt ein im CMS hochgeladenes Bild automatisch.
+ * Im CMS hochgeladene Ersatzbilder: Registry-Key → Upload-URL.
+ * Wird beim App-Start einmalig aus `/api/image-overrides` befüllt
+ * (siehe `hooks/useImageOverrides.ts`). Leer = alles wie eingebaut.
+ */
+let overrides: Readonly<Record<string, string>> = {};
+
+/** Setzt die CMS-Überschreibungen (nur vom useImageOverrides-Hook aufgerufen). */
+export const setImageOverrides = (map: Record<string, string>): void => {
+  overrides = map;
+};
+
+/** Aktuelle Überschreibungen (für Debugging/Tests). */
+export const getImageOverrides = (): Readonly<Record<string, string>> => overrides;
+
+/**
+ * Löst einen Bild-Key zur finalen URL auf. Reihenfolge:
+ *   1. im CMS hochgeladenes Ersatzbild („Bild austauschen")
+ *   2. eingebautes Bild aus der Registry (gehashte Vite-URL)
+ *   3. unveränderter Durchreicher — CMS-Upload-URLs, /public-Pfade
  */
 export const img = (key: ImageKey | (string & {})): string =>
-  IMAGES[key as ImageKey] ?? (key as string);
+  overrides[key as string] ?? IMAGES[key as ImageKey] ?? (key as string);

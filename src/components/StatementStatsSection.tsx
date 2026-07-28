@@ -10,9 +10,9 @@ import { impactCounter as impactCounterEn } from "@/content/en/sections/impactCo
 import { useHomeSection } from "@/hooks/useHomeContent";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
-const INK_DEEP = "#17172E";
-const PAPER = "#F8F5FF";
+const VIOLET = "#CCFF00";
+const INK_DEEP = "#171717";
+const PAPER = "#F2F2F2";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /** Vertikaler Versatz pro Kennzahl-Block — die gestaffelte Diagonale der Referenz. */
@@ -111,7 +111,7 @@ export const StatementStatsSection = () => {
               style={{
                 position: "absolute",
                 inset: "14px -12px -12px 12px",
-                border: "1.5px solid rgba(139,141,240,0.5)",
+                border: "1.5px solid rgba(23,23,23,0.28)",
                 borderRadius: "20px 20px 64px 20px",
                 transform: "rotate(-1.2deg)",
                 pointerEvents: "none",
@@ -155,7 +155,7 @@ export const StatementStatsSection = () => {
               left: 0,
               right: 0,
               zIndex: 2,
-              background: "linear-gradient(120deg, #C2C3F6 0%, #A9A5F5 45%, #8B8DF0 100%)",
+              background: "linear-gradient(120deg, #CCFF00 0%, #D9F53A 45%, #FFF200 100%)",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               color: "transparent",
@@ -187,7 +187,7 @@ export const StatementStatsSection = () => {
           <p
             style={{
               fontFamily: OUTFIT,
-              color: "#3C3C47",
+              color: "#3C3C3C",
               marginBottom: "32px",
             }}
           >
@@ -196,7 +196,10 @@ export const StatementStatsSection = () => {
 
           <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-4">
             <EdgePillButton to="/kontakt">{statementStats.ctaPrimary.label}</EdgePillButton>
-            <EdgeTextButton to={statementStats.ctaSecondary.to}>{statementStats.ctaSecondary.label}</EdgeTextButton>
+            {/* Sekundär-CTA optional — entfällt, solange „Über uns" ausgeblendet ist */}
+            {statementStats.ctaSecondary && (
+              <EdgeTextButton to={statementStats.ctaSecondary.to}>{statementStats.ctaSecondary.label}</EdgeTextButton>
+            )}
           </div>
         </motion.div>
 

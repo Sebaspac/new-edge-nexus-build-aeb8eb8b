@@ -7,8 +7,8 @@ import { useHomeSection } from "@/hooks/useHomeContent";
 import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 import { EdgeRip } from "@/components/ui/EdgeRip";
 
-const VIOLET = "#5658DF";
-const INK_DEEP = "#17172E";
+const VIOLET = "#CCFF00";
+const INK_DEEP = "#171717";
 const BODY: React.CSSProperties = { fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: 400 };
 
 const HEAD: React.CSSProperties = { fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: 700 };
@@ -33,7 +33,6 @@ export const PositionedForImpactSection = ({ sectionRef }: PositionedForImpactSe
     offset: ["start end", "end start"],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
   const quoteY = useTransform(scrollYProgress, [0, 1], ["30px", "-30px"]);
   const statsY = useTransform(scrollYProgress, [0, 1], ["20px", "-20px"]);
 
@@ -55,75 +54,54 @@ export const PositionedForImpactSection = ({ sectionRef }: PositionedForImpactSe
         {/* Split Spread */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-14 items-center">
 
-          {/* Left: Founders portrait, paper-stock — Edgy-Schnitt + Outline-Rahmen + Riss */}
-          <motion.figure
-            initial={{ opacity: 0, x: -32 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="relative m-0"
-          >
-            {/* Versetzter Outline-Rahmen hinter dem Bild (gespiegelte Rotation) */}
-            <div
-              aria-hidden
-              style={{
-                position: "absolute",
-                inset: "-12px 12px 12px -12px",
-                border: "1.5px solid rgba(139,141,240,0.5)",
-                borderRadius: "16px 64px 16px 64px",
-                transform: "rotate(1.5deg)",
-                pointerEvents: "none",
-              }}
-            />
-            <div
-              className="relative w-full"
-              style={{
-                aspectRatio: "16 / 9",
-                overflow: "hidden",
-                borderRadius: "16px 64px 16px 64px",
-              }}
+          {/* Left: 2-Gründer-Foto-Duo (Event-Fotos, Querformat, versetzt + leicht rotiert) */}
+          <div className="relative w-full mx-auto lg:mx-0" style={{ maxWidth: "560px", aspectRatio: "1 / 0.82" }}>
+            {/* Bild 1 — groß, oben links */}
+            <motion.div
+              initial={{ opacity: 0, y: 28, rotate: -5 }}
+              whileInView={{ opacity: 1, y: 0, rotate: -2 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              style={{ position: "absolute", left: 0, top: 0, width: "70%" }}
             >
-              <motion.div
-                style={{ y: imageY, position: "absolute", inset: "-12% 0", height: "124%" }}
-              >
-                <img
-                  alt={positionedForImpact.portrait.alt}
-                  src={img(positionedForImpact.portrait.src)}
-                  className="w-full h-full object-cover"
-                  style={{ display: "block" }}
-                />
-              </motion.div>
-              {/* Kleiner Riss von der Oberkante — die „Edge" der Marke */}
-              <EdgeRip style={{ top: "-1px", left: "22%", width: "30px", height: "72px", zIndex: 2 }} />
-              {/* Caption — bottom-right, minimal */}
-              <figcaption
-                style={{
-                  position: "absolute",
-                  right: 0,
-                  bottom: 0,
-                  padding: "8px 12px",
-                  backgroundColor: "rgba(86,88,223,0.55)",
-                  backdropFilter: "blur(6px)",
-                  fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-                  fontWeight: 600,
-                  fontSize: "11px",
-                  letterSpacing: "0.03em",
-                  borderRadius: "8px 0 0 0",
-                  color: "rgba(255,255,255,0.75)",
-                  lineHeight: 1.5,
-                  textAlign: "right",
-                }}
-              >
-                {positionedForImpact.portrait.captionName}<br />
-                <span style={{ opacity: 0.5 }}>{positionedForImpact.portrait.captionRole}</span>
-              </figcaption>
-            </div>
-          </motion.figure>
+              <div style={{ position: "relative" }}>
+                <div aria-hidden style={{ position: "absolute", inset: "12px 10px -10px -10px", border: "1.5px solid rgba(23,23,23,0.28)", borderRadius: "20px 20px 64px 20px", pointerEvents: "none" }} />
+                <div style={{ position: "relative", aspectRatio: "3 / 2", borderRadius: "20px 20px 64px 20px", overflow: "hidden" }}>
+                  <img src={img("systems-founder-1")} alt="Sebastian & Wenjamin, Gründer von NEWEDGE, beim Europäischen Wirtschaftsforum" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  <EdgeRip style={{ bottom: "-1px", right: "46%", width: "34px", height: "72px", zIndex: 1, transform: "scaleY(-1)" }} />
+                </div>
+              </div>
+            </motion.div>
+            {/* Bild 2 — kleiner, unten rechts */}
+            <motion.div
+              initial={{ opacity: 0, y: 36, rotate: 5 }}
+              whileInView={{ opacity: 1, y: 0, rotate: 2.5 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              style={{ position: "absolute", right: 0, bottom: 0, width: "64%", zIndex: 2 }}
+            >
+              <div style={{ position: "relative" }}>
+                <div aria-hidden style={{ position: "absolute", inset: "-10px -10px 12px 10px", border: "1.5px solid rgba(23,23,23,0.28)", borderRadius: "20px 20px 20px 64px", pointerEvents: "none" }} />
+                <div style={{ position: "relative", aspectRatio: "3 / 2", borderRadius: "20px 20px 20px 64px", overflow: "hidden", boxShadow: "0 24px 60px rgba(23,23,23,0.22)" }}>
+                  <img src={img("systems-founder-2")} alt="Sebastian & Wenjamin, Gründer von NEWEDGE" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                </div>
+              </div>
+            </motion.div>
+            {/* Lime-Akzent zwischen den Bildern */}
+            <motion.span
+              aria-hidden
+              initial={{ opacity: 0, scale: 0.6, rotate: 24 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 12 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              style={{ position: "absolute", left: "58%", top: "34%", width: "26px", height: "26px", borderRadius: "7px", background: VIOLET, zIndex: 3 }}
+            />
+          </div>
 
           {/* Right: Manifesto + stats */}
           <div className="flex flex-col">
             <motion.blockquote
-              style={{ y: quoteY, fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: 700, fontSize: "clamp(1.9rem, 3.4vw, 2.75rem)", lineHeight: 1.1, letterSpacing: "-0.01em", color: "#17172E" }}
+              style={{ y: quoteY, fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: 700, fontSize: "clamp(1.9rem, 3.4vw, 2.75rem)", lineHeight: 1.1, letterSpacing: "-0.01em", color: "#171717" }}
               initial={{ opacity: 0, x: 32 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
@@ -138,8 +116,8 @@ export const PositionedForImpactSection = ({ sectionRef }: PositionedForImpactSe
                 interval={2800}
                 renderWord={(word) => (
                   <span
+                    className="edge-mark"
                     style={{
-                      color: "#5658DF",
                       fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                       fontWeight: 700,
                     }}
@@ -160,7 +138,7 @@ export const PositionedForImpactSection = ({ sectionRef }: PositionedForImpactSe
               className="mt-6 mb-0"
               style={{
                 fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-                color: "rgba(23,23,46,0.68)",
+                color: "rgba(23,23,23,0.68)",
                 maxWidth: "52ch",
               }}
             >
@@ -190,7 +168,7 @@ export const PositionedForImpactSection = ({ sectionRef }: PositionedForImpactSe
                     style={{
                       fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                       fontWeight: 700,
-                      color: "#5658DF",
+                      color: "#171717",
                       fontSize: "clamp(1.4rem, 2.2vw, 1.9rem)",
                       lineHeight: 1,
                       letterSpacing: "-0.01em",
@@ -205,7 +183,7 @@ export const PositionedForImpactSection = ({ sectionRef }: PositionedForImpactSe
                       fontWeight: 500,
                       fontSize: "12.5px",
                       letterSpacing: "0.02em",
-                      color: "#3C3C47",
+                      color: "#3C3C3C",
                       lineHeight: 1.5,
                     }}
                   >
@@ -233,7 +211,7 @@ export const PositionedForImpactSection = ({ sectionRef }: PositionedForImpactSe
             {/* Caption */}
             <p
               className="flex-shrink-0"
-              style={{ ...BODY, fontWeight: 600, fontSize: "14px", color: "rgba(23,23,46,0.55)" }}
+              style={{ ...BODY, fontWeight: 600, fontSize: "14px", color: "rgba(23,23,23,0.55)" }}
             >
               {positionedForImpact.proof.label}
             </p>
@@ -247,13 +225,13 @@ export const PositionedForImpactSection = ({ sectionRef }: PositionedForImpactSe
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-20px" }}
                   transition={{ duration: 0.5, delay: 0.1 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex items-center gap-3 transition-colors duration-200 hover:border-[rgba(86,88,223,0.35)]"
+                  className="flex items-center gap-3 transition-colors duration-200 hover:border-[rgba(204,255,0,0.35)]"
                   style={{
                     background: "#FFFFFF",
-                    border: "1px solid rgba(23,23,46,0.08)",
+                    border: "1px solid rgba(23,23,23,0.08)",
                     borderRadius: "12px",
                     padding: "10px 18px",
-                    boxShadow: "0 1px 2px rgba(23,23,46,0.05)",
+                    boxShadow: "0 1px 2px rgba(23,23,23,0.05)",
                   }}
                 >
                   {!hiddenLogos[partner.alt] && (

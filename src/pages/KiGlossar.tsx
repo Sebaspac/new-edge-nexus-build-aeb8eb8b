@@ -13,14 +13,15 @@ const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.
 
 /* ── NEWEDGE CI (Rebrush 2026-07) ── */
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET       = "#5658DF";
-const VIOLET_LIGHT = "#8B8DF0";
-const INK_DEEP     = "#17172E";
-const INK_DEEPER   = "#100E1E";
-const PAPER        = "#F8F5FF";
-const HAIRLINE     = "rgba(86,88,223,0.14)";
+/** Lime — reine Akzent-/Flächenfarbe (Button, Badge, Fortschrittspunkt); nie als Text/Icon auf hellem Grund. */
+const VIOLET       = "#CCFF00";
+const VIOLET_LIGHT = "#CCFF00";
+const INK_DEEP     = "#171717";
+const INK_DEEPER   = "#101010";
+const PAPER        = "#F2F2F2";
+const HAIRLINE     = "rgba(23,23,23,0.14)";
 /** Dunkler Ink-Verlauf der Footer-Karte — für dunkle Flächen. */
-const INK_GRADIENT = "linear-gradient(160deg, #1D1B38 0%, #17172E 45%, #100E1E 100%)";
+const INK_GRADIENT = "linear-gradient(160deg, #1F1F1F 0%, #171717 45%, #101010 100%)";
 const EASE         = [0.22, 1, 0.36, 1] as const;
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -96,7 +97,7 @@ const KiGlossar = () => {
         <div className="relative" style={{ background: PAPER, minHeight: "clamp(460px, 66vh, 680px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <div aria-hidden style={{
             position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
-            background: "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(86,88,223,0.10) 0%, transparent 62%)",
+            background: "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(23,23,23,0.06) 0%, transparent 62%)",
           }} />
 
           <motion.div
@@ -113,7 +114,7 @@ const KiGlossar = () => {
 
             <p style={{
               fontFamily: OUTFIT,
-              color: "#3C3C47",
+              color: "#3C3C3C",
               maxWidth: "560px",
               margin: "0 auto",
             }}>
@@ -127,8 +128,8 @@ const KiGlossar = () => {
             style={{
               position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)",
               width: "2px", height: "clamp(80px, 10vh, 130px)",
-              background: "linear-gradient(to bottom, rgba(86,88,223,0), rgba(86,88,223,0.5) 50%, rgba(86,88,223,0.2))",
-              boxShadow: "0 0 10px rgba(86,88,223,0.22)", zIndex: 3,
+              background: "linear-gradient(to bottom, rgba(23,23,23,0), rgba(23,23,23,0.35) 50%, rgba(23,23,23,0.15))",
+              boxShadow: "0 0 10px rgba(23,23,23,0.18)", zIndex: 3,
             }}
           />
         </div>
@@ -139,7 +140,7 @@ const KiGlossar = () => {
           <div
             style={{
               position: "sticky", top: 0, zIndex: 20,
-              background: "rgba(248,245,255,0.92)",
+              background: "rgba(242,242,242,0.92)",
               backdropFilter: "blur(12px)",
               WebkitBackdropFilter: "blur(12px)",
               borderBottom: `1px solid ${HAIRLINE}`,
@@ -168,10 +169,10 @@ const KiGlossar = () => {
                       outline: "none",
                       transition: "border-color 0.2s ease",
                     }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = VIOLET)}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = INK_DEEP)}
                     onBlur={(e) => (e.currentTarget.style.borderColor = HAIRLINE)}
                   />
-                  <span aria-hidden style={{ position: "absolute", right: "16px", top: "50%", transform: "translateY(-50%)", color: VIOLET, fontSize: "15px", pointerEvents: "none" }}>{kiGlossar.toolbar.searchGlyph}</span>
+                  <span aria-hidden style={{ position: "absolute", right: "16px", top: "50%", transform: "translateY(-50%)", color: INK_DEEP, fontSize: "15px", pointerEvents: "none" }}>{kiGlossar.toolbar.searchGlyph}</span>
                 </div>
               </div>
 
@@ -196,9 +197,9 @@ const KiGlossar = () => {
                         cursor: has ? "pointer" : "default",
                         transition: "background-color 0.18s ease, color 0.18s ease",
                         background: isActive ? VIOLET : "transparent",
-                        color: isActive ? "#fff" : has ? VIOLET : "rgba(86,88,223,0.22)",
+                        color: isActive ? INK_DEEP : has ? INK_DEEP : "rgba(23,23,23,0.22)",
                       }}
-                      onMouseEnter={(e) => { if (has && !isActive) { e.currentTarget.style.background = "rgba(86,88,223,0.08)"; } }}
+                      onMouseEnter={(e) => { if (has && !isActive) { e.currentTarget.style.background = "rgba(23,23,23,0.08)"; } }}
                       onMouseLeave={(e) => { if (has && !isActive) { e.currentTarget.style.background = "transparent"; } }}
                     >
                       {L}
@@ -212,7 +213,7 @@ const KiGlossar = () => {
           {/* Begriffe */}
           <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "clamp(48px,7vw,88px) 24px clamp(56px,7vw,96px)" }}>
             {resultCount === 0 ? (
-              <p style={{ fontFamily: OUTFIT, textAlign: "center", color: "rgba(23,23,46,0.68)", padding: "60px 0" }}>
+              <p style={{ fontFamily: OUTFIT, textAlign: "center", color: "rgba(23,23,23,0.68)", padding: "60px 0" }}>
                 {kiGlossar.emptyTemplate.split("{query}")[0]}{query}{kiGlossar.emptyTemplate.split("{query}")[1]}
               </p>
             ) : (
@@ -230,9 +231,9 @@ const KiGlossar = () => {
                       fontSize: "clamp(2rem, 4vw, 2.9rem)",
                       lineHeight: 1,
                       letterSpacing: "-0.01em",
-                      color: VIOLET,
+                      color: INK_DEEP,
                     }}>{L}</span>
-                    <span style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "11px", letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(23,23,46,0.45)" }}>
+                    <span style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "11px", letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(23,23,23,0.45)" }}>
                       {filtered[L].length} {filtered[L].length === 1 ? kiGlossar.countLabel.singular : kiGlossar.countLabel.plural}
                     </span>
                   </div>
@@ -246,7 +247,7 @@ const KiGlossar = () => {
                           background: "#FFFFFF",
                           borderRadius: "16px",
                           border: `1px solid ${HAIRLINE}`,
-                          boxShadow: "0 1px 2px rgba(23,23,46,0.06)",
+                          boxShadow: "0 1px 2px rgba(23,23,23,0.06)",
                           padding: "20px 22px",
                         }}
                       >
@@ -255,7 +256,7 @@ const KiGlossar = () => {
                         }}>
                           {e.term}
                         </h3>
-                        <p style={{ fontFamily: OUTFIT, color: "rgba(23,23,46,0.68)" }}>
+                        <p style={{ fontFamily: OUTFIT, color: "rgba(23,23,23,0.68)" }}>
                           {e.def}
                         </p>
                       </div>
@@ -276,16 +277,16 @@ const KiGlossar = () => {
                 marginTop: "clamp(48px,6vw,72px)",
                 background: INK_GRADIENT,
                 borderRadius: "24px",
-                border: "1px solid rgba(139,141,240,0.18)",
+                border: "1px solid rgba(204,255,0,0.16)",
                 padding: "clamp(40px, 6vw, 64px) clamp(24px, 4vw, 48px)",
                 textAlign: "center",
                 overflow: "hidden",
               }}
             >
-              {/* Violetter Schein unten links */}
+              {/* Dezenter Lime-Schein unten links — Ink-Karte bekommt Tiefe */}
               <div aria-hidden style={{
                 position: "absolute", inset: 0, pointerEvents: "none",
-                background: "radial-gradient(ellipse 70% 60% at 0% 100%, rgba(86,88,223,0.28) 0%, transparent 65%)",
+                background: "radial-gradient(ellipse 70% 60% at 0% 100%, rgba(204,255,0,0.16) 0%, transparent 65%)",
               }} />
               {/* Edge-Riss an der Oberkante — das Markenzeichen */}
               <EdgeRip style={{ top: "-1px", right: "14%", width: "28px", height: "66px", zIndex: 1 }} />

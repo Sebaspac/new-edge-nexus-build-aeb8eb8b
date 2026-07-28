@@ -34,9 +34,9 @@ export interface ContactField {
 
 export const methodik = {
   seo: {
-    title: "Methodik | NEWEDGE — Die KI-Abteilung für den Mittelstand",
+    title: "KI-Einführung im Mittelstand: 3 Phasen | NEWEDGE",
     description:
-      "Wir bauen die KI-Abteilung für den Mittelstand. In drei Phasen — von der Analyse über die Umsetzung bis zur Skalierung — wird KI bei Ihnen zur dauerhaften Unternehmensfähigkeit.",
+      "KI im Mittelstand einführen gelingt in drei Phasen: Analyse (wo lohnt sich KI?), Umsetzung und Skalierung — bis KI zur dauerhaften Fähigkeit im Unternehmen wird.",
     canonical: "/methodik",
   } satisfies SEOContent,
 
@@ -47,7 +47,7 @@ export const methodik = {
     headlineLine2: "für den Mittelstand.",
     subline:
       "Nicht einzelne KI-Tools — eine eigene KI-Abteilung als dauerhafte Fähigkeit in Ihrem Unternehmen. Der Weg dorthin: drei Phasen.",
-    ctaLabel: "Erstgespräch buchen",
+    ctaLabel: "Kostenlose KI-Analyse anfragen",
     ctaHref: "/kontakt",
   },
 
@@ -76,36 +76,36 @@ export const methodik = {
       frage: "Wo lohnt sich KI wirklich?",
       intro: [
         "Sie wissen, wo KI in Ihrem Unternehmen den größten Hebel hat — und in welcher Reihenfolge sich die Umsetzung lohnt. Bevor ein Euro fließt.",
-        "Dafür schauen wir auf Ihr Tagesgeschäft, machen ungenutzte Potenziale sichtbar und übersetzen jeden Hebel in eine priorisierte Roadmap.",
+        "Dafür schauen wir auf Ihr Tagesgeschäft, machen ungenutzte Potenziale sichtbar und übersetzen jeden Hebel in einen klaren Fahrplan — was zuerst, was danach.",
       ],
       listLabel: "Wir analysieren & bewerten",
       list: ["Prozesse", "Datenflüsse", "Wissensstrukturen", "Entscheidungswege", "Wiederkehrende Aufgaben", "Wirtschaftlichkeit"],
-      ergebnis: ["Potenzialanalyse & ROI-Prognosen", "Priorisierte Handlungsfelder", "Business Cases", "Transformations-Roadmap"],
+      ergebnis: ["Potenzialanalyse: was sich rechnet", "Priorisierte Handlungsfelder", "Kosten-Nutzen-Rechnung pro Vorhaben", "Klarer Fahrplan für die Umsetzung"],
     },
     {
       index: "02",
       title: "Umsetzung",
       frage: "Aus der Analyse wird ein laufendes System.",
       intro: [
-        "Jetzt entsteht das Fundament: Cortex — der eine Ort, an dem Mitarbeiter, Daten, Prozesse und Agenten zusammenlaufen. Kontrolliert, sicher, transparent.",
+        "Jetzt entsteht das Fundament: Cortex — der eine Ort, an dem Mitarbeiter, Daten, Prozesse und KI-Assistenten zusammenlaufen. Kontrolliert, sicher, transparent.",
         "Darauf bauen wir die digitalen Systeme und automatisieren die Abläufe mit dem größten Mehrwert — nach den Prioritäten aus der Analyse.",
       ],
       listLabel: "Wir bauen & automatisieren",
-      list: ["Cortex als Infrastruktur", "Kundenportale & Plattformen", "Web-Applikationen", "Dokumentenverarbeitung", "Kundenservice", "Reporting & Backoffice"],
-      ergebnis: ["Zentrale Steuerung & Transparenz", "Skalierbare digitale Produkte", "Reduzierter manueller Aufwand", "Mehr operative Kapazität"],
+      list: ["Cortex als Fundament", "Kundenportale & Plattformen", "Web-Anwendungen", "Dokumentenverarbeitung", "Kundenservice", "Auswertungen & Verwaltung"],
+      ergebnis: ["Zentrale Steuerung & Transparenz", "Digitale Produkte, die mitwachsen", "Weniger Handarbeit im Alltag", "Mehr Luft im Tagesgeschäft"],
     },
     {
       index: "03",
       title: "Skalierung",
-      frage: "Kein Recruiting. Kein Onboarding. Kein Risiko.",
+      frage: "Kein Einstellen. Kein Einarbeiten. Kein Risiko.",
       intro: [
         "Sie bekommen eine voll arbeitsfähige KI-Abteilung — ohne selbst einzustellen oder einzuarbeiten. Eine Ansprechperson bei Ihnen koordiniert, dahinter steht unser Team mit fünffacher Kapazität.",
-        "Alles, was wir aufbauen, gehört Ihnen: nachvollziehbar, kontrollierbar und jederzeit erweiterbar. Mit Embedded AI übernehmen wir die kontinuierliche Weiterentwicklung.",
+        "Alles, was wir aufbauen, gehört Ihnen: nachvollziehbar, kontrollierbar und jederzeit erweiterbar. Mit Embedded AI — unserer laufenden Betreuung — entwickeln wir Ihre KI-Abteilung kontinuierlich weiter.",
       ],
       listLabel: "Was wir übernehmen",
-      list: ["Strategische Priorisierung", "Laufende Systempflege", "Potenzialerkennung & Weiterentwicklung", "Governance & Datenhoheit", "Team-Enablement", "Infrastruktur-Weiterentwicklung"],
+      list: ["Strategische Priorisierung", "Laufende Systempflege", "Potenzialerkennung & Weiterentwicklung", "Klare Regeln & Datenhoheit", "Schulung & Befähigung Ihres Teams", "Ausbau der technischen Basis"],
       outro: "Sie erhalten die Schlagkraft eines ganzen Teams zum Preis einer einzigen Stelle — dauerhaft an Ihrer Seite.",
-      ergebnis: ["5× Kapazität zum Preis einer Stelle", "Kein Recruiting, keine Einarbeitung", "Langfristige Unabhängigkeit & Datenhoheit", "Kontinuierliche Transformation"],
+      ergebnis: ["5× Kapazität zum Preis einer Stelle", "Keine Neueinstellungen, keine Einarbeitung", "Langfristige Unabhängigkeit & Datenhoheit", "Laufende Weiterentwicklung"],
     },
   ] as Stufe[],
 
@@ -154,10 +154,10 @@ export const methodik = {
 
   /** Toast-Meldungen des Kontaktformulars. */
   toast: {
-    validationTitle: "Validierungsfehler",
+    validationTitle: "Bitte prüfen Sie Ihre Angaben",
     successTitle: "Nachricht gesendet",
     successBody: "Wir melden uns bald.",
     errorTitle: "Fehler",
-    errorFallback: "Bitte erneut versuchen.",
+    errorFallback: "Das hat nicht geklappt — bitte versuchen Sie es noch einmal.",
   },
 } as const;

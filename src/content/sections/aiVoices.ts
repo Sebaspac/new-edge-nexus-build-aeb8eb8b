@@ -12,7 +12,7 @@
  */
 
 export const aiVoices = {
-  kicker: "Glauben Sie nicht dem Hype?",
+  kicker: "Glauben Sie uns kein Wort?",
   heading: "Was die KI über uns sagt",
 
   /** Vorbefüllter Prompt (wird URL-kodiert an die Provider übergeben). */

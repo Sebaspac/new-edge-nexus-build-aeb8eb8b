@@ -46,9 +46,9 @@ interface ContactField {
 
 export const about = {
   seo: {
-    title: "Über uns | NEWEDGE — Ihre KI-Abteilung für den Mittelstand",
+    title: "Über uns: Gründer & KI-Team | NEWEDGE München",
     description:
-      "Wir bauen die KI-Abteilung für den Mittelstand — mit einem Team, das KI im DACH-Raum und in den USA produktiv gemacht hat. Technische Tiefe und Geschäftsverständnis in einer Hand.",
+      "NEWEDGE ist die KI-Abteilung für den Mittelstand aus München — ein Gründerteam aus Strategie, Technik und Operations mit KI-Erfahrung im DACH-Raum und den USA.",
     canonical: "/about",
   } satisfies SEOContent,
 
@@ -73,9 +73,9 @@ export const about = {
       imgPos: "center top",
       imgHoverPos: "center 38%",
       facts: [
-        "Strategie, Marke & Systemarchitektur",
+        "Strategie, Marke & KI-Systeme",
         "7+ Jahre B2B-Beratung & Digitalprojekte",
-        "KI-Implementierungen im DACH-Raum & USA",
+        "KI-Projekte umgesetzt im DACH-Raum & in den USA",
       ],
       linkedin: "https://www.linkedin.com/in/sebastian-pachón-a7504b24b",
     },
@@ -88,9 +88,9 @@ export const about = {
       imgHoverPos: "center 38%",
       initials: "IJ",
       facts: [
-        "KI-Architektur & ML-Engineering",
-        "LLM-Deployment & RAG-Systeme",
-        "Full-Stack & Cloud-Infrastruktur",
+        "Baut die KI-Systeme hinter unseren Kundenprojekten",
+        "Verbindet KI sicher mit Ihrem Firmenwissen",
+        "Zuhause in Cloud und eigener Server-Welt",
       ],
       linkedin: "https://www.linkedin.com/in/ivan-jovanovic-51b319187/",
     },
@@ -104,8 +104,8 @@ export const about = {
       initials: "WZ",
       facts: [
         "Operations, Prozessdesign & Skalierung",
-        "Operative Systemintegration & Workflows",
-        "Cross-funktionale Projektsteuerung",
+        "Bringt neue Systeme in bestehende Abläufe",
+        "Steuert Projekte über alle Abteilungen hinweg",
       ],
       linkedin: "https://www.linkedin.com/in/wenjamin-zabezhanskiy-7138b7231/",
     },
@@ -118,11 +118,11 @@ export const about = {
     intro:
       "Keine Blackbox. Das ist die Werkbank hinter den Systemen, die bei unseren Kunden produktiv laufen. Sie sehen jederzeit, womit gebaut wird.",
     manifest: [
-      { k: "MODELLE", v: "Claude, GPT und Open-Source-Modelle. Je Use Case das passende, nie aus Prinzip nur eines." },
-      { k: "INFRASTRUKTUR", v: "EU-Rechenzentren, private Cloud oder on-premise. Sie entscheiden, wo Ihre Daten liegen." },
-      { k: "EIGENBAU", v: "Agenten-Framework und KI-Output-Cockpit. Entwickelt für den Mittelstand, im Einsatz bei Kunden." },
-      { k: "INTEGRATIONEN", v: "DATEV, SAP, HubSpot, Shopify, ATLAS und alles mit einer API." },
-      { k: "ARBEITSWEISE", v: "Analyse, Pilot mit echten Daten, Go-live, Übergabe. Typisch 4 bis 6 Wochen." },
+      { k: "MODELLE", v: "Claude, GPT und Open-Source-Modelle. Je Aufgabe das passende, nie aus Prinzip nur eines." },
+      { k: "INFRASTRUKTUR", v: "EU-Rechenzentren, private Cloud oder Ihre eigenen Server im Haus. Sie entscheiden, wo Ihre Daten liegen." },
+      { k: "EIGENBAU", v: "Unser eigener Baukasten für KI-Assistenten plus ein Cockpit, das jedes Ergebnis sichtbar macht. Entwickelt für den Mittelstand, im Einsatz bei Kunden." },
+      { k: "INTEGRATIONEN", v: "DATEV, SAP, HubSpot, Shopify, ATLAS — und alles, was eine Schnittstelle hat." },
+      { k: "ARBEITSWEISE", v: "Analyse, Pilot mit echten Daten, Start im Betrieb, Übergabe. Typisch 4 bis 6 Wochen." },
     ] as ManifestRow[],
     /** YouTube-Erklärvideo (dokumentiertes Artefakt). */
     video: {
@@ -146,7 +146,7 @@ export const about = {
   /** Kontakt-Sheet (rechts). */
   contact: {
     title: "Projekt besprechen",
-    description: "Erzählen Sie uns von Ihrem Projekt — wir melden uns zeitnah.",
+    description: "Erzählen Sie uns von Ihrem Projekt — wir melden uns schnell zurück.",
     fields: [
       { id: "name",     label: "Name *",     type: "text",  placeholder: "Ihr Name",          required: true },
       { id: "email",    label: "E-Mail *",   type: "email", placeholder: "ihre@email.com",    required: true },
@@ -160,7 +160,7 @@ export const about = {
     },
     submit: "Nachricht senden",
     toast: {
-      validationTitle: "Validierungsfehler",
+      validationTitle: "Bitte Angaben prüfen",
       successTitle: "Nachricht gesendet",
       successBody: "Wir melden uns bald.",
       errorTitle: "Fehler",

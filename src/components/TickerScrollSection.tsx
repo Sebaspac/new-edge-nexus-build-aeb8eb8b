@@ -34,7 +34,7 @@ export const TickerScrollSection = () => {
     <div style={{ display: "flex", flexDirection: "column", gap: isMobile ? "12px" : "6px", margin: "16px 0" }}>
 
       {/* Strip 1 — dark violet, bold sentence, scrolls left */}
-      <div style={{ ...stripBase, background: "#5658DF" }}>
+      <div style={{ ...stripBase, background: "#CCFF00" }}>
         <MarqueeAnimation
           direction="left"
           baseVelocity={1.5}
@@ -42,7 +42,7 @@ export const TickerScrollSection = () => {
             ...HEAD,
             fontSize: isMobile ? "1rem" : "clamp(1.1rem, 1.8vw, 1.5rem)",
             lineHeight: 1.3,
-            color: "#ffffff",
+            color: "#171717",
             letterSpacing: "-0.01em",
           }}
         >
@@ -51,7 +51,7 @@ export const TickerScrollSection = () => {
       </div>
 
       {/* Strip 2 — light lilac, hashtags, scrolls right */}
-      <div style={{ ...stripBase, background: "#C2C3F6" }}>
+      <div style={{ ...stripBase, background: "#FFF7B2" }}>
         <MarqueeAnimation
           direction="right"
           baseVelocity={1.2}
@@ -59,7 +59,7 @@ export const TickerScrollSection = () => {
             ...TAGS,
             fontSize: isMobile ? "0.75rem" : "clamp(0.7rem, 1vw, 0.9rem)",
             lineHeight: 1.4,
-            color: "#17172E",
+            color: "#171717",
             letterSpacing: "0.12em",
           }}
         >

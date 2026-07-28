@@ -15,7 +15,7 @@
 export const teamSupport = {
   kicker: "Your team",
   headingLead: "One point of contact. ",
-  headingHighlight: "A whole agency behind them.",
+  headingHighlight: "A whole team behind them.",
   paragraph:
     "We don't deliver and disappear. You work with one dedicated point of contact — behind them, the full NEWEDGE team: strategy, development, design and automation.",
 
@@ -35,7 +35,7 @@ export const teamSupport = {
       desc: "Short paths, clear ownership: you always talk to someone who knows your project.",
     },
     {
-      title: "Full agency manpower",
+      title: "Full team strength",
       desc: "Strategy, design, development and automation from a single team, with no handover losses.",
     },
     {

@@ -16,18 +16,21 @@ import { useLocalized } from "@/hooks/useLocalized";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
-const VIOLET_LIGHT = "#8B8DF0";
-const INK_DEEP = "#17172E";
-const INK = "#3C3C47";
-const INK_DEEPER = "#100E1E";
-const PAPER = "#F8F5FF";
-const HAIRLINE = "rgba(86,88,223,0.14)";
+const VIOLET = "#CCFF00";
+const VIOLET_LIGHT = "#CCFF00";
+const LILAC = "#FFF7B2";
+const FLASH = "#FF1E00";
+const INK_DEEP = "#171717";
+const INK = "#3C3C3C";
+const INK_DEEPER = "#101010";
+const PAPER = "#F2F2F2";
+const HAIRLINE = "rgba(23,23,23,0.14)";
 /** Dunkler Ink-Verlauf für dunkle Flächen (Referenz: Footer-Karte / EdgeCta). */
-const INK_GRADIENT = "linear-gradient(160deg, #1D1B38 0%, #17172E 45%, #100E1E 100%)";
+const INK_GRADIENT = "linear-gradient(160deg, #1F1F1F 0%, #171717 45%, #101010 100%)";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-/** Kicker/Eyebrow-Grundstil (Farbe je Fläche: VIOLET hell / VIOLET_LIGHT dunkel). */
+/** Kicker/Eyebrow-Grundstil: auf hellem Grund (Paper) immer Ink — Lime ist dort als
+    Text nicht lesbar; auf dunklem Grund (Ink-Karten) VIOLET_LIGHT (Lime). */
 const KICKER: React.CSSProperties = {
   fontFamily: OUTFIT,
   fontWeight: 700,
@@ -36,7 +39,7 @@ const KICKER: React.CSSProperties = {
   textTransform: "uppercase",
 };
 
-const CARD_SHADOW = "0 1px 2px rgba(23,23,46,0.06)";
+const CARD_SHADOW = "0 1px 2px rgba(23,23,23,0.06)";
 
 const Careers = () => {
   useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, []);
@@ -67,7 +70,7 @@ const Careers = () => {
         <div className="relative" style={{ background: PAPER, minHeight: "clamp(460px, 66vh, 680px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <div aria-hidden style={{
             position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
-            background: "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(86,88,223,0.10) 0%, transparent 62%)",
+            background: "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(23,23,23,0.05) 0%, transparent 62%)",
           }} />
 
           <motion.div
@@ -105,8 +108,8 @@ const Careers = () => {
               transform: "translateX(-50%)",
               width: "2px",
               height: "clamp(80px, 10vh, 130px)",
-              background: "linear-gradient(to bottom, rgba(86,88,223,0), rgba(86,88,223,0.5) 50%, rgba(86,88,223,0.2))",
-              boxShadow: "0 0 10px rgba(86,88,223,0.22)",
+              background: "linear-gradient(to bottom, rgba(204,255,0,0), rgba(204,255,0,0.6) 50%, rgba(204,255,0,0.25))",
+              boxShadow: "0 0 10px rgba(204,255,0,0.32)",
               zIndex: 3,
             }}
           />
@@ -128,7 +131,7 @@ const Careers = () => {
               <span
                 aria-hidden
                 className="absolute left-0 top-1 bottom-1 w-[3px] rounded-full"
-                style={{ background: `linear-gradient(180deg, ${VIOLET_LIGHT}, ${VIOLET})` }}
+                style={{ background: `linear-gradient(180deg, ${LILAC}, ${VIOLET})` }}
               />
               <h2 style={{ color: INK_DEEP, marginBottom: "20px" }}>
                 {careers.about.eyebrow}
@@ -148,7 +151,7 @@ const Careers = () => {
                 style={{ marginBottom: "clamp(32px, 4vw, 48px)" }}
               >
                 {careers.why.eyebrow && (
-                  <p style={{ ...KICKER, color: VIOLET, marginBottom: "14px" }}>
+                  <p style={{ ...KICKER, color: INK_DEEP, marginBottom: "14px" }}>
                     {careers.why.eyebrow}
                   </p>
                 )}
@@ -177,8 +180,8 @@ const Careers = () => {
                       display: "inline-flex",
                       alignItems: "center",
                       borderRadius: "999px",
-                      background: "rgba(86,88,223,0.08)",
-                      border: "1px solid rgba(86,88,223,0.18)",
+                      background: "rgba(23,23,23,0.06)",
+                      border: "1px solid rgba(23,23,23,0.16)",
                       padding: "4px 12px",
                       fontFamily: OUTFIT,
                       fontWeight: 700,
@@ -213,7 +216,7 @@ const Careers = () => {
               style={{ marginBottom: "clamp(40px, 5vw, 64px)", textAlign: "center" }}
             >
               {careers.positions.eyebrow && (
-                <p style={{ ...KICKER, color: VIOLET, marginBottom: "14px" }}>
+                <p style={{ ...KICKER, color: INK_DEEP, marginBottom: "14px" }}>
                   {careers.positions.eyebrow}
                 </p>
               )}
@@ -297,7 +300,7 @@ const Careers = () => {
         }}>
           <div aria-hidden style={{
             position: "absolute", inset: 0, pointerEvents: "none",
-            background: "radial-gradient(ellipse 70% 60% at 0% 100%, rgba(86,88,223,0.28) 0%, transparent 65%)",
+            background: "radial-gradient(ellipse 70% 60% at 0% 100%, rgba(204,255,0,0.16) 0%, transparent 65%)",
           }} />
 
           <motion.div
@@ -362,7 +365,7 @@ const Careers = () => {
                 </div>
                 {/* Center image */}
                 <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <div style={{ position: "relative", width: "96px", height: "96px", borderRadius: "50%", overflow: "hidden", border: "2.5px solid #5658DF", boxShadow: "0 4px 20px rgba(86,88,223,0.28)" }}>
+                  <div style={{ position: "relative", width: "96px", height: "96px", borderRadius: "50%", overflow: "hidden", border: "2.5px solid #CCFF00", boxShadow: "0 4px 20px rgba(204,255,0,0.28)" }}>
                     <img
                       src={img(careers.cta.person.src)}
                       alt={careers.cta.person.alt}
@@ -375,7 +378,7 @@ const Careers = () => {
                       transition={{ duration: 0.2 }}
                       style={{
                         position: "absolute", inset: 0,
-                        background: "rgba(86,88,223,0.65)",
+                        background: "rgba(23,23,23,0.72)",
                         display: "flex", alignItems: "center", justifyContent: "center",
                         color: "#fff",
                         borderRadius: "50%",

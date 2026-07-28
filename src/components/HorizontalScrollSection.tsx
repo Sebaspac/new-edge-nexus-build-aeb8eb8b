@@ -5,7 +5,17 @@ import { ArrowDown } from "lucide-react";
 import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 import { EdgeTextButton } from "@/components/ui/EdgeCta";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Icon, img } from "@/content";
+import { img } from "@/content";
+import { IconShieldCheck, IconStack2, IconTarget, type Icon as TablerIcon } from "@tabler/icons-react";
+import { EdgeIconBadge } from "@/components/ui/EdgeIconBadge";
+
+/* Pillar-Icons im Board-Badge-Stil — Content-Layer liefert weiterhin
+   CMS-agnostische Namen ("Target", "Layers", "ShieldCheck"). */
+const PILLAR_ICONS: Record<string, TablerIcon> = {
+  Target: IconTarget,
+  Layers: IconStack2,
+  ShieldCheck: IconShieldCheck,
+};
 import { EdgeRip } from "@/components/ui/EdgeRip";
 import { MitStudyGrid } from "@/components/ui/MitStudyGrid";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -15,9 +25,9 @@ import { useHomeSection } from "@/hooks/useHomeContent";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const VIOLET   = "#5658DF";
-const INK_DEEP = "#17172E";
-const INK      = "#3C3C47";
+const VIOLET   = "#CCFF00";
+const INK_DEEP = "#171717";
+const INK      = "#3C3C3C";
 
 const HEAD: React.CSSProperties = {
   fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
@@ -30,15 +40,15 @@ const BODY: React.CSSProperties = {
 
 /* Gemeinsamer Papier-Hintergrund für BEIDE Panels — clean, ohne Spaltenraster */
 const PANEL_BG = [
-  "radial-gradient(ellipse 120% 80% at 60% 40%, rgba(86,88,223,0.05) 0%, transparent 60%)",
-  "#F8F5FF",
+  "radial-gradient(ellipse 120% 80% at 60% 40%, rgba(204,255,0,0.05) 0%, transparent 60%)",
+  "#F2F2F2",
 ].join(", ");
 
 /* Weiße Feature-Karte — gleiche Optik wie die Ablauf-Cards des Rebrush */
 const cardStyle: React.CSSProperties = {
   background: "#FFFFFF",
   borderRadius: "16px",
-  boxShadow: "0 1px 2px rgba(23,23,46,0.06)",
+  boxShadow: "0 1px 2px rgba(23,23,23,0.06)",
   padding: "18px 22px",
   display: "flex",
   alignItems: "flex-start",
@@ -91,7 +101,7 @@ const ProcessPanel = () => {
                 words={horizontalScroll.process.headingWords}
                 interval={2800}
                 renderWord={(word) => (
-                  <span style={{ color: VIOLET }}>{word}</span>
+                  <span className="edge-mark">{word}</span>
                 )}
               />
             </h2>
@@ -131,7 +141,7 @@ const ProcessPanel = () => {
                     style={{
                       ...HEAD,
                       fontSize: "13px",
-                      color: "#fff",
+                      color: INK_DEEP,
                       background: VIOLET,
                       width: "34px",
                       height: "34px",
@@ -148,7 +158,7 @@ const ProcessPanel = () => {
                   <div>
                     <h3
                       style={{
-                        color: VIOLET,
+                        color: INK_DEEP,
                         fontSize: "clamp(19px, 1.8vw, 22px)",
                         lineHeight: 1.3,
                         marginBottom: "6px",
@@ -159,7 +169,7 @@ const ProcessPanel = () => {
                     <p
                       style={{
                         ...BODY,
-                        color: "rgba(23,23,46,0.68)",
+                        color: "rgba(23,23,23,0.68)",
                         fontSize: "16px",
                         lineHeight: 1.55,
                       }}
@@ -170,7 +180,7 @@ const ProcessPanel = () => {
                 </div>
                 {i < arr.length - 1 && (
                   <div aria-hidden style={{ display: "flex", justifyContent: "center", padding: "14px 0" }}>
-                    <ArrowDown style={{ width: "20px", height: "20px", color: VIOLET, opacity: 0.45 }} strokeWidth={2.2} />
+                    <ArrowDown style={{ width: "20px", height: "20px", color: INK_DEEP, opacity: 0.45 }} strokeWidth={2.2} />
                   </div>
                 )}
               </div>
@@ -220,7 +230,7 @@ const PillarsPanel = () => {
               style={{
                 position: "absolute",
                 inset: "-12px 12px 12px -12px",
-                border: "1.5px solid rgba(139,141,240,0.5)",
+                border: "1.5px solid rgba(204,255,0,0.5)",
                 borderRadius: "16px 64px 16px 64px",
                 transform: "rotate(2deg)",
                 pointerEvents: "none",
@@ -253,7 +263,7 @@ const PillarsPanel = () => {
               words={horizontalScroll.pillarsPanel.headingWords}
               interval={2800}
               renderWord={(word) => (
-                <span style={{ color: VIOLET }}>{word}</span>
+                <span className="edge-mark">{word}</span>
               )}
             />
             <br />
@@ -271,32 +281,18 @@ const PillarsPanel = () => {
             {horizontalScroll.pillarsPanel.body}
           </p>
 
-          <EdgeTextButton to="/about">Über uns</EdgeTextButton>
+          {/* „Über uns" vorerst ausgeblendet — Seite bleibt, nur der Link ist raus */}
         </div>
 
         {/* RIGHT: Pillars als weiße Karten mit Icon-Badges */}
         <div className="lg:col-span-6 order-2 flex flex-col" style={{ gap: "12px" }}>
           {horizontalScroll.pillarsPanel.pillars.map(({ icon, title, desc }) => (
             <div key={title} style={cardStyle}>
-              <div
-                style={{
-                  width: "34px",
-                  height: "34px",
-                  borderRadius: "10px",
-                  backgroundColor: "rgba(86,88,223,0.1)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                  marginTop: "2px",
-                }}
-              >
-                <Icon name={icon} style={{ color: VIOLET, width: "16px", height: "16px" }} strokeWidth={1.6} />
-              </div>
+              <EdgeIconBadge icon={PILLAR_ICONS[icon] ?? IconTarget} size="md" style={{ marginTop: "2px" }} />
               <div>
                 <h3
                   style={{
-                    color: VIOLET,
+                    color: INK_DEEP,
                   }}
                 >
                   {title}
@@ -304,7 +300,7 @@ const PillarsPanel = () => {
                 <p
                   style={{
                     ...BODY,
-                    color: "rgba(23,23,46,0.68)",
+                    color: "rgba(23,23,23,0.68)",
                   }}
                 >
                   {desc}

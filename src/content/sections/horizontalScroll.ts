@@ -59,7 +59,7 @@ export const horizontalScroll = {
     eyebrow: "Warum NEWEDGE",
     /** Überschrift: statischer Teil + animierte Wörter + Zeile danach. */
     headingLead: "Wir nutzen KI als",
-    headingWords: ["Erfolgsfaktor", "Motor", "Helfer", "Vorteil"],
+    headingWords: ["Freund", "Motor", "Helfer", "Vorteil"],
     headingTail: "für Ihr Unternehmen.",
     body: "KI bringt erst dann Ergebnisse, wenn sie auf Ihre Geschäftsziele einzahlt. Wir verbinden Beratung, Entwicklung und Integration — aus einer Hand.",
     /** Panel-Bild (edgy geschnittener Rahmen). */

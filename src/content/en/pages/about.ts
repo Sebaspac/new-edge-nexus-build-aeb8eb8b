@@ -46,9 +46,9 @@ interface ContactField {
 
 export const about = {
   seo: {
-    title: "About | NEWEDGE — Your AI Department for Mid-Sized Companies",
+    title: "About: Founders & AI Team | NEWEDGE Munich",
     description:
-      "We build the AI department for mid-sized companies. The team behind it has made AI productive across the DACH region and in the US — technical depth and business sense in one place.",
+      "NEWEDGE is the AI department for mid-sized companies in Munich — a founding team in strategy, tech and operations, proven with AI across DACH and the US.",
     canonical: "/en/about",
   } satisfies SEOContent,
 
@@ -73,9 +73,9 @@ export const about = {
       imgPos: "center top",
       imgHoverPos: "center 38%",
       facts: [
-        "Strategy, brand & system architecture",
+        "Strategy, brand & AI systems",
         "7+ years of B2B consulting & digital projects",
-        "AI implementations across the DACH region & US",
+        "AI projects delivered across the DACH region & the US",
       ],
       linkedin: "https://www.linkedin.com/in/sebastian-pachón-a7504b24b",
     },
@@ -88,9 +88,9 @@ export const about = {
       imgHoverPos: "center 38%",
       initials: "IJ",
       facts: [
-        "AI architecture & ML engineering",
-        "LLM deployment & RAG systems",
-        "Full-stack & cloud infrastructure",
+        "Builds the AI systems behind our client projects",
+        "Connects AI securely to your company knowledge",
+        "At home in the cloud and on your own servers",
       ],
       linkedin: "https://www.linkedin.com/in/ivan-jovanovic-51b319187/",
     },
@@ -104,8 +104,8 @@ export const about = {
       initials: "WZ",
       facts: [
         "Operations, process design & scaling",
-        "Operational system integration & workflows",
-        "Cross-functional project management",
+        "Brings new systems into existing processes",
+        "Steers projects across all departments",
       ],
       linkedin: "https://www.linkedin.com/in/wenjamin-zabezhanskiy-7138b7231/",
     },
@@ -118,11 +118,11 @@ export const about = {
     intro:
       "No black box. This is the workbench behind the systems running in production at our clients. You can see at any time what we build with.",
     manifest: [
-      { k: "MODELS", v: "Claude, GPT and open-source models. The right one for each use case, never just one on principle." },
-      { k: "INFRASTRUCTURE", v: "EU data centers, private cloud or on-premise. You decide where your data lives." },
-      { k: "IN-HOUSE BUILD", v: "Agent framework and AI output cockpit. Built for mid-sized companies, in use at clients." },
-      { k: "INTEGRATIONS", v: "DATEV, SAP, HubSpot, Shopify, ATLAS and anything with an API." },
-      { k: "WAY OF WORKING", v: "Analysis, pilot with real data, go-live, handover. Typically 4 to 6 weeks." },
+      { k: "MODELS", v: "Claude, GPT and open-source models. The right one for each task, never just one on principle." },
+      { k: "INFRASTRUCTURE", v: "EU data centers, private cloud or your own servers in-house. You decide where your data lives." },
+      { k: "IN-HOUSE BUILD", v: "Our own toolkit for AI assistants plus a cockpit that makes every result visible. Built for mid-sized companies, in use at clients." },
+      { k: "INTEGRATIONS", v: "DATEV, SAP, HubSpot, Shopify, ATLAS — and anything with an interface." },
+      { k: "WAY OF WORKING", v: "Analysis, pilot with real data, going into operation, handover. Typically 4 to 6 weeks." },
     ] as ManifestRow[],
     /** YouTube-Erklärvideo (dokumentiertes Artefakt). */
     video: {
@@ -146,7 +146,7 @@ export const about = {
   /** Kontakt-Sheet (rechts). */
   contact: {
     title: "Discuss a project",
-    description: "Tell us about your project — we'll get back to you shortly.",
+    description: "Tell us about your project — we'll get back to you soon.",
     fields: [
       { id: "name",     label: "Name *",     type: "text",  placeholder: "Your name",          required: true },
       { id: "email",    label: "Email *",   type: "email", placeholder: "your@email.com",    required: true },
@@ -160,7 +160,7 @@ export const about = {
     },
     submit: "Send message",
     toast: {
-      validationTitle: "Validation error",
+      validationTitle: "Please check your details",
       successTitle: "Message sent",
       successBody: "We'll be in touch soon.",
       errorTitle: "Error",

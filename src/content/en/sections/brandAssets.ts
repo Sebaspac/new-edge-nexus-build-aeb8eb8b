@@ -10,9 +10,10 @@
 import type { ImageKey } from "../../assets";
 
 export const brandAssets = {
-  /** Logo on the loading screen (dark background). */
+  /** Logo on the loading screen (black background → white variant).
+      Same asset as the homepage loader (`home.loadingLogo`). */
   loadingLogo: {
-    src: "new-edge-logo" as ImageKey,
+    src: "newedge-logo-white" as ImageKey,
     alt: "NEWEDGE",
   },
   /** Photo inside the floating "free consultation" button. */

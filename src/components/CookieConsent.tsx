@@ -83,11 +83,11 @@ const CookieConsent = () => {
       duration: 0.5,
       ease: "easeOut"
     }} className="fixed bottom-0 left-0 right-0 z-50 p-4">
-          <Card className="bg-[#0C0C1C]/97 border border-[#9A85F6]/30 rounded-none max-w-4xl mx-auto">
+          <Card className="bg-[#0D0D0D]/97 border border-[#FFF200]/30 rounded-none max-w-4xl mx-auto">
             <CardContent className="p-6">
               {!showSettings ? <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4">
                   <div className="flex items-start gap-3 flex-1">
-                    <Cookie className="w-6 h-6 text-[#C2C3F6] mt-1 flex-shrink-0" />
+                    <Cookie className="w-6 h-6 text-[#FFF7B2] mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="text-white font-bold text-lg mb-2">
                         {cookieConsent.banner.title}
@@ -99,21 +99,21 @@ const CookieConsent = () => {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
-                    <Button onClick={() => setShowSettings(true)} variant="outline" className="border-[#9A85F6]/50 text-[#C2C3F6] hover:border-[#9A85F6] rounded-none bg-gray-950 hover:bg-gray-800">
+                    <Button onClick={() => setShowSettings(true)} variant="outline" className="border-[#FFF200]/50 text-[#FFF7B2] hover:border-[#FFF200] rounded-none bg-gray-950 hover:bg-gray-800">
                       <Settings className="w-4 h-4 mr-2" />
                       {cookieConsent.actions.settings}
                     </Button>
-                    <Button onClick={acceptNecessary} variant="outline" className="border-[#9A85F6]/50 text-[#C2C3F6] hover:border-[#9A85F6] rounded-none bg-gray-950 hover:bg-gray-800">
+                    <Button onClick={acceptNecessary} variant="outline" className="border-[#FFF200]/50 text-[#FFF7B2] hover:border-[#FFF200] rounded-none bg-gray-950 hover:bg-gray-800">
                       {cookieConsent.actions.necessary}
                     </Button>
-                    <Button onClick={acceptAll} className="bg-[#5658DF] text-white hover:bg-[#17172E] rounded-none">
+                    <Button onClick={acceptAll} className="bg-[#CCFF00] text-[#171717] hover:bg-[#171717] hover:text-white rounded-none">
                       {cookieConsent.actions.acceptAll}
                     </Button>
                   </div>
                 </div> : <div>
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-white font-bold text-xl flex items-center">
-                      <Settings className="w-6 h-6 mr-3 text-[#C2C3F6]" />
+                      <Settings className="w-6 h-6 mr-3 text-[#FFF7B2]" />
                       {cookieConsent.settings.title}
                     </h3>
                     <Button onClick={() => setShowSettings(false)} variant="ghost" size="sm" className="text-gray-400 hover:text-white">
@@ -130,7 +130,7 @@ const CookieConsent = () => {
                           {cookieConsent.settings.categories[0].description}
                         </p>
                       </div>
-                      <Switch checked={preferences.necessary} disabled className="data-[state=checked]:bg-[#5658DF]" />
+                      <Switch checked={preferences.necessary} disabled className="data-[state=checked]:bg-[#CCFF00]" />
                     </div>
                     
                     {/* Statistics Cookies */}
@@ -141,7 +141,7 @@ const CookieConsent = () => {
                           {cookieConsent.settings.categories[1].description}
                         </p>
                       </div>
-                      <Switch checked={preferences.analytics} onCheckedChange={(checked) => handlePreferenceChange('analytics', checked)} className="data-[state=checked]:bg-[#5658DF]" />
+                      <Switch checked={preferences.analytics} onCheckedChange={(checked) => handlePreferenceChange('analytics', checked)} className="data-[state=checked]:bg-[#CCFF00]" />
                     </div>
                     
                     {/* Marketing Cookies */}
@@ -152,7 +152,7 @@ const CookieConsent = () => {
                           {cookieConsent.settings.categories[2].description}
                         </p>
                       </div>
-                      <Switch checked={preferences.marketing} onCheckedChange={(checked) => handlePreferenceChange('marketing', checked)} className="data-[state=checked]:bg-[#5658DF]" />
+                      <Switch checked={preferences.marketing} onCheckedChange={(checked) => handlePreferenceChange('marketing', checked)} className="data-[state=checked]:bg-[#CCFF00]" />
                     </div>
                   </div>
                   
@@ -160,10 +160,10 @@ const CookieConsent = () => {
                     <Button onClick={acceptNecessary} variant="outline" className="border-gray-500/50 text-gray-300 hover:bg-gray-500/10 flex-1">
                       {cookieConsent.settings.actions.necessary}
                     </Button>
-                    <Button onClick={savePreferences} className="bg-[#5658DF] text-white hover:bg-[#17172E] rounded-none flex-1">
+                    <Button onClick={savePreferences} className="bg-[#CCFF00] text-[#171717] hover:bg-[#171717] hover:text-white rounded-none flex-1">
                       {cookieConsent.settings.actions.save}
                     </Button>
-                    <Button onClick={acceptAll} className="bg-[#5658DF] text-white hover:bg-[#17172E] rounded-none flex-1">
+                    <Button onClick={acceptAll} className="bg-[#CCFF00] text-[#171717] hover:bg-[#171717] hover:text-white rounded-none flex-1">
                       {cookieConsent.settings.actions.acceptAll}
                     </Button>
                   </div>

@@ -11,6 +11,7 @@ import { LoadingScreen } from "@/components/LoadingScreen";
 import ScrollToTop from "@/components/ScrollToTop";
 import StructuredData from "@/components/StructuredData";
 import ApolloTracker from "@/components/ApolloTracker";
+import { useImageOverrides } from "@/hooks/useImageOverrides";
 // Eager load only critical pages for faster initial load
 import Index from "./pages/Index";
 
@@ -55,7 +56,8 @@ const appRoutes = () => (
     <Route index element={<Index />} />
     {/* Karriere-Seite vorerst deaktiviert (nicht erreichbar) — Content bleibt im CMS erhalten */}
     <Route path="careers" element={<NotFound />} />
-    <Route path="about" element={<About />} />
+    {/* „Über uns" vorerst deaktiviert — Seite/Content bleiben, Route zeigt auf 404 */}
+    <Route path="about" element={<NotFound />} />
     <Route path="methodik" element={<Methodik />} />
     <Route path="impressum" element={<Impressum />} />
     <Route path="kontakt" element={<Contact />} />
@@ -82,6 +84,10 @@ const appRoutes = () => (
 const App = () => {
   // `document.documentElement.lang` wird pro Route von `LocaleLayout` gesetzt (de/en).
 
+  // „Bild austauschen" aus dem CMS laden. Der Rückgabewert wird bewusst nicht
+  // gelesen — er erzwingt nur einen Re-Render, sobald Ersatzbilder vorliegen.
+  useImageOverrides();
+
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
@@ -91,26 +97,6 @@ const App = () => {
             <Sonner />
             <BrowserRouter>
               <ScrollToTop />
-              {/* ── Globaler Magazin-Grid: fixierter 12-Spalten-Raster auf allen Seiten ── */}
-              <div aria-hidden style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none", overflow: "hidden" }}>
-                <div style={{
-                  position: "absolute", inset: 0,
-                  background: [
-                    "radial-gradient(ellipse 60% 38% at 100% 0%, rgba(86,88,223,0.05) 0%, transparent 55%)",
-                    "radial-gradient(ellipse 55% 42% at 0% 100%, rgba(132,118,239,0.04) 0%, transparent 55%)",
-                  ].join(", "),
-                }} />
-                <div style={{ height: "100%", width: "100%", display: "flex", justifyContent: "center" }}>
-                  <div style={{ width: "100%", maxWidth: "1280px", padding: "0 2rem", height: "100%" }}>
-                    <div style={{
-                      height: "100%",
-                      backgroundImage: "linear-gradient(to right, rgba(23,23,46,0.07) 0 1px, transparent 1px)",
-                      backgroundSize: "calc(100% / 12) 100%",
-                      borderRight: "1px solid rgba(23,23,46,0.07)",
-                    }} />
-                  </div>
-                </div>
-              </div>
               <StructuredData />
 
               <Suspense fallback={<LoadingScreen progress={100} />}>

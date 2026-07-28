@@ -22,12 +22,12 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center" style={{ background: "#F2F2F2" }}>
       <SEOHead title={notFound.seo.title} description={notFound.seo.description} noindex />
       <div className="text-center">
-        <h1>{t('notFound.title')}</h1>
-        <p className="text-gray-600 mb-4">{t('notFound.subtitle')}</p>
-        <Link to="/" className="text-blue-500 hover:text-blue-700 underline">
+        <h1 style={{ color: "#171717" }}>{t('notFound.title')}</h1>
+        <p className="mb-4" style={{ color: "#3C3C3C" }}>{t('notFound.subtitle')}</p>
+        <Link to="/" className="underline" style={{ color: "#171717" }}>
           {t('notFound.backToHome')}
         </Link>
       </div>

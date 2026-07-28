@@ -227,23 +227,18 @@ export default defineConfig(({ mode }) => {
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'assets/*.png', 'assets/*.webp', 'assets/*.mp4'],
       manifest: {
-        name: 'New Edge',
-        short_name: 'New Edge',
-        description: 'AI-First Business Solutions',
-        theme_color: '#0F172A',
-        background_color: '#0F172A',
+        name: 'NEWEDGE',
+        short_name: 'NEWEDGE',
+        description: 'Die KI-Abteilung für den Mittelstand',
+        theme_color: '#171717',
+        background_color: '#171717',
         display: 'standalone',
+        // Icons aus der Wortmarke erzeugt: python3 scripts/gen-brand-icons.py
         icons: [
-          {
-            src: '/assets/93b90410-bdbd-4098-938c-5ff9f158253c.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: '/assets/93b90410-bdbd-4098-938c-5ff9f158253c.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
+          { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+          { src: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
+          { src: '/icons/icon-maskable-192.png', sizes: '192x192', type: 'image/png', purpose: 'maskable' },
+          { src: '/icons/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
         ]
       },
       workbox: {

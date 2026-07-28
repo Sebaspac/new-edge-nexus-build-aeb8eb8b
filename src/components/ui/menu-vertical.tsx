@@ -11,8 +11,8 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { LocaleLink as Link } from "@/components/LocaleLink";
 
-const VIOLET = "#5658DF";
-const INK_DEEP = "#17172E";
+const VIOLET = "#FF1E00";
+const INK_DEEP = "#171717";
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
 type MenuItem = {

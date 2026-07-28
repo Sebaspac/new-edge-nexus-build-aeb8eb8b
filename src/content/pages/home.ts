@@ -19,14 +19,14 @@ interface ContactField {
 
 export const home = {
   seo: {
-    title: "KI-Agentur München | Prozessautomatisierung & Markenaufbau für KMU | NEWEDGE",
+    title: "KI-Abteilung für den Mittelstand | NEWEDGE München",
     description:
-      "NEWEDGE ist Ihre KI-Agentur in München. Wir verbinden Prozessautomatisierung, KI-Systeme und Markenaufbau — für den Mittelstand, der konsequent wachsen will.",
+      "NEWEDGE ist die KI-Abteilung für den Mittelstand: von der kostenlosen Analyse über Cortex bis zu laufenden Automatisierungen. DSGVO-konform, oft förderfähig.",
     canonical: "/",
   } satisfies SEOContent,
 
   /** Lade-Logo (Bild-Key oder CMS-Upload-URL) + Alt-Text. */
-  loadingLogo: "new-edge-logo",
+  loadingLogo: "newedge-logo-white",
   loadingAlt: "NEWEDGE",
 
   /** Kontakt-Formular (Sheet). */
@@ -56,8 +56,8 @@ export const home = {
 
   /** Toast-Meldungen des Kontaktformulars. */
   toast: {
-    validationTitle: "Validierungsfehler",
-    validationFallback: "Validierungsfehler",
+    validationTitle: "Bitte prüfen Sie Ihre Angaben",
+    validationFallback: "Bitte prüfen Sie Ihre Angaben",
     successTitle: "Anfrage erhalten",
     successBody: "Vielen Dank für Ihre Anfrage! Wir melden uns zeitnah bei Ihnen.",
     errorTitle: "Fehler",

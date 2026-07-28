@@ -19,14 +19,14 @@ interface ContactField {
 
 export const home = {
   seo: {
-    title: "AI Agency Munich | Process Automation & Brand Building for SMEs | NEWEDGE",
+    title: "AI Department for Mid-Sized Companies | NEWEDGE Munich",
     description:
-      "NEWEDGE is your AI agency in Munich. We combine process automation, AI systems and brand building — for mid-sized companies determined to grow.",
+      "NEWEDGE is the AI department for mid-sized companies: from a free analysis through Cortex to ongoing automations. GDPR-compliant, often eligible for funding.",
     canonical: "/en",
   } satisfies SEOContent,
 
   /** Loading logo (image key or CMS upload URL) + alt text. */
-  loadingLogo: "new-edge-logo",
+  loadingLogo: "newedge-logo-white",
   loadingAlt: "NEWEDGE",
 
   /** Kontakt-Formular (Sheet). */
@@ -56,8 +56,8 @@ export const home = {
 
   /** Toast-Meldungen des Kontaktformulars. */
   toast: {
-    validationTitle: "Validation error",
-    validationFallback: "Validation error",
+    validationTitle: "Please check your details",
+    validationFallback: "Please check your details",
     successTitle: "Enquiry received",
     successBody: "Thank you for your enquiry! We'll get back to you shortly.",
     errorTitle: "Error",

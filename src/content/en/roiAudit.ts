@@ -11,26 +11,26 @@ export type { RoiUseCase, RoiIndustry, RoiBranche, PainId } from "@/content/roiA
 export { NR_TO_PAIN, ROI_APPS } from "@/content/roiAudit";
 
 /** Entry offer — realistic starting investment instead of a flat rate. */
-export const ROI_ENTRY = { label: "AI Audit", price: 3200, note: "BAFA funding eligible" };
+export const ROI_ENTRY = { label: "AI Audit", price: 3200, note: "Government-funding eligible (BAFA)" };
 
 /** Painpoint fields = "the members of your AI department" — a memorable name per function. */
 export const PAINFIELDS: { id: PainId; name: string; sub: string }[] = [
   { id: "tueroeffner", name: "The Door Opener", sub: "Sales & acquisition" },
   { id: "verstaerker", name: "The Amplifier", sub: "Marketing & reach" },
-  { id: "kassenwart", name: "The Treasurer", sub: "Invoicing & cash flow" },
+  { id: "kassenwart", name: "The Treasurer", sub: "Invoicing & incoming payments" },
   { id: "maschinenraum", name: "The Engine Room", sub: "Operations & scheduling" },
-  { id: "cockpit", name: "The Cockpit", sub: "KPIs & reporting" },
+  { id: "cockpit", name: "The Cockpit", sub: "Numbers & reports" },
   { id: "concierge", name: "The Concierge", sub: "Support & service" },
-  { id: "waechter", name: "The Guardian", sub: "Compliance & legal" },
+  { id: "waechter", name: "The Guardian", sub: "Regulations & legal" },
   { id: "schiedsrichter", name: "The Referee", sub: "Awards & selection processes" },
 ];
 
 /** Industry application fields (your 4) with a memorable name; each bundles data industries. */
 export const BRANCHES: RoiBranche[] = [
   { id: "handel", cool: "The Flow of Goods", label: "Trade & Supply Chain", sub: "Trade · Import/export · Logistics · Skilled trades", industryIds: ["import-export", "handwerk"] },
-  { id: "professional", cool: "The Think Tank", label: "Professional Services", sub: "Law firms · Consulting · Architecture · Brokers", industryIds: ["anwaelte", "architektur", "immobilien"] },
+  { id: "professional", cool: "The Think Tank", label: "Law Firms & Consulting", sub: "Law firms · Consulting · Architecture · Brokers", industryIds: ["anwaelte", "architektur", "immobilien"] },
   { id: "health", cool: "The Practice", label: "Health Care", sub: "Practices · Medical centers · Therapists", industryIds: ["praxen"] },
-  { id: "instanzen", cool: "The Jury", label: "Decision-Making Bodies", sub: "Awards · Committees · Procurement · Universities", industryIds: ["entscheidungsinstanzen"] },
+  { id: "instanzen", cool: "The Jury", label: "Juries & Procurement Bodies", sub: "Awards · Committees · Procurement · Universities", industryIds: ["entscheidungsinstanzen"] },
 ];
 
 export const ROI_INDUSTRIES: RoiIndustry[] = [

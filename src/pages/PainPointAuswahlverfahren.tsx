@@ -14,10 +14,14 @@ import { painPointPage as painPointPageEn } from "@/content/en/pages/painPointAu
 import { useLocalized } from "@/hooks/useLocalized";
 import { usePainPoints } from "@/hooks/usePainPoints";
 import { Logos3 } from "@/components/ui/logos3";
-import { clientLogos } from "@/components/ui/logo-cloud";
 import { EdgePillButton, EdgeTextButton } from "@/components/ui/EdgeCta";
 import { SpeakWithUsCta } from "@/components/SpeakWithUsCta";
 import { EdgeRip } from "@/components/ui/EdgeRip";
+import { resultJourneys } from "@/content/resultJourney";
+import { featureBulletIcons } from "@/content/featureBulletIcons";
+import { featureCardIcons } from "@/content/featureCardIcons";
+import { EdgeIconBadge } from "@/components/ui/EdgeIconBadge";
+import { IconCheck, type Icon as TablerIcon } from "@tabler/icons-react";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -25,16 +29,17 @@ const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: 
    Design tokens — NEWEDGE CI (Rebrush 2026-07)
 ────────────────────────────────────────────── */
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
-const VIOLET_LIGHT = "#8B8DF0";     // Akzent auf dunklen Flächen
-const LILAC = "#C2C3F6";
-const INK_DEEP = "#17172E";
-const INK = "#3C3C47";
-const PAPER = "#F8F5FF";
-const INK_GRADIENT = "linear-gradient(160deg, #1D1B38 0%, #17172E 45%, #100E1E 100%)";
-const HAIRLINE = "rgba(86,88,223,0.14)";
-const CARD_SHADOW = "0 1px 2px rgba(23,23,46,0.06)";
-const BODY_MUTED = "rgba(23,23,46,0.68)";
+const VIOLET = "#CCFF00";
+const FLASH = "#FF1E00";
+const VIOLET_LIGHT = "#CCFF00";     // Akzent auf dunklen Flächen
+const LILAC = "#CCFF00";
+const INK_DEEP = "#171717";
+const INK = "#3C3C3C";
+const PAPER = "#F2F2F2";
+const INK_GRADIENT = "linear-gradient(160deg, #1F1F1F 0%, #171717 45%, #101010 100%)";
+const HAIRLINE = "rgba(23,23,23,0.14)";
+const CARD_SHADOW = "0 1px 2px rgba(23,23,23,0.06)";
+const BODY_MUTED = "rgba(23,23,23,0.68)";
 
 const HEAD: React.CSSProperties = { fontFamily: OUTFIT, fontWeight: 700 };
 const BODY: React.CSSProperties = { fontFamily: OUTFIT, fontWeight: 400 };
@@ -42,6 +47,10 @@ const BODY: React.CSSProperties = { fontFamily: OUTFIT, fontWeight: 400 };
 /** OS-Einstellung „Bewegung reduzieren": Sektionen erscheinen dann ohne Einblend-Animation. */
 const PREFERS_REDUCED_MOTION =
   typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+/** Temporärer Schalter: Mini-Cases-Sektion + Hero-Sprung-CTA global aus-/einblenden,
+    ohne Code oder Inhalte (miniCases.ts) zu löschen. */
+const SHOW_MINI_CASES = false;
 
 /* ────────────── Reusable atoms (Light theme) ────────────── */
 
@@ -67,16 +76,13 @@ const SectionSub = ({ children }: { children: React.ReactNode }) => (
   </p>
 );
 
-const BulletList = ({ items }: { items: string[] }) => (
-  <ul className="flex flex-col gap-3 mb-7 list-none">
+/** Bullet-Liste im Board-Icon-Stil: pro Eintrag ein inhaltlich passendes
+    Tabler-Icon (aus src/content/featureBulletIcons.ts), Fallback Check. */
+const BulletList = ({ items, icons }: { items: string[]; icons?: TablerIcon[] }) => (
+  <ul className="flex flex-col gap-3.5 mb-7 list-none">
     {items.map((item, i) => (
-      <li key={i} className="flex items-start gap-3 text-[15px] leading-[1.6]" style={{ ...BODY, color: INK }}>
-        <span
-          className="shrink-0 w-6 h-6 flex items-center justify-center mt-0.5 rounded-full"
-          style={{ background: "rgba(86,88,223,0.1)" }}
-        >
-          <Check className="w-3.5 h-3.5" style={{ color: VIOLET }} />
-        </span>
+      <li key={i} className="flex items-start gap-3.5 text-[15px] leading-[1.6]" style={{ ...BODY, color: INK }}>
+        <EdgeIconBadge icon={icons?.[i] ?? IconCheck} size="sm" className="mt-[-2px]" />
         {item}
       </li>
     ))}
@@ -94,15 +100,15 @@ const FAQItem = ({ q, a, open, onToggle }: { q: string; a: string; open: boolean
       <button
         onClick={onToggle}
         className="w-full flex justify-between items-center py-4 px-5 md:py-5 md:px-6 text-left hover:opacity-80 transition-opacity gap-4 text-[14px] md:text-[15px]"
-        style={{ fontFamily: OUTFIT, fontWeight: 600, color: open ? VIOLET : INK_DEEP }}
+        style={{ fontFamily: OUTFIT, fontWeight: 600, color: INK_DEEP }}
       >
         <span>{q}</span>
         <span
           className={`shrink-0 w-6 h-6 flex items-center justify-center rounded-full transition-transform duration-200 ${open ? "rotate-45" : ""}`}
           style={{
-            border: `1px solid ${open ? VIOLET : "rgba(23,23,46,0.18)"}`,
-            background: open ? "rgba(86,88,223,0.08)" : "transparent",
-            color: open ? VIOLET : "rgba(23,23,46,0.45)",
+            border: `1px solid ${open ? VIOLET : "rgba(23,23,23,0.18)"}`,
+            background: open ? "rgba(204,255,0,0.12)" : "transparent",
+            color: open ? INK_DEEP : "rgba(23,23,23,0.45)",
           }}
         >
           <Plus className="w-3.5 h-3.5" />
@@ -152,15 +158,15 @@ const CompareAccordionItem = ({
       onClick={onToggle}
       aria-expanded={open}
       className="w-full flex justify-between items-center py-4 px-5 text-left hover:opacity-80 transition-opacity gap-4"
-      style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "14.5px", color: open ? VIOLET : INK_DEEP }}
+      style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "14.5px", color: INK_DEEP }}
     >
       <span>{k}</span>
       <span
         className={`shrink-0 w-6 h-6 flex items-center justify-center rounded-full transition-transform duration-200 ${open ? "rotate-45" : ""}`}
         style={{
-          border: `1px solid ${open ? VIOLET : "rgba(23,23,46,0.18)"}`,
-          background: open ? "rgba(86,88,223,0.08)" : "transparent",
-          color: open ? VIOLET : "rgba(23,23,46,0.45)",
+          border: `1px solid ${open ? VIOLET : "rgba(23,23,23,0.18)"}`,
+          background: open ? "rgba(204,255,0,0.12)" : "transparent",
+          color: open ? INK_DEEP : "rgba(23,23,23,0.45)",
         }}
       >
         <Plus className="w-3.5 h-3.5" />
@@ -178,7 +184,7 @@ const CompareAccordionItem = ({
       <div style={{ padding: "13px 20px", background: "rgba(22,163,74,0.05)", borderTop: `1px solid ${HAIRLINE}` }}>
         <span
           className="block"
-          style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "11px", letterSpacing: "0.05em", textTransform: "uppercase", color: VIOLET, marginBottom: "6px" }}
+          style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "11px", letterSpacing: "0.05em", textTransform: "uppercase", color: INK_DEEP, marginBottom: "6px" }}
         >
           {headNewEdge}
         </span>
@@ -193,7 +199,7 @@ const CompareAccordionItem = ({
       <div style={{ padding: "13px 20px", background: "rgba(185,28,28,0.04)", borderTop: `1px solid ${HAIRLINE}` }}>
         <span
           className="block"
-          style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "11px", letterSpacing: "0.05em", textTransform: "uppercase", color: "rgba(23,23,46,0.5)", marginBottom: "6px" }}
+          style={{ fontFamily: OUTFIT, fontWeight: 700, fontSize: "11px", letterSpacing: "0.05em", textTransform: "uppercase", color: "rgba(23,23,23,0.5)", marginBottom: "6px" }}
         >
           {altLabel}
         </span>
@@ -299,11 +305,17 @@ const PainPointAuswahlverfahren = () => {
     [content]
   );
 
-  // Default-Icons als Bildplatzhalter (gleich für alle Slugs, sofern keine eigenen Icons hinterlegt sind)
-  const iconAnalyse = img(painPointPage.images.cardIconAnalyse);
-  const defaultCardIcons = [iconAnalyse, img(painPointPage.images.cardIconKoordination), img(painPointPage.images.cardIconInsights), img(painPointPage.images.cardIconInsights), iconAnalyse, img(painPointPage.images.cardIconKoordination)];
+  // Ergebnis-Modul (Bild + Stationen) — statischer Lookup über den kanonischen Slug,
+  // bewusst NICHT Teil von PainPointContent (CMS-Rows würden die Felder verdrängen)
+  const journey = resultJourneys[content.slug];
+  // Icons pro Feature-Bullet, gleiche Lookup-Logik
+  const bulletIcons = featureBulletIcons[content.slug];
+
+  // Karten-Icons: neues Board-Icon-Set (Tabler) statt der früheren Bild-Icons,
+  // index-aligned über den Slug (featureCardIcons.ts), Fallback IconCheck.
+  const cardIcons = featureCardIcons[content.slug];
   const featureCards = content.featureCards.cards.map((c, i) => ({
-    icon: c.icon ? img(c.icon) : defaultCardIcons[i % defaultCardIcons.length] ?? iconAnalyse,
+    icon: cardIcons?.[i] ?? IconCheck,
     title: c.title,
     desc: c.desc,
   }));
@@ -377,13 +389,13 @@ const PainPointAuswahlverfahren = () => {
               style={{
                 borderRadius: "40px",
                 background: PAPER,
-                paddingBottom: "clamp(96px, 14vw, 200px)", // Platz für den Fenster-Overhang
+                paddingBottom: "clamp(72px, 10vh, 120px)",
               }}
             >
               {/* Sanfter Violett-Glow, im Canvas geclippt */}
               <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none" style={{ borderRadius: "40px" }}>
-                <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 75% 55% at 50% 0%, rgba(86,88,223,0.10) 0%, transparent 60%)" }} />
-                <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 45% at 50% 110%, rgba(139,141,240,0.06) 0%, transparent 65%)" }} />
+                <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 75% 55% at 50% 0%, rgba(204,255,0,0.10) 0%, transparent 60%)" }} />
+                <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 45% at 50% 110%, rgba(204,255,0,0.06) 0%, transparent 65%)" }} />
               </div>
 
               <div className="relative z-10 max-w-[880px] mx-auto px-6 lg:px-8 text-center" style={{ paddingTop: "clamp(72px, 10vh, 120px)" }}>
@@ -392,12 +404,12 @@ const PainPointAuswahlverfahren = () => {
                     style={{ color: INK_DEEP }}
                   >
                     {content.hero.h1Line1}<br />
-                    <span style={{ color: VIOLET }}>{content.hero.h1Line2Highlighted}</span>
+                    <span className="edge-mark">{content.hero.h1Line2Highlighted}</span>
                   </h1>
                 </Reveal>
 
                 <Reveal delay={0.12}>
-                  <p className="mb-9 max-w-[560px] mx-auto" style={{ ...BODY, color: "#3C3C47" }}>
+                  <p className="mb-9 max-w-[560px] mx-auto" style={{ ...BODY, color: "#3C3C3C" }}>
                     {content.hero.sub}
                   </p>
                 </Reveal>
@@ -405,78 +417,15 @@ const PainPointAuswahlverfahren = () => {
                 <Reveal delay={0.18}>
                   <div className="flex items-center justify-center gap-x-7 gap-y-4 flex-wrap">
                     <EdgePillButton to="/kontakt">{content.hero.ctaPrimary}</EdgePillButton>
-                    <EdgeTextButton href="#cases">{content.hero.ctaSecondary}</EdgeTextButton>
+                    {SHOW_MINI_CASES && (
+                      <EdgeTextButton href="#cases">{content.hero.ctaSecondary}</EdgeTextButton>
+                    )}
                   </div>
                 </Reveal>
               </div>
             </div>
 
-            {/* Produkt-Screenshot als App-Fenster — hängt über die Canvas-Kante aufs Papier */}
-            <Reveal delay={0.24}>
-              <div className="relative z-10 max-w-[880px] mx-auto px-6 lg:px-8" style={{ marginTop: "clamp(-72px, -10vw, -160px)" }}>
-                <div
-                  className="relative overflow-hidden"
-                  style={{
-                    borderRadius: "20px",
-                    background: "#FFFFFF",
-                    border: `1px solid ${HAIRLINE}`,
-                    boxShadow: "0 40px 90px -24px rgba(16,14,30,0.45), 0 12px 32px rgba(86,88,223,0.14)",
-                  }}
-                >
-                  {/* Fenster-Chrome */}
-                  <div
-                    aria-hidden
-                    className="flex items-center gap-1.5 px-4"
-                    style={{ height: "38px", borderBottom: `1px solid ${HAIRLINE}`, background: "#FBFAFF" }}
-                  >
-                    <span className="w-2.5 h-2.5 rounded-full" style={{ background: LILAC }} />
-                    <span className="w-2.5 h-2.5 rounded-full" style={{ background: VIOLET_LIGHT, opacity: 0.7 }} />
-                    <span className="w-2.5 h-2.5 rounded-full" style={{ background: VIOLET, opacity: 0.55 }} />
-                  </div>
-                  {/* Seiteneigenes Bild, sonst Fallback auf die geteilte Chrome-Grafik. Note: {content.hero.imageNote} */}
-                  <img
-                    src={img(content.hero.image ?? painPointPage.images.hero)}
-                    alt={content.hero.imageAlt}
-                    className="w-full h-auto block"
-                  />
-                  {/* Marken-Riss an der Fensterkante */}
-                  <EdgeRip style={{ top: "37px", right: "16%", width: "26px", height: "62px", zIndex: 2 }} />
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Trust bar — Logos auf Papier, Ink statt invertiert */}
-            <div className="max-w-[1200px] mx-auto px-6 lg:px-8" style={{ paddingTop: "clamp(48px, 6vw, 72px)", paddingBottom: "8px" }}>
-              <p className="text-center mb-1" style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "14px", letterSpacing: "-0.01em", color: INK_DEEP }}>
-                {content.trustBar.headline}
-              </p>
-              <p className="text-center mb-5" style={{ ...BODY, fontSize: "14px", color: BODY_MUTED }}>
-                {content.trustBar.sub}
-              </p>
-              <div className="overflow-hidden" style={{ borderTop: `1px solid ${HAIRLINE}`, borderBottom: `1px solid ${HAIRLINE}` }}>
-                <div className="flex w-max py-3.5 items-center" style={{ animation: PREFERS_REDUCED_MOTION ? "none" : "marquee 28s linear infinite" }}>
-                  {[...Array(2)].flatMap((_, dup) =>
-                    clientLogos.map((logo, i) => (
-                      <div
-                        key={`hero-${dup}-${i}`}
-                        className="flex items-center px-8 shrink-0"
-                        style={{ height: "34px" }}
-                      >
-                        <img
-                          src={img(logo.src)}
-                          alt={logo.alt}
-                          loading="lazy"
-                          className="object-contain"
-                          style={{ height: "28px", width: "auto", maxWidth: "150px", opacity: 0.55, filter: "grayscale(1)" }}
-                        />
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-            </div>
           </div>
-          <style>{`@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`}</style>
         </section>
 
         {/* ═══════════════════════════════════════════
@@ -484,24 +433,92 @@ const PainPointAuswahlverfahren = () => {
         ═══════════════════════════════════════════ */}
         <div style={{ background: PAPER, color: INK_DEEP }}>
 
-          {/* DEFINITION — Statement-Callout mit violetter Akzentkante */}
+          {/* ERGEBNIS-STATIONEN — direkt nach Hero/Logo-Leiste, ohne Bild.
+              Was sich im Geschäftsalltag des Kunden ändert. Desktop: horizontaler
+              Zeitstrahl; Mobile: vertikale Liste. Badges im neuen Board-Stil:
+              schwarzes Badge, Lime-Icon (Tabler), Nummer als kleiner Lime-Punkt. */}
+          {journey && (
+            <Reveal>
+              <section id="ergebnis" className="max-w-[1200px] mx-auto px-6 lg:px-8 pt-16 md:pt-20">
+                <SectionHeadline className="md:max-w-[75%] !mb-10">
+                  {journey.title}
+                </SectionHeadline>
+                <ol className="relative list-none p-0 m-0 flex flex-col md:flex-row gap-8 md:gap-6">
+                  {/* Verbindungslinie — Mobile: vertikal links, Desktop: horizontal auf Badge-Höhe */}
+                  <span
+                    aria-hidden
+                    className="md:hidden absolute w-px"
+                    style={{ left: "25px", top: "26px", bottom: "48px", background: "rgba(23,23,23,0.14)" }}
+                  />
+                  <span
+                    aria-hidden
+                    className="hidden md:block absolute h-px"
+                    style={{ top: "25px", left: "52px", right: "52px", background: "rgba(23,23,23,0.14)" }}
+                  />
+                  {journey.steps.map((step, i) => (
+                    <li key={i} className="relative flex md:flex-col items-start gap-5 md:gap-4 md:flex-1">
+                      <EdgeIconBadge icon={step.icon} size="lg" number={i + 1} className="z-10" style={{ fontFamily: OUTFIT }} />
+                      <p
+                        className="m-0 text-[15px] leading-[1.55] md:pr-2"
+                        style={{ fontFamily: OUTFIT, fontWeight: 600, color: INK_DEEP }}
+                      >
+                        {step.text}
+                      </p>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            </Reveal>
+          )}
+
+          {/* DEFINITION — Statement-Callout mit violetter Akzentkante, danach.
+              Desktop: Text links (2/3), rechtes Drittel zeigt das Ergebnis-Motiv
+              (journey.showcase) bzw. bis dahin den NEWEDGE-Charakter. */}
           <section id="definition" className="pt-16 md:pt-20 pb-0">
-            <div className="max-w-[800px] mx-auto px-6 lg:px-8">
-              <div
-                className="relative"
-                style={{ paddingLeft: "clamp(20px, 3vw, 28px)" }}
-              >
-                <span
-                  aria-hidden
-                  className="absolute left-0 top-1 bottom-1 w-[3px] rounded-full"
-                  style={{ background: `linear-gradient(180deg, ${VIOLET_LIGHT}, ${VIOLET})` }}
-                />
-                <h2 style={{ color: INK_DEEP }}>
-                  {content.definition.title}
-                </h2>
-                <p style={{ ...BODY, color: BODY_MUTED }}>
-                  {content.definition.body}
-                </p>
+            <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+              <div className="grid md:grid-cols-3 gap-x-12 lg:gap-x-16 gap-y-8 items-center">
+                <div
+                  className="relative order-2 md:order-1 md:col-span-2"
+                  style={{ paddingLeft: "clamp(20px, 3vw, 28px)" }}
+                >
+                  <span
+                    aria-hidden
+                    className="absolute left-0 top-1 bottom-1 w-[3px] rounded-full"
+                    style={{ background: `linear-gradient(180deg, ${VIOLET_LIGHT}, ${VIOLET})` }}
+                  />
+                  <h2 style={{ color: INK_DEEP }}>
+                    {content.definition.title}
+                  </h2>
+                  <p style={{ ...BODY, color: BODY_MUTED }}>
+                    {content.definition.body}
+                  </p>
+                </div>
+                {/* Bild-Slot rechts — Mobile-Reihenfolge: Bild → Überschrift → Text.
+                    Zeigt das seitenspezifische Ergebnis-Motiv (journey.showcase);
+                    solange keins registriert ist, den NEWEDGE-Charakter
+                    (transparentes Freisteller-Motiv, daher ohne Karten-Rahmen). */}
+                <div className="order-1 md:order-2">
+                  {journey?.showcase.image ? (
+                    <div
+                      className="overflow-hidden"
+                      style={{ borderRadius: "20px", border: `1px solid ${HAIRLINE}`, boxShadow: "0 24px 56px -18px rgba(23,23,23,0.18)" }}
+                    >
+                      <img
+                        src={img(journey.showcase.image)}
+                        alt={journey.showcase.imageAlt}
+                        loading="lazy"
+                        className="w-full h-auto block"
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src={img("newedge-character-presenting")}
+                      alt="NEWEDGE-Charakter präsentiert die Erklärung"
+                      loading="lazy"
+                      className="block w-full h-auto max-w-[260px] md:max-w-[340px] mx-auto"
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </section>
@@ -523,7 +540,7 @@ const PainPointAuswahlverfahren = () => {
                       style={{
                         position: "absolute",
                         inset: "-12px -12px 12px 12px",
-                        border: "1.5px solid rgba(139,141,240,0.5)",
+                        border: "1.5px solid rgba(204,255,0,0.5)",
                         borderRadius: "64px 16px 64px 16px",
                         transform: "rotate(-2deg)",
                         pointerEvents: "none",
@@ -542,7 +559,7 @@ const PainPointAuswahlverfahren = () => {
                 </div>
                 <div className="order-3">
                   <SectionSub>{content.feature1.sub}</SectionSub>
-                  <BulletList items={[...content.feature1.bullets]} />
+                  <BulletList items={[...content.feature1.bullets]} icons={bulletIcons?.feature1} />
                 </div>
               </div>
             </div>
@@ -560,7 +577,7 @@ const PainPointAuswahlverfahren = () => {
                   </SectionHeadline>
                   <div className="order-3 md:order-2">
                     <SectionSub>{content.feature2.sub}</SectionSub>
-                    <BulletList items={[...content.feature2.bullets]} />
+                    <BulletList items={[...content.feature2.bullets]} icons={bulletIcons?.feature2} />
                     {/* Farbloser CTA → Kontaktseite (Muster wie die übrigen Text-CTAs der Seite) */}
                     <div style={{ marginTop: "28px" }}>
                       <EdgeTextButton to="/kontakt">{content.hero.ctaPrimary}</EdgeTextButton>
@@ -569,7 +586,7 @@ const PainPointAuswahlverfahren = () => {
                   <div className="order-1 md:order-3 flex flex-col">
                     <div
                       className="w-full max-w-[500px] mx-auto md:mt-[5.5rem] overflow-hidden"
-                      style={{ borderRadius: "20px", background: "#FFFFFF", border: `1px solid ${HAIRLINE}`, boxShadow: "0 24px 56px -18px rgba(23,23,46,0.18)", padding: "10px" }}
+                      style={{ borderRadius: "20px", background: "#FFFFFF", border: `1px solid ${HAIRLINE}`, boxShadow: "0 24px 56px -18px rgba(23,23,23,0.18)", padding: "10px" }}
                     >
                       <img
                         src={img(content.feature2.image ?? painPointPage.images.feature2)}
@@ -597,7 +614,7 @@ const PainPointAuswahlverfahren = () => {
                 <div className="flex flex-col order-1 md:order-2">
                   <div
                     className="w-full max-w-[500px] mx-auto mt-4 overflow-hidden"
-                    style={{ borderRadius: "20px", background: "#FFFFFF", border: `1px solid ${HAIRLINE}`, boxShadow: "0 24px 56px -18px rgba(23,23,46,0.18)", padding: "10px" }}
+                    style={{ borderRadius: "20px", background: "#FFFFFF", border: `1px solid ${HAIRLINE}`, boxShadow: "0 24px 56px -18px rgba(23,23,23,0.18)", padding: "10px" }}
                   >
                     <img
                       src={img(content.feature3.image ?? painPointPage.images.feature3)}
@@ -610,7 +627,7 @@ const PainPointAuswahlverfahren = () => {
                 </div>
                 <div className="order-3">
                   <SectionSub>{content.feature3.sub}</SectionSub>
-                  <BulletList items={[...content.feature3.bullets]} />
+                  <BulletList items={[...content.feature3.bullets]} icons={bulletIcons?.feature3} />
                 </div>
               </div>
             </div>
@@ -635,7 +652,7 @@ const PainPointAuswahlverfahren = () => {
                       id: logo.id,
                       description: logo.label,
                       image: logo.src,
-                      className: logo.className ?? "h-8 w-auto",
+                      className: logo.className ?? "h-7 w-auto",
                     }))}
                   />
                 </div>
@@ -661,7 +678,7 @@ const PainPointAuswahlverfahren = () => {
                       <tr>
                         <th
                           className="text-left p-5 text-[12px] font-semibold uppercase tracking-[0.05em] w-[26%]"
-                          style={{ fontFamily: OUTFIT, background: "#FFFFFF", color: "rgba(23,23,46,0.5)", borderBottom: `1px solid ${HAIRLINE}` }}
+                          style={{ fontFamily: OUTFIT, background: "#FFFFFF", color: "rgba(23,23,23,0.5)", borderBottom: `1px solid ${HAIRLINE}` }}
                         >
                           {painPointPage.compare.headCriterion}
                         </th>
@@ -669,8 +686,8 @@ const PainPointAuswahlverfahren = () => {
                           className="text-left p-5 text-[14px] w-[37%]"
                           style={{
                             ...HEAD,
-                            background: "rgba(86,88,223,0.08)",
-                            color: VIOLET,
+                            background: "rgba(204,255,0,0.16)",
+                            color: INK_DEEP,
                             borderBottom: `1px solid ${HAIRLINE}`,
                             borderLeft: `1px solid ${HAIRLINE}`,
                           }}
@@ -693,13 +710,13 @@ const PainPointAuswahlverfahren = () => {
                     </thead>
                     <tbody>
                       {compareRows.map(([k, ne, ma], i) => (
-                        <tr key={i} style={{ background: i % 2 ? "#FFFFFF" : "rgba(86,88,223,0.03)" }}>
+                        <tr key={i} style={{ background: i % 2 ? "#FFFFFF" : "rgba(23,23,23,0.03)" }}>
                           <td
                             className="p-4 text-[14px] font-medium"
                             style={{
                               fontFamily: OUTFIT,
                               color: INK,
-                              borderBottom: i === compareRows.length - 1 ? "none" : "1px solid rgba(23,23,46,0.06)",
+                              borderBottom: i === compareRows.length - 1 ? "none" : "1px solid rgba(23,23,23,0.06)",
                             }}
                           >
                             {k}
@@ -709,8 +726,8 @@ const PainPointAuswahlverfahren = () => {
                             style={{
                               ...BODY,
                               color: INK_DEEP,
-                              borderLeft: "1px solid rgba(23,23,46,0.06)",
-                              borderBottom: i === compareRows.length - 1 ? "none" : "1px solid rgba(23,23,46,0.06)",
+                              borderLeft: "1px solid rgba(23,23,23,0.06)",
+                              borderBottom: i === compareRows.length - 1 ? "none" : "1px solid rgba(23,23,23,0.06)",
                             }}
                           >
                             <span className="flex items-start gap-2.5">
@@ -725,8 +742,8 @@ const PainPointAuswahlverfahren = () => {
                             style={{
                               ...BODY,
                               color: BODY_MUTED,
-                              borderLeft: "1px solid rgba(23,23,46,0.06)",
-                              borderBottom: i === compareRows.length - 1 ? "none" : "1px solid rgba(23,23,46,0.06)",
+                              borderLeft: "1px solid rgba(23,23,23,0.06)",
+                              borderBottom: i === compareRows.length - 1 ? "none" : "1px solid rgba(23,23,23,0.06)",
                             }}
                           >
                             <span className="flex items-start gap-2.5">
@@ -771,7 +788,7 @@ const PainPointAuswahlverfahren = () => {
                   {featureCards.map((c) => (
                     <div
                       key={c.title}
-                      className="group relative overflow-hidden p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(23,23,46,0.08)]"
+                      className="group relative overflow-hidden p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(23,23,23,0.08)]"
                       style={{
                         background: "#FFFFFF",
                         borderRadius: "16px",
@@ -779,18 +796,9 @@ const PainPointAuswahlverfahren = () => {
                         boxShadow: CARD_SHADOW,
                       }}
                     >
-                      {/* Icon-Kachel — Muster der Homepage-Pillar-Karten */}
-                      <div className="flex items-center justify-center w-11 h-11 mb-5"
-                        style={{ background: "rgba(86,88,223,0.1)", borderRadius: "12px" }}>
-                        <img
-                          src={c.icon}
-                          alt=""
-                          aria-hidden
-                          loading="lazy"
-                          width={24}
-                          height={24}
-                          className="w-6 h-6 object-contain"
-                        />
+                      {/* Icon-Badge im Board-Stil (Ink-Badge, Lime-Icon), größer & zentriert */}
+                      <div className="flex justify-center mb-5">
+                        <EdgeIconBadge icon={c.icon} size="lg" />
                       </div>
                       <h3 style={{ color: INK_DEEP }}>
                         {c.title}
@@ -819,13 +827,13 @@ const PainPointAuswahlverfahren = () => {
                 style={{
                   borderRadius: "24px",
                   background: INK_GRADIENT,
-                  border: "1px solid rgba(139,141,240,0.18)",
+                  border: "1px solid rgba(204,255,0,0.18)",
                   padding: "clamp(32px, 5vw, 64px)",
                 }}
               >
                 <div aria-hidden style={{
                   position: "absolute", inset: 0, pointerEvents: "none",
-                  background: "radial-gradient(ellipse 60% 55% at 100% 0%, rgba(86,88,223,0.25) 0%, transparent 60%)",
+                  background: "radial-gradient(ellipse 60% 55% at 100% 0%, rgba(204,255,0,0.25) 0%, transparent 60%)",
                 }} />
                 {/* Statement */}
                 <div className="relative z-10">
@@ -844,7 +852,7 @@ const PainPointAuswahlverfahren = () => {
                         <span
                           aria-hidden
                           className="shrink-0 w-5 h-5 flex items-center justify-center mt-0.5 rounded-full"
-                          style={{ background: "rgba(139,141,240,0.18)" }}
+                          style={{ background: "rgba(204,255,0,0.18)" }}
                         >
                           <Check className="w-3 h-3" style={{ color: LILAC }} />
                         </span>
@@ -856,7 +864,7 @@ const PainPointAuswahlverfahren = () => {
                   <svg viewBox="0 0 420 120" aria-label={painPointPage.datensouveraenitaet.schema.ariaLabel} style={{ width: "100%", maxWidth: "420px", height: "auto", display: "block" }}>
                     <rect x="8" y="8" width="244" height="104" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.28)" strokeWidth="1" />
                     <text x="22" y="30" style={{ fontFamily: OUTFIT, fontSize: "10px", fontWeight: 600, letterSpacing: "0.12em", fill: "rgba(255,255,255,0.5)" }}>{painPointPage.datensouveraenitaet.schema.infrastruktur}</text>
-                    <rect x="22" y="44" width="100" height="32" rx="8" fill="rgba(139,141,240,0.16)" stroke={VIOLET_LIGHT} strokeWidth="1" />
+                    <rect x="22" y="44" width="100" height="32" rx="8" fill="rgba(204,255,0,0.16)" stroke={VIOLET_LIGHT} strokeWidth="1" />
                     <text x="72" y="64" textAnchor="middle" style={{ fontFamily: OUTFIT, fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", fill: LILAC }}>{painPointPage.datensouveraenitaet.schema.ihreDaten}</text>
                     <rect x="138" y="44" width="100" height="32" rx="8" fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
                     <text x="188" y="64" textAnchor="middle" style={{ fontFamily: OUTFIT, fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", fill: "rgba(255,255,255,0.85)" }}>{painPointPage.datensouveraenitaet.schema.kiAgent}</text>
@@ -876,7 +884,7 @@ const PainPointAuswahlverfahren = () => {
           {/* TESTIMONIAL HERO */}
           <div id="testimonial" className="py-[clamp(56px,7vw,96px)]">
             <div className="max-w-[800px] mx-auto px-6 lg:px-8 text-center">
-              <div className="text-[4.5rem] leading-[0.6] mb-6" style={{ fontFamily: OUTFIT, fontWeight: 800, color: LILAC }}>
+              <div className="text-[4.5rem] leading-[0.6] mb-6" style={{ fontFamily: OUTFIT, fontWeight: 800, color: "rgba(23,23,23,0.2)" }}>
                 „
               </div>
               <p
@@ -885,10 +893,10 @@ const PainPointAuswahlverfahren = () => {
               >
                 {content.testimonialHero.quote}
               </p>
-              <div className="flex items-center justify-center gap-2.5 text-[0.85rem]" style={{ ...BODY, color: "rgba(23,23,46,0.5)" }}>
-                <span className="block h-px w-10" style={{ background: "rgba(23,23,46,0.15)" }} />
+              <div className="flex items-center justify-center gap-2.5 text-[0.85rem]" style={{ ...BODY, color: "rgba(23,23,23,0.5)" }}>
+                <span className="block h-px w-10" style={{ background: "rgba(23,23,23,0.15)" }} />
                 {content.testimonialHero.author}
-                <span className="block h-px w-10" style={{ background: "rgba(23,23,46,0.15)" }} />
+                <span className="block h-px w-10" style={{ background: "rgba(23,23,23,0.15)" }} />
               </div>
             </div>
           </div>
@@ -900,7 +908,7 @@ const PainPointAuswahlverfahren = () => {
           <VideoShowcaseSection />
 
           {/* MINI-CASES — eine Detailseite pro Phase (illustrativ). Vor den FAQs. */}
-          {content.miniCases && content.miniCases.length > 0 && (
+          {SHOW_MINI_CASES && content.miniCases && content.miniCases.length > 0 && (
             <Reveal>
               <div id="cases" style={{ background: PAPER, borderTop: `1px solid ${HAIRLINE}` }}>
                 <div className="py-[clamp(56px,7vw,96px)]">
@@ -917,7 +925,7 @@ const PainPointAuswahlverfahren = () => {
                       <Link
                         key={c.id}
                         to={`case/${c.id}`}
-                        className="group relative flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_44px_-12px_rgba(23,23,46,0.16)]"
+                        className="group relative flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_44px_-12px_rgba(23,23,23,0.16)]"
                         style={{
                           borderRadius: "20px",
                           background: "#FFFFFF",
@@ -927,31 +935,36 @@ const PainPointAuswahlverfahren = () => {
                       >
                         <div className="relative overflow-hidden aspect-[16/10]">
                           <img
-                            src={caseImages[i % caseImages.length]}
-                            alt={c.title}
+                            src={c.image ? img(c.image.src) : caseImages[i % caseImages.length]}
+                            alt={c.image?.alt ?? c.title}
                             loading="lazy"
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.04]"
                           />
-                          {c.badge && (
-                            <span
-                              className="absolute top-4 left-4 inline-block text-[10.5px] font-semibold uppercase tracking-[0.04em] px-2.5 py-1"
-                              style={{
-                                fontFamily: OUTFIT,
-                                color: "#fff",
-                                background: "rgba(16,14,30,0.72)",
-                                backdropFilter: "blur(6px)",
-                                border: "1px solid rgba(139,141,240,0.4)",
-                                borderRadius: "999px",
-                              }}
-                            >
-                              {c.badge}
-                            </span>
+                          {(c.industries?.length || c.badge) && (
+                            <div className="absolute top-4 left-4 flex flex-wrap gap-1.5 max-w-[85%]">
+                              {(c.industries?.length ? c.industries.slice(0, 3) : [c.badge]).map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="inline-block text-[10.5px] font-semibold uppercase tracking-[0.04em] px-2.5 py-1"
+                                  style={{
+                                    fontFamily: OUTFIT,
+                                    color: "#fff",
+                                    background: "rgba(16,14,30,0.72)",
+                                    backdropFilter: "blur(6px)",
+                                    border: "1px solid rgba(204,255,0,0.4)",
+                                    borderRadius: "999px",
+                                  }}
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
                           )}
                         </div>
                         <div className="flex flex-col flex-1 p-5">
                           <span
                             className="text-[11px] font-semibold uppercase tracking-[0.05em] mb-2"
-                            style={{ fontFamily: OUTFIT, color: VIOLET }}
+                            style={{ fontFamily: OUTFIT, color: INK_DEEP }}
                           >
                             {c.phaseLabel}
                           </span>
@@ -966,7 +979,7 @@ const PainPointAuswahlverfahren = () => {
                           </p>
                           <span
                             className="inline-flex items-center gap-2 text-[13px] font-semibold group-hover:gap-3 transition-all"
-                            style={{ fontFamily: OUTFIT, color: VIOLET }}
+                            style={{ fontFamily: OUTFIT, color: INK_DEEP }}
                           >
                             {painPointPage.miniCases.cta}
                             <ArrowRight className="w-4 h-4" />
@@ -990,7 +1003,7 @@ const PainPointAuswahlverfahren = () => {
                     style={{ color: INK_DEEP }}
                   >
                     {painPointPage.faq.headingLine1}<br />
-                    <span style={{ color: VIOLET }}>{painPointPage.faq.headingLine2}</span>
+                    <span className="edge-mark">{painPointPage.faq.headingLine2}</span>
                   </h3>
                   {/* CTA → Kontaktseite (kein Calendly mehr) */}
                   <EdgePillButton to="/kontakt">{painPointPage.faq.cta}</EdgePillButton>

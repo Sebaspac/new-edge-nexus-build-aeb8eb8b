@@ -5,7 +5,7 @@ import { maschinenraumTicker as maschinenraumTickerEn } from "@/content/en/secti
 import { useLocalized } from "@/hooks/useLocalized";
 
 /* ── Design tokens ── */
-const GLOW = "#9A85F6";
+const GLOW = "#FFF200";
 const MONO: React.CSSProperties = { fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace" };
 
 function fmt(d: Date) {
@@ -29,9 +29,9 @@ export const MaschinenraumTicker = () => {
       className="relative overflow-hidden"
       style={{
         // Gleicher Verlauf wie die Footer-Karte darunter — nahtloser Übergang.
-        background: "linear-gradient(160deg, #1D1B38 0%, #17172E 45%, #100E1E 100%)",
-        borderTop: "1px solid rgba(194,195,246,0.13)",
-        borderBottom: "1px solid rgba(194,195,246,0.13)",
+        background: "linear-gradient(160deg, #1F1F1F 0%, #171717 45%, #101010 100%)",
+        borderTop: "1px solid rgba(255,247,178,0.13)",
+        borderBottom: "1px solid rgba(255,247,178,0.13)",
       }}
     >
       <div

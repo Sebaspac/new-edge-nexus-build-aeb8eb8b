@@ -132,9 +132,9 @@ export const CursorLine = ({
               x1={svgData.cx} y1={svgData.cy}
               x2={svgData.ex} y2={svgData.ey}
             >
-              <stop offset="0%"   stopColor="#C2C3F6" stopOpacity="0"    />
-              <stop offset="45%"  stopColor="#C2C3F6" stopOpacity="0.28" />
-              <stop offset="100%" stopColor="#C2C3F6" stopOpacity="0.85" />
+              <stop offset="0%"   stopColor="#CCFF00" stopOpacity="0"    />
+              <stop offset="45%"  stopColor="#CCFF00" stopOpacity="0.28" />
+              <stop offset="100%" stopColor="#CCFF00" stopOpacity="0.85" />
             </linearGradient>
           )}
 
@@ -150,7 +150,7 @@ export const CursorLine = ({
           >
             <path
               d="M 1.5 1.5 L 8.5 5 L 1.5 8.5"
-              stroke="#C2C3F6"
+              stroke="#CCFF00"
               strokeWidth="1.4"
               fill="none"
               strokeLinecap="round"

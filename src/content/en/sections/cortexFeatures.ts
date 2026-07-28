@@ -1,19 +1,19 @@
 /**
- * Section-Text: Cortex-Feature-Beschreibungen (Startseite, Rebrush 2026-07)
+ * Section-Text: Local-infrastructure feature descriptions (home) — EN mirror
  * --------------------------------------------------------------
- * Kurzbeschreibungen zu den vier `cortex.results.items`-Titeln —
- * für die Feature-Listen-Komposition (Icon + Akzent-Titel + Text)
- * der Referenz. Inhaltlich abgeleitet aus `cortex.body` und den
- * `cortex.today.items` (Schatten-IT, Einzeltools, unklare
- * Verantwortlichkeiten) — keine neuen Claims.
- * Reihenfolge = Reihenfolge von `cortex.results.items`.
- * Noch NICHT als Strapi-Feld angelegt (statischer Fallback greift).
+ * Short descriptions for the four `cortex.results.items` titles —
+ * for the feature-list composition (icon + accent title + text).
+ * Order = order of `cortex.results.items`.
+ *
+ * The last item deliberately bridges to the following module
+ * (`builtOnTop`): foundation first, then what runs on it.
+ * Not yet a Strapi field (static fallback applies).
  * --------------------------------------------------------------
  */
 
 export const cortexFeatureDescs: string[] = [
-  "No more shadow IT: you see who uses AI for what.",
-  "Your data stays under control — internal, secure, auditable.",
-  "One central entry point for employees instead of scattered tools.",
-  "Processes, agents and automation run on a shared layer.",
+  "Capable AI models run on your own hardware — no data flowing off to external providers.",
+  "No data processing agreements with US services, no grey area — your data stays legally sound with you.",
+  "Instead of tool sprawl: one entry point, clear permissions, traceable usage.",
+  "Whatever is built on top — agents, automations, your own chat solutions — stands on solid ground.",
 ];

@@ -119,7 +119,7 @@ export const ValuePillarsSection = () => {
               >
                 Wir nutzen KI als{" "}
                 <AnimatedTextCycle
-                  words={["Erfolgsfaktor", "Motor", "Helfer", "Vorteil"]}
+                  words={["Freund", "Motor", "Helfer", "Vorteil"]}
                   interval={2800}
                   renderWord={(word) => (
                     <span style={{ color: VIOLET }}>{word}</span>

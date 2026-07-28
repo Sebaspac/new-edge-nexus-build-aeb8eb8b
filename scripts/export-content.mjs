@@ -2,7 +2,7 @@
 // Grundlage für die Strapi-Schema-Generierung + das Seeding.
 // Läuft aus dem Frontend-Repo: `node scripts/export-content.mjs`
 import esbuild from "esbuild";
-import { writeFileSync } from "node:fs";
+import { writeFileSync, readFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -127,6 +127,28 @@ await esbuild.build({
 
 const mod = await import(pathToFileURL(outfile).href);
 const all = mod.__ALL__;
+
+/* ── Bild-Registry (assets.ts) mitexportieren ──────────────────────────────
+   Nicht per esbuild importieren — das würde die Bild-Binaries mitbundeln.
+   Stattdessen die Keys aus dem Quelltext lesen; daraus entsteht im CMS pro
+   Bild ein „Bild austauschen"-Eintrag (Collection `image-override`). */
+const assetsSrc = readFileSync(join("src", "content", "assets.ts"), "utf8");
+const imagesBlock = assetsSrc.split("export const IMAGES = {")[1]?.split("} as const;")[0] ?? "";
+let currentCategory = "Allgemein";
+const imageKeys = [];
+for (const line of imagesBlock.split("\n")) {
+  const comment = line.match(/^\s*\/\/\s*(.+?)\s*$/);
+  if (comment) { currentCategory = comment[1]; continue; }
+  const key = line.match(/^\s*"([^"]+)"\s*:/);
+  if (key) imageKeys.push({ imageKey: key[1], category: currentCategory });
+}
+/* Zusätzliche Medien-Plätze, die nicht in der Bild-Registry stehen, aber im
+   CMS befüllbar sein sollen (z. B. Videos, die erst später hochgeladen werden).
+   Solange nichts hochgeladen ist, greift der im Code hinterlegte Fallback. */
+const MEDIA_SLOTS = [
+  { imageKey: "contact-reel", category: "Videos" },   // Kontaktseite: Portrait-Reel
+];
+all.__imageKeys__ = [...imageKeys, ...MEDIA_SLOTS];
 
 const OUT = join(tmpdir(), "newedge-content.json");
 writeFileSync(OUT, JSON.stringify(all, null, 2));

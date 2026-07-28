@@ -45,7 +45,7 @@ export const threeStepsCTA = {
     {
       icon: "🎯",
       title: "KI-Readiness & ROI-Analyse",
-      desc: "In wenigen Werktagen zeigen wir Ihnen die drei Prozesse mit dem höchsten KI-ROI — inklusive Aufwand-Nutzen-Schätzung und Förderhinweis. Oft förderfähig.",
+      desc: "In wenigen Werktagen zeigen wir Ihnen die drei Prozesse, in denen KI Ihnen am meisten bringt — inklusive Aufwand-Nutzen-Schätzung. Oft staatlich förderfähig.",
     },
     {
       icon: "🚀",

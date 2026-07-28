@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Eye, ShieldCheck, LayoutGrid, Workflow } from "lucide-react";
+import { IconEye, IconShieldCheck, IconLayoutDashboard, IconSitemap } from "@tabler/icons-react";
+import { EdgeIconBadge } from "@/components/ui/EdgeIconBadge";
 import { cortex as CORTEX_STATIC } from "@/content/sections/cortex";
 import { cortex as cortexEn } from "@/content/en/sections/cortex";
 import { EdgePillButton } from "@/components/ui/EdgeCta";
@@ -9,15 +10,15 @@ import { useLocalizedStatic } from "@/hooks/useLocalized";
 import { useHomeSection } from "@/hooks/useHomeContent";
 
 /* ── Design tokens ── */
-const VIOLET = "#5658DF";
-const GLOW = "#9A85F6";
-const INK_DEEP = "#17172E";
-const INK = "#3C3C47";
+const VIOLET = "#CCFF00";
+const GLOW = "#FFF200";
+const INK_DEEP = "#171717";
+const INK = "#3C3C3C";
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 const HEAD: React.CSSProperties = { fontFamily: OUTFIT, fontWeight: 700 };
 const BODY: React.CSSProperties = { fontFamily: OUTFIT, fontWeight: 400 };
 
-const FEATURE_ICONS = [Eye, ShieldCheck, LayoutGrid, Workflow];
+const FEATURE_ICONS = [IconEye, IconShieldCheck, IconLayoutDashboard, IconSitemap];
 
 const SPOKE_POS = [
   { x: 300, y: 56 },
@@ -64,14 +65,15 @@ export const CortexSection = () => {
           {cortex.subtitle}
         </p>
 
-        {/* ── Grid: Visual-Karte links, Feature-Liste rechts ── */}
-        <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-14 items-center">
+        {/* ── Grid: Feature-Liste links, Visual-Karte rechts (Desktop) —
+               Mobile stapelt weiter Diagramm → Text (DOM-Reihenfolge) ── */}
+        <div className="grid lg:grid-cols-[1fr_1.15fr] gap-10 lg:gap-14 items-center">
 
-          {/* Links: Hub-Diagramm als dunkle Produkt-Karte */}
-          <div className="flex items-center" style={{ background: `linear-gradient(135deg, ${INK_DEEP} 0%, #100E1E 100%)`, borderRadius: "16px", padding: "clamp(20px, 3vw, 40px)" }}>
+          {/* Rechts (Desktop): Hub-Diagramm als dunkle Produkt-Karte */}
+          <div className="flex items-center lg:order-2" style={{ background: `linear-gradient(135deg, ${INK_DEEP} 0%, #101010 100%)`, borderRadius: "16px", padding: "clamp(20px, 3vw, 40px)" }}>
             <svg viewBox="0 0 600 460" role="img" aria-label={cortex.diagram.ariaLabel} style={{ width: "100%", height: "auto", maxHeight: "420px", display: "block" }}>
               {SPOKES.map((s) => (
-                <line key={`l-${s.label}`} x1={CENTER.x} y1={CENTER.y} x2={s.x} y2={s.y} stroke="rgba(139,141,240,0.35)" strokeWidth="1" />
+                <line key={`l-${s.label}`} x1={CENTER.x} y1={CENTER.y} x2={s.x} y2={s.y} stroke="rgba(204,255,0,0.35)" strokeWidth="1" />
               ))}
               {!reduced && SPOKES.map((s, i) => (
                 <circle key={`p-${s.label}`} r="3" fill={GLOW}>
@@ -80,23 +82,23 @@ export const CortexSection = () => {
               ))}
               {SPOKES.map((s) => (
                 <g key={s.label}>
-                  <rect x={s.x - 70} y={s.y - 20} width="140" height="40" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(139,141,240,0.4)" strokeWidth="1" />
-                  <text x={s.x} y={s.y + 4} textAnchor="middle" style={{ font: "600 11px Outfit, sans-serif", letterSpacing: "0.06em", fill: "#E4E1F0" }}>{s.label}</text>
+                  <rect x={s.x - 70} y={s.y - 20} width="140" height="40" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(204,255,0,0.4)" strokeWidth="1" />
+                  <text x={s.x} y={s.y + 4} textAnchor="middle" style={{ font: "600 11px Outfit, sans-serif", letterSpacing: "0.06em", fill: "#E0E2DC" }}>{s.label}</text>
                 </g>
               ))}
               <rect x={CENTER.x - 84} y={CENTER.y - 30} width="168" height="60" rx="8" fill={VIOLET} stroke={GLOW} strokeWidth="1" />
-              <text x={CENTER.x} y={CENTER.y - 2} textAnchor="middle" style={{ font: "700 14px Outfit, sans-serif", letterSpacing: "0.14em", fill: "#FFFFFF" }}>{cortex.diagram.centerLabel}</text>
-              <text x={CENTER.x} y={CENTER.y + 16} textAnchor="middle" style={{ font: "500 9px Outfit, sans-serif", letterSpacing: "0.1em", fill: "rgba(255,255,255,0.7)" }}>{cortex.diagram.centerSublabel}</text>
+              <text x={CENTER.x} y={CENTER.y - 2} textAnchor="middle" style={{ font: "700 14px Outfit, sans-serif", letterSpacing: "0.14em", fill: INK_DEEP }}>{cortex.diagram.centerLabel}</text>
+              <text x={CENTER.x} y={CENTER.y + 16} textAnchor="middle" style={{ font: "500 9px Outfit, sans-serif", letterSpacing: "0.1em", fill: "rgba(23,23,23,0.65)" }}>{cortex.diagram.centerSublabel}</text>
             </svg>
           </div>
 
-          {/* Rechts: Feature-Liste (Icon + Akzent-Titel + Beschreibung) + CTA */}
-          <div className="flex flex-col" style={{ gap: "clamp(20px, 3vh, 28px)" }}>
+          {/* Links (Desktop): Feature-Liste (Icon + Akzent-Titel + Beschreibung) + CTA */}
+          <div className="flex flex-col lg:order-1" style={{ gap: "clamp(20px, 3vh, 28px)" }}>
             {FEATURES.map(({ title, desc, Icon }) => (
               <div key={title} className="flex items-start gap-4">
-                <Icon strokeWidth={1.6} style={{ width: "30px", height: "30px", color: INK_DEEP, flexShrink: 0, marginTop: "2px" }} />
+                <EdgeIconBadge icon={Icon} size="md" style={{ marginTop: "2px" }} />
                 <div>
-                  <h3 style={{ color: VIOLET }}>
+                  <h3 style={{ color: INK_DEEP }}>
                     {title}
                   </h3>
                   {desc && (

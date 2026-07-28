@@ -22,7 +22,7 @@ export const caseSpotlight = {
   /** Headline in drei Teilen — der Mittelteil wird akzentfarben gerendert. */
   headlinePrefix: "Wie der ",
   headlineClient: "Bayerische Mittelstandspreis",
-  headlineSuffix: " von 400 Excel-Bewerbungen zur automatisierten Jury-Pipeline kam",
+  headlineSuffix: " von 400 Excel-Bewerbungen zur automatischen Jury-Auswertung kam",
 
   ctaLabel: "Case lesen",
 
@@ -37,7 +37,7 @@ export const caseSpotlight = {
   authorInitials: "BMP",
 
   image: {
-    src: "pain-point-entscheidungsinstanzen-hero",
-    alt: "Automatisierte Jury-Pipeline für den Bayerischen Mittelstandspreis",
+    src: "bmp-award-case",
+    alt: "NEWEDGE beim Bayerischen Mittelstandspreis",
   },
 } as const;

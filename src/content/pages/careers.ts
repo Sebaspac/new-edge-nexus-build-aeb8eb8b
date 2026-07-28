@@ -25,9 +25,9 @@ interface ValueCard {
 
 export const careers = {
   seo: {
-    title: "Karriere bei NEWEDGE München | Jobs in KI, Brand & Digital",
+    title: "KI-Jobs & Karriere im Mittelstand | NEWEDGE München",
     description:
-      "Du willst an der Schnittstelle von Marke, Digital und KI arbeiten? NEWEDGE sucht Gestalter, Entwickler und KI-Strategen in München.",
+      "Arbeite bei NEWEDGE, der KI-Abteilung für den Mittelstand in München: offene Stellen für Gestalter, Entwickler und KI-Strategen — Initiativbewerbung willkommen.",
     canonical: "/careers",
   } satisfies SEOContent,
 

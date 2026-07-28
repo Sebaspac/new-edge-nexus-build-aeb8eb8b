@@ -77,7 +77,7 @@ export const impressum = {
       links: [
         {
           label: "LinkedIn",
-          href: "https://www.linkedin.com/company/newedgebrand",
+          href: "https://www.linkedin.com/company/new-edge-brand/",
         },
       ] satisfies LegalLink[],
     },

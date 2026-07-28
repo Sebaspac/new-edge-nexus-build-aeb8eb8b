@@ -4,9 +4,9 @@ import { auditSlaStatus as auditSlaStatusEn } from "@/content/en/sections/auditS
 import { useLocalized } from "@/hooks/useLocalized";
 
 /* ── Design tokens (Ink & Edge) ── */
-const VIOLET = "#5658DF";
-const GLOW = "#9A85F6";
-const INK_DEEP = "#17172E";
+const VIOLET = "#CCFF00";
+const GLOW = "#CCFF00";
+const INK_DEEP = "#171717";
 const SERIF: React.CSSProperties = { fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400 };
 const MONO: React.CSSProperties = { fontFamily: "Consolas, ui-monospace, SFMono-Regular, Menlo, monospace" };
 

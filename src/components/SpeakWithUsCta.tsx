@@ -4,8 +4,8 @@ import { FloatingConsultButton } from "@/components/ui/FloatingConsultButton";
 import { EdgeTextButton } from "@/components/ui/EdgeCta";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET_LIGHT = "#8B8DF0";
-const PAPER = "#F8F5FF";
+const LIME = "#CCFF00";
+const PAPER = "#F2F2F2";
 const HEAD: React.CSSProperties = { fontFamily: OUTFIT, fontWeight: 700 };
 
 interface SpeakWithUsCtaProps {
@@ -34,11 +34,22 @@ export const SpeakWithUsCta = ({ eyebrow, headingLine1, headingLine2, phoneHref,
               position: "relative",
               overflow: "hidden",
               borderRadius: "24px",
-              background: "linear-gradient(120deg, #17172E 0%, #2B2A6E 45%, #5658DF 80%, #8B8DF0 100%)",
-              border: "1px solid rgba(139,141,240,0.18)",
+              // Cooler Lime→Ink-Verlauf aus der unteren rechten Ecke (Referenz: Video-Modul der Homepage)
+              background:
+                "radial-gradient(150% 150% at 100% 100%, #CCFF00 0%, #6B7A00 26%, #2E3300 48%, #171717 70%)",
+              border: "1px solid rgba(204,255,0,0.16)",
               padding: "clamp(48px,7vw,88px) clamp(24px,5vw,64px)",
             }}
           >
+            {/* Zusätzlicher weicher Lime-Schimmer oben links — hält den Verlauf lebendig,
+                ohne die weiße Headline zu überstrahlen */}
+            <div
+              aria-hidden
+              style={{
+                position: "absolute", inset: 0, pointerEvents: "none",
+                background: "radial-gradient(ellipse 50% 60% at 0% 0%, rgba(204,255,0,0.10) 0%, transparent 55%)",
+              }}
+            />
             <div
               style={{
                 position: "relative",
@@ -61,7 +72,7 @@ export const SpeakWithUsCta = ({ eyebrow, headingLine1, headingLine2, phoneHref,
                       fontSize: "14px",
                       letterSpacing: "0.05em",
                       textTransform: "uppercase",
-                      color: VIOLET_LIGHT,
+                      color: LIME,
                       marginBottom: "14px",
                     }}
                   >

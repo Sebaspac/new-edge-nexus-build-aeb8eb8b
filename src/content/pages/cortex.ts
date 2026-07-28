@@ -20,9 +20,9 @@ interface ProcessStep {
 
 export const cortexPage = {
   seo: {
-    title: "Cortex — Das Betriebssystem Ihrer KI-Abteilung | NEWEDGE",
+    title: "Cortex: sichere KI-Plattform für den Mittelstand | NEWEDGE",
     description:
-      "Cortex ist die zentrale Ebene für KI im Mittelstand: ein Einstiegspunkt für Ihre Leute, volle Kontrolle über Nutzung, Daten und Automatisierungen — DSGVO-konform und auditierbar.",
+      "Cortex ist die zentrale KI-Plattform für den Mittelstand: ein sicherer Zugang für Ihr Team, volle Kontrolle über Nutzung und Daten — DSGVO-konform und im Haus.",
     canonical: "/cortex",
   } satisfies SEOContent,
 
@@ -30,8 +30,8 @@ export const cortexPage = {
   hero: {
     headline: "KI nutzen Sie längst. Cortex macht sie steuerbar.",
     sub:
-      "Cortex ist das Betriebssystem Ihrer KI-Abteilung: ein Einstiegspunkt für Ihre Leute, volle Kontrolle über Nutzung, Daten und Automatisierungen. DSGVO-konform, im Haus, auditierbar.",
-    ctaPrimary: "Cortex-Demo buchen",
+      "Cortex ist das Betriebssystem Ihrer KI-Abteilung: ein Einstiegspunkt für Ihre Leute, volle Kontrolle über Nutzung, Daten und Automatisierungen. DSGVO-konform, im Haus, jederzeit nachvollziehbar.",
+    ctaPrimary: "Cortex kennenlernen",
     ctaSecondary: "Prüfen, ob's passt",
     image: {
       src: "pain-point-kpi-dashboard-hero",
@@ -56,9 +56,9 @@ export const cortexPage = {
       "Cortex wird zum zentralen Einstiegspunkt für KI im Unternehmen: Ihre Mitarbeiter arbeiten mit freigegebener, produktiver KI — Sie behalten Kontrolle über Nutzung, Daten, Prozesse und Automatisierungen.",
     bullets: [
       "Transparenz über KI-Nutzung — statt Schatten-IT sehen Sie, wer KI wofür einsetzt.",
-      "DSGVO-konforme Infrastruktur — Ihre Daten bleiben intern, sicher, auditierbar.",
+      "DSGVO-konform betrieben — Ihre Daten bleiben im Haus, sicher und jederzeit nachvollziehbar.",
       "Zentrale Steuerung — ein Einstiegspunkt für Ihre Leute statt zehn Einzeltools nebenher.",
-      "Fundament für Automatisierungen — Prozesse und Agenten laufen auf einer gemeinsamen Ebene.",
+      "Fundament für Automatisierungen — jede neue Automatisierung baut auf derselben Basis auf, statt als Insellösung zu starten.",
     ],
   },
 
@@ -73,7 +73,7 @@ export const cortexPage = {
       {
         step: "01",
         title: "Setup",
-        desc: "Cortex wird in Ihrer Umgebung aufgesetzt — DSGVO-konform, mit Ihren Rollen und Rechten.",
+        desc: "Wir richten Cortex bei Ihnen ein — DSGVO-konform und mit klaren Regeln, wer was darf.",
       },
       {
         step: "02",
@@ -88,7 +88,7 @@ export const cortexPage = {
       {
         step: "04",
         title: "Automatisierung",
-        desc: "Auf der gemeinsamen Ebene bauen Sie Prozesse und Agenten aus — Schritt für Schritt.",
+        desc: "Schritt für Schritt bauen Sie Automatisierungen aus, die Ihnen echte Arbeit abnehmen — alles auf derselben Basis.",
       },
     ] as ProcessStep[],
   },
@@ -98,7 +98,7 @@ export const cortexPage = {
     heading: "Warum Cortex.",
     points: [
       "Cortex ist keine weitere KI — es ist die Ebene darüber. Sie müssen nichts wegwerfen, was schon läuft.",
-      "Ihre Daten bleiben Ihre Daten. Keine Blackbox, keine ungewollten Abflüsse — alles auditierbar.",
+      "Ihre Daten bleiben Ihre Daten. Keine Blackbox, kein ungewollter Datenabfluss — Sie können jederzeit nachvollziehen, was passiert.",
       "Wir bauen die KI-Abteilung für den Mittelstand. Cortex ist das Fundament, nicht das Endprodukt.",
     ],
   },
@@ -107,7 +107,7 @@ export const cortexPage = {
   garantie: {
     heading: "Die Garantie.",
     text:
-      "Ihre Daten bleiben im Haus — DSGVO-konform und jederzeit auditierbar.",
+      "Ihre Daten bleiben im Haus — DSGVO-konform und jederzeit nachvollziehbar.",
     sub: "Keine Blackbox, kein ungewollter Datenabfluss. Sie behalten die Kontrolle.",
     image: {
       src: "team-presentation-color",
@@ -121,12 +121,12 @@ export const cortexPage = {
     passtLabel: "Das passt, wenn:",
     passt: [
       "Bei Ihnen nutzen schon mehrere Leute KI — aber niemand hat den Überblick.",
-      "Sie wollen KI im Haus behalten: DSGVO-konform, kontrolliert, auditierbar.",
+      "Sie wollen KI im Haus behalten: DSGVO-konform, kontrolliert, jederzeit nachvollziehbar.",
       "Sie wollen ein Fundament, auf dem Automatisierungen wachsen — kein weiteres Einzeltool.",
     ],
     passtNichtLabel: "Das passt nicht, wenn:",
     passtNicht: [
-      "Sie suchen ein einzelnes Feature-Tool zum Ausprobieren — Cortex ist die Ebene darunter.",
+      "Sie suchen ein einzelnes Tool zum Ausprobieren — Cortex ist die Steuerungsebene über Ihren Tools.",
       "Bei Ihnen nutzt niemand KI und soll es auch nicht — dann fehlt die Grundlage.",
       "Sie wollen Daten bewusst in beliebige externe Tools geben — genau das verhindert Cortex.",
     ],
@@ -136,8 +136,8 @@ export const cortexPage = {
   faq: {
     heading: "Häufige Fragen",
     items: [
-      { q: "Ersetzt Cortex ChatGPT oder Copilot?", a: "Nein. Cortex ist die Ebene darüber: Es bündelt und steuert den Zugang zu KI — welche Modelle Sie nutzen, bleibt flexibel." },
-      { q: "Bleiben unsere Daten wirklich im Haus?", a: "Ja. Cortex läuft auf DSGVO-konformer, kontrollierter Infrastruktur — Ihre Daten sind intern, sicher und auditierbar." },
+      { q: "Ersetzt Cortex ChatGPT oder Copilot?", a: "Nein. Cortex ist die Ebene darüber: Es bündelt und steuert den Zugang zu KI — welche KI-Dienste Sie nutzen, etwa ChatGPT oder Copilot, bleibt flexibel." },
+      { q: "Bleiben unsere Daten wirklich im Haus?", a: "Ja. Cortex läuft auf DSGVO-konformen, von uns kontrollierten Systemen — Ihre Daten bleiben im Haus, sicher und jederzeit nachvollziehbar." },
       { q: "Wie schnell ist Cortex einsatzbereit?", a: "Das Grund-Setup steht meist in wenigen Tagen. Danach wächst Cortex mit Ihren Prozessen und Automatisierungen." },
       { q: "Müssen wir bestehende Tools abschalten?", a: "Nein. Cortex legt sich über das, was schon läuft, und bringt es unter eine gemeinsame Steuerung." },
       { q: "Für welche Unternehmensgröße lohnt sich Cortex?", a: "Am meisten für Unternehmen mit 10 bis 150 Mitarbeitenden, bei denen KI bereits verstreut genutzt wird." },

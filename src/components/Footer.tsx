@@ -1,17 +1,17 @@
 import { LocaleLink as Link } from "@/components/LocaleLink";
 import { ArrowUpRight, Linkedin, Mail, Phone, MapPin, Instagram, Github } from "lucide-react";
-import { footer as FOOTER_STATIC } from "@/content";
+import { footer as FOOTER_STATIC, img } from "@/content";
 import { footer as footerEn } from "@/content/en/sections/footer";
 import { useLocalized } from "@/hooks/useLocalized";
 import { MaschinenraumTicker } from "@/components/MaschinenraumTicker";
 
 /* ── Design tokens (Rebrush) ── */
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
-const VIOLET_LIGHT = "#8B8DF0";
-const LILAC = "#C2C3F6";
-const INK_DEEP = "#17172E";
-const PAPER = "#F8F5FF";
+const VIOLET = "#CCFF00";
+const VIOLET_LIGHT = "#CCFF00";
+const LILAC = "#FFF7B2";
+const INK_DEEP = "#171717";
+const PAPER = "#F2F2F2";
 const MUTED = "rgba(255,255,255,0.55)";
 const R = 32; // Karten-/Notch-Radius
 
@@ -40,8 +40,7 @@ const contactIcon = (href: string) => {
 /** Social-Icons für den schwebenden Notch oben links — getrennt von der Kontakt-Spalte unten. */
 const SOCIAL_LINKS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/company/new-edge-brand/", Icon: Linkedin },
-  // TODO: echte Instagram-/GitHub-URL eintragen, sobald bekannt.
-  { label: "Instagram", href: "#", Icon: Instagram },
+  { label: "Instagram", href: "https://www.instagram.com/newedgebrand/", Icon: Instagram },
   { label: "GitHub", href: "#", Icon: Github },
 ];
 
@@ -87,7 +86,7 @@ export const Footer = () => {
           <div
             className="relative"
             style={{
-              background: `linear-gradient(160deg, #1D1B38 0%, ${INK_DEEP} 45%, #100E1E 100%)`,
+              background: `linear-gradient(160deg, #1F1F1F 0%, ${INK_DEEP} 45%, #101010 100%)`,
               borderRadius: `${R + 8}px`,
               overflow: "hidden",
             }}
@@ -142,6 +141,26 @@ export const Footer = () => {
               <Scoop style={{ top: "100%", left: 0 }} />
             </div>
 
+            {/* Vertikales Logo am linken Kartenrand — um -90° gedreht,
+                das N unten, liest von unten nach oben (nur Desktop: nutzt
+                die 120px-Gutter-Spalte, Mobile hat keinen Seitenrand dafür) */}
+            <img
+              src={img("newedge-wordmark-white")}
+              alt="NEWEDGE"
+              loading="lazy"
+              className="hidden lg:block"
+              style={{
+                position: "absolute",
+                left: "56px",
+                top: "55%",
+                height: "34px",
+                width: "auto",
+                transform: "translate(-50%, -50%) rotate(-90deg)",
+                zIndex: 1,
+                maxWidth: "none",
+              }}
+            />
+
             {/* Back-to-top-Notch oben rechts (Paper-Ausschnitt) */}
             <div
               style={{
@@ -159,7 +178,7 @@ export const Footer = () => {
               <button
                 type="button"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="transition-colors duration-200 hover:text-[#5658DF]"
+                className="transition-colors duration-200 hover:text-[#CCFF00]"
                 style={{
                   fontFamily: OUTFIT,
                   fontWeight: 600,
@@ -208,7 +227,7 @@ export const Footer = () => {
                       fontWeight: 600,
                       fontSize: "15px",
                       background: VIOLET,
-                      color: "#fff",
+                      color: INK_DEEP,
                       borderRadius: "999px",
                       padding: "10px 10px 10px 24px",
                     }}
@@ -219,14 +238,14 @@ export const Footer = () => {
                         width: "34px",
                         height: "34px",
                         borderRadius: "50%",
-                        background: "rgba(255,255,255,0.18)",
+                        background: INK_DEEP,
                         display: "inline-flex",
                         alignItems: "center",
                         justifyContent: "center",
                         flexShrink: 0,
                       }}
                     >
-                      <ArrowUpRight style={{ width: "16px", height: "16px", color: "#fff" }} />
+                      <ArrowUpRight style={{ width: "16px", height: "16px", color: VIOLET }} />
                     </span>
                   </Link>
                   <p style={{ fontFamily: OUTFIT, fontWeight: 500, fontSize: "13px", color: LILAC, marginTop: "22px" }}>
@@ -321,7 +340,7 @@ export const Footer = () => {
               <div
                 className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3"
                 style={{
-                  borderTop: "1px solid rgba(194,195,246,0.14)",
+                  borderTop: "1px solid rgba(255,247,178,0.14)",
                   marginTop: "clamp(24px, 3vw, 40px)",
                   paddingTop: "clamp(16px, 2vw, 24px)",
                 }}

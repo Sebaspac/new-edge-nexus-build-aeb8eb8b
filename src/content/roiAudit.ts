@@ -27,7 +27,7 @@ export interface RoiIndustry {
 }
 
 /** Einstiegsangebot (aus „Legende") — realistische Start-Investition statt Pauschale. */
-export const ROI_ENTRY = { label: "KI-Audit", price: 3200, note: "BAFA-förderfähig" };
+export const ROI_ENTRY = { label: "KI-Audit", price: 3200, note: "staatlich förderfähig (BAFA)" };
 
 /** Painpoint-Felder = „die Mitglieder Ihrer KI-Abteilung" — cooler Name je Funktion. */
 export type PainId =
@@ -36,11 +36,11 @@ export type PainId =
 export const PAINFIELDS: { id: PainId; name: string; sub: string }[] = [
   { id: "tueroeffner", name: "Der Türöffner", sub: "Vertrieb & Akquise" },
   { id: "verstaerker", name: "Der Verstärker", sub: "Marketing & Reichweite" },
-  { id: "kassenwart", name: "Der Kassenwart", sub: "Rechnung & Cashflow" },
+  { id: "kassenwart", name: "Der Kassenwart", sub: "Rechnungen & Zahlungseingang" },
   { id: "maschinenraum", name: "Der Maschinenraum", sub: "Betrieb & Disposition" },
-  { id: "cockpit", name: "Das Cockpit", sub: "KPI & Reporting" },
+  { id: "cockpit", name: "Das Cockpit", sub: "Zahlen & Berichte" },
   { id: "concierge", name: "Der Concierge", sub: "Support & Service" },
-  { id: "waechter", name: "Der Wächter", sub: "Compliance & Recht" },
+  { id: "waechter", name: "Der Wächter", sub: "Vorschriften & Recht" },
   { id: "schiedsrichter", name: "Der Schiedsrichter", sub: "Awards & Auswahlverfahren" },
 ];
 /** Use-Case-Nr → Painpoint-Feld (Persona). */
@@ -58,10 +58,10 @@ export const NR_TO_PAIN: Record<number, PainId> = {
 /** Branchen-Anwendungsfelder (eure 4) mit coolem Namen; jede bündelt Daten-Industrien. */
 export interface RoiBranche { id: string; cool: string; label: string; sub: string; industryIds: string[] }
 export const BRANCHES: RoiBranche[] = [
-  { id: "handel", cool: "Der Warenstrom", label: "Handel & Supply Chain", sub: "Handel · Import/Export · Logistik · Handwerk", industryIds: ["import-export", "handwerk"] },
-  { id: "professional", cool: "Die Denkfabrik", label: "Professional Services", sub: "Kanzleien · Beratung · Architektur · Makler", industryIds: ["anwaelte", "architektur", "immobilien"] },
-  { id: "health", cool: "Die Praxis", label: "Health Care", sub: "Praxen · MVZ · Therapeuten", industryIds: ["praxen"] },
-  { id: "instanzen", cool: "Die Jury", label: "Entscheidungsinstanzen", sub: "Awards · Gremien · Vergabe · Hochschulen", industryIds: ["entscheidungsinstanzen"] },
+  { id: "handel", cool: "Der Warenstrom", label: "Handel & Lieferkette", sub: "Handel · Import/Export · Logistik · Handwerk", industryIds: ["import-export", "handwerk"] },
+  { id: "professional", cool: "Die Denkfabrik", label: "Kanzleien & Beratung", sub: "Kanzleien · Beratung · Architektur · Makler", industryIds: ["anwaelte", "architektur", "immobilien"] },
+  { id: "health", cool: "Die Praxis", label: "Gesundheitswesen", sub: "Praxen · MVZ · Therapeuten", industryIds: ["praxen"] },
+  { id: "instanzen", cool: "Die Jury", label: "Jurys & Vergabestellen", sub: "Awards · Gremien · Vergabe · Hochschulen", industryIds: ["entscheidungsinstanzen"] },
 ];
 
 export const ROI_INDUSTRIES: RoiIndustry[] = [

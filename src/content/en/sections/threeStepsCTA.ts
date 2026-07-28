@@ -45,7 +45,7 @@ export const threeStepsCTA = {
     {
       icon: "🎯",
       title: "AI readiness & ROI analysis",
-      desc: "Within a few business days we show you the three processes with the highest AI ROI — including a rough cost-benefit estimate and funding guidance. Often eligible for funding.",
+      desc: "Within a few business days we show you the three processes where AI delivers the most for you — including a rough cost-benefit estimate. Often eligible for government funding.",
     },
     {
       icon: "🚀",

@@ -8,7 +8,7 @@ import { useHomeSection } from "@/hooks/useHomeContent";
 import { useLocalized } from "@/hooks/useLocalized";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
+const VIOLET = "#CCFF00";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /**
@@ -37,7 +37,7 @@ export const VideoShowcaseSection = () => {
             borderRadius: "24px",
             padding: "clamp(20px,2.2vw,30px)",
             background:
-              "linear-gradient(120deg, #17172E 0%, #2B2A6E 45%, #5658DF 80%, #8B8DF0 100%)",
+              "radial-gradient(150% 150% at 100% 100%, #CCFF00 0%, #6B7A00 26%, #2E3300 48%, #171717 70%)",
             overflow: "hidden",
           }}
         >

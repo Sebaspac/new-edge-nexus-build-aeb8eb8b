@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
-const INK_DEEP = "#17172E";
-const HAIRLINE = "rgba(86,88,223,0.14)";
+const VIOLET = "#CCFF00";
+const INK_DEEP = "#171717";
+const HAIRLINE = "rgba(204,255,0,0.14)";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /** Beleuchtete Kästchen im 10×10-Raster (0-basiert, row-major) — 5 verstreut. Auf jeder Verwendung identisch (Wiedererkennung als „die MIT-Grafik"). */
@@ -42,7 +42,7 @@ export const MitStudyGrid = ({ lang, compact = false }: { lang: "de" | "en"; com
         background: "#FFFFFF",
         border: `1px solid ${HAIRLINE}`,
         borderRadius: compact ? "16px" : "18px",
-        boxShadow: "0 14px 44px -22px rgba(23,23,46,0.18)",
+        boxShadow: "0 14px 44px -22px rgba(23,23,23,0.18)",
         padding: compact ? "clamp(14px, 2vw, 20px)" : "clamp(18px, 2vw, 26px)",
       }}
     >
@@ -50,9 +50,9 @@ export const MitStudyGrid = ({ lang, compact = false }: { lang: "de" | "en"; com
       <div className="flex items-start justify-between gap-3" style={{ marginBottom: compact ? "clamp(12px,1.8vw,18px)" : "clamp(20px,2.4vw,28px)" }}>
         <div style={{ display: "flex", alignItems: "baseline", lineHeight: 1 }}>
           <span style={{ fontFamily: OUTFIT, fontWeight: 800, fontSize: compact ? "clamp(26px,3vw,34px)" : "clamp(34px,3.6vw,46px)", color: INK_DEEP, letterSpacing: "-0.02em" }}>5</span>
-          <span style={{ fontFamily: OUTFIT, fontWeight: 500, fontSize: compact ? "clamp(12px,1.3vw,15px)" : "clamp(14px,1.5vw,19px)", color: "rgba(23,23,46,0.4)" }}>/100</span>
+          <span style={{ fontFamily: OUTFIT, fontWeight: 500, fontSize: compact ? "clamp(12px,1.3vw,15px)" : "clamp(14px,1.5vw,19px)", color: "rgba(23,23,23,0.4)" }}>/100</span>
         </div>
-        <p style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: compact ? "9.5px" : "clamp(11px,0.95vw,13px)", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(23,23,46,0.5)", textAlign: "right", maxWidth: compact ? "14ch" : "17ch", lineHeight: 1.4 }}>
+        <p style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: compact ? "9.5px" : "clamp(11px,0.95vw,13px)", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(23,23,23,0.5)", textAlign: "right", maxWidth: compact ? "14ch" : "17ch", lineHeight: 1.4 }}>
           {compact ? (lang === "en" ? "MIT Study 2025" : "MIT-Studie 2025") : eyebrow}
         </p>
       </div>
@@ -63,7 +63,7 @@ export const MitStudyGrid = ({ lang, compact = false }: { lang: "de" | "en"; com
           <div
             key={i}
             aria-hidden
-            style={{ aspectRatio: "1 / 1", borderRadius: "2.5px", background: MIT_STUDY_LIT.has(i) ? VIOLET : "#D2D0DC" }}
+            style={{ aspectRatio: "1 / 1", borderRadius: "2.5px", background: MIT_STUDY_LIT.has(i) ? VIOLET : "#D0D2CC" }}
           />
         ))}
       </div>
@@ -71,10 +71,10 @@ export const MitStudyGrid = ({ lang, compact = false }: { lang: "de" | "en"; com
       {!compact && (
         <>
           {/* Trennlinie */}
-          <div style={{ height: "1px", background: "rgba(23,23,46,0.1)", margin: "clamp(20px,2.6vw,30px) 0" }} />
+          <div style={{ height: "1px", background: "rgba(23,23,23,0.1)", margin: "clamp(20px,2.6vw,30px) 0" }} />
 
           {/* Beschreibung */}
-          <p style={{ fontFamily: OUTFIT, fontWeight: 400, fontSize: "clamp(15px,1.1vw,16.5px)", lineHeight: 1.6, color: "rgba(23,23,46,0.72)" }}>
+          <p style={{ fontFamily: OUTFIT, fontWeight: 400, fontSize: "clamp(15px,1.1vw,16.5px)", lineHeight: 1.6, color: "rgba(23,23,23,0.72)" }}>
             {desc}
           </p>
         </>

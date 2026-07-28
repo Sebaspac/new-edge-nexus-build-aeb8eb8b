@@ -14,10 +14,10 @@ import { LocaleLink as Link } from "@/components/LocaleLink";
 import { EdgeRip } from "@/components/ui/EdgeRip";
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
-const INK_DEEP = "#17172E";
+const VIOLET = "#CCFF00";
+const INK_DEEP = "#171717";
 /** Ink-Verlauf der Footer-Karte — Ruhezustand der primären Pill. */
-const INK_GRADIENT = "linear-gradient(160deg, #1D1B38 0%, #17172E 45%, #100E1E 100%)";
+const INK_GRADIENT = "linear-gradient(160deg, #1F1F1F 0%, #171717 45%, #101010 100%)";
 
 interface EdgeCtaProps {
   children: React.ReactNode;
@@ -53,27 +53,34 @@ const PILL_STYLE: React.CSSProperties = {
 /** Innenleben der Pill: Violett-Overlay (Hover), Label, Pfeil-Kreis, Mini-Riss (Hover). */
 const PillInner = ({ children, variant = "ink" }: { children: React.ReactNode; variant?: "ink" | "violet" | "frost" }) => (
   <>
-    {/* Hover-Overlay — Ink & Frost blenden auf Violett, Violett-Pill auf Ink (Inversion) */}
+    {/* Hover-Overlay — Ink & Frost blenden auf Lime, Lime-Pill auf Ink (Inversion).
+        Label-Farbe flippt mit, sonst wäre Weiß auf Lime bzw. Ink auf Ink unlesbar. */}
     <span
       aria-hidden
       className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
       style={{ background: variant === "violet" ? INK_GRADIENT : VIOLET }}
     />
-    <span style={{ position: "relative" }}>{children}</span>
+    <span
+      className={`relative transition-colors duration-200 ${
+        variant === "violet" ? "group-hover:text-white" : "group-hover:text-[#171717]"
+      }`}
+    >
+      {children}
+    </span>
     <span
       style={{
         position: "relative",
         width: "34px",
         height: "34px",
         borderRadius: "50%",
-        background: variant === "ink" ? VIOLET : "#fff",
+        background: variant === "ink" ? VIOLET : variant === "violet" ? INK_DEEP : "#fff",
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
         flexShrink: 0,
       }}
     >
-      <ArrowUpRight style={{ width: "16px", height: "16px", color: variant === "ink" ? "#fff" : VIOLET }} />
+      <ArrowUpRight style={{ width: "16px", height: "16px", color: variant === "violet" ? VIOLET : INK_DEEP }} />
     </span>
     {/* Kleiner Edge-Riss in der Lücke zwischen Label und Kreis — berührt keine Buchstaben */}
     <span
@@ -95,6 +102,7 @@ export const EdgePillButton = ({ children, to, href, onClick, type = "button", d
   const style: React.CSSProperties = {
     ...PILL_STYLE,
     background: bg,
+    color: variant === "violet" ? INK_DEEP : "#fff",
     border: variant === "frost" ? "1px solid rgba(255,255,255,0.30)" : "none",
   };
   const routeTo = routeHref(to, href);
@@ -133,7 +141,8 @@ export const EdgeTextButton = ({ children, to, href, onClick, tone = "dark" }: E
   };
   const inner = (
     <>
-      {children}
+      {/* Dezenter Lime-Unterstrich nur unter dem Label, nicht unter dem Pfeil */}
+      <span className="edge-underline">{children}</span>
       <ArrowUpRight style={{ width: "15px", height: "15px" }} />
     </>
   );

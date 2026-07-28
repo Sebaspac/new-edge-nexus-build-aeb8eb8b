@@ -27,7 +27,7 @@ export interface Stat {
 
 export const positionedForImpact = {
   /** Eyebrow über dem Split-Spread. */
-  eyebrow: "Positioned for Impact, how we work",
+  eyebrow: "How we work",
 
   /** Gründer-Portrait (paper-stock) inkl. Bildunterschrift. */
   portrait: {
@@ -47,7 +47,7 @@ export const positionedForImpact = {
 
   /** Fließtext unter dem Zitat. */
   body:
-    "Most companies optimize individual areas. We look at the company as one connected system. Lasting competitive advantage only emerges when processes, infrastructure and AI work together.",
+    "Most companies optimize individual areas. We look at the company as one connected system. Lasting competitive advantage only emerges when processes, technology and AI work together.",
 
   /** Stats-Raster (3 Spalten). */
   stats: [

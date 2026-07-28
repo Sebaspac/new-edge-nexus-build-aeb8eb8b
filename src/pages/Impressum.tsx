@@ -14,11 +14,11 @@ import { useLocalized } from "@/hooks/useLocalized";
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET = "#5658DF";
-const INK_DEEP = "#17172E";
-const INK = "#3C3C47";
-const PAPER = "#F8F5FF";
-const HAIRLINE = "rgba(86,88,223,0.15)";
+const INK_DEEP = "#171717";
+const INK = "#3C3C3C";
+const PAPER = "#F2F2F2";
+const MUTED = "#5E5E5A";
+const HAIRLINE = "rgba(23,23,23,0.15)";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /** Rechtstext-Grundschrift — erbt Größe/Zeilenhöhe vom globalen Fließtext-System. */
@@ -37,13 +37,13 @@ const CARD: React.CSSProperties = {
   background: "#fff",
   borderRadius: "16px",
   border: `1px solid ${HAIRLINE}`,
-  boxShadow: "0 1px 2px rgba(23,23,46,0.06)",
+  boxShadow: "0 1px 2px rgba(23,23,23,0.06)",
   padding: "clamp(20px, 3vw, 28px)",
 };
 
-/** Violetter Textlink mit dezentem Hover. */
+/** Ink-farbener Textlink mit dezentem Hover. */
 const linkClass = "underline underline-offset-4 transition-opacity hover:opacity-70";
-const linkStyle: React.CSSProperties = { color: VIOLET };
+const linkStyle: React.CSSProperties = { color: INK_DEEP };
 
 const SectionDivider = () => (
   <div aria-hidden className="my-10 md:my-14" style={{ borderTop: `1px solid ${HAIRLINE}` }} />
@@ -121,7 +121,7 @@ const Impressum = () => {
               fontSize: "13px",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              color: "#6E6880",
+              color: MUTED,
             }}
           >
             <ArrowLeft className="w-4 h-4" />
@@ -154,7 +154,7 @@ const Impressum = () => {
               fontSize: "13px",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              color: VIOLET,
+              color: MUTED,
               marginBottom: "clamp(56px, 8vw, 80px)",
             }}
           >
@@ -244,7 +244,7 @@ const Impressum = () => {
           </section>
 
           {/* ═══════════════ DATENSCHUTZ ═══════════════ */}
-          <div aria-hidden className="my-16 md:my-24" style={{ borderTop: "2px solid rgba(86,88,223,0.22)" }} />
+          <div aria-hidden className="my-16 md:my-24" style={{ borderTop: "2px solid rgba(23,23,23,0.22)" }} />
 
           <section id="datenschutz" style={{ scrollMarginTop: "96px" }}>
             <ChapterHeading>{ds.title}</ChapterHeading>

@@ -41,10 +41,10 @@ export type GlossaryByLetter = Record<string, GlossaryTerm[]>;
 
 export const kiGlossar = {
   seo: {
-    title: "AI Glossary — The most important AI terms explained | NEWEDGE Munich",
+    title: "AI Glossary: Key AI Terms Explained Clearly | NEWEDGE",
     /** `{total}` → Gesamtzahl der Begriffe (Laufzeit). */
     descriptionTemplate:
-      "The NEWEDGE AI Glossary: {total} terms around artificial intelligence — from Agent to LLM to Zero-Shot Learning, explained clearly for decision-makers.",
+      "AI terms explained clearly: {total} definitions from Agent and LLM to Zero-Shot Learning — concise and practical for decision-makers in mid-sized companies.",
     canonical: "/en/ki-glossar",
   } satisfies GlossarySEO,
 

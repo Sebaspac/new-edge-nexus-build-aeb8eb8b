@@ -1,8 +1,37 @@
 import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import {
+  IconBriefcase,
+  IconBulb,
+  IconChartBar,
+  IconClockDown,
+  IconLayoutDashboard,
+  IconListNumbers,
+  IconMap,
+  IconRefresh,
+  IconRobot,
+  IconSettings,
+  IconShieldLock,
+  IconStack2,
+  IconTrendingUp,
+  IconUserOff,
+  IconUsers,
+  IconUsersGroup,
+  type Icon as TablerIcon,
+} from "@tabler/icons-react";
+import { EdgeIconBadge } from "@/components/ui/EdgeIconBadge";
+
+/* Icons pro Listen-Item (Board-Stil) — index-aligned zu den Content-Arrays
+   in src/content/pages/methodik.ts (stufen[i].ergebnis bzw. ziel.punkte).
+   Ändert sich dort die Reihenfolge, hier nachziehen. */
+const ERGEBNIS_ICONS: TablerIcon[][] = [
+  [IconChartBar, IconListNumbers, IconBriefcase, IconMap],
+  [IconLayoutDashboard, IconStack2, IconClockDown, IconTrendingUp],
+  [IconUsers, IconUserOff, IconShieldLock, IconRefresh],
+];
+const ZIEL_ICONS: TablerIcon[] = [IconBulb, IconSettings, IconTrendingUp, IconRobot, IconUsersGroup];
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { NewEdgeSystemAnimated } from "@/components/NewEdgeSystemAnimated";
+// import { NewEdgeSystemAnimated } from "@/components/NewEdgeSystemAnimated"; // Sektion vorerst ausgeblendet
 import SEOHead from "@/components/SEOHead";
 import { SpeakWithUsCta } from "@/components/SpeakWithUsCta";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
@@ -17,13 +46,14 @@ const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.
 
 /* ── NEWEDGE CI (Rebrush 2026-07) ── */
 const OUTFIT = "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-const VIOLET       = "#5658DF";
-const VIOLET_LIGHT = "#8B8DF0";
-const INK_DEEP     = "#17172E";
-const INK_DEEPER   = "#100E1E";
-const INK          = "#3C3C47";
-const PAPER        = "#F8F5FF";
-const HAIRLINE     = "rgba(86,88,223,0.14)";
+const VIOLET       = "#CCFF00";
+const FLASH       = "#FF1E00";
+const VIOLET_LIGHT = "#CCFF00";
+const INK_DEEP     = "#171717";
+const INK_DEEPER   = "#101010";
+const INK          = "#3C3C3C";
+const PAPER        = "#F2F2F2";
+const HAIRLINE     = "rgba(23,23,23,0.14)";
 const EASE         = [0.22, 1, 0.36, 1] as const;
 
 /** Kicker-Zeile: Outfit 700, 13px, uppercase, Violett. */
@@ -33,7 +63,7 @@ const KICKER: React.CSSProperties = {
   fontSize: "13px",
   letterSpacing: "0.05em",
   textTransform: "uppercase",
-  color: VIOLET,
+  color: INK_DEEP,
 };
 
 /** Fließtext: erbt Größe/Zeilenhöhe vom globalen Typo-System. */
@@ -68,7 +98,7 @@ const Methodik = () => {
         <div className="relative" style={{ background: PAPER, minHeight: "clamp(460px, 66vh, 680px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <div aria-hidden style={{
             position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
-            background: "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(86,88,223,0.10) 0%, transparent 62%)",
+            background: "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(204,255,0,0.10) 0%, transparent 62%)",
           }} />
 
           <motion.div
@@ -83,7 +113,7 @@ const Methodik = () => {
             }}>
               {methodik.hero.headlineLine1}
               <br />
-              <span style={{ color: VIOLET }}>{methodik.hero.headlineLine2}</span>
+              <span className="edge-mark">{methodik.hero.headlineLine2}</span>
             </h1>
 
             {/* Subline */}
@@ -113,8 +143,8 @@ const Methodik = () => {
               transform: "translateX(-50%)",
               width: "2px",
               height: "clamp(80px, 10vh, 130px)",
-              background: "linear-gradient(to bottom, rgba(86,88,223,0), rgba(86,88,223,0.5) 50%, rgba(86,88,223,0.2))",
-              boxShadow: "0 0 10px rgba(86,88,223,0.22)",
+              background: "linear-gradient(to bottom, rgba(204,255,0,0), rgba(204,255,0,0.5) 50%, rgba(204,255,0,0.2))",
+              boxShadow: "0 0 10px rgba(204,255,0,0.3)",
               zIndex: 3,
             }}
           />
@@ -171,12 +201,12 @@ const Methodik = () => {
               <h2 style={HEADLINE}>
                 {methodik.stufenSection.headingLine1}
                 <br />
-                <span style={{ color: VIOLET }}>{methodik.stufenSection.headingLine2}</span>
+                <span className="edge-mark">{methodik.stufenSection.headingLine2}</span>
               </h2>
             </motion.div>
 
             <div className="flex flex-col" style={{ gap: "20px" }}>
-              {methodik.stufen.map((s) => (
+              {methodik.stufen.map((s, si) => (
                 <motion.section
                   key={s.index}
                   initial={{ opacity: 0, y: 28 }}
@@ -188,7 +218,7 @@ const Methodik = () => {
                     background: "#FFFFFF",
                     borderRadius: "16px",
                     border: `1px solid ${HAIRLINE}`,
-                    boxShadow: "0 1px 2px rgba(23,23,46,0.06)",
+                    boxShadow: "0 1px 2px rgba(23,23,23,0.06)",
                     padding: "clamp(28px, 4vw, 44px)",
                   }}
                 >
@@ -199,7 +229,7 @@ const Methodik = () => {
                         fontFamily: OUTFIT,
                         fontWeight: 700,
                         fontSize: "15px",
-                        color: "#fff",
+                        color: INK_DEEP,
                         background: VIOLET,
                         width: "40px",
                         height: "40px",
@@ -217,7 +247,7 @@ const Methodik = () => {
                     }}>
                       {s.title}
                     </h3>
-                    <p style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "14px", lineHeight: 1.45, color: VIOLET, margin: 0 }}>
+                    <p style={{ fontFamily: OUTFIT, fontWeight: 600, fontSize: "14px", lineHeight: 1.45, color: INK_DEEP, margin: 0 }}>
                       {s.frage}
                     </p>
                   </div>
@@ -244,8 +274,8 @@ const Methodik = () => {
                                 fontWeight: 500,
                                 fontSize: "13px",
                                 color: INK_DEEP,
-                                background: "rgba(86,88,223,0.07)",
-                                border: "1px solid rgba(86,88,223,0.16)",
+                                background: "rgba(23,23,23,0.07)",
+                                border: "1px solid rgba(23,23,23,0.16)",
                                 borderRadius: "999px",
                                 padding: "7px 15px",
                               }}
@@ -264,15 +294,15 @@ const Methodik = () => {
                     )}
 
                     {/* Ergebnis */}
-                    <div style={{ background: "rgba(86,88,223,0.06)", borderRadius: "12px", padding: "20px 24px" }}>
+                    <div style={{ background: "rgba(204,255,0,0.10)", borderRadius: "12px", padding: "20px 24px" }}>
                       <p style={{ ...KICKER, fontSize: "11px", letterSpacing: "0.08em", marginBottom: "12px" }}>
                         {methodik.stufenSection.ergebnisLabel}
                       </p>
                       <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
-                        {s.ergebnis.map((e) => (
-                          <li key={e} style={{ display: "flex", alignItems: "flex-start", gap: "10px", padding: "4px 0" }}>
-                            <Check strokeWidth={2.4} style={{ width: "15px", height: "15px", color: VIOLET, marginTop: "3px", flexShrink: 0 }} />
-                            <span style={{ fontFamily: OUTFIT, fontWeight: 400, fontSize: "14px", color: "rgba(23,23,46,0.75)", lineHeight: 1.6 }}>{e}</span>
+                        {s.ergebnis.map((e, ei) => (
+                          <li key={e} style={{ display: "flex", alignItems: "flex-start", gap: "12px", padding: "6px 0" }}>
+                            <EdgeIconBadge icon={ERGEBNIS_ICONS[si]?.[ei] ?? IconChartBar} size="sm" style={{ marginTop: "-2px" }} />
+                            <span style={{ fontFamily: OUTFIT, fontWeight: 400, fontSize: "14px", color: "rgba(23,23,23,0.75)", lineHeight: 1.6 }}>{e}</span>
                           </li>
                         ))}
                       </ul>
@@ -284,8 +314,8 @@ const Methodik = () => {
           </div>
         </div>
 
-        {/* ── DAS NEWEDGE SYSTEM (animiert) ─────────────────────── */}
-        <NewEdgeSystemAnimated />
+        {/* ── DAS NEWEDGE SYSTEM (animiert) — vorerst ausgeblendet.
+               Komponente + Content (sections/newEdgeSystem.ts) bleiben bestehen. */}
 
         {/* ── DAS ZIEL ──────────────────────────────────────────── */}
         <div style={{ background: PAPER, padding: "clamp(56px,7vw,96px) 24px" }}>
@@ -302,7 +332,7 @@ const Methodik = () => {
               <h2 style={{ ...HEADLINE, marginBottom: "20px" }}>
                 {methodik.ziel.headingLine1}
                 <br />
-                <span style={{ color: VIOLET }}>{methodik.ziel.headingLine2}</span>
+                <span className="edge-mark">{methodik.ziel.headingLine2}</span>
               </h2>
               <p style={{ ...BODY, marginBottom: "28px" }}>
                 {methodik.ziel.intro}
@@ -316,7 +346,7 @@ const Methodik = () => {
                     padding: "12px 0",
                     borderBottom: zi < methodik.ziel.punkte.length - 1 ? `1px solid ${HAIRLINE}` : "none",
                   }}>
-                    <Check strokeWidth={2.4} style={{ width: "16px", height: "16px", color: VIOLET, marginTop: "4px", flexShrink: 0 }} />
+                    <EdgeIconBadge icon={ZIEL_ICONS[zi] ?? IconBulb} size="sm" style={{ marginTop: "-1px" }} />
                     <span style={{ fontFamily: OUTFIT, fontWeight: 500, fontSize: "15.5px", color: INK_DEEP, lineHeight: 1.6 }}>{z}</span>
                   </li>
                 ))}
