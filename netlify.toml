@@ -1,4 +1,10 @@
+# Netlify baut nur die Website — CMS und Lead-Service laufen auf dem VPS.
+# `base` zeigt in den Website-Ordner des Monorepos; alle Pfade unten sind
+# relativ dazu (publish → apps/website/dist, Edge Functions →
+# apps/website/netlify/edge-functions).
+
 [build]
+  base = "apps/website"
   command = "npm run build"
   publish = "dist"
 
