@@ -184,32 +184,32 @@
         "hashtags": "#KIAbteilung · #Mittelstand · #NEWEDGE · #Datenhoheit · #Cortex · #Automatisierung · #förderfähig · #firmeneigen ·"
       },
       "cortex": {
-        "ariaLabel": "Cortex, das Betriebssystem Ihrer KI-Abteilung",
-        "eyebrow": "Cortex",
-        "heading": "Das Betriebssystem Ihrer KI-Abteilung.",
-        "subtitle": "Der Ort, an dem Ihre KI gesteuert wird — bevor sie im ganzen Unternehmen wächst.",
+        "ariaLabel": "Lokale KI-Infrastruktur — Ihre KI läuft im eigenen Haus",
+        "eyebrow": "Lokale Infrastruktur",
+        "heading": "Ihre KI. Ihre Server. Ihre Daten.",
+        "subtitle": "Wir bauen die komplette Infrastruktur, auf der leistungsfähige KI-Modelle bei Ihnen im Haus laufen — DSGVO-konform, ohne dass ein Datensatz das Unternehmen verlässt.",
         "today": {
           "label": "Heute existieren oft",
           "items": [
-            "ChatGPT & Copilot",
-            "Einzeltools",
+            "Firmendaten in ChatGPT & Copilot",
+            "Einzeltools ohne Kontrolle",
             "Wildwuchs an Tools (Schatten-IT)",
-            "Unklare Verantwortlichkeiten"
+            "Ungeklärte DSGVO-Fragen"
           ]
         },
         "results": {
           "label": "Das Ergebnis",
           "items": [
-            "Transparenz über KI-Nutzung",
-            "DSGVO-konform — Daten bleiben bei Ihnen",
-            "Zentrale Steuerung",
-            "Fundament für Automatisierungen"
+            "Ihre Daten verlassen das Haus nicht",
+            "Rechtssicher statt Grauzone",
+            "Ein Zugang für alle Mitarbeiter",
+            "Das Fundament für alles Weitere"
           ]
         },
-        "body": "Cortex ist der zentrale Einstiegspunkt für KI im Unternehmen: Ihre Mitarbeiter arbeiten produktiv mit KI — und Sie behalten die Kontrolle über Nutzung, Prozesse und Automatisierungen.",
-        "cta": "Cortex kennenlernen →",
+        "body": "Von der Hardware über die Modelle bis zur Rechteverwaltung: Wir stellen alles bereit, damit Ihr Unternehmen KI produktiv nutzt — und die Kontrolle über Daten, Zugriffe und Kosten behält.",
+        "cta": "Infrastruktur kennenlernen →",
         "diagram": {
-          "ariaLabel": "Cortex verbindet Menschen, Daten, Prozesse, KI-Assistenten und Kontrolle",
+          "ariaLabel": "Die lokale Infrastruktur verbindet Menschen, Daten, Prozesse, KI-Assistenten und Kontrolle",
           "spokes": [
             {
               "label": "MENSCHEN"
@@ -227,8 +227,8 @@
               "label": "KONTROLLE"
             }
           ],
-          "centerLabel": "CORTEX",
-          "centerSublabel": "ZENTRALE EBENE"
+          "centerLabel": "ZENTRALE",
+          "centerSublabel": "INFRASTRUKTUR"
         }
       },
       "positionedForImpact": {
@@ -2337,10 +2337,6 @@
           {
             "to": "/methodik",
             "label": "Methodik"
-          },
-          {
-            "to": "/about",
-            "label": "Über uns"
           }
         ]
       },
@@ -2367,10 +2363,6 @@
             {
               "label": "Methodik",
               "to": "/methodik"
-            },
-            {
-              "label": "Über uns",
-              "to": "/about"
             }
           ]
         },
@@ -2650,7 +2642,7 @@
     },
     "brand-assets": {
       "loadingLogo": {
-        "src": "new-edge-logo",
+        "src": "newedge-logo-white",
         "alt": "NEWEDGE"
       },
       "consultAvatar": {
@@ -2842,32 +2834,32 @@
         "hashtags": "#AIDepartment · #Mittelstand · #NEWEDGE · #DataSovereignty · #Cortex · #Automation · #GrantEligible · #inHouse ·"
       },
       "cortex": {
-        "ariaLabel": "Cortex, the operating system of your AI department",
-        "eyebrow": "Cortex",
-        "heading": "The operating system of your AI department.",
-        "subtitle": "The place where your AI is governed — before it grows across the company.",
+        "ariaLabel": "Local AI infrastructure — your AI runs in-house",
+        "eyebrow": "Local infrastructure",
+        "heading": "Your AI. Your servers. Your data.",
+        "subtitle": "We build the complete infrastructure that runs capable AI models inside your own company — GDPR-compliant, without a single record leaving the building.",
         "today": {
-          "label": "Today you usually have",
+          "label": "Today you often find",
           "items": [
-            "ChatGPT & Copilot",
-            "Standalone tools",
+            "Company data in ChatGPT & Copilot",
+            "Point tools without control",
             "Tool sprawl (shadow IT)",
-            "Unclear ownership"
+            "Unresolved GDPR questions"
           ]
         },
         "results": {
           "label": "The result",
           "items": [
-            "Transparency over AI usage",
-            "GDPR-compliant — your data stays with you",
-            "Central control",
-            "A foundation for automation"
+            "Your data never leaves the building",
+            "Legally sound instead of grey area",
+            "One access point for every employee",
+            "The foundation for everything else"
           ]
         },
-        "body": "Cortex is the central entry point for AI in your company: your employees work productively with AI — and you keep control over usage, processes and automation.",
-        "cta": "Discover Cortex →",
+        "body": "From hardware to models to access rights: we provide everything your company needs to use AI productively — while keeping control over data, access and cost.",
+        "cta": "Explore the infrastructure →",
         "diagram": {
-          "ariaLabel": "Cortex connects people, data, processes, AI assistants and control",
+          "ariaLabel": "The local infrastructure connects people, data, processes, AI assistants and control",
           "spokes": [
             {
               "label": "PEOPLE"
@@ -2885,8 +2877,8 @@
               "label": "CONTROL"
             }
           ],
-          "centerLabel": "CORTEX",
-          "centerSublabel": "CENTRAL LAYER"
+          "centerLabel": "CENTRAL",
+          "centerSublabel": "INFRASTRUCTURE"
         }
       },
       "positionedForImpact": {
@@ -4995,10 +4987,6 @@
           {
             "to": "/methodik",
             "label": "Methodology"
-          },
-          {
-            "to": "/about",
-            "label": "About"
           }
         ]
       },
@@ -5025,10 +5013,6 @@
             {
               "label": "Methodology",
               "to": "/methodik"
-            },
-            {
-              "label": "About",
-              "to": "/about"
             }
           ]
         },
@@ -5308,7 +5292,7 @@
     },
     "brand-assets-en": {
       "loadingLogo": {
-        "src": "new-edge-logo",
+        "src": "newedge-logo-white",
         "alt": "NEWEDGE"
       },
       "consultAvatar": {
