@@ -205,19 +205,34 @@ export default defineConfig(({ mode }) => {
     // localhost:8081/admin → Strapi-Adminpanel, /api → Content-API usw.
     // Vite reicht diese Pfade intern an Strapi (:1337) weiter; nach außen
     // gibt es nur eine Origin. In Produktion übernimmt nginx dieses Mapping.
-    proxy: Object.fromEntries(
-      [
-        "/admin",                // Adminpanel + Admin-API
-        "/api",                  // Content-API (public)
-        "/uploads",              // Medien-Dateien
-        "/upload",               // Upload-Plugin-API
-        "/content-manager",      // Admin: Content Manager
-        "/content-type-builder", // Admin: Content-Type Builder
-        "/users-permissions",    // Admin: Rollen & Rechte
-        "/i18n",                 // Admin: Lokalisierung
-        "/_health",              // Strapi-Healthcheck
-      ].map((p) => [p, { target: "http://localhost:1337", changeOrigin: true, ws: true }])
-    ),
+    proxy: {
+      ...Object.fromEntries(
+        [
+          "/admin",                // Adminpanel + Admin-API
+          "/api",                  // Content-API (public)
+          "/uploads",              // Medien-Dateien
+          "/upload",               // Upload-Plugin-API
+          "/content-manager",      // Admin: Content Manager
+          "/content-type-builder", // Admin: Content-Type Builder
+          "/users-permissions",    // Admin: Rollen & Rechte
+          "/i18n",                 // Admin: Lokalisierung
+          "/_health",              // Strapi-Healthcheck
+        ].map((p) => [p, { target: "http://localhost:1337", changeOrigin: true, ws: true }])
+      ),
+      // ── Lead-Service (apps/lead-api, :8090) — dieselbe Origin ──────────
+      // Spiegelt den nginx-Block aus apps/cms/deploy/nginx.conf. Lokal nur
+      // aktiv, wenn der Container läuft UND VITE_API_URL auf diese Origin
+      // zeigt (z. B. http://localhost:8081); sonst bleiben die Formulare im
+      // Testmodus und rufen diese Pfade gar nicht erst auf.
+      ...Object.fromEntries(
+        [
+          "/contact",     // Kontaktformular
+          "/roi-report",  // ROI-Rechner + PDF-Report
+          "/abmelden",    // Follow-up-Abmeldeseite (DSGVO)
+          "/health",      // Healthcheck des Lead-Service (≠ Strapis /_health)
+        ].map((p) => [p, { target: "http://localhost:8090", changeOrigin: true }])
+      ),
+    },
   },
   plugins: [
     react(),
@@ -244,6 +259,24 @@ export default defineConfig(({ mode }) => {
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
         maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB for videos
+        // ── Same-Origin, aber NICHT die SPA ────────────────────────────────
+        // vite-plugin-pwa setzt navigateFallback: 'index.html'. Ohne diese
+        // Liste würde der Service Worker jede Navigation abfangen — auch
+        // /abmelden/<token> (Lead-Service) und /admin (Strapi) — und statt
+        // der echten Seite index.html ausliefern. Betrifft nur Besucher, die
+        // die PWA schon einmal geladen haben, und ist von außen nicht sichtbar.
+        navigateFallbackDenylist: [
+          /^\/abmelden\//,            // Lead-Service: Abmeldeseite (DSGVO)
+          /^\/health$/,               // Lead-Service: Healthcheck
+          /^\/admin/,                 // Strapi: Adminpanel
+          /^\/api\//,                 // Strapi: Content-API
+          /^\/uploads?\//,            // Strapi: Medien / Upload-API
+          /^\/content-manager/,
+          /^\/content-type-builder/,
+          /^\/users-permissions/,
+          /^\/i18n\//,
+          /^\/_health/,               // Strapi: Healthcheck
+        ],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/.*\.mp4$/,

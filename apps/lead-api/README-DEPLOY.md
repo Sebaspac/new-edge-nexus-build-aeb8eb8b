@@ -4,18 +4,41 @@ Ein kleiner FastAPI-Service, der **beide Formulare** der Website bedient:
 ROI-Rechner (inkl. 6-seitigem PDF-Report via ReportLab, Lime/Ink-CI) und
 Kontaktformular. Ein Service, ein SMTP-Zugang, ein Deploy.
 
+**Der Service läuft nicht mehr allein.** Er ist ein Container im gemeinsamen
+VPS-Stack: `apps/cms/docker-compose.yml`, Service **`lead-api`**, zusammen mit
+Postgres und Strapi hinter demselben nginx. Eine Domain, ein `docker compose`,
+ein Backup. Alle Betriebsbefehle unten laufen deshalb **aus `apps/cms/`**.
+
 ```
-ROI-Rechner (Netlify) ──POST /roi-report──▶ VPS (Docker: FastAPI)
-Kontaktformular       ──POST /contact ────▶
-                                 ├─ data/leads.jsonl        (ROI-Leads)
-                                 ├─ data/contacts.jsonl     (Kontaktanfragen)
-                                 ├─ data/reports/<id>.pdf   (Report-Archiv)
-                                 ├─ Strapi „Lead" (optional, Zweitablage)
-                                 ├─ Mail an Lead (PDF im Anhang / Bestätigung)
-                                 ├─ Benachrichtigung an NOTIFY_TO
-                                 └─ data/followups.jsonl    (optional: Nachfassen
-                                    ──Worker im selben Container──▶ Mail nach 3/5 Tagen)
+                          ┌─ nginx (eine Domain, TLS) ─────────────────┐
+Browser ── HTTPS ────────▶│ /                    → dist/ (Website)     │
+                          │ /contact /roi-report → lead-api  :8090     │
+                          │ /abmelden/<token>    → lead-api  :8090     │
+                          │ /api /uploads /admin → strapi    :1337     │
+                          └────────────────────────────────────────────┘
+                                        │
+                       docker compose (apps/cms/docker-compose.yml)
+                          ┌─────────────┴──────────────┐
+                          │ lead-api  (FastAPI, :8090) │  ← kein depends_on
+                          │ strapi    (Node 22, :1337) │
+                          │ postgres  16               │
+                          └────────────────────────────┘
+
+POST /roi-report ─┐
+POST /contact  ───┴─▶ ├─ data/leads.jsonl        (ROI-Leads)
+                      ├─ data/contacts.jsonl     (Kontaktanfragen)
+                      ├─ data/reports/<id>.pdf   (Report-Archiv)
+                      ├─ Strapi „Lead" (optional, Zweitablage)
+                      ├─ Mail an Lead (PDF im Anhang / Bestätigung)
+                      ├─ Benachrichtigung an NOTIFY_TO
+                      └─ data/followups.jsonl    (optional: Nachfassen
+                         ──Worker im selben Container──▶ Mail nach 3/5 Tagen)
 ```
+
+**Der Lead-Service hängt bewusst an keinem anderen Container** — kein
+`depends_on` auf Postgres oder Strapi. Fällt das CMS aus, nehmen die Formulare
+weiter Leads an, schreiben sie in `data/*.jsonl` und mailen normal; nur die
+optionale CMS-Zweitablage entfällt und wird geloggt. Umgekehrt gilt dasselbe.
 
 Hintergrund: Das Kontaktformular lief vorher über eine Supabase-Function bei
 Projekt `yzmtgxfehvzgobxjivjl` — **dieses Projekt existiert nicht mehr**
@@ -25,57 +48,104 @@ Beide Formulare melden jetzt nur noch bei **echtem** Erfolg Erfolg.
 
 ## 1. Voraussetzungen (einmalig)
 
-- DNS: A-Record `roi-api.newedgebrand.com` → VPS-IP (Name frei wählbar; muss
-  dann in `Caddyfile` und Netlify-Env übereinstimmen)
-- VPS: Docker + Docker Compose installiert (`curl -fsSL https://get.docker.com | sh`)
+- DNS: `newedgebrand.com` / `www.` → VPS-IP. **Keine eigene Subdomain mehr** —
+  der Service liegt Same-Origin unter der Hauptdomain.
+- VPS: Docker + Docker Compose ≥ 2.24 (`curl -fsSL https://get.docker.com | sh`)
 - SMTP-Zugang: bei Google Workspace ein **App-Passwort** für das Postfach
   (Google-Konto → Sicherheit → 2FA → App-Passwörter). Limit ~500 Mails/Tag —
   für Leads mehr als genug.
 
 ## 2. Service auf den VPS bringen
 
-Empfohlen über GitHub (privates Repo aus diesem Ordner):
+Es gibt nichts separat zu deployen: Der Service steckt im Monorepo und wird vom
+gemeinsamen Setup mitgebaut.
 
 ```bash
-# lokal, einmalig
-cd roi-report-service
-git init && git add -A && git commit -m "ROI-Report-Service"
-gh repo create newedge/roi-report-service --private --source . --push
-
-# auf dem VPS
-git clone git@github.com:newedge/roi-report-service.git
-cd roi-report-service
-cp .env.example .env    # SMTP-Passwort etc. eintragen
-docker compose up -d --build
-curl http://127.0.0.1:8090/health   # → {"status":"ok",...}
+# Frischer Server — macht alles auf einmal (Website + CMS + Lead-Service):
+sudo ./apps/cms/deploy/setup.sh newedgebrand.com admin@newedgebrand.com
 ```
 
-(Ohne GitHub geht auch `scp -r roi-report-service/ vps:` — Repo ist aber der
-saubere Weg für Updates: `git pull && docker compose up -d --build`.)
-
-## 3. HTTPS (Caddy)
+Danach nur noch SMTP eintragen (setup.sh legt `.env` im Testmodus an):
 
 ```bash
-# Caddy installieren (falls nicht vorhanden), dann:
-sudo cat Caddyfile.example >> /etc/caddy/Caddyfile   # Subdomain ggf. anpassen
-sudo systemctl reload caddy
-curl https://roi-api.newedgebrand.com/health
+$EDITOR apps/lead-api/.env      # SMTP_PASS=<App-Passwort>, SEND_DISABLED=0
+cd apps/cms && docker compose up -d lead-api
+curl http://127.0.0.1:8090/health          # → {"status":"ok","mail":true,...}
 ```
 
-Läuft bereits nginx auf dem VPS: stattdessen einen Server-Block mit
-`proxy_pass http://127.0.0.1:8090;` + certbot für die Subdomain.
+Updates später:
 
-## 4. Website verbinden (Netlify)
-
-Netlify → Site settings → Environment variables — **eine** Variable für beide
-Formulare (nur die Basis-URL, ohne Pfad):
-
-```
-VITE_API_URL = https://roi-api.newedgebrand.com
+```bash
+git pull
+sudo ./apps/cms/deploy/update.sh lead      # nur den Lead-Service neu bauen
+sudo ./apps/cms/deploy/update.sh all       # CMS + Lead-Service + Website
 ```
 
-Dann neu deployen. Ohne die Variable laufen beide Formulare im Testmodus
-(zeigen Erfolg, senden nichts) — lokal gilt dasselbe.
+Von Hand geht natürlich auch alles direkt:
+
+```bash
+cd apps/cms
+docker compose up -d --build lead-api      # bauen/starten
+docker compose logs -f lead-api            # Logs
+docker compose ps                          # Status inkl. Healthcheck
+```
+
+> **Zwei `.env`-Dateien, bewusst getrennt:** `apps/cms/.env` (CMS-Secrets) und
+> `apps/lead-api/.env` (SMTP, Follow-ups). Die zweite ist im Compose als
+> `required: false` eingebunden — fehlt sie, startet der Stack trotzdem, der
+> Lead-Service läuft dann nur ohne Mailversand (`/health` zeigt `"mail": false`).
+> So kann ein vergessenes Lead-`.env` nie das CMS am Hochfahren hindern.
+
+### Standalone-Betrieb (Sonderfall)
+
+`docker-compose.standalone.yml` in diesem Ordner startet den Service allein —
+für lokales Ausprobieren ohne Postgres/Strapi oder für einen eigenen Host mit
+eigener Subdomain (Reverse-Proxy dann via `Caddyfile.example`):
+
+```bash
+docker compose -f docker-compose.standalone.yml up -d --build
+```
+
+Nicht gleichzeitig mit dem gemeinsamen Stack betreiben: beide binden
+`127.0.0.1:8090`, der zweite Start scheitert mit „port is already allocated" —
+gewollt, denn zwei Prozesse auf demselben `data/` würden sich die Follow-up-
+Warteschlange streitig machen.
+
+## 3. HTTPS & Routing (nginx, Same-Origin)
+
+Nichts Eigenes mehr: Der Service hängt in derselben nginx-Config wie Website und
+CMS (`apps/cms/deploy/nginx.conf`), TLS macht certbot für die Hauptdomain.
+Geroutet wird ohne Präfix:
+
+| Pfad | Ziel | Bemerkung |
+|---|---|---|
+| `/contact`, `/roi-report` | `lead-api:8090` | `client_max_body_size 1m` (nur JSON) |
+| `/abmelden/<token>` | `lead-api:8090` | DSGVO-Abmeldeseite aus Follow-up-Mails |
+| `/health` | `lead-api:8090` | **nur von 127.0.0.1** — verrät Betriebsinterna |
+| `/api`, `/uploads`, `/admin`, …, `/_health` | `strapi:1337` | unverändert |
+| alles andere | `dist/` | SPA-Fallback |
+
+Warum keine Präfixe (`/lead/...`)? Es gibt schlicht keine Kollision:
+Strapis Healthcheck heißt `/_health` (Unterstrich), der des Lead-Service
+`/health`; die SPA-Routen sind deutsch (`/kontakt`, `/roi-rechner`). Und
+`/abmelden/<token>` steht bereits in versendeten Mails — dieser Pfad darf sich
+nicht mehr ändern. Ein Präfix hätte den Frontend-Kontrakt und die
+Abmeldelinks gebrochen, ohne ein Problem zu lösen.
+
+## 4. Website verbinden
+
+Der Website-Build braucht **eine** Variable — die eigene Domain, weil alles
+Same-Origin läuft (`apps/website/.env.production`, setzt setup.sh automatisch):
+
+```
+VITE_API_URL = https://newedgebrand.com
+```
+
+Daraus baut `apps/website/src/utils/apiConfig.ts` `…/contact` und
+`…/roi-report`. Ohne die Variable laufen beide Formulare im Testmodus (zeigen
+Erfolg, senden nichts) — lokal gilt dasselbe. Lokal echt testen: Container
+starten und `VITE_API_URL=http://localhost:8081` setzen, der Vite-Dev-Proxy
+reicht `/contact`, `/roi-report`, `/abmelden` und `/health` an `:8090` weiter.
 
 ## 4b. Leads zusätzlich im CMS sichtbar machen (optional)
 
@@ -91,15 +161,24 @@ bleiben die Primärablage — das CMS ist reine Bequemlichkeit.
    (Kein `find`/`findOne`, kein Full-Access: der Token liegt auf dem VPS.)
 4. Speichern. Der Token wird **genau einmal** angezeigt → sofort kopieren.
 
-**In die `.env` des Service eintragen:**
+**In `apps/lead-api/.env` eintragen:**
 
 ```
-STRAPI_URL=https://cms.newedgebrand.com     # Basis-URL, ohne /api, ohne Slash am Ende
+STRAPI_URL=http://strapi:1337               # Container-Name im gemeinsamen Stack
 STRAPI_TOKEN=<der kopierte Token>
 # STRAPI_TIMEOUT=5                          # optional
 ```
 
-Danach `docker compose up -d`. Kontrolle: `curl .../health` meldet `"cms": true`.
+`http://strapi:1337` statt der öffentlichen URL: Beide Container hängen im
+selben Compose-Netz, der Aufruf geht direkt von Container zu Container — ohne
+Umweg über nginx, ohne TLS-Handshake, und er funktioniert auch, wenn gerade das
+Zertifikat oder der Reverse-Proxy klemmt. Ein `depends_on` entsteht dadurch
+**nicht**: Ist Strapi weg, läuft der Call in den Timeout und wird geloggt, der
+Lead ist längst in der Datei. (Standalone-Betrieb: dort stattdessen die
+öffentliche Basis-URL eintragen, z. B. `https://newedgebrand.com`.)
+
+Danach `cd apps/cms && docker compose up -d lead-api`. Kontrolle:
+`curl -s http://127.0.0.1:8090/health` meldet `"cms": true`.
 
 Wichtig — **Leads sind personenbezogene Daten**: Der Typ „Lead" bekommt in
 Strapi **keine** Public-Rechte (Einstellungen → Users & Permissions → Roles →
@@ -143,7 +222,7 @@ dagegen startet und stirbt mit dem Service, nutzt exakt denselben SMTP-Weg wie
 der Sofortversand und kommt durch `restart: unless-stopped` automatisch mit
 zurück. (Wer trotzdem Cron will: **`FOLLOWUP_WORKER=0` setzen** — dann plant
 der Service weiterhin ein, versendet aber nicht selbst — und den Versand per
-`docker compose exec roi-report python followups.py run-once --send` anstoßen.
+`docker compose exec lead-api python followups.py run-once --send` anstoßen.
 Den Thread nur „stillzulegen", indem man `FOLLOWUP_INTERVAL_MINUTES` hoch
 dreht, reicht **nicht**: er hält die Dateisperre über die ganze Laufzeit, der
 Cron-Lauf käme nie zum Zug und täte stillschweigend nichts.)
@@ -200,7 +279,7 @@ abschaltbar:
 
 Abgemeldete Adressen stehen in `data/suppressed.txt` und werden vor **jedem**
 Follow-up geprüft (auch beim Einplanen). Von Hand eintragen geht auch:
-`docker compose exec roi-report python followups.py unsubscribe max@muster.de`.
+`docker compose exec lead-api python followups.py unsubscribe max@muster.de`.
 Die Sofort-Mails (Report, Empfangsbestätigung) sind davon nicht betroffen —
 das sind angeforderte Transaktionsmails.
 
@@ -222,32 +301,47 @@ schon eine Antwort in der Hand hält. Zwei Konsequenzen daraus:
 ### Einschalten
 
 ```bash
-# in .env
+# in apps/lead-api/.env
 FOLLOWUP_ENABLED=1
-FOLLOWUP_UNSUBSCRIBE_BASE=https://roi-api.newedgebrand.com
+FOLLOWUP_UNSUBSCRIBE_BASE=https://newedgebrand.com   # Hauptdomain, nginx routet /abmelden/
 # FOLLOWUP_CONTACT_ENABLED=1     # nur wenn die Einschränkung oben akzeptiert ist
 
-docker compose up -d
+cd apps/cms && docker compose up -d lead-api
 curl -s http://127.0.0.1:8090/health | jq .followups
 # → {"enabled":true,"worker":true,"queued":0,...}
 ```
 
+> `FOLLOWUP_UNSUBSCRIBE_BASE` ist die **Hauptdomain**, nicht mehr eine
+> Subdomain: nginx proxied `/abmelden/<token>` an den Lead-Service (eigener
+> location-Block). Der Wert landet in jeder verschickten Mail — einmal gesetzt,
+> bleibt er. Ändert er sich, sind alle bereits versandten Abmeldelinks tot.
+> Gegenprobe nach jedem nginx-Umbau:
+> `curl -sI https://newedgebrand.com/abmelden/test | head -1` → **404 vom
+> Service** ist richtig (Token unbekannt); ein **200 mit HTML der Website**
+> heißt, der SPA-Fallback frisst den Pfad.
+
 ## 5. Testen
+
+Alles unter der Hauptdomain (Same-Origin):
 
 ```bash
 # ROI-Report
-curl -X POST https://roi-api.newedgebrand.com/roi-report \
+curl -X POST https://newedgebrand.com/roi-report \
   -H "Content-Type: application/json" --data @sample_roi_lead.json
 
 # Kontaktformular
-curl -X POST https://roi-api.newedgebrand.com/contact \
+curl -X POST https://newedgebrand.com/contact \
   -H "Content-Type: application/json" \
   -d '{"name":"Test Person","email":"DEINE@adresse.de","company":"Test GmbH",
        "message":"Testnachricht ueber das Kontaktformular.","consent":true}'
+
+# Health — nur vom Server selbst (nginx sperrt /health nach außen ab)
+curl -s http://127.0.0.1:8090/health | jq .
 ```
 
 Beide antworten `{"success":true,...}` und lösen echte Mails aus.
-Testmodus ohne Mailversand: `SEND_DISABLED=1` in `.env`, `docker compose up -d`.
+Testmodus ohne Mailversand: `SEND_DISABLED=1` in `apps/lead-api/.env`, dann
+`cd apps/cms && docker compose up -d lead-api`.
 
 ### Follow-ups testen, ohne dass eine Mail rausgeht
 
@@ -256,26 +350,26 @@ ist immer ein Trockenlauf.
 
 ```bash
 # 1) Wie sehen die Mails aus? (rendert nur, kein Versand, kein SMTP nötig)
-docker compose exec roi-report python followups.py preview roi
-docker compose exec roi-report python followups.py preview contact
+docker compose exec lead-api python followups.py preview roi
+docker compose exec lead-api python followups.py preview contact
 
 # 2) Testeintrag anlegen, der sofort fällig ist (geht auch bei FOLLOWUP_ENABLED=0)
-docker compose exec roi-report python followups.py enqueue-test DEINE@adresse.de roi
+docker compose exec lead-api python followups.py enqueue-test DEINE@adresse.de roi
 
 # 3) Warteschlange + Status ansehen
-docker compose exec roi-report python followups.py list
+docker compose exec lead-api python followups.py list
 
 # 4) Fälliges abarbeiten — Trockenlauf: protokolliert "dry_run", sendet nichts
-docker compose exec roi-report python followups.py run-once
+docker compose exec lead-api python followups.py run-once
 
 # 5) Erneut laufen lassen → 0 Mails. Das ist der Idempotenz-Nachweis.
-docker compose exec roi-report python followups.py run-once
+docker compose exec lead-api python followups.py run-once
 ```
 
 Ganze Kette ohne Mailversand (Formular → Warteschlange → Worker):
 `SEND_DISABLED=1` **und** `FOLLOWUP_ENABLED=1` setzen, dazu
 `FOLLOWUP_ROI_DELAY_DAYS=0` (sofort fällig) und `FOLLOWUP_SEND_WINDOW=off`.
-Dann ein Formular abschicken und `docker compose logs -f | grep followups`
+Dann ein Formular abschicken und `docker compose logs -f lead-api | grep followups`
 beobachten: Der Worker meldet `DRY-RUN … | Kurz nachgefragt: …`. Es geht
 keine einzige Mail raus, aber der komplette Weg ist durchlaufen.
 
@@ -288,16 +382,16 @@ braucht keinen SMTP-Zugang und arbeitet in einem eigenen Temp-Verzeichnis,
 fasst `data/` also nie an:
 
 ```bash
-docker compose exec roi-report python test_followups.py
+docker compose exec lead-api python test_followups.py
 # → ALLE PRÜFUNGEN BESTANDEN
 ```
 
 **Neustart-Verhalten prüfen** (der eigentliche Härtetest):
 
 ```bash
-docker compose exec roi-report python followups.py enqueue-test DEINE@adresse.de roi
-docker compose restart roi-report        # mitten in der Wartezeit
-docker compose exec roi-report python followups.py list   # Eintrag ist noch da
+docker compose exec lead-api python followups.py enqueue-test DEINE@adresse.de roi
+docker compose restart lead-api        # mitten in der Wartezeit
+docker compose exec lead-api python followups.py list   # Eintrag ist noch da
 ```
 
 Und andersherum: Sobald ein Eintrag `sent` (oder `dry_run`) im Protokoll hat,
@@ -305,29 +399,58 @@ bringt ihn kein Neustart und kein zweiter Lauf mehr zum Versand.
 
 ## Betrieb
 
-- ROI-Leads: `cat data/leads.jsonl | jq .`
-- Kontaktanfragen: `cat data/contacts.jsonl | jq .`
+Alle `docker compose`-Befehle aus **`apps/cms/`** — dort liegt der gemeinsame
+Stack. Die Daten liegen weiterhin in **`apps/lead-api/data/`** (Bind-Mount auf
+`/data` im Container), sind also ohne Docker-Umweg les- und sicherbar.
+
+- ROI-Leads: `cat apps/lead-api/data/leads.jsonl | jq .`
+- Kontaktanfragen: `cat apps/lead-api/data/contacts.jsonl | jq .`
 - Im Browser (falls CMS verbunden): Strapi-Admin → Content Manager → **Lead**
-- CMS-Übertragung prüfen: `docker compose logs -f | grep strapi`
-- Reports liegen unter `data/reports/` (werden nicht automatisch gelöscht)
-- Update: `git pull && docker compose up -d --build`
+- CMS-Übertragung prüfen: `docker compose logs -f lead-api | grep strapi`
+- Reports liegen unter `apps/lead-api/data/reports/` (werden nicht automatisch gelöscht)
+- Status: `docker compose ps` — die Spalte `STATUS` zeigt den Healthcheck
+  (`healthy` = `/health` antwortet)
+- Update: `git pull && sudo ./apps/cms/deploy/update.sh lead`
+- **Backup:** `sudo ./apps/cms/deploy/backup.sh` sichert seit der
+  Zusammenlegung auch `apps/lead-api/data/` (→ `leads-<datum>.tar.gz`).
+  Das ist der wichtigste Teil: Die `.jsonl`-Dateien sind die **einzige**
+  vollständige Kopie der Leads — das CMS ist nur Zweitablage.
 - Eingebaute Absicherung: CORS-Whitelist, 5 Requests / 10 Min. je IP,
-  E-Mail-Validierung, Honeypot, Pflicht-Einwilligung (`consent`) beim Kontakt
+  E-Mail-Validierung, Honeypot, Pflicht-Einwilligung (`consent`) beim Kontakt.
+  Das IP-Limit funktioniert nur, weil nginx `X-Forwarded-For` mitgibt — sonst
+  sähe der Service alle Besucher als eine einzige IP.
 - Follow-ups: `curl -s .../health | jq .followups` zeigt offen / fällig /
   gesendet / verwaist. Warteschlange im Detail:
-  `docker compose exec roi-report python followups.py list`
-- Follow-up-Log: `docker compose logs -f | grep followups`. Wichtig ist die
+  `docker compose exec lead-api python followups.py list`
+- Follow-up-Log: `docker compose logs -f lead-api | grep followups`. Wichtig ist die
   Zeile `VERWAIST <id>` — dort ist während eines Absturzes unklar geblieben,
   ob die Mail rausging; solche Fälle bei Bedarf von Hand nachholen.
-- Abmeldungen: `cat data/suppressed.txt` · von Hand eintragen mit
-  `docker compose exec roi-report python followups.py unsubscribe <adresse>`
+- Abmeldungen: `cat apps/lead-api/data/suppressed.txt` · von Hand eintragen mit
+  `docker compose exec lead-api python followups.py unsubscribe <adresse>`
 
 ## Kontrakt zum Frontend
 
-- **ROI:** `src/pages/RoiRechner.tsx` (`submitLead`) sendet den vollen
-  berechneten Stand — Kontrakt siehe `sample_roi_lead.json`. Alle Zahlen werden
-  im Frontend gerechnet (eine Rechen-Wahrheit); der Service rechnet nichts nach.
-- **Kontakt:** `src/utils/contactFormValidation.ts` (`submitContactForm`) sendet
-  name, email, phone, company, position, message, consent, sourcePage.
+- **ROI:** `apps/website/src/pages/RoiRechner.tsx` (`submitLead`) sendet den
+  vollen berechneten Stand — Kontrakt siehe `sample_roi_lead.json`. Alle Zahlen
+  werden im Frontend gerechnet (eine Rechen-Wahrheit); der Service rechnet
+  nichts nach.
+- **Kontakt:** `apps/website/src/utils/contactFormValidation.ts`
+  (`submitContactForm`) sendet name, email, phone, company, position, message,
+  consent, sourcePage.
 - Beide Endpoints leiten sich aus `VITE_API_URL` ab — siehe
-  `src/utils/apiConfig.ts` in der Website.
+  `apps/website/src/utils/apiConfig.ts`.
+
+**Die Pfade sind Teil des Kontrakts und bleiben ohne Präfix.** Wer sie ändert,
+muss vier Stellen gleichzeitig anfassen — `apiConfig.ts`, `nginx.conf`, den
+Vite-Dev-Proxy in `vite.config.ts` und `FOLLOWUP_UNSUBSCRIBE_BASE` — und macht
+zusätzlich alle Abmeldelinks in bereits versendeten Mails ungültig. Es gibt
+keinen Grund dafür: Kollisionen mit Strapi oder der SPA existieren nicht
+(siehe Abschnitt 3).
+
+Eine Falle gibt es doch, und sie ist unsichtbar: Die Website ist eine PWA. Ihr
+Service Worker liefert per `navigateFallback` für **jede** Navigation
+`index.html` aus — er würde also auch `/abmelden/<token>` abfangen, obwohl
+nginx völlig richtig konfiguriert ist. Deshalb steht in `vite.config.ts` eine
+`navigateFallbackDenylist` mit allen Pfaden, die nicht der SPA gehören. Kommt
+ein neuer Service-Pfad dazu, gehört er dort hinein — sonst funktioniert er für
+alle Besucher, die die Seite schon einmal geladen haben, nicht.

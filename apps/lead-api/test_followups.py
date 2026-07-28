@@ -7,7 +7,7 @@ Temp-Verzeichnis — data/ wird nie angefasst, auch nicht im Container.
 
 Ausführen:
     python test_followups.py
-    docker compose exec roi-report python test_followups.py
+    docker compose exec lead-api python test_followups.py   # aus apps/cms/
 
 Geprüft wird vor allem das, was im Betrieb weh tut:
 kein doppelter Versand nach einem harten Absturz mitten in der Mail.

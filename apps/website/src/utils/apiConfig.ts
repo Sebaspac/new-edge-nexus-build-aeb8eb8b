@@ -1,13 +1,24 @@
 /**
- * Basis-URL des NEWEDGE Lead-Services (VPS, FastAPI — siehe roi-report-service/).
+ * Basis-URL des NEWEDGE Lead-Services (FastAPI — siehe apps/lead-api/).
  * --------------------------------------------------------------
- * Ein Service bedient beide Formulare, deshalb genügt EINE Netlify-Env:
+ * Ein Service bedient beide Formulare, deshalb genügt EINE Env-Variable:
  *
- *   VITE_API_URL = https://roi-api.newedgebrand.com
+ *   VITE_API_URL = https://newedgebrand.com     ← eigene Domain (Same-Origin)
+ *
+ * Seit der Zusammenlegung in einen Stack läuft der Lead-Service im selben
+ * docker-compose wie das CMS (apps/cms/docker-compose.yml, Service "lead-api")
+ * und hängt hinter demselben nginx: /contact, /roi-report und /abmelden/<token>
+ * werden auf 127.0.0.1:8090 geproxied (apps/cms/deploy/nginx.conf).
+ * Same-Origin heißt: kein CORS, kein Preflight, keine zweite Subdomain.
+ *
+ * Die Pfade sind bewusst OHNE Präfix geblieben — /abmelden/<token> steht so in
+ * bereits versendeten Follow-up-Mails und darf sich nicht ändern.
  *
  * Leer = Test-Modus: Formulare zeigen lokal Erfolg, senden aber nicht.
+ * Lokal echt testen: Lead-Container starten und VITE_API_URL=http://localhost:8081
+ * setzen — der Vite-Dev-Proxy reicht die Pfade an :8090 weiter (vite.config.ts).
  * (Der frühere Supabase-Endpoint für das Kontaktformular ist tot — das
- * Projekt existiert nicht mehr, siehe README-DEPLOY.md im Service-Ordner.)
+ * Projekt existiert nicht mehr, siehe apps/lead-api/README-DEPLOY.md.)
  * --------------------------------------------------------------
  */
 const API_URL = ((import.meta.env.VITE_API_URL as string | undefined) ?? "").replace(/\/+$/, "");

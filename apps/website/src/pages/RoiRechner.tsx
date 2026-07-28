@@ -342,7 +342,7 @@ const RoiRechner = () => {
     if (!calc || !branche) return;
     setSending(true);
     setLeadError(false);
-    // Voller berechneter Stand — Kontrakt: roi-report-service/sample_roi_lead.json.
+    // Voller berechneter Stand — Kontrakt: apps/lead-api/sample_roi_lead.json.
     // Alle Zahlen kommen von hier (eine Rechen-Wahrheit, Service rechnet nichts nach).
     const payload = {
       ...lead,

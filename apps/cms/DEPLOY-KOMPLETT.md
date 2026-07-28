@@ -11,16 +11,24 @@ eurem VPS und ihr müsst nur noch die Videos im CMS hochladen.
                         │  /admin             → Strapi   :1337       │  Redaktion
                         │  /contact           → Lead-Service :8090   │  Kontaktformular
                         │  /roi-report        → Lead-Service :8090   │  ROI-Report + PDF
+                        │  /abmelden/<token>  → Lead-Service :8090   │  Abmeldung (DSGVO)
+                        │  /health            → Lead-Service :8090   │  nur ab 127.0.0.1
                         └────────────────────────────────────────────┘
 ```
 
-Drei Repos:
+**Ein Repo, ein Compose-Stack.** CMS und Lead-Service liegen im selben
+`docker compose` (`apps/cms/docker-compose.yml`) — nicht mehr in getrennten
+Klonen unter `/opt/newedge-*`:
 
-| Repo | Rolle | Läuft als |
+| Ordner im Monorepo | Rolle | Läuft als |
 |---|---|---|
-| `new-edge-website-ACTIVE` | Website (Vite-Build) | statische Dateien in `/var/www/newedgebrand/dist` |
-| `new-edge-strapi` | CMS + Postgres | Docker (`docker compose`) |
-| `roi-report-service` | Kontaktformular + ROI-PDF | Docker (`docker compose`) |
+| `apps/website/` | Website (Vite-Build) | statische Dateien in `/var/www/newedgebrand/dist` |
+| `apps/cms/` | CMS + Postgres | Compose-Services `strapi`, `postgres` |
+| `apps/lead-api/` | Kontaktformular + ROI-PDF | Compose-Service `lead-api` (im selben Stack) |
+
+> Diese Datei ist die ausführliche Erzählfassung. Das gepflegte Runbook mit
+> Routing-Tabelle, Backup und Troubleshooting ist **`DEPLOY.md`**; der schnellste
+> Weg ist ohnehin `sudo ./apps/cms/deploy/setup.sh <domain> <mail>`.
 
 ---
 
@@ -40,10 +48,11 @@ Drei Repos:
 ## 2. CMS starten (Strapi + Postgres)
 
 ```bash
-git clone <new-edge-strapi>  /opt/newedge-cms
-cd /opt/newedge-cms
-cp .env.example .env          # Secrets erzeugen/eintragen (APP_KEYS etc.)
-                              # + DATABASE_PASSWORD setzen
+# Monorepo — enthält Website, CMS und Lead-Service
+git clone -b redesign-cms-2026-07 <new-edge-nexus-build-aeb8eb8b> /opt/newedge
+cd /opt/newedge/apps/cms
+cp .env.production.example .env   # Secrets erzeugen/eintragen (APP_KEYS etc.)
+                                  # + DATABASE_PASSWORD setzen
 
 # Erststart MIT Seed — legt alle Inhalte und die 168 „Bild austauschen"-Einträge an
 SEED=1 docker compose up -d --build
@@ -57,15 +66,28 @@ ersten Aufruf; niemand sonst kann sich vorher registrieren).
 
 ---
 
-## 3. Lead-Service starten (Formulare + PDF)
+## 3. Lead-Service scharf schalten (Formulare + PDF)
+
+Nichts zu klonen und nichts extra zu starten: Der Container ist in Schritt 2
+schon mit hochgekommen (`docker compose up` startet alle drei Services). Er
+braucht nur noch seine eigene `.env`:
 
 ```bash
-git clone <roi-report-service>  /opt/newedge-leads
-cd /opt/newedge-leads
-cp .env.example .env          # SMTP_* + NOTIFY_TO eintragen
-docker compose up -d --build
-curl http://127.0.0.1:8090/health     # → {"status":"ok", ...}
+cd apps/lead-api
+cp .env.example .env          # SMTP_* + NOTIFY_TO eintragen, SEND_DISABLED=0
+chmod 600 .env                # enthält das SMTP-App-Passwort
+#   ALLOWED_ORIGINS=https://newedgebrand.com,https://www.newedgebrand.com
+#   FOLLOWUP_UNSUBSCRIBE_BASE=https://newedgebrand.com
+
+cd ../cms
+docker compose up -d lead-api
+curl -s http://127.0.0.1:8090/health | jq .   # → {"status":"ok","mail":true,...}
 ```
+
+Nur das CMS neu starten, ohne die Formulare anzufassen (und umgekehrt), geht
+über die Service-Namen: `docker compose up -d --build postgres strapi` bzw.
+`docker compose up -d --build lead-api`. Ein `depends_on` gibt es bewusst
+nicht — fällt Strapi aus, nehmen die Formulare weiter Leads an.
 
 ---
 
@@ -186,14 +208,19 @@ also immer Schritt 1–3 fahren, sonst fehlen neue Felder auf der Live-Seite.
 
 ## 9. Betrieb
 
+Alle `docker compose`-Befehle aus `apps/cms/` — dort liegt der gemeinsame Stack.
+
 | Aufgabe | Befehl |
 |---|---|
-| Backup (DB + Uploads) | `cd /opt/newedge-cms && deploy/backup.sh` |
-| CMS aktualisieren | `git pull && docker compose up -d --build` |
-| Lead-Service aktualisieren | `cd /opt/newedge-leads && git pull && docker compose up -d --build` |
-| Website neu bauen | `cd /opt/newedge-web && git pull && npm ci && npm run build && rsync -a --delete dist/ /var/www/newedgebrand/dist/` |
-| Kontaktanfragen einsehen | `cat /opt/newedge-leads/data/contacts.jsonl \| jq .` |
-| ROI-Leads einsehen | `cat /opt/newedge-leads/data/leads.jsonl \| jq .` |
+| Backup (DB + Uploads + **Leads**) | `sudo ./apps/cms/deploy/backup.sh` |
+| CMS aktualisieren | `git pull && sudo ./apps/cms/deploy/update.sh cms` |
+| Lead-Service aktualisieren | `git pull && sudo ./apps/cms/deploy/update.sh lead` |
+| Website neu bauen | `git pull && sudo ./apps/cms/deploy/update.sh website` |
+| Alles auf einmal | `git pull && sudo ./apps/cms/deploy/update.sh all` |
+| Status aller Container | `cd apps/cms && docker compose ps` |
+| Kontaktanfragen einsehen | `cat apps/lead-api/data/contacts.jsonl \| jq .` |
+| ROI-Leads einsehen | `cat apps/lead-api/data/leads.jsonl \| jq .` |
+| Lead-Service-Logs | `cd apps/cms && docker compose logs -f lead-api` |
 
 **Vor dem ersten öffentlichen Aufruf:** Das Passwort-Gate in `netlify.toml`
 (Edge Function `auth` auf `/*`) betrifft nur Netlify. Beim Betrieb über nginx
