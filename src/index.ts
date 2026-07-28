@@ -58,6 +58,32 @@ async function upsertBySlug(strapi: any, uid: string, slug: string, data: any) {
   await strapi.documents(uid).publish({ documentId });
 }
 
+/** Wie upsertBySlug, nur für Typen ohne slug — Identität über beliebige Filter. */
+async function upsertByFilters(strapi: any, uid: string, filters: any, data: any) {
+  const existing = await strapi.documents(uid).findFirst({ filters });
+  let documentId: string;
+  if (existing) {
+    await strapi.documents(uid).update({ documentId: existing.documentId, data });
+    documentId = existing.documentId;
+  } else {
+    const created = await strapi.documents(uid).create({ data });
+    documentId = created.documentId;
+  }
+  await strapi.documents(uid).publish({ documentId });
+}
+
+/**
+ * Legt einen Datensatz nur an, wenn er noch nicht existiert — bestehende bleiben
+ * unangetastet. Für „Bild austauschen": ein Reseed darf hochgeladene Dateien
+ * NIEMALS überschreiben, sonst wäre die Redaktionsarbeit nach jedem Update weg.
+ */
+async function createIfMissing(strapi: any, uid: string, filters: any, data: any) {
+  const existing = await strapi.documents(uid).findFirst({ filters });
+  if (existing) return false;
+  await strapi.documents(uid).create({ data });
+  return true;
+}
+
 export default {
   register() {},
 
@@ -69,6 +95,9 @@ export default {
       singleTypes: Record<string, any>;
       painPoints: any[];
       painPointsEn?: any[];
+      imageOverrides?: { imageKey: string; label: string; category: string }[];
+      testimonials?: { name: string; text: string; role: string; order?: number }[];
+      jobs?: { slug: string; title: string; [key: string]: any }[];
     };
 
     const readActions: string[] = [];
@@ -98,6 +127,47 @@ export default {
       readActions.push(`${ppEnUid}.find`, `${ppEnUid}.findOne`);
       strapi.log.info(`[seed] pain-point-en collection: ${prepared.painPointsEn.length} rows ✓`);
     }
+
+    // „Bild austauschen"-Liste: ein Eintrag pro Bild der Registry.
+    // Nur anlegen, nie aktualisieren — sonst gingen hochgeladene Dateien verloren.
+    if (prepared.imageOverrides?.length) {
+      const ioUid = "api::image-override.image-override";
+      let created = 0;
+      for (const row of prepared.imageOverrides) {
+        if (await createIfMissing(strapi, ioUid, { imageKey: row.imageKey }, row)) created++;
+      }
+      readActions.push(`${ioUid}.find`, `${ioUid}.findOne`);
+      strapi.log.info(
+        `[seed] image-override: ${created} neu angelegt, ${prepared.imageOverrides.length - created} bestehende unverändert ✓`,
+      );
+    }
+
+    // testimonial Collection („Custom Post" — Redaktion legt eigene Einträge an).
+    // Identität über den Namen, weil das Schema keinen slug hat.
+    // renameReserved entfällt: die Felder sind flache Strings, keine json-Blobs.
+    const tUid = "api::testimonial.testimonial";
+    if (prepared.testimonials?.length) {
+      for (const row of prepared.testimonials) {
+        await upsertByFilters(strapi, tUid, { name: row.name }, row);
+      }
+      strapi.log.info(`[seed] testimonial collection: ${prepared.testimonials.length} rows ✓`);
+    }
+    // Rechte immer vergeben — sonst antwortet /api/testimonials mit 403,
+    // auch wenn die Redaktion selbst Einträge angelegt hat.
+    readActions.push(`${tUid}.find`, `${tUid}.findOne`);
+
+    // job Collection (offene Positionen, ebenfalls frei anlegbar).
+    // tags/sections sind Components — der Generator liefert sie bereits in
+    // Component-Form ({ label } bzw. { label, items: [{ text }] }).
+    const jUid = "api::job.job";
+    if (prepared.jobs?.length) {
+      for (const row of prepared.jobs) {
+        await upsertBySlug(strapi, jUid, row.slug, row);
+      }
+      strapi.log.info(`[seed] job collection: ${prepared.jobs.length} rows ✓`);
+    }
+    // Auch hier: Lese-Rechte unabhängig vom Seed-Inhalt.
+    readActions.push(`${jUid}.find`, `${jUid}.findOne`);
 
     // Öffentliche Lese-Rechte für alle neuen Typen
     await grantPublicRead(strapi, readActions);

@@ -797,6 +797,7 @@ export interface ApiContactFormModalEnContactFormModalEn
     draftAndPublish: true;
   };
   attributes: {
+    consent: Schema.Attribute.JSON;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -831,6 +832,7 @@ export interface ApiContactFormModalContactFormModal
     draftAndPublish: true;
   };
   attributes: {
+    consent: Schema.Attribute.JSON;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1148,6 +1150,41 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiImageOverrideImageOverride
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'image_overrides';
+  info: {
+    description: 'Ein Eintrag pro Bild der Website. Datei hochladen = Bild wird ersetzt. Feld leer lassen = eingebautes Bild bleibt.';
+    displayName: 'Bild austauschen';
+    pluralName: 'image-overrides';
+    singularName: 'image-override';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    category: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    file: Schema.Attribute.Media<'images' | 'videos'>;
+    imageKey: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    label: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::image-override.image-override'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiImpressumEnImpressumEn extends Struct.SingleTypeSchema {
   collectionName: 'impressum_en_entries';
   info: {
@@ -1450,6 +1487,44 @@ export interface ApiKontaktKontakt extends Struct.SingleTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     video: Schema.Attribute.JSON;
+  };
+}
+
+export interface ApiLeadLead extends Struct.CollectionTypeSchema {
+  collectionName: 'leads';
+  info: {
+    description: 'Eingegangene Leads aus ROI-Rechner (quelle: "roi") und Kontaktformular (quelle: "kontakt"). Wird vom Lead-Service (FastAPI) per API-Token bef\u00FCllt \u2014 data/leads.jsonl und data/contacts.jsonl bleiben die Prim\u00E4rablage. ACHTUNG: personenbezogene Daten, KEINE \u00F6ffentlichen Leserechte vergeben.';
+    displayName: 'Lead';
+    pluralName: 'leads';
+    singularName: 'lead';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    eingegangenAm: Schema.Attribute.DateTime;
+    email: Schema.Attribute.String;
+    firma: Schema.Attribute.String;
+    leadId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::lead.lead'> &
+      Schema.Attribute.Private;
+    nachricht: Schema.Attribute.Text;
+    name: Schema.Attribute.String;
+    payloadJson: Schema.Attribute.JSON;
+    position: Schema.Attribute.String;
+    potenzialEur: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    quelle: Schema.Attribute.String & Schema.Attribute.Required;
+    telefon: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -2774,6 +2849,7 @@ declare module '@strapi/strapi' {
       'api::footer.footer': ApiFooterFooter;
       'api::home-en.home-en': ApiHomeEnHomeEn;
       'api::home.home': ApiHomeHome;
+      'api::image-override.image-override': ApiImageOverrideImageOverride;
       'api::impressum-en.impressum-en': ApiImpressumEnImpressumEn;
       'api::impressum.impressum': ApiImpressumImpressum;
       'api::job.job': ApiJobJob;
@@ -2783,6 +2859,7 @@ declare module '@strapi/strapi' {
       'api::ki-glossar.ki-glossar': ApiKiGlossarKiGlossar;
       'api::kontakt-en.kontakt-en': ApiKontaktEnKontaktEn;
       'api::kontakt.kontakt': ApiKontaktKontakt;
+      'api::lead.lead': ApiLeadLead;
       'api::maschinenraum-ticker-en.maschinenraum-ticker-en': ApiMaschinenraumTickerEnMaschinenraumTickerEn;
       'api::maschinenraum-ticker.maschinenraum-ticker': ApiMaschinenraumTickerMaschinenraumTicker;
       'api::methodik-en.methodik-en': ApiMethodikEnMethodikEn;

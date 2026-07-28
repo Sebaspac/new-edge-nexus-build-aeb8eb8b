@@ -21,6 +21,9 @@
     "fields": {
       "type": "json"
     },
+    "consent": {
+      "type": "json"
+    },
     "submit": {
       "type": "json"
     },

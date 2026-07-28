@@ -210,13 +210,58 @@ if (painPointRowsEn.length) {
 
 /* ── Aufbereitete Daten für den Seeder ablegen (identische Quelle wie die Schemas) ── */
 mkdirSync(join(process.cwd(), "data"), { recursive: true });
+// „Bild austauschen"-Einträge: ein Datensatz pro Key der Bild-Registry
+// (src/content/assets.ts). Der Seeder legt fehlende an und fasst bestehende
+// NICHT an — sonst wären hochgeladene Dateien nach jedem Reseed weg.
+const imageOverrides = (C.__imageKeys__ ?? []).map(({ imageKey, category }) => ({
+  imageKey,
+  category,
+  // Lesbares Label aus dem Key: "pain-point-compliance-hero" → "Pain Point Compliance Hero"
+  label: imageKey.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+}));
+
+/* ── testimonial + job: handgepflegte Collections (Schemas bleiben unberührt,
+      sie nutzen Components statt json). Hier nur die Seed-Rows aufbereiten:
+      die Website-Form wird in die Strapi-Form übersetzt. ── */
+function slugify(value) {
+  return String(value)
+    .toLowerCase()
+    .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+// Reihenfolge der Website 1:1 übernehmen (Feld `order` im Schema).
+const testimonialRows = (C.testimonials ?? []).map((t, i) => ({
+  text: t.text,
+  name: t.name,
+  role: t.role,
+  order: i,
+}));
+// tags: string[] → tag{label}; sections[].items: string[] → bullet{text}.
+// Das Accordion-`id` ("item-1") entfällt: die Website nutzt im CMS-Betrieb die documentId.
+const jobRows = (C.jobs ?? []).map((job, i) => ({
+  title: job.title,
+  slug: slugify(job.title),
+  mailto: job.mailto ?? "",
+  tags: (job.tags ?? []).map((label) => ({ label })),
+  sections: (job.sections ?? []).map((s) => ({
+    label: s.label,
+    items: (s.items ?? []).map((text) => ({ text })),
+  })),
+  order: i,
+}));
+
 const prepared = {
   singleTypes: SINGLE_TYPES,           // apiId → Objekt (uid = api::<apiId>.<apiId>)
   painPoints: painPointRows,           // Collection-Rows mit slug + aliases
   painPointsEn: painPointRowsEn,       // EN-Locale-Collection-Rows
+  imageOverrides,                      // Bild-Registry → CMS-Austauschliste
+  testimonials: testimonialRows,       // Kundenstimmen (Custom Post)
+  jobs: jobRows,                       // offene Positionen (Components)
 };
 writeFileSync(join(process.cwd(), "data", "prepared-content.json"), JSON.stringify(prepared, null, 2));
 
 console.log(`generiert: ${count} Content-Types (${Object.keys(SINGLE_TYPES).length} Single + 1 Collection)`);
 console.log(`pain-point Rows (dedupliziert):`, painPointRows.length, "→ slugs:", painPointRows.map(r => r.slug).join(", "));
+console.log(`testimonial Rows:`, testimonialRows.length, "| job Rows:", jobRows.length, "→ slugs:", jobRows.map(r => r.slug).join(", "));
 console.log(`prepared-content.json → data/`);

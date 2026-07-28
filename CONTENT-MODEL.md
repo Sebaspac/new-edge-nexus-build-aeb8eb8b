@@ -31,6 +31,13 @@ auf Strapi-5-Typen. Strukturprinzip:
 |---|---|---|
 | `testimonial` | `collections/testimonials.ts` | text (text), name, role, order |
 | `job` | `collections/jobs.ts` | title, slug (uid), mailto, **tags** `shared.tag[]`, **sections** `shared.job-section[]`, order |
+| `lead` | Lead-Service (FastAPI, POST `/api/leads`) | quelle (`roi`\|`kontakt`), name, email, telefon, firma, position, nachricht, leadId (unique), potenzialEur, payloadJson (json), eingegangenAm — `draftAndPublish: false` |
+
+> ⚠️ **`lead` ist kein redaktioneller Typ, sondern ein Eingangskorb mit personen­bezogenen
+> Daten.** Er wird ausschließlich vom Lead-Service befüllt (API-Token, Recht: nur `create`).
+> **Niemals Public-Rechte vergeben** — der Typ steht bewusst nicht in `readActions` in
+> `src/index.ts`. Primärablage bleiben `data/leads.jsonl` / `data/contacts.jsonl` im Service;
+> das CMS ist die Zweitablage, damit das Team Leads ohne SSH sieht.
 
 ### Components (`shared.*`)
 | Component | Felder |
